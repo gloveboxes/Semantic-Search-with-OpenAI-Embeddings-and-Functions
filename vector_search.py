@@ -43,5 +43,7 @@ def search_docs(df, user_query, top_n=3):
 
 while True:
     input_text = input("Enter your query: ")
+    if input_text is None or input_text == "":
+        continue
     res = search_docs(df_sessions, input_text, top_n=6)
-    print(res[['title', 'speaker', 'similarities']])
+    print(res[['title', 'speaker', 'videoId', 'similarities']])
