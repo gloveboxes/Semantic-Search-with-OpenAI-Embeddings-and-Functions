@@ -6,17 +6,11 @@ import os
 import json
 import csv
 import re
-from langchain.text_splitter import RecursiveCharacterTextSplitter
-# from langchain.text_splitter import TokenTextSplitter
-# from langchain.text_splitter import CharacterTextSplitter
 import tiktoken
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+
 
 tokenizer = tiktoken.get_encoding("cl100k_base")
-
-
-# text_splitter = CharacterTextSplitter.from_tiktoken_encoder(
-#     chunk_size=6000, chunk_overlap=820
-# )
 
 r_splitter = RecursiveCharacterTextSplitter(
     chunk_size=8192 * 4,
@@ -25,18 +19,15 @@ r_splitter = RecursiveCharacterTextSplitter(
 
 sessions = []
 
-for file in glob.glob("./transcripts/*.json"):
 
-    # load the json file
-    meta = json.load(open(file))
-
+def get_transcript(meta):
     vtt = './transcripts/' + meta['videoId'] + '.vtt'
     text = ""
 
     # check that the .vtt file exists
     if not os.path.exists(vtt):
         print("vtt file does not exist: ", vtt)
-        continue
+        return None
 
     # open the vtt file
     with open(vtt, 'r', encoding='utf-8') as f:
@@ -64,9 +55,19 @@ for file in glob.glob("./transcripts/*.json"):
             line = line.replace('&#39;', "'")
 
             text += line
+    return text
 
 
-    split_text = r_splitter.split_text(text)
+for file in glob.glob("./transcripts/*.json"):
+
+    # load the json file
+    meta = json.load(open(file))
+
+    transcript = get_transcript(meta)
+    if transcript is None:
+        continue
+
+    split_text = r_splitter.split_text(transcript)
 
     for chunk in split_text:
         meta['text'] = chunk
