@@ -21,6 +21,7 @@ sessions = []
 
 
 def get_transcript(meta):
+    '''get the transcript from the .vtt file'''
     vtt = './transcripts/' + meta['videoId'] + '.vtt'
     text = ""
 

@@ -15,12 +15,10 @@ openai.api_base = RESOURCE_ENDPOINT
 openai.api_version = "2023-05-15"
 
 
-# load the session data from csv
-
+# load the session data from csv file
 df_sessions = pd.read_csv('master_embeddings.csv')
 # convert the embedding column from string to list
 df_sessions['ada_v2'] = df_sessions['ada_v2'].apply(lambda x: eval(x))
-
 
 
 def search_docs(df, user_query, top_n=3):
@@ -41,6 +39,7 @@ def search_docs(df, user_query, top_n=3):
     )
 
     return res
+
 
 while True:
     input_text = input("Enter your query: ")
