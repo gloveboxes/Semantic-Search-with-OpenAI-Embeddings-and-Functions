@@ -17,9 +17,9 @@ openai.api_version = "2023-05-15"
 
 # load the session data from csv
 
-df_bills = pd.read_csv('master_embeddings.csv')
+df_sessions = pd.read_csv('master_embeddings.csv')
 # convert the embedding column from string to list
-df_bills['ada_v2'] = df_bills['ada_v2'].apply(lambda x: eval(x))
+df_sessions['ada_v2'] = df_sessions['ada_v2'].apply(lambda x: eval(x))
 
 
 
@@ -44,5 +44,5 @@ def search_docs(df, user_query, top_n=3):
 
 while True:
     input_text = input("Enter your query: ")
-    res = search_docs(df_bills, input_text, top_n=6)
+    res = search_docs(df_sessions, input_text, top_n=6)
     print(res[['title', 'speaker', 'similarities']])
