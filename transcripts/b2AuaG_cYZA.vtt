@@ -1,0 +1,1739 @@
+WEBVTT
+
+00:00:00.839 --> 00:00:05.819
+Caption: good afternoon everybody thanks for
+
+00:00:03.059 --> 00:00:08.880
+Caption: coming for the last session for today
+
+00:00:05.818 --> 00:00:12.059
+Caption: um so we have Aiden Sophie here he is a
+
+00:00:08.880 --> 00:00:14.579
+Caption: cloud native data engineer at kzn who&#39;s
+
+00:00:12.059 --> 00:00:16.138
+Caption: on a mission to fight jargon one acronym
+
+00:00:14.579 --> 00:00:19.100
+Caption: at a time
+
+00:00:16.138 --> 00:00:19.100
+Caption: welcome Aiden
+
+00:00:19.198 --> 00:00:22.379
+Caption: everyone hear me all right
+
+00:00:21.000 --> 00:00:24.600
+Caption: cool
+
+00:00:22.379 --> 00:00:26.759
+Caption: hello everyone and welcome to data lakes
+
+00:00:24.600 --> 00:00:27.899
+Caption: and other bodies of water that killed
+
+00:00:26.760 --> 00:00:29.819
+Caption: Big Data
+
+00:00:27.899 --> 00:00:31.379
+Caption: before we begin I&#39;d like to acknowledge
+
+00:00:29.819 --> 00:00:33.959
+Caption: the traditional custodians of the land
+
+00:00:31.379 --> 00:00:35.700
+Caption: the wardrock people of the nungan nation
+
+00:00:33.959 --> 00:00:37.619
+Caption: I&#39;d also like to say a big thank you to
+
+00:00:35.700 --> 00:00:40.079
+Caption: all of the sponsors today as well as the
+
+00:00:37.619 --> 00:00:41.639
+Caption: DDD uh volunteers have put a massive
+
+00:00:40.078 --> 00:00:43.558
+Caption: effort in and it&#39;s made today flow very
+
+00:00:41.639 --> 00:00:44.700
+Caption: smoothly so thank you
+
+00:00:43.558 --> 00:00:46.439
+Caption: now
+
+00:00:44.700 --> 00:00:49.079
+Caption: today I&#39;m going to take you through the
+
+00:00:46.439 --> 00:00:51.180
+Caption: death of big data and then dive into the
+
+00:00:49.078 --> 00:00:54.479
+Caption: technology that has pushed it out of the
+
+00:00:51.180 --> 00:00:56.039
+Caption: spotlight spoiler alert it&#39;s data leaks
+
+00:00:54.479 --> 00:00:57.599
+Caption: then we&#39;re going to dive into what data
+
+00:00:56.039 --> 00:00:59.460
+Caption: Lakes actually do
+
+00:00:57.599 --> 00:01:03.358
+Caption: and following that I&#39;ll explain a few
+
+00:00:59.459 --> 00:01:05.938
+Caption: other water analogies in the dart area
+
+00:01:03.359 --> 00:01:07.919
+Caption: so my name is Aiden as we&#39;ve just been
+
+00:01:05.939 --> 00:01:10.260
+Caption: told and I&#39;m a senior developer with kzn
+
+00:01:07.919 --> 00:01:12.180
+Caption: kzn is a cloud consultancy that
+
+00:01:10.260 --> 00:01:14.700
+Caption: specializes in serverless technology and
+
+00:01:12.180 --> 00:01:17.279
+Caption: data engineering we have and continue to
+
+00:01:14.699 --> 00:01:18.658
+Caption: build data Lakes for a range of our
+
+00:01:17.279 --> 00:01:21.900
+Caption: clients
+
+00:01:18.658 --> 00:01:23.219
+Caption: and let&#39;s get started
+
+00:01:21.900 --> 00:01:25.380
+Caption: so
+
+00:01:23.220 --> 00:01:27.059
+Caption: to kick off the story of how big data
+
+00:01:25.379 --> 00:01:29.040
+Caption: went from buzzword number one to a thing
+
+00:01:27.059 --> 00:01:30.419
+Caption: of the past I&#39;m going to rewind to the
+
+00:01:29.040 --> 00:01:32.159
+Caption: beginning of time and that was the
+
+00:01:30.419 --> 00:01:33.839
+Caption: mid-1980s
+
+00:01:32.158 --> 00:01:35.879
+Caption: in a simpler time
+
+00:01:33.839 --> 00:01:38.938
+Caption: we had data
+
+00:01:35.879 --> 00:01:41.699
+Caption: data was stored and data warehouses
+
+00:01:38.939 --> 00:01:43.799
+Caption: we used SQL to extract value from that
+
+00:01:41.699 --> 00:01:45.180
+Caption: data in the form of reporting
+
+00:01:43.799 --> 00:01:47.460
+Caption: and that was it
+
+00:01:45.180 --> 00:01:49.399
+Caption: very simple
+
+00:01:47.459 --> 00:01:53.158
+Caption: they like it so
+
+00:01:49.399 --> 00:01:56.100
+Caption: now as we move forward to roughly 2011
+
+00:01:53.158 --> 00:01:58.559
+Caption: we get into the age of Big Data let&#39;s
+
+00:01:56.099 --> 00:02:00.959
+Caption: define Big Data before we move forward
+
+00:01:58.559 --> 00:02:03.059
+Caption: Big Data refers to data sets that are
+
+00:02:00.959 --> 00:02:05.099
+Caption: too large or complex to deal with using
+
+00:02:03.059 --> 00:02:07.798
+Caption: traditional methods traditional methods
+
+00:02:05.099 --> 00:02:09.479
+Caption: largely being data warehouses
+
+00:02:07.799 --> 00:02:11.940
+Caption: now what caused the rise of Big Data
+
+00:02:09.479 --> 00:02:13.440
+Caption: lots of things but a major one with
+
+00:02:11.940 --> 00:02:14.819
+Caption: social media companies realizing how
+
+00:02:13.440 --> 00:02:16.619
+Caption: much money they can make from pushing us
+
+00:02:14.819 --> 00:02:18.300
+Caption: personalized ads
+
+00:02:16.619 --> 00:02:20.279
+Caption: other areas of Technology started to
+
+00:02:18.300 --> 00:02:22.319
+Caption: pick up like iot
+
+00:02:20.279 --> 00:02:24.059
+Caption: if you look at things like cars 20 years
+
+00:02:22.319 --> 00:02:25.940
+Caption: ago they were purely Mechanical Devices
+
+00:02:24.059 --> 00:02:29.220
+Caption: if you&#39;re lucky they had electric
+
+00:02:25.940 --> 00:02:31.020
+Caption: windows but now we have companies like
+
+00:02:29.220 --> 00:02:34.259
+Caption: Tesla or waymo where your cars are
+
+00:02:31.020 --> 00:02:36.419
+Caption: streaming vast volumes of data up
+
+00:02:34.259 --> 00:02:39.119
+Caption: to lose my sound
+
+00:02:36.419 --> 00:02:40.500
+Caption: okay okay we&#39;re streaming vast volumes
+
+00:02:39.119 --> 00:02:42.958
+Caption: of data up into the cloud from almost
+
+00:02:40.500 --> 00:02:45.419
+Caption: every Appliance across the globe
+
+00:02:42.958 --> 00:02:48.059
+Caption: to give some idea of scale in 2010
+
+00:02:45.419 --> 00:02:49.919
+Caption: roughly 1.2 trillion gigabytes of data
+
+00:02:48.059 --> 00:02:52.559
+Caption: was generated by the human race
+
+00:02:49.919 --> 00:02:54.738
+Caption: in 2021 that number was 18 trillion
+
+00:02:52.559 --> 00:02:57.779
+Caption: gigabytes we are on an x-band
+
+00:02:54.738 --> 00:02:59.458
+Caption: exponential curve of data growth and the
+
+00:02:57.779 --> 00:03:01.738
+Caption: scale of our data sets is more important
+
+00:02:59.458 --> 00:03:03.119
+Caption: now than it ever has been
+
+00:03:01.738 --> 00:03:05.518
+Caption: the problem
+
+00:03:03.119 --> 00:03:07.440
+Caption: there was a few including structure
+
+00:03:05.518 --> 00:03:09.179
+Caption: which we&#39;ll talk about later but the key
+
+00:03:07.440 --> 00:03:11.279
+Caption: point I&#39;m going to focus on here is the
+
+00:03:09.179 --> 00:03:13.919
+Caption: pure volume traditional methods like
+
+00:03:11.279 --> 00:03:15.958
+Caption: data warehouses just could not scale or
+
+00:03:13.919 --> 00:03:20.039
+Caption: ingest data fast enough to keep up with
+
+00:03:15.958 --> 00:03:21.779
+Caption: the demand and hence Big Data volumes of
+
+00:03:20.039 --> 00:03:25.139
+Caption: information too large to be dealt with
+
+00:03:21.779 --> 00:03:26.940
+Caption: using traditional methods
+
+00:03:25.139 --> 00:03:28.800
+Caption: so what happened to this huge problem
+
+00:03:26.940 --> 00:03:30.180
+Caption: that we saw on every News Channel and
+
+00:03:28.800 --> 00:03:32.220
+Caption: every magazine cover
+
+00:03:30.179 --> 00:03:33.958
+Caption: to give you an anticlimactic answer
+
+00:03:32.220 --> 00:03:36.180
+Caption: the problem got solved
+
+00:03:33.958 --> 00:03:38.220
+Caption: data Lakes provide a cheap and readily
+
+00:03:36.179 --> 00:03:40.679
+Caption: available means of storing and ingesting
+
+00:03:38.220 --> 00:03:41.878
+Caption: almost unlimited quantities of data
+
+00:03:40.679 --> 00:03:44.158
+Caption: that&#39;s it
+
+00:03:41.878 --> 00:03:47.940
+Caption: data Engineers can sleep at night and
+
+00:03:44.158 --> 00:03:50.158
+Caption: everyone lived happily ever after
+
+00:03:47.940 --> 00:03:52.018
+Caption: except it wasn&#39;t quite that simple
+
+00:03:50.158 --> 00:03:54.298
+Caption: dialect solved a lot of the problems of
+
+00:03:52.018 --> 00:03:56.098
+Caption: big data but in a classic Tech fashion
+
+00:03:54.298 --> 00:03:57.298
+Caption: replace those problems with newer
+
+00:03:56.098 --> 00:03:59.339
+Caption: challenges
+
+00:03:57.298 --> 00:04:00.958
+Caption: but before we dig into that I&#39;m hoping
+
+00:03:59.339 --> 00:04:02.339
+Caption: at this stage you have one very simple
+
+00:04:00.958 --> 00:04:05.279
+Caption: question bouncing around inside your
+
+00:04:02.339 --> 00:04:06.658
+Caption: head what is a data Lake and how did it
+
+00:04:05.279 --> 00:04:08.158
+Caption: solve these problems
+
+00:04:06.658 --> 00:04:09.119
+Caption: well I&#39;m glad you asked because someone
+
+00:04:08.158 --> 00:04:10.798
+Caption: had to
+
+00:04:09.119 --> 00:04:12.059
+Caption: start understanding data Lakes we&#39;re
+
+00:04:10.798 --> 00:04:15.059
+Caption: going to need to look at data warehouses
+
+00:04:12.059 --> 00:04:16.979
+Caption: that we talked about earlier
+
+00:04:15.059 --> 00:04:18.479
+Caption: now data warehouses were the core of
+
+00:04:16.979 --> 00:04:21.059
+Caption: business intelligence for the last 30
+
+00:04:18.479 --> 00:04:22.500
+Caption: something years for those that are new a
+
+00:04:21.059 --> 00:04:24.720
+Caption: data warehouse is a data management
+
+00:04:22.500 --> 00:04:27.059
+Caption: system designed to enable business
+
+00:04:24.720 --> 00:04:29.759
+Caption: intelligence activities that basically
+
+00:04:27.059 --> 00:04:31.019
+Caption: means we have data and we want to get
+
+00:04:29.759 --> 00:04:32.940
+Caption: value out of it
+
+00:04:31.019 --> 00:04:34.979
+Caption: we can break this down a little bit by
+
+00:04:32.940 --> 00:04:37.320
+Caption: looking at our key components we have a
+
+00:04:34.979 --> 00:04:39.839
+Caption: data warehouse which has a database or a
+
+00:04:37.320 --> 00:04:41.820
+Caption: variety of databases within it we have
+
+00:04:39.839 --> 00:04:43.799
+Caption: etls that&#39;s the extraction
+
+00:04:41.820 --> 00:04:45.720
+Caption: transformation and loading of data
+
+00:04:43.799 --> 00:04:47.579
+Caption: between different sources
+
+00:04:45.720 --> 00:04:49.380
+Caption: and then the system is set up in a way
+
+00:04:47.579 --> 00:04:51.779
+Caption: that allows Integrations with external
+
+00:04:49.380 --> 00:04:54.899
+Caption: Services whether it&#39;s an Erp system like
+
+00:04:51.779 --> 00:04:57.299
+Caption: sap or Oracle or a CRM like Salesforce
+
+00:04:54.899 --> 00:04:58.859
+Caption: through to analytics like power bi or
+
+00:04:57.299 --> 00:05:00.239
+Caption: tableau
+
+00:04:58.859 --> 00:05:02.638
+Caption: now the important thing to understand
+
+00:05:00.239 --> 00:05:06.179
+Caption: about data warehouses is that they store
+
+00:05:02.639 --> 00:05:09.240
+Caption: data in databases and databases only
+
+00:05:06.179 --> 00:05:12.059
+Caption: accept structured data hence a data
+
+00:05:09.239 --> 00:05:14.699
+Caption: warehouse can only store structured data
+
+00:05:12.059 --> 00:05:16.619
+Caption: but what is structured data
+
+00:05:14.699 --> 00:05:18.600
+Caption: now data can be structured or
+
+00:05:16.619 --> 00:05:20.459
+Caption: unstructured and this is one of the keys
+
+00:05:18.600 --> 00:05:22.679
+Caption: to understanding data lakes and the role
+
+00:05:20.459 --> 00:05:24.539
+Caption: they play in superseding data warehouses
+
+00:05:22.679 --> 00:05:26.039
+Caption: in the race to accommodate fast
+
+00:05:24.539 --> 00:05:27.600
+Caption: quantities of data
+
+00:05:26.039 --> 00:05:30.239
+Caption: let&#39;s start by looking at one of the
+
+00:05:27.600 --> 00:05:31.559
+Caption: most common types of unstructured data a
+
+00:05:30.239 --> 00:05:34.079
+Caption: CSV
+
+00:05:31.559 --> 00:05:36.299
+Caption: now maybe the CSV came from a script
+
+00:05:34.079 --> 00:05:38.579
+Caption: reading an API maybe it was an export
+
+00:05:36.299 --> 00:05:41.579
+Caption: from some third-party system
+
+00:05:38.579 --> 00:05:42.899
+Caption: as you can see we have data
+
+00:05:41.579 --> 00:05:45.299
+Caption: but we know very little information
+
+00:05:42.899 --> 00:05:47.039
+Caption: about this data
+
+00:05:45.299 --> 00:05:49.319
+Caption: what are the data types
+
+00:05:47.039 --> 00:05:51.779
+Caption: is that an integer or a decimal is it
+
+00:05:49.320 --> 00:05:53.279
+Caption: signed or unsigned is this field allowed
+
+00:05:51.779 --> 00:05:55.500
+Caption: to be null or should it have a default
+
+00:05:53.279 --> 00:05:57.359
+Caption: value when it&#39;s empty is there a primary
+
+00:05:55.500 --> 00:05:59.519
+Caption: key or is there a composite number of
+
+00:05:57.359 --> 00:06:02.399
+Caption: columns that should uniquely identify a
+
+00:05:59.519 --> 00:06:04.559
+Caption: row all of these questions are vitally
+
+00:06:02.399 --> 00:06:06.720
+Caption: important for us to actually utilize our
+
+00:06:04.559 --> 00:06:07.919
+Caption: data but they cannot be answered without
+
+00:06:06.720 --> 00:06:09.839
+Caption: structure
+
+00:06:07.919 --> 00:06:11.639
+Caption: this file for example could not be
+
+00:06:09.839 --> 00:06:13.859
+Caption: loaded into a data warehouse unless we
+
+00:06:11.639 --> 00:06:16.619
+Caption: knew what the structure was
+
+00:06:13.859 --> 00:06:18.418
+Caption: so what does structure look like
+
+00:06:16.619 --> 00:06:20.279
+Caption: I&#39;m going to throw another very common
+
+00:06:18.419 --> 00:06:21.440
+Caption: term around that everyone has heard but
+
+00:06:20.279 --> 00:06:25.019
+Caption: a lot of people don&#39;t really understand
+
+00:06:21.440 --> 00:06:27.720
+Caption: and that&#39;s metadata metadata is
+
+00:06:25.019 --> 00:06:29.519
+Caption: information about data in our CSV
+
+00:06:27.720 --> 00:06:31.679
+Caption: example metadata could be an information
+
+00:06:29.519 --> 00:06:34.319
+Caption: file that provides answers to our
+
+00:06:31.679 --> 00:06:36.059
+Caption: questions data types unique constraints
+
+00:06:34.319 --> 00:06:37.739
+Caption: null handling
+
+00:06:36.059 --> 00:06:39.720
+Caption: now there&#39;s another common type of
+
+00:06:37.739 --> 00:06:41.880
+Caption: metadata involved with data lakes and
+
+00:06:39.720 --> 00:06:43.979
+Caption: that&#39;s governance data when we have
+
+00:06:41.880 --> 00:06:46.259
+Caption: hundreds or thousands of source systems
+
+00:06:43.979 --> 00:06:47.699
+Caption: feeding into one big data platform it&#39;s
+
+00:06:46.259 --> 00:06:49.799
+Caption: very important for us to know where that
+
+00:06:47.699 --> 00:06:51.660
+Caption: data came from who&#39;s responsible for it
+
+00:06:49.799 --> 00:06:53.940
+Caption: how often it&#39;s refreshed what the
+
+00:06:51.660 --> 00:06:55.440
+Caption: quality is there&#39;s lots of questions
+
+00:06:53.940 --> 00:06:57.539
+Caption: but for the sake of this speech we&#39;re
+
+00:06:55.440 --> 00:06:59.699
+Caption: going to focus on the first type which
+
+00:06:57.539 --> 00:07:01.079
+Caption: is the actual structure of our data we
+
+00:06:59.699 --> 00:07:03.300
+Caption: can see you know this string has a
+
+00:07:01.079 --> 00:07:05.220
+Caption: maximum length of 255 we can see that
+
+00:07:03.299 --> 00:07:07.319
+Caption: this field is nullable this is the
+
+00:07:05.220 --> 00:07:09.000
+Caption: structure to our data
+
+00:07:07.319 --> 00:07:11.279
+Caption: so
+
+00:07:09.000 --> 00:07:13.559
+Caption: what&#39;s very important to understand is
+
+00:07:11.279 --> 00:07:15.660
+Caption: that when we have unstructured data and
+
+00:07:13.559 --> 00:07:17.699
+Caption: the metadata that corresponds to it we
+
+00:07:15.660 --> 00:07:21.860
+Caption: can combine those two things to produce
+
+00:07:17.699 --> 00:07:21.860
+Caption: structured data okay
+
+00:07:21.959 --> 00:07:25.220
+Caption: so
+
+00:07:23.160 --> 00:07:28.259
+Caption: to solidify our metadata learnings
+
+00:07:25.220 --> 00:07:30.179
+Caption: metadata is information about data this
+
+00:07:28.259 --> 00:07:32.339
+Caption: information allows us to specifically
+
+00:07:30.179 --> 00:07:34.380
+Caption: describe the format and structure of our
+
+00:07:32.339 --> 00:07:36.419
+Caption: data and this allows us to treat the
+
+00:07:34.380 --> 00:07:38.580
+Caption: data as structured which unlocks new
+
+00:07:36.419 --> 00:07:40.740
+Caption: ways of analyzing storing and
+
+00:07:38.579 --> 00:07:42.839
+Caption: classifying the information
+
+00:07:40.739 --> 00:07:45.359
+Caption: now this is great but it feels like I&#39;m
+
+00:07:42.839 --> 00:07:47.699
+Caption: off on a tangent so why do we care about
+
+00:07:45.359 --> 00:07:49.679
+Caption: structure
+
+00:07:47.699 --> 00:07:51.899
+Caption: we care because of the definition of a
+
+00:07:49.679 --> 00:07:54.059
+Caption: data Lake a centralized store for
+
+00:07:51.899 --> 00:07:54.959
+Caption: structured and unstructured data at any
+
+00:07:54.059 --> 00:07:56.819
+Caption: scale
+
+00:07:54.959 --> 00:07:58.799
+Caption: the first big difference between a data
+
+00:07:56.819 --> 00:08:01.019
+Caption: lake and a data warehouse is that data
+
+00:07:58.799 --> 00:08:03.720
+Caption: Lakes accept any kind of data whereas
+
+00:08:01.019 --> 00:08:05.759
+Caption: warehouses only accept structure a good
+
+00:08:03.720 --> 00:08:08.399
+Caption: analogy is there&#39;s two toddlers and a
+
+00:08:05.759 --> 00:08:09.839
+Caption: playground one of them is the picky kid
+
+00:08:08.399 --> 00:08:11.579
+Caption: that only eats foods that are a certain
+
+00:08:09.839 --> 00:08:13.559
+Caption: color and then you have the one in the
+
+00:08:11.579 --> 00:08:15.059
+Caption: sandbox eating handfuls of sand
+
+00:08:13.559 --> 00:08:16.679
+Caption: it&#39;s not bothering anyone but he doesn&#39;t
+
+00:08:15.059 --> 00:08:18.598
+Caption: care he&#39;ll take anything in and that&#39;s
+
+00:08:16.679 --> 00:08:20.940
+Caption: what a dog leg is
+
+00:08:18.598 --> 00:08:22.559
+Caption: now in real life Business Systems the
+
+00:08:20.940 --> 00:08:23.878
+Caption: majority of our inputs are usually
+
+00:08:22.559 --> 00:08:26.098
+Caption: unstructured
+
+00:08:23.878 --> 00:08:28.019
+Caption: exports from apis data dumps from
+
+00:08:26.098 --> 00:08:31.019
+Caption: external systems and manually entered
+
+00:08:28.019 --> 00:08:33.359
+Caption: information is normally unstructured but
+
+00:08:31.019 --> 00:08:34.859
+Caption: as businesses want to make data-driven
+
+00:08:33.359 --> 00:08:36.598
+Caption: decisions we need all of this
+
+00:08:34.859 --> 00:08:37.679
+Caption: information to be stored in a structured
+
+00:08:36.598 --> 00:08:39.658
+Caption: way
+
+00:08:37.679 --> 00:08:42.359
+Caption: this is so we can accurately query it
+
+00:08:39.658 --> 00:08:44.458
+Caption: for business Intelligence and Analysis
+
+00:08:42.359 --> 00:08:46.739
+Caption: and that&#39;s what a data Lake does
+
+00:08:44.458 --> 00:08:49.140
+Caption: it provides a single body for storing
+
+00:08:46.739 --> 00:08:51.179
+Caption: structured and unstructured data as well
+
+00:08:49.140 --> 00:08:53.278
+Caption: as defining automated processes for
+
+00:08:51.179 --> 00:08:56.458
+Caption: adding structure to that data
+
+00:08:53.278 --> 00:08:58.559
+Caption: let&#39;s dig into it a little bit more
+
+00:08:56.458 --> 00:09:01.278
+Caption: everyone loves AWS architecture diagrams
+
+00:08:58.559 --> 00:09:01.278
+Caption: so I threw one in
+
+00:09:03.599 --> 00:09:06.018
+Caption: so
+
+00:09:06.958 --> 00:09:11.039
+Caption: let&#39;s walk through it step by step
+
+00:09:09.000 --> 00:09:13.200
+Caption: first on the left we have a range of
+
+00:09:11.039 --> 00:09:14.759
+Caption: data sources some of these unstructured
+
+00:09:13.200 --> 00:09:16.380
+Caption: some are structured
+
+00:09:14.760 --> 00:09:18.479
+Caption: again that&#39;s the key difference between
+
+00:09:16.380 --> 00:09:20.039
+Caption: a data warehouse and a data Lake all
+
+00:09:18.479 --> 00:09:21.659
+Caption: inputs are accepted
+
+00:09:20.039 --> 00:09:23.880
+Caption: next you&#39;ll notice there are two zones
+
+00:09:21.659 --> 00:09:25.079
+Caption: an unstructured Zone and a structured
+
+00:09:23.880 --> 00:09:26.458
+Caption: Zone
+
+00:09:25.080 --> 00:09:28.799
+Caption: it&#39;s very important we have both of
+
+00:09:26.458 --> 00:09:30.359
+Caption: these so that we can accept unstructured
+
+00:09:28.799 --> 00:09:31.619
+Caption: or structured data in from outside
+
+00:09:30.359 --> 00:09:33.838
+Caption: systems
+
+00:09:31.619 --> 00:09:37.559
+Caption: it&#39;s also very important because as we
+
+00:09:33.838 --> 00:09:40.200
+Caption: move data through a data Lake generally
+
+00:09:37.559 --> 00:09:42.359
+Caption: we have a range of zones and as we move
+
+00:09:40.200 --> 00:09:44.940
+Caption: through those zones our structure sorry
+
+00:09:42.359 --> 00:09:47.219
+Caption: our data becomes more structured and has
+
+00:09:44.940 --> 00:09:49.440
+Caption: a higher quality to it that&#39;s why we&#39;ve
+
+00:09:47.219 --> 00:09:51.239
+Caption: got the structured Zone to the right of
+
+00:09:49.440 --> 00:09:53.338
+Caption: the unstructured zone
+
+00:09:51.239 --> 00:09:56.700
+Caption: you can see between the two zones we
+
+00:09:53.338 --> 00:09:58.739
+Caption: have a glue job this is AWS speak for an
+
+00:09:56.700 --> 00:10:00.540
+Caption: ETL that&#39;s the extract transform and
+
+00:09:58.739 --> 00:10:02.518
+Caption: load we talked about earlier
+
+00:10:00.539 --> 00:10:05.398
+Caption: now this glue job takes unstructured
+
+00:10:02.518 --> 00:10:07.500
+Caption: data and it applies metadata
+
+00:10:05.398 --> 00:10:08.880
+Caption: to add structure to it and move it into
+
+00:10:07.500 --> 00:10:11.099
+Caption: the structured Zone
+
+00:10:08.880 --> 00:10:13.260
+Caption: it&#39;s worth noting that you can&#39;t just
+
+00:10:11.099 --> 00:10:15.659
+Caption: throw a random CSV in and expect the
+
+00:10:13.260 --> 00:10:17.458
+Caption: metadata to somehow be known for every
+
+00:10:15.659 --> 00:10:21.059
+Caption: source that you ingest from you need to
+
+00:10:17.458 --> 00:10:23.219
+Caption: have the metadata for that data set
+
+00:10:21.059 --> 00:10:26.640
+Caption: once that data is sitting safe and
+
+00:10:23.219 --> 00:10:29.099
+Caption: structured it can be brought into
+
+00:10:26.640 --> 00:10:31.739
+Caption: into the structured Zone what I have
+
+00:10:29.099 --> 00:10:33.359
+Caption: here is a data warehouse and an S3
+
+00:10:31.739 --> 00:10:35.039
+Caption: bucket but what&#39;s important to
+
+00:10:33.359 --> 00:10:37.200
+Caption: understand is that a data Lake does not
+
+00:10:35.039 --> 00:10:39.059
+Caption: prescribe the tooling that we use okay
+
+00:10:37.200 --> 00:10:40.559
+Caption: you can have a data Lake without a data
+
+00:10:39.059 --> 00:10:42.599
+Caption: warehouse or you can have one with one
+
+00:10:40.559 --> 00:10:45.778
+Caption: what matters is that you have a store
+
+00:10:42.599 --> 00:10:47.880
+Caption: for that structured data
+
+00:10:45.778 --> 00:10:49.559
+Caption: you can also see that we have a variety
+
+00:10:47.880 --> 00:10:52.078
+Caption: of business
+
+00:10:49.559 --> 00:10:54.239
+Caption: Integrations
+
+00:10:52.078 --> 00:10:55.919
+Caption: like sagemaker that applies artificial
+
+00:10:54.239 --> 00:10:58.559
+Caption: intelligence or predictive analysis over
+
+00:10:55.919 --> 00:10:59.820
+Caption: the data power bi for visualization and
+
+00:10:58.559 --> 00:11:01.919
+Caption: encoding
+
+00:10:59.820 --> 00:11:04.140
+Caption: again these are not prescribed tools
+
+00:11:01.919 --> 00:11:06.000
+Caption: these are commonly used ones but what
+
+00:11:04.140 --> 00:11:08.338
+Caption: really matters in a data lake is that
+
+00:11:06.000 --> 00:11:10.380
+Caption: you allow for the integration of
+
+00:11:08.338 --> 00:11:12.679
+Caption: external services that provide this kind
+
+00:11:10.380 --> 00:11:12.679
+Caption: of value
+
+00:11:12.898 --> 00:11:16.500
+Caption: now data lakes also give us the
+
+00:11:14.518 --> 00:11:19.018
+Caption: opportunity to tap into a buzzword that
+
+00:11:16.500 --> 00:11:20.278
+Caption: Executives go crazy for and that&#39;s real
+
+00:11:19.018 --> 00:11:22.500
+Caption: time
+
+00:11:20.278 --> 00:11:25.018
+Caption: gives me shivers just saying it
+
+00:11:22.500 --> 00:11:26.578
+Caption: what is real time basically it means
+
+00:11:25.018 --> 00:11:28.739
+Caption: there&#39;s a very small turnaround between
+
+00:11:26.578 --> 00:11:31.500
+Caption: an event occurring and that data being
+
+00:11:28.739 --> 00:11:33.299
+Caption: presented to the end user that&#39;s it
+
+00:11:31.500 --> 00:11:35.039
+Caption: any modern data Lake will provide
+
+00:11:33.299 --> 00:11:37.919
+Caption: tooling that allows you to stream High
+
+00:11:35.039 --> 00:11:39.359
+Caption: volumes of data in real time and the AWS
+
+00:11:37.919 --> 00:11:40.559
+Caption: solution I&#39;m showing you here is a
+
+00:11:39.359 --> 00:11:42.838
+Caption: Kinesis stream
+
+00:11:40.559 --> 00:11:44.039
+Caption: these streams go into a data store and
+
+00:11:42.838 --> 00:11:46.018
+Caption: then we have an external tool like
+
+00:11:44.039 --> 00:11:47.219
+Caption: rafana that reads it at very small time
+
+00:11:46.018 --> 00:11:49.559
+Caption: intervals
+
+00:11:47.219 --> 00:11:52.619
+Caption: again just one component inside the
+
+00:11:49.559 --> 00:11:54.599
+Caption: ecosystem of a data Lake
+
+00:11:52.619 --> 00:11:56.518
+Caption: now
+
+00:11:54.599 --> 00:11:58.799
+Caption: this is why data Lake solve the big data
+
+00:11:56.518 --> 00:12:01.200
+Caption: problem for everyday companies the cost
+
+00:11:58.799 --> 00:12:03.299
+Caption: efficiency and scalability of the modern
+
+00:12:01.200 --> 00:12:05.458
+Caption: Cloud allows us to store enormous
+
+00:12:03.299 --> 00:12:08.159
+Caption: volumes of unstructured and structured
+
+00:12:05.458 --> 00:12:10.500
+Caption: data without any real specialist input
+
+00:12:08.159 --> 00:12:12.479
+Caption: we don&#39;t need big data phds to set up
+
+00:12:10.500 --> 00:12:14.338
+Caption: Hadoop clusters and you rarely even need
+
+00:12:12.479 --> 00:12:15.659
+Caption: database administrators because all of
+
+00:12:14.338 --> 00:12:18.479
+Caption: your instances are running in managed
+
+00:12:15.659 --> 00:12:20.940
+Caption: services that might be controversial
+
+00:12:18.479 --> 00:12:23.699
+Caption: the problem of scaling is gone
+
+00:12:20.940 --> 00:12:25.979
+Caption: so big data sets aren&#39;t scary anymore
+
+00:12:23.700 --> 00:12:28.380
+Caption: I&#39;m sure other big scary problems didn&#39;t
+
+00:12:25.979 --> 00:12:29.639
+Caption: just take their place
+
+00:12:28.380 --> 00:12:31.739
+Caption: except they did
+
+00:12:29.640 --> 00:12:34.440
+Caption: common side effects of data Lake usage
+
+00:12:31.739 --> 00:12:36.018
+Caption: include but are not limited to data
+
+00:12:34.440 --> 00:12:38.640
+Caption: governance issues performance
+
+00:12:36.018 --> 00:12:39.479
+Caption: performance complaints and massive scope
+
+00:12:38.640 --> 00:12:41.398
+Caption: group
+
+00:12:39.479 --> 00:12:43.138
+Caption: when you have thousands of data sets
+
+00:12:41.398 --> 00:12:45.299
+Caption: coming from hundreds of sources being
+
+00:12:43.138 --> 00:12:46.919
+Caption: transformed left right and Center it
+
+00:12:45.299 --> 00:12:48.838
+Caption: gets very messy understanding who&#39;s
+
+00:12:46.919 --> 00:12:51.119
+Caption: responsible for what data sets and what
+
+00:12:48.838 --> 00:12:54.599
+Caption: they get used for if at all
+
+00:12:51.119 --> 00:12:56.638
+Caption: next a 16 petabyte redshift cluster is
+
+00:12:54.599 --> 00:12:59.219
+Caption: going to be slower to query than a 500
+
+00:12:56.638 --> 00:13:01.380
+Caption: megabyte local Ms access file
+
+00:12:59.219 --> 00:13:03.119
+Caption: that&#39;s the reality but end users don&#39;t
+
+00:13:01.380 --> 00:13:05.880
+Caption: care about your excuses
+
+00:13:03.119 --> 00:13:08.099
+Caption: and with scale come slow
+
+00:13:05.880 --> 00:13:09.838
+Caption: another big one is that now that we have
+
+00:13:08.099 --> 00:13:11.518
+Caption: all this amazing and readily accessible
+
+00:13:09.838 --> 00:13:14.039
+Caption: data we need to do more with it than
+
+00:13:11.518 --> 00:13:15.599
+Caption: just run reports data Lakes represent a
+
+00:13:14.039 --> 00:13:17.518
+Caption: big step forward in enabling machine
+
+00:13:15.599 --> 00:13:19.319
+Caption: learning as well as predictive analysis
+
+00:13:17.518 --> 00:13:20.940
+Caption: and automated decision making
+
+00:13:19.320 --> 00:13:22.919
+Caption: because solving a problem isn&#39;t enough
+
+00:13:20.940 --> 00:13:24.599
+Caption: once we can do something we have to
+
+00:13:22.919 --> 00:13:25.260
+Caption: figure how to get the most value out of
+
+00:13:24.599 --> 00:13:27.239
+Caption: it
+
+00:13:25.260 --> 00:13:29.398
+Caption: and suddenly our problem of there&#39;s too
+
+00:13:27.239 --> 00:13:31.138
+Caption: much data to store becomes a problem of
+
+00:13:29.398 --> 00:13:32.760
+Caption: how do we get the most out of all this
+
+00:13:31.138 --> 00:13:34.739
+Caption: data that we have
+
+00:13:32.760 --> 00:13:36.838
+Caption: anyway this slide is not here for
+
+00:13:34.739 --> 00:13:38.638
+Caption: Solutions only pessimism and now that we
+
+00:13:36.838 --> 00:13:40.619
+Caption: understand what a data lake is and how
+
+00:13:38.638 --> 00:13:41.940
+Caption: it killed big data we can move on to the
+
+00:13:40.619 --> 00:13:44.518
+Caption: next item
+
+00:13:41.940 --> 00:13:45.958
+Caption: which is other bodies of water
+
+00:13:44.518 --> 00:13:49.859
+Caption: now it&#39;s worth noting while I&#39;m here
+
+00:13:45.958 --> 00:13:53.219
+Caption: that this speech to some extent
+
+00:13:49.859 --> 00:13:55.500
+Caption: is an opinion piece there is no uh
+
+00:13:53.219 --> 00:13:57.059
+Caption: standard body that defines exactly what
+
+00:13:55.500 --> 00:13:57.958
+Caption: a data lake or a data Pond or a data
+
+00:13:57.059 --> 00:13:59.278
+Caption: bottle is
+
+00:13:57.958 --> 00:14:01.078
+Caption: they&#39;re just kind of terms that people
+
+00:13:59.278 --> 00:14:03.179
+Caption: have come up with and every company uses
+
+00:14:01.078 --> 00:14:05.398
+Caption: them in a slightly different way
+
+00:14:03.179 --> 00:14:07.138
+Caption: but
+
+00:14:05.398 --> 00:14:09.599
+Caption: for some reason a lot of Next Generation
+
+00:14:07.138 --> 00:14:11.219
+Caption: data infrastructure follows water naming
+
+00:14:09.599 --> 00:14:13.500
+Caption: so let&#39;s start with the biggest and the
+
+00:14:11.219 --> 00:14:15.119
+Caption: most difficult to understand the data
+
+00:14:13.500 --> 00:14:17.518
+Caption: swap
+
+00:14:15.119 --> 00:14:19.559
+Caption: simply pull it a data swamp is a bad
+
+00:14:17.518 --> 00:14:21.239
+Caption: data Lake
+
+00:14:19.559 --> 00:14:23.099
+Caption: data swamps come around when we have
+
+00:14:21.239 --> 00:14:25.679
+Caption: poor data quality or poor data
+
+00:14:23.099 --> 00:14:28.440
+Caption: governance they&#39;re bad don&#39;t do them any
+
+00:14:25.679 --> 00:14:31.440
+Caption: questions no good
+
+00:14:28.440 --> 00:14:33.599
+Caption: okay next we&#39;re moving down the scale a
+
+00:14:31.440 --> 00:14:36.000
+Caption: data puddle is a single purpose data
+
+00:14:33.599 --> 00:14:37.440
+Caption: Lake used by a specialist team for a
+
+00:14:36.000 --> 00:14:39.479
+Caption: very specific reason
+
+00:14:37.440 --> 00:14:41.458
+Caption: it is often used as companies migrate
+
+00:14:39.479 --> 00:14:43.078
+Caption: into the cloud and want to dip their
+
+00:14:41.458 --> 00:14:44.578
+Caption: toes and test things out for one
+
+00:14:43.078 --> 00:14:46.078
+Caption: specific use case before they try to
+
+00:14:44.578 --> 00:14:47.159
+Caption: scale up and move their whole business
+
+00:14:46.078 --> 00:14:48.898
+Caption: over
+
+00:14:47.159 --> 00:14:50.819
+Caption: you can see this in my extravagant
+
+00:14:48.898 --> 00:14:52.859
+Caption: diagram where a collection of happy
+
+00:14:50.820 --> 00:14:55.979
+Caption: synergistic teams make use of a data
+
+00:14:52.859 --> 00:14:58.799
+Caption: Lake whereas one sad lonely solitary
+
+00:14:55.979 --> 00:14:59.940
+Caption: team makes use of their sad lonely data
+
+00:14:58.799 --> 00:15:01.440
+Caption: bottle
+
+00:14:59.940 --> 00:15:02.578
+Caption: we don&#39;t see these too wild on the often
+
+00:15:01.440 --> 00:15:03.898
+Caption: and if I&#39;m honest I&#39;d never heard of
+
+00:15:02.578 --> 00:15:05.880
+Caption: this term before I started researching
+
+00:15:03.898 --> 00:15:07.859
+Caption: for the speech but these are generally
+
+00:15:05.880 --> 00:15:09.179
+Caption: used as a proof of concept or by a road
+
+00:15:07.859 --> 00:15:10.559
+Caption: team that is sick of their company&#39;s
+
+00:15:09.179 --> 00:15:12.059
+Caption: data architecture
+
+00:15:10.559 --> 00:15:15.539
+Caption: that said
+
+00:15:12.059 --> 00:15:17.278
+Caption: wow that really resonated all right that
+
+00:15:15.539 --> 00:15:19.078
+Caption: said they provide an important role in
+
+00:15:17.278 --> 00:15:21.119
+Caption: our next body of water
+
+00:15:19.078 --> 00:15:23.578
+Caption: the data pond
+
+00:15:21.119 --> 00:15:26.278
+Caption: this can be described as a collection of
+
+00:15:23.578 --> 00:15:28.320
+Caption: small isolated Data Systems and you
+
+00:15:26.278 --> 00:15:30.179
+Caption: might have a a dozen different teams who
+
+00:15:28.320 --> 00:15:32.160
+Caption: each have their own data puddle on
+
+00:15:30.179 --> 00:15:35.159
+Caption: shared infrastructure the key difference
+
+00:15:32.159 --> 00:15:39.059
+Caption: here between a data pond and a data lake
+
+00:15:35.159 --> 00:15:40.919
+Caption: is minimal shared governance or data the
+
+00:15:39.059 --> 00:15:42.898
+Caption: accounting team uses their accounting
+
+00:15:40.919 --> 00:15:44.698
+Caption: data that they ingested the engineering
+
+00:15:42.898 --> 00:15:46.679
+Caption: team uses their engineering data that
+
+00:15:44.698 --> 00:15:47.578
+Caption: they ingested but there&#39;s not a lot of
+
+00:15:46.679 --> 00:15:49.679
+Caption: crossover
+
+00:15:47.578 --> 00:15:51.299
+Caption: it&#39;s not one huge big lake of shared
+
+00:15:49.679 --> 00:15:52.799
+Caption: data that everyone Taps into for their
+
+00:15:51.299 --> 00:15:55.320
+Caption: own purposes
+
+00:15:52.799 --> 00:15:57.299
+Caption: this again is often seen as a stepping
+
+00:15:55.320 --> 00:16:00.119
+Caption: stone to data Lakes but for smaller
+
+00:15:57.299 --> 00:16:03.599
+Caption: companies it may be suitable on its own
+
+00:16:00.119 --> 00:16:06.359
+Caption: so in summary who killed Big Data
+
+00:16:03.599 --> 00:16:07.799
+Caption: it was the data Lake in the cloud with
+
+00:16:06.359 --> 00:16:09.958
+Caption: the scalability
+
+00:16:07.799 --> 00:16:12.299
+Caption: in a more General sense Cloud technology
+
+00:16:09.958 --> 00:16:13.799
+Caption: has provided everyday businesses with
+
+00:16:12.299 --> 00:16:15.659
+Caption: the ability to scale their data
+
+00:16:13.799 --> 00:16:17.940
+Caption: infrastructure much more easily than
+
+00:16:15.659 --> 00:16:19.859
+Caption: before and as a result the traditional
+
+00:16:17.940 --> 00:16:21.958
+Caption: methods that couldn&#39;t handle big data
+
+00:16:19.859 --> 00:16:24.059
+Caption: have become a thing of the past
+
+00:16:21.958 --> 00:16:25.979
+Caption: we&#39;ve learned that the data Lakes are
+
+00:16:24.059 --> 00:16:28.260
+Caption: just big fancy ways of storing any kind
+
+00:16:25.979 --> 00:16:30.119
+Caption: of data that you want and data ponds and
+
+00:16:28.260 --> 00:16:33.179
+Caption: data puddles are scaled down less
+
+00:16:30.119 --> 00:16:36.078
+Caption: collaborative versions of data Lakes
+
+00:16:33.179 --> 00:16:36.078
+Caption: are there any questions
+
+00:16:37.919 --> 00:16:43.138
+Caption: sure sorry I&#39;m putting on the spot there
+
+00:16:41.099 --> 00:16:46.018
+Caption: oh
+
+00:16:43.138 --> 00:16:49.258
+Caption: is the unstructured data a key part of
+
+00:16:46.018 --> 00:16:51.479
+Caption: being a data Lake absolutely yeah
+
+00:16:49.258 --> 00:16:53.219
+Caption: um if you it&#39;s not just the size and
+
+00:16:51.479 --> 00:16:55.739
+Caption: scale available and structured
+
+00:16:53.219 --> 00:16:57.539
+Caption: structured data so the issue with the
+
+00:16:55.739 --> 00:17:00.000
+Caption: data warehouse the preceded Lakes was
+
+00:16:57.539 --> 00:17:01.979
+Caption: that a database needs structure in order
+
+00:17:00.000 --> 00:17:04.198
+Caption: to ingest data so if you want to accept
+
+00:17:01.979 --> 00:17:05.458
+Caption: data sources from literally anywhere and
+
+00:17:04.198 --> 00:17:07.078
+Caption: not be picky you need to accept
+
+00:17:05.458 --> 00:17:11.599
+Caption: unstructured data because a lot of
+
+00:17:07.078 --> 00:17:11.599
+Caption: sources will give us unstructured data
+
+00:17:18.298 --> 00:17:22.500
+Caption: I was just gonna ask uh have you heard
+
+00:17:20.160 --> 00:17:25.679
+Caption: of the so-called lake house and do you
+
+00:17:22.500 --> 00:17:26.458
+Caption: have an opinion yes
+
+00:17:25.678 --> 00:17:29.039
+Caption: um
+
+00:17:26.458 --> 00:17:31.020
+Caption: so lake house is commonly sold through
+
+00:17:29.040 --> 00:17:32.520
+Caption: databricks as one of their products
+
+00:17:31.020 --> 00:17:34.919
+Caption: um
+
+00:17:32.520 --> 00:17:36.719
+Caption: my understanding of it is it&#39;s very good
+
+00:17:34.918 --> 00:17:38.099
+Caption: for an organization that wants a data
+
+00:17:36.719 --> 00:17:39.900
+Caption: Lake but doesn&#39;t have a lot of data
+
+00:17:38.099 --> 00:17:41.640
+Caption: engineering capability themselves so
+
+00:17:39.900 --> 00:17:43.160
+Caption: it&#39;s if you&#39;re laughing you worked for
+
+00:17:41.640 --> 00:17:45.719
+Caption: databricks or something
+
+00:17:43.160 --> 00:17:47.640
+Caption: it&#39;s a way of tying in machine learning
+
+00:17:45.719 --> 00:17:49.380
+Caption: and artificial intelligence and data
+
+00:17:47.640 --> 00:17:51.599
+Caption: governance all into a data Lake it&#39;s a
+
+00:17:49.380 --> 00:17:54.918
+Caption: bit of an expansion of a data Lake and
+
+00:17:51.599 --> 00:17:54.918
+Caption: it&#39;s a bit of a managed product
+
+00:17:54.959 --> 00:17:57.558
+Caption: cool
+
+00:17:59.939 --> 00:18:02.939
+Caption: are there any other end I saw you walk
+
+00:18:01.439 --> 00:18:05.399
+Caption: to the back just so I could ask that
+
+00:18:02.939 --> 00:18:06.899
+Caption: question and what are your thoughts on
+
+00:18:05.400 --> 00:18:08.460
+Caption: data mesh
+
+00:18:06.900 --> 00:18:11.039
+Caption: new term to me
+
+00:18:08.459 --> 00:18:13.939
+Caption: yep I&#39;ll be honest
+
+00:18:11.038 --> 00:18:13.939
+Caption: what are your thoughts
+
+00:18:14.160 --> 00:18:17.520
+Caption: I think it&#39;s a way of solving some of
+
+00:18:15.780 --> 00:18:19.739
+Caption: the the problems that are going to come
+
+00:18:17.520 --> 00:18:24.239
+Caption: okay with
+
+00:18:19.739 --> 00:18:28.380
+Caption: data lakes and data warehouses and
+
+00:18:24.239 --> 00:18:30.000
+Caption: rebuilding that monolith of data and but
+
+00:18:28.380 --> 00:18:35.039
+Caption: I was just wondering I won&#39;t go into
+
+00:18:30.000 --> 00:18:35.038
+Caption: detail your presentation yeah
+
+00:18:42.380 --> 00:18:47.520
+Caption: I can understand why uh the data lake is
+
+00:18:45.780 --> 00:18:49.799
+Caption: very appealing to company and I&#39;m
+
+00:18:47.520 --> 00:18:51.839
+Caption: curious about how in the wild people
+
+00:18:49.798 --> 00:18:53.639
+Caption: actually make use of it I mean like in
+
+00:18:51.839 --> 00:18:55.678
+Caption: your diagram there&#39;s there&#39;s the AI
+
+00:18:53.640 --> 00:18:57.119
+Caption: bolt-on and there&#39;s a dashboard but what
+
+00:18:55.678 --> 00:18:59.659
+Caption: do people tend to actually do with their
+
+00:18:57.119 --> 00:18:59.660
+Caption: data Lakes
+
+00:18:59.939 --> 00:19:03.439
+Caption: a lot of reporting
+
+00:19:01.739 --> 00:19:06.058
+Caption: um
+
+00:19:03.439 --> 00:19:09.479
+Caption: generally from what I found companies
+
+00:19:06.058 --> 00:19:11.459
+Caption: will have uh segregated data silos and
+
+00:19:09.479 --> 00:19:13.739
+Caption: part of their technical Revolution
+
+00:19:11.459 --> 00:19:15.119
+Caption: whatever is to move to a data Lake and
+
+00:19:13.739 --> 00:19:17.099
+Caption: start to bring all of that data into one
+
+00:19:15.119 --> 00:19:20.038
+Caption: place I think that has some very real
+
+00:19:17.099 --> 00:19:21.538
+Caption: benefits in that previously you know
+
+00:19:20.038 --> 00:19:23.639
+Caption: opposite or different teams would have a
+
+00:19:21.538 --> 00:19:24.839
+Caption: lot of trouble accessing the data of
+
+00:19:23.640 --> 00:19:26.820
+Caption: other teams and there&#39;s a complete
+
+00:19:24.839 --> 00:19:28.199
+Caption: nightmare of managing you know 100
+
+00:19:26.819 --> 00:19:30.418
+Caption: different database clusters and everyone
+
+00:19:28.199 --> 00:19:32.339
+Caption: having their own way there&#39;s very little
+
+00:19:30.418 --> 00:19:34.019
+Caption: governance in those so what I see
+
+00:19:32.339 --> 00:19:35.699
+Caption: happening is generally just
+
+00:19:34.020 --> 00:19:38.880
+Caption: consolidating all of that into one
+
+00:19:35.699 --> 00:19:40.199
+Caption: platform that everyone can use it does
+
+00:19:38.880 --> 00:19:42.119
+Caption: generate a lot of work for them because
+
+00:19:40.199 --> 00:19:44.939
+Caption: suddenly data governance becomes a must
+
+00:19:42.119 --> 00:19:46.500
+Caption: instead of a could but largely what I&#39;ve
+
+00:19:44.939 --> 00:19:50.639
+Caption: see it used for is dashboards and
+
+00:19:46.500 --> 00:19:52.439
+Caption: Reporting makes sense thanks cool
+
+00:19:50.640 --> 00:19:53.940
+Caption: think we maybe have time for one more
+
+00:19:52.439 --> 00:19:55.199
+Caption: quick question yeah
+
+00:19:53.939 --> 00:19:57.239
+Caption: um what about security so if you have
+
+00:19:55.199 --> 00:19:58.918
+Caption: everyone accessing this data Lake how do
+
+00:19:57.239 --> 00:20:01.380
+Caption: you keep secure data from people who
+
+00:19:58.918 --> 00:20:01.918
+Caption: shouldn&#39;t see it sure
+
+00:20:01.380 --> 00:20:04.319
+Caption: um
+
+00:20:01.918 --> 00:20:07.019
+Caption: personally we work within AWS so my ads
+
+00:20:04.319 --> 00:20:09.899
+Caption: will be a bit constrained there but
+
+00:20:07.020 --> 00:20:12.119
+Caption: um as with any other system you have to
+
+00:20:09.900 --> 00:20:14.820
+Caption: secure access in some way there&#39;s good
+
+00:20:12.119 --> 00:20:16.260
+Caption: ways and bad ways of doing that when it
+
+00:20:14.819 --> 00:20:18.119
+Caption: comes to things like databases
+
+00:20:16.260 --> 00:20:19.558
+Caption: themselves you can generate you know you
+
+00:20:18.119 --> 00:20:21.058
+Caption: have to generate credentials for people
+
+00:20:19.558 --> 00:20:23.819
+Caption: to log in and use and however you manage
+
+00:20:21.058 --> 00:20:25.500
+Caption: that is your thing for the unstructured
+
+00:20:23.819 --> 00:20:27.719
+Caption: stores or S3 buckets and things like
+
+00:20:25.500 --> 00:20:29.160
+Caption: that we always recommend that SSO is
+
+00:20:27.719 --> 00:20:30.719
+Caption: used to authenticate and that way you
+
+00:20:29.160 --> 00:20:32.640
+Caption: can control that only people in your you
+
+00:20:30.719 --> 00:20:34.979
+Caption: know active directory domain are able to
+
+00:20:32.640 --> 00:20:37.079
+Caption: access that data but it is a very broad
+
+00:20:34.979 --> 00:20:39.959
+Caption: question in that every company is going
+
+00:20:37.079 --> 00:20:43.079
+Caption: to handle that a slightly different way
+
+00:20:39.959 --> 00:20:46.219
+Caption: oh awesome thank you so much Aiden cool
+
+00:20:43.079 --> 00:20:46.219
+Caption: um thank you yes
+

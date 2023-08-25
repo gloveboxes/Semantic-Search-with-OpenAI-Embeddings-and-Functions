@@ -1,0 +1,3767 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.178
+Caption: to be focused on today
+
+00:00:01.860 --> 00:00:05.159
+Caption: and the one I&#39;m personally most
+
+00:00:03.178 --> 00:00:06.539
+Caption: passionate about is the system design
+
+00:00:05.159 --> 00:00:09.239
+Caption: interview
+
+00:00:06.539 --> 00:00:11.300
+Caption: so when we say certain design
+
+00:00:09.239 --> 00:00:14.039
+Caption: a lot of people think we mean
+
+00:00:11.300 --> 00:00:16.319
+Caption: architecture we&#39;re going to put up a
+
+00:00:14.039 --> 00:00:19.520
+Caption: nice flow chart with you know database
+
+00:00:16.319 --> 00:00:19.520
+Caption: here load balance here
+
+00:00:19.559 --> 00:00:23.819
+Caption: and that&#39;s enough
+
+00:00:22.500 --> 00:00:25.920
+Caption: there&#39;s actually a lot that goes into
+
+00:00:23.819 --> 00:00:27.180
+Caption: certain design
+
+00:00:25.920 --> 00:00:30.979
+Caption: and we&#39;re today we&#39;re going to walk
+
+00:00:27.180 --> 00:00:30.979
+Caption: through a lot of these key Concepts
+
+00:00:31.500 --> 00:00:35.639
+Caption: alongside that
+
+00:00:33.119 --> 00:00:37.020
+Caption: we&#39;re also gonna go through the sponsors
+
+00:00:35.639 --> 00:00:38.459
+Caption: which make a great conference like this
+
+00:00:37.020 --> 00:00:39.899
+Caption: possible
+
+00:00:38.459 --> 00:00:42.479
+Caption: so
+
+00:00:39.898 --> 00:00:43.799
+Caption: thank you very much for the uh sponsor
+
+00:00:42.479 --> 00:00:45.779
+Caption: today who helped make all of this
+
+00:00:43.799 --> 00:00:47.939
+Caption: possible
+
+00:00:45.779 --> 00:00:49.619
+Caption: bit of a disclaimer I haven&#39;t worked at
+
+00:00:47.939 --> 00:00:51.119
+Caption: Google myself
+
+00:00:49.619 --> 00:00:54.058
+Caption: what I&#39;m going to be going through today
+
+00:00:51.119 --> 00:00:56.398
+Caption: is based off my time and my experience
+
+00:00:54.058 --> 00:00:58.799
+Caption: going through a lot of these concepts
+
+00:00:56.398 --> 00:01:02.218
+Caption: with Google tech leads
+
+00:00:58.799 --> 00:01:05.099
+Caption: and my own experience as an interviewer
+
+00:01:02.219 --> 00:01:06.599
+Caption: this is the first time I&#39;ve done a DDD
+
+00:01:05.099 --> 00:01:09.360
+Caption: talk so I&#39;m sure there&#39;s going to be
+
+00:01:06.599 --> 00:01:10.860
+Caption: mistakes please bear with me
+
+00:01:09.360 --> 00:01:12.959
+Caption: so
+
+00:01:10.860 --> 00:01:14.459
+Caption: today
+
+00:01:12.959 --> 00:01:15.720
+Caption: there&#39;s going to be kind of three parts
+
+00:01:14.459 --> 00:01:17.279
+Caption: of this story
+
+00:01:15.720 --> 00:01:19.619
+Caption: the first thing
+
+00:01:17.279 --> 00:01:21.540
+Caption: we&#39;re going to go through is what a
+
+00:01:19.619 --> 00:01:24.780
+Caption: interviewer is like
+
+00:01:21.540 --> 00:01:27.599
+Caption: I assume well I assume some of you would
+
+00:01:24.779 --> 00:01:30.000
+Caption: have done at least one interview
+
+00:01:27.599 --> 00:01:32.400
+Caption: it&#39;s going to be going through kind of a
+
+00:01:30.000 --> 00:01:35.158
+Caption: common pitfalls people make in system
+
+00:01:32.400 --> 00:01:36.959
+Caption: design to views
+
+00:01:35.158 --> 00:01:39.360
+Caption: we&#39;re then going to kind of distill that
+
+00:01:36.959 --> 00:01:41.339
+Caption: down to I think the key point of the
+
+00:01:39.360 --> 00:01:43.860
+Caption: talk which is the
+
+00:01:41.339 --> 00:01:45.599
+Caption: the big reason people kind of fall down
+
+00:01:43.860 --> 00:01:46.739
+Caption: not just at these interviews but
+
+00:01:45.599 --> 00:01:49.139
+Caption: actually day to day when you&#39;re
+
+00:01:46.739 --> 00:01:51.720
+Caption: designing your own systems
+
+00:01:49.139 --> 00:01:52.978
+Caption: from there we&#39;re going to move into a
+
+00:01:51.720 --> 00:01:55.439
+Caption: walk through
+
+00:01:52.978 --> 00:01:58.339
+Caption: of how to really approach system design
+
+00:01:55.439 --> 00:01:58.340
+Caption: in a structured way
+
+00:01:58.799 --> 00:02:02.220
+Caption: I want to stress this isn&#39;t just going
+
+00:02:00.419 --> 00:02:03.899
+Caption: to help you with interviews it really is
+
+00:02:02.220 --> 00:02:05.099
+Caption: going to help you in your day-to-day
+
+00:02:03.899 --> 00:02:06.599
+Caption: certain design
+
+00:02:05.099 --> 00:02:09.360
+Caption: and I think if you&#39;re really paying
+
+00:02:06.599 --> 00:02:14.000
+Caption: attention it&#39;s going to help mold how
+
+00:02:09.360 --> 00:02:14.000
+Caption: you approach problem solving as well
+
+00:02:15.660 --> 00:02:21.720
+Caption: so for our interview today we&#39;ve got our
+
+00:02:18.720 --> 00:02:23.580
+Caption: main characters we&#39;ve got our
+
+00:02:21.720 --> 00:02:26.458
+Caption: interviewer our system design
+
+00:02:23.580 --> 00:02:27.720
+Caption: interviewer from tech company X
+
+00:02:26.458 --> 00:02:30.860
+Caption: and us
+
+00:02:27.720 --> 00:02:30.860
+Caption: the hopeful interviewee
+
+00:02:32.940 --> 00:02:38.220
+Caption: so it&#39;s interview day
+
+00:02:35.458 --> 00:02:39.598
+Caption: you&#39;re a bit nervous you&#39;re going to
+
+00:02:38.220 --> 00:02:41.040
+Caption: skip breakfast
+
+00:02:39.598 --> 00:02:42.839
+Caption: you&#39;re going to crack open your laptop
+
+00:02:41.039 --> 00:02:45.179
+Caption: early in the morning and you&#39;re going to
+
+00:02:42.839 --> 00:02:47.160
+Caption: check when your interview is
+
+00:02:45.179 --> 00:02:49.439
+Caption: it&#39;s in about 15 minutes
+
+00:02:47.160 --> 00:02:50.760
+Caption: you&#39;re going to want to join early don&#39;t
+
+00:02:49.440 --> 00:02:52.500
+Caption: want to be late kind of make sure you
+
+00:02:50.759 --> 00:02:55.039
+Caption: don&#39;t have any issues joining me tour
+
+00:02:52.500 --> 00:02:55.039
+Caption: Zoom or whatever
+
+00:02:56.098 --> 00:03:01.619
+Caption: the interviewer signs on right on time
+
+00:02:58.800 --> 00:03:03.120
+Caption: and introduces herself
+
+00:03:01.619 --> 00:03:04.139
+Caption: she asks you to introduce yourself as
+
+00:03:03.119 --> 00:03:06.419
+Caption: well
+
+00:03:04.139 --> 00:03:08.458
+Caption: and you kind of chit chat back and forth
+
+00:03:06.419 --> 00:03:10.800
+Caption: a little bit
+
+00:03:08.458 --> 00:03:13.139
+Caption: eventually she asks are you ready for
+
+00:03:10.800 --> 00:03:15.300
+Caption: the actual interview
+
+00:03:13.139 --> 00:03:17.279
+Caption: you say yes
+
+00:03:15.300 --> 00:03:20.339
+Caption: she&#39;s then going to give you a prompt
+
+00:03:17.279 --> 00:03:22.919
+Caption: what&#39;s the problem we&#39;re trying to solve
+
+00:03:20.339 --> 00:03:24.000
+Caption: I want you to design a social media
+
+00:03:22.919 --> 00:03:25.979
+Caption: application
+
+00:03:24.000 --> 00:03:27.539
+Caption: where users can share messages with
+
+00:03:25.979 --> 00:03:28.800
+Caption: their friends
+
+00:03:27.539 --> 00:03:31.878
+Caption: so
+
+00:03:28.800 --> 00:03:31.878
+Caption: think something like Twitter
+
+00:03:32.279 --> 00:03:35.699
+Caption: luckily you&#39;re prepared for all this
+
+00:03:33.958 --> 00:03:38.039
+Caption: you&#39;ve done systems designing your
+
+00:03:35.699 --> 00:03:39.179
+Caption: day-to-day you&#39;ve done architecture
+
+00:03:38.039 --> 00:03:41.699
+Caption: so
+
+00:03:39.179 --> 00:03:43.919
+Caption: you end up with something like this
+
+00:03:41.699 --> 00:03:45.238
+Caption: it&#39;s pretty standard looking I assume
+
+00:03:43.919 --> 00:03:47.220
+Caption: most of you will have seen something
+
+00:03:45.238 --> 00:03:48.839
+Caption: similar to this
+
+00:03:47.220 --> 00:03:50.699
+Caption: nothing wrong with this kind of Stack
+
+00:03:48.839 --> 00:03:53.039
+Caption: you know you&#39;ve got a high availability
+
+00:03:50.699 --> 00:03:55.798
+Caption: setup here you&#39;ve got a database
+
+00:03:53.039 --> 00:03:58.500
+Caption: and you start a gas tester behind a CDN
+
+00:03:55.798 --> 00:04:01.639
+Caption: lots of best practice here
+
+00:03:58.500 --> 00:04:01.639
+Caption: no big issues I think
+
+00:04:01.860 --> 00:04:04.940
+Caption: can we handle more traffic
+
+00:04:06.059 --> 00:04:10.018
+Caption: absolutely
+
+00:04:08.039 --> 00:04:12.298
+Caption: sprinkle bit of cashing onto it
+
+00:04:10.018 --> 00:04:13.979
+Caption: sprinkle casing everywhere
+
+00:04:12.298 --> 00:04:16.139
+Caption: for those of you who haven&#39;t used red as
+
+00:04:13.979 --> 00:04:19.139
+Caption: before it&#39;s an in-memory database that&#39;s
+
+00:04:16.139 --> 00:04:21.119
+Caption: usually used as a cache so that sounds
+
+00:04:19.139 --> 00:04:23.759
+Caption: good more performance
+
+00:04:21.119 --> 00:04:25.380
+Caption: and I have seen all of these
+
+00:04:23.759 --> 00:04:26.399
+Caption: configurations in my time as an
+
+00:04:25.380 --> 00:04:28.020
+Caption: interviewer
+
+00:04:26.399 --> 00:04:29.820
+Caption: we&#39;re going to add redis to absolutely
+
+00:04:28.019 --> 00:04:31.259
+Caption: everything
+
+00:04:29.820 --> 00:04:32.940
+Caption: and I&#39;m going to talk a lot about
+
+00:04:31.259 --> 00:04:35.519
+Caption: trade-offs today
+
+00:04:32.940 --> 00:04:37.320
+Caption: but good thing is
+
+00:04:35.519 --> 00:04:38.879
+Caption: everything&#39;s cached everything is going
+
+00:04:37.320 --> 00:04:40.440
+Caption: to be way faster
+
+00:04:38.880 --> 00:04:43.080
+Caption: one of the trails we make for this
+
+00:04:40.440 --> 00:04:45.059
+Caption: performance is this is impossible
+
+00:04:43.079 --> 00:04:46.679
+Caption: you can&#39;t do this
+
+00:04:45.059 --> 00:04:49.440
+Caption: the only way you can connect redis up
+
+00:04:46.679 --> 00:04:50.519
+Caption: here is to the service where it says
+
+00:04:49.440 --> 00:04:52.919
+Caption: compute
+
+00:04:50.519 --> 00:04:56.039
+Caption: sadly that&#39;s the least common way I&#39;ve
+
+00:04:52.919 --> 00:04:57.720
+Caption: seen reddest attached
+
+00:04:56.040 --> 00:04:59.220
+Caption: so
+
+00:04:57.720 --> 00:05:01.500
+Caption: your interview is going to call this out
+
+00:04:59.220 --> 00:05:03.239
+Caption: that&#39;s really interesting but I don&#39;t
+
+00:05:01.500 --> 00:05:05.639
+Caption: think that&#39;s quite possible
+
+00:05:03.239 --> 00:05:06.959
+Caption: what other options do we have what else
+
+00:05:05.639 --> 00:05:09.800
+Caption: do we see quite commonly when we&#39;re
+
+00:05:06.959 --> 00:05:09.799
+Caption: doing these interviews
+
+00:05:11.160 --> 00:05:15.660
+Caption: we&#39;ll throw kubernetes at it I&#39;m not
+
+00:05:13.500 --> 00:05:17.459
+Caption: entirely sure how that helps in any way
+
+00:05:15.660 --> 00:05:19.559
+Caption: we&#39;re also going to go with cockroach at
+
+00:05:17.459 --> 00:05:21.660
+Caption: it because it&#39;s new and because their
+
+00:05:19.559 --> 00:05:23.940
+Caption: marketing team have done a fantastic job
+
+00:05:21.660 --> 00:05:26.179
+Caption: it&#39;s like postgres but better in every
+
+00:05:23.940 --> 00:05:26.179
+Caption: way
+
+00:05:26.820 --> 00:05:31.080
+Caption: And I stress today we&#39;re really going to
+
+00:05:28.739 --> 00:05:33.839
+Caption: talk a lot about
+
+00:05:31.079 --> 00:05:35.579
+Caption: different approaches what the trade-offs
+
+00:05:33.839 --> 00:05:36.899
+Caption: are and far far less about the
+
+00:05:35.579 --> 00:05:39.119
+Caption: technology
+
+00:05:36.899 --> 00:05:40.619
+Caption: one really common Pitfall is just
+
+00:05:39.119 --> 00:05:42.720
+Caption: reading the front page of these
+
+00:05:40.619 --> 00:05:45.419
+Caption: Technologies Dynamo is another one that
+
+00:05:42.720 --> 00:05:47.220
+Caption: comes up you gigabyte Kafka whatever
+
+00:05:45.419 --> 00:05:48.660
+Caption: they&#39;re going to pitch to you all these
+
+00:05:47.220 --> 00:05:50.639
+Caption: great benefits
+
+00:05:48.660 --> 00:05:52.259
+Caption: and they&#39;re going to say it&#39;s so
+
+00:05:50.639 --> 00:05:53.339
+Caption: flexible it&#39;s useful in all of these
+
+00:05:52.259 --> 00:05:55.139
+Caption: cases
+
+00:05:53.339 --> 00:05:57.179
+Caption: you&#39;re really gonna have to dig for some
+
+00:05:55.139 --> 00:05:59.399
+Caption: of those trade-offs
+
+00:05:57.179 --> 00:06:01.019
+Caption: if you don&#39;t understand this well if you
+
+00:05:59.399 --> 00:06:01.979
+Caption: don&#39;t understand what you&#39;re trying to
+
+00:06:01.019 --> 00:06:03.299
+Caption: solve
+
+00:06:01.979 --> 00:06:04.380
+Caption: you&#39;re going to end up in a bit of hot
+
+00:06:03.299 --> 00:06:06.720
+Caption: water
+
+00:06:04.380 --> 00:06:08.100
+Caption: you&#39;re going to end up with a
+
+00:06:06.720 --> 00:06:11.339
+Caption: delayed
+
+00:06:08.100 --> 00:06:12.779
+Caption: or incomplete solution
+
+00:06:11.339 --> 00:06:14.759
+Caption: we haven&#39;t really gone through the
+
+00:06:12.779 --> 00:06:16.199
+Caption: requirements so who knows what we&#39;re
+
+00:06:14.759 --> 00:06:19.559
+Caption: really building
+
+00:06:16.199 --> 00:06:21.959
+Caption: if we&#39;ve if we&#39;re going to have a
+
+00:06:19.559 --> 00:06:24.299
+Caption: lot of back and forth of product
+
+00:06:21.959 --> 00:06:26.220
+Caption: after we&#39;ve already already done a lot
+
+00:06:24.299 --> 00:06:28.138
+Caption: of upfront design there&#39;s going to be
+
+00:06:26.220 --> 00:06:29.399
+Caption: delays it&#39;s going to be oh but I thought
+
+00:06:28.139 --> 00:06:31.020
+Caption: we were going to build it this way not
+
+00:06:29.399 --> 00:06:32.699
+Caption: that way
+
+00:06:31.019 --> 00:06:34.138
+Caption: if you don&#39;t talk to product at all
+
+00:06:32.699 --> 00:06:36.000
+Caption: they&#39;re going to think you&#39;re building
+
+00:06:34.139 --> 00:06:37.319
+Caption: one thing and you&#39;re going to have built
+
+00:06:36.000 --> 00:06:40.199
+Caption: another thing
+
+00:06:37.319 --> 00:06:42.419
+Caption: Your solution is going to be incomplete
+
+00:06:40.199 --> 00:06:45.239
+Caption: it&#39;s also going to be expensive
+
+00:06:42.419 --> 00:06:47.279
+Caption: you haven&#39;t really done much to look at
+
+00:06:45.239 --> 00:06:49.739
+Caption: where your data is going look at what
+
+00:06:47.279 --> 00:06:50.940
+Caption: compute you&#39;re going to need so you&#39;re
+
+00:06:49.739 --> 00:06:52.259
+Caption: going to end up throwing a lot of
+
+00:06:50.940 --> 00:06:54.299
+Caption: hardware at it which is going to come at
+
+00:06:52.259 --> 00:06:56.580
+Caption: a lot of cost
+
+00:06:54.299 --> 00:06:58.739
+Caption: it&#39;s also going to be unreliable
+
+00:06:56.579 --> 00:07:00.000
+Caption: we&#39;ve put up design up there
+
+00:06:58.739 --> 00:07:01.440
+Caption: but
+
+00:07:00.000 --> 00:07:03.720
+Caption: how much throughput are we actually
+
+00:07:01.440 --> 00:07:05.580
+Caption: trying to handle how much load
+
+00:07:03.720 --> 00:07:07.940
+Caption: do we need does our system need to be
+
+00:07:05.579 --> 00:07:07.939
+Caption: able to support
+
+00:07:08.399 --> 00:07:12.000
+Caption: and of course it&#39;s going to be buggy as
+
+00:07:10.799 --> 00:07:13.799
+Caption: well
+
+00:07:12.000 --> 00:07:16.739
+Caption: especially if you&#39;re going to go with
+
+00:07:13.799 --> 00:07:18.720
+Caption: those hot new databases with a lot of
+
+00:07:16.739 --> 00:07:21.179
+Caption: eventual consistency well we&#39;re going to
+
+00:07:18.720 --> 00:07:23.639
+Caption: go through that later
+
+00:07:21.179 --> 00:07:26.880
+Caption: so your interview is very nice very
+
+00:07:23.639 --> 00:07:28.860
+Caption: professional very polite she&#39;s gonna
+
+00:07:26.880 --> 00:07:30.539
+Caption: let you down gently and just say I don&#39;t
+
+00:07:28.859 --> 00:07:32.038
+Caption: have any more questions
+
+00:07:30.539 --> 00:07:33.899
+Caption: why should she
+
+00:07:32.039 --> 00:07:36.959
+Caption: we haven&#39;t really demonstrated our
+
+00:07:33.899 --> 00:07:40.399
+Caption: ability to explain our decisions so
+
+00:07:36.959 --> 00:07:40.399
+Caption: she&#39;s going to save everyone time
+
+00:07:40.859 --> 00:07:45.719
+Caption: as I mentioned at the start
+
+00:07:42.959 --> 00:07:46.919
+Caption: we&#39;ve made a few different mistakes here
+
+00:07:45.720 --> 00:07:49.259
+Caption: but I&#39;m going to take a shot at
+
+00:07:46.919 --> 00:07:51.300
+Caption: distilling it down into one
+
+00:07:49.259 --> 00:07:54.419
+Caption: really
+
+00:07:51.299 --> 00:07:56.638
+Caption: what I think is a common cause
+
+00:07:54.419 --> 00:07:57.539
+Caption: and giving it away a bit early but I
+
+00:07:56.639 --> 00:08:00.300
+Caption: really think the mistake is
+
+00:07:57.539 --> 00:08:02.519
+Caption: unintentional design
+
+00:08:00.299 --> 00:08:05.339
+Caption: what I mean by that is we can get very
+
+00:08:02.519 --> 00:08:07.918
+Caption: caught up in applying best practice
+
+00:08:05.339 --> 00:08:10.199
+Caption: the best the newest technology the one
+
+00:08:07.919 --> 00:08:12.119
+Caption: with the most performed at purported
+
+00:08:10.199 --> 00:08:14.160
+Caption: benefits
+
+00:08:12.119 --> 00:08:16.500
+Caption: the problem with that is when we&#39;re
+
+00:08:14.160 --> 00:08:18.839
+Caption: asked to explain these decisions why do
+
+00:08:16.500 --> 00:08:21.239
+Caption: we pick this and not something else
+
+00:08:18.839 --> 00:08:22.500
+Caption: we might not be able to explain that
+
+00:08:21.239 --> 00:08:24.479
+Caption: and that&#39;s kind of what I mean by
+
+00:08:22.500 --> 00:08:25.619
+Caption: unintentional if it was an intentional
+
+00:08:24.479 --> 00:08:27.959
+Caption: design
+
+00:08:25.619 --> 00:08:30.299
+Caption: we&#39;d much better be able to say yes this
+
+00:08:27.959 --> 00:08:32.398
+Caption: is why we chose it
+
+00:08:30.299 --> 00:08:33.958
+Caption: what we&#39;ve actually done is really
+
+00:08:32.398 --> 00:08:36.239
+Caption: sidestepped thinking about the problem
+
+00:08:33.958 --> 00:08:38.458
+Caption: and just gone for a lot of shortcut
+
+00:08:36.239 --> 00:08:41.458
+Caption: heuristics right which
+
+00:08:38.458 --> 00:08:43.079
+Caption: I think best practices can be sometimes
+
+00:08:41.458 --> 00:08:44.458
+Caption: so let&#39;s try this whole process again
+
+00:08:43.080 --> 00:08:46.320
+Caption: but this time we&#39;ll do it with a bit
+
+00:08:44.458 --> 00:08:49.579
+Caption: more intention
+
+00:08:46.320 --> 00:08:49.580
+Caption: so let&#39;s wind back the clock
+
+00:08:50.700 --> 00:08:56.100
+Caption: we or what is system design and I just
+
+00:08:53.880 --> 00:08:58.320
+Caption: copied this straight from Wikipedia
+
+00:08:56.099 --> 00:08:59.759
+Caption: it&#39;s defined at the architecture well
+
+00:08:58.320 --> 00:09:01.320
+Caption: we&#39;ve got a diagram so I guess we have
+
+00:08:59.760 --> 00:09:04.140
+Caption: an architecture
+
+00:09:01.320 --> 00:09:05.660
+Caption: we have product design
+
+00:09:04.140 --> 00:09:08.880
+Caption: actually no we don&#39;t have product design
+
+00:09:05.659 --> 00:09:10.319
+Caption: modules interfaces data we ain&#39;t got
+
+00:09:08.880 --> 00:09:13.619
+Caption: that we haven&#39;t really talked about it
+
+00:09:10.320 --> 00:09:15.539
+Caption: we don&#39;t have requirements to start with
+
+00:09:13.619 --> 00:09:17.880
+Caption: now the product design part is easy
+
+00:09:15.539 --> 00:09:19.559
+Caption: we&#39;re just going to blame product we&#39;ll
+
+00:09:17.880 --> 00:09:23.660
+Caption: just Stonewall them off
+
+00:09:19.559 --> 00:09:23.659
+Caption: divular solution and then fall over
+
+00:09:24.359 --> 00:09:29.219
+Caption: what we actually want to do is really
+
+00:09:26.700 --> 00:09:31.500
+Caption: collaborate with our with product or
+
+00:09:29.219 --> 00:09:33.619
+Caption: your interviewer or just your team in
+
+00:09:31.500 --> 00:09:33.619
+Caption: general
+
+00:09:35.398 --> 00:09:38.119
+Caption: I think
+
+00:09:38.398 --> 00:09:42.719
+Caption: this works both ways
+
+00:09:40.799 --> 00:09:44.159
+Caption: product May some may simply throw
+
+00:09:42.719 --> 00:09:46.259
+Caption: requirements over the wall and not
+
+00:09:44.159 --> 00:09:48.239
+Caption: really want questions so you can do this
+
+00:09:46.260 --> 00:09:50.160
+Caption: one in Reverse as well you deliver a
+
+00:09:48.239 --> 00:09:52.200
+Caption: solution and blame engineering
+
+00:09:50.159 --> 00:09:54.059
+Caption: if your company is particularly low on
+
+00:09:52.200 --> 00:09:55.260
+Caption: funds you can blame each other much as
+
+00:09:54.059 --> 00:09:57.479
+Caption: you want while you&#39;re packing all your
+
+00:09:55.260 --> 00:10:00.320
+Caption: things into your boxes because
+
+00:09:57.479 --> 00:10:00.320
+Caption: um we fail to Launch
+
+00:10:00.838 --> 00:10:04.440
+Caption: so
+
+00:10:02.039 --> 00:10:06.359
+Caption: on to the walkthrough
+
+00:10:04.440 --> 00:10:08.039
+Caption: how we&#39;re going to get ourselves out of
+
+00:10:06.359 --> 00:10:10.919
+Caption: this mess where we&#39;ve thrown together a
+
+00:10:08.039 --> 00:10:12.659
+Caption: really unintentional design
+
+00:10:10.919 --> 00:10:14.940
+Caption: the first place to start
+
+00:10:12.659 --> 00:10:17.159
+Caption: is function requirements
+
+00:10:14.940 --> 00:10:20.580
+Caption: what are we actually trying to build
+
+00:10:17.159 --> 00:10:23.639
+Caption: when we have a discussion with products
+
+00:10:20.580 --> 00:10:25.799
+Caption: what are we going to talk about
+
+00:10:23.640 --> 00:10:26.940
+Caption: uh we want to have a common
+
+00:10:25.799 --> 00:10:28.919
+Caption: understanding of what we&#39;re trying to
+
+00:10:26.940 --> 00:10:30.359
+Caption: build
+
+00:10:28.919 --> 00:10:32.219
+Caption: so
+
+00:10:30.359 --> 00:10:34.979
+Caption: winding back the clock
+
+00:10:32.219 --> 00:10:37.679
+Caption: we want to talk about sorry we want to
+
+00:10:34.979 --> 00:10:39.299
+Caption: design a social media application where
+
+00:10:37.679 --> 00:10:40.440
+Caption: users can share messages with their
+
+00:10:39.299 --> 00:10:41.880
+Caption: friends
+
+00:10:40.440 --> 00:10:43.440
+Caption: so
+
+00:10:41.880 --> 00:10:45.299
+Caption: what&#39;s the what are the key features
+
+00:10:43.440 --> 00:10:48.380
+Caption: what things do we need to provide so
+
+00:10:45.299 --> 00:10:48.380
+Caption: that customers can do that
+
+00:10:56.880 --> 00:10:59.820
+Caption: the first thing
+
+00:10:58.440 --> 00:11:00.898
+Caption: users do need to be able to post
+
+00:10:59.820 --> 00:11:03.359
+Caption: messages
+
+00:11:00.898 --> 00:11:05.640
+Caption: that&#39;s an important one
+
+00:11:03.359 --> 00:11:08.578
+Caption: we also want to make sure that people
+
+00:11:05.640 --> 00:11:10.760
+Caption: can share these messages with their
+
+00:11:08.578 --> 00:11:10.760
+Caption: friends
+
+00:11:10.859 --> 00:11:14.700
+Caption: how they&#39;re going to do that is by
+
+00:11:12.299 --> 00:11:16.140
+Caption: following each other
+
+00:11:14.700 --> 00:11:17.820
+Caption: and we also want to make sure that
+
+00:11:16.140 --> 00:11:20.540
+Caption: you&#39;ve got a nice feed of what all your
+
+00:11:17.820 --> 00:11:20.539
+Caption: friends are saying
+
+00:11:20.640 --> 00:11:26.040
+Caption: I think we can focus on these three
+
+00:11:23.760 --> 00:11:27.720
+Caption: what I want to stress is that you don&#39;t
+
+00:11:26.039 --> 00:11:30.119
+Caption: have to design every part of your
+
+00:11:27.719 --> 00:11:32.819
+Caption: application here
+
+00:11:30.119 --> 00:11:35.578
+Caption: you want to spend most of your time most
+
+00:11:32.820 --> 00:11:38.578
+Caption: of your effort looking at areas or
+
+00:11:35.578 --> 00:11:40.320
+Caption: features where either your product has a
+
+00:11:38.578 --> 00:11:41.578
+Caption: lot of risk around it a lot of risk
+
+00:11:40.320 --> 00:11:43.140
+Caption: around that feature
+
+00:11:41.578 --> 00:11:45.599
+Caption: or where you&#39;re really going to extract
+
+00:11:43.140 --> 00:11:48.239
+Caption: a lot of competitive advantage
+
+00:11:45.599 --> 00:11:50.159
+Caption: and I think if we get these things right
+
+00:11:48.239 --> 00:11:52.200
+Caption: at the very least we do actually have a
+
+00:11:50.159 --> 00:11:53.759
+Caption: social media platform
+
+00:11:52.200 --> 00:11:55.859
+Caption: so what about those things we left by
+
+00:11:53.760 --> 00:11:57.059
+Caption: the side let&#39;s say authentication for
+
+00:11:55.859 --> 00:11:59.338
+Caption: example
+
+00:11:57.059 --> 00:12:01.440
+Caption: we can talk through that so for
+
+00:11:59.338 --> 00:12:03.539
+Caption: authentication there&#39;s a lot of nice
+
+00:12:01.440 --> 00:12:06.559
+Caption: patterns for doing this I want to say
+
+00:12:03.539 --> 00:12:06.559
+Caption: it&#39;s a largely solved problem
+
+00:12:07.619 --> 00:12:12.479
+Caption: I&#39;m going to tell my interview with that
+
+00:12:10.320 --> 00:12:13.679
+Caption: they&#39;re going to be okay with it and
+
+00:12:12.479 --> 00:12:15.000
+Caption: we&#39;re going to move on
+
+00:12:13.679 --> 00:12:18.059
+Caption: if they&#39;re not okay with it of course
+
+00:12:15.000 --> 00:12:22.200
+Caption: you can have a bit of a chat about it
+
+00:12:18.059 --> 00:12:23.518
+Caption: so we&#39;ve made some progress here
+
+00:12:22.200 --> 00:12:25.200
+Caption: just by refining the function
+
+00:12:23.518 --> 00:12:27.539
+Caption: requirements we at least know what we&#39;re
+
+00:12:25.200 --> 00:12:28.500
+Caption: going to build what our product is going
+
+00:12:27.539 --> 00:12:29.820
+Caption: to look like
+
+00:12:28.500 --> 00:12:31.859
+Caption: it&#39;s
+
+00:12:29.820 --> 00:12:33.000
+Caption: there&#39;s less risk of your solution being
+
+00:12:31.859 --> 00:12:34.200
+Caption: delayed
+
+00:12:33.000 --> 00:12:37.099
+Caption: or
+
+00:12:34.200 --> 00:12:37.100
+Caption: incomplete
+
+00:12:37.260 --> 00:12:40.679
+Caption: you still have all these other problems
+
+00:12:38.880 --> 00:12:44.220
+Caption: though how are we going to deliver these
+
+00:12:40.679 --> 00:12:45.179
+Caption: users cases to our to our users
+
+00:12:44.219 --> 00:12:46.679
+Caption: so we&#39;re going to move on to
+
+00:12:45.179 --> 00:12:48.898
+Caption: non-functional requirements the things
+
+00:12:46.679 --> 00:12:50.219
+Caption: that aren&#39;t features well we really need
+
+00:12:48.898 --> 00:12:51.539
+Caption: to think through
+
+00:12:50.219 --> 00:12:53.898
+Caption: and I think this is where it gets really
+
+00:12:51.539 --> 00:12:53.898
+Caption: interesting
+
+00:12:56.458 --> 00:12:59.159
+Caption: actually I will expand a bit more on
+
+00:12:58.320 --> 00:13:02.100
+Caption: that
+
+00:12:59.159 --> 00:13:05.159
+Caption: to be clear these are going to be things
+
+00:13:02.099 --> 00:13:07.919
+Caption: that our application needs to support
+
+00:13:05.159 --> 00:13:09.239
+Caption: it just isn&#39;t a feature users aren&#39;t
+
+00:13:07.919 --> 00:13:12.500
+Caption: going to be too aware of it and you&#39;re
+
+00:13:09.239 --> 00:13:12.500
+Caption: not going to put it up on your website
+
+00:13:12.778 --> 00:13:16.799
+Caption: so
+
+00:13:14.820 --> 00:13:18.600
+Caption: throughput
+
+00:13:16.799 --> 00:13:20.898
+Caption: how much traffic does your site need to
+
+00:13:18.599 --> 00:13:20.898
+Caption: handle
+
+00:13:21.479 --> 00:13:27.299
+Caption: there&#39;s two major ways this gets split
+
+00:13:24.239 --> 00:13:28.739
+Caption: up read throughput so reading against
+
+00:13:27.299 --> 00:13:30.838
+Caption: your data stores reading against your
+
+00:13:28.739 --> 00:13:33.838
+Caption: services it&#39;s usually pretty easy to
+
+00:13:30.838 --> 00:13:36.359
+Caption: scale and scale horizontally too
+
+00:13:33.838 --> 00:13:38.099
+Caption: write the report is a lot tougher and
+
+00:13:36.359 --> 00:13:41.219
+Caption: comes a lot of trade-offs
+
+00:13:38.099 --> 00:13:44.278
+Caption: which we&#39;re going to discuss later
+
+00:13:41.219 --> 00:13:46.439
+Caption: so do we need to go away for a few weeks
+
+00:13:44.278 --> 00:13:49.559
+Caption: and talk to our data team and really get
+
+00:13:46.440 --> 00:13:52.200
+Caption: an exact picture of how much traffic we
+
+00:13:49.559 --> 00:13:53.578
+Caption: are handling how many users we have or
+
+00:13:52.200 --> 00:13:54.898
+Caption: we haven&#39;t launched it how many users
+
+00:13:53.578 --> 00:13:57.239
+Caption: we&#39;re going to have
+
+00:13:54.898 --> 00:13:58.559
+Caption: not really we can be pretty rough about
+
+00:13:57.239 --> 00:14:01.138
+Caption: it we just want to get a rough picture
+
+00:13:58.559 --> 00:14:02.820
+Caption: of is it a lot of throughput is it a
+
+00:14:01.138 --> 00:14:04.018
+Caption: little bit of throughput
+
+00:14:02.820 --> 00:14:05.578
+Caption: so we&#39;re gonna start with some napkin
+
+00:14:04.018 --> 00:14:07.619
+Caption: math
+
+00:14:05.578 --> 00:14:09.958
+Caption: a pretty standard prompt for this we can
+
+00:14:07.619 --> 00:14:12.778
+Caption: just ask hey how many users are we
+
+00:14:09.958 --> 00:14:14.700
+Caption: expecting to have
+
+00:14:12.778 --> 00:14:16.500
+Caption: we&#39;re going to get back a number and
+
+00:14:14.700 --> 00:14:18.419
+Caption: this is something collaborate product or
+
+00:14:16.500 --> 00:14:20.458
+Caption: if it&#39;s an interviewer they&#39;ll likely
+
+00:14:18.419 --> 00:14:23.838
+Caption: just hand it over to you let&#39;s just say
+
+00:14:20.458 --> 00:14:23.838
+Caption: we have 100 million users
+
+00:14:24.659 --> 00:14:28.018
+Caption: from that we can start to build a
+
+00:14:26.578 --> 00:14:30.179
+Caption: picture we also need to know what
+
+00:14:28.018 --> 00:14:32.099
+Caption: they&#39;re going to do in a day right we
+
+00:14:30.179 --> 00:14:33.778
+Caption: want to know what is going to be hitting
+
+00:14:32.099 --> 00:14:36.239
+Caption: our services
+
+00:14:33.778 --> 00:14:39.000
+Caption: so
+
+00:14:36.239 --> 00:14:41.398
+Caption: we can kind of go with our gut fear here
+
+00:14:39.000 --> 00:14:44.219
+Caption: we&#39;re going to say oh an average user is
+
+00:14:41.398 --> 00:14:45.299
+Caption: going to post up five messages a day uh
+
+00:14:44.219 --> 00:14:46.259
+Caption: they&#39;re going to follow one of their
+
+00:14:45.299 --> 00:14:48.119
+Caption: friends
+
+00:14:46.260 --> 00:14:53.220
+Caption: and I&#39;m going to Doom scroll a little
+
+00:14:48.119 --> 00:14:55.559
+Caption: bit I have 20 views per user per day
+
+00:14:53.219 --> 00:14:58.799
+Caption: sure
+
+00:14:55.559 --> 00:15:01.500
+Caption: so we can start against some rough maths
+
+00:14:58.799 --> 00:15:03.659
+Caption: if we have 100 million Daily Apple users
+
+00:15:01.500 --> 00:15:06.359
+Caption: and we have five messages a day that&#39;s
+
+00:15:03.659 --> 00:15:08.278
+Caption: 500 million messages a day or about 6
+
+00:15:06.359 --> 00:15:10.138
+Caption: 000 requests a second
+
+00:15:08.278 --> 00:15:12.838
+Caption: if our users are following one other
+
+00:15:10.138 --> 00:15:16.278
+Caption: user a day 100 million follows a day
+
+00:15:12.838 --> 00:15:16.278
+Caption: 1200 requests a second
+
+00:15:16.320 --> 00:15:20.160
+Caption: those are both right ones
+
+00:15:18.299 --> 00:15:21.659
+Caption: those are both right throughputs that&#39;s
+
+00:15:20.159 --> 00:15:23.578
+Caption: how many write requests we&#39;re going to
+
+00:15:21.659 --> 00:15:26.278
+Caption: need to handle
+
+00:15:23.578 --> 00:15:28.320
+Caption: look it&#39;s kind of around the mid-range
+
+00:15:26.278 --> 00:15:30.539
+Caption: the last one is reads
+
+00:15:28.320 --> 00:15:32.518
+Caption: we&#39;re gonna have to do 2 billion
+
+00:15:30.539 --> 00:15:34.979
+Caption: reads a day
+
+00:15:32.518 --> 00:15:37.619
+Caption: 20
+
+00:15:34.979 --> 00:15:40.078
+Caption: feed 20 users requesting their feed
+
+00:15:37.619 --> 00:15:42.419
+Caption: every day
+
+00:15:40.078 --> 00:15:44.760
+Caption: per user per day
+
+00:15:42.419 --> 00:15:45.958
+Caption: it&#39;s a 24 000 requests read requests a
+
+00:15:44.760 --> 00:15:48.600
+Caption: second
+
+00:15:45.958 --> 00:15:50.219
+Caption: it&#39;s getting up there
+
+00:15:48.599 --> 00:15:51.539
+Caption: we&#39;ll make a note of that I&#39;ll come back
+
+00:15:50.219 --> 00:15:54.018
+Caption: to that later that&#39;s going to help guide
+
+00:15:51.539 --> 00:15:54.018
+Caption: our design
+
+00:15:55.619 --> 00:15:58.198
+Caption: we also need to take stock of
+
+00:15:57.059 --> 00:16:00.898
+Caption: availability
+
+00:15:58.198 --> 00:16:04.259
+Caption: so availability is our system&#39;s ability
+
+00:16:00.898 --> 00:16:06.059
+Caption: to fulfill a functional requirement
+
+00:16:04.260 --> 00:16:07.799
+Caption: it needs to succeed within a certain
+
+00:16:06.059 --> 00:16:10.739
+Caption: span of time
+
+00:16:07.799 --> 00:16:13.559
+Caption: why is that important
+
+00:16:10.739 --> 00:16:15.898
+Caption: if users on our app try to send a
+
+00:16:13.559 --> 00:16:18.059
+Caption: message and they keep getting errors or
+
+00:16:15.898 --> 00:16:20.338
+Caption: it takes 30 seconds every time you post
+
+00:16:18.059 --> 00:16:23.958
+Caption: a message to get a confirmation it&#39;s
+
+00:16:20.338 --> 00:16:23.958
+Caption: going to be a pretty crummy experience
+
+00:16:25.799 --> 00:16:28.799
+Caption: again
+
+00:16:27.059 --> 00:16:30.898
+Caption: and I&#39;m gonna Hammer this in so much
+
+00:16:28.799 --> 00:16:33.138
+Caption: it&#39;s in collaboration with your product
+
+00:16:30.898 --> 00:16:33.138
+Caption: team
+
+00:16:33.539 --> 00:16:37.578
+Caption: well with with your wider team really
+
+00:16:38.278 --> 00:16:41.398
+Caption: we&#39;re going to say
+
+00:16:39.719 --> 00:16:43.198
+Caption: our users
+
+00:16:41.398 --> 00:16:45.479
+Caption: most of the time
+
+00:16:43.198 --> 00:16:47.338
+Caption: get a response within half a second when
+
+00:16:45.479 --> 00:16:49.559
+Caption: they try to send a message
+
+00:16:47.338 --> 00:16:51.059
+Caption: it feels about right again we can kind
+
+00:16:49.559 --> 00:16:52.739
+Caption: of use our gut as long as we&#39;re sending
+
+00:16:51.059 --> 00:16:54.778
+Caption: these products at these expectations
+
+00:16:52.739 --> 00:16:56.458
+Caption: with product
+
+00:16:54.778 --> 00:16:59.039
+Caption: we can follow another when we go to
+
+00:16:56.458 --> 00:17:00.599
+Caption: click follow on another user it succeeds
+
+00:16:59.039 --> 00:17:02.820
+Caption: most of the time within about two
+
+00:17:00.599 --> 00:17:04.918
+Caption: seconds
+
+00:17:02.820 --> 00:17:07.078
+Caption: it&#39;s done less often and users will kind
+
+00:17:04.918 --> 00:17:08.938
+Caption: of just accept it that&#39;s what we think
+
+00:17:07.078 --> 00:17:10.678
+Caption: anyway we don&#39;t have to get it perfectly
+
+00:17:08.938 --> 00:17:13.260
+Caption: right we can always refine these things
+
+00:17:10.678 --> 00:17:15.659
+Caption: tune our solution after we launch as
+
+00:17:13.260 --> 00:17:17.880
+Caption: long as we&#39;ve set our expectations with
+
+00:17:15.660 --> 00:17:20.280
+Caption: product
+
+00:17:17.880 --> 00:17:21.958
+Caption: the last one is really important for our
+
+00:17:20.280 --> 00:17:24.359
+Caption: product
+
+00:17:21.958 --> 00:17:26.338
+Caption: we want to encourage
+
+00:17:24.359 --> 00:17:29.280
+Caption: why it&#39;s engagement right we really want
+
+00:17:26.338 --> 00:17:31.020
+Caption: users to get stuck in that Loop of just
+
+00:17:29.280 --> 00:17:33.179
+Caption: scrolling and reviewing a lot of their
+
+00:17:31.020 --> 00:17:35.580
+Caption: friends posts so that really needs to be
+
+00:17:33.178 --> 00:17:37.199
+Caption: really quite reliable and happen pretty
+
+00:17:35.579 --> 00:17:39.538
+Caption: quickly you don&#39;t want them waiting or
+
+00:17:37.199 --> 00:17:43.099
+Caption: if they get an error screen
+
+00:17:39.538 --> 00:17:43.099
+Caption: they could very well leave right
+
+00:17:46.260 --> 00:17:49.558
+Caption: we&#39;ll make a note of that and come back
+
+00:17:47.579 --> 00:17:51.178
+Caption: to that later
+
+00:17:49.558 --> 00:17:52.199
+Caption: consistency is a really interesting one
+
+00:17:51.178 --> 00:17:55.140
+Caption: as well
+
+00:17:52.199 --> 00:17:56.459
+Caption: consistency deals with guarantees
+
+00:17:55.140 --> 00:17:59.280
+Caption: so
+
+00:17:56.459 --> 00:18:02.880
+Caption: what what are the characteristics of our
+
+00:17:59.280 --> 00:18:04.859
+Caption: system when we write data and read data
+
+00:18:02.880 --> 00:18:07.020
+Caption: back from it
+
+00:18:04.859 --> 00:18:10.099
+Caption: it&#39;s a whole huge topic all by itself
+
+00:18:07.020 --> 00:18:10.099
+Caption: that I&#39;m not going to go into
+
+00:18:10.199 --> 00:18:13.500
+Caption: but
+
+00:18:11.760 --> 00:18:15.419
+Caption: we can think we&#39;re going to use two
+
+00:18:13.500 --> 00:18:18.959
+Caption: major models to categorize it for today
+
+00:18:15.418 --> 00:18:22.439
+Caption: we have strong consistency where all of
+
+00:18:18.959 --> 00:18:25.079
+Caption: your accesses are seen in sequence
+
+00:18:22.439 --> 00:18:27.359
+Caption: that maybe sounds a bit bubbly
+
+00:18:25.079 --> 00:18:29.219
+Caption: the important thing is this also means
+
+00:18:27.359 --> 00:18:31.439
+Caption: when we write data to our stores or
+
+00:18:29.219 --> 00:18:33.058
+Caption: write down to our services as soon as we
+
+00:18:31.439 --> 00:18:35.219
+Caption: try to read it we&#39;re going to get the
+
+00:18:33.058 --> 00:18:37.699
+Caption: latest date back it&#39;s strongly
+
+00:18:35.219 --> 00:18:37.699
+Caption: consistent
+
+00:18:38.280 --> 00:18:42.359
+Caption: on the other end of the scale and I
+
+00:18:40.439 --> 00:18:44.459
+Caption: promise we&#39;ll get something for this is
+
+00:18:42.359 --> 00:18:46.500
+Caption: eventual consistency
+
+00:18:44.459 --> 00:18:49.798
+Caption: so
+
+00:18:46.500 --> 00:18:51.298
+Caption: with eventually consistent systems
+
+00:18:49.798 --> 00:18:52.500
+Caption: you&#39;re going to have all these updates
+
+00:18:51.298 --> 00:18:55.619
+Caption: coming in
+
+00:18:52.500 --> 00:18:57.178
+Caption: but when you go to read at any time they
+
+00:18:55.619 --> 00:18:59.880
+Caption: might have said yeah we&#39;ve accepted this
+
+00:18:57.178 --> 00:19:02.760
+Caption: right we&#39;ve accepted this new data
+
+00:18:59.880 --> 00:19:04.619
+Caption: but you might not get the latest data
+
+00:19:02.760 --> 00:19:05.579
+Caption: the only guarantee this gives you is
+
+00:19:04.619 --> 00:19:07.558
+Caption: that
+
+00:19:05.579 --> 00:19:10.760
+Caption: if rights stop coming in we&#39;ll
+
+00:19:07.558 --> 00:19:10.760
+Caption: eventually get the latest date
+
+00:19:11.038 --> 00:19:14.939
+Caption: let&#39;s take an ordering out for example
+
+00:19:12.780 --> 00:19:18.059
+Caption: Amazon or something
+
+00:19:14.939 --> 00:19:20.159
+Caption: when we go and order a new book
+
+00:19:18.058 --> 00:19:22.439
+Caption: with a strongly consistent system when
+
+00:19:20.160 --> 00:19:24.660
+Caption: we got our order history we&#39;re going to
+
+00:19:22.439 --> 00:19:27.418
+Caption: see oh the new book we&#39;ve ordered
+
+00:19:24.660 --> 00:19:29.760
+Caption: cool easy
+
+00:19:27.418 --> 00:19:32.699
+Caption: if we have an eventually consistent
+
+00:19:29.760 --> 00:19:35.400
+Caption: backend what we might see is we purchase
+
+00:19:32.699 --> 00:19:37.859
+Caption: a book we go to the order history
+
+00:19:35.400 --> 00:19:40.200
+Caption: and there&#39;s nothing there
+
+00:19:37.859 --> 00:19:42.058
+Caption: that sounds really bad in that case how
+
+00:19:40.199 --> 00:19:44.479
+Caption: can eventually eventual consistency be
+
+00:19:42.058 --> 00:19:44.479
+Caption: feasible
+
+00:19:44.819 --> 00:19:47.639
+Caption: there&#39;s actually a lot of ways around
+
+00:19:46.199 --> 00:19:49.798
+Caption: this
+
+00:19:47.640 --> 00:19:51.058
+Caption: but most almost all of them will add
+
+00:19:49.798 --> 00:19:53.159
+Caption: complexity
+
+00:19:51.058 --> 00:19:55.199
+Caption: or otherwise impact the user flow for
+
+00:19:53.160 --> 00:19:56.700
+Caption: example you might just say hey if you
+
+00:19:55.199 --> 00:19:59.219
+Caption: bought in the past 15 minutes it might
+
+00:19:56.699 --> 00:20:00.779
+Caption: not show up here
+
+00:19:59.219 --> 00:20:02.038
+Caption: you might also just choose to show a
+
+00:20:00.780 --> 00:20:03.539
+Caption: spinner or something
+
+00:20:02.038 --> 00:20:05.639
+Caption: rather than
+
+00:20:03.538 --> 00:20:07.319
+Caption: show a stale state to put the customer
+
+00:20:05.640 --> 00:20:09.719
+Caption: at ease
+
+00:20:07.319 --> 00:20:12.298
+Caption: either way
+
+00:20:09.719 --> 00:20:13.439
+Caption: you&#39;re adding complexity application
+
+00:20:12.298 --> 00:20:14.760
+Caption: and
+
+00:20:13.439 --> 00:20:16.379
+Caption: I did promise we&#39;ll get something in
+
+00:20:14.760 --> 00:20:18.900
+Caption: return
+
+00:20:16.380 --> 00:20:20.880
+Caption: with strong consistency we get these
+
+00:20:18.900 --> 00:20:23.460
+Caption: nice consistent views
+
+00:20:20.880 --> 00:20:25.798
+Caption: it&#39;s very easy to use Easy to debug
+
+00:20:23.459 --> 00:20:28.880
+Caption: easier to reason about easier to write
+
+00:20:25.798 --> 00:20:28.880
+Caption: it&#39;s very nice
+
+00:20:30.239 --> 00:20:34.798
+Caption: one thing we can do
+
+00:20:32.459 --> 00:20:37.558
+Caption: with eventually consistent systems is
+
+00:20:34.798 --> 00:20:39.178
+Caption: really scale out our rights
+
+00:20:37.558 --> 00:20:41.038
+Caption: with a lot of these strongly consistent
+
+00:20:39.178 --> 00:20:44.640
+Caption: stores
+
+00:20:41.038 --> 00:20:46.500
+Caption: it&#39;s difficult to scale to descale these
+
+00:20:44.640 --> 00:20:48.178
+Caption: rights horizontally we can&#39;t really have
+
+00:20:46.500 --> 00:20:49.979
+Caption: a cluster of right nodes that&#39;s not how
+
+00:20:48.178 --> 00:20:51.479
+Caption: it works
+
+00:20:49.979 --> 00:20:53.939
+Caption: instead
+
+00:20:51.479 --> 00:20:56.699
+Caption: let&#39;s say we have our big SQL Server
+
+00:20:53.939 --> 00:20:58.439
+Caption: database all we can really do is scale
+
+00:20:56.699 --> 00:21:00.719
+Caption: it up and up and up
+
+00:20:58.439 --> 00:21:02.219
+Caption: you&#39;re going to hit limits there and
+
+00:21:00.719 --> 00:21:04.380
+Caption: what you can
+
+00:21:02.219 --> 00:21:07.939
+Caption: actually provide
+
+00:21:04.380 --> 00:21:07.940
+Caption: and it&#39;s going to be awfully expensive
+
+00:21:09.239 --> 00:21:14.038
+Caption: with eventually consistent systems
+
+00:21:12.178 --> 00:21:15.659
+Caption: we&#39;re basically accepting hey I don&#39;t
+
+00:21:14.038 --> 00:21:19.759
+Caption: mind if this system returns a stale
+
+00:21:15.660 --> 00:21:19.760
+Caption: result I&#39;d rather be more available
+
+00:21:20.699 --> 00:21:26.399
+Caption: this also means
+
+00:21:23.280 --> 00:21:28.260
+Caption: we get a lot of
+
+00:21:26.400 --> 00:21:29.820
+Caption: there&#39;s a lot of techniques that now
+
+00:21:28.260 --> 00:21:32.298
+Caption: become available to us to improve right
+
+00:21:29.819 --> 00:21:32.298
+Caption: throughput
+
+00:21:35.099 --> 00:21:40.038
+Caption: a lot of those hinge on things like
+
+00:21:36.839 --> 00:21:40.038
+Caption: asynchronous replication
+
+00:21:40.558 --> 00:21:47.699
+Caption: making sure that we a
+
+00:21:44.579 --> 00:21:49.739
+Caption: you know a log of our transactions
+
+00:21:47.699 --> 00:21:51.178
+Caption: can be sensibly replicated to all of the
+
+00:21:49.739 --> 00:21:53.099
+Caption: other nodes in our cluster which are
+
+00:21:51.178 --> 00:21:55.519
+Caption: handling a little slice of our right
+
+00:21:53.099 --> 00:21:55.520
+Caption: throughput
+
+00:21:56.099 --> 00:21:59.099
+Caption: so that&#39;s consistency we&#39;ll actually
+
+00:21:57.538 --> 00:22:00.418
+Caption: come back a little bit on that when we
+
+00:21:59.099 --> 00:22:04.280
+Caption: go and talk about
+
+00:22:00.418 --> 00:22:04.279
+Caption: talk a little bit more about databases
+
+00:22:04.439 --> 00:22:07.079
+Caption: so how&#39;s it actually matter for
+
+00:22:05.640 --> 00:22:10.619
+Caption: application
+
+00:22:07.079 --> 00:22:13.619
+Caption: is it okay if a users feed doesn&#39;t show
+
+00:22:10.619 --> 00:22:15.479
+Caption: a message that they&#39;ve just posted
+
+00:22:13.619 --> 00:22:17.579
+Caption: potentially
+
+00:22:15.479 --> 00:22:18.959
+Caption: it&#39;s not nice but we know we want to
+
+00:22:17.579 --> 00:22:21.000
+Caption: handle quite a bit of throughput here
+
+00:22:18.959 --> 00:22:22.319
+Caption: and for interest sake we&#39;re going to say
+
+00:22:21.000 --> 00:22:24.599
+Caption: yeah we want to make that eventually
+
+00:22:22.319 --> 00:22:27.798
+Caption: consistent we&#39;ll accept a bit of
+
+00:22:24.599 --> 00:22:27.798
+Caption: complexity to our application
+
+00:22:27.839 --> 00:22:33.178
+Caption: with follows it&#39;s a bit more hazy if you
+
+00:22:30.900 --> 00:22:34.919
+Caption: follow another user do you necessarily
+
+00:22:33.178 --> 00:22:36.658
+Caption: expect to see all their messages in your
+
+00:22:34.918 --> 00:22:38.279
+Caption: feed right away
+
+00:22:36.659 --> 00:22:40.559
+Caption: I think that&#39;s a bit more of a gray area
+
+00:22:38.280 --> 00:22:41.880
+Caption: You could argue that hey if I&#39;m
+
+00:22:40.558 --> 00:22:43.380
+Caption: interested in what this person has to
+
+00:22:41.880 --> 00:22:45.298
+Caption: say I want to get their messages right
+
+00:22:43.380 --> 00:22:47.819
+Caption: now
+
+00:22:45.298 --> 00:22:49.678
+Caption: but there could also be a case made that
+
+00:22:47.819 --> 00:22:51.178
+Caption: we wanted to have that extra performance
+
+00:22:49.678 --> 00:22:52.979
+Caption: so we don&#39;t mind if it takes a little
+
+00:22:51.178 --> 00:22:55.158
+Caption: while for those friends messages to show
+
+00:22:52.979 --> 00:22:55.158
+Caption: up
+
+00:22:56.339 --> 00:23:01.260
+Caption: with viewing our feed
+
+00:22:58.619 --> 00:23:03.538
+Caption: I&#39;d argue it&#39;s much the other way
+
+00:23:01.260 --> 00:23:05.099
+Caption: we can accept if one of your friends
+
+00:23:03.538 --> 00:23:06.899
+Caption: posts a new message
+
+00:23:05.099 --> 00:23:08.699
+Caption: you&#39;re not going to see it right away it
+
+00:23:06.900 --> 00:23:10.500
+Caption: could be five ten seconds it could be a
+
+00:23:08.699 --> 00:23:12.479
+Caption: minute
+
+00:23:10.500 --> 00:23:15.538
+Caption: again one of those things you really
+
+00:23:12.479 --> 00:23:17.099
+Caption: want to drive with product as long as
+
+00:23:15.538 --> 00:23:19.699
+Caption: the expectations are aligned I think are
+
+00:23:17.099 --> 00:23:19.699
+Caption: in a good place
+
+00:23:25.739 --> 00:23:29.400
+Caption: so let&#39;s discuss that with our friend
+
+00:23:27.119 --> 00:23:31.859
+Caption: our interviewer is it okay if the feed
+
+00:23:29.400 --> 00:23:33.659
+Caption: sometimes out of date sure thing Andrew
+
+00:23:31.859 --> 00:23:36.260
+Caption: is very nice he just says yes to
+
+00:23:33.659 --> 00:23:36.260
+Caption: whatever we say
+
+00:23:36.599 --> 00:23:40.140
+Caption: the last one here a little bit more
+
+00:23:38.939 --> 00:23:42.959
+Caption: routine
+
+00:23:40.140 --> 00:23:44.640
+Caption: where&#39;s this all this data where is all
+
+00:23:42.959 --> 00:23:46.439
+Caption: this user data going to go
+
+00:23:44.640 --> 00:23:48.419
+Caption: if we&#39;ve got terabytes and terabytes and
+
+00:23:46.439 --> 00:23:50.819
+Caption: terabytes we need to store it somewhere
+
+00:23:48.418 --> 00:23:52.500
+Caption: we don&#39;t want to go and run out of
+
+00:23:50.819 --> 00:23:55.979
+Caption: disk spares in our database halfway
+
+00:23:52.500 --> 00:23:57.599
+Caption: through or run out of some other store
+
+00:23:55.979 --> 00:23:59.819
+Caption: another one that we&#39;re not going to go
+
+00:23:57.599 --> 00:24:01.979
+Caption: too much into is the durability of your
+
+00:23:59.819 --> 00:24:03.479
+Caption: data don&#39;t always assume you need to
+
+00:24:01.979 --> 00:24:05.699
+Caption: store all of your data
+
+00:24:03.479 --> 00:24:07.319
+Caption: there&#39;s actually many cases where you&#39;re
+
+00:24:05.699 --> 00:24:09.178
+Caption: going to receive user data and you&#39;re
+
+00:24:07.319 --> 00:24:10.798
+Caption: either going to store it temporarily
+
+00:24:09.178 --> 00:24:12.899
+Caption: or you&#39;re going to store up somewhere
+
+00:24:10.798 --> 00:24:14.880
+Caption: transient you don&#39;t care if that machine
+
+00:24:12.900 --> 00:24:17.280
+Caption: crashes and that data goes away it&#39;s
+
+00:24:14.880 --> 00:24:19.380
+Caption: it&#39;s nice to have
+
+00:24:17.280 --> 00:24:21.659
+Caption: so similar to what we did for throughput
+
+00:24:19.380 --> 00:24:25.339
+Caption: let&#39;s do a little bit of napkin math
+
+00:24:21.659 --> 00:24:25.340
+Caption: to see how much data we need to store
+
+00:24:25.439 --> 00:24:28.619
+Caption: we&#39;re going to put up a little bit of a
+
+00:24:27.178 --> 00:24:30.899
+Caption: simple skimmer here I hope it&#39;s not too
+
+00:24:28.619 --> 00:24:32.640
+Caption: controversial just a unique identifier
+
+00:24:30.900 --> 00:24:34.799
+Caption: for the message
+
+00:24:32.640 --> 00:24:36.299
+Caption: when it was created will generate that
+
+00:24:34.798 --> 00:24:37.918
+Caption: server side
+
+00:24:36.298 --> 00:24:39.658
+Caption: a message
+
+00:24:37.918 --> 00:24:41.339
+Caption: and a little bit of metadata around it
+
+00:24:39.659 --> 00:24:43.020
+Caption: the metadata give us a bit of
+
+00:24:41.339 --> 00:24:44.459
+Caption: flexibility maybe we want to stuff
+
+00:24:43.020 --> 00:24:46.619
+Caption: something in there later
+
+00:24:44.459 --> 00:24:49.020
+Caption: that&#39;s not the point the point is we&#39;ve
+
+00:24:46.619 --> 00:24:51.239
+Caption: got about 250 bytes of data here
+
+00:24:49.020 --> 00:24:54.419
+Caption: per row
+
+00:24:51.239 --> 00:24:56.579
+Caption: we already know we&#39;ve we&#39;ve done the
+
+00:24:54.418 --> 00:24:58.918
+Caption: we&#39;ve gone asked how many users we have
+
+00:24:56.579 --> 00:25:01.519
+Caption: how many messages we expect users to
+
+00:24:58.918 --> 00:25:01.519
+Caption: post each day
+
+00:25:01.619 --> 00:25:05.699
+Caption: and I hope my math is right here that
+
+00:25:03.359 --> 00:25:08.219
+Caption: should be 125 gigs a day
+
+00:25:05.699 --> 00:25:10.439
+Caption: or 40 terabytes a year
+
+00:25:08.219 --> 00:25:13.020
+Caption: this does matter
+
+00:25:10.439 --> 00:25:14.158
+Caption: I use postgres Aurora a lot my
+
+00:25:13.020 --> 00:25:16.919
+Caption: day-to-day
+
+00:25:14.159 --> 00:25:18.480
+Caption: that has a database name of 128
+
+00:25:16.918 --> 00:25:20.759
+Caption: terabytes
+
+00:25:18.479 --> 00:25:22.619
+Caption: that means within a few years we&#39;re
+
+00:25:20.760 --> 00:25:24.178
+Caption: going to start to have to eat this we&#39;re
+
+00:25:22.619 --> 00:25:26.400
+Caption: going to get stuff we&#39;re going to have
+
+00:25:24.178 --> 00:25:28.619
+Caption: to start deleting data
+
+00:25:26.400 --> 00:25:31.580
+Caption: or we can have a look at an archiving
+
+00:25:28.619 --> 00:25:31.579
+Caption: process up front
+
+00:25:33.298 --> 00:25:37.678
+Caption: on the other hand be careful other
+
+00:25:35.520 --> 00:25:40.320
+Caption: limits as well we just ran to a problem
+
+00:25:37.678 --> 00:25:41.939
+Caption: where one of our tables is starting to
+
+00:25:40.319 --> 00:25:44.459
+Caption: exceed it&#39;s it&#39;s getting really close to
+
+00:25:41.939 --> 00:25:46.500
+Caption: its limit projects has a limit of 32
+
+00:25:44.459 --> 00:25:49.399
+Caption: terabytes
+
+00:25:46.500 --> 00:25:49.400
+Caption: know your technology
+
+00:25:51.119 --> 00:25:53.839
+Caption: so
+
+00:25:54.119 --> 00:25:57.900
+Caption: now that we&#39;ve gone through what are
+
+00:25:56.038 --> 00:25:59.639
+Caption: abnis has poured both from a functional
+
+00:25:57.900 --> 00:26:01.739
+Caption: and non-functional sense
+
+00:25:59.640 --> 00:26:05.039
+Caption: we&#39;re going to go with something uh
+
+00:26:01.739 --> 00:26:06.778
+Caption: a tiny bit more esoteric
+
+00:26:05.038 --> 00:26:08.219
+Caption: is the schema
+
+00:26:06.779 --> 00:26:11.419
+Caption: how are we going to send this
+
+00:26:08.219 --> 00:26:11.418
+Caption: information around our system
+
+00:26:11.760 --> 00:26:15.479
+Caption: we don&#39;t need to talk about it in too
+
+00:26:13.739 --> 00:26:18.839
+Caption: much detail just enough for us to reason
+
+00:26:15.479 --> 00:26:21.058
+Caption: about the parts of our system
+
+00:26:18.839 --> 00:26:23.219
+Caption: remember our three use cases
+
+00:26:21.058 --> 00:26:26.520
+Caption: want to be able to post a message
+
+00:26:23.219 --> 00:26:29.778
+Caption: we want to be able to follow other users
+
+00:26:26.520 --> 00:26:29.779
+Caption: and we want to be able to view
+
+00:26:29.819 --> 00:26:33.538
+Caption: other uses feeds
+
+00:26:32.219 --> 00:26:35.339
+Caption: you can see this is missing a whole
+
+00:26:33.538 --> 00:26:37.079
+Caption: bunch of stuff but we&#39;ve got the key
+
+00:26:35.339 --> 00:26:39.298
+Caption: points here you want to post a message
+
+00:26:37.079 --> 00:26:42.359
+Caption: include your message and I&#39;ll follow
+
+00:26:39.298 --> 00:26:44.278
+Caption: user you include the user ID
+
+00:26:42.359 --> 00:26:46.260
+Caption: you want to view the feed you&#39;re going
+
+00:26:44.279 --> 00:26:47.580
+Caption: to just send a request and you&#39;re
+
+00:26:46.260 --> 00:26:49.940
+Caption: hopefully going to get back a big list
+
+00:26:47.579 --> 00:26:49.939
+Caption: of messages
+
+00:26:51.719 --> 00:26:55.979
+Caption: the last part
+
+00:26:54.359 --> 00:26:57.778
+Caption: ties it all together but I think it&#39;s
+
+00:26:55.979 --> 00:27:00.418
+Caption: actually the probably the least juicy
+
+00:26:57.779 --> 00:27:03.299
+Caption: part so if we go back to the very
+
+00:27:00.418 --> 00:27:05.939
+Caption: standard looking stack we had before
+
+00:27:03.298 --> 00:27:08.880
+Caption: how are we actually going to talk to
+
+00:27:05.939 --> 00:27:10.739
+Caption: our services from our client I think we
+
+00:27:08.880 --> 00:27:13.199
+Caption: what I&#39;ve seen a lot is people are going
+
+00:27:10.739 --> 00:27:16.140
+Caption: to generate default to rest
+
+00:27:13.199 --> 00:27:18.599
+Caption: and that&#39;s what I really want to
+
+00:27:16.140 --> 00:27:20.520
+Caption: hammer down on or push back on
+
+00:27:18.599 --> 00:27:22.439
+Caption: we don&#39;t want to be in the habit of
+
+00:27:20.520 --> 00:27:23.700
+Caption: defaulting to certain Technologies and
+
+00:27:22.439 --> 00:27:25.139
+Caption: it&#39;s our Instinct because we develop
+
+00:27:23.699 --> 00:27:27.899
+Caption: expertise with these specific
+
+00:27:25.140 --> 00:27:30.719
+Caption: Technologies same with our database
+
+00:27:27.900 --> 00:27:32.099
+Caption: a lot of time a lot of time it&#39;s okay
+
+00:27:30.719 --> 00:27:34.079
+Caption: but I&#39;d like us to be a bit more
+
+00:27:32.099 --> 00:27:35.880
+Caption: intentional about how we design these
+
+00:27:34.079 --> 00:27:37.678
+Caption: instead instead of saying we&#39;ll just use
+
+00:27:35.880 --> 00:27:41.058
+Caption: SQL Server because we have that we have
+
+00:27:37.678 --> 00:27:41.058
+Caption: that there I know how to use it
+
+00:27:42.119 --> 00:27:45.900
+Caption: a quick overview of some of the other
+
+00:27:43.918 --> 00:27:48.119
+Caption: things out there that aren&#39;t rest I&#39;m
+
+00:27:45.900 --> 00:27:51.659
+Caption: not going to go too much into rest I
+
+00:27:48.119 --> 00:27:54.658
+Caption: think most of us are pretty aware of
+
+00:27:51.659 --> 00:27:56.340
+Caption: how to use a user a lot now day to day
+
+00:27:54.659 --> 00:27:58.679
+Caption: it&#39;s mature
+
+00:27:56.339 --> 00:28:01.439
+Caption: it&#39;s battle tested
+
+00:27:58.678 --> 00:28:03.538
+Caption: Acacia is really nicely too
+
+00:28:01.439 --> 00:28:05.538
+Caption: but what about the other stuff
+
+00:28:03.538 --> 00:28:08.219
+Caption: should we hop straight to graphql
+
+00:28:05.538 --> 00:28:10.019
+Caption: graphql is really cool right we can do a
+
+00:28:08.219 --> 00:28:11.579
+Caption: declarative query instead of have it
+
+00:28:10.020 --> 00:28:14.700
+Caption: being beholden to different endpoints we
+
+00:28:11.579 --> 00:28:17.038
+Caption: can say hey I just want this data
+
+00:28:14.699 --> 00:28:19.979
+Caption: I want to get you know these messages
+
+00:28:17.038 --> 00:28:22.558
+Caption: and
+
+00:28:19.979 --> 00:28:25.439
+Caption: from these users it&#39;s really nice for
+
+00:28:22.558 --> 00:28:27.000
+Caption: the front-end teams also cuts a bit cuts
+
+00:28:25.439 --> 00:28:28.439
+Caption: down a bit on how much dead we need to
+
+00:28:27.000 --> 00:28:29.699
+Caption: fetch with your rest endpoints you
+
+00:28:28.439 --> 00:28:32.038
+Caption: generally get the whole resource back
+
+00:28:29.699 --> 00:28:34.519
+Caption: with graph you&#39;re only going to get what
+
+00:28:32.038 --> 00:28:34.519
+Caption: you asked for
+
+00:28:35.159 --> 00:28:38.159
+Caption: grpc
+
+00:28:38.279 --> 00:28:42.659
+Caption: it&#39;s fancy
+
+00:28:39.839 --> 00:28:44.459
+Caption: super fast to deserialize and serialize
+
+00:28:42.659 --> 00:28:47.640
+Caption: data because it&#39;s just going to send
+
+00:28:44.459 --> 00:28:49.739
+Caption: binary representations Over The Wire
+
+00:28:47.640 --> 00:28:51.779
+Caption: why don&#39;t we just use that instead
+
+00:28:49.739 --> 00:28:54.178
+Caption: well browsers don&#39;t have very good
+
+00:28:51.779 --> 00:28:55.200
+Caption: support for it so if you want to use it
+
+00:28:54.178 --> 00:28:58.619
+Caption: for
+
+00:28:55.199 --> 00:29:00.959
+Caption: users to send requests to your server
+
+00:28:58.619 --> 00:29:03.479
+Caption: you&#39;re going to need a proxy in between
+
+00:29:00.959 --> 00:29:05.339
+Caption: so adding complexity there it is however
+
+00:29:03.479 --> 00:29:06.538
+Caption: very very nice for server to server
+
+00:29:05.339 --> 00:29:08.819
+Caption: comes
+
+00:29:06.538 --> 00:29:11.399
+Caption: there&#39;s Traders with that
+
+00:29:08.819 --> 00:29:12.418
+Caption: but if you have massive scale these
+
+00:29:11.400 --> 00:29:14.339
+Caption: these are things that are going to save
+
+00:29:12.418 --> 00:29:17.839
+Caption: you a whole lot of money really going to
+
+00:29:14.339 --> 00:29:17.839
+Caption: cut down on how much compute you need
+
+00:29:20.760 --> 00:29:23.339
+Caption: I promise to talk a little about
+
+00:29:22.079 --> 00:29:25.979
+Caption: databases
+
+00:29:23.339 --> 00:29:27.599
+Caption: where we&#39;re going to put our data
+
+00:29:25.979 --> 00:29:29.760
+Caption: a lot of the time we&#39;re going to default
+
+00:29:27.599 --> 00:29:31.319
+Caption: to the one of these right
+
+00:29:29.760 --> 00:29:33.119
+Caption: we&#39;re going to default to postgres I
+
+00:29:31.319 --> 00:29:35.719
+Caption: love postgres I love SQL Server I love
+
+00:29:33.119 --> 00:29:35.719
+Caption: MySQL
+
+00:29:35.819 --> 00:29:40.500
+Caption: these have a three things in common that
+
+00:29:37.979 --> 00:29:42.359
+Caption: run off a relational model a model
+
+00:29:40.500 --> 00:29:44.399
+Caption: and they&#39;re going to generally have one
+
+00:29:42.359 --> 00:29:45.658
+Caption: writer node and support for read
+
+00:29:44.399 --> 00:29:48.179
+Caption: replicas and I know there&#39;s plugins
+
+00:29:45.659 --> 00:29:51.679
+Caption: which let you do may let you do more
+
+00:29:48.178 --> 00:29:51.678
+Caption: replicationally shining around that
+
+00:29:52.439 --> 00:29:56.519
+Caption: generally
+
+00:29:55.020 --> 00:29:58.200
+Caption: I think all of these are going to be
+
+00:29:56.520 --> 00:29:59.640
+Caption: strongly consistent they just have that
+
+00:29:58.199 --> 00:30:02.219
+Caption: one writer node
+
+00:29:59.640 --> 00:30:04.140
+Caption: if is in a case where I can&#39;t send you
+
+00:30:02.219 --> 00:30:06.898
+Caption: up-to-date data it&#39;s going to fail
+
+00:30:04.140 --> 00:30:08.700
+Caption: instead the system will become
+
+00:30:06.899 --> 00:30:10.440
+Caption: unavailable and you&#39;re going to get
+
+00:30:08.699 --> 00:30:12.778
+Caption: nothing
+
+00:30:10.439 --> 00:30:15.000
+Caption: the benefit of this is of course is much
+
+00:30:12.779 --> 00:30:17.399
+Caption: easier
+
+00:30:15.000 --> 00:30:18.418
+Caption: to design your applications you you
+
+00:30:17.399 --> 00:30:19.919
+Caption: don&#39;t have to deal with a lot of that
+
+00:30:18.418 --> 00:30:21.658
+Caption: eventual consistency
+
+00:30:19.918 --> 00:30:23.759
+Caption: which you&#39;re going to have to deal with
+
+00:30:21.659 --> 00:30:27.080
+Caption: a lot in
+
+00:30:23.760 --> 00:30:27.079
+Caption: nosql databases
+
+00:30:27.659 --> 00:30:31.440
+Caption: a lot of these will
+
+00:30:29.339 --> 00:30:32.939
+Caption: say they provide strongly consistent
+
+00:30:31.439 --> 00:30:34.439
+Caption: reads
+
+00:30:32.939 --> 00:30:37.439
+Caption: but there&#39;s going to be a lot of
+
+00:30:34.439 --> 00:30:39.719
+Caption: asterisks around that
+
+00:30:37.439 --> 00:30:42.199
+Caption: once we release ourselves from that
+
+00:30:39.719 --> 00:30:42.199
+Caption: requirement
+
+00:30:42.298 --> 00:30:47.519
+Caption: to have always up-to-date information
+
+00:30:44.939 --> 00:30:49.798
+Caption: like I said before a lot of techno a lot
+
+00:30:47.520 --> 00:30:52.080
+Caption: of techniques become available to you to
+
+00:30:49.798 --> 00:30:53.880
+Caption: support more availability and more
+
+00:30:52.079 --> 00:30:55.558
+Caption: throughput even semantically you&#39;re
+
+00:30:53.880 --> 00:30:57.479
+Caption: going to get more availability simply
+
+00:30:55.558 --> 00:31:00.839
+Caption: because the system will say it&#39;s finer
+
+00:30:57.479 --> 00:31:03.239
+Caption: I&#39;m out of date here&#39;s your data
+
+00:31:00.839 --> 00:31:04.739
+Caption: so that&#39;s that big trade-off
+
+00:31:03.239 --> 00:31:06.359
+Caption: are you willing to accept eventual
+
+00:31:04.739 --> 00:31:07.439
+Caption: consistency
+
+00:31:06.359 --> 00:31:10.880
+Caption: if you&#39;re going to get a lot of
+
+00:31:07.439 --> 00:31:10.879
+Caption: throughpoint availability out of it
+
+00:31:10.979 --> 00:31:14.699
+Caption: there are ways you&#39;re going to get more
+
+00:31:13.199 --> 00:31:16.319
+Caption: complexity in your system and your
+
+00:31:14.699 --> 00:31:19.439
+Caption: applications
+
+00:31:16.319 --> 00:31:21.859
+Caption: or you&#39;re going to affect the user flow
+
+00:31:19.439 --> 00:31:21.859
+Caption: in some way
+
+00:31:24.959 --> 00:31:28.260
+Caption: we also want to talk about
+
+00:31:26.760 --> 00:31:30.239
+Caption: data flows
+
+00:31:28.260 --> 00:31:33.479
+Caption: so how
+
+00:31:30.239 --> 00:31:35.520
+Caption: data flows through our system
+
+00:31:33.479 --> 00:31:37.140
+Caption: now that we&#39;ve got our bit of our schema
+
+00:31:35.520 --> 00:31:40.159
+Caption: we can have a think about okay these
+
+00:31:37.140 --> 00:31:40.159
+Caption: requests are coming in
+
+00:31:40.199 --> 00:31:45.239
+Caption: can we do some pre-computation so that
+
+00:31:42.719 --> 00:31:48.058
+Caption: when the user goes to fetch a certain
+
+00:31:45.239 --> 00:31:51.599
+Caption: piece of data it&#39;s already there hot in
+
+00:31:48.058 --> 00:31:53.219
+Caption: the case or in a service somewhere
+
+00:31:51.599 --> 00:31:54.898
+Caption: as a little bit of Flip Side you have
+
+00:31:53.219 --> 00:31:56.880
+Caption: caching
+
+00:31:54.899 --> 00:31:58.619
+Caption: once you&#39;ve done a bit of work to
+
+00:31:56.880 --> 00:32:00.359
+Caption: compute something maybe someone&#39;s feed
+
+00:31:58.619 --> 00:32:01.979
+Caption: or something like that
+
+00:32:00.359 --> 00:32:03.359
+Caption: why not just save it somewhere so if
+
+00:32:01.979 --> 00:32:04.798
+Caption: they ask again for it we can bring it
+
+00:32:03.359 --> 00:32:07.558
+Caption: back quickly we don&#39;t have to do all
+
+00:32:04.798 --> 00:32:10.439
+Caption: that work of looking up
+
+00:32:07.558 --> 00:32:14.038
+Caption: who you know who are their friends
+
+00:32:10.439 --> 00:32:15.538
+Caption: what messages have their friends sent to
+
+00:32:14.038 --> 00:32:17.898
+Caption: build up that picture every time it&#39;s a
+
+00:32:15.538 --> 00:32:17.898
+Caption: lot of work
+
+00:32:18.779 --> 00:32:23.640
+Caption: there&#39;s concerns around this as well
+
+00:32:21.239 --> 00:32:25.319
+Caption: your caching layer can fail
+
+00:32:23.640 --> 00:32:26.579
+Caption: you don&#39;t want your application to come
+
+00:32:25.319 --> 00:32:28.678
+Caption: unavailable so there&#39;s there&#39;s
+
+00:32:26.579 --> 00:32:30.538
+Caption: complexity here again
+
+00:32:28.678 --> 00:32:33.558
+Caption: for performance
+
+00:32:30.538 --> 00:32:33.558
+Caption: it&#39;s common theme right
+
+00:32:34.140 --> 00:32:38.640
+Caption: so I&#39;m actually going to give you
+
+00:32:36.178 --> 00:32:40.798
+Caption: something that&#39;s not particularly it&#39;s
+
+00:32:38.640 --> 00:32:42.119
+Caption: not a perfect architecture or even a
+
+00:32:40.798 --> 00:32:45.298
+Caption: great architecture
+
+00:32:42.119 --> 00:32:46.739
+Caption: but it&#39;s something that I can back up is
+
+00:32:45.298 --> 00:32:49.500
+Caption: something where if you ask me questions
+
+00:32:46.739 --> 00:32:51.298
+Caption: about it I can at least give you some
+
+00:32:49.500 --> 00:32:53.219
+Caption: amount of explanation about why I&#39;ve
+
+00:32:51.298 --> 00:32:56.459
+Caption: done things a certain way
+
+00:32:53.219 --> 00:32:58.979
+Caption: I&#39;ve cut out the static assets part
+
+00:32:56.459 --> 00:33:01.199
+Caption: that&#39;s a bit less interesting
+
+00:32:58.979 --> 00:33:03.719
+Caption: we&#39;ve got our three main requests
+
+00:33:01.199 --> 00:33:06.239
+Caption: posting a message
+
+00:33:03.719 --> 00:33:08.099
+Caption: following another user
+
+00:33:06.239 --> 00:33:10.619
+Caption: and getting a feedback of what our
+
+00:33:08.099 --> 00:33:12.778
+Caption: friends have said
+
+00:33:10.619 --> 00:33:15.239
+Caption: so
+
+00:33:12.779 --> 00:33:17.700
+Caption: going back to talking about
+
+00:33:15.239 --> 00:33:20.099
+Caption: picking the right technology
+
+00:33:17.699 --> 00:33:22.278
+Caption: and I&#39;ll add some caveats into this
+
+00:33:20.099 --> 00:33:22.278
+Caption: later
+
+00:33:22.558 --> 00:33:28.678
+Caption: we&#39;ve put in a graph DB for our so uh
+
+00:33:26.519 --> 00:33:30.899
+Caption: for our social graph service
+
+00:33:28.678 --> 00:33:36.119
+Caption: we&#39;ve got something optimized to help us
+
+00:33:30.899 --> 00:33:38.340
+Caption: get a list of friends faster and user
+
+00:33:36.119 --> 00:33:39.839
+Caption: graph databases are pretty cool they
+
+00:33:38.339 --> 00:33:42.479
+Caption: store relationships as a first class
+
+00:33:39.839 --> 00:33:44.298
+Caption: thing not the element themselves
+
+00:33:42.479 --> 00:33:47.699
+Caption: that means when you&#39;re looking for
+
+00:33:44.298 --> 00:33:49.319
+Caption: relationships based off a certain node
+
+00:33:47.699 --> 00:33:51.429
+Caption: it&#39;s going to be much faster than doing
+
+00:33:49.319 --> 00:33:53.219
+Caption: the same on a relational database
+
+00:33:51.430 --> 00:33:54.779
+Caption: [Music]
+
+00:33:53.219 --> 00:33:56.158
+Caption: and a lot a lot of these are eventually
+
+00:33:54.779 --> 00:33:57.720
+Caption: consistent
+
+00:33:56.159 --> 00:33:59.039
+Caption: but as we said before we&#39;re going to go
+
+00:33:57.719 --> 00:34:01.018
+Caption: accept that we&#39;ve discussed that with
+
+00:33:59.038 --> 00:34:02.278
+Caption: product it&#39;s it&#39;s okay you&#39;re not going
+
+00:34:01.019 --> 00:34:04.880
+Caption: to get your friend&#39;s latest messages
+
+00:34:02.279 --> 00:34:04.880
+Caption: right away
+
+00:34:05.459 --> 00:34:09.658
+Caption: similar when we post a message so we can
+
+00:34:07.859 --> 00:34:10.979
+Caption: do a bit of pre-computation here we
+
+00:34:09.658 --> 00:34:12.658
+Caption: don&#39;t want to lose these messages that
+
+00:34:10.979 --> 00:34:15.239
+Caption: would be bad if everyone just you know
+
+00:34:12.658 --> 00:34:17.219
+Caption: you post all these messages and you want
+
+00:34:15.239 --> 00:34:18.118
+Caption: to see them later reminisce about what
+
+00:34:17.219 --> 00:34:19.560
+Caption: you and your friends have been talking
+
+00:34:18.118 --> 00:34:21.539
+Caption: about so we&#39;ll
+
+00:34:19.560 --> 00:34:25.639
+Caption: put a database up there somewhere
+
+00:34:21.540 --> 00:34:25.639
+Caption: could be postgres could be
+
+00:34:25.678 --> 00:34:28.459
+Caption: they both work
+
+00:34:28.500 --> 00:34:33.060
+Caption: but we&#39;re also going to send something
+
+00:34:29.939 --> 00:34:35.098
+Caption: to an asynchronous worker a feed updater
+
+00:34:33.060 --> 00:34:38.760
+Caption: so when we know that a message has come
+
+00:34:35.099 --> 00:34:40.919
+Caption: in we&#39;re going to go up and update
+
+00:34:38.760 --> 00:34:42.780
+Caption: your people who are following you we&#39;re
+
+00:34:40.918 --> 00:34:45.678
+Caption: going to inject this new message into
+
+00:34:42.780 --> 00:34:45.678
+Caption: all of those feeds
+
+00:34:46.439 --> 00:34:50.158
+Caption: that means
+
+00:34:48.540 --> 00:34:52.619
+Caption: if we&#39;ve done a good job keeping our
+
+00:34:50.158 --> 00:34:53.939
+Caption: caching layer consistent when requests
+
+00:34:52.618 --> 00:34:55.739
+Caption: come in
+
+00:34:53.939 --> 00:34:56.939
+Caption: a lot of users especially for the active
+
+00:34:55.739 --> 00:34:59.520
+Caption: users you&#39;re going to get your feed
+
+00:34:56.939 --> 00:35:01.319
+Caption: right away our service hat can do a
+
+00:34:59.520 --> 00:35:04.760
+Caption: whole lot less work in
+
+00:35:01.320 --> 00:35:04.760
+Caption: generating users feeds
+
+00:35:06.719 --> 00:35:12.300
+Caption: so
+
+00:35:09.239 --> 00:35:14.219
+Caption: it&#39;s in considering things like that
+
+00:35:12.300 --> 00:35:16.500
+Caption: I think we get a lot of value
+
+00:35:14.219 --> 00:35:18.118
+Caption: you can explain your decisions
+
+00:35:16.500 --> 00:35:21.439
+Caption: you&#39;re explaining why using something
+
+00:35:18.118 --> 00:35:21.439
+Caption: and not something else
+
+00:35:23.579 --> 00:35:26.839
+Caption: you&#39;re picking the right technology
+
+00:35:30.060 --> 00:35:33.540
+Caption: there&#39;s next steps there&#39;s things I
+
+00:35:32.099 --> 00:35:36.079
+Caption: haven&#39;t covered
+
+00:35:33.540 --> 00:35:36.079
+Caption: so
+
+00:35:36.239 --> 00:35:38.879
+Caption: moving forwards doing a bit better than
+
+00:35:37.858 --> 00:35:40.379
+Caption: this
+
+00:35:38.879 --> 00:35:42.779
+Caption: you want to find ways where you can deal
+
+00:35:40.379 --> 00:35:44.759
+Caption: with less data
+
+00:35:42.780 --> 00:35:47.939
+Caption: and that&#39;s where we kind of talked about
+
+00:35:44.760 --> 00:35:49.919
+Caption: can we pre-compute something
+
+00:35:47.939 --> 00:35:51.540
+Caption: can we case something just so we have
+
+00:35:49.919 --> 00:35:53.699
+Caption: less
+
+00:35:51.540 --> 00:35:57.320
+Caption: data that needs to be computed on the
+
+00:35:53.699 --> 00:35:57.320
+Caption: Fly Center here and there
+
+00:35:58.260 --> 00:36:04.560
+Caption: picking the right tool
+
+00:36:00.659 --> 00:36:08.098
+Caption: so really reasoning about what
+
+00:36:04.560 --> 00:36:10.260
+Caption: I&#39;m using this technology because this
+
+00:36:08.099 --> 00:36:11.339
+Caption: I know it&#39;s got these cons but that&#39;s
+
+00:36:10.260 --> 00:36:12.839
+Caption: okay
+
+00:36:11.339 --> 00:36:15.079
+Caption: and we&#39;re all in love with product about
+
+00:36:12.839 --> 00:36:15.079
+Caption: that
+
+00:36:15.358 --> 00:36:20.358
+Caption: I&#39;ve also haven&#39;t talked about some of
+
+00:36:17.879 --> 00:36:20.358
+Caption: the more
+
+00:36:20.820 --> 00:36:24.300
+Caption: um
+
+00:36:21.659 --> 00:36:27.059
+Caption: for example sharding it&#39;s going to
+
+00:36:24.300 --> 00:36:28.699
+Caption: improve your right throughput but
+
+00:36:27.060 --> 00:36:31.619
+Caption: that&#39;s kind of a whole Topic in itself
+
+00:36:28.699 --> 00:36:33.179
+Caption: there&#39;s more complexity there how are
+
+00:36:31.618 --> 00:36:35.699
+Caption: you going to split your data up among
+
+00:36:33.179 --> 00:36:38.459
+Caption: different shards things like that
+
+00:36:35.699 --> 00:36:39.598
+Caption: few edge cases as well
+
+00:36:38.459 --> 00:36:41.280
+Caption: like
+
+00:36:39.599 --> 00:36:45.180
+Caption: sorry
+
+00:36:41.280 --> 00:36:47.099
+Caption: while our solution works well for
+
+00:36:45.179 --> 00:36:49.459
+Caption: cases where users don&#39;t have a lot of
+
+00:36:47.099 --> 00:36:49.460
+Caption: followers
+
+00:36:49.919 --> 00:36:53.639
+Caption: because that little async worker is
+
+00:36:51.719 --> 00:36:56.040
+Caption: going to go and update people&#39;s feeds
+
+00:36:53.639 --> 00:36:58.078
+Caption: if we have Lady Gaga come in with a 30
+
+00:36:56.040 --> 00:37:01.020
+Caption: million followers and post a message
+
+00:36:58.079 --> 00:37:02.640
+Caption: that&#39;s going to be massive ride volume
+
+00:37:01.020 --> 00:37:05.239
+Caption: these are the kind of edge cases that
+
+00:37:02.639 --> 00:37:05.239
+Caption: you want to think about
+
+00:37:06.419 --> 00:37:12.118
+Caption: there&#39;s a cautionary tale here as well
+
+00:37:09.959 --> 00:37:13.379
+Caption: you don&#39;t want to be when you&#39;re picking
+
+00:37:12.118 --> 00:37:15.059
+Caption: the right tool
+
+00:37:13.379 --> 00:37:16.199
+Caption: you also want to think about your team&#39;s
+
+00:37:15.060 --> 00:37:17.640
+Caption: skill set
+
+00:37:16.199 --> 00:37:20.159
+Caption: there&#39;s
+
+00:37:17.639 --> 00:37:22.919
+Caption: not much reason to adapt a technology
+
+00:37:20.159 --> 00:37:24.118
+Caption: there&#39;s a few ways you can approach it
+
+00:37:22.919 --> 00:37:25.858
+Caption: either
+
+00:37:24.118 --> 00:37:29.578
+Caption: you
+
+00:37:25.858 --> 00:37:33.299
+Caption: tend to shy away from using a technology
+
+00:37:29.579 --> 00:37:34.440
+Caption: that your team doesn&#39;t know how to use
+
+00:37:33.300 --> 00:37:37.260
+Caption: or that you think you&#39;re going to have
+
+00:37:34.439 --> 00:37:39.479
+Caption: difficulty hiring for
+
+00:37:37.260 --> 00:37:42.479
+Caption: another way and this takes a lot of
+
+00:37:39.479 --> 00:37:44.399
+Caption: effort is to drive consensus
+
+00:37:42.479 --> 00:37:46.919
+Caption: among your wider engineering team about
+
+00:37:44.399 --> 00:37:49.919
+Caption: adopting a technology because it allows
+
+00:37:46.919 --> 00:37:52.260
+Caption: us to do XYZ and I can&#39;t stress how much
+
+00:37:49.919 --> 00:37:56.399
+Caption: effort and how exhausting that can be
+
+00:37:52.260 --> 00:37:56.399
+Caption: even in the best run organizations
+
+00:37:56.459 --> 00:37:59.699
+Caption: you&#39;ll want to look at procurement as
+
+00:37:57.959 --> 00:38:00.780
+Caption: well there&#39;s going to be a lot of people
+
+00:37:59.699 --> 00:38:02.578
+Caption: in the company who are going to be
+
+00:38:00.780 --> 00:38:05.339
+Caption: pretty unhappy if you&#39;re like I want to
+
+00:38:02.579 --> 00:38:07.800
+Caption: grab this technology uh
+
+00:38:05.339 --> 00:38:09.839
+Caption: going to grab you know cockroach here
+
+00:38:07.800 --> 00:38:12.540
+Caption: and I like this from AWS and I like this
+
+00:38:09.839 --> 00:38:15.180
+Caption: from Azure and I like this from gcp
+
+00:38:12.540 --> 00:38:16.260
+Caption: it&#39;s going to be a real headache there&#39;s
+
+00:38:15.179 --> 00:38:19.319
+Caption: contracts here that need to be
+
+00:38:16.260 --> 00:38:21.179
+Caption: negotiated there&#39;s money
+
+00:38:19.320 --> 00:38:24.060
+Caption: it&#39;s a lot work more work than it might
+
+00:38:21.179 --> 00:38:26.040
+Caption: appear at first thought
+
+00:38:24.060 --> 00:38:27.719
+Caption: and there&#39;s always you aren&#39;t going to
+
+00:38:26.040 --> 00:38:30.900
+Caption: need it
+
+00:38:27.719 --> 00:38:32.639
+Caption: I think we have a natural tendency to
+
+00:38:30.899 --> 00:38:36.919
+Caption: want to avoid
+
+00:38:32.639 --> 00:38:36.919
+Caption: maybe future uncertainty or future risk
+
+00:38:37.320 --> 00:38:40.380
+Caption: so
+
+00:38:38.699 --> 00:38:41.399
+Caption: we can end up over engineering our
+
+00:38:40.379 --> 00:38:43.559
+Caption: systems
+
+00:38:41.399 --> 00:38:46.199
+Caption: we&#39;ll put this big eventually consistent
+
+00:38:43.560 --> 00:38:48.599
+Caption: system in place
+
+00:38:46.199 --> 00:38:50.338
+Caption: and spend a lot more time
+
+00:38:48.599 --> 00:38:52.920
+Caption: working around the complexities of that
+
+00:38:50.339 --> 00:38:55.380
+Caption: then building out our core system
+
+00:38:52.919 --> 00:38:57.239
+Caption: so please please please there&#39;s a lot of
+
+00:38:55.379 --> 00:38:58.919
+Caption: you aren&#39;t going to need it
+
+00:38:57.239 --> 00:39:00.358
+Caption: you can apply here
+
+00:38:58.919 --> 00:39:03.179
+Caption: remember what your competitive
+
+00:39:00.358 --> 00:39:05.939
+Caption: advantages and focus on that
+
+00:39:03.179 --> 00:39:07.559
+Caption: there generally is time to
+
+00:39:05.939 --> 00:39:10.858
+Caption: scale up later to a bit of
+
+00:39:07.560 --> 00:39:13.619
+Caption: re-architecturing if you&#39;re doing well
+
+00:39:10.858 --> 00:39:16.319
+Caption: so with this we&#39;re doing a bit better
+
+00:39:13.618 --> 00:39:18.358
+Caption: we&#39;ve maybe adopted grpc for our service
+
+00:39:16.320 --> 00:39:20.280
+Caption: to service comms
+
+00:39:18.358 --> 00:39:22.500
+Caption: we know what sort of throughput we need
+
+00:39:20.280 --> 00:39:24.919
+Caption: to handle and we have a plan in place
+
+00:39:22.500 --> 00:39:24.919
+Caption: for it
+
+00:39:25.020 --> 00:39:29.640
+Caption: and product isn&#39;t getting any nasty
+
+00:39:26.820 --> 00:39:31.199
+Caption: surprises we&#39;ve reasoned about
+
+00:39:29.639 --> 00:39:34.379
+Caption: how
+
+00:39:31.199 --> 00:39:37.199
+Caption: our system is going to perform it&#39;s how
+
+00:39:34.379 --> 00:39:38.819
+Caption: it&#39;s going to behave for customers
+
+00:39:37.199 --> 00:39:40.679
+Caption: it&#39;s always going to be buggy I don&#39;t
+
+00:39:38.820 --> 00:39:43.199
+Caption: think we can solve that one that&#39;s a
+
+00:39:40.679 --> 00:39:44.578
+Caption: tell for a different day
+
+00:39:43.199 --> 00:39:47.399
+Caption: the point is we&#39;re not trying to
+
+00:39:44.579 --> 00:39:48.540
+Caption: completely avoid failure here we&#39;re just
+
+00:39:47.399 --> 00:39:51.118
+Caption: trying to make sure we do our due
+
+00:39:48.540 --> 00:39:53.520
+Caption: diligence and we&#39;ve reasoned about our
+
+00:39:51.118 --> 00:39:55.739
+Caption: system sensibly
+
+00:39:53.520 --> 00:39:57.899
+Caption: so
+
+00:39:55.739 --> 00:40:00.300
+Caption: the key takeaway is just quickly please
+
+00:39:57.899 --> 00:40:03.659
+Caption: please please talk to products ask lots
+
+00:40:00.300 --> 00:40:06.119
+Caption: of questions we need to stop this habit
+
+00:40:03.659 --> 00:40:07.919
+Caption: I still see of waiting for product to
+
+00:40:06.118 --> 00:40:09.419
+Caption: give us our requirements or product just
+
+00:40:07.919 --> 00:40:12.059
+Caption: giving the engineering team requirements
+
+00:40:09.419 --> 00:40:13.559
+Caption: and not really expecting any questions
+
+00:40:12.060 --> 00:40:15.739
+Caption: we can get a lot of value out of just
+
+00:40:13.560 --> 00:40:15.739
+Caption: talking
+
+00:40:15.839 --> 00:40:20.280
+Caption: again designed with intent explain why
+
+00:40:18.899 --> 00:40:24.078
+Caption: you&#39;ve chosen something
+
+00:40:20.280 --> 00:40:24.079
+Caption: and why you haven&#39;t chosen something
+
+00:40:26.099 --> 00:40:29.300
+Caption: design often
+
+00:40:29.459 --> 00:40:33.060
+Caption: you&#39;re going to do this a lot at your
+
+00:40:31.139 --> 00:40:35.219
+Caption: workplace if you get into this good
+
+00:40:33.060 --> 00:40:36.540
+Caption: habit you&#39;re going to get a lot of very
+
+00:40:35.219 --> 00:40:38.219
+Caption: you&#39;re going to build a lot of
+
+00:40:36.540 --> 00:40:39.959
+Caption: experience assistant design is something
+
+00:40:38.219 --> 00:40:41.280
+Caption: that does take a lot of experience but
+
+00:40:39.959 --> 00:40:43.020
+Caption: if you get in the habit of thinking
+
+00:40:41.280 --> 00:40:44.520
+Caption: about it the right way
+
+00:40:43.020 --> 00:40:46.739
+Caption: it&#39;s really going to improve your
+
+00:40:44.520 --> 00:40:48.179
+Caption: ability to
+
+00:40:46.739 --> 00:40:51.959
+Caption: reason
+
+00:40:48.179 --> 00:40:53.578
+Caption: design makes sense right practice
+
+00:40:51.959 --> 00:40:55.618
+Caption: on the side there&#39;s so much great
+
+00:40:53.579 --> 00:40:58.560
+Caption: information about their white papers
+
+00:40:55.618 --> 00:41:00.299
+Caption: Tech blogs videos go and do your study
+
+00:40:58.560 --> 00:41:01.800
+Caption: look at how Twitter&#39;s built there&#39;s lots
+
+00:41:00.300 --> 00:41:04.560
+Caption: of stuff out there Instagram Netflix
+
+00:41:01.800 --> 00:41:06.540
+Caption: there&#39;s so much free material out there
+
+00:41:04.560 --> 00:41:08.760
+Caption: you can kind of run through why they did
+
+00:41:06.540 --> 00:41:12.179
+Caption: a certain way and then take a step back
+
+00:41:08.760 --> 00:41:16.409
+Caption: and try to design it yourself
+
+00:41:12.179 --> 00:41:24.300
+Caption: cool uh thank you very much
+
+00:41:16.409 --> 00:41:26.459
+Caption: [Applause]
+
+00:41:24.300 --> 00:41:29.099
+Caption: Nick that was a great talk so to get a
+
+00:41:26.459 --> 00:41:32.280
+Caption: job at Google I don&#39;t follow the recipe
+
+00:41:29.099 --> 00:41:35.180
+Caption: I just follow that recipe and innovate
+
+00:41:32.280 --> 00:41:35.179
+Caption: yes
+
+00:41:35.579 --> 00:41:38.760
+Caption: um
+
+00:41:36.659 --> 00:41:40.379
+Caption: at the interview itself you just want to
+
+00:41:38.760 --> 00:41:43.800
+Caption: follow in a structured way and this was
+
+00:41:40.379 --> 00:41:45.419
+Caption: actually something that
+
+00:41:43.800 --> 00:41:48.179
+Caption: we
+
+00:41:45.419 --> 00:41:49.020
+Caption: really agreed was a really nice
+
+00:41:48.179 --> 00:41:50.699
+Caption: structured way of doing it
+
+00:41:49.020 --> 00:41:53.699
+Caption: non-functional requirements function
+
+00:41:50.699 --> 00:41:55.020
+Caption: requirements like how much how much
+
+00:41:53.699 --> 00:41:57.780
+Caption: traffic your servers are going to need
+
+00:41:55.020 --> 00:41:59.219
+Caption: to handle schema stuff like that you
+
+00:41:57.780 --> 00:42:00.479
+Caption: just want to be able to explain these
+
+00:41:59.219 --> 00:42:02.459
+Caption: things and it&#39;s so important when you&#39;re
+
+00:42:00.479 --> 00:42:04.560
+Caption: talking to stakeholders or senior
+
+00:42:02.459 --> 00:42:06.780
+Caption: engineering leadership as well so I can
+
+00:42:04.560 --> 00:42:09.479
+Caption: use that throughout my working life
+
+00:42:06.780 --> 00:42:11.520
+Caption: really absolutely perfect okay so I&#39;m
+
+00:42:09.479 --> 00:42:13.560
+Caption: going to open up the floor for a q a
+
+00:42:11.520 --> 00:42:15.599
+Caption: session uh does anyone have a question
+
+00:42:13.560 --> 00:42:19.400
+Caption: for Nick
+
+00:42:15.599 --> 00:42:19.400
+Caption: okay this man over here please
+
+00:42:22.020 --> 00:42:25.380
+Caption: hey
+
+00:42:23.879 --> 00:42:27.719
+Caption: working yeah
+
+00:42:25.379 --> 00:42:30.239
+Caption: uh well thanks for excellent talk
+
+00:42:27.719 --> 00:42:32.280
+Caption: um so you you mentioned you know uh
+
+00:42:30.239 --> 00:42:34.379
+Caption: always reason about why you choose one
+
+00:42:32.280 --> 00:42:35.880
+Caption: tag over the other and it&#39;s built on
+
+00:42:34.379 --> 00:42:39.059
+Caption: assumption that you know all the tech
+
+00:42:35.879 --> 00:42:40.259
+Caption: and you pretty much and you know you
+
+00:42:39.060 --> 00:42:41.839
+Caption: know what&#39;s out there you know
+
+00:42:40.260 --> 00:42:45.118
+Caption: Alternatives you know pros and cons
+
+00:42:41.839 --> 00:42:47.220
+Caption: what&#39;s like the the best behavior if you
+
+00:42:45.118 --> 00:42:48.959
+Caption: deal with some systems that you don&#39;t
+
+00:42:47.219 --> 00:42:51.739
+Caption: know much about like I don&#39;t know
+
+00:42:48.959 --> 00:42:54.780
+Caption: someone told you to design time series
+
+00:42:51.739 --> 00:42:57.118
+Caption: heavy application and you don&#39;t have a
+
+00:42:54.780 --> 00:42:59.280
+Caption: previous experience so how would you
+
+00:42:57.118 --> 00:43:00.959
+Caption: you know operate in these kind of
+
+00:42:59.280 --> 00:43:03.119
+Caption: situations yeah that&#39;s a really good
+
+00:43:00.959 --> 00:43:04.858
+Caption: question if someone approached me and
+
+00:43:03.118 --> 00:43:07.318
+Caption: said hey I&#39;d like to build this with a
+
+00:43:04.858 --> 00:43:10.019
+Caption: Time series database
+
+00:43:07.319 --> 00:43:11.400
+Caption: I&#39;d basically say why the first thing
+
+00:43:10.020 --> 00:43:12.479
+Caption: you want to ask is what are we trying to
+
+00:43:11.399 --> 00:43:14.159
+Caption: solve
+
+00:43:12.479 --> 00:43:17.159
+Caption: what are we
+
+00:43:14.159 --> 00:43:18.899
+Caption: what is the problem that needs a Time
+
+00:43:17.159 --> 00:43:21.500
+Caption: series database for example if it&#39;s
+
+00:43:18.899 --> 00:43:21.500
+Caption: something like
+
+00:43:21.659 --> 00:43:27.179
+Caption: obviously time based right like a lot of
+
+00:43:24.899 --> 00:43:28.260
+Caption: observability metrics something like
+
+00:43:27.179 --> 00:43:29.818
+Caption: that
+
+00:43:28.260 --> 00:43:31.919
+Caption: then
+
+00:43:29.819 --> 00:43:33.719
+Caption: sure
+
+00:43:31.919 --> 00:43:34.979
+Caption: it&#39;s not something I&#39;d probably
+
+00:43:33.719 --> 00:43:36.179
+Caption: discourage people from trying to Deep
+
+00:43:34.979 --> 00:43:37.800
+Caption: dive into everything that&#39;s not
+
+00:43:36.179 --> 00:43:39.540
+Caption: something you can do
+
+00:43:37.800 --> 00:43:40.920
+Caption: instead you want to have awareness of
+
+00:43:39.540 --> 00:43:42.719
+Caption: the different classes of database so
+
+00:43:40.919 --> 00:43:44.159
+Caption: you&#39;ve got your like you know why column
+
+00:43:42.719 --> 00:43:46.260
+Caption: stores like Cassandra or your time
+
+00:43:44.159 --> 00:43:47.818
+Caption: series database like you mentioned graph
+
+00:43:46.260 --> 00:43:50.280
+Caption: database and so on
+
+00:43:47.819 --> 00:43:52.140
+Caption: as long as you have an awareness of it
+
+00:43:50.280 --> 00:43:55.020
+Caption: then you could you can go back and say
+
+00:43:52.139 --> 00:43:56.338
+Caption: Hey Okay after our discussion looks like
+
+00:43:55.020 --> 00:43:58.500
+Caption: the time series database is the right
+
+00:43:56.339 --> 00:44:00.359
+Caption: way to go I don&#39;t have much experience
+
+00:43:58.500 --> 00:44:01.800
+Caption: on this I&#39;m going to have to do a bit of
+
+00:44:00.358 --> 00:44:04.559
+Caption: a deep dive on it and I think that&#39;s
+
+00:44:01.800 --> 00:44:08.119
+Caption: that&#39;s a plenty reasonable path forwards
+
+00:44:04.560 --> 00:44:08.119
+Caption: does that kind of ask the question yeah
+
+00:44:24.060 --> 00:44:29.819
+Caption: I think there&#39;s a
+
+00:44:26.459 --> 00:44:31.318
+Caption: Indian views so what can happen is if
+
+00:44:29.819 --> 00:44:33.119
+Caption: you thrive technology you aren&#39;t very
+
+00:44:31.319 --> 00:44:35.219
+Caption: confident about it can really fall apart
+
+00:44:33.118 --> 00:44:37.260
+Caption: and that&#39;s why stress is so important to
+
+00:44:35.219 --> 00:44:39.419
+Caption: learn about the underlying concepts of
+
+00:44:37.260 --> 00:44:41.040
+Caption: how these things work instead rather
+
+00:44:39.419 --> 00:44:42.780
+Caption: than saying I need to know I need
+
+00:44:41.040 --> 00:44:45.000
+Caption: to know SQL
+
+00:44:42.780 --> 00:44:47.880
+Caption: you want to learn about how these how
+
+00:44:45.000 --> 00:44:49.739
+Caption: SQL databases operate right so at the
+
+00:44:47.879 --> 00:44:51.598
+Caption: lowest level they&#39;ve got these logs that
+
+00:44:49.739 --> 00:44:54.000
+Caption: they need to make durable and from that
+
+00:44:51.599 --> 00:44:54.720
+Caption: they&#39;ll kind of project some data out of
+
+00:44:54.000 --> 00:44:57.239
+Caption: it
+
+00:44:54.719 --> 00:44:59.098
+Caption: with eventually consistent systems
+
+00:44:57.239 --> 00:45:01.679
+Caption: you&#39;ve got
+
+00:44:59.099 --> 00:45:03.359
+Caption: distributed rights
+
+00:45:01.679 --> 00:45:05.459
+Caption: and then there&#39;s some work there around
+
+00:45:03.358 --> 00:45:07.379
+Caption: gaining consensus around what what data
+
+00:45:05.459 --> 00:45:10.199
+Caption: is there that kind of stuff so my best
+
+00:45:07.379 --> 00:45:11.639
+Caption: advice is to really focus on the
+
+00:45:10.199 --> 00:45:13.500
+Caption: concepts that power these Technologies
+
+00:45:11.639 --> 00:45:15.838
+Caption: don&#39;t focus on Technologies themselves
+
+00:45:13.500 --> 00:45:19.079
+Caption: too much if you do this well you can
+
+00:45:15.839 --> 00:45:21.119
+Caption: actually look at what benefits a new
+
+00:45:19.079 --> 00:45:22.560
+Caption: product proposes and say I reckon they
+
+00:45:21.118 --> 00:45:24.118
+Caption: did it this way
+
+00:45:22.560 --> 00:45:25.739
+Caption: and if you&#39;re getting that right often
+
+00:45:24.118 --> 00:45:27.239
+Caption: and if you if you&#39;re able to say I
+
+00:45:25.739 --> 00:45:28.739
+Caption: reckon cockroach does things this way
+
+00:45:27.239 --> 00:45:30.659
+Caption: that&#39;s how they got these Secret Sauce
+
+00:45:28.739 --> 00:45:32.219
+Caption: but I reckon it&#39;s something like this if
+
+00:45:30.659 --> 00:45:35.899
+Caption: you can start looking at that level
+
+00:45:32.219 --> 00:45:35.899
+Caption: you&#39;re really on the right track I think
+
+00:45:36.060 --> 00:45:41.839
+Caption: thank you
+
+00:45:38.639 --> 00:45:41.838
+Caption: yes t
+
+00:45:46.560 --> 00:45:51.660
+Caption: you mentioned about a tip if you have
+
+00:45:48.839 --> 00:45:53.700
+Caption: how you go about startup that discussion
+
+00:45:51.659 --> 00:45:55.379
+Caption: with products how do you actually drive
+
+00:45:53.699 --> 00:45:57.959
+Caption: that I think that was a great takeaway
+
+00:45:55.379 --> 00:46:00.719
+Caption: for me yeah thank you yeah
+
+00:45:57.959 --> 00:46:03.300
+Caption: um so that&#39;s a good question
+
+00:46:00.719 --> 00:46:04.858
+Caption: it&#39;s it depends on your organization a
+
+00:46:03.300 --> 00:46:06.060
+Caption: lot if it&#39;s a very hierarchical one and
+
+00:46:04.858 --> 00:46:09.118
+Caption: you&#39;re just getting tickets over the
+
+00:46:06.060 --> 00:46:12.180
+Caption: fence it&#39;s a lot of work to go and reach
+
+00:46:09.118 --> 00:46:14.779
+Caption: that Gap but I think
+
+00:46:12.179 --> 00:46:14.780
+Caption: generally
+
+00:46:14.939 --> 00:46:19.439
+Caption: you just acting good faith for example
+
+00:46:17.939 --> 00:46:21.659
+Caption: if you go
+
+00:46:19.439 --> 00:46:23.098
+Caption: to a product person to someone who&#39;s a
+
+00:46:21.659 --> 00:46:25.739
+Caption: real decision maker and you say hey
+
+00:46:23.099 --> 00:46:27.480
+Caption: here&#39;s what I&#39;ve been asked to build
+
+00:46:25.739 --> 00:46:30.060
+Caption: I&#39;d like to know what the problems are
+
+00:46:27.479 --> 00:46:31.260
+Caption: trying to solve are and really get some
+
+00:46:30.060 --> 00:46:33.380
+Caption: consensus on what we&#39;re trying to
+
+00:46:31.260 --> 00:46:33.380
+Caption: deliver
+
+00:46:33.419 --> 00:46:37.260
+Caption: I think most people will be very open to
+
+00:46:35.219 --> 00:46:38.819
+Caption: that I think a lot of
+
+00:46:37.260 --> 00:46:40.679
+Caption: non-engineering people would take to
+
+00:46:38.819 --> 00:46:43.079
+Caption: that really kindly
+
+00:46:40.679 --> 00:46:45.260
+Caption: I hope that I hope that answers your
+
+00:46:43.079 --> 00:46:45.260
+Caption: question
+
+00:46:45.800 --> 00:46:49.880
+Caption: and
+
+00:46:47.719 --> 00:46:53.939
+Caption: okay
+
+00:46:49.879 --> 00:46:55.858
+Caption: uh the last question anymore
+
+00:46:53.939 --> 00:46:58.139
+Caption: okay well I&#39;ve got some good news uh
+
+00:46:55.858 --> 00:47:01.399
+Caption: morning tea is uh served in the foyer
+
+00:46:58.139 --> 00:47:01.399
+Caption: but a big thank you to Nick
+
+00:47:03.000 --> 00:47:05.719
+Caption: thanks everyone
+

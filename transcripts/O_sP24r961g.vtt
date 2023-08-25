@@ -1,0 +1,1841 @@
+WEBVTT
+
+00:00:01.649 --> 00:00:08.289
+Caption: all right good evening and thanks for
+
+00:00:05.440 --> 00:00:09.729
+Caption: having me here in Perth I lived in a
+
+00:00:08.289 --> 00:00:12.819
+Caption: place called Brisbane out of the other
+
+00:00:09.729 --> 00:00:15.010
+Caption: side of the desert and hoping to Perth
+
+00:00:12.819 --> 00:00:20.018
+Caption: for a couple of years great place so
+
+00:00:15.010 --> 00:00:20.919
+Caption: thanks again I&#39;m going to tell you my
+
+00:00:20.018 --> 00:00:23.559
+Caption: goal tonight is to tell you what
+
+00:00:20.919 --> 00:00:24.509
+Caption: functional programming means just what
+
+00:00:23.559 --> 00:00:27.159
+Caption: it means
+
+00:00:24.509 --> 00:00:29.529
+Caption: mostly because I am sympathetic to you
+
+00:00:27.159 --> 00:00:32.200
+Caption: if you typed into a search engine right
+
+00:00:29.528 --> 00:00:35.439
+Caption: now what does it mean you&#39;ll get ten
+
+00:00:32.200 --> 00:00:37.450
+Caption: wrong answers well unfortunately it&#39;s
+
+00:00:35.439 --> 00:00:41.889
+Caption: it&#39;s it still has a bit of mysticism
+
+00:00:37.450 --> 00:00:43.779
+Caption: around it and my one of my main goals of
+
+00:00:41.889 --> 00:00:45.459
+Caption: coming here to Perth is to you know
+
+00:00:43.779 --> 00:00:48.040
+Caption: spend three days with people who would
+
+00:00:45.459 --> 00:00:50.229
+Caption: like to learn it in depth so I think
+
+00:00:48.040 --> 00:00:54.220
+Caption: some of you are in this room we did our
+
+00:00:50.229 --> 00:00:55.439
+Caption: mana edge tutorial today one adds a they
+
+00:00:54.220 --> 00:01:01.900
+Caption: have a reputation for being difficult
+
+00:00:55.439 --> 00:01:03.039
+Caption: they&#39;re not right wherever you are it&#39;s
+
+00:01:01.900 --> 00:01:05.409
+Caption: just so that you don&#39;t write the same
+
+00:01:03.040 --> 00:01:08.009
+Caption: code over and over again so that&#39;s done
+
+00:01:05.408 --> 00:01:11.169
+Caption: and we&#39;ll go back to relaxing tomorrow
+
+00:01:08.009 --> 00:01:13.990
+Caption: okay so I work for the Queensland
+
+00:01:11.169 --> 00:01:16.419
+Caption: functional programming lab I am
+
+00:01:13.989 --> 00:01:19.779
+Caption: it&#39;s a CSIRO and Queensland government
+
+00:01:16.419 --> 00:01:22.809
+Caption: initiative and just to briefly say what
+
+00:01:19.779 --> 00:01:24.849
+Caption: it is that I do I try to help Australian
+
+00:01:22.809 --> 00:01:26.459
+Caption: software developers take advantage of
+
+00:01:24.849 --> 00:01:29.258
+Caption: the benefits of functional programming
+
+00:01:26.459 --> 00:01:32.138
+Caption: that&#39;s what I do and there&#39;s a team of
+
+00:01:29.259 --> 00:01:34.869
+Caption: six of us I&#39;m soon to be eleven I&#39;m
+
+00:01:32.138 --> 00:01:37.059
+Caption: hiring if you&#39;d like to cross the desert
+
+00:01:34.869 --> 00:01:39.880
+Caption: and come and write Haskell with me send
+
+00:01:37.059 --> 00:01:43.809
+Caption: me an email so that&#39;s pretty much what I
+
+00:01:39.879 --> 00:01:45.429
+Caption: do and it&#39;s quite fun writing open
+
+00:01:43.809 --> 00:01:47.708
+Caption: source code helping out government
+
+00:01:45.429 --> 00:01:48.969
+Caption: departments we&#39;ve got all their data in
+
+00:01:47.708 --> 00:01:52.739
+Caption: a mess and they&#39;re like help
+
+00:01:48.969 --> 00:01:52.740
+Caption: oh yeah no worries I got Haskell
+
+00:01:52.900 --> 00:02:01.159
+Caption: yes they we sort that out so I get this
+
+00:01:58.279 --> 00:02:02.000
+Caption: I get this question quite a lot yeah so
+
+00:02:01.158 --> 00:02:03.529
+Caption: I don&#39;t know if you have this question
+
+00:02:02.000 --> 00:02:05.330
+Caption: but if you do how do what can I be
+
+00:02:03.529 --> 00:02:07.279
+Caption: notified about the upcoming courses sign
+
+00:02:05.330 --> 00:02:09.440
+Caption: up to that mailing list whenever I&#39;m
+
+00:02:07.279 --> 00:02:10.699
+Caption: going to Perth or Canberra or whatever
+
+00:02:09.440 --> 00:02:15.350
+Caption: when we&#39;re going to do it that&#39;s I&#39;ll
+
+00:02:10.699 --> 00:02:17.479
+Caption: write an email there and sometimes I get
+
+00:02:15.350 --> 00:02:19.790
+Caption: this question like so these three days
+
+00:02:17.479 --> 00:02:21.349
+Caption: I&#39;m like I&#39;m burning people really hard
+
+00:02:19.789 --> 00:02:24.348
+Caption: right am i right
+
+00:02:21.350 --> 00:02:26.569
+Caption: yeah I&#39;m right I&#39;m like I&#39;m drilling you
+
+00:02:24.348 --> 00:02:28.488
+Caption: hard but we&#39;re gonna get to the end of
+
+00:02:26.569 --> 00:02:31.279
+Caption: it and you&#39;re gonna say to me how do I
+
+00:02:28.488 --> 00:02:35.089
+Caption: write a web app in Haskell right or
+
+00:02:31.279 --> 00:02:36.440
+Caption: something like this so that&#39;s that
+
+00:02:35.089 --> 00:02:37.639
+Caption: that&#39;s what we&#39;re doing that now
+
+00:02:36.440 --> 00:02:39.410
+Caption: so if you&#39;re interested in that so
+
+00:02:37.639 --> 00:02:40.759
+Caption: you&#39;ve been burnt you&#39;ve learned all the
+
+00:02:39.410 --> 00:02:44.059
+Caption: introductory stuff you&#39;re ready to go
+
+00:02:40.759 --> 00:02:47.149
+Caption: how do I write a database where that
+
+00:02:44.059 --> 00:02:47.988
+Caption: whatever it is you want to do so we&#39;re
+
+00:02:47.149 --> 00:02:53.929
+Caption: doing that this year
+
+00:02:47.988 --> 00:02:57.979
+Caption: and yes I do yes we do six of us let
+
+00:02:53.929 --> 00:03:00.319
+Caption: alone it so I&#39;ve just a background on
+
+00:02:57.979 --> 00:03:03.500
+Caption: how I got into functional programming I
+
+00:03:00.320 --> 00:03:04.970
+Caption: used to work for IBM and I asked these
+
+00:03:03.500 --> 00:03:07.488
+Caption: days to implement is language called
+
+00:03:04.970 --> 00:03:10.009
+Caption: Java if you ever heard of it
+
+00:03:07.488 --> 00:03:12.380
+Caption: basically you got to write a compiler
+
+00:03:10.009 --> 00:03:16.429
+Caption: and it compiles your code that was my
+
+00:03:12.380 --> 00:03:20.029
+Caption: job and there was a company called Sun
+
+00:03:16.429 --> 00:03:22.419
+Caption: Microsystems back then so I had to
+
+00:03:20.029 --> 00:03:24.949
+Caption: implement this thing called Java I
+
+00:03:22.419 --> 00:03:26.899
+Caption: learnt it as much as I needed to so that
+
+00:03:24.949 --> 00:03:30.470
+Caption: I could write all the Camellia compiler
+
+00:03:26.899 --> 00:03:32.449
+Caption: and specifications and so on and it was
+
+00:03:30.470 --> 00:03:34.820
+Caption: it was a simple thought that I assume
+
+00:03:32.449 --> 00:03:36.738
+Caption: everyone has had every programmer at
+
+00:03:34.820 --> 00:03:40.250
+Caption: least has had which is simply surely
+
+00:03:36.738 --> 00:03:41.690
+Caption: there&#39;s a better way okay so you know
+
+00:03:40.250 --> 00:03:43.458
+Caption: Java programmers in the room you&#39;ve all
+
+00:03:41.690 --> 00:03:44.930
+Caption: seen like null pointer exceptions and
+
+00:03:43.458 --> 00:03:46.910
+Caption: you&#39;ve seen all this stuff and you&#39;re
+
+00:03:44.929 --> 00:03:52.369
+Caption: like do I really have to meet you with
+
+00:03:46.910 --> 00:03:54.079
+Caption: this really and you need to develop a
+
+00:03:52.369 --> 00:03:56.509
+Caption: process to answer this question and my
+
+00:03:54.078 --> 00:03:58.369
+Caption: process was someone smarter than me has
+
+00:03:56.509 --> 00:04:03.319
+Caption: figured this out
+
+00:03:58.369 --> 00:04:05.869
+Caption: who are these smart people and the smart
+
+00:04:03.319 --> 00:04:08.208
+Caption: people I found out where the functional
+
+00:04:05.869 --> 00:04:11.149
+Caption: programmers they&#39;ve already figured this
+
+00:04:08.208 --> 00:04:12.800
+Caption: out they figured out how to not have
+
+00:04:11.149 --> 00:04:15.169
+Caption: enough functional corner exceptions
+
+00:04:12.800 --> 00:04:17.029
+Caption: right and so on they&#39;ve worked out how
+
+00:04:15.169 --> 00:04:21.820
+Caption: to do it and I&#39;m gonna go and steal all
+
+00:04:17.029 --> 00:04:21.820
+Caption: their ideas that&#39;s pretty much it so
+
+00:04:22.179 --> 00:04:28.699
+Caption: when I when I first moved to Brisbane in
+
+00:04:24.859 --> 00:04:31.728
+Caption: like 2003 or four I think there were two
+
+00:04:28.699 --> 00:04:34.910
+Caption: of us writing Haskell in Brisbane and we
+
+00:04:31.729 --> 00:04:37.459
+Caption: found each other because I appeared in
+
+00:04:34.910 --> 00:04:39.410
+Caption: the television interview and the other
+
+00:04:37.459 --> 00:04:40.609
+Caption: person said hey that&#39;s the person off
+
+00:04:39.410 --> 00:04:43.550
+Caption: the Haskell mailing list
+
+00:04:40.609 --> 00:04:47.179
+Caption: he lives in Brisbane there&#39;s two of us
+
+00:04:43.549 --> 00:04:47.809
+Caption: and it kind of went from there that&#39;s a
+
+00:04:47.179 --> 00:04:51.410
+Caption: true story
+
+00:04:47.809 --> 00:04:53.179
+Caption: so functional programming is certainly
+
+00:04:51.410 --> 00:04:54.289
+Caption: my opinion on how to do software
+
+00:04:53.179 --> 00:04:57.859
+Caption: development so I&#39;m going to tell you
+
+00:04:54.289 --> 00:05:01.789
+Caption: what it means what does it mean common
+
+00:04:57.859 --> 00:05:03.859
+Caption: question so I&#39;m going to show you a
+
+00:05:01.789 --> 00:05:08.899
+Caption: computer program this is a this is in
+
+00:05:03.859 --> 00:05:10.969
+Caption: any syntax no particular language and if
+
+00:05:08.899 --> 00:05:14.419
+Caption: we look at this this this procedure up
+
+00:05:10.970 --> 00:05:15.919
+Caption: here and we notice first of all it adds
+
+00:05:14.419 --> 00:05:18.380
+Caption: one to the counter some counter
+
+00:05:15.919 --> 00:05:21.260
+Caption: somewhere and then it returns a plus B
+
+00:05:18.380 --> 00:05:23.830
+Caption: times two and then the arbitrary code
+
+00:05:21.260 --> 00:05:26.419
+Caption: stands for the rest of the application
+
+00:05:23.829 --> 00:05:28.638
+Caption: all right fifty billion lines of
+
+00:05:26.419 --> 00:05:32.839
+Caption: whatever it is and then you come across
+
+00:05:28.639 --> 00:05:35.020
+Caption: this expression down here alright and
+
+00:05:32.839 --> 00:05:37.339
+Caption: you look at this and you go okay
+
+00:05:35.019 --> 00:05:41.329
+Caption: there&#39;s some code duplication right
+
+00:05:37.339 --> 00:05:44.750
+Caption: there can i factor that code duplication
+
+00:05:41.329 --> 00:05:47.439
+Caption: out without affecting the program can I
+
+00:05:44.750 --> 00:05:47.440
+Caption: do that
+
+00:05:48.519 --> 00:05:57.948
+Caption: did the program just change it did yeah
+
+00:05:55.119 --> 00:06:00.949
+Caption: it changed why did it change it changed
+
+00:05:57.949 --> 00:06:02.300
+Caption: because the counter used to update twice
+
+00:06:00.949 --> 00:06:06.139
+Caption: because there were two calls to the
+
+00:06:02.299 --> 00:06:08.539
+Caption: wibble function or procedure and now
+
+00:06:06.139 --> 00:06:12.350
+Caption: there&#39;s one so the counter only updates
+
+00:06:08.540 --> 00:06:16.100
+Caption: once the program changed
+
+00:06:12.350 --> 00:06:19.820
+Caption: I cannot take an expression factor it
+
+00:06:16.100 --> 00:06:23.839
+Caption: out naively and get the same program in
+
+00:06:19.820 --> 00:06:29.679
+Caption: this particular circumstance and it&#39;s
+
+00:06:23.839 --> 00:06:34.579
+Caption: because of that so if I take that out
+
+00:06:29.679 --> 00:06:38.049
+Caption: and look at this exact same program and
+
+00:06:34.579 --> 00:06:43.220
+Caption: I say there&#39;s some code duplication
+
+00:06:38.049 --> 00:06:48.039
+Caption: can i factor it out I can the program
+
+00:06:43.220 --> 00:06:51.579
+Caption: didn&#39;t change that is the same program
+
+00:06:48.039 --> 00:06:51.579
+Caption: isn&#39;t that great
+
+00:06:53.600 --> 00:07:02.059
+Caption: it didn&#39;t change and that&#39;s because it
+
+00:06:57.739 --> 00:07:04.609
+Caption: is a function Whittle or pebble in this
+
+00:07:02.059 --> 00:07:06.320
+Caption: case is a function there&#39;s a function
+
+00:07:04.609 --> 00:07:13.479
+Caption: because given the inputs it&#39;ll return
+
+00:07:06.320 --> 00:07:13.480
+Caption: the same output and do nothing else okay
+
+00:07:13.630 --> 00:07:32.589
+Caption: sure which one this one here yeah yeah
+
+00:07:22.940 --> 00:07:34.880
+Caption: yeah well this is the original program
+
+00:07:32.589 --> 00:07:38.290
+Caption: so the question I&#39;m asking is if I
+
+00:07:34.880 --> 00:07:41.660
+Caption: change this program into that program
+
+00:07:38.290 --> 00:07:46.309
+Caption: did it change from the previous one into
+
+00:07:41.660 --> 00:07:49.369
+Caption: this one it does in this case yeah it
+
+00:07:46.309 --> 00:07:52.160
+Caption: didn&#39;t in the other case you agree with
+
+00:07:49.369 --> 00:07:55.729
+Caption: that do I have your agreement on these
+
+00:07:52.160 --> 00:07:58.100
+Caption: things because if so because because it
+
+00:07:55.730 --> 00:07:59.690
+Caption: is the same program or the reason it&#39;s
+
+00:07:58.100 --> 00:08:03.350
+Caption: the same program is because people is a
+
+00:07:59.690 --> 00:08:10.279
+Caption: function there is no additional effect
+
+00:08:03.350 --> 00:08:11.390
+Caption: going on okay so the program didn&#39;t
+
+00:08:10.279 --> 00:08:13.489
+Caption: change in the second circumstance
+
+00:08:11.390 --> 00:08:15.770
+Caption: because there was a function and that&#39;s
+
+00:08:13.489 --> 00:08:17.599
+Caption: because given the same output inputs to
+
+00:08:15.769 --> 00:08:22.220
+Caption: get same outputs with no other changes
+
+00:08:17.600 --> 00:08:24.410
+Caption: caring that is to say we can replace an
+
+00:08:22.220 --> 00:08:27.380
+Caption: expression with its value naively and
+
+00:08:24.410 --> 00:08:30.410
+Caption: always get the same program that is
+
+00:08:27.380 --> 00:08:32.619
+Caption: functional programming Mike drops a
+
+00:08:30.410 --> 00:08:32.619
+Caption: letter
+
+00:08:33.020 --> 00:08:37.590
+Caption: I&#39;m dead set that is the definition of
+
+00:08:35.789 --> 00:08:39.000
+Caption: functional programming the extent to
+
+00:08:37.590 --> 00:08:41.240
+Caption: which I can replace expressions with
+
+00:08:39.000 --> 00:08:45.659
+Caption: values without changing program behavior
+
+00:08:41.239 --> 00:08:47.700
+Caption: that&#39;s a very simple definition and that
+
+00:08:45.659 --> 00:08:49.529
+Caption: the property of expressions when they
+
+00:08:47.700 --> 00:08:50.730
+Caption: when you can do this with expressions is
+
+00:08:49.530 --> 00:08:53.430
+Caption: sometimes called referential
+
+00:08:50.729 --> 00:08:55.679
+Caption: transparency so we&#39;d say that that
+
+00:08:53.429 --> 00:08:57.630
+Caption: expression back back earlier the pibil
+
+00:08:55.679 --> 00:08:59.940
+Caption: one that is a referentially transparent
+
+00:08:57.630 --> 00:09:01.739
+Caption: expression whereas the wibble one was
+
+00:08:59.940 --> 00:09:07.010
+Caption: not i cannot substitute it with its
+
+00:09:01.739 --> 00:09:09.929
+Caption: value and get the same same outcome so
+
+00:09:07.010 --> 00:09:13.770
+Caption: so what why does the government pay me
+
+00:09:09.929 --> 00:09:17.010
+Caption: to care a lot about that it&#39;s because of
+
+00:09:13.770 --> 00:09:19.650
+Caption: the consequences so who users like you
+
+00:09:17.010 --> 00:09:22.109
+Caption: know JavaScript and Java and Python and
+
+00:09:19.650 --> 00:09:23.640
+Caption: c-sharp all these languages right you
+
+00:09:22.109 --> 00:09:24.719
+Caption: can be counter equals counter plus one
+
+00:09:23.640 --> 00:09:27.570
+Caption: no worries and off you go
+
+00:09:24.719 --> 00:09:33.539
+Caption: I can&#39;t that&#39;s one of the consequences
+
+00:09:27.570 --> 00:09:34.950
+Caption: straight away you can&#39;t do this right in
+
+00:09:33.539 --> 00:09:36.329
+Caption: whatever language it is you use you&#39;ve
+
+00:09:34.950 --> 00:09:43.109
+Caption: got an object with mutable fields in
+
+00:09:36.330 --> 00:09:47.549
+Caption: there I can&#39;t do that right you can even
+
+00:09:43.109 --> 00:09:52.769
+Caption: do that I can&#39;t do that if I say I equal
+
+00:09:47.549 --> 00:09:55.469
+Caption: to 0 I will always equal 0 it&#39;s the end
+
+00:09:52.770 --> 00:09:58.440
+Caption: of the argument if you come along and go
+
+00:09:55.469 --> 00:10:00.719
+Caption: I plus plus it will not compile Haskell
+
+00:09:58.440 --> 00:10:01.140
+Caption: will not compile that so hang on a
+
+00:10:00.719 --> 00:10:04.699
+Caption: minute
+
+00:10:01.140 --> 00:10:07.700
+Caption: I equals 0 ie plus plus
+
+00:10:04.700 --> 00:10:07.700
+Caption: contradiction
+
+00:10:07.849 --> 00:10:15.148
+Caption: um I I have two children when my son was
+
+00:10:12.750 --> 00:10:18.599
+Caption: nine years old I had the following
+
+00:10:15.148 --> 00:10:21.239
+Caption: discussion that went like this if C plus
+
+00:10:18.599 --> 00:10:25.768
+Caption: three equals seven what&#39;s C and he said
+
+00:10:21.239 --> 00:10:29.159
+Caption: what it&#39;s for oh yeah okay well if X
+
+00:10:25.768 --> 00:10:32.880
+Caption: times five equals 25 what&#39;s X he said
+
+00:10:29.159 --> 00:10:35.179
+Caption: well it&#39;s five and I said if I equals
+
+00:10:32.880 --> 00:10:37.859
+Caption: zero and then I equals I plus 1 what&#39;s I
+
+00:10:35.179 --> 00:10:45.869
+Caption: you said that makes no sense
+
+00:10:37.859 --> 00:10:50.338
+Caption: I said correct I have it I have it on
+
+00:10:45.869 --> 00:10:52.559
+Caption: mp3 if you&#39;d like to listen to it I did
+
+00:10:50.338 --> 00:10:55.398
+Caption: not prod him at all that exists
+
+00:10:52.559 --> 00:10:58.979
+Caption: one morning I just started saying that
+
+00:10:55.398 --> 00:11:01.109
+Caption: so you can&#39;t do that in because this
+
+00:10:58.979 --> 00:11:02.609
+Caption: expression here I plus plus is not
+
+00:11:01.109 --> 00:11:04.469
+Caption: referentially transparent you cannot
+
+00:11:02.609 --> 00:11:06.599
+Caption: substitute I throughout the program and
+
+00:11:04.469 --> 00:11:10.049
+Caption: get the same program they&#39;re all
+
+00:11:06.599 --> 00:11:11.849
+Caption: different eyes you can&#39;t do this common
+
+00:11:10.049 --> 00:11:15.388
+Caption: question I get does that mean you can&#39;t
+
+00:11:11.849 --> 00:11:18.268
+Caption: do I oh well of course I can I just
+
+00:11:15.388 --> 00:11:20.969
+Caption: can&#39;t you know do it messily like this I
+
+00:11:18.268 --> 00:11:22.648
+Caption: can&#39;t just arbitrarily do it I can&#39;t
+
+00:11:20.969 --> 00:11:24.419
+Caption: just start doing these things right if I
+
+00:11:22.648 --> 00:11:27.028
+Caption: if I replace read file with the filename
+
+00:11:24.419 --> 00:11:29.659
+Caption: with its value I&#39;d get a different
+
+00:11:27.028 --> 00:11:33.179
+Caption: program right it had read the file once
+
+00:11:29.659 --> 00:11:34.440
+Caption: and then that&#39;s it all right
+
+00:11:33.179 --> 00:11:37.018
+Caption: that would just it would change the
+
+00:11:34.440 --> 00:11:38.429
+Caption: program outcome if I were to substitute
+
+00:11:37.018 --> 00:11:43.708
+Caption: that expression there read file file
+
+00:11:38.429 --> 00:11:45.028
+Caption: name with its value so if I live three
+
+00:11:43.708 --> 00:11:46.828
+Caption: days by the way that we&#39;re spending is
+
+00:11:45.028 --> 00:11:48.929
+Caption: I&#39;ve taken away all these tools from you
+
+00:11:46.828 --> 00:11:50.909
+Caption: know 30 people in the room who are so
+
+00:11:48.929 --> 00:11:53.309
+Caption: used to like read file write file I plus
+
+00:11:50.909 --> 00:11:54.809
+Caption: plus everything&#39;s just fine and I&#39;ve
+
+00:11:53.309 --> 00:11:58.138
+Caption: just taken all of that away from them
+
+00:11:54.809 --> 00:11:59.880
+Caption: and they&#39;re standing there naked like
+
+00:11:58.138 --> 00:12:03.059
+Caption: how do I solve all these problems now
+
+00:11:59.880 --> 00:12:08.010
+Caption: and I substituting new problem solving
+
+00:12:03.059 --> 00:12:11.458
+Caption: tools and causes some pain but that&#39;s
+
+00:12:08.010 --> 00:12:12.570
+Caption: okay it is okay right it&#39;s a little bit
+
+00:12:11.458 --> 00:12:18.000
+Caption: of pain
+
+00:12:12.570 --> 00:12:22.020
+Caption: yeah not too much I&#39;ll give you an
+
+00:12:18.000 --> 00:12:23.400
+Caption: example these are some of the questions
+
+00:12:22.020 --> 00:12:27.030
+Caption: that we were immediately asked once I
+
+00:12:23.400 --> 00:12:28.740
+Caption: take away all your where your tools will
+
+00:12:27.030 --> 00:12:33.030
+Caption: we will be answering that third question
+
+00:12:28.739 --> 00:12:34.649
+Caption: tomorrow by the way how do we design our
+
+00:12:33.030 --> 00:12:35.700
+Caption: data structures how do I can&#39;t have
+
+00:12:34.650 --> 00:12:39.869
+Caption: mutable fields anymore
+
+00:12:35.700 --> 00:12:42.929
+Caption: what do I do how do I write loops how do
+
+00:12:39.869 --> 00:12:44.760
+Caption: I even sum the values of a list alright
+
+00:12:42.929 --> 00:12:47.099
+Caption: so if you&#39;ve never heard a functional
+
+00:12:44.760 --> 00:12:53.100
+Caption: programming how do you sum the values in
+
+00:12:47.099 --> 00:12:58.139
+Caption: a list how do you do it oh you&#39;ve heard
+
+00:12:53.099 --> 00:13:01.259
+Caption: a functional programming you go x equals
+
+00:12:58.140 --> 00:13:04.559
+Caption: zero for each element in the list x
+
+00:13:01.260 --> 00:13:09.809
+Caption: equals x plus the element return x am i
+
+00:13:04.559 --> 00:13:12.619
+Caption: right something like this if I remember
+
+00:13:09.809 --> 00:13:16.289
+Caption: rightly last time I wrote a for loop
+
+00:13:12.619 --> 00:13:18.750
+Caption: it&#39;s something like that so set the
+
+00:13:16.289 --> 00:13:20.880
+Caption: counter at zero or a start position a
+
+00:13:18.750 --> 00:13:23.729
+Caption: zero go through the list for each
+
+00:13:20.880 --> 00:13:26.190
+Caption: element add the counter to that element
+
+00:13:23.729 --> 00:13:29.159
+Caption: return the counter it&#39;s the sum of the
+
+00:13:26.190 --> 00:13:30.840
+Caption: lists but there&#39;s a different way of
+
+00:13:29.159 --> 00:13:32.489
+Caption: thinking about this problem so this is
+
+00:13:30.840 --> 00:13:34.350
+Caption: an example of I&#39;m going to take away
+
+00:13:32.489 --> 00:13:36.419
+Caption: this I&#39;ve taken away loops they don&#39;t
+
+00:13:34.349 --> 00:13:38.039
+Caption: exist and we&#39;re going to sum up the
+
+00:13:36.419 --> 00:13:40.769
+Caption: elements of the list and I did hear
+
+00:13:38.039 --> 00:13:41.459
+Caption: someone say recursion and that&#39;s how
+
+00:13:40.770 --> 00:13:44.760
+Caption: we&#39;re going to do it
+
+00:13:41.460 --> 00:13:47.010
+Caption: so these things are disallowed okay if I
+
+00:13:44.760 --> 00:13:50.729
+Caption: set R equal to zero what&#39;s our it&#39;s zero
+
+00:13:47.010 --> 00:13:54.929
+Caption: end of argument so that this thing here
+
+00:13:50.729 --> 00:13:56.969
+Caption: is not a thing if I set I equal to 0 its
+
+00:13:54.929 --> 00:14:01.429
+Caption: 0 that would be a very uninteresting
+
+00:13:56.969 --> 00:14:01.429
+Caption: program R equals 0 equals 0 at the end
+
+00:14:01.830 --> 00:14:06.299
+Caption: so there&#39;s another way of looking at the
+
+00:14:03.539 --> 00:14:09.809
+Caption: problem of adding up the integers of a
+
+00:14:06.299 --> 00:14:14.549
+Caption: list and it it&#39;s this if the list is
+
+00:14:09.809 --> 00:14:17.010
+Caption: empty return zero but if it&#39;s not then
+
+00:14:14.549 --> 00:14:20.940
+Caption: return the first element plus the sum of
+
+00:14:17.010 --> 00:14:23.190
+Caption: the rest of the list does everyone agree
+
+00:14:20.940 --> 00:14:28.950
+Caption: that that adds up all the integers in a
+
+00:14:23.190 --> 00:14:30.599
+Caption: list so basically we have a list and
+
+00:14:28.950 --> 00:14:33.239
+Caption: Alyssa can be displayed into two
+
+00:14:30.599 --> 00:14:34.799
+Caption: possible cases is it empty or does it
+
+00:14:33.239 --> 00:14:37.859
+Caption: have a first element and the rest of the
+
+00:14:34.799 --> 00:14:39.028
+Caption: list that&#39;s the definition of a list in
+
+00:14:37.859 --> 00:14:40.440
+Caption: Haskell in fact I could show you the
+
+00:14:39.028 --> 00:14:42.539
+Caption: code I don&#39;t have a pair Boca shades
+
+00:14:40.440 --> 00:14:43.708
+Caption: just basically is empty or has the start
+
+00:14:42.539 --> 00:14:48.148
+Caption: element and then the rest of the list
+
+00:14:43.708 --> 00:14:50.039
+Caption: that&#39;s the definition of the datatype so
+
+00:14:48.148 --> 00:14:53.458
+Caption: stepping through that that definition
+
+00:14:50.039 --> 00:14:54.958
+Caption: let&#39;s add up a list and we say well is
+
+00:14:53.458 --> 00:14:57.838
+Caption: that list six five nine seventy one
+
+00:14:54.958 --> 00:15:00.109
+Caption: three is it empty no well then the sum
+
+00:14:57.838 --> 00:15:05.309
+Caption: of it is six plus the sum of the rest
+
+00:15:00.109 --> 00:15:07.349
+Caption: and so on until we get down to the sum
+
+00:15:05.309 --> 00:15:09.708
+Caption: of the empty list and we say well is it
+
+00:15:07.349 --> 00:15:12.028
+Caption: empty yes and then we substitute to zero
+
+00:15:09.708 --> 00:15:18.510
+Caption: and then at and then the sum of all of
+
+00:15:12.028 --> 00:15:20.609
+Caption: that is 94 and at no time did I say I
+
+00:15:18.510 --> 00:15:23.600
+Caption: equals zero oh wait no it doesn&#39;t it&#39;s I
+
+00:15:20.609 --> 00:15:23.599
+Caption: equals I plus one
+
+00:15:25.530 --> 00:15:34.340
+Caption: there&#39;s the Haskell code who&#39;s not a
+
+00:15:30.809 --> 00:15:38.729
+Caption: programmer can you read that
+
+00:15:34.340 --> 00:15:40.080
+Caption: just curious I&#39;ll explain it to you and
+
+00:15:38.729 --> 00:15:43.849
+Caption: then you answer for me all right
+
+00:15:40.080 --> 00:15:47.100
+Caption: so the sum of an empty list is equals 0
+
+00:15:43.849 --> 00:15:48.479
+Caption: the sum of a list that has the first
+
+00:15:47.099 --> 00:15:51.779
+Caption: element in the rest is the first element
+
+00:15:48.479 --> 00:15:57.209
+Caption: plus the sum of the rest I think that&#39;s
+
+00:15:51.780 --> 00:16:01.980
+Caption: pretty straightforward who&#39;s not a
+
+00:15:57.210 --> 00:16:06.510
+Caption: programmer and can read that I struggle
+
+00:16:01.979 --> 00:16:14.519
+Caption: myself a zero oh wait no it&#39;s not hang
+
+00:16:06.510 --> 00:16:15.989
+Caption: on that&#39;s how I read that k my common
+
+00:16:14.520 --> 00:16:18.020
+Caption: criticism of functional programming is
+
+00:16:15.989 --> 00:16:22.200
+Caption: that it&#39;s unintuitive I&#39;m kind of
+
+00:16:18.020 --> 00:16:27.390
+Caption: mocking that criticism lies my
+
+00:16:22.200 --> 00:16:29.160
+Caption: nine-year-old disagrees so what say yeah
+
+00:16:27.390 --> 00:16:31.500
+Caption: this is a good question
+
+00:16:29.159 --> 00:16:33.750
+Caption: much more serious question which is why
+
+00:16:31.500 --> 00:16:34.950
+Caption: would I even care all right you might be
+
+00:16:33.750 --> 00:16:36.690
+Caption: over there writing your loop see like
+
+00:16:34.950 --> 00:16:39.000
+Caption: I&#39;m totally cool with loops I&#39;m summing
+
+00:16:36.690 --> 00:16:42.239
+Caption: up the list everything&#39;s just fine leave
+
+00:16:39.000 --> 00:16:45.599
+Caption: me alone all right what I&#39;m saying but
+
+00:16:42.239 --> 00:16:49.289
+Caption: there&#39;s practical benefits what are they
+
+00:16:45.599 --> 00:16:50.729
+Caption: and this is quite a deep question I&#39;m
+
+00:16:49.289 --> 00:16:52.289
+Caption: happy to answer it for days and days and
+
+00:16:50.729 --> 00:16:53.820
+Caption: days if you like but I don&#39;t have that
+
+00:16:52.289 --> 00:16:59.000
+Caption: much but I&#39;ll do my best in the short
+
+00:16:53.820 --> 00:16:59.000
+Caption: amount of time so they&#39;re not obvious
+
+00:16:59.088 --> 00:17:04.438
+Caption: and it&#39;s like it&#39;s the people who are in
+
+00:17:03.299 --> 00:17:06.179
+Caption: this three-day course it&#39;s still not
+
+00:17:04.438 --> 00:17:10.020
+Caption: obvious I think so we&#39;re up to date it&#39;s
+
+00:17:06.180 --> 00:17:15.569
+Caption: still not obvious but just to give it a
+
+00:17:10.020 --> 00:17:16.140
+Caption: hand wavy overview right so and ender
+
+00:17:15.568 --> 00:17:17.669
+Caption: there&#39;s a penalty
+
+00:17:16.140 --> 00:17:20.130
+Caption: the penalty is I&#39;ve taken away all your
+
+00:17:17.670 --> 00:17:22.439
+Caption: familiar tools so you&#39;re trusting me
+
+00:17:20.130 --> 00:17:24.000
+Caption: right now and I completely appreciate
+
+00:17:22.438 --> 00:17:27.448
+Caption: that I&#39;ve taken away all the good things
+
+00:17:24.000 --> 00:17:29.250
+Caption: and I&#39;ve not yet given you any well I&#39;m
+
+00:17:27.448 --> 00:17:31.520
+Caption: not giving you anything good to
+
+00:17:29.250 --> 00:17:35.839
+Caption: substitute them all back
+
+00:17:31.520 --> 00:17:38.719
+Caption: but I can reason about programs okay
+
+00:17:35.839 --> 00:17:41.029
+Caption: so again this is a hand wave you think I
+
+00:17:38.719 --> 00:17:44.959
+Caption: could concrete this in if at the time
+
+00:17:41.030 --> 00:17:47.989
+Caption: but basically looking at the definition
+
+00:17:44.959 --> 00:17:50.719
+Caption: of some in Haskell let&#39;s go back and
+
+00:17:47.989 --> 00:17:53.660
+Caption: have a look at that actually the Sun so
+
+00:17:50.719 --> 00:17:56.150
+Caption: for example if I look at this program I
+
+00:17:53.660 --> 00:17:58.640
+Caption: can reason about for example that line
+
+00:17:56.150 --> 00:18:01.160
+Caption: independently of that line there are two
+
+00:17:58.640 --> 00:18:02.660
+Caption: discrete programs and they exist
+
+00:18:01.160 --> 00:18:04.760
+Caption: independently and I&#39;ve just put them
+
+00:18:02.660 --> 00:18:06.200
+Caption: together to make a new one not only that
+
+00:18:04.760 --> 00:18:08.119
+Caption: to do this one
+
+00:18:06.199 --> 00:18:10.069
+Caption: I&#39;ve taken the plus function and that
+
+00:18:08.119 --> 00:18:12.559
+Caption: value and that function and made a new
+
+00:18:10.069 --> 00:18:16.659
+Caption: one and did the sum function delete the
+
+00:18:12.560 --> 00:18:19.040
+Caption: database no it can&#39;t
+
+00:18:16.660 --> 00:18:21.220
+Caption: now you might go well that&#39;s insane
+
+00:18:19.040 --> 00:18:24.650
+Caption: some functions don&#39;t delete databases
+
+00:18:21.219 --> 00:18:26.209
+Caption: and I would say yes they do you&#39;ve
+
+00:18:24.650 --> 00:18:27.650
+Caption: surely worked on this project where
+
+00:18:26.209 --> 00:18:30.799
+Caption: there&#39;s some function deleted the
+
+00:18:27.650 --> 00:18:32.690
+Caption: database right anyone&#39;s been doing
+
+00:18:30.800 --> 00:18:35.510
+Caption: programming long enough guys who put
+
+00:18:32.689 --> 00:18:38.149
+Caption: that there that&#39;s insane it updates to
+
+00:18:35.510 --> 00:18:40.820
+Caption: fling and floppin whatever it is right
+
+00:18:38.150 --> 00:18:44.260
+Caption: we know these programs they exist they
+
+00:18:40.819 --> 00:18:46.699
+Caption: can&#39;t exist here they&#39;re discrete units
+
+00:18:44.260 --> 00:18:49.550
+Caption: it&#39;s usually like not deleting the
+
+00:18:46.699 --> 00:18:52.029
+Caption: databases like inserting a database row
+
+00:18:49.550 --> 00:18:54.140
+Caption: I&#39;ll wait now there&#39;s two of them whoops
+
+00:18:52.030 --> 00:18:56.270
+Caption: something like this happens or updates
+
+00:18:54.140 --> 00:18:59.660
+Caption: the XML configuration file whatever I
+
+00:18:56.270 --> 00:19:01.250
+Caption: don&#39;t Carn exist here these are discrete
+
+00:18:59.660 --> 00:19:06.440
+Caption: units and I can exact and reason about
+
+00:19:01.250 --> 00:19:08.869
+Caption: them independently not there I can&#39;t our
+
+00:19:06.439 --> 00:19:11.059
+Caption: equals zero oh wait no it doesn&#39;t and so
+
+00:19:08.869 --> 00:19:11.479
+Caption: on but I have to do the whole thing all
+
+00:19:11.060 --> 00:19:13.370
+Caption: at once
+
+00:19:11.479 --> 00:19:16.130
+Caption: I can&#39;t reason about that discreetly the
+
+00:19:13.369 --> 00:19:18.290
+Caption: plus function I can and I mean plus
+
+00:19:16.130 --> 00:19:20.150
+Caption: function I can because it&#39;s a function
+
+00:19:18.290 --> 00:19:22.390
+Caption: the things that are not functions I
+
+00:19:20.150 --> 00:19:22.390
+Caption: can&#39;t
+
+00:19:22.788 --> 00:19:33.378
+Caption: and say oops so the other one is
+
+00:19:29.078 --> 00:19:37.158
+Caption: composition so it&#39;s basically if I have
+
+00:19:33.379 --> 00:19:39.198
+Caption: discrete units of programs I can glue
+
+00:19:37.159 --> 00:19:44.320
+Caption: them together to make slightly less
+
+00:19:39.198 --> 00:19:47.538
+Caption: smaller units and I can keep going so
+
+00:19:44.319 --> 00:19:49.488
+Caption: and by that I mean that they&#39;re discrete
+
+00:19:47.538 --> 00:19:51.108
+Caption: I take another discrete unit blew it
+
+00:19:49.489 --> 00:19:52.489
+Caption: together I have another just another
+
+00:19:51.109 --> 00:19:56.779
+Caption: small unit and then I can take another
+
+00:19:52.489 --> 00:19:59.838
+Caption: one and so on as opposed to the monolith
+
+00:19:56.779 --> 00:20:01.489
+Caption: program so who&#39;s got a monolith program
+
+00:19:59.838 --> 00:20:04.189
+Caption: at work just by the way just come on
+
+00:20:01.489 --> 00:20:06.289
+Caption: let&#39;s be a bit honest so everyone&#39;s got
+
+00:20:04.189 --> 00:20:11.238
+Caption: one right there&#39;s the monolith program
+
+00:20:06.288 --> 00:20:12.798
+Caption: expert on your team yeah you&#39;re like hey
+
+00:20:11.239 --> 00:20:14.808
+Caption: you know the project manager wants to
+
+00:20:12.798 --> 00:20:16.908
+Caption: add you add a widget in the corner and
+
+00:20:14.808 --> 00:20:18.288
+Caption: you go what happens when I go and
+
+00:20:16.909 --> 00:20:20.449
+Caption: twiddle the code this way and add the
+
+00:20:18.288 --> 00:20:24.068
+Caption: widget you go on ask the expert as well
+
+00:20:20.448 --> 00:20:28.009
+Caption: yeah it&#39;ll take six months whatever you
+
+00:20:24.068 --> 00:20:29.718
+Caption: know all that that&#39;s true
+
+00:20:28.009 --> 00:20:32.239
+Caption: yes it&#39;s like what you want to add a
+
+00:20:29.718 --> 00:20:35.869
+Caption: widget no way we can&#39;t do that all it&#39;ll
+
+00:20:32.239 --> 00:20:40.519
+Caption: be a rewrite yeah that&#39;s really what
+
+00:20:35.869 --> 00:20:43.039
+Caption: happens so that&#39;s because at least I&#39;m
+
+00:20:40.519 --> 00:20:45.049
+Caption: going to I&#39;m trying to claim that the
+
+00:20:43.038 --> 00:20:47.558
+Caption: program is not in discrete units of
+
+00:20:45.048 --> 00:20:50.028
+Caption: composition it&#39;s just a model with a
+
+00:20:47.558 --> 00:20:52.338
+Caption: depends on B on C on D and back again
+
+00:20:50.029 --> 00:20:55.339
+Caption: around a and so on in the expert tries
+
+00:20:52.338 --> 00:20:56.958
+Caption: to hold rule in their head I&#39;ve never
+
+00:20:55.338 --> 00:21:00.408
+Caption: met an expert that actually can but they
+
+00:20:56.958 --> 00:21:02.119
+Caption: try and good on them but it&#39;s so
+
+00:21:00.409 --> 00:21:03.619
+Caption: difficult that you hit a scalability
+
+00:21:02.119 --> 00:21:04.879
+Caption: problem with your development and you
+
+00:21:03.619 --> 00:21:06.759
+Caption: just that&#39;s the size of your program
+
+00:21:04.879 --> 00:21:11.539
+Caption: forever and that&#39;s why they say no
+
+00:21:06.759 --> 00:21:13.458
+Caption: you&#39;re not adding the widget and and and
+
+00:21:11.538 --> 00:21:16.628
+Caption: I&#39;ll be honest I&#39;ve worked on one a list
+
+00:21:13.458 --> 00:21:16.629
+Caption: don&#39;t worry I&#39;ve written them myself
+
+00:21:17.250 --> 00:21:28.439
+Caption: so it takes a lot of work okay those of
+
+00:21:25.420 --> 00:21:31.299
+Caption: you are up to date ooh good on you
+
+00:21:28.439 --> 00:21:35.199
+Caption: all right I have set you on fire many
+
+00:21:31.298 --> 00:21:38.769
+Caption: times and I understand this and a little
+
+00:21:35.199 --> 00:21:42.039
+Caption: bit sorry but not a lot because there&#39;s
+
+00:21:38.770 --> 00:21:44.290
+Caption: benefits all right so those you are not
+
+00:21:42.040 --> 00:21:49.359
+Caption: not there you know I am hurting people a
+
+00:21:44.290 --> 00:21:51.700
+Caption: lot we have completed that there&#39;s a
+
+00:21:49.359 --> 00:21:53.979
+Caption: there&#39;s a course called the CIS one line
+
+00:21:51.699 --> 00:21:55.739
+Caption: for undergraduate introduction to high
+
+00:21:53.979 --> 00:21:58.660
+Caption: school at the University of Pennsylvania
+
+00:21:55.739 --> 00:22:01.678
+Caption: it&#39;s online you can go and do that right
+
+00:21:58.660 --> 00:22:05.049
+Caption: now and we&#39;ve just done that in two days
+
+00:22:01.678 --> 00:22:08.019
+Caption: all right so that&#39;s that&#39;s how hard I&#39;m
+
+00:22:05.048 --> 00:22:13.899
+Caption: hurting people because it&#39;s a lot of
+
+00:22:08.020 --> 00:22:15.969
+Caption: work so what I&#39;m getting at is is if you
+
+00:22:13.900 --> 00:22:19.059
+Caption: were to ever commit to taking advantage
+
+00:22:15.969 --> 00:22:20.739
+Caption: of these things in your programming you
+
+00:22:19.058 --> 00:22:25.178
+Caption: would have to do a lot of work make no
+
+00:22:20.739 --> 00:22:27.250
+Caption: mistake about it but I&#39;m committed to
+
+00:22:25.178 --> 00:22:29.260
+Caption: helping you that&#39;s what I want to do all
+
+00:22:27.250 --> 00:22:32.079
+Caption: right so I will hold your hand when you
+
+00:22:29.260 --> 00:22:36.760
+Caption: fall I&#39;ll pick you up and we&#39;ll keep
+
+00:22:32.079 --> 00:22:38.409
+Caption: going and through the trenches and we&#39;ll
+
+00:22:36.760 --> 00:22:41.469
+Caption: get to the other end and you feel like
+
+00:22:38.410 --> 00:22:44.340
+Caption: ah ha I know what I&#39;m 1 AD means and now
+
+00:22:41.469 --> 00:22:48.159
+Caption: I can take advantage of these things
+
+00:22:44.339 --> 00:22:50.909
+Caption: that&#39;s my job that&#39;s my goal and join me
+
+00:22:48.160 --> 00:22:50.910
+Caption: thank you for listening
+
+00:22:55.349 --> 00:23:08.439
+Caption: let&#39;s go I&#39;m afraid Lee has had to run
+
+00:23:02.288 --> 00:23:11.139
+Caption: off so tonight I imagine that Tony is
+
+00:23:08.439 --> 00:23:14.349
+Caption: happy to take a couple little questions
+
+00:23:11.140 --> 00:23:17.469
+Caption: absolutely and possibly our speakers are
+
+00:23:14.349 --> 00:23:20.020
+Caption: as well but maybe what we should do
+
+00:23:17.469 --> 00:23:22.089
+Caption: instead is in a bit of a pat-down and
+
+00:23:20.020 --> 00:23:24.609
+Caption: may be moving across to something like
+
+00:23:22.089 --> 00:23:26.709
+Caption: cheeky Sparrow that might be a good
+
+00:23:24.609 --> 00:23:30.400
+Caption: opportunity for a lot of questions that
+
+00:23:26.709 --> 00:23:32.439
+Caption: haven&#39;t so perhaps we could just ask one
+
+00:23:30.400 --> 00:23:34.570
+Caption: or two if anybody has something that
+
+00:23:32.439 --> 00:23:36.819
+Caption: they would particularly like to ask Tony
+
+00:23:34.569 --> 00:23:44.558
+Caption: and then he found other speakers would
+
+00:23:36.819 --> 00:23:46.509
+Caption: like to join us later or as down yep and
+
+00:23:44.558 --> 00:23:48.640
+Caption: that way we can wrap it up because I
+
+00:23:46.510 --> 00:23:52.780
+Caption: know it has been quiet on that is there
+
+00:23:48.640 --> 00:23:55.058
+Caption: any questions yeah why should I use
+
+00:23:52.780 --> 00:23:59.080
+Caption: hostel rather than do programming in a
+
+00:23:55.058 --> 00:24:06.250
+Caption: functional style of normal good question
+
+00:23:59.079 --> 00:24:08.288
+Caption: I get it I get it so I I strongly
+
+00:24:06.250 --> 00:24:10.989
+Caption: encourage you to try it and I have tried
+
+00:24:08.288 --> 00:24:12.729
+Caption: it I could show you the code I&#39;ve done
+
+00:24:10.989 --> 00:24:17.699
+Caption: it in Java C sharp and Python and
+
+00:24:12.729 --> 00:24:21.459
+Caption: JavaScript and Scala here forget that
+
+00:24:17.699 --> 00:24:23.439
+Caption: say that if you do try it you&#39;ll have
+
+00:24:21.459 --> 00:24:25.989
+Caption: additional problems all right so I would
+
+00:24:23.439 --> 00:24:27.639
+Caption: argue that it&#39;s certainly in an
+
+00:24:25.989 --> 00:24:29.890
+Caption: educational environment it&#39;s already
+
+00:24:27.640 --> 00:24:32.049
+Caption: hard enough but suppose you like you&#39;re
+
+00:24:29.890 --> 00:24:34.030
+Caption: over that you&#39;re like yep I&#39;ve got this
+
+00:24:32.048 --> 00:24:36.250
+Caption: covered I&#39;m going to go and use
+
+00:24:34.030 --> 00:24:37.479
+Caption: JavaScript or something and the problem
+
+00:24:36.250 --> 00:24:41.319
+Caption: is you&#39;ll start hitting JavaScript
+
+00:24:37.479 --> 00:24:42.520
+Caption: problems right so for example that&#39;s
+
+00:24:41.319 --> 00:24:44.109
+Caption: some function that I showed you before
+
+00:24:42.520 --> 00:24:45.489
+Caption: if you go and write that in JavaScript
+
+00:24:44.109 --> 00:24:48.038
+Caption: right now I&#39;m going to give it a list
+
+00:24:45.489 --> 00:24:50.229
+Caption: with 10,000 elements it&#39;ll build up a
+
+00:24:48.038 --> 00:24:53.829
+Caption: stack of 10,000 and then bang Stack
+
+00:24:50.229 --> 00:24:55.780
+Caption: Overflow okay so that&#39;s not to say just
+
+00:24:53.829 --> 00:24:57.279
+Caption: that&#39;s you know stop right there don&#39;t
+
+00:24:55.780 --> 00:24:59.530
+Caption: do anything and go back to what you&#39;re
+
+00:24:57.280 --> 00:25:02.590
+Caption: doing before it&#39;s that you then have to
+
+00:24:59.530 --> 00:25:04.179
+Caption: recognize those penalties exist so you
+
+00:25:02.589 --> 00:25:04.729
+Caption: can&#39;t just naively write a sum function
+
+00:25:04.178 --> 00:25:06.829
+Caption: anymore
+
+00:25:04.729 --> 00:25:08.959
+Caption: you have to be aware of JavaScript&#39;s
+
+00:25:06.829 --> 00:25:11.449
+Caption: limitations and this is pretty much true
+
+00:25:08.959 --> 00:25:13.250
+Caption: for many other of those languages but I
+
+00:25:11.449 --> 00:25:14.808
+Caption: do encourage you to try and get the
+
+00:25:13.250 --> 00:25:15.229
+Caption: Stack Overflow and go or what do I do
+
+00:25:14.808 --> 00:25:18.319
+Caption: now
+
+00:25:15.229 --> 00:25:19.548
+Caption: yeah and in fact one of the projects
+
+00:25:18.319 --> 00:25:21.428
+Caption: that so one of the open-source projects
+
+00:25:19.548 --> 00:25:24.918
+Caption: on my team is to help you overcome that
+
+00:25:21.428 --> 00:25:28.428
+Caption: so if a Python and soon-to-be JavaScript
+
+00:25:24.918 --> 00:25:29.779
+Caption: right which is basically I have this
+
+00:25:28.428 --> 00:25:31.039
+Caption: problem which is I can convince you that
+
+00:25:29.780 --> 00:25:32.179
+Caption: functional programming is the bee&#39;s
+
+00:25:31.040 --> 00:25:34.640
+Caption: knees right now and you were completely
+
+00:25:32.178 --> 00:25:35.808
+Caption: convinced but you&#39;ve got a million lines
+
+00:25:34.640 --> 00:25:39.619
+Caption: of Python back at work
+
+00:25:35.808 --> 00:25:41.329
+Caption: well JavaScript or whatever and there&#39;s
+
+00:25:39.619 --> 00:25:43.308
+Caption: nothing I can do that can just say well
+
+00:25:41.329 --> 00:25:45.168
+Caption: just stop work right now throw all that
+
+00:25:43.308 --> 00:25:47.209
+Caption: code away and let&#39;s start again because
+
+00:25:45.168 --> 00:25:48.649
+Caption: that&#39;s imposing quite a big penalty and
+
+00:25:47.209 --> 00:26:00.199
+Caption: I want to try and make that penalty
+
+00:25:48.650 --> 00:26:03.380
+Caption: small even zero yeah I just wanted to
+
+00:26:00.199 --> 00:26:05.298
+Caption: say thanks so much for didi Perth for
+
+00:26:03.380 --> 00:26:06.770
+Caption: organizing this event tonight it&#39;s been
+
+00:26:05.298 --> 00:26:09.109
+Caption: awesome I&#39;ve been to their main
+
+00:26:06.770 --> 00:26:13.070
+Caption: conference before it&#39;s fabulous right
+
+00:26:09.109 --> 00:26:16.640
+Caption: I&#39;m actually here for IT professionals
+
+00:26:13.069 --> 00:26:19.369
+Caption: Association I have invited members of
+
+00:26:16.640 --> 00:26:20.510
+Caption: that group to come along tonight an
+
+00:26:19.369 --> 00:26:23.239
+Caption: experienced DDD
+
+00:26:20.510 --> 00:26:25.699
+Caption: and hopefully help us go through our
+
+00:26:23.239 --> 00:26:28.308
+Caption: journey of representing more than just
+
+00:26:25.699 --> 00:26:30.048
+Caption: one kind of IT professional because we
+
+00:26:28.308 --> 00:26:32.599
+Caption: started out as a group for system
+
+00:26:30.048 --> 00:26:34.219
+Caption: administrators we have got a horrid
+
+00:26:32.599 --> 00:26:37.308
+Caption: perspective now we&#39;re more about
+
+00:26:34.219 --> 00:26:39.380
+Caption: representing technical professionals if
+
+00:26:37.308 --> 00:26:41.209
+Caption: anyone is more into policy or managed
+
+00:26:39.380 --> 00:26:43.729
+Caption: then ACS is probably a better
+
+00:26:41.209 --> 00:26:45.619
+Caption: organization but if you want a group
+
+00:26:43.729 --> 00:26:49.099
+Caption: that could help you look for a job help
+
+00:26:45.619 --> 00:26:51.290
+Caption: you up skill to get a better job or help
+
+00:26:49.099 --> 00:26:54.109
+Caption: you in negotiations with your employer
+
+00:26:51.290 --> 00:26:57.500
+Caption: as well as just helping you get a sense
+
+00:26:54.109 --> 00:26:59.869
+Caption: of like friendship from other IT people
+
+00:26:57.500 --> 00:27:03.050
+Caption: that you can go to meetings with then
+
+00:26:59.869 --> 00:27:07.510
+Caption: speak to me afterwards and ask me about
+
+00:27:03.050 --> 00:27:10.610
+Caption: the ITP a Thank You Alastair by the way
+
+00:27:07.510 --> 00:27:16.190
+Caption: so look thank you everyone for coming
+
+00:27:10.609 --> 00:27:19.130
+Caption: down to this office db5 we have
+
+00:27:16.189 --> 00:27:21.859
+Caption: announced our conference date it is the
+
+00:27:19.130 --> 00:27:24.020
+Caption: fourth movement we have oceans our
+
+00:27:21.859 --> 00:27:26.599
+Caption: ticket sales yesterday and we have
+
+00:27:24.020 --> 00:27:29.839
+Caption: opened our call for presentations
+
+00:27:26.599 --> 00:27:32.929
+Caption: yesterday as well tonight we had three
+
+00:27:29.839 --> 00:27:35.119
+Caption: very different talks very entertaining
+
+00:27:32.930 --> 00:27:37.460
+Caption: talks as well and I want to say thank
+
+00:27:35.119 --> 00:27:39.439
+Caption: you once again to our three speakers but
+
+00:27:37.459 --> 00:27:41.809
+Caption: such a a wonderful I guess
+
+00:27:39.439 --> 00:27:45.049
+Caption: representation of the breadth of talks
+
+00:27:41.810 --> 00:27:50.150
+Caption: that you can expect to see as a DD per
+
+00:27:45.050 --> 00:27:52.070
+Caption: event if you are at all interested in
+
+00:27:50.150 --> 00:27:54.229
+Caption: learning more about dee dee deep earth
+
+00:27:52.069 --> 00:27:56.630
+Caption: then speak to someone in agreement shirt
+
+00:27:54.229 --> 00:27:58.819
+Caption: and I highly encourage you to come up
+
+00:27:56.630 --> 00:28:00.440
+Caption: and say thank you to each one of our
+
+00:27:58.819 --> 00:28:01.519
+Caption: free speakers and especially if you
+
+00:28:00.439 --> 00:28:03.859
+Caption: would like to learn some more about
+
+00:28:01.520 --> 00:28:08.510
+Caption: their talks tonight please
+
+00:28:03.859 --> 00:28:12.260
+Caption: with them why don&#39;t work as we pack down
+
+00:28:08.510 --> 00:28:13.940
+Caption: I also had what two other things to say
+
+00:28:12.260 --> 00:28:16.609
+Caption: first of all you&#39;ll notice these great
+
+00:28:13.939 --> 00:28:19.278
+Caption: orange banners here both west where we
+
+00:28:16.609 --> 00:28:22.339
+Caption: art they are such a fantastic supporter
+
+00:28:19.279 --> 00:28:24.860
+Caption: of software community and we wouldn&#39;t be
+
+00:28:22.339 --> 00:28:27.140
+Caption: doing today is event without them so
+
+00:28:24.859 --> 00:28:32.119
+Caption: thank you once again to Bank West for
+
+00:28:27.140 --> 00:28:35.450
+Caption: such a fantastic venue and support we
+
+00:28:32.119 --> 00:28:38.739
+Caption: have also just discovered or sorry I&#39;ve
+
+00:28:35.449 --> 00:28:43.130
+Caption: just announced our our platinum sponsor
+
+00:28:38.739 --> 00:28:51.349
+Caption: for deeper have we you know you&#39;re
+
+00:28:43.130 --> 00:28:55.519
+Caption: looking surprised and so actually when I
+
+00:28:51.349 --> 00:28:58.849
+Caption: comes across the interview and who our
+
+00:28:55.519 --> 00:29:00.609
+Caption: platinum sponsors and that&#39;s I guess the
+
+00:28:58.849 --> 00:29:03.729
+Caption: entire year of dating
+
+00:29:00.609 --> 00:29:06.939
+Caption: we also have a lemon so I just wanted to
+
+00:29:03.729 --> 00:29:11.739
+Caption: shout and make eat very much to fan as
+
+00:29:06.939 --> 00:29:14.439
+Caption: well I think that&#39;s really it for us
+
+00:29:11.739 --> 00:29:16.739
+Caption: thank you once again for coming on down
+
+00:29:14.439 --> 00:29:16.739
+Caption: and
+
+00:29:17.319 --> 00:29:19.380
+Caption: you
+
+00:29:21.209 --> 00:29:24.998
+Caption: [Applause]
+

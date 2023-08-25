@@ -1,0 +1,3332 @@
+WEBVTT
+
+00:00:00.059 --> 00:00:06.298
+Caption: two two hey you can hear me fabulous
+
+00:00:03.720 --> 00:00:08.939
+Caption: um I hope you&#39;re all refreshed we have
+
+00:00:06.298 --> 00:00:11.279
+Caption: James and James here to take us all on a
+
+00:00:08.939 --> 00:00:13.798
+Caption: pen testing Adventure uh we have one
+
+00:00:11.279 --> 00:00:15.119
+Caption: James who is from vgw and the other from
+
+00:00:13.798 --> 00:00:18.840
+Caption: Ben Quest so I&#39;m sure it&#39;s going to be
+
+00:00:15.119 --> 00:00:20.520
+Caption: quite an interesting uh session if we
+
+00:00:18.840 --> 00:00:23.340
+Caption: have time we&#39;ll have some questions at
+
+00:00:20.520 --> 00:00:25.019
+Caption: the end so feel free to formulate those
+
+00:00:23.340 --> 00:00:28.220
+Caption: through the session without further Ado
+
+00:00:25.018 --> 00:00:28.219
+Caption: James and James
+
+00:00:29.489 --> 00:00:34.979
+Caption: [Applause]
+
+00:00:32.459 --> 00:00:36.779
+Caption: everyone I&#39;m James number one for the
+
+00:00:34.979 --> 00:00:39.319
+Caption: purposes of this talk so I work at
+
+00:00:36.779 --> 00:00:42.659
+Caption: Bankwest in the identity platform
+
+00:00:39.319 --> 00:00:45.840
+Caption: in 2019 my friend convinced me to join
+
+00:00:42.659 --> 00:00:47.340
+Caption: his team participating in wactf it&#39;s a
+
+00:00:45.840 --> 00:00:48.840
+Caption: cyber security competition if you&#39;re not
+
+00:00:47.340 --> 00:00:50.578
+Caption: aware of it
+
+00:00:48.840 --> 00:00:52.439
+Caption: um unfortunately our team kind of
+
+00:00:50.578 --> 00:00:53.519
+Caption: arrived a bit late to the venue and
+
+00:00:52.439 --> 00:00:55.019
+Caption: instead of being allowed in the room
+
+00:00:53.520 --> 00:00:58.079
+Caption: with the other guests we got relegated
+
+00:00:55.020 --> 00:01:01.020
+Caption: to the foyer out there uh in spite of
+
+00:00:58.078 --> 00:01:03.000
+Caption: that we took fourth place that year and
+
+00:01:01.020 --> 00:01:06.059
+Caption: I kind of credit that with uh I guess
+
+00:01:03.000 --> 00:01:08.339
+Caption: igniting a passion for cyber security
+
+00:01:06.059 --> 00:01:10.978
+Caption: um so that&#39;s me I&#39;ll let James two
+
+00:01:08.339 --> 00:01:13.079
+Caption: introduce himself now yes and I&#39;m James
+
+00:01:10.978 --> 00:01:14.519
+Caption: number two James number one just
+
+00:01:13.080 --> 00:01:17.400
+Caption: slightly cooler
+
+00:01:14.519 --> 00:01:18.959
+Caption: I my interest in cyber security began
+
+00:01:17.400 --> 00:01:21.119
+Caption: when I was working at Bankwest in the
+
+00:01:18.959 --> 00:01:23.298
+Caption: grad program I spent six months working
+
+00:01:21.119 --> 00:01:26.100
+Caption: there in the security operations center
+
+00:01:23.299 --> 00:01:28.020
+Caption: and the team there was super passionate
+
+00:01:26.099 --> 00:01:30.540
+Caption: about security and that ended up rubbing
+
+00:01:28.019 --> 00:01:32.219
+Caption: off on me a little bit from there I
+
+00:01:30.540 --> 00:01:35.040
+Caption: started participating in things like
+
+00:01:32.220 --> 00:01:37.079
+Caption: hack the Box wasctf much the same as
+
+00:01:35.040 --> 00:01:39.599
+Caption: James
+
+00:01:37.079 --> 00:01:42.119
+Caption: um James and I met together when we were
+
+00:01:39.599 --> 00:01:44.819
+Caption: working for six months at Bank West
+
+00:01:42.119 --> 00:01:47.820
+Caption: under peers who&#39;s in the room
+
+00:01:44.819 --> 00:01:51.119
+Caption: uh We&#39;ve kept in touch ever since and uh
+
+00:01:47.819 --> 00:01:52.739
+Caption: James suggested the idea of doing a DDD
+
+00:01:51.119 --> 00:01:54.479
+Caption: talk together
+
+00:01:52.739 --> 00:01:55.978
+Caption: I pitched the idea of doing a choose
+
+00:01:54.478 --> 00:01:57.959
+Caption: your own pen test Adventure because it&#39;s
+
+00:01:55.978 --> 00:01:59.339
+Caption: something that I&#39;m interested in and
+
+00:01:57.959 --> 00:02:00.180
+Caption: that&#39;s the idea we ended up sticking
+
+00:01:59.339 --> 00:02:02.639
+Caption: with
+
+00:02:00.180 --> 00:02:05.360
+Caption: we also like to do gymnastics together
+
+00:02:02.639 --> 00:02:05.360
+Caption: on the weekly
+
+00:02:05.639 --> 00:02:10.020
+Caption: so the goals of the session we&#39;ve got
+
+00:02:08.399 --> 00:02:11.940
+Caption: four main goals that we&#39;d like the
+
+00:02:10.020 --> 00:02:14.279
+Caption: audience to take away from this
+
+00:02:11.940 --> 00:02:15.958
+Caption: uh as long as you take off at least one
+
+00:02:14.279 --> 00:02:18.000
+Caption: of those I&#39;ll be satisfied
+
+00:02:15.958 --> 00:02:19.619
+Caption: uh we&#39;d like to give everyone here a
+
+00:02:18.000 --> 00:02:23.160
+Caption: little bit of a peek at what breaking
+
+00:02:19.619 --> 00:02:24.839
+Caption: into a website or a service looks like
+
+00:02:23.160 --> 00:02:27.720
+Caption: certainly when I was working as a
+
+00:02:24.839 --> 00:02:30.119
+Caption: software engineer I very rarely got to
+
+00:02:27.720 --> 00:02:32.040
+Caption: see what that looks like I knew that
+
+00:02:30.119 --> 00:02:34.378
+Caption: managing vulnerabilities was important
+
+00:02:32.039 --> 00:02:36.000
+Caption: and avoiding flaws that let people break
+
+00:02:34.378 --> 00:02:39.119
+Caption: in was important but I never actually
+
+00:02:36.000 --> 00:02:41.039
+Caption: got to see it practically applied
+
+00:02:39.119 --> 00:02:42.659
+Caption: we&#39;d also like to share with you all
+
+00:02:41.039 --> 00:02:45.360
+Caption: some practical tips for the engineers in
+
+00:02:42.660 --> 00:02:46.860
+Caption: the room hopefully whatever service or
+
+00:02:45.360 --> 00:02:50.098
+Caption: application you&#39;re working on at the
+
+00:02:46.860 --> 00:02:53.098
+Caption: moment won&#39;t be vulnerable in the same
+
+00:02:50.098 --> 00:02:54.958
+Caption: way that our demo website will be
+
+00:02:53.098 --> 00:02:56.878
+Caption: we&#39;d also like audience participation
+
+00:02:54.958 --> 00:02:59.339
+Caption: we&#39;ve formed this as a Choose Your Own
+
+00:02:56.878 --> 00:03:01.259
+Caption: Adventure we want the audience to feel
+
+00:02:59.339 --> 00:03:02.639
+Caption: empowered to actually make some of the
+
+00:03:01.259 --> 00:03:05.580
+Caption: decisions that are going to drive this
+
+00:03:02.639 --> 00:03:08.639
+Caption: live demo so we&#39;re hoping to give you
+
+00:03:05.580 --> 00:03:10.440
+Caption: enough context that you feel comfortable
+
+00:03:08.639 --> 00:03:11.699
+Caption: making a bit of a decision and
+
+00:03:10.440 --> 00:03:13.260
+Caption: participating
+
+00:03:11.699 --> 00:03:16.738
+Caption: which will hopefully lead to number four
+
+00:03:13.259 --> 00:03:18.419
+Caption: which is giving you some inspiration if
+
+00:03:16.738 --> 00:03:19.919
+Caption: anyone in the room is interested
+
+00:03:18.419 --> 00:03:21.658
+Caption: definitely hit me up afterwards but
+
+00:03:19.919 --> 00:03:24.360
+Caption: we&#39;ll also be sharing some resources at
+
+00:03:21.658 --> 00:03:26.819
+Caption: the end for anyone who thinks this looks
+
+00:03:24.360 --> 00:03:29.039
+Caption: cool and wants to do more of it to go
+
+00:03:26.819 --> 00:03:31.440
+Caption: and do it on in their own time after
+
+00:03:29.039 --> 00:03:34.378
+Caption: this session so really hoping that some
+
+00:03:31.440 --> 00:03:36.900
+Caption: of you take that away from this
+
+00:03:34.378 --> 00:03:38.580
+Caption: so how&#39;s the adventure Choose Your Own
+
+00:03:36.899 --> 00:03:40.738
+Caption: Adventure actually going to work we&#39;re
+
+00:03:38.580 --> 00:03:43.018
+Caption: going to start off by doing a bit of
+
+00:03:40.738 --> 00:03:45.479
+Caption: giving you a bit of context we&#39;ll
+
+00:03:43.018 --> 00:03:47.940
+Caption: um browse around the website at whatever
+
+00:03:45.479 --> 00:03:49.500
+Caption: point we&#39;re at it&#39;s point out some
+
+00:03:47.940 --> 00:03:51.720
+Caption: interesting things that we&#39;ve spotted
+
+00:03:49.500 --> 00:03:53.878
+Caption: and then we&#39;ll go into explaining some
+
+00:03:51.720 --> 00:03:55.500
+Caption: of the options that uh that are
+
+00:03:53.878 --> 00:03:57.059
+Caption: available to us
+
+00:03:55.500 --> 00:03:58.500
+Caption: from there you&#39;ll see a screen that
+
+00:03:57.059 --> 00:04:01.259
+Caption: looks much like this one so have your
+
+00:03:58.500 --> 00:04:02.759
+Caption: phones ready there&#39;s a QR code if you&#39;re
+
+00:04:01.259 --> 00:04:04.319
+Caption: at the back it might struggle to scan
+
+00:04:02.759 --> 00:04:06.958
+Caption: but we&#39;ll also read you out the six
+
+00:04:04.319 --> 00:04:08.878
+Caption: digit number so you can use one or the
+
+00:04:06.958 --> 00:04:11.399
+Caption: other you either go to straw Paul dot
+
+00:04:08.878 --> 00:04:13.679
+Caption: live and enter the six digit code or use
+
+00:04:11.399 --> 00:04:17.220
+Caption: scan the QR code on your phone both will
+
+00:04:13.679 --> 00:04:18.958
+Caption: take you to a actual straw poll where
+
+00:04:17.220 --> 00:04:21.359
+Caption: you can cast your votes
+
+00:04:18.959 --> 00:04:23.759
+Caption: this one&#39;s not the real one so this is
+
+00:04:21.359 --> 00:04:26.399
+Caption: just a demo one I see people doing the
+
+00:04:23.759 --> 00:04:28.679
+Caption: QR code won&#39;t work
+
+00:04:26.399 --> 00:04:31.320
+Caption: all right I&#39;m gonna hop on the keyboard
+
+00:04:28.679 --> 00:04:34.799
+Caption: now and James is gonna narrate while I
+
+00:04:31.320 --> 00:04:36.779
+Caption: start exploring the website
+
+00:04:34.799 --> 00:04:40.440
+Caption: right so the app that we&#39;re going to be
+
+00:04:36.779 --> 00:04:41.820
+Caption: pen testing is a an online pen store
+
+00:04:40.440 --> 00:04:43.919
+Caption: um unfortunately because of some VPN
+
+00:04:41.820 --> 00:04:45.839
+Caption: issues the thumbnails are not loading
+
+00:04:43.919 --> 00:04:47.160
+Caption: but these are various different pens
+
+00:04:45.839 --> 00:04:49.019
+Caption: that you can browse through and add to
+
+00:04:47.160 --> 00:04:50.880
+Caption: your cart there&#39;s also a search feature
+
+00:04:49.019 --> 00:04:53.220
+Caption: up here you can type in a query and
+
+00:04:50.880 --> 00:04:55.320
+Caption: it&#39;ll filter the list to ones that match
+
+00:04:53.220 --> 00:04:57.239
+Caption: that query there&#39;s a gallery here once
+
+00:04:55.320 --> 00:04:58.199
+Caption: again VPN issues so the content is not
+
+00:04:57.239 --> 00:04:59.759
+Caption: loading
+
+00:04:58.199 --> 00:05:01.440
+Caption: um but imagine there&#39;s some beautiful
+
+00:04:59.759 --> 00:05:03.720
+Caption: pen pictures here
+
+00:05:01.440 --> 00:05:05.040
+Caption: um finally we see a login page so we
+
+00:05:03.720 --> 00:05:07.199
+Caption: know there&#39;s some kind of account system
+
+00:05:05.040 --> 00:05:11.000
+Caption: on this website we&#39;re going to register
+
+00:05:07.199 --> 00:05:11.000
+Caption: an account for the purposes of this test
+
+00:05:13.440 --> 00:05:16.799
+Caption: so there&#39;s obviously no password policy
+
+00:05:15.600 --> 00:05:19.139
+Caption: because we&#39;re not getting any validation
+
+00:05:16.799 --> 00:05:21.259
+Caption: errors so we&#39;ve just put in test as a
+
+00:05:19.139 --> 00:05:21.259
+Caption: password
+
+00:05:27.119 --> 00:05:30.660
+Caption: all right I might swap across to the
+
+00:05:29.100 --> 00:05:32.940
+Caption: video it looks like we&#39;re gonna have to
+
+00:05:30.660 --> 00:05:37.820
+Caption: fall back on a pre-recorded video
+
+00:05:32.940 --> 00:05:37.820
+Caption: because our VPN is uh acting up
+
+00:05:42.959 --> 00:05:48.059
+Caption: oh so we&#39;ve
+
+00:05:45.779 --> 00:05:49.380
+Caption: we&#39;ve registered our user we&#39;re logging
+
+00:05:48.059 --> 00:05:51.720
+Caption: in now
+
+00:05:49.380 --> 00:05:53.220
+Caption: yep so obviously a different user given
+
+00:05:51.720 --> 00:05:55.139
+Caption: that was pre-recorded so once you&#39;re in
+
+00:05:53.220 --> 00:05:56.940
+Caption: there&#39;s a profile page here
+
+00:05:55.139 --> 00:05:58.740
+Caption: um and in that page you can update some
+
+00:05:56.940 --> 00:06:01.160
+Caption: of your profile details so your name and
+
+00:05:58.739 --> 00:06:01.160
+Caption: email address
+
+00:06:01.199 --> 00:06:05.459
+Caption: and uh looking at the URL we can see
+
+00:06:03.239 --> 00:06:07.739
+Caption: this is hosted in S3 so that tells us
+
+00:06:05.459 --> 00:06:09.359
+Caption: that it&#39;s a static website so we&#39;re
+
+00:06:07.739 --> 00:06:12.000
+Caption: going to kind of browse through the the
+
+00:06:09.359 --> 00:06:14.159
+Caption: JavaScript code that&#39;s we can see in the
+
+00:06:12.000 --> 00:06:15.600
+Caption: dev tools and see if we can find
+
+00:06:14.160 --> 00:06:17.639
+Caption: anything interesting
+
+00:06:15.600 --> 00:06:18.899
+Caption: so we&#39;re going to start noticing that
+
+00:06:17.639 --> 00:06:20.520
+Caption: it&#39;s react
+
+00:06:18.899 --> 00:06:21.839
+Caption: um and we&#39;re just going to try to
+
+00:06:20.519 --> 00:06:23.819
+Caption: enumerate the routes that are available
+
+00:06:21.839 --> 00:06:25.739
+Caption: to see if there&#39;s any pages that we
+
+00:06:23.819 --> 00:06:27.299
+Caption: haven&#39;t been able to find yet
+
+00:06:25.739 --> 00:06:28.619
+Caption: um so we&#39;ll do that by prettifying the
+
+00:06:27.299 --> 00:06:30.478
+Caption: code and then we&#39;re going to search for
+
+00:06:28.619 --> 00:06:33.119
+Caption: a route that we know exists in this case
+
+00:06:30.479 --> 00:06:35.039
+Caption: slash login and we&#39;ve immediately found
+
+00:06:33.119 --> 00:06:38.339
+Caption: a list of all of the routes
+
+00:06:35.039 --> 00:06:41.399
+Caption: so one that we haven&#39;t seen yet that&#39;s
+
+00:06:38.339 --> 00:06:43.259
+Caption: interesting is this add product page so
+
+00:06:41.399 --> 00:06:45.479
+Caption: we&#39;re just going to go and navigate into
+
+00:06:43.259 --> 00:06:48.679
+Caption: that and see if there&#39;s anything
+
+00:06:45.479 --> 00:06:48.679
+Caption: interesting there
+
+00:06:49.139 --> 00:06:51.380
+Caption: foreign
+
+00:06:55.220 --> 00:06:59.399
+Caption: error so immediately that tells us we&#39;ve
+
+00:06:57.779 --> 00:07:01.380
+Caption: got some kind of role-based Access
+
+00:06:59.399 --> 00:07:03.179
+Caption: Control in place
+
+00:07:01.380 --> 00:07:05.759
+Caption: um so next order of business we&#39;re going
+
+00:07:03.179 --> 00:07:06.720
+Caption: to try to enumerate the roles that exist
+
+00:07:05.759 --> 00:07:08.100
+Caption: um so we&#39;re just going to search for
+
+00:07:06.720 --> 00:07:11.339
+Caption: Strings that tend to appear in role
+
+00:07:08.100 --> 00:07:13.860
+Caption: names guest user admin and it looks like
+
+00:07:11.339 --> 00:07:15.660
+Caption: we found a map of rows and it looks like
+
+00:07:13.859 --> 00:07:17.159
+Caption: admin and user are the only two roles
+
+00:07:15.660 --> 00:07:18.600
+Caption: that are defined
+
+00:07:17.160 --> 00:07:20.339
+Caption: since we didn&#39;t have access to add
+
+00:07:18.600 --> 00:07:23.639
+Caption: product page we can deduce that we&#39;re
+
+00:07:20.339 --> 00:07:25.139
+Caption: probably just a normal user but we&#39;re
+
+00:07:23.639 --> 00:07:27.240
+Caption: going to confirm that by looking in
+
+00:07:25.139 --> 00:07:29.940
+Caption: local storage which is where single page
+
+00:07:27.239 --> 00:07:32.160
+Caption: apps tend to put their session data and
+
+00:07:29.940 --> 00:07:35.399
+Caption: uh we can see here that there&#39;s a roll
+
+00:07:32.160 --> 00:07:37.559
+Caption: field and we are indeed a user
+
+00:07:35.399 --> 00:07:39.959
+Caption: right so having seen that that gives us
+
+00:07:37.559 --> 00:07:42.959
+Caption: our first goal which is going to be to
+
+00:07:39.959 --> 00:07:44.339
+Caption: become the website admin so let&#39;s look
+
+00:07:42.959 --> 00:07:45.660
+Caption: at the options that are available to do
+
+00:07:44.339 --> 00:07:47.819
+Caption: that
+
+00:07:45.660 --> 00:07:49.860
+Caption: so the first option classic SQL
+
+00:07:47.819 --> 00:07:51.059
+Caption: injection uh show of hands if you&#39;ve
+
+00:07:49.859 --> 00:07:53.219
+Caption: heard of it
+
+00:07:51.059 --> 00:07:54.779
+Caption: yeah pretty much pretty much everyone
+
+00:07:53.220 --> 00:07:56.220
+Caption: um so in our case we have this search
+
+00:07:54.779 --> 00:07:57.479
+Caption: feature which is probably a good
+
+00:07:56.220 --> 00:08:00.119
+Caption: candidate
+
+00:07:57.479 --> 00:08:02.339
+Caption: um so if our products are stored in a
+
+00:08:00.119 --> 00:08:05.639
+Caption: SQL database which is being queried to
+
+00:08:02.339 --> 00:08:07.679
+Caption: produce the search results we can assume
+
+00:08:05.639 --> 00:08:09.179
+Caption: that our query might end up embedded in
+
+00:08:07.679 --> 00:08:12.179
+Caption: a query like this
+
+00:08:09.179 --> 00:08:13.679
+Caption: where it&#39;s filtering on rows that have a
+
+00:08:12.179 --> 00:08:16.679
+Caption: description field containing our search
+
+00:08:13.679 --> 00:08:19.199
+Caption: term uh now if the website is vulnerable
+
+00:08:16.679 --> 00:08:21.179
+Caption: to SQL injection
+
+00:08:19.199 --> 00:08:23.220
+Caption: um we would imagine that we could put in
+
+00:08:21.179 --> 00:08:25.440
+Caption: a query that can escape this context and
+
+00:08:23.220 --> 00:08:27.059
+Caption: do something more malicious with it
+
+00:08:25.440 --> 00:08:28.979
+Caption: um but there&#39;ll be more detail on that
+
+00:08:27.059 --> 00:08:30.959
+Caption: if we choose that option
+
+00:08:28.979 --> 00:08:32.880
+Caption: second option
+
+00:08:30.959 --> 00:08:35.700
+Caption: um is mass assignment
+
+00:08:32.880 --> 00:08:37.080
+Caption: um so this one relies on the fact that
+
+00:08:35.700 --> 00:08:38.940
+Caption: we know that there&#39;s some kind of admin
+
+00:08:37.080 --> 00:08:41.218
+Caption: user we know that we can register a
+
+00:08:38.940 --> 00:08:43.619
+Caption: basic user and the question is can we
+
+00:08:41.218 --> 00:08:45.599
+Caption: upgrade our existing user or register a
+
+00:08:43.619 --> 00:08:47.099
+Caption: new one as an admin
+
+00:08:45.599 --> 00:08:48.419
+Caption: so
+
+00:08:47.099 --> 00:08:50.639
+Caption: um we can assume that there&#39;s some kind
+
+00:08:48.419 --> 00:08:52.440
+Caption: of role column stored in the user data
+
+00:08:50.640 --> 00:08:55.140
+Caption: if there&#39;s an API endpoint that doesn&#39;t
+
+00:08:52.440 --> 00:08:57.179
+Caption: enforce proper validation it may allow
+
+00:08:55.140 --> 00:08:59.398
+Caption: us to overwrite some fields that we&#39;re
+
+00:08:57.179 --> 00:09:02.518
+Caption: not supposed to by forcibly providing
+
+00:08:59.398 --> 00:09:05.219
+Caption: extra input and thereby Force our user
+
+00:09:02.518 --> 00:09:07.500
+Caption: to become an admin again more detail on
+
+00:09:05.219 --> 00:09:09.359
+Caption: that if we choose it finally brute
+
+00:09:07.500 --> 00:09:11.760
+Caption: forcing pretty simple if we spam login
+
+00:09:09.359 --> 00:09:14.398
+Caption: attempts we might be able to ascertainly
+
+00:09:11.760 --> 00:09:15.540
+Caption: use the admins username and password we
+
+00:09:14.398 --> 00:09:18.659
+Caption: don&#39;t know their username but we can
+
+00:09:15.539 --> 00:09:20.159
+Caption: take some guesses at it again we&#39;ll look
+
+00:09:18.659 --> 00:09:21.539
+Caption: at that in more detail if that&#39;s what
+
+00:09:20.159 --> 00:09:23.518
+Caption: gets chosen
+
+00:09:21.539 --> 00:09:25.500
+Caption: all right so you&#39;ve seen all the options
+
+00:09:23.518 --> 00:09:26.398
+Caption: now it&#39;s time to vote uh if you&#39;re at
+
+00:09:25.500 --> 00:09:28.919
+Caption: the back and you&#39;re having trouble
+
+00:09:26.398 --> 00:09:31.859
+Caption: reading that the URL is strawpoll.live
+
+00:09:28.919 --> 00:09:33.599
+Caption: and the pin number is six zero two one
+
+00:09:31.859 --> 00:09:35.640
+Caption: five six
+
+00:09:33.599 --> 00:09:37.979
+Caption: so um as soon as we get a clear result
+
+00:09:35.640 --> 00:09:40.760
+Caption: on the poll we&#39;ll uh we&#39;ll call it and
+
+00:09:37.979 --> 00:09:40.760
+Caption: we&#39;ll go down that path
+
+00:09:43.018 --> 00:09:46.380
+Caption: and we won&#39;t be waiting for absolutely
+
+00:09:44.700 --> 00:09:47.820
+Caption: everyone to vote unfortunately as soon
+
+00:09:46.380 --> 00:09:50.700
+Caption: as we have a clear winner we&#39;ll go ahead
+
+00:09:47.820 --> 00:09:52.260
+Caption: just in the interest of time
+
+00:09:50.700 --> 00:09:54.480
+Caption: just trying to see if anyone&#39;s phones
+
+00:09:52.260 --> 00:09:55.739
+Caption: are still up we&#39;ll go across we&#39;ll look
+
+00:09:54.479 --> 00:09:58.219
+Caption: at the results
+
+00:09:55.739 --> 00:09:58.219
+Caption: oh
+
+00:09:58.440 --> 00:10:03.659
+Caption: no internet oh
+
+00:10:00.500 --> 00:10:06.018
+Caption: minor problems that explains the VPN
+
+00:10:03.659 --> 00:10:06.018
+Caption: issue
+
+00:10:12.239 --> 00:10:16.760
+Caption: no wonder I needed to use the the video
+
+00:10:14.278 --> 00:10:16.760
+Caption: backup
+
+00:10:17.760 --> 00:10:21.479
+Caption: all right looks like yeah it looks like
+
+00:10:19.919 --> 00:10:24.419
+Caption: Mass assignment is a is a pretty clear
+
+00:10:21.479 --> 00:10:27.000
+Caption: winner so uh let&#39;s go down that path
+
+00:10:24.419 --> 00:10:29.278
+Caption: um all right I&#39;ll uh well hopefully well
+
+00:10:27.000 --> 00:10:33.559
+Caption: that&#39;s reconnecting
+
+00:10:29.278 --> 00:10:33.559
+Caption: requires a password on that all right
+
+00:10:36.778 --> 00:10:41.000
+Caption: I&#39;m just going to go ahead with the
+
+00:10:39.239 --> 00:10:43.919
+Caption: video
+
+00:10:41.000 --> 00:10:44.760
+Caption: all right so here we are
+
+00:10:43.919 --> 00:10:46.500
+Caption: um
+
+00:10:44.760 --> 00:10:47.940
+Caption: the page that catches our eye as far as
+
+00:10:46.500 --> 00:10:49.979
+Caption: potential Mass assignment vulnerability
+
+00:10:47.940 --> 00:10:52.859
+Caption: is the profile page so we can update
+
+00:10:49.979 --> 00:10:54.299
+Caption: some of the users details so we&#39;re just
+
+00:10:52.859 --> 00:10:56.578
+Caption: going to turn on this tool called burp
+
+00:10:54.299 --> 00:10:58.260
+Caption: Suite which is going to let us intercept
+
+00:10:56.578 --> 00:10:59.760
+Caption: requests and actually see what&#39;s
+
+00:10:58.260 --> 00:11:01.739
+Caption: happening behind the scenes when we do
+
+00:10:59.760 --> 00:11:03.838
+Caption: this
+
+00:11:01.739 --> 00:11:06.119
+Caption: is going to
+
+00:11:03.838 --> 00:11:08.039
+Caption: crap so just for a simple explanation of
+
+00:11:06.119 --> 00:11:09.838
+Caption: how this works normally your browser
+
+00:11:08.039 --> 00:11:12.239
+Caption: will send web requests directly to the
+
+00:11:09.838 --> 00:11:13.919
+Caption: backend API we&#39;re turning on a tool
+
+00:11:12.239 --> 00:11:16.919
+Caption: called burps week which kind of proxies
+
+00:11:13.919 --> 00:11:18.359
+Caption: that takes requests intercepts them
+
+00:11:16.919 --> 00:11:20.940
+Caption: allows you to tamper with them or repeat
+
+00:11:18.359 --> 00:11:23.458
+Caption: them and forwards them onto the API so
+
+00:11:20.940 --> 00:11:24.898
+Caption: that&#39;ll just give us some means of kind
+
+00:11:23.458 --> 00:11:27.619
+Caption: of messing with these requests and
+
+00:11:24.898 --> 00:11:27.619
+Caption: seeing what we can do
+
+00:11:29.278 --> 00:11:32.338
+Caption: right so ignore this first request
+
+00:11:31.200 --> 00:11:35.838
+Caption: because you can see it&#39;s just an options
+
+00:11:32.338 --> 00:11:38.039
+Caption: request just required for cause to work
+
+00:11:35.838 --> 00:11:40.380
+Caption: this is the one that we&#39;re interested in
+
+00:11:38.039 --> 00:11:42.599
+Caption: this is the one where you can see all of
+
+00:11:40.380 --> 00:11:45.179
+Caption: the data that we entered into the
+
+00:11:42.599 --> 00:11:46.559
+Caption: um into the profile form has gone
+
+00:11:45.179 --> 00:11:48.659
+Caption: through and we&#39;re just going to send it
+
+00:11:46.559 --> 00:11:50.578
+Caption: to repeater which will let us kind of
+
+00:11:48.659 --> 00:11:52.319
+Caption: duplicate this request later
+
+00:11:50.578 --> 00:11:54.838
+Caption: and we can see in what comes back here
+
+00:11:52.320 --> 00:11:58.458
+Caption: that we&#39;ve got the complete uh set of
+
+00:11:54.838 --> 00:11:58.458
+Caption: user claims including their role
+
+00:11:59.458 --> 00:12:03.359
+Caption: but note that all we sent in that
+
+00:12:01.320 --> 00:12:05.278
+Caption: request was just the details that we
+
+00:12:03.359 --> 00:12:08.039
+Caption: were allowed to update so now we&#39;re
+
+00:12:05.278 --> 00:12:09.659
+Caption: going to try to tamper with this
+
+00:12:08.039 --> 00:12:11.518
+Caption: um in particular we&#39;re going to add a
+
+00:12:09.659 --> 00:12:13.259
+Caption: roll field and we&#39;re going to put admin
+
+00:12:11.518 --> 00:12:17.239
+Caption: in there and we&#39;re just going to see if
+
+00:12:13.260 --> 00:12:17.239
+Caption: that succeeds and what happens
+
+00:12:19.919 --> 00:12:25.440
+Caption: we got a 200 response so uh it succeeded
+
+00:12:23.458 --> 00:12:27.719
+Caption: in sending the request and we can see
+
+00:12:25.440 --> 00:12:29.159
+Caption: that the roll field says admin now so
+
+00:12:27.719 --> 00:12:31.319
+Caption: that&#39;s a good indicator that we&#39;ve
+
+00:12:29.159 --> 00:12:32.278
+Caption: probably succeeded
+
+00:12:31.320 --> 00:12:34.260
+Caption: um
+
+00:12:32.278 --> 00:12:36.000
+Caption: so the next thing we&#39;re going to do is
+
+00:12:34.260 --> 00:12:38.278
+Caption: just log out and back in because this
+
+00:12:36.000 --> 00:12:40.018
+Caption: website wasn&#39;t really designed most
+
+00:12:38.278 --> 00:12:42.179
+Caption: likely for a user to change their raw
+
+00:12:40.018 --> 00:12:44.940
+Caption: mid-session so just to avoid any
+
+00:12:42.179 --> 00:12:46.559
+Caption: inconsistencies
+
+00:12:44.940 --> 00:12:48.539
+Caption: and make sure we refresh the session
+
+00:12:46.559 --> 00:12:50.278
+Caption: State all right now that we&#39;re here we
+
+00:12:48.539 --> 00:12:52.440
+Caption: can see immediately that we have a new
+
+00:12:50.278 --> 00:12:54.059
+Caption: menu that we didn&#39;t have before and it
+
+00:12:52.440 --> 00:12:56.599
+Caption: includes this add product page which we
+
+00:12:54.059 --> 00:12:56.599
+Caption: can now access
+
+00:12:59.119 --> 00:13:03.320
+Caption: right so we are now in
+
+00:13:06.299 --> 00:13:10.078
+Caption: all right so time to reflect a little
+
+00:13:08.518 --> 00:13:11.578
+Caption: bit on what the developer did right and
+
+00:13:10.078 --> 00:13:13.619
+Caption: wrong here
+
+00:13:11.578 --> 00:13:17.219
+Caption: um so what&#39;s actually happened is that
+
+00:13:13.619 --> 00:13:18.299
+Caption: they&#39;ve intended to uh send these
+
+00:13:17.219 --> 00:13:20.219
+Caption: um details that are allowed to be
+
+00:13:18.299 --> 00:13:22.859
+Caption: updated email first name and last name
+
+00:13:20.219 --> 00:13:24.479
+Caption: and uh superimpose them on the existing
+
+00:13:22.859 --> 00:13:25.559
+Caption: user record and store that in the
+
+00:13:24.479 --> 00:13:28.739
+Caption: database
+
+00:13:25.559 --> 00:13:30.659
+Caption: when we included an extra field roll
+
+00:13:28.739 --> 00:13:32.039
+Caption: um there was nothing in the API that
+
+00:13:30.659 --> 00:13:34.018
+Caption: validated that and there was nothing
+
+00:13:32.039 --> 00:13:35.398
+Caption: that stopped it from being superimposed
+
+00:13:34.018 --> 00:13:38.219
+Caption: on top of the user record and being
+
+00:13:35.398 --> 00:13:40.440
+Caption: stored so it just accepted it saved it
+
+00:13:38.219 --> 00:13:42.539
+Caption: and we became an admin
+
+00:13:40.440 --> 00:13:45.359
+Caption: all right so what they should have done
+
+00:13:42.539 --> 00:13:47.039
+Caption: is allow listed user input explicitly so
+
+00:13:45.359 --> 00:13:48.719
+Caption: you only allow the fields that should be
+
+00:13:47.039 --> 00:13:52.199
+Caption: updated by that endpoint in this case
+
+00:13:48.719 --> 00:13:53.759
+Caption: email first name and surname
+
+00:13:52.200 --> 00:13:55.500
+Caption: um another thing they could have done is
+
+00:13:53.760 --> 00:13:58.040
+Caption: just to not use local Accounts at all
+
+00:13:55.500 --> 00:14:00.479
+Caption: it&#39;s very difficult to implement good
+
+00:13:58.039 --> 00:14:02.820
+Caption: user account management there&#39;s a lot of
+
+00:14:00.479 --> 00:14:06.059
+Caption: issues that kind of come into play using
+
+00:14:02.820 --> 00:14:08.700
+Caption: a third-party service like Azure ad or
+
+00:14:06.059 --> 00:14:10.799
+Caption: Cognito or auth zero something like that
+
+00:14:08.700 --> 00:14:12.778
+Caption: will solve a lot of those problems for
+
+00:14:10.799 --> 00:14:14.760
+Caption: you
+
+00:14:12.778 --> 00:14:16.440
+Caption: um and also just a note on this a couple
+
+00:14:14.760 --> 00:14:18.838
+Caption: of popular JavaScript Frameworks are
+
+00:14:16.440 --> 00:14:22.859
+Caption: vulnerable to this out of the box so
+
+00:14:18.838 --> 00:14:25.380
+Caption: nest.js and um fastify both will by
+
+00:14:22.859 --> 00:14:27.299
+Caption: default not validate input fields and
+
+00:14:25.380 --> 00:14:29.940
+Caption: we&#39;ll just kind of deserialize whatever
+
+00:14:27.299 --> 00:14:34.039
+Caption: you send it and um if you don&#39;t check
+
+00:14:29.940 --> 00:14:34.039
+Caption: for that explicitly they will save it
+
+00:14:35.880 --> 00:14:40.018
+Caption: all right so now James is going to hop
+
+00:14:38.159 --> 00:14:42.479
+Caption: on the keyboard I&#39;ve tethered so
+
+00:14:40.018 --> 00:14:44.458
+Caption: hopefully we&#39;ve got internet and if I
+
+00:14:42.479 --> 00:14:47.039
+Caption: just refresh GitHub yeah okay we&#39;ve got
+
+00:14:44.458 --> 00:14:49.619
+Caption: internet we can resume the live demo
+
+00:14:47.039 --> 00:14:52.440
+Caption: uh I guess just log in on as the admin
+
+00:14:49.619 --> 00:14:53.880
+Caption: user so now James is going to explore
+
+00:14:52.440 --> 00:14:56.638
+Caption: what permissions we&#39;ve got now that
+
+00:14:53.880 --> 00:15:00.119
+Caption: we&#39;re admin and we&#39;ll I showed briefly
+
+00:14:56.638 --> 00:15:04.278
+Caption: uh what was there in the um
+
+00:15:00.119 --> 00:15:04.278
+Caption: might have to restart the VPN yeah
+
+00:15:05.099 --> 00:15:08.059
+Caption: do you remember my password
+
+00:15:11.698 --> 00:15:17.898
+Caption: give that a go
+
+00:15:13.559 --> 00:15:17.898
+Caption: if not we&#39;ve still got the video backups
+
+00:15:21.299 --> 00:15:26.349
+Caption: you might have to refresh this to get
+
+00:15:22.979 --> 00:15:28.260
+Caption: the the login working again
+
+00:15:26.349 --> 00:15:31.219
+Caption: [Music]
+
+00:15:28.260 --> 00:15:31.220
+Caption: uh no
+
+00:15:33.599 --> 00:15:38.099
+Caption: all right we&#39;re in his admin as as we
+
+00:15:36.000 --> 00:15:40.859
+Caption: were before okay we so we&#39;ve got this
+
+00:15:38.099 --> 00:15:42.119
+Caption: admin uh menu that we&#39;ve gained access
+
+00:15:40.859 --> 00:15:43.799
+Caption: to and there&#39;s a number of different
+
+00:15:42.119 --> 00:15:45.898
+Caption: buttons on there so we&#39;ve got these
+
+00:15:43.799 --> 00:15:48.119
+Caption: server logs it the features clearly are
+
+00:15:45.898 --> 00:15:50.578
+Caption: work in progress with some some sample
+
+00:15:48.119 --> 00:15:52.739
+Caption: logs in there not quite finished we&#39;ve
+
+00:15:50.578 --> 00:15:54.119
+Caption: got some notes that we can access these
+
+00:15:52.739 --> 00:15:57.059
+Caption: are Developer notes with a bunch of
+
+00:15:54.119 --> 00:15:58.559
+Caption: to-do list items so the developers
+
+00:15:57.059 --> 00:16:00.778
+Caption: mentioned that there&#39;s an ad product
+
+00:15:58.559 --> 00:16:02.698
+Caption: feature that shouldn&#39;t be using eval for
+
+00:16:00.778 --> 00:16:06.179
+Caption: parsing some of you might recognize that
+
+00:16:02.698 --> 00:16:07.679
+Caption: as a interesting thing add drop down to
+
+00:16:06.179 --> 00:16:10.198
+Caption: the logs page to view different log
+
+00:16:07.679 --> 00:16:11.940
+Caption: files instead of query parameters that&#39;s
+
+00:16:10.198 --> 00:16:14.759
+Caption: another interesting one for us stop
+
+00:16:11.940 --> 00:16:17.518
+Caption: using the apis API host as a jump box
+
+00:16:14.760 --> 00:16:18.898
+Caption: remove unnecessary privileges
+
+00:16:17.518 --> 00:16:20.219
+Caption: Implement a couple of features so
+
+00:16:18.898 --> 00:16:22.260
+Caption: there&#39;s a bunch of cleanup that the
+
+00:16:20.219 --> 00:16:24.359
+Caption: developers left themselves clearly a
+
+00:16:22.260 --> 00:16:26.699
+Caption: working product uh working progress
+
+00:16:24.359 --> 00:16:28.799
+Caption: website we&#39;ve got the ad product feature
+
+00:16:26.698 --> 00:16:30.000
+Caption: which we mentioned earlier that we were
+
+00:16:28.799 --> 00:16:32.820
+Caption: interested in
+
+00:16:30.000 --> 00:16:36.659
+Caption: so from this page it seems like you can
+
+00:16:32.820 --> 00:16:38.759
+Caption: add a new product to the to the page
+
+00:16:36.659 --> 00:16:41.338
+Caption: to the website
+
+00:16:38.758 --> 00:16:44.599
+Caption: if we&#39;re having trouble it&#39;s still
+
+00:16:41.338 --> 00:16:44.599
+Caption: tethered no okay
+
+00:16:50.518 --> 00:16:56.940
+Caption: interfering with the with the page yeah
+
+00:16:54.719 --> 00:16:58.919
+Caption: and we&#39;ve got add image to Gallery which
+
+00:16:56.940 --> 00:17:00.539
+Caption: is still under construction
+
+00:16:58.919 --> 00:17:02.518
+Caption: so that seems to be the extent there&#39;s
+
+00:17:00.539 --> 00:17:04.438
+Caption: no there&#39;s nothing else obvious that the
+
+00:17:02.518 --> 00:17:06.838
+Caption: admin seems to have access to so let&#39;s
+
+00:17:04.438 --> 00:17:09.500
+Caption: discuss some of the options that we see
+
+00:17:06.838 --> 00:17:09.500
+Caption: ahead of us
+
+00:17:09.599 --> 00:17:14.338
+Caption: uh yes we&#39;re in admin and we&#39;ve gained
+
+00:17:13.020 --> 00:17:16.198
+Caption: access to all this but we want to go
+
+00:17:14.338 --> 00:17:17.400
+Caption: deeper we want to get on to the actual
+
+00:17:16.198 --> 00:17:18.719
+Caption: host machine
+
+00:17:17.400 --> 00:17:20.219
+Caption: so how we&#39;re going to do that we&#39;ve got
+
+00:17:18.719 --> 00:17:22.140
+Caption: a couple of different options
+
+00:17:20.219 --> 00:17:24.900
+Caption: number one is information disclosure
+
+00:17:22.140 --> 00:17:27.178
+Caption: this one&#39;s relatively self-explanatory
+
+00:17:24.900 --> 00:17:28.559
+Caption: it means the website discloses
+
+00:17:27.178 --> 00:17:30.839
+Caption: information that it otherwise shouldn&#39;t
+
+00:17:28.558 --> 00:17:32.159
+Caption: so in this case we&#39;re looking at the
+
+00:17:30.839 --> 00:17:33.659
+Caption: server logs feature and we&#39;re going to
+
+00:17:32.160 --> 00:17:36.359
+Caption: see if we can manipulate that into
+
+00:17:33.660 --> 00:17:37.739
+Caption: providing us with information that it
+
+00:17:36.359 --> 00:17:39.900
+Caption: otherwise shouldn&#39;t be normally it
+
+00:17:37.739 --> 00:17:42.058
+Caption: should only give us access to logs
+
+00:17:39.900 --> 00:17:44.219
+Caption: the developer mentioned that there&#39;s
+
+00:17:42.058 --> 00:17:46.739
+Caption: some work still to be done on this page
+
+00:17:44.219 --> 00:17:48.538
+Caption: so we&#39;ll see if we can manipulate that
+
+00:17:46.739 --> 00:17:50.880
+Caption: to uncover more information which will
+
+00:17:48.538 --> 00:17:53.038
+Caption: help us get onto the box next up is
+
+00:17:50.880 --> 00:17:54.719
+Caption: remote code execution this one&#39;s a
+
+00:17:53.038 --> 00:17:56.819
+Caption: pretty severe one to have on your site
+
+00:17:54.719 --> 00:17:59.939
+Caption: if it does come up
+
+00:17:56.819 --> 00:18:02.579
+Caption: uh everyone probably has heard of log
+
+00:17:59.939 --> 00:18:04.798
+Caption: for Shell uh late last year early this
+
+00:18:02.579 --> 00:18:07.199
+Caption: year yeah of course quite a panic lots
+
+00:18:04.798 --> 00:18:08.880
+Caption: of frantic patching that was an example
+
+00:18:07.199 --> 00:18:10.439
+Caption: of remote code execution there&#39;s a
+
+00:18:08.880 --> 00:18:12.539
+Caption: number of different ways that remote
+
+00:18:10.439 --> 00:18:15.298
+Caption: code execution can come up but a very
+
+00:18:12.538 --> 00:18:17.538
+Caption: common theme is deserialization
+
+00:18:15.298 --> 00:18:21.178
+Caption: in that case an attacker can craft
+
+00:18:17.538 --> 00:18:23.639
+Caption: especially crafted payload so maybe a
+
+00:18:21.178 --> 00:18:26.159
+Caption: profile profile picture with some code
+
+00:18:23.640 --> 00:18:29.520
+Caption: in it that&#39;s not really a JPEG they
+
+00:18:26.160 --> 00:18:32.099
+Caption: provide that to the Target and when the
+
+00:18:29.520 --> 00:18:34.440
+Caption: target goes to read that data you the
+
+00:18:32.099 --> 00:18:36.959
+Caption: attacker will has crafted a payload
+
+00:18:34.439 --> 00:18:39.839
+Caption: that&#39;s exploiting the way that it reads
+
+00:18:36.959 --> 00:18:41.399
+Caption: that data to then get it to do whatever
+
+00:18:39.839 --> 00:18:44.219
+Caption: it wants
+
+00:18:41.400 --> 00:18:46.200
+Caption: potentially die
+
+00:18:44.219 --> 00:18:48.119
+Caption: in this case we&#39;ll be looking at the add
+
+00:18:46.199 --> 00:18:49.798
+Caption: product feature to see if we can
+
+00:18:48.119 --> 00:18:51.418
+Caption: manipulate it based on the developer
+
+00:18:49.798 --> 00:18:54.058
+Caption: notes they mentioned they&#39;re using eval
+
+00:18:51.418 --> 00:18:56.759
+Caption: for parsing the the input from the from
+
+00:18:54.058 --> 00:18:58.439
+Caption: the user so we&#39;ll have a look and see if
+
+00:18:56.760 --> 00:18:59.820
+Caption: we can manipulate that to run whatever
+
+00:18:58.439 --> 00:19:02.399
+Caption: code we&#39;d like
+
+00:18:59.819 --> 00:19:04.859
+Caption: so once again we have come to a decision
+
+00:19:02.400 --> 00:19:07.400
+Caption: Point vote on your phones for whichever
+
+00:19:04.859 --> 00:19:07.400
+Caption: option
+
+00:19:08.459 --> 00:19:15.298
+Caption: so for those at the back the code is
+
+00:19:11.719 --> 00:19:17.579
+Caption: 169648 if you need it
+
+00:19:15.298 --> 00:19:21.619
+Caption: we&#39;ll give it a minute for
+
+00:19:17.579 --> 00:19:21.619
+Caption: people to have the URL loaded up
+
+00:19:26.339 --> 00:19:30.659
+Caption: hopefully the results should be off on
+
+00:19:28.500 --> 00:19:32.579
+Caption: the other side if we&#39;re tethered we
+
+00:19:30.660 --> 00:19:35.599
+Caption: should be able to actually see the
+
+00:19:32.579 --> 00:19:35.599
+Caption: results ourselves this time
+
+00:19:37.380 --> 00:19:42.058
+Caption: all right looks like a pretty clear win
+
+00:19:39.780 --> 00:19:44.880
+Caption: for remote code execution
+
+00:19:42.058 --> 00:19:48.119
+Caption: thanks for all your votes we&#39;ll proceed
+
+00:19:44.880 --> 00:19:49.979
+Caption: with that option live now
+
+00:19:48.119 --> 00:19:53.640
+Caption: all right so James is now going to do a
+
+00:19:49.979 --> 00:19:55.260
+Caption: do a demo of this hopefully we can do it
+
+00:19:53.640 --> 00:19:56.640
+Caption: live and not use the video recording so
+
+00:19:55.260 --> 00:19:57.959
+Caption: James is now navigating to the add
+
+00:19:56.640 --> 00:20:01.320
+Caption: product feature
+
+00:19:57.959 --> 00:20:02.880
+Caption: and he&#39;s turning on Burp again which we
+
+00:20:01.319 --> 00:20:05.779
+Caption: saw in the previous
+
+00:20:02.880 --> 00:20:05.780
+Caption: layer
+
+00:20:06.780 --> 00:20:10.739
+Caption: and James is just going to enter some
+
+00:20:08.579 --> 00:20:13.099
+Caption: data into this form it doesn&#39;t really
+
+00:20:10.739 --> 00:20:13.099
+Caption: matter
+
+00:20:14.699 --> 00:20:22.199
+Caption: and he&#39;s going to submit
+
+00:20:17.939 --> 00:20:23.699
+Caption: oh yep turn the VPN back on
+
+00:20:22.199 --> 00:20:26.219
+Caption: and submit
+
+00:20:23.699 --> 00:20:28.139
+Caption: and now we can see the request has been
+
+00:20:26.219 --> 00:20:29.339
+Caption: intercepted by burp again we&#39;ve got this
+
+00:20:28.140 --> 00:20:31.979
+Caption: options request which we&#39;re not
+
+00:20:29.339 --> 00:20:34.500
+Caption: interested in we go ahead to the post
+
+00:20:31.979 --> 00:20:36.359
+Caption: request and James is now sending that to
+
+00:20:34.500 --> 00:20:39.418
+Caption: repeater for us to
+
+00:20:36.359 --> 00:20:41.160
+Caption: repeat the request
+
+00:20:39.418 --> 00:20:43.139
+Caption: so now if James Scrolls down in the
+
+00:20:41.160 --> 00:20:46.080
+Caption: request we can see the actual payload
+
+00:20:43.140 --> 00:20:48.780
+Caption: that he submitted in the form
+
+00:20:46.079 --> 00:20:50.699
+Caption: and what he&#39;s going to do now is he&#39;s
+
+00:20:48.780 --> 00:20:52.320
+Caption: going to update that payload to
+
+00:20:50.699 --> 00:20:54.178
+Caption: something else we&#39;re going to try and
+
+00:20:52.319 --> 00:20:56.339
+Caption: see if we can get remote code execution
+
+00:20:54.178 --> 00:20:59.519
+Caption: so he&#39;s just put in just a string there
+
+00:20:56.339 --> 00:21:03.239
+Caption: see what we get back out of the API
+
+00:20:59.520 --> 00:21:05.820
+Caption: we get a 500 internal server error
+
+00:21:03.239 --> 00:21:08.819
+Caption: unexpected identify okay not
+
+00:21:05.819 --> 00:21:10.739
+Caption: particularly helpful to us now James is
+
+00:21:08.819 --> 00:21:13.739
+Caption: going to do a random shot in the dark
+
+00:21:10.739 --> 00:21:15.900
+Caption: see have a look if uh oh you&#39;re missing
+
+00:21:13.739 --> 00:21:18.780
+Caption: the one yep uh we&#39;re just going to see
+
+00:21:15.900 --> 00:21:20.820
+Caption: if one equals equals one if we get any
+
+00:21:18.780 --> 00:21:23.460
+Caption: sort of uh
+
+00:21:20.819 --> 00:21:26.519
+Caption: parsing of that input and returning as
+
+00:21:23.459 --> 00:21:29.339
+Caption: true so we go to 200 okay from the API
+
+00:21:26.520 --> 00:21:31.020
+Caption: and okay maybe the error codes could use
+
+00:21:29.339 --> 00:21:33.599
+Caption: some work it says parsed input could not
+
+00:21:31.020 --> 00:21:35.539
+Caption: be read correctly with the additional
+
+00:21:33.599 --> 00:21:38.158
+Caption: information being true
+
+00:21:35.538 --> 00:21:40.199
+Caption: that us hints that we&#39;ve got some sort
+
+00:21:38.159 --> 00:21:41.760
+Caption: of remote code execution because the one
+
+00:21:40.199 --> 00:21:45.178
+Caption: equals equals one
+
+00:21:41.760 --> 00:21:47.159
+Caption: has has been evaluated as true
+
+00:21:45.178 --> 00:21:48.479
+Caption: instead of maybe just being interpreted
+
+00:21:47.159 --> 00:21:51.179
+Caption: as a string
+
+00:21:48.479 --> 00:21:53.339
+Caption: so now what James is going to do is try
+
+00:21:51.178 --> 00:21:56.219
+Caption: and identify what we&#39;re working with
+
+00:21:53.339 --> 00:21:58.918
+Caption: here if you if you Google eval the top
+
+00:21:56.219 --> 00:22:00.599
+Caption: two results are JavaScript and python so
+
+00:21:58.918 --> 00:22:04.558
+Caption: James is just going to try a quick
+
+00:22:00.599 --> 00:22:07.020
+Caption: JavaScript command here and see if we
+
+00:22:04.558 --> 00:22:10.500
+Caption: get a response back
+
+00:22:07.020 --> 00:22:12.539
+Caption: so we get a 200 okay and we now have
+
+00:22:10.500 --> 00:22:14.839
+Caption: what appears to be the current working
+
+00:22:12.538 --> 00:22:16.918
+Caption: directory of the running process
+
+00:22:14.839 --> 00:22:19.979
+Caption: hopefully everyone can see that but it
+
+00:22:16.918 --> 00:22:22.798
+Caption: says basically we see what looks like a
+
+00:22:19.979 --> 00:22:24.839
+Caption: folder path there
+
+00:22:22.798 --> 00:22:26.219
+Caption: so now that we&#39;ve identified that we&#39;re
+
+00:22:24.839 --> 00:22:28.678
+Caption: working with JavaScript and we&#39;ve got
+
+00:22:26.219 --> 00:22:31.439
+Caption: remote code execution the rest is
+
+00:22:28.678 --> 00:22:34.558
+Caption: relatively simple you can go by A
+
+00:22:31.439 --> 00:22:37.019
+Caption: playbook so what James is doing now is
+
+00:22:34.558 --> 00:22:39.779
+Caption: installing a tool called netcat This is
+
+00:22:37.020 --> 00:22:42.239
+Caption: a tool that we&#39;ll be using to set up a
+
+00:22:39.780 --> 00:22:44.760
+Caption: remote shell we&#39;re using the Yum package
+
+00:22:42.239 --> 00:22:46.739
+Caption: manager here assuming that we&#39;re working
+
+00:22:44.760 --> 00:22:49.739
+Caption: with an ec2 instance because the front
+
+00:22:46.739 --> 00:22:51.959
+Caption: end was S3 it&#39;s a relatively safe
+
+00:22:49.739 --> 00:22:54.538
+Caption: assumption that the back end is ec2
+
+00:22:51.959 --> 00:22:57.119
+Caption: which allows us to use yum
+
+00:22:54.538 --> 00:22:58.678
+Caption: uh in this case we&#39;ve we&#39;re using a
+
+00:22:57.119 --> 00:23:01.459
+Caption: child process to run the command so
+
+00:22:58.678 --> 00:23:04.619
+Caption: we&#39;re not actually getting any immediate
+
+00:23:01.459 --> 00:23:06.178
+Caption: response back so at this stage we&#39;re
+
+00:23:04.619 --> 00:23:07.619
+Caption: working a little bit blind this is a
+
+00:23:06.178 --> 00:23:11.640
+Caption: very common theme for these sorts of
+
+00:23:07.619 --> 00:23:13.798
+Caption: things is you will set something up and
+
+00:23:11.640 --> 00:23:16.200
+Caption: assume that that has worked when you go
+
+00:23:13.798 --> 00:23:17.760
+Caption: on to your next step and you&#39;ll find out
+
+00:23:16.199 --> 00:23:19.260
+Caption: at the next step if it actually worked
+
+00:23:17.760 --> 00:23:21.479
+Caption: correctly
+
+00:23:19.260 --> 00:23:24.719
+Caption: what James is Now setting up is using
+
+00:23:21.479 --> 00:23:27.538
+Caption: netcat which we just installed to set up
+
+00:23:24.719 --> 00:23:29.339
+Caption: a buy and shell listening on Port 8181
+
+00:23:27.538 --> 00:23:31.798
+Caption: we&#39;ll explain more about these reverse
+
+00:23:29.339 --> 00:23:34.339
+Caption: shells and bind shells in a second again
+
+00:23:31.798 --> 00:23:36.779
+Caption: we don&#39;t get any immediate response back
+
+00:23:34.339 --> 00:23:38.339
+Caption: because this is working through a child
+
+00:23:36.780 --> 00:23:39.900
+Caption: process we&#39;re just going to have to
+
+00:23:38.339 --> 00:23:43.380
+Caption: assume that it&#39;s worked and we&#39;re now
+
+00:23:39.900 --> 00:23:46.799
+Caption: going to try and connect to the Target
+
+00:23:43.380 --> 00:23:48.539
+Caption: uh you know in a new tab James is now
+
+00:23:46.798 --> 00:23:50.639
+Caption: going to
+
+00:23:48.538 --> 00:23:53.158
+Caption: run that and we don&#39;t get any immediate
+
+00:23:50.640 --> 00:23:55.619
+Caption: response but if James runs who am I it
+
+00:23:53.159 --> 00:23:58.440
+Caption: seems we&#39;re root on the target we&#39;re in
+
+00:23:55.619 --> 00:24:00.359
+Caption: the in the folder that we saw earlier
+
+00:23:58.439 --> 00:24:02.819
+Caption: and we&#39;ve got access to the files there
+
+00:24:00.359 --> 00:24:04.380
+Caption: uh so it looks like we&#39;re on the actual
+
+00:24:02.819 --> 00:24:05.699
+Caption: Target James is now just going to
+
+00:24:04.380 --> 00:24:07.619
+Caption: upgrade our shell to something a little
+
+00:24:05.699 --> 00:24:10.219
+Caption: bit nicer
+
+00:24:07.619 --> 00:24:13.619
+Caption: there we go so we&#39;re root on
+
+00:24:10.219 --> 00:24:16.500
+Caption: 10.00.10 and we&#39;re in the in the folder
+
+00:24:13.619 --> 00:24:20.058
+Caption: that you can see there so we&#39;re in we&#39;re
+
+00:24:16.500 --> 00:24:20.058
+Caption: in as a on the host machine now
+
+00:24:20.400 --> 00:24:25.080
+Caption: we can skip straight to remote shells
+
+00:24:22.380 --> 00:24:27.659
+Caption: yep so what we&#39;ve set up currently is a
+
+00:24:25.079 --> 00:24:31.079
+Caption: bind shell in the commands that James
+
+00:24:27.659 --> 00:24:33.360
+Caption: run he ran he set up netcat and he&#39;s
+
+00:24:31.079 --> 00:24:35.939
+Caption: configured it on the target to listen
+
+00:24:33.359 --> 00:24:39.298
+Caption: for an incoming connection on Port 8181
+
+00:24:35.939 --> 00:24:42.298
+Caption: and then the attacker that&#39;s uh my
+
+00:24:39.298 --> 00:24:44.158
+Caption: laptop here connects directly to that IP
+
+00:24:42.298 --> 00:24:46.260
+Caption: address on that port and now we have a
+
+00:24:44.159 --> 00:24:47.820
+Caption: connection the inverse of this is a
+
+00:24:46.260 --> 00:24:50.280
+Caption: reverse shell where you set up the
+
+00:24:47.819 --> 00:24:52.558
+Caption: attacker to listen so I would set up a
+
+00:24:50.280 --> 00:24:55.140
+Caption: process on the laptop to listen and then
+
+00:24:52.558 --> 00:24:57.298
+Caption: get the actual Target to reach back out
+
+00:24:55.140 --> 00:24:59.400
+Caption: to me this is much more common in
+
+00:24:57.298 --> 00:25:01.199
+Caption: practice because you it doesn&#39;t require
+
+00:24:59.400 --> 00:25:02.640
+Caption: nearly as much knowledge about the
+
+00:25:01.199 --> 00:25:04.139
+Caption: target you don&#39;t need to know the IP
+
+00:25:02.640 --> 00:25:05.400
+Caption: address of your target for it to reach
+
+00:25:04.140 --> 00:25:06.839
+Caption: out to you it just has to have internet
+
+00:25:05.400 --> 00:25:10.020
+Caption: connectivity
+
+00:25:06.839 --> 00:25:13.319
+Caption: you don&#39;t need to have a port available
+
+00:25:10.020 --> 00:25:15.119
+Caption: on the target to bind to because you&#39;re
+
+00:25:13.319 --> 00:25:17.399
+Caption: you&#39;re only listening on your actual
+
+00:25:15.119 --> 00:25:19.020
+Caption: attacker either way the end result is
+
+00:25:17.400 --> 00:25:21.000
+Caption: the same we have a connection between
+
+00:25:19.020 --> 00:25:23.339
+Caption: the attacker and the Target and we as
+
+00:25:21.000 --> 00:25:26.359
+Caption: the attacker can tell the target to do
+
+00:25:23.339 --> 00:25:26.359
+Caption: whatever we want it to do
+
+00:25:27.359 --> 00:25:31.918
+Caption: now on to eval let&#39;s reflect a little
+
+00:25:30.000 --> 00:25:33.719
+Caption: bit on what the developer was doing here
+
+00:25:31.918 --> 00:25:36.599
+Caption: we don&#39;t have access to the code but we
+
+00:25:33.719 --> 00:25:38.400
+Caption: can more or less guess that they they
+
+00:25:36.599 --> 00:25:40.319
+Caption: knew this was wrong because they left
+
+00:25:38.400 --> 00:25:41.359
+Caption: themselves a note to remove the use of
+
+00:25:40.319 --> 00:25:44.519
+Caption: eval
+
+00:25:41.359 --> 00:25:47.520
+Caption: but they also have this hidden behind
+
+00:25:44.520 --> 00:25:50.099
+Caption: the the admin role they were the admin
+
+00:25:47.520 --> 00:25:52.679
+Caption: of the website probably and only admins
+
+00:25:50.099 --> 00:25:54.359
+Caption: could access this feature so why worry
+
+00:25:52.678 --> 00:25:57.058
+Caption: about locking it down it&#39;s not customer
+
+00:25:54.359 --> 00:25:59.278
+Caption: facing anyway
+
+00:25:57.058 --> 00:26:01.558
+Caption: um however yes they did know it was
+
+00:25:59.279 --> 00:26:03.179
+Caption: wrong if you Google eval JavaScript the
+
+00:26:01.558 --> 00:26:06.239
+Caption: top five results are all various
+
+00:26:03.178 --> 00:26:09.239
+Caption: warnings about not using eval so don&#39;t
+
+00:26:06.239 --> 00:26:11.699
+Caption: do what this developer did
+
+00:26:09.239 --> 00:26:14.939
+Caption: yeah never use eval
+
+00:26:11.699 --> 00:26:17.158
+Caption: you should instead use a Json parsing
+
+00:26:14.939 --> 00:26:19.019
+Caption: library to pass Json it under the hood
+
+00:26:17.159 --> 00:26:21.240
+Caption: probably a lot of them do end up using
+
+00:26:19.020 --> 00:26:23.279
+Caption: eval at some point but they do all sorts
+
+00:26:21.239 --> 00:26:26.038
+Caption: of validation and make sure that you&#39;re
+
+00:26:23.279 --> 00:26:28.580
+Caption: not giving it anything nasty before just
+
+00:26:26.038 --> 00:26:28.579
+Caption: running code
+
+00:26:29.219 --> 00:26:32.640
+Caption: um so that&#39;s it for that layer of the
+
+00:26:30.900 --> 00:26:35.099
+Caption: demo I&#39;m now going to hop back on the
+
+00:26:32.640 --> 00:26:38.099
+Caption: keyboard and James is going to narrate
+
+00:26:35.099 --> 00:26:40.979
+Caption: while I explore our Newfound permissions
+
+00:26:38.099 --> 00:26:42.538
+Caption: yeah right so we&#39;re now on the host
+
+00:26:40.979 --> 00:26:44.760
+Caption: it&#39;s an ec2 instance so we&#39;re actually
+
+00:26:42.538 --> 00:26:46.259
+Caption: on AWS infrastructure
+
+00:26:44.760 --> 00:26:49.619
+Caption: um so the natural next step for us is
+
+00:26:46.260 --> 00:26:52.558
+Caption: going to be to try to see what um stuff
+
+00:26:49.619 --> 00:26:54.538
+Caption: we can get to in the AWS account
+
+00:26:52.558 --> 00:26:56.880
+Caption: um so one natural Target would be
+
+00:26:54.538 --> 00:26:58.678
+Caption: querying Secrets manager for secrets
+
+00:26:56.880 --> 00:27:01.798
+Caption: that are available and seeing if we can
+
+00:26:58.678 --> 00:27:04.819
+Caption: read any so this is a AWS CLI command
+
+00:27:01.798 --> 00:27:04.819
+Caption: that&#39;s going to do exactly that
+
+00:27:05.339 --> 00:27:08.459
+Caption: um so we can see a list of secrets that
+
+00:27:07.079 --> 00:27:10.619
+Caption: have been returned so that means we have
+
+00:27:08.459 --> 00:27:12.599
+Caption: the list Secrets permission doesn&#39;t
+
+00:27:10.619 --> 00:27:13.859
+Caption: guarantee that we have permission to
+
+00:27:12.599 --> 00:27:16.140
+Caption: read it
+
+00:27:13.859 --> 00:27:17.939
+Caption: so there&#39;s a secret here that clearly
+
+00:27:16.140 --> 00:27:21.678
+Caption: catches our eye super duper top secret
+
+00:27:17.939 --> 00:27:21.678
+Caption: so let&#39;s see if we can read that
+
+00:27:25.500 --> 00:27:28.979
+Caption: all right so this is the CLI command
+
+00:27:27.359 --> 00:27:32.239
+Caption: that we need to use to actually query
+
+00:27:28.979 --> 00:27:32.239
+Caption: the contents of that secret
+
+00:27:32.880 --> 00:27:37.918
+Caption: and we get an access denied exception
+
+00:27:35.760 --> 00:27:39.359
+Caption: um so that is an AWS IM error that tells
+
+00:27:37.918 --> 00:27:42.199
+Caption: us that we&#39;re not authorized to access
+
+00:27:39.359 --> 00:27:42.199
+Caption: that resource
+
+00:27:43.739 --> 00:27:47.699
+Caption: so next thing we&#39;re going to do is we&#39;re
+
+00:27:45.659 --> 00:27:49.260
+Caption: going to do a little bit of Recon we&#39;re
+
+00:27:47.699 --> 00:27:51.119
+Caption: going to try to figure out what
+
+00:27:49.260 --> 00:27:52.739
+Caption: permissions we do have and see if
+
+00:27:51.119 --> 00:27:55.439
+Caption: there&#39;s a way we can escalate our
+
+00:27:52.739 --> 00:27:57.119
+Caption: privileges so our team is just querying
+
+00:27:55.439 --> 00:27:58.918
+Caption: the metadata endpoint that the ec2
+
+00:27:57.119 --> 00:28:02.038
+Caption: instance has access to to find out the
+
+00:27:58.918 --> 00:28:03.178
+Caption: name of the role that it&#39;s using
+
+00:28:02.038 --> 00:28:06.000
+Caption: and then
+
+00:28:03.178 --> 00:28:07.798
+Caption: attached to an I am role in AWS can be
+
+00:28:06.000 --> 00:28:09.719
+Caption: one or more policies which are documents
+
+00:28:07.798 --> 00:28:11.819
+Caption: that Define permissions so now we&#39;re
+
+00:28:09.719 --> 00:28:13.439
+Caption: going to look at the role policies that
+
+00:28:11.819 --> 00:28:15.778
+Caption: are attached to that role and we can
+
+00:28:13.439 --> 00:28:17.519
+Caption: only see one
+
+00:28:15.779 --> 00:28:20.760
+Caption: so now the next thing we&#39;re going to do
+
+00:28:17.520 --> 00:28:25.400
+Caption: is actually query the policy document
+
+00:28:20.760 --> 00:28:25.400
+Caption: um to that role that policy contains
+
+00:28:26.459 --> 00:28:30.119
+Caption: and we can see a whole bunch of
+
+00:28:28.500 --> 00:28:31.859
+Caption: permissions here
+
+00:28:30.119 --> 00:28:33.839
+Caption: um when we scroll up we can see that we
+
+00:28:31.859 --> 00:28:35.760
+Caption: do have the secrets manager get secret
+
+00:28:33.839 --> 00:28:37.798
+Caption: value permission
+
+00:28:35.760 --> 00:28:40.260
+Caption: um assigned to us but it&#39;s scoped to
+
+00:28:37.798 --> 00:28:42.178
+Caption: these resources that um that have these
+
+00:28:40.260 --> 00:28:44.640
+Caption: Arn prefixes
+
+00:28:42.178 --> 00:28:48.239
+Caption: um and our super duper top secret is not
+
+00:28:44.640 --> 00:28:51.178
+Caption: among that list we do however have a big
+
+00:28:48.239 --> 00:28:53.400
+Caption: list of permissions here that we do have
+
+00:28:51.178 --> 00:28:56.939
+Caption: ec2 run instances is one that catches
+
+00:28:53.400 --> 00:28:59.099
+Caption: our eye as is create policy version and
+
+00:28:56.939 --> 00:29:01.439
+Caption: if you scroll down a little bit more I
+
+00:28:59.099 --> 00:29:03.359
+Caption: am pastoral
+
+00:29:01.439 --> 00:29:04.739
+Caption: um and if we keep scrolling we can see
+
+00:29:03.359 --> 00:29:07.260
+Caption: as well that
+
+00:29:04.739 --> 00:29:09.599
+Caption: um the resource section of that
+
+00:29:07.260 --> 00:29:11.339
+Caption: um is a wild card so we can execute
+
+00:29:09.599 --> 00:29:13.459
+Caption: these permissions on any resource in the
+
+00:29:11.339 --> 00:29:13.459
+Caption: account
+
+00:29:14.520 --> 00:29:20.099
+Caption: right so that gives us our third goal
+
+00:29:17.219 --> 00:29:21.479
+Caption: which is just our actual trading Secrets
+
+00:29:20.099 --> 00:29:23.520
+Caption: um so we want to get this super duper
+
+00:29:21.479 --> 00:29:25.380
+Caption: top secret first role to do that or
+
+00:29:23.520 --> 00:29:27.119
+Caption: first option to do that is to use the
+
+00:29:25.380 --> 00:29:28.619
+Caption: past role permission
+
+00:29:27.119 --> 00:29:31.020
+Caption: um so the purpose of this is that it
+
+00:29:28.619 --> 00:29:32.760
+Caption: allows one resource to pass a role to
+
+00:29:31.020 --> 00:29:35.820
+Caption: another so say you&#39;re provisioning an
+
+00:29:32.760 --> 00:29:37.558
+Caption: ec2 instance uh you can give it a roll
+
+00:29:35.819 --> 00:29:39.599
+Caption: um and then if we were to leverage that
+
+00:29:37.558 --> 00:29:42.418
+Caption: we could then connect in to that ec2
+
+00:29:39.599 --> 00:29:44.760
+Caption: instance via SSH and then as we&#39;re doing
+
+00:29:42.418 --> 00:29:48.239
+Caption: currently with the API host we can just
+
+00:29:44.760 --> 00:29:50.159
+Caption: use the role that it has available
+
+00:29:48.239 --> 00:29:52.619
+Caption: second option is create policy version
+
+00:29:50.159 --> 00:29:54.659
+Caption: uh despite the name this is just an
+
+00:29:52.619 --> 00:29:55.558
+Caption: update policy
+
+00:29:54.659 --> 00:29:57.840
+Caption: um
+
+00:29:55.558 --> 00:29:59.880
+Caption: permission so what it allows us to do is
+
+00:29:57.839 --> 00:30:01.678
+Caption: create a new version of a policy so at
+
+00:29:59.880 --> 00:30:03.719
+Caption: the moment if we query Secrets manager
+
+00:30:01.678 --> 00:30:05.398
+Caption: uh we get an access denied error because
+
+00:30:03.719 --> 00:30:07.918
+Caption: we don&#39;t have the permission to access
+
+00:30:05.399 --> 00:30:09.840
+Caption: it but what we can do based on what
+
+00:30:07.918 --> 00:30:12.239
+Caption: we&#39;ve found is we can just update that
+
+00:30:09.839 --> 00:30:14.339
+Caption: policy to allow us to do it
+
+00:30:12.239 --> 00:30:17.239
+Caption: and the next time we try to query it we
+
+00:30:14.339 --> 00:30:17.239
+Caption: should be able to do that
+
+00:30:17.880 --> 00:30:21.479
+Caption: all right so time to vote once again if
+
+00:30:20.339 --> 00:30:22.939
+Caption: you&#39;re at the back of the room the code
+
+00:30:21.479 --> 00:30:25.859
+Caption: is
+
+00:30:22.939 --> 00:30:28.739
+Caption: 939-765 and again we&#39;re just going to go
+
+00:30:25.859 --> 00:30:32.719
+Caption: into we have an authoritative result uh
+
+00:30:28.739 --> 00:30:32.719
+Caption: not until every single vote it comes in
+
+00:30:34.739 --> 00:30:36.918
+Caption: foreign
+
+00:30:40.459 --> 00:30:45.359
+Caption: still up we&#39;ll wait till
+
+00:30:43.798 --> 00:30:48.798
+Caption: all right
+
+00:30:45.359 --> 00:30:48.798
+Caption: have a look at the results
+
+00:30:53.099 --> 00:30:58.558
+Caption: oh this one&#39;s pretty tight oh boy it&#39;s a
+
+00:30:56.640 --> 00:31:00.539
+Caption: dead heat all right it kind of looks
+
+00:30:58.558 --> 00:31:02.579
+Caption: like create policy version is winning by
+
+00:31:00.538 --> 00:31:06.058
+Caption: a hair but we&#39;ll
+
+00:31:02.579 --> 00:31:08.640
+Caption: if anyone&#39;s still trying to vote is this
+
+00:31:06.058 --> 00:31:10.260
+Caption: it any tie Breakers coming in
+
+00:31:08.640 --> 00:31:11.760
+Caption: all right all right I&#39;ll take the
+
+00:31:10.260 --> 00:31:15.798
+Caption: silences
+
+00:31:11.760 --> 00:31:15.798
+Caption: oh there&#39;s one close-up
+
+00:31:19.260 --> 00:31:22.459
+Caption: we give it five more seconds
+
+00:31:26.520 --> 00:31:31.380
+Caption: someone open up incognito on your on
+
+00:31:28.918 --> 00:31:34.859
+Caption: your browser and do a second vote it
+
+00:31:31.380 --> 00:31:36.839
+Caption: looks like create policy versions one
+
+00:31:34.859 --> 00:31:39.298
+Caption: only just that&#39;s the closest we&#39;ve seen
+
+00:31:36.839 --> 00:31:41.819
+Caption: it all right so create policy version
+
+00:31:39.298 --> 00:31:44.278
+Caption: has it so uh let&#39;s go do that and see if
+
+00:31:41.819 --> 00:31:46.019
+Caption: we can get that secret
+
+00:31:44.279 --> 00:31:48.119
+Caption: all right so what we&#39;re going to do now
+
+00:31:46.020 --> 00:31:49.919
+Caption: is create a new version of the policy
+
+00:31:48.119 --> 00:31:51.298
+Caption: that&#39;s attached to our role so first
+
+00:31:49.918 --> 00:31:53.398
+Caption: thing we&#39;re going to do is go back to
+
+00:31:51.298 --> 00:31:54.959
+Caption: that query that we used before to list
+
+00:31:53.399 --> 00:31:56.159
+Caption: the policies that are attached to the
+
+00:31:54.959 --> 00:31:56.880
+Caption: role
+
+00:31:56.159 --> 00:31:59.399
+Caption: um
+
+00:31:56.880 --> 00:32:01.319
+Caption: so the name of the policy that we&#39;re
+
+00:31:59.399 --> 00:32:03.059
+Caption: after is simple policy it&#39;s the only one
+
+00:32:01.319 --> 00:32:04.979
+Caption: there and we&#39;ve got the Arn of it there
+
+00:32:03.058 --> 00:32:06.538
+Caption: which we&#39;re going to need to make a
+
+00:32:04.979 --> 00:32:09.239
+Caption: command to update it
+
+00:32:06.538 --> 00:32:11.339
+Caption: right so this is one very big inline
+
+00:32:09.239 --> 00:32:13.020
+Caption: command that James is going to paste in
+
+00:32:11.339 --> 00:32:14.640
+Caption: that&#39;s going to do the update operation
+
+00:32:13.020 --> 00:32:18.440
+Caption: but
+
+00:32:14.640 --> 00:32:18.440
+Caption: um I will talk to it piece by piece
+
+00:32:18.659 --> 00:32:23.940
+Caption: right so
+
+00:32:20.760 --> 00:32:26.039
+Caption: first line of the thing there the first
+
+00:32:23.939 --> 00:32:28.319
+Caption: main argument is that Arn that we just
+
+00:32:26.038 --> 00:32:30.178
+Caption: looked up which is the uh policy that
+
+00:32:28.319 --> 00:32:31.798
+Caption: we&#39;re going to be updating
+
+00:32:30.178 --> 00:32:33.298
+Caption: um following that you can see the actual
+
+00:32:31.798 --> 00:32:35.278
+Caption: policy document we&#39;ve just pasted it
+
+00:32:33.298 --> 00:32:37.260
+Caption: there as inline Json
+
+00:32:35.279 --> 00:32:39.960
+Caption: um the most important parts are this
+
+00:32:37.260 --> 00:32:42.659
+Caption: statement here that contains the
+
+00:32:39.959 --> 00:32:44.640
+Caption: um action section that says Secrets
+
+00:32:42.659 --> 00:32:45.960
+Caption: manager list secret and secrets manager
+
+00:32:44.640 --> 00:32:47.880
+Caption: get secret value so that&#39;s going to
+
+00:32:45.959 --> 00:32:49.619
+Caption: allow us to get the secret value and
+
+00:32:47.880 --> 00:32:51.719
+Caption: importantly we&#39;ve got a wild card for
+
+00:32:49.619 --> 00:32:52.619
+Caption: the resource section so this policy will
+
+00:32:51.719 --> 00:32:54.479
+Caption: have
+
+00:32:52.619 --> 00:32:56.520
+Caption: um permission to read any secret that&#39;s
+
+00:32:54.479 --> 00:32:58.199
+Caption: in the account
+
+00:32:56.520 --> 00:33:00.058
+Caption: um finally we can see set as default
+
+00:32:58.199 --> 00:33:01.979
+Caption: that&#39;s just another flag we set which
+
+00:33:00.058 --> 00:33:03.538
+Caption: makes that the default version that&#39;s
+
+00:33:01.979 --> 00:33:05.760
+Caption: going to be used by any role that isn&#39;t
+
+00:33:03.538 --> 00:33:07.379
+Caption: pinned to a specific version of the
+
+00:33:05.760 --> 00:33:09.239
+Caption: policy
+
+00:33:07.380 --> 00:33:12.119
+Caption: our Shell&#39;s a little wonky which is why
+
+00:33:09.239 --> 00:33:15.199
+Caption: you can see all the uh all the commands
+
+00:33:12.119 --> 00:33:15.199
+Caption: are repeated a second time
+
+00:33:15.239 --> 00:33:20.099
+Caption: right so having run that uh it succeeded
+
+00:33:18.298 --> 00:33:21.538
+Caption: we didn&#39;t get any errors and we now have
+
+00:33:20.099 --> 00:33:24.479
+Caption: a new version of the policy there
+
+00:33:21.538 --> 00:33:26.939
+Caption: version three and because it we gave it
+
+00:33:24.479 --> 00:33:28.319
+Caption: set as default it is now the default
+
+00:33:26.939 --> 00:33:30.359
+Caption: um
+
+00:33:28.319 --> 00:33:32.699
+Caption: right so now we&#39;re just going to go back
+
+00:33:30.359 --> 00:33:36.918
+Caption: to the CLI command that we ran before to
+
+00:33:32.699 --> 00:33:36.918
+Caption: get the secret value and see if it works
+
+00:33:37.380 --> 00:33:40.979
+Caption: so it did work we didn&#39;t get the same
+
+00:33:39.058 --> 00:33:43.319
+Caption: error and we have in secret string here
+
+00:33:40.979 --> 00:33:44.699
+Caption: the actual content of the secret
+
+00:33:43.319 --> 00:33:46.439
+Caption: um now in this case this is just a flag
+
+00:33:44.699 --> 00:33:47.939
+Caption: but obviously in a real application it
+
+00:33:46.439 --> 00:33:49.918
+Caption: could be something uh far more
+
+00:33:47.939 --> 00:33:52.199
+Caption: interesting like database credentials or
+
+00:33:49.918 --> 00:33:53.819
+Caption: really anything
+
+00:33:52.199 --> 00:33:54.959
+Caption: um also worth calling out at this point
+
+00:33:53.819 --> 00:33:57.778
+Caption: that
+
+00:33:54.959 --> 00:34:00.058
+Caption: um although we just used our powers to
+
+00:33:57.779 --> 00:34:02.220
+Caption: uh give ourselves access to read any
+
+00:34:00.058 --> 00:34:03.898
+Caption: secret in the account we do effectively
+
+00:34:02.219 --> 00:34:07.199
+Caption: have admin access we could have written
+
+00:34:03.899 --> 00:34:09.658
+Caption: any policy that allowed any or all
+
+00:34:07.199 --> 00:34:11.338
+Caption: um AWS API actions um and that would
+
+00:34:09.658 --> 00:34:14.178
+Caption: have been accepted and we would have
+
+00:34:11.339 --> 00:34:14.179
+Caption: those permissions
+
+00:34:15.239 --> 00:34:17.898
+Caption: all right
+
+00:34:19.678 --> 00:34:25.858
+Caption: so how do we get here oh right so
+
+00:34:23.638 --> 00:34:29.338
+Caption: um let&#39;s just reflect a little bit on
+
+00:34:25.858 --> 00:34:31.319
+Caption: what the developer did right and wrong
+
+00:34:29.339 --> 00:34:33.179
+Caption: um oh actually first off we&#39;re going to
+
+00:34:31.320 --> 00:34:35.339
+Caption: talk about automation because
+
+00:34:33.178 --> 00:34:37.378
+Caption: um we just did that by hand and we were
+
+00:34:35.339 --> 00:34:39.599
+Caption: lucky in that we had permissions in our
+
+00:34:37.378 --> 00:34:41.520
+Caption: role to list the policies that are
+
+00:34:39.599 --> 00:34:43.740
+Caption: attached to the role and to query the
+
+00:34:41.520 --> 00:34:45.959
+Caption: granular permissions that um that policy
+
+00:34:43.739 --> 00:34:47.459
+Caption: consists of if you don&#39;t have that there
+
+00:34:45.959 --> 00:34:49.378
+Caption: are tools available
+
+00:34:47.459 --> 00:34:52.618
+Caption: um that can do it for you um examples
+
+00:34:49.378 --> 00:34:54.719
+Caption: being Weird Al pacu and red Bodo and uh
+
+00:34:52.618 --> 00:34:57.239
+Caption: what they&#39;ll basically do is uh hit the
+
+00:34:54.719 --> 00:34:59.159
+Caption: AWS API using uh your credentials
+
+00:34:57.239 --> 00:35:00.959
+Caption: probate and they can distinguish from
+
+00:34:59.159 --> 00:35:03.899
+Caption: the error messages that they get whether
+
+00:35:00.959 --> 00:35:05.580
+Caption: you actually have that permission or not
+
+00:35:03.899 --> 00:35:07.439
+Caption: um so if you&#39;re working blind those
+
+00:35:05.580 --> 00:35:08.880
+Caption: tools really help you out
+
+00:35:07.439 --> 00:35:11.520
+Caption: all right now we&#39;re going to reflect on
+
+00:35:08.879 --> 00:35:12.838
+Caption: what the developer should have done uh
+
+00:35:11.520 --> 00:35:14.459
+Caption: the main thing is they should have
+
+00:35:12.839 --> 00:35:16.619
+Caption: applied the principle of least privilege
+
+00:35:14.459 --> 00:35:18.060
+Caption: uh this being an API host it should have
+
+00:35:16.618 --> 00:35:20.279
+Caption: had one clear role and only had
+
+00:35:18.060 --> 00:35:22.079
+Caption: permissions it needed for that so they
+
+00:35:20.280 --> 00:35:24.060
+Caption: should have segregated the duties that
+
+00:35:22.079 --> 00:35:25.739
+Caption: ec2 instance shouldn&#39;t be speeding up by
+
+00:35:24.060 --> 00:35:28.979
+Caption: the infrastructure nor should it be
+
+00:35:25.739 --> 00:35:31.739
+Caption: manipulating I am policies
+
+00:35:28.979 --> 00:35:33.659
+Caption: um and another recommendation would be
+
+00:35:31.739 --> 00:35:36.000
+Caption: don&#39;t put wild cards in your I am
+
+00:35:33.659 --> 00:35:37.919
+Caption: policies scope them as granular as you
+
+00:35:36.000 --> 00:35:40.739
+Caption: can to the actual resources that you do
+
+00:35:37.919 --> 00:35:42.239
+Caption: need to manipulate
+
+00:35:40.739 --> 00:35:45.780
+Caption: and that brings us to the end of the
+
+00:35:42.239 --> 00:35:47.399
+Caption: live demo of the pen test
+
+00:35:45.780 --> 00:35:49.619
+Caption: so what did we learn
+
+00:35:47.399 --> 00:35:51.899
+Caption: we learned to sanitize and control user
+
+00:35:49.618 --> 00:35:53.519
+Caption: inputs wherever they arise
+
+00:35:51.899 --> 00:35:55.679
+Caption: follow the principle of least privilege
+
+00:35:53.520 --> 00:35:57.540
+Caption: like James just mentioned applied
+
+00:35:55.679 --> 00:35:59.879
+Caption: defense in depth this is particularly
+
+00:35:57.540 --> 00:36:02.339
+Caption: relevant especially to that the second
+
+00:35:59.879 --> 00:36:04.679
+Caption: and third layer where the developer left
+
+00:36:02.339 --> 00:36:06.660
+Caption: themselves a bit of a mess some notes
+
+00:36:04.679 --> 00:36:08.159
+Caption: they said to themselves well this
+
+00:36:06.659 --> 00:36:09.780
+Caption: thing&#39;s a bit buggy it&#39;s a bit
+
+00:36:08.159 --> 00:36:12.419
+Caption: vulnerable but it&#39;s not customer facing
+
+00:36:09.780 --> 00:36:13.320
+Caption: anyway I&#39;m the admin who what could go
+
+00:36:12.419 --> 00:36:16.379
+Caption: wrong
+
+00:36:13.320 --> 00:36:18.000
+Caption: you should always be assuming that well
+
+00:36:16.379 --> 00:36:21.179
+Caption: you shouldn&#39;t always assume that your
+
+00:36:18.000 --> 00:36:23.639
+Caption: defenses will fail but you should aim to
+
+00:36:21.179 --> 00:36:26.040
+Caption: minimize blast radius whenever someone
+
+00:36:23.639 --> 00:36:27.959
+Caption: can get into one layer to prevent them
+
+00:36:26.040 --> 00:36:29.339
+Caption: from being able to exploit that to get
+
+00:36:27.959 --> 00:36:31.439
+Caption: further access
+
+00:36:29.339 --> 00:36:34.079
+Caption: ideally if there weren&#39;t those bugs in
+
+00:36:31.439 --> 00:36:36.358
+Caption: that for that second layer the an
+
+00:36:34.079 --> 00:36:38.460
+Caption: attacker that got in through the the
+
+00:36:36.358 --> 00:36:40.799
+Caption: first bug which was the mass assignment
+
+00:36:38.459 --> 00:36:42.899
+Caption: wouldn&#39;t be able to then get onto the
+
+00:36:40.800 --> 00:36:44.579
+Caption: actual API host through further
+
+00:36:42.899 --> 00:36:46.500
+Caption: exploitation they would just be able to
+
+00:36:44.579 --> 00:36:48.119
+Caption: read the to-do list and that would be
+
+00:36:46.500 --> 00:36:49.919
+Caption: about it
+
+00:36:48.118 --> 00:36:51.838
+Caption: the rest of the learnings depends on the
+
+00:36:49.919 --> 00:36:53.838
+Caption: path we took so I hope you were paying
+
+00:36:51.839 --> 00:36:56.640
+Caption: attention during the various Reflections
+
+00:36:53.839 --> 00:36:58.980
+Caption: uh different paths would would have had
+
+00:36:56.639 --> 00:37:01.139
+Caption: different key takeaways
+
+00:36:58.979 --> 00:37:03.358
+Caption: how can you get into this uh like I
+
+00:37:01.139 --> 00:37:05.699
+Caption: promised we&#39;re hoping to expire at least
+
+00:37:03.358 --> 00:37:08.098
+Caption: some of the audience to participate in
+
+00:37:05.699 --> 00:37:09.959
+Caption: this sort of thing uh try hack me and
+
+00:37:08.099 --> 00:37:12.180
+Caption: hack the Box are both really valuable
+
+00:37:09.959 --> 00:37:15.838
+Caption: resources that I&#39;ve personally really
+
+00:37:12.179 --> 00:37:18.118
+Caption: enjoyed I spent about a year working
+
+00:37:15.839 --> 00:37:20.099
+Caption: with Eric who&#39;s in the room on various
+
+00:37:18.118 --> 00:37:22.199
+Caption: hack the Box exercises they were lots of
+
+00:37:20.099 --> 00:37:24.740
+Caption: fun really satisfying to break into
+
+00:37:22.199 --> 00:37:27.598
+Caption: particular shout out to ipsec tutorials
+
+00:37:24.739 --> 00:37:30.358
+Caption: whenever a box gets retired you can be
+
+00:37:27.599 --> 00:37:32.400
+Caption: sure that there&#39;s a really useful and
+
+00:37:30.358 --> 00:37:34.019
+Caption: thorough video tutorial on how to break
+
+00:37:32.399 --> 00:37:36.059
+Caption: into that box we&#39;ll go up on YouTube
+
+00:37:34.020 --> 00:37:38.640
+Caption: immediately after
+
+00:37:36.060 --> 00:37:39.780
+Caption: pentester lab and Os juice drop are
+
+00:37:38.639 --> 00:37:42.059
+Caption: other things that I haven&#39;t used
+
+00:37:39.780 --> 00:37:43.140
+Caption: personally but have had recommendations
+
+00:37:42.060 --> 00:37:45.000
+Caption: for
+
+00:37:43.139 --> 00:37:46.439
+Caption: there are also some certs you can aim
+
+00:37:45.000 --> 00:37:48.659
+Caption: for in this space not really for the
+
+00:37:46.439 --> 00:37:51.239
+Caption: beginners but it&#39;s something to maybe
+
+00:37:48.659 --> 00:37:55.139
+Caption: Aspire for I&#39;m also interested in going
+
+00:37:51.239 --> 00:37:56.820
+Caption: for these myself oscp and ceh offensive
+
+00:37:55.139 --> 00:37:58.799
+Caption: security certified professional and
+
+00:37:56.820 --> 00:38:02.760
+Caption: certified ethical hacker that was a
+
+00:37:58.800 --> 00:38:04.619
+Caption: mouthful uh interesting certs that I
+
+00:38:02.760 --> 00:38:07.500
+Caption: think anyone in the space could be
+
+00:38:04.618 --> 00:38:09.539
+Caption: interested in aiming for eventually and
+
+00:38:07.500 --> 00:38:12.479
+Caption: then like James and I mentioned wsctfs
+
+00:38:09.540 --> 00:38:15.000
+Caption: or wsctf or really any ctfs are a great
+
+00:38:12.479 --> 00:38:17.159
+Caption: environment to get exposed to all sorts
+
+00:38:15.000 --> 00:38:19.800
+Caption: of things related to pen testing or
+
+00:38:17.159 --> 00:38:21.659
+Caption: cyber in general and they&#39;re a great
+
+00:38:19.800 --> 00:38:24.359
+Caption: environment like full it&#39;s very
+
+00:38:21.659 --> 00:38:25.679
+Caption: supportive community and just a great
+
+00:38:24.358 --> 00:38:27.419
+Caption: area to learn about these sorts of
+
+00:38:25.679 --> 00:38:30.979
+Caption: things other than being left out in the
+
+00:38:27.419 --> 00:38:30.979
+Caption: foyer when you arrive late
+
+00:38:31.439 --> 00:38:36.118
+Caption: finally we&#39;d like to give a big thanks
+
+00:38:34.079 --> 00:38:37.619
+Caption: to all the sponsors of DDD without which
+
+00:38:36.118 --> 00:38:39.779
+Caption: this talk would not have been possible
+
+00:38:37.618 --> 00:38:42.260
+Caption: so thank you very much and that&#39;s all
+
+00:38:39.780 --> 00:38:42.260
+Caption: from us
+
+00:38:47.820 --> 00:38:50.880
+Caption: we&#39;ve got about five minutes left in
+
+00:38:49.500 --> 00:38:54.919
+Caption: this session if anyone has a question
+
+00:38:50.879 --> 00:38:54.919
+Caption: for James down the back
+
+00:38:57.599 --> 00:38:59.520
+Caption: hi
+
+00:38:58.560 --> 00:39:02.339
+Caption: um
+
+00:38:59.520 --> 00:39:04.859
+Caption: yeah so uh let&#39;s say you&#39;re just a
+
+00:39:02.339 --> 00:39:07.859
+Caption: graduate postgrad or undergrad cyber
+
+00:39:04.858 --> 00:39:10.019
+Caption: security student so to further increase
+
+00:39:07.858 --> 00:39:12.779
+Caption: improve your chances and have no
+
+00:39:10.020 --> 00:39:15.719
+Caption: internship available or made to you you
+
+00:39:12.780 --> 00:39:18.119
+Caption: just do some more ctfs and then try and
+
+00:39:15.719 --> 00:39:20.159
+Caption: get some more certifications and then
+
+00:39:18.118 --> 00:39:21.299
+Caption: fingers crossed and the company will
+
+00:39:20.159 --> 00:39:23.819
+Caption: look at you even though you don&#39;t have
+
+00:39:21.300 --> 00:39:27.359
+Caption: any years of experience to employ you as
+
+00:39:23.820 --> 00:39:29.699
+Caption: a pen testers Etc
+
+00:39:27.358 --> 00:39:31.739
+Caption: um to be clear neither James nor I uh
+
+00:39:29.699 --> 00:39:35.159
+Caption: professional pen testers
+
+00:39:31.739 --> 00:39:37.439
+Caption: um but uh yeah in terms of looking for
+
+00:39:35.159 --> 00:39:40.319
+Caption: jobs most of most of the pen testers I
+
+00:39:37.439 --> 00:39:42.598
+Caption: know are actually ones who went in from
+
+00:39:40.320 --> 00:39:45.119
+Caption: software engineering that&#39;s not
+
+00:39:42.599 --> 00:39:47.460
+Caption: necessarily the only path uh obviously
+
+00:39:45.118 --> 00:39:52.919
+Caption: now more and more there&#39;s more focus on
+
+00:39:47.459 --> 00:39:54.899
+Caption: on uh cyber security studies and you
+
+00:39:52.919 --> 00:39:57.358
+Caption: could potentially get into that via
+
+00:39:54.899 --> 00:39:59.039
+Caption: entry level roles I&#39;m most of the pen
+
+00:39:57.358 --> 00:40:00.479
+Caption: testers I know are not so entry level
+
+00:39:59.040 --> 00:40:03.419
+Caption: though I don&#39;t know I feel like there&#39;s
+
+00:40:00.479 --> 00:40:07.020
+Caption: probably more analyst roles that would
+
+00:40:03.419 --> 00:40:09.118
+Caption: be a suitable start would be my my gut
+
+00:40:07.020 --> 00:40:10.800
+Caption: instinct but I haven&#39;t done a huge
+
+00:40:09.118 --> 00:40:13.319
+Caption: amount of research into actually
+
+00:40:10.800 --> 00:40:15.839
+Caption: becoming a pen tester so can I also add
+
+00:40:13.320 --> 00:40:17.400
+Caption: there&#39;s a thousand people here today and
+
+00:40:15.839 --> 00:40:18.660
+Caption: so there&#39;s going to be a few people in
+
+00:40:17.399 --> 00:40:20.879
+Caption: the room there&#39;s certainly some of the
+
+00:40:18.659 --> 00:40:22.139
+Caption: organizations are recruiting so the more
+
+00:40:20.879 --> 00:40:23.939
+Caption: people you meet today the better your
+
+00:40:22.139 --> 00:40:26.879
+Caption: chances are of finding that we&#39;ve got
+
+00:40:23.939 --> 00:40:29.479
+Caption: another question from anyone
+
+00:40:26.879 --> 00:40:29.479
+Caption: cool
+
+00:40:29.879 --> 00:40:34.379
+Caption: uh thanks for the talk today guys
+
+00:40:32.159 --> 00:40:35.760
+Caption: um so my question is I appreciate that
+
+00:40:34.379 --> 00:40:37.019
+Caption: both of you guys are in software
+
+00:40:35.760 --> 00:40:39.118
+Caption: engineering not
+
+00:40:37.020 --> 00:40:41.640
+Caption: um cyber at the moment but
+
+00:40:39.118 --> 00:40:42.899
+Caption: um my question is in an Enterprise pen
+
+00:40:41.639 --> 00:40:45.118
+Caption: test
+
+00:40:42.899 --> 00:40:46.618
+Caption: um how do you know the scope of which to
+
+00:40:45.118 --> 00:40:48.179
+Caption: you know basically attack the system
+
+00:40:46.618 --> 00:40:49.618
+Caption: you&#39;re trying to you&#39;re trying to test
+
+00:40:48.179 --> 00:40:51.838
+Caption: to because obviously you could spend
+
+00:40:49.618 --> 00:40:53.338
+Caption: lots of time and eventually break in but
+
+00:40:51.839 --> 00:40:55.079
+Caption: you probably have limited resources and
+
+00:40:53.339 --> 00:40:57.780
+Caption: limited time so
+
+00:40:55.079 --> 00:40:59.760
+Caption: yeah I mean that&#39;s that really ends up
+
+00:40:57.780 --> 00:41:03.719
+Caption: being an agreement between the pen
+
+00:40:59.760 --> 00:41:06.118
+Caption: tester and the the testy
+
+00:41:03.719 --> 00:41:07.800
+Caption: um so yeah that that varies I know
+
+00:41:06.118 --> 00:41:09.239
+Caption: certainly when I was working at Bankwest
+
+00:41:07.800 --> 00:41:11.219
+Caption: there&#39;s all sorts of
+
+00:41:09.239 --> 00:41:13.020
+Caption: um meetings with the team beforehand
+
+00:41:11.219 --> 00:41:15.060
+Caption: where you talk about what the exact
+
+00:41:13.020 --> 00:41:16.979
+Caption: scope of the work will be and I&#39;m sure
+
+00:41:15.060 --> 00:41:19.020
+Caption: the same can be applied to basically any
+
+00:41:16.979 --> 00:41:21.118
+Caption: pen test right you you agree with the
+
+00:41:19.020 --> 00:41:23.820
+Caption: client what the scope for the pen test
+
+00:41:21.118 --> 00:41:26.699
+Caption: is how long you&#39;re going to spend on it
+
+00:41:23.820 --> 00:41:28.859
+Caption: um you&#39;ve probably as a pen test you&#39;ve
+
+00:41:26.699 --> 00:41:31.500
+Caption: probably got a Playbook of like a very
+
+00:41:28.858 --> 00:41:33.838
+Caption: systematic approach to testing all sorts
+
+00:41:31.500 --> 00:41:35.579
+Caption: of vulnerabilities and you go through
+
+00:41:33.839 --> 00:41:37.260
+Caption: those and if you find stuff you find
+
+00:41:35.579 --> 00:41:39.900
+Caption: stuff and you report those back if you
+
+00:41:37.260 --> 00:41:41.699
+Caption: don&#39;t you don&#39;t uh and then yeah the
+
+00:41:39.899 --> 00:41:43.618
+Caption: depth at which you&#39;re you&#39;re pen testing
+
+00:41:41.699 --> 00:41:46.439
+Caption: again would be something agreed on
+
+00:41:43.618 --> 00:41:48.179
+Caption: probably prior to the test unless maybe
+
+00:41:46.439 --> 00:41:51.060
+Caption: you&#39;re doing a pure red teaming exercise
+
+00:41:48.179 --> 00:41:52.819
+Caption: in which case potentially all bars are
+
+00:41:51.060 --> 00:41:55.560
+Caption: off but
+
+00:41:52.820 --> 00:41:56.640
+Caption: unlikely awesome
+
+00:41:55.560 --> 00:41:59.640
+Caption: um we&#39;ve probably got time for one more
+
+00:41:56.639 --> 00:42:02.399
+Caption: question if there&#39;s anyone else
+
+00:41:59.639 --> 00:42:04.519
+Caption: can I ask a question then there is a
+
+00:42:02.399 --> 00:42:04.520
+Caption: question
+
+00:42:05.099 --> 00:42:09.240
+Caption: more an observation really but um I&#39;ve
+
+00:42:07.618 --> 00:42:11.279
+Caption: been in software development for a while
+
+00:42:09.239 --> 00:42:12.659
+Caption: and there&#39;s almost no code base that
+
+00:42:11.280 --> 00:42:15.179
+Caption: doesn&#39;t have any kind of vulnerability
+
+00:42:12.659 --> 00:42:16.439
+Caption: or something if you look look and dig
+
+00:42:15.179 --> 00:42:18.598
+Caption: deep enough so there&#39;s always something
+
+00:42:16.439 --> 00:42:21.560
+Caption: to find no matter where you&#39;re looking
+
+00:42:18.599 --> 00:42:24.359
+Caption: yeah absolutely yeah I would 100 agree
+
+00:42:21.560 --> 00:42:25.859
+Caption: that&#39;s kind of a just a quick comment as
+
+00:42:24.358 --> 00:42:27.719
+Caption: well as that&#39;s obviously another
+
+00:42:25.858 --> 00:42:30.419
+Caption: argument for applying defense in depth
+
+00:42:27.719 --> 00:42:32.399
+Caption: and just making sure that if any layer
+
+00:42:30.419 --> 00:42:34.439
+Caption: of your architecture does get breached
+
+00:42:32.399 --> 00:42:36.838
+Caption: that you kind of minimize the the risk
+
+00:42:34.439 --> 00:42:39.000
+Caption: that that poses to other layers
+
+00:42:36.839 --> 00:42:40.980
+Caption: and I&#39;d assume that&#39;s where the um
+
+00:42:39.000 --> 00:42:42.719
+Caption: bounty hunting and the rewards come from
+
+00:42:40.979 --> 00:42:45.118
+Caption: for a lot of these organizations that
+
+00:42:42.719 --> 00:42:47.578
+Caption: have seen so you if you&#39;re looking for a
+
+00:42:45.118 --> 00:42:50.219
+Caption: job in this space then go for a bounty
+
+00:42:47.579 --> 00:42:51.780
+Caption: hunting Expedition another pen testing
+
+00:42:50.219 --> 00:42:53.699
+Caption: Adventure can I have another round of
+
+00:42:51.780 --> 00:42:55.510
+Caption: applause for James one and James two
+
+00:42:53.699 --> 00:43:00.300
+Caption: thank you
+
+00:42:55.510 --> 00:43:01.859
+Caption: [Applause]
+
+00:43:00.300 --> 00:43:04.319
+Caption: thank you
+
+00:43:01.858 --> 00:43:05.759
+Caption: so there&#39;s about 10 minutes until the
+
+00:43:04.319 --> 00:43:07.680
+Caption: next session if you need to change rooms
+
+00:43:05.760 --> 00:43:09.599
+Caption: please do get in there quickly our next
+
+00:43:07.679 --> 00:43:12.800
+Caption: session here is on web apis and
+
+00:43:09.599 --> 00:43:12.800
+Caption: two-factor Authentication
+

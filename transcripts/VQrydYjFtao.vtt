@@ -1,0 +1,1253 @@
+WEBVTT
+
+00:00:06.289 --> 00:00:13.789
+Caption: Hey hopefully had a good break so I&#39;d
+
+00:00:10.250 --> 00:00:16.850
+Caption: like to welcome next sander
+
+00:00:13.789 --> 00:00:19.040
+Caption: give us a new review of cryptography I&#39;m
+
+00:00:16.850 --> 00:00:22.278
+Caption: really looking forward to this top cuz
+
+00:00:19.040 --> 00:00:24.619
+Caption: my idea of cryptography was the Enigma
+
+00:00:22.278 --> 00:00:26.569
+Caption: machine and Leslie Heath so I&#39;m sure
+
+00:00:24.618 --> 00:00:33.799
+Caption: things have changed since then yeah
+
+00:00:26.569 --> 00:00:36.619
+Caption: please welcome Sandra thank you thank
+
+00:00:33.799 --> 00:00:39.349
+Caption: you by show of hands how many of you
+
+00:00:36.619 --> 00:00:41.779
+Caption: have seen the movie 2001 a Space Odyssey
+
+00:00:39.349 --> 00:00:43.279
+Caption: alright that&#39;s quite a few you&#39;ll
+
+00:00:41.779 --> 00:00:45.738
+Caption: probably know that one of the main
+
+00:00:43.279 --> 00:00:47.090
+Caption: characters in the movie is the computer
+
+00:00:45.738 --> 00:00:50.389
+Caption: that actually controls the spaceship
+
+00:00:47.090 --> 00:00:53.049
+Caption: which is hell and when the movie came
+
+00:00:50.389 --> 00:00:56.239
+Caption: out people noticed that Hal is actually
+
+00:00:53.049 --> 00:00:58.720
+Caption: derived from IBM because if you shift
+
+00:00:56.240 --> 00:01:02.600
+Caption: the letters from IBM to the left by one
+
+00:00:58.720 --> 00:01:04.459
+Caption: you get help but the writer of 2001 a
+
+00:01:02.599 --> 00:01:07.879
+Caption: Space Odyssey said that that was not
+
+00:01:04.459 --> 00:01:09.470
+Caption: intentional we don&#39;t know if that&#39;s true
+
+00:01:07.879 --> 00:01:12.078
+Caption: but there you go
+
+00:01:09.470 --> 00:01:14.299
+Caption: it is it is however a nice example of a
+
+00:01:12.079 --> 00:01:16.100
+Caption: very simple encryption method which is
+
+00:01:14.299 --> 00:01:19.280
+Caption: called the shift cipher but it&#39;s also
+
+00:01:16.099 --> 00:01:20.959
+Caption: known as as the Caesar cipher and it
+
+00:01:19.279 --> 00:01:23.119
+Caption: bears his name because Caesar emperor
+
+00:01:20.959 --> 00:01:27.319
+Caption: Caesar actually used this encryption
+
+00:01:23.120 --> 00:01:28.940
+Caption: method back in the day it is a character
+
+00:01:27.319 --> 00:01:31.548
+Caption: substitution method
+
+00:01:28.940 --> 00:01:34.220
+Caption: the idea is to shift all the letters in
+
+00:01:31.549 --> 00:01:37.280
+Caption: the alphabet by a fixed number of places
+
+00:01:34.220 --> 00:01:40.010
+Caption: 1 2 or 3 and anywhere up to 26 and then
+
+00:01:37.279 --> 00:01:44.868
+Caption: basically you&#39;ve gone around so because
+
+00:01:40.010 --> 00:01:48.459
+Caption: a C goes to B etc decryption means doing
+
+00:01:44.869 --> 00:01:50.780
+Caption: the opposite so a goes back to be etc
+
+00:01:48.459 --> 00:01:53.599
+Caption: now you might wonder how this would be
+
+00:01:50.779 --> 00:01:55.129
+Caption: secure you have to remember that back in
+
+00:01:53.599 --> 00:01:57.559
+Caption: the day not a lot of people actually
+
+00:01:55.129 --> 00:02:00.079
+Caption: knew how to read or write lesson but all
+
+00:01:57.559 --> 00:02:01.938
+Caption: communication would be in Latin so by
+
+00:02:00.080 --> 00:02:04.189
+Caption: adding a simple method of encryption
+
+00:02:01.939 --> 00:02:08.539
+Caption: Caesar was able to you to create very
+
+00:02:04.189 --> 00:02:10.220
+Caption: secure communications and in the case of
+
+00:02:08.539 --> 00:02:14.798
+Caption: Caesar we actually use the shift of
+
+00:02:10.220 --> 00:02:18.798
+Caption: minus 3 the most well-known form of
+
+00:02:14.798 --> 00:02:21.438
+Caption: shifting is probably our T 13 and it has
+
+00:02:18.798 --> 00:02:23.449
+Caption: the added benefit of being symmetric so
+
+00:02:21.438 --> 00:02:25.848
+Caption: encrypting is basically exactly the same
+
+00:02:23.449 --> 00:02:27.020
+Caption: thing as decrypting so for instance if
+
+00:02:25.848 --> 00:02:30.139
+Caption: you encrypt
+
+00:02:27.020 --> 00:02:32.510
+Caption: d it goes to Q but if you encrypt Q it
+
+00:02:30.139 --> 00:02:36.740
+Caption: goes back to B so it&#39;s in that sense
+
+00:02:32.509 --> 00:02:40.339
+Caption: it&#39;s symmetric character substitution
+
+00:02:36.740 --> 00:02:42.380
+Caption: also forms the basis of the device that
+
+00:02:40.339 --> 00:02:44.089
+Caption: I will talk about in the rest of my talk
+
+00:02:42.380 --> 00:02:47.900
+Caption: which switches briefly mentioned the
+
+00:02:44.089 --> 00:02:49.879
+Caption: Enigma to German Enigma the Enigma probe
+
+00:02:47.899 --> 00:02:51.500
+Caption: performs a proper character substitution
+
+00:02:49.880 --> 00:02:54.830
+Caption: in the sense that it doesn&#39;t just do a
+
+00:02:51.500 --> 00:02:57.320
+Caption: shift you type a letter and a certain
+
+00:02:54.830 --> 00:02:59.750
+Caption: lamp would light up so for instance you
+
+00:02:57.320 --> 00:03:03.950
+Caption: would type the T and it would show up as
+
+00:02:59.750 --> 00:03:05.960
+Caption: a king it&#39;s also symmetric in the sense
+
+00:03:03.949 --> 00:03:07.669
+Caption: that when you use the same key the same
+
+00:03:05.960 --> 00:03:10.100
+Caption: settings for the machine if you then
+
+00:03:07.669 --> 00:03:13.429
+Caption: type the encrypted message you will get
+
+00:03:10.100 --> 00:03:16.460
+Caption: the plaintext back so it&#39;s very very
+
+00:03:13.429 --> 00:03:18.439
+Caption: handy in that sense now I&#39;d like to
+
+00:03:16.460 --> 00:03:21.170
+Caption: point out that from an electrical point
+
+00:03:18.440 --> 00:03:23.540
+Caption: of view the Enigma machine is incredibly
+
+00:03:21.169 --> 00:03:27.559
+Caption: simple it basically consists of a
+
+00:03:23.539 --> 00:03:31.699
+Caption: battery of a switch and a lamp close the
+
+00:03:27.559 --> 00:03:33.470
+Caption: switch and the lamp will turn on this is
+
+00:03:31.699 --> 00:03:36.220
+Caption: of course a gross simplification because
+
+00:03:33.470 --> 00:03:39.500
+Caption: the actual Enigma used 26 switches and
+
+00:03:36.220 --> 00:03:42.229
+Caption: 26 lamps and a bit of additional I would
+
+00:03:39.500 --> 00:03:45.740
+Caption: call it electronics but wiring to dunya
+
+00:03:42.229 --> 00:03:47.779
+Caption: encryption it is actually so simple that
+
+00:03:45.740 --> 00:03:51.350
+Caption: I was able to build a tiny little
+
+00:03:47.779 --> 00:03:53.690
+Caption: encryption device like this which uses
+
+00:03:51.350 --> 00:03:55.820
+Caption: exactly the same core principle it is
+
+00:03:53.690 --> 00:03:58.580
+Caption: extremely limited because it also had it
+
+00:03:55.820 --> 00:04:01.220
+Caption: only has four characters and it actually
+
+00:03:58.580 --> 00:04:04.369
+Caption: only uses three keys but the principle
+
+00:04:01.220 --> 00:04:07.309
+Caption: is exactly the same it shows that the
+
+00:04:04.369 --> 00:04:09.110
+Caption: character never encodes to itself just
+
+00:04:07.309 --> 00:04:11.809
+Caption: like the Enigma the only thing that this
+
+00:04:09.110 --> 00:04:13.369
+Caption: one doesn&#39;t do is go through all the
+
+00:04:11.809 --> 00:04:17.359
+Caption: keys which is something that he enigma
+
+00:04:13.369 --> 00:04:19.429
+Caption: actually does automatically now the
+
+00:04:17.359 --> 00:04:21.709
+Caption: smarts of the Enigma are in the way the
+
+00:04:19.429 --> 00:04:24.919
+Caption: electrical circuit is closed using those
+
+00:04:21.709 --> 00:04:28.130
+Caption: 26 keys and 26 lamps and this is done by
+
+00:04:24.919 --> 00:04:30.020
+Caption: a set of rotors and each rotors perform
+
+00:04:28.130 --> 00:04:33.830
+Caption: each rotor performs a certain character
+
+00:04:30.019 --> 00:04:35.720
+Caption: substitution now each enigma m3 had five
+
+00:04:33.829 --> 00:04:39.019
+Caption: rotors of of which three would always
+
+00:04:35.720 --> 00:04:40.940
+Caption: use at once on top of that it had to
+
+00:04:39.019 --> 00:04:43.399
+Caption: static wheels and
+
+00:04:40.940 --> 00:04:45.739
+Caption: over there and then reflector wheel over
+
+00:04:43.399 --> 00:04:48.109
+Caption: there and basically the current would
+
+00:04:45.739 --> 00:04:50.179
+Caption: flow through the entry wheel through
+
+00:04:48.109 --> 00:04:53.359
+Caption: these three rotors back flew through the
+
+00:04:50.179 --> 00:04:56.059
+Caption: reflector wheel and back again through
+
+00:04:53.359 --> 00:04:58.489
+Caption: the routers and the entry wheel and then
+
+00:04:56.059 --> 00:04:59.899
+Caption: a lamp would light up and I&#39;d also like
+
+00:04:58.489 --> 00:05:03.819
+Caption: to point out there&#39;s something else here
+
+00:04:59.899 --> 00:05:06.079
+Caption: which is the plug board but abacab extra
+
+00:05:03.820 --> 00:05:08.539
+Caption: but the power of the enigma was that
+
+00:05:06.079 --> 00:05:10.429
+Caption: each time you press the key one of the
+
+00:05:08.539 --> 00:05:12.889
+Caption: rotors would actually rotate one
+
+00:05:10.429 --> 00:05:14.389
+Caption: position and at some point that one
+
+00:05:12.889 --> 00:05:20.479
+Caption: would actually rotate another one as
+
+00:05:14.389 --> 00:05:22.160
+Caption: well I&#39;ll get back to that assumed so I
+
+00:05:20.479 --> 00:05:24.199
+Caption: just briefly mentioned the flood board
+
+00:05:22.160 --> 00:05:26.179
+Caption: this was only used for the military
+
+00:05:24.199 --> 00:05:28.970
+Caption: enigma there were also a next month
+
+00:05:26.179 --> 00:05:31.399
+Caption: enigma is used for postal service&#39;s way
+
+00:05:28.970 --> 00:05:33.079
+Caption: before the war but this wasn&#39;t this was
+
+00:05:31.399 --> 00:05:36.739
+Caption: an addition that actually made it much
+
+00:05:33.079 --> 00:05:38.209
+Caption: more difficult to to crack and the
+
+00:05:36.739 --> 00:05:40.759
+Caption: plugboard perform two additional
+
+00:05:38.209 --> 00:05:42.369
+Caption: substitutions one on the way in and one
+
+00:05:40.759 --> 00:05:45.529
+Caption: on the way out
+
+00:05:42.369 --> 00:05:47.779
+Caption: so the roses would step a base on the
+
+00:05:45.529 --> 00:05:50.720
+Caption: key presses and just like a plane or
+
+00:05:47.779 --> 00:05:53.329
+Caption: odometer that you would find in a car at
+
+00:05:50.720 --> 00:05:55.399
+Caption: some point a router on the right would
+
+00:05:53.329 --> 00:06:00.259
+Caption: basically make the router to its left
+
+00:05:55.399 --> 00:06:03.259
+Caption: also step forward one step and again for
+
+00:06:00.260 --> 00:06:04.490
+Caption: the router next to that and what happens
+
+00:06:03.260 --> 00:06:06.559
+Caption: is that the actual character
+
+00:06:04.489 --> 00:06:08.959
+Caption: substitution of the machine changes
+
+00:06:06.559 --> 00:06:11.658
+Caption: every time you press the key and this
+
+00:06:08.959 --> 00:06:14.299
+Caption: means that when you press two keys to
+
+00:06:11.658 --> 00:06:16.309
+Caption: two times Genki you will not get the
+
+00:06:14.299 --> 00:06:18.918
+Caption: same result so you press t1 so you might
+
+00:06:16.309 --> 00:06:25.459
+Caption: get K you press T again you might get
+
+00:06:18.919 --> 00:06:27.199
+Caption: repeat for instance and they are what
+
+00:06:25.459 --> 00:06:30.019
+Caption: makes is very strong is that because you
+
+00:06:27.199 --> 00:06:31.459
+Caption: you cannot sort of correlate the input
+
+00:06:30.019 --> 00:06:33.529
+Caption: with the output it makes frequency
+
+00:06:31.459 --> 00:06:35.598
+Caption: analysis very difficult so for instance
+
+00:06:33.529 --> 00:06:37.419
+Caption: the letter e it&#39;s very common in the
+
+00:06:35.598 --> 00:06:40.098
+Caption: English language and if you could find a
+
+00:06:37.419 --> 00:06:41.990
+Caption: letter that&#39;s basically in the encrypted
+
+00:06:40.098 --> 00:06:44.209
+Caption: message this is often you could infer
+
+00:06:41.989 --> 00:06:47.168
+Caption: that it might be the letter e so that
+
+00:06:44.209 --> 00:06:47.169
+Caption: doesn&#39;t work in this case
+
+00:06:47.199 --> 00:06:53.690
+Caption: now each day the Enigma would be set up
+
+00:06:50.479 --> 00:06:54.149
+Caption: by using predefined routers so three
+
+00:06:53.690 --> 00:06:57.360
+Caption: inkay
+
+00:06:54.149 --> 00:06:59.790
+Caption: of m3 in a predefined position one of 26
+
+00:06:57.359 --> 00:07:01.829
+Caption: and the predefined ring Stella and the
+
+00:06:59.790 --> 00:07:05.070
+Caption: ring sterling basically meant how the
+
+00:07:01.829 --> 00:07:06.929
+Caption: next router would turn over on top of
+
+00:07:05.070 --> 00:07:09.619
+Caption: that there was of course the blackboard
+
+00:07:06.929 --> 00:07:12.630
+Caption: setting and the Germans always used 10
+
+00:07:09.619 --> 00:07:15.239
+Caption: substitutions always but in other words
+
+00:07:12.630 --> 00:07:19.739
+Caption: the key for the day was determined by
+
+00:07:15.239 --> 00:07:22.679
+Caption: those 4 settings now I&#39;d like to talk a
+
+00:07:19.739 --> 00:07:24.660
+Caption: little bit about key space and key space
+
+00:07:22.679 --> 00:07:27.199
+Caption: according to Wikipedia refers to the set
+
+00:07:24.660 --> 00:07:29.940
+Caption: of all possible permutations of a key
+
+00:07:27.200 --> 00:07:33.630
+Caption: now remember the shift cipher it only
+
+00:07:29.940 --> 00:07:36.029
+Caption: has a key space of 26 this one only has
+
+00:07:33.630 --> 00:07:39.690
+Caption: a key space of 3 is with remorseless
+
+00:07:36.029 --> 00:07:41.970
+Caption: reading so if the Allies forces would
+
+00:07:39.690 --> 00:07:44.130
+Caption: not have had any knowledge of the rotors
+
+00:07:41.970 --> 00:07:46.019
+Caption: internals then the key space would have
+
+00:07:44.130 --> 00:07:48.540
+Caption: been enormous because just think about
+
+00:07:46.019 --> 00:07:51.750
+Caption: how many ways you could wire up a single
+
+00:07:48.540 --> 00:07:53.910
+Caption: rotor in fact it&#39;s about 1.5 times 2 to
+
+00:07:51.750 --> 00:07:58.320
+Caption: the power of 20 10 to the power of 25
+
+00:07:53.910 --> 00:08:00.149
+Caption: it&#39;s ridiculous but the a large force is
+
+00:07:58.320 --> 00:08:02.460
+Caption: that he knew how the rotors were were
+
+00:08:00.149 --> 00:08:04.199
+Caption: wired but the good thing for the Allied
+
+00:08:02.459 --> 00:08:06.299
+Caption: forces was that the Germans didn&#39;t know
+
+00:08:04.200 --> 00:08:09.740
+Caption: that the Allied forces knew this so they
+
+00:08:06.299 --> 00:08:12.809
+Caption: overestimated the power of their Enigma
+
+00:08:09.739 --> 00:08:15.239
+Caption: so I&#39;d like to point out this guy it&#39;s a
+
+00:08:12.809 --> 00:08:17.549
+Caption: Dutch guy his name is karakov and he
+
+00:08:15.239 --> 00:08:20.160
+Caption: came up with a principle that said a
+
+00:08:17.549 --> 00:08:22.289
+Caption: cryptosystem should be secure even if
+
+00:08:20.160 --> 00:08:26.190
+Caption: everything about the system except the
+
+00:08:22.290 --> 00:08:28.440
+Caption: key is public knowledge so this is why
+
+00:08:26.190 --> 00:08:30.480
+Caption: modern cryptographic methods are always
+
+00:08:28.440 --> 00:08:32.700
+Caption: publicly scrutinized there is very
+
+00:08:30.480 --> 00:08:35.880
+Caption: little to no safety in security through
+
+00:08:32.700 --> 00:08:38.460
+Caption: obscurity but the Germans may have
+
+00:08:35.880 --> 00:08:40.229
+Caption: overestimated the security of the Enigma
+
+00:08:38.460 --> 00:08:41.970
+Caption: by sort of ignoring this law they should
+
+00:08:40.229 --> 00:08:43.709
+Caption: have assumed that the Allied forces had
+
+00:08:41.969 --> 00:08:47.389
+Caption: everything about the Enigma accepted
+
+00:08:43.710 --> 00:08:50.550
+Caption: please let&#39;s do a quick calculation
+
+00:08:47.390 --> 00:08:52.290
+Caption: about em three key specs so we have to
+
+00:08:50.549 --> 00:08:54.500
+Caption: pick three out of five rotors that gives
+
+00:08:52.289 --> 00:08:58.079
+Caption: us a total of 60 combinations each
+
+00:08:54.500 --> 00:09:04.229
+Caption: router has 26 positions so that gives us
+
+00:08:58.080 --> 00:09:05.610
+Caption: 26 to the power 3 equals 17,500 176 then
+
+00:09:04.229 --> 00:09:06.859
+Caption: we have to bring Stalin which only
+
+00:09:05.609 --> 00:09:10.489
+Caption: applies to two of the
+
+00:09:06.859 --> 00:09:13.279
+Caption: which gives us another 676 combinations
+
+00:09:10.489 --> 00:09:16.070
+Caption: but now it gets wild because when we
+
+00:09:13.280 --> 00:09:19.550
+Caption: factor in the plugboard which always had
+
+00:09:16.070 --> 00:09:24.229
+Caption: 10 substitutions we get a whopping 1.5
+
+00:09:19.549 --> 00:09:26.000
+Caption: times 10 to the power 14 permutations so
+
+00:09:24.229 --> 00:09:27.979
+Caption: we have to multiply these together and
+
+00:09:26.000 --> 00:09:30.590
+Caption: then we get the total key space of the
+
+00:09:27.979 --> 00:09:33.260
+Caption: m3 which is about one point zero seven
+
+00:09:30.590 --> 00:09:35.690
+Caption: times ten to the power 23 which equates
+
+00:09:33.260 --> 00:09:40.070
+Caption: to approximately 77 bits which is pretty
+
+00:09:35.690 --> 00:09:42.200
+Caption: good for you know for that time and
+
+00:09:40.070 --> 00:09:44.770
+Caption: because he m4 used three routers out of
+
+00:09:42.200 --> 00:09:47.630
+Caption: eight plus a force one it was actually a
+
+00:09:44.770 --> 00:09:51.440
+Caption: 291 times stronger so it had a key space
+
+00:09:47.630 --> 00:09:53.059
+Caption: without 84 bits now let&#39;s do a quick
+
+00:09:51.440 --> 00:09:55.729
+Caption: recap so far we&#39;ve talked about
+
+00:09:53.059 --> 00:09:57.349
+Caption: encryption and decryption character
+
+00:09:55.729 --> 00:10:00.380
+Caption: substitution and the shift cipher
+
+00:09:57.349 --> 00:10:04.909
+Caption: frequency analysis key space security
+
+00:10:00.380 --> 00:10:06.380
+Caption: through obscurity and character flaw now
+
+00:10:04.909 --> 00:10:09.199
+Caption: let&#39;s talk a little bit about cracking
+
+00:10:06.380 --> 00:10:10.669
+Caption: the Enigma how many of you by show of
+
+00:10:09.200 --> 00:10:12.830
+Caption: hands have seen the movie the imitation
+
+00:10:10.669 --> 00:10:14.320
+Caption: game with Benedict Cumberbatch wow
+
+00:10:12.830 --> 00:10:17.390
+Caption: that&#39;s impressive
+
+00:10:14.320 --> 00:10:21.679
+Caption: so this movie basically revolves around
+
+00:10:17.390 --> 00:10:24.080
+Caption: Alan Turing and he played a pivotal role
+
+00:10:21.679 --> 00:10:25.820
+Caption: in cracking the Enigma and most of the
+
+00:10:24.080 --> 00:10:27.650
+Caption: work of maybe all of the work that was
+
+00:10:25.820 --> 00:10:30.380
+Caption: done to do this was done at Bletchley
+
+00:10:27.650 --> 00:10:32.000
+Caption: Park in the UK and chewing was one of
+
+00:10:30.380 --> 00:10:34.390
+Caption: the first people to be recruited there
+
+00:10:32.000 --> 00:10:37.630
+Caption: I&#39;ll get back to him a little bit later
+
+00:10:34.390 --> 00:10:40.040
+Caption: because there is nothing easier than
+
+00:10:37.630 --> 00:10:42.859
+Caption: cracking an encryption system then
+
+00:10:40.039 --> 00:10:44.869
+Caption: having the keys and the Allied forces
+
+00:10:42.859 --> 00:10:47.299
+Caption: were lucky enough to have the keys once
+
+00:10:44.869 --> 00:10:49.520
+Caption: or twice then got the codebook somehow
+
+00:10:47.299 --> 00:10:51.200
+Caption: from the Germans so that gave them the
+
+00:10:49.520 --> 00:10:53.690
+Caption: opportunity to actually decrypt the
+
+00:10:51.200 --> 00:10:55.429
+Caption: messages that were sent and the good
+
+00:10:53.690 --> 00:10:57.890
+Caption: thing was that it gave them information
+
+00:10:55.429 --> 00:10:59.779
+Caption: about what are the Germans actually
+
+00:10:57.890 --> 00:11:01.369
+Caption: sending or what kind of messages are
+
+00:10:59.780 --> 00:11:02.750
+Caption: they sending and can we maybe use that
+
+00:11:01.369 --> 00:11:06.409
+Caption: later on and it turns out that they
+
+00:11:02.750 --> 00:11:10.940
+Caption: could and one day God&#39;s hand of the keys
+
+00:11:06.409 --> 00:11:13.039
+Caption: that was called a pinch now I would like
+
+00:11:10.940 --> 00:11:14.869
+Caption: to point out a flaw in the design of
+
+00:11:13.039 --> 00:11:18.049
+Caption: enigma and this is called a double step
+
+00:11:14.869 --> 00:11:19.729
+Caption: so each time the rightmost at some point
+
+00:11:18.049 --> 00:11:20.519
+Caption: when the rightmost wrote it turns out it
+
+00:11:19.729 --> 00:11:22.859
+Caption: would also turn
+
+00:11:20.520 --> 00:11:24.179
+Caption: the one to its left and at some point it
+
+00:11:22.859 --> 00:11:26.579
+Caption: would also turn off the bunch of its
+
+00:11:24.179 --> 00:11:28.169
+Caption: left but due to our fault in the
+
+00:11:26.580 --> 00:11:29.820
+Caption: mechanical design at some point the
+
+00:11:28.169 --> 00:11:32.820
+Caption: middle road to the Sheep turn off twice
+
+00:11:29.820 --> 00:11:35.700
+Caption: and as a result this would have the key
+
+00:11:32.820 --> 00:11:37.950
+Caption: space what this would still leave plenty
+
+00:11:35.700 --> 00:11:40.739
+Caption: enough room to not make it completely
+
+00:11:37.950 --> 00:11:42.660
+Caption: crackable just like that so it wasn&#39;t
+
+00:11:40.739 --> 00:11:48.450
+Caption: that big a deal but it did also help a
+
+00:11:42.659 --> 00:11:50.489
+Caption: little bit in statistical analysis the
+
+00:11:48.450 --> 00:11:52.890
+Caption: electrical design however also contained
+
+00:11:50.489 --> 00:11:54.359
+Caption: a bit of a flaw and that was which also
+
+00:11:52.890 --> 00:11:57.270
+Caption: mentioned about this device is that a
+
+00:11:54.359 --> 00:11:59.219
+Caption: character never encodes onto itself so a
+
+00:11:57.270 --> 00:12:02.630
+Caption: tee would never encode him to a tee and
+
+00:11:59.219 --> 00:12:05.159
+Caption: the Y would never encode them to a Y etc
+
+00:12:02.630 --> 00:12:06.750
+Caption: so as a war raged on the code breakers
+
+00:12:05.159 --> 00:12:09.569
+Caption: get more and more knowledge of the
+
+00:12:06.750 --> 00:12:10.890
+Caption: messages that were actually sent so for
+
+00:12:09.570 --> 00:12:13.260
+Caption: instance they found patterns in the
+
+00:12:10.890 --> 00:12:14.970
+Caption: messages in the original messages so a
+
+00:12:13.260 --> 00:12:19.410
+Caption: lot of the messages would actually end
+
+00:12:14.969 --> 00:12:21.149
+Caption: with how Hitler so these kinds of known
+
+00:12:19.409 --> 00:12:23.940
+Caption: texts or soon known texts they were
+
+00:12:21.150 --> 00:12:26.430
+Caption: called cribs and the Germans actually
+
+00:12:23.940 --> 00:12:30.570
+Caption: sent a wedding report every day at 6
+
+00:12:26.429 --> 00:12:32.399
+Caption: a.m. it had a very specific format so
+
+00:12:30.570 --> 00:12:34.320
+Caption: let&#39;s take for example the crib better
+
+00:12:32.400 --> 00:12:37.350
+Caption: Burak which means weather report in
+
+00:12:34.320 --> 00:12:40.650
+Caption: German so if an encrypted text looks
+
+00:12:37.349 --> 00:12:43.589
+Caption: like this then you can infer that
+
+00:12:40.650 --> 00:12:46.230
+Caption: certain places would not be the
+
+00:12:43.590 --> 00:12:48.960
+Caption: encrypted words crib that was there
+
+00:12:46.229 --> 00:12:51.389
+Caption: because in this case the eye matches but
+
+00:12:48.960 --> 00:12:54.450
+Caption: the I can never encrypt itself so this
+
+00:12:51.390 --> 00:12:59.340
+Caption: would be a wrong position to start to
+
+00:12:54.450 --> 00:13:01.470
+Caption: start checking now Alan Turing let&#39;s get
+
+00:12:59.340 --> 00:13:03.780
+Caption: back to him for a bit he came up with a
+
+00:13:01.469 --> 00:13:05.669
+Caption: critter analytic process called member
+
+00:13:03.780 --> 00:13:09.450
+Caption: isthmus and this was specifically
+
+00:13:05.669 --> 00:13:11.519
+Caption: created for German types of messages for
+
+00:13:09.450 --> 00:13:13.049
+Caption: sorry German Navy types of messages
+
+00:13:11.520 --> 00:13:16.170
+Caption: because of the process they used for
+
+00:13:13.049 --> 00:13:18.059
+Caption: encryption so first of all all messages
+
+00:13:16.169 --> 00:13:19.529
+Caption: for a single day used the same key which
+
+00:13:18.059 --> 00:13:21.710
+Caption: were those for settings I told you about
+
+00:13:19.530 --> 00:13:24.120
+Caption: earlier this was called a goon Stalin
+
+00:13:21.710 --> 00:13:28.590
+Caption: but the actual message would be
+
+00:13:24.119 --> 00:13:31.979
+Caption: encrypted using a Ken grouper or sort of
+
+00:13:28.590 --> 00:13:33.650
+Caption: an indicator which was sent twice at the
+
+00:13:31.979 --> 00:13:36.029
+Caption: beginning of each
+
+00:13:33.650 --> 00:13:39.450
+Caption: now all those can group and would be
+
+00:13:36.030 --> 00:13:42.120
+Caption: sent with the same method same key for a
+
+00:13:39.450 --> 00:13:44.730
+Caption: single day now this a process of bambor
+
+00:13:42.119 --> 00:13:46.979
+Caption: isthmus considers whether encrypted
+
+00:13:44.729 --> 00:13:49.469
+Caption: messages are in depth which is sort of a
+
+00:13:46.979 --> 00:13:51.659
+Caption: measure of correlation because all those
+
+00:13:49.469 --> 00:13:54.059
+Caption: can group and/or indicators were
+
+00:13:51.659 --> 00:13:56.069
+Caption: encrypted with the same settings they
+
+00:13:54.059 --> 00:13:58.710
+Caption: were all in depth and it&#39;s really helped
+
+00:13:56.070 --> 00:14:00.479
+Caption: with getting information about the
+
+00:13:58.710 --> 00:14:02.940
+Caption: settings further for the Enigma for a
+
+00:14:00.479 --> 00:14:04.829
+Caption: certain day at the end I&#39;ll have a slide
+
+00:14:02.940 --> 00:14:07.409
+Caption: with some resources and there&#39;s also a
+
+00:14:04.830 --> 00:14:09.090
+Caption: link to a site that has like really
+
+00:14:07.409 --> 00:14:13.649
+Caption: in-depth information about this process
+
+00:14:09.090 --> 00:14:15.690
+Caption: in case you are interested in it now
+
+00:14:13.650 --> 00:14:18.360
+Caption: Alan Turing also understood that the
+
+00:14:15.690 --> 00:14:22.440
+Caption: only way to break enigma every single
+
+00:14:18.359 --> 00:14:24.390
+Caption: day was to automate the process so they
+
+00:14:22.440 --> 00:14:26.460
+Caption: built a machine called the bombe which
+
+00:14:24.390 --> 00:14:28.920
+Caption: is basically named after polish device
+
+00:14:26.460 --> 00:14:32.190
+Caption: that was used to crack earlier Enigma
+
+00:14:28.919 --> 00:14:37.859
+Caption: machines so the bomb basically used a
+
+00:14:32.190 --> 00:14:40.080
+Caption: method of elimination it it tries to it
+
+00:14:37.859 --> 00:14:42.179
+Caption: basically parallel parallel eyes going
+
+00:14:40.080 --> 00:14:43.200
+Caption: through all the router settings so what
+
+00:14:42.179 --> 00:14:45.929
+Caption: you&#39;re looking at is basically a
+
+00:14:43.200 --> 00:14:47.609
+Caption: parallel computer in a sense and what it
+
+00:14:45.929 --> 00:14:49.859
+Caption: does is trying to juice the plugboard
+
+00:14:47.609 --> 00:14:53.729
+Caption: settings that&#39;s the one that actually
+
+00:14:49.859 --> 00:14:55.049
+Caption: caved in a comet&#39;s power and it is
+
+00:14:53.729 --> 00:14:58.440
+Caption: electrically which made it really really
+
+00:14:55.049 --> 00:15:00.059
+Caption: fast and it would start by assuming a
+
+00:14:58.440 --> 00:15:02.369
+Caption: certain blackboard setting like for
+
+00:15:00.059 --> 00:15:05.039
+Caption: instance a goes to G and then based on
+
+00:15:02.369 --> 00:15:06.390
+Caption: the message that it was fent as fat it
+
+00:15:05.039 --> 00:15:09.659
+Caption: would then trying to juice other
+
+00:15:06.390 --> 00:15:11.549
+Caption: settings like H goes to R or Peters o
+
+00:15:09.659 --> 00:15:14.959
+Caption: until it founds the contradiction
+
+00:15:11.549 --> 00:15:18.510
+Caption: for instance a goes to I don&#39;t know yet
+
+00:15:14.960 --> 00:15:20.610
+Caption: you can&#39;t have a go to to two characters
+
+00:15:18.510 --> 00:15:22.679
+Caption: that that&#39;s not how it works we already
+
+00:15:20.609 --> 00:15:24.619
+Caption: know that so when you found that
+
+00:15:22.679 --> 00:15:27.809
+Caption: contradiction you knew it was wrong but
+
+00:15:24.619 --> 00:15:29.520
+Caption: Alan Turing understood that all the
+
+00:15:27.809 --> 00:15:31.859
+Caption: other plug board settings that you would
+
+00:15:29.520 --> 00:15:33.270
+Caption: find in that particular one that they
+
+00:15:31.859 --> 00:15:35.809
+Caption: were also wrong and you didn&#39;t have to
+
+00:15:33.270 --> 00:15:35.809
+Caption: check them
+
+00:15:37.210 --> 00:15:40.750
+Caption: now there is another video sync receipt
+
+00:15:39.280 --> 00:15:43.840
+Caption: of the enigma that makes cracking a
+
+00:15:40.750 --> 00:15:45.070
+Caption: little bit easier so you know how you
+
+00:15:43.840 --> 00:15:47.530
+Caption: know how all the roads is basically
+
+00:15:45.070 --> 00:15:50.080
+Caption: advanced based on the rotor before but
+
+00:15:47.530 --> 00:15:52.510
+Caption: the leftmost rotor hardly ever rotates
+
+00:15:50.080 --> 00:15:55.330
+Caption: especially because messages were almost
+
+00:15:52.510 --> 00:15:58.419
+Caption: never longer than about 650 characters
+
+00:15:55.330 --> 00:16:02.920
+Caption: so you could learn quite a lot by just
+
+00:15:58.419 --> 00:16:04.959
+Caption: focusing on the right two rotors I&#39;d
+
+00:16:02.919 --> 00:16:06.729
+Caption: like to think that the bomb they very
+
+00:16:04.960 --> 00:16:10.929
+Caption: well have been the first special-purpose
+
+00:16:06.729 --> 00:16:13.449
+Caption: computer ever and it was based on much
+
+00:16:10.929 --> 00:16:17.559
+Caption: of chewings ideas about computing and
+
+00:16:13.450 --> 00:16:19.119
+Caption: algorithms and things like that the
+
+00:16:17.559 --> 00:16:21.159
+Caption: entire effort of the crips in an enigma
+
+00:16:19.119 --> 00:16:23.409
+Caption: was an incredible feat of human
+
+00:16:21.159 --> 00:16:28.119
+Caption: ingenuity and it was based in science
+
+00:16:23.409 --> 00:16:29.379
+Caption: engineering math and statistics now
+
+00:16:28.119 --> 00:16:32.229
+Caption: there&#39;s a lot more to be said about
+
+00:16:29.380 --> 00:16:33.630
+Caption: Ehlinger think for instance about the
+
+00:16:32.229 --> 00:16:36.130
+Caption: Turing machine or the Turing test
+
+00:16:33.630 --> 00:16:39.700
+Caption: there&#39;s also a lot more to be said about
+
+00:16:36.130 --> 00:16:41.140
+Caption: the Enigma itself but the purpose of my
+
+00:16:39.700 --> 00:16:44.380
+Caption: talk was not to give you like a
+
+00:16:41.140 --> 00:16:47.679
+Caption: comprehensive overview of the Enigma in
+
+00:16:44.380 --> 00:16:50.530
+Caption: the efforts of cracking in or about
+
+00:16:47.679 --> 00:16:52.359
+Caption: curing I did however address some
+
+00:16:50.530 --> 00:16:54.730
+Caption: concepts of cryptography that you might
+
+00:16:52.359 --> 00:16:57.000
+Caption: want to further study so I do encourage
+
+00:16:54.729 --> 00:16:59.769
+Caption: you to find out more about Alan Turing
+
+00:16:57.000 --> 00:17:01.539
+Caption: about the Turing machine the gaming man
+
+00:16:59.770 --> 00:17:03.840
+Caption: and about cryptography as a field of
+
+00:17:01.539 --> 00:17:06.369
+Caption: study we&#39;ve come a long way since
+
+00:17:03.840 --> 00:17:09.940
+Caption: Cynthia enigma even though for the time
+
+00:17:06.369 --> 00:17:11.530
+Caption: it was a really good machine so I have a
+
+00:17:09.939 --> 00:17:14.379
+Caption: look at the list of resources which I&#39;ll
+
+00:17:11.530 --> 00:17:16.150
+Caption: put up next and if you really want to
+
+00:17:14.380 --> 00:17:18.369
+Caption: know about Alan want to know more about
+
+00:17:16.150 --> 00:17:20.530
+Caption: Alan Turing I would say consider reading
+
+00:17:18.369 --> 00:17:22.030
+Caption: his biography that we all Rafi a bad
+
+00:17:20.530 --> 00:17:24.400
+Caption: start because you will find out that
+
+00:17:22.030 --> 00:17:27.070
+Caption: much of his work did not occur in a
+
+00:17:24.400 --> 00:17:30.099
+Caption: vacuum as hardly anything ever does and
+
+00:17:27.069 --> 00:17:32.259
+Caption: if you want to play with an Ingmar like
+
+00:17:30.099 --> 00:17:36.209
+Caption: a proper one online at least then just
+
+00:17:32.260 --> 00:17:39.489
+Caption: search for enigma and you will find it
+
+00:17:36.209 --> 00:17:42.789
+Caption: but there&#39;s one key takeaway I&#39;d like to
+
+00:17:39.489 --> 00:17:45.069
+Caption: leave you with any encryption system can
+
+00:17:42.790 --> 00:17:48.460
+Caption: be broken given enough time and effort
+
+00:17:45.069 --> 00:17:49.789
+Caption: but when you have the key you don&#39;t even
+
+00:17:48.459 --> 00:17:53.299
+Caption: need to go through that
+
+00:17:49.790 --> 00:17:55.869
+Caption: so to tie it in with our everyday life
+
+00:17:53.300 --> 00:17:59.900
+Caption: how are you treating your passwords I
+
+00:17:55.869 --> 00:18:01.459
+Caption: hope do you keep them secure so here are
+
+00:17:59.900 --> 00:18:03.680
+Caption: the resources take a picture if you
+
+00:18:01.459 --> 00:18:05.539
+Caption: would like to get more information but
+
+00:18:03.680 --> 00:18:06.170
+Caption: for now this is it thank you for
+
+00:18:05.540 --> 00:18:12.609
+Caption: listening
+
+00:18:06.170 --> 00:18:12.609
+Caption: [Applause]
+

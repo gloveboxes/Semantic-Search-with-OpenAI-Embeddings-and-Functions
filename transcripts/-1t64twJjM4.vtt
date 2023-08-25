@@ -1,0 +1,3410 @@
+WEBVTT
+
+00:00:04.760 --> 00:00:08.360
+Caption: so shout out to the sponsors they make
+
+00:00:07.068 --> 00:00:10.159
+Caption: this stuff happen it&#39;s been really
+
+00:00:08.359 --> 00:00:11.959
+Caption: really cool to have all these guys come
+
+00:00:10.159 --> 00:00:13.729
+Caption: on board and make this possible so that
+
+00:00:11.960 --> 00:00:17.090
+Caption: we can have coffee carts we can have
+
+00:00:13.729 --> 00:00:18.379
+Caption: drinks and nibbles after afterwards we
+
+00:00:17.090 --> 00:00:20.059
+Caption: can have things like recordings
+
+00:00:18.379 --> 00:00:21.169
+Caption: happening so we&#39;re sort of rolling the
+
+00:00:20.059 --> 00:00:24.349
+Caption: dice with that one hopefully the
+
+00:00:21.170 --> 00:00:26.840
+Caption: recordings come out okay so yeah if you
+
+00:00:24.350 --> 00:00:29.868
+Caption: see these guys around say thanks also if
+
+00:00:26.840 --> 00:00:32.659
+Caption: you see rob moore around give the guy a
+
+00:00:29.868 --> 00:00:34.610
+Caption: hug right he&#39;s done such an immense job
+
+00:00:32.659 --> 00:00:36.349
+Caption: to get what I kind of think is like an
+
+00:00:34.610 --> 00:00:37.879
+Caption: international quality event happening
+
+00:00:36.349 --> 00:00:39.948
+Caption: here in the lot of Perth which is really
+
+00:00:37.879 --> 00:00:42.830
+Caption: cool if you&#39;re from cash converters
+
+00:00:39.949 --> 00:00:44.629
+Caption: anyone from cashes here JD I&#39;ll do this
+
+00:00:42.830 --> 00:00:47.120
+Caption: on Friday go see another talk like
+
+00:00:44.629 --> 00:00:48.500
+Caption: seriously like oh we&#39;ll do this again
+
+00:00:47.119 --> 00:00:52.759
+Caption: there&#39;s some other cool stuff happening
+
+00:00:48.500 --> 00:00:55.250
+Caption: right um let&#39;s kick off so what my talk
+
+00:00:52.759 --> 00:00:56.448
+Caption: is going to be about is low latency and
+
+00:00:55.250 --> 00:01:00.019
+Caption: we&#39;ll find out why it&#39;s not actually
+
+00:00:56.449 --> 00:01:01.879
+Caption: that low latency later this is sort of a
+
+00:01:00.019 --> 00:01:04.940
+Caption: review of what I learnt when I moved to
+
+00:01:01.879 --> 00:01:06.470
+Caption: London I worked here in Perth eight
+
+00:01:04.940 --> 00:01:09.439
+Caption: years ago with some of the guys in the
+
+00:01:06.470 --> 00:01:11.959
+Caption: room and then I did the jump to London
+
+00:01:09.439 --> 00:01:14.060
+Caption: and this is sort of me finding out what
+
+00:01:11.959 --> 00:01:16.188
+Caption: I didn&#39;t know that I didn&#39;t know if when
+
+00:01:14.059 --> 00:01:18.048
+Caption: I went there so hopefully is a chance to
+
+00:01:16.189 --> 00:01:20.299
+Caption: demystify some of the things that happen
+
+00:01:18.049 --> 00:01:22.070
+Caption: outside of maybe if you&#39;re living in
+
+00:01:20.299 --> 00:01:24.020
+Caption: your own ecosystem here in Perth what
+
+00:01:22.069 --> 00:01:24.500
+Caption: we&#39;re doing somewhere else which is kind
+
+00:01:24.019 --> 00:01:27.500
+Caption: of fun
+
+00:01:24.500 --> 00:01:29.298
+Caption: Who am I I wrote a book once so some
+
+00:01:27.500 --> 00:01:30.769
+Caption: people know me about that but we don&#39;t
+
+00:01:29.299 --> 00:01:33.289
+Caption: have time to cover this on the debit
+
+00:01:30.769 --> 00:01:34.849
+Caption: cash ease I speak at things and I run
+
+00:01:33.289 --> 00:01:35.959
+Caption: training on rx if you&#39;ve heard of that
+
+00:01:34.849 --> 00:01:39.438
+Caption: if you haven&#39;t come talk to me
+
+00:01:35.959 --> 00:01:43.309
+Caption: afterwards I&#39;m a small town boy never
+
+00:01:39.439 --> 00:01:45.999
+Caption: been to Detroit I did however graph an
+
+00:01:43.309 --> 00:01:48.709
+Caption: Auckland New Zealand time another
+
+00:01:45.999 --> 00:01:53.389
+Caption: international speaker and
+
+00:01:48.709 --> 00:01:55.459
+Caption: I cut my teeth on ASP and access build a
+
+00:01:53.389 --> 00:01:57.680
+Caption: little Club I was a bit of a sports jock
+
+00:01:55.459 --> 00:01:59.599
+Caption: a long time ago and built the clubs
+
+00:01:57.680 --> 00:02:01.400
+Caption: water polo website which was really cool
+
+00:01:59.599 --> 00:02:02.658
+Caption: that lasted ten years I found out ten
+
+00:02:01.400 --> 00:02:06.200
+Caption: years later they&#39;re still using that
+
+00:02:02.658 --> 00:02:09.229
+Caption: thing that&#39;s cool I graduated after
+
+00:02:06.199 --> 00:02:11.509
+Caption: doing Java COBOL CVB five and gladly
+
+00:02:09.229 --> 00:02:14.360
+Caption: took a role doing friendly old ASP with
+
+00:02:11.509 --> 00:02:15.019
+Caption: slightly scary sequel server I did that
+
+00:02:14.360 --> 00:02:17.930
+Caption: for a while
+
+00:02:15.020 --> 00:02:22.458
+Caption: asp.net or dotnet came out I picked up
+
+00:02:17.929 --> 00:02:25.429
+Caption: asp.net vb.net yup what up sequel server
+
+00:02:22.458 --> 00:02:27.738
+Caption: get that loving relationship with sequel
+
+00:02:25.429 --> 00:02:30.109
+Caption: server going that was really cool moved
+
+00:02:27.738 --> 00:02:32.238
+Caption: over to purse sometime around there as
+
+00:02:30.110 --> 00:02:34.220
+Caption: well and picked up c-sharp continued
+
+00:02:32.238 --> 00:02:36.110
+Caption: with sequel server felt like I&#39;ve done
+
+00:02:34.220 --> 00:02:37.839
+Caption: everything in the web space we were just
+
+00:02:36.110 --> 00:02:41.330
+Caption: doing the same old thing over and again
+
+00:02:37.839 --> 00:02:44.119
+Caption: and that&#39;s when I moved to Bank West in
+
+00:02:41.330 --> 00:02:45.529
+Caption: fact inside doing WPF WCF and that is
+
+00:02:44.119 --> 00:02:48.199
+Caption: where things got really interesting it
+
+00:02:45.529 --> 00:02:49.910
+Caption: was hanging on ice and manage memory now
+
+00:02:48.199 --> 00:02:51.800
+Caption: I never had to do that in the web you
+
+00:02:49.910 --> 00:02:53.510
+Caption: just send a request and things happen in
+
+00:02:51.800 --> 00:02:55.880
+Caption: something disposed something garbage
+
+00:02:53.509 --> 00:02:58.488
+Caption: collector and life was good right and
+
+00:02:55.880 --> 00:03:00.650
+Caption: then I moved to London where WPF was
+
+00:02:58.488 --> 00:03:04.610
+Caption: actually useful skill for me and it was
+
+00:03:00.649 --> 00:03:06.919
+Caption: a bit of a case of worse what this is
+
+00:03:04.610 --> 00:03:09.559
+Caption: not we&#39;re not in Kansas anymore where&#39;s
+
+00:03:06.919 --> 00:03:11.690
+Caption: the sequel server where&#39;s the web server
+
+00:03:09.559 --> 00:03:13.429
+Caption: no one&#39;s talking about WCF and why is
+
+00:03:11.690 --> 00:03:15.949
+Caption: everyone always asking me about garbage
+
+00:03:13.429 --> 00:03:18.738
+Caption: collection right so I&#39;ve moved from sort
+
+00:03:15.949 --> 00:03:20.708
+Caption: of retail banking though it was really
+
+00:03:18.738 --> 00:03:24.470
+Caption: just more crud application kind of stuff
+
+00:03:20.708 --> 00:03:27.798
+Caption: to the world of high finance trading
+
+00:03:24.470 --> 00:03:29.268
+Caption: foreign exchange stocks equities pricing
+
+00:03:27.798 --> 00:03:31.429
+Caption: bonds and all this kind of stuff and was
+
+00:03:29.268 --> 00:03:33.889
+Caption: interesting that it was just very odd
+
+00:03:31.429 --> 00:03:36.018
+Caption: that some things have just changed so
+
+00:03:33.889 --> 00:03:39.169
+Caption: these are my top ten things that I&#39;d
+
+00:03:36.018 --> 00:03:41.358
+Caption: learnt on the way so hopefully I can get
+
+00:03:39.169 --> 00:03:43.099
+Caption: them out to you quickly because ten
+
+00:03:41.358 --> 00:03:45.679
+Caption: things 45 minutes that doesn&#39;t give me
+
+00:03:43.100 --> 00:03:47.660
+Caption: much time to do go through so the first
+
+00:03:45.679 --> 00:03:50.569
+Caption: thing I found out was know your targets
+
+00:03:47.660 --> 00:03:53.799
+Caption: and I thought we&#39;re not going to move to
+
+00:03:50.570 --> 00:03:56.690
+Caption: London in their world there was this
+
+00:03:53.798 --> 00:03:58.578
+Caption: feeling of everything being super fast
+
+00:03:56.690 --> 00:04:00.529
+Caption: and it was going to be amazing that
+
+00:03:58.578 --> 00:04:01.489
+Caption: hardware was going to be the secret
+
+00:04:00.529 --> 00:04:03.979
+Caption: sauce
+
+00:04:01.490 --> 00:04:06.650
+Caption: have some special routers or some Intel
+
+00:04:03.979 --> 00:04:08.449
+Caption: chip I&#39;ve never heard of before wasn&#39;t
+
+00:04:06.649 --> 00:04:10.569
+Caption: the case it was all about knowing your
+
+00:04:08.449 --> 00:04:12.830
+Caption: targets and it&#39;s a balance between
+
+00:04:10.570 --> 00:04:14.720
+Caption: under-delivering so just missing these
+
+00:04:12.830 --> 00:04:16.309
+Caption: targets that we haven&#39;t thought about or
+
+00:04:14.720 --> 00:04:18.200
+Caption: being those engineers that trace
+
+00:04:16.309 --> 00:04:20.000
+Caption: perfection and we just keep going and
+
+00:04:18.200 --> 00:04:21.770
+Caption: spend all the money until we&#39;ve got this
+
+00:04:20.000 --> 00:04:23.329
+Caption: really fast thing that actually we&#39;ve
+
+00:04:21.769 --> 00:04:25.599
+Caption: done haven&#39;t done all the other features
+
+00:04:23.329 --> 00:04:28.399
+Caption: yet we&#39;ve just made one bit very fast
+
+00:04:25.600 --> 00:04:31.369
+Caption: and then the 3 ends of performance
+
+00:04:28.399 --> 00:04:33.079
+Caption: measure measure measure so hardware
+
+00:04:31.369 --> 00:04:36.169
+Caption: without targets I thought this was kind
+
+00:04:33.079 --> 00:04:38.509
+Caption: of funny and guy watches the Tour de
+
+00:04:36.170 --> 00:04:41.000
+Caption: France he loves cycling and is on his
+
+00:04:38.510 --> 00:04:42.500
+Caption: daughter&#39;s bike in the driveway sees
+
+00:04:41.000 --> 00:04:43.850
+Caption: Chris Froome and goes you know what I
+
+00:04:42.500 --> 00:04:46.579
+Caption: think I could do that the only
+
+00:04:43.850 --> 00:04:50.240
+Caption: difference between me and him is the
+
+00:04:46.579 --> 00:04:52.069
+Caption: bike we&#39;ll probably not right it&#39;s it&#39;s
+
+00:04:50.239 --> 00:04:54.229
+Caption: more than the hardware you can&#39;t just
+
+00:04:52.070 --> 00:04:56.869
+Caption: throw hardware at a problem to go faster
+
+00:04:54.230 --> 00:05:00.350
+Caption: and that&#39;s the point of that little
+
+00:04:56.869 --> 00:05:02.000
+Caption: slide and so if it&#39;s not about hardware
+
+00:05:00.350 --> 00:05:04.190
+Caption: it&#39;s about targets and measurement the
+
+00:05:02.000 --> 00:05:05.720
+Caption: next question is measure what and if you
+
+00:05:04.190 --> 00:05:07.429
+Caption: move on to that line of thinking you&#39;re
+
+00:05:05.720 --> 00:05:09.410
+Caption: asking the right questions you&#39;re in the
+
+00:05:07.429 --> 00:05:12.919
+Caption: right space so let&#39;s just go through
+
+00:05:09.410 --> 00:05:14.510
+Caption: some terminology first which I didn&#39;t
+
+00:05:12.920 --> 00:05:16.580
+Caption: quite understand these either at the
+
+00:05:14.510 --> 00:05:18.830
+Caption: time so service time the time to
+
+00:05:16.579 --> 00:05:20.750
+Caption: actually process the requests like
+
+00:05:18.829 --> 00:05:22.479
+Caption: dictionary done we know all the words
+
+00:05:20.750 --> 00:05:24.950
+Caption: now that&#39;s all you need to know right
+
+00:05:22.480 --> 00:05:26.570
+Caption: because if it&#39;s the time - is there
+
+00:05:24.950 --> 00:05:30.100
+Caption: anything else to do well actually
+
+00:05:26.570 --> 00:05:33.380
+Caption: there&#39;s latency and this is probably the
+
+00:05:30.100 --> 00:05:35.809
+Caption: most misunderstood or misused word when
+
+00:05:33.380 --> 00:05:37.730
+Caption: leaving the title at low latencies not
+
+00:05:35.809 --> 00:05:40.669
+Caption: low latency latency is the time spent
+
+00:05:37.730 --> 00:05:43.580
+Caption: waiting to be processed so if I&#39;m on a
+
+00:05:40.670 --> 00:05:44.870
+Caption: website and I click a button the buttons
+
+00:05:43.579 --> 00:05:46.279
+Caption: there we some JavaScript or something
+
+00:05:44.869 --> 00:05:47.929
+Caption: that happens and then that&#39;ll send a
+
+00:05:46.279 --> 00:05:49.339
+Caption: request but that will get buffered on my
+
+00:05:47.929 --> 00:05:50.959
+Caption: network card in this time across the
+
+00:05:49.339 --> 00:05:52.639
+Caption: wire then gets onto another network card
+
+00:05:50.959 --> 00:05:54.979
+Caption: then we&#39;ll land on the queue on a server
+
+00:05:52.640 --> 00:05:58.010
+Caption: somewhere the queue might be explicit
+
+00:05:54.980 --> 00:05:59.990
+Caption: like 0 mq in service bus something like
+
+00:05:58.010 --> 00:06:01.610
+Caption: that or it might be an implicit cute
+
+00:05:59.989 --> 00:06:03.049
+Caption: like a thread scheduler or something
+
+00:06:01.609 --> 00:06:05.029
+Caption: like that but there are queues
+
+00:06:03.049 --> 00:06:07.729
+Caption: everywhere and is latency everywhere all
+
+00:06:05.029 --> 00:06:09.709
+Caption: of that time is not processing the
+
+00:06:07.730 --> 00:06:10.660
+Caption: requests that&#39;s getting my request to
+
+00:06:09.709 --> 00:06:12.639
+Caption: the bit of code
+
+00:06:10.660 --> 00:06:16.239
+Caption: to process it it&#39;s also time that&#39;s
+
+00:06:12.640 --> 00:06:17.590
+Caption: latent so response time is the person
+
+00:06:16.239 --> 00:06:20.199
+Caption: clicking that button is what they see
+
+00:06:17.589 --> 00:06:22.600
+Caption: the latency plus the service time is
+
+00:06:20.200 --> 00:06:23.890
+Caption: your response time so that was
+
+00:06:22.600 --> 00:06:25.959
+Caption: interesting I never really considered
+
+00:06:23.890 --> 00:06:27.520
+Caption: those three as a car obviously you only
+
+00:06:25.959 --> 00:06:29.589
+Caption: need to measure two to get the other one
+
+00:06:27.519 --> 00:06:32.049
+Caption: and then throughput is sort of the other
+
+00:06:29.589 --> 00:06:34.389
+Caption: side of the coin is the rate at which
+
+00:06:32.049 --> 00:06:36.489
+Caption: our requests or operations can be
+
+00:06:34.390 --> 00:06:38.110
+Caption: processed sometimes there&#39;s a false
+
+00:06:36.489 --> 00:06:41.069
+Caption: dichotomy about that you can talk about
+
+00:06:38.109 --> 00:06:43.389
+Caption: this is not a trade-off between those
+
+00:06:41.070 --> 00:06:46.390
+Caption: throughput and response time but some
+
+00:06:43.390 --> 00:06:48.610
+Caption: people mistake that there is and then
+
+00:06:46.390 --> 00:06:51.250
+Caption: the next thing I thought okay so we need
+
+00:06:48.609 --> 00:06:52.750
+Caption: to measure and myself and quite a few of
+
+00:06:51.250 --> 00:06:54.279
+Caption: the other team made the common mistake
+
+00:06:52.750 --> 00:06:56.709
+Caption: of going all right well let&#39;s get the
+
+00:06:54.279 --> 00:06:58.389
+Caption: medium response time that that seems
+
+00:06:56.709 --> 00:06:59.919
+Caption: good we should report the median
+
+00:06:58.390 --> 00:07:02.260
+Caption: response and wealthy report it we should
+
+00:06:59.920 --> 00:07:04.120
+Caption: target the median response time and
+
+00:07:02.260 --> 00:07:07.270
+Caption: what&#39;s the median response time is first
+
+00:07:04.119 --> 00:07:10.600
+Caption: percentiles is the 50th percentile and
+
+00:07:07.269 --> 00:07:12.879
+Caption: as then engineers now that we have a
+
+00:07:10.600 --> 00:07:15.010
+Caption: target so we know when to stop when we
+
+00:07:12.880 --> 00:07:16.779
+Caption: get say one second response time is our
+
+00:07:15.010 --> 00:07:18.070
+Caption: median we&#39;re going to stop right we&#39;ve
+
+00:07:16.779 --> 00:07:18.700
+Caption: hit our target we move on and do
+
+00:07:18.070 --> 00:07:20.529
+Caption: something else
+
+00:07:18.700 --> 00:07:24.309
+Caption: what would actually be doing there is
+
+00:07:20.529 --> 00:07:26.829
+Caption: saying 50% of our users will get at less
+
+00:07:24.309 --> 00:07:29.919
+Caption: than one second response time what we&#39;re
+
+00:07:26.829 --> 00:07:32.500
+Caption: also saying is 50% of our users will get
+
+00:07:29.919 --> 00:07:34.660
+Caption: worse than one second response time that
+
+00:07:32.500 --> 00:07:37.299
+Caption: seems like an odd target to have doesn&#39;t
+
+00:07:34.660 --> 00:07:39.790
+Caption: it so then maybe the mean is a better
+
+00:07:37.299 --> 00:07:41.589
+Caption: average well the mean anyone that&#39;s done
+
+00:07:39.790 --> 00:07:44.290
+Caption: statistics you know you can make that
+
+00:07:41.589 --> 00:07:46.149
+Caption: whatever you want kind of as gods
+
+00:07:44.290 --> 00:07:48.669
+Caption: quadrant four different sets of
+
+00:07:46.149 --> 00:07:50.440
+Caption: behavioral data shapes these all have
+
+00:07:48.669 --> 00:07:51.970
+Caption: the same mean but quite clearly if these
+
+00:07:50.440 --> 00:07:54.070
+Caption: were measurements taken from your system
+
+00:07:51.970 --> 00:07:57.160
+Caption: they&#39;ve all got different behaviors and
+
+00:07:54.070 --> 00:07:59.080
+Caption: that takes me on to the point that I
+
+00:07:57.160 --> 00:08:02.380
+Caption: learnt fairly recently if you do not
+
+00:07:59.079 --> 00:08:04.829
+Caption: model your targets based on numbers do
+
+00:08:02.380 --> 00:08:07.110
+Caption: we call it we
+
+00:08:04.829 --> 00:08:09.978
+Caption: we found this out about six weeks apart
+
+00:08:07.109 --> 00:08:13.198
+Caption: from each other we model shapes
+
+00:08:09.979 --> 00:08:16.830
+Caption: behaviors as shapes okay so here we have
+
+00:08:13.199 --> 00:08:18.569
+Caption: a nonlinear percentile distribution so
+
+00:08:16.829 --> 00:08:20.220
+Caption: here we&#39;ve got the zero the next one
+
+00:08:18.569 --> 00:08:22.408
+Caption: isn&#39;t ten percent it&#39;s ninety percent we
+
+00:08:20.220 --> 00:08:23.729
+Caption: jump straight to ninety percent ninety
+
+00:08:22.408 --> 00:08:26.098
+Caption: nine and these are measurements of
+
+00:08:23.729 --> 00:08:28.289
+Caption: latency or response time or service time
+
+00:08:26.098 --> 00:08:29.729
+Caption: in our system and I can see very quickly
+
+00:08:28.289 --> 00:08:31.649
+Caption: because I&#39;m not actually that interested
+
+00:08:29.729 --> 00:08:33.419
+Caption: in the ten twenty thirty all the good
+
+00:08:31.649 --> 00:08:35.549
+Caption: results I&#39;m looking at the bad results
+
+00:08:33.419 --> 00:08:37.440
+Caption: these are these are the problem areas
+
+00:08:35.549 --> 00:08:39.239
+Caption: you can see here that this curve is not
+
+00:08:37.440 --> 00:08:40.950
+Caption: great even if it&#39;s linear you know it&#39;s
+
+00:08:39.239 --> 00:08:42.929
+Caption: not that great but because it&#39;s
+
+00:08:40.950 --> 00:08:45.750
+Caption: nonlinear we can actually see right and
+
+00:08:42.929 --> 00:08:48.088
+Caption: close where our trade-offs are maybe
+
+00:08:45.750 --> 00:08:49.979
+Caption: this lines good but then resolutions are
+
+00:08:48.088 --> 00:08:51.419
+Caption: great but actually bumps up over and
+
+00:08:49.979 --> 00:08:53.250
+Caption: there&#39;s a high line here maybe they
+
+00:08:51.419 --> 00:08:56.909
+Caption: actually want this line something we can
+
+00:08:53.250 --> 00:08:58.349
+Caption: trade off with our clients input and how
+
+00:08:56.909 --> 00:09:00.059
+Caption: do we collect this data it&#39;s actually
+
+00:08:58.349 --> 00:09:01.229
+Caption: really interesting from a data
+
+00:09:00.059 --> 00:09:03.208
+Caption: collection point of view when you click
+
+00:09:01.229 --> 00:09:05.278
+Caption: values and histograms you measure the
+
+00:09:03.208 --> 00:09:08.219
+Caption: response time using hopefully a high
+
+00:09:05.278 --> 00:09:11.429
+Caption: resolutions timer and then you put that
+
+00:09:08.219 --> 00:09:12.809
+Caption: value in a bucket so it was one thing to
+
+00:09:11.429 --> 00:09:14.250
+Caption: put it in the one second bucket it&#39;s two
+
+00:09:12.809 --> 00:09:15.630
+Caption: seconds to put the two seconds bucket
+
+00:09:14.250 --> 00:09:17.760
+Caption: and by doing that all you&#39;re really
+
+00:09:15.630 --> 00:09:19.410
+Caption: doing the bucket just increments by one
+
+00:09:17.760 --> 00:09:20.820
+Caption: assigned it to that and then your
+
+00:09:19.409 --> 00:09:23.429
+Caption: fidelity of your buckets becomes
+
+00:09:20.820 --> 00:09:25.169
+Caption: interesting it&#39;s a fast and efficient
+
+00:09:23.429 --> 00:09:27.119
+Caption: way to store and record data and these
+
+00:09:25.169 --> 00:09:29.010
+Caption: implementations already existing HDL
+
+00:09:27.119 --> 00:09:30.869
+Caption: histograms great tool for doing that and
+
+00:09:29.010 --> 00:09:33.838
+Caption: produces charts like this incredibly
+
+00:09:30.869 --> 00:09:36.989
+Caption: fast tiny footprint well we&#39;re only up
+
+00:09:33.838 --> 00:09:38.338
+Caption: to number two number two know your costs
+
+00:09:36.989 --> 00:09:40.679
+Caption: something I found really interesting
+
+00:09:38.338 --> 00:09:41.880
+Caption: working with or being associated with
+
+00:09:40.679 --> 00:09:44.489
+Caption: some guys that were doing some high
+
+00:09:41.880 --> 00:09:46.708
+Caption: perform so they all knew the cost or had
+
+00:09:44.489 --> 00:09:48.859
+Caption: at least a vague idea of the cost of an
+
+00:09:46.708 --> 00:09:53.448
+Caption: operation in their system so write down
+
+00:09:48.859 --> 00:09:56.130
+Caption: low-level basic operations and increment
+
+00:09:53.448 --> 00:09:58.139
+Caption: taking these verses measurements in
+
+00:09:56.130 --> 00:10:01.380
+Caption: nanoseconds this is one nanosecond here
+
+00:09:58.140 --> 00:10:03.720
+Caption: an incremental and addition tiny very
+
+00:10:01.380 --> 00:10:05.578
+Caption: quick obviously write multiplication
+
+00:10:03.719 --> 00:10:08.809
+Caption: interestings an order of magnitude
+
+00:10:05.578 --> 00:10:11.549
+Caption: slower okay that&#39;s interesting division
+
+00:10:08.809 --> 00:10:13.260
+Caption: three orders of magnitude slower than an
+
+00:10:11.549 --> 00:10:16.018
+Caption: addition okay that&#39;s just mildly
+
+00:10:13.260 --> 00:10:18.660
+Caption: interesting but let us say we look at
+
+00:10:16.018 --> 00:10:19.799
+Caption: three safe implementations of these well
+
+00:10:18.659 --> 00:10:23.219
+Caption: divisions actually not that expensive
+
+00:10:19.799 --> 00:10:24.599
+Caption: anymore anatomic increments expensive
+
+00:10:23.219 --> 00:10:26.838
+Caption: these are just measurements taken from
+
+00:10:24.599 --> 00:10:29.368
+Caption: my machine your your mileage may vary
+
+00:10:26.838 --> 00:10:31.828
+Caption: but I found that performance engineers
+
+00:10:29.369 --> 00:10:33.749
+Caption: knew these costs and they knew for their
+
+00:10:31.828 --> 00:10:35.669
+Caption: platform and maybe not specifically for
+
+00:10:33.749 --> 00:10:37.949
+Caption: adding numbers but maybe hitting a
+
+00:10:35.669 --> 00:10:39.328
+Caption: network or writing to a disk but they
+
+00:10:37.948 --> 00:10:42.568
+Caption: knew their numbers relevant to their
+
+00:10:39.328 --> 00:10:44.159
+Caption: system they also understood that not
+
+00:10:42.568 --> 00:10:46.438
+Caption: everything is free just because it&#39;s one
+
+00:10:44.159 --> 00:10:48.479
+Caption: line of code doesn&#39;t mean it&#39;s as cheap
+
+00:10:46.439 --> 00:10:50.939
+Caption: as another line of code branching
+
+00:10:48.479 --> 00:10:52.198
+Caption: inlining lots and care statements down
+
+00:10:50.939 --> 00:10:53.699
+Caption: just the difference in the cost
+
+00:10:52.198 --> 00:10:56.669
+Caption: trade-offs between each of these I
+
+00:10:53.698 --> 00:10:58.169
+Caption: thought was very interesting so just for
+
+00:10:56.669 --> 00:10:59.638
+Caption: comparison we had a quick look at that
+
+00:10:58.169 --> 00:11:01.438
+Caption: chart and then increment and then
+
+00:10:59.638 --> 00:11:03.748
+Caption: multiply was lesson in nanosecond
+
+00:11:01.439 --> 00:11:07.019
+Caption: compared to say serializing DC rising
+
+00:11:03.749 --> 00:11:09.649
+Caption: Jason in.net for example we go only get
+
+00:11:07.018 --> 00:11:12.359
+Caption: about eight eight seconds to a million
+
+00:11:09.648 --> 00:11:14.458
+Caption: DC realizations on this computer for
+
+00:11:12.359 --> 00:11:16.318
+Caption: example just an interesting number to be
+
+00:11:14.458 --> 00:11:19.558
+Caption: aware of eight million by a million
+
+00:11:16.318 --> 00:11:21.359
+Caption: eight seconds okay interesting other
+
+00:11:19.559 --> 00:11:23.220
+Caption: things this laptop can do and I kind of
+
+00:11:21.359 --> 00:11:25.948
+Caption: think this is good to go back for me to
+
+00:11:23.219 --> 00:11:28.078
+Caption: think about context I can every two
+
+00:11:25.948 --> 00:11:30.028
+Caption: seconds move a gigabyte of data off the
+
+00:11:28.078 --> 00:11:31.789
+Caption: disk on that laptop it&#39;s a two-year old
+
+00:11:30.028 --> 00:11:34.619
+Caption: laptop I think that&#39;s really impressive
+
+00:11:31.789 --> 00:11:37.169
+Caption: today that we can move that with some
+
+00:11:34.619 --> 00:11:37.829
+Caption: pretty sophisticated software that&#39;s
+
+00:11:37.169 --> 00:11:40.708
+Caption: been written
+
+00:11:37.828 --> 00:11:41.388
+Caption: I can push 41 million messages across
+
+00:11:40.708 --> 00:11:44.398
+Caption: the queue
+
+00:11:41.388 --> 00:11:47.278
+Caption: 41 million messages on a second that&#39;s
+
+00:11:44.398 --> 00:11:49.768
+Caption: pretty awesome right I can set up a
+
+00:11:47.278 --> 00:11:51.929
+Caption: three node cluster on a three virtual
+
+00:11:49.768 --> 00:11:54.659
+Caption: boxes on this machine and push 660
+
+00:11:51.929 --> 00:11:56.009
+Caption: durable messages to it a second be quite
+
+00:11:54.659 --> 00:11:57.838
+Caption: interesting numbers and this isn&#39;t me
+
+00:11:56.008 --> 00:11:59.609
+Caption: boasting about how good this is or how
+
+00:11:57.838 --> 00:12:01.679
+Caption: clever I didn&#39;t write any of that just
+
+00:11:59.609 --> 00:12:04.618
+Caption: give you information on context right
+
+00:12:01.679 --> 00:12:06.209
+Caption: and so something else they do because
+
+00:12:04.619 --> 00:12:07.709
+Caption: sometimes it&#39;s just too hard to think
+
+00:12:06.208 --> 00:12:09.868
+Caption: about nanoseconds it&#39;s such a small
+
+00:12:07.708 --> 00:12:11.849
+Caption: number it sounds like it&#39;s free you put
+
+00:12:09.869 --> 00:12:14.459
+Caption: it into scale and when you think about
+
+00:12:11.849 --> 00:12:16.708
+Caption: one CPU cycle and compare that to memory
+
+00:12:14.458 --> 00:12:19.648
+Caption: access memory access is cheap well it&#39;s
+
+00:12:16.708 --> 00:12:20.578
+Caption: six minutes compared to the one second
+
+00:12:19.648 --> 00:12:23.508
+Caption: theoretical
+
+00:12:20.578 --> 00:12:26.758
+Caption: CPU instruction and then we look at
+
+00:12:23.508 --> 00:12:27.409
+Caption: hitting the disk or human response time
+
+00:12:26.758 --> 00:12:29.349
+Caption: those
+
+00:12:27.409 --> 00:12:31.878
+Caption: numbers become very interesting right
+
+00:12:29.349 --> 00:12:34.309
+Caption: and given response time 200 milliseconds
+
+00:12:31.879 --> 00:12:37.009
+Caption: that&#39;s actually pretty quick right so
+
+00:12:34.309 --> 00:12:38.539
+Caption: obviously I&#39;d rather my computer to be
+
+00:12:37.008 --> 00:12:41.989
+Caption: doing my algorithmic trading than a
+
+00:12:38.539 --> 00:12:45.138
+Caption: person clicking on a button now this is
+
+00:12:41.989 --> 00:12:47.148
+Caption: my number number one I kind of think you
+
+00:12:45.138 --> 00:12:49.000
+Caption: have to get to this one first but this
+
+00:12:47.148 --> 00:12:51.528
+Caption: is the biggest takeaway I think
+
+00:12:49.000 --> 00:12:53.719
+Caption: visualize your flows know your flows
+
+00:12:51.528 --> 00:12:55.758
+Caption: know how your data and your instructions
+
+00:12:53.719 --> 00:12:57.169
+Caption: move through your system so big
+
+00:12:55.758 --> 00:12:59.239
+Caption: o-notation
+
+00:12:57.169 --> 00:13:01.309
+Caption: people often refer to that only for like
+
+00:12:59.239 --> 00:13:03.409
+Caption: complex algorithms low-level stuff like
+
+00:13:01.309 --> 00:13:05.239
+Caption: red black trees or quicksort versus
+
+00:13:03.409 --> 00:13:07.099
+Caption: bubble sort kind of stuff I think it&#39;s
+
+00:13:05.239 --> 00:13:09.768
+Caption: really applicable to high-level designs
+
+00:13:07.099 --> 00:13:12.919
+Caption: as well I think this is a bit of a lost
+
+00:13:09.768 --> 00:13:16.039
+Caption: art something that I think most of us
+
+00:13:12.919 --> 00:13:17.359
+Caption: would be guilty especially I am and I&#39;m
+
+00:13:16.039 --> 00:13:18.559
+Caption: going to play a game with you I&#39;m going
+
+00:13:17.359 --> 00:13:20.719
+Caption: to show you guys free flow so I just
+
+00:13:18.559 --> 00:13:23.059
+Caption: want you to shout out faster or slower
+
+00:13:20.719 --> 00:13:24.648
+Caption: based on your gut feel if you think the
+
+00:13:23.059 --> 00:13:26.328
+Caption: next slide when I show you the new side
+
+00:13:24.648 --> 00:13:29.059
+Caption: is it faster or slower than the previous
+
+00:13:26.328 --> 00:13:31.159
+Caption: slide so just you can almost cross your
+
+00:13:29.059 --> 00:13:36.888
+Caption: eyes and look at that is the next time
+
+00:13:31.159 --> 00:13:39.648
+Caption: faster or slower bar cell why just got
+
+00:13:36.888 --> 00:13:48.698
+Caption: less less good perfect codes the enemy
+
+00:13:39.648 --> 00:13:52.008
+Caption: right next one faster over boo can I
+
+00:13:48.698 --> 00:13:53.448
+Caption: think fairly damning quotes I can think
+
+00:13:52.008 --> 00:13:55.729
+Caption: of no the field of human endeavor that
+
+00:13:53.448 --> 00:13:58.130
+Caption: allows levels of inefficiency we find
+
+00:13:55.729 --> 00:14:00.309
+Caption: acceptable and software and it&#39;s only
+
+00:13:58.130 --> 00:14:02.838
+Caption: because I didn&#39;t say it someone else
+
+00:14:00.309 --> 00:14:04.489
+Caption: Moore&#39;s Law I found really funny that
+
+00:14:02.838 --> 00:14:06.768
+Caption: there&#39;s maze lore as well which is
+
+00:14:04.489 --> 00:14:08.898
+Caption: somehow we write software so crappy that
+
+00:14:06.768 --> 00:14:10.789
+Caption: we compensate Moore&#39;s law meaning that
+
+00:14:08.898 --> 00:14:13.130
+Caption: when I first moved here to first ten
+
+00:14:10.789 --> 00:14:15.888
+Caption: years ago everything still a slope even
+
+00:14:13.130 --> 00:14:17.539
+Caption: though that&#39;s a beast of a laptop so I&#39;m
+
+00:14:15.888 --> 00:14:19.909
+Caption: going to quickly skip over own notation
+
+00:14:17.539 --> 00:14:22.938
+Caption: because I think we get what it is I
+
+00:14:19.909 --> 00:14:24.528
+Caption: think it is an exercise for the audience
+
+00:14:22.939 --> 00:14:26.029
+Caption: and I really would love it if everyone
+
+00:14:24.528 --> 00:14:28.068
+Caption: did this and if you did tweet me later
+
+00:14:26.028 --> 00:14:30.349
+Caption: just I know that someone did this but on
+
+00:14:28.068 --> 00:14:33.009
+Caption: Monday just grab a flow any flow in your
+
+00:14:30.349 --> 00:14:36.599
+Caption: system and just map it out
+
+00:14:33.010 --> 00:14:40.809
+Caption: it out and those flows I just showed you
+
+00:14:36.599 --> 00:14:46.809
+Caption: web sequence diagrams calm it&#39;s like so
+
+00:14:40.809 --> 00:14:48.789
+Caption: easy a BA could use it draw a flow from
+
+00:14:46.809 --> 00:14:50.409
+Caption: your system and just get a feel for what
+
+00:14:48.789 --> 00:14:52.389
+Caption: your system actually does and don&#39;t
+
+00:14:50.409 --> 00:14:54.609
+Caption: cheat don&#39;t go on you then it just does
+
+00:14:52.390 --> 00:14:57.220
+Caption: this in the big method named Vito what
+
+00:14:54.609 --> 00:14:58.299
+Caption: the method does as well so which slow I
+
+00:14:57.219 --> 00:15:00.279
+Caption: would say anything that takes more than
+
+00:14:58.299 --> 00:15:04.559
+Caption: a second I&#39;m going to be a bit mean here
+
+00:15:00.280 --> 00:15:08.590
+Caption: if you&#39;ve got to build it takes an hour
+
+00:15:04.559 --> 00:15:09.969
+Caption: 660 messages a second okay an hour okay
+
+00:15:08.590 --> 00:15:11.920
+Caption: that&#39;s taking too long
+
+00:15:09.969 --> 00:15:14.679
+Caption: got some unit tests that take ten
+
+00:15:11.919 --> 00:15:16.839
+Caption: minutes it&#39;s too long okay you need to
+
+00:15:14.679 --> 00:15:18.969
+Caption: from chicken be able to commit and put
+
+00:15:16.840 --> 00:15:21.460
+Caption: it in production and 15 minutes absolute
+
+00:15:18.969 --> 00:15:23.529
+Caption: maximum 15 minutes right so take an hour
+
+00:15:21.460 --> 00:15:26.380
+Caption: to build you&#39;ve lost the game you&#39;re
+
+00:15:23.530 --> 00:15:30.490
+Caption: four times out just a reminder a
+
+00:15:26.380 --> 00:15:34.210
+Caption: gigabyte every two seconds and you move
+
+00:15:30.489 --> 00:15:37.419
+Caption: the gigabyte of data right 441 million
+
+00:15:34.210 --> 00:15:41.170
+Caption: messages a second what are doing for an
+
+00:15:37.419 --> 00:15:42.369
+Caption: hour so on Monday
+
+00:15:41.169 --> 00:15:44.799
+Caption: you&#39;ve got something like that draw the
+
+00:15:42.369 --> 00:15:48.609
+Caption: flow surprise yourself and what we&#39;re
+
+00:15:44.799 --> 00:15:50.859
+Caption: going to do now is kind of scary and I&#39;m
+
+00:15:48.609 --> 00:15:57.039
+Caption: not definitely not picking on anyone can
+
+00:15:50.859 --> 00:16:00.279
+Caption: we see this here we go my mouse back my
+
+00:15:57.039 --> 00:16:01.869
+Caption: mouse is back right so I had a slider I
+
+00:16:00.280 --> 00:16:05.710
+Caption: don&#39;t know what I mean when I talk about
+
+00:16:01.869 --> 00:16:08.349
+Caption: a slider a UI slider and it was it was I
+
+00:16:05.710 --> 00:16:09.790
+Caption: do drag it across and numbers added up
+
+00:16:08.349 --> 00:16:13.089
+Caption: was the personal loan amount this is
+
+00:16:09.789 --> 00:16:15.579
+Caption: cool but something had happened and it
+
+00:16:13.090 --> 00:16:17.650
+Caption: was like really just rain as I moved it
+
+00:16:15.580 --> 00:16:19.270
+Caption: it was hard and it actually hurt my hand
+
+00:16:17.650 --> 00:16:21.940
+Caption: cause I just gripped my mouse harder
+
+00:16:19.270 --> 00:16:24.730
+Caption: okay so a couple of us got together and
+
+00:16:21.940 --> 00:16:26.320
+Caption: we we put a timer around the myth the
+
+00:16:24.729 --> 00:16:28.690
+Caption: property we&#39;re setting and dotting it
+
+00:16:26.320 --> 00:16:31.419
+Caption: and it&#39;s a 125 milliseconds to 250
+
+00:16:28.690 --> 00:16:33.729
+Caption: milliseconds to do this 50 milliseconds
+
+00:16:31.419 --> 00:16:35.709
+Caption: is the budget you get to updating UI
+
+00:16:33.729 --> 00:16:39.279
+Caption: anything after that is a noticeable lag
+
+00:16:35.710 --> 00:16:42.910
+Caption: we blew our budget by five times okay so
+
+00:16:39.280 --> 00:16:44.080
+Caption: we look at this thing and went well okay
+
+00:16:42.909 --> 00:16:46.838
+Caption: it&#39;s just a prop
+
+00:16:44.080 --> 00:16:48.670
+Caption: - this is cool I like this early
+
+00:16:46.838 --> 00:16:51.458
+Caption: termination that&#39;s easy
+
+00:16:48.669 --> 00:16:52.778
+Caption: what&#39;s going on here that only that was
+
+00:16:51.458 --> 00:16:54.700
+Caption: a collection of three things that did a
+
+00:16:52.778 --> 00:16:57.458
+Caption: little loop that was actually very cheap
+
+00:16:54.700 --> 00:17:01.059
+Caption: we just set another property that looks
+
+00:16:57.458 --> 00:17:03.880
+Caption: cheap we refreshed something and then we
+
+00:17:01.059 --> 00:17:05.859
+Caption: fit some events off there&#39;s no problem
+
+00:17:03.880 --> 00:17:08.678
+Caption: here what&#39;s going on 250 milliseconds
+
+00:17:05.859 --> 00:17:10.599
+Caption: and then I think well let&#39;s dog food I&#39;m
+
+00:17:08.678 --> 00:17:12.789
+Caption: faint visualize you flows so what I
+
+00:17:10.599 --> 00:17:14.500
+Caption: actually did was write down what we did
+
+00:17:12.790 --> 00:17:18.088
+Caption: and a couple of us sat down and looked
+
+00:17:14.500 --> 00:17:20.380
+Caption: at it and this is what it actually did
+
+00:17:18.088 --> 00:17:21.969
+Caption: every time I poked some things that
+
+00:17:20.380 --> 00:17:24.099
+Caption: poked another thing and it poked another
+
+00:17:21.969 --> 00:17:25.838
+Caption: thing and approved another thing had
+
+00:17:24.099 --> 00:17:30.150
+Caption: poked another thing and it poked another
+
+00:17:25.838 --> 00:17:30.150
+Caption: thing at what the is going on here
+
+00:17:30.420 --> 00:17:36.070
+Caption: so notice that there&#39;s some things out
+
+00:17:33.040 --> 00:17:40.179
+Caption: here does eight of these as well we call
+
+00:17:36.069 --> 00:17:42.219
+Caption: this expensive method eight times 17
+
+00:17:40.178 --> 00:17:47.709
+Caption: milliseconds it was which takes me back
+
+00:17:42.219 --> 00:17:50.799
+Caption: to my other point identify your critical
+
+00:17:47.709 --> 00:17:51.250
+Caption: path so we saw this thing it was taking
+
+00:17:50.800 --> 00:17:53.050
+Caption: too long
+
+00:17:51.250 --> 00:17:54.880
+Caption: sat down with some of the other devs in
+
+00:17:53.050 --> 00:17:56.770
+Caption: the office we figured out how to fix
+
+00:17:54.880 --> 00:17:59.319
+Caption: this and we identified the critical path
+
+00:17:56.770 --> 00:18:01.450
+Caption: you can&#39;t effectively optimize if you&#39;re
+
+00:17:59.319 --> 00:18:03.609
+Caption: not optimizing the critical path great
+
+00:18:01.449 --> 00:18:05.859
+Caption: book will take your weekend to read it
+
+00:18:03.609 --> 00:18:07.599
+Caption: it&#39;s like a story so it&#39;s fun to read
+
+00:18:05.859 --> 00:18:11.319
+Caption: it&#39;s not like heavyweight and mud and
+
+00:18:07.599 --> 00:18:13.689
+Caption: Fowler stuff you identify them you focus
+
+00:18:11.319 --> 00:18:16.928
+Caption: only on that path now remember back on
+
+00:18:13.689 --> 00:18:19.119
+Caption: this thing I had a I&#39;ve got that take 17
+
+00:18:16.928 --> 00:18:20.409
+Caption: milliseconds we could have done some
+
+00:18:19.119 --> 00:18:23.319
+Caption: things and shaved off 2 milliseconds
+
+00:18:20.410 --> 00:18:26.169
+Caption: that we called it eight times so we&#39;ve
+
+00:18:23.319 --> 00:18:29.259
+Caption: got 16 milliseconds off 16 milliseconds
+
+00:18:26.168 --> 00:18:30.609
+Caption: off 250 milliseconds oh cool we only
+
+00:18:29.260 --> 00:18:33.280
+Caption: blown the budget by four and a half
+
+00:18:30.609 --> 00:18:35.380
+Caption: times what we did was reduce it down so
+
+00:18:33.280 --> 00:18:37.450
+Caption: the whole thing took just two calls of
+
+00:18:35.380 --> 00:18:39.219
+Caption: that so okay it still took 35
+
+00:18:37.449 --> 00:18:41.678
+Caption: milliseconds that were under budget now
+
+00:18:39.219 --> 00:18:43.808
+Caption: right identify the critical path fix
+
+00:18:41.678 --> 00:18:46.869
+Caption: that don&#39;t muck around with number one
+
+00:18:43.808 --> 00:18:50.558
+Caption: and two we could always go back and make
+
+00:18:46.869 --> 00:18:53.140
+Caption: that faster but to what end so you also
+
+00:18:50.558 --> 00:18:55.079
+Caption: notice that when you optimize the
+
+00:18:53.140 --> 00:18:56.760
+Caption: bottleneck often what was number two
+
+00:18:55.079 --> 00:18:58.229
+Caption: number two anymore it&#39;s not even number
+
+00:18:56.760 --> 00:19:01.558
+Caption: one it&#39;s just one because you just don&#39;t
+
+00:18:58.229 --> 00:19:03.538
+Caption: call it next mechanical sympathy no the
+
+00:19:01.558 --> 00:19:06.209
+Caption: layer below which you operate Jackie
+
+00:19:03.538 --> 00:19:09.178
+Caption: Stewart Formula one champion was worried
+
+00:19:06.209 --> 00:19:10.918
+Caption: in the 70s that designers and drivers
+
+00:19:09.178 --> 00:19:12.268
+Caption: was so specialized that they didn&#39;t
+
+00:19:10.918 --> 00:19:13.979
+Caption: really know much about what the other
+
+00:19:12.269 --> 00:19:15.690
+Caption: one did so he coined the phrase
+
+00:19:13.979 --> 00:19:17.119
+Caption: mechanical sympathy as a term for the
+
+00:19:15.689 --> 00:19:19.199
+Caption: driver and the machine working together
+
+00:19:17.119 --> 00:19:20.788
+Caption: drivers didn&#39;t have to be able to build
+
+00:19:19.199 --> 00:19:22.079
+Caption: their race cars but they had to have a
+
+00:19:20.788 --> 00:19:25.229
+Caption: general understanding how the
+
+00:19:22.079 --> 00:19:26.989
+Caption: constituent parts sit together and this
+
+00:19:25.229 --> 00:19:29.250
+Caption: is now becoming a feature in
+
+00:19:26.989 --> 00:19:31.889
+Caption: high-performance computing or low
+
+00:19:29.250 --> 00:19:33.719
+Caption: latency computing just understand I
+
+00:19:31.889 --> 00:19:36.899
+Caption: think it&#39;s applicable to all of us if
+
+00:19:33.719 --> 00:19:39.630
+Caption: I&#39;m a web dev I should know at what HTTP
+
+00:19:36.899 --> 00:19:41.850
+Caption: is in TLS and how the Dom works right
+
+00:19:39.630 --> 00:19:44.668
+Caption: don&#39;t just throw HTML tags at the
+
+00:19:41.849 --> 00:19:46.109
+Caption: browser and hope if your arrest is and I
+
+00:19:44.668 --> 00:19:47.969
+Caption: mean the kind of integration guy you&#39;re
+
+00:19:46.109 --> 00:19:50.130
+Caption: doing HTTP already well then you should
+
+00:19:47.969 --> 00:19:50.849
+Caption: definitely know how to LS works and TCP
+
+00:19:50.130 --> 00:19:53.880
+Caption: and things like that
+
+00:19:50.849 --> 00:19:55.798
+Caption: your WPF dev dispatcher logical physical
+
+00:19:53.880 --> 00:19:57.808
+Caption: tree and if you&#39;re working on any of the
+
+00:19:55.798 --> 00:19:59.308
+Caption: managed frameworks so the big head is
+
+00:19:57.808 --> 00:20:01.048
+Caption: dotnet Java JavaScript
+
+00:19:59.308 --> 00:20:03.599
+Caption: please understand how your virtual
+
+00:20:01.048 --> 00:20:06.510
+Caption: machine works so that&#39;s the CLA the JVM
+
+00:20:03.599 --> 00:20:08.250
+Caption: or v8 generally it gives you a good
+
+00:20:06.510 --> 00:20:10.079
+Caption: insight again you don&#39;t have to build v8
+
+00:20:08.250 --> 00:20:14.548
+Caption: but it&#39;s good to know how the thing
+
+00:20:10.079 --> 00:20:16.288
+Caption: works if you&#39;re more in data area know
+
+00:20:14.548 --> 00:20:18.089
+Caption: your page sizes I found this really
+
+00:20:16.288 --> 00:20:19.469
+Caption: interesting the people I was working
+
+00:20:18.089 --> 00:20:21.599
+Caption: with they weren&#39;t talking about the
+
+00:20:19.469 --> 00:20:24.058
+Caption: sequel servers I was talking about cache
+
+00:20:21.599 --> 00:20:25.558
+Caption: lines which was amazing about who cares
+
+00:20:24.058 --> 00:20:28.079
+Caption: what the cache line size is but these
+
+00:20:25.558 --> 00:20:29.609
+Caption: guys did if you&#39;re a sequel bid you
+
+00:20:28.079 --> 00:20:31.319
+Caption: should know your page size because that
+
+00:20:29.609 --> 00:20:32.788
+Caption: impacts how you design your database if
+
+00:20:31.319 --> 00:20:34.859
+Caption: you&#39;re a network guy knowing how big
+
+00:20:32.788 --> 00:20:37.109
+Caption: your frame packets are that can impact
+
+00:20:34.859 --> 00:20:39.569
+Caption: your design if you&#39;re a bit toward or as
+
+00:20:37.109 --> 00:20:42.178
+Caption: I call them knowing that a cache line of
+
+00:20:39.569 --> 00:20:43.018
+Caption: 64 bytes can impact the way you design
+
+00:20:42.178 --> 00:20:45.319
+Caption: things that was really interesting
+
+00:20:43.019 --> 00:20:48.630
+Caption: seeing a stack overflow on dotnet
+
+00:20:45.319 --> 00:20:51.569
+Caption: recently about why does my 5-bike stroke
+
+00:20:48.630 --> 00:20:53.699
+Caption: run slower than an 8 byte struct five
+
+00:20:51.569 --> 00:20:54.989
+Caption: smaller should be faster why is that
+
+00:20:53.699 --> 00:20:57.028
+Caption: maybe some of you can talk about
+
+00:20:54.989 --> 00:20:59.130
+Caption: afterwards but it does require you to
+
+00:20:57.029 --> 00:21:01.470
+Caption: know your target platform no point
+
+00:20:59.130 --> 00:21:04.060
+Caption: knowing what 2016 sequel server doesn&#39;t
+
+00:21:01.469 --> 00:21:05.380
+Caption: in developing on 2005 right maybe
+
+00:21:04.060 --> 00:21:08.590
+Caption: different things know your target
+
+00:21:05.380 --> 00:21:10.569
+Caption: platform and to rob mores talked earlier
+
+00:21:08.589 --> 00:21:11.770
+Caption: we should know the platform because
+
+00:21:10.569 --> 00:21:14.739
+Caption: we&#39;re always thinking about going to
+
+00:21:11.770 --> 00:21:16.450
+Caption: production right hardware is cheap gives
+
+00:21:14.739 --> 00:21:18.550
+Caption: on and most water you can&#39;t afford
+
+00:21:16.449 --> 00:21:20.649
+Caption: three-tails you can&#39;t race we should be
+
+00:21:18.550 --> 00:21:22.180
+Caption: doing the same thing don&#39;t play with one
+
+00:21:20.650 --> 00:21:24.729
+Caption: thing and prod put all the money into
+
+00:21:22.180 --> 00:21:26.530
+Caption: prod a foxy remember that but all your
+
+00:21:24.729 --> 00:21:28.059
+Caption: money into product or we don&#39;t have any
+
+00:21:26.530 --> 00:21:30.910
+Caption: money left to have the same thing and
+
+00:21:28.060 --> 00:21:32.470
+Caption: set or pre prod or give so you guys deaf
+
+00:21:30.910 --> 00:21:35.710
+Caption: on sequel server and we&#39;ll put an Oracle
+
+00:21:32.469 --> 00:21:39.659
+Caption: over there and part madness right how do
+
+00:21:35.709 --> 00:21:41.739
+Caption: is chief you devs aren&#39;t your expensive
+
+00:21:39.660 --> 00:21:43.390
+Caption: question authority which I thought was
+
+00:21:41.739 --> 00:21:45.390
+Caption: great because the overage games are seen
+
+00:21:43.390 --> 00:21:49.479
+Caption: on bullying that you grew up in the 90s
+
+00:21:45.390 --> 00:21:52.239
+Caption: yeah so challenge conventional wisdom
+
+00:21:49.479 --> 00:21:54.219
+Caption: but don&#39;t ignore it and as a 90&#39;s rocker
+
+00:21:52.239 --> 00:21:56.170
+Caption: I missed that part it was challenged not
+
+00:21:54.219 --> 00:22:01.599
+Caption: go yourself Authority it was like
+
+00:21:56.170 --> 00:22:03.730
+Caption: question it right so TCP is the default
+
+00:22:01.599 --> 00:22:05.619
+Caption: rule to me when I landed in London of
+
+00:22:03.729 --> 00:22:07.540
+Caption: course PC piece of default it&#39;s what
+
+00:22:05.619 --> 00:22:08.910
+Caption: keeps the internet working why would
+
+00:22:07.540 --> 00:22:11.050
+Caption: that be a bad thing
+
+00:22:08.910 --> 00:22:12.790
+Caption: conditions like ordering of messages
+
+00:22:11.050 --> 00:22:15.550
+Caption: reliable irritate these are great
+
+00:22:12.790 --> 00:22:17.739
+Caption: features to have but there&#39;s a three-way
+
+00:22:15.550 --> 00:22:20.320
+Caption: handshake in the header sizes 20 bytes
+
+00:22:17.739 --> 00:22:22.929
+Caption: compared to a UDP which is 8 bytes so
+
+00:22:20.319 --> 00:22:24.819
+Caption: you kind of end up with this cold sling
+
+00:22:22.930 --> 00:22:27.220
+Caption: which is probably what I would want if I
+
+00:22:24.819 --> 00:22:29.679
+Caption: was traveling across Turkmenistan you
+
+00:22:27.219 --> 00:22:31.959
+Caption: know and I needed to survive but if I
+
+00:22:29.680 --> 00:22:35.500
+Caption: building a low latency system maybe I
+
+00:22:31.959 --> 00:22:37.750
+Caption: would want that with no features and not
+
+00:22:35.500 --> 00:22:40.209
+Caption: take the cost of all of that so that was
+
+00:22:37.750 --> 00:22:42.369
+Caption: interesting I found out that many if not
+
+00:22:40.209 --> 00:22:45.579
+Caption: all messaging systems in the low latency
+
+00:22:42.369 --> 00:22:51.579
+Caption: space we&#39;re using UDP mind-blown right
+
+00:22:45.579 --> 00:22:54.130
+Caption: no WCS out of interest um so C C++ is
+
+00:22:51.579 --> 00:22:56.169
+Caption: faster right challenge the conventions
+
+00:22:54.130 --> 00:22:58.390
+Caption: allows you to get close to the metal
+
+00:22:56.170 --> 00:23:01.290
+Caption: which is cool but it can dilute the
+
+00:22:58.390 --> 00:23:04.719
+Caption: focus so there was an example we&#39;re on
+
+00:23:01.290 --> 00:23:06.910
+Caption: silverlight team and c++ back-end team
+
+00:23:04.719 --> 00:23:09.069
+Caption: that I worked in London and we did have
+
+00:23:06.910 --> 00:23:12.359
+Caption: an exceptionally talented art map team
+
+00:23:09.069 --> 00:23:14.130
+Caption: working on Silverlight and the next beer
+
+00:23:12.359 --> 00:23:15.808
+Caption: so over there doing C++ and we&#39;re all
+
+00:23:14.130 --> 00:23:17.760
+Caption: very impressed but from a distance
+
+00:23:15.808 --> 00:23:20.250
+Caption: because over this manner then we found
+
+00:23:17.760 --> 00:23:23.428
+Caption: out we had doctors and PhDs and C++ guys
+
+00:23:20.250 --> 00:23:25.410
+Caption: on the dotnet team and that&#39;s 18 months
+
+00:23:23.428 --> 00:23:26.729
+Caption: Oh like that doesn&#39;t seem that that&#39;s
+
+00:23:25.410 --> 00:23:28.440
+Caption: what they&#39;re doing online just doing
+
+00:23:26.729 --> 00:23:30.030
+Caption: basic math I&#39;m pretty sure they&#39;re off
+
+00:23:28.439 --> 00:23:32.129
+Caption: by an order of magnitude what they
+
+00:23:30.030 --> 00:23:34.049
+Caption: should be hitting and so after a couple
+
+00:23:32.130 --> 00:23:35.609
+Caption: of drunken moments we decided you know
+
+00:23:34.048 --> 00:23:37.829
+Caption: what you give it we spiked that we
+
+00:23:35.609 --> 00:23:39.959
+Caption: presented it to the business and in nine
+
+00:23:37.829 --> 00:23:42.899
+Caption: weeks three Deb&#39;s and I say Deb&#39;s they
+
+00:23:39.959 --> 00:23:45.209
+Caption: were outstanding devs MC shark produced
+
+00:23:42.900 --> 00:23:47.880
+Caption: the streamer the low latency part of the
+
+00:23:45.209 --> 00:23:51.539
+Caption: system there was three times faster than
+
+00:23:47.880 --> 00:23:53.880
+Caption: the C++ one interesting challenge
+
+00:23:51.540 --> 00:23:55.859
+Caption: conventional wisdom that wasn&#39;t
+
+00:23:53.880 --> 00:23:57.959
+Caption: impressive what the guys are doing over
+
+00:23:55.859 --> 00:23:59.579
+Caption: in Java is impressive right we were just
+
+00:23:57.959 --> 00:24:01.770
+Caption: trying to copy what some Java guys are
+
+00:23:59.579 --> 00:24:04.079
+Caption: doing if you get a chance and you don&#39;t
+
+00:24:01.770 --> 00:24:07.049
+Caption: already know it look up dis ruptor iran
+
+00:24:04.079 --> 00:24:07.678
+Caption: SBE which are brought to you by Martin
+
+00:24:07.048 --> 00:24:10.380
+Caption: Thompson
+
+00:24:07.678 --> 00:24:12.329
+Caption: interestingly his blog is mechanical
+
+00:24:10.380 --> 00:24:13.910
+Caption: sympathy so obviously I&#39;ve got a man
+
+00:24:12.329 --> 00:24:17.219
+Caption: crush on him
+
+00:24:13.910 --> 00:24:19.559
+Caption: Todd Montgomery is sort of a partner in
+
+00:24:17.219 --> 00:24:21.750
+Caption: crime actual NASA rocket scientist
+
+00:24:19.558 --> 00:24:23.219
+Caption: mental and then at the other end of
+
+00:24:21.750 --> 00:24:25.979
+Caption: scale theater building libraries like
+
+00:24:23.219 --> 00:24:28.168
+Caption: this which just destroyed proprietary
+
+00:24:25.979 --> 00:24:31.040
+Caption: software and specialized hardware and it
+
+00:24:28.168 --> 00:24:33.209
+Caption: runs on Java what was going on here
+
+00:24:31.040 --> 00:24:35.190
+Caption: we&#39;ve got guys like Gil who are
+
+00:24:33.209 --> 00:24:38.010
+Caption: producing JVM so instead of using the
+
+00:24:35.189 --> 00:24:41.959
+Caption: Oracle one use his one and your system
+
+00:24:38.010 --> 00:24:45.570
+Caption: will just go faster mental right okay
+
+00:24:41.959 --> 00:24:47.699
+Caption: does it pay its way justify the costs of
+
+00:24:45.569 --> 00:24:51.089
+Caption: your features your abstractions and your
+
+00:24:47.699 --> 00:24:52.739
+Caption: libraries so if you&#39;re looking for
+
+00:24:51.089 --> 00:24:55.140
+Caption: performance remember this is a
+
+00:24:52.739 --> 00:24:56.579
+Caption: performance book not a dogmatic you must
+
+00:24:55.140 --> 00:24:59.219
+Caption: do this if you&#39;re looking for the full
+
+00:24:56.579 --> 00:25:01.229
+Caption: performance maybe you don&#39;t want these
+
+00:24:59.219 --> 00:25:03.630
+Caption: in your system Auto notifies auto
+
+00:25:01.229 --> 00:25:05.579
+Caption: Reuters or to anything auto it&#39;s doing
+
+00:25:03.630 --> 00:25:07.678
+Caption: the work for you maybe you want to code
+
+00:25:05.579 --> 00:25:10.109
+Caption: a little bit closer to the metal hour
+
+00:25:07.678 --> 00:25:11.909
+Caption: ends I kind of like beating up on poor
+
+00:25:10.109 --> 00:25:13.918
+Caption: old ORM I kind of think of them as the
+
+00:25:11.910 --> 00:25:16.229
+Caption: compensating behavior for you have to
+
+00:25:13.918 --> 00:25:18.449
+Caption: use relational database and don&#39;t use
+
+00:25:16.229 --> 00:25:20.459
+Caption: cos and I want it to look like a
+
+00:25:18.449 --> 00:25:23.130
+Caption: document databases and how does that
+
+00:25:20.459 --> 00:25:25.809
+Caption: marriage will happen sterilization
+
+00:25:23.130 --> 00:25:27.910
+Caption: choice we all love or someone says
+
+00:25:25.810 --> 00:25:30.070
+Caption: let&#39;s use XML but no one thinks the last
+
+00:25:27.910 --> 00:25:33.160
+Caption: when you say Jason which is still just a
+
+00:25:30.069 --> 00:25:35.979
+Caption: big fat text format and so protocol
+
+00:25:33.160 --> 00:25:39.040
+Caption: buffer is the de-facto in most places
+
+00:25:35.979 --> 00:25:42.189
+Caption: but is quickly getting eclipsed by these
+
+00:25:39.040 --> 00:25:44.290
+Caption: outrageously fast and more encoding than
+
+00:25:42.189 --> 00:25:45.819
+Caption: serialization formats they&#39;re a little
+
+00:25:44.290 --> 00:25:49.200
+Caption: bit leaky so generally you only use them
+
+00:25:45.819 --> 00:25:51.639
+Caption: in your land but outrageously fast
+
+00:25:49.199 --> 00:25:53.799
+Caption: SVA for example I don&#39;t think you can
+
+00:25:51.640 --> 00:25:55.329
+Caption: make it any faster there&#39;s no more clock
+
+00:25:53.800 --> 00:25:57.820
+Caption: cycles you can drop off that&#39;s pretty
+
+00:25:55.329 --> 00:26:01.000
+Caption: cool and code reuse I found this very
+
+00:25:57.819 --> 00:26:02.949
+Caption: interesting does it pay its way often
+
+00:26:01.000 --> 00:26:05.349
+Caption: code reuse gets mixed up as the goal
+
+00:26:02.949 --> 00:26:07.449
+Caption: it&#39;s not a goal it&#39;s an outcome of
+
+00:26:05.349 --> 00:26:08.739
+Caption: sometimes you design software and it
+
+00:26:07.449 --> 00:26:11.349
+Caption: works out and there&#39;s some code reuse
+
+00:26:08.739 --> 00:26:14.920
+Caption: super it is not the goal of what we&#39;re
+
+00:26:11.349 --> 00:26:16.660
+Caption: doing fast code is clean code so what I
+
+00:26:14.920 --> 00:26:18.369
+Caption: find interesting is that we&#39;ve got a
+
+00:26:16.660 --> 00:26:20.080
+Caption: group here are very interested and
+
+00:26:18.369 --> 00:26:22.510
+Caption: motivated developers because we took a
+
+00:26:20.079 --> 00:26:25.869
+Caption: Saturday off to do this and we&#39;re
+
+00:26:22.510 --> 00:26:28.089
+Caption: probably all preaching low solid DBM DDD
+
+00:26:25.869 --> 00:26:29.829
+Caption: CTRs what was interesting was the low
+
+00:26:28.089 --> 00:26:31.869
+Caption: latency guys were actually practicing
+
+00:26:29.829 --> 00:26:34.269
+Caption: that they weren&#39;t talking about it so
+
+00:26:31.869 --> 00:26:36.099
+Caption: much as actually doing it and I thought
+
+00:26:34.270 --> 00:26:37.450
+Caption: again that the secret sauce is going to
+
+00:26:36.099 --> 00:26:38.619
+Caption: be something else I thought this was
+
+00:26:37.449 --> 00:26:40.839
+Caption: just for us mortals
+
+00:26:38.619 --> 00:26:43.780
+Caption: right but the guys that were writing
+
+00:26:40.839 --> 00:26:45.099
+Caption: fast code would practising all of that
+
+00:26:43.780 --> 00:26:46.869
+Caption: kind of stuff especially single
+
+00:26:45.099 --> 00:26:51.039
+Caption: responsibility principle very
+
+00:26:46.869 --> 00:26:52.569
+Caption: interesting and as an exercise I&#39;m just
+
+00:26:51.040 --> 00:26:54.760
+Caption: going to jump out and show single
+
+00:26:52.569 --> 00:26:56.829
+Caption: responsibility principle in action has
+
+00:26:54.760 --> 00:26:58.570
+Caption: anyone heard of our X I think is that
+
+00:26:56.829 --> 00:27:01.479
+Caption: popular in person at the moment we don&#39;t
+
+00:26:58.569 --> 00:27:03.279
+Caption: do a lot of streaming of stuff I&#39;m a bit
+
+00:27:01.479 --> 00:27:04.540
+Caption: of a fan and so is Brendan foster hit
+
+00:27:03.280 --> 00:27:07.300
+Caption: we&#39;re both sort of contribute to the
+
+00:27:04.540 --> 00:27:08.830
+Caption: library and I did a purse change on it
+
+00:27:07.300 --> 00:27:10.540
+Caption: recently there&#39;s a thing called a replay
+
+00:27:08.829 --> 00:27:12.729
+Caption: subject everyone know what a callback or
+
+00:27:10.540 --> 00:27:13.600
+Caption: an event is then it&#39;s not a trick
+
+00:27:12.729 --> 00:27:16.329
+Caption: question
+
+00:27:13.599 --> 00:27:19.000
+Caption: a replay subject basically means I can
+
+00:27:16.329 --> 00:27:22.179
+Caption: register for that callback or the event
+
+00:27:19.000 --> 00:27:24.069
+Caption: late and get previous values that&#39;s kind
+
+00:27:22.180 --> 00:27:27.520
+Caption: of a neat feature temperatures changing
+
+00:27:24.069 --> 00:27:28.989
+Caption: it&#39;s 27 degrees 28 degrees 29 degrees if
+
+00:27:27.520 --> 00:27:30.910
+Caption: then there&#39;s a big gap and then I
+
+00:27:28.989 --> 00:27:33.309
+Caption: subscribe what I really want to know is
+
+00:27:30.910 --> 00:27:36.460
+Caption: the current temperature which really is
+
+00:27:33.310 --> 00:27:38.590
+Caption: just the last event so I&#39;d like a replay
+
+00:27:36.459 --> 00:27:42.008
+Caption: with a buffer of one thing sounds like a
+
+00:27:38.589 --> 00:27:46.148
+Caption: good tool so we were looking at this
+
+00:27:42.009 --> 00:27:47.590
+Caption: thing and there was a problem guys are
+
+00:27:46.149 --> 00:27:49.600
+Caption: seeing performance that they didn&#39;t
+
+00:27:47.589 --> 00:27:51.939
+Caption: think was very good 220 messages are
+
+00:27:49.599 --> 00:27:54.369
+Caption: second but that&#39;s pretty good right yeah
+
+00:27:51.939 --> 00:27:56.378
+Caption: but this linear degradation double the
+
+00:27:54.369 --> 00:27:58.119
+Caption: subscribers have the throughput I&#39;m
+
+00:27:56.379 --> 00:28:01.539
+Caption: saying loss seems like a trade-off night
+
+00:27:58.119 --> 00:28:03.669
+Caption: seems a pretty expensive trade-off so we
+
+00:28:01.538 --> 00:28:06.638
+Caption: looked at the toad a couple of us got
+
+00:28:03.668 --> 00:28:09.248
+Caption: together cuz can&#39;t help ourselves and
+
+00:28:06.639 --> 00:28:13.779
+Caption: let&#39;s just run a little example here we
+
+00:28:09.249 --> 00:28:17.080
+Caption: say the subject and if I put one thing
+
+00:28:13.779 --> 00:28:19.389
+Caption: through it so a subject is basically in
+
+00:28:17.079 --> 00:28:21.038
+Caption: a way to create a callback I subscribe
+
+00:28:19.389 --> 00:28:22.629
+Caption: to it here and just give it a name and I
+
+00:28:21.038 --> 00:28:25.239
+Caption: put some value through it and I&#39;ll see
+
+00:28:22.629 --> 00:28:28.599
+Caption: subscriber 1 get them then I put your
+
+00:28:25.239 --> 00:28:30.908
+Caption: value after I subscribe to number 5 it&#39;s
+
+00:28:28.599 --> 00:28:32.648
+Caption: tiny then what people sing that at the
+
+00:28:30.909 --> 00:28:34.419
+Caption: back cool
+
+00:28:32.649 --> 00:28:36.669
+Caption: so subscriber 1/2 things that&#39;s why I&#39;ve
+
+00:28:34.418 --> 00:28:38.109
+Caption: only got one two three four five and
+
+00:28:36.668 --> 00:28:40.359
+Caption: then subscriber too because he screwed
+
+00:28:38.109 --> 00:28:46.869
+Caption: up with skill forgets fight but what I
+
+00:28:40.359 --> 00:28:49.479
+Caption: want is subscriber for subscriber to to
+
+00:28:46.869 --> 00:28:53.009
+Caption: also see the current value so what I&#39;m
+
+00:28:49.479 --> 00:28:53.009
+Caption: going to do so like a buffer of one
+
+00:28:54.989 --> 00:29:01.749
+Caption: coding life is ridiculous and then I&#39;m
+
+00:28:59.199 --> 00:29:04.298
+Caption: going to say yeah cool so when I
+
+00:29:01.749 --> 00:29:06.489
+Caption: subscribed I got that value of four
+
+00:29:04.298 --> 00:29:08.949
+Caption: because it was the current value so
+
+00:29:06.489 --> 00:29:13.209
+Caption: that&#39;s not very clever but it helps lead
+
+00:29:08.949 --> 00:29:15.339
+Caption: into what the problems were so is what
+
+00:29:13.209 --> 00:29:17.558
+Caption: the cost of subscribing was it did some
+
+00:29:15.339 --> 00:29:21.489
+Caption: stuff not too interesting for this talk
+
+00:29:17.558 --> 00:29:22.869
+Caption: on meat is the pushing of the value so
+
+00:29:21.489 --> 00:29:26.798
+Caption: I&#39;m putting it in tell all the
+
+00:29:22.869 --> 00:29:28.179
+Caption: subscribers scheduled observer so one of
+
+00:29:26.798 --> 00:29:30.099
+Caption: the other things you can do with replay
+
+00:29:28.178 --> 00:29:32.199
+Caption: subject does not just tell me the last
+
+00:29:30.099 --> 00:29:33.939
+Caption: thing in tell me the last two minutes of
+
+00:29:32.199 --> 00:29:37.089
+Caption: things last 10 hours I think so there&#39;s
+
+00:29:33.939 --> 00:29:38.918
+Caption: a time component I don&#39;t have a time
+
+00:29:37.089 --> 00:29:42.008
+Caption: compare I just want the last one and
+
+00:29:38.918 --> 00:29:44.319
+Caption: then I stop watch what&#39;s what&#39;s that
+
+00:29:42.009 --> 00:29:46.690
+Caption: goes and then time until all the time
+
+00:29:44.319 --> 00:29:47.500
+Caption: concerns in here what&#39;s I&#39;m not using
+
+00:29:46.689 --> 00:29:50.288
+Caption: the time
+
+00:29:47.500 --> 00:29:52.659
+Caption: of this now look at how it trends values
+
+00:29:50.288 --> 00:29:54.189
+Caption: before it pushes them it was a queue
+
+00:29:52.659 --> 00:29:56.080
+Caption: that&#39;s kind of nice that hang on I only
+
+00:29:54.189 --> 00:29:56.949
+Caption: want the last one value why would I have
+
+00:29:56.079 --> 00:29:58.510
+Caption: a queue
+
+00:29:56.949 --> 00:30:01.298
+Caption: god this seems like it&#39;s doing lots of
+
+00:29:58.510 --> 00:30:04.869
+Caption: stuff that I don&#39;t care about and then
+
+00:30:01.298 --> 00:30:05.979
+Caption: we had a plan for you know what we can
+
+00:30:04.869 --> 00:30:09.969
+Caption: make this a single responsibility
+
+00:30:05.979 --> 00:30:10.359
+Caption: principle what the hell does happen
+
+00:30:09.969 --> 00:30:12.640
+Caption: there
+
+00:30:10.359 --> 00:30:14.288
+Caption: so one notice the shapes different we
+
+00:30:12.640 --> 00:30:17.109
+Caption: don&#39;t have that degradation
+
+00:30:14.288 --> 00:30:20.529
+Caption: every time I double my subscribers very
+
+00:30:17.109 --> 00:30:22.569
+Caption: small impact right - for again we&#39;re
+
+00:30:20.530 --> 00:30:27.880
+Caption: still up here now take a look at the
+
+00:30:22.569 --> 00:30:31.329
+Caption: numbers 220,000 messages a second 50,000
+
+00:30:27.880 --> 00:30:34.089
+Caption: messages a second 10 million messages
+
+00:30:31.329 --> 00:30:36.149
+Caption: our second jump all the way out here at
+
+00:30:34.089 --> 00:30:39.880
+Caption: 16 things we&#39;re still up in the millions
+
+00:30:36.150 --> 00:30:42.190
+Caption: what happens there so let&#39;s scroll down
+
+00:30:39.880 --> 00:30:45.489
+Caption: that was the old implementation if I
+
+00:30:42.189 --> 00:30:47.469
+Caption: remembered all of that or this is not
+
+00:30:45.489 --> 00:30:49.808
+Caption: the new implementation is it is sub
+
+00:30:47.469 --> 00:30:52.030
+Caption: class an abstract class and it sent a
+
+00:30:49.808 --> 00:30:53.829
+Caption: head to the buffer term the buffer and
+
+00:30:52.030 --> 00:30:55.989
+Caption: then publish the values in subscribers I
+
+00:30:53.829 --> 00:30:59.709
+Caption: can read that it&#39;s easy to read it&#39;s
+
+00:30:55.989 --> 00:31:02.709
+Caption: clean and then what do i do i&#39;ve got a
+
+00:30:59.709 --> 00:31:04.058
+Caption: replay one implementation of this what
+
+00:31:02.709 --> 00:31:06.399
+Caption: are you doing add a value to the buffer
+
+00:31:04.058 --> 00:31:09.158
+Caption: there&#39;s no queue there&#39;s no time there&#39;s
+
+00:31:06.400 --> 00:31:12.309
+Caption: no locks yes they have a value and the
+
+00:31:09.159 --> 00:31:14.169
+Caption: value is this what&#39;s the trim buffer no
+
+00:31:12.308 --> 00:31:15.399
+Caption: op I don&#39;t know what the content of
+
+00:31:14.168 --> 00:31:19.779
+Caption: trimming the buffer is because I don&#39;t
+
+00:31:15.400 --> 00:31:21.609
+Caption: have a queue when someone subscribes if
+
+00:31:19.780 --> 00:31:24.070
+Caption: I have a value you can have the value
+
+00:31:21.609 --> 00:31:26.829
+Caption: because it&#39;s already here nice and
+
+00:31:24.069 --> 00:31:28.808
+Caption: simple right so going from this kind of
+
+00:31:26.829 --> 00:31:31.298
+Caption: messy concerned had all the features
+
+00:31:28.808 --> 00:31:35.260
+Caption: cool the winter single responsibility
+
+00:31:31.298 --> 00:31:37.029
+Caption: principle all this unnecessary code into
+
+00:31:35.260 --> 00:31:39.369
+Caption: a lot of exchanges locks been weights
+
+00:31:37.030 --> 00:31:41.469
+Caption: thread sleeps mayhem all went away
+
+00:31:39.369 --> 00:31:45.640
+Caption: without three orders of magnitude speed
+
+00:31:41.469 --> 00:31:47.788
+Caption: out of that so G sees killed GCS what&#39;s
+
+00:31:45.640 --> 00:31:49.839
+Caption: that government&#39;s collection so
+
+00:31:47.788 --> 00:31:53.439
+Caption: allocations don&#39;t kill garbage
+
+00:31:49.839 --> 00:31:55.390
+Caption: collections kill okay why and how going
+
+00:31:53.439 --> 00:31:58.289
+Caption: back to our previous example I pushed a
+
+00:31:55.390 --> 00:32:00.630
+Caption: million messages through 216 subscribers
+
+00:31:58.290 --> 00:32:04.080
+Caption: six and a half thousand garbage
+
+00:32:00.630 --> 00:32:07.410
+Caption: collections new implementation one zero
+
+00:32:04.079 --> 00:32:08.390
+Caption: everywhere else okay that&#39;s kind of
+
+00:32:07.410 --> 00:32:11.099
+Caption: interesting
+
+00:32:08.390 --> 00:32:13.140
+Caption: all these allocations go away
+
+00:32:11.099 --> 00:32:15.390
+Caption: you expect the GC pauses something Joe
+
+00:32:13.140 --> 00:32:18.180
+Caption: Duffy recently was talking about agender
+
+00:32:15.390 --> 00:32:21.180
+Caption: Oh talking nanoseconds gen1 milliseconds
+
+00:32:18.180 --> 00:32:23.520
+Caption: into 10 milliseconds but I&#39;ve heard of
+
+00:32:21.180 --> 00:32:25.260
+Caption: 17 minute pauses and when your garbage
+
+00:32:23.520 --> 00:32:26.969
+Caption: collector runs on most systems all
+
+00:32:25.260 --> 00:32:28.489
+Caption: threads thought what they&#39;re doing so
+
+00:32:26.969 --> 00:32:31.439
+Caption: can mark-and-sweep
+
+00:32:28.489 --> 00:32:35.640
+Caption: 17 minutes of no activity for garbage
+
+00:32:31.439 --> 00:32:37.679
+Caption: collection going back to this if I&#39;m
+
+00:32:35.640 --> 00:32:39.750
+Caption: allocating at every hundred and fifty to
+
+00:32:37.680 --> 00:32:43.320
+Caption: a so if I&#39;m garbage scoping every 150
+
+00:32:39.750 --> 00:32:44.609
+Caption: second allocation or on next if I&#39;m
+
+00:32:43.319 --> 00:32:46.019
+Caption: pushing out about eight thousand
+
+00:32:44.609 --> 00:32:48.420
+Caption: messages a second which was what we were
+
+00:32:46.020 --> 00:32:50.910
+Caption: doing I would be garbage collecting 52
+
+00:32:48.420 --> 00:32:52.560
+Caption: times a second and it sounds like I&#39;m
+
+00:32:50.910 --> 00:32:54.750
+Caption: not doing my work I&#39;m doing something
+
+00:32:52.560 --> 00:32:59.010
+Caption: else right so garbage collection for the
+
+00:32:54.750 --> 00:33:01.079
+Caption: whim serialized don&#39;t synchronize I
+
+00:32:59.010 --> 00:33:02.609
+Caption: found this interesting too another thing
+
+00:33:01.079 --> 00:33:04.829
+Caption: that I was like surely it&#39;s going to be
+
+00:33:02.609 --> 00:33:07.500
+Caption: all about hardware no wrong is about
+
+00:33:04.829 --> 00:33:09.149
+Caption: measuring next thing surely concurrent
+
+00:33:07.500 --> 00:33:10.920
+Caption: all the things is going to be the next
+
+00:33:09.150 --> 00:33:12.540
+Caption: thing it wasn&#39;t I just thought
+
+00:33:10.920 --> 00:33:15.180
+Caption: everything was going to be like throw
+
+00:33:12.540 --> 00:33:17.520
+Caption: f-sharp and more calls at it and this
+
+00:33:15.180 --> 00:33:21.930
+Caption: will be fine I was like no that&#39;s sit
+
+00:33:17.520 --> 00:33:24.209
+Caption: down that&#39;s not a thing so this was
+
+00:33:21.930 --> 00:33:26.070
+Caption: interesting avoid contended resources
+
+00:33:24.209 --> 00:33:27.599
+Caption: and we all like we talk to sequel server
+
+00:33:26.069 --> 00:33:29.309
+Caption: we talked to Oracle water and we know
+
+00:33:27.599 --> 00:33:31.859
+Caption: that contending on that one big boy
+
+00:33:29.310 --> 00:33:34.140
+Caption: makes it hard and the DBAs do fancy
+
+00:33:31.859 --> 00:33:36.000
+Caption: things to make it safe and all this so
+
+00:33:34.140 --> 00:33:38.400
+Caption: we will have people poking at our
+
+00:33:36.000 --> 00:33:39.959
+Caption: content of resource and I use our
+
+00:33:38.400 --> 00:33:41.729
+Caption: consequence and example that it could be
+
+00:33:39.959 --> 00:33:43.619
+Caption: any old resource that could be the file
+
+00:33:41.729 --> 00:33:45.510
+Caption: system that could be another web server
+
+00:33:43.619 --> 00:33:47.699
+Caption: or something instead of everyone
+
+00:33:45.510 --> 00:33:49.560
+Caption: continue on this and this having a
+
+00:33:47.699 --> 00:33:52.709
+Caption: sophisticated locking strategy for its
+
+00:33:49.560 --> 00:33:53.660
+Caption: complex internal workings do something
+
+00:33:52.709 --> 00:33:57.630
+Caption: else
+
+00:33:53.660 --> 00:34:00.780
+Caption: sorry put a simple data structure in
+
+00:33:57.630 --> 00:34:02.790
+Caption: front of it like a cue contained on here
+
+00:34:00.780 --> 00:34:06.660
+Caption: which is actually just contending on the
+
+00:34:02.790 --> 00:34:09.340
+Caption: tail which is very simple to do and now
+
+00:34:06.660 --> 00:34:11.500
+Caption: okay your contention cost here is like
+
+00:34:09.340 --> 00:34:12.909
+Caption: what you can do is relax all your and
+
+00:34:11.500 --> 00:34:14.918
+Caption: threading concerns you&#39;re locking
+
+00:34:12.908 --> 00:34:18.069
+Caption: concerns here and this thing can run at
+
+00:34:14.918 --> 00:34:21.939
+Caption: full speed as they are and that works it
+
+00:34:18.070 --> 00:34:24.580
+Caption: really really works so single threaded
+
+00:34:21.939 --> 00:34:27.368
+Caption: interestingly as well you need a code
+
+00:34:24.580 --> 00:34:30.459
+Caption: easy to debug easy to test its
+
+00:34:27.368 --> 00:34:32.108
+Caption: predictable by man and machine which I
+
+00:34:30.459 --> 00:34:34.118
+Caption: found really interesting so I can look
+
+00:34:32.108 --> 00:34:35.559
+Caption: at single threaded code and go I get
+
+00:34:34.118 --> 00:34:36.849
+Caption: what that does all of us can look at
+
+00:34:35.560 --> 00:34:39.760
+Caption: that code I had up I&#39;m just going to go
+
+00:34:36.850 --> 00:34:41.619
+Caption: add to buffer trim buffer push the I get
+
+00:34:39.760 --> 00:34:43.898
+Caption: what that happens it in between it was
+
+00:34:41.618 --> 00:34:46.418
+Caption: like mutex semaphore earlier I don&#39;t
+
+00:34:43.898 --> 00:34:48.069
+Caption: know what&#39;s going on there but what&#39;s
+
+00:34:46.418 --> 00:34:50.918
+Caption: also interesting predictable by man
+
+00:34:48.070 --> 00:34:52.810
+Caption: predictable by machine if your code
+
+00:34:50.918 --> 00:34:54.849
+Caption: single threaded and easy to understand
+
+00:34:52.810 --> 00:34:57.760
+Caption: your CPU can start prefetching stuff
+
+00:34:54.850 --> 00:34:59.440
+Caption: discs they stride through data very well
+
+00:34:57.760 --> 00:35:01.750
+Caption: so if you are doing single threaded than
+
+00:34:59.439 --> 00:35:03.879
+Caption: striding operations your whole computer
+
+00:35:01.750 --> 00:35:05.649
+Caption: just heats up and starts doing what you
+
+00:35:03.879 --> 00:35:07.209
+Caption: want it to do as opposed to keeping
+
+00:35:05.649 --> 00:35:09.339
+Caption: actually out heating up shutting down
+
+00:35:07.209 --> 00:35:11.139
+Caption: hang on I&#39;m doing an undo it context
+
+00:35:09.340 --> 00:35:13.570
+Caption: switch it just does what you want it to
+
+00:35:11.139 --> 00:35:16.139
+Caption: do so unintended single threaded code
+
+00:35:13.570 --> 00:35:19.270
+Caption: can run extremely fast
+
+00:35:16.139 --> 00:35:21.729
+Caption: so then concurrency somewhere yes
+
+00:35:19.270 --> 00:35:25.060
+Caption: concurrency but maybe not at a processor
+
+00:35:21.729 --> 00:35:27.129
+Caption: level a sorry process level so instead
+
+00:35:25.060 --> 00:35:29.709
+Caption: of having a process with lots of threads
+
+00:35:27.129 --> 00:35:31.839
+Caption: all trying to do stuff make a process
+
+00:35:29.709 --> 00:35:33.879
+Caption: dedicated to something so in the finite
+
+00:35:31.840 --> 00:35:35.859
+Caption: space I might have a process dedicated
+
+00:35:33.879 --> 00:35:37.719
+Caption: to buying and selling Netflix shares or
+
+00:35:35.858 --> 00:35:40.750
+Caption: American chess or something you choose
+
+00:35:37.719 --> 00:35:44.679
+Caption: your level of parallelism but beauty
+
+00:35:40.750 --> 00:35:46.149
+Caption: about this is I can go right all GBP so
+
+00:35:44.679 --> 00:35:47.800
+Caption: I Aussie dollar to Kiwi dollar can run
+
+00:35:46.149 --> 00:35:49.539
+Caption: on that process and I can put all the
+
+00:35:47.800 --> 00:35:51.489
+Caption: other lightweight currencies like owls
+
+00:35:49.540 --> 00:35:53.590
+Caption: on there and then I can put British
+
+00:35:51.489 --> 00:35:55.479
+Caption: Pound Sterling and America on its own
+
+00:35:53.590 --> 00:35:59.170
+Caption: box or I can have more of them running
+
+00:35:55.479 --> 00:36:01.209
+Caption: on their own box it&#39;s required
+
+00:35:59.169 --> 00:36:02.829
+Caption: they tried not to do concurrency but if
+
+00:36:01.209 --> 00:36:04.989
+Caption: required instead of locking said a lot
+
+00:36:02.830 --> 00:36:06.880
+Caption: for your weight free and then consider
+
+00:36:04.989 --> 00:36:08.350
+Caption: your target so you one threaded one
+
+00:36:06.879 --> 00:36:10.449
+Caption: threads that should be thread safe in
+
+00:36:08.350 --> 00:36:12.100
+Caption: case someone else does come along two to
+
+00:36:10.449 --> 00:36:15.669
+Caption: three so single produce a single
+
+00:36:12.100 --> 00:36:17.530
+Caption: consumer or another thing circular
+
+00:36:15.669 --> 00:36:19.809
+Caption: buffers I found this really interesting
+
+00:36:17.530 --> 00:36:21.409
+Caption: I don&#39;t want it uni and then thought
+
+00:36:19.810 --> 00:36:24.770
+Caption: nothing of a server again
+
+00:36:21.409 --> 00:36:28.459
+Caption: and at uni also was a janitor so that
+
+00:36:24.770 --> 00:36:29.780
+Caption: was fun so for those who don&#39;t know and
+
+00:36:28.459 --> 00:36:31.339
+Caption: I assume everyone does it&#39;s just an
+
+00:36:29.780 --> 00:36:32.870
+Caption: array that&#39;s all it is
+
+00:36:31.340 --> 00:36:34.370
+Caption: and when you get to the end you sort of
+
+00:36:32.870 --> 00:36:36.560
+Caption: wrap back around and then it kind of
+
+00:36:34.370 --> 00:36:39.260
+Caption: feels like a circularbuffer the nice
+
+00:36:36.560 --> 00:36:40.550
+Caption: thing about these things is that the
+
+00:36:39.260 --> 00:36:42.800
+Caption: head and the tail become very
+
+00:36:40.550 --> 00:36:44.600
+Caption: uncontained &#39;add taking something off
+
+00:36:42.800 --> 00:36:46.489
+Caption: this end doesn&#39;t really think putting
+
+00:36:44.600 --> 00:36:50.390
+Caption: something on the other end it&#39;s kind of
+
+00:36:46.489 --> 00:36:52.369
+Caption: nice constant space requirements which
+
+00:36:50.389 --> 00:36:54.619
+Caption: is very nice for garbage collectors you
+
+00:36:52.370 --> 00:36:56.150
+Caption: say allocate this upfront and then I&#39;m
+
+00:36:54.620 --> 00:36:58.010
+Caption: just going to keep using that same space
+
+00:36:56.149 --> 00:37:00.859
+Caption: instead of putting on down mutating
+
+00:36:58.010 --> 00:37:03.439
+Caption: stack or queue which I may choose
+
+00:37:00.860 --> 00:37:05.180
+Caption: through allocations constant time to
+
+00:37:03.439 --> 00:37:07.069
+Caption: push and pop that&#39;s nice for being
+
+00:37:05.179 --> 00:37:09.229
+Caption: predictable latency if it&#39;s constant
+
+00:37:07.070 --> 00:37:11.000
+Caption: time and it&#39;s poor to that now-famous
+
+00:37:09.229 --> 00:37:13.909
+Caption: disruptor that the java boys have
+
+00:37:11.000 --> 00:37:16.550
+Caption: produced that sort of them outstrip the
+
+00:37:13.909 --> 00:37:18.169
+Caption: C++ boys and now Java runs one of the
+
+00:37:16.550 --> 00:37:21.350
+Caption: fastest exchanges in the world which
+
+00:37:18.169 --> 00:37:23.839
+Caption: again just blows my mind did a design to
+
+00:37:21.350 --> 00:37:25.790
+Caption: run single code extremely fast or more
+
+00:37:23.840 --> 00:37:27.950
+Caption: specifically single producer single
+
+00:37:25.790 --> 00:37:29.510
+Caption: consumer but can also work with multi
+
+00:37:27.949 --> 00:37:32.979
+Caption: producer Multi Siemens and still be
+
+00:37:29.510 --> 00:37:35.600
+Caption: extremely fast and number ten
+
+00:37:32.979 --> 00:37:37.219
+Caption: performance culture so if there&#39;s two
+
+00:37:35.600 --> 00:37:40.520
+Caption: takeaways for today
+
+00:37:37.219 --> 00:37:44.109
+Caption: first was know your flows draw and
+
+00:37:40.520 --> 00:37:47.350
+Caption: visualize your flows try and find those
+
+00:37:44.110 --> 00:37:49.880
+Caption: sneaky things like that in your code and
+
+00:37:47.350 --> 00:37:51.170
+Caption: number two the other thing I really like
+
+00:37:49.879 --> 00:37:54.079
+Caption: you to take away is this performance
+
+00:37:51.169 --> 00:37:56.329
+Caption: culture where there was performance
+
+00:37:54.080 --> 00:37:58.610
+Caption: there was diligence whenever I met these
+
+00:37:56.330 --> 00:38:00.680
+Caption: guys or saw their code the code was
+
+00:37:58.610 --> 00:38:03.680
+Caption: clean there&#39;s single responsibility
+
+00:38:00.679 --> 00:38:06.619
+Caption: principle and act and action there were
+
+00:38:03.679 --> 00:38:07.819
+Caption: repent intention revealing interfaces so
+
+00:38:06.620 --> 00:38:09.530
+Caption: when you looked at their code you
+
+00:38:07.820 --> 00:38:11.540
+Caption: understood what it was doing the
+
+00:38:09.530 --> 00:38:13.610
+Caption: language was typed the domain was crisp
+
+00:38:11.540 --> 00:38:16.850
+Caption: they use the right tool for the job and
+
+00:38:13.610 --> 00:38:18.620
+Caption: less code code was the enemy if I had
+
+00:38:16.850 --> 00:38:20.390
+Caption: more time I would have written this code
+
+00:38:18.620 --> 00:38:22.160
+Caption: was the dogma that they were preaching
+
+00:38:20.389 --> 00:38:24.079
+Caption: very interesting compared to some of the
+
+00:38:22.159 --> 00:38:25.709
+Caption: other teams I worked on graph framework
+
+00:38:24.080 --> 00:38:27.780
+Caption: became more code
+
+00:38:25.709 --> 00:38:29.790
+Caption: we build an empire right that&#39;s not what
+
+00:38:27.780 --> 00:38:32.520
+Caption: these guys are doing the primary
+
+00:38:29.790 --> 00:38:34.619
+Caption: concepts we&#39;re not hidden
+
+00:38:32.520 --> 00:38:36.689
+Caption: they weren&#39;t obstacle by accident and
+
+00:38:34.618 --> 00:38:38.459
+Caption: they weren&#39;t obfuscated by mess or dirty
+
+00:38:36.689 --> 00:38:40.949
+Caption: code and they weren&#39;t obfuscated to
+
+00:38:38.459 --> 00:38:42.868
+Caption: protect the other devs it was a primary
+
+00:38:40.949 --> 00:38:44.070
+Caption: concern it was put front and center and
+
+00:38:42.868 --> 00:38:45.389
+Caption: she wanted to play in that code
+
+00:38:44.070 --> 00:38:46.709
+Caption: basically to learn the primary concern
+
+00:38:45.389 --> 00:38:48.899
+Caption: which probably meant you have to read
+
+00:38:46.709 --> 00:38:50.790
+Caption: one page on a wiki to get up to speed
+
+00:38:48.899 --> 00:38:55.709
+Caption: but you were you&#39;re there to program on
+
+00:38:50.790 --> 00:38:57.510
+Caption: that thing you understood it very care a
+
+00:38:55.709 --> 00:39:00.719
+Caption: lot of care was taken to make sure that
+
+00:38:57.510 --> 00:39:03.449
+Caption: the core concepts remains the focus that
+
+00:39:00.719 --> 00:39:05.520
+Caption: means build times will quick tests ran
+
+00:39:03.449 --> 00:39:07.979
+Caption: fast deployments were quick they were
+
+00:39:05.520 --> 00:39:09.899
+Caption: repeatable generalized concepts that
+
+00:39:07.979 --> 00:39:12.088
+Caption: were distracting often got stripped down
+
+00:39:09.899 --> 00:39:13.889
+Caption: and put into other libraries generally
+
+00:39:12.089 --> 00:39:15.989
+Caption: open sourced which then became this
+
+00:39:13.889 --> 00:39:17.309
+Caption: virtuous cycle so our build times got
+
+00:39:15.989 --> 00:39:18.929
+Caption: quicker because we&#39;re just pulling in an
+
+00:39:17.310 --> 00:39:20.609
+Caption: artifact instead of spinning cycles
+
+00:39:18.929 --> 00:39:22.319
+Caption: building stuff someone else is looking
+
+00:39:20.608 --> 00:39:24.750
+Caption: at the open source thing that we pushed
+
+00:39:22.320 --> 00:39:26.699
+Caption: up so that got faster and ran better so
+
+00:39:24.750 --> 00:39:28.080
+Caption: it was a cell into this virtuous cycle
+
+00:39:26.699 --> 00:39:29.520
+Caption: and then all the sudden they&#39;re doing
+
+00:39:28.080 --> 00:39:32.400
+Caption: something much better and faster than
+
+00:39:29.520 --> 00:39:34.290
+Caption: other people and broken windows were
+
+00:39:32.399 --> 00:39:37.829
+Caption: fixed anyone heard of the broken window
+
+00:39:34.290 --> 00:39:38.459
+Caption: theory yes good so a theory in
+
+00:39:37.830 --> 00:39:40.920
+Caption: criminology
+
+00:39:38.459 --> 00:39:44.070
+Caption: about norms getting and signaling
+
+00:39:40.919 --> 00:39:46.979
+Caption: behavior generally around vandalism you
+
+00:39:44.070 --> 00:39:48.510
+Caption: want to work every day for a couple of
+
+00:39:46.979 --> 00:39:50.729
+Caption: years and there&#39;s just one old tacky
+
+00:39:48.510 --> 00:39:53.790
+Caption: building that no one uses and one Friday
+
+00:39:50.729 --> 00:39:56.639
+Caption: you notice that windows broken here at
+
+00:39:53.790 --> 00:39:59.160
+Caption: night it&#39;s a bit sad whatever go home
+
+00:39:56.639 --> 00:40:02.729
+Caption: the weekend passes on Monday you walk
+
+00:39:59.159 --> 00:40:05.189
+Caption: past and it&#39;s likewise there&#39;s this norm
+
+00:40:02.729 --> 00:40:06.929
+Caption: setting the signal that was sent that no
+
+00:40:05.189 --> 00:40:09.239
+Caption: one cares that when they got smashed
+
+00:40:06.929 --> 00:40:10.919
+Caption: don&#39;t worry about it and so vandalism
+
+00:40:09.239 --> 00:40:12.719
+Caption: kicks in because no one thinks anyone
+
+00:40:10.919 --> 00:40:15.209
+Caption: cares about that that can happen in our
+
+00:40:12.719 --> 00:40:17.608
+Caption: code bases that signaling effect you say
+
+00:40:15.209 --> 00:40:19.830
+Caption: earlier builds red will do it on Monday
+
+00:40:17.608 --> 00:40:22.019
+Caption: yeah all that we&#39;ve got some warnings in
+
+00:40:19.830 --> 00:40:24.330
+Caption: the code based on sort that later really
+
+00:40:22.020 --> 00:40:26.099
+Caption: interestingly in the performance space -
+
+00:40:24.330 --> 00:40:28.589
+Caption: it didn&#39;t fly that got fixed straight
+
+00:40:26.099 --> 00:40:30.900
+Caption: away I was really impressed that it was
+
+00:40:28.589 --> 00:40:31.470
+Caption: all the things we preached you know fix
+
+00:40:30.899 --> 00:40:33.959
+Caption: the build
+
+00:40:31.469 --> 00:40:36.179
+Caption: single responsibility principle that was
+
+00:40:33.959 --> 00:40:37.310
+Caption: the secret source not get better
+
+00:40:36.179 --> 00:40:38.899
+Caption: hardware or
+
+00:40:37.310 --> 00:40:41.030
+Caption: something like that or concurrent all
+
+00:40:38.899 --> 00:40:43.569
+Caption: the things it was the simple stuff I
+
+00:40:41.030 --> 00:40:46.130
+Caption: thought that was really fascinating so
+
+00:40:43.570 --> 00:40:48.020
+Caption: the beauty about our field is that it&#39;s
+
+00:40:46.129 --> 00:40:50.449
+Caption: applied science so you don&#39;t have to
+
+00:40:48.020 --> 00:40:53.630
+Caption: listen to anything I say it&#39;s great it&#39;s
+
+00:40:50.449 --> 00:40:56.839
+Caption: not a theoretical science we can go and
+
+00:40:53.629 --> 00:40:58.729
+Caption: prove all this kind of stuff is a single
+
+00:40:56.840 --> 00:41:00.229
+Caption: producer single consumer thing faster
+
+00:40:58.729 --> 00:41:03.020
+Caption: with a circular bustled go home in
+
+00:41:00.229 --> 00:41:04.909
+Caption: prison grab benchmark dotnet or on one
+
+00:41:03.020 --> 00:41:06.739
+Caption: of the Java tools and find out write
+
+00:41:04.909 --> 00:41:08.270
+Caption: your own one this is kind of cool and
+
+00:41:06.739 --> 00:41:10.639
+Caption: this is another thing that I learnt when
+
+00:41:08.270 --> 00:41:12.860
+Caption: I was in London we don&#39;t have to have a
+
+00:41:10.639 --> 00:41:14.659
+Caption: discussion and think about what might be
+
+00:41:12.860 --> 00:41:16.190
+Caption: faster talk about what product might be
+
+00:41:14.659 --> 00:41:18.169
+Caption: better is Jason better than protobufs
+
+00:41:16.189 --> 00:41:20.359
+Caption: why are we talking about it open up the
+
+00:41:18.169 --> 00:41:23.089
+Caption: laptop let&#39;s go to find out the stuff is
+
+00:41:20.360 --> 00:41:24.739
+Caption: easy to do and the more you do it the
+
+00:41:23.090 --> 00:41:26.060
+Caption: better you get at it and then you read
+
+00:41:24.739 --> 00:41:27.110
+Caption: some blogs you find someone else has
+
+00:41:26.060 --> 00:41:28.219
+Caption: already done it you pull down their
+
+00:41:27.110 --> 00:41:30.290
+Caption: source coding you find out oh actually
+
+00:41:28.219 --> 00:41:32.479
+Caption: we run a and B here and that&#39;s not true
+
+00:41:30.290 --> 00:41:33.739
+Caption: on AMD oh that is true on and tell oh
+
+00:41:32.479 --> 00:41:35.840
+Caption: we&#39;re running on essence or we&#39;re
+
+00:41:33.739 --> 00:41:38.389
+Caption: running on funds oh this is different on
+
+00:41:35.840 --> 00:41:40.670
+Caption: this platform we&#39;re in a practical
+
+00:41:38.389 --> 00:41:43.760
+Caption: applied science you can prove this kind
+
+00:41:40.669 --> 00:41:46.069
+Caption: of stuff it&#39;s fun to do so the top ten
+
+00:41:43.760 --> 00:41:49.969
+Caption: know your targets know your costs know
+
+00:41:46.070 --> 00:41:52.640
+Caption: you flows know your subsystems and know
+
+00:41:49.969 --> 00:41:55.310
+Caption: your reasons then once you know your
+
+00:41:52.639 --> 00:41:58.849
+Caption: things justify the cost be aware of your
+
+00:41:55.310 --> 00:42:03.699
+Caption: GCS ouch serialize don&#39;t synchronized
+
+00:41:58.850 --> 00:42:03.700
+Caption: circular buffers and performance culture
+
+00:42:04.419 --> 00:42:08.270
+Caption: more information actually just grab hold
+
+00:42:06.770 --> 00:42:12.500
+Caption: of me I&#39;ve got so much I love talking
+
+00:42:08.270 --> 00:42:14.179
+Caption: about this stuff do we have time yeah
+
+00:42:12.500 --> 00:42:18.379
+Caption: cool anyone want to see something funny
+
+00:42:14.179 --> 00:42:21.770
+Caption: or anyone got questions funny thing I
+
+00:42:18.379 --> 00:42:23.119
+Caption: thought this was so neat yeah yeah so
+
+00:42:21.770 --> 00:42:24.979
+Caption: bonus sections we will not have time for
+
+00:42:23.120 --> 00:42:27.530
+Caption: this there twiddling so we&#39;re talking
+
+00:42:24.979 --> 00:42:31.850
+Caption: about circular buffers before if I have
+
+00:42:27.530 --> 00:42:33.770
+Caption: a 16 byte array a 16 size array and I
+
+00:42:31.850 --> 00:42:35.840
+Caption: get to the end on my circular buffer how
+
+00:42:33.770 --> 00:42:37.130
+Caption: do I get back to the start was a couple
+
+00:42:35.840 --> 00:42:40.340
+Caption: of things we could do we could do the
+
+00:42:37.129 --> 00:42:42.559
+Caption: old my method tail and the tail equals
+
+00:42:40.340 --> 00:42:45.229
+Caption: the capacity branch go back to zero
+
+00:42:42.560 --> 00:42:46.790
+Caption: that&#39;s cool or I can add one so I&#39;m
+
+00:42:45.229 --> 00:42:48.169
+Caption: either in the middle so add one or I&#39;m
+
+00:42:46.790 --> 00:42:49.890
+Caption: at the ends to go back to the start
+
+00:42:48.169 --> 00:42:52.858
+Caption: that&#39;s one option
+
+00:42:49.889 --> 00:42:55.139
+Caption: or I could use modulus that sounds kind
+
+00:42:52.858 --> 00:42:59.939
+Caption: of cool so the capacity and the town
+
+00:42:55.139 --> 00:43:01.919
+Caption: modulus gives me the index or I could
+
+00:42:59.939 --> 00:43:03.539
+Caption: use a bit mask and that was kind of cool
+
+00:43:01.919 --> 00:43:06.328
+Caption: I haven&#39;t done this bit twiddling stuff
+
+00:43:03.539 --> 00:43:08.968
+Caption: in a while um does everyone remember the
+
+00:43:06.329 --> 00:43:11.160
+Caption: first chart now you cause what looks
+
+00:43:08.968 --> 00:43:13.789
+Caption: like a pretty expensive operation of the
+
+00:43:11.159 --> 00:43:16.739
+Caption: math ones division what&#39;s modulus
+
+00:43:13.789 --> 00:43:18.509
+Caption: division what the remainder isn&#39;t it so
+
+00:43:16.739 --> 00:43:20.458
+Caption: that sounds expensive even though it&#39;s
+
+00:43:18.509 --> 00:43:24.208
+Caption: very easy to write that looks really
+
+00:43:20.458 --> 00:43:26.669
+Caption: quick it was funny when I benchmarked
+
+00:43:24.208 --> 00:43:28.139
+Caption: this using benchmark net it&#39;s a free
+
+00:43:26.669 --> 00:43:29.458
+Caption: tool how cool is that just go
+
+00:43:28.139 --> 00:43:32.508
+Caption: open-source and now I can benchmark
+
+00:43:29.458 --> 00:43:35.848
+Caption: things you probably can&#39;t read it cuz
+
+00:43:32.509 --> 00:43:38.339
+Caption: projectors in black and purple 0.4
+
+00:43:35.849 --> 00:43:40.079
+Caption: nanoseconds to do the branch plus add so
+
+00:43:38.339 --> 00:43:42.809
+Caption: add one add one oh I got to the end go
+
+00:43:40.079 --> 00:43:45.208
+Caption: back to 0.4 nanoseconds eight
+
+00:43:42.809 --> 00:43:46.319
+Caption: nanoseconds for the modulus which is
+
+00:43:45.208 --> 00:43:48.088
+Caption: probably what we thought of six
+
+00:43:46.319 --> 00:43:50.458
+Caption: nanoseconds for a division for eight
+
+00:43:48.089 --> 00:43:54.059
+Caption: nano seconds for a modulus this mask
+
+00:43:50.458 --> 00:44:00.779
+Caption: can&#39;t calculate it zero if too fast it&#39;s
+
+00:43:54.059 --> 00:44:02.579
+Caption: one CPU cycle and we&#39;re done thanks for
+
+00:44:00.779 --> 00:44:05.929
+Caption: having me guys if you see Rob more about
+
+00:44:02.579 --> 00:44:05.930
+Caption: giving my hugs is amazing
+

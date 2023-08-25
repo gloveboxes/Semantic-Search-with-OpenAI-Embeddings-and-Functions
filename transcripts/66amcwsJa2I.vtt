@@ -1,0 +1,2309 @@
+WEBVTT
+
+00:00:01.120 --> 00:00:05.119
+Caption: all right welcome to my talk about how
+
+00:00:03.119 --> 00:00:06.659
+Caption: to design a prize draw randomizer
+
+00:00:05.119 --> 00:00:09.840
+Caption: without bugs
+
+00:00:06.659 --> 00:00:12.079
+Caption: [Laughter]
+
+00:00:09.840 --> 00:00:13.840
+Caption: um thank you all so much for having me
+
+00:00:12.079 --> 00:00:15.920
+Caption: um i really really appreciate the
+
+00:00:13.840 --> 00:00:16.959
+Caption: opportunity to come up and speak to you
+
+00:00:15.920 --> 00:00:18.559
+Caption: all
+
+00:00:16.959 --> 00:00:21.358
+Caption: a big thank you as well to all of our
+
+00:00:18.559 --> 00:00:23.599
+Caption: amazing sponsors um and also the ddd
+
+00:00:21.358 --> 00:00:25.759
+Caption: team who make this all possible
+
+00:00:23.600 --> 00:00:28.079
+Caption: and i&#39;d also like to acknowledge the
+
+00:00:25.760 --> 00:00:32.319
+Caption: traditional custodians of the land upon
+
+00:00:28.079 --> 00:00:34.398
+Caption: which we meet um so my name&#39;s camille um
+
+00:00:32.319 --> 00:00:36.398
+Caption: and today i want to take you through
+
+00:00:34.398 --> 00:00:39.839
+Caption: take you on a little journey which is
+
+00:00:36.398 --> 00:00:39.839
+Caption: the journey of your career
+
+00:00:40.000 --> 00:00:45.840
+Caption: if i asked you all now to take a moment
+
+00:00:42.719 --> 00:00:48.160
+Caption: and think about how your career&#39;s gone
+
+00:00:45.840 --> 00:00:49.840
+Caption: what would you think about
+
+00:00:48.159 --> 00:00:51.599
+Caption: you might be thinking about
+
+00:00:49.840 --> 00:00:53.279
+Caption: what skills have i learnt that i didn&#39;t
+
+00:00:51.599 --> 00:00:55.680
+Caption: know before
+
+00:00:53.279 --> 00:00:58.159
+Caption: how much has my salary increased since i
+
+00:00:55.680 --> 00:01:01.119
+Caption: started and was i able to provide for my
+
+00:00:58.159 --> 00:01:03.359
+Caption: loved ones and my lifestyle
+
+00:01:01.119 --> 00:01:04.798
+Caption: how many promotions did i have
+
+00:01:03.359 --> 00:01:06.799
+Caption: did i get recognized for my
+
+00:01:04.799 --> 00:01:08.720
+Caption: contributions
+
+00:01:06.799 --> 00:01:10.960
+Caption: what projects have i worked on and how
+
+00:01:08.720 --> 00:01:13.360
+Caption: have i changed the world
+
+00:01:10.959 --> 00:01:16.478
+Caption: did i end up where i wanted to be
+
+00:01:13.360 --> 00:01:18.239
+Caption: and am i doing what i want to do in life
+
+00:01:16.478 --> 00:01:20.719
+Caption: these are all very valuable things to
+
+00:01:18.239 --> 00:01:22.399
+Caption: reflect on and things that are important
+
+00:01:20.720 --> 00:01:24.080
+Caption: in in our lives
+
+00:01:22.400 --> 00:01:26.559
+Caption: but i noticed something when reflecting
+
+00:01:24.080 --> 00:01:28.240
+Caption: upon this question myself
+
+00:01:26.559 --> 00:01:30.478
+Caption: it isn&#39;t often that we stop to think
+
+00:01:28.239 --> 00:01:31.519
+Caption: about how our careers have changed us as
+
+00:01:30.478 --> 00:01:33.279
+Caption: people
+
+00:01:31.519 --> 00:01:34.959
+Caption: and also how we&#39;ve changed other
+
+00:01:33.279 --> 00:01:36.400
+Caption: people&#39;s lives
+
+00:01:34.959 --> 00:01:38.839
+Caption: we don&#39;t often think about the
+
+00:01:36.400 --> 00:01:40.880
+Caption: uniqueness of our full selves and our
+
+00:01:38.839 --> 00:01:43.438
+Caption: experiences and what these are brought
+
+00:01:40.879 --> 00:01:43.438
+Caption: to the table
+
+00:01:43.680 --> 00:01:47.839
+Caption: now being somewhat of a geek and a game
+
+00:01:46.079 --> 00:01:50.240
+Caption: developer i found it easier to
+
+00:01:47.839 --> 00:01:55.000
+Caption: understand this when i visualized career
+
+00:01:50.239 --> 00:01:55.000
+Caption: journeys like video games
+
+00:01:55.279 --> 00:01:59.438
+Caption: so what we bring to our careers starts
+
+00:01:57.360 --> 00:02:00.399
+Caption: well before we even get our very first
+
+00:01:59.439 --> 00:02:02.560
+Caption: job
+
+00:02:00.399 --> 00:02:03.840
+Caption: we start off with from birth some things
+
+00:02:02.559 --> 00:02:05.438
+Caption: that have been
+
+00:02:03.839 --> 00:02:07.359
+Caption: out of your control
+
+00:02:05.439 --> 00:02:11.680
+Caption: someone&#39;s rolled the random selection
+
+00:02:07.360 --> 00:02:14.160
+Caption: and chosen for you your genetics
+
+00:02:11.679 --> 00:02:16.799
+Caption: your family background
+
+00:02:14.160 --> 00:02:18.800
+Caption: and your country or your culture
+
+00:02:16.800 --> 00:02:21.440
+Caption: and these factors can have a big impact
+
+00:02:18.800 --> 00:02:23.279
+Caption: on what our interests traits
+
+00:02:21.440 --> 00:02:24.958
+Caption: values and morals will be
+
+00:02:23.279 --> 00:02:26.479
+Caption: a little bit of nature and a little bit
+
+00:02:24.958 --> 00:02:30.559
+Caption: of nurture
+
+00:02:26.479 --> 00:02:32.238
+Caption: i&#39;ll call these things our initial stats
+
+00:02:30.559 --> 00:02:34.399
+Caption: maybe you grew up in a family of
+
+00:02:32.238 --> 00:02:36.878
+Caption: technically minded people who taught you
+
+00:02:34.399 --> 00:02:39.679
+Caption: from a young age things like maths and
+
+00:02:36.878 --> 00:02:42.958
+Caption: chemistry and even programming and had
+
+00:02:39.679 --> 00:02:44.878
+Caption: grand expectations of you
+
+00:02:42.958 --> 00:02:46.720
+Caption: or maybe you grew up in a family full of
+
+00:02:44.878 --> 00:02:47.839
+Caption: sporty-minded people where you were the
+
+00:02:46.720 --> 00:02:49.919
+Caption: black sheep
+
+00:02:47.839 --> 00:02:51.679
+Caption: clinging to your nintendo and your crt
+
+00:02:49.919 --> 00:02:52.800
+Caption: monitor much to the dismay of your
+
+00:02:51.679 --> 00:02:54.559
+Caption: family
+
+00:02:52.800 --> 00:02:57.760
+Caption: or maybe you had nothing to do with
+
+00:02:54.559 --> 00:03:00.080
+Caption: technology until much later in life
+
+00:02:57.759 --> 00:03:02.839
+Caption: factors such as those and how we respond
+
+00:03:00.080 --> 00:03:05.598
+Caption: to them have an impact on stats like our
+
+00:03:02.839 --> 00:03:07.759
+Caption: confidence our independence
+
+00:03:05.598 --> 00:03:08.958
+Caption: our willpower and ability to overcome
+
+00:03:07.759 --> 00:03:10.720
+Caption: challenge
+
+00:03:08.958 --> 00:03:12.720
+Caption: how we deal with pressure
+
+00:03:10.720 --> 00:03:14.000
+Caption: and our range of complementary or world
+
+00:03:12.720 --> 00:03:16.000
+Caption: knowledge
+
+00:03:14.000 --> 00:03:19.839
+Caption: and they can also instill in us values
+
+00:03:16.000 --> 00:03:19.839
+Caption: of what we find important in life
+
+00:03:20.000 --> 00:03:23.598
+Caption: now we progress through our main
+
+00:03:21.199 --> 00:03:25.119
+Caption: storyline with these stats and this
+
+00:03:23.598 --> 00:03:27.679
+Caption: involves a typical
+
+00:03:25.119 --> 00:03:30.080
+Caption: childhood school high school and
+
+00:03:27.679 --> 00:03:31.679
+Caption: university before we get to work
+
+00:03:30.080 --> 00:03:33.759
+Caption: there&#39;s also a whole bunch of little
+
+00:03:31.679 --> 00:03:35.439
+Caption: side quests that pop up and have an
+
+00:03:33.759 --> 00:03:36.399
+Caption: effect on you whether you realize it or
+
+00:03:35.440 --> 00:03:38.238
+Caption: not
+
+00:03:36.399 --> 00:03:40.479
+Caption: those are things like that time you move
+
+00:03:38.238 --> 00:03:43.279
+Caption: schools that time you stood up to a
+
+00:03:40.479 --> 00:03:45.598
+Caption: bully that time you won a scholarship or
+
+00:03:43.279 --> 00:03:47.518
+Caption: that time you failed an exam
+
+00:03:45.598 --> 00:03:49.279
+Caption: all of these can have a profound effect
+
+00:03:47.518 --> 00:03:52.878
+Caption: on shaping up these stats that
+
+00:03:49.279 --> 00:03:52.878
+Caption: collectively make up who you are
+
+00:03:53.119 --> 00:03:56.720
+Caption: and then finally we enter the kingdom of
+
+00:03:55.438 --> 00:03:58.479
+Caption: work
+
+00:03:56.720 --> 00:03:59.919
+Caption: now i just want to examine our stats a
+
+00:03:58.479 --> 00:04:01.360
+Caption: bit here because i feel like this is
+
+00:03:59.919 --> 00:04:02.639
+Caption: where people are missing out on some
+
+00:04:01.360 --> 00:04:04.720
+Caption: things
+
+00:04:02.639 --> 00:04:06.479
+Caption: society tends to have some stereotypic
+
+00:04:04.720 --> 00:04:08.958
+Caption: stereotypical views about what makes
+
+00:04:06.479 --> 00:04:12.238
+Caption: people successful in their careers
+
+00:04:08.958 --> 00:04:13.598
+Caption: traits such as confident intelligent
+
+00:04:12.238 --> 00:04:17.359
+Caption: hard-working
+
+00:04:13.598 --> 00:04:19.359
+Caption: well-spoken collaborative and focused
+
+00:04:17.359 --> 00:04:21.119
+Caption: a lot of people i&#39;ve met focus on these
+
+00:04:19.359 --> 00:04:22.559
+Caption: sorts of things and think they&#39;re
+
+00:04:21.119 --> 00:04:24.559
+Caption: lacking
+
+00:04:22.559 --> 00:04:25.759
+Caption: they lack the confidence needed to climb
+
+00:04:24.559 --> 00:04:27.600
+Caption: up the ladder
+
+00:04:25.759 --> 00:04:28.479
+Caption: or they aren&#39;t as smart as everyone else
+
+00:04:27.600 --> 00:04:31.839
+Caption: in the room
+
+00:04:28.479 --> 00:04:31.839
+Caption: or they like working on their own
+
+00:04:32.079 --> 00:04:36.638
+Caption: i remember interviewing multiple people
+
+00:04:34.239 --> 00:04:38.239
+Caption: for a technical role a few years back
+
+00:04:36.639 --> 00:04:41.040
+Caption: it was a role that required some
+
+00:04:38.239 --> 00:04:42.479
+Caption: advanced mathematics skills for robotics
+
+00:04:41.040 --> 00:04:44.800
+Caption: kinematics
+
+00:04:42.479 --> 00:04:47.839
+Caption: and we interviewed some people who had
+
+00:04:44.799 --> 00:04:49.599
+Caption: phds and advanced degrees in maths very
+
+00:04:47.839 --> 00:04:51.839
+Caption: very impressive on paper
+
+00:04:49.600 --> 00:04:54.320
+Caption: we presented them with a fairly basic
+
+00:04:51.839 --> 00:04:56.639
+Caption: trigonometry challenge to start it&#39;s my
+
+00:04:54.320 --> 00:04:58.639
+Caption: trigosaurus i&#39;m very proud of that
+
+00:04:56.639 --> 00:05:00.080
+Caption: um it was quite interesting to see the
+
+00:04:58.639 --> 00:05:02.720
+Caption: people who had some people who had the
+
+00:05:00.079 --> 00:05:05.519
+Caption: advanced degrees and phds going about
+
+00:05:02.720 --> 00:05:08.079
+Caption: the challenge in a very complicated way
+
+00:05:05.519 --> 00:05:09.679
+Caption: and quite confidently i might add
+
+00:05:08.079 --> 00:05:11.119
+Caption: and then eventually becoming defeated
+
+00:05:09.679 --> 00:05:12.559
+Caption: when they realized they didn&#39;t know how
+
+00:05:11.119 --> 00:05:14.479
+Caption: to do it
+
+00:05:12.559 --> 00:05:16.720
+Caption: on the flip side you had people who had
+
+00:05:14.479 --> 00:05:19.119
+Caption: much less academic experience or were
+
+00:05:16.720 --> 00:05:21.440
+Caption: less confident and had only high school
+
+00:05:19.119 --> 00:05:24.000
+Caption: mathematics skills who were able to
+
+00:05:21.440 --> 00:05:25.759
+Caption: complete the challenge successfully
+
+00:05:24.000 --> 00:05:27.759
+Caption: we also had people who completed it
+
+00:05:25.759 --> 00:05:29.519
+Caption: successfully in simply saying
+
+00:05:27.759 --> 00:05:31.759
+Caption: i don&#39;t know the equation to this but
+
+00:05:29.519 --> 00:05:34.559
+Caption: this is what i do
+
+00:05:31.759 --> 00:05:36.000
+Caption: it was a case of very educated people
+
+00:05:34.559 --> 00:05:38.720
+Caption: over complicating something that was
+
+00:05:36.000 --> 00:05:40.559
+Caption: actually quite simple and perhaps their
+
+00:05:38.720 --> 00:05:42.639
+Caption: exposure to complicated questions
+
+00:05:40.559 --> 00:05:45.039
+Caption: prompted them to assume the answer was
+
+00:05:42.639 --> 00:05:46.800
+Caption: similarly complicated
+
+00:05:45.039 --> 00:05:49.199
+Caption: definitely in some situations you
+
+00:05:46.799 --> 00:05:51.519
+Caption: absolutely do need those complicated
+
+00:05:49.199 --> 00:05:53.199
+Caption: solutions but in this example high
+
+00:05:51.519 --> 00:05:55.599
+Caption: academic knowledge didn&#39;t guarantee
+
+00:05:53.199 --> 00:05:57.759
+Caption: real-world success while a simpler view
+
+00:05:55.600 --> 00:05:59.839
+Caption: of the world mixed with things like
+
+00:05:57.759 --> 00:06:02.239
+Caption: calmness under pressure or critical
+
+00:05:59.839 --> 00:06:04.239
+Caption: thinking was effective
+
+00:06:02.239 --> 00:06:07.519
+Caption: there are often times many ways to
+
+00:06:04.239 --> 00:06:09.199
+Caption: achieve an outcome
+
+00:06:07.519 --> 00:06:11.440
+Caption: confidence is a big one that people
+
+00:06:09.199 --> 00:06:13.679
+Caption: dislike about themselves
+
+00:06:11.440 --> 00:06:15.360
+Caption: when preparing this presentation i asked
+
+00:06:13.679 --> 00:06:18.239
+Caption: a bunch of people that i know about
+
+00:06:15.359 --> 00:06:20.959
+Caption: their best and worst work-related traits
+
+00:06:18.239 --> 00:06:22.399
+Caption: and this was by far the most popular um
+
+00:06:20.959 --> 00:06:23.679
+Caption: disliked trait that people had of
+
+00:06:22.399 --> 00:06:25.199
+Caption: themselves
+
+00:06:23.679 --> 00:06:26.959
+Caption: funnily enough it was mentioned by
+
+00:06:25.199 --> 00:06:28.479
+Caption: someone who i was actually going to use
+
+00:06:26.959 --> 00:06:30.079
+Caption: as an example
+
+00:06:28.479 --> 00:06:32.839
+Caption: she said she doesn&#39;t have enough
+
+00:06:30.079 --> 00:06:35.198
+Caption: confidence and likes to validate
+
+00:06:32.839 --> 00:06:37.119
+Caption: things i worked with this person for
+
+00:06:35.199 --> 00:06:39.119
+Caption: about a year and a half
+
+00:06:37.119 --> 00:06:41.440
+Caption: and she similar to me is more of an
+
+00:06:39.119 --> 00:06:43.679
+Caption: anxious worrisome person
+
+00:06:41.440 --> 00:06:45.679
+Caption: we worked in a very physically high risk
+
+00:06:43.679 --> 00:06:47.919
+Caption: environment and understandably that made
+
+00:06:45.679 --> 00:06:49.839
+Caption: us both even more stressed out as
+
+00:06:47.919 --> 00:06:52.319
+Caption: worrisome people
+
+00:06:49.839 --> 00:06:54.399
+Caption: some people wanted to steam ahead and
+
+00:06:52.319 --> 00:06:56.799
+Caption: a handful like her tried to keep up with
+
+00:06:54.399 --> 00:06:59.440
+Caption: the pace while focusing on things like
+
+00:06:56.799 --> 00:07:01.679
+Caption: doing things safely on ensuring our code
+
+00:06:59.440 --> 00:07:03.279
+Caption: had tests double and triple and
+
+00:07:01.679 --> 00:07:05.359
+Caption: quadruple checking everything and
+
+00:07:03.279 --> 00:07:06.720
+Caption: looking out for everyone
+
+00:07:05.359 --> 00:07:08.638
+Caption: she&#39;s someone who would always think of
+
+00:07:06.720 --> 00:07:10.319
+Caption: worst case scenarios and would try to
+
+00:07:08.639 --> 00:07:11.598
+Caption: mitigate them
+
+00:07:10.319 --> 00:07:13.440
+Caption: but the fact that she overthinks
+
+00:07:11.598 --> 00:07:16.239
+Caption: sometimes and needs to validate
+
+00:07:13.440 --> 00:07:17.919
+Caption: everything can be so valuable they are
+
+00:07:16.239 --> 00:07:20.479
+Caption: massive strengths
+
+00:07:17.919 --> 00:07:22.240
+Caption: it not only kept us physically safer but
+
+00:07:20.479 --> 00:07:25.119
+Caption: it also made us made me feel more
+
+00:07:22.239 --> 00:07:26.479
+Caption: relaxed knowing that she was around
+
+00:07:25.119 --> 00:07:28.959
+Caption: knowing that there was someone there who
+
+00:07:26.479 --> 00:07:31.759
+Caption: was that observant and cautious made me
+
+00:07:28.959 --> 00:07:33.679
+Caption: feel safer
+
+00:07:31.759 --> 00:07:35.598
+Caption: so while we need to not let those kind
+
+00:07:33.679 --> 00:07:37.519
+Caption: of things affect our lives in negative
+
+00:07:35.598 --> 00:07:39.519
+Caption: ways this points out something very
+
+00:07:37.519 --> 00:07:42.160
+Caption: advantageous about you
+
+00:07:39.519 --> 00:07:44.959
+Caption: not everyone is capable of that extent
+
+00:07:42.160 --> 00:07:47.598
+Caption: of empathy awareness of risks and
+
+00:07:44.959 --> 00:07:49.359
+Caption: urgency to resolve issues
+
+00:07:47.598 --> 00:07:51.839
+Caption: people who don&#39;t have confidence levels
+
+00:07:49.359 --> 00:07:52.719
+Caption: at 100 are extremely valuable in other
+
+00:07:51.839 --> 00:07:54.479
+Caption: ways
+
+00:07:52.720 --> 00:07:56.639
+Caption: sometimes actually because they don&#39;t
+
+00:07:54.479 --> 00:07:59.839
+Caption: have 100 points of confidence and
+
+00:07:56.639 --> 00:07:59.839
+Caption: shouldn&#39;t feel like they&#39;re lacking
+
+00:08:00.479 --> 00:08:03.119
+Caption: you have the same thing with company
+
+00:08:01.919 --> 00:08:04.720
+Caption: direction
+
+00:08:03.119 --> 00:08:07.519
+Caption: there will always be some people who
+
+00:08:04.720 --> 00:08:09.440
+Caption: have big visions and say things like yes
+
+00:08:07.519 --> 00:08:10.720
+Caption: yes absolutely we can do that for you in
+
+00:08:09.440 --> 00:08:12.720
+Caption: two months
+
+00:08:10.720 --> 00:08:14.799
+Caption: and then you&#39;ll have other people who
+
+00:08:12.720 --> 00:08:16.799
+Caption: would shudder and say the same thing
+
+00:08:14.799 --> 00:08:18.720
+Caption: needs to be scoped out thoroughly and
+
+00:08:16.799 --> 00:08:21.759
+Caption: estimated and they&#39;ll probably come back
+
+00:08:18.720 --> 00:08:23.199
+Caption: with a timeline more like four years
+
+00:08:21.759 --> 00:08:25.279
+Caption: i know you probably all have stories
+
+00:08:23.199 --> 00:08:27.039
+Caption: similar to that one um
+
+00:08:25.279 --> 00:08:29.759
+Caption: we need both those people
+
+00:08:27.039 --> 00:08:32.640
+Caption: we need people who are risk takers who
+
+00:08:29.759 --> 00:08:34.640
+Caption: are enthusiastic and like to please
+
+00:08:32.640 --> 00:08:37.519
+Caption: and we need people who are grounded who
+
+00:08:34.640 --> 00:08:39.679
+Caption: are risk averse and are more cautious
+
+00:08:37.518 --> 00:08:41.518
+Caption: this is a fantastic combination of
+
+00:08:39.679 --> 00:08:43.919
+Caption: different people who have different
+
+00:08:41.518 --> 00:08:43.919
+Caption: strengths
+
+00:08:44.158 --> 00:08:48.320
+Caption: so if we examine again our stats we
+
+00:08:46.239 --> 00:08:50.640
+Caption: should realize that these stereotypical
+
+00:08:48.320 --> 00:08:52.958
+Caption: ones are barely scratching the surface
+
+00:08:50.640 --> 00:08:54.799
+Caption: of what makes people successful
+
+00:08:52.958 --> 00:08:56.479
+Caption: accomplished and valuable
+
+00:08:54.799 --> 00:08:58.640
+Caption: there are a whole lot more things that
+
+00:08:56.479 --> 00:09:01.760
+Caption: you offer and some of those are actually
+
+00:08:58.640 --> 00:09:04.799
+Caption: things you think are weaknesses
+
+00:09:01.760 --> 00:09:06.559
+Caption: so how can you reflect on this
+
+00:09:04.799 --> 00:09:08.559
+Caption: think about each thing that you&#39;ve ever
+
+00:09:06.559 --> 00:09:10.559
+Caption: thought was your weakness
+
+00:09:08.559 --> 00:09:12.799
+Caption: and then ask yourself
+
+00:09:10.559 --> 00:09:15.518
+Caption: if a person like this this joined my
+
+00:09:12.799 --> 00:09:17.119
+Caption: team what would i get them to work on
+
+00:09:15.518 --> 00:09:18.719
+Caption: and why
+
+00:09:17.119 --> 00:09:20.799
+Caption: because sometimes i find it&#39;s much
+
+00:09:18.719 --> 00:09:23.838
+Caption: easier to think rationally when it&#39;s
+
+00:09:20.799 --> 00:09:25.838
+Caption: less personal for you
+
+00:09:23.838 --> 00:09:28.799
+Caption: for me i always used to think to myself
+
+00:09:25.838 --> 00:09:30.799
+Caption: wow my memory is really poor i can never
+
+00:09:28.799 --> 00:09:31.838
+Caption: absorb things that i read about or hear
+
+00:09:30.799 --> 00:09:34.320
+Caption: about
+
+00:09:31.838 --> 00:09:36.479
+Caption: i&#39;m anxious and i worry a lot
+
+00:09:34.320 --> 00:09:38.958
+Caption: i have difficulty focusing in meetings
+
+00:09:36.479 --> 00:09:40.719
+Caption: and miss a lot of what&#39;s going on
+
+00:09:38.958 --> 00:09:43.679
+Caption: i surrounded myself with highly
+
+00:09:40.719 --> 00:09:45.039
+Caption: intelligent people and always felt very
+
+00:09:43.679 --> 00:09:47.359
+Caption: inadequate
+
+00:09:45.039 --> 00:09:49.119
+Caption: how did i even get this far
+
+00:09:47.359 --> 00:09:50.880
+Caption: and i realized that well maybe those
+
+00:09:49.119 --> 00:09:52.159
+Caption: things aren&#39;t actually the only recipe
+
+00:09:50.880 --> 00:09:53.679
+Caption: to success
+
+00:09:52.159 --> 00:09:56.079
+Caption: maybe i have some other stuff going on
+
+00:09:53.679 --> 00:09:56.080
+Caption: for me
+
+00:09:56.159 --> 00:10:00.879
+Caption: my memory is poor but i would sometimes
+
+00:09:59.039 --> 00:10:03.759
+Caption: take great notes to make up for that
+
+00:10:00.880 --> 00:10:05.679
+Caption: notes which other people needed as well
+
+00:10:03.760 --> 00:10:08.078
+Caption: it also made me great at learning how to
+
+00:10:05.679 --> 00:10:10.559
+Caption: teach things simply because which many
+
+00:10:08.078 --> 00:10:12.479
+Caption: of my fellow human beings need because i
+
+00:10:10.559 --> 00:10:14.320
+Caption: understood what they&#39;d have difficulty
+
+00:10:12.479 --> 00:10:16.639
+Caption: with
+
+00:10:14.320 --> 00:10:18.239
+Caption: i worry a lot and people
+
+00:10:16.640 --> 00:10:20.079
+Caption: for some reason tend to make me in
+
+00:10:18.239 --> 00:10:22.000
+Caption: charge of quality assurance for some
+
+00:10:20.078 --> 00:10:23.440
+Caption: reason because i can be quite pedantic
+
+00:10:22.000 --> 00:10:25.518
+Caption: about it
+
+00:10:23.440 --> 00:10:27.919
+Caption: i have difficulty focusing but i like
+
+00:10:25.518 --> 00:10:29.599
+Caption: when people are concise and to the point
+
+00:10:27.919 --> 00:10:31.119
+Caption: and it means i filter out things that
+
+00:10:29.599 --> 00:10:32.880
+Caption: maybe aren&#39;t the top priority to me
+
+00:10:31.119 --> 00:10:34.799
+Caption: right now and focus on things i actually
+
+00:10:32.880 --> 00:10:36.479
+Caption: do need to know
+
+00:10:34.799 --> 00:10:37.599
+Caption: it&#39;s also because sometimes my brain is
+
+00:10:36.479 --> 00:10:39.919
+Caption: thinking about a hundred different
+
+00:10:37.599 --> 00:10:44.159
+Caption: things at once and that in itself is
+
+00:10:39.919 --> 00:10:45.679
+Caption: hectic but also kind of awesome in a way
+
+00:10:44.159 --> 00:10:47.759
+Caption: i surround myself with highly
+
+00:10:45.679 --> 00:10:49.359
+Caption: intelligent people and learn to
+
+00:10:47.760 --> 00:10:51.440
+Caption: appreciate that if i&#39;m sitting at a
+
+00:10:49.359 --> 00:10:52.719
+Caption: table with them and i&#39;ve been there for
+
+00:10:51.440 --> 00:10:54.239
+Caption: quite a while
+
+00:10:52.719 --> 00:10:55.759
+Caption: then it probably means i have something
+
+00:10:54.239 --> 00:10:58.958
+Caption: equivalent to that which i bring to the
+
+00:10:55.760 --> 00:11:00.640
+Caption: table and that makes me kind of proud
+
+00:10:58.958 --> 00:11:02.239
+Caption: so i want to surround myself with even
+
+00:11:00.640 --> 00:11:04.799
+Caption: more impressive people because that
+
+00:11:02.239 --> 00:11:06.320
+Caption: means i&#39;m leveling up in my own way and
+
+00:11:04.799 --> 00:11:08.559
+Caption: i can also learn a hell of a lot from
+
+00:11:06.320 --> 00:11:08.559
+Caption: them
+
+00:11:08.640 --> 00:11:13.200
+Caption: focusing on what we lack can sometimes
+
+00:11:10.958 --> 00:11:15.039
+Caption: prompt us into improving ourselves
+
+00:11:13.200 --> 00:11:17.278
+Caption: but if we forgot forget to focus on what
+
+00:11:15.039 --> 00:11:18.159
+Caption: we do have and what our strength really
+
+00:11:17.278 --> 00:11:20.239
+Caption: is in
+
+00:11:18.159 --> 00:11:22.159
+Caption: then we can really lose out
+
+00:11:20.239 --> 00:11:25.919
+Caption: your collection of strengths
+
+00:11:22.159 --> 00:11:25.919
+Caption: is a lot bigger than you realize
+
+00:11:26.719 --> 00:11:30.319
+Caption: so now that we know about your important
+
+00:11:28.479 --> 00:11:33.278
+Caption: part in your journey let&#39;s look at take
+
+00:11:30.320 --> 00:11:33.278
+Caption: a look at things around you
+
+00:11:33.440 --> 00:11:37.919
+Caption: as we&#39;ve seen it&#39;s important to observe
+
+00:11:35.760 --> 00:11:39.518
+Caption: different types of strengths and this is
+
+00:11:37.919 --> 00:11:40.958
+Caption: true too when you look at other people
+
+00:11:39.518 --> 00:11:43.039
+Caption: around you in your career not just
+
+00:11:40.958 --> 00:11:46.559
+Caption: yourself you don&#39;t want the people
+
+00:11:43.039 --> 00:11:48.239
+Caption: around you to be exactly the same as you
+
+00:11:46.559 --> 00:11:50.159
+Caption: rather you actually go a lot more when
+
+00:11:48.239 --> 00:11:52.000
+Caption: they&#39;re very different to you
+
+00:11:50.159 --> 00:11:54.719
+Caption: and companies with the best culture tend
+
+00:11:52.000 --> 00:11:56.638
+Caption: to recognize this
+
+00:11:54.719 --> 00:11:58.879
+Caption: so in a game a party is meant to be a
+
+00:11:56.638 --> 00:12:02.320
+Caption: group of players who have complementary
+
+00:11:58.880 --> 00:12:04.559
+Caption: skills and work towards a common goal
+
+00:12:02.320 --> 00:12:06.320
+Caption: you have tanks who are there to protect
+
+00:12:04.559 --> 00:12:08.078
+Caption: the other players and take most of the
+
+00:12:06.320 --> 00:12:10.160
+Caption: hits
+
+00:12:08.078 --> 00:12:11.679
+Caption: you have mages who can deal damage from
+
+00:12:10.159 --> 00:12:13.518
+Caption: far away
+
+00:12:11.679 --> 00:12:15.278
+Caption: and you have supporting classes like
+
+00:12:13.518 --> 00:12:16.638
+Caption: healers who are there to keep everyone
+
+00:12:15.278 --> 00:12:18.719
+Caption: alive
+
+00:12:16.638 --> 00:12:22.638
+Caption: these are their strengths and they each
+
+00:12:18.719 --> 00:12:22.638
+Caption: have different roles to play in the game
+
+00:12:22.719 --> 00:12:25.919
+Caption: now if you had a party made up of purely
+
+00:12:24.719 --> 00:12:28.159
+Caption: tanks
+
+00:12:25.919 --> 00:12:30.000
+Caption: you might tackle some of these um the
+
+00:12:28.159 --> 00:12:31.919
+Caption: easier challenges pretty quickly but
+
+00:12:30.000 --> 00:12:33.200
+Caption: you&#39;ll probably all end up dying later
+
+00:12:31.919 --> 00:12:34.880
+Caption: on
+
+00:12:33.200 --> 00:12:36.958
+Caption: and the same goes for if you had a party
+
+00:12:34.880 --> 00:12:38.880
+Caption: made up of entirely healers
+
+00:12:36.958 --> 00:12:40.320
+Caption: you&#39;d probably never die to be fair but
+
+00:12:38.880 --> 00:12:42.160
+Caption: you probably wouldn&#39;t go anywhere very
+
+00:12:40.320 --> 00:12:44.000
+Caption: quickly
+
+00:12:42.159 --> 00:12:45.679
+Caption: so a party is meant to have people with
+
+00:12:44.000 --> 00:12:47.518
+Caption: different strengths so that you can
+
+00:12:45.679 --> 00:12:50.638
+Caption: cover all the bases and face different
+
+00:12:47.518 --> 00:12:52.320
+Caption: types of challenges together
+
+00:12:50.638 --> 00:12:54.078
+Caption: and then in addition to your party you
+
+00:12:52.320 --> 00:12:55.600
+Caption: can also see people like your managers
+
+00:12:54.078 --> 00:12:57.518
+Caption: as quest givers
+
+00:12:55.599 --> 00:13:01.359
+Caption: they give you direction the goals to
+
+00:12:57.518 --> 00:13:01.359
+Caption: accomplish and resources to do so
+
+00:13:01.440 --> 00:13:05.359
+Caption: but how do those different types of
+
+00:13:02.799 --> 00:13:06.799
+Caption: people change you as a person
+
+00:13:05.359 --> 00:13:09.039
+Caption: because you don&#39;t come out of your
+
+00:13:06.799 --> 00:13:12.000
+Caption: careers with the exact same set of stats
+
+00:13:09.039 --> 00:13:13.199
+Caption: that you started with
+
+00:13:12.000 --> 00:13:14.799
+Caption: how about when you&#39;re tackling some
+
+00:13:13.200 --> 00:13:16.639
+Caption: enemies
+
+00:13:14.799 --> 00:13:18.880
+Caption: so some of your party will be there to
+
+00:13:16.638 --> 00:13:20.719
+Caption: give you support and some will require
+
+00:13:18.880 --> 00:13:22.638
+Caption: your support
+
+00:13:20.719 --> 00:13:24.398
+Caption: each time you provide support to a party
+
+00:13:22.638 --> 00:13:25.759
+Caption: member you are actually strengthening
+
+00:13:24.398 --> 00:13:28.398
+Caption: your own stats
+
+00:13:25.760 --> 00:13:29.760
+Caption: it&#39;s not a one-way relationship
+
+00:13:28.398 --> 00:13:31.119
+Caption: you are increasing your points in
+
+00:13:29.760 --> 00:13:32.398
+Caption: communication
+
+00:13:31.119 --> 00:13:34.559
+Caption: mentoring
+
+00:13:32.398 --> 00:13:37.359
+Caption: and oftentimes your own understanding of
+
+00:13:34.559 --> 00:13:39.119
+Caption: what you&#39;re helping them out with
+
+00:13:37.359 --> 00:13:41.039
+Caption: how many times have you been asked a
+
+00:13:39.119 --> 00:13:43.440
+Caption: question by someone and started to
+
+00:13:41.039 --> 00:13:45.518
+Caption: explain only to realize you didn&#39;t
+
+00:13:43.440 --> 00:13:46.958
+Caption: really know how to explain it that well
+
+00:13:45.518 --> 00:13:48.078
+Caption: sometimes that&#39;s an indication that you
+
+00:13:46.958 --> 00:13:49.838
+Caption: don&#39;t actually know it well enough
+
+00:13:48.078 --> 00:13:51.359
+Caption: yourself
+
+00:13:49.838 --> 00:13:52.638
+Caption: or sometimes you&#39;ll explain something to
+
+00:13:51.359 --> 00:13:54.719
+Caption: others and realize you do actually know
+
+00:13:52.638 --> 00:13:56.638
+Caption: what you&#39;re talking about
+
+00:13:54.719 --> 00:13:58.319
+Caption: sometimes you&#39;ll ask them for assistance
+
+00:13:56.638 --> 00:14:00.880
+Caption: and actually answer your own question in
+
+00:13:58.320 --> 00:14:00.880
+Caption: the process
+
+00:14:01.760 --> 00:14:05.199
+Caption: now because everyone&#39;s different you
+
+00:14:03.278 --> 00:14:07.359
+Caption: also learn to adapt in the ways that you
+
+00:14:05.198 --> 00:14:10.078
+Caption: interact with them that&#39;s a plus one to
+
+00:14:07.359 --> 00:14:11.599
+Caption: your perception and adaptation
+
+00:14:10.078 --> 00:14:13.599
+Caption: this is especially hard when you have to
+
+00:14:11.599 --> 00:14:15.679
+Caption: give someone difficult feedback or
+
+00:14:13.599 --> 00:14:16.799
+Caption: constructive criticism
+
+00:14:15.679 --> 00:14:19.359
+Caption: you&#39;re forced to
+
+00:14:16.799 --> 00:14:21.359
+Caption: improve your diplomacy and your logic
+
+00:14:19.359 --> 00:14:23.760
+Caption: to avoid confrontations and the wrong
+
+00:14:21.359 --> 00:14:25.919
+Caption: message being sent
+
+00:14:23.760 --> 00:14:28.160
+Caption: empathy is also something that i find
+
+00:14:25.919 --> 00:14:29.599
+Caption: greatly grows when you work closely in a
+
+00:14:28.159 --> 00:14:31.359
+Caption: team
+
+00:14:29.599 --> 00:14:33.599
+Caption: the dunning-kruger effect suggests that
+
+00:14:31.359 --> 00:14:34.719
+Caption: the more we know the more we realize we
+
+00:14:33.599 --> 00:14:36.000
+Caption: don&#39;t know
+
+00:14:34.719 --> 00:14:37.039
+Caption: and for some of you it makes you more
+
+00:14:36.000 --> 00:14:38.799
+Caption: humble
+
+00:14:37.039 --> 00:14:40.880
+Caption: but it also gives us empathy for our
+
+00:14:38.799 --> 00:14:42.719
+Caption: fellow party members
+
+00:14:40.880 --> 00:14:45.039
+Caption: we understand the difficult tasks
+
+00:14:42.719 --> 00:14:46.719
+Caption: they&#39;ve been they&#39;ve been given we see
+
+00:14:45.039 --> 00:14:48.880
+Caption: the long hours they work
+
+00:14:46.719 --> 00:14:51.198
+Caption: and understand that maybe their manager
+
+00:14:48.880 --> 00:14:52.799
+Caption: under-appreciates them
+
+00:14:51.198 --> 00:14:54.159
+Caption: when we realize how difficult something
+
+00:14:52.799 --> 00:14:55.679
+Caption: like coding is
+
+00:14:54.159 --> 00:14:56.638
+Caption: we learn to appreciate everyone who does
+
+00:14:55.679 --> 00:15:00.719
+Caption: it too
+
+00:14:56.638 --> 00:15:00.719
+Caption: because what we do it is not easy
+
+00:15:01.359 --> 00:15:05.679
+Caption: but the most important thing i found out
+
+00:15:03.599 --> 00:15:08.559
+Caption: about people around me was that they
+
+00:15:05.679 --> 00:15:10.719
+Caption: taught me who i want to be as a person
+
+00:15:08.559 --> 00:15:12.559
+Caption: you meet people who inspire you people
+
+00:15:10.719 --> 00:15:13.919
+Caption: you admire
+
+00:15:12.559 --> 00:15:16.000
+Caption: and also people who show you who you
+
+00:15:13.919 --> 00:15:18.159
+Caption: don&#39;t want to be
+
+00:15:16.000 --> 00:15:20.078
+Caption: i appreciated friendly and approachable
+
+00:15:18.159 --> 00:15:21.278
+Caption: leaders and wanted to be like them one
+
+00:15:20.078 --> 00:15:22.958
+Caption: day
+
+00:15:21.278 --> 00:15:25.039
+Caption: i saw many team members who were
+
+00:15:22.958 --> 00:15:26.559
+Caption: overlooked in terms of the difficulty
+
+00:15:25.039 --> 00:15:28.479
+Caption: the work they were doing and the effort
+
+00:15:26.559 --> 00:15:31.518
+Caption: they put in and i always try to remind
+
+00:15:28.479 --> 00:15:33.119
+Caption: myself to appreciate them
+
+00:15:31.518 --> 00:15:35.039
+Caption: i realize that things are rarely ever
+
+00:15:33.119 --> 00:15:36.799
+Caption: the fault of a single person and that
+
+00:15:35.039 --> 00:15:38.958
+Caption: usually we&#39;re all trying to accomplish
+
+00:15:36.799 --> 00:15:41.758
+Caption: common core goals just in different ways
+
+00:15:38.958 --> 00:15:44.000
+Caption: not to sabotage one another
+
+00:15:41.758 --> 00:15:45.679
+Caption: i saw toxic and abusive behavior and i
+
+00:15:44.000 --> 00:15:46.719
+Caption: realized that after years of being quite
+
+00:15:45.679 --> 00:15:48.559
+Caption: submissive
+
+00:15:46.719 --> 00:15:51.679
+Caption: that i was no longer able to tolerate
+
+00:15:48.559 --> 00:15:54.239
+Caption: that and was able to stand up for others
+
+00:15:51.679 --> 00:15:56.159
+Caption: i took those interactions with people
+
+00:15:54.239 --> 00:15:57.599
+Caption: far beyond my workplace and into my
+
+00:15:56.159 --> 00:15:59.758
+Caption: everyday life
+
+00:15:57.599 --> 00:16:02.479
+Caption: i realized more about who i wanted to be
+
+00:15:59.758 --> 00:16:02.479
+Caption: as a person
+
+00:16:03.198 --> 00:16:06.479
+Caption: so what about them
+
+00:16:04.880 --> 00:16:08.160
+Caption: as we saw earlier
+
+00:16:06.479 --> 00:16:09.758
+Caption: working with someone is not a one-way
+
+00:16:08.159 --> 00:16:11.838
+Caption: relationship
+
+00:16:09.758 --> 00:16:14.638
+Caption: actions that you take in your career can
+
+00:16:11.838 --> 00:16:16.958
+Caption: change other people&#39;s lives too
+
+00:16:14.638 --> 00:16:18.958
+Caption: you are an important part of their quest
+
+00:16:16.958 --> 00:16:20.398
+Caption: because every party member is a player
+
+00:16:18.958 --> 00:16:22.398
+Caption: in their own journey
+
+00:16:20.398 --> 00:16:23.919
+Caption: each with their own set of stats
+
+00:16:22.398 --> 00:16:25.758
+Caption: fears and goals
+
+00:16:23.919 --> 00:16:28.078
+Caption: we want each one of your party to level
+
+00:16:25.758 --> 00:16:30.159
+Caption: up and accomplish great things and have
+
+00:16:28.078 --> 00:16:31.758
+Caption: fun doing it
+
+00:16:30.159 --> 00:16:33.518
+Caption: so what are some things that you do that
+
+00:16:31.758 --> 00:16:35.359
+Caption: proactively makes other people&#39;s lives
+
+00:16:33.518 --> 00:16:36.638
+Caption: better
+
+00:16:35.359 --> 00:16:39.039
+Caption: something i found to be a little
+
+00:16:36.638 --> 00:16:41.119
+Caption: underrated um is fostering good team
+
+00:16:39.039 --> 00:16:42.799
+Caption: culture
+
+00:16:41.119 --> 00:16:44.479
+Caption: good culture for me is what makes me
+
+00:16:42.799 --> 00:16:46.159
+Caption: want to get out of bed in the morning
+
+00:16:44.479 --> 00:16:48.000
+Caption: and come to work
+
+00:16:46.159 --> 00:16:49.599
+Caption: we all know we need the money
+
+00:16:48.000 --> 00:16:50.958
+Caption: but working with people that you get
+
+00:16:49.599 --> 00:16:53.198
+Caption: along with
+
+00:16:50.958 --> 00:16:55.198
+Caption: makes it far less of a chore
+
+00:16:53.198 --> 00:16:56.799
+Caption: so when you make people laugh you
+
+00:16:55.198 --> 00:16:58.159
+Caption: actually make the work environment more
+
+00:16:56.799 --> 00:17:00.320
+Caption: relaxed
+
+00:16:58.159 --> 00:17:01.758
+Caption: when you organize social events make
+
+00:17:00.320 --> 00:17:03.518
+Caption: friendly banter
+
+00:17:01.758 --> 00:17:04.798
+Caption: welcome new people and make them feel
+
+00:17:03.518 --> 00:17:07.038
+Caption: comfortable
+
+00:17:04.798 --> 00:17:09.599
+Caption: and encourage a collaborative no blame
+
+00:17:07.038 --> 00:17:11.438
+Caption: environment then this is all part of it
+
+00:17:09.599 --> 00:17:14.160
+Caption: so are you someone who builds on the
+
+00:17:11.438 --> 00:17:14.159
+Caption: team&#39;s culture
+
+00:17:14.640 --> 00:17:17.438
+Caption: have you ever gone out of your way to
+
+00:17:15.838 --> 00:17:19.280
+Caption: help someone with the task that they
+
+00:17:17.438 --> 00:17:21.760
+Caption: were stressing about
+
+00:17:19.280 --> 00:17:23.439
+Caption: perhaps they had some tight deadlines or
+
+00:17:21.760 --> 00:17:24.798
+Caption: they were really unsure about how to do
+
+00:17:23.438 --> 00:17:26.479
+Caption: something
+
+00:17:24.798 --> 00:17:28.318
+Caption: i&#39;m sure you had your own tasks to do
+
+00:17:26.479 --> 00:17:30.558
+Caption: but you still took some time out of your
+
+00:17:28.318 --> 00:17:31.678
+Caption: day to help them
+
+00:17:30.558 --> 00:17:33.839
+Caption: and to be honest this can have
+
+00:17:31.678 --> 00:17:36.319
+Caption: ramifications so much deeper than their
+
+00:17:33.839 --> 00:17:38.558
+Caption: deliverables being delivered this has an
+
+00:17:36.319 --> 00:17:40.959
+Caption: effect on their stress levels their
+
+00:17:38.558 --> 00:17:42.399
+Caption: work-life balance and also their mental
+
+00:17:40.959 --> 00:17:44.000
+Caption: well-being
+
+00:17:42.400 --> 00:17:46.160
+Caption: not only have you helped them with their
+
+00:17:44.000 --> 00:17:47.839
+Caption: actual task you have shown them that
+
+00:17:46.160 --> 00:17:49.840
+Caption: they are not alone
+
+00:17:47.839 --> 00:17:51.918
+Caption: they have someone&#39;s support
+
+00:17:49.839 --> 00:17:54.319
+Caption: they are part of your team and you have
+
+00:17:51.918 --> 00:17:54.319
+Caption: their back
+
+00:17:54.880 --> 00:17:58.959
+Caption: every time you mentor someone to upskill
+
+00:17:57.359 --> 00:18:00.479
+Caption: them you are helping to increase their
+
+00:17:58.959 --> 00:18:02.000
+Caption: overall stats
+
+00:18:00.479 --> 00:18:03.760
+Caption: you are sharing some of your past
+
+00:18:02.000 --> 00:18:05.839
+Caption: experience with them and how you
+
+00:18:03.760 --> 00:18:07.520
+Caption: overcame your challenges as well
+
+00:18:05.839 --> 00:18:09.520
+Caption: this is often much faster than if they
+
+00:18:07.520 --> 00:18:11.520
+Caption: went it alone and it&#39;s basically a way
+
+00:18:09.520 --> 00:18:15.200
+Caption: of duplicating your stats and your
+
+00:18:11.520 --> 00:18:17.599
+Caption: experience and passing it over to them
+
+00:18:15.199 --> 00:18:19.119
+Caption: and lastly one of the best things i find
+
+00:18:17.599 --> 00:18:21.359
+Caption: where you can really change people&#39;s
+
+00:18:19.119 --> 00:18:23.199
+Caption: lives is acknowledgement
+
+00:18:21.359 --> 00:18:24.719
+Caption: now this can take the form of a simple
+
+00:18:23.199 --> 00:18:27.038
+Caption: sentence when you&#39;re thanking them for
+
+00:18:24.719 --> 00:18:29.678
+Caption: their work or more public forms of
+
+00:18:27.038 --> 00:18:32.879
+Caption: recognition like shout outs at a team
+
+00:18:29.678 --> 00:18:34.640
+Caption: meeting or your chat channels
+
+00:18:32.880 --> 00:18:35.520
+Caption: acknowledgement can be related to the
+
+00:18:34.640 --> 00:18:38.479
+Caption: work
+
+00:18:35.520 --> 00:18:40.160
+Caption: or their ability or their attitude or
+
+00:18:38.479 --> 00:18:41.599
+Caption: the impact that they&#39;ve had
+
+00:18:40.160 --> 00:18:43.679
+Caption: and this goes a long way to telling
+
+00:18:41.599 --> 00:18:46.319
+Caption: people that you see their effort or
+
+00:18:43.678 --> 00:18:48.798
+Caption: their value and you appreciate it they
+
+00:18:46.319 --> 00:18:50.159
+Caption: are appreciated
+
+00:18:48.798 --> 00:18:52.558
+Caption: and there&#39;s something beautiful to see
+
+00:18:50.160 --> 00:18:54.559
+Caption: in the fact that human beings or pixel
+
+00:18:52.558 --> 00:18:56.159
+Caption: art characters can and do go out of
+
+00:18:54.558 --> 00:18:58.319
+Caption: their way to improve the lives of others
+
+00:18:56.160 --> 00:18:59.919
+Caption: and not for any reward
+
+00:18:58.319 --> 00:19:01.678
+Caption: so always remember
+
+00:18:59.918 --> 00:19:03.279
+Caption: there&#39;s so much more to the people
+
+00:19:01.678 --> 00:19:04.719
+Caption: around you than the work that you&#39;re
+
+00:19:03.280 --> 00:19:06.960
+Caption: doing together
+
+00:19:04.719 --> 00:19:10.678
+Caption: because people change you every day and
+
+00:19:06.959 --> 00:19:10.678
+Caption: you change them too
+
+00:19:11.839 --> 00:19:16.079
+Caption: so a game is often comprised of multiple
+
+00:19:13.918 --> 00:19:18.239
+Caption: levels you can picture these like the
+
+00:19:16.079 --> 00:19:20.399
+Caption: various companies you&#39;ve worked at
+
+00:19:18.239 --> 00:19:22.640
+Caption: the various roles you&#39;ve had projects
+
+00:19:20.400 --> 00:19:25.359
+Caption: you&#39;ve worked on or challenges that you
+
+00:19:22.640 --> 00:19:27.119
+Caption: might not have encountered before
+
+00:19:25.359 --> 00:19:28.558
+Caption: and just like in a game often these
+
+00:19:27.119 --> 00:19:30.558
+Caption: levels will become harder as you
+
+00:19:28.558 --> 00:19:32.239
+Caption: progress through your journey so it can
+
+00:19:30.558 --> 00:19:34.479
+Caption: become hard to realize just how far
+
+00:19:32.239 --> 00:19:36.479
+Caption: you&#39;ve actually come
+
+00:19:34.479 --> 00:19:38.959
+Caption: here&#39;s us at our first level slaying
+
+00:19:36.479 --> 00:19:40.160
+Caption: tiny dragons and yes that dragon has a
+
+00:19:38.959 --> 00:19:42.079
+Caption: nappy
+
+00:19:40.160 --> 00:19:43.760
+Caption: um we start off pretty weak because
+
+00:19:42.079 --> 00:19:46.159
+Caption: we&#39;re pretty new to this so we still
+
+00:19:43.760 --> 00:19:47.599
+Caption: find it a bit challenging and confusing
+
+00:19:46.160 --> 00:19:49.200
+Caption: this is pretty much the equivalent of
+
+00:19:47.599 --> 00:19:52.239
+Caption: learning hello world when you don&#39;t know
+
+00:19:49.199 --> 00:19:54.079
+Caption: a single thing about programming
+
+00:19:52.239 --> 00:19:55.678
+Caption: and as we get further through the levels
+
+00:19:54.079 --> 00:19:57.760
+Caption: now we&#39;re stronger than we were before
+
+00:19:55.678 --> 00:19:59.439
+Caption: when we started but the dragons have
+
+00:19:57.760 --> 00:20:01.119
+Caption: actually gotten bigger too they still
+
+00:19:59.439 --> 00:20:02.879
+Caption: feel difficult to us
+
+00:20:01.119 --> 00:20:04.400
+Caption: this trend continues all the way up
+
+00:20:02.880 --> 00:20:06.079
+Caption: through your journey
+
+00:20:04.400 --> 00:20:08.159
+Caption: every time you get stronger and progress
+
+00:20:06.079 --> 00:20:09.918
+Caption: through the levels dragons get bigger so
+
+00:20:08.159 --> 00:20:11.039
+Caption: it feels just as difficult as when you
+
+00:20:09.918 --> 00:20:13.439
+Caption: start it off
+
+00:20:11.038 --> 00:20:15.359
+Caption: and the same goes for your career
+
+00:20:13.439 --> 00:20:17.359
+Caption: but it makes it hard to realize just how
+
+00:20:15.359 --> 00:20:19.599
+Caption: far you&#39;ve come when you all you know is
+
+00:20:17.359 --> 00:20:21.038
+Caption: that the work still feels hard
+
+00:20:19.599 --> 00:20:22.798
+Caption: your work might be difficult for you
+
+00:20:21.038 --> 00:20:24.798
+Caption: every single day and
+
+00:20:22.798 --> 00:20:27.038
+Caption: especially if you work in software
+
+00:20:24.798 --> 00:20:28.479
+Caption: development or technology not only is
+
+00:20:27.038 --> 00:20:29.918
+Caption: the work changing every day but the
+
+00:20:28.479 --> 00:20:31.439
+Caption: problems are difficult they&#39;re not
+
+00:20:29.918 --> 00:20:33.439
+Caption: routine
+
+00:20:31.439 --> 00:20:35.199
+Caption: but the dragons must get bigger for you
+
+00:20:33.439 --> 00:20:37.199
+Caption: to get stronger
+
+00:20:35.199 --> 00:20:38.880
+Caption: if you consider if you continually gave
+
+00:20:37.199 --> 00:20:41.119
+Caption: one plus one equations to high school
+
+00:20:38.880 --> 00:20:43.199
+Caption: students they wouldn&#39;t grow
+
+00:20:41.119 --> 00:20:45.359
+Caption: the problems need to get bigger with
+
+00:20:43.199 --> 00:20:47.678
+Caption: their skills
+
+00:20:45.359 --> 00:20:49.520
+Caption: so how can we then appreciate appreciate
+
+00:20:47.678 --> 00:20:51.439
+Caption: how far we&#39;ve actually come and what
+
+00:20:49.520 --> 00:20:53.359
+Caption: we&#39;ve accomplished
+
+00:20:51.439 --> 00:20:54.959
+Caption: one of the most satisfying ways i found
+
+00:20:53.359 --> 00:20:57.199
+Caption: was to look back on old projects that
+
+00:20:54.959 --> 00:20:59.038
+Caption: i&#39;d worked on and delivered even things
+
+00:20:57.199 --> 00:21:01.599
+Caption: i made in university
+
+00:20:59.038 --> 00:21:03.599
+Caption: look at the deliverables themselves your
+
+00:21:01.599 --> 00:21:05.119
+Caption: notebooks your code
+
+00:21:03.599 --> 00:21:06.959
+Caption: and you might notice that these old
+
+00:21:05.119 --> 00:21:09.520
+Caption: projects might look amateurish to you
+
+00:21:06.959 --> 00:21:11.839
+Caption: now you could do them much better and we
+
+00:21:09.520 --> 00:21:14.320
+Caption: all know the good old who wrote this oh
+
+00:21:11.839 --> 00:21:15.760
+Caption: it was me six months ago
+
+00:21:14.319 --> 00:21:17.439
+Caption: sometimes you&#39;ll actually look back on
+
+00:21:15.760 --> 00:21:18.959
+Caption: old projects and still be proud of them
+
+00:21:17.439 --> 00:21:20.719
+Caption: because you still think they were good
+
+00:21:18.959 --> 00:21:22.798
+Caption: work
+
+00:21:20.719 --> 00:21:25.119
+Caption: and another method is to keep a log of
+
+00:21:22.798 --> 00:21:27.839
+Caption: all the things you&#39;ve learned this month
+
+00:21:25.119 --> 00:21:31.678
+Caption: or this year that you couldn&#39;t do before
+
+00:21:27.839 --> 00:21:33.839
+Caption: and you can now comfortably do
+
+00:21:31.678 --> 00:21:35.599
+Caption: and for all of these levels remember the
+
+00:21:33.839 --> 00:21:37.038
+Caption: challenges that you overcame and what
+
+00:21:35.599 --> 00:21:39.199
+Caption: you gained
+
+00:21:37.038 --> 00:21:41.678
+Caption: was a brand new type of problem which
+
+00:21:39.199 --> 00:21:43.839
+Caption: you had to be creative with
+
+00:21:41.678 --> 00:21:46.959
+Caption: did you deal with difficult customers
+
+00:21:43.839 --> 00:21:49.599
+Caption: and needed to practice patience
+
+00:21:46.959 --> 00:21:51.439
+Caption: did you gain determination points for
+
+00:21:49.599 --> 00:21:52.959
+Caption: pushing through even though it didn&#39;t
+
+00:21:51.439 --> 00:21:55.199
+Caption: get any easier either because you knew
+
+00:21:52.959 --> 00:21:58.000
+Caption: you had to or because you thought it was
+
+00:21:55.199 --> 00:21:59.519
+Caption: worth the effort and the difficulty
+
+00:21:58.000 --> 00:22:01.199
+Caption: or was the level testing your
+
+00:21:59.520 --> 00:22:02.959
+Caption: self-respect points
+
+00:22:01.199 --> 00:22:05.519
+Caption: having to say no to unreasonable
+
+00:22:02.959 --> 00:22:07.038
+Caption: requests having difficult conversations
+
+00:22:05.520 --> 00:22:09.039
+Caption: or even just knowing when it was right
+
+00:22:07.038 --> 00:22:10.558
+Caption: to quit
+
+00:22:09.038 --> 00:22:12.158
+Caption: sometimes you&#39;ll learn that these levels
+
+00:22:10.558 --> 00:22:14.158
+Caption: were actually less about the enemies to
+
+00:22:12.159 --> 00:22:16.640
+Caption: defeat and more about how you use
+
+00:22:14.159 --> 00:22:18.640
+Caption: teamwork to beat them
+
+00:22:16.640 --> 00:22:20.159
+Caption: when i was preparing this presentation i
+
+00:22:18.640 --> 00:22:21.919
+Caption: was struggling to put my thoughts into
+
+00:22:20.159 --> 00:22:24.640
+Caption: meaningful words and i was stubborn
+
+00:22:21.918 --> 00:22:26.399
+Caption: about getting help for a good few days
+
+00:22:24.640 --> 00:22:28.239
+Caption: when i started getting people&#39;s feedback
+
+00:22:26.400 --> 00:22:30.000
+Caption: not only were they very very useful to
+
+00:22:28.239 --> 00:22:32.000
+Caption: me but they also made me feel less
+
+00:22:30.000 --> 00:22:34.880
+Caption: pressure because i felt supported and
+
+00:22:32.000 --> 00:22:34.880
+Caption: people had my back
+
+00:22:35.280 --> 00:22:38.400
+Caption: maybe you&#39;ve had a project that got you
+
+00:22:36.959 --> 00:22:40.479
+Caption: all excited with the tasks and you
+
+00:22:38.400 --> 00:22:42.640
+Caption: charged full steam ahead without ever
+
+00:22:40.479 --> 00:22:44.558
+Caption: getting the end users feedback only to
+
+00:22:42.640 --> 00:22:46.159
+Caption: discover at the end that it wasn&#39;t what
+
+00:22:44.558 --> 00:22:48.079
+Caption: they wanted or you didn&#39;t really have
+
+00:22:46.159 --> 00:22:50.559
+Caption: their buy-in this teaches you the
+
+00:22:48.079 --> 00:22:52.399
+Caption: importance of keeping people involved
+
+00:22:50.558 --> 00:22:54.000
+Caption: understanding the main goal and also
+
+00:22:52.400 --> 00:22:55.280
+Caption: understanding what different people&#39;s
+
+00:22:54.000 --> 00:22:56.880
+Caption: perspectives are
+
+00:22:55.280 --> 00:23:00.479
+Caption: are you really helping them
+
+00:22:56.880 --> 00:23:02.159
+Caption: do you really understand what they need
+
+00:23:00.479 --> 00:23:03.280
+Caption: and these are not questions exclusive to
+
+00:23:02.159 --> 00:23:05.600
+Caption: work
+
+00:23:03.280 --> 00:23:09.440
+Caption: they apply to many things in our society
+
+00:23:05.599 --> 00:23:11.199
+Caption: and our values and our relationships
+
+00:23:09.439 --> 00:23:13.599
+Caption: how we respond to challenges that we
+
+00:23:11.199 --> 00:23:16.000
+Caption: face and what we learn from the end at
+
+00:23:13.599 --> 00:23:17.918
+Caption: the end in reflection can sometimes be
+
+00:23:16.000 --> 00:23:19.918
+Caption: far greater than the prize we get at the
+
+00:23:17.918 --> 00:23:22.158
+Caption: end of their level or what we manage to
+
+00:23:19.918 --> 00:23:24.319
+Caption: achieve
+
+00:23:22.159 --> 00:23:26.159
+Caption: now i want to emphasize here there are
+
+00:23:24.319 --> 00:23:28.479
+Caption: different ways that you can play a game
+
+00:23:26.159 --> 00:23:30.720
+Caption: and progress through the levels
+
+00:23:28.479 --> 00:23:33.119
+Caption: so some players will pick a randomized
+
+00:23:30.719 --> 00:23:35.520
+Caption: character go through the levels really
+
+00:23:33.119 --> 00:23:38.000
+Caption: quickly and beat the main storyline
+
+00:23:35.520 --> 00:23:40.000
+Caption: within a day
+
+00:23:38.000 --> 00:23:42.159
+Caption: some players are thorough and they have
+
+00:23:40.000 --> 00:23:44.400
+Caption: to complete every single side quest
+
+00:23:42.159 --> 00:23:46.880
+Caption: available heck some players even watch
+
+00:23:44.400 --> 00:23:49.839
+Caption: the full cut scenes without skipping
+
+00:23:46.880 --> 00:23:52.400
+Caption: for me i play games a little differently
+
+00:23:49.839 --> 00:23:53.839
+Caption: i enjoy games with good mood story and
+
+00:23:52.400 --> 00:23:56.559
+Caption: aesthetics
+
+00:23:53.839 --> 00:23:58.798
+Caption: i take my time which is hours actually
+
+00:23:56.558 --> 00:24:00.959
+Caption: to create my character and customize
+
+00:23:58.798 --> 00:24:02.719
+Caption: every hair on their beard
+
+00:24:00.959 --> 00:24:04.798
+Caption: choose a nice armor set that compliments
+
+00:24:02.719 --> 00:24:06.400
+Caption: my sword exploring the maps taking
+
+00:24:04.798 --> 00:24:08.399
+Caption: screenshots and building up my
+
+00:24:06.400 --> 00:24:10.719
+Caption: environment as if i live in it
+
+00:24:08.400 --> 00:24:12.960
+Caption: i am not one of those fast players
+
+00:24:10.719 --> 00:24:14.558
+Caption: i take my time
+
+00:24:12.959 --> 00:24:16.719
+Caption: and so there are many different ways
+
+00:24:14.558 --> 00:24:19.199
+Caption: that people enjoy their game and the
+
+00:24:16.719 --> 00:24:21.359
+Caption: same goes for your career
+
+00:24:19.199 --> 00:24:22.798
+Caption: how you choose to play your career out
+
+00:24:21.359 --> 00:24:25.038
+Caption: can be totally different to someone
+
+00:24:22.798 --> 00:24:26.319
+Caption: else&#39;s
+
+00:24:25.038 --> 00:24:28.879
+Caption: there are different ways to play the
+
+00:24:26.319 --> 00:24:33.399
+Caption: game and each way can be just as
+
+00:24:28.880 --> 00:24:33.400
+Caption: valuable and enjoyable as another
+
+00:24:33.520 --> 00:24:37.200
+Caption: so at the end of your career journey
+
+00:24:35.599 --> 00:24:38.880
+Caption: you&#39;ll hopefully come out with the
+
+00:24:37.199 --> 00:24:41.760
+Caption: following things
+
+00:24:38.880 --> 00:24:43.599
+Caption: so loot or money
+
+00:24:41.760 --> 00:24:46.558
+Caption: a number of dragons slayed which is your
+
+00:24:43.599 --> 00:24:49.439
+Caption: projects and your accomplishments
+
+00:24:46.558 --> 00:24:51.839
+Caption: higher status in the world
+
+00:24:49.439 --> 00:24:54.000
+Caption: and new skills
+
+00:24:51.839 --> 00:24:57.278
+Caption: but it&#39;s important to once again reflect
+
+00:24:54.000 --> 00:24:58.798
+Caption: on something that we often forget
+
+00:24:57.279 --> 00:25:00.960
+Caption: you
+
+00:24:58.798 --> 00:25:02.079
+Caption: what did your career give to you as a
+
+00:25:00.959 --> 00:25:04.319
+Caption: person
+
+00:25:02.079 --> 00:25:07.038
+Caption: and what did you give to your career
+
+00:25:04.319 --> 00:25:08.798
+Caption: beyond magic spells and your code and
+
+00:25:07.038 --> 00:25:10.239
+Caption: your deliverables
+
+00:25:08.798 --> 00:25:13.519
+Caption: how have you affected the lives of
+
+00:25:10.239 --> 00:25:15.760
+Caption: others around you on a personal level
+
+00:25:13.520 --> 00:25:17.760
+Caption: and i lie a bit here this actually isn&#39;t
+
+00:25:15.760 --> 00:25:20.558
+Caption: the end this is something that you can
+
+00:25:17.760 --> 00:25:22.640
+Caption: reflect on throughout your whole career
+
+00:25:20.558 --> 00:25:24.158
+Caption: because careers can end and start anew
+
+00:25:22.640 --> 00:25:25.919
+Caption: and when one journey ends another can
+
+00:25:24.159 --> 00:25:27.440
+Caption: start so that&#39;s why it&#39;s important to
+
+00:25:25.918 --> 00:25:29.038
+Caption: get something out of it that will carry
+
+00:25:27.439 --> 00:25:30.959
+Caption: on
+
+00:25:29.038 --> 00:25:32.319
+Caption: it&#39;s important to reflect on you every
+
+00:25:30.959 --> 00:25:34.399
+Caption: now and then because that&#39;s something
+
+00:25:32.319 --> 00:25:36.319
+Caption: that almost more than these other things
+
+00:25:34.400 --> 00:25:38.880
+Caption: mentioned you can apply to your personal
+
+00:25:36.319 --> 00:25:41.199
+Caption: life outside your career
+
+00:25:38.880 --> 00:25:43.039
+Caption: you use your stats with confidence in
+
+00:25:41.199 --> 00:25:45.519
+Caption: your relationships
+
+00:25:43.038 --> 00:25:47.678
+Caption: use your stats in problem solving when
+
+00:25:45.520 --> 00:25:49.599
+Caption: your car breaks down
+
+00:25:47.678 --> 00:25:51.599
+Caption: use your stats in communication when you
+
+00:25:49.599 --> 00:25:53.119
+Caption: teach your kids
+
+00:25:51.599 --> 00:25:55.359
+Caption: and the way that you treat others in the
+
+00:25:53.119 --> 00:25:58.558
+Caption: workplace has an effect on who they
+
+00:25:55.359 --> 00:26:00.640
+Caption: become as people too
+
+00:25:58.558 --> 00:26:02.959
+Caption: you learn to appreciate differences in
+
+00:26:00.640 --> 00:26:05.359
+Caption: people that you work with and start to
+
+00:26:02.959 --> 00:26:07.439
+Caption: appreciate differences in people in your
+
+00:26:05.359 --> 00:26:09.359
+Caption: everyday life
+
+00:26:07.439 --> 00:26:11.759
+Caption: you learn to appreciate your real and
+
+00:26:09.359 --> 00:26:13.760
+Caption: many strengths in your career and you
+
+00:26:11.760 --> 00:26:15.760
+Caption: start to appreciate just how much you
+
+00:26:13.760 --> 00:26:17.440
+Caption: have to offer this world
+
+00:26:15.760 --> 00:26:19.520
+Caption: your journey is unique
+
+00:26:17.439 --> 00:26:20.959
+Caption: as are you
+
+00:26:19.520 --> 00:26:23.839
+Caption: now tell me
+
+00:26:20.959 --> 00:26:26.839
+Caption: how has your career gone
+
+00:26:23.839 --> 00:26:26.839
+Caption: you
+
+00:26:27.680 --> 00:26:30.979
+Caption: [Applause]
+

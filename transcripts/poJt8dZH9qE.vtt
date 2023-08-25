@@ -1,0 +1,2681 @@
+WEBVTT
+
+00:00:04.960 --> 00:00:08.789
+Caption: [Applause]
+
+00:00:09.619 --> 00:00:17.388
+Caption: thanks Alex so easy to do this get a sec
+
+00:00:21.438 --> 00:00:25.618
+Caption: cool Sertoma talk is forgetting your
+
+00:00:24.209 --> 00:00:29.429
+Caption: passwords with the web authentication
+
+00:00:25.618 --> 00:00:30.899
+Caption: API there&#39;s my twitter handle and hash
+
+00:00:29.430 --> 00:00:33.930
+Caption: tags and all that kind of thing because
+
+00:00:30.899 --> 00:00:36.139
+Caption: that&#39;s what we do these days who has
+
+00:00:33.930 --> 00:00:39.150
+Caption: heard of the web authentication API
+
+00:00:36.139 --> 00:00:43.229
+Caption: that&#39;s a lot of people I thought who has
+
+00:00:39.150 --> 00:00:45.870
+Caption: used it too all right
+
+00:00:43.229 --> 00:00:47.729
+Caption: and have you used it in production you
+
+00:00:45.869 --> 00:00:54.689
+Caption: have Wow okay you maybe should be doing
+
+00:00:47.729 --> 00:00:56.790
+Caption: this talk because I haven&#39;t yeah so who
+
+00:00:54.689 --> 00:01:00.058
+Caption: had a chance to look at that demo while
+
+00:00:56.790 --> 00:01:02.239
+Caption: you&#39;re waiting filtering in and that&#39;s
+
+00:01:00.058 --> 00:01:06.239
+Caption: what five-ten did it work
+
+00:01:02.238 --> 00:01:08.430
+Caption: great do you have iPhones great ok we&#39;ll
+
+00:01:06.239 --> 00:01:10.589
+Caption: talk about that but we couldn&#39;t be here
+
+00:01:08.430 --> 00:01:11.849
+Caption: today without our sponsors there are a
+
+00:01:10.589 --> 00:01:13.978
+Caption: whole bunch of them they all give money
+
+00:01:11.849 --> 00:01:15.539
+Caption: and without them this conference
+
+00:01:13.978 --> 00:01:18.298
+Caption: wouldn&#39;t happen or if it didn&#39;t it cost
+
+00:01:15.539 --> 00:01:20.369
+Caption: you a lot more than $60 so thanks to
+
+00:01:18.299 --> 00:01:22.829
+Caption: them and the volunteers and the other
+
+00:01:20.369 --> 00:01:24.659
+Caption: speakers and committee members lots of
+
+00:01:22.829 --> 00:01:26.909
+Caption: people go into this day and it&#39;s a big
+
+00:01:24.658 --> 00:01:29.368
+Caption: one so what we&#39;re going to talk about
+
+00:01:26.908 --> 00:01:31.139
+Caption: today is I guess we&#39;re gonna set a
+
+00:01:29.369 --> 00:01:32.340
+Caption: little bit of a make sure everyone&#39;s on
+
+00:01:31.139 --> 00:01:35.639
+Caption: the same page we&#39;ll talk about what
+
+00:01:32.339 --> 00:01:36.839
+Caption: authentication is why passwords are bad
+
+00:01:35.639 --> 00:01:37.189
+Caption: and why would you try and get rid of
+
+00:01:36.839 --> 00:01:39.868
+Caption: them
+
+00:01:37.189 --> 00:01:41.490
+Caption: the web authentication if you I am how
+
+00:01:39.869 --> 00:01:43.499
+Caption: that helps us get rid of passwords and
+
+00:01:41.489 --> 00:01:45.419
+Caption: then talk about what that means in terms
+
+00:01:43.499 --> 00:01:48.959
+Caption: of what we&#39;re gonna build for our users
+
+00:01:45.419 --> 00:01:52.618
+Caption: so first of all authentication is about
+
+00:01:48.959 --> 00:01:54.839
+Caption: proving your identity that can happen
+
+00:01:52.619 --> 00:01:56.159
+Caption: through three ways at the moment we&#39;ve
+
+00:01:54.839 --> 00:01:58.438
+Caption: got something you know which is usually
+
+00:01:56.158 --> 00:01:59.998
+Caption: a password or PIN number something you
+
+00:01:58.439 --> 00:02:03.479
+Caption: have like your phone you get a text
+
+00:01:59.999 --> 00:02:05.158
+Caption: message or something you which would be
+
+00:02:03.478 --> 00:02:07.739
+Caption: your fingerprint or your facial
+
+00:02:05.158 --> 00:02:09.300
+Caption: recognition this kind of thing and the
+
+00:02:07.739 --> 00:02:11.940
+Caption: way authentication works is we&#39;ll start
+
+00:02:09.300 --> 00:02:14.130
+Caption: off with a gibe like Dave and Dave wants
+
+00:02:11.940 --> 00:02:16.020
+Caption: to get into a club so he meets the
+
+00:02:14.130 --> 00:02:17.610
+Caption: bouncer when he gets to the front of
+
+00:02:16.020 --> 00:02:22.348
+Caption: line the bouncer says hold on a second
+
+00:02:17.610 --> 00:02:23.369
+Caption: mate dad guys here&#39;s my ID the bouncer
+
+00:02:22.348 --> 00:02:24.899
+Caption: has a look at that
+
+00:02:23.369 --> 00:02:27.000
+Caption: looks at a few things on it and says
+
+00:02:24.899 --> 00:02:30.839
+Caption: alright you&#39;re good to go that&#39;s I&#39;ve
+
+00:02:27.000 --> 00:02:32.550
+Caption: verified who you are that&#39;s not quite or
+
+00:02:30.839 --> 00:02:35.009
+Caption: fit authorization that&#39;s the
+
+00:02:32.550 --> 00:02:36.660
+Caption: authentication part of it so at this
+
+00:02:35.009 --> 00:02:37.500
+Caption: point he knows that you are who it says
+
+00:02:36.660 --> 00:02:38.880
+Caption: on a card
+
+00:02:37.500 --> 00:02:40.289
+Caption: but he doesn&#39;t know if you&#39;re allowed
+
+00:02:38.880 --> 00:02:42.000
+Caption: and that&#39;s going to be decided on things
+
+00:02:40.289 --> 00:02:44.279
+Caption: like your age whether you&#39;re drunk
+
+00:02:42.000 --> 00:02:47.309
+Caption: already if you&#39;re on a list or if you&#39;re
+
+00:02:44.279 --> 00:02:50.190
+Caption: wearing the right shoes and the
+
+00:02:47.309 --> 00:02:53.580
+Caption: important part of this exchange is the
+
+00:02:50.190 --> 00:02:55.290
+Caption: ID and the IDE has a few things on it
+
+00:02:53.580 --> 00:02:57.720
+Caption: that help us know that it&#39;s only
+
+00:02:55.289 --> 00:02:59.250
+Caption: improves who you are it&#39;s issued by for
+
+00:02:57.720 --> 00:03:00.720
+Caption: example the Department of Transport
+
+00:02:59.250 --> 00:03:03.000
+Caption: it&#39;s got Holograms and that kind of
+
+00:03:00.720 --> 00:03:04.199
+Caption: thing and it&#39;s got a picture of you and
+
+00:03:03.000 --> 00:03:05.518
+Caption: we&#39;re looking at that picture and
+
+00:03:04.199 --> 00:03:07.949
+Caption: knowing that you trust the document
+
+00:03:05.518 --> 00:03:10.559
+Caption: itself you can trust that the person is
+
+00:03:07.949 --> 00:03:11.910
+Caption: you let&#39;s say they are that&#39;s part of
+
+00:03:10.559 --> 00:03:13.619
+Caption: the same thing we have with passwords
+
+00:03:11.910 --> 00:03:16.018
+Caption: where it&#39;s something that I know and I
+
+00:03:13.619 --> 00:03:16.949
+Caption: give to you and you can validate that
+
+00:03:16.018 --> 00:03:19.190
+Caption: that&#39;s right password
+
+00:03:16.949 --> 00:03:22.379
+Caption: oh isn&#39;t if you&#39;re a server on the other
+
+00:03:19.190 --> 00:03:25.229
+Caption: let&#39;s say yeah but passwords are really
+
+00:03:22.380 --> 00:03:27.870
+Caption: bad for people to actually use you know
+
+00:03:25.229 --> 00:03:29.729
+Caption: we&#39;re not good at creating passwords the
+
+00:03:27.869 --> 00:03:34.018
+Caption: top ten passwords that are most
+
+00:03:29.729 --> 00:03:35.970
+Caption: frequently used are all crap and I mean
+
+00:03:34.018 --> 00:03:37.589
+Caption: one two three four five six you you
+
+00:03:35.970 --> 00:03:41.609
+Caption: wouldn&#39;t have a hard time guessing that
+
+00:03:37.589 --> 00:03:43.979
+Caption: oh I suppose password I don&#39;t know the
+
+00:03:41.608 --> 00:03:47.518
+Caption: one that I&#39;m not sure about on there is
+
+00:03:43.979 --> 00:03:49.979
+Caption: dragon number ten but between those ten
+
+00:03:47.518 --> 00:03:51.389
+Caption: passwords that covers like one point six
+
+00:03:49.979 --> 00:03:52.708
+Caption: percent of accounts which sounds like a
+
+00:03:51.389 --> 00:03:54.328
+Caption: small number but if you think of
+
+00:03:52.708 --> 00:03:57.089
+Caption: Facebook with three or four billion
+
+00:03:54.328 --> 00:03:59.970
+Caption: accounts one point six percent is many
+
+00:03:57.089 --> 00:04:01.798
+Caption: millions so you know you don&#39;t need to
+
+00:03:59.970 --> 00:04:05.518
+Caption: try a lot of passwords to get into a lot
+
+00:04:01.798 --> 00:04:06.539
+Caption: of accounts but you go yeah passwords on
+
+00:04:05.518 --> 00:04:08.940
+Caption: that list and that&#39;s a really bad
+
+00:04:06.539 --> 00:04:10.979
+Caption: posture I know that you know I know that
+
+00:04:08.940 --> 00:04:13.319
+Caption: I need to have a capital letter or I
+
+00:04:10.979 --> 00:04:14.849
+Caption: need to put a number on the end or maybe
+
+00:04:13.319 --> 00:04:16.769
+Caption: I replace one of the numbers do a symbol
+
+00:04:14.850 --> 00:04:20.130
+Caption: and now I&#39;ve got a good password it&#39;s
+
+00:04:16.769 --> 00:04:22.229
+Caption: all the complexity rules so those don&#39;t
+
+00:04:20.130 --> 00:04:25.679
+Caption: really help either because you end up
+
+00:04:22.229 --> 00:04:27.360
+Caption: with passwords like this and then you
+
+00:04:25.679 --> 00:04:28.259
+Caption: have things like forced password changes
+
+00:04:27.359 --> 00:04:29.849
+Caption: you know let&#39;s say you&#39;re in a corporate
+
+00:04:28.260 --> 00:04:31.619
+Caption: environment a lot of the time you&#39;ll
+
+00:04:29.850 --> 00:04:33.869
+Caption: need to change your password every three
+
+00:04:31.619 --> 00:04:35.779
+Caption: months so what do you do then you change
+
+00:04:33.869 --> 00:04:38.630
+Caption: that number from a one to a two
+
+00:04:35.779 --> 00:04:40.130
+Caption: and every three months you know you&#39;ve
+
+00:04:38.630 --> 00:04:42.380
+Caption: been with the company you divide that
+
+00:04:40.130 --> 00:04:47.869
+Caption: number by four and find out how long you
+
+00:04:42.380 --> 00:04:49.820
+Caption: been there we&#39;re not very good at
+
+00:04:47.869 --> 00:04:51.320
+Caption: remembering passwords either you know we
+
+00:04:49.820 --> 00:04:54.559
+Caption: all know that we need to make different
+
+00:04:51.320 --> 00:04:57.200
+Caption: passwords for every count but I reuse
+
+00:04:54.559 --> 00:05:01.790
+Caption: passwords all the time and 60% of people
+
+00:04:57.200 --> 00:05:03.680
+Caption: will admit to it also and password
+
+00:05:01.790 --> 00:05:05.809
+Caption: resets if you do forget they&#39;re really
+
+00:05:03.679 --> 00:05:07.339
+Caption: slow they&#39;re expensive you know kind of
+
+00:05:05.809 --> 00:05:08.959
+Caption: making having to call a help desk or sit
+
+00:05:07.339 --> 00:05:11.980
+Caption: on a help desk and ask for a password
+
+00:05:08.959 --> 00:05:14.839
+Caption: reset all day every day
+
+00:05:11.980 --> 00:05:16.339
+Caption: so passwords are bad for everyone really
+
+00:05:14.839 --> 00:05:18.470
+Caption: they&#39;re involved in things like data
+
+00:05:16.339 --> 00:05:21.139
+Caption: breaches where your password gets leaked
+
+00:05:18.470 --> 00:05:22.459
+Caption: anyway we reuse that password so if I
+
+00:05:21.140 --> 00:05:23.080
+Caption: get on one site they can use it
+
+00:05:22.459 --> 00:05:25.429
+Caption: everywhere
+
+00:05:23.079 --> 00:05:26.449
+Caption: we&#39;ll use common passwords even if
+
+00:05:25.429 --> 00:05:27.889
+Caption: you&#39;re not in a breach there&#39;s a
+
+00:05:26.450 --> 00:05:29.690
+Caption: reasonable chance you can get in and
+
+00:05:27.890 --> 00:05:30.770
+Caption: then you have things like phishing
+
+00:05:29.690 --> 00:05:33.350
+Caption: attacks where I can just get your
+
+00:05:30.769 --> 00:05:35.539
+Caption: password like that and all of those
+
+00:05:33.350 --> 00:05:36.950
+Caption: problems come down to the password being
+
+00:05:35.540 --> 00:05:39.770
+Caption: a shared secret something that both
+
+00:05:36.950 --> 00:05:42.279
+Caption: parties need to know the person joined a
+
+00:05:39.769 --> 00:05:44.209
+Caption: login for example and the server itself
+
+00:05:42.279 --> 00:05:47.059
+Caption: so do you think you can trust all the
+
+00:05:44.209 --> 00:05:49.579
+Caption: people with your secrets I don&#39;t but who
+
+00:05:47.059 --> 00:05:51.429
+Caption: in the room wants to share a secret no
+
+00:05:49.579 --> 00:05:55.279
+Caption: okay
+
+00:05:51.429 --> 00:05:57.229
+Caption: 81% of all hacking related breaches come
+
+00:05:55.279 --> 00:05:58.970
+Caption: from stolen passwords so that kind of
+
+00:05:57.229 --> 00:06:01.059
+Caption: reinforces that maybe you can&#39;t trust
+
+00:05:58.970 --> 00:06:03.079
+Caption: people with things that are secret and
+
+00:06:01.059 --> 00:06:04.880
+Caption: then you get things like have I been
+
+00:06:03.079 --> 00:06:08.359
+Caption: client and I&#39;ve ended up on here a few
+
+00:06:04.880 --> 00:06:11.600
+Caption: times who else wants to admit to it most
+
+00:06:08.359 --> 00:06:14.750
+Caption: of the room so you know clearly we don&#39;t
+
+00:06:11.600 --> 00:06:16.279
+Caption: we&#39;re not doing it all right and the way
+
+00:06:14.750 --> 00:06:19.399
+Caption: we have traditionally dealt with
+
+00:06:16.279 --> 00:06:21.139
+Caption: passwords as developers will go yeah I&#39;m
+
+00:06:19.399 --> 00:06:22.729
+Caption: not sure I know how to do it so I&#39;ll
+
+00:06:21.140 --> 00:06:24.350
+Caption: just implement social login let&#39;s
+
+00:06:22.729 --> 00:06:28.279
+Caption: Facebook store passwords yeah they know
+
+00:06:24.350 --> 00:06:30.919
+Caption: what they&#39;re doing but do they Facebook
+
+00:06:28.279 --> 00:06:32.720
+Caption: github twitter Microsoft Google they&#39;ve
+
+00:06:30.919 --> 00:06:35.000
+Caption: all had data breaches where passwords
+
+00:06:32.720 --> 00:06:36.769
+Caption: have been exposed in plaintext often
+
+00:06:35.000 --> 00:06:40.130
+Caption: that&#39;s when they&#39;re logging them in web
+
+00:06:36.769 --> 00:06:42.908
+Caption: servers and that kind of thing so social
+
+00:06:40.130 --> 00:06:45.800
+Caption: logins kind of out then well what about
+
+00:06:42.908 --> 00:06:48.169
+Caption: yeah multi-factor authentication I go I
+
+00:06:45.799 --> 00:06:48.819
+Caption: get an SMS every time I need to log into
+
+00:06:48.169 --> 00:06:51.610
+Caption: a new device
+
+00:06:48.820 --> 00:06:53.640
+Caption: and that&#39;s okay it&#39;s better than nothing
+
+00:06:51.609 --> 00:06:56.619
+Caption: certainly but it&#39;s not perfect either
+
+00:06:53.640 --> 00:06:58.720
+Caption: this guy Sean Koontz lost a hundred
+
+00:06:56.619 --> 00:07:00.250
+Caption: grand in Bitcoin because someone stole
+
+00:06:58.720 --> 00:07:04.660
+Caption: his password it&#39;s surprisingly easy to
+
+00:07:00.250 --> 00:07:06.609
+Caption: do that I know I work for Telstra so
+
+00:07:04.660 --> 00:07:08.709
+Caption: multi-factor authentication isn&#39;t great
+
+00:07:06.609 --> 00:07:11.289
+Caption: either what if we didn&#39;t install
+
+00:07:08.709 --> 00:07:14.319
+Caption: passwords at all that&#39;s where we end up
+
+00:07:11.290 --> 00:07:16.420
+Caption: with the web authentication API the web
+
+00:07:14.320 --> 00:07:19.000
+Caption: authentication API enables password list
+
+00:07:16.420 --> 00:07:21.370
+Caption: authentication all simplifies using
+
+00:07:19.000 --> 00:07:23.049
+Caption: multi-factor authentication and it does
+
+00:07:21.369 --> 00:07:25.329
+Caption: this by delegating the responsibility
+
+00:07:23.049 --> 00:07:26.889
+Caption: for authenticating a user to their own
+
+00:07:25.329 --> 00:07:29.019
+Caption: device you don&#39;t need to do that
+
+00:07:26.890 --> 00:07:30.550
+Caption: yourself you just get an assertion that
+
+00:07:29.019 --> 00:07:33.339
+Caption: that person is who they say they are
+
+00:07:30.549 --> 00:07:34.779
+Caption: from a device and what that means is if
+
+00:07:33.339 --> 00:07:36.089
+Caption: we never have to send a secret over the
+
+00:07:34.779 --> 00:07:39.429
+Caption: Internet
+
+00:07:36.089 --> 00:07:44.290
+Caption: so how do you use it well you can use
+
+00:07:39.429 --> 00:07:47.619
+Caption: one of these a Yubikey or similar please
+
+00:07:44.290 --> 00:07:49.690
+Caption: go on but I did this offender the other
+
+00:07:47.619 --> 00:07:50.949
+Caption: day and every one more people had their
+
+00:07:49.690 --> 00:07:54.690
+Caption: hands up than I thought it there as well
+
+00:07:50.950 --> 00:08:00.940
+Caption: so that was I don&#39;t know two dozen or so
+
+00:07:54.690 --> 00:08:03.940
+Caption: whose mom has one okay so so it&#39;s a bit
+
+00:08:00.940 --> 00:08:05.739
+Caption: of a challenge there what you call this
+
+00:08:03.940 --> 00:08:07.119
+Caption: is an external Authenticator or a
+
+00:08:05.739 --> 00:08:10.179
+Caption: cross-platform or a roaming
+
+00:08:07.119 --> 00:08:12.790
+Caption: Authenticator how about a fingerprint or
+
+00:08:10.179 --> 00:08:13.750
+Caption: I guess to be more specific a device
+
+00:08:12.790 --> 00:08:18.430
+Caption: that lets you login with your
+
+00:08:13.750 --> 00:08:21.940
+Caption: fingerprint like a phone a lot of people
+
+00:08:18.429 --> 00:08:24.309
+Caption: whose mom has one of those I&#39;m nice a
+
+00:08:21.940 --> 00:08:26.580
+Caption: better number so to me that&#39;s where the
+
+00:08:24.309 --> 00:08:29.589
+Caption: promise for this API actually comes from
+
+00:08:26.579 --> 00:08:34.289
+Caption: these authenticators you can use your
+
+00:08:29.589 --> 00:08:36.190
+Caption: Android phones or iPhones maybe as
+
+00:08:34.289 --> 00:08:38.979
+Caption: authenticators in themselves so they
+
+00:08:36.190 --> 00:08:40.809
+Caption: will actually prove that you are who you
+
+00:08:38.979 --> 00:08:43.750
+Caption: say you are by using your fingerprint
+
+00:08:40.809 --> 00:08:47.739
+Caption: and those are called internal or
+
+00:08:43.750 --> 00:08:49.090
+Caption: platform or bound authenticators so for
+
+00:08:47.739 --> 00:08:50.409
+Caption: those who didn&#39;t get to do the demo I&#39;ll
+
+00:08:49.090 --> 00:08:51.940
+Caption: show you roughly what that looks like
+
+00:08:50.409 --> 00:08:53.379
+Caption: and what what it means when you&#39;re
+
+00:08:51.940 --> 00:08:55.059
+Caption: logging or what you have to do when
+
+00:08:53.380 --> 00:08:57.760
+Caption: you&#39;re logging in using the web
+
+00:08:55.059 --> 00:08:59.260
+Caption: authentication API so you start up on
+
+00:08:57.760 --> 00:08:59.729
+Caption: this site for example web Wharton&#39;s are
+
+00:08:59.260 --> 00:09:02.249
+Caption: higher
+
+00:08:59.729 --> 00:09:03.838
+Caption: and I&#39;ll enter my email username and I
+
+00:09:02.249 --> 00:09:06.179
+Caption: don&#39;t yet enter a password and I click
+
+00:09:03.838 --> 00:09:07.888
+Caption: register I&#39;ll get a little prompt for my
+
+00:09:06.179 --> 00:09:09.480
+Caption: browser telling me enter my security key
+
+00:09:07.888 --> 00:09:11.188
+Caption: or if you do it on your final ask me
+
+00:09:09.479 --> 00:09:12.958
+Caption: think fingerprint you probably have a
+
+00:09:11.189 --> 00:09:16.410
+Caption: few prompts before that to say what kind
+
+00:09:12.958 --> 00:09:18.568
+Caption: of care you want to use and then you you
+
+00:09:16.409 --> 00:09:19.918
+Caption: touch it and you get to go if you log in
+
+00:09:18.568 --> 00:09:22.078
+Caption: pretty much the same you just touch your
+
+00:09:19.919 --> 00:09:25.069
+Caption: device so it&#39;s really simple you don&#39;t
+
+00:09:22.078 --> 00:09:27.479
+Caption: need to worry about doing a whole lot of
+
+00:09:25.068 --> 00:09:28.888
+Caption: validation of what that password is and
+
+00:09:27.479 --> 00:09:31.318
+Caption: making sure your hashing it because if
+
+00:09:28.888 --> 00:09:32.758
+Caption: there&#39;s no pass we&#39;re at the store so
+
+00:09:31.318 --> 00:09:34.888
+Caption: have a look at what actually does get
+
+00:09:32.758 --> 00:09:36.958
+Caption: sent around in this case the three main
+
+00:09:34.888 --> 00:09:38.128
+Caption: parties are your Authenticator I&#39;ve used
+
+00:09:36.958 --> 00:09:41.278
+Caption: that symbol but I could just as easily
+
+00:09:38.129 --> 00:09:44.850
+Caption: be your phone the browser and the
+
+00:09:41.278 --> 00:09:47.489
+Caption: website server so you start off by
+
+00:09:44.849 --> 00:09:48.958
+Caption: sending a username and maybe a password
+
+00:09:47.489 --> 00:09:52.470
+Caption: because I said you can use multi-factor
+
+00:09:48.958 --> 00:09:54.028
+Caption: authentication and then the server will
+
+00:09:52.469 --> 00:09:57.208
+Caption: respond with a challenge and the
+
+00:09:54.028 --> 00:09:59.128
+Caption: challenge is basically a sort of shared
+
+00:09:57.208 --> 00:10:02.578
+Caption: secret but it&#39;s not a secret so it&#39;s
+
+00:09:59.129 --> 00:10:06.059
+Caption: just something that both sides use at
+
+00:10:02.578 --> 00:10:08.068
+Caption: the end it also sent back some details
+
+00:10:06.059 --> 00:10:11.089
+Caption: about the the website itself like a
+
+00:10:08.068 --> 00:10:13.798
+Caption: display name to display in those prompts
+
+00:10:11.088 --> 00:10:15.148
+Caption: and since details about what kind of
+
+00:10:13.799 --> 00:10:16.889
+Caption: authenticate is it&#39;ll actually that you
+
+00:10:15.148 --> 00:10:18.628
+Caption: use you know are you gonna let people
+
+00:10:16.888 --> 00:10:22.708
+Caption: use their phone or maybe you only let
+
+00:10:18.629 --> 00:10:24.329
+Caption: people use those hardware ones basically
+
+00:10:22.708 --> 00:10:25.648
+Caption: that gets passed on to the Authenticator
+
+00:10:24.328 --> 00:10:27.298
+Caption: and then the fennec adder will do its
+
+00:10:25.648 --> 00:10:30.328
+Caption: thing and you know you tap the button or
+
+00:10:27.299 --> 00:10:32.939
+Caption: whatever and respond back with some more
+
+00:10:30.328 --> 00:10:36.118
+Caption: data signature that needs to be verified
+
+00:10:32.939 --> 00:10:38.549
+Caption: by the server credential ID and a public
+
+00:10:36.119 --> 00:10:40.019
+Caption: key which needs to be stored above 0 so
+
+00:10:38.549 --> 00:10:41.369
+Caption: let&#39;s go to the browser obviously you&#39;ve
+
+00:10:40.018 --> 00:10:46.138
+Caption: got to get them to a server so you do
+
+00:10:41.369 --> 00:10:47.730
+Caption: that bit so now there are a few
+
+00:10:46.138 --> 00:10:49.138
+Caption: different parties here and we have
+
+00:10:47.729 --> 00:10:51.028
+Caption: different specs that actually define
+
+00:10:49.138 --> 00:10:52.438
+Caption: what that is so there&#39;s the web
+
+00:10:51.028 --> 00:10:54.568
+Caption: authentication API which you&#39;ll see
+
+00:10:52.439 --> 00:10:56.999
+Caption: shortened as web orphan a lot because
+
+00:10:54.568 --> 00:10:59.398
+Caption: typing out the web authentication API
+
+00:10:56.999 --> 00:11:01.169
+Caption: takes a bit longer and that defines what
+
+00:10:59.398 --> 00:11:03.208
+Caption: happens between your browser and the
+
+00:11:01.169 --> 00:11:05.910
+Caption: website server I guess the JavaScript
+
+00:11:03.208 --> 00:11:07.438
+Caption: website as well and then you have the
+
+00:11:05.909 --> 00:11:08.908
+Caption: client Authenticator protocol which
+
+00:11:07.439 --> 00:11:10.529
+Caption: talks from the client to the
+
+00:11:08.908 --> 00:11:12.179
+Caption: Authenticator so that&#39;s from the browser
+
+00:11:10.528 --> 00:11:15.479
+Caption: or your operating system
+
+00:11:12.179 --> 00:11:19.049
+Caption: to the Authenticator itself and those
+
+00:11:15.479 --> 00:11:22.199
+Caption: together form photo too so a lot of time
+
+00:11:19.049 --> 00:11:24.679
+Caption: you&#39;ll look up and see flight o2 slicing
+
+00:11:22.200 --> 00:11:28.890
+Caption: web forth and if you google or whatever
+
+00:11:24.679 --> 00:11:30.419
+Caption: and I talked a bit about the magic that
+
+00:11:28.890 --> 00:11:32.480
+Caption: the Authenticator does so we can have a
+
+00:11:30.419 --> 00:11:35.159
+Caption: look a little bit of a look at that now
+
+00:11:32.479 --> 00:11:36.719
+Caption: the Authenticator has three million
+
+00:11:35.159 --> 00:11:39.709
+Caption: things that it does firstly it verifies
+
+00:11:36.719 --> 00:11:43.319
+Caption: your identity and it does that through
+
+00:11:39.710 --> 00:11:46.740
+Caption: possession and or a PIN number or a
+
+00:11:43.320 --> 00:11:48.330
+Caption: biometric rating from that and that kind
+
+00:11:46.739 --> 00:11:49.529
+Caption: of means you have two factors in one you
+
+00:11:48.330 --> 00:11:51.480
+Caption: know we&#39;ll talk about two-factor
+
+00:11:49.530 --> 00:11:53.310
+Caption: authentication being something you know
+
+00:11:51.479 --> 00:11:55.799
+Caption: and something you have or some of you
+
+00:11:53.309 --> 00:11:57.210
+Caption: are we&#39;ve kind of already got that by
+
+00:11:55.799 --> 00:11:59.729
+Caption: being able to press a button that proves
+
+00:11:57.210 --> 00:12:01.260
+Caption: that you have it and by having a pin
+
+00:11:59.729 --> 00:12:03.209
+Caption: that proves you know something or by
+
+00:12:01.260 --> 00:12:04.770
+Caption: using a fingerprint proves that you are
+
+00:12:03.210 --> 00:12:06.600
+Caption: something so you kind of get two factors
+
+00:12:04.770 --> 00:12:10.590
+Caption: in one which is why you can use this as
+
+00:12:06.599 --> 00:12:13.139
+Caption: a strong single factor then what the
+
+00:12:10.590 --> 00:12:14.670
+Caption: credential does is stores a credential
+
+00:12:13.140 --> 00:12:16.470
+Caption: and that credential is scoped to the
+
+00:12:14.669 --> 00:12:18.959
+Caption: website that you&#39;ve actually gone to it
+
+00:12:16.469 --> 00:12:20.309
+Caption: stores you the URL and maybe a user ID
+
+00:12:18.960 --> 00:12:23.610
+Caption: so you can login with multiple accounts
+
+00:12:20.309 --> 00:12:26.820
+Caption: on one website and what that means is
+
+00:12:23.609 --> 00:12:28.140
+Caption: that the credential won&#39;t be given to
+
+00:12:26.820 --> 00:12:30.979
+Caption: the wrong website so if you have a
+
+00:12:28.140 --> 00:12:33.570
+Caption: phishing website it won&#39;t get your your
+
+00:12:30.979 --> 00:12:35.609
+Caption: transform information and even if it did
+
+00:12:33.570 --> 00:12:37.109
+Caption: it&#39;s public anyway you know you have a
+
+00:12:35.609 --> 00:12:40.589
+Caption: public here you&#39;re not sending a product
+
+00:12:37.109 --> 00:12:42.539
+Caption: Kyocera so I&#39;m gonna say that means it&#39;s
+
+00:12:40.590 --> 00:12:43.920
+Caption: unfishable but I don&#39;t think you&#39;ll see
+
+00:12:42.539 --> 00:12:46.199
+Caption: that written in any Docs because
+
+00:12:43.919 --> 00:12:48.679
+Caption: security researchers I guess or wary of
+
+00:12:46.200 --> 00:12:51.450
+Caption: when we call the Titanic an unsinkable
+
+00:12:48.679 --> 00:12:54.270
+Caption: so take from that what you will
+
+00:12:51.450 --> 00:12:57.660
+Caption: I&#39;m gonna clean it but I&#39;m not an
+
+00:12:54.270 --> 00:12:59.309
+Caption: authority on that and that credential
+
+00:12:57.659 --> 00:13:01.709
+Caption: itself is actually an asymmetric key
+
+00:12:59.309 --> 00:13:03.869
+Caption: here so you have a private key which is
+
+00:13:01.710 --> 00:13:06.150
+Caption: stored securely on the device never
+
+00:13:03.869 --> 00:13:07.320
+Caption: leaves the device in it it&#39;s kind of by
+
+00:13:06.150 --> 00:13:09.480
+Caption: definition it&#39;s private
+
+00:13:07.320 --> 00:13:12.570
+Caption: and it sends the public key up to the
+
+00:13:09.479 --> 00:13:14.219
+Caption: browser and then onto the server so how
+
+00:13:12.570 --> 00:13:17.580
+Caption: does the public ke help you actually
+
+00:13:14.219 --> 00:13:19.649
+Caption: verify your identity you might be more
+
+00:13:17.580 --> 00:13:20.940
+Caption: familiar with using public keys for
+
+00:13:19.650 --> 00:13:22.920
+Caption: messaging Corrections for example I
+
+00:13:20.940 --> 00:13:23.369
+Caption: thought if I have two people Alice and
+
+00:13:22.919 --> 00:13:25.349
+Caption: Bob
+
+00:13:23.369 --> 00:13:27.510
+Caption: Alice wants to write a message
+
+00:13:25.349 --> 00:13:30.719
+Caption: and Sam that&#39;s a bulb but also wants to
+
+00:13:27.510 --> 00:13:33.090
+Caption: make sure that only Bob can read it so
+
+00:13:30.719 --> 00:13:36.209
+Caption: he wants to encrypt it in the middle the
+
+00:13:33.090 --> 00:13:39.570
+Caption: way we do that these days is with public
+
+00:13:36.210 --> 00:13:42.420
+Caption: key cryptography so this recipient in
+
+00:13:39.570 --> 00:13:43.590
+Caption: this case Bob will have his public key
+
+00:13:42.419 --> 00:13:45.889
+Caption: in his private key he&#39;ll have to
+
+00:13:43.590 --> 00:13:48.480
+Caption: generate them he doesn&#39;t have one and
+
+00:13:45.890 --> 00:13:51.179
+Caption: you can use that public key to encrypt
+
+00:13:48.479 --> 00:13:57.209
+Caption: the message and the private key to
+
+00:13:51.179 --> 00:14:00.479
+Caption: decrypt the message that is okay but at
+
+00:13:57.210 --> 00:14:01.740
+Caption: the moment Bob has his public key so if
+
+00:14:00.479 --> 00:14:03.299
+Caption: you wanted to encrypt the message you
+
+00:14:01.739 --> 00:14:05.010
+Caption: have to get it from Alice somehow anyway
+
+00:14:03.299 --> 00:14:07.320
+Caption: which means you don&#39;t have encrypt it in
+
+00:14:05.010 --> 00:14:09.630
+Caption: the middle so because it&#39;s a public key
+
+00:14:07.320 --> 00:14:11.190
+Caption: Bob can give that to Alice and then
+
+00:14:09.630 --> 00:14:14.429
+Caption: Alice can use that to encrypt the
+
+00:14:11.190 --> 00:14:16.349
+Caption: message and then you know the identity
+
+00:14:14.429 --> 00:14:18.510
+Caption: of the recipient is whoever&#39;s got that
+
+00:14:16.349 --> 00:14:19.799
+Caption: private key that&#39;s why you need to keep
+
+00:14:18.510 --> 00:14:20.880
+Caption: the private key private because if you
+
+00:14:19.799 --> 00:14:24.119
+Caption: give it to anyone else they could
+
+00:14:20.880 --> 00:14:25.410
+Caption: impersonate you and that&#39;s kind of the
+
+00:14:24.119 --> 00:14:29.070
+Caption: opposite of what we want we don&#39;t want
+
+00:14:25.409 --> 00:14:30.629
+Caption: to validate the recipient of the message
+
+00:14:29.070 --> 00:14:32.609
+Caption: we want to validate the sender of the
+
+00:14:30.630 --> 00:14:34.830
+Caption: message so to do that
+
+00:14:32.609 --> 00:14:37.380
+Caption: instead use Alice&#39;s public and private
+
+00:14:34.830 --> 00:14:39.809
+Caption: keys and she can give her public key to
+
+00:14:37.380 --> 00:14:42.359
+Caption: Bob encrypted the message with her
+
+00:14:39.809 --> 00:14:45.390
+Caption: private key and Bob can decrypt it or
+
+00:14:42.359 --> 00:14:49.529
+Caption: validate it with the public key and in
+
+00:14:45.390 --> 00:14:50.910
+Caption: doing that it means that only Alice
+
+00:14:49.530 --> 00:14:52.410
+Caption: could possibly have sent that message
+
+00:14:50.909 --> 00:14:55.739
+Caption: because she&#39;s the only one who has the
+
+00:14:52.409 --> 00:14:57.629
+Caption: ferrata key now in our case you could
+
+00:14:55.739 --> 00:15:00.959
+Caption: replace Alice with the Authenticator and
+
+00:14:57.630 --> 00:15:02.220
+Caption: Bob with the website server so it&#39;s
+
+00:15:00.960 --> 00:15:03.420
+Caption: essentially what we&#39;re doing here we&#39;ll
+
+00:15:02.219 --> 00:15:06.569
+Caption: send up a public key signed some
+
+00:15:03.419 --> 00:15:09.779
+Caption: information and the server can use that
+
+00:15:06.570 --> 00:15:12.570
+Caption: public key to validate it so the web
+
+00:15:09.780 --> 00:15:18.270
+Caption: authentication API is pretty new you
+
+00:15:12.570 --> 00:15:19.500
+Caption: might be wondering if you can use it so
+
+00:15:18.270 --> 00:15:23.010
+Caption: you go to the de-facto Docs of the
+
+00:15:19.500 --> 00:15:25.349
+Caption: internet MDM and you see this graph with
+
+00:15:23.010 --> 00:15:27.570
+Caption: a bit of green in a bit of red and you
+
+00:15:25.349 --> 00:15:30.419
+Caption: wonder is that filling the whole story
+
+00:15:27.570 --> 00:15:32.640
+Caption: you know I see ie in there and opera I
+
+00:15:30.419 --> 00:15:35.849
+Caption: don&#39;t know many people who use those by
+
+00:15:32.640 --> 00:15:37.890
+Caption: default so you got a slightly different
+
+00:15:35.849 --> 00:15:38.519
+Caption: lens in the data and you can go there
+
+00:15:37.890 --> 00:15:41.100
+Caption: can I use the
+
+00:15:38.520 --> 00:15:42.960
+Caption: come and this shows the relative usage
+
+00:15:41.099 --> 00:15:45.299
+Caption: of each browser in terms of a height of
+
+00:15:42.960 --> 00:15:47.100
+Caption: the column each browser is a different
+
+00:15:45.299 --> 00:15:49.289
+Caption: age different column is a different
+
+00:15:47.099 --> 00:15:50.459
+Caption: browser and the color of the column
+
+00:15:49.289 --> 00:15:52.440
+Caption: represents whether it&#39;s supportive or
+
+00:15:50.460 --> 00:15:53.660
+Caption: not what&#39;s important about this view is
+
+00:15:52.440 --> 00:15:56.010
+Caption: that there&#39;s a lot more green than red
+
+00:15:53.659 --> 00:15:57.989
+Caption: so globally it&#39;s available for basically
+
+00:15:56.010 --> 00:16:00.119
+Caption: two thirds I think it&#39;s sixty eight
+
+00:15:57.989 --> 00:16:03.869
+Caption: point eight eight percent when I checked
+
+00:16:00.119 --> 00:16:05.070
+Caption: it last Thursday or something so it&#39;s
+
+00:16:03.869 --> 00:16:07.109
+Caption: cool looks like a lot of people could
+
+00:16:05.070 --> 00:16:09.090
+Caption: use this thing but then you got to think
+
+00:16:07.109 --> 00:16:09.869
+Caption: about your local demographic as well and
+
+00:16:09.090 --> 00:16:12.450
+Caption: that regard
+
+00:16:09.869 --> 00:16:14.789
+Caption: Australia is special so all those people
+
+00:16:12.450 --> 00:16:17.250
+Caption: with iPhones we now have a big red
+
+00:16:14.789 --> 00:16:19.380
+Caption: column and there&#39;s actually more red
+
+00:16:17.250 --> 00:16:19.830
+Caption: than blue more rather than green on this
+
+00:16:19.380 --> 00:16:22.260
+Caption: slide
+
+00:16:19.830 --> 00:16:26.239
+Caption: roughly forty five percent of people in
+
+00:16:22.260 --> 00:16:28.290
+Caption: Australia can use it at the moment now
+
+00:16:26.239 --> 00:16:29.429
+Caption: it gives us new things have been
+
+00:16:28.289 --> 00:16:32.489
+Caption: changing so I&#39;ll have a look at how
+
+00:16:29.429 --> 00:16:35.339
+Caption: that&#39;s been changing over time we start
+
+00:16:32.489 --> 00:16:37.200
+Caption: our little story in 2015 when edge first
+
+00:16:35.340 --> 00:16:38.520
+Caption: released experimental support for
+
+00:16:37.200 --> 00:16:41.070
+Caption: something like the web authentication
+
+00:16:38.520 --> 00:16:43.350
+Caption: API it didn&#39;t exist at the time but it&#39;s
+
+00:16:41.070 --> 00:16:44.820
+Caption: basically the same principle then
+
+00:16:43.349 --> 00:16:46.979
+Caption: because they were doing that and I
+
+00:16:44.820 --> 00:16:50.880
+Caption: started working with the w3c and Mozilla
+
+00:16:46.979 --> 00:16:52.079
+Caption: and Fido we started getting some
+
+00:16:50.880 --> 00:16:57.059
+Caption: progress and we had an actual
+
+00:16:52.080 --> 00:17:00.480
+Caption: specification in 2016 of our August edge
+
+00:16:57.059 --> 00:17:02.909
+Caption: released a spec compliant version that
+
+00:17:00.479 --> 00:17:04.799
+Caption: was again behind a feature flag and I
+
+00:17:02.909 --> 00:17:07.319
+Caption: had a little bit of a break nothing
+
+00:17:04.800 --> 00:17:12.959
+Caption: happened in 2017 and we get into 2018
+
+00:17:07.319 --> 00:17:14.338
+Caption: and about March or April Firefox enabled
+
+00:17:12.958 --> 00:17:16.979
+Caption: it before the hardware of indicators in
+
+00:17:14.338 --> 00:17:18.630
+Caption: the external ones so that&#39;s cool we&#39;ll
+
+00:17:16.979 --> 00:17:22.380
+Caption: finally got another browser and it&#39;s on
+
+00:17:18.630 --> 00:17:24.780
+Caption: by default the same month chrome did the
+
+00:17:22.380 --> 00:17:27.479
+Caption: same thing and then Dropbox enabled
+
+00:17:24.780 --> 00:17:30.420
+Caption: using it as a second factor for logging
+
+00:17:27.479 --> 00:17:33.059
+Caption: into their websites and then chrome
+
+00:17:30.420 --> 00:17:34.739
+Caption: supported the on platform ones that you
+
+00:17:33.060 --> 00:17:37.560
+Caption: fingerprint like Windows hello were you
+
+00:17:34.739 --> 00:17:40.020
+Caption: touch ID on your Mac and then edge
+
+00:17:37.560 --> 00:17:42.630
+Caption: released it by default in November so
+
+00:17:40.020 --> 00:17:45.450
+Caption: you&#39;ve already had a bit happening but
+
+00:17:42.630 --> 00:17:48.930
+Caption: you still can&#39;t really use that platform
+
+00:17:45.449 --> 00:17:49.799
+Caption: of Education so come to this year then
+
+00:17:48.930 --> 00:17:52.060
+Caption: in May
+
+00:17:49.800 --> 00:17:56.170
+Caption: that&#39;s very much Firefox and I will
+
+00:17:52.060 --> 00:17:58.150
+Caption: platform dedication w3c moved the spec
+
+00:17:56.170 --> 00:18:01.840
+Caption: to a recommendation which is basically
+
+00:17:58.150 --> 00:18:05.080
+Caption: the final stage of a spec Safari engines
+
+00:18:01.839 --> 00:18:10.179
+Caption: experimental support on Mac OS not on
+
+00:18:05.079 --> 00:18:12.579
+Caption: iOS Android in April and they will all
+
+00:18:10.180 --> 00:18:14.800
+Caption: Android devices 7 plus to act as those
+
+00:18:12.579 --> 00:18:16.239
+Caption: hardware platform with indicators so if
+
+00:18:14.800 --> 00:18:18.040
+Caption: you did do the demo on an Android it
+
+00:18:16.239 --> 00:18:18.550
+Caption: would have worked well today if you do
+
+00:18:18.040 --> 00:18:23.170
+Caption: it as well
+
+00:18:18.550 --> 00:18:24.310
+Caption: and chrome actually started support
+
+00:18:23.170 --> 00:18:26.140
+Caption: another manager as well which I guess
+
+00:18:24.310 --> 00:18:28.360
+Caption: was kind of required for those that&#39;s
+
+00:18:26.140 --> 00:18:30.099
+Caption: both happen so then you get to this
+
+00:18:28.359 --> 00:18:31.780
+Caption: point where you look at it today and if
+
+00:18:30.099 --> 00:18:33.520
+Caption: you&#39;re using Chrome or Firefox the
+
+00:18:31.780 --> 00:18:35.830
+Caption: situation is pretty good you can use the
+
+00:18:33.520 --> 00:18:38.589
+Caption: external authenticators all the internal
+
+00:18:35.829 --> 00:18:43.119
+Caption: authenticators on any device except for
+
+00:18:38.589 --> 00:18:45.219
+Caption: iOS and you guys yeah there&#39;s still a
+
+00:18:43.119 --> 00:18:48.040
+Caption: few gaps but if you went back a year it
+
+00:18:45.219 --> 00:18:49.569
+Caption: looked more like this and you couldn&#39;t
+
+00:18:48.040 --> 00:18:50.290
+Caption: use those at all now as we were talking
+
+00:18:49.569 --> 00:18:53.559
+Caption: about before
+
+00:18:50.290 --> 00:18:54.930
+Caption: a lot more people had finds smartphones
+
+00:18:53.560 --> 00:18:58.450
+Caption: where your login with their fingerprint
+
+00:18:54.930 --> 00:19:01.510
+Caption: than the external authenticators so this
+
+00:18:58.449 --> 00:19:02.829
+Caption: is really where we need to focus and the
+
+00:19:01.510 --> 00:19:06.369
+Caption: fact that we&#39;ve gone from nothing to
+
+00:19:02.829 --> 00:19:10.149
+Caption: this in a year is pretty good
+
+00:19:06.369 --> 00:19:12.339
+Caption: one day iOS will turn on the same thing
+
+00:19:10.150 --> 00:19:16.420
+Caption: that Android did that sunny day in April
+
+00:19:12.339 --> 00:19:17.859
+Caption: and then we&#39;ll go from roughly 30% of
+
+00:19:16.420 --> 00:19:20.410
+Caption: people being able to use it with the
+
+00:19:17.859 --> 00:19:23.369
+Caption: platform of indicator up to say 70
+
+00:19:20.410 --> 00:19:26.530
+Caption: because iPhones are pretty good with
+
+00:19:23.369 --> 00:19:30.520
+Caption: having a little fragmentation between
+
+00:19:26.530 --> 00:19:32.859
+Caption: different regions so you can look at
+
+00:19:30.520 --> 00:19:35.700
+Caption: this and go cool you know it&#39;s got
+
+00:19:32.859 --> 00:19:38.260
+Caption: reasonable support now it&#39;s growing
+
+00:19:35.699 --> 00:19:39.579
+Caption: there are a few little quirks some
+
+00:19:38.260 --> 00:19:41.530
+Caption: browsers support different things to
+
+00:19:39.579 --> 00:19:43.929
+Caption: others it&#39;s not really important what
+
+00:19:41.530 --> 00:19:45.250
+Caption: all these boxes are but the red is not
+
+00:19:43.930 --> 00:19:47.500
+Caption: supported and the yellow is in
+
+00:19:45.250 --> 00:19:49.359
+Caption: development and you see there are a few
+
+00:19:47.500 --> 00:19:50.410
+Caption: little boxes on each thing nothing is
+
+00:19:49.359 --> 00:19:51.640
+Caption: completely grained
+
+00:19:50.410 --> 00:19:54.880
+Caption: so there are a few little quirks along
+
+00:19:51.640 --> 00:19:56.979
+Caption: the way so we&#39;ve had a little bit of a
+
+00:19:54.880 --> 00:19:58.989
+Caption: roller coaster there I don&#39;t know why
+
+00:19:56.979 --> 00:20:00.429
+Caption: they&#39;re wearing VR goggles I think if
+
+00:19:58.989 --> 00:20:04.410
+Caption: you&#39;re on a roller coaster the VR
+
+00:20:00.430 --> 00:20:04.410
+Caption: goggles are just gonna confuse you more
+
+00:20:07.270 --> 00:20:11.959
+Caption: but basically by coming to today&#39;s talk
+
+00:20:09.770 --> 00:20:15.260
+Caption: you can say that you like to web orphan
+
+00:20:11.959 --> 00:20:17.989
+Caption: before it was cool which has its own
+
+00:20:15.260 --> 00:20:21.500
+Caption: little roller coaster so this is a view
+
+00:20:17.989 --> 00:20:22.640
+Caption: of like early adopters and innovators in
+
+00:20:21.500 --> 00:20:24.890
+Caption: the early majority that kind of thing
+
+00:20:22.640 --> 00:20:26.928
+Caption: and showing how how the actual
+
+00:20:24.890 --> 00:20:28.000
+Caption: percentage that some who&#39;s used changes
+
+00:20:26.928 --> 00:20:30.619
+Caption: over time
+
+00:20:28.000 --> 00:20:32.298
+Caption: now I would say we&#39;re right in this
+
+00:20:30.619 --> 00:20:33.678
+Caption: early adopters phase like I said we&#39;re
+
+00:20:32.298 --> 00:20:37.579
+Caption: at thirty percent you could kind of draw
+
+00:20:33.678 --> 00:20:39.918
+Caption: a line there and that would roughly at
+
+00:20:37.579 --> 00:20:44.829
+Caption: that point so I like to be an early
+
+00:20:39.918 --> 00:20:48.229
+Caption: adopter but hey Lily McGarry is cool too
+
+00:20:44.829 --> 00:20:49.788
+Caption: and basically you can still build this
+
+00:20:48.229 --> 00:20:51.770
+Caption: thing and offer it to users it&#39;s not
+
+00:20:49.788 --> 00:20:54.259
+Caption: going to take anything away from your
+
+00:20:51.770 --> 00:20:55.940
+Caption: existing users but it does give
+
+00:20:54.260 --> 00:20:58.339
+Caption: something you to these you do want to
+
+00:20:55.939 --> 00:21:00.189
+Caption: give it to so how do I do that well
+
+00:20:58.339 --> 00:21:02.839
+Caption: there&#39;s a JavaScript API like everything
+
+00:21:00.189 --> 00:21:05.239
+Caption: it&#39;s actually surprisingly simple this
+
+00:21:02.839 --> 00:21:06.979
+Caption: API there&#39;s a public key credential you
+
+00:21:05.239 --> 00:21:10.130
+Caption: can look for which will tell you if it&#39;s
+
+00:21:06.979 --> 00:21:13.579
+Caption: supported by the browser you can use
+
+00:21:10.130 --> 00:21:16.099
+Caption: this it&#39;s a mouthful is user verifying
+
+00:21:13.579 --> 00:21:17.538
+Caption: platform Authenticator available and
+
+00:21:16.099 --> 00:21:19.250
+Caption: that will tell you if their device
+
+00:21:17.538 --> 00:21:21.979
+Caption: itself can act as a platform within a
+
+00:21:19.250 --> 00:21:23.808
+Caption: cable so for example that&#39;ll tell you if
+
+00:21:21.979 --> 00:21:26.390
+Caption: you&#39;re using actually the device has
+
+00:21:23.808 --> 00:21:29.148
+Caption: Windows hello or touch ID or if these
+
+00:21:26.390 --> 00:21:31.070
+Caption: guys think your friend on moist new
+
+00:21:29.149 --> 00:21:33.380
+Caption: phones that&#39;s gonna be the case and a
+
+00:21:31.069 --> 00:21:36.259
+Caption: lot of new devices have that too that&#39;s
+
+00:21:33.380 --> 00:21:38.359
+Caption: cool then you&#39;ve got registration
+
+00:21:36.260 --> 00:21:42.529
+Caption: through Windows navigator credentials
+
+00:21:38.359 --> 00:21:44.390
+Caption: create with some options and getting
+
+00:21:42.529 --> 00:21:47.690
+Caption: that credential with kinda choice don&#39;t
+
+00:21:44.390 --> 00:21:49.329
+Caption: get again with emotions we don&#39;t really
+
+00:21:47.689 --> 00:21:51.048
+Caption: have time to talk about what those are
+
+00:21:49.329 --> 00:21:52.428
+Caption: essentially that&#39;s the information
+
+00:21:51.048 --> 00:21:53.989
+Caption: they&#39;ve got sent between the different
+
+00:21:52.428 --> 00:21:56.239
+Caption: parts so if you&#39;ve got something from
+
+00:21:53.989 --> 00:21:57.739
+Caption: your server you would pass that through
+
+00:21:56.239 --> 00:22:00.619
+Caption: to the Authenticator and that&#39;s been
+
+00:21:57.739 --> 00:22:01.969
+Caption: basically the same information if you
+
+00:22:00.619 --> 00:22:04.520
+Caption: want to look go to web orphaned dot
+
+00:22:01.969 --> 00:22:06.288
+Caption: guide which is associated with with web
+
+00:22:04.520 --> 00:22:10.760
+Caption: orphan do I owe I think the whole thing
+
+00:22:06.288 --> 00:22:12.229
+Caption: is built like you were so how do you
+
+00:22:10.760 --> 00:22:13.729
+Caption: make it better for users so if I&#39;m
+
+00:22:12.229 --> 00:22:16.250
+Caption: telling you that you can actually start
+
+00:22:13.729 --> 00:22:17.678
+Caption: building this today what do you need to
+
+00:22:16.250 --> 00:22:20.928
+Caption: do to make it
+
+00:22:17.678 --> 00:22:22.308
+Caption: well you&#39;ve got a few account management
+
+00:22:20.928 --> 00:22:23.510
+Caption: flaws to consider you know anyway you
+
+00:22:22.308 --> 00:22:24.500
+Caption: would have used the password and they
+
+00:22:23.510 --> 00:22:26.479
+Caption: need to think about what you&#39;re gonna do
+
+00:22:24.500 --> 00:22:27.288
+Caption: instead so you&#39;ve got things like
+
+00:22:26.479 --> 00:22:29.839
+Caption: registration
+
+00:22:27.288 --> 00:22:32.089
+Caption: you&#39;ve got login credential management
+
+00:22:29.839 --> 00:22:35.658
+Caption: and account recovery account recovery is
+
+00:22:32.089 --> 00:22:38.510
+Caption: a big one that we&#39;ll discuss but we&#39;ll
+
+00:22:35.659 --> 00:22:40.370
+Caption: get into the other ones first so you can
+
+00:22:38.510 --> 00:22:42.079
+Caption: look at your registration page and go
+
+00:22:40.369 --> 00:22:44.329
+Caption: what information do we want to capture
+
+00:22:42.079 --> 00:22:48.199
+Caption: you know you probably need to use a name
+
+00:22:44.329 --> 00:22:51.288
+Caption: or email something like that you don&#39;t
+
+00:22:48.199 --> 00:22:53.510
+Caption: need a password necessarily and you live
+
+00:22:51.288 --> 00:22:55.459
+Caption: like a register button just go finish
+
+00:22:53.510 --> 00:22:57.169
+Caption: the form but before we can decide
+
+00:22:55.459 --> 00:22:58.788
+Caption: exactly what stuff you need you go to
+
+00:22:57.168 --> 00:23:01.579
+Caption: the side if you want to use the web
+
+00:22:58.788 --> 00:23:06.408
+Caption: authentication API to do password let&#39;s
+
+00:23:01.579 --> 00:23:09.798
+Caption: login or as a second factor if you&#39;re
+
+00:23:06.409 --> 00:23:11.270
+Caption: gonna do password lists you may not
+
+00:23:09.798 --> 00:23:13.308
+Caption: require a password so you could probably
+
+00:23:11.270 --> 00:23:14.330
+Caption: get rid of that field but at the same
+
+00:23:13.308 --> 00:23:16.489
+Caption: time you might want to still allow
+
+00:23:14.329 --> 00:23:17.630
+Caption: people to have a password there is
+
+00:23:16.489 --> 00:23:19.939
+Caption: always gonna be a trade-off between
+
+00:23:17.630 --> 00:23:21.949
+Caption: security and convenience so if you do
+
+00:23:19.939 --> 00:23:24.949
+Caption: have a password you haven&#39;t gone quite
+
+00:23:21.949 --> 00:23:29.000
+Caption: as far with the security side but it&#39;s
+
+00:23:24.949 --> 00:23:31.010
+Caption: probably a better convenience for the
+
+00:23:29.000 --> 00:23:33.589
+Caption: users because no-one&#39;s really used to
+
+00:23:31.010 --> 00:23:34.400
+Caption: logging in with this thing yet then you
+
+00:23:33.589 --> 00:23:37.038
+Caption: got to think about if you&#39;re gonna
+
+00:23:34.400 --> 00:23:39.380
+Caption: register the token now or later consider
+
+00:23:37.038 --> 00:23:40.969
+Caption: things like drop-off rates for filling
+
+00:23:39.380 --> 00:23:44.869
+Caption: in the form if you add more friction
+
+00:23:40.969 --> 00:23:46.189
+Caption: than people might not sign up you must
+
+00:23:44.869 --> 00:23:48.609
+Caption: get your existing users to think about
+
+00:23:46.189 --> 00:23:51.678
+Caption: so how do you get them to start using it
+
+00:23:48.609 --> 00:23:55.280
+Caption: well for example you could put some
+
+00:23:51.678 --> 00:23:56.928
+Caption: hints on the login page maybe you have a
+
+00:23:55.280 --> 00:23:59.929
+Caption: promise that users see after they&#39;ve
+
+00:23:56.928 --> 00:24:01.158
+Caption: logged in in this case your device is
+
+00:23:59.928 --> 00:24:04.339
+Caption: capable of logging in without a password
+
+00:24:01.159 --> 00:24:05.750
+Caption: and see if they want to register it and
+
+00:24:04.339 --> 00:24:07.250
+Caption: then you&#39;ve got things like deciding
+
+00:24:05.750 --> 00:24:09.380
+Caption: what kind of messages you want to
+
+00:24:07.250 --> 00:24:10.729
+Caption: display or how forceful you want to push
+
+00:24:09.380 --> 00:24:15.469
+Caption: people into signing up for this new
+
+00:24:10.729 --> 00:24:16.729
+Caption: thing I guess it&#39;s all about considering
+
+00:24:15.469 --> 00:24:18.380
+Caption: what your users doing you can have
+
+00:24:16.729 --> 00:24:19.959
+Caption: analytics and those kind of things to
+
+00:24:18.380 --> 00:24:21.890
+Caption: sell out as well
+
+00:24:19.959 --> 00:24:23.089
+Caption: it&#39;s also probably going to change your
+
+00:24:21.890 --> 00:24:25.099
+Caption: login page if you&#39;re going past
+
+00:24:23.089 --> 00:24:27.260
+Caption: worthless if you&#39;re going past word
+
+00:24:25.099 --> 00:24:29.069
+Caption: lists you probably don&#39;t need the
+
+00:24:27.260 --> 00:24:30.930
+Caption: password field
+
+00:24:29.069 --> 00:24:32.669
+Caption: but maybe you do you know maybe you give
+
+00:24:30.930 --> 00:24:34.380
+Caption: that as an option maybe you have a
+
+00:24:32.670 --> 00:24:37.369
+Caption: separate form for logging without a
+
+00:24:34.380 --> 00:24:39.569
+Caption: password you can also go user nameless
+
+00:24:37.369 --> 00:24:41.280
+Caption: which is kind of cool so you might
+
+00:24:39.569 --> 00:24:43.529
+Caption: register with a username or not doesn&#39;t
+
+00:24:41.280 --> 00:24:44.760
+Caption: really matter but your similar
+
+00:24:43.530 --> 00:24:47.880
+Caption: authenticators can actually handle
+
+00:24:44.760 --> 00:24:49.640
+Caption: storing keys on the device that you can
+
+00:24:47.880 --> 00:24:51.690
+Caption: just look up so you get a browser prompt
+
+00:24:49.640 --> 00:24:53.670
+Caption: there are more conditions to meet if you
+
+00:24:51.689 --> 00:24:55.319
+Caption: want to do this and the browser support
+
+00:24:53.670 --> 00:24:58.440
+Caption: isn&#39;t as good that&#39;s one of those quirks
+
+00:24:55.319 --> 00:25:00.959
+Caption: at the moment today it&#39;s only supported
+
+00:24:58.439 --> 00:25:04.039
+Caption: an edge but the next versions of Chrome
+
+00:25:00.959 --> 00:25:06.539
+Caption: and Firefox will support that as well
+
+00:25:04.040 --> 00:25:08.310
+Caption: and maybe you want to fall back to using
+
+00:25:06.540 --> 00:25:12.090
+Caption: a password even if they are using
+
+00:25:08.310 --> 00:25:13.650
+Caption: password let&#39;s login normally then you
+
+00:25:12.089 --> 00:25:15.750
+Caption: think about things like managing those
+
+00:25:13.650 --> 00:25:18.690
+Caption: devices you know you might have one
+
+00:25:15.750 --> 00:25:21.599
+Caption: Authenticator if you do buy a UV key or
+
+00:25:18.689 --> 00:25:24.089
+Caption: whatever you probably want to get to and
+
+00:25:21.599 --> 00:25:24.660
+Caption: then you can keep one on you so you can
+
+00:25:24.089 --> 00:25:26.640
+Caption: use it all the time
+
+00:25:24.660 --> 00:25:28.260
+Caption: another one is it backup that you keep
+
+00:25:26.640 --> 00:25:29.570
+Caption: in a drawer at home or whatever in case
+
+00:25:28.260 --> 00:25:32.250
+Caption: you lose it
+
+00:25:29.569 --> 00:25:35.880
+Caption: so you gotta figure out where someone&#39;s
+
+00:25:32.250 --> 00:25:37.560
+Caption: gonna go to manage those how you&#39;ll
+
+00:25:35.880 --> 00:25:39.479
+Caption: identify those in it authenticated is on
+
+00:25:37.560 --> 00:25:41.970
+Caption: that page you know maybe you&#39;ve got
+
+00:25:39.479 --> 00:25:43.919
+Caption: things like the date you last you still
+
+00:25:41.969 --> 00:25:46.199
+Caption: of the day you added it so that you can
+
+00:25:43.920 --> 00:25:48.570
+Caption: decide if it hasn&#39;t been used in a while
+
+00:25:46.199 --> 00:25:49.889
+Caption: maybe you want to plate it and maybe
+
+00:25:48.569 --> 00:25:51.679
+Caption: further use it in a while you want to
+
+00:25:49.890 --> 00:25:53.940
+Caption: prompt them to remove it
+
+00:25:51.680 --> 00:25:55.410
+Caption: you know for their own security if they
+
+00:25:53.939 --> 00:25:57.569
+Caption: don&#39;t have that thing anymore that&#39;s the
+
+00:25:55.410 --> 00:25:58.979
+Caption: way they can log into their account so
+
+00:25:57.569 --> 00:26:02.939
+Caption: you might want to from them to get rid
+
+00:25:58.979 --> 00:26:05.189
+Caption: of it if they don&#39;t have it another
+
+00:26:02.939 --> 00:26:07.739
+Caption: consideration at this point is if you
+
+00:26:05.189 --> 00:26:09.719
+Caption: only have a platform with indicator
+
+00:26:07.739 --> 00:26:12.449
+Caption: registered you can actually log in on
+
+00:26:09.719 --> 00:26:14.489
+Caption: any other device so that&#39;s where the
+
+00:26:12.449 --> 00:26:18.859
+Caption: password comes in is quite useful thing
+
+00:26:14.489 --> 00:26:20.790
+Caption: to have so what if I don&#39;t have a device
+
+00:26:18.859 --> 00:26:22.500
+Caption: yeah maybe let them login with a
+
+00:26:20.790 --> 00:26:24.330
+Caption: password or think about some other way
+
+00:26:22.500 --> 00:26:26.099
+Caption: you can let them login for example slack
+
+00:26:24.329 --> 00:26:27.809
+Caption: is like a magic link you could send you
+
+00:26:26.099 --> 00:26:29.549
+Caption: could do something similar if you&#39;re
+
+00:26:27.810 --> 00:26:32.460
+Caption: gonna do that then you got to make sure
+
+00:26:29.550 --> 00:26:33.690
+Caption: you&#39;ve got their email address and if
+
+00:26:32.459 --> 00:26:35.039
+Caption: they have got an email address you
+
+00:26:33.689 --> 00:26:36.729
+Caption: probably wanna make sure you&#39;ve verified
+
+00:26:35.040 --> 00:26:38.739
+Caption: their email address otherwise
+
+00:26:36.729 --> 00:26:43.239
+Caption: just enter the wrong one and I can log
+
+00:26:38.739 --> 00:26:45.969
+Caption: into your account or whatever other
+
+00:26:43.239 --> 00:26:47.589
+Caption: people done in this case you know I
+
+00:26:45.969 --> 00:26:49.058
+Caption: don&#39;t want to be the first person to
+
+00:26:47.589 --> 00:26:52.959
+Caption: build this thing I&#39;m already not yes a
+
+00:26:49.058 --> 00:26:54.880
+Caption: payment to it but a lot of the big
+
+00:26:52.959 --> 00:26:57.548
+Caption: players like Google and Facebook and
+
+00:26:54.880 --> 00:26:59.619
+Caption: github Twitter Dropbox have all
+
+00:26:57.548 --> 00:27:01.569
+Caption: influence of this in some fashion
+
+00:26:59.619 --> 00:27:04.750
+Caption: Microsoft accounts and that kind of
+
+00:27:01.569 --> 00:27:07.750
+Caption: thing as well they&#39;ve all kind of copped
+
+00:27:04.750 --> 00:27:09.520
+Caption: out and gone for it as a second factor I
+
+00:27:07.750 --> 00:27:10.900
+Caption: can understand it because there are a
+
+00:27:09.520 --> 00:27:12.910
+Caption: lot more things to consider if you&#39;re
+
+00:27:10.900 --> 00:27:15.880
+Caption: gonna go pass wordless like we&#39;re just
+
+00:27:12.910 --> 00:27:17.229
+Caption: talking about but basically you go into
+
+00:27:15.880 --> 00:27:19.599
+Caption: there you eyes and it looks something
+
+00:27:17.229 --> 00:27:22.540
+Caption: like this you have two factor
+
+00:27:19.599 --> 00:27:24.308
+Caption: authentication you have your devices you
+
+00:27:22.540 --> 00:27:26.320
+Caption: can edit remove them change add
+
+00:27:24.308 --> 00:27:28.869
+Caption: nicknames to them so it&#39;s all pretty
+
+00:27:26.319 --> 00:27:30.250
+Caption: standard stuff and I guess but
+
+00:27:28.869 --> 00:27:31.808
+Caption: two-factor authentication that works
+
+00:27:30.250 --> 00:27:33.308
+Caption: really well for them because they&#39;ve
+
+00:27:31.808 --> 00:27:35.168
+Caption: already got things like falling back to
+
+00:27:33.308 --> 00:27:37.149
+Caption: sending an SMS if you don&#39;t have your
+
+00:27:35.168 --> 00:27:38.979
+Caption: device on you so a lot of those things
+
+00:27:37.150 --> 00:27:44.080
+Caption: that they would need to think about
+
+00:27:38.979 --> 00:27:45.400
+Caption: would change how would I do it I&#39;ve
+
+00:27:44.079 --> 00:27:48.880
+Caption: asked a lot of questions along the way
+
+00:27:45.400 --> 00:27:50.640
+Caption: and haven&#39;t really given you any answers
+
+00:27:48.880 --> 00:27:54.630
+Caption: so as you probably do that at some point
+
+00:27:50.640 --> 00:27:57.630
+Caption: so let&#39;s do a little bit of demo maybe
+
+00:27:54.630 --> 00:27:57.630
+Caption: cool
+
+00:28:01.280 --> 00:28:06.040
+Caption: a fun
+
+00:28:09.099 --> 00:28:17.469
+Caption: cool alright let&#39;s look at this right
+
+00:28:11.918 --> 00:28:20.500
+Caption: now super weird let&#39;s assume I&#39;m already
+
+00:28:17.469 --> 00:28:24.969
+Caption: a user of this website will call it way
+
+00:28:20.500 --> 00:28:26.649
+Caption: bought them because taro says so I might
+
+00:28:24.969 --> 00:28:27.668
+Caption: decide that I want to login with my
+
+00:28:26.649 --> 00:28:30.929
+Caption: password because I have an existing
+
+00:28:27.668 --> 00:28:33.508
+Caption: account and then I get into this page
+
+00:28:30.928 --> 00:28:35.768
+Caption: probably what I&#39;ll do from there is
+
+00:28:33.509 --> 00:28:37.210
+Caption: check if I have a registered
+
+00:28:35.769 --> 00:28:40.119
+Caption: Authenticator at some code at the bottom
+
+00:28:37.209 --> 00:28:41.558
+Caption: here pseudo code eesh
+
+00:28:40.119 --> 00:28:44.019
+Caption: you can&#39;t say we&#39;re up to clear those
+
+00:28:41.558 --> 00:28:45.908
+Caption: variables for example but basically
+
+00:28:44.019 --> 00:28:48.190
+Caption: you&#39;ll go see if they&#39;ve already got one
+
+00:28:45.909 --> 00:28:50.279
+Caption: registered or if they&#39;ve ignored this
+
+00:28:48.189 --> 00:28:52.569
+Caption: prompt before you won&#39;t show it to them
+
+00:28:50.279 --> 00:28:55.240
+Caption: then you can use that feature detection
+
+00:28:52.569 --> 00:28:56.918
+Caption: there is user verifying he&#39;s a user
+
+00:28:55.239 --> 00:28:59.589
+Caption: verifying platform with indicator
+
+00:28:56.918 --> 00:29:01.119
+Caption: available so check if it&#39;s available if
+
+00:28:59.589 --> 00:29:03.668
+Caption: it&#39;s not then you can&#39;t do anything if
+
+00:29:01.119 --> 00:29:05.139
+Caption: it is share them a prompt so we&#39;ll see
+
+00:29:03.668 --> 00:29:08.079
+Caption: what that looks like I&#39;ve hooked up to
+
+00:29:05.139 --> 00:29:09.580
+Caption: this little button because I had to I
+
+00:29:08.079 --> 00:29:11.888
+Caption: couldn&#39;t show I scared away at this year
+
+00:29:09.579 --> 00:29:13.178
+Caption: to code so now you get that prompt the
+
+00:29:11.889 --> 00:29:17.259
+Caption: same form for showed you before pretty
+
+00:29:13.178 --> 00:29:19.959
+Caption: much you have a device name and register
+
+00:29:17.259 --> 00:29:26.979
+Caption: button remind me later if I enter a name
+
+00:29:19.959 --> 00:29:28.719
+Caption: like Windows I don&#39;t show you what the
+
+00:29:26.979 --> 00:29:29.589
+Caption: code would roughly be so for example
+
+00:29:28.719 --> 00:29:31.209
+Caption: when I click cancel
+
+00:29:29.589 --> 00:29:34.109
+Caption: I&#39;ll start selling your local stories to
+
+00:29:31.209 --> 00:29:36.459
+Caption: remind me later or something like that
+
+00:29:34.109 --> 00:29:39.189
+Caption: when I want to register that&#39;s the more
+
+00:29:36.459 --> 00:29:41.500
+Caption: interesting part so in that case I will
+
+00:29:39.189 --> 00:29:43.239
+Caption: do make a request to the server to get
+
+00:29:41.500 --> 00:29:45.189
+Caption: that challenge and the Authenticator
+
+00:29:43.239 --> 00:29:49.509
+Caption: details the relying party details all
+
+00:29:45.189 --> 00:29:51.069
+Caption: that kind of stuff then I will basically
+
+00:29:49.509 --> 00:29:53.409
+Caption: do some transformations on that data
+
+00:29:51.069 --> 00:29:55.178
+Caption: because I get Jason can&#39;t send array
+
+00:29:53.409 --> 00:29:58.059
+Caption: buffers but the API actually expects
+
+00:29:55.178 --> 00:30:00.339
+Caption: array buffers I don&#39;t know why they made
+
+00:29:58.058 --> 00:30:02.528
+Caption: it harder to use but they did I guess
+
+00:30:00.339 --> 00:30:07.569
+Caption: maybe they&#39;re more secure or something
+
+00:30:02.529 --> 00:30:08.980
+Caption: oh it&#39;s smaller I guess so
+
+00:30:07.569 --> 00:30:11.199
+Caption: I get those options and I pass them
+
+00:30:08.979 --> 00:30:13.869
+Caption: through to window dot navigated
+
+00:30:11.199 --> 00:30:15.699
+Caption: credential we still create and once
+
+00:30:13.869 --> 00:30:17.288
+Caption: that&#39;s been created or get back a
+
+00:30:15.699 --> 00:30:20.489
+Caption: response from the Authenticator
+
+00:30:17.288 --> 00:30:22.819
+Caption: essentially which will maybe be
+
+00:30:20.489 --> 00:30:25.890
+Caption: because it can be canceled or might not
+
+00:30:22.819 --> 00:30:29.669
+Caption: so have to check for that in my response
+
+00:30:25.890 --> 00:30:32.010
+Caption: handling then I will send through the
+
+00:30:29.670 --> 00:30:34.230
+Caption: credential by the public key and the
+
+00:30:32.010 --> 00:30:35.459
+Caption: current ID to the server get back a
+
+00:30:34.229 --> 00:30:38.790
+Caption: response from them and says they&#39;ve
+
+00:30:35.459 --> 00:30:40.699
+Caption: stored it and all that jazz and if that
+
+00:30:38.790 --> 00:30:42.989
+Caption: was successful I closed the prompt it&#39;s
+
+00:30:40.699 --> 00:30:45.359
+Caption: not that much code really like this is
+
+00:30:42.989 --> 00:30:47.130
+Caption: kind of all I would have in the app in
+
+00:30:45.359 --> 00:30:49.260
+Caption: terms of register gonna make that a
+
+00:30:47.130 --> 00:30:51.900
+Caption: reasonable function some way so could
+
+00:30:49.260 --> 00:30:56.280
+Caption: president a few pages we&#39;re gonna go
+
+00:30:51.900 --> 00:30:58.109
+Caption: ahead and register that and this is the
+
+00:30:56.280 --> 00:31:00.690
+Caption: prompt they get so I have a PIN number
+
+00:30:58.109 --> 00:31:05.459
+Caption: NATO info I could get my Kiva that&#39;s
+
+00:31:00.689 --> 00:31:07.649
+Caption: more annoying is your thing and we&#39;re
+
+00:31:05.459 --> 00:31:11.699
+Caption: done normally you&#39;d probably want to
+
+00:31:07.650 --> 00:31:13.200
+Caption: show things like your own prompt to
+
+00:31:11.699 --> 00:31:14.489
+Caption: explain to the user what&#39;s going to
+
+00:31:13.199 --> 00:31:15.630
+Caption: happen you know that they&#39;re going to
+
+00:31:14.489 --> 00:31:17.400
+Caption: get a prompt from their Authenticator
+
+00:31:15.630 --> 00:31:19.709
+Caption: and then after we she probably wanted
+
+00:31:17.400 --> 00:31:22.099
+Caption: success message or something for the
+
+00:31:19.709 --> 00:31:24.299
+Caption: sake of this demo assume that was there
+
+00:31:22.099 --> 00:31:26.069
+Caption: and then you look at things like
+
+00:31:24.300 --> 00:31:28.320
+Caption: managing your credentials so I go to my
+
+00:31:26.069 --> 00:31:30.779
+Caption: account and then click on this world
+
+00:31:28.319 --> 00:31:32.309
+Caption: credentials link I can see a list of
+
+00:31:30.780 --> 00:31:34.410
+Caption: credentials that I already have
+
+00:31:32.310 --> 00:31:36.750
+Caption: registered you&#39;ll notice that the
+
+00:31:34.410 --> 00:31:38.780
+Caption: windows one isn&#39;t there because it&#39;s a
+
+00:31:36.750 --> 00:31:41.579
+Caption: demo so I didn&#39;t bother looking it up
+
+00:31:38.780 --> 00:31:43.890
+Caption: but you&#39;re still see everything you
+
+00:31:41.579 --> 00:31:46.319
+Caption: might need so I look at this and go oh
+
+00:31:43.890 --> 00:31:48.709
+Caption: you the key five see I&#39;m using it well
+
+00:31:46.319 --> 00:31:50.789
+Caption: but I still own it so I&#39;ll keep it and
+
+00:31:48.709 --> 00:31:53.969
+Caption: NFC actually lost
+
+00:31:50.790 --> 00:31:57.510
+Caption: so it&#39;s removed and that&#39;s gone I want
+
+00:31:53.969 --> 00:32:02.579
+Caption: to add a new one so like that forget my
+
+00:31:57.510 --> 00:32:05.070
+Caption: prompt a quick of this particular one I
+
+00:32:02.579 --> 00:32:07.890
+Caption: guess is it it prompts you for part of
+
+00:32:05.069 --> 00:32:09.959
+Caption: the platform one if you have it unless
+
+00:32:07.890 --> 00:32:11.820
+Caption: you tell it not to so I didn&#39;t tell them
+
+00:32:09.959 --> 00:32:16.589
+Caption: not to forget that I gotta click cancel
+
+00:32:11.819 --> 00:32:19.769
+Caption: that and then see what happens so I can
+
+00:32:16.589 --> 00:32:22.079
+Caption: insert my security key took my many USB
+
+00:32:19.770 --> 00:32:23.979
+Caption: ports that are not taken up by other
+
+00:32:22.079 --> 00:32:26.239
+Caption: adapters
+
+00:32:23.979 --> 00:32:27.410
+Caption: I&#39;ve got a pin on this that&#39;s an
+
+00:32:26.239 --> 00:32:28.010
+Caption: optional thing you can set up with your
+
+00:32:27.410 --> 00:32:29.900
+Caption: device
+
+00:32:28.010 --> 00:32:32.390
+Caption: I recommend it because then you can use
+
+00:32:29.900 --> 00:32:33.619
+Caption: it as those two factors if I didn&#39;t have
+
+00:32:32.390 --> 00:32:35.989
+Caption: a pin I just need to press the button on
+
+00:32:33.619 --> 00:32:38.569
+Caption: it so that&#39;s not as secure and the pin
+
+00:32:35.989 --> 00:32:43.429
+Caption: is pretty low friction as well so I&#39;ll
+
+00:32:38.569 --> 00:32:45.649
+Caption: go ahead and answer that yes and no no
+
+00:32:43.430 --> 00:32:49.790
+Caption: touch the button so big yellow button on
+
+00:32:45.650 --> 00:32:51.770
+Caption: it I press that let&#39;s say oh that took
+
+00:32:49.790 --> 00:33:00.260
+Caption: this is actually the NFC one that I
+
+00:32:51.770 --> 00:33:03.530
+Caption: removed either back that&#39;s basically it
+
+00:33:00.260 --> 00:33:06.410
+Caption: there&#39;s not a huge amount to it you know
+
+00:33:03.530 --> 00:33:09.770
+Caption: let&#39;s say I log out and show you in
+
+00:33:06.410 --> 00:33:12.859
+Caption: login with that device if it wants to
+
+00:33:09.770 --> 00:33:15.440
+Caption: work so I&#39;ve got my username I&#39;d need to
+
+00:33:12.859 --> 00:33:18.679
+Caption: enter that still and they can click
+
+00:33:15.439 --> 00:33:20.299
+Caption: login it&#39;s pretty much the same thing
+
+00:33:18.680 --> 00:33:23.390
+Caption: I&#39;ll get a prompt you can see what I&#39;ve
+
+00:33:20.300 --> 00:33:24.560
+Caption: been testing so it&#39;s showing me all the
+
+00:33:23.390 --> 00:33:27.050
+Caption: criminals that have registered for this
+
+00:33:24.560 --> 00:33:27.850
+Caption: site and the many usernames and that
+
+00:33:27.050 --> 00:33:30.560
+Caption: kind of thing
+
+00:33:27.849 --> 00:33:32.119
+Caption: so here it&#39;s got this way Bothan
+
+00:33:30.560 --> 00:33:34.520
+Caption: workshop that&#39;s that display name that I
+
+00:33:32.119 --> 00:33:36.650
+Caption: said from the relying party I come for
+
+00:33:34.520 --> 00:33:38.119
+Caption: you how to delete these by the way so I
+
+00:33:36.650 --> 00:33:40.640
+Caption: would have thought I couldn&#39;t figure it
+
+00:33:38.119 --> 00:33:42.559
+Caption: out let&#39;s say I want to sign in as a
+
+00:33:40.640 --> 00:33:47.239
+Caption: feel Eric you don&#39;t see he&#39;s never got
+
+00:33:42.560 --> 00:33:52.310
+Caption: there okay again it&#39;s of a pin everyone
+
+00:33:47.239 --> 00:33:57.469
+Caption: loves a good pin we&#39;re in so that is
+
+00:33:52.310 --> 00:34:00.650
+Caption: pretty much how I would do it and we&#39;re
+
+00:33:57.469 --> 00:34:02.000
+Caption: gonna go just one step further and we&#39;ll
+
+00:34:00.650 --> 00:34:03.410
+Caption: talk about what we talked about because
+
+00:34:02.000 --> 00:34:05.329
+Caption: that&#39;s what we&#39;re doing these things I
+
+00:34:03.410 --> 00:34:06.560
+Caption: talked a little bit about the problems
+
+00:34:05.329 --> 00:34:08.750
+Caption: with how we do with indication now you
+
+00:34:06.560 --> 00:34:11.030
+Caption: know we&#39;re sending secrets over the
+
+00:34:08.750 --> 00:34:14.120
+Caption: Internet which means that those secrets
+
+00:34:11.030 --> 00:34:15.560
+Caption: can be taken by somebody else are we
+
+00:34:14.120 --> 00:34:17.330
+Caption: talking about how web authentication is
+
+00:34:15.560 --> 00:34:20.239
+Caption: better for us because the supports
+
+00:34:17.330 --> 00:34:23.630
+Caption: growing and you don&#39;t need to have a
+
+00:34:20.239 --> 00:34:25.129
+Caption: password so that&#39;s cool to the state of
+
+00:34:23.629 --> 00:34:27.409
+Caption: where Bothan where it&#39;s supported where
+
+00:34:25.129 --> 00:34:31.309
+Caption: it&#39;s not supported iOS is unlucky
+
+00:34:27.409 --> 00:34:32.419
+Caption: actually on that iOS 13 is coming out in
+
+00:34:31.310 --> 00:34:37.330
+Caption: like September
+
+00:34:32.419 --> 00:34:37.329
+Caption: probably that doesn&#39;t support either
+
+00:34:37.618 --> 00:34:44.168
+Caption: thanks Apple but hopefully that&#39;ll be in
+
+00:34:40.779 --> 00:34:46.719
+Caption: like 13.1 or something because Mac OS 13
+
+00:34:44.168 --> 00:34:48.939
+Caption: or Safari 13 on whichever version they
+
+00:34:46.719 --> 00:34:50.439
+Caption: do will support by default so this
+
+00:34:48.939 --> 00:34:52.510
+Caption: talked earlier about the thing behind a
+
+00:34:50.439 --> 00:34:55.178
+Caption: feature flag the next version of Safari
+
+00:34:52.510 --> 00:34:57.609
+Caption: which is probably also September will
+
+00:34:55.178 --> 00:34:59.108
+Caption: have that enabled by default so you know
+
+00:34:57.608 --> 00:35:00.729
+Caption: we got better again it&#39;s just iOS now
+
+00:34:59.108 --> 00:35:04.288
+Caption: that we need a wait for everyone else is
+
+00:35:00.729 --> 00:35:06.338
+Caption: fine what you see both that they well
+
+00:35:04.289 --> 00:35:08.109
+Caption: roughly that I mean if you want to
+
+00:35:06.339 --> 00:35:10.059
+Caption: follow Google instead of me which I
+
+00:35:08.108 --> 00:35:12.699
+Caption: could completely understand you could
+
+00:35:10.059 --> 00:35:15.880
+Caption: build it as a second factor but
+
+00:35:12.699 --> 00:35:16.989
+Caption: otherwise go with that and I get also
+
+00:35:15.879 --> 00:35:19.929
+Caption: gauging things to think about for
+
+00:35:16.989 --> 00:35:22.389
+Caption: tomorrow like like its how you gonna
+
+00:35:19.929 --> 00:35:24.010
+Caption: handle those new users or maybe you want
+
+00:35:22.389 --> 00:35:27.760
+Caption: to think about things like when you can
+
+00:35:24.010 --> 00:35:29.179
+Caption: get rid of passwords altogether thank
+
+00:35:27.760 --> 00:35:35.590
+Caption: you everybody
+
+00:35:29.179 --> 00:35:35.589
+Caption: [Applause]
+

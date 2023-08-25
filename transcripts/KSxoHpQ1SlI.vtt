@@ -1,0 +1,1565 @@
+WEBVTT
+
+00:00:00.899 --> 00:00:05.099
+Caption: welcome everyone I hope you&#39;ve been
+
+00:00:03.299 --> 00:00:07.739
+Caption: enjoying the event
+
+00:00:05.099 --> 00:00:10.079
+Caption: um and managed to get something tasty to
+
+00:00:07.739 --> 00:00:12.539
+Caption: eat for lunch now our next speaker is
+
+00:00:10.079 --> 00:00:15.598
+Caption: Trent Jones his talk is going to be
+
+00:00:12.539 --> 00:00:18.118
+Caption: about architecture for all Trent from AI
+
+00:00:15.598 --> 00:00:20.359
+Caption: media has been designing building and
+
+00:00:18.118 --> 00:00:23.219
+Caption: testing software for over 10 years
+
+00:00:20.358 --> 00:00:25.500
+Caption: across a wide wide variety of Industries
+
+00:00:23.219 --> 00:00:28.198
+Caption: he has a passion for devops and
+
+00:00:25.500 --> 00:00:30.659
+Caption: inclusive software along with a lifelong
+
+00:00:28.198 --> 00:00:32.959
+Caption: love of sharing and learning over to
+
+00:00:30.659 --> 00:00:32.959
+Caption: Trent
+
+00:00:33.180 --> 00:00:37.760
+Caption: foreign
+
+00:00:35.520 --> 00:00:40.139
+Caption: [Applause]
+
+00:00:37.759 --> 00:00:42.359
+Caption: thank you everyone for for joining me
+
+00:00:40.139 --> 00:00:44.639
+Caption: today so uh this is a little talk I&#39;ve
+
+00:00:42.360 --> 00:00:45.899
+Caption: been developing across a number of
+
+00:00:44.639 --> 00:00:46.738
+Caption: different
+
+00:00:45.898 --> 00:00:49.199
+Caption: um
+
+00:00:46.738 --> 00:00:50.398
+Caption: engagements in my previous life I was a
+
+00:00:49.200 --> 00:00:52.920
+Caption: consultant so I did a lot of
+
+00:00:50.398 --> 00:00:56.878
+Caption: architecture diagramming and
+
+00:00:52.919 --> 00:00:59.099
+Caption: um the various likes uh so thank you for
+
+00:00:56.879 --> 00:01:01.079
+Caption: joining me um first off thank you to all
+
+00:00:59.099 --> 00:01:02.398
+Caption: the sponsors today wouldn&#39;t be possible
+
+00:01:01.078 --> 00:01:04.260
+Caption: without them all so it&#39;s really
+
+00:01:02.398 --> 00:01:07.199
+Caption: appreciated I know they they Rock up
+
+00:01:04.260 --> 00:01:09.180
+Caption: year after year so yeah really
+
+00:01:07.199 --> 00:01:10.379
+Caption: appreciate them
+
+00:01:09.180 --> 00:01:12.779
+Caption: um so I thought I&#39;d start off with a
+
+00:01:10.379 --> 00:01:14.759
+Caption: quote architecture represents the
+
+00:01:12.779 --> 00:01:17.879
+Caption: significant design decisions that shape
+
+00:01:14.760 --> 00:01:19.619
+Caption: a system where significance is measured
+
+00:01:17.879 --> 00:01:21.478
+Caption: by the cost of change
+
+00:01:19.619 --> 00:01:23.880
+Caption: and the really important part here for
+
+00:01:21.478 --> 00:01:26.339
+Caption: me is that last
+
+00:01:23.879 --> 00:01:28.798
+Caption: part of the sentence significant is
+
+00:01:26.339 --> 00:01:30.599
+Caption: measured by the cost of change these
+
+00:01:28.799 --> 00:01:32.939
+Caption: decisions in your architecture diagrams
+
+00:01:30.599 --> 00:01:35.339
+Caption: in your architecture
+
+00:01:32.939 --> 00:01:38.280
+Caption: um you know they have a cost associated
+
+00:01:35.339 --> 00:01:40.199
+Caption: with them changing them is not as simple
+
+00:01:38.279 --> 00:01:42.000
+Caption: as just swapping a component now
+
+00:01:40.199 --> 00:01:44.519
+Caption: generally speaking maybe you&#39;ve got
+
+00:01:42.000 --> 00:01:46.139
+Caption: micro services and it is easy but
+
+00:01:44.519 --> 00:01:47.758
+Caption: generally speaking they&#39;re quite complex
+
+00:01:46.139 --> 00:01:49.978
+Caption: tasks
+
+00:01:47.759 --> 00:01:50.759
+Caption: um so I really like that quote it&#39;s a
+
+00:01:49.978 --> 00:01:52.459
+Caption: great
+
+00:01:50.759 --> 00:01:56.460
+Caption: setting
+
+00:01:52.459 --> 00:01:58.438
+Caption: so on to diagrams whose audience
+
+00:01:56.459 --> 00:01:59.579
+Caption: audience participation who&#39;s done a
+
+00:01:58.439 --> 00:02:00.899
+Caption: diagram before who&#39;s done an
+
+00:01:59.579 --> 00:02:03.240
+Caption: architecture one
+
+00:02:00.899 --> 00:02:04.619
+Caption: nice how many of you have done it on a
+
+00:02:03.239 --> 00:02:06.599
+Caption: whiteboard
+
+00:02:04.619 --> 00:02:08.639
+Caption: no external whiteboard yeah how many
+
+00:02:06.599 --> 00:02:10.800
+Caption: have done like more professional used a
+
+00:02:08.639 --> 00:02:12.059
+Caption: bit of software and had to store it in
+
+00:02:10.800 --> 00:02:13.738
+Caption: the system where everyone references
+
+00:02:12.059 --> 00:02:15.899
+Caption: cool so we&#39;re all pretty familiar with
+
+00:02:13.738 --> 00:02:19.139
+Caption: architecture diagram sets
+
+00:02:15.899 --> 00:02:22.919
+Caption: um so some examples uh
+
+00:02:19.139 --> 00:02:25.619
+Caption: this one lots of boxes barely any labels
+
+00:02:22.919 --> 00:02:27.839
+Caption: there&#39;s a bunch of arrows in the middle
+
+00:02:25.619 --> 00:02:30.238
+Caption: there that are so close together you
+
+00:02:27.839 --> 00:02:32.160
+Caption: can&#39;t even see where they&#39;re going
+
+00:02:30.238 --> 00:02:33.419
+Caption: um I&#39;m probably guilty of doing this at
+
+00:02:32.160 --> 00:02:36.238
+Caption: some point in time there&#39;s been some
+
+00:02:33.419 --> 00:02:38.039
+Caption: complex systems in the past uh
+
+00:02:36.238 --> 00:02:39.899
+Caption: but overall you don&#39;t get a great
+
+00:02:38.039 --> 00:02:42.539
+Caption: picture of what&#39;s going on here there&#39;s
+
+00:02:39.899 --> 00:02:45.179
+Caption: there&#39;s lots of lots of pretty colors
+
+00:02:42.539 --> 00:02:46.799
+Caption: and lots of a few arrows but not much
+
+00:02:45.179 --> 00:02:49.378
+Caption: else to really tell you what this system
+
+00:02:46.800 --> 00:02:51.238
+Caption: does or how it behaves
+
+00:02:49.378 --> 00:02:52.679
+Caption: uh what about this one
+
+00:02:51.238 --> 00:02:54.179
+Caption: same sort of thing
+
+00:02:52.679 --> 00:02:56.399
+Caption: um it&#39;s a little bit more spread out so
+
+00:02:54.179 --> 00:02:57.659
+Caption: it&#39;s got that going for it
+
+00:02:56.399 --> 00:03:00.539
+Caption: um a bit better use of colors
+
+00:02:57.660 --> 00:03:01.199
+Caption: objectively maybe perhaps
+
+00:03:00.539 --> 00:03:03.419
+Caption: um
+
+00:03:01.199 --> 00:03:04.979
+Caption: a few more labels again perhaps there&#39;s
+
+00:03:03.419 --> 00:03:07.619
+Caption: there&#39;s actually a label on one of the
+
+00:03:04.979 --> 00:03:09.779
+Caption: arrows there which may or may not be
+
+00:03:07.619 --> 00:03:11.878
+Caption: useful to you but at the end of the day
+
+00:03:09.779 --> 00:03:13.979
+Caption: it&#39;s still kind of difficult to see
+
+00:03:11.878 --> 00:03:15.360
+Caption: what&#39;s going on with this architecture
+
+00:03:13.979 --> 00:03:18.059
+Caption: diagram
+
+00:03:15.360 --> 00:03:19.860
+Caption: um and then lastly I have this pretty
+
+00:03:18.059 --> 00:03:22.139
+Caption: whiteboard drawing
+
+00:03:19.860 --> 00:03:23.878
+Caption: um this is probably honestly the best
+
+00:03:22.139 --> 00:03:26.238
+Caption: out of all of them it&#39;s even got some
+
+00:03:23.878 --> 00:03:29.279
+Caption: users in there down the bottom in green
+
+00:03:26.238 --> 00:03:31.738
+Caption: lots of the the arrows and the data flow
+
+00:03:29.279 --> 00:03:33.000
+Caption: is actually labeled
+
+00:03:31.738 --> 00:03:34.800
+Caption: um
+
+00:03:33.000 --> 00:03:37.199
+Caption: but yeah they&#39;re old at the end of the
+
+00:03:34.800 --> 00:03:39.180
+Caption: day they&#39;re all just boxes that&#39;s boring
+
+00:03:37.199 --> 00:03:41.639
+Caption: what the hell are these compo what are
+
+00:03:39.179 --> 00:03:45.359
+Caption: these actual components is it like a an
+
+00:03:41.639 --> 00:03:47.878
+Caption: ec2 box running uh Java spring boot or
+
+00:03:45.360 --> 00:03:49.979
+Caption: is it a Lambda micro service like what&#39;s
+
+00:03:47.878 --> 00:03:51.658
+Caption: actually going on in this architecture
+
+00:03:49.979 --> 00:03:56.360
+Caption: who knows
+
+00:03:51.658 --> 00:03:56.360
+Caption: um so stop it don&#39;t do it anymore
+
+00:03:57.298 --> 00:04:00.779
+Caption: um
+
+00:03:58.979 --> 00:04:03.860
+Caption: this is a site that I didn&#39;t delete when
+
+00:04:00.779 --> 00:04:06.479
+Caption: I was meant to so let&#39;s skip that one uh
+
+00:04:03.860 --> 00:04:07.378
+Caption: my purging last night clearly missed a
+
+00:04:06.479 --> 00:04:08.458
+Caption: slide
+
+00:04:07.378 --> 00:04:09.598
+Caption: um so I wanted to talk through a
+
+00:04:08.458 --> 00:04:11.580
+Caption: scenario because I thought that was the
+
+00:04:09.598 --> 00:04:13.199
+Caption: best way to kind of illustrate how we
+
+00:04:11.580 --> 00:04:15.779
+Caption: might go about designing better
+
+00:04:13.199 --> 00:04:17.940
+Caption: architecture diagrams so I came up with
+
+00:04:15.779 --> 00:04:21.419
+Caption: a cannery don&#39;t ask me why my brain
+
+00:04:17.940 --> 00:04:22.919
+Caption: works in weird ways uh so products are
+
+00:04:21.419 --> 00:04:24.360
+Caption: randomly sampled as they go along the
+
+00:04:22.919 --> 00:04:26.940
+Caption: conveyor belt they&#39;re tested for
+
+00:04:24.359 --> 00:04:28.379
+Caption: anomalies and we take some action right
+
+00:04:26.940 --> 00:04:31.320
+Caption: so there&#39;s there&#39;s something that does
+
+00:04:28.380 --> 00:04:33.600
+Caption: that randomly random sampling uh there&#39;s
+
+00:04:31.320 --> 00:04:36.479
+Caption: something that detects that random
+
+00:04:33.600 --> 00:04:39.119
+Caption: sample event and actually makes a change
+
+00:04:36.479 --> 00:04:42.600
+Caption: in the system we have to do something to
+
+00:04:39.119 --> 00:04:44.220
+Caption: take that sample from the product and
+
+00:04:42.600 --> 00:04:46.380
+Caption: then we get results back we get a parcel
+
+00:04:44.220 --> 00:04:48.360
+Caption: fail from that sample and again we have
+
+00:04:46.380 --> 00:04:50.639
+Caption: to take action
+
+00:04:48.359 --> 00:04:52.559
+Caption: um if it fails if it&#39;s good then we
+
+00:04:50.639 --> 00:04:55.259
+Caption: continue doing whatever it is a cannery
+
+00:04:52.559 --> 00:04:57.479
+Caption: does and we profit hopefully
+
+00:04:55.259 --> 00:04:59.279
+Caption: uh so
+
+00:04:57.479 --> 00:05:01.619
+Caption: this is a plausible architecture right
+
+00:04:59.279 --> 00:05:03.899
+Caption: it&#39;s not a good one I&#39;ll give you that
+
+00:05:01.619 --> 00:05:06.899
+Caption: but it&#39;s a plausible architecture we
+
+00:05:03.899 --> 00:05:08.759
+Caption: have a sensor it&#39;s sending some sort of
+
+00:05:06.899 --> 00:05:10.799
+Caption: data to a sampling engine there we have
+
+00:05:08.759 --> 00:05:13.979
+Caption: a pretty box the box I said don&#39;t do
+
+00:05:10.799 --> 00:05:15.239
+Caption: because boxes are not good if the sample
+
+00:05:13.979 --> 00:05:19.080
+Caption: fails
+
+00:05:15.239 --> 00:05:20.819
+Caption: it goes around to a staff member
+
+00:05:19.079 --> 00:05:23.279
+Caption: don&#39;t know what sort of staff member is
+
+00:05:20.820 --> 00:05:25.020
+Caption: it the the cleaner or is it the manager
+
+00:05:23.279 --> 00:05:28.079
+Caption: like who are we actually sending that to
+
+00:05:25.019 --> 00:05:29.279
+Caption: is it the CEO that gets the message
+
+00:05:28.079 --> 00:05:31.319
+Caption: um and then
+
+00:05:29.279 --> 00:05:32.519
+Caption: the staff member sends something back to
+
+00:05:31.320 --> 00:05:33.899
+Caption: the center what are they sending back to
+
+00:05:32.519 --> 00:05:35.339
+Caption: the sensor
+
+00:05:33.899 --> 00:05:38.339
+Caption: um there&#39;s not a lot of information
+
+00:05:35.339 --> 00:05:39.899
+Caption: going on here but
+
+00:05:38.339 --> 00:05:41.519
+Caption: I can almost guarantee that there&#39;s
+
+00:05:39.899 --> 00:05:42.720
+Caption: architecture diagrams like this out in
+
+00:05:41.519 --> 00:05:43.559
+Caption: the wild
+
+00:05:42.720 --> 00:05:46.799
+Caption: um
+
+00:05:43.559 --> 00:05:49.799
+Caption: so all we can oh we can really tell from
+
+00:05:46.799 --> 00:05:52.739
+Caption: this with any great certainty is that
+
+00:05:49.799 --> 00:05:53.940
+Caption: when we get sample results back we we do
+
+00:05:52.739 --> 00:05:57.660
+Caption: something with those sample results
+
+00:05:53.940 --> 00:05:59.639
+Caption: right we could see those uh those data
+
+00:05:57.660 --> 00:06:02.100
+Caption: flow labels the sample pass and Sample
+
+00:05:59.639 --> 00:06:04.860
+Caption: failed that&#39;s the only real certainty we
+
+00:06:02.100 --> 00:06:07.259
+Caption: can get out of this architecture diagram
+
+00:06:04.859 --> 00:06:09.119
+Caption: um so let&#39;s iterate
+
+00:06:07.259 --> 00:06:11.519
+Caption: so now we have a production line we can
+
+00:06:09.119 --> 00:06:12.779
+Caption: see what&#39;s actually happening here from
+
+00:06:11.519 --> 00:06:15.539
+Caption: the production line there&#39;s there&#39;s
+
+00:06:12.779 --> 00:06:17.940
+Caption: two-way data flow between the random
+
+00:06:15.539 --> 00:06:21.059
+Caption: sample sensor which has a better name
+
+00:06:17.940 --> 00:06:23.100
+Caption: now by the way it&#39;s not just a sensor
+
+00:06:21.059 --> 00:06:25.739
+Caption: it&#39;s a random sample sensor we&#39;ve got
+
+00:06:23.100 --> 00:06:28.279
+Caption: really descriptive
+
+00:06:25.739 --> 00:06:30.779
+Caption: um labels associated with these things
+
+00:06:28.279 --> 00:06:31.859
+Caption: uh the random sample sensor we still
+
+00:06:30.779 --> 00:06:34.319
+Caption: don&#39;t know what it&#39;s doing it&#39;s just
+
+00:06:31.859 --> 00:06:36.478
+Caption: passing something into a black box
+
+00:06:34.319 --> 00:06:39.119
+Caption: sampling engine we we still don&#39;t know
+
+00:06:36.479 --> 00:06:41.160
+Caption: what that sampling engine does
+
+00:06:39.119 --> 00:06:43.259
+Caption: um we can see when it passes we actually
+
+00:06:41.160 --> 00:06:45.539
+Caption: go and restart the or restart or
+
+00:06:43.259 --> 00:06:47.819
+Caption: continue the production line we that
+
+00:06:45.539 --> 00:06:50.160
+Caption: label might need some work
+
+00:06:47.819 --> 00:06:52.679
+Caption: um and we can see the manager at some
+
+00:06:50.160 --> 00:06:55.919
+Caption: point presses the start button but we
+
+00:06:52.679 --> 00:06:58.859
+Caption: don&#39;t really know when that is so
+
+00:06:55.919 --> 00:06:59.639
+Caption: arguably better maybe worse
+
+00:06:58.859 --> 00:07:01.319
+Caption: um
+
+00:06:59.639 --> 00:07:04.319
+Caption: hopefully it illustrates a point though
+
+00:07:01.319 --> 00:07:07.139
+Caption: so now we can see that we&#39;ve got
+
+00:07:04.319 --> 00:07:08.579
+Caption: something generating a sample event we
+
+00:07:07.139 --> 00:07:11.520
+Caption: we know a bit more about what&#39;s
+
+00:07:08.579 --> 00:07:13.019
+Caption: happening in this system from from this
+
+00:07:11.519 --> 00:07:14.339
+Caption: um there&#39;s probably a few other bullet
+
+00:07:13.019 --> 00:07:15.720
+Caption: points we could include there we know
+
+00:07:14.339 --> 00:07:18.660
+Caption: that it&#39;s running against a production
+
+00:07:15.720 --> 00:07:21.239
+Caption: line we know that it&#39;s a manager that
+
+00:07:18.660 --> 00:07:21.899
+Caption: takes action on this system
+
+00:07:21.239 --> 00:07:24.059
+Caption: um
+
+00:07:21.899 --> 00:07:27.299
+Caption: overall we&#39;re starting to get a better
+
+00:07:24.059 --> 00:07:29.519
+Caption: picture of what this whole system does
+
+00:07:27.299 --> 00:07:31.379
+Caption: but we can do better so
+
+00:07:29.519 --> 00:07:34.198
+Caption: let&#39;s try
+
+00:07:31.380 --> 00:07:35.160
+Caption: um so now we have a lot a lot more going
+
+00:07:34.199 --> 00:07:36.300
+Caption: on here
+
+00:07:35.160 --> 00:07:40.019
+Caption: um I try to run through it really
+
+00:07:36.299 --> 00:07:41.698
+Caption: quickly for you uh of keynote is we no
+
+00:07:40.019 --> 00:07:43.440
+Caption: longer have that black box sampling
+
+00:07:41.699 --> 00:07:46.619
+Caption: engine right we have individual
+
+00:07:43.440 --> 00:07:49.080
+Caption: components we have an sqs queue we have
+
+00:07:46.619 --> 00:07:52.440
+Caption: a Lambda that takes the sample and does
+
+00:07:49.079 --> 00:07:55.019
+Caption: something with it we have a uh we can
+
+00:07:52.440 --> 00:07:58.259
+Caption: see that the sample goes and goes
+
+00:07:55.019 --> 00:07:59.339
+Caption: through some sort of analyzing system
+
+00:07:58.259 --> 00:08:01.799
+Caption: um
+
+00:07:59.339 --> 00:08:04.619
+Caption: don&#39;t know what I&#39;m not a canary manager
+
+00:08:01.799 --> 00:08:06.598
+Caption: so don&#39;t ask me uh and then it gets
+
+00:08:04.619 --> 00:08:09.119
+Caption: processed by another Lambda so we know
+
+00:08:06.598 --> 00:08:11.399
+Caption: instead of that single black box that we
+
+00:08:09.119 --> 00:08:13.319
+Caption: thought we had we actually have three
+
+00:08:11.399 --> 00:08:15.359
+Caption: arguably four different components there
+
+00:08:13.319 --> 00:08:18.119
+Caption: which is massive amounts more
+
+00:08:15.359 --> 00:08:20.758
+Caption: information that we can convey to our
+
+00:08:18.119 --> 00:08:23.579
+Caption: our users our stakeholders anyone who&#39;s
+
+00:08:20.759 --> 00:08:25.679
+Caption: interested in this system brand new devs
+
+00:08:23.579 --> 00:08:28.079
+Caption: that join the team you can go oh yeah
+
+00:08:25.679 --> 00:08:31.619
+Caption: cool we work with you know two lambdas
+
+00:08:28.079 --> 00:08:33.778
+Caption: and an sqsq instead of just there&#39;s this
+
+00:08:31.619 --> 00:08:35.940
+Caption: black box and you&#39;ll eventually figure
+
+00:08:33.778 --> 00:08:38.700
+Caption: out what it does there&#39;s tons more
+
+00:08:35.940 --> 00:08:40.739
+Caption: information here uh we can see when it
+
+00:08:38.700 --> 00:08:42.718
+Caption: fails we actually send a notification to
+
+00:08:40.739 --> 00:08:45.719
+Caption: the manager it just it doesn&#39;t just
+
+00:08:42.718 --> 00:08:48.778
+Caption: nebulously somehow get to the manager
+
+00:08:45.719 --> 00:08:50.759
+Caption: uh who then analyzes the results and
+
+00:08:48.778 --> 00:08:52.919
+Caption: there&#39;s some subjectivity here clearly
+
+00:08:50.760 --> 00:08:55.440
+Caption: because otherwise we wouldn&#39;t need to
+
+00:08:52.919 --> 00:08:58.018
+Caption: analyze the results the manager probably
+
+00:08:55.440 --> 00:09:00.419
+Caption: wouldn&#39;t even need to be involved uh and
+
+00:08:58.018 --> 00:09:01.859
+Caption: then you can see that based on analyzing
+
+00:09:00.419 --> 00:09:03.239
+Caption: the results they&#39;ll restart the
+
+00:09:01.859 --> 00:09:04.979
+Caption: production line perhaps there&#39;s other
+
+00:09:03.239 --> 00:09:06.479
+Caption: steps they have to take before they can
+
+00:09:04.979 --> 00:09:09.119
+Caption: do that I would assume they have to
+
+00:09:06.479 --> 00:09:11.760
+Caption: remove the crappy product before they
+
+00:09:09.119 --> 00:09:14.338
+Caption: restart it again I don&#39;t actually know
+
+00:09:11.760 --> 00:09:15.000
+Caption: how cannery&#39;s work
+
+00:09:14.338 --> 00:09:17.039
+Caption: um
+
+00:09:15.000 --> 00:09:19.979
+Caption: but that&#39;s the basic premise right we
+
+00:09:17.039 --> 00:09:21.898
+Caption: want to we want to convey exactly what&#39;s
+
+00:09:19.979 --> 00:09:25.440
+Caption: happening in this system
+
+00:09:21.898 --> 00:09:27.599
+Caption: uh clear labels for everything your
+
+00:09:25.440 --> 00:09:29.640
+Caption: components it&#39;s not just a Lambda it&#39;s a
+
+00:09:27.599 --> 00:09:32.518
+Caption: Lambda that takes a sample it&#39;s a Lambda
+
+00:09:29.640 --> 00:09:34.559
+Caption: that processes sample results it&#39;s very
+
+00:09:32.518 --> 00:09:36.539
+Caption: clear what those individual components
+
+00:09:34.559 --> 00:09:37.979
+Caption: are doing
+
+00:09:36.539 --> 00:09:39.898
+Caption: um
+
+00:09:37.979 --> 00:09:41.760
+Caption: and that then helps you to convey
+
+00:09:39.898 --> 00:09:43.260
+Caption: meaning to the rest of the people
+
+00:09:41.760 --> 00:09:45.179
+Caption: involved in the project
+
+00:09:43.260 --> 00:09:46.979
+Caption: so uh
+
+00:09:45.179 --> 00:09:49.080
+Caption: this is a real world example this is
+
+00:09:46.979 --> 00:09:51.479
+Caption: something that I used
+
+00:09:49.080 --> 00:09:55.019
+Caption: um at a at a client this is actually
+
+00:09:51.479 --> 00:09:57.898
+Caption: part of a smaller bit of a smaller part
+
+00:09:55.018 --> 00:09:59.880
+Caption: of a larger architecture so this is one
+
+00:09:57.898 --> 00:10:03.599
+Caption: component out of
+
+00:09:59.880 --> 00:10:05.518
+Caption: four six there was multiple vpcs peering
+
+00:10:03.599 --> 00:10:07.619
+Caption: going on
+
+00:10:05.518 --> 00:10:10.919
+Caption: and it was all Illustrated in the
+
+00:10:07.619 --> 00:10:12.359
+Caption: diagram we I used a little pipe symbol
+
+00:10:10.919 --> 00:10:15.239
+Caption: to indicate that there was peering
+
+00:10:12.359 --> 00:10:17.159
+Caption: between the various vpcs
+
+00:10:15.239 --> 00:10:18.778
+Caption: um you know use your imagination here
+
+00:10:17.159 --> 00:10:21.778
+Caption: use some descript some something
+
+00:10:18.778 --> 00:10:24.659
+Caption: descriptive that&#39;s not just a box and an
+
+00:10:21.778 --> 00:10:26.219
+Caption: arrow to get your point across in this
+
+00:10:24.659 --> 00:10:28.679
+Caption: particular case we&#39;re talking about a
+
+00:10:26.219 --> 00:10:30.958
+Caption: step function you can see we&#39;re using
+
+00:10:28.679 --> 00:10:33.599
+Caption: the diamonds to indicate decision points
+
+00:10:30.958 --> 00:10:35.880
+Caption: in the process the
+
+00:10:33.599 --> 00:10:37.699
+Caption: gray box I&#39;m hoping it&#39;s great it&#39;s gray
+
+00:10:35.880 --> 00:10:40.979
+Caption: on my screen a bit in the middle there
+
+00:10:37.700 --> 00:10:45.059
+Caption: with the map states is actually a
+
+00:10:40.979 --> 00:10:46.859
+Caption: parallel state where it takes multiple
+
+00:10:45.059 --> 00:10:47.940
+Caption: results and Spins up multiple lambdas
+
+00:10:46.859 --> 00:10:50.299
+Caption: concurrently
+
+00:10:47.940 --> 00:10:52.739
+Caption: uh not sure that&#39;s the best
+
+00:10:50.299 --> 00:10:54.479
+Caption: representation but at least it gets the
+
+00:10:52.739 --> 00:10:56.159
+Caption: point across that something different is
+
+00:10:54.479 --> 00:10:58.018
+Caption: happening at that particular part of the
+
+00:10:56.159 --> 00:11:00.179
+Caption: process which is the goal here is we
+
+00:10:58.018 --> 00:11:02.278
+Caption: want to communicate exactly what&#39;s
+
+00:11:00.179 --> 00:11:04.320
+Caption: happening and you can start a discussion
+
+00:11:02.278 --> 00:11:06.539
+Caption: around that point you can go hey product
+
+00:11:04.320 --> 00:11:08.398
+Caption: owner we&#39;re actually spinning up 20
+
+00:11:06.539 --> 00:11:10.320
+Caption: lambdas here right this is very
+
+00:11:08.398 --> 00:11:11.578
+Caption: different to just spinning up one Lambda
+
+00:11:10.320 --> 00:11:14.220
+Caption: they&#39;re all processing things
+
+00:11:11.578 --> 00:11:16.679
+Caption: concurrently and we have to take certain
+
+00:11:14.219 --> 00:11:17.398
+Caption: actions as a result
+
+00:11:16.679 --> 00:11:19.859
+Caption: um
+
+00:11:17.398 --> 00:11:22.859
+Caption: down the bottom you&#39;ve got external
+
+00:11:19.859 --> 00:11:24.419
+Caption: Integrations with mulesoft that&#39;s as far
+
+00:11:22.859 --> 00:11:26.278
+Caption: as I went with this particular diagram
+
+00:11:24.419 --> 00:11:28.919
+Caption: you could go further the mulesoft
+
+00:11:26.278 --> 00:11:32.219
+Caption: actually pointed it at sap whether that
+
+00:11:28.919 --> 00:11:35.299
+Caption: adds value or not is is up to you the
+
+00:11:32.219 --> 00:11:38.099
+Caption: one thing this doesn&#39;t include is people
+
+00:11:35.299 --> 00:11:39.898
+Caption: uh that said this system doesn&#39;t
+
+00:11:38.099 --> 00:11:41.940
+Caption: actually really have people in the
+
+00:11:39.898 --> 00:11:43.859
+Caption: process it&#39;s a fully automated system so
+
+00:11:41.940 --> 00:11:45.958
+Caption: perhaps not the best example but I
+
+00:11:43.859 --> 00:11:49.500
+Caption: thought it would be interesting to
+
+00:11:45.958 --> 00:11:51.200
+Caption: include include a more beefier example
+
+00:11:49.500 --> 00:11:53.099
+Caption: of what I&#39;m
+
+00:11:51.200 --> 00:11:55.140
+Caption: trying to
+
+00:11:53.099 --> 00:12:00.179
+Caption: get across here
+
+00:11:55.140 --> 00:12:02.338
+Caption: uh cool I&#39;m going really quick of course
+
+00:12:00.179 --> 00:12:05.099
+Caption: so look you see really quick that&#39;s
+
+00:12:02.338 --> 00:12:08.039
+Caption: that&#39;s basically the end of my talk so
+
+00:12:05.099 --> 00:12:10.380
+Caption: um the key takeaways here are build
+
+00:12:08.039 --> 00:12:13.018
+Caption: Build architecture design architecture
+
+00:12:10.380 --> 00:12:14.700
+Caption: that includes everyone don&#39;t build these
+
+00:12:13.018 --> 00:12:17.760
+Caption: little black boxes that only the
+
+00:12:14.700 --> 00:12:20.220
+Caption: technical experts understand you lose so
+
+00:12:17.760 --> 00:12:21.540
+Caption: much value your your POS they don&#39;t know
+
+00:12:20.219 --> 00:12:23.759
+Caption: what&#39;s going on with these little black
+
+00:12:21.539 --> 00:12:25.979
+Caption: boxes you tell them there&#39;s a Lambda
+
+00:12:23.760 --> 00:12:28.320
+Caption: that&#39;s doing something instantly they go
+
+00:12:25.979 --> 00:12:30.119
+Caption: oh cool I actually understand what that
+
+00:12:28.320 --> 00:12:32.160
+Caption: is you might have to explain them how a
+
+00:12:30.119 --> 00:12:33.659
+Caption: lambd explained to them how a Lambda
+
+00:12:32.159 --> 00:12:35.159
+Caption: works but they&#39;re going to feel more
+
+00:12:33.659 --> 00:12:36.359
+Caption: connected to the project they&#39;re going
+
+00:12:35.159 --> 00:12:38.518
+Caption: to be more interested in what&#39;s
+
+00:12:36.359 --> 00:12:41.958
+Caption: happening I&#39;ve seen it time and time
+
+00:12:38.518 --> 00:12:44.458
+Caption: again the good POS even the mediocre POS
+
+00:12:41.958 --> 00:12:47.700
+Caption: they are way more involved in the
+
+00:12:44.458 --> 00:12:50.578
+Caption: process if you encourage them and
+
+00:12:47.700 --> 00:12:52.018
+Caption: include them in the whole thing they
+
+00:12:50.578 --> 00:12:53.398
+Caption: want to be involved in this at the end
+
+00:12:52.018 --> 00:12:55.440
+Caption: of the day that&#39;s their product right
+
+00:12:53.398 --> 00:12:57.898
+Caption: they they want to know what&#39;s happening
+
+00:12:55.440 --> 00:13:00.720
+Caption: with their product they are the owners
+
+00:12:57.898 --> 00:13:03.599
+Caption: so really encourage them
+
+00:13:00.719 --> 00:13:05.819
+Caption: to to get involved in this process and
+
+00:13:03.599 --> 00:13:09.359
+Caption: build a process build a build a diagram
+
+00:13:05.820 --> 00:13:10.078
+Caption: that does encourage them to do so
+
+00:13:09.359 --> 00:13:11.760
+Caption: um
+
+00:13:10.078 --> 00:13:14.278
+Caption: things that will help you do this single
+
+00:13:11.760 --> 00:13:16.799
+Caption: responsibility principle right that
+
+00:13:14.278 --> 00:13:19.559
+Caption: single black box was split into two
+
+00:13:16.799 --> 00:13:21.539
+Caption: lambdas and a queue and they all did one
+
+00:13:19.559 --> 00:13:22.799
+Caption: thing there was a Lambda that took a
+
+00:13:21.539 --> 00:13:24.299
+Caption: sample
+
+00:13:22.799 --> 00:13:26.760
+Caption: um I don&#39;t know how that works on a
+
+00:13:24.299 --> 00:13:29.398
+Caption: cannery Factory maybe they activate a
+
+00:13:26.760 --> 00:13:31.139
+Caption: different conveyor belt who knows but it
+
+00:13:29.398 --> 00:13:33.659
+Caption: that&#39;s all it does it just takes a
+
+00:13:31.138 --> 00:13:35.699
+Caption: sample when it responds to that random
+
+00:13:33.659 --> 00:13:38.219
+Caption: sampling event and then the other Lambda
+
+00:13:35.700 --> 00:13:39.958
+Caption: that processes the results and says it&#39;s
+
+00:13:38.219 --> 00:13:41.638
+Caption: a pass or a fail right that&#39;s all it
+
+00:13:39.958 --> 00:13:44.638
+Caption: does it figures out whether the results
+
+00:13:41.638 --> 00:13:47.578
+Caption: are a pass or a fail it is very simple
+
+00:13:44.638 --> 00:13:49.679
+Caption: architecture it&#39;s easy to understand
+
+00:13:47.578 --> 00:13:51.119
+Caption: and everybody can understand it which is
+
+00:13:49.679 --> 00:13:54.119
+Caption: the whole point we want people to
+
+00:13:51.119 --> 00:13:56.278
+Caption: understand we want people to go oh can I
+
+00:13:54.119 --> 00:13:59.398
+Caption: add this particular component what&#39;s the
+
+00:13:56.278 --> 00:14:01.619
+Caption: impact of this particular feature or
+
+00:13:59.398 --> 00:14:03.778
+Caption: change to the system and if they
+
+00:14:01.619 --> 00:14:05.518
+Caption: understand the whole system they&#39;re
+
+00:14:03.778 --> 00:14:07.078
+Caption: going to be able to have more of a
+
+00:14:05.518 --> 00:14:08.898
+Caption: meaningful discussion with you about
+
+00:14:07.078 --> 00:14:11.159
+Caption: that
+
+00:14:08.898 --> 00:14:13.260
+Caption: readability and discoverability I
+
+00:14:11.159 --> 00:14:16.379
+Caption: mentioned earlier in the talk new devs
+
+00:14:13.260 --> 00:14:19.859
+Caption: new devs are going to understand
+
+00:14:16.380 --> 00:14:23.700
+Caption: this a lot quicker than if I just did
+
+00:14:19.859 --> 00:14:25.440
+Caption: that black box outside or maybe the the
+
+00:14:23.700 --> 00:14:27.480
+Caption: um event bridge and the step function
+
+00:14:25.440 --> 00:14:30.898
+Caption: right having all the individual
+
+00:14:27.479 --> 00:14:32.638
+Caption: components is going to be way easier to
+
+00:14:30.898 --> 00:14:33.719
+Caption: understand and get them up to speed and
+
+00:14:32.638 --> 00:14:35.398
+Caption: that&#39;s what we want right we don&#39;t want
+
+00:14:33.719 --> 00:14:36.898
+Caption: to have to spend a month teaching the
+
+00:14:35.398 --> 00:14:39.239
+Caption: new Dev all the different parts of the
+
+00:14:36.898 --> 00:14:41.638
+Caption: system we&#39;re going to go hey we need to
+
+00:14:39.239 --> 00:14:42.958
+Caption: make this change to Lambda XYZ go make
+
+00:14:41.638 --> 00:14:46.679
+Caption: that change and they can go do it
+
+00:14:42.958 --> 00:14:49.198
+Caption: without any other involvement so
+
+00:14:46.679 --> 00:14:51.000
+Caption: it&#39;s a really great way of onboarding
+
+00:14:49.198 --> 00:14:52.799
+Caption: people quick and everyone getting up to
+
+00:14:51.000 --> 00:14:53.900
+Caption: speed and everyone understanding the
+
+00:14:52.799 --> 00:14:54.539
+Caption: system
+
+00:14:53.900 --> 00:14:55.199
+Caption: [Music]
+
+00:14:54.539 --> 00:14:56.880
+Caption: um
+
+00:14:55.198 --> 00:14:58.500
+Caption: and the last thing I&#39;ve kind of already
+
+00:14:56.880 --> 00:15:00.299
+Caption: touched on this opportunity to enhance
+
+00:14:58.500 --> 00:15:01.500
+Caption: your workflow right you&#39;re not always
+
+00:15:00.299 --> 00:15:03.239
+Caption: going to see everything just because
+
+00:15:01.500 --> 00:15:05.159
+Caption: you&#39;re the architect doesn&#39;t mean you
+
+00:15:03.239 --> 00:15:07.380
+Caption: always know best just because you&#39;re the
+
+00:15:05.159 --> 00:15:10.018
+Caption: senior Dev or the tech lead just because
+
+00:15:07.380 --> 00:15:12.359
+Caption: you&#39;re the PO doesn&#39;t mean you know the
+
+00:15:10.018 --> 00:15:14.820
+Caption: best workflow here by having an
+
+00:15:12.359 --> 00:15:17.099
+Caption: architecture that everybody understands
+
+00:15:14.820 --> 00:15:20.160
+Caption: you can all work together and spot
+
+00:15:17.099 --> 00:15:22.679
+Caption: opportunities to improve the workflow to
+
+00:15:20.159 --> 00:15:25.859
+Caption: enhance the workflow to add new business
+
+00:15:22.679 --> 00:15:26.760
+Caption: cases and value to that workflow
+
+00:15:25.859 --> 00:15:29.820
+Caption: um
+
+00:15:26.760 --> 00:15:32.100
+Caption: and that&#39;s it that&#39;s me so uh thank you
+
+00:15:29.820 --> 00:15:33.359
+Caption: very much for coming to my tour and
+
+00:15:32.099 --> 00:15:40.768
+Caption: question time
+
+00:15:33.359 --> 00:15:40.768
+Caption: [Applause]
+
+00:15:40.859 --> 00:15:46.859
+Caption: sorry thank you very much Trent so it&#39;s
+
+00:15:44.698 --> 00:15:48.419
+Caption: not only about making inclusive software
+
+00:15:46.859 --> 00:15:51.239
+Caption: for your customers it&#39;s about making
+
+00:15:48.419 --> 00:15:53.039
+Caption: inclusive systems so you can basically
+
+00:15:51.239 --> 00:15:54.838
+Caption: communicate better with the team of
+
+00:15:53.039 --> 00:15:57.719
+Caption: people that you&#39;re working with all the
+
+00:15:54.838 --> 00:16:00.359
+Caption: way through from exec to um your Junior
+
+00:15:57.719 --> 00:16:01.859
+Caption: developer very good thank you now we&#39;re
+
+00:16:00.359 --> 00:16:05.479
+Caption: going to open the floor up for some q
+
+00:16:01.859 --> 00:16:05.479
+Caption: and A&#39;s uh has anyone got a question
+
+00:16:06.000 --> 00:16:09.018
+Caption: just up the front
+
+00:16:12.380 --> 00:16:18.419
+Caption: possibly a loaded question
+
+00:16:15.059 --> 00:16:21.059
+Caption: um have you have you heard of the C4
+
+00:16:18.419 --> 00:16:22.440
+Caption: model of architecture diagrams recently
+
+00:16:21.059 --> 00:16:24.778
+Caption: yes yes okay
+
+00:16:22.440 --> 00:16:27.198
+Caption: um yeah very similar I I considered
+
+00:16:24.778 --> 00:16:30.419
+Caption: adding that to this talk and you could
+
+00:16:27.198 --> 00:16:32.278
+Caption: uh if we look at uh say this particular
+
+00:16:30.419 --> 00:16:34.260
+Caption: model you could you could probably apply
+
+00:16:32.278 --> 00:16:36.778
+Caption: that here and say the um you know the
+
+00:16:34.260 --> 00:16:39.059
+Caption: two big black boxes are one level of the
+
+00:16:36.778 --> 00:16:41.698
+Caption: C4 and then you drill down another level
+
+00:16:39.059 --> 00:16:43.320
+Caption: and you get a a view of the uh event
+
+00:16:41.698 --> 00:16:44.940
+Caption: bridge and the step function and the
+
+00:16:43.320 --> 00:16:46.679
+Caption: database and then another level when you
+
+00:16:44.940 --> 00:16:48.539
+Caption: get the internals of the step function
+
+00:16:46.679 --> 00:16:53.219
+Caption: and that would apply there
+
+00:16:48.539 --> 00:16:54.719
+Caption: um but yeah uh organically came to the
+
+00:16:53.219 --> 00:16:55.919
+Caption: same conclusions apparently I only
+
+00:16:54.719 --> 00:16:57.799
+Caption: discovered it in the last couple of
+
+00:16:55.919 --> 00:17:00.000
+Caption: months you&#39;ve reinvented it
+
+00:16:57.799 --> 00:17:01.979
+Caption: we discovered it ourselves about a year
+
+00:17:00.000 --> 00:17:04.678
+Caption: ago oh nice yeah how&#39;s it working for
+
+00:17:01.979 --> 00:17:06.599
+Caption: you that&#39;s brilliant nice excellent
+
+00:17:04.678 --> 00:17:08.938
+Caption: yeah it&#39;s basically what you showed
+
+00:17:06.599 --> 00:17:11.578
+Caption: there it really opens up the magic Black
+
+00:17:08.938 --> 00:17:13.318
+Caption: Box yeah um
+
+00:17:11.578 --> 00:17:15.479
+Caption: and uh yeah more people can understand
+
+00:17:13.318 --> 00:17:16.859
+Caption: the system yeah great once you do that
+
+00:17:15.479 --> 00:17:20.280
+Caption: more people can go oh hang on actually
+
+00:17:16.859 --> 00:17:21.780
+Caption: it&#39;s a bit crap yeah yeah yeah it leads
+
+00:17:20.280 --> 00:17:23.338
+Caption: leads to an improved system though when
+
+00:17:21.780 --> 00:17:26.280
+Caption: they say that right so yeah it&#39;s good
+
+00:17:23.338 --> 00:17:29.719
+Caption: cool thank you
+
+00:17:26.280 --> 00:17:29.719
+Caption: any more questions any more questions
+
+00:17:32.280 --> 00:17:35.880
+Caption: um have you got any advice for people
+
+00:17:34.020 --> 00:17:37.919
+Caption: who are reviewing someone else&#39;s
+
+00:17:35.880 --> 00:17:39.479
+Caption: architecture diagram any sort of red
+
+00:17:37.918 --> 00:17:42.269
+Caption: flags to look out for and that sort of
+
+00:17:39.479 --> 00:17:45.119
+Caption: thing oh yeah that&#39;s a good one no boxes
+
+00:17:42.270 --> 00:17:49.320
+Caption: [Laughter]
+
+00:17:45.119 --> 00:17:50.760
+Caption: um yeah look I uh
+
+00:17:49.319 --> 00:17:54.659
+Caption: uh I can&#39;t think of anything off the top
+
+00:17:50.760 --> 00:17:57.178
+Caption: I&#39;ve not done a lot of reviews right I
+
+00:17:54.660 --> 00:18:00.599
+Caption: um I tend to either pick something up
+
+00:17:57.178 --> 00:18:02.459
+Caption: and uh try and figure out what&#39;s going
+
+00:18:00.599 --> 00:18:04.798
+Caption: on or I&#39;ll be building the diagram
+
+00:18:02.459 --> 00:18:08.699
+Caption: myself I guess the only thing I would
+
+00:18:04.798 --> 00:18:10.859
+Caption: perhaps consider when doing a review is
+
+00:18:08.699 --> 00:18:12.599
+Caption: maybe build it yourself do the diagram
+
+00:18:10.859 --> 00:18:15.239
+Caption: yourself and see what the differences
+
+00:18:12.599 --> 00:18:17.660
+Caption: are and make sure that you have actually
+
+00:18:15.239 --> 00:18:19.918
+Caption: captured all the aspects of the system
+
+00:18:17.660 --> 00:18:23.220
+Caption: might be a good way of doing it but yeah
+
+00:18:19.918 --> 00:18:26.839
+Caption: I&#39;ve never done reviews before so that&#39;s
+
+00:18:23.219 --> 00:18:26.839
+Caption: um purely guesswork unfortunately
+
+00:18:27.479 --> 00:18:30.140
+Caption: any more questions
+
+00:18:38.819 --> 00:18:44.339
+Caption: um are there any particular tools that
+
+00:18:42.479 --> 00:18:47.538
+Caption: you found sort of helpful or useful in
+
+00:18:44.339 --> 00:18:50.819
+Caption: terms of your architecture diagrams
+
+00:18:47.538 --> 00:18:52.439
+Caption: uh yeah look I mean there&#39;s definitely
+
+00:18:50.819 --> 00:18:54.178
+Caption: tools out there that will generate a lot
+
+00:18:52.439 --> 00:18:56.279
+Caption: of this stuff for you
+
+00:18:54.178 --> 00:18:57.599
+Caption: um there was
+
+00:18:56.280 --> 00:18:59.039
+Caption: I can&#39;t remember the name of it there
+
+00:18:57.599 --> 00:19:01.678
+Caption: was a recent one that works really well
+
+00:18:59.038 --> 00:19:03.479
+Caption: with arm templates and and the Azure
+
+00:19:01.678 --> 00:19:06.538
+Caption: system I&#39;m not sure if there&#39;s
+
+00:19:03.479 --> 00:19:09.119
+Caption: equivalent for AWS uh these particular
+
+00:19:06.538 --> 00:19:11.699
+Caption: diet or the um the big real world
+
+00:19:09.119 --> 00:19:13.199
+Caption: diagram I did that in sorry I just
+
+00:19:11.699 --> 00:19:16.798
+Caption: realized I&#39;m not on the screen it&#39;s
+
+00:19:13.199 --> 00:19:19.439
+Caption: there uh the big real world diagram I
+
+00:19:16.798 --> 00:19:21.239
+Caption: did that in Vizio uh it has all the nice
+
+00:19:19.439 --> 00:19:23.939
+Caption: icons and everything else to work with
+
+00:19:21.239 --> 00:19:27.298
+Caption: whatever platform you&#39;re using but
+
+00:19:23.939 --> 00:19:30.058
+Caption: drawer IO as well free open source has
+
+00:19:27.298 --> 00:19:32.339
+Caption: same set of pitches and diagrams and
+
+00:19:30.058 --> 00:19:34.500
+Caption: everything else and you can sync it to
+
+00:19:32.339 --> 00:19:37.558
+Caption: Dropbox and OneDrive and all the rest
+
+00:19:34.500 --> 00:19:39.380
+Caption: and and they&#39;re really useful tools
+
+00:19:37.558 --> 00:19:42.000
+Caption: um
+
+00:19:39.380 --> 00:19:43.739
+Caption: I haven&#39;t used Lucid but I do I do know
+
+00:19:42.000 --> 00:19:44.400
+Caption: of lucid yeah yeah
+
+00:19:43.739 --> 00:19:46.739
+Caption: um
+
+00:19:44.400 --> 00:19:49.039
+Caption: yeah they&#39;re they&#39;re the most tools I
+
+00:19:46.739 --> 00:19:49.038
+Caption: know about
+
+00:19:50.760 --> 00:19:53.539
+Caption: any more questions
+
+00:19:53.760 --> 00:19:56.780
+Caption: no okay
+

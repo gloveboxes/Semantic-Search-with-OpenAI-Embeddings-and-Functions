@@ -1,0 +1,1781 @@
+WEBVTT
+
+00:00:11.678 --> 00:00:16.319
+Caption: hi i&#39;m andy dent i&#39;d like to start by
+
+00:00:14.159 --> 00:00:18.959
+Caption: thanking our sponsors
+
+00:00:16.319 --> 00:00:21.198
+Caption: i&#39;m here to talk to you about
+
+00:00:18.959 --> 00:00:22.559
+Caption: lottie and tooling around the lotte
+
+00:00:21.198 --> 00:00:24.799
+Caption: ecosystem
+
+00:00:22.559 --> 00:00:26.879
+Caption: lottie is an animation format that as
+
+00:00:24.799 --> 00:00:29.278
+Caption: you can see from this professional scale
+
+00:00:26.879 --> 00:00:30.879
+Caption: diagram is a lot smaller than some of
+
+00:00:29.278 --> 00:00:34.319
+Caption: the ways you may be putting animated
+
+00:00:30.879 --> 00:00:36.558
+Caption: items on your web pages
+
+00:00:34.319 --> 00:00:37.840
+Caption: if you attended my talk in 2019 or if
+
+00:00:36.558 --> 00:00:40.000
+Caption: you want to go back and look it up on
+
+00:00:37.840 --> 00:00:42.238
+Caption: youtube i talked a lot about disney&#39;s
+
+00:00:40.000 --> 00:00:43.520
+Caption: principles of animation and these first
+
+00:00:42.238 --> 00:00:46.000
+Caption: few slides
+
+00:00:43.520 --> 00:00:48.479
+Caption: relate back to that talk as well i still
+
+00:00:46.000 --> 00:00:50.959
+Caption: break down animation into three reasons
+
+00:00:48.479 --> 00:00:52.878
+Caption: why so the first one is just to amuse
+
+00:00:50.959 --> 00:00:54.479
+Caption: yourself or your user
+
+00:00:52.879 --> 00:00:57.760
+Caption: to give them a little bit of delight in
+
+00:00:54.479 --> 00:00:59.439
+Caption: the app and the user interface
+
+00:00:57.759 --> 00:01:01.119
+Caption: sometimes you want to distract people
+
+00:00:59.439 --> 00:01:03.840
+Caption: how long does it take to load something
+
+00:01:01.119 --> 00:01:05.279
+Caption: so it&#39;s your classic loading spinner
+
+00:01:03.840 --> 00:01:07.040
+Caption: or when you&#39;re getting started if you
+
+00:01:05.279 --> 00:01:08.959
+Caption: have an app that unfortunately takes a
+
+00:01:07.040 --> 00:01:11.199
+Caption: long time to get going
+
+00:01:08.959 --> 00:01:13.199
+Caption: or talking of getting going you may want
+
+00:01:11.199 --> 00:01:15.839
+Caption: to be informing them about the
+
+00:01:13.199 --> 00:01:17.839
+Caption: onboarding process or just have a button
+
+00:01:15.839 --> 00:01:20.000
+Caption: like this hamburger menu here that
+
+00:01:17.839 --> 00:01:23.438
+Caption: animates to provide a hint as to maybe
+
+00:01:20.000 --> 00:01:26.158
+Caption: where they should be looking next
+
+00:01:23.439 --> 00:01:27.920
+Caption: so let&#39;s talk about lottie lottie is a
+
+00:01:26.158 --> 00:01:30.239
+Caption: great open source project it&#39;s one of
+
+00:01:27.919 --> 00:01:32.000
+Caption: those big success stories partly because
+
+00:01:30.239 --> 00:01:34.399
+Caption: it comes out of companies with deep
+
+00:01:32.000 --> 00:01:37.199
+Caption: pockets and a real need so it started
+
+00:01:34.400 --> 00:01:39.360
+Caption: out as a web exporter for adobe after
+
+00:01:37.199 --> 00:01:41.839
+Caption: effects after effects which some of you
+
+00:01:39.360 --> 00:01:43.599
+Caption: may be familiar with is the big product
+
+00:01:41.839 --> 00:01:46.158
+Caption: in motion design
+
+00:01:43.599 --> 00:01:48.720
+Caption: and somebody wanted to have that out to
+
+00:01:46.158 --> 00:01:51.758
+Caption: a web player and fortunately for us they
+
+00:01:48.720 --> 00:01:54.000
+Caption: built an intermediate format using json
+
+00:01:51.759 --> 00:01:55.200
+Caption: airbnb uses so much on their website
+
+00:01:54.000 --> 00:01:57.599
+Caption: they wanted to put it inside their
+
+00:01:55.199 --> 00:01:58.718
+Caption: native apps so they built some really
+
+00:01:57.599 --> 00:02:00.639
+Caption: cool
+
+00:01:58.719 --> 00:02:03.119
+Caption: native libraries that are amongst the
+
+00:02:00.639 --> 00:02:05.519
+Caption: best of breed in how to do graphic
+
+00:02:03.119 --> 00:02:07.119
+Caption: rendering of vector graphics and release
+
+00:02:05.519 --> 00:02:09.440
+Caption: those as un
+
+00:02:07.119 --> 00:02:11.440
+Caption: encumbered open source
+
+00:02:09.440 --> 00:02:13.279
+Caption: this has become quite an ecosystem so
+
+00:02:11.440 --> 00:02:15.360
+Caption: i&#39;m going to talk about alternatives to
+
+00:02:13.279 --> 00:02:18.238
+Caption: adobe&#39;s product
+
+00:02:15.360 --> 00:02:19.680
+Caption: key shape flow and synfig there are also
+
+00:02:18.238 --> 00:02:23.119
+Caption: other products because this is a simple
+
+00:02:19.679 --> 00:02:27.598
+Caption: format to export to even the venerable
+
+00:02:23.119 --> 00:02:30.479
+Caption: 3d blender has got a lotty plugin
+
+00:02:27.598 --> 00:02:32.720
+Caption: so why does text matter
+
+00:02:30.479 --> 00:02:34.399
+Caption: text is a great intermediate format
+
+00:02:32.720 --> 00:02:36.160
+Caption: anybody who&#39;s ever been in a complex
+
+00:02:34.399 --> 00:02:38.720
+Caption: tool chain and had to wrestle with a
+
+00:02:36.160 --> 00:02:40.639
+Caption: binary format knows you don&#39;t want that
+
+00:02:38.720 --> 00:02:42.878
+Caption: in particular if you are dealing with
+
+00:02:40.639 --> 00:02:45.039
+Caption: version control text allows your version
+
+00:02:42.878 --> 00:02:48.319
+Caption: control system to operate really
+
+00:02:45.039 --> 00:02:50.719
+Caption: efficiently and if you need to chase up
+
+00:02:48.319 --> 00:02:52.319
+Caption: weird differences in behavior the last
+
+00:02:50.720 --> 00:02:54.958
+Caption: thing you want to do is be doing a
+
+00:02:52.319 --> 00:02:57.039
+Caption: visual comparison of two different
+
+00:02:54.958 --> 00:02:58.559
+Caption: visual rendering side by side when it
+
+00:02:57.039 --> 00:03:00.799
+Caption: might come down to a few characters
+
+00:02:58.559 --> 00:03:01.919
+Caption: difference in text files you can diff by
+
+00:03:00.800 --> 00:03:03.598
+Caption: hand
+
+00:03:01.919 --> 00:03:05.199
+Caption: and sometimes you just need to tweak the
+
+00:03:03.598 --> 00:03:07.598
+Caption: color because somebody changed their
+
+00:03:05.199 --> 00:03:09.039
+Caption: mind about the color blue and you need
+
+00:03:07.598 --> 00:03:10.238
+Caption: to go through and do a global search and
+
+00:03:09.039 --> 00:03:12.479
+Caption: replace
+
+00:03:10.238 --> 00:03:14.479
+Caption: if you have a visual editing tool that
+
+00:03:12.479 --> 00:03:15.919
+Caption: does styles that&#39;s easy if you have one
+
+00:03:14.479 --> 00:03:17.839
+Caption: which requires you to go and hand edit
+
+00:03:15.919 --> 00:03:19.598
+Caption: it in 32 different places it&#39;s a
+
+00:03:17.839 --> 00:03:22.080
+Caption: nightmare
+
+00:03:19.598 --> 00:03:24.958
+Caption: you can see here the little hamburger
+
+00:03:22.080 --> 00:03:26.958
+Caption: lottie and an idea of what lottie jason
+
+00:03:24.958 --> 00:03:31.319
+Caption: looks like there&#39;s about 100 lines of
+
+00:03:26.958 --> 00:03:31.319
+Caption: this stuff here for that shape
+
+00:03:32.158 --> 00:03:37.039
+Caption: lottie files is the dominant site for
+
+00:03:34.798 --> 00:03:39.199
+Caption: downloads you may be in normal icons
+
+00:03:37.039 --> 00:03:41.119
+Caption: used to having a plethora of sites where
+
+00:03:39.199 --> 00:03:43.759
+Caption: you can get the icons and
+
+00:03:41.119 --> 00:03:45.679
+Caption: be their pngs or svgs in the lotte world
+
+00:03:43.759 --> 00:03:49.598
+Caption: lottie files is pretty much it and has
+
+00:03:45.679 --> 00:03:49.598
+Caption: grown into a commercial marketplace
+
+00:03:49.759 --> 00:03:54.958
+Caption: so let&#39;s go over and have a look at
+
+00:03:52.238 --> 00:03:54.958
+Caption: lottie files
+
+00:03:55.119 --> 00:04:01.438
+Caption: oops sorry i shall bring up the lottie
+
+00:03:58.000 --> 00:04:03.839
+Caption: files site that i opened earlier just to
+
+00:04:01.438 --> 00:04:06.720
+Caption: save it taking a while
+
+00:04:03.839 --> 00:04:08.878
+Caption: as you can see here lottie allows you to
+
+00:04:06.720 --> 00:04:10.958
+Caption: search for different hamburgers so if
+
+00:04:08.878 --> 00:04:12.399
+Caption: you were looking for some design
+
+00:04:10.958 --> 00:04:14.238
+Caption: inspiration
+
+00:04:12.399 --> 00:04:16.160
+Caption: on what your hamburger micro
+
+00:04:14.238 --> 00:04:17.759
+Caption: interactions could look like you can
+
+00:04:16.160 --> 00:04:21.359
+Caption: find it here even if you&#39;re not going to
+
+00:04:17.759 --> 00:04:21.359
+Caption: use one of these as a starting point
+
+00:04:23.519 --> 00:04:27.599
+Caption: lottie files also includes a simple
+
+00:04:26.559 --> 00:04:28.799
+Caption: editor
+
+00:04:27.600 --> 00:04:30.800
+Caption: so
+
+00:04:28.799 --> 00:04:34.159
+Caption: we&#39;re going to go and play a little bit
+
+00:04:30.799 --> 00:04:34.159
+Caption: with the lolly that i had
+
+00:04:36.079 --> 00:04:42.478
+Caption: and play with the melting lolly colors
+
+00:04:40.320 --> 00:04:45.199
+Caption: as you can see as it&#39;s loaded
+
+00:04:42.479 --> 00:04:46.160
+Caption: even a really simple animation like this
+
+00:04:45.199 --> 00:04:49.199
+Caption: one
+
+00:04:46.160 --> 00:04:50.559
+Caption: has got a lot of different components
+
+00:04:49.199 --> 00:04:52.080
+Caption: let&#39;s see what happens when we try and
+
+00:04:50.559 --> 00:04:54.320
+Caption: change a few colors
+
+00:04:52.079 --> 00:04:57.559
+Caption: so changing the color of the stick is
+
+00:04:54.320 --> 00:04:57.559
+Caption: pretty easy
+
+00:04:59.279 --> 00:05:03.199
+Caption: let&#39;s say i want a different flavor of
+
+00:05:00.959 --> 00:05:06.319
+Caption: lolly i&#39;m gonna go in for something
+
+00:05:03.199 --> 00:05:07.679
+Caption: that&#39;s uh kind of like a a cool one on a
+
+00:05:06.320 --> 00:05:09.520
+Caption: hot day
+
+00:05:07.679 --> 00:05:11.279
+Caption: something nice and icy
+
+00:05:09.519 --> 00:05:13.359
+Caption: oops
+
+00:05:11.279 --> 00:05:15.199
+Caption: and you can see here why
+
+00:05:13.359 --> 00:05:16.638
+Caption: you want to maybe go back and do that
+
+00:05:15.199 --> 00:05:19.520
+Caption: quick search in a place i mentioned
+
+00:05:16.639 --> 00:05:20.399
+Caption: earlier because now i&#39;ve got all these
+
+00:05:19.519 --> 00:05:22.959
+Caption: other
+
+00:05:20.399 --> 00:05:26.239
+Caption: drips and drip shadows i probably want
+
+00:05:22.959 --> 00:05:26.239
+Caption: to go and tweak the colors off
+
+00:05:28.959 --> 00:05:31.600
+Caption: so
+
+00:05:30.000 --> 00:05:33.119
+Caption: having edited this
+
+00:05:31.600 --> 00:05:35.199
+Caption: you&#39;ll notice there is an export
+
+00:05:33.119 --> 00:05:37.919
+Caption: available so i can just drop this little
+
+00:05:35.199 --> 00:05:39.919
+Caption: json file straight down onto my desktop
+
+00:05:37.919 --> 00:05:41.839
+Caption: or if i&#39;d done a superb job of editing
+
+00:05:39.919 --> 00:05:42.800
+Caption: it i could put it back on lottie files
+
+00:05:41.839 --> 00:05:44.880
+Caption: and
+
+00:05:42.799 --> 00:05:46.879
+Caption: put a description there as to why green
+
+00:05:44.880 --> 00:05:51.880
+Caption: lollies are much better than pink ones
+
+00:05:46.880 --> 00:05:51.880
+Caption: so let&#39;s go back and look at
+
+00:05:53.359 --> 00:05:57.839
+Caption: skipping over my pre-saved screenshots
+
+00:05:56.319 --> 00:06:00.079
+Caption: the graphical editors were really here
+
+00:05:57.839 --> 00:06:01.359
+Caption: to learn about
+
+00:06:00.079 --> 00:06:03.839
+Caption: i&#39;m going to talk about three products
+
+00:06:01.359 --> 00:06:06.478
+Caption: here synfig is
+
+00:06:03.839 --> 00:06:10.479
+Caption: your classic cross-platform open source
+
+00:06:06.479 --> 00:06:12.080
+Caption: product so synfig is
+
+00:06:10.479 --> 00:06:13.679
+Caption: interesting to use a little bit more
+
+00:06:12.079 --> 00:06:15.519
+Caption: fragile than the others
+
+00:06:13.679 --> 00:06:17.440
+Caption: most of the keyboard controls will be
+
+00:06:15.519 --> 00:06:18.959
+Caption: control keys rather than command keys
+
+00:06:17.440 --> 00:06:20.319
+Caption: for mac users
+
+00:06:18.959 --> 00:06:21.199
+Caption: it&#39;s free so you could go in and hey if
+
+00:06:20.319 --> 00:06:22.479
+Caption: you notice anything you don&#39;t like
+
+00:06:21.199 --> 00:06:24.160
+Caption: you&#39;re always going to fix it and submit
+
+00:06:22.479 --> 00:06:26.319
+Caption: the source code back up
+
+00:06:24.160 --> 00:06:29.199
+Caption: it&#39;s an older product as well and if
+
+00:06:26.319 --> 00:06:31.119
+Caption: you&#39;ve used blender 3d for example it&#39;ll
+
+00:06:29.199 --> 00:06:33.199
+Caption: seem familiar to you it&#39;s quite an
+
+00:06:31.119 --> 00:06:34.959
+Caption: awkward product to use once you get used
+
+00:06:33.199 --> 00:06:36.639
+Caption: to it however it&#39;s amazingly powerful
+
+00:06:34.959 --> 00:06:38.479
+Caption: i&#39;ll talk about that more in a minute
+
+00:06:36.639 --> 00:06:40.880
+Caption: key shape is a commercial product that
+
+00:06:38.479 --> 00:06:42.720
+Caption: 47 wants off price so you&#39;re seeing
+
+00:06:40.880 --> 00:06:44.559
+Caption: that&#39;s a mac app store download so you
+
+00:06:42.720 --> 00:06:46.239
+Caption: put it on multiple
+
+00:06:44.559 --> 00:06:49.279
+Caption: seats for yourself
+
+00:06:46.239 --> 00:06:51.440
+Caption: and flow is a much higher end product
+
+00:06:49.279 --> 00:06:53.279
+Caption: that does user interface animation and a
+
+00:06:51.440 --> 00:06:55.759
+Caption: lot more code generation and export
+
+00:06:53.279 --> 00:06:58.079
+Caption: features i&#39;ll come back to which is why
+
+00:06:55.759 --> 00:06:59.919
+Caption: it&#39;s got that extra price
+
+00:06:58.079 --> 00:07:01.918
+Caption: all three of these provide the ability
+
+00:06:59.919 --> 00:07:04.240
+Caption: to draw within the interface but flow
+
+00:07:01.919 --> 00:07:06.639
+Caption: started more drawing importing from a
+
+00:07:04.239 --> 00:07:08.479
+Caption: sketch drawing and so their emphasis is
+
+00:07:06.639 --> 00:07:10.720
+Caption: still more towards tweaking within the
+
+00:07:08.479 --> 00:07:10.720
+Caption: tool
+
+00:07:11.039 --> 00:07:15.199
+Caption: so it&#39;s and by the way adobe after
+
+00:07:13.440 --> 00:07:16.399
+Caption: effects is 30 a month unless you&#39;ve got
+
+00:07:15.199 --> 00:07:18.000
+Caption: one of those great specials or you&#39;re
+
+00:07:16.399 --> 00:07:20.160
+Caption: doing a high-end bundle
+
+00:07:18.000 --> 00:07:22.720
+Caption: let&#39;s talk about synfig
+
+00:07:20.160 --> 00:07:23.919
+Caption: so it&#39;s more for people who are doing 3d
+
+00:07:22.720 --> 00:07:25.759
+Caption: movies
+
+00:07:23.919 --> 00:07:27.919
+Caption: rather than doing little user interface
+
+00:07:25.759 --> 00:07:29.759
+Caption: animations but it is a visual editor you
+
+00:07:27.919 --> 00:07:31.199
+Caption: could use to do those animations and
+
+00:07:29.759 --> 00:07:33.440
+Caption: it&#39;s the only one that works on windows
+
+00:07:31.199 --> 00:07:35.360
+Caption: and linux so it may still be something
+
+00:07:33.440 --> 00:07:36.799
+Caption: you want to consider but as something
+
+00:07:35.359 --> 00:07:38.719
+Caption: that&#39;s aimed towards people who are
+
+00:07:36.799 --> 00:07:40.319
+Caption: doing 2d animations you&#39;ve got the
+
+00:07:38.720 --> 00:07:42.559
+Caption: ability to animate faces you&#39;ve got the
+
+00:07:40.319 --> 00:07:44.399
+Caption: ability to have people walking and doing
+
+00:07:42.559 --> 00:07:46.000
+Caption: animations of the body
+
+00:07:44.399 --> 00:07:48.319
+Caption: and it&#39;s very much about tweening
+
+00:07:46.000 --> 00:07:51.679
+Caption: between positions so let&#39;s go over to
+
+00:07:48.319 --> 00:07:53.199
+Caption: synfig and see what that looks like
+
+00:07:51.679 --> 00:07:55.039
+Caption: so i&#39;m going to start off with a new
+
+00:07:53.199 --> 00:07:56.800
+Caption: document
+
+00:07:55.039 --> 00:07:59.360
+Caption: and i just crashed cinfig remember i
+
+00:07:56.799 --> 00:08:02.399
+Caption: said synfig studio is one of the more
+
+00:07:59.359 --> 00:08:05.598
+Caption: fragile things this goes with it being a
+
+00:08:02.399 --> 00:08:07.919
+Caption: um a cross-platform open source product
+
+00:08:05.598 --> 00:08:09.919
+Caption: so apologies for that minor
+
+00:08:07.919 --> 00:08:13.080
+Caption: hiccup there let&#39;s see if we can launch
+
+00:08:09.919 --> 00:08:13.080
+Caption: it again
+
+00:08:15.598 --> 00:08:18.239
+Caption: right we now have a stage on which to
+
+00:08:17.119 --> 00:08:20.079
+Caption: work
+
+00:08:18.239 --> 00:08:22.239
+Caption: so i&#39;m going to draw
+
+00:08:20.079 --> 00:08:26.119
+Caption: a little circle here we&#39;ll pretend for
+
+00:08:22.239 --> 00:08:26.119
+Caption: now this is a bouncing ball
+
+00:08:26.239 --> 00:08:31.279
+Caption: like older style graphic tools you often
+
+00:08:28.959 --> 00:08:33.278
+Caption: go in and you use a tool to move things
+
+00:08:31.279 --> 00:08:35.440
+Caption: and adjust them so all i&#39;m going to be
+
+00:08:33.278 --> 00:08:37.200
+Caption: doing today is just using the move tool
+
+00:08:35.440 --> 00:08:40.000
+Caption: but i&#39;m going to make this animated so
+
+00:08:37.200 --> 00:08:41.598
+Caption: to make it animated i go and turn on
+
+00:08:40.000 --> 00:08:42.559
+Caption: animation mode with the little green
+
+00:08:41.598 --> 00:08:44.000
+Caption: person
+
+00:08:42.559 --> 00:08:47.119
+Caption: and we are now
+
+00:08:44.000 --> 00:08:48.799
+Caption: in an animation recording mode
+
+00:08:47.119 --> 00:08:50.799
+Caption: remember i said this is movie oriented
+
+00:08:48.799 --> 00:08:52.719
+Caption: so it talks about frames
+
+00:08:50.799 --> 00:08:55.599
+Caption: and
+
+00:08:52.719 --> 00:08:57.518
+Caption: i&#39;m going to jump to
+
+00:08:55.599 --> 00:08:58.719
+Caption: one second in the timeline so down the
+
+00:08:57.518 --> 00:08:59.440
+Caption: bottom here
+
+00:08:58.719 --> 00:09:01.439
+Caption: all
+
+00:08:59.440 --> 00:09:03.119
+Caption: animation products have some kind of
+
+00:09:01.440 --> 00:09:05.359
+Caption: timeline literally how things change
+
+00:09:03.119 --> 00:09:07.039
+Caption: over time in this case it&#39;s move what
+
+00:09:05.359 --> 00:09:10.479
+Caption: they call the playhead to this this
+
+00:09:07.039 --> 00:09:11.838
+Caption: position one second 24 frames and at one
+
+00:09:10.479 --> 00:09:14.880
+Caption: second
+
+00:09:11.838 --> 00:09:18.799
+Caption: i want the ball to move down to here
+
+00:09:14.880 --> 00:09:21.760
+Caption: i&#39;m going to jump again to two seconds
+
+00:09:18.799 --> 00:09:23.518
+Caption: and at that point i want the ball to
+
+00:09:21.760 --> 00:09:24.720
+Caption: bounce up to there again normally if
+
+00:09:23.518 --> 00:09:26.079
+Caption: you&#39;re going to animate this you would
+
+00:09:24.719 --> 00:09:28.079
+Caption: squish the ball when it hits but we
+
+00:09:26.080 --> 00:09:29.920
+Caption: won&#39;t worry about that for a simple demo
+
+00:09:28.080 --> 00:09:30.959
+Caption: like this so i&#39;ll jump back out of this
+
+00:09:29.919 --> 00:09:32.639
+Caption: mode
+
+00:09:30.958 --> 00:09:35.039
+Caption: very modal stuff because that&#39;s your
+
+00:09:32.640 --> 00:09:36.640
+Caption: classic old style approach and let&#39;s go
+
+00:09:35.039 --> 00:09:39.199
+Caption: back and look what my little animation
+
+00:09:36.640 --> 00:09:39.200
+Caption: looks like now
+
+00:09:39.599 --> 00:09:43.119
+Caption: there we go i now have an animated
+
+00:09:41.599 --> 00:09:46.000
+Caption: moving ball
+
+00:09:43.119 --> 00:09:46.000
+Caption: i&#39;ll save this
+
+00:09:47.200 --> 00:09:51.239
+Caption: in my animations folder
+
+00:09:52.958 --> 00:09:56.958
+Caption: and
+
+00:09:54.398 --> 00:10:00.398
+Caption: animations are exported to lottie from
+
+00:09:56.958 --> 00:10:02.640
+Caption: synfig using a plugin so i can now do
+
+00:10:00.398 --> 00:10:02.640
+Caption: that
+
+00:10:02.880 --> 00:10:08.799
+Caption: and it&#39;s created a json plugin for me
+
+00:10:06.000 --> 00:10:10.000
+Caption: i go over into my animations folder
+
+00:10:08.799 --> 00:10:12.000
+Caption: i&#39;ve got
+
+00:10:10.000 --> 00:10:13.760
+Caption: rec day
+
+00:10:12.000 --> 00:10:16.239
+Caption: with a little html
+
+00:10:13.760 --> 00:10:16.239
+Caption: display
+
+00:10:17.518 --> 00:10:20.320
+Caption: that&#39;s synfig
+
+00:10:23.760 --> 00:10:27.919
+Caption: now let&#39;s talk about
+
+00:10:26.398 --> 00:10:31.039
+Caption: key shape
+
+00:10:27.919 --> 00:10:32.958
+Caption: key shape is a great vector editor if
+
+00:10:31.039 --> 00:10:34.320
+Caption: you wanted to do animations from scratch
+
+00:10:32.958 --> 00:10:36.078
+Caption: even if you&#39;re just putting out movies
+
+00:10:34.320 --> 00:10:37.760
+Caption: or gifs i would recommend this as the
+
+00:10:36.078 --> 00:10:40.479
+Caption: mac tool to use
+
+00:10:37.760 --> 00:10:42.160
+Caption: as i said it&#39;s only 47 to install on a
+
+00:10:40.479 --> 00:10:45.679
+Caption: few of your devices
+
+00:10:42.159 --> 00:10:47.119
+Caption: their import export is via plugins and
+
+00:10:45.679 --> 00:10:49.440
+Caption: those are all open source so if you want
+
+00:10:47.119 --> 00:10:51.119
+Caption: to fix their plugins or customize them
+
+00:10:49.440 --> 00:10:52.799
+Caption: or do your own for a different format
+
+00:10:51.119 --> 00:10:54.559
+Caption: you can go ahead and do that and as you
+
+00:10:52.799 --> 00:10:56.719
+Caption: can see from the error message i snipped
+
+00:10:54.559 --> 00:10:58.880
+Caption: below the melting lolly with just a
+
+00:10:56.719 --> 00:11:00.799
+Caption: little bit too much melting gooeyness
+
+00:10:58.880 --> 00:11:03.119
+Caption: for it to cope with
+
+00:11:00.799 --> 00:11:05.599
+Caption: so i like that little black hamburger i
+
+00:11:03.119 --> 00:11:07.679
+Caption: had earlier next to the text demo let&#39;s
+
+00:11:05.599 --> 00:11:08.799
+Caption: go over to keyshape
+
+00:11:07.679 --> 00:11:12.239
+Caption: and
+
+00:11:08.799 --> 00:11:12.239
+Caption: bring in a hamburger
+
+00:11:12.398 --> 00:11:16.479
+Caption: because i&#39;ve already installed the
+
+00:11:13.760 --> 00:11:18.479
+Caption: lottie plugin the json files show up as
+
+00:11:16.479 --> 00:11:20.958
+Caption: files i can open and you can see in the
+
+00:11:18.479 --> 00:11:22.479
+Caption: preview there that really is
+
+00:11:20.958 --> 00:11:24.159
+Caption: ugly json
+
+00:11:22.479 --> 00:11:26.880
+Caption: but when it comes in here it is
+
+00:11:24.159 --> 00:11:28.479
+Caption: beautiful animation
+
+00:11:26.880 --> 00:11:30.160
+Caption: now because we&#39;re not just importing a
+
+00:11:28.479 --> 00:11:32.719
+Caption: graphic but we&#39;re importing a full-blown
+
+00:11:30.159 --> 00:11:35.440
+Caption: animation we&#39;ve immediately got a
+
+00:11:32.719 --> 00:11:36.398
+Caption: timeline down the bottom here
+
+00:11:35.440 --> 00:11:38.000
+Caption: which
+
+00:11:36.398 --> 00:11:39.838
+Caption: shows the animation of all of those
+
+00:11:38.000 --> 00:11:41.440
+Caption: parts and
+
+00:11:39.838 --> 00:11:42.479
+Caption: i can play it and you&#39;ll see it quickly
+
+00:11:41.440 --> 00:11:43.919
+Caption: animate
+
+00:11:42.479 --> 00:11:46.239
+Caption: and i can also
+
+00:11:43.919 --> 00:11:48.078
+Caption: scrub
+
+00:11:46.239 --> 00:11:51.359
+Caption: the playhead backwards and forwards
+
+00:11:48.078 --> 00:11:53.199
+Caption: through the timeline to see things
+
+00:11:51.359 --> 00:11:54.719
+Caption: at my own pace
+
+00:11:53.200 --> 00:11:56.880
+Caption: this is a commercial product it&#39;s been
+
+00:11:54.719 --> 00:11:58.559
+Caption: around for years and so it does look a
+
+00:11:56.880 --> 00:11:59.599
+Caption: little bit more friendly and polished
+
+00:11:58.559 --> 00:12:01.359
+Caption: than
+
+00:11:59.599 --> 00:12:02.799
+Caption: synfig studio oh the other thing i
+
+00:12:01.359 --> 00:12:04.398
+Caption: didn&#39;t mention synfig studio the
+
+00:12:02.799 --> 00:12:06.559
+Caption: documentation is a little bit thin
+
+00:12:04.398 --> 00:12:08.398
+Caption: because it&#39;s an open source product
+
+00:12:06.559 --> 00:12:10.479
+Caption: go ahead and add documentation to it
+
+00:12:08.398 --> 00:12:12.638
+Caption: people would love that key shape and
+
+00:12:10.479 --> 00:12:14.559
+Caption: flow have both got superb sites with
+
+00:12:12.638 --> 00:12:16.000
+Caption: lots of documentation lots of video
+
+00:12:14.559 --> 00:12:17.518
+Caption: tutorials
+
+00:12:16.000 --> 00:12:18.958
+Caption: so what i&#39;m going to do to start with
+
+00:12:17.518 --> 00:12:20.799
+Caption: i&#39;m looking down here i notice we&#39;ve got
+
+00:12:18.958 --> 00:12:23.278
+Caption: ketchup here but this is a black
+
+00:12:20.799 --> 00:12:25.359
+Caption: animation and i loathe the thought of
+
+00:12:23.278 --> 00:12:26.958
+Caption: black ketchup it brings back horrible
+
+00:12:25.359 --> 00:12:29.440
+Caption: thoughts of sharehouses and bottles that
+
+00:12:26.958 --> 00:12:31.760
+Caption: should have been discarded years ago so
+
+00:12:29.440 --> 00:12:34.479
+Caption: i&#39;m going to change my ketchup to a more
+
+00:12:31.760 --> 00:12:36.239
+Caption: appropriate ketchup color and i did that
+
+00:12:34.479 --> 00:12:38.799
+Caption: by selecting the path here that&#39;s under
+
+00:12:36.239 --> 00:12:40.880
+Caption: the ketchup on the left hand side and
+
+00:12:38.799 --> 00:12:42.239
+Caption: i&#39;ve now changed that to red but it&#39;s
+
+00:12:40.880 --> 00:12:43.679
+Caption: not showing up
+
+00:12:42.239 --> 00:12:46.479
+Caption: that&#39;s because
+
+00:12:43.679 --> 00:12:48.559
+Caption: the ketchup has yet to drip so if i
+
+00:12:46.479 --> 00:12:50.320
+Caption: play with the playhead there goes the
+
+00:12:48.559 --> 00:12:51.119
+Caption: ketchup and it&#39;s now red
+
+00:12:50.320 --> 00:12:53.119
+Caption: okay
+
+00:12:51.119 --> 00:12:55.039
+Caption: the person who designed this likes their
+
+00:12:53.119 --> 00:12:57.359
+Caption: button to pop up at the top i don&#39;t
+
+00:12:55.039 --> 00:12:59.759
+Caption: particularly like the timing of how that
+
+00:12:57.359 --> 00:13:03.119
+Caption: bun&#39;s popping up so let me introduce you
+
+00:12:59.760 --> 00:13:05.760
+Caption: to the concept of timing curves
+
+00:13:03.119 --> 00:13:07.039
+Caption: so here we have
+
+00:13:05.760 --> 00:13:10.078
+Caption: the
+
+00:13:07.039 --> 00:13:11.919
+Caption: timeline showing how things change
+
+00:13:10.078 --> 00:13:14.479
+Caption: and sometimes you want them to change at
+
+00:13:11.919 --> 00:13:18.078
+Caption: a different pace if you look closely on
+
+00:13:14.479 --> 00:13:20.479
+Caption: the timeline here this top bun has got a
+
+00:13:18.078 --> 00:13:22.958
+Caption: position changing in a linear mode which
+
+00:13:20.479 --> 00:13:26.078
+Caption: means it changes evenly but the shape is
+
+00:13:22.958 --> 00:13:28.479
+Caption: changing with a bezier mode
+
+00:13:26.078 --> 00:13:30.958
+Caption: what that means is if i go down into
+
+00:13:28.479 --> 00:13:33.679
+Caption: their bezier edit their timing curve
+
+00:13:30.958 --> 00:13:35.518
+Caption: editor that bezier is that shape so it&#39;s
+
+00:13:33.679 --> 00:13:37.599
+Caption: actually pretty close to a straight line
+
+00:13:35.518 --> 00:13:40.078
+Caption: it&#39;s changing about the same rate i want
+
+00:13:37.599 --> 00:13:41.679
+Caption: that to pop up a lot more so i&#39;m going
+
+00:13:40.078 --> 00:13:43.760
+Caption: to drag these handles if you&#39;ve ever
+
+00:13:41.679 --> 00:13:46.078
+Caption: done any spline editing
+
+00:13:43.760 --> 00:13:48.160
+Caption: in any visual drawing tool this is
+
+00:13:46.078 --> 00:13:50.559
+Caption: exactly the same as editing curves there
+
+00:13:48.159 --> 00:13:52.799
+Caption: it&#39;s just this is a timing curve
+
+00:13:50.559 --> 00:13:55.119
+Caption: rather than a
+
+00:13:52.799 --> 00:13:55.838
+Caption: space curve or a shape curve
+
+00:13:55.119 --> 00:13:57.760
+Caption: so
+
+00:13:55.838 --> 00:13:59.119
+Caption: having modified that let&#39;s see what
+
+00:13:57.760 --> 00:14:01.040
+Caption: happens
+
+00:13:59.119 --> 00:14:04.000
+Caption: now when i play there&#39;s a little bit
+
+00:14:01.039 --> 00:14:06.799
+Caption: more pop as the bun goes up so i&#39;m
+
+00:14:04.000 --> 00:14:06.799
+Caption: pretty happy with that
+
+00:14:07.679 --> 00:14:11.278
+Caption: i&#39;m so
+
+00:14:09.359 --> 00:14:14.679
+Caption: having done all this i&#39;m now going to
+
+00:14:11.278 --> 00:14:14.679
+Caption: export it
+
+00:14:17.359 --> 00:14:21.760
+Caption: my export formats because i have the
+
+00:14:19.119 --> 00:14:23.440
+Caption: plugin include lottie
+
+00:14:21.760 --> 00:14:24.479
+Caption: and i&#39;m just going to call that my rec
+
+00:14:23.440 --> 00:14:25.919
+Caption: day
+
+00:14:24.479 --> 00:14:29.719
+Caption: lottie because i don&#39;t want to overwrite
+
+00:14:25.919 --> 00:14:29.719
+Caption: the one i started with
+
+00:14:32.799 --> 00:14:37.760
+Caption: i&#39;ll put that in my animations folder
+
+00:14:35.518 --> 00:14:40.000
+Caption: now unlike the other ones
+
+00:14:37.760 --> 00:14:43.278
+Caption: i don&#39;t get a nice
+
+00:14:40.000 --> 00:14:45.919
+Caption: generated preview html but remember
+
+00:14:43.278 --> 00:14:46.880
+Caption: lottie files is a very comprehensive
+
+00:14:45.919 --> 00:14:51.039
+Caption: site
+
+00:14:46.880 --> 00:14:51.039
+Caption: so let&#39;s go back to the logi file site
+
+00:14:51.198 --> 00:14:53.440
+Caption: and
+
+00:14:53.919 --> 00:14:57.119
+Caption: amongst oops sorry amongst the lottie
+
+00:14:56.159 --> 00:15:00.398
+Caption: files
+
+00:14:57.119 --> 00:15:00.398
+Caption: tools at the top here
+
+00:15:02.958 --> 00:15:08.159
+Caption: in the design area is a previewer this
+
+00:15:06.159 --> 00:15:09.759
+Caption: allows you to take any json file you&#39;ve
+
+00:15:08.159 --> 00:15:12.719
+Caption: found somewhere else or you&#39;ve created
+
+00:15:09.760 --> 00:15:14.479
+Caption: with one of these other tools
+
+00:15:12.719 --> 00:15:16.239
+Caption: and preview it on the web
+
+00:15:14.479 --> 00:15:19.119
+Caption: so here&#39;s my
+
+00:15:16.239 --> 00:15:20.719
+Caption: hamburger rec day that we just edited
+
+00:15:19.119 --> 00:15:23.039
+Caption: and when i open it on the lottie file
+
+00:15:20.719 --> 00:15:23.039
+Caption: site
+
+00:15:23.599 --> 00:15:29.278
+Caption: ta-da we have a poppy bun and red
+
+00:15:26.320 --> 00:15:31.278
+Caption: ketchup so lottie files loves you to
+
+00:15:29.278 --> 00:15:33.039
+Caption: share and i could go in and share right
+
+00:15:31.278 --> 00:15:34.559
+Caption: away i think we&#39;ve done enough with that
+
+00:15:33.039 --> 00:15:35.758
+Caption: for now
+
+00:15:34.559 --> 00:15:39.359
+Caption: so
+
+00:15:35.758 --> 00:15:42.159
+Caption: let&#39;s go back to our presentation and
+
+00:15:39.359 --> 00:15:45.119
+Caption: we&#39;ll skip through a couple of carefully
+
+00:15:42.159 --> 00:15:47.198
+Caption: saved screens and talk about flow
+
+00:15:45.119 --> 00:15:49.198
+Caption: as i said earlier flow is focused on
+
+00:15:47.198 --> 00:15:51.359
+Caption: user interface animation
+
+00:15:49.198 --> 00:15:53.599
+Caption: so whilst it includes lottie export for
+
+00:15:51.359 --> 00:15:56.000
+Caption: the web it&#39;s also got native code
+
+00:15:53.599 --> 00:15:57.919
+Caption: wrappers for lottie so it&#39;ll export a
+
+00:15:56.000 --> 00:16:01.198
+Caption: workable ielts or android project you
+
+00:15:57.919 --> 00:16:02.880
+Caption: can show your lottie within and
+
+00:16:01.198 --> 00:16:04.479
+Caption: very quickly mention a non-lottie topic
+
+00:16:02.880 --> 00:16:07.198
+Caption: one of the reasons it&#39;s so expensive is
+
+00:16:04.479 --> 00:16:09.359
+Caption: it does these compilable native
+
+00:16:07.198 --> 00:16:11.440
+Caption: animations so if you had
+
+00:16:09.359 --> 00:16:13.679
+Caption: 20 buttons that were animated apart from
+
+00:16:11.440 --> 00:16:14.799
+Caption: driving your users crazy that screen
+
+00:16:13.679 --> 00:16:17.919
+Caption: would probably have something like about
+
+00:16:14.799 --> 00:16:20.559
+Caption: 160k worth of assets if they were lottie
+
+00:16:17.919 --> 00:16:22.559
+Caption: files if they were generated as
+
+00:16:20.559 --> 00:16:25.119
+Caption: native compiled stuff that would come
+
+00:16:22.559 --> 00:16:28.799
+Caption: down to maybe
+
+00:16:25.119 --> 00:16:29.758
+Caption: 2k of binary change
+
+00:16:28.799 --> 00:16:31.278
+Caption: so
+
+00:16:29.758 --> 00:16:35.518
+Caption: flow
+
+00:16:31.278 --> 00:16:37.359
+Caption: originally started importing from sketch
+
+00:16:35.518 --> 00:16:39.359
+Caption: and the important thing to know about
+
+00:16:37.359 --> 00:16:40.559
+Caption: this this is a tweening thing where it
+
+00:16:39.359 --> 00:16:41.838
+Caption: is mapping
+
+00:16:40.559 --> 00:16:43.758
+Caption: the starting
+
+00:16:41.838 --> 00:16:46.239
+Caption: artboard and an artboard in sketch is
+
+00:16:43.758 --> 00:16:48.078
+Caption: just a container for a bit of a drawing
+
+00:16:46.239 --> 00:16:50.320
+Caption: to the ending artboard and they have to
+
+00:16:48.078 --> 00:16:52.638
+Caption: be utterly identical so structurally
+
+00:16:50.320 --> 00:16:55.440
+Caption: they have to be the same i&#39;ve just hand
+
+00:16:52.638 --> 00:16:57.359
+Caption: edited a bit of the ddd logo here
+
+00:16:55.440 --> 00:16:59.599
+Caption: and you can see i want to end up with
+
+00:16:57.359 --> 00:17:01.599
+Caption: some eyes on there if you look down here
+
+00:16:59.599 --> 00:17:02.638
+Caption: you can see i&#39;ve actually also got those
+
+00:17:01.599 --> 00:17:05.038
+Caption: eyes
+
+00:17:02.638 --> 00:17:06.400
+Caption: on the starting position so my structure
+
+00:17:05.038 --> 00:17:08.239
+Caption: is identical
+
+00:17:06.400 --> 00:17:10.799
+Caption: however
+
+00:17:08.239 --> 00:17:12.078
+Caption: the opacity is turned down to zero
+
+00:17:10.798 --> 00:17:14.558
+Caption: so let&#39;s
+
+00:17:12.078 --> 00:17:17.280
+Caption: whizz over into flow
+
+00:17:14.558 --> 00:17:19.038
+Caption: and create a new document
+
+00:17:17.280 --> 00:17:20.559
+Caption: and i&#39;m going to link a sketch file it
+
+00:17:19.038 --> 00:17:24.318
+Caption: could be starting from figma which is in
+
+00:17:20.558 --> 00:17:27.038
+Caption: beta or it could be starting from
+
+00:17:24.318 --> 00:17:27.038
+Caption: an svg
+
+00:17:27.520 --> 00:17:31.280
+Caption: so when you open the sketch file it&#39;ll
+
+00:17:29.678 --> 00:17:33.279
+Caption: go through and it&#39;ll do previews of all
+
+00:17:31.280 --> 00:17:34.559
+Caption: the artboards in there i&#39;ve only got the
+
+00:17:33.280 --> 00:17:36.479
+Caption: two in here so i&#39;m just obviously going
+
+00:17:34.558 --> 00:17:37.760
+Caption: to drag the one i called start and the
+
+00:17:36.479 --> 00:17:39.760
+Caption: one i called end that&#39;s just my
+
+00:17:37.760 --> 00:17:42.400
+Caption: convention doesn&#39;t mean anything
+
+00:17:39.760 --> 00:17:43.919
+Caption: and that&#39;s it i now have an animation so
+
+00:17:42.400 --> 00:17:45.839
+Caption: it&#39;s immediately it&#39;s worked out it
+
+00:17:43.918 --> 00:17:47.439
+Caption: should interpolate between those two if
+
+00:17:45.839 --> 00:17:49.599
+Caption: i play that
+
+00:17:47.439 --> 00:17:51.839
+Caption: i&#39;ve got those two shapes moving and the
+
+00:17:49.599 --> 00:17:54.640
+Caption: eyes appearing which is the opacity
+
+00:17:51.839 --> 00:17:54.640
+Caption: being animated
+
+00:17:55.520 --> 00:18:00.479
+Caption: down the bottom we have what&#39;s possibly
+
+00:17:58.000 --> 00:18:01.760
+Caption: now becoming familiar as a timeline and
+
+00:18:00.479 --> 00:18:03.678
+Caption: they actually call it a timeline which
+
+00:18:01.760 --> 00:18:04.880
+Caption: makes it really obvious to you
+
+00:18:03.678 --> 00:18:06.640
+Caption: and you can see
+
+00:18:04.880 --> 00:18:08.558
+Caption: the attributes it&#39;s worked out that&#39;s
+
+00:18:06.640 --> 00:18:09.678
+Caption: animating between there
+
+00:18:08.558 --> 00:18:11.760
+Caption: so
+
+00:18:09.678 --> 00:18:13.678
+Caption: i don&#39;t know if there was actually any
+
+00:18:11.760 --> 00:18:16.798
+Caption: change in the x position obviously the y
+
+00:18:13.678 --> 00:18:19.119
+Caption: position things moved up and the opacity
+
+00:18:16.798 --> 00:18:21.839
+Caption: changed
+
+00:18:19.119 --> 00:18:23.359
+Caption: so let&#39;s say
+
+00:18:21.839 --> 00:18:25.760
+Caption: i wanted the green to be a little bit
+
+00:18:23.359 --> 00:18:27.280
+Caption: cheeky and to start winking at us a
+
+00:18:25.760 --> 00:18:29.280
+Caption: little bit earlier
+
+00:18:27.280 --> 00:18:31.520
+Caption: so the winking effect is basically just
+
+00:18:29.280 --> 00:18:33.359
+Caption: the opacity when does the eye show up
+
+00:18:31.520 --> 00:18:36.479
+Caption: i&#39;m going to
+
+00:18:33.359 --> 00:18:38.079
+Caption: scale my timeline so it&#39;s easy to edit
+
+00:18:36.479 --> 00:18:39.678
+Caption: and i&#39;m going to make that
+
+00:18:38.079 --> 00:18:41.199
+Caption: eye open
+
+00:18:39.678 --> 00:18:43.760
+Caption: an awful lot
+
+00:18:41.199 --> 00:18:45.678
+Caption: earlier now let&#39;s see what happens
+
+00:18:43.760 --> 00:18:48.479
+Caption: there we go in fact that that&#39;s a little
+
+00:18:45.678 --> 00:18:50.880
+Caption: bit too quick so why don&#39;t i go and slow
+
+00:18:48.479 --> 00:18:52.160
+Caption: down my timeline so i&#39;ll make it four
+
+00:18:50.880 --> 00:18:54.400
+Caption: seconds long
+
+00:18:52.160 --> 00:18:56.880
+Caption: and i&#39;ll scale it if i just wanted to
+
+00:18:54.400 --> 00:18:58.640
+Caption: add extra animations at the end i&#39;d say
+
+00:18:56.880 --> 00:19:01.039
+Caption: expand but i want it stretched over that
+
+00:18:58.640 --> 00:19:05.200
+Caption: time so now i have a four second
+
+00:19:01.038 --> 00:19:05.199
+Caption: animation i&#39;ll go back to beginning
+
+00:19:09.439 --> 00:19:16.479
+Caption: and that eye winks pretty quickly
+
+00:19:13.918 --> 00:19:17.678
+Caption: let&#39;s go and play with some curves
+
+00:19:16.479 --> 00:19:18.880
+Caption: so
+
+00:19:17.678 --> 00:19:21.519
+Caption: i want
+
+00:19:18.880 --> 00:19:23.199
+Caption: my pink
+
+00:19:21.520 --> 00:19:25.760
+Caption: to move up quickly
+
+00:19:23.199 --> 00:19:26.959
+Caption: i don&#39;t want the eyes to vanish
+
+00:19:25.760 --> 00:19:28.320
+Caption: out of the
+
+00:19:26.959 --> 00:19:29.279
+Caption: shape so i&#39;m actually going to have to
+
+00:19:28.319 --> 00:19:31.279
+Caption: go in
+
+00:19:29.280 --> 00:19:33.919
+Caption: i&#39;m going to expand this a little bit
+
+00:19:31.280 --> 00:19:35.520
+Caption: and you can see here i&#39;ve got
+
+00:19:33.918 --> 00:19:38.319
+Caption: my
+
+00:19:35.520 --> 00:19:41.359
+Caption: timing curve for opacity so for y
+
+00:19:38.319 --> 00:19:43.119
+Caption: position for the pink right eye the pink
+
+00:19:41.359 --> 00:19:46.319
+Caption: left eye
+
+00:19:43.119 --> 00:19:46.319
+Caption: and the overall d
+
+00:19:46.558 --> 00:19:49.760
+Caption: i&#39;m going to change those what am i
+
+00:19:47.918 --> 00:19:51.359
+Caption: going to do with those let&#39;s see
+
+00:19:49.760 --> 00:19:53.359
+Caption: how about
+
+00:19:51.359 --> 00:19:55.599
+Caption: we&#39;re a bit slow to start
+
+00:19:53.359 --> 00:19:58.079
+Caption: so i&#39;ve got all three selected
+
+00:19:55.599 --> 00:19:59.599
+Caption: and i can just drag those oops i haven&#39;t
+
+00:19:58.079 --> 00:20:00.399
+Caption: got all three selected because i missed
+
+00:19:59.599 --> 00:20:01.678
+Caption: them
+
+00:20:00.400 --> 00:20:03.119
+Caption: drag that
+
+00:20:01.678 --> 00:20:04.719
+Caption: click on that one so now i&#39;ve got all
+
+00:20:03.119 --> 00:20:06.719
+Caption: three i&#39;m holding down the command key
+
+00:20:04.719 --> 00:20:08.558
+Caption: to get a multiple selection much as you
+
+00:20:06.719 --> 00:20:10.719
+Caption: would with shapes
+
+00:20:08.558 --> 00:20:11.839
+Caption: and so if i drag those three over what
+
+00:20:10.719 --> 00:20:15.038
+Caption: happens
+
+00:20:11.839 --> 00:20:17.439
+Caption: so we&#39;re taking a one second
+
+00:20:15.038 --> 00:20:17.439
+Caption: start
+
+00:20:17.918 --> 00:20:20.719
+Caption: and it slowly comes up and matches the
+
+00:20:19.839 --> 00:20:22.479
+Caption: others
+
+00:20:20.719 --> 00:20:25.599
+Caption: but i want to have a bit of a sense of
+
+00:20:22.479 --> 00:20:27.760
+Caption: panic in there having been left behind
+
+00:20:25.599 --> 00:20:27.760
+Caption: so
+
+00:20:28.558 --> 00:20:34.959
+Caption: pink is going to
+
+00:20:31.359 --> 00:20:37.599
+Caption: come up with a different easing curve
+
+00:20:34.959 --> 00:20:39.839
+Caption: so i&#39;ve got the three things selected
+
+00:20:37.599 --> 00:20:41.439
+Caption: one two three and over on the right hand
+
+00:20:39.839 --> 00:20:43.038
+Caption: side here you can see i can choose
+
+00:20:41.439 --> 00:20:45.359
+Caption: easing so this
+
+00:20:43.038 --> 00:20:47.439
+Caption: has got three keyframes selected that
+
+00:20:45.359 --> 00:20:49.839
+Caption: are all compatible properties
+
+00:20:47.439 --> 00:20:51.439
+Caption: and let&#39;s just make it
+
+00:20:49.839 --> 00:20:53.599
+Caption: something that
+
+00:20:51.439 --> 00:20:55.038
+Caption: a little bit slow and then
+
+00:20:53.599 --> 00:20:58.959
+Caption: jumps up pretty quickly because we
+
+00:20:55.038 --> 00:20:58.959
+Caption: started late let&#39;s see what happens now
+
+00:21:01.199 --> 00:21:04.399
+Caption: whoops yep and everyone else is catching
+
+00:21:03.199 --> 00:21:05.918
+Caption: up
+
+00:21:04.400 --> 00:21:07.119
+Caption: let&#39;s
+
+00:21:05.918 --> 00:21:10.558
+Caption: zoom that
+
+00:21:07.119 --> 00:21:10.558
+Caption: down a bit so you can see that again
+
+00:21:15.119 --> 00:21:20.319
+Caption: voila
+
+00:21:16.719 --> 00:21:22.798
+Caption: if i want to export that from flow
+
+00:21:20.319 --> 00:21:24.000
+Caption: file export and i say i&#39;m exporting to
+
+00:21:22.798 --> 00:21:26.239
+Caption: code
+
+00:21:24.000 --> 00:21:27.678
+Caption: and i can now choose
+
+00:21:26.239 --> 00:21:31.000
+Caption: a lotty
+
+00:21:27.678 --> 00:21:31.000
+Caption: web format
+
+00:21:31.678 --> 00:21:34.959
+Caption: i&#39;ve got to choose my timeline
+
+00:21:39.119 --> 00:21:45.760
+Caption: and if i open that
+
+00:21:41.760 --> 00:21:49.039
+Caption: you see we have a nice preview again
+
+00:21:45.760 --> 00:21:49.039
+Caption: in which we can see our animation
+
+00:21:50.959 --> 00:21:56.038
+Caption: okay and
+
+00:21:52.719 --> 00:21:56.038
+Caption: with that
+
+00:22:00.558 --> 00:22:03.839
+Caption: finish flow
+
+00:22:01.918 --> 00:22:05.759
+Caption: so we&#39;ve discussed three tools you can
+
+00:22:03.839 --> 00:22:08.239
+Caption: do with
+
+00:22:05.760 --> 00:22:09.919
+Caption: visual editing remember
+
+00:22:08.239 --> 00:22:12.640
+Caption: key shape allowed me to bring in the
+
+00:22:09.918 --> 00:22:16.000
+Caption: lottie document and visually edit it the
+
+00:22:12.640 --> 00:22:18.159
+Caption: other two could only export to lottie
+
+00:22:16.000 --> 00:22:20.000
+Caption: and are there any questions about lottie
+
+00:22:18.159 --> 00:22:23.240
+Caption: or animation general
+
+00:22:20.000 --> 00:22:23.239
+Caption: thank you
+

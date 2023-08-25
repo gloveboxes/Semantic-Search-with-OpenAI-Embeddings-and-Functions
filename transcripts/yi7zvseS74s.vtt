@@ -1,0 +1,3113 @@
+WEBVTT
+
+00:00:00.059 --> 00:00:05.519
+Caption: uh it&#39;s my great pleasure to introduce
+
+00:00:02.279 --> 00:00:07.199
+Caption: our next speaker Derek Bingham he&#39;s a
+
+00:00:05.519 --> 00:00:09.178
+Caption: speaker veteran but it&#39;s his first time
+
+00:00:07.199 --> 00:00:10.678
+Caption: actually speaking at DDD Perth so we&#39;re
+
+00:00:09.178 --> 00:00:13.079
+Caption: very excited to have him up on the stage
+
+00:00:10.678 --> 00:00:14.579
+Caption: today Derek is a developer with a
+
+00:00:13.079 --> 00:00:16.618
+Caption: passion for building software of all
+
+00:00:14.579 --> 00:00:18.659
+Caption: shapes and sizes on any conceivable
+
+00:00:16.618 --> 00:00:20.399
+Caption: platform and he&#39;s here to talk about
+
+00:00:18.659 --> 00:00:23.479
+Caption: five design patterns to build more
+
+00:00:20.399 --> 00:00:23.479
+Caption: resilient applications
+
+00:00:23.760 --> 00:00:29.360
+Caption: thank you hello
+
+00:00:26.239 --> 00:00:29.360
+Caption: [Applause]
+
+00:00:30.479 --> 00:00:34.919
+Caption: come in come in take a seat take a seat
+
+00:00:32.639 --> 00:00:39.119
+Caption: um yes thank you Carol my name is Derek
+
+00:00:34.919 --> 00:00:40.759
+Caption: I am a developer Advocate at AWS and
+
+00:00:39.119 --> 00:00:44.459
+Caption: today I&#39;m going to talk to you about
+
+00:00:40.759 --> 00:00:47.759
+Caption: resiliency and building resilient
+
+00:00:44.459 --> 00:00:49.378
+Caption: applications now a little side story
+
+00:00:47.759 --> 00:00:51.659
+Caption: about resiliency
+
+00:00:49.379 --> 00:00:54.300
+Caption: I have done every role it&#39;s possible to
+
+00:00:51.659 --> 00:00:56.759
+Caption: do at DDD I have been a room coordinator
+
+00:00:54.299 --> 00:00:58.378
+Caption: I have been on the committee I have been
+
+00:00:56.759 --> 00:01:00.779
+Caption: a floor coordinator I have just ran
+
+00:00:58.379 --> 00:01:03.960
+Caption: around helping these awesome folks who
+
+00:01:00.779 --> 00:01:05.699
+Caption: organize this this uh conference and
+
+00:01:03.959 --> 00:01:08.298
+Caption: today is the first time after seven
+
+00:01:05.699 --> 00:01:10.819
+Caption: attempts I actually made it as a speaker
+
+00:01:08.299 --> 00:01:13.380
+Caption: resiliency yes yes
+
+00:01:10.819 --> 00:01:16.439
+Caption: [Laughter]
+
+00:01:13.379 --> 00:01:19.079
+Caption: so in today&#39;s talk you&#39;ll fall into one
+
+00:01:16.439 --> 00:01:22.080
+Caption: of three camps you&#39;ll either be in Camp
+
+00:01:19.080 --> 00:01:23.580
+Caption: one where you&#39;ll think oh that&#39;s an
+
+00:01:22.080 --> 00:01:24.419
+Caption: interesting pattern never heard of that
+
+00:01:23.580 --> 00:01:28.439
+Caption: before
+
+00:01:24.419 --> 00:01:31.500
+Caption: or you&#39;ll call Fallen Camp 2 and you go
+
+00:01:28.439 --> 00:01:33.720
+Caption: well I know that pattern I&#39;ve uh I&#39;ve
+
+00:01:31.500 --> 00:01:36.959
+Caption: implemented before but maybe not in
+
+00:01:33.720 --> 00:01:38.159
+Caption: in.net so that&#39;s interesting or you&#39;ll
+
+00:01:36.959 --> 00:01:40.500
+Caption: fall into
+
+00:01:38.158 --> 00:01:43.978
+Caption: um Camp 3 and you&#39;ll go like go like
+
+00:01:40.500 --> 00:01:46.680
+Caption: this oh flip not another one
+
+00:01:43.978 --> 00:01:49.739
+Caption: more in that later
+
+00:01:46.680 --> 00:01:53.040
+Caption: so for those of you who do not know me
+
+00:01:49.739 --> 00:01:54.898
+Caption: and my flicker is not working
+
+00:01:53.040 --> 00:01:57.319
+Caption: get closer get closer get closer it&#39;s a
+
+00:01:54.899 --> 00:01:57.319
+Caption: big stage
+
+00:01:58.680 --> 00:02:04.099
+Caption: reset the clicker
+
+00:02:01.379 --> 00:02:04.099
+Caption: let&#39;s get start
+
+00:02:04.139 --> 00:02:09.958
+Caption: there we go nope there we go
+
+00:02:07.759 --> 00:02:11.160
+Caption: Brazilian the resilient clicker this is
+
+00:02:09.958 --> 00:02:13.679
+Caption: not
+
+00:02:11.160 --> 00:02:16.080
+Caption: um so for those of you who don&#39;t know me
+
+00:02:13.679 --> 00:02:19.319
+Caption: um I have been building software for 20
+
+00:02:16.080 --> 00:02:22.199
+Caption: years uh I am that old yes
+
+00:02:19.319 --> 00:02:23.160
+Caption: um majority in Cloud so the last seven
+
+00:02:22.199 --> 00:02:26.520
+Caption: or eight years I&#39;ve been building
+
+00:02:23.160 --> 00:02:29.040
+Caption: software in a number of different clouds
+
+00:02:26.520 --> 00:02:30.779
+Caption: um what we call Cloud native so some
+
+00:02:29.039 --> 00:02:32.519
+Caption: people call Cloud native
+
+00:02:30.779 --> 00:02:35.039
+Caption: um others close
+
+00:02:32.520 --> 00:02:38.400
+Caption: um and for four nearly five of those
+
+00:02:35.039 --> 00:02:40.860
+Caption: years I have been working at AWS and
+
+00:02:38.399 --> 00:02:43.439
+Caption: last two is developer Advocate
+
+00:02:40.860 --> 00:02:45.598
+Caption: um you may notice a slight accent I am
+
+00:02:43.440 --> 00:02:47.339
+Caption: originally from Ireland hence the uh the
+
+00:02:45.598 --> 00:02:50.399
+Caption: green shoes that I that I&#39;m wearing
+
+00:02:47.339 --> 00:02:52.440
+Caption: today but I am very much a Perth native
+
+00:02:50.399 --> 00:02:55.799
+Caption: and have been living in this beautiful
+
+00:02:52.440 --> 00:02:56.940
+Caption: city for 15 years and I probably worked
+
+00:02:55.800 --> 00:02:59.958
+Caption: with quite a few of you in the audience
+
+00:02:56.940 --> 00:02:59.958
+Caption: so I&#39;m sorry
+
+00:03:00.029 --> 00:03:01.139
+Caption: [Music]
+
+00:03:00.360 --> 00:03:04.919
+Caption: um
+
+00:03:01.139 --> 00:03:07.738
+Caption: clicker is of yes okay so a lot of
+
+00:03:04.919 --> 00:03:08.940
+Caption: people I usually start talks with
+
+00:03:07.738 --> 00:03:10.559
+Caption: um a quote
+
+00:03:08.940 --> 00:03:12.900
+Caption: and it&#39;s usually called by somebody else
+
+00:03:10.559 --> 00:03:15.839
+Caption: so I thought ah first ever DDD talk
+
+00:03:12.899 --> 00:03:18.179
+Caption: let&#39;s have a quote from me so a lot of
+
+00:03:15.839 --> 00:03:21.419
+Caption: people ask me Derek what do you do what
+
+00:03:18.179 --> 00:03:23.878
+Caption: does a developer Advocate and so this is
+
+00:03:21.419 --> 00:03:26.279
+Caption: what I say a developer Advocate is I
+
+00:03:23.878 --> 00:03:27.179
+Caption: show people what I used to do for a
+
+00:03:26.279 --> 00:03:29.220
+Caption: living
+
+00:03:27.179 --> 00:03:31.738
+Caption: for a living
+
+00:03:29.220 --> 00:03:34.619
+Caption: think about it
+
+00:03:31.738 --> 00:03:35.819
+Caption: um so that&#39;s my quote and so today I&#39;m
+
+00:03:34.619 --> 00:03:37.319
+Caption: going to show you patterns that I used
+
+00:03:35.819 --> 00:03:39.738
+Caption: to implement
+
+00:03:37.319 --> 00:03:39.738
+Caption: um for a living
+
+00:03:40.559 --> 00:03:44.279
+Caption: and I have to say I&#39;m gonna have to stay
+
+00:03:42.419 --> 00:03:46.878
+Caption: I love I love walking the stage but my
+
+00:03:44.279 --> 00:03:46.878
+Caption: clicker&#39;s not working
+
+00:03:47.039 --> 00:03:51.719
+Caption: oh now it&#39;s okay
+
+00:03:49.319 --> 00:03:53.580
+Caption: um thanks thanks Carol so I&#39;m going to
+
+00:03:51.720 --> 00:03:55.378
+Caption: start with another quote this is from a
+
+00:03:53.580 --> 00:03:56.580
+Caption: from a from a person a lot more famous
+
+00:03:55.378 --> 00:04:00.479
+Caption: than I am
+
+00:03:56.580 --> 00:04:02.878
+Caption: um this is the CTO of uh Amazon Dr Verna
+
+00:04:00.479 --> 00:04:04.259
+Caption: vogels so failures are given and
+
+00:04:02.878 --> 00:04:06.179
+Caption: everything will eventually fail over
+
+00:04:04.259 --> 00:04:08.580
+Caption: time so when people hear this they&#39;re
+
+00:04:06.179 --> 00:04:11.579
+Caption: like what everything fails nonsense
+
+00:04:08.580 --> 00:04:15.540
+Caption: everything always works in my my machine
+
+00:04:11.580 --> 00:04:17.059
+Caption: um or or they say oh okay and that&#39;s
+
+00:04:15.539 --> 00:04:19.979
+Caption: that&#39;s the acceptance that you need
+
+00:04:17.059 --> 00:04:21.660
+Caption: failure is a thing when we build modern
+
+00:04:19.979 --> 00:04:24.000
+Caption: software applications that are
+
+00:04:21.660 --> 00:04:28.080
+Caption: distributed we build them on different
+
+00:04:24.000 --> 00:04:30.540
+Caption: platforms we go across networks that may
+
+00:04:28.079 --> 00:04:34.079
+Caption: um go across boundaries of regions
+
+00:04:30.540 --> 00:04:36.960
+Caption: countries uh all sorts of latency
+
+00:04:34.079 --> 00:04:39.599
+Caption: introduced and they may also work on
+
+00:04:36.959 --> 00:04:40.859
+Caption: different Hardware so nothing&#39;s ever
+
+00:04:39.600 --> 00:04:44.520
+Caption: going to work all the time that&#39;s
+
+00:04:40.859 --> 00:04:46.439
+Caption: ridiculous so what we need to do is when
+
+00:04:44.519 --> 00:04:48.299
+Caption: we&#39;re building software we need to take
+
+00:04:46.440 --> 00:04:52.759
+Caption: this in mind we need to build our
+
+00:04:48.299 --> 00:04:52.759
+Caption: applications to be more resilient
+
+00:04:54.660 --> 00:04:59.339
+Caption: it&#39;s terrible
+
+00:04:57.239 --> 00:05:01.619
+Caption: click
+
+00:04:59.339 --> 00:05:03.179
+Caption: so today I&#39;m going to say five patterns
+
+00:05:01.619 --> 00:05:05.339
+Caption: timeouts
+
+00:05:03.179 --> 00:05:07.500
+Caption: graceful degradations retries
+
+00:05:05.339 --> 00:05:09.299
+Caption: exponential back-offs and circuit
+
+00:05:07.500 --> 00:05:11.940
+Caption: breakers and you&#39;ll see it&#39;s a
+
+00:05:09.299 --> 00:05:13.319
+Caption: progression as I build these out and
+
+00:05:11.940 --> 00:05:14.880
+Caption: then we&#39;re going to dive into one
+
+00:05:13.320 --> 00:05:17.699
+Caption: practice the practice of chaos
+
+00:05:14.880 --> 00:05:19.679
+Caption: engineering and that will become clear
+
+00:05:17.699 --> 00:05:22.520
+Caption: why we&#39;re diving into chaos engineering
+
+00:05:19.679 --> 00:05:22.519
+Caption: when we get to it
+
+00:05:22.979 --> 00:05:28.019
+Caption: foreign
+
+00:05:24.919 --> 00:05:30.600
+Caption: so the first thing to do is meet the
+
+00:05:28.019 --> 00:05:31.559
+Caption: traditional distributed application that
+
+00:05:30.600 --> 00:05:34.699
+Caption: we&#39;re going
+
+00:05:31.559 --> 00:05:34.699
+Caption: to build today
+
+00:05:36.959 --> 00:05:42.059
+Caption: before I get into it anybody who doesn&#39;t
+
+00:05:40.019 --> 00:05:44.339
+Caption: like bad jokes you may as well leave now
+
+00:05:42.059 --> 00:05:47.940
+Caption: because there&#39;s a lot
+
+00:05:44.339 --> 00:05:50.579
+Caption: um a lot so I&#39;m sorry I apologize
+
+00:05:47.940 --> 00:05:52.500
+Caption: but not really
+
+00:05:50.579 --> 00:05:56.220
+Caption: so this is our distributed application
+
+00:05:52.500 --> 00:05:59.399
+Caption: it is a random joke generator
+
+00:05:56.220 --> 00:06:03.000
+Caption: and here&#39;s a joke what do computers eat
+
+00:05:59.399 --> 00:06:07.440
+Caption: for a snack microchips of course
+
+00:06:03.000 --> 00:06:10.380
+Caption: and if it has a uh so it has a punch
+
+00:06:07.440 --> 00:06:11.940
+Caption: line and a punch line and if I hit tell
+
+00:06:10.380 --> 00:06:13.919
+Caption: me another
+
+00:06:11.940 --> 00:06:15.239
+Caption: it&#39;s going to get another joke two hard
+
+00:06:13.919 --> 00:06:17.459
+Caption: things in computer science cash
+
+00:06:15.239 --> 00:06:20.339
+Caption: invalidation naming things and off by
+
+00:06:17.459 --> 00:06:22.199
+Caption: one errors okay
+
+00:06:20.339 --> 00:06:24.720
+Caption: um and then if I hit the back end of
+
+00:06:22.199 --> 00:06:27.899
+Caption: this um front end I&#39;ve got a setup a
+
+00:06:24.720 --> 00:06:31.079
+Caption: punchline and a source all in Jason and
+
+00:06:27.899 --> 00:06:33.479
+Caption: and if I refresh it&#39;ll hit an API that
+
+00:06:31.079 --> 00:06:35.279
+Caption: will give me a result and that&#39;s the
+
+00:06:33.479 --> 00:06:37.919
+Caption: application so if we look at the code
+
+00:06:35.279 --> 00:06:40.199
+Caption: itself I have a client app so The Client
+
+00:06:37.919 --> 00:06:44.520
+Caption: app is a react app which is basically
+
+00:06:40.199 --> 00:06:47.819
+Caption: just one app.js and inside app.js I have
+
+00:06:44.519 --> 00:06:50.819
+Caption: a fetch job component an inside vet&#39;s
+
+00:06:47.819 --> 00:06:54.779
+Caption: job I have got basically two functions I
+
+00:06:50.819 --> 00:06:57.959
+Caption: have got a um a rendered joke data which
+
+00:06:54.779 --> 00:07:00.839
+Caption: renders uh the beautiful UI that you saw
+
+00:06:57.959 --> 00:07:04.019
+Caption: earlier and I also have a if it&#39;s that
+
+00:07:00.839 --> 00:07:07.679
+Caption: populate your data now this fetches the
+
+00:07:04.019 --> 00:07:08.940
+Caption: Json object from the the back end API or
+
+00:07:07.679 --> 00:07:12.059
+Caption: from the controller
+
+00:07:08.940 --> 00:07:15.000
+Caption: now what it does it renders a response
+
+00:07:12.059 --> 00:07:16.199
+Caption: in Json and displays it for your viewing
+
+00:07:15.000 --> 00:07:19.619
+Caption: pleasure
+
+00:07:16.199 --> 00:07:22.500
+Caption: so that is the UI then into the back end
+
+00:07:19.619 --> 00:07:25.259
+Caption: it&#39;s a.net controller so what I&#39;m doing
+
+00:07:22.500 --> 00:07:27.959
+Caption: here I&#39;m implementing what is an ideal
+
+00:07:25.259 --> 00:07:28.979
+Caption: client interface this is all in.net but
+
+00:07:27.959 --> 00:07:31.019
+Caption: don&#39;t worry you should be able to
+
+00:07:28.979 --> 00:07:34.259
+Caption: understand it and
+
+00:07:31.019 --> 00:07:37.440
+Caption: um what I do I call I instantly an HTTP
+
+00:07:34.259 --> 00:07:40.259
+Caption: client I grab
+
+00:07:37.440 --> 00:07:42.660
+Caption: um an endpoint and I call out to it and
+
+00:07:40.259 --> 00:07:45.059
+Caption: I serialize deserialize the GS object
+
+00:07:42.660 --> 00:07:48.000
+Caption: and return it back to the the front end
+
+00:07:45.059 --> 00:07:50.639
+Caption: as a joke so what I&#39;m doing I&#39;m calling
+
+00:07:48.000 --> 00:07:53.940
+Caption: out to a third-party API from this from
+
+00:07:50.639 --> 00:07:53.940
+Caption: this controller
+
+00:07:54.000 --> 00:07:58.199
+Caption: the joke object itself that I&#39;m
+
+00:07:56.160 --> 00:08:00.119
+Caption: serializing deserializing is that setup
+
+00:07:58.199 --> 00:08:03.959
+Caption: punchline and Source since got
+
+00:08:00.119 --> 00:08:06.779
+Caption: accessories and mutators as you&#39;d expect
+
+00:08:03.959 --> 00:08:08.699
+Caption: and then so then that&#39;s what you get so
+
+00:08:06.779 --> 00:08:11.819
+Caption: you get tell me another calls the third
+
+00:08:08.699 --> 00:08:13.860
+Caption: party joke API third-party Duke API
+
+00:08:11.819 --> 00:08:17.160
+Caption: returns and why are monkeys great at
+
+00:08:13.859 --> 00:08:20.038
+Caption: sports because they&#39;re born champions
+
+00:08:17.160 --> 00:08:22.979
+Caption: got a few drones
+
+00:08:20.039 --> 00:08:26.039
+Caption: um so that that that&#39;s our application
+
+00:08:22.979 --> 00:08:28.619
+Caption: not like any good thing we need a an
+
+00:08:26.039 --> 00:08:31.378
+Caption: architecture so the architecture is like
+
+00:08:28.619 --> 00:08:34.260
+Caption: this so we have a react web application
+
+00:08:31.378 --> 00:08:36.119
+Caption: I&#39;d love to move over the other edge of
+
+00:08:34.260 --> 00:08:38.700
+Caption: the debt of the of the stage but I&#39;m
+
+00:08:36.119 --> 00:08:40.799
+Caption: frightened at my clicker won&#39;t work
+
+00:08:38.700 --> 00:08:42.419
+Caption: um react web application calls the.net
+
+00:08:40.799 --> 00:08:45.659
+Caption: microservice so the controller I showed
+
+00:08:42.419 --> 00:08:47.160
+Caption: you that then proxies into a third-party
+
+00:08:45.659 --> 00:08:50.219
+Caption: joke API
+
+00:08:47.159 --> 00:08:52.679
+Caption: which returns a joke to the controller
+
+00:08:50.219 --> 00:08:54.059
+Caption: uh and then back to the react web
+
+00:08:52.679 --> 00:08:56.700
+Caption: application
+
+00:08:54.059 --> 00:08:59.518
+Caption: but what happens if the third party joke
+
+00:08:56.700 --> 00:09:02.700
+Caption: API that I do not control that is a
+
+00:08:59.518 --> 00:09:05.639
+Caption: third party rock has load runs into
+
+00:09:02.700 --> 00:09:07.500
+Caption: errors and failed
+
+00:09:05.640 --> 00:09:09.778
+Caption: well what happens then is the react
+
+00:09:07.500 --> 00:09:12.299
+Caption: client doesn&#39;t know who that is filled
+
+00:09:09.778 --> 00:09:15.299
+Caption: the.net microserver still proxies the
+
+00:09:12.299 --> 00:09:18.599
+Caption: request uh to the third party joke API
+
+00:09:15.299 --> 00:09:21.179
+Caption: and it just Waits uh it&#39;ll wait for
+
+00:09:18.599 --> 00:09:23.759
+Caption: because I&#39;m using the.net HTTP client
+
+00:09:21.179 --> 00:09:26.338
+Caption: the default weight is 100 seconds so
+
+00:09:23.760 --> 00:09:28.080
+Caption: it&#39;ll wait for 100 seconds
+
+00:09:26.338 --> 00:09:29.880
+Caption: and that will mean the react web
+
+00:09:28.080 --> 00:09:33.000
+Caption: application will also be wearing for
+
+00:09:29.880 --> 00:09:35.039
+Caption: result from the uhnet microservice
+
+00:09:33.000 --> 00:09:36.778
+Caption: the client might come along and do a
+
+00:09:35.039 --> 00:09:39.898
+Caption: request for a new joke because we all
+
+00:09:36.778 --> 00:09:41.398
+Caption: need bad jokes
+
+00:09:39.898 --> 00:09:42.838
+Caption: and it will proxy it through the
+
+00:09:41.398 --> 00:09:45.359
+Caption: third-party Duke API which is still
+
+00:09:42.838 --> 00:09:47.278
+Caption: broken and again we&#39;ll get into this
+
+00:09:45.359 --> 00:09:51.179
+Caption: problem of waiting uh for the default
+
+00:09:47.278 --> 00:09:53.760
+Caption: timeout of the client request
+
+00:09:51.179 --> 00:09:56.398
+Caption: and what will happen after after time is
+
+00:09:53.760 --> 00:09:58.440
+Caption: the microservice will be just full of
+
+00:09:56.398 --> 00:10:01.320
+Caption: these waiting requests and it will um
+
+00:09:58.440 --> 00:10:03.838
+Caption: start to feel and keep it&#39;ll keep
+
+00:10:01.320 --> 00:10:05.398
+Caption: cascading the failures back to the react
+
+00:10:03.838 --> 00:10:06.778
+Caption: web application which will just keep
+
+00:10:05.398 --> 00:10:07.559
+Caption: waiting
+
+00:10:06.778 --> 00:10:11.099
+Caption: um
+
+00:10:07.559 --> 00:10:14.580
+Caption: until yeah nothing so this is all very
+
+00:10:11.099 --> 00:10:17.039
+Caption: bad for our users and a very bad
+
+00:10:14.580 --> 00:10:19.440
+Caption: um experience for them
+
+00:10:17.039 --> 00:10:22.259
+Caption: so let&#39;s go about fixing that and seeing
+
+00:10:19.440 --> 00:10:24.659
+Caption: how we can apply patterns to make it
+
+00:10:22.260 --> 00:10:27.000
+Caption: more resilient
+
+00:10:24.659 --> 00:10:29.518
+Caption: the first pattern I&#39;m going to Define is
+
+00:10:27.000 --> 00:10:31.080
+Caption: timeouts so at the minute we&#39;re using
+
+00:10:29.518 --> 00:10:33.059
+Caption: default timeouts for everything which is
+
+00:10:31.080 --> 00:10:36.119
+Caption: a hundred seconds let&#39;s go about making
+
+00:10:33.059 --> 00:10:39.359
+Caption: the timeouts more determinate
+
+00:10:36.119 --> 00:10:43.458
+Caption: so here we are back in in the code
+
+00:10:39.359 --> 00:10:46.140
+Caption: so if we look at the HTTP client object
+
+00:10:43.458 --> 00:10:48.599
+Caption: in.net we can actually add a property to
+
+00:10:46.140 --> 00:10:50.760
+Caption: that directly now the property is called
+
+00:10:48.599 --> 00:10:53.699
+Caption: timeout imagine it&#39;s really titled I
+
+00:10:50.760 --> 00:10:55.078
+Caption: must say and it is from second so I&#39;m
+
+00:10:53.700 --> 00:10:56.820
+Caption: going to give it five so that&#39;s going to
+
+00:10:55.078 --> 00:10:58.619
+Caption: override the default behavior of 100
+
+00:10:56.820 --> 00:11:00.898
+Caption: seconds and at least make things more
+
+00:10:58.619 --> 00:11:04.200
+Caption: determinant so what&#39;s going to happen if
+
+00:11:00.898 --> 00:11:06.359
+Caption: I Implement that is my my application is
+
+00:11:04.200 --> 00:11:10.579
+Caption: going to change its Behavior someone
+
+00:11:06.359 --> 00:11:10.578
+Caption: so if I refresh the the client
+
+00:11:12.179 --> 00:11:16.200
+Caption: and you get another awesome joke if you
+
+00:11:14.219 --> 00:11:17.759
+Caption: hit tell me another it&#39;ll keep returning
+
+00:11:16.200 --> 00:11:19.559
+Caption: it will keep returning jokes as the
+
+00:11:17.760 --> 00:11:22.619
+Caption: third party API is still up
+
+00:11:19.559 --> 00:11:25.380
+Caption: and so if I hit tell me another it&#39;ll
+
+00:11:22.619 --> 00:11:28.018
+Caption: keep returning until uh we get a failure
+
+00:11:25.380 --> 00:11:31.200
+Caption: in the third party joke API
+
+00:11:28.018 --> 00:11:33.299
+Caption: which we probably will when this is
+
+00:11:31.200 --> 00:11:34.919
+Caption: spinning for more than five seconds so
+
+00:11:33.299 --> 00:11:37.559
+Caption: at the minute it&#39;s spinning so that
+
+00:11:34.919 --> 00:11:39.719
+Caption: means something is wrong so if we then
+
+00:11:37.559 --> 00:11:42.539
+Caption: go to the the back end controller and do
+
+00:11:39.719 --> 00:11:44.939
+Caption: the refresh you&#39;ll see boom we&#39;ve got a
+
+00:11:42.539 --> 00:11:47.099
+Caption: an unhandled exception uh which is
+
+00:11:44.940 --> 00:11:49.919
+Caption: actually if you look down a timeout
+
+00:11:47.099 --> 00:11:51.000
+Caption: exception so what&#39;s happened is the five
+
+00:11:49.919 --> 00:11:53.760
+Caption: seconds
+
+00:11:51.000 --> 00:11:56.940
+Caption: um has actually expired and it&#39;s bubbled
+
+00:11:53.760 --> 00:12:00.179
+Caption: up a timeout exception
+
+00:11:56.940 --> 00:12:02.159
+Caption: uh of five seconds so that that is a
+
+00:12:00.179 --> 00:12:05.099
+Caption: very rudimentary
+
+00:12:02.159 --> 00:12:07.799
+Caption: um use of a timeout we&#39;re just making
+
+00:12:05.099 --> 00:12:10.619
+Caption: the requests more determinate
+
+00:12:07.799 --> 00:12:12.958
+Caption: but that&#39;s that&#39;s only the start
+
+00:12:10.619 --> 00:12:15.778
+Caption: um next the next phase of the
+
+00:12:12.958 --> 00:12:18.599
+Caption: refactoring of this application is by
+
+00:12:15.778 --> 00:12:22.200
+Caption: using a resilience Library called poly
+
+00:12:18.599 --> 00:12:25.018
+Caption: is anybody used poly and net
+
+00:12:22.200 --> 00:12:27.480
+Caption: excellent it is an excellent Library
+
+00:12:25.018 --> 00:12:29.419
+Caption: um if you are not a developer don&#39;t
+
+00:12:27.479 --> 00:12:31.679
+Caption: worry um there are
+
+00:12:29.419 --> 00:12:34.799
+Caption: equivalent.net sorry equivalent
+
+00:12:31.679 --> 00:12:37.500
+Caption: resilience libraries for Java there&#39;s
+
+00:12:34.799 --> 00:12:39.719
+Caption: one inside spring if you&#39;re using the
+
+00:12:37.500 --> 00:12:42.119
+Caption: AWS sdks all of these patterns are
+
+00:12:39.719 --> 00:12:44.039
+Caption: actually built into them and there&#39;s
+
+00:12:42.119 --> 00:12:46.679
+Caption: also I&#39;ve seen a resilience library for
+
+00:12:44.039 --> 00:12:49.458
+Caption: typescript as well so poly is just the
+
+00:12:46.679 --> 00:12:49.458
+Caption: one for.net
+
+00:12:49.500 --> 00:12:53.880
+Caption: so let&#39;s start using poly and really
+
+00:12:51.838 --> 00:12:56.760
+Caption: expand in our timeout
+
+00:12:53.880 --> 00:12:58.220
+Caption: so let&#39;s get rid of that that was um
+
+00:12:56.760 --> 00:13:01.200
+Caption: our
+
+00:12:58.219 --> 00:13:02.638
+Caption: default.net HTTP client timeout the
+
+00:13:01.200 --> 00:13:05.639
+Caption: first thing we need to do in poly is
+
+00:13:02.638 --> 00:13:08.638
+Caption: Define a policy so what we do is Define
+
+00:13:05.638 --> 00:13:11.278
+Caption: a policy that wraps our timeout so we
+
+00:13:08.638 --> 00:13:13.859
+Caption: say policy timeout async
+
+00:13:11.278 --> 00:13:17.099
+Caption: um and then we need to give it a value
+
+00:13:13.859 --> 00:13:18.898
+Caption: which again we&#39;ll set is five seconds so
+
+00:13:17.099 --> 00:13:22.138
+Caption: the policy object comes from the poly
+
+00:13:18.898 --> 00:13:24.299
+Caption: Library just for uh so you know and then
+
+00:13:22.138 --> 00:13:27.239
+Caption: once we have defined the policy we need
+
+00:13:24.299 --> 00:13:30.958
+Caption: to then put it in an execute so we&#39;re
+
+00:13:27.239 --> 00:13:33.719
+Caption: wrapping it an async Executor and then
+
+00:13:30.958 --> 00:13:36.719
+Caption: we&#39;ll pull once we&#39;ve defined the async
+
+00:13:33.719 --> 00:13:41.338
+Caption: method with a
+
+00:13:36.719 --> 00:13:45.059
+Caption: um a a timeout token a token we will
+
+00:13:41.338 --> 00:13:47.880
+Caption: then wrap our entire call DHCP client uh
+
+00:13:45.059 --> 00:13:52.880
+Caption: up push it in to our executed async
+
+00:13:47.880 --> 00:13:52.880
+Caption: Anonymous inner function and Define
+
+00:13:52.919 --> 00:13:58.018
+Caption: a cancellation token thank you so why
+
+00:13:56.159 --> 00:13:59.759
+Caption: why Define the cancellation token so the
+
+00:13:58.018 --> 00:14:01.859
+Caption: cancellation token is now giving us
+
+00:13:59.760 --> 00:14:03.479
+Caption: greater granularity into the calls so
+
+00:14:01.859 --> 00:14:06.778
+Caption: we&#39;ve got two async calls in here we&#39;ve
+
+00:14:03.479 --> 00:14:08.820
+Caption: got a HTTP client git async and a
+
+00:14:06.778 --> 00:14:10.619
+Caption: content.read async
+
+00:14:08.820 --> 00:14:13.018
+Caption: so the cancellation token will actually
+
+00:14:10.619 --> 00:14:14.159
+Caption: allow us to cancel whatever task is
+
+00:14:13.018 --> 00:14:17.219
+Caption: running
+
+00:14:14.159 --> 00:14:19.619
+Caption: so we then finish and make that a return
+
+00:14:17.219 --> 00:14:21.359
+Caption: to width and then we have five it and
+
+00:14:19.619 --> 00:14:23.518
+Caption: see what&#39;s going to happen now to our
+
+00:14:21.359 --> 00:14:26.700
+Caption: application again back at the front end
+
+00:14:23.518 --> 00:14:29.760
+Caption: uh we&#39;ll have a similar Behavior where
+
+00:14:26.700 --> 00:14:31.679
+Caption: the UI will will keep refreshing uh for
+
+00:14:29.760 --> 00:14:34.078
+Caption: more than five seconds
+
+00:14:31.679 --> 00:14:37.820
+Caption: and now if we go into the the controller
+
+00:14:34.078 --> 00:14:37.820
+Caption: uh and we hit refresh
+
+00:14:37.919 --> 00:14:41.760
+Caption: we&#39;ll see different Behavior so what&#39;s
+
+00:14:39.419 --> 00:14:45.239
+Caption: happening now the third party API has
+
+00:14:41.760 --> 00:14:47.820
+Caption: again failed uh but we&#39;ve got a cast a
+
+00:14:45.239 --> 00:14:50.338
+Caption: task uh canceled exception because the
+
+00:14:47.820 --> 00:14:51.838
+Caption: cancellation token is invoked and that
+
+00:14:50.338 --> 00:14:54.539
+Caption: has meant that
+
+00:14:51.838 --> 00:14:56.940
+Caption: um the task is filled has bubbled up
+
+00:14:54.539 --> 00:14:59.219
+Caption: that exception
+
+00:14:56.940 --> 00:15:00.419
+Caption: so as you can see we&#39;re on a bit of a
+
+00:14:59.219 --> 00:15:02.278
+Caption: journey here
+
+00:15:00.419 --> 00:15:04.018
+Caption: um so we&#39;ve got our timeout we&#39;ve then
+
+00:15:02.278 --> 00:15:07.380
+Caption: wrapped it in poly we&#39;ve got a greater
+
+00:15:04.018 --> 00:15:08.880
+Caption: granularity into the call stack but
+
+00:15:07.380 --> 00:15:10.919
+Caption: um we&#39;re still getting
+
+00:15:08.880 --> 00:15:13.919
+Caption: um exceptions we&#39;re still bubbling up to
+
+00:15:10.919 --> 00:15:17.099
+Caption: the to the um the controller what&#39;s the
+
+00:15:13.919 --> 00:15:19.078
+Caption: next stage in refactoring this
+
+00:15:17.099 --> 00:15:22.559
+Caption: well the next stage the next pattern is
+
+00:15:19.078 --> 00:15:25.799
+Caption: called uh graceful degradation
+
+00:15:22.559 --> 00:15:29.698
+Caption: so like the name suggests
+
+00:15:25.799 --> 00:15:32.039
+Caption: it&#39;s gonna degrade gracefully I.E we&#39;re
+
+00:15:29.698 --> 00:15:34.500
+Caption: not going to uh we&#39;re going to have that
+
+00:15:32.039 --> 00:15:36.479
+Caption: client or our beautiful users who are
+
+00:15:34.500 --> 00:15:38.940
+Caption: using our beautiful joke
+
+00:15:36.479 --> 00:15:41.578
+Caption: um creation or joke rendering
+
+00:15:38.940 --> 00:15:44.338
+Caption: application actually get a result when
+
+00:15:41.578 --> 00:15:47.099
+Caption: things go wrong so that&#39;s the whole
+
+00:15:44.338 --> 00:15:50.159
+Caption: concept around uh graceful degradation
+
+00:15:47.099 --> 00:15:51.898
+Caption: the application gracefully degrades now
+
+00:15:50.159 --> 00:15:54.559
+Caption: how do we Implement a graceful
+
+00:15:51.898 --> 00:15:54.559
+Caption: degradation
+
+00:15:56.219 --> 00:16:02.159
+Caption: so again we need to Define what&#39;s called
+
+00:15:58.619 --> 00:16:04.440
+Caption: a fallback so a fallback is thing that
+
+00:16:02.159 --> 00:16:06.539
+Caption: you can present to your users when all
+
+00:16:04.440 --> 00:16:09.898
+Caption: thing all other things are filled
+
+00:16:06.539 --> 00:16:13.380
+Caption: so in poly I create a policy that
+
+00:16:09.898 --> 00:16:16.799
+Caption: returns a joke list uh an enumable.net&#39;s
+
+00:16:13.380 --> 00:16:19.198
+Caption: list and then on any exception
+
+00:16:16.799 --> 00:16:22.559
+Caption: um it will do something
+
+00:16:19.198 --> 00:16:26.099
+Caption: so what we want our fallback to do is to
+
+00:16:22.559 --> 00:16:30.000
+Caption: return a joke so I&#39;m executing a
+
+00:16:26.099 --> 00:16:32.698
+Caption: fallback async that returns a a list of
+
+00:16:30.000 --> 00:16:35.398
+Caption: jokes but for this demonstration I&#39;m
+
+00:16:32.698 --> 00:16:37.078
+Caption: simply going to return one joke
+
+00:16:35.398 --> 00:16:39.119
+Caption: and I&#39;m going to do that inside another
+
+00:16:37.078 --> 00:16:41.518
+Caption: async anonymous function that has a
+
+00:16:39.119 --> 00:16:45.778
+Caption: cancellation token just like
+
+00:16:41.518 --> 00:16:48.838
+Caption: um we had in our um initial request
+
+00:16:45.778 --> 00:16:51.838
+Caption: so Define it as a new list
+
+00:16:48.838 --> 00:16:54.898
+Caption: once I&#39;ve defined it as a new list I
+
+00:16:51.838 --> 00:16:57.479
+Caption: then need to Define my joke
+
+00:16:54.898 --> 00:17:00.479
+Caption: so the joke object if you remember has
+
+00:16:57.479 --> 00:17:01.739
+Caption: uh basically three Fields it has a
+
+00:17:00.479 --> 00:17:04.140
+Caption: source
+
+00:17:01.739 --> 00:17:06.359
+Caption: a setup first
+
+00:17:04.140 --> 00:17:07.739
+Caption: it has a punch line the all-important
+
+00:17:06.359 --> 00:17:11.900
+Caption: punchline
+
+00:17:07.739 --> 00:17:11.900
+Caption: and it has a source
+
+00:17:14.338 --> 00:17:18.298
+Caption: so once I&#39;ve defined that Source I&#39;m
+
+00:17:16.739 --> 00:17:20.040
+Caption: going to give it a name of fallback so
+
+00:17:18.298 --> 00:17:21.899
+Caption: you know that when this renders you&#39;ll
+
+00:17:20.040 --> 00:17:24.140
+Caption: see Source equals fallback
+
+00:17:21.900 --> 00:17:28.078
+Caption: um on the UI so we can see that our
+
+00:17:24.140 --> 00:17:29.880
+Caption: fallback has been returned
+
+00:17:28.078 --> 00:17:32.099
+Caption: now we&#39;re going to what&#39;s called
+
+00:17:29.880 --> 00:17:33.918
+Caption: Implement what&#39;s called a policy wrapper
+
+00:17:32.099 --> 00:17:36.500
+Caption: this is this is where we can actually
+
+00:17:33.918 --> 00:17:39.899
+Caption: Chi and policies together
+
+00:17:36.500 --> 00:17:41.640
+Caption: using poly so the general fallback
+
+00:17:39.900 --> 00:17:43.679
+Caption: policy that I&#39;ve defined I&#39;m wrapping
+
+00:17:41.640 --> 00:17:45.239
+Caption: the original policy in which is our
+
+00:17:43.678 --> 00:17:47.519
+Caption: timeout if you remember
+
+00:17:45.239 --> 00:17:49.678
+Caption: so now
+
+00:17:47.520 --> 00:17:54.200
+Caption: I&#39;m going to change
+
+00:17:49.678 --> 00:17:54.199
+Caption: and execute the policy wrap
+
+00:17:55.140 --> 00:17:59.339
+Caption: okay so what&#39;s going to happen now is
+
+00:17:57.719 --> 00:18:00.900
+Caption: we&#39;re going to return this joke if a
+
+00:17:59.339 --> 00:18:05.538
+Caption: five second
+
+00:18:00.900 --> 00:18:09.419
+Caption: timer occurs I&#39;m in a band called 102.3
+
+00:18:05.538 --> 00:18:15.500
+Caption: megabits or megabytes sorry
+
+00:18:09.418 --> 00:18:15.500
+Caption: we haven&#39;t had any gigs yet
+
+00:18:16.500 --> 00:18:22.280
+Caption: thank you thank you
+
+00:18:18.500 --> 00:18:22.280
+Caption: claps are good thank you
+
+00:18:22.439 --> 00:18:27.959
+Caption: so um so that&#39;s our fallback now if we
+
+00:18:25.558 --> 00:18:29.339
+Caption: go back into our our UI let&#39;s have a
+
+00:18:27.959 --> 00:18:31.859
+Caption: look and see what happens
+
+00:18:29.339 --> 00:18:34.819
+Caption: so let&#39;s refresh this for F5 to work in
+
+00:18:31.859 --> 00:18:34.819
+Caption: the application come up
+
+00:18:37.558 --> 00:18:43.339
+Caption: there we go
+
+00:18:38.880 --> 00:18:43.339
+Caption: um so UI controller third-party API
+
+00:18:43.500 --> 00:18:49.020
+Caption: so we&#39;ve went straight to the fallback
+
+00:18:45.298 --> 00:18:50.339
+Caption: you see Source equals fallback
+
+00:18:49.020 --> 00:18:52.500
+Caption: um you can see that we&#39;ve hit the
+
+00:18:50.339 --> 00:18:54.678
+Caption: fallback right away if I go tell me
+
+00:18:52.500 --> 00:18:54.678
+Caption: another
+
+00:18:55.020 --> 00:19:00.000
+Caption: there we are the third party Juke API is
+
+00:18:57.418 --> 00:19:02.538
+Caption: recovered uh I tell you UDP joke but you
+
+00:19:00.000 --> 00:19:02.538
+Caption: might not get it
+
+00:19:02.699 --> 00:19:05.159
+Caption: there&#39;s even networking jokes in here
+
+00:19:04.199 --> 00:19:08.339
+Caption: come on
+
+00:19:05.160 --> 00:19:10.679
+Caption: uh refresh again and you&#39;ve got I&#39;m in
+
+00:19:08.339 --> 00:19:13.380
+Caption: the band called 1024 so a fallback again
+
+00:19:10.678 --> 00:19:16.918
+Caption: has has been invoked then I refresh that
+
+00:19:13.380 --> 00:19:19.199
+Caption: and why don&#39;t werewolves ever know the
+
+00:19:16.918 --> 00:19:21.719
+Caption: time because they&#39;re not when wolves
+
+00:19:19.199 --> 00:19:23.760
+Caption: third party joke API sorry they can&#39;t
+
+00:19:21.719 --> 00:19:26.579
+Caption: read that that was that was bad
+
+00:19:23.760 --> 00:19:29.160
+Caption: um so that is our fallback we are
+
+00:19:26.579 --> 00:19:30.659
+Caption: invoking it when the timeout of five
+
+00:19:29.160 --> 00:19:33.419
+Caption: seconds happens
+
+00:19:30.660 --> 00:19:35.340
+Caption: and returns a joke you can return a list
+
+00:19:33.418 --> 00:19:37.739
+Caption: or a random entry in that list if you
+
+00:19:35.339 --> 00:19:40.079
+Caption: wanted to but for brevity I&#39;m returning
+
+00:19:37.739 --> 00:19:41.280
+Caption: one joke only uh with the source of
+
+00:19:40.079 --> 00:19:43.739
+Caption: fallback
+
+00:19:41.280 --> 00:19:47.359
+Caption: and that&#39;s how you um do gracefully
+
+00:19:43.739 --> 00:19:47.359
+Caption: degrade uh our API
+
+00:19:47.760 --> 00:19:52.558
+Caption: cool
+
+00:19:49.798 --> 00:19:55.798
+Caption: so that&#39;s that&#39;s great you say
+
+00:19:52.558 --> 00:19:58.619
+Caption: um the third party joke API fails
+
+00:19:55.798 --> 00:20:02.579
+Caption: times out after five five seconds users
+
+00:19:58.619 --> 00:20:06.119
+Caption: always get a joke that we can determine
+
+00:20:02.579 --> 00:20:09.298
+Caption: um well not really because we need to to
+
+00:20:06.119 --> 00:20:13.140
+Caption: give the third party joke API more time
+
+00:20:09.298 --> 00:20:15.779
+Caption: to if it&#39;s under load to recover and we
+
+00:20:13.140 --> 00:20:18.000
+Caption: need to be able to not just try once to
+
+00:20:15.780 --> 00:20:20.219
+Caption: get that joke from our controller to the
+
+00:20:18.000 --> 00:20:23.038
+Caption: third party API we need to try it a few
+
+00:20:20.219 --> 00:20:25.260
+Caption: times and that&#39;s where what a retry with
+
+00:20:23.038 --> 00:20:28.259
+Caption: a retry is
+
+00:20:25.260 --> 00:20:30.979
+Caption: so let&#39;s push a retry pattern into into
+
+00:20:28.260 --> 00:20:30.979
+Caption: our application
+
+00:20:31.739 --> 00:20:35.160
+Caption: so again
+
+00:20:33.538 --> 00:20:37.918
+Caption: um we&#39;re just going to refactor the
+
+00:20:35.160 --> 00:20:39.539
+Caption: general fallback into a method uh called
+
+00:20:37.918 --> 00:20:43.199
+Caption: General fallback because I&#39;m very
+
+00:20:39.538 --> 00:20:44.639
+Caption: imaginative and then once you
+
+00:20:43.199 --> 00:20:46.859
+Caption: um then the next thing we&#39;re going to do
+
+00:20:44.640 --> 00:20:50.099
+Caption: is Define that retry policy
+
+00:20:46.859 --> 00:20:52.520
+Caption: so the retry policy is it&#39;s fairly
+
+00:20:50.099 --> 00:20:52.520
+Caption: straightforward
+
+00:20:53.038 --> 00:20:57.000
+Caption: again type policy
+
+00:20:55.199 --> 00:20:58.979
+Caption: on the handle
+
+00:20:57.000 --> 00:21:00.418
+Caption: of exception now you could be more
+
+00:20:58.979 --> 00:21:02.760
+Caption: generic I&#39;m very generic in this
+
+00:21:00.418 --> 00:21:05.899
+Caption: exception again for brevity but uh you
+
+00:21:02.760 --> 00:21:05.900
+Caption: can be quite Pacific if you want
+
+00:21:06.119 --> 00:21:10.979
+Caption: um and then once an exception happens I
+
+00:21:08.280 --> 00:21:14.280
+Caption: want to retry async a number of times so
+
+00:21:10.979 --> 00:21:16.260
+Caption: this time I&#39;m going to retry five times
+
+00:21:14.280 --> 00:21:20.099
+Caption: I&#39;m then going to build that retry
+
+00:21:16.260 --> 00:21:22.140
+Caption: policy into my policy wrapper so the
+
+00:21:20.099 --> 00:21:26.760
+Caption: first policy I want to do
+
+00:21:22.140 --> 00:21:30.299
+Caption: is the retry policy so I want to do the
+
+00:21:26.760 --> 00:21:32.459
+Caption: initial request if that hits the
+
+00:21:30.298 --> 00:21:36.418
+Caption: exception I&#39;m going to retry five times
+
+00:21:32.459 --> 00:21:38.760
+Caption: if that hits the exception five times
+
+00:21:36.418 --> 00:21:40.319
+Caption: um then I&#39;ll handle my fallback I&#39;m
+
+00:21:38.760 --> 00:21:42.719
+Caption: going to change the timeout to two
+
+00:21:40.319 --> 00:21:45.058
+Caption: seconds because you know five times five
+
+00:21:42.719 --> 00:21:47.520
+Caption: is a long time so 5 times 2 is a bit
+
+00:21:45.058 --> 00:21:49.140
+Caption: quicker so F5 that
+
+00:21:47.520 --> 00:21:51.500
+Caption: and let&#39;s see what happens to your
+
+00:21:49.140 --> 00:21:51.500
+Caption: application
+
+00:21:52.979 --> 00:21:55.939
+Caption: front end first
+
+00:21:57.119 --> 00:22:00.439
+Caption: loading loading
+
+00:22:01.199 --> 00:22:04.019
+Caption: so third party API there are two hard
+
+00:22:03.058 --> 00:22:07.459
+Caption: things in computer science we&#39;ve had
+
+00:22:04.020 --> 00:22:07.459
+Caption: that before come on Duke API
+
+00:22:07.619 --> 00:22:12.780
+Caption: tell me another refreshing
+
+00:22:09.900 --> 00:22:14.339
+Caption: so we&#39;ll know that if it&#39;s go over two
+
+00:22:12.780 --> 00:22:16.200
+Caption: seconds so our time would sit to two
+
+00:22:14.339 --> 00:22:18.418
+Caption: seconds so if this is loading more than
+
+00:22:16.199 --> 00:22:20.819
+Caption: two seconds we know we&#39;re retrying and
+
+00:22:18.418 --> 00:22:22.619
+Caption: now it&#39;s retried five times hasn&#39;t
+
+00:22:20.819 --> 00:22:24.599
+Caption: worked so we&#39;re back to our fallback
+
+00:22:22.619 --> 00:22:26.699
+Caption: because we&#39;ve always got our fallback
+
+00:22:24.599 --> 00:22:28.079
+Caption: and then tell me another 10 types of
+
+00:22:26.699 --> 00:22:30.839
+Caption: people in the world those who understand
+
+00:22:28.079 --> 00:22:32.819
+Caption: binary and those don&#39;t
+
+00:22:30.839 --> 00:22:33.538
+Caption: um and then refresh again on our back
+
+00:22:32.819 --> 00:22:35.639
+Caption: end
+
+00:22:33.538 --> 00:22:38.658
+Caption: let&#39;s see what&#39;s happening there from
+
+00:22:35.640 --> 00:22:38.659
+Caption: our controller&#39;s perspective
+
+00:22:38.699 --> 00:22:42.599
+Caption: so it&#39;s taking more than two seconds so
+
+00:22:40.619 --> 00:22:44.939
+Caption: we&#39;re retrying
+
+00:22:42.599 --> 00:22:47.520
+Caption: and then well actually a third-party
+
+00:22:44.939 --> 00:22:49.558
+Caption: apis come back again inside the five
+
+00:22:47.520 --> 00:22:52.440
+Caption: retry window so we&#39;re getting a real
+
+00:22:49.558 --> 00:22:54.239
+Caption: joke if I retry that again
+
+00:22:52.439 --> 00:22:55.678
+Caption: it&#39;s pretty happy at the minute why the
+
+00:22:54.239 --> 00:22:57.178
+Caption: buildable buy against all these it is
+
+00:22:55.678 --> 00:22:59.038
+Caption: lunch at noon he was a creature of
+
+00:22:57.178 --> 00:23:01.140
+Caption: Hobbit
+
+00:22:59.038 --> 00:23:03.538
+Caption: no no
+
+00:23:01.140 --> 00:23:05.219
+Caption: come on very topical
+
+00:23:03.538 --> 00:23:07.558
+Caption: um
+
+00:23:05.219 --> 00:23:10.140
+Caption: and this third-party Duke API as always
+
+00:23:07.558 --> 00:23:12.859
+Caption: is very happy
+
+00:23:10.140 --> 00:23:12.859
+Caption: fresh again
+
+00:23:14.699 --> 00:23:19.219
+Caption: here we go so we&#39;re retrying
+
+00:23:19.260 --> 00:23:24.058
+Caption: can we hit five yes there we go so uh
+
+00:23:22.020 --> 00:23:26.219
+Caption: we&#39;re back to our fallback because we&#39;ve
+
+00:23:24.058 --> 00:23:29.880
+Caption: retried five times two second increments
+
+00:23:26.219 --> 00:23:32.158
+Caption: and it&#39;s fell back to our fallback
+
+00:23:29.880 --> 00:23:34.199
+Caption: and we&#39;ll just go over the code so two
+
+00:23:32.159 --> 00:23:37.799
+Caption: second timeout
+
+00:23:34.199 --> 00:23:41.158
+Caption: if the exception occurs over our retry
+
+00:23:37.798 --> 00:23:44.760
+Caption: count of five then we will hit our
+
+00:23:41.159 --> 00:23:44.760
+Caption: fallback exception
+
+00:23:45.538 --> 00:23:51.119
+Caption: three tries
+
+00:23:47.459 --> 00:23:54.359
+Caption: so that&#39;s retries and retries are really
+
+00:23:51.119 --> 00:23:57.900
+Caption: really really nice but what happens when
+
+00:23:54.359 --> 00:24:01.020
+Caption: you just implement retries
+
+00:23:57.900 --> 00:24:03.780
+Caption: so just say I had this controller uh
+
+00:24:01.020 --> 00:24:05.400
+Caption: just implementing the retry pattern and
+
+00:24:03.780 --> 00:24:08.280
+Caption: I had many of these controllers all
+
+00:24:05.400 --> 00:24:10.260
+Caption: hitting my third-party API
+
+00:24:08.280 --> 00:24:12.539
+Caption: two second intervals
+
+00:24:10.260 --> 00:24:13.558
+Caption: well what I&#39;ve just created is a
+
+00:24:12.538 --> 00:24:15.359
+Caption: distributed denial of service
+
+00:24:13.558 --> 00:24:18.119
+Caption: application that&#39;s hitting that
+
+00:24:15.359 --> 00:24:20.099
+Caption: third-party API and probably putting
+
+00:24:18.119 --> 00:24:22.319
+Caption: under more load then it can probably
+
+00:24:20.099 --> 00:24:24.418
+Caption: handle because everybody in the world
+
+00:24:22.319 --> 00:24:27.719
+Caption: wants bad jokes
+
+00:24:24.418 --> 00:24:30.538
+Caption: so what we need to do is improve that
+
+00:24:27.719 --> 00:24:32.099
+Caption: retry pattern and Implement an
+
+00:24:30.538 --> 00:24:33.239
+Caption: exponential back off
+
+00:24:32.099 --> 00:24:34.798
+Caption: and I think I&#39;ve got some I&#39;ve got a
+
+00:24:33.239 --> 00:24:37.798
+Caption: slide about this as well
+
+00:24:34.798 --> 00:24:41.038
+Caption: so what&#39;s the exponential Buck off it&#39;s
+
+00:24:37.798 --> 00:24:43.859
+Caption: simply backing off between retries
+
+00:24:41.038 --> 00:24:45.899
+Caption: so as always our react web application
+
+00:24:43.859 --> 00:24:49.918
+Caption: goes through and proxies through our.net
+
+00:24:45.900 --> 00:24:53.039
+Caption: microservice and then may uh if it&#39;s
+
+00:24:49.918 --> 00:24:54.839
+Caption: we&#39;ll time out after two seconds
+
+00:24:53.038 --> 00:24:57.298
+Caption: after that two seconds it will then
+
+00:24:54.839 --> 00:25:00.058
+Caption: retry
+
+00:24:57.298 --> 00:25:02.760
+Caption: but with an exponential back off instead
+
+00:25:00.058 --> 00:25:04.739
+Caption: of retrying after two seconds again you
+
+00:25:02.760 --> 00:25:06.359
+Caption: actually wait for four seconds for the
+
+00:25:04.739 --> 00:25:08.640
+Caption: next retry
+
+00:25:06.359 --> 00:25:11.699
+Caption: and then eight seconds because the
+
+00:25:08.640 --> 00:25:14.400
+Caption: timeout the time between retries is
+
+00:25:11.699 --> 00:25:16.139
+Caption: increasing exponentially hence the name
+
+00:25:14.400 --> 00:25:18.179
+Caption: and then finally
+
+00:25:16.140 --> 00:25:20.039
+Caption: we&#39;ll have wit for 16 seconds and
+
+00:25:18.178 --> 00:25:24.058
+Caption: hopefully after 16 seconds our third
+
+00:25:20.038 --> 00:25:27.479
+Caption: party joke API will recover and return a
+
+00:25:24.058 --> 00:25:30.418
+Caption: result to our react web application
+
+00:25:27.479 --> 00:25:31.459
+Caption: so let&#39;s Implement a exponential back
+
+00:25:30.418 --> 00:25:34.819
+Caption: off
+
+00:25:31.459 --> 00:25:34.819
+Caption: in our code
+
+00:25:35.640 --> 00:25:40.859
+Caption: so the only it&#39;s a pretty simple thing
+
+00:25:38.038 --> 00:25:45.619
+Caption: to do so what we need to do is add a
+
+00:25:40.859 --> 00:25:45.619
+Caption: little bit of maths to our retry logic
+
+00:25:46.260 --> 00:25:50.279
+Caption: so luckily in Pulley there&#39;s a wait and
+
+00:25:48.418 --> 00:25:51.959
+Caption: retry async method that I&#39;m going to use
+
+00:25:50.279 --> 00:25:52.799
+Caption: I&#39;m going to
+
+00:25:51.959 --> 00:25:55.140
+Caption: um
+
+00:25:52.798 --> 00:25:59.119
+Caption: give it a duration of three
+
+00:25:55.140 --> 00:25:59.119
+Caption: and a retry attempt number
+
+00:26:00.959 --> 00:26:06.899
+Caption: and I&#39;m going to time span between
+
+00:26:04.739 --> 00:26:08.579
+Caption: retail attempts is this is where we want
+
+00:26:06.900 --> 00:26:10.919
+Caption: to exponentially increase
+
+00:26:08.579 --> 00:26:13.619
+Caption: so I used math.pal
+
+00:26:10.918 --> 00:26:16.079
+Caption: I put in two because we want to do the
+
+00:26:13.619 --> 00:26:19.199
+Caption: Power of Two by by the number of retry
+
+00:26:16.079 --> 00:26:20.699
+Caption: attempts that we we have so it&#39;s 2 4 8
+
+00:26:19.199 --> 00:26:23.519
+Caption: 16.
+
+00:26:20.699 --> 00:26:26.219
+Caption: um well I&#39;ll render as
+
+00:26:23.520 --> 00:26:27.839
+Caption: that&#39;s uh that&#39;s me exponentially adding
+
+00:26:26.219 --> 00:26:29.579
+Caption: that&#39;s been adding exponential back off
+
+00:26:27.839 --> 00:26:32.400
+Caption: to the code
+
+00:26:29.579 --> 00:26:34.199
+Caption: pretty simple so when I do F5 and run
+
+00:26:32.400 --> 00:26:36.719
+Caption: the application
+
+00:26:34.199 --> 00:26:39.119
+Caption: we&#39;ll then have again a different
+
+00:26:36.719 --> 00:26:41.640
+Caption: Behavior because what we&#39;re doing now is
+
+00:26:39.119 --> 00:26:45.380
+Caption: we&#39;re giving that third party API time
+
+00:26:41.640 --> 00:26:45.380
+Caption: to actually get working again
+
+00:26:46.140 --> 00:26:49.739
+Caption: so here&#39;s our um
+
+00:26:48.298 --> 00:26:51.000
+Caption: what do you call developer for Finland
+
+00:26:49.739 --> 00:26:54.319
+Caption: nerdick
+
+00:26:51.000 --> 00:26:54.319
+Caption: that&#39;s a new one tell me another
+
+00:26:57.119 --> 00:27:02.400
+Caption: so as of over two seconds I can tell now
+
+00:26:59.939 --> 00:27:05.278
+Caption: that we&#39;re retrying so in this case we
+
+00:27:02.400 --> 00:27:07.979
+Caption: wanted to go 2 4 yet 16. so if this
+
+00:27:05.279 --> 00:27:09.419
+Caption: spins for 16 seconds which I could tell
+
+00:27:07.979 --> 00:27:11.459
+Caption: you when you&#39;re standing up here is a
+
+00:27:09.418 --> 00:27:13.079
+Caption: very long time
+
+00:27:11.459 --> 00:27:14.099
+Caption: um then we&#39;re gonna we should get our
+
+00:27:13.079 --> 00:27:16.739
+Caption: fallback
+
+00:27:14.099 --> 00:27:19.918
+Caption: and there we go yes right thank you uh
+
+00:27:16.739 --> 00:27:21.538
+Caption: I&#39;m a band uh tell me another and there
+
+00:27:19.918 --> 00:27:23.759
+Caption: we go what&#39;s what&#39;s happened is a
+
+00:27:21.538 --> 00:27:26.099
+Caption: third-party API has come back and we&#39;re
+
+00:27:23.760 --> 00:27:28.140
+Caption: now getting jokes again because we give
+
+00:27:26.099 --> 00:27:30.719
+Caption: it time uh we haven&#39;t hit it every two
+
+00:27:28.140 --> 00:27:31.500
+Caption: seconds we&#39;ve actually um hit it two
+
+00:27:30.719 --> 00:27:34.500
+Caption: four
+
+00:27:31.500 --> 00:27:36.359
+Caption: yep 16. no I&#39;ve chose two seconds
+
+00:27:34.500 --> 00:27:38.400
+Caption: because it&#39;s arbitrary you can choose
+
+00:27:36.359 --> 00:27:41.339
+Caption: the number uh that actually fits your
+
+00:27:38.400 --> 00:27:42.359
+Caption: use case uh in your um what user
+
+00:27:41.339 --> 00:27:44.459
+Caption: Behavior you want to see in your
+
+00:27:42.359 --> 00:27:46.500
+Caption: application uh but for this little um
+
+00:27:44.459 --> 00:27:48.658
+Caption: demonstration I&#39;ve chose two seconds
+
+00:27:46.500 --> 00:27:50.219
+Caption: because you really don&#39;t want to sit
+
+00:27:48.659 --> 00:27:53.240
+Caption: there and watch that spinning wheel for
+
+00:27:50.219 --> 00:27:53.239
+Caption: for a minute or whatever
+
+00:27:53.520 --> 00:27:57.299
+Caption: but there&#39;s more
+
+00:27:55.739 --> 00:27:59.520
+Caption: so that that&#39;s
+
+00:27:57.298 --> 00:28:01.558
+Caption: exponential back off but exponential
+
+00:27:59.520 --> 00:28:04.140
+Caption: back off is not enough because it&#39;s a
+
+00:28:01.558 --> 00:28:06.298
+Caption: very popular pattern everybody if
+
+00:28:04.140 --> 00:28:09.058
+Caption: they&#39;re implementing retries is also
+
+00:28:06.298 --> 00:28:13.859
+Caption: doing exponential back off with three
+
+00:28:09.058 --> 00:28:19.439
+Caption: tries now what happens is yes we have a
+
+00:28:13.859 --> 00:28:21.719
+Caption: broader distrib distribute notation of
+
+00:28:19.439 --> 00:28:24.959
+Caption: retries but what happens is everybody
+
+00:28:21.719 --> 00:28:27.239
+Caption: does it uh exponentially and so our
+
+00:28:24.959 --> 00:28:28.199
+Caption: retries actually end up clustering
+
+00:28:27.239 --> 00:28:29.819
+Caption: anyway
+
+00:28:28.199 --> 00:28:31.439
+Caption: so
+
+00:28:29.819 --> 00:28:35.099
+Caption: the whole problem that we&#39;re trying to
+
+00:28:31.439 --> 00:28:38.339
+Caption: fix I.E hitting that trying to give that
+
+00:28:35.099 --> 00:28:40.439
+Caption: server or API third-party API chance to
+
+00:28:38.339 --> 00:28:42.058
+Caption: recover or actually
+
+00:28:40.439 --> 00:28:44.099
+Caption: um we&#39;re not doing it because we&#39;re
+
+00:28:42.058 --> 00:28:45.719
+Caption: still hitting it all at once as you can
+
+00:28:44.099 --> 00:28:47.699
+Caption: see in the left-hand diagram those
+
+00:28:45.719 --> 00:28:49.678
+Caption: requests are all clustering
+
+00:28:47.699 --> 00:28:51.000
+Caption: um as they come in
+
+00:28:49.678 --> 00:28:53.038
+Caption: so what we want to do is actually
+
+00:28:51.000 --> 00:28:58.380
+Caption: flattening flatten make those requests
+
+00:28:53.038 --> 00:29:00.778
+Caption: actually random we don&#39;t want to get
+
+00:28:58.380 --> 00:29:03.119
+Caption: spikes of requests all coming at once to
+
+00:29:00.779 --> 00:29:05.880
+Caption: a third-party API because it&#39;s going to
+
+00:29:03.119 --> 00:29:08.880
+Caption: crash again we need it to recover
+
+00:29:05.880 --> 00:29:11.159
+Caption: so what we do is we add Jitter
+
+00:29:08.880 --> 00:29:12.058
+Caption: now there&#39;s a link there in the slide so
+
+00:29:11.159 --> 00:29:14.419
+Caption: we have
+
+00:29:12.058 --> 00:29:18.418
+Caption: um what&#39;s called a builder&#39;s library
+
+00:29:14.418 --> 00:29:19.918
+Caption: in Amazon AWS amazon.com gives you a
+
+00:29:18.418 --> 00:29:21.538
+Caption: list of all these patterns and how to
+
+00:29:19.918 --> 00:29:22.979
+Caption: implement them
+
+00:29:21.538 --> 00:29:24.658
+Caption: um Jitter is just one of the patterns
+
+00:29:22.979 --> 00:29:25.739
+Caption: there&#39;s a whole lot of different uh
+
+00:29:24.659 --> 00:29:29.120
+Caption: patterns that you need when you&#39;re
+
+00:29:25.739 --> 00:29:29.119
+Caption: building Cloud native applications
+
+00:29:29.640 --> 00:29:33.899
+Caption: so let&#39;s see how we would Implement
+
+00:29:31.459 --> 00:29:36.260
+Caption: exponential back off with Jitter in our
+
+00:29:33.899 --> 00:29:36.260
+Caption: application
+
+00:29:37.558 --> 00:29:42.058
+Caption: so what we need to do is Define a bit of
+
+00:29:39.959 --> 00:29:45.140
+Caption: Randomness to this retry
+
+00:29:42.058 --> 00:29:47.839
+Caption: and so luckily in.net there is a
+
+00:29:45.140 --> 00:29:50.279
+Caption: math.random uh which we can Define
+
+00:29:47.839 --> 00:29:51.839
+Caption: inside of time span so what I&#39;m doing
+
+00:29:50.279 --> 00:29:54.480
+Caption: here I Define a time span of
+
+00:29:51.839 --> 00:29:56.640
+Caption: milliseconds and inside I&#39;m going to
+
+00:29:54.479 --> 00:29:59.760
+Caption: Define that as a new random number so
+
+00:29:56.640 --> 00:30:02.820
+Caption: I&#39;m adding a random amount of time
+
+00:29:59.760 --> 00:30:06.599
+Caption: between each retry
+
+00:30:02.819 --> 00:30:08.819
+Caption: so that if in effect flattens the the
+
+00:30:06.599 --> 00:30:10.558
+Caption: retry curve
+
+00:30:08.819 --> 00:30:14.219
+Caption: and that&#39;s it that&#39;s all you have to do
+
+00:30:10.558 --> 00:30:16.619
+Caption: to implement Jitter in a retry so it&#39;s
+
+00:30:14.219 --> 00:30:18.898
+Caption: you should you should do it basically
+
+00:30:16.619 --> 00:30:20.699
+Caption: so that&#39;s um exponential Buck off with
+
+00:30:18.899 --> 00:30:23.460
+Caption: Jitter
+
+00:30:20.699 --> 00:30:25.918
+Caption: now we&#39;re going to get into
+
+00:30:23.459 --> 00:30:30.119
+Caption: um the fun one circuit breaker
+
+00:30:25.918 --> 00:30:32.759
+Caption: so what is a circuit breaker so if you
+
+00:30:30.119 --> 00:30:35.038
+Caption: have a we have a react web application
+
+00:30:32.760 --> 00:30:37.619
+Caption: proxying third-party Duke API it&#39;s
+
+00:30:35.038 --> 00:30:39.658
+Caption: breaking randomly
+
+00:30:37.619 --> 00:30:41.219
+Caption: and we keep retrying and we&#39;re using
+
+00:30:39.659 --> 00:30:43.620
+Caption: exponential back off with Jitter
+
+00:30:41.219 --> 00:30:44.699
+Caption: retrying retrying hopefully I&#39;ll come
+
+00:30:43.619 --> 00:30:47.819
+Caption: back
+
+00:30:44.699 --> 00:30:50.459
+Caption: but what if we wanted to reduce the load
+
+00:30:47.819 --> 00:30:52.380
+Caption: completely off the third-party Duke API
+
+00:30:50.459 --> 00:30:53.880
+Caption: for a period of time you know at the
+
+00:30:52.380 --> 00:30:55.918
+Caption: minute we&#39;re just implementing retries
+
+00:30:53.880 --> 00:30:57.779
+Caption: with Jitter and exponential back off but
+
+00:30:55.918 --> 00:30:59.819
+Caption: ultimately it&#39;s hitting it&#39;s hitting
+
+00:30:57.779 --> 00:31:01.440
+Caption: that third party dual kpr
+
+00:30:59.819 --> 00:31:03.298
+Caption: well this is where a circuit breaker
+
+00:31:01.439 --> 00:31:04.979
+Caption: comes in so a circuit breaker is
+
+00:31:03.298 --> 00:31:06.839
+Caption: something that you can Implement that
+
+00:31:04.979 --> 00:31:09.778
+Caption: will actually stop
+
+00:31:06.839 --> 00:31:13.500
+Caption: um requests going through to the third
+
+00:31:09.779 --> 00:31:16.740
+Caption: party API or other service that that you
+
+00:31:13.500 --> 00:31:18.178
+Caption: choose for a number of minutes why would
+
+00:31:16.739 --> 00:31:21.359
+Caption: you implement a circuit breaker because
+
+00:31:18.178 --> 00:31:24.298
+Caption: it&#39;s giving ultimately this third-party
+
+00:31:21.359 --> 00:31:26.939
+Caption: API no requests so it can spin up it can
+
+00:31:24.298 --> 00:31:28.918
+Caption: fix itself and hopefully come back so
+
+00:31:26.939 --> 00:31:30.298
+Caption: with the circuit breaker the request
+
+00:31:28.918 --> 00:31:32.278
+Caption: when it comes back it comes back from
+
+00:31:30.298 --> 00:31:35.038
+Caption: the circuit breaker itself and returns
+
+00:31:32.279 --> 00:31:38.100
+Caption: to the react web application
+
+00:31:35.038 --> 00:31:40.019
+Caption: so now any other subsequent request in
+
+00:31:38.099 --> 00:31:43.380
+Caption: that time span of the circuit breaker
+
+00:31:40.020 --> 00:31:44.820
+Caption: will be quick responsive and the um the
+
+00:31:43.380 --> 00:31:47.640
+Caption: users will be happy they won&#39;t be
+
+00:31:44.819 --> 00:31:49.558
+Caption: waiting for a time I retry or an
+
+00:31:47.640 --> 00:31:51.779
+Caption: exponential retry or anything like that
+
+00:31:49.558 --> 00:31:55.260
+Caption: they will get a more responsive um
+
+00:31:51.779 --> 00:31:57.840
+Caption: response for their request
+
+00:31:55.260 --> 00:31:59.699
+Caption: so let&#39;s Implement a circuit breaker
+
+00:31:57.839 --> 00:32:02.880
+Caption: with a circuit breaker you need some
+
+00:31:59.699 --> 00:32:05.038
+Caption: steers so you have to store State inside
+
+00:32:02.880 --> 00:32:07.079
+Caption: um you where you&#39;re calling it or where
+
+00:32:05.038 --> 00:32:09.058
+Caption: you&#39;re implementing it so I&#39;m just going
+
+00:32:07.079 --> 00:32:11.760
+Caption: to refactor this a little bit and
+
+00:32:09.058 --> 00:32:14.158
+Caption: refractor what we&#39;ve got into a global
+
+00:32:11.760 --> 00:32:16.798
+Caption: field so policy wrap will become a
+
+00:32:14.159 --> 00:32:18.480
+Caption: global inside the controller and then
+
+00:32:16.798 --> 00:32:20.939
+Caption: I&#39;m just going to pull what I&#39;ve got
+
+00:32:18.479 --> 00:32:22.439
+Caption: already and refactorize that into a
+
+00:32:20.939 --> 00:32:24.959
+Caption: method because that&#39;s not going to
+
+00:32:22.439 --> 00:32:27.479
+Caption: change what we need to do is add to it
+
+00:32:24.959 --> 00:32:31.880
+Caption: so extract the method
+
+00:32:27.479 --> 00:32:31.880
+Caption: and call it init policies
+
+00:32:32.939 --> 00:32:37.558
+Caption: so there we go so what we&#39;ve basically
+
+00:32:34.979 --> 00:32:39.839
+Caption: got is the init policies called and then
+
+00:32:37.558 --> 00:32:41.699
+Caption: we we call the the API with the right
+
+00:32:39.839 --> 00:32:43.678
+Caption: policies
+
+00:32:41.699 --> 00:32:46.439
+Caption: so inside the net policies itself let&#39;s
+
+00:32:43.678 --> 00:32:47.939
+Caption: let&#39;s jump into it after I&#39;ve tidied it
+
+00:32:46.439 --> 00:32:50.939
+Caption: up
+
+00:32:47.939 --> 00:32:53.099
+Caption: so nothing&#39;s changed we&#39;ve got our retry
+
+00:32:50.939 --> 00:32:54.000
+Caption: General fallback and and his initial
+
+00:32:53.099 --> 00:32:57.418
+Caption: policy
+
+00:32:54.000 --> 00:33:00.538
+Caption: now we need to Define
+
+00:32:57.418 --> 00:33:03.599
+Caption: what is our circuit breaker
+
+00:33:00.538 --> 00:33:05.099
+Caption: now a circuit breaker itself is is a
+
+00:33:03.599 --> 00:33:07.798
+Caption: policy
+
+00:33:05.099 --> 00:33:09.979
+Caption: you define it as a policy just like the
+
+00:33:07.798 --> 00:33:09.979
+Caption: rest
+
+00:33:12.899 --> 00:33:19.700
+Caption: now again I&#39;m catching a very high level
+
+00:33:16.739 --> 00:33:19.699
+Caption: generic exception
+
+00:33:23.038 --> 00:33:29.839
+Caption: but in poly we have actually got a
+
+00:33:25.500 --> 00:33:29.839
+Caption: circuit breaker async method
+
+00:33:33.000 --> 00:33:37.739
+Caption: what we&#39;re doing we&#39;re saying circuit
+
+00:33:35.099 --> 00:33:41.819
+Caption: breaker if um
+
+00:33:37.739 --> 00:33:44.038
+Caption: you stay active for a time span after a
+
+00:33:41.819 --> 00:33:45.719
+Caption: number of exceptions so what that&#39;s
+
+00:33:44.038 --> 00:33:48.379
+Caption: defining is the circuit breaker itself
+
+00:33:45.719 --> 00:33:52.018
+Caption: saying ah if I catch five SEC exceptions
+
+00:33:48.380 --> 00:33:54.058
+Caption: and go Implement myself and stay active
+
+00:33:52.019 --> 00:33:55.859
+Caption: for one minute
+
+00:33:54.058 --> 00:33:58.018
+Caption: once I&#39;ve defined the circuit breaker
+
+00:33:55.859 --> 00:33:59.760
+Caption: policy I need to then Define what to
+
+00:33:58.019 --> 00:34:02.700
+Caption: return from the circuit breaker for that
+
+00:33:59.760 --> 00:34:04.500
+Caption: one minute when it&#39;s uh in operation
+
+00:34:02.699 --> 00:34:06.178
+Caption: and this is another fallback so I&#39;m
+
+00:34:04.500 --> 00:34:08.219
+Caption: going to call this one a circuit breaker
+
+00:34:06.178 --> 00:34:10.979
+Caption: fallback now I could have used my
+
+00:34:08.219 --> 00:34:12.418
+Caption: existing fallback if I wanted to but I
+
+00:34:10.979 --> 00:34:14.638
+Caption: need to handle this circuit broke
+
+00:34:12.418 --> 00:34:16.800
+Caption: exception so this is why I&#39;m
+
+00:34:14.638 --> 00:34:18.299
+Caption: implementing a Pacific fallback for the
+
+00:34:16.800 --> 00:34:20.219
+Caption: circuit breaker and also to demonstrate
+
+00:34:18.300 --> 00:34:23.399
+Caption: when it&#39;s invoked
+
+00:34:20.219 --> 00:34:27.678
+Caption: so on broken circuit exception I need to
+
+00:34:23.398 --> 00:34:27.678
+Caption: return another fantastic joke
+
+00:34:28.260 --> 00:34:32.158
+Caption: and that&#39;s what I&#39;ll do here so again
+
+00:34:30.239 --> 00:34:35.398
+Caption: fallback async
+
+00:34:32.158 --> 00:34:38.040
+Caption: which will have a an innumerable of type
+
+00:34:35.398 --> 00:34:40.819
+Caption: joke again I&#39;m only returning a single
+
+00:34:38.040 --> 00:34:40.820
+Caption: joke for brevity
+
+00:34:48.800 --> 00:34:56.359
+Caption: async Define cancellation token
+
+00:34:52.260 --> 00:34:56.359
+Caption: and let&#39;s define the joke
+
+00:35:03.599 --> 00:35:08.099
+Caption: so the joke this time I&#39;m gonna have to
+
+00:35:06.000 --> 00:35:11.579
+Caption: come up with uh something even better
+
+00:35:08.099 --> 00:35:13.260
+Caption: than a band of 1023 megabytes so again
+
+00:35:11.579 --> 00:35:16.800
+Caption: this is
+
+00:35:13.260 --> 00:35:21.000
+Caption: um we&#39;ve got our object so object that a
+
+00:35:16.800 --> 00:35:23.699
+Caption: joke is so a setup punchline and source
+
+00:35:21.000 --> 00:35:26.459
+Caption: but this time the source is going to be
+
+00:35:23.699 --> 00:35:27.838
+Caption: a circuit breaker so we can tell that
+
+00:35:26.459 --> 00:35:30.320
+Caption: the actual circuit breaker has been
+
+00:35:27.839 --> 00:35:30.320
+Caption: invoked
+
+00:35:36.540 --> 00:35:39.079
+Caption: cool
+
+00:35:41.159 --> 00:35:47.939
+Caption: and then we add it to our policy wrapper
+
+00:35:44.099 --> 00:35:49.500
+Caption: so we want to make sure that this is
+
+00:35:47.939 --> 00:35:52.078
+Caption: called
+
+00:35:49.500 --> 00:35:56.479
+Caption: after five exceptions so we need five
+
+00:35:52.079 --> 00:35:56.479
+Caption: exceptions so we put it after the retry
+
+00:35:58.079 --> 00:36:02.220
+Caption: we say invoke circuit breaker fullback
+
+00:36:00.780 --> 00:36:05.099
+Caption: Wan
+
+00:36:02.219 --> 00:36:08.598
+Caption: a circuit breaker policy happens
+
+00:36:05.099 --> 00:36:08.599
+Caption: I.E by exceptions
+
+00:36:12.659 --> 00:36:16.078
+Caption: cool and that&#39;s our initial policy at
+
+00:36:15.000 --> 00:36:18.780
+Caption: the bottom
+
+00:36:16.079 --> 00:36:20.579
+Caption: so what&#39;s going to happen is we&#39;re going
+
+00:36:18.780 --> 00:36:23.579
+Caption: to set up
+
+00:36:20.579 --> 00:36:25.619
+Caption: let&#39;s go so why did
+
+00:36:23.579 --> 00:36:28.700
+Caption: why did the developer
+
+00:36:25.618 --> 00:36:28.699
+Caption: go broke
+
+00:36:32.099 --> 00:36:36.960
+Caption: because
+
+00:36:34.260 --> 00:36:39.540
+Caption: they used up all
+
+00:36:36.959 --> 00:36:41.760
+Caption: their Kish
+
+00:36:39.540 --> 00:36:44.359
+Caption: cash
+
+00:36:41.760 --> 00:36:44.359
+Caption: thank you
+
+00:36:45.060 --> 00:36:51.020
+Caption: um so F5 that and let&#39;s see how our
+
+00:36:48.060 --> 00:36:51.020
+Caption: application behaves
+
+00:36:51.899 --> 00:36:55.199
+Caption: this is the the application you&#39;re
+
+00:36:53.699 --> 00:36:56.699
+Caption: coming to know and love
+
+00:36:55.199 --> 00:37:00.060
+Caption: um so
+
+00:36:56.699 --> 00:37:02.578
+Caption: let&#39;s go to the UI first
+
+00:37:00.060 --> 00:37:05.280
+Caption: so what we&#39;re doing we&#39;re
+
+00:37:02.579 --> 00:37:08.099
+Caption: oh it&#39;s we&#39;ve got into our um circuit
+
+00:37:05.280 --> 00:37:10.199
+Caption: breaker right away so
+
+00:37:08.099 --> 00:37:12.960
+Caption: um we&#39;ll refresh that
+
+00:37:10.199 --> 00:37:14.939
+Caption: again so as our circuit breakers invoked
+
+00:37:12.959 --> 00:37:17.338
+Caption: we we&#39;re always going to get our circuit
+
+00:37:14.939 --> 00:37:19.078
+Caption: breaker fall back for the next minute so
+
+00:37:17.339 --> 00:37:20.579
+Caption: we can refresh refresh you see how
+
+00:37:19.079 --> 00:37:22.680
+Caption: responsive the application is getting
+
+00:37:20.579 --> 00:37:25.800
+Caption: and it&#39;s always returning in the same
+
+00:37:22.679 --> 00:37:28.199
+Caption: joke I.E or circuit breaker fallback
+
+00:37:25.800 --> 00:37:30.959
+Caption: um which is great but if we wait a
+
+00:37:28.199 --> 00:37:35.459
+Caption: minute we should we should then see the
+
+00:37:30.959 --> 00:37:38.040
+Caption: state change and actually the um we&#39;ll
+
+00:37:35.459 --> 00:37:41.280
+Caption: we&#39;ll call again our third party API
+
+00:37:38.040 --> 00:37:43.800
+Caption: after the um the circuit breaker
+
+00:37:41.280 --> 00:37:46.140
+Caption: has went away
+
+00:37:43.800 --> 00:37:48.420
+Caption: um for the minute so that&#39;s that&#39;s um
+
+00:37:46.139 --> 00:37:49.919
+Caption: that&#39;s circuit breaker
+
+00:37:48.419 --> 00:37:52.799
+Caption: um sometimes
+
+00:37:49.919 --> 00:37:55.199
+Caption: it&#39;s it&#39;s it&#39;s we implemented to just
+
+00:37:52.800 --> 00:37:56.219
+Caption: improve the um responsiveness of our
+
+00:37:55.199 --> 00:37:59.159
+Caption: application
+
+00:37:56.219 --> 00:38:01.560
+Caption: so we&#39;re gonna give it a minute
+
+00:37:59.159 --> 00:38:04.039
+Caption: still active refresh should be a minute
+
+00:38:01.560 --> 00:38:04.040
+Caption: by night
+
+00:38:04.679 --> 00:38:09.199
+Caption: how many programmers take to change the
+
+00:38:07.020 --> 00:38:11.880
+Caption: light bulb it&#39;s a hardware problem none
+
+00:38:09.199 --> 00:38:14.338
+Caption: uh third party API thank you very much
+
+00:38:11.879 --> 00:38:17.098
+Caption: for that jam so it&#39;s back so a
+
+00:38:14.339 --> 00:38:18.900
+Caption: third-party apis is back and now we&#39;ll
+
+00:38:17.099 --> 00:38:20.579
+Caption: we&#39;ll be hitting it again
+
+00:38:18.899 --> 00:38:25.020
+Caption: um and if we get have a number of
+
+00:38:20.579 --> 00:38:26.280
+Caption: retries that that fall and hit R5 that
+
+00:38:25.020 --> 00:38:28.140
+Caption: hit our circuit breaker the circuit
+
+00:38:26.280 --> 00:38:30.119
+Caption: breaker will be invoked again
+
+00:38:28.139 --> 00:38:32.639
+Caption: um but now our third party took apis
+
+00:38:30.118 --> 00:38:36.179
+Caption: behaving for now uh but we&#39;ve got that
+
+00:38:32.639 --> 00:38:38.479
+Caption: circuit breaker fallback if if if if we
+
+00:38:36.179 --> 00:38:38.479
+Caption: need it
+
+00:38:38.520 --> 00:38:45.300
+Caption: cool so that&#39;s that&#39;s um
+
+00:38:42.000 --> 00:38:46.858
+Caption: that&#39;s implementing the five practices
+
+00:38:45.300 --> 00:38:49.920
+Caption: now
+
+00:38:46.858 --> 00:38:51.179
+Caption: I want to end on the practice of chaos
+
+00:38:49.919 --> 00:38:55.020
+Caption: engineering because what you&#39;ve just
+
+00:38:51.179 --> 00:38:56.699
+Caption: witnessed uh today is the practice of
+
+00:38:55.020 --> 00:38:58.260
+Caption: chaos engineering you may not have known
+
+00:38:56.699 --> 00:39:00.899
+Caption: it
+
+00:38:58.260 --> 00:39:02.579
+Caption: so chaos engineering is the process of
+
+00:39:00.899 --> 00:39:05.699
+Caption: stressing an application by creating
+
+00:39:02.579 --> 00:39:08.099
+Caption: disruptive events observing how the
+
+00:39:05.699 --> 00:39:10.320
+Caption: system responds and implementing
+
+00:39:08.099 --> 00:39:12.420
+Caption: improvements so what have we done we&#39;ve
+
+00:39:10.320 --> 00:39:15.479
+Caption: stressed our application our application
+
+00:39:12.419 --> 00:39:17.819
+Caption: is a third-party joke API we&#39;ve been
+
+00:39:15.479 --> 00:39:20.520
+Caption: requesting new jokes and sometimes we&#39;ll
+
+00:39:17.820 --> 00:39:23.760
+Caption: be getting some absolute cracking jokes
+
+00:39:20.520 --> 00:39:25.800
+Caption: I think you&#39;ll agree at other times
+
+00:39:23.760 --> 00:39:28.679
+Caption: um you know it&#39;s it&#39;s broken
+
+00:39:25.800 --> 00:39:31.160
+Caption: so we&#39;ve been but when it breaks we&#39;ve
+
+00:39:28.679 --> 00:39:34.739
+Caption: been observing how our system responds
+
+00:39:31.159 --> 00:39:36.479
+Caption: it has a little spinny wheel it throws
+
+00:39:34.739 --> 00:39:39.540
+Caption: exceptions
+
+00:39:36.479 --> 00:39:41.579
+Caption: um and with that in mind we&#39;ve started
+
+00:39:39.540 --> 00:39:43.679
+Caption: implementing improvements so we&#39;ve
+
+00:39:41.579 --> 00:39:46.619
+Caption: implemented retries exponential
+
+00:39:43.679 --> 00:39:49.399
+Caption: back-offs with Jitter and then finally
+
+00:39:46.618 --> 00:39:49.399
+Caption: circuit breakers
+
+00:39:50.219 --> 00:39:56.219
+Caption: but think of chaos engineering as this
+
+00:39:53.339 --> 00:39:58.560
+Caption: lovely Little Wheel
+
+00:39:56.219 --> 00:40:00.479
+Caption: and where we start with steady state our
+
+00:39:58.560 --> 00:40:04.020
+Caption: application is happy
+
+00:40:00.479 --> 00:40:06.719
+Caption: we then come up with a hypothesis I can
+
+00:40:04.020 --> 00:40:10.459
+Caption: nearly speak and we think well what will
+
+00:40:06.719 --> 00:40:10.459
+Caption: happen to our application if we do X
+
+00:40:10.560 --> 00:40:15.780
+Caption: so let&#39;s do that using the AWS fault
+
+00:40:13.500 --> 00:40:20.219
+Caption: engine simulator this is what I&#39;ve been
+
+00:40:15.780 --> 00:40:24.320
+Caption: using to kill the third-party joke API
+
+00:40:20.219 --> 00:40:24.320
+Caption: so what I do I create an experiment
+
+00:40:24.599 --> 00:40:27.720
+Caption: and I create an experiment using an
+
+00:40:26.339 --> 00:40:28.680
+Caption: experiment template where I go
+
+00:40:27.719 --> 00:40:30.419
+Caption: description
+
+00:40:28.679 --> 00:40:35.040
+Caption: stop instances
+
+00:40:30.419 --> 00:40:36.659
+Caption: I then give it a role so it allows me to
+
+00:40:35.040 --> 00:40:40.859
+Caption: stop those instances
+
+00:40:36.659 --> 00:40:43.500
+Caption: I then give it an action so again I just
+
+00:40:40.858 --> 00:40:45.539
+Caption: want to stop the instances please
+
+00:40:43.500 --> 00:40:47.399
+Caption: a brief description
+
+00:40:45.540 --> 00:40:49.320
+Caption: and then an action type so the action
+
+00:40:47.399 --> 00:40:52.078
+Caption: type is you choose a service that you
+
+00:40:49.320 --> 00:40:54.920
+Caption: want to invoke this action on and in
+
+00:40:52.079 --> 00:40:54.920
+Caption: this case ec2
+
+00:40:55.739 --> 00:40:59.820
+Caption: and then you give it a duration so I&#39;m
+
+00:40:57.659 --> 00:41:01.858
+Caption: stopping my ec2 instances that are
+
+00:40:59.820 --> 00:41:04.619
+Caption: running the third-party Duke API for a
+
+00:41:01.858 --> 00:41:06.659
+Caption: minute and that&#39;s my hypothesis that I&#39;m
+
+00:41:04.618 --> 00:41:09.059
+Caption: defining here
+
+00:41:06.659 --> 00:41:11.760
+Caption: I Define what I&#39;m going to Target by
+
+00:41:09.060 --> 00:41:13.680
+Caption: using tags so all of the ec2 instances
+
+00:41:11.760 --> 00:41:16.320
+Caption: that are running my third-party joke API
+
+00:41:13.679 --> 00:41:20.059
+Caption: are all tagged with the value of API
+
+00:41:16.320 --> 00:41:20.060
+Caption: so I I set that up here
+
+00:41:20.520 --> 00:41:24.780
+Caption: and then I create my experiment it gives
+
+00:41:22.739 --> 00:41:27.179
+Caption: you all these warnings because you
+
+00:41:24.780 --> 00:41:30.060
+Caption: actually are going to stop real
+
+00:41:27.179 --> 00:41:32.358
+Caption: instances and there they are they&#39;re
+
+00:41:30.060 --> 00:41:37.560
+Caption: running at the minute they&#39;re happy
+
+00:41:32.358 --> 00:41:39.959
+Caption: and I can then run my experiment
+
+00:41:37.560 --> 00:41:41.939
+Caption: another warning because even though it&#39;s
+
+00:41:39.959 --> 00:41:44.760
+Caption: called default injection simulator it
+
+00:41:41.939 --> 00:41:46.919
+Caption: actually does stop the things
+
+00:41:44.760 --> 00:41:49.199
+Caption: um so that&#39;s why there&#39;s All These
+
+00:41:46.919 --> 00:41:52.020
+Caption: Warnings so what&#39;s happening now is my
+
+00:41:49.199 --> 00:41:54.899
+Caption: experiment is starting to run
+
+00:41:52.020 --> 00:41:57.300
+Caption: and currently if I keep refreshing
+
+00:41:54.899 --> 00:41:59.098
+Caption: you&#39;ll see that although my apis are
+
+00:41:57.300 --> 00:42:02.400
+Caption: starting to run I just give it some time
+
+00:41:59.099 --> 00:42:03.900
+Caption: for this experiment to invoke
+
+00:42:02.399 --> 00:42:06.479
+Caption: now it&#39;s running
+
+00:42:03.899 --> 00:42:10.439
+Caption: I refresh my third party took apis and
+
+00:42:06.479 --> 00:42:11.699
+Caption: they&#39;re all stopping and so now I my
+
+00:42:10.439 --> 00:42:13.500
+Caption: application that&#39;s calling this
+
+00:42:11.699 --> 00:42:15.959
+Caption: third-party joke API needs to deal with
+
+00:42:13.500 --> 00:42:17.639
+Caption: these things stopping
+
+00:42:15.959 --> 00:42:20.040
+Caption: and this is where we go to the next
+
+00:42:17.639 --> 00:42:22.379
+Caption: phase in the in this cycle after we&#39;ve
+
+00:42:20.040 --> 00:42:25.800
+Caption: run our experiment we&#39;ll then verify so
+
+00:42:22.379 --> 00:42:27.659
+Caption: verify verification is what we were
+
+00:42:25.800 --> 00:42:29.339
+Caption: doing earlier we were running our
+
+00:42:27.659 --> 00:42:31.379
+Caption: application and verifying what was
+
+00:42:29.339 --> 00:42:33.420
+Caption: happening
+
+00:42:31.379 --> 00:42:35.578
+Caption: then after a minute and We&#39;ve ran our
+
+00:42:33.419 --> 00:42:37.439
+Caption: application and uh our API is not
+
+00:42:35.579 --> 00:42:39.900
+Caption: working we&#39;ve built our resilient
+
+00:42:37.439 --> 00:42:43.319
+Caption: applications and build our patterns
+
+00:42:39.899 --> 00:42:44.760
+Caption: the apis actually come back because the
+
+00:42:43.320 --> 00:42:47.880
+Caption: fault injection simulator experiment
+
+00:42:44.760 --> 00:42:50.760
+Caption: defined a minute and so our apis are now
+
+00:42:47.879 --> 00:42:53.098
+Caption: working as as they should
+
+00:42:50.760 --> 00:42:56.399
+Caption: so that is
+
+00:42:53.099 --> 00:42:58.440
+Caption: how we Define chaos engineering we have
+
+00:42:56.399 --> 00:43:00.539
+Caption: verified what happens when the
+
+00:42:58.439 --> 00:43:02.818
+Caption: third-party apis are down for a minute
+
+00:43:00.540 --> 00:43:05.699
+Caption: and then we start improving them and we
+
+00:43:02.819 --> 00:43:09.979
+Caption: improve and we improve them using the um
+
+00:43:05.699 --> 00:43:09.979
+Caption: the patterns that I defined earlier
+
+00:43:10.858 --> 00:43:16.078
+Caption: as well as stopping instances we can do
+
+00:43:13.319 --> 00:43:20.700
+Caption: other things in ec2s ECS container
+
+00:43:16.079 --> 00:43:23.460
+Caption: systems RDS database service so a lot of
+
+00:43:20.699 --> 00:43:25.078
+Caption: different services in AWS support fault
+
+00:43:23.459 --> 00:43:28.858
+Caption: injection
+
+00:43:25.079 --> 00:43:29.940
+Caption: and this is what we&#39;ve done today so
+
+00:43:28.858 --> 00:43:32.039
+Caption: um
+
+00:43:29.939 --> 00:43:35.040
+Caption: I&#39;d like to thank our sponsors without
+
+00:43:32.040 --> 00:43:36.359
+Caption: them we will be nothing uh if you want
+
+00:43:35.040 --> 00:43:37.919
+Caption: to ask more questions because we&#39;re
+
+00:43:36.358 --> 00:43:41.519
+Caption: running out of time about this in any
+
+00:43:37.919 --> 00:43:43.559
+Caption: anything else about AWS I&#39;ll be at the
+
+00:43:41.520 --> 00:43:46.260
+Caption: booth for the rest of the day
+
+00:43:43.560 --> 00:43:48.540
+Caption: um looking fatigued but please don&#39;t let
+
+00:43:46.260 --> 00:43:50.520
+Caption: that put you off please comment and come
+
+00:43:48.540 --> 00:43:52.500
+Caption: and speak to me I was always good for a
+
+00:43:50.520 --> 00:43:55.199
+Caption: chat
+
+00:43:52.500 --> 00:43:57.260
+Caption: all the code today is on my GitHub repo
+
+00:43:55.199 --> 00:44:01.260
+Caption: as well which is decob as well as my
+
+00:43:57.260 --> 00:44:04.260
+Caption: Twitter handle thanks everybody for uh
+
+00:44:01.260 --> 00:44:06.000
+Caption: listening and and helping me get through
+
+00:44:04.260 --> 00:44:08.839
+Caption: all of these bad jokes thanks for the
+
+00:44:06.000 --> 00:44:11.459
+Caption: clap over there a few groans over there
+
+00:44:08.839 --> 00:44:13.319
+Caption: and then there&#39;s a few I already knew
+
+00:44:11.459 --> 00:44:15.899
+Caption: all this stuff over there so that&#39;s
+
+00:44:13.319 --> 00:44:17.700
+Caption: that&#39;s that is the three the three areas
+
+00:44:15.899 --> 00:44:18.929
+Caption: that everybody fill into so thank you
+
+00:44:17.699 --> 00:44:23.879
+Caption: thank you very much
+
+00:44:18.929 --> 00:44:23.879
+Caption: [Applause]
+
+00:44:24.899 --> 00:44:27.899
+Caption: foreign
+

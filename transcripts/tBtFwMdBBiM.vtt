@@ -1,0 +1,2579 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.440
+Caption: as well he&#39;s typing the password in off
+
+00:00:03.119 --> 00:00:06.899
+Caption: screen
+
+00:00:04.440 --> 00:00:09.300
+Caption: I&#39;ll introduce you to Damien he runs the
+
+00:00:06.899 --> 00:00:11.399
+Caption: developer advocacy at GitHub and loves
+
+00:00:09.300 --> 00:00:13.319
+Caption: all things devops formerly a cloud
+
+00:00:11.399 --> 00:00:16.260
+Caption: Advocate at Microsoft for four years and
+
+00:00:13.319 --> 00:00:19.079
+Caption: prior to that a devot octopus deploy and
+
+00:00:16.260 --> 00:00:20.459
+Caption: and Microsoft MVP Damien has 20 plus
+
+00:00:19.079 --> 00:00:22.319
+Caption: year background in software development
+
+00:00:20.459 --> 00:00:24.959
+Caption: and Consulting in a broad range of
+
+00:00:22.319 --> 00:00:27.858
+Caption: Industries he regularly speaks at
+
+00:00:24.959 --> 00:00:30.299
+Caption: conferences just like this
+
+00:00:27.858 --> 00:00:31.979
+Caption: user groups and other events around the
+
+00:00:30.299 --> 00:00:35.279
+Caption: world sorry that was mean
+
+00:00:31.979 --> 00:00:38.479
+Caption: this is not this is not his fault just
+
+00:00:35.279 --> 00:00:38.479
+Caption: just like this actually
+
+00:00:55.439 --> 00:01:01.578
+Caption: so let&#39;s give Damien a big long welcome
+
+00:00:58.139 --> 00:01:01.578
+Caption: as he sets himself up
+
+00:01:04.919 --> 00:01:07.739
+Caption: this is going well
+
+00:01:06.839 --> 00:01:09.539
+Caption: um
+
+00:01:07.739 --> 00:01:11.158
+Caption: I&#39;m going to skip all my slides because
+
+00:01:09.540 --> 00:01:12.419
+Caption: that&#39;s a boring bit anyway
+
+00:01:11.158 --> 00:01:13.559
+Caption: um and I&#39;m just going to go straight to
+
+00:01:12.419 --> 00:01:16.379
+Caption: demo so
+
+00:01:13.559 --> 00:01:19.379
+Caption: my name is Damian Brady I work at GitHub
+
+00:01:16.379 --> 00:01:21.599
+Caption: I lead our developer advocacy team
+
+00:01:19.379 --> 00:01:23.758
+Caption: um I came from Microsoft I&#39;ve talked
+
+00:01:21.599 --> 00:01:25.258
+Caption: about devops for years
+
+00:01:23.759 --> 00:01:28.500
+Caption: um this time I&#39;m going to be talking
+
+00:01:25.259 --> 00:01:30.900
+Caption: about devops in terms of doing it all on
+
+00:01:28.500 --> 00:01:32.759
+Caption: codes on sorry on GitHub
+
+00:01:30.900 --> 00:01:34.500
+Caption: right so we&#39;re going to be going from
+
+00:01:32.759 --> 00:01:36.000
+Caption: planning and tracking all the way
+
+00:01:34.500 --> 00:01:39.500
+Caption: through to the inner loop like actually
+
+00:01:36.000 --> 00:01:43.500
+Caption: writing code in the cloud on code spaces
+
+00:01:39.500 --> 00:01:45.298
+Caption: and then actions to deploy like with a
+
+00:01:43.500 --> 00:01:48.540
+Caption: CI CD pipeline all the way through to
+
+00:01:45.299 --> 00:01:50.700
+Caption: the end all right now
+
+00:01:48.540 --> 00:01:52.619
+Caption: I started about 15 minutes late so let&#39;s
+
+00:01:50.699 --> 00:01:54.298
+Caption: see how quickly we can do this if I skip
+
+00:01:52.619 --> 00:01:56.340
+Caption: over stuff and you&#39;re like I really want
+
+00:01:54.299 --> 00:01:58.619
+Caption: to know more about that we have all of
+
+00:01:56.339 --> 00:01:59.938
+Caption: this demo stuff at the GitHub Booth as
+
+00:01:58.619 --> 00:02:01.200
+Caption: well so come and have a look the
+
+00:01:59.939 --> 00:02:02.100
+Caption: difference in the GitHub Booth though is
+
+00:02:01.199 --> 00:02:03.919
+Caption: that everything&#39;s running off a
+
+00:02:02.099 --> 00:02:06.419
+Caption: Raspberry Pi so I&#39;m doing
+
+00:02:03.919 --> 00:02:08.098
+Caption: multi-container development debugging
+
+00:02:06.419 --> 00:02:10.199
+Caption: and stuff but my Dev machines this
+
+00:02:08.098 --> 00:02:12.179
+Caption: Raspberry Pi hanging from a carabiner
+
+00:02:10.199 --> 00:02:14.279
+Caption: next to the TV
+
+00:02:12.179 --> 00:02:15.958
+Caption: we&#39;ll see some of that in a sec not the
+
+00:02:14.279 --> 00:02:18.958
+Caption: Raspberry Pi but the code spaces right
+
+00:02:15.958 --> 00:02:21.899
+Caption: so devops you&#39;ve all seen that kind of
+
+00:02:18.958 --> 00:02:23.759
+Caption: uh sideways eight like the infinity
+
+00:02:21.899 --> 00:02:27.119
+Caption: symbol that we talk about with devops
+
+00:02:23.759 --> 00:02:29.699
+Caption: where we do plan you know build deploy
+
+00:02:27.119 --> 00:02:31.080
+Caption: and then learn from that the idea with
+
+00:02:29.699 --> 00:02:33.779
+Caption: devops being that you can get through
+
+00:02:31.080 --> 00:02:35.279
+Caption: that whole like infinity symbol as
+
+00:02:33.779 --> 00:02:37.020
+Caption: quickly as possible so get stuff out to
+
+00:02:35.279 --> 00:02:38.699
+Caption: production as quickly as possible so you
+
+00:02:37.020 --> 00:02:41.458
+Caption: can learn from it and work out what
+
+00:02:38.699 --> 00:02:43.259
+Caption: needs to be done next right
+
+00:02:41.458 --> 00:02:45.059
+Caption: um what I&#39;m going to focus on today is
+
+00:02:43.259 --> 00:02:46.799
+Caption: everything from the plan bit all the way
+
+00:02:45.059 --> 00:02:48.539
+Caption: through to production right we&#39;re not
+
+00:02:46.800 --> 00:02:50.160
+Caption: really going to talk so much about the
+
+00:02:48.539 --> 00:02:53.098
+Caption: learning from it
+
+00:02:50.160 --> 00:02:54.958
+Caption: um GitHub doesn&#39;t have a product for for
+
+00:02:53.098 --> 00:02:56.639
+Caption: you know looking at metrics of things
+
+00:02:54.958 --> 00:02:58.860
+Caption: that are going on in production we do
+
+00:02:56.639 --> 00:03:00.899
+Caption: have awesome kind of tooling around
+
+00:02:58.860 --> 00:03:02.399
+Caption: discussions with your communities and of
+
+00:03:00.899 --> 00:03:05.339
+Caption: course there&#39;s GitHub issues that can be
+
+00:03:02.399 --> 00:03:06.958
+Caption: open so the community can contribute as
+
+00:03:05.339 --> 00:03:09.179
+Caption: well or your customers can contribute as
+
+00:03:06.958 --> 00:03:10.738
+Caption: well to what you&#39;re doing but we&#39;re not
+
+00:03:09.179 --> 00:03:12.899
+Caption: going to really cover that that part so
+
+00:03:10.738 --> 00:03:14.580
+Caption: much Beyond just issues
+
+00:03:12.899 --> 00:03:16.860
+Caption: all right I&#39;m already talking too much
+
+00:03:14.580 --> 00:03:17.759
+Caption: let&#39;s go and have a look you can see a
+
+00:03:16.860 --> 00:03:19.680
+Caption: little bit about some of the security
+
+00:03:17.759 --> 00:03:22.139
+Caption: stuff that&#39;s built in here as well
+
+00:03:19.679 --> 00:03:24.238
+Caption: um dependabot has told me that my code
+
+00:03:22.139 --> 00:03:26.339
+Caption: has security vulnerabilities
+
+00:03:24.238 --> 00:03:27.658
+Caption: which is deliberate I promise
+
+00:03:26.339 --> 00:03:30.238
+Caption: um I&#39;m just going to ignore them at the
+
+00:03:27.658 --> 00:03:31.979
+Caption: moment which is also deliberate oh this
+
+00:03:30.238 --> 00:03:35.419
+Caption: is going to be fun your scroll things
+
+00:03:31.979 --> 00:03:35.419
+Caption: reverse of what I usually use
+
+00:03:37.018 --> 00:03:43.259
+Caption: yeah I&#39;m playing in hard mode all right
+
+00:03:40.259 --> 00:03:46.199
+Caption: who who&#39;s familiar with GitHub issues
+
+00:03:43.259 --> 00:03:48.238
+Caption: yep okay cool if you&#39;re not GitHub
+
+00:03:46.199 --> 00:03:51.958
+Caption: issues is kind of the way that we track
+
+00:03:48.238 --> 00:03:54.059
+Caption: a piece of work so issues the word issue
+
+00:03:51.958 --> 00:03:56.098
+Caption: as we use it is a thing that we need to
+
+00:03:54.059 --> 00:03:57.179
+Caption: care about ultimately it&#39;s fine I&#39;ll
+
+00:03:56.098 --> 00:03:58.259
+Caption: work it out
+
+00:03:57.179 --> 00:04:00.298
+Caption: um
+
+00:03:58.259 --> 00:04:01.679
+Caption: okay oh yeah
+
+00:04:00.298 --> 00:04:04.798
+Caption: um it&#39;s it&#39;s a thing we need to care
+
+00:04:01.679 --> 00:04:06.059
+Caption: about right it&#39;s not uh a bug it&#39;s not a
+
+00:04:04.798 --> 00:04:07.619
+Caption: synonym for a bug although you can
+
+00:04:06.059 --> 00:04:10.319
+Caption: absolutely track your bugs using GitHub
+
+00:04:07.619 --> 00:04:13.139
+Caption: issues we use issues internally for
+
+00:04:10.319 --> 00:04:15.839
+Caption: everything at GitHub so we in our devrel
+
+00:04:13.139 --> 00:04:18.119
+Caption: organization we have a repository that
+
+00:04:15.839 --> 00:04:19.619
+Caption: has very little code in it but it we use
+
+00:04:18.119 --> 00:04:21.958
+Caption: issues to track all of the work that
+
+00:04:19.619 --> 00:04:23.279
+Caption: everybody is doing the whole way through
+
+00:04:21.959 --> 00:04:24.600
+Caption: and you&#39;ll see some of the planning and
+
+00:04:23.279 --> 00:04:26.759
+Caption: tracking tools and why it&#39;s it&#39;s
+
+00:04:24.600 --> 00:04:28.080
+Caption: valuable to do that regardless of
+
+00:04:26.759 --> 00:04:30.959
+Caption: whether they&#39;re actual pieces of code
+
+00:04:28.079 --> 00:04:33.478
+Caption: that you need to change or not so the
+
+00:04:30.959 --> 00:04:35.759
+Caption: GitHub issues um UI when you go to the
+
+00:04:33.479 --> 00:04:37.199
+Caption: issues tab in GitHub you&#39;ll just get
+
+00:04:35.759 --> 00:04:38.639
+Caption: this list of all of the issues that are
+
+00:04:37.199 --> 00:04:39.959
+Caption: in there you know categorized by open
+
+00:04:38.639 --> 00:04:41.580
+Caption: and closed you can do some great
+
+00:04:39.959 --> 00:04:44.279
+Caption: searching and filtering and stuff like
+
+00:04:41.579 --> 00:04:46.799
+Caption: that apply labels all that kind of thing
+
+00:04:44.279 --> 00:04:48.239
+Caption: um and so the the experience with
+
+00:04:46.799 --> 00:04:50.638
+Caption: actually creating issues and using
+
+00:04:48.239 --> 00:04:52.559
+Caption: issues is pretty good too so if we
+
+00:04:50.639 --> 00:04:53.520
+Caption: create an issue
+
+00:04:52.559 --> 00:04:55.679
+Caption: um
+
+00:04:53.519 --> 00:05:00.359
+Caption: you know you can give it a title uh
+
+00:04:55.679 --> 00:05:02.220
+Caption: what&#39;s a title fix that laptop output
+
+00:05:00.359 --> 00:05:04.619
+Caption: which is a good one
+
+00:05:02.220 --> 00:05:06.179
+Caption: um and then you can you know put a whole
+
+00:05:04.619 --> 00:05:06.779
+Caption: lot of detail about
+
+00:05:06.179 --> 00:05:09.119
+Caption: um
+
+00:05:06.779 --> 00:05:11.579
+Caption: stuff what&#39;s the screenshotting Windows
+
+00:05:09.119 --> 00:05:13.320
+Caption: Windows shift s
+
+00:05:11.579 --> 00:05:15.299
+Caption: yeah
+
+00:05:13.320 --> 00:05:16.139
+Caption: yeah I&#39;m a pro
+
+00:05:15.299 --> 00:05:19.019
+Caption: um
+
+00:05:16.139 --> 00:05:22.800
+Caption: you can even do things like paste images
+
+00:05:19.019 --> 00:05:24.539
+Caption: uh wrong Keys uh you can even like copy
+
+00:05:22.799 --> 00:05:27.299
+Caption: and paste images so I just took a
+
+00:05:24.539 --> 00:05:30.059
+Caption: screenshot and then
+
+00:05:27.299 --> 00:05:33.119
+Caption: the preview can see that screenshot that
+
+00:05:30.059 --> 00:05:36.539
+Caption: I just took so you can copy paste images
+
+00:05:33.119 --> 00:05:38.039
+Caption: you can do rich markdown formatting all
+
+00:05:36.539 --> 00:05:40.559
+Caption: that kind of stuff there&#39;s some really
+
+00:05:38.039 --> 00:05:42.539
+Caption: good features around task lists too so
+
+00:05:40.559 --> 00:05:44.779
+Caption: you can set a list of you know things
+
+00:05:42.539 --> 00:05:47.880
+Caption: you need to do
+
+00:05:44.779 --> 00:05:50.279
+Caption: second thing and then
+
+00:05:47.880 --> 00:05:52.559
+Caption: when you save or submit that issue just
+
+00:05:50.279 --> 00:05:54.000
+Caption: get rid of that last one
+
+00:05:52.559 --> 00:05:56.459
+Caption: you can see that there&#39;s a task list
+
+00:05:54.000 --> 00:05:58.799
+Caption: attached to this issue as well
+
+00:05:56.459 --> 00:06:01.679
+Caption: and we can see that there are two tasks
+
+00:05:58.799 --> 00:06:03.720
+Caption: for that issue that need to be done and
+
+00:06:01.679 --> 00:06:06.059
+Caption: maybe I want to say I&#39;ve done the first
+
+00:06:03.720 --> 00:06:09.059
+Caption: thing but maybe the second thing needs a
+
+00:06:06.059 --> 00:06:13.079
+Caption: little bit more work and so I can just
+
+00:06:09.059 --> 00:06:15.959
+Caption: need to refresh ah wrong buttons F5
+
+00:06:13.079 --> 00:06:18.359
+Caption: no that&#39;s all right see this is why I
+
+00:06:15.959 --> 00:06:21.419
+Caption: have a desktop PC at home and a Macbook
+
+00:06:18.359 --> 00:06:22.978
+Caption: so I know both of them anyway so the
+
+00:06:21.419 --> 00:06:24.300
+Caption: second one maybe I want to actually
+
+00:06:22.979 --> 00:06:25.800
+Caption: convert that to an issue because it
+
+00:06:24.299 --> 00:06:28.019
+Caption: needs some more expansion notes and more
+
+00:06:25.799 --> 00:06:30.000
+Caption: details when I do that it&#39;ll create an
+
+00:06:28.019 --> 00:06:32.279
+Caption: issue from that second thing and if I
+
+00:06:30.000 --> 00:06:34.199
+Caption: drill into that issue we can see that
+
+00:06:32.279 --> 00:06:36.059
+Caption: that is tracked in one of the previous
+
+00:06:34.199 --> 00:06:38.580
+Caption: issues so we have this kind of hierarchy
+
+00:06:36.059 --> 00:06:40.619
+Caption: the hierarchy stuff in GitHub issues is
+
+00:06:38.579 --> 00:06:43.500
+Caption: still kind of being built out it&#39;ll be a
+
+00:06:40.619 --> 00:06:45.600
+Caption: lot richer in the future right now we we
+
+00:06:43.500 --> 00:06:47.819
+Caption: kind of do have this hierarchy between
+
+00:06:45.600 --> 00:06:49.259
+Caption: and you can go down as deep as you want
+
+00:06:47.819 --> 00:06:50.639
+Caption: if I did a task list in this and
+
+00:06:49.259 --> 00:06:52.799
+Caption: converted them to issues you can see
+
+00:06:50.639 --> 00:06:54.660
+Caption: that it&#39;s tracked in those ones as well
+
+00:06:52.799 --> 00:06:56.638
+Caption: that stuff will start surfacing a bit
+
+00:06:54.660 --> 00:06:58.800
+Caption: more soon
+
+00:06:56.639 --> 00:07:00.419
+Caption: so we&#39;ve got our issues we can do real
+
+00:06:58.799 --> 00:07:02.698
+Caption: really rich markdown we can even do like
+
+00:07:00.419 --> 00:07:05.520
+Caption: mathematical formulas and we use um
+
+00:07:02.699 --> 00:07:07.020
+Caption: tooling to do flow charts and stuff like
+
+00:07:05.519 --> 00:07:09.179
+Caption: that you can put in there in markdown
+
+00:07:07.019 --> 00:07:11.940
+Caption: it&#39;s this GitHub flavored markdown that
+
+00:07:09.179 --> 00:07:14.039
+Caption: we have which is a little bit richer
+
+00:07:11.940 --> 00:07:16.139
+Caption: but this probably isn&#39;t the best way to
+
+00:07:14.039 --> 00:07:17.819
+Caption: like manage all of your issues you might
+
+00:07:16.139 --> 00:07:19.740
+Caption: have thousands of issues
+
+00:07:17.819 --> 00:07:21.959
+Caption: you can&#39;t really run a Sprint just by
+
+00:07:19.739 --> 00:07:23.699
+Caption: what you can run a Sprint by just
+
+00:07:21.959 --> 00:07:25.440
+Caption: applying a label to that issue for
+
+00:07:23.699 --> 00:07:26.940
+Caption: Sprint one and then just filtering to
+
+00:07:25.440 --> 00:07:27.660
+Caption: those labels it&#39;s not the best way to
+
+00:07:26.940 --> 00:07:29.580
+Caption: work
+
+00:07:27.660 --> 00:07:32.819
+Caption: so we&#39;ve got issues sorry we&#39;ve got
+
+00:07:29.579 --> 00:07:34.198
+Caption: GitHub projects now GitHub projects is
+
+00:07:32.819 --> 00:07:36.720
+Caption: new
+
+00:07:34.199 --> 00:07:38.819
+Caption: um if you have used GitHub projects in
+
+00:07:36.720 --> 00:07:40.559
+Caption: the past you might have used the the
+
+00:07:38.819 --> 00:07:42.720
+Caption: Legacy projects which we&#39;ve now
+
+00:07:40.559 --> 00:07:44.819
+Caption: deprecated there is a really nice
+
+00:07:42.720 --> 00:07:46.220
+Caption: migration path from the old projects to
+
+00:07:44.819 --> 00:07:48.179
+Caption: the new projects
+
+00:07:46.220 --> 00:07:49.500
+Caption: Mitch just did a video on that really
+
+00:07:48.179 --> 00:07:52.859
+Caption: recently I don&#39;t know how where we&#39;ve
+
+00:07:49.500 --> 00:07:55.160
+Caption: probably published it on YouTube
+
+00:07:52.859 --> 00:07:57.119
+Caption: on Instagram today there we go
+
+00:07:55.160 --> 00:07:58.679
+Caption: and so I&#39;m going to create a new project
+
+00:07:57.119 --> 00:08:00.419
+Caption: uh
+
+00:07:58.679 --> 00:08:02.880
+Caption: I&#39;m going to go to the organization to
+
+00:08:00.419 --> 00:08:04.020
+Caption: create a project
+
+00:08:02.880 --> 00:08:06.000
+Caption: uh
+
+00:08:04.019 --> 00:08:09.359
+Caption: new project
+
+00:08:06.000 --> 00:08:11.279
+Caption: I would call it DDD Perth now I can
+
+00:08:09.359 --> 00:08:13.019
+Caption: choose one of the templates for these
+
+00:08:11.279 --> 00:08:15.059
+Caption: projects or I can just go from scratch
+
+00:08:13.019 --> 00:08:17.160
+Caption: I&#39;m just going to go from scratch just
+
+00:08:15.059 --> 00:08:19.739
+Caption: to show you how powerful this is
+
+00:08:17.160 --> 00:08:21.839
+Caption: and I&#39;m going to add the issues from my
+
+00:08:19.739 --> 00:08:23.279
+Caption: repository so to do that
+
+00:08:21.839 --> 00:08:24.899
+Caption: by the way we&#39;re looking at the table
+
+00:08:23.279 --> 00:08:27.899
+Caption: View at the moment
+
+00:08:24.899 --> 00:08:32.158
+Caption: to add an issue I choose my repository
+
+00:08:27.899 --> 00:08:35.039
+Caption: uh it&#39;s haikus for code spaces and then
+
+00:08:32.158 --> 00:08:37.140
+Caption: I&#39;m just gonna choose
+
+00:08:35.039 --> 00:08:39.539
+Caption: yeah that one
+
+00:08:37.140 --> 00:08:42.718
+Caption: so now I have that issue in there
+
+00:08:39.539 --> 00:08:43.559
+Caption: this thing&#39;s hurting me
+
+00:08:42.718 --> 00:08:45.659
+Caption: um
+
+00:08:43.559 --> 00:08:48.500
+Caption: and I can add
+
+00:08:45.659 --> 00:08:48.500
+Caption: left click
+
+00:08:50.278 --> 00:08:54.179
+Caption: we&#39;ve also made this quite like keyboard
+
+00:08:52.320 --> 00:08:56.039
+Caption: friendly so I&#39;m just kind of hitting
+
+00:08:54.179 --> 00:08:58.320
+Caption: enter and it&#39;s taking the top one each
+
+00:08:56.039 --> 00:09:01.739
+Caption: time just to fill them out
+
+00:08:58.320 --> 00:09:03.479
+Caption: and we&#39;ve now got this list of you know
+
+00:09:01.739 --> 00:09:05.039
+Caption: issues that we&#39;re working with we&#39;ve got
+
+00:09:03.479 --> 00:09:06.778
+Caption: our columns we&#39;ve got assignees we&#39;ve
+
+00:09:05.039 --> 00:09:09.059
+Caption: got the status of those issues as well
+
+00:09:06.778 --> 00:09:11.659
+Caption: now status is something that belongs to
+
+00:09:09.059 --> 00:09:11.659
+Caption: the board
+
+00:09:12.119 --> 00:09:16.440
+Caption: um so by default you get to do in
+
+00:09:14.640 --> 00:09:18.179
+Caption: progress and done but I can change those
+
+00:09:16.440 --> 00:09:20.398
+Caption: statuses I can have whatever statuses I
+
+00:09:18.179 --> 00:09:21.239
+Caption: want but I can also have custom fields
+
+00:09:20.398 --> 00:09:24.000
+Caption: in here
+
+00:09:21.239 --> 00:09:25.679
+Caption: so I can say I want to see the labels
+
+00:09:24.000 --> 00:09:28.619
+Caption: that&#39;s great that&#39;s pretty useful but I
+
+00:09:25.679 --> 00:09:32.419
+Caption: want a new field for an estimate
+
+00:09:28.619 --> 00:09:32.419
+Caption: and then that field type is a number
+
+00:09:32.820 --> 00:09:36.600
+Caption: and now we have this estimate column as
+
+00:09:34.739 --> 00:09:38.219
+Caption: well so I&#39;m just going to go and put
+
+00:09:36.599 --> 00:09:40.139
+Caption: some
+
+00:09:38.219 --> 00:09:42.719
+Caption: random numbers in that estimate column
+
+00:09:40.140 --> 00:09:44.278
+Caption: if I can work things
+
+00:09:42.719 --> 00:09:45.898
+Caption: I&#39;m putting random numbers in because
+
+00:09:44.278 --> 00:09:48.659
+Caption: this is like a real life demo where
+
+00:09:45.898 --> 00:09:49.739
+Caption: estimates are totally random anyway
+
+00:09:48.659 --> 00:09:51.239
+Caption: um
+
+00:09:49.739 --> 00:09:53.760
+Caption: and then I can obviously do things like
+
+00:09:51.239 --> 00:09:56.278
+Caption: filter and say I only want to see the
+
+00:09:53.760 --> 00:10:00.059
+Caption: estimates that are greater than five oh
+
+00:09:56.278 --> 00:10:02.760
+Caption: keyboard shortcuts up the opposite so
+
+00:10:00.059 --> 00:10:06.179
+Caption: Ctrl K on windows by the way no come not
+
+00:10:02.760 --> 00:10:07.559
+Caption: Windows K and I can filter by
+
+00:10:06.179 --> 00:10:08.458
+Caption: you know
+
+00:10:07.559 --> 00:10:10.919
+Caption: um
+
+00:10:08.458 --> 00:10:12.898
+Caption: what do we go estimate and just say it
+
+00:10:10.919 --> 00:10:14.940
+Caption: has to be greater than five and it&#39;ll
+
+00:10:12.898 --> 00:10:18.299
+Caption: filter based on those so we can do that
+
+00:10:14.940 --> 00:10:21.720
+Caption: we can Group by the statuses grouped by
+
+00:10:18.299 --> 00:10:25.099
+Caption: the labels uh let&#39;s Group by actually we
+
+00:10:21.719 --> 00:10:25.099
+Caption: need another field here for
+
+00:10:25.619 --> 00:10:31.940
+Caption: um Sprint
+
+00:10:27.359 --> 00:10:31.940
+Caption: and this is actually a iteration type
+
+00:10:32.640 --> 00:10:37.559
+Caption: and it starts today iterations go for
+
+00:10:35.398 --> 00:10:39.539
+Caption: two weeks so in the background it&#39;s
+
+00:10:37.559 --> 00:10:42.059
+Caption: created some iterations for me based on
+
+00:10:39.539 --> 00:10:46.338
+Caption: every two weeks and I can assign these
+
+00:10:42.059 --> 00:10:46.338
+Caption: to these Sprints as we go as well so
+
+00:10:47.940 --> 00:10:50.720
+Caption: yeah let&#39;s do that
+
+00:10:52.859 --> 00:10:57.659
+Caption: and then we&#39;ll
+
+00:10:54.778 --> 00:10:59.940
+Caption: grouped by these
+
+00:10:57.659 --> 00:11:01.559
+Caption: so now we&#39;ve got all of our Sprint one
+
+00:10:59.940 --> 00:11:03.260
+Caption: Sprint two Sprint three and then the
+
+00:11:01.559 --> 00:11:06.898
+Caption: ones that haven&#39;t been
+
+00:11:03.260 --> 00:11:08.700
+Caption: haven&#39;t been done yet
+
+00:11:06.898 --> 00:11:11.039
+Caption: so we got this like nice little table
+
+00:11:08.700 --> 00:11:13.079
+Caption: view the other thing we might want to do
+
+00:11:11.039 --> 00:11:15.838
+Caption: though is have like a Sprint board right
+
+00:11:13.078 --> 00:11:18.419
+Caption: so let&#39;s create a new view
+
+00:11:15.838 --> 00:11:20.039
+Caption: and this view is going to be
+
+00:11:18.419 --> 00:11:22.018
+Caption: a board View
+
+00:11:20.039 --> 00:11:24.299
+Caption: and so now we have our
+
+00:11:22.018 --> 00:11:25.979
+Caption: board for all the ones with no status so
+
+00:11:24.299 --> 00:11:28.979
+Caption: by default it&#39;s kind of given me the
+
+00:11:25.979 --> 00:11:31.199
+Caption: status so to do doing done none of these
+
+00:11:28.979 --> 00:11:32.880
+Caption: have a status so I obviously want some
+
+00:11:31.200 --> 00:11:35.100
+Caption: of them over here
+
+00:11:32.880 --> 00:11:38.458
+Caption: but actually this is my Sprint board so
+
+00:11:35.099 --> 00:11:41.159
+Caption: I&#39;m gonna filter by
+
+00:11:38.458 --> 00:11:44.119
+Caption: filter by
+
+00:11:41.159 --> 00:11:44.119
+Caption: Sprint
+
+00:11:44.159 --> 00:11:47.179
+Caption: and then just say
+
+00:11:48.119 --> 00:11:51.838
+Caption: the current Sprint
+
+00:11:49.799 --> 00:11:53.099
+Caption: so you can say you know this is the
+
+00:11:51.838 --> 00:11:54.299
+Caption: current Sprint or the previous Sprint or
+
+00:11:53.099 --> 00:11:57.119
+Caption: the next Sprint you can even say current
+
+00:11:54.299 --> 00:11:58.500
+Caption: plus two or previous minus one or
+
+00:11:57.119 --> 00:12:00.838
+Caption: something like that which is pretty
+
+00:11:58.500 --> 00:12:02.159
+Caption: handy and then you can work with these
+
+00:12:00.838 --> 00:12:04.018
+Caption: these Sprint boards as well you can
+
+00:12:02.159 --> 00:12:07.259
+Caption: change what&#39;s on the cards
+
+00:12:04.018 --> 00:12:10.078
+Caption: I mean this is a demo that I could spend
+
+00:12:07.260 --> 00:12:11.398
+Caption: hours and hours on if I could work the
+
+00:12:10.078 --> 00:12:13.919
+Caption: mouse
+
+00:12:11.398 --> 00:12:15.958
+Caption: um one thing to note as well is that
+
+00:12:13.919 --> 00:12:18.539
+Caption: these projects are
+
+00:12:15.958 --> 00:12:20.518
+Caption: at the organization level
+
+00:12:18.539 --> 00:12:21.838
+Caption: so we understand that you might have
+
+00:12:20.518 --> 00:12:22.979
+Caption: issues across a number of different
+
+00:12:21.838 --> 00:12:25.078
+Caption: repos
+
+00:12:22.979 --> 00:12:27.419
+Caption: for a project especially if you have a
+
+00:12:25.078 --> 00:12:28.679
+Caption: microservices situation where you have a
+
+00:12:27.419 --> 00:12:30.778
+Caption: different repo for your different
+
+00:12:28.679 --> 00:12:32.278
+Caption: services but you want this roll-up view
+
+00:12:30.778 --> 00:12:33.539
+Caption: of all of the things that are going on
+
+00:12:32.278 --> 00:12:35.700
+Caption: at the moment
+
+00:12:33.539 --> 00:12:37.739
+Caption: so at the org level you have a project
+
+00:12:35.700 --> 00:12:39.299
+Caption: and you pull in the issues that you care
+
+00:12:37.739 --> 00:12:41.700
+Caption: about for that project across the
+
+00:12:39.299 --> 00:12:43.138
+Caption: different repositories or maybe pull in
+
+00:12:41.700 --> 00:12:44.880
+Caption: the pull requests because you care about
+
+00:12:43.138 --> 00:12:46.799
+Caption: them as well so issues and pull requests
+
+00:12:44.880 --> 00:12:47.638
+Caption: can appear here
+
+00:12:46.799 --> 00:12:49.979
+Caption: um
+
+00:12:47.638 --> 00:12:51.898
+Caption: you can also have the same issue in
+
+00:12:49.979 --> 00:12:54.000
+Caption: multiple projects and those projects can
+
+00:12:51.898 --> 00:12:55.500
+Caption: have different custom Fields so here
+
+00:12:54.000 --> 00:12:57.838
+Caption: I&#39;ve got a bunch of work that&#39;s going on
+
+00:12:55.500 --> 00:13:00.440
+Caption: maybe my managers want a different view
+
+00:12:57.838 --> 00:13:03.599
+Caption: of all of the epics in my organization
+
+00:13:00.440 --> 00:13:05.159
+Caption: across multiple projects and they also
+
+00:13:03.599 --> 00:13:07.380
+Caption: have some Fields they want to track like
+
+00:13:05.159 --> 00:13:10.319
+Caption: maybe they just want a current status of
+
+00:13:07.380 --> 00:13:13.320
+Caption: red green and yellow or something like
+
+00:13:10.320 --> 00:13:16.320
+Caption: that that extra field belongs to that
+
+00:13:13.320 --> 00:13:17.700
+Caption: project and the issue can set you know
+
+00:13:16.320 --> 00:13:18.838
+Caption: that value on the project so you can
+
+00:13:17.700 --> 00:13:20.700
+Caption: have different views of the same
+
+00:13:18.838 --> 00:13:22.440
+Caption: information the great thing about this
+
+00:13:20.700 --> 00:13:24.958
+Caption: though is you can absolutely customize
+
+00:13:22.440 --> 00:13:27.659
+Caption: this for however you want you don&#39;t need
+
+00:13:24.958 --> 00:13:29.578
+Caption: to you know you&#39;re not stuck in the way
+
+00:13:27.659 --> 00:13:32.518
+Caption: that GitHub thinks you should run a
+
+00:13:29.578 --> 00:13:34.018
+Caption: project you can do it any way you want
+
+00:13:32.518 --> 00:13:36.239
+Caption: the one thing I didn&#39;t show you in this
+
+00:13:34.018 --> 00:13:39.659
+Caption: which I love is that you can also put in
+
+00:13:36.239 --> 00:13:40.679
+Caption: draft issues so I can add one here to
+
+00:13:39.659 --> 00:13:43.319
+Caption: say
+
+00:13:40.679 --> 00:13:45.239
+Caption: um I don&#39;t know get a new laptop
+
+00:13:43.320 --> 00:13:47.880
+Caption: there&#39;s a theme for these issues by the
+
+00:13:45.239 --> 00:13:49.500
+Caption: way and this is a draft issue because it
+
+00:13:47.880 --> 00:13:51.479
+Caption: doesn&#39;t belong to a repository yet it
+
+00:13:49.500 --> 00:13:55.078
+Caption: just belongs to this project
+
+00:13:51.479 --> 00:13:58.138
+Caption: we have teams in GitHub who use
+
+00:13:55.078 --> 00:14:00.179
+Caption: basically nothing but draft issues they
+
+00:13:58.138 --> 00:14:01.679
+Caption: do everything as draft issues and it&#39;s
+
+00:14:00.179 --> 00:14:05.219
+Caption: only when they actually need to do the
+
+00:14:01.679 --> 00:14:07.018
+Caption: work that they will convert to an issue
+
+00:14:05.219 --> 00:14:08.458
+Caption: and then it will ask you what repository
+
+00:14:07.018 --> 00:14:11.398
+Caption: you want that issue in because it has to
+
+00:14:08.458 --> 00:14:13.380
+Caption: belong to a repository at that stage
+
+00:14:11.398 --> 00:14:15.239
+Caption: so look I could I could go on and on
+
+00:14:13.380 --> 00:14:17.578
+Caption: about all of this sort of stuff
+
+00:14:15.239 --> 00:14:19.440
+Caption: um before I move on to kind of moving on
+
+00:14:17.578 --> 00:14:22.799
+Caption: from the planning any questions about
+
+00:14:19.440 --> 00:14:25.739
+Caption: stuff that I haven&#39;t shown you on here
+
+00:14:22.799 --> 00:14:28.320
+Caption: anyone want to give me a laptop
+
+00:14:25.739 --> 00:14:31.260
+Caption: and staying down okay
+
+00:14:28.320 --> 00:14:32.880
+Caption: so look this is also free for everybody
+
+00:14:31.260 --> 00:14:34.799
+Caption: um we don&#39;t charge anything for GitHub
+
+00:14:32.880 --> 00:14:37.138
+Caption: projects so your own repositories you
+
+00:14:34.799 --> 00:14:38.700
+Caption: can do it or your own organizations your
+
+00:14:37.138 --> 00:14:40.979
+Caption: own accounts you can have projects as
+
+00:14:38.700 --> 00:14:42.720
+Caption: well anything you anything you like
+
+00:14:40.979 --> 00:14:43.919
+Caption: there&#39;s no extra money for this there&#39;s
+
+00:14:42.719 --> 00:14:46.619
+Caption: some other features that I didn&#39;t show
+
+00:14:43.919 --> 00:14:51.000
+Caption: you as well to do with like workflows
+
+00:14:46.619 --> 00:14:52.619
+Caption: um so when a an issue sorry when an
+
+00:14:51.000 --> 00:14:54.299
+Caption: issue gets dragged into the done column
+
+00:14:52.619 --> 00:14:55.739
+Caption: then market is closed in the repo and
+
+00:14:54.299 --> 00:14:56.940
+Caption: things like that I&#39;m sorry other way
+
+00:14:55.739 --> 00:14:58.559
+Caption: around
+
+00:14:56.940 --> 00:15:00.539
+Caption: um a bunch of things like that there&#39;s
+
+00:14:58.559 --> 00:15:03.179
+Caption: more coming to workflows as well there&#39;s
+
+00:15:00.539 --> 00:15:04.018
+Caption: also insights that is I don&#39;t know if
+
+00:15:03.179 --> 00:15:06.659
+Caption: it&#39;s
+
+00:15:04.018 --> 00:15:09.359
+Caption: public preview yet I think it&#39;s in the
+
+00:15:06.659 --> 00:15:12.179
+Caption: public beta insights so you can do your
+
+00:15:09.359 --> 00:15:14.518
+Caption: burn down charts or burn up accumulative
+
+00:15:12.179 --> 00:15:16.919
+Caption: flow diagrams or the management manager
+
+00:15:14.518 --> 00:15:18.778
+Caption: stuff as well
+
+00:15:16.919 --> 00:15:19.979
+Caption: somebody from GitHub in the back is
+
+00:15:18.778 --> 00:15:22.458
+Caption: looking at me like I don&#39;t know if
+
+00:15:19.979 --> 00:15:22.458
+Caption: that&#39;s public
+
+00:15:23.338 --> 00:15:26.359
+Caption: Johnson&#39;s dog
+
+00:15:29.338 --> 00:15:32.940
+Caption: yeah
+
+00:15:30.078 --> 00:15:34.440
+Caption: so at org level for the oh yeah okay
+
+00:15:32.940 --> 00:15:36.479
+Caption: there we go so the burn up charts and
+
+00:15:34.440 --> 00:15:38.880
+Caption: stuff are at the
+
+00:15:36.479 --> 00:15:41.539
+Caption: um Enterprise right or Global burn up
+
+00:15:38.880 --> 00:15:41.539
+Caption: chance yeah
+
+00:15:41.820 --> 00:15:45.299
+Caption: cool
+
+00:15:43.559 --> 00:15:46.859
+Caption: awesome all right let&#39;s go back to this
+
+00:15:45.299 --> 00:15:50.039
+Caption: code and we&#39;re going to do some of this
+
+00:15:46.859 --> 00:15:51.479
+Caption: work all right so uh I don&#39;t know if
+
+00:15:50.039 --> 00:15:53.578
+Caption: anybody here had the same experience as
+
+00:15:51.479 --> 00:15:55.679
+Caption: me with my first Dev job is it took
+
+00:15:53.578 --> 00:15:57.179
+Caption: literally about a month before I could
+
+00:15:55.679 --> 00:15:59.458
+Caption: actually write code on the code base
+
+00:15:57.179 --> 00:16:01.440
+Caption: because they had to find me a computer
+
+00:15:59.458 --> 00:16:02.760
+Caption: and then I had to set that computer up
+
+00:16:01.440 --> 00:16:04.380
+Caption: with the standard operating environment
+
+00:16:02.760 --> 00:16:05.820
+Caption: and then the project I was on had these
+
+00:16:04.380 --> 00:16:08.039
+Caption: other dependencies that I needed in
+
+00:16:05.820 --> 00:16:09.838
+Caption: there as well so you know time to
+
+00:16:08.039 --> 00:16:12.239
+Caption: actually writing the first code or
+
+00:16:09.838 --> 00:16:15.119
+Caption: making the first commit was long right
+
+00:16:12.239 --> 00:16:17.099
+Caption: which is a problem especially if you are
+
+00:16:15.119 --> 00:16:18.898
+Caption: on multiple projects I don&#39;t know if
+
+00:16:17.099 --> 00:16:21.239
+Caption: anybody&#39;s skipped from one project to
+
+00:16:18.898 --> 00:16:22.559
+Caption: another and there&#39;s this period of how
+
+00:16:21.239 --> 00:16:23.698
+Caption: do I get all this stuff working they&#39;re
+
+00:16:22.559 --> 00:16:25.679
+Caption: using different versions of the
+
+00:16:23.698 --> 00:16:29.099
+Caption: dependencies all that kind of stuff
+
+00:16:25.679 --> 00:16:31.739
+Caption: it&#39;s also bad for open source and for
+
+00:16:29.099 --> 00:16:33.059
+Caption: contributing to other projects inner
+
+00:16:31.739 --> 00:16:35.880
+Caption: source is a problem as well so I know
+
+00:16:33.059 --> 00:16:37.320
+Caption: when I worked at Microsoft everyone at
+
+00:16:35.880 --> 00:16:40.078
+Caption: Microsoft every engineer at Microsoft
+
+00:16:37.320 --> 00:16:41.699
+Caption: has access to almost every repository
+
+00:16:40.078 --> 00:16:44.099
+Caption: every code base
+
+00:16:41.698 --> 00:16:45.419
+Caption: and you&#39;re encouraged if you find
+
+00:16:44.099 --> 00:16:46.919
+Caption: something that you need in somebody
+
+00:16:45.419 --> 00:16:48.898
+Caption: else&#39;s code base to submit a pull
+
+00:16:46.919 --> 00:16:50.458
+Caption: request like to to actually go and
+
+00:16:48.898 --> 00:16:52.799
+Caption: change it look at their code see how it
+
+00:16:50.458 --> 00:16:54.539
+Caption: works which is great except I can&#39;t
+
+00:16:52.799 --> 00:16:57.059
+Caption: debug that because they&#39;ve got this huge
+
+00:16:54.539 --> 00:16:59.219
+Caption: list of dependencies I can&#39;t get that
+
+00:16:57.059 --> 00:17:00.359
+Caption: working it&#39;s not worth my time so I just
+
+00:16:59.219 --> 00:17:03.958
+Caption: don&#39;t do it
+
+00:17:00.359 --> 00:17:06.000
+Caption: enter code spaces so code spaces is a
+
+00:17:03.958 --> 00:17:08.640
+Caption: Dev environment in the cloud that&#39;s
+
+00:17:06.000 --> 00:17:10.318
+Caption: targeted at a specific repository so you
+
+00:17:08.640 --> 00:17:12.318
+Caption: basically have the definition of what&#39;s
+
+00:17:10.318 --> 00:17:14.578
+Caption: required to write code for a project
+
+00:17:12.318 --> 00:17:16.739
+Caption: defined alongside the code for that
+
+00:17:14.578 --> 00:17:19.198
+Caption: project
+
+00:17:16.739 --> 00:17:20.698
+Caption: um before before code space as well if
+
+00:17:19.198 --> 00:17:21.900
+Caption: you just want to make a small change you
+
+00:17:20.698 --> 00:17:23.280
+Caption: don&#39;t need to do any debugging or
+
+00:17:21.900 --> 00:17:26.698
+Caption: anything like that just in case anybody
+
+00:17:23.280 --> 00:17:28.679
+Caption: hasn&#39;t seen this before this is in every
+
+00:17:26.698 --> 00:17:30.839
+Caption: repository if you hit the dot button
+
+00:17:28.678 --> 00:17:33.839
+Caption: presuming it&#39;s the same on a different
+
+00:17:30.839 --> 00:17:36.000
+Caption: laptop the full stop button dot button
+
+00:17:33.839 --> 00:17:38.459
+Caption: period whatever you want to call it
+
+00:17:36.000 --> 00:17:39.418
+Caption: on any GitHub repo even if it&#39;s not
+
+00:17:38.459 --> 00:17:43.260
+Caption: yours
+
+00:17:39.418 --> 00:17:46.319
+Caption: it&#39;ll open the web editor which is
+
+00:17:43.260 --> 00:17:48.839
+Caption: basically Visual Studio code running in
+
+00:17:46.319 --> 00:17:50.038
+Caption: your browser so there&#39;s no compute on
+
+00:17:48.839 --> 00:17:52.140
+Caption: the back end in this case it&#39;s just
+
+00:17:50.038 --> 00:17:54.779
+Caption: running inside your browser
+
+00:17:52.140 --> 00:17:57.839
+Caption: and
+
+00:17:54.780 --> 00:18:01.799
+Caption: you can make changes to the code you can
+
+00:17:57.839 --> 00:18:03.900
+Caption: not debug but you can submit a code
+
+00:18:01.798 --> 00:18:06.418
+Caption: change you can submit a pull request you
+
+00:18:03.900 --> 00:18:07.440
+Caption: can do all of that kind of stuff
+
+00:18:06.418 --> 00:18:10.319
+Caption: um
+
+00:18:07.439 --> 00:18:12.119
+Caption: yeah so you can make small changes I
+
+00:18:10.319 --> 00:18:13.739
+Caption: actually use this constantly like if I
+
+00:18:12.119 --> 00:18:16.199
+Caption: need to make a small change to a readme
+
+00:18:13.739 --> 00:18:17.699
+Caption: or something like that I&#39;ll just hit dot
+
+00:18:16.199 --> 00:18:20.699
+Caption: open it up in here
+
+00:18:17.699 --> 00:18:22.380
+Caption: this is also really really good for code
+
+00:18:20.699 --> 00:18:24.479
+Caption: reviews so if somebody submits a pull
+
+00:18:22.380 --> 00:18:26.880
+Caption: request and you go to the pull request
+
+00:18:24.479 --> 00:18:29.038
+Caption: page and hit the dot you&#39;re brought to
+
+00:18:26.880 --> 00:18:30.359
+Caption: visual studio code to the web editor or
+
+00:18:29.038 --> 00:18:32.519
+Caption: web-based editor
+
+00:18:30.359 --> 00:18:33.780
+Caption: uh in the context of looking at that
+
+00:18:32.520 --> 00:18:35.700
+Caption: pull request
+
+00:18:33.780 --> 00:18:38.640
+Caption: so you can see the changes you can see
+
+00:18:35.699 --> 00:18:40.439
+Caption: what was committed uh the files that are
+
+00:18:38.640 --> 00:18:42.780
+Caption: different and you can leave comments and
+
+00:18:40.439 --> 00:18:44.099
+Caption: say this looks good if you have
+
+00:18:42.780 --> 00:18:47.400
+Caption: permissions you can even merge those
+
+00:18:44.099 --> 00:18:50.099
+Caption: pull requests in the context of a visual
+
+00:18:47.400 --> 00:18:51.660
+Caption: studio code instance so you can see the
+
+00:18:50.099 --> 00:18:53.760
+Caption: library as you can see all the files you
+
+00:18:51.660 --> 00:18:55.320
+Caption: can see everything like that
+
+00:18:53.760 --> 00:18:56.699
+Caption: but like I said what you can&#39;t do here
+
+00:18:55.319 --> 00:18:58.139
+Caption: unfortunately
+
+00:18:56.699 --> 00:19:01.139
+Caption: is
+
+00:18:58.140 --> 00:19:01.140
+Caption: debug
+
+00:19:01.380 --> 00:19:05.940
+Caption: especially if you don&#39;t know the
+
+00:19:03.000 --> 00:19:07.140
+Caption: shortcut keys so there&#39;s no terminal
+
+00:19:05.939 --> 00:19:10.139
+Caption: because there&#39;s no compute in the
+
+00:19:07.140 --> 00:19:11.700
+Caption: background I can&#39;t do any run and debug
+
+00:19:10.140 --> 00:19:13.320
+Caption: stuff because there&#39;s no compute in the
+
+00:19:11.699 --> 00:19:15.359
+Caption: background
+
+00:19:13.319 --> 00:19:18.239
+Caption: um and obviously in the real world you
+
+00:19:15.359 --> 00:19:21.660
+Caption: need to do that stuff so code spaces is
+
+00:19:18.239 --> 00:19:23.819
+Caption: basically the same as this except it has
+
+00:19:21.660 --> 00:19:25.679
+Caption: compute it&#39;s a cloud-based Dev
+
+00:19:23.819 --> 00:19:27.058
+Caption: environment
+
+00:19:25.678 --> 00:19:28.739
+Caption: um now because we&#39;re short on time
+
+00:19:27.058 --> 00:19:31.619
+Caption: normally I&#39;d create a new one to show
+
+00:19:28.739 --> 00:19:33.479
+Caption: you how how quickly this works but if
+
+00:19:31.619 --> 00:19:35.239
+Caption: you go to the code button here and then
+
+00:19:33.479 --> 00:19:38.579
+Caption: go to code spaces
+
+00:19:35.239 --> 00:19:40.739
+Caption: uh and I&#39;ve got one here which is not
+
+00:19:38.579 --> 00:19:42.000
+Caption: clean that&#39;s great
+
+00:19:40.739 --> 00:19:43.739
+Caption: you know what I&#39;m just going to create a
+
+00:19:42.000 --> 00:19:46.020
+Caption: new code space
+
+00:19:43.739 --> 00:19:46.979
+Caption: so you can see how fast it is
+
+00:19:46.020 --> 00:19:49.020
+Caption: um
+
+00:19:46.979 --> 00:19:50.640
+Caption: so what it is doing is it&#39;s spinning up
+
+00:19:49.020 --> 00:19:54.599
+Caption: a container in the cloud that&#39;s running
+
+00:19:50.640 --> 00:19:55.919
+Caption: on a machine that has whatever resources
+
+00:19:54.599 --> 00:19:58.199
+Caption: I need to give it there are a number of
+
+00:19:55.918 --> 00:20:00.719
+Caption: sizes for these code spaces as well so
+
+00:19:58.199 --> 00:20:03.119
+Caption: you can do you know two core machines up
+
+00:20:00.719 --> 00:20:05.099
+Caption: to I think it&#39;s 32 core if you ask us
+
+00:20:03.119 --> 00:20:07.079
+Caption: nicely
+
+00:20:05.099 --> 00:20:10.558
+Caption: um I think by default you can do
+
+00:20:07.079 --> 00:20:11.538
+Caption: anything up to 32 core machines I
+
+00:20:10.558 --> 00:20:14.159
+Caption: believe
+
+00:20:11.538 --> 00:20:16.678
+Caption: and they get charged basically per
+
+00:20:14.160 --> 00:20:18.539
+Caption: minute like so they get charged based on
+
+00:20:16.678 --> 00:20:20.339
+Caption: usage
+
+00:20:18.538 --> 00:20:22.979
+Caption: um the good thing as well is if you
+
+00:20:20.339 --> 00:20:24.119
+Caption: leave them uh like you you log out and
+
+00:20:22.979 --> 00:20:26.038
+Caption: you don&#39;t do anything you don&#39;t stop
+
+00:20:24.119 --> 00:20:27.780
+Caption: them they&#39;ll stop themselves after a
+
+00:20:26.038 --> 00:20:30.479
+Caption: period of time I think by default it&#39;s
+
+00:20:27.780 --> 00:20:32.700
+Caption: 20 or 30 minutes it&#39;ll stop itself we
+
+00:20:30.479 --> 00:20:35.699
+Caption: did an internal survey because fun story
+
+00:20:32.699 --> 00:20:38.899
+Caption: GitHub GitHub so github.com which is a
+
+00:20:35.699 --> 00:20:43.678
+Caption: mono repo which is about 11 gig of code
+
+00:20:38.900 --> 00:20:45.539
+Caption: we do github.com entirely in codespaces
+
+00:20:43.678 --> 00:20:48.659
+Caption: so we use this internally for our own
+
+00:20:45.538 --> 00:20:51.359
+Caption: gigantic repo using some features like
+
+00:20:48.660 --> 00:20:52.200
+Caption: pre-builds so we can that&#39;s good
+
+00:20:51.359 --> 00:20:56.400
+Caption: um
+
+00:20:52.199 --> 00:20:58.979
+Caption: so using some features like pre-builds
+
+00:20:56.400 --> 00:21:02.580
+Caption: we can get the speed of like starting a
+
+00:20:58.979 --> 00:21:04.199
+Caption: new code space up sorry down to really
+
+00:21:02.579 --> 00:21:08.519
+Caption: really small
+
+00:21:04.199 --> 00:21:10.859
+Caption: um small numbers so if this works
+
+00:21:08.520 --> 00:21:13.859
+Caption: um I&#39;ll show you that in a sec but
+
+00:21:10.859 --> 00:21:17.579
+Caption: for github.com 11 gig code base about 23
+
+00:21:13.859 --> 00:21:20.160
+Caption: gig on disk if you do a deep clone it
+
+00:21:17.579 --> 00:21:22.798
+Caption: takes about I think it&#39;s about 10
+
+00:21:20.160 --> 00:21:24.960
+Caption: seconds 10 12 seconds to go from
+
+00:21:22.798 --> 00:21:27.538
+Caption: clicking the button to being able to
+
+00:21:24.959 --> 00:21:29.699
+Caption: debug the code with multiple containers
+
+00:21:27.538 --> 00:21:32.399
+Caption: running different services in a
+
+00:21:29.699 --> 00:21:34.619
+Caption: debugging environment and you can commit
+
+00:21:32.400 --> 00:21:36.599
+Caption: code and do that work straight away it&#39;s
+
+00:21:34.619 --> 00:21:38.400
+Caption: super powerful and it also means if
+
+00:21:36.599 --> 00:21:39.780
+Caption: somebody new joins the team they&#39;re just
+
+00:21:38.400 --> 00:21:41.940
+Caption: create a new code space and they can
+
+00:21:39.780 --> 00:21:43.619
+Caption: write code immediately if you start
+
+00:21:41.939 --> 00:21:45.839
+Caption: working on a different project
+
+00:21:43.619 --> 00:21:48.839
+Caption: and they have code spaces set up there
+
+00:21:45.839 --> 00:21:50.219
+Caption: you can go to that other project start a
+
+00:21:48.839 --> 00:21:51.538
+Caption: code space and now you have this brand
+
+00:21:50.219 --> 00:21:53.400
+Caption: new Dev machine that&#39;s targeted
+
+00:21:51.538 --> 00:21:55.379
+Caption: specifically at
+
+00:21:53.400 --> 00:21:56.280
+Caption: um at that repository and at that code
+
+00:21:55.380 --> 00:22:00.558
+Caption: base
+
+00:21:56.280 --> 00:22:00.559
+Caption: so here we go uh we are in
+
+00:22:00.780 --> 00:22:06.780
+Caption: and this is my little application uh
+
+00:22:03.780 --> 00:22:10.140
+Caption: let&#39;s see if I can run it in debug
+
+00:22:06.780 --> 00:22:12.659
+Caption: it&#39;s a node app so I&#39;ll choose node
+
+00:22:10.140 --> 00:22:14.339
+Caption: and remember this is all running just
+
+00:22:12.659 --> 00:22:16.080
+Caption: um through my browser I don&#39;t have this
+
+00:22:14.339 --> 00:22:18.479
+Caption: code base on this machine on this laptop
+
+00:22:16.079 --> 00:22:20.939
+Caption: at all not just
+
+00:22:18.479 --> 00:22:22.739
+Caption: yeah not just for the obvious reasons uh
+
+00:22:20.939 --> 00:22:24.359
+Caption: that it&#39;s not my laptop
+
+00:22:22.739 --> 00:22:26.099
+Caption: this actually makes the demo kind of
+
+00:22:24.359 --> 00:22:27.959
+Caption: cool right
+
+00:22:26.099 --> 00:22:30.599
+Caption: um you know I don&#39;t have the code on
+
+00:22:27.959 --> 00:22:33.178
+Caption: here because it&#39;s not my machine but I&#39;m
+
+00:22:30.599 --> 00:22:35.099
+Caption: still able to to you know do the work to
+
+00:22:33.178 --> 00:22:36.719
+Caption: write the code so this is what the
+
+00:22:35.099 --> 00:22:39.479
+Caption: application looks like
+
+00:22:36.719 --> 00:22:42.479
+Caption: if I go back into my code space again in
+
+00:22:39.479 --> 00:22:47.520
+Caption: the browser and I find
+
+00:22:42.479 --> 00:22:47.520
+Caption: file let&#39;s find index.js
+
+00:22:47.699 --> 00:22:53.359
+Caption: get rid of that and then I&#39;ll put a
+
+00:22:50.520 --> 00:22:53.359
+Caption: break point on that render
+
+00:22:53.579 --> 00:22:57.658
+Caption: and refresh
+
+00:22:55.558 --> 00:22:59.158
+Caption: and in my other browser tab I&#39;ve hit
+
+00:22:57.659 --> 00:23:00.960
+Caption: this breakpoint and you get all of the
+
+00:22:59.159 --> 00:23:04.020
+Caption: nice stuff that you would normally get
+
+00:23:00.959 --> 00:23:06.178
+Caption: debugging in a vs code instance
+
+00:23:04.020 --> 00:23:09.780
+Caption: um on somebody else&#39;s computer or on a
+
+00:23:06.178 --> 00:23:12.359
+Caption: Raspberry Pi wherever you are right
+
+00:23:09.780 --> 00:23:13.979
+Caption: so pretty cool pretty cool stuff I was
+
+00:23:12.359 --> 00:23:16.079
+Caption: going to do a tiny little co-pilot demo
+
+00:23:13.979 --> 00:23:19.500
+Caption: but instead you should go and go to Mrs
+
+00:23:16.079 --> 00:23:22.380
+Caption: talk uh at 3 15 I think where she&#39;s
+
+00:23:19.500 --> 00:23:24.359
+Caption: going to do co-pilot entirely but I was
+
+00:23:22.380 --> 00:23:26.219
+Caption: going to like randomize those haikus but
+
+00:23:24.359 --> 00:23:28.678
+Caption: I don&#39;t remember how to do it so I would
+
+00:23:26.219 --> 00:23:30.839
+Caption: do something like yeah I need to install
+
+00:23:28.678 --> 00:23:32.519
+Caption: copilot so I&#39;m not going to do it just
+
+00:23:30.839 --> 00:23:34.979
+Caption: ask copilot to tell me how to randomize
+
+00:23:32.520 --> 00:23:37.558
+Caption: in node because I don&#39;t know
+
+00:23:34.979 --> 00:23:39.839
+Caption: right so that&#39;s code spaces it&#39;s super
+
+00:23:37.558 --> 00:23:41.640
+Caption: powerful you can also connect remotely
+
+00:23:39.839 --> 00:23:44.158
+Caption: from a visual studio code instance on
+
+00:23:41.640 --> 00:23:46.320
+Caption: your local machine if you want to
+
+00:23:44.159 --> 00:23:49.380
+Caption: um you can stop them start them
+
+00:23:46.319 --> 00:23:50.658
+Caption: disconnect and have multiple running at
+
+00:23:49.380 --> 00:23:53.400
+Caption: the same time
+
+00:23:50.659 --> 00:23:55.679
+Caption: so if you are doing some work for one
+
+00:23:53.400 --> 00:23:57.359
+Caption: particular branch of your code you can
+
+00:23:55.678 --> 00:23:59.880
+Caption: have a code space open for that and
+
+00:23:57.359 --> 00:24:03.418
+Caption: another one for the main one and so on
+
+00:23:59.880 --> 00:24:05.099
+Caption: um and as I said Dev stop themselves if
+
+00:24:03.418 --> 00:24:07.380
+Caption: you&#39;re not using them we did a little
+
+00:24:05.099 --> 00:24:09.298
+Caption: survey internally for GitHub GitHub to
+
+00:24:07.380 --> 00:24:10.440
+Caption: find out how often people
+
+00:24:09.298 --> 00:24:12.538
+Caption: um
+
+00:24:10.439 --> 00:24:14.279
+Caption: how often people actually stopped the
+
+00:24:12.538 --> 00:24:15.178
+Caption: code spaces themselves or how often they
+
+00:24:14.280 --> 00:24:16.739
+Caption: just like
+
+00:24:15.178 --> 00:24:19.739
+Caption: turn their computer off and waited for
+
+00:24:16.739 --> 00:24:21.479
+Caption: it to stop itself and it was uh
+
+00:24:19.739 --> 00:24:23.520
+Caption: approximately there might be a little
+
+00:24:21.479 --> 00:24:24.959
+Caption: bit of counting error approximately a
+
+00:24:23.520 --> 00:24:28.280
+Caption: hundred percent of people didn&#39;t turn it
+
+00:24:24.959 --> 00:24:28.279
+Caption: off they just let it expire
+
+00:24:28.319 --> 00:24:31.739
+Caption: yeah
+
+00:24:29.339 --> 00:24:33.119
+Caption: yeah so one yeah that&#39;s a very good
+
+00:24:31.739 --> 00:24:34.260
+Caption: point I overheard there which is that&#39;s
+
+00:24:33.119 --> 00:24:37.079
+Caption: because they work at GitHub and they
+
+00:24:34.260 --> 00:24:38.159
+Caption: don&#39;t pay for these which is true I did
+
+00:24:37.079 --> 00:24:39.599
+Caption: a little back of the envelope
+
+00:24:38.159 --> 00:24:42.900
+Caption: calculation and if you&#39;re running I
+
+00:24:39.599 --> 00:24:44.158
+Caption: think it&#39;s a 16 core machine or
+
+00:24:42.900 --> 00:24:47.760
+Caption: something like that and you&#39;re working
+
+00:24:44.159 --> 00:24:49.260
+Caption: eight hours a day of 50 weeks a year or
+
+00:24:47.760 --> 00:24:52.380
+Caption: 48 weeks a year or something like that
+
+00:24:49.260 --> 00:24:54.479
+Caption: it&#39;s about equivalent to buying a new
+
+00:24:52.380 --> 00:24:56.280
+Caption: laptop every two years or something like
+
+00:24:54.479 --> 00:24:58.020
+Caption: that but remember you&#39;ve got these code
+
+00:24:56.280 --> 00:24:59.820
+Caption: spaces that you can have
+
+00:24:58.020 --> 00:25:01.859
+Caption: in all of these different environments
+
+00:24:59.819 --> 00:25:03.658
+Caption: and they just don&#39;t charge you for usage
+
+00:25:01.859 --> 00:25:05.280
+Caption: when they&#39;re shut down so you could have
+
+00:25:03.659 --> 00:25:07.200
+Caption: 30 projects that you&#39;re working on with
+
+00:25:05.280 --> 00:25:09.599
+Caption: 30 different code spaces that you can
+
+00:25:07.199 --> 00:25:11.339
+Caption: start working on immediately from any
+
+00:25:09.599 --> 00:25:13.558
+Caption: laptop you have it doesn&#39;t need to be
+
+00:25:11.339 --> 00:25:15.719
+Caption: new you should definitely have the
+
+00:25:13.558 --> 00:25:16.558
+Caption: newest best laptop though that&#39;s a good
+
+00:25:15.719 --> 00:25:18.178
+Caption: idea
+
+00:25:16.558 --> 00:25:20.339
+Caption: yeah
+
+00:25:18.178 --> 00:25:22.439
+Caption: so uh
+
+00:25:20.339 --> 00:25:23.880
+Caption: I&#39;m running low on time as well so we&#39;re
+
+00:25:22.439 --> 00:25:25.859
+Caption: going to move very quickly to the next
+
+00:25:23.880 --> 00:25:27.659
+Caption: bit so that&#39;s kind of our inner loop
+
+00:25:25.859 --> 00:25:29.400
+Caption: that&#39;s a Dev environment that means that
+
+00:25:27.659 --> 00:25:32.220
+Caption: I can write my code really quickly I can
+
+00:25:29.400 --> 00:25:33.539
+Caption: get started on new projects and I don&#39;t
+
+00:25:32.219 --> 00:25:35.158
+Caption: have to worry so much about the hardware
+
+00:25:33.538 --> 00:25:37.199
+Caption: or the dependencies running on my local
+
+00:25:35.159 --> 00:25:38.640
+Caption: machine super powerful but then when I
+
+00:25:37.199 --> 00:25:40.859
+Caption: have made the change how do I get that
+
+00:25:38.640 --> 00:25:42.359
+Caption: into production and this is one of the
+
+00:25:40.859 --> 00:25:44.278
+Caption: probably better known features I guess
+
+00:25:42.359 --> 00:25:46.319
+Caption: of GitHub which is GitHub actions who
+
+00:25:44.279 --> 00:25:48.900
+Caption: who uses GitHub actions
+
+00:25:46.319 --> 00:25:50.579
+Caption: okay probably about half the room who&#39;s
+
+00:25:48.900 --> 00:25:53.099
+Caption: heard of GitHub actions like who&#39;s aware
+
+00:25:50.579 --> 00:25:54.959
+Caption: of it the same people
+
+00:25:53.099 --> 00:25:56.339
+Caption: um
+
+00:25:54.959 --> 00:25:57.658
+Caption: well now the rest of you have heard
+
+00:25:56.339 --> 00:25:59.400
+Caption: about it so you can move into the next
+
+00:25:57.659 --> 00:26:01.020
+Caption: column of using it
+
+00:25:59.400 --> 00:26:02.159
+Caption: um rather than actually run one of these
+
+00:26:01.020 --> 00:26:03.239
+Caption: I&#39;m going to show you one I&#39;ve run
+
+00:26:02.159 --> 00:26:05.460
+Caption: before
+
+00:26:03.239 --> 00:26:07.020
+Caption: so uh the great thing about GitHub
+
+00:26:05.459 --> 00:26:08.880
+Caption: actions is the definition of how to
+
+00:26:07.020 --> 00:26:11.700
+Caption: build your application and how to deploy
+
+00:26:08.880 --> 00:26:13.979
+Caption: your application is defined in a yaml
+
+00:26:11.699 --> 00:26:15.899
+Caption: file that sits alongside your code
+
+00:26:13.979 --> 00:26:17.939
+Caption: so when somebody clones or Forks your
+
+00:26:15.900 --> 00:26:19.679
+Caption: repository they know not just what the
+
+00:26:17.939 --> 00:26:21.538
+Caption: code looks like but what the build
+
+00:26:19.678 --> 00:26:24.178
+Caption: situation is and what the deployment
+
+00:26:21.538 --> 00:26:26.058
+Caption: situation is they can see all of that if
+
+00:26:24.178 --> 00:26:28.678
+Caption: you&#39;ve got a specific code space
+
+00:26:26.058 --> 00:26:31.199
+Caption: definition set up so you can customize
+
+00:26:28.678 --> 00:26:33.058
+Caption: those code spaces in huge ways they also
+
+00:26:31.199 --> 00:26:35.579
+Caption: know what the dev machine needs to look
+
+00:26:33.058 --> 00:26:37.640
+Caption: like as well whether you&#39;re using Code
+
+00:26:35.579 --> 00:26:40.019
+Caption: spaces or Dev containers just locally
+
+00:26:37.640 --> 00:26:41.880
+Caption: you know what it you know everything
+
+00:26:40.020 --> 00:26:43.260
+Caption: about that project you have the code you
+
+00:26:41.880 --> 00:26:45.418
+Caption: have the definition of how you&#39;re going
+
+00:26:43.260 --> 00:26:47.339
+Caption: to like write code against it like what
+
+00:26:45.418 --> 00:26:48.839
+Caption: dependencies you need and then you have
+
+00:26:47.339 --> 00:26:50.400
+Caption: the definition of how you build it and
+
+00:26:48.839 --> 00:26:52.739
+Caption: how you deploy it and it&#39;s just all
+
+00:26:50.400 --> 00:26:55.919
+Caption: there in your Repository
+
+00:26:52.739 --> 00:26:57.719
+Caption: uh this is kind of a more mature looking
+
+00:26:55.918 --> 00:27:00.178
+Caption: pipeline we&#39;ve got three stages here I&#39;m
+
+00:26:57.719 --> 00:27:02.939
+Caption: going to try and zoom in a bit I don&#39;t
+
+00:27:00.178 --> 00:27:04.678
+Caption: think this seems great here there we go
+
+00:27:02.939 --> 00:27:07.259
+Caption: we&#39;ve got three stages here
+
+00:27:04.678 --> 00:27:09.899
+Caption: we&#39;ve got a build stage which does my
+
+00:27:07.260 --> 00:27:12.959
+Caption: compilation and we have a deployment
+
+00:27:09.900 --> 00:27:15.059
+Caption: stage which deploys to Azure in this
+
+00:27:12.959 --> 00:27:16.619
+Caption: case and then we have a production stage
+
+00:27:15.058 --> 00:27:18.239
+Caption: now the thing that I&#39;ve set up with
+
+00:27:16.619 --> 00:27:19.979
+Caption: production is it knows the production
+
+00:27:18.239 --> 00:27:21.239
+Caption: environment needs approvals before it
+
+00:27:19.979 --> 00:27:23.219
+Caption: goes to production
+
+00:27:21.239 --> 00:27:25.260
+Caption: so by saying in that definition I am
+
+00:27:23.219 --> 00:27:27.538
+Caption: deploying to production you get this
+
+00:27:25.260 --> 00:27:28.859
+Caption: protection where it has to pass a bunch
+
+00:27:27.538 --> 00:27:32.038
+Caption: of rules before it&#39;s allowed to go into
+
+00:27:28.859 --> 00:27:33.599
+Caption: production in this case that rule is I
+
+00:27:32.038 --> 00:27:35.038
+Caption: need to approve that before it goes into
+
+00:27:33.599 --> 00:27:36.719
+Caption: production
+
+00:27:35.038 --> 00:27:39.239
+Caption: you can put other rules in there like
+
+00:27:36.719 --> 00:27:42.000
+Caption: you can only deploy to this environment
+
+00:27:39.239 --> 00:27:44.400
+Caption: from these branches of your repository
+
+00:27:42.000 --> 00:27:46.439
+Caption: so maybe you&#39;re doing a branching
+
+00:27:44.400 --> 00:27:48.479
+Caption: strategy where it&#39;s a trunk-based
+
+00:27:46.439 --> 00:27:50.278
+Caption: development and people do feature
+
+00:27:48.479 --> 00:27:51.900
+Caption: branches but then they merge back into
+
+00:27:50.279 --> 00:27:53.520
+Caption: your main branch before it goes out to
+
+00:27:51.900 --> 00:27:55.140
+Caption: production you want to make sure nobody
+
+00:27:53.520 --> 00:27:56.820
+Caption: deploys to production from a feature
+
+00:27:55.140 --> 00:27:58.558
+Caption: Branch right so you can put that
+
+00:27:56.819 --> 00:27:59.699
+Caption: protection on it as well and nobody can
+
+00:27:58.558 --> 00:28:01.199
+Caption: actually approve that to go to
+
+00:27:59.699 --> 00:28:03.599
+Caption: production
+
+00:28:01.199 --> 00:28:06.000
+Caption: so this went to the staging site it went
+
+00:28:03.599 --> 00:28:08.760
+Caption: to the production site we&#39;ve got a track
+
+00:28:06.000 --> 00:28:11.279
+Caption: of the deployments like the reviews
+
+00:28:08.760 --> 00:28:12.419
+Caption: sorry who did a review and then we&#39;ve
+
+00:28:11.279 --> 00:28:14.100
+Caption: even got the artifacts that were
+
+00:28:12.418 --> 00:28:16.019
+Caption: produced as well so part of the build
+
+00:28:14.099 --> 00:28:18.058
+Caption: was packaging everything up and then
+
+00:28:16.020 --> 00:28:20.219
+Caption: uploading it so the subsequent jobs
+
+00:28:18.058 --> 00:28:21.899
+Caption: could pull that down and do the work
+
+00:28:20.219 --> 00:28:24.359
+Caption: actually deployed them as well
+
+00:28:21.900 --> 00:28:26.460
+Caption: the way these actually physically run is
+
+00:28:24.359 --> 00:28:29.339
+Caption: on these ones are on GitHub hosted
+
+00:28:26.459 --> 00:28:32.219
+Caption: Runners so these are agents that
+
+00:28:29.339 --> 00:28:34.979
+Caption: basically spin up when you when there&#39;s
+
+00:28:32.219 --> 00:28:36.599
+Caption: a job to do it&#39;ll download the code or
+
+00:28:34.979 --> 00:28:38.880
+Caption: do whatever you want it to do
+
+00:28:36.599 --> 00:28:40.859
+Caption: and then when it&#39;s finished it&#39;ll tear
+
+00:28:38.880 --> 00:28:42.959
+Caption: itself down entirely so they&#39;re on
+
+00:28:40.859 --> 00:28:45.538
+Caption: demand kind of hosted Runners you can
+
+00:28:42.959 --> 00:28:47.158
+Caption: also self-host Runners if you want you
+
+00:28:45.538 --> 00:28:49.859
+Caption: can run the running the runner
+
+00:28:47.159 --> 00:28:52.140
+Caption: executable on pretty much any machine
+
+00:28:49.859 --> 00:28:54.000
+Caption: I&#39;ve run them on Raspberry Piers too so
+
+00:28:52.140 --> 00:28:55.859
+Caption: you can actually build your application
+
+00:28:54.000 --> 00:28:57.599
+Caption: on a Raspberry Pi if you really want to
+
+00:28:55.859 --> 00:28:59.400
+Caption: don&#39;t do that
+
+00:28:57.599 --> 00:29:01.500
+Caption: um or you can do the GitHub host at ones
+
+00:28:59.400 --> 00:29:03.839
+Caption: really new to GitHub hosted Runners as
+
+00:29:01.500 --> 00:29:05.699
+Caption: well is the larger sizes of GitHub
+
+00:29:03.839 --> 00:29:07.319
+Caption: hosted Runners so for for a very long
+
+00:29:05.699 --> 00:29:08.880
+Caption: time you didn&#39;t get to choose how big
+
+00:29:07.319 --> 00:29:12.058
+Caption: those Runners were the only way to
+
+00:29:08.880 --> 00:29:14.039
+Caption: choose how much RAM and all that kind of
+
+00:29:12.058 --> 00:29:17.459
+Caption: stuff was to do your self-hosted ones
+
+00:29:14.038 --> 00:29:21.139
+Caption: now for GitHub team I believe and GitHub
+
+00:29:17.459 --> 00:29:24.178
+Caption: Enterprise Cloud you can set up
+
+00:29:21.140 --> 00:29:27.479
+Caption: larger hosted Runners to say I want you
+
+00:29:24.178 --> 00:29:28.619
+Caption: know one with 32 cores and gpus and all
+
+00:29:27.479 --> 00:29:32.278
+Caption: sorts of stuff
+
+00:29:28.619 --> 00:29:34.020
+Caption: so uh yeah long-running builds or ones
+
+00:29:32.279 --> 00:29:35.700
+Caption: that are a bit slow uh you can do use
+
+00:29:34.020 --> 00:29:36.839
+Caption: hosted Runners for those
+
+00:29:35.699 --> 00:29:38.760
+Caption: now
+
+00:29:36.839 --> 00:29:41.520
+Caption: there is a lot that I didn&#39;t cover in
+
+00:29:38.760 --> 00:29:43.380
+Caption: this for several reasons
+
+00:29:41.520 --> 00:29:46.080
+Caption: um if you want to see any of this stuff
+
+00:29:43.380 --> 00:29:47.579
+Caption: in a little bit more detail we&#39;ve got
+
+00:29:46.079 --> 00:29:49.619
+Caption: demos at the booth we&#39;ve got an awesome
+
+00:29:47.579 --> 00:29:52.380
+Caption: demo that was actually written by Aaron
+
+00:29:49.619 --> 00:29:55.260
+Caption: Powell who is probably in that room
+
+00:29:52.380 --> 00:29:57.418
+Caption: um which has a code space with multiple
+
+00:29:55.260 --> 00:29:59.880
+Caption: containers that get run and debug at the
+
+00:29:57.418 --> 00:30:02.278
+Caption: same time with Azure Cosmos DB emulators
+
+00:29:59.880 --> 00:30:03.839
+Caption: running in them and the actual device
+
+00:30:02.279 --> 00:30:05.460
+Caption: that I&#39;ve the keyboard and mouse is
+
+00:30:03.839 --> 00:30:08.278
+Caption: connected to is this little Raspberry Pi
+
+00:30:05.459 --> 00:30:10.619
+Caption: but it&#39;s running 32 cores in the
+
+00:30:08.279 --> 00:30:12.720
+Caption: background and 32 gigs of ram in code
+
+00:30:10.619 --> 00:30:15.599
+Caption: spaces and things like that we use
+
+00:30:12.719 --> 00:30:17.158
+Caption: GitHub issues for our prize draw as well
+
+00:30:15.599 --> 00:30:18.898
+Caption: if you haven&#39;t signed up for that so if
+
+00:30:17.159 --> 00:30:20.399
+Caption: you go to a particular GitHub issue you
+
+00:30:18.899 --> 00:30:22.320
+Caption: can leave a comment and then we use
+
+00:30:20.399 --> 00:30:24.659
+Caption: GitHub actions to pull the names from
+
+00:30:22.319 --> 00:30:27.000
+Caption: the names of the people who commented on
+
+00:30:24.659 --> 00:30:28.500
+Caption: that issue put them in a file and do
+
+00:30:27.000 --> 00:30:30.659
+Caption: that as part of the deployment to GitHub
+
+00:30:28.500 --> 00:30:32.459
+Caption: pages that I also didn&#39;t mention which
+
+00:30:30.659 --> 00:30:34.980
+Caption: is a way you can host your own static
+
+00:30:32.459 --> 00:30:36.658
+Caption: websites in GitHub so the whole thing
+
+00:30:34.979 --> 00:30:38.579
+Caption: like kind of fits together until you get
+
+00:30:36.659 --> 00:30:40.260
+Caption: this end-to-end scenario
+
+00:30:38.579 --> 00:30:42.959
+Caption: so planning and tracking with GitHub
+
+00:30:40.260 --> 00:30:44.279
+Caption: issues and GitHub projects code spaces
+
+00:30:42.959 --> 00:30:46.020
+Caption: for that inner loop of actually doing
+
+00:30:44.279 --> 00:30:48.299
+Caption: development really quickly and really
+
+00:30:46.020 --> 00:30:50.520
+Caption: efficiently especially for new people to
+
+00:30:48.298 --> 00:30:52.619
+Caption: the team and then GitHub actions which
+
+00:30:50.520 --> 00:30:55.679
+Caption: is an automation platform that kind of
+
+00:30:52.619 --> 00:30:57.359
+Caption: lets you do your CI CD or kind of any
+
+00:30:55.678 --> 00:30:59.640
+Caption: other automation as well but
+
+00:30:57.359 --> 00:31:01.739
+Caption: fantastic for CI CD and we&#39;ve got most
+
+00:30:59.640 --> 00:31:03.058
+Caption: of the way around there until we get
+
+00:31:01.739 --> 00:31:04.678
+Caption: back to issues again which is the
+
+00:31:03.058 --> 00:31:06.959
+Caption: learning from what&#39;s in production
+
+00:31:04.678 --> 00:31:08.219
+Caption: as I said tons of stuff I didn&#39;t see I
+
+00:31:06.959 --> 00:31:10.678
+Caption: didn&#39;t tell you about
+
+00:31:08.219 --> 00:31:12.058
+Caption: um come over to the booth and ask some
+
+00:31:10.678 --> 00:31:14.038
+Caption: of us for some demos of the stuff that&#39;s
+
+00:31:12.058 --> 00:31:16.278
+Caption: there and otherwise thanks so much for
+
+00:31:14.038 --> 00:31:16.278
+Caption: your time
+
+00:31:21.119 --> 00:31:26.699
+Caption: and thanks Mish for the laptop
+
+00:31:24.239 --> 00:31:30.058
+Caption: thanks Damian that was really cool
+
+00:31:26.699 --> 00:31:31.859
+Caption: um so it&#39;s off to lunch now everybody uh
+
+00:31:30.058 --> 00:31:34.699
+Caption: so there&#39;s lunchtime sessions commencing
+
+00:31:31.859 --> 00:31:34.699
+Caption: at 2 35
+

@@ -1,0 +1,4430 @@
+WEBVTT
+
+00:00:03.039 --> 00:00:08.319
+Caption: hi everyone this talk is about extremely
+
+00:00:05.839 --> 00:00:10.079
+Caption: typed to strongly type with typescript
+
+00:00:08.319 --> 00:00:12.638
+Caption: just want to start off by saying a big
+
+00:00:10.079 --> 00:00:15.199
+Caption: thanks to our sponsors
+
+00:00:12.638 --> 00:00:17.358
+Caption: so i&#39;ll start off with who i am um
+
+00:00:15.199 --> 00:00:19.118
+Caption: currently working at vgw as a senior
+
+00:00:17.358 --> 00:00:21.038
+Caption: software engineer and i&#39;m pretty much
+
+00:00:19.118 --> 00:00:22.639
+Caption: all the time working on typescript and
+
+00:00:21.038 --> 00:00:25.840
+Caption: node so most of my stuff is on the back
+
+00:00:22.639 --> 00:00:28.879
+Caption: end but obviously i do some front-end
+
+00:00:25.840 --> 00:00:30.639
+Caption: stuff as well also in typescript
+
+00:00:28.879 --> 00:00:33.040
+Caption: i&#39;ve been using typescript and node
+
+00:00:30.639 --> 00:00:35.119
+Caption: since the very early days i used to
+
+00:00:33.040 --> 00:00:36.719
+Caption: think that if you really really pushed a
+
+00:00:35.119 --> 00:00:38.479
+Caption: language to its absolute limit you&#39;d be
+
+00:00:36.719 --> 00:00:39.920
+Caption: lucky enough to discover a bug that
+
+00:00:38.479 --> 00:00:41.119
+Caption: wasn&#39;t your bug was actually a bug in
+
+00:00:39.919 --> 00:00:42.718
+Caption: the compiler
+
+00:00:41.119 --> 00:00:44.159
+Caption: and over the years of using typescript
+
+00:00:42.719 --> 00:00:45.440
+Caption: because it&#39;s been you know it&#39;s started
+
+00:00:44.159 --> 00:00:47.520
+Caption: small and it&#39;s become more and more
+
+00:00:45.439 --> 00:00:49.038
+Caption: popular but i&#39;ve discovered a lot of
+
+00:00:47.520 --> 00:00:50.399
+Caption: those bugs so either i&#39;ve really been
+
+00:00:49.039 --> 00:00:53.360
+Caption: pushing it to the limit or it&#39;s a very
+
+00:00:50.398 --> 00:00:55.119
+Caption: buggy project i think the truth is a bit
+
+00:00:53.360 --> 00:00:56.879
+Caption: of both
+
+00:00:55.119 --> 00:00:59.038
+Caption: although i&#39;d like to say that now i
+
+00:00:56.879 --> 00:01:01.359
+Caption: rarely open new issues on typescript so
+
+00:00:59.039 --> 00:01:03.120
+Caption: it&#39;s a really solid platform now
+
+00:01:01.359 --> 00:01:05.279
+Caption: same with node
+
+00:01:03.119 --> 00:01:06.319
+Caption: i also like to contribute to open source
+
+00:01:05.279 --> 00:01:08.959
+Caption: projects
+
+00:01:06.319 --> 00:01:13.599
+Caption: and maintain a few of my own and also
+
+00:01:08.959 --> 00:01:15.040
+Caption: like to mentor at coda dojo in perth
+
+00:01:13.599 --> 00:01:16.798
+Caption: so i thought it was relevant to actually
+
+00:01:15.040 --> 00:01:18.559
+Caption: talk a little bit about who you are as
+
+00:01:16.799 --> 00:01:21.040
+Caption: an audience as well because i figured
+
+00:01:18.559 --> 00:01:22.879
+Caption: who would be interested in a talk about
+
+00:01:21.040 --> 00:01:24.319
+Caption: typescript and
+
+00:01:22.879 --> 00:01:26.079
+Caption: it&#39;s it&#39;s a well-known language but not
+
+00:01:24.319 --> 00:01:27.519
+Caption: everyone&#39;s using it yet
+
+00:01:26.080 --> 00:01:30.319
+Caption: and i figured that there&#39;s probably a
+
+00:01:27.519 --> 00:01:32.399
+Caption: few different groups in the audience so
+
+00:01:30.319 --> 00:01:33.599
+Caption: um i i guess most people here are
+
+00:01:32.400 --> 00:01:34.880
+Caption: developers
+
+00:01:33.599 --> 00:01:36.319
+Caption: some of you might be more familiar with
+
+00:01:34.879 --> 00:01:37.519
+Caption: dynamically typed languages if you&#39;re
+
+00:01:36.319 --> 00:01:39.279
+Caption: working on the front end you&#39;re probably
+
+00:01:37.519 --> 00:01:41.199
+Caption: using javascript there&#39;s also there&#39;d
+
+00:01:39.279 --> 00:01:43.438
+Caption: also be a bunch of people
+
+00:01:41.199 --> 00:01:44.798
+Caption: who have familiar with php and python in
+
+00:01:43.439 --> 00:01:47.840
+Caption: particular if you&#39;re doing working in
+
+00:01:44.799 --> 00:01:49.040
+Caption: sciences or anywhere for that matter
+
+00:01:47.839 --> 00:01:51.039
+Caption: other popular languages are what they
+
+00:01:49.040 --> 00:01:53.759
+Caption: call the statically typed languages and
+
+00:01:51.040 --> 00:01:55.199
+Caption: they&#39;re things like c sharp java haskell
+
+00:01:53.759 --> 00:01:57.360
+Caption: c plus plus
+
+00:01:55.199 --> 00:01:59.919
+Caption: things that require you to
+
+00:01:57.360 --> 00:02:01.840
+Caption: explicitly add types to your code and
+
+00:01:59.919 --> 00:02:02.879
+Caption: satisfy the compiler that your code is
+
+00:02:01.839 --> 00:02:04.559
+Caption: correct
+
+00:02:02.879 --> 00:02:07.758
+Caption: uh and there might also be some people
+
+00:02:04.559 --> 00:02:09.119
+Caption: here already using typescript um so i&#39;m
+
+00:02:07.759 --> 00:02:11.119
+Caption: aware that i&#39;m probably speaking to
+
+00:02:09.119 --> 00:02:12.720
+Caption: several different people and who have
+
+00:02:11.119 --> 00:02:14.080
+Caption: different questions so if you&#39;re already
+
+00:02:12.720 --> 00:02:15.440
+Caption: using dynamic languages you&#39;re probably
+
+00:02:14.080 --> 00:02:17.598
+Caption: asking yourself like why do i want to
+
+00:02:15.440 --> 00:02:19.040
+Caption: add steps why do i want to add a build
+
+00:02:17.598 --> 00:02:20.479
+Caption: step and all these checks it&#39;s just
+
+00:02:19.039 --> 00:02:21.439
+Caption: going to slow me down so you know what&#39;s
+
+00:02:20.479 --> 00:02:22.720
+Caption: the deal
+
+00:02:21.440 --> 00:02:24.160
+Caption: if you&#39;re mainly used to using
+
+00:02:22.720 --> 00:02:25.520
+Caption: statically typed languages already
+
+00:02:24.160 --> 00:02:27.919
+Caption: you&#39;re probably wondering well why would
+
+00:02:25.520 --> 00:02:30.080
+Caption: i do the next project in node sorry in
+
+00:02:27.919 --> 00:02:31.598
+Caption: typescript what&#39;s in it for me what am i
+
+00:02:30.080 --> 00:02:32.800
+Caption: going to gain and if you&#39;re already
+
+00:02:31.598 --> 00:02:33.839
+Caption: using typescript maybe you&#39;re here
+
+00:02:32.800 --> 00:02:35.440
+Caption: because you want to
+
+00:02:33.839 --> 00:02:38.319
+Caption: feel awesome and maybe pick up something
+
+00:02:35.440 --> 00:02:41.760
+Caption: new so i&#39;m going to try and cover
+
+00:02:38.319 --> 00:02:41.759
+Caption: different questions for different people
+
+00:02:41.919 --> 00:02:45.839
+Caption: right so what is this talk actually
+
+00:02:44.080 --> 00:02:47.040
+Caption: about stringly typed code what does it
+
+00:02:45.839 --> 00:02:48.878
+Caption: mean
+
+00:02:47.039 --> 00:02:51.039
+Caption: i think as tech people we we should
+
+00:02:48.878 --> 00:02:51.759
+Caption: probably start with a definition
+
+00:02:51.039 --> 00:02:54.319
+Caption: so
+
+00:02:51.759 --> 00:02:55.839
+Caption: the definition for this talk um and i
+
+00:02:54.319 --> 00:02:58.080
+Caption: should just as background
+
+00:02:55.839 --> 00:02:59.759
+Caption: the the the term itself stringly type
+
+00:02:58.080 --> 00:03:01.518
+Caption: code the name of what we&#39;re talking
+
+00:02:59.759 --> 00:03:04.238
+Caption: about came from as far as i can figure
+
+00:03:01.518 --> 00:03:05.839
+Caption: out from a 2012 article on coding horror
+
+00:03:04.238 --> 00:03:07.518
+Caption: there was an article titled new
+
+00:03:05.839 --> 00:03:08.639
+Caption: programming jargon and it&#39;s worth having
+
+00:03:07.518 --> 00:03:10.559
+Caption: a look at this because it got some other
+
+00:03:08.639 --> 00:03:12.399
+Caption: funny ones on there as well but it had
+
+00:03:10.559 --> 00:03:14.479
+Caption: an entry for stringly typed code with
+
+00:03:12.399 --> 00:03:17.119
+Caption: this meme meme cat on it which sort of
+
+00:03:14.479 --> 00:03:19.440
+Caption: sums it up you know can i have can i use
+
+00:03:17.119 --> 00:03:21.119
+Caption: a string to store a date value so there
+
+00:03:19.440 --> 00:03:22.878
+Caption: was a whole big text blurb i won&#39;t bore
+
+00:03:21.119 --> 00:03:24.559
+Caption: you with that but the the summary of
+
+00:03:22.878 --> 00:03:26.639
+Caption: what it said was that it&#39;s basically
+
+00:03:24.559 --> 00:03:27.679
+Caption: about overusing strings for too many
+
+00:03:26.639 --> 00:03:29.839
+Caption: things
+
+00:03:27.679 --> 00:03:31.759
+Caption: and listing some some issues that come
+
+00:03:29.839 --> 00:03:33.518
+Caption: out from doing that i&#39;m not going to go
+
+00:03:31.759 --> 00:03:35.360
+Caption: with that exact definition for this talk
+
+00:03:33.518 --> 00:03:37.199
+Caption: because things have moved on we&#39;ve got
+
+00:03:35.360 --> 00:03:39.119
+Caption: new possibilities with our languages and
+
+00:03:37.199 --> 00:03:41.039
+Caption: our tools and our platforms so it&#39;s not
+
+00:03:39.119 --> 00:03:42.720
+Caption: just really overuse of strings but it is
+
+00:03:41.039 --> 00:03:44.559
+Caption: a pattern in the code and this is the
+
+00:03:42.720 --> 00:03:46.720
+Caption: definition i&#39;m going to go with my talk
+
+00:03:44.559 --> 00:03:48.639
+Caption: so it&#39;s a coding pattern
+
+00:03:46.720 --> 00:03:51.279
+Caption: where you can make trivial errors in the
+
+00:03:48.639 --> 00:03:53.598
+Caption: code which pass static checks
+
+00:03:51.279 --> 00:03:55.759
+Caption: but they fail at runtime
+
+00:03:53.598 --> 00:03:57.438
+Caption: so i&#39;m going to go through each of those
+
+00:03:55.759 --> 00:03:59.119
+Caption: highlighted bits of that definition to
+
+00:03:57.438 --> 00:04:01.279
+Caption: just sort of explain more what i mean
+
+00:03:59.119 --> 00:04:05.438
+Caption: about each of those now
+
+00:04:01.279 --> 00:04:05.438
+Caption: so what do i mean by a coding pattern
+
+00:04:06.080 --> 00:04:10.080
+Caption: first of all it&#39;s not a bug stringly
+
+00:04:08.238 --> 00:04:11.679
+Caption: typed code is not a bug it&#39;s usually
+
+00:04:10.080 --> 00:04:13.518
+Caption: found in systems that are actually
+
+00:04:11.679 --> 00:04:14.639
+Caption: working so we&#39;re not talking about a bug
+
+00:04:13.518 --> 00:04:15.679
+Caption: here we&#39;re talking about a coding
+
+00:04:14.639 --> 00:04:16.639
+Caption: pattern
+
+00:04:15.679 --> 00:04:19.440
+Caption: uh
+
+00:04:16.639 --> 00:04:21.279
+Caption: the issue is usually more about what
+
+00:04:19.440 --> 00:04:22.880
+Caption: happens when someone needs to change the
+
+00:04:21.279 --> 00:04:25.119
+Caption: code they don&#39;t ever worked on a system
+
+00:04:22.880 --> 00:04:27.119
+Caption: that never needed to change
+
+00:04:25.119 --> 00:04:28.559
+Caption: it&#39;s probably pretty rare
+
+00:04:27.119 --> 00:04:30.160
+Caption: every system i&#39;ve ever worked on there&#39;s
+
+00:04:28.559 --> 00:04:32.160
+Caption: always new requirements even if they&#39;re
+
+00:04:30.160 --> 00:04:33.679
+Caption: not new requirements for customers maybe
+
+00:04:32.160 --> 00:04:35.440
+Caption: there&#39;s new regulations there&#39;s things
+
+00:04:33.679 --> 00:04:37.759
+Caption: that have to be changed so when the code
+
+00:04:35.440 --> 00:04:39.440
+Caption: has to change that old code string type
+
+00:04:37.759 --> 00:04:44.080
+Caption: code and all the other code has to be
+
+00:04:39.440 --> 00:04:47.199
+Caption: modified and refactored at times
+
+00:04:44.079 --> 00:04:48.959
+Caption: so i&#39;d say it&#39;s not a bug but stringly
+
+00:04:47.199 --> 00:04:50.399
+Caption: type code is something that&#39;s going to
+
+00:04:48.959 --> 00:04:52.319
+Caption: multiply your cost it&#39;s a cross
+
+00:04:50.399 --> 00:04:53.919
+Caption: multiplier or a speed bump you know it&#39;s
+
+00:04:52.320 --> 00:04:55.360
+Caption: a little bit hard to sail in your cool
+
+00:04:53.919 --> 00:04:57.040
+Caption: yacht when it&#39;s covered in barnacles on
+
+00:04:55.359 --> 00:04:58.399
+Caption: the bottom and i&#39;d describe stringly
+
+00:04:57.040 --> 00:05:01.680
+Caption: type code as something that just really
+
+00:04:58.399 --> 00:05:03.119
+Caption: slows you down from refactoring from
+
+00:05:01.679 --> 00:05:04.239
+Caption: producing new features because you&#39;re
+
+00:05:03.119 --> 00:05:07.519
+Caption: always worried about what you&#39;re going
+
+00:05:04.239 --> 00:05:09.199
+Caption: to break and not know what it is
+
+00:05:07.519 --> 00:05:11.119
+Caption: and i should also say you can write
+
+00:05:09.199 --> 00:05:13.039
+Caption: stringly sorry it&#39;s a it&#39;s a major
+
+00:05:11.119 --> 00:05:14.479
+Caption: source of brittleness in code so this is
+
+00:05:13.039 --> 00:05:16.320
+Caption: what i was just saying about worrying
+
+00:05:14.479 --> 00:05:18.559
+Caption: about well if i change something over
+
+00:05:16.320 --> 00:05:20.080
+Caption: here i have no idea maybe all the front
+
+00:05:18.559 --> 00:05:22.639
+Caption: end is depending on this thing but
+
+00:05:20.079 --> 00:05:24.478
+Caption: there&#39;s no actual warning there&#39;s no
+
+00:05:22.639 --> 00:05:26.880
+Caption: build tool that i run and it tells me
+
+00:05:24.479 --> 00:05:28.639
+Caption: how you broke page three five and seven
+
+00:05:26.880 --> 00:05:30.399
+Caption: it&#39;s just you just run it and you see
+
+00:05:28.639 --> 00:05:31.759
+Caption: and the problem with that is that maybe
+
+00:05:30.399 --> 00:05:33.440
+Caption: you run it and you don&#39;t see a problem
+
+00:05:31.759 --> 00:05:36.559
+Caption: but your end user runs it and then they
+
+00:05:33.440 --> 00:05:36.559
+Caption: run into some huge problem
+
+00:05:36.959 --> 00:05:40.160
+Caption: you can write stringly type code in any
+
+00:05:38.639 --> 00:05:41.759
+Caption: language it is not just something about
+
+00:05:40.160 --> 00:05:43.279
+Caption: dynamic languages we mentioned before
+
+00:05:41.759 --> 00:05:45.679
+Caption: you can do it in static languages just
+
+00:05:43.279 --> 00:05:47.600
+Caption: as easily
+
+00:05:45.679 --> 00:05:49.119
+Caption: so we i mentioned also that it&#39;s a
+
+00:05:47.600 --> 00:05:51.360
+Caption: coding pattern
+
+00:05:49.119 --> 00:05:53.679
+Caption: involving trivial errors now i just want
+
+00:05:51.359 --> 00:05:55.679
+Caption: to be clear that we&#39;re talking about
+
+00:05:53.679 --> 00:05:57.039
+Caption: trivial code changes that you might
+
+00:05:55.679 --> 00:05:58.799
+Caption: introduce when you have to do a new
+
+00:05:57.039 --> 00:06:00.000
+Caption: feature i&#39;m not talking that saying the
+
+00:05:58.799 --> 00:06:01.679
+Caption: outcome&#39;s trivial because otherwise the
+
+00:06:00.000 --> 00:06:03.039
+Caption: whole talk is trivial the outcome could
+
+00:06:01.679 --> 00:06:04.639
+Caption: actually be really major it could be
+
+00:06:03.039 --> 00:06:06.639
+Caption: bugs in production that costs money to
+
+00:06:04.639 --> 00:06:08.080
+Caption: rectify but what we&#39;re talking about is
+
+00:06:06.639 --> 00:06:09.679
+Caption: bugs that you could introduce by just
+
+00:06:08.079 --> 00:06:10.799
+Caption: changing a couple of letters in in your
+
+00:06:09.679 --> 00:06:12.160
+Caption: source code
+
+00:06:10.799 --> 00:06:13.198
+Caption: and then having no warning until the
+
+00:06:12.160 --> 00:06:15.360
+Caption: thing slips all the way out to
+
+00:06:13.199 --> 00:06:17.600
+Caption: production so yeah stringly type code
+
+00:06:15.359 --> 00:06:19.599
+Caption: can be a big deal
+
+00:06:17.600 --> 00:06:20.559
+Caption: the other thing about these errors is
+
+00:06:19.600 --> 00:06:23.279
+Caption: that
+
+00:06:20.559 --> 00:06:24.880
+Caption: they are possible to detect without even
+
+00:06:23.279 --> 00:06:26.639
+Caption: running the code you can look at the
+
+00:06:24.880 --> 00:06:28.399
+Caption: code and if you look well enough that&#39;s
+
+00:06:26.639 --> 00:06:30.160
+Caption: what code reviews are for right but also
+
+00:06:28.399 --> 00:06:32.399
+Caption: that&#39;s what static checkers are for
+
+00:06:30.160 --> 00:06:34.160
+Caption: build tools compilers and so on these
+
+00:06:32.399 --> 00:06:37.039
+Caption: are the kind of errors that can be
+
+00:06:34.160 --> 00:06:37.039
+Caption: checked statically
+
+00:06:37.600 --> 00:06:42.399
+Caption: um so in the talk later on i&#39;m going to
+
+00:06:40.079 --> 00:06:44.079
+Caption: go into detail into a whole bunch and um
+
+00:06:42.399 --> 00:06:47.119
+Caption: so i&#39;m just going to really briefly
+
+00:06:44.079 --> 00:06:48.478
+Caption: outline a sort of category you know a
+
+00:06:47.119 --> 00:06:49.839
+Caption: list of these sort of errors that we&#39;re
+
+00:06:48.479 --> 00:06:51.360
+Caption: going to come across so the first one is
+
+00:06:49.839 --> 00:06:53.359
+Caption: kind of the bread and butter of type
+
+00:06:51.359 --> 00:06:54.879
+Caption: systems and that&#39;s typos so i&#39;ve just
+
+00:06:53.359 --> 00:06:56.478
+Caption: got an example there where i&#39;m
+
+00:06:54.880 --> 00:06:57.919
+Caption: referencing a property
+
+00:06:56.479 --> 00:06:59.598
+Caption: and i&#39;ve got two different spellings
+
+00:06:57.919 --> 00:07:00.800
+Caption: one&#39;s right one&#39;s wrong depending on
+
+00:06:59.598 --> 00:07:02.399
+Caption: your system
+
+00:07:00.799 --> 00:07:03.598
+Caption: you may not find out about that until
+
+00:07:02.399 --> 00:07:06.079
+Caption: later on and depending on when that
+
+00:07:03.598 --> 00:07:08.000
+Caption: piece of code actually runs
+
+00:07:06.079 --> 00:07:09.359
+Caption: so another uh
+
+00:07:08.000 --> 00:07:10.720
+Caption: stringly typed
+
+00:07:09.359 --> 00:07:12.638
+Caption: error
+
+00:07:10.720 --> 00:07:14.079
+Caption: is when you&#39;ve got implicit connections
+
+00:07:12.639 --> 00:07:16.160
+Caption: between different parts of your system
+
+00:07:14.079 --> 00:07:18.159
+Caption: but there&#39;s no tool that can actually
+
+00:07:16.160 --> 00:07:20.319
+Caption: work out that these are the same concept
+
+00:07:18.160 --> 00:07:22.880
+Caption: so here i&#39;ve got an example where
+
+00:07:20.319 --> 00:07:25.039
+Caption: you&#39;ve got some state in your code and
+
+00:07:22.880 --> 00:07:27.839
+Caption: over somewhere else in html you&#39;re using
+
+00:07:25.039 --> 00:07:29.440
+Caption: um some sort of templating language to
+
+00:07:27.839 --> 00:07:30.799
+Caption: get that piece of state displayed on the
+
+00:07:29.440 --> 00:07:32.639
+Caption: screen but
+
+00:07:30.799 --> 00:07:34.478
+Caption: you may have a system that either does
+
+00:07:32.639 --> 00:07:35.919
+Caption: or doesn&#39;t make a link between those two
+
+00:07:34.479 --> 00:07:38.399
+Caption: things so if you go and refactor your
+
+00:07:35.919 --> 00:07:40.559
+Caption: estate do you find out that your front
+
+00:07:38.399 --> 00:07:42.160
+Caption: end is broken well it depends and we&#39;ll
+
+00:07:40.559 --> 00:07:43.679
+Caption: look at some techniques around that
+
+00:07:42.160 --> 00:07:46.160
+Caption: later
+
+00:07:43.679 --> 00:07:47.679
+Caption: another one is transposed values so you
+
+00:07:46.160 --> 00:07:49.199
+Caption: know here&#39;s an email function we&#39;re
+
+00:07:47.679 --> 00:07:51.598
+Caption: sending an email
+
+00:07:49.199 --> 00:07:52.878
+Caption: there&#39;s alice bob hi and hello is it
+
+00:07:51.598 --> 00:07:54.959
+Caption: really obvious from looking at that
+
+00:07:52.878 --> 00:07:57.039
+Caption: who&#39;s the sender and who&#39;s the receiver
+
+00:07:54.959 --> 00:07:59.359
+Caption: and what&#39;s the subject and what&#39;s the
+
+00:07:57.039 --> 00:08:00.399
+Caption: message the message body well you
+
+00:07:59.359 --> 00:08:02.159
+Caption: probably have to go and look at the
+
+00:08:00.399 --> 00:08:03.279
+Caption: implementation of the function some ide
+
+00:08:02.160 --> 00:08:05.360
+Caption: tools will help you and they&#39;ll tell you
+
+00:08:03.279 --> 00:08:07.199
+Caption: which one&#39;s which but even then
+
+00:08:05.359 --> 00:08:08.638
+Caption: if your variables aren&#39;t named very well
+
+00:08:07.199 --> 00:08:09.919
+Caption: the compiler&#39;s not going to tell you if
+
+00:08:08.639 --> 00:08:11.039
+Caption: you put them the wrong way around or
+
+00:08:09.919 --> 00:08:14.240
+Caption: change something do it in the wrong
+
+00:08:11.039 --> 00:08:16.079
+Caption: order so that&#39;s transposed values this
+
+00:08:14.239 --> 00:08:17.359
+Caption: one i just call apples to oranges
+
+00:08:16.079 --> 00:08:19.198
+Caption: because
+
+00:08:17.359 --> 00:08:21.359
+Caption: most programming languages they have a
+
+00:08:19.199 --> 00:08:23.039
+Caption: type called a string and a very closely
+
+00:08:21.359 --> 00:08:24.638
+Caption: related one called a number so stringly
+
+00:08:23.039 --> 00:08:25.839
+Caption: type code&#39;s not always about strings in
+
+00:08:24.639 --> 00:08:27.279
+Caption: this case i&#39;ve got an example that&#39;s
+
+00:08:25.839 --> 00:08:28.878
+Caption: about a number but you can do this kind
+
+00:08:27.279 --> 00:08:30.079
+Caption: of thing with strings as well so i&#39;ve
+
+00:08:28.878 --> 00:08:31.679
+Caption: got a
+
+00:08:30.079 --> 00:08:33.440
+Caption: variable called m
+
+00:08:31.679 --> 00:08:34.958
+Caption: and i&#39;m calling feet to meters and
+
+00:08:33.440 --> 00:08:37.119
+Caption: passing in m and getting back something
+
+00:08:34.958 --> 00:08:38.718
+Caption: which i&#39;m calling f so you can kind of
+
+00:08:37.119 --> 00:08:40.320
+Caption: see the the problem here is that we&#39;ve
+
+00:08:38.718 --> 00:08:42.158
+Caption: mixed up feet with meters and we&#39;ve
+
+00:08:40.320 --> 00:08:44.158
+Caption: called a function converting the wrong
+
+00:08:42.158 --> 00:08:45.760
+Caption: way but the type system it&#39;s going to
+
+00:08:44.158 --> 00:08:46.880
+Caption: allow it because they&#39;re both numbers it
+
+00:08:45.760 --> 00:08:48.239
+Caption: doesn&#39;t know the difference between one
+
+00:08:46.880 --> 00:08:50.160
+Caption: another that&#39;s a units of measure
+
+00:08:48.239 --> 00:08:52.000
+Caption: problem
+
+00:08:50.159 --> 00:08:54.719
+Caption: another problem is conflicting
+
+00:08:52.000 --> 00:08:56.958
+Caption: definitions and a classic example is
+
+00:08:54.719 --> 00:08:58.159
+Caption: systems that rely on feature flags or
+
+00:08:56.958 --> 00:08:59.440
+Caption: something maybe picking up from
+
+00:08:58.159 --> 00:09:00.639
+Caption: environment variables and you look
+
+00:08:59.440 --> 00:09:02.398
+Caption: around the code base and you see
+
+00:09:00.640 --> 00:09:04.000
+Caption: references to environment variables
+
+00:09:02.398 --> 00:09:05.200
+Caption: embedded in different files and
+
+00:09:04.000 --> 00:09:06.958
+Caption: sometimes you&#39;ll see the same
+
+00:09:05.200 --> 00:09:09.440
+Caption: environment variable referenced in
+
+00:09:06.958 --> 00:09:10.559
+Caption: different places but perhaps parsed in
+
+00:09:09.440 --> 00:09:12.479
+Caption: different ways or given different
+
+00:09:10.559 --> 00:09:14.239
+Caption: defaults so
+
+00:09:12.479 --> 00:09:15.760
+Caption: i&#39;d call that string type code because
+
+00:09:14.239 --> 00:09:17.119
+Caption: you&#39;ve got different things that are
+
+00:09:15.760 --> 00:09:19.119
+Caption: supposed to be one thing but they&#39;re
+
+00:09:17.119 --> 00:09:21.359
+Caption: actually possibly out of sync with each
+
+00:09:19.119 --> 00:09:22.719
+Caption: other and if you change one
+
+00:09:21.359 --> 00:09:24.079
+Caption: it doesn&#39;t necessarily tell you that
+
+00:09:22.719 --> 00:09:26.639
+Caption: you&#39;ve got something else that&#39;s now
+
+00:09:24.080 --> 00:09:28.398
+Caption: inconsistent
+
+00:09:26.640 --> 00:09:30.398
+Caption: and finally we&#39;ll look at brittle
+
+00:09:28.398 --> 00:09:32.159
+Caption: control flow so it&#39;s really easy to
+
+00:09:30.398 --> 00:09:33.760
+Caption: actually write control flow constructs
+
+00:09:32.159 --> 00:09:35.278
+Caption: using strings
+
+00:09:33.760 --> 00:09:37.040
+Caption: is an example there where you know we&#39;re
+
+00:09:35.278 --> 00:09:38.398
+Caption: checking if something is ahead we do one
+
+00:09:37.039 --> 00:09:40.398
+Caption: thing otherwise we do something else
+
+00:09:38.398 --> 00:09:42.080
+Caption: because it must be a tails well unless
+
+00:09:40.398 --> 00:09:43.599
+Caption: someone actually stamps something other
+
+00:09:42.080 --> 00:09:46.160
+Caption: than heads and then you&#39;re going to get
+
+00:09:43.599 --> 00:09:48.319
+Caption: some wrong control flow
+
+00:09:46.159 --> 00:09:50.079
+Caption: so going back to our definition we said
+
+00:09:48.320 --> 00:09:52.720
+Caption: these are the sort of errors that pass
+
+00:09:50.080 --> 00:09:54.799
+Caption: static checks static checks is just when
+
+00:09:52.719 --> 00:09:56.159
+Caption: either humans or tools inspect the code
+
+00:09:54.799 --> 00:09:57.919
+Caption: the source code you don&#39;t even have to
+
+00:09:56.159 --> 00:10:00.159
+Caption: run it you just look at it
+
+00:09:57.919 --> 00:10:01.760
+Caption: um so just to pass these checks it just
+
+00:10:00.159 --> 00:10:03.119
+Caption: means that your ide is not telling you
+
+00:10:01.760 --> 00:10:04.640
+Caption: anything or if you&#39;re using a text
+
+00:10:03.119 --> 00:10:06.320
+Caption: editor it&#39;s just text so you don&#39;t get
+
+00:10:04.640 --> 00:10:08.480
+Caption: any warnings there
+
+00:10:06.320 --> 00:10:11.278
+Caption: if you&#39;ve got a build step that&#39;s saying
+
+00:10:08.479 --> 00:10:12.159
+Caption: yep it&#39;s all fine no problems at all
+
+00:10:11.278 --> 00:10:13.599
+Caption: uh
+
+00:10:12.159 --> 00:10:15.759
+Caption: you yourself don&#39;t spot any errors if
+
+00:10:13.599 --> 00:10:17.119
+Caption: you wrote this code and a reviewer
+
+00:10:15.760 --> 00:10:18.640
+Caption: doesn&#39;t spot any errors so that&#39;s what
+
+00:10:17.119 --> 00:10:20.159
+Caption: we mean it gets all the way through the
+
+00:10:18.640 --> 00:10:22.079
+Caption: process
+
+00:10:20.159 --> 00:10:23.599
+Caption: um i should just briefly mention unit
+
+00:10:22.078 --> 00:10:24.880
+Caption: tests because this is the classic thing
+
+00:10:23.599 --> 00:10:26.799
+Caption: if you&#39;re in a dynamic language you
+
+00:10:24.880 --> 00:10:28.958
+Caption: realize you should rely quite heavily on
+
+00:10:26.799 --> 00:10:30.320
+Caption: unit tests so on a technicality they&#39;re
+
+00:10:28.958 --> 00:10:31.679
+Caption: not static checks because you have to
+
+00:10:30.320 --> 00:10:33.679
+Caption: run the code to actually run the unit
+
+00:10:31.679 --> 00:10:35.679
+Caption: test but they run so close to your code
+
+00:10:33.679 --> 00:10:37.440
+Caption: that they&#39;re obviously really good and
+
+00:10:35.679 --> 00:10:39.278
+Caption: really valuable
+
+00:10:37.440 --> 00:10:41.119
+Caption: there are a few drawbacks with them for
+
+00:10:39.278 --> 00:10:42.799
+Caption: our purposes today
+
+00:10:41.119 --> 00:10:46.000
+Caption: first of all you don&#39;t get any help in
+
+00:10:42.799 --> 00:10:47.278
+Caption: your ide from from unit tests generally
+
+00:10:46.000 --> 00:10:49.039
+Caption: also they&#39;re human written so they
+
+00:10:47.278 --> 00:10:51.599
+Caption: suffer from a lot of the same problems
+
+00:10:49.039 --> 00:10:52.799
+Caption: that the code itself basically like if a
+
+00:10:51.599 --> 00:10:55.278
+Caption: human
+
+00:10:52.799 --> 00:10:57.200
+Caption: could write perfect unit tests they
+
+00:10:55.278 --> 00:10:58.320
+Caption: probably don&#39;t need them
+
+00:10:57.200 --> 00:11:02.079
+Caption: so
+
+00:10:58.320 --> 00:11:04.000
+Caption: tests tend to uh have flaws in them they
+
+00:11:02.078 --> 00:11:04.719
+Caption: might have bugs in them themselves and
+
+00:11:04.000 --> 00:11:07.518
+Caption: they
+
+00:11:04.719 --> 00:11:09.199
+Caption: usually miss coverage of your code
+
+00:11:07.518 --> 00:11:11.039
+Caption: so they&#39;re definitely useful but they&#39;re
+
+00:11:09.200 --> 00:11:14.079
+Caption: rarely as good as something that can be
+
+00:11:11.039 --> 00:11:17.359
+Caption: automated to do to cover 100 of whatever
+
+00:11:14.078 --> 00:11:20.639
+Caption: what kind of errors it can detect
+
+00:11:17.359 --> 00:11:23.039
+Caption: and finally failing at runtime
+
+00:11:20.640 --> 00:11:25.600
+Caption: uh the later you catch an error
+
+00:11:23.039 --> 00:11:27.919
+Caption: it&#39;s often more costly to fix as this
+
+00:11:25.599 --> 00:11:29.838
+Caption: this bridge illustrates which is a fake
+
+00:11:27.919 --> 00:11:31.518
+Caption: by the way
+
+00:11:29.838 --> 00:11:33.200
+Caption: um
+
+00:11:31.518 --> 00:11:35.599
+Caption: there can be costs on your end users and
+
+00:11:33.200 --> 00:11:37.919
+Caption: that may then well not cost like in
+
+00:11:35.599 --> 00:11:39.838
+Caption: hassles or inconvenience or reputational
+
+00:11:37.919 --> 00:11:41.760
+Caption: damage whatever these costs come back on
+
+00:11:39.838 --> 00:11:43.599
+Caption: onto your own company and yeah the
+
+00:11:41.760 --> 00:11:45.119
+Caption: impact on your business reputation lost
+
+00:11:43.599 --> 00:11:46.639
+Caption: revenue and then engineering costs to
+
+00:11:45.119 --> 00:11:48.958
+Caption: rectify these things so those costs can
+
+00:11:46.640 --> 00:11:50.559
+Caption: really escalate so extremely type code
+
+00:11:48.958 --> 00:11:51.919
+Caption: it&#39;s not trivial really
+
+00:11:50.559 --> 00:11:53.359
+Caption: it&#39;s something that really impacts
+
+00:11:51.919 --> 00:11:55.039
+Caption: businesses
+
+00:11:53.359 --> 00:11:56.799
+Caption: okay moving on
+
+00:11:55.039 --> 00:11:58.559
+Caption: i just want to come back to
+
+00:11:56.799 --> 00:12:00.320
+Caption: uh how i said in the room we&#39;ve probably
+
+00:11:58.559 --> 00:12:02.239
+Caption: got people coming from dynamic language
+
+00:12:00.320 --> 00:12:03.200
+Caption: background static language backgrounds
+
+00:12:02.239 --> 00:12:05.278
+Caption: um
+
+00:12:03.200 --> 00:12:07.200
+Caption: i think that they often really shape how
+
+00:12:05.278 --> 00:12:09.278
+Caption: we think about solving problems with
+
+00:12:07.200 --> 00:12:10.799
+Caption: code so i just want to like focus on
+
+00:12:09.278 --> 00:12:13.518
+Caption: that for a little bit
+
+00:12:10.799 --> 00:12:16.000
+Caption: so remember i showed this diagram before
+
+00:12:13.518 --> 00:12:17.039
+Caption: we had some static and dynamic language
+
+00:12:16.000 --> 00:12:17.369
+Caption: people
+
+00:12:17.039 --> 00:12:19.679
+Caption: um
+
+00:12:17.369 --> 00:12:20.880
+Caption: [Music]
+
+00:12:19.679 --> 00:12:23.039
+Caption: there&#39;s something that barney
+
+00:12:20.880 --> 00:12:25.518
+Caption: strausstrup who was the inventor of c
+
+00:12:23.039 --> 00:12:27.119
+Caption: plus once said he said there&#39;s two types
+
+00:12:25.518 --> 00:12:28.479
+Caption: of programming languages there&#39;s
+
+00:12:27.119 --> 00:12:29.919
+Caption: programming languages that everyone
+
+00:12:28.479 --> 00:12:32.239
+Caption: complains about and there&#39;s programming
+
+00:12:29.919 --> 00:12:33.200
+Caption: languages that nobody uses
+
+00:12:32.239 --> 00:12:35.039
+Caption: um
+
+00:12:33.200 --> 00:12:37.518
+Caption: i think it sort of goes to show that
+
+00:12:35.039 --> 00:12:39.119
+Caption: there&#39;s uh you know there&#39;s a bunch of
+
+00:12:37.518 --> 00:12:40.559
+Caption: memes around languages basically you
+
+00:12:39.119 --> 00:12:42.320
+Caption: know there&#39;s things that people love to
+
+00:12:40.559 --> 00:12:43.838
+Caption: hate about all the different languages
+
+00:12:42.320 --> 00:12:45.679
+Caption: maybe the ones you&#39;re using maybe the
+
+00:12:43.838 --> 00:12:46.958
+Caption: ones that other people are using so just
+
+00:12:45.679 --> 00:12:48.320
+Caption: for a moment let&#39;s just take a look at
+
+00:12:46.958 --> 00:12:50.239
+Caption: some of these memes not just the bad
+
+00:12:48.320 --> 00:12:52.479
+Caption: side but also the good side
+
+00:12:50.239 --> 00:12:54.159
+Caption: so let&#39;s start with dynamic dynamically
+
+00:12:52.479 --> 00:12:55.760
+Caption: type languages things like javascript
+
+00:12:54.159 --> 00:12:57.199
+Caption: and python and things like that
+
+00:12:55.760 --> 00:12:59.200
+Caption: supporters
+
+00:12:57.200 --> 00:13:01.040
+Caption: might visualize it this way
+
+00:12:59.200 --> 00:13:02.239
+Caption: super fast rapid development you&#39;re
+
+00:13:01.039 --> 00:13:03.599
+Caption: really productive in these languages
+
+00:13:02.239 --> 00:13:04.958
+Caption: nothing slows you down you just type it
+
+00:13:03.599 --> 00:13:06.638
+Caption: out and you run it if it doesn&#39;t work
+
+00:13:04.958 --> 00:13:08.239
+Caption: just tweak it run it again until you get
+
+00:13:06.638 --> 00:13:10.479
+Caption: it right you&#39;ve got a prototype out the
+
+00:13:08.239 --> 00:13:12.000
+Caption: door in no time at all
+
+00:13:10.479 --> 00:13:13.518
+Caption: they&#39;re flexible they&#39;re really low
+
+00:13:12.000 --> 00:13:15.838
+Caption: friction there&#39;s not a lot of ceremony
+
+00:13:13.518 --> 00:13:17.679
+Caption: you just get you just get stuff done
+
+00:13:15.838 --> 00:13:19.039
+Caption: and you can usually with these languages
+
+00:13:17.679 --> 00:13:21.278
+Caption: you can really express a lot with a
+
+00:13:19.039 --> 00:13:22.078
+Caption: small amount of code
+
+00:13:21.278 --> 00:13:23.119
+Caption: okay
+
+00:13:22.078 --> 00:13:25.440
+Caption: people who
+
+00:13:23.119 --> 00:13:27.278
+Caption: are detractors of dynamic languages what
+
+00:13:25.440 --> 00:13:29.359
+Caption: sort of meme might they put on this so
+
+00:13:27.278 --> 00:13:31.440
+Caption: the one i came up with was this guy
+
+00:13:29.359 --> 00:13:33.359
+Caption: um
+
+00:13:31.440 --> 00:13:34.958
+Caption: it said that sometimes with dynamic
+
+00:13:33.359 --> 00:13:37.679
+Caption: language you just throw code at the wall
+
+00:13:34.958 --> 00:13:39.359
+Caption: and you see what sticks
+
+00:13:37.679 --> 00:13:41.198
+Caption: they often don&#39;t catch basic errors and
+
+00:13:39.359 --> 00:13:42.880
+Caption: that&#39;s a lot a lot of the sort of things
+
+00:13:41.198 --> 00:13:44.880
+Caption: we&#39;re talking about here even typos can
+
+00:13:42.880 --> 00:13:47.359
+Caption: slip through and not be found until
+
+00:13:44.880 --> 00:13:49.518
+Caption: later on
+
+00:13:47.359 --> 00:13:51.599
+Caption: and if these systems get large they can
+
+00:13:49.518 --> 00:13:52.958
+Caption: really cause some refactoring nightmares
+
+00:13:51.599 --> 00:13:55.198
+Caption: and i&#39;ve had a few of those nightmares
+
+00:13:52.958 --> 00:13:56.719
+Caption: myself
+
+00:13:55.198 --> 00:13:58.078
+Caption: so let&#39;s go across and give the
+
+00:13:56.719 --> 00:13:59.838
+Caption: treatment to the statically tight
+
+00:13:58.078 --> 00:14:01.119
+Caption: languages now so starting with the good
+
+00:13:59.838 --> 00:14:02.320
+Caption: stuff
+
+00:14:01.119 --> 00:14:05.119
+Caption: i just thought that that was a nice
+
+00:14:02.320 --> 00:14:06.799
+Caption: visualization of really smoothly running
+
+00:14:05.119 --> 00:14:09.440
+Caption: orchestra of machinery and that&#39;s you
+
+00:14:06.799 --> 00:14:11.518
+Caption: know that&#39;s statically typed
+
+00:14:09.440 --> 00:14:13.599
+Caption: languages like java and c-sharp running
+
+00:14:11.518 --> 00:14:14.838
+Caption: with all their factories and things you
+
+00:14:13.599 --> 00:14:16.719
+Caption: know everything is a
+
+00:14:14.838 --> 00:14:18.398
+Caption: symphony um
+
+00:14:16.719 --> 00:14:19.838
+Caption: also they catch your errors right away
+
+00:14:18.398 --> 00:14:21.440
+Caption: so you know you&#39;re not likely to put
+
+00:14:19.838 --> 00:14:23.039
+Caption: buggy stuff out there because it catches
+
+00:14:21.440 --> 00:14:24.239
+Caption: a whole bunch of stuff straight away for
+
+00:14:23.039 --> 00:14:26.078
+Caption: you so that&#39;s good and there&#39;s lots of
+
+00:14:24.239 --> 00:14:28.159
+Caption: great tooling for these languages
+
+00:14:26.078 --> 00:14:30.559
+Caption: um and you can really scale up that
+
+00:14:28.159 --> 00:14:32.078
+Caption: they&#39;re designed for that on the
+
+00:14:30.559 --> 00:14:32.880
+Caption: detractor side
+
+00:14:32.078 --> 00:14:34.958
+Caption: uh
+
+00:14:32.880 --> 00:14:36.000
+Caption: i came up with this one so there&#39;s a
+
+00:14:34.958 --> 00:14:37.278
+Caption: toilet there and we&#39;re just trying to
+
+00:14:36.000 --> 00:14:39.919
+Caption: flush the toilet but there&#39;s this whole
+
+00:14:37.278 --> 00:14:40.799
+Caption: massive machinery
+
+00:14:39.919 --> 00:14:43.039
+Caption: and
+
+00:14:40.799 --> 00:14:44.880
+Caption: this is kind of the rigmarole of what
+
+00:14:43.039 --> 00:14:46.078
+Caption: you sometimes run into depending on the
+
+00:14:44.880 --> 00:14:47.119
+Caption: kind of project you&#39;re working on but
+
+00:14:46.078 --> 00:14:48.638
+Caption: you know basically you&#39;ve always got to
+
+00:14:47.119 --> 00:14:50.000
+Caption: appease the compiler your thing is not
+
+00:14:48.638 --> 00:14:51.919
+Caption: going to run until the compiler is
+
+00:14:50.000 --> 00:14:53.919
+Caption: satisfied that it can prove that there&#39;s
+
+00:14:51.919 --> 00:14:55.518
+Caption: no type errors in your code so you&#39;ve
+
+00:14:53.919 --> 00:14:57.679
+Caption: got to come up with types you&#39;ve even
+
+00:14:55.518 --> 00:15:00.398
+Caption: maybe need to change your api to match
+
+00:14:57.679 --> 00:15:01.760
+Caption: what the compiler is able to do
+
+00:15:00.398 --> 00:15:03.359
+Caption: and often you end up with a lot of
+
+00:15:01.760 --> 00:15:05.278
+Caption: boilerplate code
+
+00:15:03.359 --> 00:15:07.359
+Caption: changing between the types that you came
+
+00:15:05.278 --> 00:15:08.880
+Caption: up with or the classes and so on to some
+
+00:15:07.359 --> 00:15:10.479
+Caption: sort of
+
+00:15:08.880 --> 00:15:12.320
+Caption: text representation that you can store
+
+00:15:10.479 --> 00:15:13.359
+Caption: in a database or sender of a http
+
+00:15:12.320 --> 00:15:15.760
+Caption: request
+
+00:15:13.359 --> 00:15:17.919
+Caption: and finally abstract signature proxy
+
+00:15:15.760 --> 00:15:20.078
+Caption: factory beans so i thought that was a
+
+00:15:17.919 --> 00:15:21.359
+Caption: sort of a made-up thing but i googled it
+
+00:15:20.078 --> 00:15:23.518
+Caption: and it took me straight to the
+
+00:15:21.359 --> 00:15:25.518
+Caption: documentation page for the actual thing
+
+00:15:23.518 --> 00:15:29.518
+Caption: so it&#39;s a real thing
+
+00:15:25.518 --> 00:15:31.359
+Caption: complexity what we&#39;re talking about here
+
+00:15:29.518 --> 00:15:32.719
+Caption: okay they seem like they&#39;re really
+
+00:15:31.359 --> 00:15:35.039
+Caption: different ends of the spectrum but what
+
+00:15:32.719 --> 00:15:36.559
+Caption: about common ground
+
+00:15:35.039 --> 00:15:38.479
+Caption: i think we can all agree that errors are
+
+00:15:36.559 --> 00:15:41.440
+Caption: best cause as early as possible
+
+00:15:38.479 --> 00:15:44.000
+Caption: this is this from the uh nist
+
+00:15:41.440 --> 00:15:46.880
+Caption: uh in the usa they they did a study and
+
+00:15:44.000 --> 00:15:48.880
+Caption: they basically neatly demonstrated that
+
+00:15:46.880 --> 00:15:50.638
+Caption: um the earlier you catch a bug i know
+
+00:15:48.880 --> 00:15:52.479
+Caption: that these labels are really small but
+
+00:15:50.638 --> 00:15:54.000
+Caption: basically these are costs going up the
+
+00:15:52.479 --> 00:15:55.679
+Caption: later you find a bug so that&#39;s
+
+00:15:54.000 --> 00:15:57.518
+Caption: production right over there on the on
+
+00:15:55.679 --> 00:15:58.719
+Caption: the right side and
+
+00:15:57.518 --> 00:16:01.518
+Caption: here the second one is when you&#39;re
+
+00:15:58.719 --> 00:16:04.398
+Caption: actually writing the code so the ideal
+
+00:16:01.518 --> 00:16:05.679
+Caption: time to catch a bug is back here even
+
+00:16:04.398 --> 00:16:07.440
+Caption: before you write it preferably but if
+
+00:16:05.679 --> 00:16:08.479
+Caption: you&#39;re the coder you just get given okay
+
+00:16:07.440 --> 00:16:09.679
+Caption: do this
+
+00:16:08.479 --> 00:16:11.278
+Caption: that&#39;s where you want to catch your bugs
+
+00:16:09.679 --> 00:16:12.880
+Caption: you don&#39;t want them to slip out
+
+00:16:11.278 --> 00:16:14.799
+Caption: further than that
+
+00:16:12.880 --> 00:16:16.398
+Caption: so this is a point in favor of languages
+
+00:16:14.799 --> 00:16:17.359
+Caption: with the static checking step because
+
+00:16:16.398 --> 00:16:18.880
+Caption: they&#39;re going to catch a lot of these
+
+00:16:17.359 --> 00:16:21.599
+Caption: ones early
+
+00:16:18.880 --> 00:16:23.278
+Caption: and it&#39;s also a point in favor of tools
+
+00:16:21.599 --> 00:16:24.638
+Caption: good ide tools because they&#39;re going to
+
+00:16:23.278 --> 00:16:25.679
+Caption: just show you little red squiggles and
+
+00:16:24.638 --> 00:16:28.880
+Caption: so on
+
+00:16:25.679 --> 00:16:30.638
+Caption: another thing we can probably agree on
+
+00:16:28.880 --> 00:16:32.320
+Caption: is that all code and data does have
+
+00:16:30.638 --> 00:16:34.799
+Caption: types even if you&#39;re in a dynamic
+
+00:16:32.320 --> 00:16:37.278
+Caption: language types are just the static facts
+
+00:16:34.799 --> 00:16:38.799
+Caption: about the data in our programs so they
+
+00:16:37.278 --> 00:16:40.239
+Caption: might be explicitly written into your
+
+00:16:38.799 --> 00:16:41.599
+Caption: code or they might be implicit and
+
+00:16:40.239 --> 00:16:42.799
+Caption: you&#39;ve got to basically like run the
+
+00:16:41.599 --> 00:16:44.638
+Caption: program in your head to work out what
+
+00:16:42.799 --> 00:16:46.320
+Caption: the type of things are but either way
+
+00:16:44.638 --> 00:16:48.559
+Caption: the types are there they&#39;re definitely
+
+00:16:46.320 --> 00:16:48.559
+Caption: there
+
+00:16:49.039 --> 00:16:53.599
+Caption: so another way of saying that there&#39;s no
+
+00:16:51.198 --> 00:16:56.239
+Caption: such thing as typeless or schemeless
+
+00:16:53.599 --> 00:16:57.440
+Caption: there&#39;s just type implicit or implicit
+
+00:16:56.239 --> 00:16:58.799
+Caption: schemas
+
+00:16:57.440 --> 00:17:00.958
+Caption: um
+
+00:16:58.799 --> 00:17:02.559
+Caption: so you know things like dynamic code
+
+00:17:00.958 --> 00:17:04.798
+Caption: javascript python things like that
+
+00:17:02.559 --> 00:17:05.760
+Caption: schema-less databases no no sql things
+
+00:17:04.798 --> 00:17:07.599
+Caption: like that
+
+00:17:05.760 --> 00:17:09.119
+Caption: on the other hand types can be explicit
+
+00:17:07.599 --> 00:17:10.880
+Caption: they can be part of the code or part of
+
+00:17:09.119 --> 00:17:12.479
+Caption: the system so relational database
+
+00:17:10.880 --> 00:17:15.119
+Caption: schemas they&#39;re explicit types you can
+
+00:17:12.479 --> 00:17:17.520
+Caption: only do what what the explicit type says
+
+00:17:15.119 --> 00:17:19.038
+Caption: things like classes in java or c-sharp
+
+00:17:17.520 --> 00:17:20.640
+Caption: they&#39;re basically dictating what you can
+
+00:17:19.038 --> 00:17:22.078
+Caption: and can&#39;t do with a piece of code and it
+
+00:17:20.640 --> 00:17:25.678
+Caption: will not allow anything that doesn&#39;t
+
+00:17:22.078 --> 00:17:27.520
+Caption: match the type so they&#39;re explicit types
+
+00:17:25.678 --> 00:17:29.918
+Caption: more common ground
+
+00:17:27.520 --> 00:17:31.440
+Caption: code it&#39;s for people and machines it&#39;s
+
+00:17:29.918 --> 00:17:33.038
+Caption: not just for machines and it&#39;s not just
+
+00:17:31.439 --> 00:17:35.279
+Caption: for people the machines have to be able
+
+00:17:33.038 --> 00:17:36.879
+Caption: to read it and process it and execute it
+
+00:17:35.280 --> 00:17:39.280
+Caption: but people are usually the ones who
+
+00:17:36.880 --> 00:17:41.918
+Caption: write it so far at least
+
+00:17:39.280 --> 00:17:42.960
+Caption: so what does it mean
+
+00:17:41.918 --> 00:17:45.038
+Caption: well
+
+00:17:42.959 --> 00:17:47.038
+Caption: types help document document and
+
+00:17:45.038 --> 00:17:49.119
+Caption: communicate our intent so that&#39;s on the
+
+00:17:47.038 --> 00:17:50.879
+Caption: human side so if you&#39;ve got no types
+
+00:17:49.119 --> 00:17:52.479
+Caption: that are explicit in your code then you
+
+00:17:50.880 --> 00:17:54.000
+Caption: know you&#39;ve got other issues with other
+
+00:17:52.479 --> 00:17:55.280
+Caption: people coming along later and maybe not
+
+00:17:54.000 --> 00:17:56.719
+Caption: understanding the
+
+00:17:55.280 --> 00:17:58.080
+Caption: nuance of what you&#39;re trying to achieve
+
+00:17:56.719 --> 00:18:00.719
+Caption: and that&#39;s where if you&#39;ve got stringly
+
+00:17:58.079 --> 00:18:02.000
+Caption: typed code in there it can easily be
+
+00:18:00.719 --> 00:18:04.479
+Caption: changed by someone else who doesn&#39;t
+
+00:18:02.000 --> 00:18:05.678
+Caption: understand the very careful way that you
+
+00:18:04.479 --> 00:18:07.520
+Caption: were thinking of it running and then
+
+00:18:05.678 --> 00:18:10.319
+Caption: they violated your ideas but none of
+
+00:18:07.520 --> 00:18:12.479
+Caption: it&#39;s explicit so you know it it
+
+00:18:10.319 --> 00:18:14.959
+Caption: even in a system like say express in
+
+00:18:12.479 --> 00:18:16.239
+Caption: node it&#39;s a it&#39;s a web server system
+
+00:18:14.959 --> 00:18:17.599
+Caption: it&#39;s not written in typescript it&#39;s
+
+00:18:16.239 --> 00:18:18.558
+Caption: written in javascript there&#39;s no types
+
+00:18:17.599 --> 00:18:20.160
+Caption: in the system but you go to the
+
+00:18:18.558 --> 00:18:21.918
+Caption: documentation and it&#39;s basically just
+
+00:18:20.160 --> 00:18:23.200
+Caption: showing you a whole bunch of types it&#39;s
+
+00:18:21.918 --> 00:18:24.719
+Caption: showing you what all the properties are
+
+00:18:23.199 --> 00:18:26.558
+Caption: and what types of values they accept
+
+00:18:24.719 --> 00:18:28.719
+Caption: what all the functions are so the types
+
+00:18:26.558 --> 00:18:30.798
+Caption: are there it&#39;s just you know are they
+
+00:18:28.719 --> 00:18:32.479
+Caption: explicit in the code are they executable
+
+00:18:30.798 --> 00:18:35.439
+Caption: documentation or are they kept in a
+
+00:18:32.479 --> 00:18:35.439
+Caption: separate place
+
+00:18:35.599 --> 00:18:39.280
+Caption: another point about this
+
+00:18:37.359 --> 00:18:40.640
+Caption: people and machines um programming
+
+00:18:39.280 --> 00:18:42.160
+Caption: languages and their type systems they
+
+00:18:40.640 --> 00:18:44.000
+Caption: can be more or less expressive and they
+
+00:18:42.160 --> 00:18:46.000
+Caption: can be more or less obtrusive and the
+
+00:18:44.000 --> 00:18:48.400
+Caption: point i want to make here is that
+
+00:18:46.000 --> 00:18:49.839
+Caption: if types and static types solved all of
+
+00:18:48.400 --> 00:18:51.760
+Caption: our problems then why are dynamically
+
+00:18:49.839 --> 00:18:55.199
+Caption: typed languages and nosql systems
+
+00:18:51.760 --> 00:18:57.359
+Caption: thriving it&#39;s because you know they&#39;re
+
+00:18:55.199 --> 00:18:59.038
+Caption: um low friction and they they&#39;re really
+
+00:18:57.359 --> 00:19:01.199
+Caption: great in their niches so we haven&#39;t
+
+00:18:59.038 --> 00:19:02.319
+Caption: really nailed it with type systems so
+
+00:19:01.199 --> 00:19:03.678
+Caption: i&#39;m really aware that i&#39;m not saying
+
+00:19:02.319 --> 00:19:04.558
+Caption: like hey do everything in types i&#39;m
+
+00:19:03.678 --> 00:19:07.119
+Caption: saying
+
+00:19:04.558 --> 00:19:08.719
+Caption: um types solve some problems and
+
+00:19:07.119 --> 00:19:11.719
+Caption: introduce different problems so there&#39;s
+
+00:19:08.719 --> 00:19:11.719
+Caption: trade-offs
+
+00:19:13.038 --> 00:19:17.599
+Caption: yeah simplicity versus complexity
+
+00:19:16.719 --> 00:19:18.640
+Caption: okay
+
+00:19:17.599 --> 00:19:21.439
+Caption: so
+
+00:19:18.640 --> 00:19:23.520
+Caption: the typescript way i&#39;d like to imagine
+
+00:19:21.439 --> 00:19:25.519
+Caption: an elevator pitch by anders anders
+
+00:19:23.520 --> 00:19:27.119
+Caption: heilsberg who invented typescript and a
+
+00:19:25.520 --> 00:19:30.160
+Caption: few other languages the well-known ones
+
+00:19:27.119 --> 00:19:31.760
+Caption: before that like delphi and c-sharp
+
+00:19:30.160 --> 00:19:34.400
+Caption: given all these trade-offs how he might
+
+00:19:31.760 --> 00:19:35.919
+Caption: pitch the idea for typescript and it&#39;d
+
+00:19:34.400 --> 00:19:37.119
+Caption: be something like this what if types
+
+00:19:35.918 --> 00:19:38.399
+Caption: were optional
+
+00:19:37.119 --> 00:19:40.319
+Caption: and they could actually describe our
+
+00:19:38.400 --> 00:19:42.799
+Caption: real world coding patterns so the idea
+
+00:19:40.319 --> 00:19:44.558
+Caption: would be you smash out some code
+
+00:19:42.798 --> 00:19:46.159
+Caption: you do it
+
+00:19:44.558 --> 00:19:47.918
+Caption: dynamic code style right you just get it
+
+00:19:46.160 --> 00:19:49.520
+Caption: working don&#39;t worry about p appeasing
+
+00:19:47.918 --> 00:19:50.959
+Caption: the compiler and then you have this type
+
+00:19:49.520 --> 00:19:52.959
+Caption: system that you can come along later and
+
+00:19:50.959 --> 00:19:54.640
+Caption: say okay now i want to
+
+00:19:52.959 --> 00:19:55.918
+Caption: lock this in and say this is this is
+
+00:19:54.640 --> 00:19:57.200
+Caption: what&#39;s allowed this is what&#39;s not
+
+00:19:55.918 --> 00:19:58.959
+Caption: allowed and you can add this one later
+
+00:19:57.199 --> 00:20:00.479
+Caption: on in fact that&#39;s how typescript largely
+
+00:19:58.959 --> 00:20:01.918
+Caption: started most projects weren&#39;t written in
+
+00:20:00.479 --> 00:20:04.319
+Caption: typescript at the time that it started
+
+00:20:01.918 --> 00:20:06.399
+Caption: or very few none when it started
+
+00:20:04.319 --> 00:20:08.639
+Caption: but what it could do was actually create
+
+00:20:06.400 --> 00:20:11.119
+Caption: type definition files for existing
+
+00:20:08.640 --> 00:20:12.320
+Caption: libraries things like express and
+
+00:20:11.119 --> 00:20:14.239
+Caption: all kinds of things that were really
+
+00:20:12.319 --> 00:20:16.399
+Caption: widely used out there
+
+00:20:14.239 --> 00:20:18.400
+Caption: and it kind of bootstraps that way so
+
+00:20:16.400 --> 00:20:19.919
+Caption: you could you could
+
+00:20:18.400 --> 00:20:21.119
+Caption: want to do something with strong types
+
+00:20:19.918 --> 00:20:22.880
+Caption: and then you could just get the types
+
+00:20:21.119 --> 00:20:25.599
+Caption: from this definitely type repository and
+
+00:20:22.880 --> 00:20:27.119
+Caption: then use express or use even now you can
+
+00:20:25.599 --> 00:20:28.640
+Caption: do that you can use react you can use
+
+00:20:27.119 --> 00:20:29.918
+Caption: whatever you want whether or not those
+
+00:20:28.640 --> 00:20:31.520
+Caption: things are written doesn&#39;t matter
+
+00:20:29.918 --> 00:20:34.479
+Caption: because the types are bolted on they
+
+00:20:31.520 --> 00:20:36.239
+Caption: actually describe what this api does so
+
+00:20:34.479 --> 00:20:38.000
+Caption: you can design an api without worrying
+
+00:20:36.239 --> 00:20:40.319
+Caption: about oh will this work in a in a
+
+00:20:38.000 --> 00:20:41.760
+Caption: specific kind of type system no you just
+
+00:20:40.319 --> 00:20:43.519
+Caption: you just use the types to model what&#39;s
+
+00:20:41.760 --> 00:20:44.558
+Caption: actually going on and what you get in
+
+00:20:43.520 --> 00:20:45.760
+Caption: the end is something that looks really
+
+00:20:44.558 --> 00:20:48.239
+Caption: different from
+
+00:20:45.760 --> 00:20:49.520
+Caption: some of our better known static type
+
+00:20:48.239 --> 00:20:51.199
+Caption: systems
+
+00:20:49.520 --> 00:20:53.200
+Caption: do you know the book design patterns
+
+00:20:51.199 --> 00:20:54.798
+Caption: gang of four it&#39;s pretty well well known
+
+00:20:53.199 --> 00:20:56.719
+Caption: i really liked reading it at the time
+
+00:20:54.798 --> 00:20:59.038
+Caption: but years and years later i&#39;ve come to
+
+00:20:56.719 --> 00:21:00.479
+Caption: realize with other systems that a lot of
+
+00:20:59.038 --> 00:21:02.719
+Caption: those patterns actually start to look
+
+00:21:00.479 --> 00:21:04.558
+Caption: like workarounds for
+
+00:21:02.719 --> 00:21:06.880
+Caption: things that the the language or the type
+
+00:21:04.558 --> 00:21:09.279
+Caption: system can&#39;t easily express
+
+00:21:06.880 --> 00:21:11.199
+Caption: so for example decorate a pattern that&#39;s
+
+00:21:09.280 --> 00:21:13.039
+Caption: one of these design patterns from this
+
+00:21:11.199 --> 00:21:16.000
+Caption: gang of four book
+
+00:21:13.038 --> 00:21:16.879
+Caption: i just wanted to illustrate a diagram of
+
+00:21:16.000 --> 00:21:18.959
+Caption: you know
+
+00:21:16.880 --> 00:21:20.719
+Caption: it&#39;s a class diagram with decorators
+
+00:21:18.959 --> 00:21:22.479
+Caption: there&#39;s some interfaces there&#39;s some
+
+00:21:20.719 --> 00:21:23.918
+Caption: concrete implementations
+
+00:21:22.479 --> 00:21:26.479
+Caption: i won&#39;t go into all the details of that
+
+00:21:23.918 --> 00:21:29.359
+Caption: but if you have to actually do a general
+
+00:21:26.479 --> 00:21:30.880
+Caption: purpose decorator in a typical
+
+00:21:29.359 --> 00:21:32.719
+Caption: object oriented statically typed
+
+00:21:30.880 --> 00:21:34.400
+Caption: language it can be really difficult and
+
+00:21:32.719 --> 00:21:35.839
+Caption: i remember trying to do some of these
+
+00:21:34.400 --> 00:21:37.359
+Caption: trying to solve the general problem not
+
+00:21:35.839 --> 00:21:38.959
+Caption: just with this one specific case and you
+
+00:21:37.359 --> 00:21:40.400
+Caption: end up with a reflection code where you
+
+00:21:38.959 --> 00:21:42.640
+Caption: go through and try and work out what the
+
+00:21:40.400 --> 00:21:44.159
+Caption: type actually is at runtime write some
+
+00:21:42.640 --> 00:21:45.919
+Caption: code to do the thing that you&#39;re trying
+
+00:21:44.159 --> 00:21:47.840
+Caption: to do with it to decorate in some way
+
+00:21:45.918 --> 00:21:50.239
+Caption: and then use this emit code to at
+
+00:21:47.839 --> 00:21:52.319
+Caption: runtime generate new
+
+00:21:50.239 --> 00:21:53.918
+Caption: dlls and and things that you can then
+
+00:21:52.319 --> 00:21:56.239
+Caption: inject into your running code and in the
+
+00:21:53.918 --> 00:21:58.959
+Caption: end it&#39;s really really complicated in
+
+00:21:56.239 --> 00:22:01.760
+Caption: javascript here&#39;s a spy function i want
+
+00:21:58.959 --> 00:22:03.760
+Caption: to just wrap any function you give me so
+
+00:22:01.760 --> 00:22:05.039
+Caption: that when i call it something gets
+
+00:22:03.760 --> 00:22:06.320
+Caption: logged out and it logs what the
+
+00:22:05.038 --> 00:22:07.519
+Caption: arguments it was called with and what
+
+00:22:06.319 --> 00:22:08.719
+Caption: the return value was and that&#39;s the
+
+00:22:07.520 --> 00:22:11.039
+Caption: whole thing there
+
+00:22:08.719 --> 00:22:12.079
+Caption: so here&#39;s my spy function i just pass it
+
+00:22:11.038 --> 00:22:13.678
+Caption: a function and it&#39;s going to return
+
+00:22:12.079 --> 00:22:15.279
+Caption: another function that has got this spy
+
+00:22:13.678 --> 00:22:17.599
+Caption: built in so there&#39;s the function it
+
+00:22:15.280 --> 00:22:18.799
+Caption: returns here&#39;s it calling your function
+
+00:22:17.599 --> 00:22:20.479
+Caption: here&#39;s it&#39;s logging and here&#39;s it&#39;s
+
+00:22:18.798 --> 00:22:21.599
+Caption: returning the return value so you&#39;ve
+
+00:22:20.479 --> 00:22:23.599
+Caption: just wrapped a function you&#39;ve just
+
+00:22:21.599 --> 00:22:25.280
+Caption: decorated in a couple of lines of code
+
+00:22:23.599 --> 00:22:27.119
+Caption: and here&#39;s the typescript definition for
+
+00:22:25.280 --> 00:22:29.520
+Caption: that it&#39;s just basically saying well
+
+00:22:27.119 --> 00:22:30.719
+Caption: this the type of this thing
+
+00:22:29.520 --> 00:22:33.039
+Caption: spy
+
+00:22:30.719 --> 00:22:34.640
+Caption: it&#39;s it takes a function of a specific
+
+00:22:33.038 --> 00:22:36.479
+Caption: shape f which we&#39;ve made generic so
+
+00:22:34.640 --> 00:22:38.079
+Caption: whatever shape of function you put in
+
+00:22:36.479 --> 00:22:39.439
+Caption: we&#39;ll call that f and it returns one of
+
+00:22:38.079 --> 00:22:41.279
+Caption: the same shape
+
+00:22:39.439 --> 00:22:43.038
+Caption: we&#39;ve just modeled what you&#39;ve done so
+
+00:22:41.280 --> 00:22:45.359
+Caption: the actual implementation was super easy
+
+00:22:43.038 --> 00:22:47.439
+Caption: in a dynamic language and then the the
+
+00:22:45.359 --> 00:22:51.199
+Caption: type description is 100 accurate and
+
+00:22:47.439 --> 00:22:51.199
+Caption: also extremely easy to express
+
+00:22:51.439 --> 00:22:56.079
+Caption: so we&#39;re talking best of both worlds
+
+00:22:53.038 --> 00:22:57.038
+Caption: ideally rapid prototyping short succinct
+
+00:22:56.079 --> 00:22:59.519
+Caption: code
+
+00:22:57.038 --> 00:23:01.359
+Caption: accurate type checking and it&#39;s type
+
+00:22:59.520 --> 00:23:02.080
+Caption: safe and it&#39;s scalable
+
+00:23:01.359 --> 00:23:03.599
+Caption: so
+
+00:23:02.079 --> 00:23:04.798
+Caption: that&#39;s the that would be the elevator
+
+00:23:03.599 --> 00:23:06.400
+Caption: pitch
+
+00:23:04.798 --> 00:23:07.839
+Caption: do both but how would you actually
+
+00:23:06.400 --> 00:23:10.239
+Caption: achieve that so that&#39;s where it comes
+
+00:23:07.839 --> 00:23:11.918
+Caption: down to the actual type system
+
+00:23:10.239 --> 00:23:14.479
+Caption: types starting with types that model
+
+00:23:11.918 --> 00:23:16.719
+Caption: what we actually do so for example in
+
+00:23:14.479 --> 00:23:18.400
+Caption: typescript you can have single values
+
+00:23:16.719 --> 00:23:20.158
+Caption: that are actually types so we&#39;ve got an
+
+00:23:18.400 --> 00:23:23.679
+Caption: apple type and orange type and you can
+
+00:23:20.159 --> 00:23:24.880
+Caption: only put the string apple that lowercase
+
+00:23:23.678 --> 00:23:26.319
+Caption: set of characters there that&#39;s the only
+
+00:23:24.880 --> 00:23:29.039
+Caption: thing you&#39;ll accept if you try and
+
+00:23:26.319 --> 00:23:30.719
+Caption: assign a value pair to a variable that
+
+00:23:29.038 --> 00:23:31.839
+Caption: can only accept this apple string you
+
+00:23:30.719 --> 00:23:32.959
+Caption: just can&#39;t do that so they&#39;re all
+
+00:23:31.839 --> 00:23:35.279
+Caption: strings
+
+00:23:32.959 --> 00:23:37.038
+Caption: but the compiler has now got visibility
+
+00:23:35.280 --> 00:23:38.719
+Caption: into what is allowed in those strings so
+
+00:23:37.038 --> 00:23:40.558
+Caption: it&#39;s not just one big bag of any
+
+00:23:38.719 --> 00:23:42.000
+Caption: possible sequence of characters all
+
+00:23:40.558 --> 00:23:43.918
+Caption: being the same type
+
+00:23:42.000 --> 00:23:46.479
+Caption: so these are called unit types or
+
+00:23:43.918 --> 00:23:48.319
+Caption: literal types
+
+00:23:46.479 --> 00:23:50.079
+Caption: from there it&#39;s kind of obvious that you
+
+00:23:48.319 --> 00:23:52.158
+Caption: want unions of types and this is another
+
+00:23:50.079 --> 00:23:54.399
+Caption: thing that a lot of languages uh find it
+
+00:23:52.159 --> 00:23:56.320
+Caption: very hard to express so a coin toss is
+
+00:23:54.400 --> 00:23:57.919
+Caption: just we want to express that in our
+
+00:23:56.319 --> 00:23:59.359
+Caption: program as the string heads or the
+
+00:23:57.918 --> 00:24:00.558
+Caption: string tails and we don&#39;t want to accept
+
+00:23:59.359 --> 00:24:02.479
+Caption: anything else because we don&#39;t want to
+
+00:24:00.558 --> 00:24:04.158
+Caption: have like typos and things going on so
+
+00:24:02.479 --> 00:24:05.439
+Caption: we can have a type coin toss and we can
+
+00:24:04.159 --> 00:24:06.799
+Caption: write a function that accepts a coin
+
+00:24:05.439 --> 00:24:08.319
+Caption: toss and they&#39;re the only two values
+
+00:24:06.798 --> 00:24:09.519
+Caption: it&#39;s going to accept and the compiler
+
+00:24:08.319 --> 00:24:12.079
+Caption: will check that and it won&#39;t allow
+
+00:24:09.520 --> 00:24:12.080
+Caption: anything else
+
+00:24:13.520 --> 00:24:16.719
+Caption: intersections of type this is one where
+
+00:24:15.038 --> 00:24:18.719
+Caption: it&#39;s a little bit harder to explain but
+
+00:24:16.719 --> 00:24:19.918
+Caption: the the example i came up with here is
+
+00:24:18.719 --> 00:24:21.678
+Caption: that you know imagine we&#39;ve got a couple
+
+00:24:19.918 --> 00:24:23.199
+Caption: of objects which are just full of
+
+00:24:21.678 --> 00:24:24.959
+Caption: properties they&#39;re just sort of record
+
+00:24:23.199 --> 00:24:27.439
+Caption: types so we&#39;ve got one with the foo
+
+00:24:24.959 --> 00:24:29.439
+Caption: numeric and a bar string property and we
+
+00:24:27.439 --> 00:24:31.519
+Caption: can merge those two types together what
+
+00:24:29.439 --> 00:24:33.199
+Caption: would be the type of the resulting type
+
+00:24:31.520 --> 00:24:34.558
+Caption: of merging these two things together so
+
+00:24:33.199 --> 00:24:37.119
+Caption: that they had both properties well it&#39;d
+
+00:24:34.558 --> 00:24:38.558
+Caption: be the intersection a and b it&#39;s the
+
+00:24:37.119 --> 00:24:40.158
+Caption: intersection of those two so you can
+
+00:24:38.558 --> 00:24:41.359
+Caption: just express that in the type system you
+
+00:24:40.159 --> 00:24:42.240
+Caption: can write this code that merges things
+
+00:24:41.359 --> 00:24:43.520
+Caption: and then you&#39;ve got a type that
+
+00:24:42.239 --> 00:24:45.520
+Caption: describes
+
+00:24:43.520 --> 00:24:47.599
+Caption: what what the result would look like
+
+00:24:45.520 --> 00:24:49.279
+Caption: in a static way that that the compiler
+
+00:24:47.599 --> 00:24:51.439
+Caption: can actually check
+
+00:24:49.279 --> 00:24:53.279
+Caption: another really interesting um
+
+00:24:51.439 --> 00:24:55.759
+Caption: development with typescript is narrowing
+
+00:24:53.279 --> 00:24:57.360
+Caption: so uh here it&#39;s really common to have
+
+00:24:55.760 --> 00:24:58.558
+Caption: things like nullable types so here&#39;s an
+
+00:24:57.359 --> 00:25:00.000
+Caption: example where we&#39;ve got a date but we&#39;re
+
+00:24:58.558 --> 00:25:01.439
+Caption: not sure it might actually be undefined
+
+00:25:00.000 --> 00:25:03.439
+Caption: maybe it was an optional property from
+
+00:25:01.439 --> 00:25:05.119
+Caption: somewhere if we try to call a property
+
+00:25:03.439 --> 00:25:07.359
+Caption: on that with typescript it&#39;s going to
+
+00:25:05.119 --> 00:25:09.599
+Caption: tell us that we can&#39;t because it might
+
+00:25:07.359 --> 00:25:11.278
+Caption: be undefined and you can&#39;t do that with
+
+00:25:09.599 --> 00:25:12.558
+Caption: undefined so statically it&#39;s saying
+
+00:25:11.279 --> 00:25:15.039
+Caption: that&#39;s not right there&#39;s a red squiggle
+
+00:25:12.558 --> 00:25:16.319
+Caption: there in your ide here we&#39;ve got a type
+
+00:25:15.038 --> 00:25:18.239
+Caption: guard so we&#39;re actually going well if
+
+00:25:16.319 --> 00:25:20.158
+Caption: date&#39;s not undefined now i&#39;m doing
+
+00:25:18.239 --> 00:25:21.760
+Caption: exactly the same thing syntactically
+
+00:25:20.159 --> 00:25:24.240
+Caption: it&#39;s exactly the same thing but now it&#39;s
+
+00:25:21.760 --> 00:25:26.880
+Caption: okay because it&#39;s narrowed the type so
+
+00:25:24.239 --> 00:25:28.798
+Caption: inside that block it&#39;s it recognizes
+
+00:25:26.880 --> 00:25:30.640
+Caption: well the type&#39;s not date or undefined
+
+00:25:28.798 --> 00:25:31.839
+Caption: anymore it&#39;s just date so it allows this
+
+00:25:30.640 --> 00:25:33.839
+Caption: thing and this can get really
+
+00:25:31.839 --> 00:25:37.359
+Caption: sophisticated and it just models what
+
+00:25:33.839 --> 00:25:38.479
+Caption: you actually do in your real code
+
+00:25:37.359 --> 00:25:41.038
+Caption: finally
+
+00:25:38.479 --> 00:25:42.880
+Caption: structural typing so what this means is
+
+00:25:41.038 --> 00:25:44.558
+Caption: that most most type systems are nominal
+
+00:25:42.880 --> 00:25:46.000
+Caption: so you know if you need to pass an
+
+00:25:44.558 --> 00:25:47.599
+Caption: instance of a certain class to a
+
+00:25:46.000 --> 00:25:49.439
+Caption: function you&#39;ve got to get an instance
+
+00:25:47.599 --> 00:25:51.359
+Caption: of that specific class you can&#39;t just
+
+00:25:49.439 --> 00:25:52.879
+Caption: pass in something that&#39;s got similar
+
+00:25:51.359 --> 00:25:54.079
+Caption: properties or whatever
+
+00:25:52.880 --> 00:25:56.239
+Caption: the opposite of that is a structural
+
+00:25:54.079 --> 00:25:57.678
+Caption: type system basically it&#39;s duct type if
+
+00:25:56.239 --> 00:25:59.839
+Caption: it looks like a duck quacks like a duck
+
+00:25:57.678 --> 00:26:01.839
+Caption: it&#39;s a duck so
+
+00:25:59.839 --> 00:26:04.158
+Caption: our options object here takes a name and
+
+00:26:01.839 --> 00:26:05.439
+Caption: account and here i can just simply make
+
+00:26:04.159 --> 00:26:06.720
+Caption: up my own object that&#39;s got a name and
+
+00:26:05.439 --> 00:26:08.079
+Caption: account pass it in there i don&#39;t need a
+
+00:26:06.719 --> 00:26:09.918
+Caption: constructor i don&#39;t need to find out
+
+00:26:08.079 --> 00:26:11.199
+Caption: where your options object constructor is
+
+00:26:09.918 --> 00:26:12.719
+Caption: or a factory or anything like that i
+
+00:26:11.199 --> 00:26:14.158
+Caption: just make up an object that&#39;s got a name
+
+00:26:12.719 --> 00:26:16.640
+Caption: and account that&#39;s fine it&#39;s as good as
+
+00:26:14.159 --> 00:26:16.640
+Caption: anything else
+
+00:26:18.159 --> 00:26:21.440
+Caption: i couldn&#39;t resist just putting this
+
+00:26:19.839 --> 00:26:22.640
+Caption: quick slide in here
+
+00:26:21.439 --> 00:26:24.479
+Caption: because
+
+00:26:22.640 --> 00:26:26.799
+Caption: the the types can get really really
+
+00:26:24.479 --> 00:26:28.719
+Caption: sophisticated uh someone pointed out a
+
+00:26:26.798 --> 00:26:31.199
+Caption: while ago that the type system is now
+
+00:26:28.719 --> 00:26:33.038
+Caption: turing complete in typescript um i&#39;ve
+
+00:26:31.199 --> 00:26:34.639
+Caption: got a little
+
+00:26:33.038 --> 00:26:36.879
+Caption: demo here of
+
+00:26:34.640 --> 00:26:39.760
+Caption: what someone did with that so i&#39;m not
+
+00:26:36.880 --> 00:26:42.000
+Caption: suggesting you do this at home but um
+
+00:26:39.760 --> 00:26:43.760
+Caption: what&#39;s happening here is it&#39;s not
+
+00:26:42.000 --> 00:26:46.880
+Caption: running yeah it is
+
+00:26:43.760 --> 00:26:48.798
+Caption: um this is this is basically uh
+
+00:26:46.880 --> 00:26:51.119
+Caption: some database records but here we&#39;re
+
+00:26:48.798 --> 00:26:53.199
+Caption: getting the type of these records and
+
+00:26:51.119 --> 00:26:54.798
+Caption: typescript is able to infer all the
+
+00:26:53.199 --> 00:26:56.558
+Caption: specific
+
+00:26:54.798 --> 00:26:58.558
+Caption: strings and numbers and things in there
+
+00:26:56.558 --> 00:27:00.798
+Caption: and then these are some queries actually
+
+00:26:58.558 --> 00:27:03.038
+Caption: run at the type level
+
+00:27:00.798 --> 00:27:03.038
+Caption: and
+
+00:27:03.359 --> 00:27:06.640
+Caption: okay it doesn&#39;t actually seem to be
+
+00:27:04.479 --> 00:27:08.640
+Caption: running okay technical problem there but
+
+00:27:06.640 --> 00:27:11.520
+Caption: what goes on is that these strings are
+
+00:27:08.640 --> 00:27:13.520
+Caption: actually these literal string types and
+
+00:27:11.520 --> 00:27:15.200
+Caption: if you hover over the types here it
+
+00:27:13.520 --> 00:27:16.640
+Caption: actually shows you
+
+00:27:15.199 --> 00:27:18.479
+Caption: the result
+
+00:27:16.640 --> 00:27:20.399
+Caption: like as if you just executed this query
+
+00:27:18.479 --> 00:27:21.760
+Caption: and it will list bart and lisa and
+
+00:27:20.399 --> 00:27:23.440
+Caption: things like that and you can go and
+
+00:27:21.760 --> 00:27:24.719
+Caption: change that but none of this is running
+
+00:27:23.439 --> 00:27:26.079
+Caption: there&#39;s no program running here if you
+
+00:27:24.719 --> 00:27:28.398
+Caption: run this nothing happens because the
+
+00:27:26.079 --> 00:27:30.158
+Caption: types don&#39;t exist at runtime anymore so
+
+00:27:28.399 --> 00:27:31.840
+Caption: these are just running in the compiler
+
+00:27:30.159 --> 00:27:35.039
+Caption: as you compile the code you modify the
+
+00:27:31.839 --> 00:27:37.599
+Caption: code it&#39;s basically able to do arbitrary
+
+00:27:35.038 --> 00:27:40.558
+Caption: computations
+
+00:27:37.599 --> 00:27:42.398
+Caption: um maybe not so useful thing to do in
+
+00:27:40.558 --> 00:27:44.558
+Caption: most of our code but it is very useful
+
+00:27:42.399 --> 00:27:47.440
+Caption: for other things like um
+
+00:27:44.558 --> 00:27:50.479
+Caption: accurately typing rest apis graph fuel
+
+00:27:47.439 --> 00:27:50.479
+Caption: apis things like that
+
+00:27:50.959 --> 00:27:56.719
+Caption: okay finally let&#39;s go into some
+
+00:27:53.359 --> 00:27:58.959
+Caption: more specific ones and see if we can
+
+00:27:56.719 --> 00:28:00.319
+Caption: just type some code the way these
+
+00:27:58.959 --> 00:28:02.158
+Caption: stringly typed examples that we had in
+
+00:28:00.319 --> 00:28:03.599
+Caption: the beginning in a safer way what we&#39;re
+
+00:28:02.159 --> 00:28:05.840
+Caption: going to try and do is aim for 100
+
+00:28:03.599 --> 00:28:07.278
+Caption: accuracy with our types but also trying
+
+00:28:05.839 --> 00:28:08.558
+Caption: to be really unobtrusive because i think
+
+00:28:07.279 --> 00:28:10.640
+Caption: that&#39;s what touchscreen really brings to
+
+00:28:08.558 --> 00:28:11.918
+Caption: the table so that first one i&#39;m not
+
+00:28:10.640 --> 00:28:13.440
+Caption: going to spend really much time on this
+
+00:28:11.918 --> 00:28:16.158
+Caption: this is the bread and butter of type
+
+00:28:13.439 --> 00:28:17.359
+Caption: systems right so here you know we&#39;ve got
+
+00:28:16.159 --> 00:28:19.200
+Caption: some things that are right some things
+
+00:28:17.359 --> 00:28:20.798
+Caption: that are wrong maybe the apis aren&#39;t
+
+00:28:19.199 --> 00:28:22.079
+Caption: even consistent so everyone&#39;s going to
+
+00:28:20.798 --> 00:28:24.239
+Caption: make mistakes like this you can&#39;t really
+
+00:28:22.079 --> 00:28:25.519
+Caption: get around it and that&#39;s generally not a
+
+00:28:24.239 --> 00:28:27.119
+Caption: problem if you&#39;re already using static
+
+00:28:25.520 --> 00:28:28.959
+Caption: languages they&#39;re all over there but the
+
+00:28:27.119 --> 00:28:30.479
+Caption: thing to remember is that properties in
+
+00:28:28.959 --> 00:28:33.520
+Caption: dynamic languages are effectively
+
+00:28:30.479 --> 00:28:35.359
+Caption: strings they&#39;re looked up as strings so
+
+00:28:33.520 --> 00:28:36.880
+Caption: it doesn&#39;t know dynamic language doesn&#39;t
+
+00:28:35.359 --> 00:28:38.398
+Caption: know if that&#39;s correct or not because
+
+00:28:36.880 --> 00:28:39.918
+Caption: it&#39;s basically looking up a property bag
+
+00:28:38.399 --> 00:28:41.760
+Caption: and just seeing it runtime if it&#39;s there
+
+00:28:39.918 --> 00:28:43.519
+Caption: or not so with typescript you can say no
+
+00:28:41.760 --> 00:28:45.199
+Caption: no it&#39;s not just a property bag it&#39;s got
+
+00:28:43.520 --> 00:28:47.039
+Caption: these specific things on it so the
+
+00:28:45.199 --> 00:28:48.479
+Caption: solution here really is just to use
+
+00:28:47.038 --> 00:28:50.079
+Caption: typescript or some other statically
+
+00:28:48.479 --> 00:28:51.599
+Caption: typed language that&#39;s you won&#39;t have
+
+00:28:50.079 --> 00:28:53.119
+Caption: type of problems anymore so let&#39;s move
+
+00:28:51.599 --> 00:28:54.558
+Caption: on from that one
+
+00:28:53.119 --> 00:28:56.158
+Caption: the second problem
+
+00:28:54.558 --> 00:28:57.918
+Caption: we mentioned implicit connections
+
+00:28:56.159 --> 00:28:59.919
+Caption: between things so a little bit more of a
+
+00:28:57.918 --> 00:29:01.439
+Caption: fuller example here now but still very
+
+00:28:59.918 --> 00:29:03.759
+Caption: simple so this is a single file
+
+00:29:01.439 --> 00:29:05.918
+Caption: component in view i&#39;ve got a template up
+
+00:29:03.760 --> 00:29:08.079
+Caption: here what i want to note is that
+
+00:29:05.918 --> 00:29:10.319
+Caption: effectively this whole template is a
+
+00:29:08.079 --> 00:29:12.239
+Caption: string it&#39;s opaque the compiler can&#39;t
+
+00:29:10.319 --> 00:29:14.079
+Caption: work out what that means or what it is
+
+00:29:12.239 --> 00:29:15.678
+Caption: so down here
+
+00:29:14.079 --> 00:29:17.678
+Caption: we&#39;ve actually this is already in an
+
+00:29:15.678 --> 00:29:19.359
+Caption: error state because up here we&#39;re trying
+
+00:29:17.678 --> 00:29:20.558
+Caption: to inject something called name but we
+
+00:29:19.359 --> 00:29:21.839
+Caption: don&#39;t have name down here we&#39;ve got
+
+00:29:20.558 --> 00:29:23.760
+Caption: first name and last name but there&#39;s no
+
+00:29:21.839 --> 00:29:25.839
+Caption: build error there&#39;s no warning there so
+
+00:29:23.760 --> 00:29:28.239
+Caption: how can we improve on that well in this
+
+00:29:25.839 --> 00:29:30.479
+Caption: specific case i really think
+
+00:29:28.239 --> 00:29:33.119
+Caption: this is a strong case for using things
+
+00:29:30.479 --> 00:29:34.959
+Caption: like jsx or tsx where you actually do
+
+00:29:33.119 --> 00:29:37.199
+Caption: your
+
+00:29:34.959 --> 00:29:38.479
+Caption: html templating or html view you do it
+
+00:29:37.199 --> 00:29:40.558
+Caption: in the code
+
+00:29:38.479 --> 00:29:42.798
+Caption: the reason for that is that the type
+
+00:29:40.558 --> 00:29:44.398
+Caption: system now in typescript is able to work
+
+00:29:42.798 --> 00:29:46.479
+Caption: out that there is a single definition of
+
+00:29:44.399 --> 00:29:49.039
+Caption: this name and that this refers to the
+
+00:29:46.479 --> 00:29:50.558
+Caption: same one if you refactor name it will
+
+00:29:49.038 --> 00:29:51.759
+Caption: automatically change this if you just
+
+00:29:50.558 --> 00:29:53.918
+Caption: type something different there you&#39;re
+
+00:29:51.760 --> 00:29:55.760
+Caption: going to get a red squiggle here because
+
+00:29:53.918 --> 00:29:58.079
+Caption: there&#39;s going to be nothing called name
+
+00:29:55.760 --> 00:30:00.239
+Caption: so you can get rid of your your problems
+
+00:29:58.079 --> 00:30:01.519
+Caption: in this case pretty easily like that
+
+00:30:00.239 --> 00:30:04.479
+Caption: there&#39;s other examples we could do but
+
+00:30:01.520 --> 00:30:06.320
+Caption: i&#39;m just going to move on to others now
+
+00:30:04.479 --> 00:30:08.479
+Caption: um we talked about these transposed
+
+00:30:06.319 --> 00:30:09.678
+Caption: values i had that sending email and you
+
+00:30:08.479 --> 00:30:11.520
+Caption: couldn&#39;t really work out which way
+
+00:30:09.678 --> 00:30:12.959
+Caption: around it went and this is the classic
+
+00:30:11.520 --> 00:30:14.959
+Caption: mr bean problem when he&#39;s trying to do
+
+00:30:12.959 --> 00:30:17.278
+Caption: his own filling and he realizes at some
+
+00:30:14.959 --> 00:30:19.918
+Caption: point that the dentist thing can go all
+
+00:30:17.279 --> 00:30:21.440
+Caption: kinds of ways so um how does the type
+
+00:30:19.918 --> 00:30:22.798
+Caption: system help here well it really can&#39;t
+
+00:30:21.439 --> 00:30:24.879
+Caption: because they&#39;re all strings it doesn&#39;t
+
+00:30:22.798 --> 00:30:26.880
+Caption: know what the the correct order is it&#39;s
+
+00:30:24.880 --> 00:30:28.159
+Caption: up to you to figure out that you pass
+
+00:30:26.880 --> 00:30:29.440
+Caption: the correct things in the correct
+
+00:30:28.159 --> 00:30:32.159
+Caption: positions because this is these are
+
+00:30:29.439 --> 00:30:33.839
+Caption: positional parameters
+
+00:30:32.159 --> 00:30:35.120
+Caption: so this is stringly type code if you
+
+00:30:33.839 --> 00:30:36.719
+Caption: look up blogs on what is stringly type
+
+00:30:35.119 --> 00:30:38.239
+Caption: code you get examples like that but i
+
+00:30:36.719 --> 00:30:39.839
+Caption: would say the solution is not really
+
+00:30:38.239 --> 00:30:41.359
+Caption: about the strings themselves it&#39;s just
+
+00:30:39.839 --> 00:30:42.640
+Caption: about the positional ordering of the
+
+00:30:41.359 --> 00:30:44.558
+Caption: parameters
+
+00:30:42.640 --> 00:30:46.640
+Caption: my preferred solution for this is just
+
+00:30:44.558 --> 00:30:48.479
+Caption: past by name and some languages have
+
+00:30:46.640 --> 00:30:50.000
+Caption: direct support path by name but a lot
+
+00:30:48.479 --> 00:30:53.439
+Caption: don&#39;t and in javascript you can just
+
+00:30:50.000 --> 00:30:55.599
+Caption: basically say well instead of accepting
+
+00:30:53.439 --> 00:30:57.038
+Caption: three parameters i&#39;m going to accept a
+
+00:30:55.599 --> 00:30:58.959
+Caption: single parameter and i&#39;ve just called
+
+00:30:57.038 --> 00:31:00.398
+Caption: this one options and it&#39;s an object and
+
+00:30:58.959 --> 00:31:02.319
+Caption: it&#39;s got properties and the properties
+
+00:31:00.399 --> 00:31:03.440
+Caption: are the things i want to get and i&#39;m
+
+00:31:02.319 --> 00:31:05.119
+Caption: just going to have this one parameter
+
+00:31:03.439 --> 00:31:06.398
+Caption: now when you call it
+
+00:31:05.119 --> 00:31:09.038
+Caption: here&#39;s the call down here i&#39;ve just
+
+00:31:06.399 --> 00:31:10.799
+Caption: basically fetched these these host user
+
+00:31:09.038 --> 00:31:12.398
+Caption: and password from somewhere and the only
+
+00:31:10.798 --> 00:31:13.918
+Caption: difference here is the extra curl is
+
+00:31:12.399 --> 00:31:16.399
+Caption: here because we&#39;re constructing a
+
+00:31:13.918 --> 00:31:18.239
+Caption: shorthand object with those properties
+
+00:31:16.399 --> 00:31:19.840
+Caption: in it and just passing that one thing to
+
+00:31:18.239 --> 00:31:20.640
+Caption: the function
+
+00:31:19.839 --> 00:31:22.479
+Caption: so
+
+00:31:20.640 --> 00:31:24.000
+Caption: we it&#39;s still stringy right like there&#39;s
+
+00:31:22.479 --> 00:31:26.398
+Caption: still strings in there but now
+
+00:31:24.000 --> 00:31:28.159
+Caption: everything has to effectively be named
+
+00:31:26.399 --> 00:31:29.600
+Caption: the names are checked they have to match
+
+00:31:28.159 --> 00:31:30.960
+Caption: you can&#39;t have the wrong things in there
+
+00:31:29.599 --> 00:31:32.719
+Caption: you can&#39;t have anything missing you
+
+00:31:30.959 --> 00:31:34.000
+Caption: can&#39;t have anything additional that that
+
+00:31:32.719 --> 00:31:35.599
+Caption: doesn&#39;t belong
+
+00:31:34.000 --> 00:31:37.279
+Caption: and that just basically feeds off
+
+00:31:35.599 --> 00:31:39.038
+Caption: structural typing structural typing
+
+00:31:37.279 --> 00:31:41.119
+Caption: makes that possible it&#39;s way harder to
+
+00:31:39.038 --> 00:31:42.798
+Caption: get this accidentally wrong as a bonus
+
+00:31:41.119 --> 00:31:45.038
+Caption: the order doesn&#39;t matter anymore you put
+
+00:31:42.798 --> 00:31:46.319
+Caption: these things in any order you want also
+
+00:31:45.038 --> 00:31:47.678
+Caption: remember we were talking before about
+
+00:31:46.319 --> 00:31:49.119
+Caption: code tends to change and one of the
+
+00:31:47.678 --> 00:31:51.918
+Caption: classic things that happens is that
+
+00:31:49.119 --> 00:31:54.798
+Caption: functions take on new options or new
+
+00:31:51.918 --> 00:31:56.000
+Caption: parameters um when you list them all out
+
+00:31:54.798 --> 00:31:58.000
+Caption: there you might end up with say an
+
+00:31:56.000 --> 00:31:59.599
+Caption: optional one and then someone comes up
+
+00:31:58.000 --> 00:32:00.959
+Caption: with the next api you need another
+
+00:31:59.599 --> 00:32:02.479
+Caption: required one well now you&#39;ve got to have
+
+00:32:00.959 --> 00:32:04.079
+Caption: some weird overloads and do a lot of
+
+00:32:02.479 --> 00:32:05.439
+Caption: stuff here you can
+
+00:32:04.079 --> 00:32:06.959
+Caption: you can make any of these optional you
+
+00:32:05.439 --> 00:32:08.558
+Caption: can add new things all the time and
+
+00:32:06.959 --> 00:32:10.079
+Caption: you&#39;re not going to break the api you
+
+00:32:08.558 --> 00:32:12.558
+Caption: just got additional things that weren&#39;t
+
+00:32:10.079 --> 00:32:14.719
+Caption: supported before
+
+00:32:12.558 --> 00:32:16.000
+Caption: okay now this fourth problem we&#39;re
+
+00:32:14.719 --> 00:32:17.839
+Caption: talking about apples to oranges and the
+
+00:32:16.000 --> 00:32:19.359
+Caption: example i had before was feet and meters
+
+00:32:17.839 --> 00:32:21.038
+Caption: so we had units of measure now i&#39;ve got
+
+00:32:19.359 --> 00:32:23.359
+Caption: one that&#39;s actually string related so
+
+00:32:21.038 --> 00:32:25.439
+Caption: i&#39;ve got a function that sort of by
+
+00:32:23.359 --> 00:32:27.119
+Caption: looking at it um it looks like what it
+
+00:32:25.439 --> 00:32:30.079
+Caption: wants is an absolute path and i&#39;ve
+
+00:32:27.119 --> 00:32:31.760
+Caption: called it with a relative path so
+
+00:32:30.079 --> 00:32:33.278
+Caption: semantically there&#39;s an error here but
+
+00:32:31.760 --> 00:32:34.479
+Caption: the type system is not helping me
+
+00:32:33.279 --> 00:32:35.840
+Caption: because
+
+00:32:34.479 --> 00:32:38.000
+Caption: in fact an absolute part is just going
+
+00:32:35.839 --> 00:32:39.678
+Caption: to be a string and this relative path is
+
+00:32:38.000 --> 00:32:41.439
+Caption: just a string a string is a string so i
+
+00:32:39.678 --> 00:32:43.918
+Caption: can pass that the compiler says yeah it
+
+00:32:41.439 --> 00:32:45.439
+Caption: looks fine to me and then you maybe do
+
+00:32:43.918 --> 00:32:47.359
+Caption: the wrong thing at runtime delete the
+
+00:32:45.439 --> 00:32:49.119
+Caption: wrong file send send the wrong person
+
+00:32:47.359 --> 00:32:49.839
+Caption: the wrong information whatever
+
+00:32:49.119 --> 00:32:51.359
+Caption: um
+
+00:32:49.839 --> 00:32:52.798
+Caption: i mean how could we work around that how
+
+00:32:51.359 --> 00:32:54.319
+Caption: is the type system going to be able to
+
+00:32:52.798 --> 00:32:56.479
+Caption: tell a relative path from an absolute
+
+00:32:54.319 --> 00:32:58.558
+Caption: path that&#39;s one where typescript has got
+
+00:32:56.479 --> 00:33:01.119
+Caption: some tricks up at sleeve um the first
+
+00:32:58.558 --> 00:33:02.880
+Caption: one i&#39;ll look at is
+
+00:33:01.119 --> 00:33:04.880
+Caption: wrapper types and this is more of a
+
+00:33:02.880 --> 00:33:06.319
+Caption: classic approach in a lot of
+
+00:33:04.880 --> 00:33:08.239
+Caption: object-oriented type systems where you&#39;d
+
+00:33:06.319 --> 00:33:10.239
+Caption: create a class and you&#39;d wrap that and
+
+00:33:08.239 --> 00:33:11.839
+Caption: so basically now your api is going to
+
+00:33:10.239 --> 00:33:14.000
+Caption: revolve around instances of this
+
+00:33:11.839 --> 00:33:15.359
+Caption: absolute path class so you can&#39;t just
+
+00:33:14.000 --> 00:33:16.959
+Caption: pass in a string you&#39;ve got to
+
+00:33:15.359 --> 00:33:18.880
+Caption: instantiate this absolute path or get
+
+00:33:16.959 --> 00:33:21.278
+Caption: one from somewhere from maybe from some
+
+00:33:18.880 --> 00:33:22.319
+Caption: other api and now you can process a file
+
+00:33:21.279 --> 00:33:24.399
+Caption: because that&#39;s the only thing it&#39;s going
+
+00:33:22.319 --> 00:33:26.319
+Caption: to accept um
+
+00:33:24.399 --> 00:33:27.519
+Caption: it works it&#39;s good we got rid of the
+
+00:33:26.319 --> 00:33:29.759
+Caption: strings but it&#39;s actually not my
+
+00:33:27.519 --> 00:33:31.359
+Caption: preference because it it introduces
+
+00:33:29.760 --> 00:33:33.440
+Caption: marshalling and conversion boilerplate
+
+00:33:31.359 --> 00:33:35.199
+Caption: you&#39;ve got a type now that you&#39;ve got to
+
+00:33:33.439 --> 00:33:36.639
+Caption: worry about and if you if these things
+
+00:33:35.199 --> 00:33:37.760
+Caption: were going to and from a database
+
+00:33:36.640 --> 00:33:39.519
+Caption: whatever you probably just want to store
+
+00:33:37.760 --> 00:33:41.440
+Caption: the path as a string right you can&#39;t
+
+00:33:39.519 --> 00:33:43.119
+Caption: store the actual class so you&#39;ve got to
+
+00:33:41.439 --> 00:33:44.959
+Caption: have conversion codes serialization
+
+00:33:43.119 --> 00:33:46.399
+Caption: deserialization it doesn&#39;t quite look
+
+00:33:44.959 --> 00:33:48.398
+Caption: like the simple version we started with
+
+00:33:46.399 --> 00:33:50.080
+Caption: we&#39;ve added complexity
+
+00:33:48.399 --> 00:33:51.119
+Caption: and it doesn&#39;t interoperate as easily
+
+00:33:50.079 --> 00:33:52.479
+Caption: because now you&#39;ve got your own custom
+
+00:33:51.119 --> 00:33:54.319
+Caption: way of handling
+
+00:33:52.479 --> 00:33:56.000
+Caption: this specific data type but absolute
+
+00:33:54.319 --> 00:33:59.278
+Caption: paths work in lots of places right but
+
+00:33:56.000 --> 00:34:02.079
+Caption: yours no yours don&#39;t now
+
+00:33:59.279 --> 00:34:06.080
+Caption: also it&#39;s still easy to construct
+
+00:34:02.079 --> 00:34:07.839
+Caption: a invalid path but with no build no
+
+00:34:06.079 --> 00:34:09.520
+Caption: early warning so here here&#39;s one where
+
+00:34:07.839 --> 00:34:11.918
+Caption: i&#39;ve i&#39;ve just passed the relative path
+
+00:34:09.520 --> 00:34:13.199
+Caption: to the constructor it&#39;ll fail at runtime
+
+00:34:11.918 --> 00:34:14.398
+Caption: but the whole point here that we&#39;re
+
+00:34:13.199 --> 00:34:15.918
+Caption: talking about is trying to catch errors
+
+00:34:14.398 --> 00:34:18.000
+Caption: early right so could we do better could
+
+00:34:15.918 --> 00:34:19.598
+Caption: we make it fail even earlier than that
+
+00:34:18.000 --> 00:34:21.040
+Caption: so my preferred solution here is what&#39;s
+
+00:34:19.599 --> 00:34:22.560
+Caption: called branded types
+
+00:34:21.040 --> 00:34:24.959
+Caption: um
+
+00:34:22.560 --> 00:34:26.479
+Caption: this is still a stringy solution uh it&#39;s
+
+00:34:24.959 --> 00:34:27.760
+Caption: got a weird thing here where we&#39;re just
+
+00:34:26.479 --> 00:34:29.280
+Caption: saying the absolute yeah it&#39;s just a
+
+00:34:27.760 --> 00:34:30.959
+Caption: string but we&#39;re using this intersection
+
+00:34:29.280 --> 00:34:32.879
+Caption: type and we&#39;re saying it&#39;s a string but
+
+00:34:30.959 --> 00:34:34.719
+Caption: it also has this weird extra property
+
+00:34:32.878 --> 00:34:35.598
+Caption: with this brand in an absolute path
+
+00:34:34.719 --> 00:34:36.959
+Caption: brand
+
+00:34:35.599 --> 00:34:38.399
+Caption: um
+
+00:34:36.959 --> 00:34:40.959
+Caption: just to summarize
+
+00:34:38.398 --> 00:34:43.118
+Caption: a branded type is a
+
+00:34:40.959 --> 00:34:44.638
+Caption: thing that only exists in the compiler
+
+00:34:43.118 --> 00:34:46.319
+Caption: this all goes away at runtime and in
+
+00:34:44.638 --> 00:34:48.479
+Caption: fact the only reference to this property
+
+00:34:46.320 --> 00:34:49.599
+Caption: is here in this type we never at runtime
+
+00:34:48.479 --> 00:34:51.199
+Caption: when we when we&#39;re checking if
+
+00:34:49.599 --> 00:34:52.480
+Caption: something&#39;s an absolute path we never
+
+00:34:51.199 --> 00:34:53.918
+Caption: actually give it this property or we
+
+00:34:52.479 --> 00:34:55.918
+Caption: don&#39;t have to check for the property so
+
+00:34:53.918 --> 00:34:58.078
+Caption: what what is going on here well we&#39;ve
+
+00:34:55.918 --> 00:34:59.439
+Caption: got a couple of advanced types in here i
+
+00:34:58.079 --> 00:35:00.400
+Caption: i won&#39;t go through it all but let&#39;s just
+
+00:34:59.439 --> 00:35:01.520
+Caption: say
+
+00:35:00.399 --> 00:35:02.959
+Caption: let&#39;s just go through what&#39;s happening
+
+00:35:01.520 --> 00:35:04.719
+Caption: down here so it looks a bit like the
+
+00:35:02.959 --> 00:35:06.959
+Caption: last one where now we need an absolute
+
+00:35:04.719 --> 00:35:08.719
+Caption: path but it&#39;s actually just a string so
+
+00:35:06.959 --> 00:35:11.040
+Caption: we can just call we can have a string
+
+00:35:08.719 --> 00:35:12.479
+Caption: here so this is an absolute path
+
+00:35:11.040 --> 00:35:14.320
+Caption: and we&#39;re calling process file but it&#39;s
+
+00:35:12.479 --> 00:35:15.598
+Caption: not satisfied because it doesn&#39;t know
+
+00:35:14.320 --> 00:35:16.640
+Caption: that this is an absolute path it&#39;s just
+
+00:35:15.599 --> 00:35:17.359
+Caption: a string
+
+00:35:16.639 --> 00:35:19.118
+Caption: so
+
+00:35:17.358 --> 00:35:21.598
+Caption: it&#39;s going to say no you can&#39;t do that
+
+00:35:19.118 --> 00:35:23.598
+Caption: because this thing requires an absolute
+
+00:35:21.599 --> 00:35:25.119
+Caption: path which has this extra brand thing on
+
+00:35:23.599 --> 00:35:26.320
+Caption: it and this one doesn&#39;t have a brand
+
+00:35:25.118 --> 00:35:27.679
+Caption: it&#39;s just a string so no you&#39;re not
+
+00:35:26.320 --> 00:35:29.359
+Caption: allowed to do that well that&#39;s good we
+
+00:35:27.679 --> 00:35:31.118
+Caption: didn&#39;t want that to work but i mean you
+
+00:35:29.358 --> 00:35:33.199
+Caption: can&#39;t pass any string to this now so how
+
+00:35:31.118 --> 00:35:35.279
+Caption: do you satisfy it well this is the
+
+00:35:33.199 --> 00:35:37.679
+Caption: magical part so we&#39;ve got what&#39;s called
+
+00:35:35.280 --> 00:35:40.560
+Caption: a type guard here so we&#39;re saying is
+
+00:35:37.679 --> 00:35:41.919
+Caption: this p an absolute path and this is just
+
+00:35:40.560 --> 00:35:43.599
+Caption: a boolean returning function just
+
+00:35:41.919 --> 00:35:45.679
+Caption: returns true or false but actually the
+
+00:35:43.599 --> 00:35:47.760
+Caption: return type annotation is basically
+
+00:35:45.679 --> 00:35:49.679
+Caption: saying if this returns true
+
+00:35:47.760 --> 00:35:51.199
+Caption: you have established that p is an
+
+00:35:49.679 --> 00:35:53.520
+Caption: absolute path
+
+00:35:51.199 --> 00:35:55.520
+Caption: so the compiler works backwards it also
+
+00:35:53.520 --> 00:35:57.520
+Caption: has special handling for assertion
+
+00:35:55.520 --> 00:35:59.760
+Caption: function so it says when we get to this
+
+00:35:57.520 --> 00:36:01.839
+Caption: last line which is now okay by the way
+
+00:35:59.760 --> 00:36:03.359
+Caption: so here this one this one didn&#39;t build
+
+00:36:01.839 --> 00:36:05.680
+Caption: but this one exactly the same with
+
+00:36:03.358 --> 00:36:07.838
+Caption: exactly the same string this one passes
+
+00:36:05.679 --> 00:36:10.078
+Caption: so something special happened here the
+
+00:36:07.839 --> 00:36:12.160
+Caption: compiler reasoned that the only way we
+
+00:36:10.079 --> 00:36:13.520
+Caption: could get to this line 19 is if the
+
+00:36:12.159 --> 00:36:15.039
+Caption: assertion succeeded otherwise it would
+
+00:36:13.520 --> 00:36:16.399
+Caption: have thrown we never would have gotten
+
+00:36:15.040 --> 00:36:18.479
+Caption: there
+
+00:36:16.399 --> 00:36:20.239
+Caption: he was going to sleep
+
+00:36:18.479 --> 00:36:22.320
+Caption: so the only way the assertion could have
+
+00:36:20.239 --> 00:36:24.879
+Caption: passed is that this this function
+
+00:36:22.320 --> 00:36:27.440
+Caption: returned true so basically our typeguard
+
+00:36:24.879 --> 00:36:28.639
+Caption: fail the type system knows statically
+
+00:36:27.439 --> 00:36:30.078
+Caption: without running your code the only way
+
+00:36:28.639 --> 00:36:31.598
+Caption: you can get here is that this returned
+
+00:36:30.079 --> 00:36:33.119
+Caption: true and if this returned true you&#39;ve
+
+00:36:31.599 --> 00:36:34.720
+Caption: told the type system that that must be
+
+00:36:33.118 --> 00:36:36.959
+Caption: an absolute path so you check it at
+
+00:36:34.719 --> 00:36:38.479
+Caption: runtime but the type system knows well
+
+00:36:36.959 --> 00:36:40.239
+Caption: when you&#39;re calling it here it must be
+
+00:36:38.479 --> 00:36:41.760
+Caption: an absolute part so we&#39;ve effectively
+
+00:36:40.239 --> 00:36:43.839
+Caption: taken a general type like string and
+
+00:36:41.760 --> 00:36:45.599
+Caption: we&#39;ve branded it with a with
+
+00:36:43.839 --> 00:36:48.400
+Caption: additional knowledge that can now be
+
+00:36:45.599 --> 00:36:49.520
+Caption: used in apis passed around the system
+
+00:36:48.399 --> 00:36:51.598
+Caption: and the
+
+00:36:49.520 --> 00:36:53.599
+Caption: type system can reason about that and
+
+00:36:51.599 --> 00:36:55.280
+Caption: the cool thing is that you end up with
+
+00:36:53.599 --> 00:36:57.040
+Caption: simple strings in the code you don&#39;t
+
+00:36:55.280 --> 00:36:58.320
+Caption: actually see the types down here you
+
+00:36:57.040 --> 00:37:00.800
+Caption: basically just write your code as you
+
+00:36:58.320 --> 00:37:02.160
+Caption: did and it&#39;ll warn you when you haven&#39;t
+
+00:37:00.800 --> 00:37:03.439
+Caption: checked something and you put in some
+
+00:37:02.159 --> 00:37:04.559
+Caption: runtime checks which is really what you
+
+00:37:03.439 --> 00:37:06.239
+Caption: want because they&#39;re going to catch
+
+00:37:04.560 --> 00:37:07.359
+Caption: those but your errors are going to
+
+00:37:06.239 --> 00:37:10.159
+Caption: happen statically you&#39;re going to be
+
+00:37:07.358 --> 00:37:10.159
+Caption: told straight away
+
+00:37:10.959 --> 00:37:14.239
+Caption: so
+
+00:37:13.040 --> 00:37:18.479
+Caption: another one of the problems we looked at
+
+00:37:14.239 --> 00:37:18.479
+Caption: was conflicting definitions so we&#39;ve got
+
+00:37:18.639 --> 00:37:22.799
+Caption: environment variables process dot end in
+
+00:37:20.719 --> 00:37:24.159
+Caption: node is where you access your property
+
+00:37:22.800 --> 00:37:25.920
+Caption: bag which is full of the environment
+
+00:37:24.159 --> 00:37:27.919
+Caption: variables you can&#39;t avoid these being
+
+00:37:25.919 --> 00:37:29.358
+Caption: strings the property names of the
+
+00:37:27.919 --> 00:37:31.118
+Caption: environment variables are strings and
+
+00:37:29.358 --> 00:37:32.559
+Caption: the values all come through as strings
+
+00:37:31.118 --> 00:37:34.159
+Caption: and these are from outside the system
+
+00:37:32.560 --> 00:37:35.439
+Caption: boundary so you can&#39;t type that you
+
+00:37:34.159 --> 00:37:36.559
+Caption: can&#39;t tell it well this is what&#39;s going
+
+00:37:35.439 --> 00:37:38.399
+Caption: to be in the environment well you don&#39;t
+
+00:37:36.560 --> 00:37:40.320
+Caption: know you run the program it could be
+
+00:37:38.399 --> 00:37:42.159
+Caption: anything in there
+
+00:37:40.320 --> 00:37:43.359
+Caption: so this is kind of like a standard
+
+00:37:42.159 --> 00:37:44.479
+Caption: approach right because you&#39;re just
+
+00:37:43.358 --> 00:37:45.838
+Caption: dealing you would do this in a
+
+00:37:44.479 --> 00:37:47.118
+Caption: statically typed language as well you&#39;d
+
+00:37:45.839 --> 00:37:48.320
+Caption: have a kind of property bag you don&#39;t
+
+00:37:47.118 --> 00:37:49.679
+Caption: know what&#39;s in there you reach and you
+
+00:37:48.320 --> 00:37:51.520
+Caption: look for a
+
+00:37:49.679 --> 00:37:52.879
+Caption: stringly named property and you&#39;ve got a
+
+00:37:51.520 --> 00:37:54.640
+Caption: string value and then you might do some
+
+00:37:52.879 --> 00:37:55.759
+Caption: things to it convert it apply some
+
+00:37:54.639 --> 00:37:59.760
+Caption: defaults
+
+00:37:55.760 --> 00:38:01.280
+Caption: but we&#39;ve got several problems in here
+
+00:37:59.760 --> 00:38:03.280
+Caption: these aren&#39;t actually
+
+00:38:01.280 --> 00:38:06.640
+Caption: consistently doing the same thing so
+
+00:38:03.280 --> 00:38:08.479
+Caption: this one treats food level as a number
+
+00:38:06.639 --> 00:38:10.479
+Caption: well that&#39;s fine let&#39;s look at this one
+
+00:38:08.479 --> 00:38:12.800
+Caption: so the foo enabled
+
+00:38:10.479 --> 00:38:15.919
+Caption: it comes in as a string but if it&#39;s not
+
+00:38:12.800 --> 00:38:17.599
+Caption: present then it gives it a value one as
+
+00:38:15.919 --> 00:38:19.040
+Caption: a string and then it parses that so this
+
+00:38:17.599 --> 00:38:20.880
+Caption: is actually kind of clever right so it&#39;s
+
+00:38:19.040 --> 00:38:22.800
+Caption: like in the in your environment you
+
+00:38:20.879 --> 00:38:24.399
+Caption: could pass a one or a zero or the word
+
+00:38:22.800 --> 00:38:26.239
+Caption: true or the word false and when you pass
+
+00:38:24.399 --> 00:38:29.439
+Caption: that you&#39;re going to get a truthy or a
+
+00:38:26.239 --> 00:38:31.040
+Caption: false value and then you do your stuff
+
+00:38:29.439 --> 00:38:32.479
+Caption: but down here oh here we go so we&#39;re
+
+00:38:31.040 --> 00:38:35.199
+Caption: using foo enabled but we&#39;re just
+
+00:38:32.479 --> 00:38:37.280
+Caption: checking the raw value so basically
+
+00:38:35.199 --> 00:38:39.838
+Caption: if it&#39;s not present then it&#39;s not
+
+00:38:37.280 --> 00:38:41.760
+Caption: enabled but if anything is present there
+
+00:38:39.839 --> 00:38:43.440
+Caption: the string true the string false this is
+
+00:38:41.760 --> 00:38:44.880
+Caption: all truthy to javascript so if you put
+
+00:38:43.439 --> 00:38:46.319
+Caption: in the string false
+
+00:38:44.879 --> 00:38:47.519
+Caption: that check is going to go oh it&#39;s
+
+00:38:46.320 --> 00:38:49.119
+Caption: actually enabled and it&#39;s going to run
+
+00:38:47.520 --> 00:38:50.880
+Caption: the wrong piece of code and there&#39;s no
+
+00:38:49.118 --> 00:38:52.078
+Caption: early warning for that and we&#39;ve got one
+
+00:38:50.879 --> 00:38:53.439
+Caption: down here and this is particularly
+
+00:38:52.079 --> 00:38:55.680
+Caption: insidious for
+
+00:38:53.439 --> 00:38:57.520
+Caption: brutalizing systems making systems
+
+00:38:55.679 --> 00:39:00.319
+Caption: brittle is that we&#39;re not actually
+
+00:38:57.520 --> 00:39:02.159
+Caption: literally referring so even if you did a
+
+00:39:00.320 --> 00:39:03.520
+Caption: search looking for all the instances
+
+00:39:02.159 --> 00:39:05.199
+Caption: where a particular
+
+00:39:03.520 --> 00:39:06.560
+Caption: environment variable was referenced you
+
+00:39:05.199 --> 00:39:08.159
+Caption: wouldn&#39;t find them here because we&#39;re
+
+00:39:06.560 --> 00:39:10.079
+Caption: actually dynamically
+
+00:39:08.159 --> 00:39:12.319
+Caption: coming up with the names mapping and
+
+00:39:10.079 --> 00:39:15.839
+Caption: then and then checking them that way
+
+00:39:12.320 --> 00:39:15.839
+Caption: so there&#39;s a few problems in there
+
+00:39:18.000 --> 00:39:20.079
+Caption: um
+
+00:39:18.800 --> 00:39:22.479
+Caption: the main solution i would come up with
+
+00:39:20.079 --> 00:39:23.599
+Caption: here is just it are still a stringy
+
+00:39:22.479 --> 00:39:24.639
+Caption: solution because like i said you can&#39;t
+
+00:39:23.599 --> 00:39:26.240
+Caption: get rid of those strings out of the
+
+00:39:24.639 --> 00:39:28.239
+Caption: environment variables
+
+00:39:26.239 --> 00:39:29.839
+Caption: but what we can do is we can put them
+
+00:39:28.239 --> 00:39:31.439
+Caption: all in one place single source of truth
+
+00:39:29.839 --> 00:39:32.960
+Caption: have a single config file that&#39;s the
+
+00:39:31.439 --> 00:39:35.118
+Caption: only place that&#39;s allowed to read from
+
+00:39:32.959 --> 00:39:36.879
+Caption: process.n what you do in there is you do
+
+00:39:35.118 --> 00:39:38.159
+Caption: all your validation all your conversions
+
+00:39:36.879 --> 00:39:39.759
+Caption: and all your defaults they all live
+
+00:39:38.159 --> 00:39:41.118
+Caption: there the rest of your system this is
+
+00:39:39.760 --> 00:39:43.679
+Caption: what we had before but now it&#39;s
+
+00:39:41.118 --> 00:39:47.439
+Caption: referring to those so you take in all of
+
+00:39:43.679 --> 00:39:49.760
+Caption: that loose messy outside world stuff
+
+00:39:47.439 --> 00:39:52.078
+Caption: but you expose inside your system
+
+00:39:49.760 --> 00:39:54.479
+Caption: something neat typed single source of
+
+00:39:52.079 --> 00:39:56.239
+Caption: truth completely consistent
+
+00:39:54.479 --> 00:39:57.520
+Caption: so we&#39;re still dealing with strings but
+
+00:39:56.239 --> 00:39:59.118
+Caption: we&#39;ve just changed the way we&#39;ve written
+
+00:39:57.520 --> 00:40:00.479
+Caption: that we&#39;re going to deal we won&#39;t have
+
+00:39:59.118 --> 00:40:03.199
+Caption: all these problems with inconsistent
+
+00:40:00.479 --> 00:40:05.280
+Caption: definitions or refactorings anymore
+
+00:40:03.199 --> 00:40:06.639
+Caption: final one brittle control flow so i&#39;ve
+
+00:40:05.280 --> 00:40:08.560
+Caption: got a slightly different example here
+
+00:40:06.639 --> 00:40:10.479
+Caption: which we&#39;re calculating the area of a
+
+00:40:08.560 --> 00:40:11.760
+Caption: square or a circle it&#39;s important to
+
+00:40:10.479 --> 00:40:13.520
+Caption: read this comment right because what
+
+00:40:11.760 --> 00:40:15.199
+Caption: it&#39;s doing is it&#39;s saying well if it&#39;s a
+
+00:40:13.520 --> 00:40:17.199
+Caption: square then we square the length if it&#39;s
+
+00:40:15.199 --> 00:40:18.959
+Caption: a circle we do this but the default case
+
+00:40:17.199 --> 00:40:20.800
+Caption: well we never reach here lol so let&#39;s
+
+00:40:18.959 --> 00:40:21.838
+Caption: just return 42 because it&#39;s the same
+
+00:40:20.800 --> 00:40:23.199
+Caption: type and we&#39;re not going to reach there
+
+00:40:21.839 --> 00:40:24.560
+Caption: anyway because we&#39;ve told them right at
+
+00:40:23.199 --> 00:40:26.000
+Caption: the start that it&#39;s only for squares and
+
+00:40:24.560 --> 00:40:27.839
+Caption: circles right so they shouldn&#39;t pass in
+
+00:40:26.000 --> 00:40:30.159
+Caption: anything else but of course you know
+
+00:40:27.839 --> 00:40:32.239
+Caption: some someone has actually passed in a
+
+00:40:30.159 --> 00:40:33.199
+Caption: rectangle and instead of getting an
+
+00:40:32.239 --> 00:40:35.439
+Caption: error or something like that they&#39;re
+
+00:40:33.199 --> 00:40:38.078
+Caption: actually getting the number 42
+
+00:40:35.439 --> 00:40:40.078
+Caption: also the person who actually put in the
+
+00:40:38.079 --> 00:40:41.520
+Caption: legitimate square also got 42 because
+
+00:40:40.079 --> 00:40:42.720
+Caption: there&#39;s a spelling mistake in here
+
+00:40:41.520 --> 00:40:44.560
+Caption: because it&#39;s just a string and it
+
+00:40:42.719 --> 00:40:46.560
+Caption: doesn&#39;t know what these strings are and
+
+00:40:44.560 --> 00:40:47.839
+Caption: the person who passed in a circle got
+
+00:40:46.560 --> 00:40:51.040
+Caption: not a number
+
+00:40:47.839 --> 00:40:53.280
+Caption: because there&#39;s a typo in the radius up
+
+00:40:51.040 --> 00:40:54.719
+Caption: there so that&#39;s why i call this brittle
+
+00:40:53.280 --> 00:40:55.839
+Caption: control flow there&#39;s so many things that
+
+00:40:54.719 --> 00:40:57.199
+Caption: can go wrong and you don&#39;t know you
+
+00:40:55.839 --> 00:40:58.560
+Caption: don&#39;t find out about any of these things
+
+00:40:57.199 --> 00:41:01.358
+Caption: until runtime
+
+00:40:58.560 --> 00:41:03.680
+Caption: so the classic solution in oo would be
+
+00:41:01.358 --> 00:41:06.399
+Caption: to actually create a hierarchy of types
+
+00:41:03.679 --> 00:41:08.399
+Caption: have a abstract base class for a shape
+
+00:41:06.399 --> 00:41:10.239
+Caption: create a square class create a circle
+
+00:41:08.399 --> 00:41:12.159
+Caption: class do things like that
+
+00:41:10.239 --> 00:41:14.000
+Caption: and then the area function would
+
+00:41:12.159 --> 00:41:16.318
+Caption: actually be a method in there and so
+
+00:41:14.000 --> 00:41:18.399
+Caption: each of these would implement its own it
+
+00:41:16.319 --> 00:41:20.560
+Caption: solves a problem there&#39;s no more strings
+
+00:41:18.399 --> 00:41:22.318
+Caption: it&#39;s not my preferred approach though
+
+00:41:20.560 --> 00:41:24.640
+Caption: because again you end up with this kind
+
+00:41:22.319 --> 00:41:25.760
+Caption: of conversion boilerplate so now if
+
+00:41:24.639 --> 00:41:27.919
+Caption: shapes were things you were storing in
+
+00:41:25.760 --> 00:41:29.359
+Caption: the database or receiving over the wire
+
+00:41:27.919 --> 00:41:31.598
+Caption: you&#39;ve now got to marshal them to and
+
+00:41:29.358 --> 00:41:33.199
+Caption: from your your representation of shape
+
+00:41:31.599 --> 00:41:34.960
+Caption: so you&#39;ve got this additional complexity
+
+00:41:33.199 --> 00:41:35.838
+Caption: in your code
+
+00:41:34.959 --> 00:41:37.760
+Caption: also
+
+00:41:35.839 --> 00:41:39.680
+Caption: that&#39;s for another talk but there&#39;s
+
+00:41:37.760 --> 00:41:41.520
+Caption: taxonomy problems with these classic you
+
+00:41:39.679 --> 00:41:43.118
+Caption: know single hierarchy taxonomies it&#39;s
+
+00:41:41.520 --> 00:41:45.599
+Caption: not really easy to model everything in
+
+00:41:43.118 --> 00:41:46.879
+Caption: that that constrained way
+
+00:41:45.599 --> 00:41:48.640
+Caption: there are solutions for that but we
+
+00:41:46.879 --> 00:41:51.358
+Caption: won&#39;t go into that but you know it can
+
+00:41:48.639 --> 00:41:52.639
+Caption: get hard can get boilerplatey um and
+
+00:41:51.358 --> 00:41:54.399
+Caption: also you still don&#39;t have a lot of
+
+00:41:52.639 --> 00:41:55.519
+Caption: control over subclassing and things like
+
+00:41:54.399 --> 00:41:56.879
+Caption: that so
+
+00:41:55.520 --> 00:41:59.760
+Caption: it&#39;s not my preferred i think we could
+
+00:41:56.879 --> 00:42:01.679
+Caption: do better another classic is using an
+
+00:41:59.760 --> 00:42:03.439
+Caption: enumeration so now it&#39;s like well we can
+
+00:42:01.679 --> 00:42:04.399
+Caption: only have shapes and sorry squares and
+
+00:42:03.439 --> 00:42:06.159
+Caption: circles now because we&#39;re going to
+
+00:42:04.399 --> 00:42:07.679
+Caption: create an enumerated kind and our shape
+
+00:42:06.159 --> 00:42:09.598
+Caption: is going to have only one of those kinds
+
+00:42:07.679 --> 00:42:12.000
+Caption: so the compiler can check it can only be
+
+00:42:09.599 --> 00:42:13.280
+Caption: this or that but there is this extra
+
+00:42:12.000 --> 00:42:14.639
+Caption: information we&#39;ve got to drag around and
+
+00:42:13.280 --> 00:42:17.199
+Caption: not everything has everything so we&#39;ve
+
+00:42:14.639 --> 00:42:18.479
+Caption: got like optional length and optional
+
+00:42:17.199 --> 00:42:20.239
+Caption: radius because some things might have
+
+00:42:18.479 --> 00:42:21.679
+Caption: length some things might have a radius
+
+00:42:20.239 --> 00:42:23.118
+Caption: um so now it looks a bit like our
+
+00:42:21.679 --> 00:42:24.639
+Caption: original code but instead of strings
+
+00:42:23.118 --> 00:42:26.318
+Caption: we&#39;ve got enumerated type so it&#39;s cool
+
+00:42:24.639 --> 00:42:29.118
+Caption: we can check those and if you put in the
+
+00:42:26.319 --> 00:42:31.280
+Caption: wrong thing it won&#39;t build
+
+00:42:29.118 --> 00:42:32.799
+Caption: the the issue is that you don&#39;t get
+
+00:42:31.280 --> 00:42:34.079
+Caption: strong checking over here because
+
+00:42:32.800 --> 00:42:35.520
+Caption: they&#39;re all optional properties and
+
+00:42:34.079 --> 00:42:37.440
+Caption: anything could use anything else and
+
+00:42:35.520 --> 00:42:38.959
+Caption: you&#39;re not really sure which one&#39;s which
+
+00:42:37.439 --> 00:42:41.199
+Caption: um so i think we could do better than
+
+00:42:38.959 --> 00:42:43.040
+Caption: that again so my preferred approach is
+
+00:42:41.199 --> 00:42:45.919
+Caption: actually um
+
+00:42:43.040 --> 00:42:47.599
+Caption: what we call a discriminated union so
+
+00:42:45.919 --> 00:42:50.239
+Caption: now the actual function itself looks
+
+00:42:47.599 --> 00:42:52.640
+Caption: pretty much identical to the original
+
+00:42:50.239 --> 00:42:54.560
+Caption: um what we&#39;ve done is we&#39;ve introduced a
+
+00:42:52.639 --> 00:42:56.318
+Caption: square type that just has a kind square
+
+00:42:54.560 --> 00:42:57.680
+Caption: and a length and a circle type it has a
+
+00:42:56.319 --> 00:42:59.280
+Caption: kind circle and a radius so that&#39;s the
+
+00:42:57.679 --> 00:43:01.040
+Caption: only thing that a circle can be it&#39;s the
+
+00:42:59.280 --> 00:43:03.040
+Caption: only thing that a square can be and our
+
+00:43:01.040 --> 00:43:05.520
+Caption: shape is now just the union of the two a
+
+00:43:03.040 --> 00:43:07.359
+Caption: shape is a circle or a square it can&#39;t
+
+00:43:05.520 --> 00:43:08.800
+Caption: be anything else
+
+00:43:07.358 --> 00:43:10.959
+Caption: now we can actually
+
+00:43:08.800 --> 00:43:12.800
+Caption: pass in using structural typing just
+
+00:43:10.959 --> 00:43:14.159
+Caption: instances of squares and circles we get
+
+00:43:12.800 --> 00:43:15.599
+Caption: the right things
+
+00:43:14.159 --> 00:43:16.719
+Caption: all of this stuff has to be correct it
+
+00:43:15.599 --> 00:43:18.319
+Caption: won&#39;t build otherwise you can&#39;t have
+
+00:43:16.719 --> 00:43:19.760
+Caption: typos here because it&#39;s like well that
+
+00:43:18.319 --> 00:43:21.920
+Caption: is not a valid circle or that&#39;s not a
+
+00:43:19.760 --> 00:43:23.839
+Caption: valid square you can&#39;t refer to the
+
+00:43:21.919 --> 00:43:25.760
+Caption: length on a circle or the radius of a
+
+00:43:23.839 --> 00:43:27.280
+Caption: square because it works out when you&#39;re
+
+00:43:25.760 --> 00:43:29.199
+Caption: in here it narrows the type down and it
+
+00:43:27.280 --> 00:43:30.800
+Caption: knows it can only be that thing
+
+00:43:29.199 --> 00:43:32.719
+Caption: and the other thing is
+
+00:43:30.800 --> 00:43:34.719
+Caption: often in systems when they expand you
+
+00:43:32.719 --> 00:43:36.239
+Caption: get new cases right so if there were new
+
+00:43:34.719 --> 00:43:37.280
+Caption: cases how would we know about it here
+
+00:43:36.239 --> 00:43:39.280
+Caption: well
+
+00:43:37.280 --> 00:43:41.919
+Caption: the type system can also work out the
+
+00:43:39.280 --> 00:43:43.760
+Caption: exhaustiveness of your of your casing
+
+00:43:41.919 --> 00:43:45.040
+Caption: or if you&#39;ve deprecated and removed one
+
+00:43:43.760 --> 00:43:46.479
+Caption: it&#39;ll tell you well that&#39;s no longer a
+
+00:43:45.040 --> 00:43:47.599
+Caption: valid shape so
+
+00:43:46.479 --> 00:43:49.280
+Caption: as you
+
+00:43:47.599 --> 00:43:50.640
+Caption: maintain and change your system you get
+
+00:43:49.280 --> 00:43:52.880
+Caption: all these early warnings which is really
+
+00:43:50.639 --> 00:43:52.879
+Caption: great
+
+00:43:53.040 --> 00:43:56.479
+Caption: okay so in conclusion good strings are
+
+00:43:55.599 --> 00:43:57.920
+Caption: good
+
+00:43:56.479 --> 00:44:00.399
+Caption: don&#39;t believe what you&#39;ve been told
+
+00:43:57.919 --> 00:44:01.760
+Caption: never use strings strings are bad
+
+00:44:00.399 --> 00:44:03.520
+Caption: it really depends on the tools that
+
+00:44:01.760 --> 00:44:05.839
+Caption: you&#39;ve got so i&#39;d say the key takeaways
+
+00:44:03.520 --> 00:44:07.280
+Caption: are explicit types
+
+00:44:05.839 --> 00:44:08.880
+Caption: first of all is what we covered earlier
+
+00:44:07.280 --> 00:44:10.079
+Caption: on you know they really help humans and
+
+00:44:08.879 --> 00:44:12.399
+Caption: tools
+
+00:44:10.079 --> 00:44:14.319
+Caption: and in typescript i would say when it
+
+00:44:12.399 --> 00:44:16.399
+Caption: comes to stringly type code feel free to
+
+00:44:14.319 --> 00:44:18.079
+Caption: keep using strings just make sure that
+
+00:44:16.399 --> 00:44:20.078
+Caption: they&#39;re part of the type system that
+
+00:44:18.079 --> 00:44:22.160
+Caption: there&#39;s visibility on them so they&#39;re
+
+00:44:20.079 --> 00:44:23.520
+Caption: often natural they often keep the code
+
+00:44:22.159 --> 00:44:24.799
+Caption: simple and they make it look like what
+
+00:44:23.520 --> 00:44:26.479
+Caption: you&#39;d write if you were writing
+
+00:44:24.800 --> 00:44:28.079
+Caption: dynamically but you can make them really
+
+00:44:26.479 --> 00:44:30.319
+Caption: strongly checked and they help you avoid
+
+00:44:28.079 --> 00:44:32.000
+Caption: a lot of conversion boilerplate
+
+00:44:30.319 --> 00:44:33.599
+Caption: um make sure you&#39;ve got a single source
+
+00:44:32.000 --> 00:44:35.679
+Caption: of truth because that&#39;s another thing
+
+00:44:33.599 --> 00:44:36.800
+Caption: that comes that bites you in a lot of
+
+00:44:35.679 --> 00:44:39.199
+Caption: these cases
+
+00:44:36.800 --> 00:44:41.040
+Caption: uh aim for 100 accuracy why not you know
+
+00:44:39.199 --> 00:44:43.118
+Caption: if you can model just about anything
+
+00:44:41.040 --> 00:44:44.560
+Caption: with a type system then don&#39;t leave gaps
+
+00:44:43.118 --> 00:44:45.919
+Caption: make it really accurate and then you&#39;ll
+
+00:44:44.560 --> 00:44:47.199
+Caption: catch all of these things before you go
+
+00:44:45.919 --> 00:44:48.799
+Caption: to production
+
+00:44:47.199 --> 00:44:50.560
+Caption: uh and finally
+
+00:44:48.800 --> 00:44:52.880
+Caption: this is a preference for me make your
+
+00:44:50.560 --> 00:44:53.680
+Caption: types as unobtrusive as you can
+
+00:44:52.879 --> 00:44:55.279
+Caption: so
+
+00:44:53.679 --> 00:44:56.318
+Caption: you want to model the natural solution
+
+00:44:55.280 --> 00:44:58.479
+Caption: the thing you&#39;d write if you weren&#39;t
+
+00:44:56.319 --> 00:45:01.440
+Caption: worrying about the types
+
+00:44:58.479 --> 00:45:03.439
+Caption: and you know typestrip&#39;s really good for
+
+00:45:01.439 --> 00:45:05.280
+Caption: letting you be able to do that ideally
+
+00:45:03.439 --> 00:45:06.560
+Caption: an api should look like the untyped code
+
+00:45:05.280 --> 00:45:08.800
+Caption: and it won&#39;t even be full of type
+
+00:45:06.560 --> 00:45:10.800
+Caption: annotations they&#39;ll all be inferred
+
+00:45:08.800 --> 00:45:13.520
+Caption: and it just helps you avoid boil plate
+
+00:45:10.800 --> 00:45:16.760
+Caption: so that&#39;s it thanks for listening
+
+00:45:13.520 --> 00:45:16.760
+Caption: any questions
+

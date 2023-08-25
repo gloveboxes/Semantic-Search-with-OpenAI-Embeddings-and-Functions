@@ -1,0 +1,1229 @@
+WEBVTT
+
+00:00:06.349 --> 00:00:13.979
+Caption: hello hello how&#39;s everyone doing did you
+
+00:00:10.979 --> 00:00:15.899
+Caption: enjoy the morning tea alright ready to
+
+00:00:13.979 --> 00:00:21.618
+Caption: listen about reactive programming and
+
+00:00:15.899 --> 00:00:24.479
+Caption: rxjs alright so thanks for our sponsors
+
+00:00:21.618 --> 00:00:27.569
+Caption: I&#39;m Chris filippov ski I&#39;m a software
+
+00:00:24.479 --> 00:00:30.299
+Caption: engineer and I work in a medium-sized
+
+00:00:27.569 --> 00:00:33.599
+Caption: mining company in Perth called index
+
+00:00:30.299 --> 00:00:35.459
+Caption: previously I worked in Nokia and I&#39;m
+
+00:00:33.599 --> 00:00:37.889
+Caption: mostly JavaScript and type developer
+
+00:00:35.459 --> 00:00:40.590
+Caption: doing some backend work in node.js and
+
+00:00:37.889 --> 00:00:43.439
+Caption: quite a bit of front-end and I&#39;m here
+
+00:00:40.590 --> 00:00:46.919
+Caption: today to give you a gentle I hope
+
+00:00:43.439 --> 00:00:49.949
+Caption: introduction to reactive programming and
+
+00:00:46.919 --> 00:00:53.038
+Caption: because I remember when I heard about
+
+00:00:49.950 --> 00:00:55.350
+Caption: rxjs it was about three years ago and I
+
+00:00:53.039 --> 00:00:58.440
+Caption: wanted to learn reactive programming and
+
+00:00:55.349 --> 00:01:00.569
+Caption: I started googling and I landed on the
+
+00:00:58.439 --> 00:01:03.358
+Caption: documentation page and I started to read
+
+00:01:00.569 --> 00:01:06.779
+Caption: about all the operators that were over
+
+00:01:03.359 --> 00:01:08.880
+Caption: there and I felt pretty confused and I
+
+00:01:06.779 --> 00:01:10.379
+Caption: think I felt pretty similar to this guy
+
+00:01:08.879 --> 00:01:13.019
+Caption: who posted this question on Stack
+
+00:01:10.379 --> 00:01:13.469
+Caption: Overflow so I&#39;m trying to learn react
+
+00:01:13.019 --> 00:01:15.180
+Caption: effects
+
+00:01:13.470 --> 00:01:17.220
+Caption: I have spent almost a whole day and I&#39;m
+
+00:01:15.180 --> 00:01:18.569
+Caption: not able to understand it properly I try
+
+00:01:17.220 --> 00:01:20.400
+Caption: to look at the official documentation
+
+00:01:18.569 --> 00:01:23.489
+Caption: but it&#39;s very difficult to understand
+
+00:01:20.400 --> 00:01:25.830
+Caption: something like this Eric&#39;s observable
+
+00:01:23.489 --> 00:01:27.899
+Caption: prototype flatmap latest projects each
+
+00:01:25.830 --> 00:01:30.450
+Caption: element of an observable sequence into a
+
+00:01:27.900 --> 00:01:33.029
+Caption: new sequence of observable sequences by
+
+00:01:30.449 --> 00:01:35.548
+Caption: incorporate incorporating the elements
+
+00:01:33.029 --> 00:01:37.529
+Caption: index and then transforms an observable
+
+00:01:35.549 --> 00:01:39.150
+Caption: sequence of observable sequences into an
+
+00:01:37.529 --> 00:01:41.040
+Caption: observable sequence producing values
+
+00:01:39.150 --> 00:01:45.000
+Caption: only from the most recent observable
+
+00:01:41.040 --> 00:01:47.040
+Caption: sequence and I already knew at that
+
+00:01:45.000 --> 00:01:48.629
+Caption: moment that I&#39;m not able to understand
+
+00:01:47.040 --> 00:01:50.369
+Caption: our edges just by looking at the
+
+00:01:48.629 --> 00:01:52.978
+Caption: documentation and hopefully there are
+
+00:01:50.369 --> 00:01:55.290
+Caption: better ways to learn that but what it
+
+00:01:52.978 --> 00:01:57.209
+Caption: really is this reactive programming so
+
+00:01:55.290 --> 00:01:59.399
+Caption: at the beginning I would like to show
+
+00:01:57.209 --> 00:02:01.079
+Caption: you an example of application that works
+
+00:01:59.399 --> 00:02:03.360
+Caption: in a highly reactive manner that you&#39;ve
+
+00:02:01.079 --> 00:02:07.500
+Caption: might seen before and that&#39;s the next
+
+00:02:03.360 --> 00:02:09.089
+Caption: spreadsheet here we have like three
+
+00:02:07.500 --> 00:02:12.089
+Caption: input fields and the fourth one is a
+
+00:02:09.089 --> 00:02:13.889
+Caption: concatenation of the previous these
+
+00:02:12.089 --> 00:02:17.069
+Caption: three others and ones which
+
+00:02:13.889 --> 00:02:18.569
+Caption: one of these fields the change of the
+
+00:02:17.070 --> 00:02:21.780
+Caption: input field is propagated to the output
+
+00:02:18.570 --> 00:02:23.970
+Caption: field immediately once I change here the
+
+00:02:21.779 --> 00:02:25.949
+Caption: change is propagated immediately to the
+
+00:02:23.970 --> 00:02:28.619
+Caption: output stream without any refresh or
+
+00:02:25.949 --> 00:02:30.919
+Caption: update and that&#39;s basically what the
+
+00:02:28.619 --> 00:02:33.330
+Caption: reactive programming is in its core
+
+00:02:30.919 --> 00:02:34.889
+Caption: putting it in towards reactive
+
+00:02:33.330 --> 00:02:38.910
+Caption: programming is programming with
+
+00:02:34.889 --> 00:02:41.910
+Caption: asynchronous data streams and a stream
+
+00:02:38.910 --> 00:02:44.550
+Caption: is a sequence of ongoing events ordered
+
+00:02:41.910 --> 00:02:46.980
+Caption: in time in our Excel example this
+
+00:02:44.550 --> 00:02:49.738
+Caption: sequence of events were just values that
+
+00:02:46.979 --> 00:02:52.649
+Caption: we were inserting inputting into the
+
+00:02:49.738 --> 00:02:56.190
+Caption: cells in Excel so I would like you to
+
+00:02:52.649 --> 00:02:57.929
+Caption: think of an stream as an array which is
+
+00:02:56.190 --> 00:03:00.720
+Caption: ordered in time so if that would be an
+
+00:02:57.929 --> 00:03:03.059
+Caption: array of five values that would be the
+
+00:03:00.720 --> 00:03:06.238
+Caption: stream of five values ordered in time
+
+00:03:03.059 --> 00:03:08.610
+Caption: and on top of that concept we have a
+
+00:03:06.238 --> 00:03:11.759
+Caption: reactive extension which is an amazing
+
+00:03:08.610 --> 00:03:17.220
+Caption: tool box for creating combining and
+
+00:03:11.759 --> 00:03:20.429
+Caption: filtering those streams in very
+
+00:03:17.220 --> 00:03:22.940
+Caption: declarative and immutable way in a
+
+00:03:20.429 --> 00:03:25.109
+Caption: similar manner as we do it currently on
+
+00:03:22.940 --> 00:03:29.610
+Caption: JavaScript our eyes that we have
+
+00:03:25.110 --> 00:03:32.639
+Caption: functions like map filter reduce as you
+
+00:03:29.610 --> 00:03:33.958
+Caption: might be familiar with and reactive
+
+00:03:32.639 --> 00:03:36.809
+Caption: extension is available for many
+
+00:03:33.958 --> 00:03:38.820
+Caption: languages there is a check yes there is
+
+00:03:36.809 --> 00:03:42.000
+Caption: like 18 of them it&#39;s like Eric&#39;s Java
+
+00:03:38.820 --> 00:03:45.690
+Caption: or.net or XP HP Python the Ruby Swift
+
+00:03:42.000 --> 00:03:48.539
+Caption: caught in a lot of languages so once you
+
+00:03:45.690 --> 00:03:50.729
+Caption: learn it once departing you&#39;ll be able
+
+00:03:48.539 --> 00:03:52.729
+Caption: to apply it in whatever language that
+
+00:03:50.729 --> 00:03:57.449
+Caption: you&#39;ll be using
+
+00:03:52.729 --> 00:04:00.119
+Caption: especially reactive Jes is not a
+
+00:03:57.449 --> 00:04:02.548
+Caption: framework specific so you can use it
+
+00:04:00.119 --> 00:04:04.889
+Caption: with vanilla JavaScript it works really
+
+00:04:02.548 --> 00:04:07.018
+Caption: well with react view is the first class
+
+00:04:04.889 --> 00:04:09.720
+Caption: citizen in angular apps and there is
+
+00:04:07.018 --> 00:04:12.869
+Caption: also a psychologist framework that is
+
+00:04:09.720 --> 00:04:15.649
+Caption: built upon the concept of it so there&#39;s
+
+00:04:12.869 --> 00:04:18.208
+Caption: a lot of things that you can use it with
+
+00:04:15.649 --> 00:04:19.768
+Caption: so you might be wondering what kind of
+
+00:04:18.209 --> 00:04:24.710
+Caption: streams you might have in your
+
+00:04:19.769 --> 00:04:24.710
+Caption: applications and some people says that
+
+00:04:24.739 --> 00:04:29.559
+Caption: everything can be a stream but
+
+00:04:27.339 --> 00:04:34.290
+Caption: in most situations our streams are
+
+00:04:29.559 --> 00:04:37.329
+Caption: composed I composed out of HTTP requests
+
+00:04:34.290 --> 00:04:41.110
+Caption: user interactions like mouse movements
+
+00:04:37.329 --> 00:04:43.599
+Caption: keyboard events animations handling
+
+00:04:41.109 --> 00:04:49.599
+Caption: multiple WebSocket connections route
+
+00:04:43.600 --> 00:04:52.149
+Caption: changes state changes and and so on so
+
+00:04:49.600 --> 00:04:54.669
+Caption: how does it work so reactive extension
+
+00:04:52.149 --> 00:04:57.309
+Caption: is build upon the concept of observable
+
+00:04:54.669 --> 00:04:59.020
+Caption: and observer and we can think of
+
+00:04:57.309 --> 00:05:01.239
+Caption: observable of something that produces
+
+00:04:59.019 --> 00:05:03.609
+Caption: data and observer as something that
+
+00:05:01.239 --> 00:05:05.979
+Caption: lists that data and the intention of
+
+00:05:03.609 --> 00:05:08.949
+Caption: listening to the data is expressed by
+
+00:05:05.979 --> 00:05:11.500
+Caption: the keyword subscribe after we subscribe
+
+00:05:08.950 --> 00:05:14.380
+Caption: to observable observer observable starts
+
+00:05:11.500 --> 00:05:19.269
+Caption: to produce data an observer can receive
+
+00:05:14.380 --> 00:05:21.880
+Caption: this data if we put it into the code we
+
+00:05:19.269 --> 00:05:23.739
+Caption: can see that observable is nothing more
+
+00:05:21.880 --> 00:05:28.000
+Caption: than an object that implements a metal
+
+00:05:23.739 --> 00:05:30.789
+Caption: subscribe and an observer is just a
+
+00:05:28.000 --> 00:05:33.549
+Caption: bundle of free callbacks on next on
+
+00:05:30.790 --> 00:05:35.529
+Caption: error and uncomplete and if you&#39;ve been
+
+00:05:33.549 --> 00:05:38.679
+Caption: programming in JavaScript you you might
+
+00:05:35.529 --> 00:05:40.779
+Caption: think now that it&#39;s pretty similar to
+
+00:05:38.679 --> 00:05:43.089
+Caption: the concept that prior to before or used
+
+00:05:40.779 --> 00:05:46.059
+Caption: before this is pretty similar to
+
+00:05:43.089 --> 00:05:48.639
+Caption: promises some people call it observables
+
+00:05:46.059 --> 00:05:50.950
+Caption: as promises class class or promises on
+
+00:05:48.640 --> 00:05:53.440
+Caption: steroids and that&#39;s true
+
+00:05:50.950 --> 00:05:57.370
+Caption: because when you look at how we trigger
+
+00:05:53.440 --> 00:05:59.410
+Caption: the promise we are using the keyword
+
+00:05:57.369 --> 00:06:02.320
+Caption: then then we are passing a callback
+
+00:05:59.410 --> 00:06:05.080
+Caption: function success in observable we are
+
+00:06:02.320 --> 00:06:06.760
+Caption: having subscribe and instead of success
+
+00:06:05.079 --> 00:06:09.489
+Caption: function we are passing in next function
+
+00:06:06.760 --> 00:06:13.539
+Caption: the difference is because promise can
+
+00:06:09.489 --> 00:06:15.459
+Caption: resolve only ones but observable can
+
+00:06:13.539 --> 00:06:17.500
+Caption: resolve multiple times over and over
+
+00:06:15.459 --> 00:06:18.880
+Caption: again then the second callback is an
+
+00:06:17.500 --> 00:06:22.359
+Caption: error function is the same as in
+
+00:06:18.880 --> 00:06:24.820
+Caption: promises and just because observable can
+
+00:06:22.359 --> 00:06:28.269
+Caption: emit multiple times we need to have a
+
+00:06:24.820 --> 00:06:30.729
+Caption: callback that suggests that okay this
+
+00:06:28.269 --> 00:06:33.399
+Caption: stream has completed and will not emit
+
+00:06:30.729 --> 00:06:35.289
+Caption: any values in the future and on top of
+
+00:06:33.399 --> 00:06:39.070
+Caption: that there is it is also cancelable
+
+00:06:35.289 --> 00:06:40.639
+Caption: which is advantage over the using
+
+00:06:39.070 --> 00:06:42.259
+Caption: promises as well
+
+00:06:40.639 --> 00:06:45.559
+Caption: and of course we have the whole bunch of
+
+00:06:42.259 --> 00:06:48.610
+Caption: operators that we can use it with if you
+
+00:06:45.559 --> 00:06:51.709
+Caption: would like to look how we can represent
+
+00:06:48.609 --> 00:06:53.839
+Caption: it visually it&#39;s often in the
+
+00:06:51.709 --> 00:06:59.509
+Caption: documentation is represented in a marble
+
+00:06:53.839 --> 00:07:02.329
+Caption: diagrams which look like the the line of
+
+00:06:59.509 --> 00:07:06.889
+Caption: time in a silver balls we have emitted
+
+00:07:02.329 --> 00:07:10.549
+Caption: values the X represents the error event
+
+00:07:06.889 --> 00:07:13.490
+Caption: and vertical line the completed signal
+
+00:07:10.549 --> 00:07:14.839
+Caption: there&#39;s also an ASCII diagram that might
+
+00:07:13.489 --> 00:07:17.229
+Caption: be very useful if you want to comment
+
+00:07:14.839 --> 00:07:21.128
+Caption: your code or there are even libraries
+
+00:07:17.229 --> 00:07:24.289
+Caption: that helps you unit test your streams
+
+00:07:21.128 --> 00:07:25.938
+Caption: using just these ASCII diagrams so you
+
+00:07:24.289 --> 00:07:30.009
+Caption: put it as an input enough what you&#39;re
+
+00:07:25.938 --> 00:07:31.908
+Caption: expecting so let&#39;s look at some
+
+00:07:30.009 --> 00:07:38.569
+Caption: imperative code that we might have
+
+00:07:31.908 --> 00:07:42.619
+Caption: written so here we have a variable a
+
+00:07:38.569 --> 00:07:45.979
+Caption: assign five variable B and variable C is
+
+00:07:42.619 --> 00:07:48.799
+Caption: just a product of a and B so in line for
+
+00:07:45.979 --> 00:07:50.989
+Caption: the value of C will be ten that what
+
+00:07:48.799 --> 00:07:53.209
+Caption: would happen in later in time one of
+
+00:07:50.989 --> 00:07:55.278
+Caption: this a and B would change for example B
+
+00:07:53.209 --> 00:07:57.109
+Caption: would change to three and we would like
+
+00:07:55.278 --> 00:07:59.119
+Caption: to check what&#39;s the value of C and it
+
+00:07:57.109 --> 00:08:02.679
+Caption: would be still 10 and in some situations
+
+00:07:59.119 --> 00:08:07.669
+Caption: we would expect it to be updated to the
+
+00:08:02.679 --> 00:08:09.859
+Caption: current values like 15 and to have such
+
+00:08:07.669 --> 00:08:12.559
+Caption: behavior in imperative code we&#39;d have to
+
+00:08:09.859 --> 00:08:18.588
+Caption: run this operation a multiply by B again
+
+00:08:12.559 --> 00:08:22.789
+Caption: and how we can refactor it into reactive
+
+00:08:18.588 --> 00:08:24.500
+Caption: way so let&#39;s try it now on so first what
+
+00:08:22.789 --> 00:08:28.250
+Caption: we want to do instead of having variable
+
+00:08:24.500 --> 00:08:33.109
+Caption: a equals 5 you want to have a to be a
+
+00:08:28.250 --> 00:08:39.408
+Caption: stream of that M its value a so in order
+
+00:08:33.109 --> 00:08:43.539
+Caption: to do that we&#39;ll import the operator of
+
+00:08:39.408 --> 00:08:47.059
+Caption: that creates an stream of a single value
+
+00:08:43.539 --> 00:08:50.919
+Caption: we&#39;ll rename the variable name to $1
+
+00:08:47.059 --> 00:08:53.469
+Caption: which is a standard convention name for
+
+00:08:50.919 --> 00:08:58.639
+Caption: observables in
+
+00:08:53.469 --> 00:09:02.209
+Caption: rxjs will do the same with with swingby
+
+00:08:58.640 --> 00:09:04.730
+Caption: and our stream C needs to be a
+
+00:09:02.210 --> 00:09:06.950
+Caption: combination of the latest emitted value
+
+00:09:04.729 --> 00:09:09.859
+Caption: of the stream a and V and in order to do
+
+00:09:06.950 --> 00:09:14.088
+Caption: that we have our having an operator
+
+00:09:09.859 --> 00:09:21.469
+Caption: combine lattice that does exactly what I
+
+00:09:14.088 --> 00:09:23.380
+Caption: mentioned so this so far we&#39;ll take the
+
+00:09:21.469 --> 00:09:29.479
+Caption: latest value of a and B and we can pass
+
+00:09:23.380 --> 00:09:31.580
+Caption: a function that will take the latest
+
+00:09:29.479 --> 00:09:36.349
+Caption: values of a and B and we&#39;ll just
+
+00:09:31.580 --> 00:09:38.480
+Caption: multiply it remove that one if we run
+
+00:09:36.349 --> 00:09:40.429
+Caption: this code nothing could happen yet we
+
+00:09:38.479 --> 00:09:48.760
+Caption: need to subscribe to our observable fair
+
+00:09:40.429 --> 00:09:52.760
+Caption: so we&#39;ll subscribe to our stream C and
+
+00:09:48.760 --> 00:09:55.520
+Caption: just for a simplicity we&#39;ll just
+
+00:09:52.760 --> 00:09:58.820
+Caption: console.log this value and let&#39;s see
+
+00:09:55.520 --> 00:10:03.350
+Caption: what happens so when you run this code
+
+00:09:58.820 --> 00:10:05.000
+Caption: we have the output over here equals 10
+
+00:10:03.349 --> 00:10:07.219
+Caption: but what would happen if one of these
+
+00:10:05.000 --> 00:10:10.489
+Caption: values will change later in time to for
+
+00:10:07.219 --> 00:10:19.399
+Caption: example 3 later in time would have value
+
+00:10:10.489 --> 00:10:21.409
+Caption: 15 so if you put that into into a little
+
+00:10:19.400 --> 00:10:23.930
+Caption: bit of HTML and we&#39;ll connect the stream
+
+00:10:21.409 --> 00:10:28.429
+Caption: 8 when one input and stream B to the
+
+00:10:23.929 --> 00:10:32.020
+Caption: other input wherever will change the
+
+00:10:28.429 --> 00:10:37.099
+Caption: value here the output will be changing
+
+00:10:32.020 --> 00:10:39.559
+Caption: so that&#39;s pretty much it so that was the
+
+00:10:37.099 --> 00:10:43.609
+Caption: code before like in a variety way that&#39;s
+
+00:10:39.559 --> 00:10:45.650
+Caption: how it looks in reactive way so what
+
+00:10:43.609 --> 00:10:47.779
+Caption: we&#39;ve done in a marble diagrams it would
+
+00:10:45.650 --> 00:10:52.250
+Caption: look like this we have a stream a that
+
+00:10:47.780 --> 00:10:53.660
+Caption: emitted value 5 and once this both of
+
+00:10:52.250 --> 00:10:57.109
+Caption: the streams emitted at least one value
+
+00:10:53.659 --> 00:10:59.778
+Caption: we have value emitted in the output
+
+00:10:57.109 --> 00:11:01.899
+Caption: stream which is 10 and 1 every time when
+
+00:10:59.778 --> 00:11:04.609
+Caption: the stream a or b emits value we have
+
+00:11:01.900 --> 00:11:06.800
+Caption: value emitted on the output stream as
+
+00:11:04.609 --> 00:11:10.140
+Caption: well
+
+00:11:06.799 --> 00:11:12.958
+Caption: quite important thing to know up front
+
+00:11:10.140 --> 00:11:14.910
+Caption: that there is a difference between hot
+
+00:11:12.958 --> 00:11:16.769
+Caption: and cold observables maybe not when you
+
+00:11:14.909 --> 00:11:18.719
+Caption: start but later on when you will start
+
+00:11:16.770 --> 00:11:20.399
+Caption: subscribing multiple times to an
+
+00:11:18.719 --> 00:11:23.159
+Caption: observables you will see the difference
+
+00:11:20.398 --> 00:11:25.260
+Caption: so the difference is that when you have
+
+00:11:23.159 --> 00:11:27.299
+Caption: a cold observable if you subscribe to it
+
+00:11:25.260 --> 00:11:30.479
+Caption: multiple times you will always get the
+
+00:11:27.299 --> 00:11:32.609
+Caption: same stream of data and it&#39;s 100%
+
+00:11:30.479 --> 00:11:35.458
+Caption: predictable examples of it is like
+
+00:11:32.609 --> 00:11:39.148
+Caption: observable created of a single value of
+
+00:11:35.458 --> 00:11:41.398
+Caption: an RI of an interval of an AJAX request
+
+00:11:39.148 --> 00:11:43.380
+Caption: so wherever we subscribe to an AJAX
+
+00:11:41.398 --> 00:11:46.950
+Caption: request every time we&#39;ll make another
+
+00:11:43.380 --> 00:11:49.049
+Caption: HTTP call on the other hand we have hot
+
+00:11:46.950 --> 00:11:51.208
+Caption: observables that are actually producing
+
+00:11:49.049 --> 00:11:53.489
+Caption: data before we&#39;ve subscribed to it and
+
+00:11:51.208 --> 00:11:55.500
+Caption: once we subscribe to the observable we
+
+00:11:53.489 --> 00:11:57.299
+Caption: are gonna be getting only the data from
+
+00:11:55.500 --> 00:11:59.039
+Caption: the moment of subscriptions and this
+
+00:11:57.299 --> 00:12:03.330
+Caption: examples of circles are for example
+
+00:11:59.039 --> 00:12:05.369
+Caption: mouse movements and once we subscribe to
+
+00:12:03.330 --> 00:12:07.020
+Caption: the event rate to the stream that is
+
+00:12:05.369 --> 00:12:09.059
+Caption: created out of the mouse movement even
+
+00:12:07.020 --> 00:12:10.709
+Caption: we&#39;ll be getting only positions from the
+
+00:12:09.059 --> 00:12:13.528
+Caption: current moment of subscriptions and we
+
+00:12:10.708 --> 00:12:16.409
+Caption: want to get the whole history of events
+
+00:12:13.528 --> 00:12:18.179
+Caption: where the mouse was before it&#39;s
+
+00:12:16.409 --> 00:12:21.059
+Caption: sometimes good to know that we can warm
+
+00:12:18.179 --> 00:12:24.119
+Caption: up our cold observables by using sharp
+
+00:12:21.059 --> 00:12:27.869
+Caption: but I want go into details with that so
+
+00:12:24.119 --> 00:12:33.179
+Caption: far let&#39;s look at some operators that
+
+00:12:27.869 --> 00:12:36.119
+Caption: gives a real power for like of this
+
+00:12:33.179 --> 00:12:38.609
+Caption: reactive programming party so the first
+
+00:12:36.119 --> 00:12:41.179
+Caption: one if you&#39;re using javascript is
+
+00:12:38.609 --> 00:12:43.500
+Caption: operate your map might be very similar
+
+00:12:41.179 --> 00:12:46.380
+Caption: we are having a transformation function
+
+00:12:43.500 --> 00:12:48.599
+Caption: in our case it&#39;s just a square function
+
+00:12:46.380 --> 00:12:50.429
+Caption: once we get a value on the input string
+
+00:12:48.599 --> 00:12:55.219
+Caption: immediately we will get the square of
+
+00:12:50.429 --> 00:12:57.859
+Caption: this value in the output stream another
+
+00:12:55.219 --> 00:13:00.898
+Caption: operator that is quite familiar to
+
+00:12:57.859 --> 00:13:02.519
+Caption: JavaScript developers is familiy filter
+
+00:13:00.898 --> 00:13:05.159
+Caption: another one in JavaScript developers of
+
+00:13:02.520 --> 00:13:08.040
+Caption: course but yeah there&#39;s filter that we
+
+00:13:05.159 --> 00:13:11.519
+Caption: have a predicate function so in here
+
+00:13:08.039 --> 00:13:13.320
+Caption: will be only allowing values that are
+
+00:13:11.520 --> 00:13:18.989
+Caption: bigger than 10 to pass through our
+
+00:13:13.320 --> 00:13:20.179
+Caption: filter that&#39;s I hope it&#39;s pretty much
+
+00:13:18.989 --> 00:13:22.940
+Caption: clear
+
+00:13:20.179 --> 00:13:25.700
+Caption: and we are having a little bit different
+
+00:13:22.940 --> 00:13:27.919
+Caption: operators on our ice that on streams
+
+00:13:25.700 --> 00:13:30.429
+Caption: that are not usually on our ice and for
+
+00:13:27.919 --> 00:13:33.440
+Caption: example there is an operator skip while
+
+00:13:30.429 --> 00:13:36.619
+Caption: that will be it works a little bit like
+
+00:13:33.440 --> 00:13:38.690
+Caption: filter but it skips until the condition
+
+00:13:36.619 --> 00:13:41.599
+Caption: that we give will be false so in this
+
+00:13:38.690 --> 00:13:44.390
+Caption: example we skipping all the values until
+
+00:13:41.599 --> 00:13:48.649
+Caption: the X will be 22 and from that time on
+
+00:13:44.390 --> 00:13:51.830
+Caption: it will be passing all the data flow so
+
+00:13:48.650 --> 00:13:53.510
+Caption: you&#39;re waiting until X will be 22 and
+
+00:13:51.830 --> 00:13:55.400
+Caption: then we are passing through and that
+
+00:13:53.510 --> 00:13:59.030
+Caption: might be useful when we for example wait
+
+00:13:55.400 --> 00:14:02.780
+Caption: for some variables to initialize in our
+
+00:13:59.030 --> 00:14:05.230
+Caption: stream quite interesting is the bounce
+
+00:14:02.780 --> 00:14:07.820
+Caption: time and if you&#39;ve ever implemented
+
+00:14:05.229 --> 00:14:11.089
+Caption: type-ahead or autocomplete in your code
+
+00:14:07.820 --> 00:14:13.369
+Caption: it probably came across the bounds and
+
+00:14:11.090 --> 00:14:15.920
+Caption: you&#39;ve implemented in one way or the
+
+00:14:13.369 --> 00:14:18.830
+Caption: other but with reactive extension is
+
+00:14:15.919 --> 00:14:21.320
+Caption: just one line of code and let&#39;s imagine
+
+00:14:18.830 --> 00:14:23.540
+Caption: that we have here a search we type one
+
+00:14:21.320 --> 00:14:27.979
+Caption: letter and stop what the bounce does
+
+00:14:23.539 --> 00:14:30.139
+Caption: just wait a period given here of the
+
+00:14:27.979 --> 00:14:32.059
+Caption: time like 300 milliseconds and if there
+
+00:14:30.140 --> 00:14:34.100
+Caption: is no other event it propagates it to
+
+00:14:32.059 --> 00:14:37.429
+Caption: the output stream but what happens if we
+
+00:14:34.099 --> 00:14:39.799
+Caption: type more letters at once
+
+00:14:37.429 --> 00:14:42.320
+Caption: it won&#39;t emit every single value it will
+
+00:14:39.799 --> 00:14:44.119
+Caption: just wait just is 300 milliseconds after
+
+00:14:42.320 --> 00:14:46.250
+Caption: the last immediate value and just
+
+00:14:44.119 --> 00:14:48.140
+Caption: propagated to the output stream so this
+
+00:14:46.250 --> 00:14:51.849
+Caption: is very good way to limit number of
+
+00:14:48.140 --> 00:14:56.809
+Caption: requests that we are doing to our server
+
+00:14:51.849 --> 00:15:00.380
+Caption: so let&#39;s look a little bit of the
+
+00:14:56.809 --> 00:15:03.729
+Caption: examples so here we have an example of
+
+00:15:00.380 --> 00:15:06.619
+Caption: like more full-blown type-ahead
+
+00:15:03.729 --> 00:15:10.909
+Caption: so what we are doing here is we are
+
+00:15:06.619 --> 00:15:14.000
+Caption: creating an observable from event key up
+
+00:15:10.909 --> 00:15:20.059
+Caption: on a target in our case target could be
+
+00:15:14.000 --> 00:15:23.690
+Caption: an input HTML input then we are piping
+
+00:15:20.059 --> 00:15:26.330
+Caption: it through operator map in order to from
+
+00:15:23.690 --> 00:15:29.330
+Caption: event to get just the value the string
+
+00:15:26.330 --> 00:15:31.880
+Caption: value then we are piping it through the
+
+00:15:29.330 --> 00:15:33.570
+Caption: bounce time then we are using this thing
+
+00:15:31.880 --> 00:15:37.410
+Caption: until change
+
+00:15:33.570 --> 00:15:40.049
+Caption: which actually works similar to filter
+
+00:15:37.409 --> 00:15:42.179
+Caption: but it filters out the value that are
+
+00:15:40.049 --> 00:15:43.979
+Caption: the same as the previous emission so
+
+00:15:42.179 --> 00:15:46.349
+Caption: we&#39;ll have only the values that changed
+
+00:15:43.979 --> 00:15:48.750
+Caption: so if someone for example types a letter
+
+00:15:46.349 --> 00:15:52.198
+Caption: and remove that letter quickly it we
+
+00:15:48.750 --> 00:15:53.940
+Caption: won&#39;t get that even propagated and then
+
+00:15:52.198 --> 00:15:55.708
+Caption: we are using a switch map operator
+
+00:15:53.940 --> 00:15:58.588
+Caption: that&#39;s actually switching from one
+
+00:15:55.708 --> 00:16:00.809
+Caption: observable to the other in our case it&#39;s
+
+00:15:58.588 --> 00:16:05.278
+Caption: a search observable that&#39;s actually an
+
+00:16:00.809 --> 00:16:08.010
+Caption: ajax request to the database and this
+
+00:16:05.278 --> 00:16:11.130
+Caption: particular search observable is piped
+
+00:16:08.010 --> 00:16:15.059
+Caption: fro retry operator which is quite
+
+00:16:11.130 --> 00:16:18.208
+Caption: powerful because it can retry given
+
+00:16:15.059 --> 00:16:21.119
+Caption: number of times if it fails because of
+
+00:16:18.208 --> 00:16:23.669
+Caption: some reason so this piece of code is
+
+00:16:21.119 --> 00:16:27.059
+Caption: quite terse I think and there&#39;s quite a
+
+00:16:23.669 --> 00:16:29.070
+Caption: lot of things and it&#39;s I think once you
+
+00:16:27.059 --> 00:16:33.479
+Caption: get it it&#39;s quite easy to understand as
+
+00:16:29.070 --> 00:16:36.828
+Caption: well some people says that you can
+
+00:16:33.479 --> 00:16:41.039
+Caption: implement redux in just one line of code
+
+00:16:36.828 --> 00:16:43.380
+Caption: I&#39;ll refer to this link below but basic
+
+00:16:41.039 --> 00:16:47.099
+Caption: idea of course I&#39;m not recommending to
+
+00:16:43.380 --> 00:16:49.069
+Caption: use it like just for a placement of
+
+00:16:47.099 --> 00:16:53.009
+Caption: Redux because there you don&#39;t have like
+
+00:16:49.068 --> 00:16:55.349
+Caption: all the goodness of relax like developer
+
+00:16:53.010 --> 00:16:58.889
+Caption: tools and etc but the basic concept can
+
+00:16:55.349 --> 00:17:05.609
+Caption: be implemented just with rxjs and we can
+
+00:16:58.888 --> 00:17:09.900
+Caption: have a observable store that will be
+
+00:17:05.609 --> 00:17:12.390
+Caption: created out of our actions and it will
+
+00:17:09.900 --> 00:17:15.088
+Caption: start with initial state and operator
+
+00:17:12.390 --> 00:17:17.369
+Caption: scan works in a similar way that it
+
+00:17:15.088 --> 00:17:19.678
+Caption: accumulates the latest value that&#39;s
+
+00:17:17.369 --> 00:17:22.349
+Caption: produced out of the reducer function
+
+00:17:19.678 --> 00:17:25.678
+Caption: that is the same as in redux that it
+
+00:17:22.349 --> 00:17:30.089
+Caption: takes the previous state and the action
+
+00:17:25.678 --> 00:17:32.039
+Caption: in the creates mutable new state and I
+
+00:17:30.089 --> 00:17:35.159
+Caption: won&#39;t be getting into details with other
+
+00:17:32.040 --> 00:17:41.280
+Caption: examples we can talk after the talk if
+
+00:17:35.160 --> 00:17:43.169
+Caption: you want one less thing to to mention if
+
+00:17:41.280 --> 00:17:45.349
+Caption: you don&#39;t want to find yourself looking
+
+00:17:43.168 --> 00:17:47.189
+Caption: for memory leaks in your applications
+
+00:17:45.349 --> 00:17:51.359
+Caption: don&#39;t forget to answer
+
+00:17:47.189 --> 00:17:53.879
+Caption: scribe because otherwise it will like
+
+00:17:51.359 --> 00:17:57.239
+Caption: our memory footprint will be growing and
+
+00:17:53.880 --> 00:18:00.150
+Caption: we can do it in two ways once imperative
+
+00:17:57.239 --> 00:18:03.689
+Caption: just by calling and subscribe or we can
+
+00:18:00.150 --> 00:18:06.239
+Caption: use more reactive way by using one of
+
+00:18:03.689 --> 00:18:09.149
+Caption: operators like take take while or take
+
+00:18:06.239 --> 00:18:12.150
+Caption: until which will actually for example we
+
+00:18:09.150 --> 00:18:15.030
+Caption: can X explicitly say that take for
+
+00:18:12.150 --> 00:18:18.479
+Caption: example five Emmys and after taking five
+
+00:18:15.030 --> 00:18:20.969
+Caption: Emmys it will be the stream will be just
+
+00:18:18.479 --> 00:18:23.369
+Caption: completed or if you are using a new
+
+00:18:20.969 --> 00:18:25.679
+Caption: angular you can use an icing pipe and
+
+00:18:23.369 --> 00:18:30.390
+Caption: angular will take care of unsubscribing
+
+00:18:25.680 --> 00:18:33.150
+Caption: when your view is destroyed and as my
+
+00:18:30.390 --> 00:18:34.829
+Caption: personal final thoughts as I would like
+
+00:18:33.150 --> 00:18:38.400
+Caption: to say if you haven&#39;t been playing with
+
+00:18:34.829 --> 00:18:39.719
+Caption: reactive programming just in if you if
+
+00:18:38.400 --> 00:18:41.670
+Caption: you will find yourself on a
+
+00:18:39.719 --> 00:18:45.299
+Caption: documentation page and reading about
+
+00:18:41.670 --> 00:18:47.609
+Caption: like 120 operators which might be quite
+
+00:18:45.300 --> 00:18:52.280
+Caption: confusing just forget about them for now
+
+00:18:47.609 --> 00:18:54.929
+Caption: I don&#39;t know personally all of them
+
+00:18:52.280 --> 00:18:57.690
+Caption: start using them as use promises
+
+00:18:54.930 --> 00:19:00.330
+Caption: currently and maybe get your feet wet
+
+00:18:57.689 --> 00:19:02.609
+Caption: with just one or two simple operators
+
+00:19:00.329 --> 00:19:06.299
+Caption: like map or filter and then once you
+
+00:19:02.609 --> 00:19:09.359
+Caption: need it you can improve and as Ben Lesh
+
+00:19:06.300 --> 00:19:11.580
+Caption: the current mental maintainer of our HJs
+
+00:19:09.359 --> 00:19:14.459
+Caption: says you don&#39;t have to rx all the things
+
+00:19:11.579 --> 00:19:17.010
+Caption: just do as much as you can in a reactive
+
+00:19:14.459 --> 00:19:19.760
+Caption: way and do the rest imperatively and
+
+00:19:17.010 --> 00:19:23.520
+Caption: that&#39;s totally fine
+
+00:19:19.760 --> 00:19:25.949
+Caption: and yeah that&#39;s all I have prepared for
+
+00:19:23.520 --> 00:19:30.180
+Caption: today here are some materials that you
+
+00:19:25.949 --> 00:19:32.639
+Caption: can have a look at here&#39;s a simplified
+
+00:19:30.180 --> 00:19:34.560
+Caption: documentation this guide on choosing
+
+00:19:32.640 --> 00:19:37.950
+Caption: operators that you can have an
+
+00:19:34.560 --> 00:19:40.830
+Caption: interactive questionnaire what you want
+
+00:19:37.949 --> 00:19:42.479
+Caption: to do like what kind of operator you
+
+00:19:40.829 --> 00:19:47.399
+Caption: want a little bit of fun with
+
+00:19:42.479 --> 00:19:51.319
+Caption: implementing snake in rxjs and yeah
+
+00:19:47.400 --> 00:19:51.320
+Caption: that&#39;s pretty much it thank you
+
+00:19:52.819 --> 00:19:54.880
+Caption: you
+
