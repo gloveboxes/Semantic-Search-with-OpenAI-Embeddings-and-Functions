@@ -6,16 +6,18 @@ import os
 import json
 import csv
 import re
-import tiktoken
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+# import tiktoken
+# from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain.text_splitter import TokenTextSplitter
 
+# allow for a 15% overlap between chunks
+# https://platform.openai.com/docs/api-reference/embeddings/create
+text_splitter = TokenTextSplitter(chunk_size=8191, chunk_overlap=1200)
 
-tokenizer = tiktoken.get_encoding("cl100k_base")
-
-r_splitter = RecursiveCharacterTextSplitter(
-    chunk_size=8192 * 4,
-    chunk_overlap=3200
-)
+# r_splitter = RecursiveCharacterTextSplitter(
+#     chunk_size=8192 * 4,
+#     chunk_overlap=3200
+# )
 
 sessions = []
 
@@ -68,11 +70,12 @@ for file in glob.glob("./transcripts/*.json"):
     if transcript is None:
         continue
 
-    split_text = r_splitter.split_text(transcript)
+    split_text = text_splitter.split_text(transcript)
 
     for chunk in split_text:
         meta['text'] = chunk
         sessions.append(meta.copy())
+
 
 # # write the sessions to a csv file
 with open('master.csv', 'w', newline='', encoding='utf-8') as csvfile:
