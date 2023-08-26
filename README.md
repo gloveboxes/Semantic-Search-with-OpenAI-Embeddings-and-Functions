@@ -2,7 +2,7 @@
 
 ## Overview
 
-Solution takes over 100 hours of conference transcripts with the objective of vectorizing and making semantic searchable.
+Solution takes over 100 hours of conference transcripts with the objective of making semantic searchable.
 
 1. generate_master_csv.py: Cleans up the vtt transcripts, strips out vtt metadata, splits large blocks of text into chunks to fall inside of OpenAI token limits for embeddings.
 All the session metadata and transcripts are saved to the master.csv file
