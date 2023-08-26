@@ -1,23 +1,18 @@
+''' This script generates a master csv file from the transcript files.'''
+
 # from the transcript files, generate a master csv file
-# from the transcipt folder read all the .json files
+# from the transcript folder read all the .json files then load the associated .vtt file
 
 import glob
 import os
 import json
 import csv
 import re
-# import tiktoken
-# from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.text_splitter import TokenTextSplitter
 
 # allow for a 15% overlap between chunks
 # https://platform.openai.com/docs/api-reference/embeddings/create
 text_splitter = TokenTextSplitter(chunk_size=8191, chunk_overlap=1200)
-
-# r_splitter = RecursiveCharacterTextSplitter(
-#     chunk_size=8192 * 4,
-#     chunk_overlap=3200
-# )
 
 sessions = []
 
@@ -25,7 +20,19 @@ sessions = []
 def get_transcript(meta):
     '''get the transcript from the .vtt file'''
     vtt = './transcripts/' + meta['videoId'] + '.vtt'
+
     text = ""
+
+    # add the speaker name to the transcript
+    if 'speaker' in meta:
+        text = "The speaker's name is " + meta['speaker'] + "."
+    # add the title to the transcript
+    if 'title' in meta:
+        text += meta['title'] + "."
+
+    # add the description to the transcript
+    if 'description' in meta:
+        text += meta['description'] + "."
 
     # check that the .vtt file exists
     if not os.path.exists(vtt):
