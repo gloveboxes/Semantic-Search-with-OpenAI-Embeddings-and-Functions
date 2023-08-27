@@ -43,7 +43,7 @@ def main():
             sg.Button("Search", font=font,
                       size=(20, 1), key="-SEARCH-"),
             sg.Input("solutions architecture", size=(160, 1), key="-QUERY-",
-                     font=font, expand_x=True, )
+                     font=font, expand_x=True)
         ]
     ]
 
@@ -61,11 +61,11 @@ def main():
                 key="-TABLE-",
                 font=font,
                 expand_x=True,
-                enable_events=True,
-
-
+                expand_y=True,
+                enable_events=True
             ),
-            sg.Multiline("", font=font, size=(50, 20), key="-DESCRIPTION-", expand_x=True, expand_y=True )
+            sg.Multiline("", font=font, size=(50, 20),
+                         key="-DESCRIPTION-", expand_x=True, expand_y=True)
         ]
     ]
 
@@ -75,7 +75,7 @@ def main():
         [sg.Frame('Search', font=button_font, vertical_alignment="top",
                   layout=query_frame, expand_x=True)],
         [sg.Frame('Result', font=button_font, vertical_alignment="top",
-                  layout=result_frame, expand_x=True)],
+                  layout=result_frame, expand_x=True, expand_y=True)],
     ]
 
     window = sg.Window(title="OpenAI Whisper Audio Transcription",
@@ -98,7 +98,8 @@ def main():
 
             result = search(query)
             # convert a list of dictionaries to a list of lists
-            result_list = [[x["title"], x["videoId"], x["speaker"]] for x in result]
+            result_list = [[x["title"], x["videoId"], x["speaker"]]
+                           for x in result]
 
             window['-TABLE-'].update(values=result_list)
 
@@ -129,7 +130,6 @@ def main():
             window['-DESCRIPTION-'].update(value=description)
             # get the title from the first column
 
-            
             # window['-TABLE-'].update(values=result)
 
     window.close()
