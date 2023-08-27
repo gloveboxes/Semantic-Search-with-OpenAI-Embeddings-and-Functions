@@ -42,7 +42,7 @@ def main():
             sg.Button("Search", font=font,
                       size=(20, 1), key="-SEARCH-"),
             sg.Input("solutions architecture", size=(160, 1), key="-QUERY-",
-                     font=font, expand_x=True)
+                     font=font, expand_x=True, border_width=3)
         ]
     ]
 
@@ -55,15 +55,15 @@ def main():
                 auto_size_columns=False,
                 justification="left",
                 num_rows=20,
-                alternating_row_color="green",
+                alternating_row_color="grey",
                 key="-TABLE-",
                 font=font,
                 expand_x=True,
                 expand_y=True,
                 enable_events=True
             ),
-            sg.Multiline("", font=font, size=(50, 20),
-                         key="-DESCRIPTION-", expand_x=True, expand_y=True)
+            sg.Multiline("", font=font, key="-DESCRIPTION-",
+                         expand_x=True, expand_y=True)
         ]
     ]
 

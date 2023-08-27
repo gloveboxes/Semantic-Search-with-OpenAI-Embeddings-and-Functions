@@ -22,6 +22,8 @@ openai.api_version = "2023-05-15"
 
 # load the session data from csv file
 df_sessions = pd.read_csv('../master_embeddings.csv')
+# drop the text column
+df_sessions = df_sessions.drop(columns=["text"])
 # convert the embedding column from string to list
 df_sessions['ada_v2'] = df_sessions['ada_v2'].apply(lambda x: eval(x))
 
@@ -35,6 +37,7 @@ async def create_upload_file(query: str, top_n: int = 6):
         # engine should be set to the deployment name you chose when you deployed the text-embedding-ada-002 (Version 2) model
         engine="text-embedding-ada-002"
     )
+
     df_sessions["similarities"] = df_sessions.ada_v2.apply(
         lambda x: cosine_similarity(x, embedding))
 
@@ -43,14 +46,10 @@ async def create_upload_file(query: str, top_n: int = 6):
         .drop_duplicates("title")
         .head(top_n)
         .drop(columns=["ada_v2"])
-        .drop(columns=["text"])
         .drop(columns=["n_tokens"])
-    )
+    ).to_json(orient='records')
 
-    # convert the dataframe to json and return the text field
-    result = res.to_json(orient='records')
-
-    return result
+    return res
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=5500)
