@@ -72,9 +72,9 @@ def main():
     elements = [
         # [sg.Frame('Whisper service config', font=button_font,
         #           layout=service_config_frame, expand_x=True)],
-        [sg.Frame('Search', font=button_font, vertical_alignment="top",
+        [sg.Frame('Search', font=font, vertical_alignment="top",
                   layout=query_frame, expand_x=True)],
-        [sg.Frame('Result', font=button_font, vertical_alignment="top",
+        [sg.Frame('Result', font=font, vertical_alignment="top",
                   layout=result_frame, expand_x=True, expand_y=True)],
     ]
 
