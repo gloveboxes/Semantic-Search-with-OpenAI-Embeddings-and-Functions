@@ -21,7 +21,7 @@ openai.api_version = "2023-05-15"
 
 
 # load the session data from csv file
-df_sessions = pd.read_csv('master_embeddings.csv')
+df_sessions = pd.read_csv('../master_embeddings.csv')
 # convert the embedding column from string to list
 df_sessions['ada_v2'] = df_sessions['ada_v2'].apply(lambda x: eval(x))
 
@@ -48,9 +48,9 @@ async def create_upload_file(query: str, top_n: int = 6):
     )
 
     # convert the dataframe to json and return the text field
-    res = res.to_json(orient='records')
+    result = res.to_json(orient='records')
 
-    return res
+    return result
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=5500)
