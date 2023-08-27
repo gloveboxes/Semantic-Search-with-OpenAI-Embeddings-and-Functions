@@ -28,7 +28,6 @@ def main():
     '''Main function'''
 
     font = ("Arial", 18)
-    button_font = ("Arial", 12)
 
     # service_config_frame = [
     #     [
@@ -47,7 +46,6 @@ def main():
         ]
     ]
 
-    # bind a list of dictionaries to the table
     result_frame = [
         [
             sg.Table(
@@ -107,7 +105,7 @@ def main():
             if description is None:
                 description = ""
 
-            # replace \n with a space
+            # replace \\n with a space
             description = description.replace("\\n", " ")
 
             window['-DESCRIPTION-'].update(value=description)
@@ -128,9 +126,6 @@ def main():
             description = description.replace("\\n", " ")
 
             window['-DESCRIPTION-'].update(value=description)
-            # get the title from the first column
-
-            # window['-TABLE-'].update(values=result)
 
     window.close()
 
