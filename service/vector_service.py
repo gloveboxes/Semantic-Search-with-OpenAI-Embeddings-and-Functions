@@ -2,9 +2,11 @@
 ''' app to search through the session data using the vector embeddings'''
 # https://github.com/gloveboxes/OpenAI-Whisper-Transcriber-Sample/blob/master/server/main.py
 
+from typing import Any
 import os
 import openai
 import pandas as pd
+from pydantic import BaseModel
 from openai.embeddings_utils import get_embedding, cosine_similarity
 from fastapi import FastAPI, UploadFile, Response, status, Request
 import uvicorn
@@ -25,9 +27,19 @@ df_sessions = pd.read_csv('../master_embeddings.csv')
 # convert the embedding column from string to list
 df_sessions['ada_v2'] = df_sessions['ada_v2'].apply(lambda x: eval(x))
 
+# {'videoId': 'LK-3YtMIel8', 'description': 'Women make up 31% of...anisation.', 'title': 'Attraction and reten...en in tech', 'speaker': 'Donna Edwards', 'similarities': 0.8331244588766407}
 
-@app.get("/search", status_code=200)
-async def create_upload_file(query: str, top_n: int = 6):
+
+class Session(BaseModel):
+    videoId: str
+    description: str
+    title: str
+    speaker: str
+    similarities: float
+
+
+@app.get("/search", status_code=200, response_model=list[Session])
+async def create_upload_file(query: str, top_n: int = 6) -> Any:
     '''search the documents using the user query and return the top_n results'''
 
     embedding = get_embedding(
@@ -45,7 +57,8 @@ async def create_upload_file(query: str, top_n: int = 6):
         .head(top_n)
         .drop(columns=["ada_v2"])
         .drop(columns=["n_tokens"])
-    ).to_json(orient='records')
+        .fillna("")
+    ).to_dict('records')
 
     return res
 

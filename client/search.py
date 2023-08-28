@@ -21,7 +21,6 @@ def search(query, top_n=10):
     if result.status_code == 200:
         # convert the json to a list of dictionaries
         dict_list = json.loads(result.text)
-        dict_list = json.loads(dict_list)
         return dict_list
     else:
         return None
