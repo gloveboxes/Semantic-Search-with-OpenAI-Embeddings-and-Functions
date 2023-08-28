@@ -61,7 +61,7 @@ The pandas dataframe is then saved to master_embeddings.csv
     ```
 
 6. Create an Azure OpenAI Service Resource
-   
+
    1. [Create and deploy an Azure OpenAI Service resource](https://learn.microsoft.com/azure/ai-services/openai/how-to/create-resource?pivots=web-portal)
    2. [Deploy the text-embedding-ada-002 (Version 2) model](https://learn.microsoft.com/azure/ai-services/openai/tutorials/embeddings?tabs=command-line). Name the deployment `text-embedding-ada-002`.
 
@@ -96,13 +96,34 @@ The pandas dataframe is then saved to master_embeddings.csv
         uvicorn vector_service:app --port 5500 --host 0.0.0.0
         ```
 
-        Once the Whisper Transcriber Service starts, you should see output similar to the following.
+        Once the Vector Search Service starts, you should see output similar to the following.
 
         ```text
         INFO:     Started server process [18560]
         INFO:     Waiting for application startup.
         INFO:     Application startup complete.
         INFO:     Uvicorn running on http://0.0.0.0:5500 (Press CTRL+C to quit)
+        ```
+
+9. View the Swagger Docs for the Vector Search Service.
+
+    1. Open a browser and navigate to `http://localhost:5500/docs`.
+    2. Click the **GET** button.
+    3. Set the **query** parameter to `vs code`.
+    4. Set the **top_n** parameter to `1`.
+    5. Click the **Execute** button.
+    6. Scroll down to the **Response Body** section. You should see output similar to the following.
+
+        ```json
+        [
+            {
+                "videoId": "0gZO79pGBow",
+                "description": "VS Code is hot, there's no doubt about it being an utterly amazing editor, but I ask you, are you using it to its full potential? Let's go on a journey together and look to unlock the real power that you can get out of VS Code. Whether it's with shortcuts or extensions, environment standardisation and remote development, collaboration to integrations, there's so many things to uncover that can take you from a user to a pro in no time.\\n\\nThis session will leave you itching to get back into your editor and code up a storm on that next piece of work.\\n\\nNo experience necessary\\n45 mins\\nCore/Non Technical Skills\\nAaron is a Developer Advocate at Microsoft. Having spent 15 years doing web development he's seen it all, from browser wars, the rise of AJAX and the fall of 20 JavaScript frameworks (and that was just yesterday!). Always tinkering with something new he explores crazy ideas like writing your own implementation of numbers in .NET, creating IoC in JavaScript or implementing tic-tac-toe using git commits.",
+                "title": "Unleash the Power of VS Code",
+                "speaker": "Aaron Powell",
+                "similarities": 0.8550920247945629
+            }
+        ]
         ```
 
 ## Start the Vector Search Client
