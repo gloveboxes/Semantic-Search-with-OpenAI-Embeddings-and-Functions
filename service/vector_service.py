@@ -2,10 +2,11 @@
 ''' app to search through the session data using the vector embeddings'''
 # https://github.com/gloveboxes/OpenAI-Whisper-Transcriber-Sample/blob/master/server/main.py
 
-from typing import Any
+
 import os
 import openai
 import pandas as pd
+from typing import List
 from pydantic import BaseModel
 from openai.embeddings_utils import get_embedding, cosine_similarity
 from fastapi import FastAPI, UploadFile, Response, status, Request
@@ -37,9 +38,11 @@ class Session(BaseModel):
     speaker: str
     similarities: float
 
+# https://fastapi.tiangolo.com/tutorial/response-model/#__tabbed_1_3 Compatible with Python 3.6+
 
-@app.get("/search", status_code=200, response_model=list[Session])
-async def create_upload_file(query: str, top_n: int = 6) -> Any:
+
+@app.get("/search", status_code=200)
+async def create_upload_file(query: str, top_n: int = 6) -> List[Session]:
     '''search the documents using the user query and return the top_n results'''
 
     embedding = get_embedding(
