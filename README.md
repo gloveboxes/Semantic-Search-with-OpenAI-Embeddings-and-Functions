@@ -108,11 +108,12 @@ The pandas dataframe is then saved to master_embeddings.csv
 9. View the Swagger Docs for the Vector Search Service.
 
     1. Open a browser and navigate to `http://localhost:5500/docs`.
-    2. Click the **GET** button.
-    3. Set the **query** parameter to `vs code`.
-    4. Set the **top_n** parameter to `1`.
-    5. Click the **Execute** button.
-    6. Scroll down to the **Response Body** section. You should see output similar to the following.
+    2. Select the **GET** button.
+    3. Select the **Try it out** button.
+    4. Set the **query** parameter to `vs code`.
+    5. Set the **top_n** parameter to `1`.
+    6. Select the **Execute** button.
+    7. Scroll down to the **Response Body** section. You should see output similar to the following.
 
         ```json
         [
