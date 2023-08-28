@@ -2,12 +2,15 @@
 
 
 import json
+import base64
+from os import path
 import PySimpleGUI as sg
 import requests
 
 
 STOP_RECORDING = False
 HOST_ADDRESS = "http://localhost:5500"
+bundle_dir = path.abspath(path.dirname(__file__))
 
 
 def search(query, top_n=10):
@@ -76,9 +79,12 @@ def main():
                   layout=result_frame, expand_x=True, expand_y=True)],
     ]
 
+    path_to_dat = path.join(bundle_dir, 'icon.png')
+    icon_base64 = base64.b64encode(open(path_to_dat, 'rb').read())
+
     window = sg.Window(title="OpenAI Whisper Audio Transcription",
                        layout=elements,
-                       # icon=icon_base64,
+                       icon=icon_base64,
                        auto_size_text=True, auto_size_buttons=True,
                        resizable=True, finalize=True)
 
