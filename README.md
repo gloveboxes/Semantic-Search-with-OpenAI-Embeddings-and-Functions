@@ -43,13 +43,13 @@ The pandas dataframe is then saved to master_embeddings.csv
     on Windows
 
     ```pwsh
-    .\.whisper-venv\Scripts\activate
+    .\.embeddings_venv\Scripts\activate
     ```
 
     on macOS and Linux
 
     ```bash
-    source .whisper-venv/bin/activate
+    source .embeddings_venv/bin/activate
     ```
 
 5. Install the required Python libraries.
