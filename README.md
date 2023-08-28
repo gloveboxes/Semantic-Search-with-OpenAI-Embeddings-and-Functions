@@ -1,4 +1,4 @@
-# Embeddings_vector_search
+# Semantic Search with OpenAI Embeddings
 
 ## Overview
 
