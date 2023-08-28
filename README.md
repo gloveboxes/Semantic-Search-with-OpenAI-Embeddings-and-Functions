@@ -10,6 +10,92 @@ All the session metadata and transcripts are saved to the master.csv file
 The pandas dataframe is then saved to master_embeddings.csv
 1. vector_search.py: loads the master_embeddings.csv into a pandas dataframe and prompts user for a quesy. The query is vectorised, then cosine_similarity used to find "nearest neighbour" for the query against the vectorised session transcripts.
 
+## Create a Vector Search Endpoint
+
+1. Clone the Whisper Transcriber Sample to your preferred repo folder.
+
+    ```bash
+    git clone https://github.com/gloveboxes/Embeddings_vector_search.git
+    ```
+
+2. Navigate to the `service` folder.
+
+    ```bash
+    cd Embeddings_vector_search/service
+    ```
+
+3. Create a Python virtual environment.
+
+    ```bash
+    python3 -m venv .embeddings_venv
+    ```
+
+4. Activate the Python virtual environment.
+
+    ```bash
+    source .embeddings_venv/bin/activate
+    ```
+
+5. Install the required Python libraries.
+
+    ```bash
+    pip3 install -r requirements.txt
+    ```
+
+6.   Start the Vector Search Service. From the command line, run:
+
+        ```bash
+        uvicorn vector_service:app --port 5500 --host 0.0.0.0
+        ```
+
+        Once the Whisper Transcriber Service starts, you should see output similar to the following.
+
+        ```text
+        INFO:     Started server process [18560]
+        INFO:     Waiting for application startup.
+        INFO:     Application startup complete.
+        INFO:     Uvicorn running on http://0.0.0.0:5500 (Press CTRL+C to quit)
+        ```
+
+## Start the Vector Search Client
+
+1. Navigate to the `client` folder.
+
+    ```bash
+    cd Embeddings_vector_search/client
+    ```
+
+1. Create a Python virtual environment.
+
+    ```bash
+    python3 -m venv .embeddings_venv
+    ```
+
+1. Activate the Python virtual environment.
+
+    ```bash
+    source .embeddings_venv/bin/activate
+    ```
+
+1. Install the required Python libraries.
+
+    ```bash
+    pip3 install -r requirements.txt
+    ```
+
+1. Start the Vector Search Client. From the command line, run:
+
+    ```bash
+    python3 vector_search.py
+    ```
+
+1. Enter a query and press enter.
+
+    ```text
+    Enter a query:  sessions about solution architecture
+    ```
+
+
 ## References
 
 1. [OpenAI Guide to Embeddings](https://platform.openai.com/docs/guides/embeddings)
