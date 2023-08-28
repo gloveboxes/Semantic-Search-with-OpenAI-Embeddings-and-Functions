@@ -26,6 +26,14 @@ The pandas dataframe is then saved to master_embeddings.csv
 
 3. Create a Python virtual environment.
 
+   on Windows
+
+    ```pwsh
+    python -m venv .embeddings_venv
+    ```
+
+    on macOS and Linux
+
     ```bash
     python3 -m venv .embeddings_venv
     ```
