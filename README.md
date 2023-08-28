@@ -181,6 +181,8 @@ The pandas dataframe is then saved to master_embeddings.csv
     python3 search.py
     ```
 
+    > **Note:** You can pass the host and port of the Vector Search Service as a command line argument. For example, to connect to a Vector Search Service running on `http://rpi44:5500`, run `python3 search.py http://rpi44:5500`.
+
 1. Enter a query and press enter.
 
     ```text
