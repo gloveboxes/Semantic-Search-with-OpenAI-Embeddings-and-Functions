@@ -126,6 +126,7 @@ def main():
             description = description.replace("\\n", " ")
 
             window['-DESCRIPTION-'].update(value=description)
+            window['-QUERY-'].update(value=result[row]["title"])
 
     window.close()
 

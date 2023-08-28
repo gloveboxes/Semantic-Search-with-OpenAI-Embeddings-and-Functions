@@ -22,8 +22,6 @@ openai.api_version = "2023-05-15"
 
 # load the session data from csv file
 df_sessions = pd.read_csv('../master_embeddings.csv')
-# drop the text column
-df_sessions = df_sessions.drop(columns=["text"])
 # convert the embedding column from string to list
 df_sessions['ada_v2'] = df_sessions['ada_v2'].apply(lambda x: eval(x))
 
