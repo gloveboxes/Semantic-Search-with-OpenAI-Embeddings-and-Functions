@@ -6,11 +6,11 @@ Solution takes over 100 hours of conference transcriptions with the objective of
 
 1. generate_master_csv.py: Cleans up the vtt transcripts, strips out vtt metadata, splits large blocks of text into chunks to fall inside of OpenAI token limits for embeddings.
 All the session metadata and transcripts are saved to the master.csv file
-1. generate_session_embedding.ipynb: loads the master.csv file into a pandas dataframe and calls OpenAI Embeddedings to generate vectors for each session transcript.
+1. generate_session_embedding.ipynb: loads the master.csv file into a pandas dataframe and calls OpenAI Embeddings to generate vectors for each session transcript.
 The pandas dataframe is then saved to master_embeddings.csv
-1. vector_search.py: loads the master_embeddings.csv into a pandas dataframe and prompts user for a quesy. The query is vectorised, then cosine_similarity used to find "nearest neighbour" for the query against the vectorised session transcripts.
-1. vector_service.py: FastAPI service that loads the master_embeddings.csv into a pandas dataframe and exposes a REST API to query the vectorised session transcripts.
-1. search.py: A simple tkinter GUI that prompts the user for a query and calls the vector_service.py REST API to find the "nearest neighbor" for the query against the vectorized session transcripts.
+1. vector_search.py: loads the master_embeddings.csv into a pandas dataframe and prompts user for a query. The query is vectorized, then cosine_similarity used to find "nearest neighbor" for the query against the vectorized session transcripts.
+1. vector_service.py: FastAPI service that loads the master_embeddings.csv into a pandas dataframe and exposes a REST API to query the vectorized session transcripts.
+1. search.py: A simple PySimpleGUI app that prompts the user for a query and calls the vector_service.py REST API to find the "nearest neighbor" for the query against the vectorized session transcripts.
 
 ## Create a Vector Search Endpoint
 
