@@ -38,7 +38,7 @@ The pandas dataframe is then saved to master_embeddings.csv
     python3 -m venv .embeddings_venv
     ```
 
-5. Activate the Python virtual environment.
+4. Activate the Python virtual environment.
 
     on Windows
 
@@ -58,7 +58,37 @@ The pandas dataframe is then saved to master_embeddings.csv
     pip3 install -r requirements.txt
     ```
 
-6.   Start the Vector Search Service. From the command line, run:
+6. Create an Azure OpenAI Service Resource
+   
+   1. [Create and deploy an Azure OpenAI Service resource](https://learn.microsoft.com/azure/ai-services/openai/how-to/create-resource?pivots=web-portal)
+   2. [Deploy the text-embedding-ada-002 (Version 2) model](https://learn.microsoft.com/azure/ai-services/openai/tutorials/embeddings?tabs=command-line). Name the deployment `text-embedding-ada-002`.
+
+7. Export the following environment variables.
+
+    1. Open the Azure portal and navigate to the Azure OpenAI Service resource you created.
+    2. Select **Keys and Endpoint**.
+    3. Open a terminal window.
+    4. Export the Azure OpenAI Service API key and endpoint to the environment variables.
+
+        On Windows
+
+        ```pwsh
+        $env:AZURE_OPENAI_API_KEY="<your Azure OpenAI API key>"
+        $env:AZURE_OPENAI_ENDPOINT="<your Azure OpenAI Endpoint>"
+        ```
+
+        On macOS and Linux
+
+        ```bash
+        export AZURE_OPENAI_API_KEY=<your Azure OpenAI API key>
+        export AZURE_OPENAI_ENDPOINT=<your Azure OpenAI Endpoint>
+        ```
+
+    5. **Don't** close the terminal window. You will need it in the next step.
+
+8.   Start the Vector Search Service. From the command line, run:
+
+        From the command line opened in the previous step, run:
 
         ```bash
         uvicorn vector_service:app --port 5500 --host 0.0.0.0
@@ -81,13 +111,29 @@ The pandas dataframe is then saved to master_embeddings.csv
     cd Embeddings_vector_search/client
     ```
 
-1. Create a Python virtual environment.
+3. Create a Python virtual environment.
+
+   on Windows
+
+    ```pwsh
+    python -m venv .embeddings_venv
+    ```
+
+    on macOS and Linux
 
     ```bash
     python3 -m venv .embeddings_venv
     ```
 
-1. Activate the Python virtual environment.
+5. Activate the Python virtual environment.
+
+    on Windows
+
+    ```pwsh
+    .\.embeddings_venv\Scripts\activate
+    ```
+
+    on macOS and Linux
 
     ```bash
     source .embeddings_venv/bin/activate
@@ -99,10 +145,16 @@ The pandas dataframe is then saved to master_embeddings.csv
     pip3 install -r requirements.txt
     ```
 
+    On Ubuntu, you may need to install tkinter.
+
+    ```bash
+    sudo apt-get install python3-tk
+    ```
+
 1. Start the Vector Search Client. From the command line, run:
 
     ```bash
-    python3 vector_search.py
+    python3 search.py
     ```
 
 1. Enter a query and press enter.
