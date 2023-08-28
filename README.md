@@ -30,10 +30,18 @@ The pandas dataframe is then saved to master_embeddings.csv
     python3 -m venv .embeddings_venv
     ```
 
-4. Activate the Python virtual environment.
+5. Activate the Python virtual environment.
+
+    on Windows
+
+    ```pwsh
+    .\.whisper-venv\Scripts\activate
+    ```
+
+    on macOS and Linux
 
     ```bash
-    source .embeddings_venv/bin/activate
+    source .whisper-venv/bin/activate
     ```
 
 5. Install the required Python libraries.
