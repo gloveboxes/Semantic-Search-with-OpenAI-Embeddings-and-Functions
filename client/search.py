@@ -14,7 +14,7 @@ HOST_ADDRESS = "http://localhost:5500"
 bundle_dir = path.abspath(path.dirname(__file__))
 
 
-def search(query, top_n=10):
+def search(query, top_n=20):
     ''' requests get to the search endpoint'''
     endpoint = f"{HOST_ADDRESS}/search"
     result = requests.get(endpoint, timeout=30, params={
@@ -53,8 +53,8 @@ def main():
         [
             sg.Table(
                 values=[],
-                headings=["Title", "Video Id", "Speaker"],
-                col_widths=[40, 20, 20],
+                headings=["Title", "Video Id", "Start", "Speaker"],
+                col_widths=[40, 20, 10, 20],
                 auto_size_columns=False,
                 justification="left",
                 num_rows=20,
@@ -100,14 +100,14 @@ def main():
                 # sg.popup("Please enter a search query")
                 continue
 
-            result = search(query)
+            result = search(query, 20)
             # convert a list of dictionaries to a list of lists
-            result_list = [[x["title"], x["videoId"], x["speaker"]]
+            result_list = [[x["title"], x["videoId"], x["start"], x["speaker"]]
                            for x in result]
 
             window['-TABLE-'].update(values=result_list)
 
-            description = result[0]["description"]
+            description = result[0]["text"]
             if description is None:
                 description = ""
 
@@ -125,7 +125,7 @@ def main():
             # get the selected row
             row = values["-TABLE-"][0]
 
-            description = result[row]["description"]
+            description = result[row]["text"]
             if description is None:
                 description = ""
 
@@ -141,6 +141,5 @@ if __name__ == "__main__":
     # get the host address:port from the command line
     if len(sys.argv) > 1:
         HOST_ADDRESS = sys.argv[1]
-
 
     main()
