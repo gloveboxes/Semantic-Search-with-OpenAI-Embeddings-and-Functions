@@ -1,0 +1,3497 @@
+WEBVTT
+
+00:00:05.479 --> 00:00:10.829
+Caption: okay good afternoon everyone my name is
+
+00:00:08.699 --> 00:00:13.528
+Caption: Ashley akin and this morning we saw some
+
+00:00:10.829 --> 00:00:15.778
+Caption: cool technology is cool discussions from
+
+00:00:13.529 --> 00:00:17.670
+Caption: Nigel this afternoon I&#39;m going to do two
+
+00:00:15.779 --> 00:00:19.229
+Caption: - I think is a really cool architecture
+
+00:00:17.670 --> 00:00:20.969
+Caption: for enterprise system so I&#39;m really
+
+00:00:19.229 --> 00:00:22.889
+Caption: excited that this just as much as my
+
+00:00:20.969 --> 00:00:26.338
+Caption: other than just as much of the VR and so
+
+00:00:22.889 --> 00:00:27.238
+Caption: forth but to start with this talk is a
+
+00:00:26.339 --> 00:00:29.730
+Caption: CQRS
+
+00:00:27.239 --> 00:00:31.679
+Caption: and it is sourcing for the win hi my
+
+00:00:29.729 --> 00:00:34.470
+Caption: name is Ashley a presentation from you
+
+00:00:31.679 --> 00:00:36.180
+Caption: know lately I think this is a really
+
+00:00:34.470 --> 00:00:37.979
+Caption: interesting architecture very important
+
+00:00:36.180 --> 00:00:39.180
+Caption: architecture and I think that even if
+
+00:00:37.979 --> 00:00:41.369
+Caption: you start with the different
+
+00:00:39.180 --> 00:00:43.139
+Caption: architectures the rate of resistance you
+
+00:00:41.369 --> 00:00:44.459
+Caption: actually end up getting something like
+
+00:00:43.139 --> 00:00:46.919
+Caption: this while doing all the things
+
+00:00:44.459 --> 00:00:48.299
+Caption: necessary to make it succeed so one of
+
+00:00:46.919 --> 00:00:52.049
+Caption: the startup is something like tinder
+
+00:00:48.299 --> 00:00:54.599
+Caption: anyway just for you know idea you know
+
+00:00:52.049 --> 00:00:58.319
+Caption: the audience is like and who&#39;s heard of
+
+00:00:54.599 --> 00:01:02.309
+Caption: the CQRS an event sorting a loon as you
+
+00:00:58.319 --> 00:01:04.139
+Caption: used it ok quite a few all right that
+
+00:01:02.310 --> 00:01:06.329
+Caption: helps me out with the audience there I
+
+00:01:04.139 --> 00:01:08.099
+Caption: predict a similar talk before on this
+
+00:01:06.329 --> 00:01:09.990
+Caption: but I got to early in the first half or
+
+00:01:08.099 --> 00:01:12.180
+Caption: so so I&#39;m focusing on the second half in
+
+00:01:09.989 --> 00:01:13.799
+Caption: this once the holes are going to run
+
+00:01:12.180 --> 00:01:15.419
+Caption: through the first part quite quickly you
+
+00:01:13.800 --> 00:01:17.130
+Caption: think you&#39;d love to see diffs I haven&#39;t
+
+00:01:15.419 --> 00:01:19.680
+Caption: learned much about this and to give you
+
+00:01:17.129 --> 00:01:21.569
+Caption: the context it can be a quite a complex
+
+00:01:19.680 --> 00:01:23.370
+Caption: architecture don&#39;t wanna actually get to
+
+00:01:21.569 --> 00:01:26.099
+Caption: the core essence of it I don&#39;t need it&#39;s
+
+00:01:23.370 --> 00:01:28.880
+Caption: too hard really so the public&#39;s willing
+
+00:01:26.099 --> 00:01:31.919
+Caption: to actually overdo okay wanting a CQRS
+
+00:01:28.879 --> 00:01:33.389
+Caption: CQRS and event sourcing then we&#39;ll get
+
+00:01:31.919 --> 00:01:35.849
+Caption: the final section which i think is
+
+00:01:33.389 --> 00:01:38.548
+Caption: really cool about persisting application
+
+00:01:35.849 --> 00:01:40.559
+Caption: safe for many of the aeration database
+
+00:01:38.549 --> 00:01:43.560
+Caption: has been a core our persistence because
+
+00:01:40.559 --> 00:01:45.959
+Caption: of the many reasons I&#39;ll talk about of
+
+00:01:43.559 --> 00:01:47.519
+Caption: course no SQL command question things
+
+00:01:45.959 --> 00:01:51.658
+Caption: there I think maybe we have an even
+
+00:01:47.519 --> 00:01:54.599
+Caption: better solution for persistence so this
+
+00:01:51.658 --> 00:01:56.548
+Caption: is me a computer scientist I work in
+
+00:01:54.599 --> 00:01:58.949
+Caption: professional training academic software
+
+00:01:56.549 --> 00:02:00.479
+Caption: development principle at running code
+
+00:01:58.949 --> 00:02:02.819
+Caption: productions which sort of helps out in
+
+00:02:00.478 --> 00:02:05.429
+Caption: enterprise applications but these are
+
+00:02:02.819 --> 00:02:07.559
+Caption: also focusing on innovation innovate
+
+00:02:05.430 --> 00:02:09.988
+Caption: leave calm my focus on applying Lean
+
+00:02:07.559 --> 00:02:11.908
+Caption: Startup techniques and principles to
+
+00:02:09.988 --> 00:02:13.800
+Caption: enterprise to helping companies innovate
+
+00:02:11.908 --> 00:02:16.379
+Caption: by using these techniques at startup
+
+00:02:13.800 --> 00:02:17.750
+Caption: shoots very interesting stuff and also a
+
+00:02:16.380 --> 00:02:20.480
+Caption: more on the Java side
+
+00:02:17.750 --> 00:02:23.539
+Caption: rather than they don&#39;t me and scholar is
+
+00:02:20.479 --> 00:02:25.129
+Caption: you seen it it&#39;s a little bit Williams
+
+00:02:23.539 --> 00:02:27.259
+Caption: command clearing this multi bility
+
+00:02:25.130 --> 00:02:28.910
+Caption: segregation where the component and what
+
+00:02:27.259 --> 00:02:32.149
+Caption: problem is it solving I guess you should
+
+00:02:28.910 --> 00:02:34.040
+Caption: ask we have all bit of traditional empty
+
+00:02:32.149 --> 00:02:35.750
+Caption: air architecture something like this you
+
+00:02:34.039 --> 00:02:38.208
+Caption: know we have that the presentation
+
+00:02:35.750 --> 00:02:40.339
+Caption: layers and the business layer which is
+
+00:02:38.208 --> 00:02:42.199
+Caption: often in the hollows of application and
+
+00:02:40.339 --> 00:02:43.940
+Caption: epoxy at the top and we have the
+
+00:02:42.199 --> 00:02:46.069
+Caption: relational database down the bottom and
+
+00:02:43.940 --> 00:02:47.750
+Caption: this scales in many ways you can have
+
+00:02:46.070 --> 00:02:50.030
+Caption: lots of many presentation layer
+
+00:02:47.750 --> 00:02:52.339
+Caption: instances here and many back ends
+
+00:02:50.029 --> 00:02:54.169
+Caption: looking relational database but there
+
+00:02:52.339 --> 00:02:56.539
+Caption: are problems and one of the problems is
+
+00:02:54.169 --> 00:02:59.000
+Caption: it&#39;s difficult to scale this relational
+
+00:02:56.539 --> 00:03:01.039
+Caption: database we can do sharding because the
+
+00:02:59.000 --> 00:03:04.520
+Caption: mirroring that&#39;s all complex and you get
+
+00:03:01.039 --> 00:03:06.409
+Caption: issues with transactions and so on so
+
+00:03:04.520 --> 00:03:08.840
+Caption: there&#39;s a problem them to help us back
+
+00:03:06.410 --> 00:03:10.430
+Caption: and made it difficult to scale other
+
+00:03:08.839 --> 00:03:12.738
+Caption: problems with this approach well it&#39;s
+
+00:03:10.429 --> 00:03:15.409
+Caption: pretty unbalanced we think about it most
+
+00:03:12.738 --> 00:03:17.270
+Caption: of the application usually is read size
+
+00:03:15.410 --> 00:03:19.699
+Caption: they&#39;re clearing the application to find
+
+00:03:17.270 --> 00:03:21.680
+Caption: information with enterprise applications
+
+00:03:19.699 --> 00:03:24.410
+Caption: with large applications not so much
+
+00:03:21.679 --> 00:03:26.899
+Caption: writing or changing things but it is one
+
+00:03:24.410 --> 00:03:28.820
+Caption: stack just for everything so it&#39;s really
+
+00:03:26.899 --> 00:03:29.479
+Caption: not meeting the needs of both of these
+
+00:03:28.820 --> 00:03:31.640
+Caption: sides
+
+00:03:29.479 --> 00:03:34.429
+Caption: differently I mentioned is difficult to
+
+00:03:31.639 --> 00:03:36.229
+Caption: sale because of racial database and we
+
+00:03:34.429 --> 00:03:37.518
+Caption: may need different stores through our
+
+00:03:36.229 --> 00:03:39.379
+Caption: different models what if you want to
+
+00:03:37.518 --> 00:03:41.899
+Caption: have a grass database to store your
+
+00:03:39.380 --> 00:03:43.519
+Caption: grass stuff and a relational database to
+
+00:03:41.899 --> 00:03:45.860
+Caption: the document database can even manage
+
+00:03:43.518 --> 00:03:48.470
+Caption: those on the back end have you handle
+
+00:03:45.860 --> 00:03:51.259
+Caption: transactions across those multiple data
+
+00:03:48.470 --> 00:03:52.639
+Caption: stores some of the possible solutions we
+
+00:03:51.259 --> 00:03:54.768
+Caption: have these days are things like two
+
+00:03:52.639 --> 00:03:57.319
+Caption: phase commit and three phase commitment
+
+00:03:54.768 --> 00:03:59.690
+Caption: just atomic transactions and they get
+
+00:03:57.320 --> 00:04:02.000
+Caption: very complex and very difficult and slow
+
+00:03:59.690 --> 00:04:03.829
+Caption: and can&#39;t really scale to email demands
+
+00:04:02.000 --> 00:04:06.078
+Caption: that our enterprise applications and
+
+00:04:03.828 --> 00:04:09.500
+Caption: consumer applications in the 21st
+
+00:04:06.078 --> 00:04:10.789
+Caption: century so this is y CQ RX k a lot how
+
+00:04:09.500 --> 00:04:12.919
+Caption: can we solve these problems our
+
+00:04:10.789 --> 00:04:14.750
+Caption: traditional architecture dozen able to
+
+00:04:12.919 --> 00:04:18.380
+Caption: cope with the scaling needs of our
+
+00:04:14.750 --> 00:04:20.929
+Caption: current business demands so if the root
+
+00:04:18.380 --> 00:04:23.089
+Caption: of the CTRs approach goes back to object
+
+00:04:20.929 --> 00:04:24.889
+Caption: orientation and a much more bertrand
+
+00:04:23.089 --> 00:04:27.169
+Caption: meyer but speaking at architecture meet
+
+00:04:24.890 --> 00:04:29.120
+Caption: when we talked about this all needs to
+
+00:04:27.169 --> 00:04:30.169
+Caption: do objects and classes we said what
+
+00:04:29.119 --> 00:04:32.598
+Caption: objects should have
+
+00:04:30.169 --> 00:04:34.339
+Caption: things called properties which give you
+
+00:04:32.598 --> 00:04:36.589
+Caption: some information about the object
+
+00:04:34.339 --> 00:04:38.359
+Caption: measure have operations which change
+
+00:04:36.589 --> 00:04:40.098
+Caption: something in the objects but you
+
+00:04:38.359 --> 00:04:41.869
+Caption: shouldn&#39;t sort of mix these things you
+
+00:04:40.098 --> 00:04:43.489
+Caption: should keep them separate so the glue
+
+00:04:41.869 --> 00:04:46.098
+Caption: object either design principle that I
+
+00:04:43.489 --> 00:04:47.809
+Caption: taught for many many years and this
+
+00:04:46.098 --> 00:04:49.579
+Caption: principle now I&#39;m going to transform it
+
+00:04:47.809 --> 00:04:51.769
+Caption: apply it to our architecture of our
+
+00:04:49.579 --> 00:04:54.709
+Caption: systems our enterprise systems and see
+
+00:04:51.769 --> 00:04:56.569
+Caption: what it does so again here is simplified
+
+00:04:54.709 --> 00:04:59.239
+Caption: form in our traditional n-tier
+
+00:04:56.569 --> 00:05:01.248
+Caption: architecture presentation layer business
+
+00:04:59.239 --> 00:05:03.498
+Caption: layer and the persistent slab which I&#39;m
+
+00:05:01.248 --> 00:05:06.259
+Caption: sure you&#39;re all familiar with so what
+
+00:05:03.498 --> 00:05:08.389
+Caption: does think urs suggest we should do well
+
+00:05:06.259 --> 00:05:11.149
+Caption: basically it says we suggest split out
+
+00:05:08.389 --> 00:05:13.908
+Caption: these two parts the right side and the
+
+00:05:11.149 --> 00:05:16.819
+Caption: read side so now we have one stack over
+
+00:05:13.908 --> 00:05:19.009
+Caption: here for a change in how their basis or
+
+00:05:16.819 --> 00:05:21.079
+Caption: changing our persistence and one step
+
+00:05:19.009 --> 00:05:23.899
+Caption: over here for reading from that database
+
+00:05:21.079 --> 00:05:25.758
+Caption: I&#39;m actually check the two levels here
+
+00:05:23.899 --> 00:05:27.468
+Caption: because we may want to scale the unten
+
+00:05:25.759 --> 00:05:29.509
+Caption: difference in the backend in terms of
+
+00:05:27.468 --> 00:05:32.809
+Caption: number of instances and those we have
+
+00:05:29.509 --> 00:05:34.819
+Caption: these two streams now basically we think
+
+00:05:32.809 --> 00:05:37.699
+Caption: of these as the command and a query
+
+00:05:34.819 --> 00:05:40.519
+Caption: string and on the left hand side for the
+
+00:05:37.699 --> 00:05:42.348
+Caption: rights we have commands these commands
+
+00:05:40.519 --> 00:05:44.209
+Caption: come in and tell the right side to
+
+00:05:42.348 --> 00:05:46.398
+Caption: change something you know is this model
+
+00:05:44.209 --> 00:05:48.679
+Caption: without the system sort and we have the
+
+00:05:46.398 --> 00:05:50.388
+Caption: other side the query side we said hey I
+
+00:05:48.679 --> 00:05:52.250
+Caption: want to find out something about it my
+
+00:05:50.389 --> 00:05:54.619
+Caption: duplication to display our page and
+
+00:05:52.250 --> 00:05:56.929
+Caption: reputation so forth so we clearly on
+
+00:05:54.619 --> 00:05:59.389
+Caption: this side so two distinct stacks
+
+00:05:56.929 --> 00:06:01.398
+Caption: separate from each other at the moment
+
+00:05:59.389 --> 00:06:02.990
+Caption: they&#39;re sharing the same relational
+
+00:06:01.398 --> 00:06:06.289
+Caption: database all that we&#39;ll see how that
+
+00:06:02.989 --> 00:06:08.718
+Caption: change and in it because we have these
+
+00:06:06.289 --> 00:06:11.419
+Caption: two separate stacks we can also now have
+
+00:06:08.718 --> 00:06:13.459
+Caption: two separate models only modeled here
+
+00:06:11.419 --> 00:06:15.589
+Caption: how we represent this in our business
+
+00:06:13.459 --> 00:06:17.898
+Caption: application object oriented model or
+
+00:06:15.588 --> 00:06:19.549
+Caption: wherever you wish to use so of course on
+
+00:06:17.898 --> 00:06:21.709
+Caption: the command side here we will do the
+
+00:06:19.549 --> 00:06:23.658
+Caption: command model a model of our business
+
+00:06:21.709 --> 00:06:25.699
+Caption: through our objects and so forth which
+
+00:06:23.658 --> 00:06:29.119
+Caption: is only want to apply these commands to
+
+00:06:25.699 --> 00:06:31.309
+Caption: its focus on exchanging the model but on
+
+00:06:29.119 --> 00:06:33.438
+Caption: this side here in the query side we can
+
+00:06:31.309 --> 00:06:35.628
+Caption: have a different model that query model
+
+00:06:33.438 --> 00:06:37.218
+Caption: now what about changing the objects in
+
+00:06:35.628 --> 00:06:39.239
+Caption: the business more this is now reading it
+
+00:06:37.218 --> 00:06:41.160
+Caption: so maybe it can be a signal
+
+00:06:39.239 --> 00:06:43.769
+Caption: not so much business logic on so much
+
+00:06:41.160 --> 00:06:46.589
+Caption: complexity that&#39;s called the query or
+
+00:06:43.769 --> 00:06:49.679
+Caption: the read Saipan and again two separate
+
+00:06:46.589 --> 00:06:51.839
+Caption: stacks so if you think about it terms of
+
+00:06:49.679 --> 00:06:54.269
+Caption: the object approach and also now examine
+
+00:06:51.839 --> 00:06:56.339
+Caption: a Enterprise Architecture what sort of
+
+00:06:54.269 --> 00:06:58.470
+Caption: commands can you have and the typical
+
+00:06:56.339 --> 00:07:01.049
+Caption: banking application here you have a
+
+00:06:58.470 --> 00:07:03.209
+Caption: deposit money command or a withdraw
+
+00:07:01.049 --> 00:07:05.519
+Caption: money command when our interest command
+
+00:07:03.209 --> 00:07:08.130
+Caption: or change owner commands these are
+
+00:07:05.519 --> 00:07:10.470
+Caption: things to change our banking model on
+
+00:07:08.130 --> 00:07:12.029
+Caption: the query side to be getting balance to
+
+00:07:10.470 --> 00:07:13.320
+Caption: explain the balance on the page until
+
+00:07:12.029 --> 00:07:15.239
+Caption: getting the owner or getting a
+
+00:07:13.320 --> 00:07:18.210
+Caption: transaction list or getting the accounts
+
+00:07:15.239 --> 00:07:20.940
+Caption: there&#39;s again just read sightings so
+
+00:07:18.209 --> 00:07:22.410
+Caption: here command if you we have queries but
+
+00:07:20.940 --> 00:07:24.089
+Caption: notice how they&#39;re very similar to what
+
+00:07:22.410 --> 00:07:25.919
+Caption: you may have in an object-oriented model
+
+00:07:24.089 --> 00:07:26.660
+Caption: with a bank account or something like
+
+00:07:25.919 --> 00:07:29.910
+Caption: that
+
+00:07:26.660 --> 00:07:33.029
+Caption: now the commands here are so the the
+
+00:07:29.910 --> 00:07:34.529
+Caption: natural ones for bank accounts
+
+00:07:33.029 --> 00:07:36.419
+Caption: lots of these are in deployed
+
+00:07:34.529 --> 00:07:38.819
+Caption: applications we think in terms of crud
+
+00:07:36.419 --> 00:07:40.709
+Caption: type stuff let&#39;s have a create address
+
+00:07:38.819 --> 00:07:43.169
+Caption: command let&#39;s have an update address
+
+00:07:40.709 --> 00:07:44.549
+Caption: command or a delete address command of
+
+00:07:43.169 --> 00:07:47.070
+Caption: course retrieve you will not be a
+
+00:07:44.549 --> 00:07:49.228
+Caption: command that would be a query but one
+
+00:07:47.070 --> 00:07:51.509
+Caption: thing they do suggest in CQRS is you get
+
+00:07:49.229 --> 00:07:53.610
+Caption: away from your sort of crud thinking and
+
+00:07:51.509 --> 00:07:55.979
+Caption: start to think about task based commands
+
+00:07:53.609 --> 00:07:58.228
+Caption: this is what actually the task will be
+
+00:07:55.979 --> 00:07:59.880
+Caption: in spaces that the user has when you&#39;re
+
+00:07:58.229 --> 00:08:02.339
+Caption: trying to learn this this command what
+
+00:07:59.880 --> 00:08:04.830
+Caption: we&#39;re trying to do so for example we may
+
+00:08:02.339 --> 00:08:07.380
+Caption: have normally update address is an
+
+00:08:04.829 --> 00:08:09.569
+Caption: update of a cron approach but really
+
+00:08:07.380 --> 00:08:11.940
+Caption: what&#39;s the intent of the user there are
+
+00:08:09.570 --> 00:08:13.979
+Caption: they fixing an error in the dressed are
+
+00:08:11.940 --> 00:08:16.799
+Caption: they actually moving to a new address or
+
+00:08:13.979 --> 00:08:18.690
+Caption: changing it to a primary address you can
+
+00:08:16.799 --> 00:08:20.069
+Caption: capture their something taped about the
+
+00:08:18.690 --> 00:08:22.259
+Caption: command rather than attack that&#39;s just
+
+00:08:20.070 --> 00:08:24.059
+Caption: changing the data and that can be very
+
+00:08:22.259 --> 00:08:26.669
+Caption: valuable for you in your application
+
+00:08:24.059 --> 00:08:28.769
+Caption: later on and in the CQRS approach so
+
+00:08:26.669 --> 00:08:32.179
+Caption: it&#39;s not explicitly a policy to RS and I
+
+00:08:28.769 --> 00:08:34.770
+Caption: recommend looking at task based commands
+
+00:08:32.179 --> 00:08:36.390
+Caption: so how do we scale this approach well
+
+00:08:34.770 --> 00:08:38.429
+Caption: it&#39;s nice now because we have these
+
+00:08:36.390 --> 00:08:40.739
+Caption: separate parts we can scale them
+
+00:08:38.429 --> 00:08:42.838
+Caption: independently so the right side maybe
+
+00:08:40.739 --> 00:08:44.820
+Caption: not so much for the read side room is
+
+00:08:42.838 --> 00:08:46.528
+Caption: the muscular selection we can scale
+
+00:08:44.820 --> 00:08:49.559
+Caption: which will any more instances to handle
+
+00:08:46.528 --> 00:08:50.419
+Caption: the load separate scaling we solved that
+
+00:08:49.559 --> 00:08:53.809
+Caption: issue
+
+00:08:50.419 --> 00:08:55.880
+Caption: having a balanced style architecture but
+
+00:08:53.809 --> 00:08:58.690
+Caption: again still is a problem with our
+
+00:08:55.880 --> 00:09:01.700
+Caption: relational database we have this
+
+00:08:58.690 --> 00:09:04.338
+Caption: persistence bottleneck we can&#39;t scale
+
+00:09:01.700 --> 00:09:05.838
+Caption: that easily and in terms of I want to
+
+00:09:04.338 --> 00:09:08.328
+Caption: you&#39;ve probably heard many times and
+
+00:09:05.838 --> 00:09:10.669
+Caption: have the impedance mismatch getting our
+
+00:09:08.328 --> 00:09:12.799
+Caption: objects from our relational database
+
+00:09:10.669 --> 00:09:14.539
+Caption: fairly difficult to use hibernate or
+
+00:09:12.799 --> 00:09:16.398
+Caption: other systems and they&#39;re complex and it
+
+00:09:14.539 --> 00:09:18.018
+Caption: can be in you you want to actually just
+
+00:09:16.398 --> 00:09:19.940
+Caption: deposit some money in the bank account
+
+00:09:18.018 --> 00:09:21.859
+Caption: we have to grow the database get your
+
+00:09:19.940 --> 00:09:23.299
+Caption: whole object we construct the object
+
+00:09:21.859 --> 00:09:25.638
+Caption: maybe you related objects that are
+
+00:09:23.299 --> 00:09:27.948
+Caption: connected to the whole object and what
+
+00:09:25.638 --> 00:09:30.320
+Caption: we do is depositing ten dollars very
+
+00:09:27.948 --> 00:09:32.599
+Caption: complex business logic is people deposit
+
+00:09:30.320 --> 00:09:34.669
+Caption: but you had to get all of this creating
+
+00:09:32.599 --> 00:09:36.828
+Caption: the object here and building a complex
+
+00:09:34.669 --> 00:09:39.648
+Caption: model just to do something simple and
+
+00:09:36.828 --> 00:09:41.059
+Caption: simply avoid the creamy side here you
+
+00:09:39.648 --> 00:09:42.828
+Caption: may have a different level or suggests
+
+00:09:41.059 --> 00:09:45.559
+Caption: which is simpler so you can change the
+
+00:09:42.828 --> 00:09:47.388
+Caption: model to match what is needed so there&#39;s
+
+00:09:45.559 --> 00:09:50.809
+Caption: this bottle bottleneck in the
+
+00:09:47.388 --> 00:09:53.778
+Caption: persistence to so it make some progress
+
+00:09:50.809 --> 00:09:56.299
+Caption: we&#39;re scaling our reasons and right as
+
+00:09:53.778 --> 00:09:58.940
+Caption: necessary but still the problem with the
+
+00:09:56.299 --> 00:10:00.648
+Caption: relational database so again going quite
+
+00:09:58.940 --> 00:10:04.010
+Caption: quickly here on it that&#39;s okay people
+
+00:10:00.648 --> 00:10:06.229
+Caption: pulling ok we&#39;re doing well so the
+
+00:10:04.010 --> 00:10:09.260
+Caption: second part of storing is any new music
+
+00:10:06.229 --> 00:10:10.698
+Caption: by IP Ural events sourcing and it sounds
+
+00:10:09.260 --> 00:10:12.708
+Caption: quite complex and difficult but that&#39;s
+
+00:10:10.698 --> 00:10:14.750
+Caption: just a different way of persisting your
+
+00:10:12.708 --> 00:10:17.268
+Caption: information your state and we&#39;ll explain
+
+00:10:14.750 --> 00:10:19.010
+Caption: this one way you may understand it
+
+00:10:17.268 --> 00:10:21.768
+Caption: better is if you think of a simple
+
+00:10:19.010 --> 00:10:23.929
+Caption: example making an application for
+
+00:10:21.768 --> 00:10:25.940
+Caption: purchasing concert tickets so your
+
+00:10:23.929 --> 00:10:28.190
+Caption: simple object model or data model with
+
+00:10:25.940 --> 00:10:29.809
+Caption: being a concept entity which has the
+
+00:10:28.190 --> 00:10:31.880
+Caption: details about the content of the price
+
+00:10:29.809 --> 00:10:34.068
+Caption: never take an entity which is a buyer
+
+00:10:31.880 --> 00:10:36.859
+Caption: details in the ticket number of course
+
+00:10:34.068 --> 00:10:38.028
+Caption: the concert can have many tickets so how
+
+00:10:36.859 --> 00:10:40.698
+Caption: we how we use this in your application
+
+00:10:38.028 --> 00:10:42.828
+Caption: when we start to put up a content with
+
+00:10:40.698 --> 00:10:44.539
+Caption: certain price and certain details we
+
+00:10:42.828 --> 00:10:46.518
+Caption: sell some tickets to disable to the
+
+00:10:44.539 --> 00:10:48.859
+Caption: ticket store or the database or so forth
+
+00:10:46.518 --> 00:10:50.568
+Caption: and we going fine it&#39;s been table in
+
+00:10:48.859 --> 00:10:53.000
+Caption: there so discount the price to the
+
+00:10:50.568 --> 00:10:55.039
+Caption: concert because we&#39;re knocking off sale
+
+00:10:53.000 --> 00:10:57.828
+Caption: so if it&#39;s counter prior to the concert
+
+00:10:55.039 --> 00:11:00.018
+Caption: by changing it and now it&#39;s lost some
+
+00:10:57.828 --> 00:11:01.639
+Caption: information because we have those
+
+00:11:00.018 --> 00:11:02.789
+Caption: customers who bought tickets already
+
+00:11:01.640 --> 00:11:05.580
+Caption: they pay the
+
+00:11:02.789 --> 00:11:07.259
+Caption: price we&#39;ve changed the price here so
+
+00:11:05.580 --> 00:11:10.500
+Caption: now we no longer know what price they&#39;re
+
+00:11:07.260 --> 00:11:12.510
+Caption: paying and similarly if customers buy
+
+00:11:10.500 --> 00:11:14.940
+Caption: some tickets and then cancel those
+
+00:11:12.510 --> 00:11:17.010
+Caption: tickets so we delete the records we lose
+
+00:11:14.940 --> 00:11:19.500
+Caption: the information about those purchases
+
+00:11:17.010 --> 00:11:21.090
+Caption: and debt cancellation of tickets so in
+
+00:11:19.500 --> 00:11:23.309
+Caption: our traditional data model where we
+
+00:11:21.090 --> 00:11:26.280
+Caption: represent the data as a model in our
+
+00:11:23.309 --> 00:11:28.559
+Caption: persistence and its current state we&#39;re
+
+00:11:26.280 --> 00:11:30.600
+Caption: actually losing a lot of data every day
+
+00:11:28.559 --> 00:11:33.210
+Caption: we are losing information that we have
+
+00:11:30.599 --> 00:11:35.069
+Caption: we visceral way because we override it
+
+00:11:33.210 --> 00:11:38.280
+Caption: in our database or in our store
+
+00:11:35.070 --> 00:11:39.840
+Caption: we&#39;re losing data so how do we handle it
+
+00:11:38.280 --> 00:11:41.820
+Caption: how can we maintain these extra
+
+00:11:39.840 --> 00:11:44.309
+Caption: information which can be very useful for
+
+00:11:41.820 --> 00:11:46.859
+Caption: the business what can we do if we look
+
+00:11:44.309 --> 00:11:49.200
+Caption: at other similar solutions to similar
+
+00:11:46.859 --> 00:11:52.950
+Caption: problems for example in accounting
+
+00:11:49.200 --> 00:11:55.380
+Caption: systems may I just keep the final
+
+00:11:52.950 --> 00:11:57.450
+Caption: balance of the account they keep all the
+
+00:11:55.380 --> 00:11:59.010
+Caption: debits and credits along the way and
+
+00:11:57.450 --> 00:12:00.600
+Caption: they work out the final balance when
+
+00:11:59.010 --> 00:12:02.700
+Caption: they need to or keep it as a solute
+
+00:12:00.599 --> 00:12:05.119
+Caption: temporary State they maintain the
+
+00:12:02.700 --> 00:12:07.739
+Caption: transaction to record all the details
+
+00:12:05.119 --> 00:12:10.619
+Caption: similarly in our file systems work these
+
+00:12:07.739 --> 00:12:12.899
+Caption: days and databases of these dates they
+
+00:12:10.619 --> 00:12:15.390
+Caption: use a right to head look so basically
+
+00:12:12.900 --> 00:12:16.950
+Caption: log everything that&#39;s done basically for
+
+00:12:15.390 --> 00:12:18.869
+Caption: even that they&#39;re more reliable and
+
+00:12:16.950 --> 00:12:20.760
+Caption: robust if they have crashes but they&#39;re
+
+00:12:18.869 --> 00:12:22.679
+Caption: keeping all this information in a wider
+
+00:12:20.760 --> 00:12:24.869
+Caption: headlock and similarly if you look
+
+00:12:22.679 --> 00:12:27.599
+Caption: inside databases and particularly
+
+00:12:24.869 --> 00:12:29.250
+Caption: database replication they use this same
+
+00:12:27.599 --> 00:12:31.229
+Caption: sort of approach they&#39;re going to send
+
+00:12:29.250 --> 00:12:33.210
+Caption: update events which record everything
+
+00:12:31.229 --> 00:12:36.059
+Caption: happens in the system rather than just
+
+00:12:33.210 --> 00:12:38.670
+Caption: the current state of the database so
+
+00:12:36.059 --> 00:12:40.799
+Caption: situation with your head sourcing tries
+
+00:12:38.669 --> 00:12:43.169
+Caption: to following its leaves and says rather
+
+00:12:40.799 --> 00:12:46.019
+Caption: than just keeping the state let&#39;s track
+
+00:12:43.169 --> 00:12:48.329
+Caption: the changes to that state or events that
+
+00:12:46.020 --> 00:12:50.460
+Caption: happen so rather than just having our
+
+00:12:48.330 --> 00:12:52.770
+Caption: events which come in the commands slow
+
+00:12:50.460 --> 00:12:55.590
+Caption: and come in and change the state our
+
+00:12:52.770 --> 00:12:57.510
+Caption: commands are going to produce events so
+
+00:12:55.590 --> 00:12:59.550
+Caption: we bought a ticket at this price event
+
+00:12:57.510 --> 00:13:01.500
+Caption: so we change the price of the concerts
+
+00:12:59.549 --> 00:13:03.599
+Caption: of angle someone council dick tickets
+
+00:13:01.500 --> 00:13:05.969
+Caption: events we&#39;re going to remember every bit
+
+00:13:03.599 --> 00:13:09.630
+Caption: of information in some sort of event
+
+00:13:05.969 --> 00:13:11.849
+Caption: lock we store these events not the
+
+00:13:09.630 --> 00:13:12.630
+Caption: domain state I&#39;ll show you it soon how
+
+00:13:11.849 --> 00:13:14.269
+Caption: we can rebuild
+
+00:13:12.630 --> 00:13:17.250
+Caption: the main state but we store these
+
+00:13:14.270 --> 00:13:20.369
+Caption: defendants not the statement when we
+
+00:13:17.250 --> 00:13:22.770
+Caption: come and we update the domain states
+
+00:13:20.369 --> 00:13:24.839
+Caption: probably events as needed but most
+
+00:13:22.770 --> 00:13:27.630
+Caption: importantly we don&#39;t update the domain
+
+00:13:24.840 --> 00:13:29.700
+Caption: stator to imposition that event because
+
+00:13:27.630 --> 00:13:31.890
+Caption: what is the system the event now we know
+
+00:13:29.700 --> 00:13:33.780
+Caption: you can lose all our domain state we can
+
+00:13:31.890 --> 00:13:36.720
+Caption: rebuild our system for all of these
+
+00:13:33.780 --> 00:13:38.880
+Caption: events so we saved you there first and
+
+00:13:36.719 --> 00:13:41.129
+Caption: then we can change our business state
+
+00:13:38.880 --> 00:13:43.440
+Caption: and later on if you want to actually
+
+00:13:41.130 --> 00:13:45.299
+Caption: rebuild our business State Department of
+
+00:13:43.440 --> 00:13:47.280
+Caption: our memory representation of our data
+
+00:13:45.299 --> 00:13:49.739
+Caption: model we can go through these events
+
+00:13:47.280 --> 00:13:50.940
+Caption: again and rebuild the state just what
+
+00:13:49.739 --> 00:13:53.250
+Caption: you meant through the debits and credits
+
+00:13:50.940 --> 00:13:55.289
+Caption: in an account to find a balance so we
+
+00:13:53.250 --> 00:13:57.719
+Caption: can very easily rebuild the state from
+
+00:13:55.289 --> 00:14:00.089
+Caption: the events so this is event sourcing
+
+00:13:57.719 --> 00:14:04.609
+Caption: saving the events that happen not just
+
+00:14:00.090 --> 00:14:06.780
+Caption: the state of your application so
+
+00:14:04.609 --> 00:14:09.000
+Caption: characteristics of events they&#39;re
+
+00:14:06.780 --> 00:14:11.010
+Caption: immutable they never change when you
+
+00:14:09.000 --> 00:14:13.229
+Caption: create an event something happened it
+
+00:14:11.010 --> 00:14:15.780
+Caption: doesn&#39;t change it&#39;s a piece of history
+
+00:14:13.229 --> 00:14:17.849
+Caption: they are still be stored in a pen only
+
+00:14:15.780 --> 00:14:20.310
+Caption: storage you never need to update an
+
+00:14:17.849 --> 00:14:23.250
+Caption: event because it&#39;s immutable and you can
+
+00:14:20.309 --> 00:14:26.279
+Caption: play event as I mentioned we use the
+
+00:14:23.250 --> 00:14:28.890
+Caption: mini event sorting to rebuild as a
+
+00:14:26.280 --> 00:14:30.330
+Caption: domain state and save our main state but
+
+00:14:28.890 --> 00:14:32.429
+Caption: events can also be used
+
+00:14:30.330 --> 00:14:35.220
+Caption: I&#39;ll show you later on for managing
+
+00:14:32.429 --> 00:14:37.739
+Caption: processes inside applications signaling
+
+00:14:35.219 --> 00:14:40.829
+Caption: process states and integration between
+
+00:14:37.739 --> 00:14:42.659
+Caption: subsystems in our application so events
+
+00:14:40.830 --> 00:14:44.040
+Caption: are very useful to use these days and
+
+00:14:42.659 --> 00:14:46.109
+Caption: more and more applications that are
+
+00:14:44.039 --> 00:14:48.750
+Caption: coming event-driven so this event
+
+00:14:46.109 --> 00:14:50.789
+Caption: sourcing fits in well with that it also
+
+00:14:48.750 --> 00:14:52.469
+Caption: gives us the chance to order things and
+
+00:14:50.789 --> 00:14:53.820
+Caption: allows us to do analytics because there
+
+00:14:52.469 --> 00:14:55.649
+Caption: are whole sequencing eventually to
+
+00:14:53.820 --> 00:14:57.419
+Caption: analyze our system rather than
+
+00:14:55.650 --> 00:15:00.420
+Caption: separately creating logs and building
+
+00:14:57.419 --> 00:15:02.329
+Caption: event streams so this is the general
+
+00:15:00.419 --> 00:15:05.549
+Caption: approach and how does apply to our
+
+00:15:02.330 --> 00:15:08.040
+Caption: concert tickets example or rather than
+
+00:15:05.549 --> 00:15:10.349
+Caption: just directly saving the status whenever
+
+00:15:08.039 --> 00:15:12.119
+Caption: a command comes in we would create these
+
+00:15:10.349 --> 00:15:13.409
+Caption: events like the concert created the
+
+00:15:12.119 --> 00:15:15.210
+Caption: ticket was ordered the ticket was
+
+00:15:13.409 --> 00:15:17.669
+Caption: ordered the Christ was change our ticket
+
+00:15:15.210 --> 00:15:19.800
+Caption: was ordered and using this state we can
+
+00:15:17.669 --> 00:15:21.630
+Caption: look back to history and see when a
+
+00:15:19.799 --> 00:15:23.039
+Caption: ticket was bought and what price it was
+
+00:15:21.630 --> 00:15:25.268
+Caption: bought out before the price change
+
+00:15:23.039 --> 00:15:27.609
+Caption: social weather
+
+00:15:25.268 --> 00:15:30.758
+Caption: all of our information which is a very
+
+00:15:27.609 --> 00:15:34.328
+Caption: valuable to do so the essence of course
+
+00:15:30.758 --> 00:15:36.368
+Caption: is commands produce events commands come
+
+00:15:34.328 --> 00:15:38.588
+Caption: in through our application we check the
+
+00:15:36.369 --> 00:15:40.449
+Caption: command we produce the event and it&#39;s
+
+00:15:38.588 --> 00:15:42.669
+Caption: saved somewhere in something like an
+
+00:15:40.448 --> 00:15:45.638
+Caption: event or just a storage facility for
+
+00:15:42.669 --> 00:15:47.378
+Caption: events and again this is a white-haired
+
+00:15:45.638 --> 00:15:49.239
+Caption: log see is right there you actually
+
+00:15:47.379 --> 00:15:51.819
+Caption: change them in there it&#39;s an append-only
+
+00:15:49.239 --> 00:15:54.489
+Caption: storage system but that&#39;s the general
+
+00:15:51.818 --> 00:15:56.708
+Caption: structure so what&#39;s the difference again
+
+00:15:54.489 --> 00:15:59.919
+Caption: between these commands and it ends I
+
+00:15:56.708 --> 00:16:01.748
+Caption: mentioned commands I pass clicks so
+
+00:15:59.919 --> 00:16:05.859
+Caption: folks on what tasks is the command
+
+00:16:01.749 --> 00:16:07.929
+Caption: trying to do isn&#39;t it come on asking you
+
+00:16:05.859 --> 00:16:10.058
+Caption: to do something they often written an
+
+00:16:07.929 --> 00:16:13.749
+Caption: active verb like do this will change
+
+00:16:10.059 --> 00:16:15.699
+Caption: this commands can be rejected so command
+
+00:16:13.749 --> 00:16:17.709
+Caption: comes in ask use to withdraw a million
+
+00:16:15.698 --> 00:16:18.849
+Caption: dollars from our bank account so we
+
+00:16:17.708 --> 00:16:21.188
+Caption: don&#39;t have a million dollars in your
+
+00:16:18.849 --> 00:16:22.928
+Caption: bank account that command is rejected so
+
+00:16:21.189 --> 00:16:25.449
+Caption: nautical commands are actually process
+
+00:16:22.929 --> 00:16:27.939
+Caption: can be responded to and they can be lost
+
+00:16:25.448 --> 00:16:30.068
+Caption: if someone you lose a command in the
+
+00:16:27.939 --> 00:16:32.499
+Caption: process it&#39;s not so bad you can try it
+
+00:16:30.068 --> 00:16:34.388
+Caption: again okay so it&#39;s okay believe me
+
+00:16:32.499 --> 00:16:38.319
+Caption: commands that don&#39;t get processed in our
+
+00:16:34.388 --> 00:16:39.998
+Caption: locks on the other side events events
+
+00:16:38.318 --> 00:16:42.128
+Caption: are the things that it happens
+
+00:16:39.999 --> 00:16:44.230
+Caption: there&#39;s fact so I mentioned your YouTube
+
+00:16:42.129 --> 00:16:44.949
+Caption: so they never change and everything to
+
+00:16:44.229 --> 00:16:48.609
+Caption: be changed
+
+00:16:44.948 --> 00:16:49.958
+Caption: they often written in the past tense and
+
+00:16:48.609 --> 00:16:52.268
+Caption: I mentioned their append-only
+
+00:16:49.958 --> 00:16:55.659
+Caption: and there&#39;s no derived information from
+
+00:16:52.268 --> 00:16:57.128
+Caption: of the events early information and they
+
+00:16:55.659 --> 00:16:59.169
+Caption: cannot fail because there&#39;s something
+
+00:16:57.129 --> 00:17:01.029
+Caption: attached now you&#39;ve written into the
+
+00:16:59.169 --> 00:17:04.479
+Caption: events or it happened there&#39;s no chance
+
+00:17:01.028 --> 00:17:07.630
+Caption: of being rejected so and most post op in
+
+00:17:04.479 --> 00:17:09.250
+Caption: event so that&#39;s a commands of events
+
+00:17:07.630 --> 00:17:11.409
+Caption: here is that to that bank account
+
+00:17:09.250 --> 00:17:13.719
+Caption: example he is showing you how they would
+
+00:17:11.409 --> 00:17:15.909
+Caption: look into bank accounts deposit Ani
+
+00:17:13.719 --> 00:17:17.678
+Caption: could be the command and then the
+
+00:17:15.909 --> 00:17:20.529
+Caption: corresponding event in which you write
+
+00:17:17.678 --> 00:17:22.658
+Caption: with me money deposited okay so this is
+
+00:17:20.529 --> 00:17:25.209
+Caption: saying it happened and we&#39;ve changed our
+
+00:17:22.659 --> 00:17:27.579
+Caption: business data is up to date list all
+
+00:17:25.208 --> 00:17:29.589
+Caption: money money withdrawn and interest
+
+00:17:27.578 --> 00:17:31.808
+Caption: interest added set account details
+
+00:17:29.589 --> 00:17:33.760
+Caption: account details set so there&#39;s nice
+
+00:17:31.808 --> 00:17:35.369
+Caption: correspondence between the commands and
+
+00:17:33.760 --> 00:17:37.079
+Caption: the events that record
+
+00:17:35.369 --> 00:17:40.229
+Caption: as commands we have successfully
+
+00:17:37.079 --> 00:17:42.390
+Caption: operated the houses actually work in the
+
+00:17:40.229 --> 00:17:44.489
+Caption: application what&#39;s the sort of logic we
+
+00:17:42.390 --> 00:17:46.770
+Caption: follow through so if you look in more
+
+00:17:44.489 --> 00:17:49.469
+Caption: detail inside the application you have a
+
+00:17:46.770 --> 00:17:51.330
+Caption: number of steps so the kalam counting
+
+00:17:49.469 --> 00:17:53.520
+Caption: closely and the first thing you do is
+
+00:17:51.329 --> 00:17:54.959
+Caption: check the command syntax is all the
+
+00:17:53.520 --> 00:17:57.239
+Caption: right things are there in the command
+
+00:17:54.959 --> 00:17:59.010
+Caption: and this is a superficial check it
+
+00:17:57.239 --> 00:18:00.630
+Caption: doesn&#39;t require any business logic it&#39;s
+
+00:17:59.010 --> 00:18:02.520
+Caption: just checking that everything&#39;s ok there
+
+00:18:00.630 --> 00:18:05.609
+Caption: if it is then the rotating board
+
+00:18:02.520 --> 00:18:07.410
+Caption: proceeding the second step there is to
+
+00:18:05.609 --> 00:18:09.989
+Caption: validate the command with business logic
+
+00:18:07.410 --> 00:18:11.540
+Caption: so now we need some business logic to
+
+00:18:09.989 --> 00:18:14.160
+Caption: actually say is this an appropriate
+
+00:18:11.540 --> 00:18:16.679
+Caption: command to actually process can we
+
+00:18:14.160 --> 00:18:18.960
+Caption: protest that now a lot of commands are
+
+00:18:16.678 --> 00:18:21.269
+Caption: just changing things there is a beauty
+
+00:18:18.959 --> 00:18:22.829
+Caption: business logic so in the majority of the
+
+00:18:21.270 --> 00:18:24.959
+Caption: cases you can just go ahead and do the
+
+00:18:22.829 --> 00:18:26.819
+Caption: commands I need to worry then the
+
+00:18:24.959 --> 00:18:28.529
+Caption: example I mentioned the withdrawn
+
+00:18:26.819 --> 00:18:30.899
+Caption: limited dollars from a bank account you
+
+00:18:28.530 --> 00:18:32.940
+Caption: would have to construct your business
+
+00:18:30.900 --> 00:18:34.979
+Caption: state here if I have what is the balance
+
+00:18:32.939 --> 00:18:38.549
+Caption: for the bank account before I can either
+
+00:18:34.979 --> 00:18:39.989
+Caption: accept this command and do it or not so
+
+00:18:38.550 --> 00:18:41.790
+Caption: if it was I mean the envelop a bank
+
+00:18:39.989 --> 00:18:44.130
+Caption: account is the same if there wasn&#39;t I
+
+00:18:41.790 --> 00:18:46.559
+Caption: would reject this command so you&#39;re only
+
+00:18:44.130 --> 00:18:48.750
+Caption: building up your object State or your
+
+00:18:46.558 --> 00:18:50.909
+Caption: business State as you need it to
+
+00:18:48.750 --> 00:18:52.650
+Caption: validate the commands it&#39;s not building
+
+00:18:50.910 --> 00:18:55.200
+Caption: up everything you just need to do what
+
+00:18:52.650 --> 00:18:57.089
+Caption: you need to do if we do evaluate the
+
+00:18:55.199 --> 00:18:58.889
+Caption: commands business logic and we move on
+
+00:18:57.089 --> 00:19:00.989
+Caption: to the next step and the next step is
+
+00:18:58.890 --> 00:19:02.910
+Caption: now right that you need throughout the
+
+00:19:00.989 --> 00:19:04.678
+Caption: system store we have approved that we&#39;re
+
+00:19:02.910 --> 00:19:06.660
+Caption: going to do it now and once that&#39;s
+
+00:19:04.678 --> 00:19:10.169
+Caption: written it&#39;s basically gospel it&#39;s done
+
+00:19:06.660 --> 00:19:11.670
+Caption: ok so we can&#39;t change things but of
+
+00:19:10.170 --> 00:19:13.559
+Caption: course writing the event to the event
+
+00:19:11.670 --> 00:19:15.630
+Caption: store hasn&#39;t updated our business wall
+
+00:19:13.558 --> 00:19:18.119
+Caption: so now we have a chance to update our
+
+00:19:15.630 --> 00:19:19.619
+Caption: update our domain state in here to
+
+00:19:18.119 --> 00:19:20.670
+Caption: change the bank account balance if you
+
+00:19:19.619 --> 00:19:22.979
+Caption: want to or want to keep it in your
+
+00:19:20.670 --> 00:19:24.600
+Caption: memory so these are the sort of steps
+
+00:19:22.979 --> 00:19:27.479
+Caption: should go through when you&#39;re processing
+
+00:19:24.599 --> 00:19:29.910
+Caption: a command and producing events in
+
+00:19:27.479 --> 00:19:31.709
+Caption: everything crashed here no worries we
+
+00:19:29.910 --> 00:19:33.150
+Caption: can come back here and read these events
+
+00:19:31.709 --> 00:19:35.579
+Caption: together for showing the second and
+
+00:19:33.150 --> 00:19:38.099
+Caption: reproduce that state so once we have
+
+00:19:35.579 --> 00:19:40.109
+Caption: written this event where sex is our
+
+00:19:38.099 --> 00:19:43.109
+Caption: persistence mechanism now what our
+
+00:19:40.109 --> 00:19:44.880
+Caption: relational database type store so I
+
+00:19:43.109 --> 00:19:47.280
+Caption: mentioned then rebuilding the state so
+
+00:19:44.880 --> 00:19:48.609
+Caption: the saving you is much important if we
+
+00:19:47.280 --> 00:19:51.549
+Caption: do want to rebuild this
+
+00:19:48.609 --> 00:19:53.469
+Caption: eval is apparently through that but we
+
+00:19:51.548 --> 00:19:55.449
+Caption: just go through and read out the events
+
+00:19:53.469 --> 00:19:57.760
+Caption: related to this particular bank account
+
+00:19:55.449 --> 00:20:00.069
+Caption: or this particular concert lead through
+
+00:19:57.760 --> 00:20:02.770
+Caption: the event and process those events to
+
+00:20:00.069 --> 00:20:05.169
+Caption: find the final state the current status
+
+00:20:02.770 --> 00:20:06.790
+Caption: now people often asked about this have
+
+00:20:05.170 --> 00:20:08.770
+Caption: you a lot of events to go into and so
+
+00:20:06.790 --> 00:20:10.750
+Caption: forth if you think about one particular
+
+00:20:08.770 --> 00:20:13.330
+Caption: bank account is usually not that many
+
+00:20:10.750 --> 00:20:15.428
+Caption: and also in the mechanism associative if
+
+00:20:13.329 --> 00:20:16.989
+Caption: CQRS called snapshotting where is we
+
+00:20:15.428 --> 00:20:19.029
+Caption: have a lot of events you can make a step
+
+00:20:16.989 --> 00:20:20.949
+Caption: show the state just look like a summary
+
+00:20:19.030 --> 00:20:22.150
+Caption: you don&#39;t delete the previous events but
+
+00:20:20.949 --> 00:20:23.979
+Caption: now you have a something where you can
+
+00:20:22.150 --> 00:20:26.290
+Caption: start off rather than going back to this
+
+00:20:23.979 --> 00:20:27.910
+Caption: first event this is actually quite
+
+00:20:26.290 --> 00:20:30.369
+Caption: efficient and quite fast and not
+
+00:20:27.910 --> 00:20:32.290
+Caption: difficult to do so we want to read their
+
+00:20:30.369 --> 00:20:34.689
+Caption: well is the state to do something with
+
+00:20:32.290 --> 00:20:36.400
+Caption: it to apply some complex logic we can
+
+00:20:34.689 --> 00:20:40.029
+Caption: actually read the event and rebuild
+
+00:20:36.400 --> 00:20:42.489
+Caption: those and then update the main state so
+
+00:20:40.030 --> 00:20:43.780
+Caption: there&#39;s some that work since so this is
+
+00:20:42.489 --> 00:20:46.418
+Caption: basically the CQRS
+
+00:20:43.780 --> 00:20:48.340
+Caption: architecture let&#39;s say two streams two
+
+00:20:46.418 --> 00:20:51.130
+Caption: sacks one the query time on the right
+
+00:20:48.339 --> 00:20:52.869
+Caption: side we produce cones over here you give
+
+00:20:51.130 --> 00:20:55.839
+Caption: us events in a big store and we have a
+
+00:20:52.869 --> 00:20:57.308
+Caption: query side over this side now release
+
+00:20:55.839 --> 00:20:59.349
+Caption: modern architecture it&#39;s an
+
+00:20:57.308 --> 00:21:00.699
+Caption: architectural pattern so you shouldn&#39;t
+
+00:20:59.349 --> 00:21:02.650
+Caption: think of it as being the architecture
+
+00:21:00.699 --> 00:21:04.750
+Caption: for your whole application it&#39;s more a
+
+00:21:02.650 --> 00:21:06.729
+Caption: part of your application which in
+
+00:21:04.750 --> 00:21:09.160
+Caption: colleges collaboration which means this
+
+00:21:06.729 --> 00:21:10.928
+Caption: sort of scaling may use this approach if
+
+00:21:09.160 --> 00:21:13.330
+Caption: you think it&#39;s appropriate so it&#39;s an
+
+00:21:10.928 --> 00:21:15.250
+Caption: architectural pattern I want to break
+
+00:21:13.329 --> 00:21:17.019
+Caption: the pattern down again just to show you
+
+00:21:15.250 --> 00:21:18.548
+Caption: a bit more of how it actually works and
+
+00:21:17.020 --> 00:21:21.040
+Caption: what different parts relate to each
+
+00:21:18.548 --> 00:21:24.039
+Caption: other so the first step we saw was
+
+00:21:21.040 --> 00:21:25.600
+Caption: producing commands on the right side so
+
+00:21:24.040 --> 00:21:27.940
+Caption: this is the part of the staff that does
+
+00:21:25.599 --> 00:21:29.829
+Caption: that basically the commands come in we
+
+00:21:27.939 --> 00:21:31.689
+Caption: validate the commands and then we wipe
+
+00:21:29.829 --> 00:21:34.298
+Caption: them to the event store and update is
+
+00:21:31.689 --> 00:21:35.678
+Caption: that update out of state if necessary so
+
+00:21:34.298 --> 00:21:38.229
+Caption: whenever you&#39;re making a change to your
+
+00:21:35.678 --> 00:21:40.269
+Caption: business on this side this is a part of
+
+00:21:38.229 --> 00:21:43.119
+Caption: the applications that use the other side
+
+00:21:40.270 --> 00:21:43.890
+Caption: doesn&#39;t evenly come into it so it&#39;s a
+
+00:21:43.119 --> 00:21:45.579
+Caption: bit different than traditional
+
+00:21:43.890 --> 00:21:47.410
+Caption: applications because then you put a
+
+00:21:45.579 --> 00:21:50.199
+Caption: request in here you&#39;re sending to use
+
+00:21:47.410 --> 00:21:51.790
+Caption: command what you get back you don&#39;t get
+
+00:21:50.199 --> 00:21:54.459
+Caption: back an answer saying here&#39;s the final
+
+00:21:51.790 --> 00:21:56.109
+Caption: balance or here&#39;s the new state you just
+
+00:21:54.459 --> 00:21:58.149
+Caption: get back an answer saying yes we
+
+00:21:56.109 --> 00:22:00.549
+Caption: received your command and it&#39;s validated
+
+00:21:58.150 --> 00:22:01.960
+Caption: maybe not even that so it&#39;s a bit of
+
+00:22:00.550 --> 00:22:03.700
+Caption: different to architecture
+
+00:22:01.959 --> 00:22:05.500
+Caption: in fact the next state of your
+
+00:22:03.699 --> 00:22:08.079
+Caption: application the next day of your page
+
+00:22:05.500 --> 00:22:10.510
+Caption: we&#39;ll talk more about this later on but
+
+00:22:08.079 --> 00:22:13.058
+Caption: this is the process commands on the
+
+00:22:10.510 --> 00:22:16.239
+Caption: right side approach come on the enduring
+
+00:22:13.058 --> 00:22:18.158
+Caption: events safer than the event store so how
+
+00:22:16.239 --> 00:22:20.890
+Caption: do we get this other side of our
+
+00:22:18.159 --> 00:22:23.049
+Caption: application the read side updated well
+
+00:22:20.890 --> 00:22:25.239
+Caption: there&#39;s a separate part here which is
+
+00:22:23.048 --> 00:22:28.510
+Caption: sort of like responsible for taking our
+
+00:22:25.239 --> 00:22:30.399
+Caption: events and updating our website so we
+
+00:22:28.510 --> 00:22:32.859
+Caption: have all our people to be pull into the
+
+00:22:30.399 --> 00:22:34.390
+Caption: event store we have any event handler
+
+00:22:32.859 --> 00:22:36.908
+Caption: here which is listening for these events
+
+00:22:34.390 --> 00:22:39.250
+Caption: and when the events getting to there is
+
+00:22:36.909 --> 00:22:42.399
+Caption: sort of notifying it takes the event and
+
+00:22:39.250 --> 00:22:44.349
+Caption: it updates our web store this is very
+
+00:22:42.399 --> 00:22:47.799
+Caption: independent and separate from the right
+
+00:22:44.349 --> 00:22:49.599
+Caption: side so if some application code here
+
+00:22:47.798 --> 00:22:51.849
+Caption: running which is listening to this and
+
+00:22:49.599 --> 00:22:53.349
+Caption: updating this when it can all use the
+
+00:22:51.849 --> 00:22:55.298
+Caption: taneous leaders when it came when it
+
+00:22:53.349 --> 00:22:57.428
+Caption: gets around to it and we&#39;ll mention that
+
+00:22:55.298 --> 00:22:59.139
+Caption: type it later on so that&#39;s the second
+
+00:22:57.428 --> 00:23:01.569
+Caption: step and the third part of the
+
+00:22:59.140 --> 00:23:03.190
+Caption: architecture is just this query site and
+
+00:23:01.569 --> 00:23:04.839
+Caption: as you can see the query site is much
+
+00:23:03.189 --> 00:23:07.719
+Caption: simpler now but it is just reading
+
+00:23:04.839 --> 00:23:09.880
+Caption: information so a clearly comes in this
+
+00:23:07.719 --> 00:23:11.260
+Caption: function handles it and basically goes
+
+00:23:09.880 --> 00:23:14.500
+Caption: to database to get to the information
+
+00:23:11.260 --> 00:23:16.690
+Caption: returns so there&#39;s no there complex
+
+00:23:14.500 --> 00:23:18.880
+Caption: operations or building object models
+
+00:23:16.689 --> 00:23:21.099
+Caption: it&#39;s just getting the data and returning
+
+00:23:18.880 --> 00:23:23.409
+Caption: it you can do more complex models but in
+
+00:23:21.099 --> 00:23:25.569
+Caption: the simplest way we can do this the
+
+00:23:23.409 --> 00:23:27.850
+Caption: benefit of this is we can have multiple
+
+00:23:25.569 --> 00:23:29.589
+Caption: view schools so now when your
+
+00:23:27.849 --> 00:23:31.239
+Caption: application used to scale and you will
+
+00:23:29.589 --> 00:23:33.459
+Caption: actually be fast to provide baptists
+
+00:23:31.239 --> 00:23:35.408
+Caption: information you can create abuse or
+
+00:23:33.459 --> 00:23:37.808
+Caption: justly information unique to these
+
+00:23:35.409 --> 00:23:39.520
+Caption: particular queries because remember you
+
+00:23:37.808 --> 00:23:41.558
+Caption: have something on the back end here
+
+00:23:39.520 --> 00:23:43.719
+Caption: which can update any particular view
+
+00:23:41.558 --> 00:23:44.760
+Caption: store you make so you can have multiple
+
+00:23:43.719 --> 00:23:46.750
+Caption: views stores
+
+00:23:44.760 --> 00:23:49.808
+Caption: providing responses to particular
+
+00:23:46.750 --> 00:23:52.270
+Caption: periods and even better you can add
+
+00:23:49.808 --> 00:23:53.709
+Caption: these two at a later stage so maybe
+
+00:23:52.270 --> 00:23:55.270
+Caption: you&#39;re going on if you are it&#39;s getting
+
+00:23:53.709 --> 00:23:57.489
+Caption: very slow in my queries are too slow I
+
+00:23:55.270 --> 00:23:59.200
+Caption: need a rest database you can add an
+
+00:23:57.489 --> 00:24:01.028
+Caption: extra graph database in here if you&#39;ve
+
+00:23:59.199 --> 00:24:03.308
+Caption: got a bit later on that&#39;s fine a graph
+
+00:24:01.029 --> 00:24:05.200
+Caption: database in here and still that great
+
+00:24:03.308 --> 00:24:07.449
+Caption: graph database up based upon the events
+
+00:24:05.199 --> 00:24:09.130
+Caption: you have stored so now quickly respond
+
+00:24:07.449 --> 00:24:10.719
+Caption: to queries that would use a graph
+
+00:24:09.130 --> 00:24:13.329
+Caption: database spirit to respond than a
+
+00:24:10.719 --> 00:24:15.579
+Caption: traditional database so having multiple
+
+00:24:13.329 --> 00:24:17.739
+Caption: review stores allow you to
+
+00:24:15.579 --> 00:24:19.989
+Caption: to the query to a few stories to make
+
+00:24:17.739 --> 00:24:20.819
+Caption: the website very efficient and a very
+
+00:24:19.989 --> 00:24:23.859
+Caption: powerful
+
+00:24:20.819 --> 00:24:26.139
+Caption: that&#39;s the third tip so the important
+
+00:24:23.859 --> 00:24:28.150
+Caption: thing here is again separating these
+
+00:24:26.140 --> 00:24:30.940
+Caption: commands on the right side from the
+
+00:24:28.150 --> 00:24:32.680
+Caption: queries or the read side when we do the
+
+00:24:30.939 --> 00:24:35.139
+Caption: commands you only need to rebuild the
+
+00:24:32.680 --> 00:24:37.060
+Caption: application state necessary to validate
+
+00:24:35.140 --> 00:24:40.030
+Caption: that business logic you can actually
+
+00:24:37.060 --> 00:24:41.710
+Caption: keep the application state allmate you
+
+00:24:40.030 --> 00:24:43.660
+Caption: need to understand few actually need
+
+00:24:41.709 --> 00:24:45.219
+Caption: four particular commands and on the
+
+00:24:43.660 --> 00:24:47.710
+Caption: Prairie side we only reveal the
+
+00:24:45.219 --> 00:24:49.929
+Caption: application state enough to do some
+
+00:24:47.709 --> 00:24:52.719
+Caption: business logic to read and return the
+
+00:24:49.930 --> 00:24:54.160
+Caption: data but we can even make sure the query
+
+00:24:52.719 --> 00:24:56.199
+Caption: model doesn&#39;t even need any business
+
+00:24:54.160 --> 00:24:59.050
+Caption: project it just returns the data from
+
+00:24:56.199 --> 00:25:02.319
+Caption: the group for the query so this is our
+
+00:24:59.050 --> 00:25:04.210
+Caption: most important deceleration here as I
+
+00:25:02.319 --> 00:25:07.630
+Caption: mentioned any query side we can have
+
+00:25:04.209 --> 00:25:09.609
+Caption: district data source so basically we
+
+00:25:07.630 --> 00:25:12.219
+Caption: have SQL standard one we have a graph
+
+00:25:09.609 --> 00:25:14.650
+Caption: database or a document database and we
+
+00:25:12.219 --> 00:25:16.659
+Caption: can update these as needed so they match
+
+00:25:14.650 --> 00:25:19.180
+Caption: the queries and we can do D
+
+00:25:16.660 --> 00:25:20.859
+Caption: normalization so you have a complex user
+
+00:25:19.180 --> 00:25:23.110
+Caption: interface which means lots of different
+
+00:25:20.859 --> 00:25:24.849
+Caption: objects rather happen to build all these
+
+00:25:23.109 --> 00:25:26.949
+Caption: objects up and make sure you can query
+
+00:25:24.849 --> 00:25:29.349
+Caption: look you actually do normalize the
+
+00:25:26.949 --> 00:25:31.389
+Caption: database produce a new score which
+
+00:25:29.349 --> 00:25:34.599
+Caption: exactly matches your query and now it&#39;s
+
+00:25:31.390 --> 00:25:36.579
+Caption: very quick to respond to which is what
+
+00:25:34.599 --> 00:25:38.949
+Caption: we do often with caching and so forth a
+
+00:25:36.579 --> 00:25:41.109
+Caption: caching stores basically that if the
+
+00:25:38.949 --> 00:25:43.359
+Caption: cache of these complex build up
+
+00:25:41.109 --> 00:25:45.189
+Caption: responses to queries and the cache them
+
+00:25:43.359 --> 00:25:47.229
+Caption: we can think of these is like a fiddle
+
+00:25:45.189 --> 00:25:49.929
+Caption: attached which is made for just what we
+
+00:25:47.229 --> 00:25:52.449
+Caption: need to do so again this is our most
+
+00:25:49.930 --> 00:25:54.250
+Caption: important part the view side the queries
+
+00:25:52.449 --> 00:25:58.179
+Caption: can be tailored to what you need in your
+
+00:25:54.250 --> 00:26:00.640
+Caption: application to scale well so again they
+
+00:25:58.180 --> 00:26:02.560
+Caption: are here the CQRS subsystem and here&#39;s
+
+00:26:00.640 --> 00:26:05.290
+Caption: our different databases we have a graph
+
+00:26:02.560 --> 00:26:07.570
+Caption: database now in a relational database so
+
+00:26:05.290 --> 00:26:09.910
+Caption: now in the events come true they update
+
+00:26:07.569 --> 00:26:12.819
+Caption: both of their status tools as necessary
+
+00:26:09.910 --> 00:26:15.099
+Caption: we want the code to update these 8.1
+
+00:26:12.819 --> 00:26:17.829
+Caption: events happen and they will mimic what
+
+00:26:15.099 --> 00:26:19.719
+Caption: we need query comes in we can get both
+
+00:26:17.829 --> 00:26:21.489
+Caption: on there we have the stream handler to
+
+00:26:19.719 --> 00:26:24.459
+Caption: update this one and we have the
+
+00:26:21.489 --> 00:26:25.270
+Caption: processes I think the other one so event
+
+00:26:24.459 --> 00:26:28.000
+Caption: handler is
+
+00:26:25.270 --> 00:26:29.979
+Caption: both so this is the general architecture
+
+00:26:28.000 --> 00:26:31.780
+Caption: and I hope that gives you a quick feel
+
+00:26:29.979 --> 00:26:33.640
+Caption: for what it&#39;s like being very quick
+
+00:26:31.780 --> 00:26:36.369
+Caption: there just to show you a couple of
+
+00:26:33.640 --> 00:26:37.780
+Caption: further power things you can do in the
+
+00:26:36.369 --> 00:26:39.280
+Caption: architecture this is another diagram
+
+00:26:37.780 --> 00:26:41.320
+Caption: which tries to represent the
+
+00:26:39.280 --> 00:26:44.560
+Caption: architecture up here you&#39;ve got the
+
+00:26:41.319 --> 00:26:46.389
+Caption: command side going through yes I mean to
+
+00:26:44.560 --> 00:26:48.520
+Caption: get your command hardwood handlers here
+
+00:26:46.390 --> 00:26:50.440
+Caption: to validate the commands you build up
+
+00:26:48.520 --> 00:26:52.719
+Caption: your domain model the storing your
+
+00:26:50.439 --> 00:26:55.689
+Caption: events here here you have any meant bus
+
+00:26:52.719 --> 00:26:57.309
+Caption: so the events can actually respond that
+
+00:26:55.689 --> 00:27:00.969
+Caption: you can make changes in your domain or
+
+00:26:57.310 --> 00:27:03.310
+Caption: scale in a second on the query side here
+
+00:27:00.969 --> 00:27:05.439
+Caption: when the events come across we can
+
+00:27:03.310 --> 00:27:07.840
+Caption: update our data source and now we
+
+00:27:05.439 --> 00:27:10.569
+Caption: clearly here with a thin layer our data
+
+00:27:07.839 --> 00:27:12.969
+Caption: stores but you may also have analysis
+
+00:27:10.569 --> 00:27:15.279
+Caption: databases then where all your events are
+
+00:27:12.969 --> 00:27:17.409
+Caption: producing analytics these savings are
+
+00:27:15.280 --> 00:27:19.810
+Caption: big a big data analytics we can have
+
+00:27:17.410 --> 00:27:21.670
+Caption: live updating on our analytics fest
+
+00:27:19.810 --> 00:27:24.160
+Caption: because the events can be used to
+
+00:27:21.670 --> 00:27:25.570
+Caption: manipulate the analytics views and so
+
+00:27:24.160 --> 00:27:28.450
+Caption: many things here like sending an email
+
+00:27:25.569 --> 00:27:30.219
+Caption: when an event comes out you can send an
+
+00:27:28.449 --> 00:27:33.880
+Caption: email out a different form of the
+
+00:27:30.219 --> 00:27:36.010
+Caption: response to event on the query side so I
+
+00:27:33.880 --> 00:27:38.619
+Caption: can get quite complex and powerful this
+
+00:27:36.010 --> 00:27:40.479
+Caption: sort of architecture the interesting
+
+00:27:38.619 --> 00:27:42.069
+Caption: thing in a more complex thing about this
+
+00:27:40.479 --> 00:27:44.799
+Caption: is we have a notion of eventual
+
+00:27:42.069 --> 00:27:47.500
+Caption: consistency because the right side is
+
+00:27:44.800 --> 00:27:49.630
+Caption: separate from the read side intestinal
+
+00:27:47.500 --> 00:27:51.339
+Caption: while for these events to trickle across
+
+00:27:49.630 --> 00:27:54.089
+Caption: to the reader either for the read side
+
+00:27:51.339 --> 00:27:56.890
+Caption: to be updated so the ringside may not
+
+00:27:54.089 --> 00:27:59.169
+Caption: instantaneously represent the value
+
+00:27:56.890 --> 00:28:01.570
+Caption: having your business data if it&#39;s a
+
+00:27:59.170 --> 00:28:03.640
+Caption: problem or possibly not because once you
+
+00:28:01.569 --> 00:28:05.739
+Caption: read something from your database its
+
+00:28:03.640 --> 00:28:07.390
+Caption: instantaneously out a day anyway unless
+
+00:28:05.739 --> 00:28:09.250
+Caption: you&#39;ve locked availables something could
+
+00:28:07.390 --> 00:28:11.200
+Caption: change the day behind you so it&#39;s a
+
+00:28:09.250 --> 00:28:13.030
+Caption: matter of degrees here we&#39;re sort of
+
+00:28:11.199 --> 00:28:14.500
+Caption: meeting that nadir is always somewhat
+
+00:28:13.030 --> 00:28:16.450
+Caption: stale it&#39;s always going to take a while
+
+00:28:14.500 --> 00:28:19.630
+Caption: that will always eventually be
+
+00:28:16.449 --> 00:28:22.029
+Caption: consistent so immediately consistency
+
+00:28:19.630 --> 00:28:24.099
+Caption: can take a problem it requires a change
+
+00:28:22.030 --> 00:28:26.469
+Caption: in thinking how you approach things and
+
+00:28:24.099 --> 00:28:28.869
+Caption: thinking about transactions thinking
+
+00:28:26.469 --> 00:28:30.579
+Caption: about user interfaces and you can see
+
+00:28:28.869 --> 00:28:34.000
+Caption: the differences in a couple of examples
+
+00:28:30.579 --> 00:28:37.000
+Caption: some traditional web flow you submit a
+
+00:28:34.000 --> 00:28:38.949
+Caption: form to an application becomes like data
+
+00:28:37.000 --> 00:28:41.649
+Caption: and your response
+
+00:28:38.949 --> 00:28:44.048
+Caption: the results the new state of the
+
+00:28:41.649 --> 00:28:45.519
+Caption: application responding to that data
+
+00:28:44.048 --> 00:28:47.768
+Caption: listen submitter the deposit in a bank
+
+00:28:45.519 --> 00:28:49.779
+Caption: account get your new data back it&#39;s the
+
+00:28:47.769 --> 00:28:52.330
+Caption: balance of that bank account this
+
+00:28:49.779 --> 00:28:54.880
+Caption: situation can&#39;t do that you submit a
+
+00:28:52.329 --> 00:28:57.158
+Caption: command request you just get the command
+
+00:28:54.880 --> 00:28:59.829
+Caption: results or that okay if that command is
+
+00:28:57.159 --> 00:29:01.630
+Caption: okay to actually find out the balance of
+
+00:28:59.829 --> 00:29:04.719
+Caption: the bank account you have to have to
+
+00:29:01.630 --> 00:29:06.609
+Caption: submit a query and get the data back and
+
+00:29:04.719 --> 00:29:08.439
+Caption: if you submits a query exactly the same
+
+00:29:06.609 --> 00:29:10.898
+Caption: time or just after you submit the
+
+00:29:08.439 --> 00:29:13.178
+Caption: command the results you get back maybe
+
+00:29:10.899 --> 00:29:15.880
+Caption: the old balance because the data hasn&#39;t
+
+00:29:13.178 --> 00:29:17.408
+Caption: rippled across to the new side yet you
+
+00:29:15.880 --> 00:29:19.389
+Caption: have to start thinking about this in how
+
+00:29:17.409 --> 00:29:21.669
+Caption: we handle our user interfaces what we
+
+00:29:19.389 --> 00:29:23.500
+Caption: display will be expect to see you may
+
+00:29:21.668 --> 00:29:25.089
+Caption: see a lot of community faces do say
+
+00:29:23.500 --> 00:29:27.339
+Caption: their little speed wheels for a while
+
+00:29:25.089 --> 00:29:29.048
+Caption: away what I would do a lot box if you&#39;ve
+
+00:29:27.339 --> 00:29:31.418
+Caption: been displaced a second to get the data
+
+00:29:29.048 --> 00:29:33.939
+Caption: refresh on the read side to produce the
+
+00:29:31.418 --> 00:29:37.178
+Caption: updated data but this generally uses a
+
+00:29:33.939 --> 00:29:39.729
+Caption: problem so options we have here we can
+
+00:29:37.178 --> 00:29:42.308
+Caption: wait until the website updates we can
+
+00:29:39.729 --> 00:29:44.168
+Caption: decline and pull though your read side
+
+00:29:42.308 --> 00:29:46.178
+Caption: see whether it&#39;s been updated we can
+
+00:29:44.168 --> 00:29:47.918
+Caption: signal the read side to tell it when
+
+00:29:46.178 --> 00:29:50.018
+Caption: it&#39;s updated so it dissuades around
+
+00:29:47.918 --> 00:29:52.359
+Caption: forgives the signal or we can take the
+
+00:29:50.019 --> 00:29:54.369
+Caption: client so the client pretends like it
+
+00:29:52.359 --> 00:29:56.558
+Caption: went through okay it gives us what the
+
+00:29:54.369 --> 00:29:58.089
+Caption: interface would look like we fake it
+
+00:29:56.558 --> 00:29:59.589
+Caption: until we find out something wrong we
+
+00:29:58.089 --> 00:30:01.510
+Caption: correct it so there are some options
+
+00:29:59.589 --> 00:30:04.510
+Caption: there to handle this eventual
+
+00:30:01.510 --> 00:30:07.029
+Caption: consistency there are a couple of our
+
+00:30:04.510 --> 00:30:09.010
+Caption: interesting case studies of this which
+
+00:30:07.029 --> 00:30:12.309
+Caption: I&#39;ll just briefly touch on but all of
+
+00:30:09.010 --> 00:30:14.349
+Caption: the grocery still this one is when you
+
+00:30:12.308 --> 00:30:16.058
+Caption: set up an account for registering here
+
+00:30:14.349 --> 00:30:18.069
+Caption: so you&#39;ll come over to your user
+
+00:30:16.058 --> 00:30:20.260
+Caption: interface you&#39;re typing either choosing
+
+00:30:18.069 --> 00:30:23.739
+Caption: a username and submitting that username
+
+00:30:20.260 --> 00:30:25.389
+Caption: so when we actually find out and type in
+
+00:30:23.739 --> 00:30:27.908
+Caption: that username and is submitted
+
+00:30:25.389 --> 00:30:29.260
+Caption: in the time since we&#39;ve submitted it
+
+00:30:27.909 --> 00:30:31.929
+Caption: someone may actually create that
+
+00:30:29.260 --> 00:30:35.440
+Caption: username so now command may not be
+
+00:30:31.928 --> 00:30:37.000
+Caption: validated so how do we handle that well
+
+00:30:35.439 --> 00:30:39.158
+Caption: we can try and handle the situation
+
+00:30:37.000 --> 00:30:41.439
+Caption: where someone shows in the exact same
+
+00:30:39.159 --> 00:30:43.059
+Caption: username as someone exactly a couple of
+
+00:30:41.439 --> 00:30:45.099
+Caption: microseconds before them chose a
+
+00:30:43.058 --> 00:30:46.869
+Caption: username which is what you may have to
+
+00:30:45.099 --> 00:30:49.178
+Caption: do but generally speaking would be
+
+00:30:46.869 --> 00:30:50.880
+Caption: easier to flag is a problem and fix it
+
+00:30:49.178 --> 00:30:53.069
+Caption: up because it will be silent again
+
+00:30:50.880 --> 00:30:55.260
+Caption: so agree at least to happen but that
+
+00:30:53.069 --> 00:30:56.130
+Caption: could happen is the CTRs eventual
+
+00:30:55.260 --> 00:30:58.680
+Caption: consistency
+
+00:30:56.130 --> 00:31:01.829
+Caption: another example here is when you go into
+
+00:30:58.680 --> 00:31:04.050
+Caption: a cafe and this shows the approach to
+
+00:31:01.829 --> 00:31:06.510
+Caption: transactions individual consistency as
+
+00:31:04.050 --> 00:31:08.730
+Caption: well you may be ordering a coffee need
+
+00:31:06.510 --> 00:31:10.290
+Caption: from the cashier so you&#39;re doing here
+
+00:31:08.729 --> 00:31:12.449
+Caption: and you basically submit your commands
+
+00:31:10.290 --> 00:31:13.920
+Caption: the cashier leave order coffee and you
+
+00:31:12.449 --> 00:31:17.219
+Caption: get a receipt that time you&#39;ve got these
+
+00:31:13.920 --> 00:31:18.180
+Caption: ordered and you go and sit down but you
+
+00:31:17.219 --> 00:31:20.039
+Caption: don&#39;t know what&#39;s been happening the
+
+00:31:18.180 --> 00:31:21.480
+Caption: back here when the cashier talks to
+
+00:31:20.040 --> 00:31:24.600
+Caption: Bristol I&#39;m a tile we run out of that
+
+00:31:21.479 --> 00:31:26.699
+Caption: cotton you can&#39;t do that order and if it
+
+00:31:24.599 --> 00:31:29.010
+Caption: was a complete transaction you will
+
+00:31:26.699 --> 00:31:31.709
+Caption: ensure that all can happen at the same
+
+00:31:29.010 --> 00:31:33.329
+Caption: time but in the real world we don&#39;t have
+
+00:31:31.709 --> 00:31:35.099
+Caption: that problem we really have that problem
+
+00:31:33.329 --> 00:31:37.260
+Caption: well they actually try to solve it with
+
+00:31:35.099 --> 00:31:39.209
+Caption: transaction you know check everything
+
+00:31:37.260 --> 00:31:40.650
+Caption: before we do the command in the real
+
+00:31:39.209 --> 00:31:42.119
+Caption: world that actually would collect you
+
+00:31:40.650 --> 00:31:43.680
+Caption: and say you haven&#39;t looked those coffee
+
+00:31:42.119 --> 00:31:45.449
+Caption: would you like one of these you say sure
+
+00:31:43.680 --> 00:31:47.190
+Caption: that&#39;s how immigrated with that so you
+
+00:31:45.449 --> 00:31:50.099
+Caption: can make some adjustments afterwards
+
+00:31:47.189 --> 00:31:51.839
+Caption: so this is the way to CQRS operates not
+
+00:31:50.099 --> 00:31:54.000
+Caption: try to have a huge transaction but
+
+00:31:51.839 --> 00:31:56.130
+Caption: handling these problems which make you
+
+00:31:54.000 --> 00:32:00.089
+Caption: rare but handle them in a way which is
+
+00:31:56.130 --> 00:32:01.380
+Caption: not a transaction oriented so if humans
+
+00:32:00.089 --> 00:32:03.539
+Caption: do this we live in a world which is
+
+00:32:01.380 --> 00:32:05.459
+Caption: eventually persistent we find out later
+
+00:32:03.540 --> 00:32:07.200
+Caption: that there wasn&#39;t a coffee rather than
+
+00:32:05.459 --> 00:32:09.119
+Caption: at the time of purchase and we came to
+
+00:32:07.199 --> 00:32:11.010
+Caption: get along okay so maybe we should make
+
+00:32:09.119 --> 00:32:12.900
+Caption: systems more like this so we can make
+
+00:32:11.010 --> 00:32:16.440
+Caption: systems more like this rather than to
+
+00:32:12.900 --> 00:32:18.630
+Caption: like to make them totally consistent so
+
+00:32:16.439 --> 00:32:21.029
+Caption: a couple of bits of a further look at
+
+00:32:18.630 --> 00:32:23.310
+Caption: events inside see - ah referential
+
+00:32:21.030 --> 00:32:25.680
+Caption: events are very important very useful
+
+00:32:23.310 --> 00:32:27.900
+Caption: events can be used with event sourcing
+
+00:32:25.680 --> 00:32:29.940
+Caption: I&#39;ve talked about but also process
+
+00:32:27.900 --> 00:32:31.739
+Caption: management and communication and
+
+00:32:29.939 --> 00:32:34.799
+Caption: integration between social systems
+
+00:32:31.739 --> 00:32:37.140
+Caption: the way we handle processes in CPRS and
+
+00:32:34.800 --> 00:32:40.860
+Caption: having what&#39;s called targets or process
+
+00:32:37.140 --> 00:32:43.440
+Caption: managers these are basically a different
+
+00:32:40.859 --> 00:32:45.599
+Caption: type of thing we&#39;ve seen so far we have
+
+00:32:43.439 --> 00:32:46.829
+Caption: these command harmless command hardened
+
+00:32:45.599 --> 00:32:49.079
+Caption: handlers in CQRS
+
+00:32:46.829 --> 00:32:53.159
+Caption: a command handler takes a command
+
+00:32:49.079 --> 00:32:55.079
+Caption: validates it produces an event process
+
+00:32:53.160 --> 00:32:57.930
+Caption: managers of Sagas are a bit different
+
+00:32:55.079 --> 00:33:01.380
+Caption: they basically respond to your bins and
+
+00:32:57.930 --> 00:33:03.770
+Caption: produce commands so a project manager is
+
+00:33:01.380 --> 00:33:06.890
+Caption: listening for an event and produce
+
+00:33:03.770 --> 00:33:08.989
+Caption: c&#39;mon which affect the system and using
+
+00:33:06.890 --> 00:33:11.178
+Caption: this approach you can actually handle
+
+00:33:08.989 --> 00:33:13.609
+Caption: processes or have complex processes in
+
+00:33:11.178 --> 00:33:15.469
+Caption: your system I&#39;ll skip over this but this
+
+00:33:13.609 --> 00:33:18.469
+Caption: shows us an example here of our process
+
+00:33:15.469 --> 00:33:21.829
+Caption: manager we place an order and we get
+
+00:33:18.469 --> 00:33:25.400
+Caption: back an order confirms response then
+
+00:33:21.829 --> 00:33:28.010
+Caption: when it actually processes this order it
+
+00:33:25.400 --> 00:33:30.979
+Caption: sends the command out to this particular
+
+00:33:28.010 --> 00:33:33.770
+Caption: oil aggregate the order a group produces
+
+00:33:30.979 --> 00:33:35.900
+Caption: an event which comes back the event is
+
+00:33:33.770 --> 00:33:37.880
+Caption: recognized and now the project manager
+
+00:33:35.900 --> 00:33:40.790
+Caption: produces another command and then
+
+00:33:37.880 --> 00:33:43.069
+Caption: produces event our reservation was seats
+
+00:33:40.790 --> 00:33:45.260
+Caption: were reserved on two but that events we
+
+00:33:43.069 --> 00:33:47.239
+Caption: can&#39;t start to do a letter processing so
+
+00:33:45.260 --> 00:33:49.880
+Caption: the process manager is basically sending
+
+00:33:47.239 --> 00:33:52.459
+Caption: commands listening for events responding
+
+00:33:49.880 --> 00:33:54.130
+Caption: to loaders sending about commands so it
+
+00:33:52.459 --> 00:33:56.928
+Caption: allows us to coordinate complex
+
+00:33:54.130 --> 00:34:01.420
+Caption: processes using these events and using
+
+00:33:56.928 --> 00:34:03.769
+Caption: these commands so that&#39;s the idea here
+
+00:34:01.420 --> 00:34:08.060
+Caption: cybers they listen for events and
+
+00:34:03.770 --> 00:34:10.939
+Caption: produce commands of a meteor this is
+
+00:34:08.060 --> 00:34:12.649
+Caption: also useful for subsystem integration so
+
+00:34:10.939 --> 00:34:14.378
+Caption: if you have multiple subsystems in your
+
+00:34:12.648 --> 00:34:16.729
+Caption: application how can you handle those
+
+00:34:14.378 --> 00:34:18.918
+Caption: here&#39;s our split between our two
+
+00:34:16.729 --> 00:34:20.350
+Caption: subsystems so this helps support system
+
+00:34:18.918 --> 00:34:22.398
+Caption: over here is producing commands
+
+00:34:20.350 --> 00:34:25.070
+Caption: receiving commands producing events
+
+00:34:22.398 --> 00:34:27.739
+Caption: doing its business our other subsystem
+
+00:34:25.070 --> 00:34:29.570
+Caption: over here can masada which is used
+
+00:34:27.739 --> 00:34:32.148
+Caption: integration in this case which is
+
+00:34:29.570 --> 00:34:34.820
+Caption: listening for events weather here&#39;s one
+
+00:34:32.148 --> 00:34:36.888
+Caption: loaded it it can send a command into
+
+00:34:34.820 --> 00:34:39.560
+Caption: each subsystem so now we can integrate
+
+00:34:36.888 --> 00:34:42.319
+Caption: how different subsystems are using API
+
+00:34:39.560 --> 00:34:44.209
+Caption: calls by by event-driven for the whole
+
+00:34:42.320 --> 00:34:46.820
+Caption: system now become the agreement but it&#39;s
+
+00:34:44.209 --> 00:34:48.678
+Caption: still separated the only interface is
+
+00:34:46.820 --> 00:34:51.678
+Caption: through these events so that&#39;s another
+
+00:34:48.678 --> 00:34:55.089
+Caption: new era we are useful sagas or project
+
+00:34:51.678 --> 00:34:57.919
+Caption: managers and I&#39;ll skip over that there
+
+00:34:55.090 --> 00:35:02.840
+Caption: obviously over this or even into play
+
+00:34:57.919 --> 00:35:05.868
+Caption: tiem so pros and cons of CQRS approach
+
+00:35:02.840 --> 00:35:08.719
+Caption: well it&#39;s very scalable it&#39;s very simple
+
+00:35:05.868 --> 00:35:10.549
+Caption: to scale it&#39;s made to scalable it&#39;s very
+
+00:35:08.719 --> 00:35:11.989
+Caption: cost-effectively cloud deployment
+
+00:35:10.550 --> 00:35:14.300
+Caption: because each of these things can be
+
+00:35:11.989 --> 00:35:16.129
+Caption: scaled separately not scaling one big
+
+00:35:14.300 --> 00:35:17.090
+Caption: application they can scale the Reeb side
+
+00:35:16.129 --> 00:35:20.659
+Caption: separately from the
+
+00:35:17.090 --> 00:35:22.550
+Caption: website we can rapidly adapt to changing
+
+00:35:20.659 --> 00:35:24.589
+Caption: business requirements we can change our
+
+00:35:22.550 --> 00:35:27.650
+Caption: commands we can change the events very
+
+00:35:24.590 --> 00:35:29.270
+Caption: easily so rapidly adapt to those the
+
+00:35:27.649 --> 00:35:30.770
+Caption: corners were difficult side of these
+
+00:35:29.270 --> 00:35:32.689
+Caption: things that if dimensional consistency
+
+00:35:30.770 --> 00:35:35.239
+Caption: takes a little while to get your mind
+
+00:35:32.689 --> 00:35:37.310
+Caption: around and this credit systems can be a
+
+00:35:35.239 --> 00:35:39.469
+Caption: bit more complex many applications
+
+00:35:37.310 --> 00:35:41.689
+Caption: rather one big awkward modeling
+
+00:35:39.469 --> 00:35:43.609
+Caption: application and it does add some extra
+
+00:35:41.689 --> 00:35:46.699
+Caption: complexity to your applications handling
+
+00:35:43.610 --> 00:35:48.380
+Caption: these commands and it ends I haven&#39;t got
+
+00:35:46.699 --> 00:35:50.239
+Caption: time to talk about in that store but you
+
+00:35:48.379 --> 00:35:52.579
+Caption: can this is basically a storage way to
+
+00:35:50.239 --> 00:35:54.080
+Caption: store events and the one I use is Greg
+
+00:35:52.580 --> 00:35:56.540
+Caption: gallons in that store it particularly
+
+00:35:54.080 --> 00:35:58.729
+Caption: made the story events and streams events
+
+00:35:56.540 --> 00:36:00.919
+Caption: well I like to finish off with in just
+
+00:35:58.729 --> 00:36:02.810
+Caption: the last 5 or 10 minutes is looking
+
+00:36:00.919 --> 00:36:05.780
+Caption: about this question of how to assist
+
+00:36:02.810 --> 00:36:07.610
+Caption: application state so traditionally with
+
+00:36:05.780 --> 00:36:10.790
+Caption: this persistent state by files
+
+00:36:07.610 --> 00:36:12.980
+Caption: relational databases and we tried object
+
+00:36:10.790 --> 00:36:15.620
+Caption: going to databases that didn&#39;t work so
+
+00:36:12.979 --> 00:36:18.050
+Caption: well they didn&#39;t take off and why was
+
+00:36:15.620 --> 00:36:20.540
+Caption: that well people says maybe relational
+
+00:36:18.050 --> 00:36:23.540
+Caption: database is a more natural way of
+
+00:36:20.540 --> 00:36:26.060
+Caption: storing data which is independent of our
+
+00:36:23.540 --> 00:36:28.219
+Caption: other applications paradigm whether it&#39;s
+
+00:36:26.060 --> 00:36:30.459
+Caption: object-oriented or functional or
+
+00:36:28.219 --> 00:36:33.349
+Caption: traditional procedure application
+
+00:36:30.459 --> 00:36:35.449
+Caption: relational is a sort of timeless way of
+
+00:36:33.350 --> 00:36:37.340
+Caption: storing data and that was pretty true
+
+00:36:35.449 --> 00:36:38.719
+Caption: that&#39;s why relational databases where
+
+00:36:37.340 --> 00:36:41.540
+Caption: they can stuck around longer than
+
+00:36:38.719 --> 00:36:44.209
+Caption: object-oriented databases so the rest I
+
+00:36:41.540 --> 00:36:46.510
+Caption: want to ask is any event sourcing help
+
+00:36:44.209 --> 00:36:49.369
+Caption: us to store things in different ways
+
+00:36:46.510 --> 00:36:51.620
+Caption: with the index or team you know enables
+
+00:36:49.370 --> 00:36:53.990
+Caption: us to be white models that are necessary
+
+00:36:51.620 --> 00:36:56.480
+Caption: to validate and perform the commands so
+
+00:36:53.989 --> 00:36:59.030
+Caption: we can just focus on the needed model at
+
+00:36:56.479 --> 00:37:01.280
+Caption: the need at a time we need it we can be
+
+00:36:59.030 --> 00:37:03.800
+Caption: we can build three models which match
+
+00:37:01.280 --> 00:37:06.050
+Caption: our queries so the events tool allows
+
+00:37:03.800 --> 00:37:08.420
+Caption: you to be much more flexible in which
+
+00:37:06.050 --> 00:37:10.550
+Caption: right models you have in which we&#39;d
+
+00:37:08.419 --> 00:37:11.899
+Caption: model should have just like relational
+
+00:37:10.550 --> 00:37:15.709
+Caption: databases allow us to be more flexible
+
+00:37:11.899 --> 00:37:17.510
+Caption: in what paradigm you use event sourcing
+
+00:37:15.709 --> 00:37:21.260
+Caption: allowed be more flexible in what data
+
+00:37:17.510 --> 00:37:23.689
+Caption: stores you use what models you use so I
+
+00:37:21.260 --> 00:37:26.510
+Caption: think it&#39;s useful the way to take model
+
+00:37:23.689 --> 00:37:28.369
+Caption: of our subsystems need situates if
+
+00:37:26.510 --> 00:37:30.459
+Caption: you&#39;re building of the application this
+
+00:37:28.370 --> 00:37:33.010
+Caption: subsystem may be complex it needs
+
+00:37:30.459 --> 00:37:35.588
+Caption: ers the Preferences subsystem may be
+
+00:37:33.010 --> 00:37:37.330
+Caption: very simple doesn&#39;t need situations so
+
+00:37:35.589 --> 00:37:39.609
+Caption: how can you get the benefits of an event
+
+00:37:37.330 --> 00:37:42.070
+Caption: store which is sort of I think a multi
+
+00:37:39.608 --> 00:37:44.889
+Caption: parallel way of storing the data when
+
+00:37:42.070 --> 00:37:46.479
+Caption: you don&#39;t need CTRs for the time so I
+
+00:37:44.889 --> 00:37:48.039
+Caption: forgot this for a while I think there&#39;s
+
+00:37:46.479 --> 00:37:50.320
+Caption: a number of alternatives here for
+
+00:37:48.040 --> 00:37:52.540
+Caption: different alternatives of course if
+
+00:37:50.320 --> 00:37:54.820
+Caption: you&#39;re doing 60 RS with event sorting
+
+00:37:52.540 --> 00:37:57.040
+Caption: then you have your big sorting an event
+
+00:37:54.820 --> 00:37:59.080
+Caption: store everything&#39;s okay you&#39;re storing
+
+00:37:57.040 --> 00:38:01.900
+Caption: all your stuff in events stores you get
+
+00:37:59.080 --> 00:38:04.690
+Caption: all the benefits but sometimes we don&#39;t
+
+00:38:01.899 --> 00:38:05.919
+Caption: need all of these separate schools you
+
+00:38:04.689 --> 00:38:08.560
+Caption: don&#39;t want to have if you don&#39;t need
+
+00:38:05.919 --> 00:38:10.598
+Caption: this complexity of separate stores so a
+
+00:38:08.560 --> 00:38:13.209
+Caption: simpler version of our sub system could
+
+00:38:10.599 --> 00:38:15.460
+Caption: be let&#39;s drop the separate stores and
+
+00:38:13.209 --> 00:38:17.739
+Caption: let&#39;s just have a back-end here which
+
+00:38:15.459 --> 00:38:19.719
+Caption: creates one data model we use for the
+
+00:38:17.739 --> 00:38:22.479
+Caption: write commute and also to the regroup
+
+00:38:19.719 --> 00:38:24.639
+Caption: one your shared data model now so it&#39;s
+
+00:38:22.479 --> 00:38:27.459
+Caption: simpler doesn&#39;t scale as well doesn&#39;t
+
+00:38:24.639 --> 00:38:29.139
+Caption: match our very size and maybe for some
+
+00:38:27.459 --> 00:38:31.469
+Caption: particular subsystems in your enterprise
+
+00:38:29.139 --> 00:38:34.269
+Caption: application this would be good enough
+
+00:38:31.469 --> 00:38:35.800
+Caption: what about even less than that what
+
+00:38:34.270 --> 00:38:38.320
+Caption: about if we didn&#39;t actually even want to
+
+00:38:35.800 --> 00:38:40.689
+Caption: use event sourcing we just wanted to
+
+00:38:38.320 --> 00:38:43.420
+Caption: have two separate sites we&#39;re still
+
+00:38:40.689 --> 00:38:45.399
+Caption: keeping the CQRS separation and we
+
+00:38:43.419 --> 00:38:47.588
+Caption: didn&#39;t want to use event source and we
+
+00:38:45.399 --> 00:38:49.838
+Caption: want to store our data in a shared data
+
+00:38:47.589 --> 00:38:52.330
+Caption: store maybe a relational database you
+
+00:38:49.839 --> 00:38:54.670
+Caption: may be a graph database here we could
+
+00:38:52.330 --> 00:38:57.609
+Caption: still still do that as long as we saved
+
+00:38:54.669 --> 00:38:59.829
+Caption: our event as well so we still process
+
+00:38:57.608 --> 00:39:02.799
+Caption: our command up here and save our event
+
+00:38:59.830 --> 00:39:05.140
+Caption: we just don&#39;t you use the events we
+
+00:39:02.800 --> 00:39:07.300
+Caption: actually just respond in Norway official
+
+00:39:05.139 --> 00:39:09.159
+Caption: application and the same can be said
+
+00:39:07.300 --> 00:39:12.189
+Caption: with an application which didn&#39;t even
+
+00:39:09.159 --> 00:39:14.469
+Caption: use secure we could have a traditional
+
+00:39:12.189 --> 00:39:16.838
+Caption: application with some data stores no
+
+00:39:14.469 --> 00:39:18.489
+Caption: separate reading right sides maybe your
+
+00:39:16.839 --> 00:39:21.070
+Caption: subsystem doesn&#39;t need that separation
+
+00:39:18.489 --> 00:39:23.979
+Caption: you can still take this approach hello
+
+00:39:21.070 --> 00:39:25.810
+Caption: come on come in save the event I just
+
+00:39:23.979 --> 00:39:29.020
+Caption: operate traditionally once you save the
+
+00:39:25.810 --> 00:39:30.760
+Caption: event I think if you do this approach
+
+00:39:29.020 --> 00:39:33.669
+Caption: for all your subsystems
+
+00:39:30.760 --> 00:39:36.040
+Caption: make sure you store your events you then
+
+00:39:33.669 --> 00:39:38.829
+Caption: have the flexibility to use the simpler
+
+00:39:36.040 --> 00:39:40.959
+Caption: models but also the change between these
+
+00:39:38.830 --> 00:39:43.469
+Caption: models that we start off with this
+
+00:39:40.959 --> 00:39:45.659
+Caption: simpler application is what all yes
+
+00:39:43.469 --> 00:39:47.790
+Caption: the subsystem mentor because we&#39;ve
+
+00:39:45.659 --> 00:39:49.530
+Caption: stored all the events we can go back to
+
+00:39:47.790 --> 00:39:50.969
+Caption: this one okay okay we&#39;re going to have
+
+00:39:49.530 --> 00:39:53.219
+Caption: separate or different database stores
+
+00:39:50.969 --> 00:39:55.169
+Caption: now that can rebuild them if you find
+
+00:39:53.219 --> 00:39:56.909
+Caption: you need to scale war you can go back to
+
+00:39:55.169 --> 00:39:59.399
+Caption: this one and eventually you can go back
+
+00:39:56.909 --> 00:40:01.799
+Caption: to this so as long as your architecture
+
+00:39:59.399 --> 00:40:03.779
+Caption: has an ocean of commands in it and save
+
+00:40:01.800 --> 00:40:05.459
+Caption: the events once you are validated it
+
+00:40:03.780 --> 00:40:08.669
+Caption: doesn&#39;t matter what you use in your
+
+00:40:05.459 --> 00:40:10.500
+Caption: subsystems it can be CQC GRS but it can
+
+00:40:08.669 --> 00:40:13.020
+Caption: be a lot simpler you don&#39;t have to go to
+
+00:40:10.500 --> 00:40:15.510
+Caption: full way so I think using an event
+
+00:40:13.020 --> 00:40:18.179
+Caption: stored give us the flexibility to change
+
+00:40:15.510 --> 00:40:20.310
+Caption: your architecture as we grow as we sail
+
+00:40:18.179 --> 00:40:21.598
+Caption: when you&#39;re doing the application start
+
+00:40:20.310 --> 00:40:23.189
+Caption: with you can just start with this
+
+00:40:21.599 --> 00:40:25.859
+Caption: approach and later you could actually
+
+00:40:23.189 --> 00:40:27.569
+Caption: change it to one of the others so the
+
+00:40:25.858 --> 00:40:29.399
+Caption: benefits here you can change that that
+
+00:40:27.570 --> 00:40:31.979
+Caption: will happen if you need it and when you
+
+00:40:29.399 --> 00:40:34.079
+Caption: need you can use event for integration
+
+00:40:31.979 --> 00:40:36.389
+Caption: across the subsystems event driven
+
+00:40:34.080 --> 00:40:38.550
+Caption: systems great and we can use events for
+
+00:40:36.389 --> 00:40:41.969
+Caption: analytics and data analysis from
+
+00:40:38.550 --> 00:40:44.070
+Caption: real-time data analytics so basically I
+
+00:40:41.969 --> 00:40:46.830
+Caption: think lots of benefits of that approach
+
+00:40:44.070 --> 00:40:49.140
+Caption: in this approach the events tool becomes
+
+00:40:46.830 --> 00:40:50.760
+Caption: your cool swords motor relational
+
+00:40:49.139 --> 00:40:53.399
+Caption: database anymore is the immense tool
+
+00:40:50.760 --> 00:40:56.099
+Caption: this is why I think the events or can be
+
+00:40:53.399 --> 00:40:58.588
+Caption: the ultimate solution to persistence
+
+00:40:56.099 --> 00:41:00.869
+Caption: don&#39;t this is just state but the sister
+
+00:40:58.589 --> 00:41:02.609
+Caption: events we can use them for analytics we
+
+00:41:00.868 --> 00:41:04.139
+Caption: can use them constructing our data
+
+00:41:02.608 --> 00:41:06.868
+Caption: models we can use them for integration
+
+00:41:04.139 --> 00:41:08.539
+Caption: we can change our architecture flexibly
+
+00:41:06.868 --> 00:41:11.819
+Caption: as we go along
+
+00:41:08.540 --> 00:41:13.500
+Caption: so that was a lot there hopefully it was
+
+00:41:11.820 --> 00:41:16.050
+Caption: sensible if it saw what was happening
+
+00:41:13.500 --> 00:41:18.659
+Caption: and in summary I guess we&#39;ve seen a
+
+00:41:16.050 --> 00:41:21.209
+Caption: number of things we&#39;ve seen that CQRS
+
+00:41:18.659 --> 00:41:23.368
+Caption: means separating the commands and the
+
+00:41:21.209 --> 00:41:25.649
+Caption: queries the right models in the remodels
+
+00:41:23.368 --> 00:41:27.750
+Caption: we&#39;ve seen the events or seeing the
+
+00:41:25.649 --> 00:41:29.789
+Caption: persisting events rather than domain
+
+00:41:27.750 --> 00:41:32.129
+Caption: state directly it&#39;s a different way of
+
+00:41:29.790 --> 00:41:34.890
+Caption: doing persistence we&#39;ve seen that
+
+00:41:32.129 --> 00:41:37.469
+Caption: secularists and it&#39;s resulting eventual
+
+00:41:34.889 --> 00:41:39.449
+Caption: consistency which may sound strange to
+
+00:41:37.469 --> 00:41:41.040
+Caption: the side but you can get around it it&#39;s
+
+00:41:39.449 --> 00:41:43.020
+Caption: a livable and it actually works more
+
+00:41:41.040 --> 00:41:44.550
+Caption: like the real world and we&#39;ve seen
+
+00:41:43.020 --> 00:41:47.189
+Caption: lastly that events may be the ultimate
+
+00:41:44.550 --> 00:41:49.020
+Caption: in West timeless waves persist our
+
+00:41:47.189 --> 00:41:51.030
+Caption: application state without actually
+
+00:41:49.020 --> 00:41:53.369
+Caption: persisting the center resisting the
+
+00:41:51.030 --> 00:41:54.989
+Caption: events and of course we have lots of
+
+00:41:53.368 --> 00:41:56.819
+Caption: memory and lots of disk space to solve
+
+00:41:54.989 --> 00:41:58.770
+Caption: is an X now so there&#39;s no problem
+
+00:41:56.820 --> 00:42:01.170
+Caption: that we don&#39;t have this all the simple
+
+00:41:58.770 --> 00:42:02.729
+Caption: safety so that&#39;s a quick orbit these
+
+00:42:01.169 --> 00:42:04.709
+Caption: water resources here as you want to
+
+00:42:02.729 --> 00:42:07.320
+Caption: share this life later do to get started
+
+00:42:04.709 --> 00:42:08.849
+Caption: on this or 15 extra things and do then
+
+00:42:07.320 --> 00:42:10.410
+Caption: check time the questions I&#39;m happy to
+
+00:42:08.850 --> 00:42:16.410
+Caption: answer any questions
+
+00:42:10.409 --> 00:42:18.539
+Caption: that&#39;s a good one I said that sir you
+
+00:42:16.409 --> 00:42:22.049
+Caption: say that if an important one actually
+
+00:42:18.540 --> 00:42:24.080
+Caption: perform that kind of means you can&#39;t
+
+00:42:22.050 --> 00:42:29.580
+Caption: really reproduce you educate the way
+
+00:42:24.080 --> 00:42:32.700
+Caption: reliably the web was because maybe your
+
+00:42:29.580 --> 00:42:34.709
+Caption: event at one photo now you know you you
+
+00:42:32.699 --> 00:42:36.300
+Caption: you check the command pan Thompson&#39;s
+
+00:42:34.709 --> 00:42:38.510
+Caption: first of all you validate the command
+
+00:42:36.300 --> 00:42:40.860
+Caption: into the command a good command
+
+00:42:38.510 --> 00:42:44.489
+Caption: validated check then you save the event
+
+00:42:40.860 --> 00:42:46.910
+Caption: where there&#39;s a turn out if the actual
+
+00:42:44.489 --> 00:42:49.469
+Caption: operation failed and we try it again
+
+00:42:46.909 --> 00:42:50.909
+Caption: okay later we control we can rebuild the
+
+00:42:49.469 --> 00:42:52.590
+Caption: system and try it again we have this
+
+00:42:50.909 --> 00:42:55.139
+Caption: event store because they give you very
+
+00:42:52.590 --> 00:42:56.460
+Caption: instantly I will in this problems there
+
+00:42:55.139 --> 00:42:57.779
+Caption: if the system is not running and not
+
+00:42:56.459 --> 00:43:00.449
+Caption: working we have a bigger problem I think
+
+00:42:57.780 --> 00:43:03.179
+Caption: then isn&#39;t currently supposed estimate
+
+00:43:00.449 --> 00:43:04.800
+Caption: conflict management someone I&#39;m also
+
+00:43:03.179 --> 00:43:06.119
+Caption: going to accept so I think it&#39;s
+
+00:43:04.800 --> 00:43:07.469
+Caption: beautiful that the cart process the
+
+00:43:06.120 --> 00:43:10.260
+Caption: event in time is coming out over the
+
+00:43:07.469 --> 00:43:11.790
+Caption: line so that the validation is very
+
+00:43:10.260 --> 00:43:13.050
+Caption: important by checking the bank balance
+
+00:43:11.790 --> 00:43:14.910
+Caption: we have enough money in the bank to
+
+00:43:13.050 --> 00:43:16.590
+Caption: actually perform this we&#39;re doing that
+
+00:43:14.909 --> 00:43:19.199
+Caption: we can just write that event out your
+
+00:43:16.590 --> 00:43:20.640
+Caption: gullet before you save sort of office
+
+00:43:19.199 --> 00:43:22.349
+Caption: life is the way around you think you
+
+00:43:20.639 --> 00:43:24.419
+Caption: think you do the command system all and
+
+00:43:22.350 --> 00:43:29.100
+Caption: then say oh yeah what they can check
+
+00:43:24.419 --> 00:43:32.429
+Caption: your work first of all okay any other
+
+00:43:29.100 --> 00:43:34.820
+Caption: questions she&#39;s not thank you very much
+
+00:43:32.429 --> 00:43:34.819
+Caption: for dinner
+

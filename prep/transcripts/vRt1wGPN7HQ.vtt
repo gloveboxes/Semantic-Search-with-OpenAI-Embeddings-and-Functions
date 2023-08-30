@@ -1,0 +1,3299 @@
+WEBVTT
+
+00:00:00.119 --> 00:00:06.199
+Caption: we&#39;ve got Ben Lowry talking about
+
+00:00:02.158 --> 00:00:06.199
+Caption: offline first not offline mode
+
+00:00:09.000 --> 00:00:14.579
+Caption: hey everybody uh so yeah hearing to talk
+
+00:00:12.300 --> 00:00:17.699
+Caption: about offline first not offline mode
+
+00:00:14.579 --> 00:00:19.380
+Caption: like courageous Set uh if you don&#39;t have
+
+00:00:17.698 --> 00:00:20.639
+Caption: any idea what that might be related to
+
+00:00:19.379 --> 00:00:23.639
+Caption: it&#39;s basically talking about
+
+00:00:20.639 --> 00:00:24.959
+Caption: applications that work offline now it
+
+00:00:23.639 --> 00:00:26.278
+Caption: can be difficult to build an app that
+
+00:00:24.959 --> 00:00:27.598
+Caption: works offline
+
+00:00:26.278 --> 00:00:29.698
+Caption: there are a bunch of challenges and
+
+00:00:27.599 --> 00:00:31.439
+Caption: stuff that we&#39;ll talk about as we go on
+
+00:00:29.698 --> 00:00:32.880
+Caption: um and obviously a lot of benefits that
+
+00:00:31.438 --> 00:00:33.718
+Caption: come with it otherwise why would you
+
+00:00:32.880 --> 00:00:35.760
+Caption: bother
+
+00:00:33.719 --> 00:00:38.700
+Caption: right off the bat I want to thank
+
+00:00:35.759 --> 00:00:42.779
+Caption: whichever DDD volunteer made this slide
+
+00:00:38.700 --> 00:00:46.079
+Caption: it&#39;s really nice uh the rest of the talk
+
+00:00:42.779 --> 00:00:48.718
+Caption: is more like this
+
+00:00:46.078 --> 00:00:52.259
+Caption: good old click-a-thon there we go
+
+00:00:48.719 --> 00:00:54.360
+Caption: so nice plan don&#39;t expect the flashy
+
+00:00:52.259 --> 00:00:55.558
+Caption: stuff you just saw
+
+00:00:54.360 --> 00:00:58.260
+Caption: so
+
+00:00:55.558 --> 00:01:00.718
+Caption: I&#39;ll talk a little bit about me I&#39;m Ben
+
+00:00:58.259 --> 00:01:02.398
+Caption: Lowry a lead consultant at Telstra
+
+00:01:00.719 --> 00:01:04.680
+Caption: purple I&#39;ve spoken and did it a few
+
+00:01:02.398 --> 00:01:05.419
+Caption: times before you may have seen me up
+
+00:01:04.680 --> 00:01:07.979
+Caption: there
+
+00:01:05.419 --> 00:01:10.139
+Caption: or if you&#39;re in Karen&#39;s talk just before
+
+00:01:07.978 --> 00:01:12.658
+Caption: this I&#39;ve featured pretty heavily on
+
+00:01:10.139 --> 00:01:14.099
+Caption: that so um you may recognize me there
+
+00:01:12.658 --> 00:01:15.539
+Caption: too
+
+00:01:14.099 --> 00:01:17.519
+Caption: uh
+
+00:01:15.540 --> 00:01:19.379
+Caption: I want to thank for the other sponsors I
+
+00:01:17.519 --> 00:01:20.519
+Caption: know I think one particular volunteer I
+
+00:01:19.379 --> 00:01:22.199
+Caption: don&#39;t actually know who it was but
+
+00:01:20.519 --> 00:01:24.419
+Caption: everyone who&#39;s volunteered and all the
+
+00:01:22.199 --> 00:01:28.079
+Caption: sponsors who have gone into making today
+
+00:01:24.419 --> 00:01:31.040
+Caption: happen it&#39;s a big deal and the event
+
+00:01:28.080 --> 00:01:31.040
+Caption: doesn&#39;t happen without them
+
+00:01:31.439 --> 00:01:38.220
+Caption: cool so an offline application what is
+
+00:01:34.019 --> 00:01:41.399
+Caption: an offline application uh well it&#39;s an
+
+00:01:38.220 --> 00:01:44.520
+Caption: application that works offline
+
+00:01:41.400 --> 00:01:45.959
+Caption: that much is clear uh we&#39;re going to
+
+00:01:44.519 --> 00:01:48.478
+Caption: talk about you know why you&#39;d want to
+
+00:01:45.959 --> 00:01:50.639
+Caption: build one what benefits you get from
+
+00:01:48.478 --> 00:01:52.739
+Caption: doing it and some of the challenges
+
+00:01:50.639 --> 00:01:56.639
+Caption: that come from that
+
+00:01:52.739 --> 00:01:58.379
+Caption: in terms of how you&#39;d actually do that
+
+00:01:56.639 --> 00:02:00.680
+Caption: I&#39;m not really going to get too much
+
+00:01:58.379 --> 00:02:03.360
+Caption: into specific libraries or Frameworks
+
+00:02:00.680 --> 00:02:05.459
+Caption: it&#39;s more general advice mostly because
+
+00:02:03.360 --> 00:02:06.840
+Caption: there are a bunch of people here you
+
+00:02:05.459 --> 00:02:09.119
+Caption: might all be using different Tech and a
+
+00:02:06.839 --> 00:02:10.559
+Caption: lot of this stuff is transferable if it
+
+00:02:09.119 --> 00:02:14.419
+Caption: went specifically
+
+00:02:10.559 --> 00:02:14.419
+Caption: I only work for three of you let&#39;s say
+
+00:02:14.458 --> 00:02:19.080
+Caption: so why what you want to build an offline
+
+00:02:16.259 --> 00:02:21.238
+Caption: app a big one is if you have an app that
+
+00:02:19.080 --> 00:02:25.680
+Caption: needs to be used in remote areas
+
+00:02:21.238 --> 00:02:26.940
+Caption: uh this is a map of 4G and and 5G if you
+
+00:02:25.679 --> 00:02:28.098
+Caption: look at the little purple bits those are
+
+00:02:26.940 --> 00:02:31.979
+Caption: 5G
+
+00:02:28.098 --> 00:02:33.779
+Caption: what coverage basically from Telstra
+
+00:02:31.979 --> 00:02:34.919
+Caption: uh so I assume that&#39;s bigger than all
+
+00:02:33.779 --> 00:02:36.479
+Caption: the other ones but I don&#39;t know but
+
+00:02:34.919 --> 00:02:39.479
+Caption: there&#39;s still a lot of areas in
+
+00:02:36.479 --> 00:02:41.699
+Caption: Australia particularly in wa where you
+
+00:02:39.479 --> 00:02:44.220
+Caption: don&#39;t get any internet so if you&#39;re
+
+00:02:41.699 --> 00:02:47.399
+Caption: working or building an app that needs to
+
+00:02:44.220 --> 00:02:49.440
+Caption: work say on a mine site or an oil rig or
+
+00:02:47.399 --> 00:02:51.059
+Caption: a remote Community like maybe you&#39;re
+
+00:02:49.440 --> 00:02:53.040
+Caption: building something for a water Corp or
+
+00:02:51.059 --> 00:02:55.139
+Caption: something and they need to go out in the
+
+00:02:53.039 --> 00:02:57.119
+Caption: field and use it then there are a whole
+
+00:02:55.139 --> 00:02:58.860
+Caption: bunch of places where being offline but
+
+00:02:57.119 --> 00:03:01.518
+Caption: still being able to do your job is
+
+00:02:58.860 --> 00:03:01.518
+Caption: really important
+
+00:03:01.738 --> 00:03:08.399
+Caption: another one might be if you have uh
+
+00:03:05.580 --> 00:03:10.080
+Caption: Internet outages so this graph is
+
+00:03:08.399 --> 00:03:13.500
+Caption: basically a cloudflare outage that
+
+00:03:10.080 --> 00:03:15.900
+Caption: happened in June uh basically you can
+
+00:03:13.500 --> 00:03:17.458
+Caption: see for about an hour that
+
+00:03:15.899 --> 00:03:20.458
+Caption: the internet traffic they were serving
+
+00:03:17.458 --> 00:03:23.759
+Caption: halved now given that cloudflare serve
+
+00:03:20.458 --> 00:03:25.800
+Caption: about 20 of the internet in general that
+
+00:03:23.759 --> 00:03:29.699
+Caption: all of a sudden dropped to about 10. so
+
+00:03:25.800 --> 00:03:31.919
+Caption: 10 internet just didn&#39;t work
+
+00:03:29.699 --> 00:03:33.539
+Caption: uh if you want to be resilient to that
+
+00:03:31.919 --> 00:03:35.639
+Caption: and resilience is something we&#39;ll talk
+
+00:03:33.539 --> 00:03:38.039
+Caption: about quite a bit today if you went to
+
+00:03:35.639 --> 00:03:40.319
+Caption: Derek&#39;s talking here earlier
+
+00:03:38.039 --> 00:03:42.479
+Caption: you probably uh have some useful tips
+
+00:03:40.319 --> 00:03:45.419
+Caption: already I might give you a few more or a
+
+00:03:42.479 --> 00:03:48.119
+Caption: few slightly different views of that
+
+00:03:45.419 --> 00:03:50.098
+Caption: but what the resiliency gives you is
+
+00:03:48.119 --> 00:03:51.539
+Caption: actually more than just when the whole
+
+00:03:50.098 --> 00:03:53.518
+Caption: internet goes down you also get
+
+00:03:51.539 --> 00:03:55.979
+Caption: resiliency for things like if you don&#39;t
+
+00:03:53.518 --> 00:03:58.738
+Caption: have zero downtime deployments
+
+00:03:55.979 --> 00:04:00.899
+Caption: or if you just have a bug in your code
+
+00:03:58.738 --> 00:04:02.220
+Caption: where you start returning 500 is there a
+
+00:04:00.899 --> 00:04:04.439
+Caption: configuration error or something like
+
+00:04:02.220 --> 00:04:06.238
+Caption: that it means that users can keep doing
+
+00:04:04.440 --> 00:04:08.279
+Caption: their work without worrying that it&#39;s
+
+00:04:06.238 --> 00:04:10.080
+Caption: not going anywhere
+
+00:04:08.279 --> 00:04:12.179
+Caption: so you&#39;ve had to build the app in a way
+
+00:04:10.080 --> 00:04:15.080
+Caption: that is resilient but by doing that you
+
+00:04:12.179 --> 00:04:15.079
+Caption: get a lot of benefits
+
+00:04:15.238 --> 00:04:20.760
+Caption: the other one is just kind of
+
+00:04:16.979 --> 00:04:22.440
+Caption: situational uh lack of Internet so if
+
+00:04:20.760 --> 00:04:24.839
+Caption: anyone got betraying here this morning
+
+00:04:22.440 --> 00:04:27.000
+Caption: you may have gone through a tunnel and
+
+00:04:24.839 --> 00:04:28.440
+Caption: maybe your internet dropped out or I
+
+00:04:27.000 --> 00:04:31.139
+Caption: know for me personally most of the days
+
+00:04:28.440 --> 00:04:33.779
+Caption: I go to work as I&#39;m leaving my house
+
+00:04:31.139 --> 00:04:34.979
+Caption: I&#39;ll start scrolling through Spotify or
+
+00:04:33.779 --> 00:04:37.919
+Caption: something to find something to listen to
+
+00:04:34.979 --> 00:04:40.619
+Caption: and then as I leave my house Wi-Fi get
+
+00:04:37.919 --> 00:04:43.080
+Caption: the you know into the world I guess the
+
+00:04:40.619 --> 00:04:44.880
+Caption: 4G or whatever then
+
+00:04:43.079 --> 00:04:46.918
+Caption: my internet cuts out and always says
+
+00:04:44.880 --> 00:04:48.179
+Caption: you&#39;re offline and it&#39;s a little bit
+
+00:04:46.919 --> 00:04:49.559
+Caption: annoying that things don&#39;t work in that
+
+00:04:48.179 --> 00:04:52.019
+Caption: period
+
+00:04:49.559 --> 00:04:53.339
+Caption: other times you know uh you want go for
+
+00:04:52.019 --> 00:04:54.899
+Caption: hiking or something you just find
+
+00:04:53.339 --> 00:04:56.040
+Caption: yourself in a situation where you don&#39;t
+
+00:04:54.899 --> 00:04:57.540
+Caption: have internet
+
+00:04:56.040 --> 00:04:58.800
+Caption: and it&#39;s not really your fault it&#39;s only
+
+00:04:57.540 --> 00:05:02.119
+Caption: going to be for a short time but you
+
+00:04:58.799 --> 00:05:02.119
+Caption: just want to keep doing your job
+
+00:05:02.399 --> 00:05:07.859
+Caption: another reason you might want to have an
+
+00:05:03.959 --> 00:05:09.059
+Caption: offline app is for security or privacy
+
+00:05:07.859 --> 00:05:12.179
+Caption: reasons
+
+00:05:09.059 --> 00:05:13.559
+Caption: so to use an example of something that&#39;s
+
+00:05:12.179 --> 00:05:15.299
+Caption: been in the news a little bit recently
+
+00:05:13.559 --> 00:05:18.000
+Caption: in the US they
+
+00:05:15.299 --> 00:05:19.379
+Caption: uh change some laws around abortions and
+
+00:05:18.000 --> 00:05:21.179
+Caption: there were recommendations going around
+
+00:05:19.380 --> 00:05:22.860
+Caption: to like delete period tracking apps and
+
+00:05:21.179 --> 00:05:24.779
+Caption: that kind of thing because the data gets
+
+00:05:22.859 --> 00:05:27.059
+Caption: stored in the cloud and you know maybe
+
+00:05:24.779 --> 00:05:28.919
+Caption: they can go and I don&#39;t know petition
+
+00:05:27.059 --> 00:05:30.839
+Caption: not petition like subpoena or whatever
+
+00:05:28.919 --> 00:05:33.000
+Caption: one of those apps to get all that data
+
+00:05:30.839 --> 00:05:35.279
+Caption: find out whatever they want to find out
+
+00:05:33.000 --> 00:05:37.139
+Caption: I don&#39;t know nefarious things
+
+00:05:35.279 --> 00:05:39.119
+Caption: uh if the data never leaves the device
+
+00:05:37.139 --> 00:05:40.500
+Caption: then you don&#39;t have to worry about it so
+
+00:05:39.119 --> 00:05:43.320
+Caption: much I mean they could still get your
+
+00:05:40.500 --> 00:05:46.139
+Caption: device but it just more a targeted
+
+00:05:43.320 --> 00:05:48.660
+Caption: attack at that point so
+
+00:05:46.139 --> 00:05:51.179
+Caption: and then the final one that I&#39;ve got
+
+00:05:48.660 --> 00:05:52.919
+Caption: here is that it&#39;s actually oftentimes a
+
+00:05:51.179 --> 00:05:55.199
+Caption: better experience for users it might be
+
+00:05:52.919 --> 00:05:57.779
+Caption: faster because you don&#39;t have to wait
+
+00:05:55.199 --> 00:06:00.720
+Caption: for it to load all the time uh you might
+
+00:05:57.779 --> 00:06:02.820
+Caption: use less battery or less Network so in
+
+00:06:00.720 --> 00:06:04.440
+Caption: like data constrained environments
+
+00:06:02.820 --> 00:06:06.600
+Caption: particularly in you know places like
+
+00:06:04.440 --> 00:06:09.660
+Caption: Africa or southeast Asia or wherever
+
+00:06:06.600 --> 00:06:11.699
+Caption: where data isn&#39;t cheap that can be a
+
+00:06:09.660 --> 00:06:13.979
+Caption: benefit you know you can do things on
+
+00:06:11.699 --> 00:06:17.000
+Caption: Wi-Fi and then go offline when you&#39;re
+
+00:06:13.979 --> 00:06:17.000
+Caption: not in Wi-Fi
+
+00:06:17.160 --> 00:06:22.319
+Caption: so as an example of how much that&#39;s
+
+00:06:19.259 --> 00:06:24.899
+Caption: quicker I have a colleague who worked on
+
+00:06:22.319 --> 00:06:27.839
+Caption: a an app that has an offline mode
+
+00:06:24.899 --> 00:06:29.220
+Caption: and they have a multi-step form so at
+
+00:06:27.839 --> 00:06:30.839
+Caption: the top here we&#39;ve got the offline mode
+
+00:06:29.220 --> 00:06:33.899
+Caption: and at the bottom
+
+00:06:30.839 --> 00:06:37.319
+Caption: offline first application sorry on
+
+00:06:33.899 --> 00:06:39.660
+Caption: offline and then online
+
+00:06:37.319 --> 00:06:42.720
+Caption: so the reason that it&#39;s faster is
+
+00:06:39.660 --> 00:06:44.519
+Caption: basically because when I click next
+
+00:06:42.720 --> 00:06:46.919
+Caption: one on goes straight to the next page
+
+00:06:44.519 --> 00:06:49.138
+Caption: and the other one goes cool I&#39;ll save
+
+00:06:46.919 --> 00:06:51.839
+Caption: what you&#39;ve just done
+
+00:06:49.139 --> 00:06:53.940
+Caption: and then I&#39;ll take you to the next page
+
+00:06:51.839 --> 00:06:55.799
+Caption: so without that spinner things get a lot
+
+00:06:53.940 --> 00:06:58.979
+Caption: faster and and the example is colleague
+
+00:06:55.799 --> 00:07:00.959
+Caption: gave me was that the offline mode took
+
+00:06:58.979 --> 00:07:03.119
+Caption: about 40 seconds to fill in this whole
+
+00:07:00.959 --> 00:07:06.239
+Caption: form this multi-stage form or whatever
+
+00:07:03.119 --> 00:07:08.880
+Caption: and the online one took you know 60 or
+
+00:07:06.239 --> 00:07:11.039
+Caption: 80 seconds or something like that so you
+
+00:07:08.880 --> 00:07:13.020
+Caption: do get some benefits from having an app
+
+00:07:11.039 --> 00:07:16.259
+Caption: that works offline just because
+
+00:07:13.019 --> 00:07:18.239
+Caption: it doesn&#39;t actually need to do as much
+
+00:07:16.259 --> 00:07:21.119
+Caption: yeah
+
+00:07:18.239 --> 00:07:22.679
+Caption: now every application is different and
+
+00:07:21.119 --> 00:07:25.199
+Caption: there are going to be different kinds of
+
+00:07:22.679 --> 00:07:27.359
+Caption: offline applications as well
+
+00:07:25.199 --> 00:07:29.759
+Caption: some of them
+
+00:07:27.359 --> 00:07:31.559
+Caption: you might need to go online periodically
+
+00:07:29.759 --> 00:07:33.779
+Caption: some of them might kind of have a
+
+00:07:31.559 --> 00:07:35.579
+Caption: fallback that works offline
+
+00:07:33.779 --> 00:07:36.839
+Caption: and then others are going to have you
+
+00:07:35.579 --> 00:07:38.220
+Caption: know kind of the full functionality
+
+00:07:36.839 --> 00:07:39.660
+Caption: offline
+
+00:07:38.220 --> 00:07:41.819
+Caption: it really does depend on what you want
+
+00:07:39.660 --> 00:07:44.819
+Caption: to build and what your kind of users
+
+00:07:41.819 --> 00:07:47.519
+Caption: needs are like Spotify for example
+
+00:07:44.819 --> 00:07:50.880
+Caption: probably lets you download all your uh
+
+00:07:47.519 --> 00:07:52.500
+Caption: or your tracks to play offline but you
+
+00:07:50.880 --> 00:07:54.660
+Caption: can&#39;t use a search function to go and
+
+00:07:52.500 --> 00:07:57.000
+Caption: find more stuff for example that&#39;s the
+
+00:07:54.660 --> 00:07:58.679
+Caption: compromise they&#39;ve made and that&#39;s just
+
+00:07:57.000 --> 00:08:00.479
+Caption: what works for them
+
+00:07:58.679 --> 00:08:03.539
+Caption: so I like to think of it as layering up
+
+00:08:00.479 --> 00:08:05.220
+Caption: complexity uh at the base level you&#39;ve
+
+00:08:03.539 --> 00:08:07.799
+Caption: kind of got an app that&#39;s only a read
+
+00:08:05.220 --> 00:08:09.239
+Caption: only those are really easy to make work
+
+00:08:07.799 --> 00:08:11.279
+Caption: offline because you just download the
+
+00:08:09.239 --> 00:08:13.559
+Caption: data and leave it there
+
+00:08:11.279 --> 00:08:15.598
+Caption: the next kind of level is when you have
+
+00:08:13.559 --> 00:08:17.759
+Caption: data that
+
+00:08:15.598 --> 00:08:19.739
+Caption: only stays on the device it never
+
+00:08:17.759 --> 00:08:21.959
+Caption: actually gets any further
+
+00:08:19.739 --> 00:08:22.979
+Caption: and those again they&#39;re pretty easy you
+
+00:08:21.959 --> 00:08:25.199
+Caption: never need to talk to the network
+
+00:08:22.979 --> 00:08:27.839
+Caption: everything&#39;s fine
+
+00:08:25.199 --> 00:08:30.598
+Caption: uh you might have some sort of caveats
+
+00:08:27.839 --> 00:08:33.919
+Caption: to those where for example they
+
+00:08:30.598 --> 00:08:33.919
+Caption: sync data to online
+
+00:08:33.958 --> 00:08:40.079
+Caption: when you choose to so you can you know
+
+00:08:36.838 --> 00:08:41.580
+Caption: export and import kind of stuff
+
+00:08:40.080 --> 00:08:44.338
+Caption: one of the reasons you might want to
+
+00:08:41.580 --> 00:08:45.600
+Caption: build one of these apps is because it&#39;s
+
+00:08:44.338 --> 00:08:47.820
+Caption: really important that the data is
+
+00:08:45.599 --> 00:08:49.440
+Caption: actually always available
+
+00:08:47.820 --> 00:08:51.119
+Caption: and it&#39;s always up to date so if you
+
+00:08:49.440 --> 00:08:53.398
+Caption: know you&#39;re not getting it from a server
+
+00:08:51.119 --> 00:08:55.018
+Caption: somewhere then what you&#39;ve got on the
+
+00:08:53.398 --> 00:08:56.880
+Caption: device is actually
+
+00:08:55.018 --> 00:08:59.278
+Caption: perfect right it&#39;s it&#39;s the source of
+
+00:08:56.880 --> 00:09:01.500
+Caption: truth that&#39;s where everything goes
+
+00:08:59.278 --> 00:09:03.479
+Caption: but just because you&#39;re not
+
+00:09:01.500 --> 00:09:05.219
+Caption: online doesn&#39;t mean you can&#39;t have
+
+00:09:03.479 --> 00:09:08.039
+Caption: similar same features that are online so
+
+00:09:05.219 --> 00:09:10.379
+Caption: if we imagine like a first aid app where
+
+00:09:08.039 --> 00:09:11.278
+Caption: you can download first date articles or
+
+00:09:10.380 --> 00:09:14.099
+Caption: something
+
+00:09:11.278 --> 00:09:16.619
+Caption: then you go out into the bush and you
+
+00:09:14.099 --> 00:09:19.979
+Caption: get bit by a snake so you open up your
+
+00:09:16.619 --> 00:09:22.799
+Caption: offline first aid application and you
+
+00:09:19.979 --> 00:09:25.380
+Caption: type into the search snake bite
+
+00:09:22.799 --> 00:09:27.479
+Caption: and then it goes oh you&#39;re offline I
+
+00:09:25.380 --> 00:09:29.518
+Caption: can&#39;t return any results that&#39;s not a
+
+00:09:27.479 --> 00:09:32.599
+Caption: great experience right so you do still
+
+00:09:29.518 --> 00:09:32.599
+Caption: need some things to work
+
+00:09:32.880 --> 00:09:37.500
+Caption: the next one is
+
+00:09:35.159 --> 00:09:40.259
+Caption: pretty classic like graceful degradation
+
+00:09:37.500 --> 00:09:41.880
+Caption: scenario you have an online app that
+
+00:09:40.260 --> 00:09:44.940
+Caption: works online everything is editable
+
+00:09:41.880 --> 00:09:47.398
+Caption: whatever and then when you go offline
+
+00:09:44.940 --> 00:09:49.859
+Caption: you lose some functionality so you can&#39;t
+
+00:09:47.398 --> 00:09:51.539
+Caption: edit anymore but you can still read all
+
+00:09:49.859 --> 00:09:53.579
+Caption: the data to help you make decisions and
+
+00:09:51.539 --> 00:09:55.919
+Caption: stuff it might be appropriate for
+
+00:09:53.580 --> 00:09:58.980
+Caption: whatever you&#39;re building
+
+00:09:55.919 --> 00:10:01.500
+Caption: um like an example could be a shopping
+
+00:09:58.979 --> 00:10:03.299
+Caption: list or something where you can download
+
+00:10:01.500 --> 00:10:04.979
+Caption: a shared shopping list
+
+00:10:03.299 --> 00:10:06.419
+Caption: and directs here but you can&#39;t actually
+
+00:10:04.979 --> 00:10:08.820
+Caption: make changes
+
+00:10:06.419 --> 00:10:10.018
+Caption: maybe a bad example but it&#39;s the kind of
+
+00:10:08.820 --> 00:10:13.260
+Caption: thing you could build
+
+00:10:10.018 --> 00:10:15.119
+Caption: the next level would be where some data
+
+00:10:13.260 --> 00:10:16.799
+Caption: is editable so
+
+00:10:15.119 --> 00:10:18.179
+Caption: you might only be able to create stuff
+
+00:10:16.799 --> 00:10:19.640
+Caption: but you can&#39;t edit stuff that already
+
+00:10:18.179 --> 00:10:22.080
+Caption: exists
+
+00:10:19.640 --> 00:10:24.000
+Caption: and then the last level of kind of
+
+00:10:22.080 --> 00:10:26.880
+Caption: complexity and this is what we&#39;re going
+
+00:10:24.000 --> 00:10:28.500
+Caption: to focus most on for this talk is those
+
+00:10:26.880 --> 00:10:30.838
+Caption: apps where
+
+00:10:28.500 --> 00:10:32.760
+Caption: just about everything works offline not
+
+00:10:30.838 --> 00:10:34.619
+Caption: everything everything can work offline
+
+00:10:32.760 --> 00:10:36.359
+Caption: like you can&#39;t do video streaming or
+
+00:10:34.619 --> 00:10:38.880
+Caption: live chat or anything like that
+
+00:10:36.359 --> 00:10:40.018
+Caption: but if you can do all of your job you
+
+00:10:38.880 --> 00:10:42.539
+Caption: can go around
+
+00:10:40.018 --> 00:10:44.639
+Caption: editing things and deleting things and
+
+00:10:42.539 --> 00:10:48.018
+Caption: completing tasks or whatever then that&#39;s
+
+00:10:44.640 --> 00:10:48.019
+Caption: a good step at least
+
+00:10:48.179 --> 00:10:52.679
+Caption: so broadly speaking you&#39;ve got offline
+
+00:10:50.159 --> 00:10:55.018
+Caption: only and then mixed kind of offline and
+
+00:10:52.679 --> 00:10:58.018
+Caption: online apps
+
+00:10:55.018 --> 00:11:00.419
+Caption: so I&#39;ve got an idea let&#39;s add an offline
+
+00:10:58.018 --> 00:11:02.398
+Caption: mode to our app offline mode seems easy
+
+00:11:00.419 --> 00:11:04.320
+Caption: I&#39;ve I&#39;ve sold you on all the benefits
+
+00:11:02.398 --> 00:11:06.119
+Caption: right so let&#39;s go and do it I&#39;ve already
+
+00:11:04.320 --> 00:11:09.419
+Caption: got a to-do list app
+
+00:11:06.119 --> 00:11:10.979
+Caption: how do I start well the first thing is
+
+00:11:09.419 --> 00:11:13.078
+Caption: that you have to download your data to
+
+00:11:10.979 --> 00:11:15.419
+Caption: use when you&#39;re offline
+
+00:11:13.078 --> 00:11:17.820
+Caption: so what does that actually mean
+
+00:11:15.419 --> 00:11:20.278
+Caption: uh downloading your data means
+
+00:11:17.820 --> 00:11:22.018
+Caption: essentially you&#39;re going to keep a local
+
+00:11:20.278 --> 00:11:25.078
+Caption: copy of that data
+
+00:11:22.018 --> 00:11:26.880
+Caption: and then anytime
+
+00:11:25.078 --> 00:11:28.380
+Caption: you use the app you just read from that
+
+00:11:26.880 --> 00:11:30.660
+Caption: local data
+
+00:11:28.380 --> 00:11:31.500
+Caption: it&#39;s pretty easy
+
+00:11:30.659 --> 00:11:34.259
+Caption: um
+
+00:11:31.500 --> 00:11:36.539
+Caption: the other part of that will be that when
+
+00:11:34.260 --> 00:11:38.338
+Caption: you make changes you need to sync them
+
+00:11:36.539 --> 00:11:40.199
+Caption: back up to the server
+
+00:11:38.338 --> 00:11:43.260
+Caption: so
+
+00:11:40.200 --> 00:11:44.760
+Caption: there are a few ways you can do this a
+
+00:11:43.260 --> 00:11:47.278
+Caption: lot of smart people have gone into the
+
+00:11:44.760 --> 00:11:50.338
+Caption: effort of actually deciding what that is
+
+00:11:47.278 --> 00:11:54.000
+Caption: uh there&#39;s a thing called a crdt which
+
+00:11:50.338 --> 00:11:56.338
+Caption: is a conflict flea replicated data type
+
+00:11:54.000 --> 00:11:58.200
+Caption: and the idea is that
+
+00:11:56.338 --> 00:11:59.760
+Caption: every kind of local copy of your
+
+00:11:58.200 --> 00:12:01.739
+Caption: database and the one on the server is
+
+00:11:59.760 --> 00:12:03.239
+Caption: actually kind of like a distributed
+
+00:12:01.739 --> 00:12:06.119
+Caption: system and you just need to replicate
+
+00:12:03.239 --> 00:12:07.500
+Caption: changes across them so all your Cloud
+
+00:12:06.119 --> 00:12:11.398
+Caption: providers and stuff will probably handle
+
+00:12:07.500 --> 00:12:14.760
+Caption: this for you in terms of like I&#39;ve got a
+
+00:12:11.398 --> 00:12:16.679
+Caption: SQL database or a table storage or dyno
+
+00:12:14.760 --> 00:12:18.419
+Caption: ADB or something
+
+00:12:16.679 --> 00:12:20.578
+Caption: but the way they actually do it is using
+
+00:12:18.419 --> 00:12:24.179
+Caption: these crdts so there are three broad
+
+00:12:20.578 --> 00:12:27.719
+Caption: categories one is Operation based which
+
+00:12:24.179 --> 00:12:30.239
+Caption: is essentially like having a list of
+
+00:12:27.719 --> 00:12:34.078
+Caption: uh operations that you&#39;ve done so you
+
+00:12:30.239 --> 00:12:36.719
+Caption: might say I&#39;ve done a create task in my
+
+00:12:34.078 --> 00:12:38.039
+Caption: to-do list and then you save that for
+
+00:12:36.719 --> 00:12:40.379
+Caption: later and when you&#39;ve come back online
+
+00:12:38.039 --> 00:12:42.539
+Caption: you process all of them and go from
+
+00:12:40.380 --> 00:12:44.638
+Caption: there another one is where you just
+
+00:12:42.539 --> 00:12:46.619
+Caption: update the um
+
+00:12:44.638 --> 00:12:47.880
+Caption: the local database you&#39;ve got and then
+
+00:12:46.619 --> 00:12:49.619
+Caption: have something that
+
+00:12:47.880 --> 00:12:51.119
+Caption: basically just sends that up to the
+
+00:12:49.619 --> 00:12:54.500
+Caption: server something on the server that
+
+00:12:51.119 --> 00:12:57.719
+Caption: figures out what changed and saves it
+
+00:12:54.500 --> 00:12:59.940
+Caption: that sounds really cool and there are
+
+00:12:57.719 --> 00:13:01.439
+Caption: some tools that do it but I don&#39;t in
+
+00:12:59.940 --> 00:13:03.200
+Caption: fact we have much experience with those
+
+00:13:01.440 --> 00:13:05.578
+Caption: specifically
+
+00:13:03.200 --> 00:13:07.679
+Caption: and then the other one is just the
+
+00:13:05.578 --> 00:13:10.260
+Caption: saving changes so you get kind of
+
+00:13:07.679 --> 00:13:12.419
+Caption: databases that have
+
+00:13:10.260 --> 00:13:13.979
+Caption: rather than storing the state of the
+
+00:13:12.419 --> 00:13:15.719
+Caption: thing you just keep a list of changes
+
+00:13:13.979 --> 00:13:18.239
+Caption: and you and essentially you send those
+
+00:13:15.719 --> 00:13:19.559
+Caption: up to a server when you come back online
+
+00:13:18.239 --> 00:13:20.940
+Caption: now the one I&#39;m going to talk most about
+
+00:13:19.559 --> 00:13:22.619
+Caption: is the queue because I feel like that&#39;s
+
+00:13:20.940 --> 00:13:24.720
+Caption: the easiest for people to reason about
+
+00:13:22.619 --> 00:13:27.719
+Caption: it&#39;s probably the like the entry level
+
+00:13:24.719 --> 00:13:29.879
+Caption: kind of offline mode it&#39;s it&#39;s just
+
+00:13:27.719 --> 00:13:32.778
+Caption: doing what you&#39;re already doing but
+
+00:13:29.880 --> 00:13:32.778
+Caption: saving it for later
+
+00:13:33.119 --> 00:13:37.320
+Caption: so we&#39;ll have a little bit of a look at
+
+00:13:35.458 --> 00:13:39.659
+Caption: some code there&#39;s not a lot of code here
+
+00:13:37.320 --> 00:13:41.220
+Caption: hopefully it&#39;s something you can
+
+00:13:39.659 --> 00:13:43.138
+Caption: reasonably understand even if you don&#39;t
+
+00:13:41.219 --> 00:13:45.000
+Caption: write a lot of code
+
+00:13:43.138 --> 00:13:47.940
+Caption: basically we have a to-do list and we&#39;re
+
+00:13:45.000 --> 00:13:49.919
+Caption: going to say if I&#39;m online then call the
+
+00:13:47.940 --> 00:13:52.078
+Caption: API to get the to do
+
+00:13:49.919 --> 00:13:55.859
+Caption: otherwise get it from my offline data
+
+00:13:52.078 --> 00:13:57.898
+Caption: and then return that so
+
+00:13:55.859 --> 00:14:00.179
+Caption: it seems okay right if you&#39;re online do
+
+00:13:57.898 --> 00:14:02.880
+Caption: this if you&#39;re offline do that
+
+00:14:00.179 --> 00:14:06.179
+Caption: the same kind of approach for an update
+
+00:14:02.880 --> 00:14:09.359
+Caption: uh if we&#39;re online save that to the API
+
+00:14:06.179 --> 00:14:15.138
+Caption: if we&#39;re offline then update the local
+
+00:14:09.359 --> 00:14:15.138
+Caption: storage and cue the update essentially
+
+00:14:15.359 --> 00:14:18.719
+Caption: so we can kind of generalize that to say
+
+00:14:17.278 --> 00:14:23.099
+Caption: we&#39;ve got an app that when you&#39;re online
+
+00:14:18.719 --> 00:14:25.199
+Caption: goes from A to B it does X right
+
+00:14:23.099 --> 00:14:28.018
+Caption: if you want to talk about offline though
+
+00:14:25.200 --> 00:14:30.119
+Caption: that&#39;s saying if you&#39;re online do X if
+
+00:14:28.018 --> 00:14:32.039
+Caption: you&#39;re offline do y
+
+00:14:30.119 --> 00:14:33.778
+Caption: right it&#39;s not not impossible it&#39;s
+
+00:14:32.039 --> 00:14:34.979
+Caption: actually not that hard
+
+00:14:33.778 --> 00:14:37.979
+Caption: but
+
+00:14:34.979 --> 00:14:40.500
+Caption: what&#39;s the problem with it
+
+00:14:37.979 --> 00:14:42.239
+Caption: well firstly having two ways of doing
+
+00:14:40.500 --> 00:14:45.859
+Caption: things means that
+
+00:14:42.239 --> 00:14:45.859
+Caption: you have to make sure both ways work
+
+00:14:45.898 --> 00:14:50.398
+Caption: you might forget to do one of them like
+
+00:14:48.299 --> 00:14:53.039
+Caption: have you worked on an app with an
+
+00:14:50.398 --> 00:14:56.099
+Caption: offline mode where someone goes uh yeah
+
+00:14:53.039 --> 00:14:58.380
+Caption: that&#39;s done I just there to make it work
+
+00:14:56.099 --> 00:15:00.059
+Caption: in offline mode
+
+00:14:58.380 --> 00:15:02.578
+Caption: or like I said how many of you have
+
+00:15:00.059 --> 00:15:04.619
+Caption: forgotten to make a particular Feature
+
+00:15:02.578 --> 00:15:06.659
+Caption: work offline
+
+00:15:04.619 --> 00:15:10.078
+Caption: so
+
+00:15:06.659 --> 00:15:12.659
+Caption: there&#39;s got to be a better way
+
+00:15:10.078 --> 00:15:14.458
+Caption: and that way is to build an offline
+
+00:15:12.659 --> 00:15:16.500
+Caption: first app
+
+00:15:14.458 --> 00:15:18.359
+Caption: so rather than going from the mindset
+
+00:15:16.500 --> 00:15:19.559
+Caption: where I have an app that I want to work
+
+00:15:18.359 --> 00:15:23.099
+Caption: offline
+
+00:15:19.559 --> 00:15:25.559
+Caption: you say I&#39;ve got an offline application
+
+00:15:23.099 --> 00:15:26.940
+Caption: how do I make it work online
+
+00:15:25.559 --> 00:15:28.380
+Caption: basically you&#39;re starting from the
+
+00:15:26.940 --> 00:15:30.958
+Caption: assumption
+
+00:15:28.380 --> 00:15:33.380
+Caption: that there is no internet and working up
+
+00:15:30.958 --> 00:15:33.380
+Caption: from there
+
+00:15:33.898 --> 00:15:39.979
+Caption: now this comes with a lot of benefits
+
+00:15:37.979 --> 00:15:39.979
+Caption: um
+
+00:15:40.260 --> 00:15:44.639
+Caption: like I&#39;ve already talked about
+
+00:15:42.539 --> 00:15:46.198
+Caption: the biggest one is that
+
+00:15:44.638 --> 00:15:49.198
+Caption: it&#39;s actually simpler to reason about
+
+00:15:46.198 --> 00:15:51.179
+Caption: when you&#39;ve got one way of doing things
+
+00:15:49.198 --> 00:15:53.219
+Caption: so rather than
+
+00:15:51.179 --> 00:15:54.299
+Caption: saving to the API or queuing it for
+
+00:15:53.219 --> 00:15:57.599
+Caption: later
+
+00:15:54.299 --> 00:15:59.159
+Caption: you basically just always cure for later
+
+00:15:57.599 --> 00:16:01.259
+Caption: and then you have a background process
+
+00:15:59.159 --> 00:16:03.599
+Caption: that you know saves into the API later
+
+00:16:01.260 --> 00:16:06.799
+Caption: which you would have already had anyway
+
+00:16:03.599 --> 00:16:06.799
+Caption: to handle offline mode
+
+00:16:11.760 --> 00:16:16.139
+Caption: so
+
+00:16:13.380 --> 00:16:19.198
+Caption: probably the biggest difference between
+
+00:16:16.138 --> 00:16:22.380
+Caption: an offline first app and an offline mode
+
+00:16:19.198 --> 00:16:24.838
+Caption: app is that you&#39;re not treating being
+
+00:16:22.380 --> 00:16:26.578
+Caption: offline as an error Condition it&#39;s not a
+
+00:16:24.838 --> 00:16:29.599
+Caption: special case you need to handle it&#39;s
+
+00:16:26.578 --> 00:16:29.599
+Caption: just how it works
+
+00:16:32.278 --> 00:16:36.059
+Caption: now I mentioned the term graceful
+
+00:16:34.260 --> 00:16:38.699
+Caption: degradation before that&#39;s basically
+
+00:16:36.059 --> 00:16:40.679
+Caption: saying I&#39;ve got an app that&#39;s good
+
+00:16:38.698 --> 00:16:43.440
+Caption: and when it&#39;s offline
+
+00:16:40.679 --> 00:16:45.299
+Caption: it can be almost as good
+
+00:16:43.440 --> 00:16:47.398
+Caption: the other way to look at it which is
+
+00:16:45.299 --> 00:16:49.679
+Caption: what offline first is is saying that
+
+00:16:47.398 --> 00:16:51.659
+Caption: it&#39;s a progressive enhancement
+
+00:16:49.679 --> 00:16:53.039
+Caption: so rather than having something that
+
+00:16:51.659 --> 00:16:55.138
+Caption: gets worse you actually have something
+
+00:16:53.039 --> 00:16:57.419
+Caption: that gets better
+
+00:16:55.138 --> 00:16:59.159
+Caption: so you build a good offline app and when
+
+00:16:57.419 --> 00:17:00.419
+Caption: it&#39;s online you enhance it with other
+
+00:16:59.159 --> 00:17:03.179
+Caption: things
+
+00:17:00.419 --> 00:17:06.058
+Caption: that might be that when you go
+
+00:17:03.179 --> 00:17:07.619
+Caption: to edit a particular item like in your
+
+00:17:06.058 --> 00:17:10.140
+Caption: to-do list you go
+
+00:17:07.619 --> 00:17:11.400
+Caption: load the to-do list from the uh from the
+
+00:17:10.140 --> 00:17:13.619
+Caption: case
+
+00:17:11.400 --> 00:17:17.219
+Caption: and then hey I&#39;m online so I might as
+
+00:17:13.619 --> 00:17:18.780
+Caption: well go fetch it and get the new stuff
+
+00:17:17.219 --> 00:17:21.359
+Caption: so we&#39;ll go through that little bit of
+
+00:17:18.780 --> 00:17:24.479
+Caption: code again and we&#39;ll try and change it
+
+00:17:21.359 --> 00:17:27.298
+Caption: to from offline mode to offline first
+
+00:17:24.479 --> 00:17:29.459
+Caption: now I said the big problem was if this
+
+00:17:27.298 --> 00:17:31.079
+Caption: else that
+
+00:17:29.459 --> 00:17:33.380
+Caption: we get rid of the else and we&#39;ll see
+
+00:17:31.079 --> 00:17:33.380
+Caption: what happens
+
+00:17:34.199 --> 00:17:38.760
+Caption: it&#39;s gone easy so now we have an online
+
+00:17:36.479 --> 00:17:40.918
+Caption: app that fetches the data and then we
+
+00:17:38.760 --> 00:17:42.839
+Caption: return the offline data we&#39;ve actually
+
+00:17:40.918 --> 00:17:44.899
+Caption: missed one little bit in here so I&#39;ll
+
+00:17:42.839 --> 00:17:47.339
+Caption: make room for that and that&#39;s basically
+
+00:17:44.900 --> 00:17:50.719
+Caption: when we get the new data we have to
+
+00:17:47.339 --> 00:17:50.719
+Caption: update the offline case as well
+
+00:17:50.880 --> 00:17:54.298
+Caption: now that&#39;s done we can Target the code a
+
+00:17:53.219 --> 00:17:56.579
+Caption: little bit get rid of some variables
+
+00:17:54.298 --> 00:17:58.918
+Caption: because who likes variables
+
+00:17:56.579 --> 00:18:00.599
+Caption: and the codes you know pretty simple if
+
+00:17:58.918 --> 00:18:04.859
+Caption: you&#39;re online do this
+
+00:18:00.599 --> 00:18:06.599
+Caption: and then always return the offline data
+
+00:18:04.859 --> 00:18:08.459
+Caption: I mentioned before that waiting for
+
+00:18:06.599 --> 00:18:10.739
+Caption: things actually makes it slower
+
+00:18:08.459 --> 00:18:14.279
+Caption: so you can see these async and Away
+
+00:18:10.739 --> 00:18:16.079
+Caption: words if you&#39;re not familiar async just
+
+00:18:14.280 --> 00:18:18.479
+Caption: says that you can use the await keyword
+
+00:18:16.079 --> 00:18:21.899
+Caption: and the awake keyword just actually
+
+00:18:18.479 --> 00:18:24.418
+Caption: waits for it so the program will stop
+
+00:18:21.900 --> 00:18:27.239
+Caption: and wait for that thing to respond
+
+00:18:24.418 --> 00:18:29.699
+Caption: if we just get rid of that
+
+00:18:27.239 --> 00:18:30.959
+Caption: it no longer waits for that response so
+
+00:18:29.699 --> 00:18:33.619
+Caption: we don&#39;t have that issue where it&#39;s
+
+00:18:30.959 --> 00:18:35.760
+Caption: slower because you&#39;re online
+
+00:18:33.619 --> 00:18:38.099
+Caption: now whether or not you can actually do
+
+00:18:35.760 --> 00:18:39.298
+Caption: this is going to depend on probably a
+
+00:18:38.099 --> 00:18:42.058
+Caption: framework or something that you&#39;re using
+
+00:18:39.298 --> 00:18:43.678
+Caption: in react you might write a hook that
+
+00:18:42.058 --> 00:18:47.279
+Caption: abstracts that away
+
+00:18:43.678 --> 00:18:49.260
+Caption: that&#39;s primarily what I write so
+
+00:18:47.280 --> 00:18:52.020
+Caption: I don&#39;t know all the others exactly but
+
+00:18:49.260 --> 00:18:54.479
+Caption: other reactive Frameworks like Swift UI
+
+00:18:52.020 --> 00:18:57.299
+Caption: or reactive UI
+
+00:18:54.479 --> 00:18:58.558
+Caption: felt actually have similar Concepts
+
+00:18:57.298 --> 00:19:00.298
+Caption: right where you can just update this
+
+00:18:58.558 --> 00:19:02.479
+Caption: behind the scenes and then show the new
+
+00:19:00.298 --> 00:19:02.479
+Caption: version
+
+00:19:02.760 --> 00:19:06.660
+Caption: we can look at our update as well
+
+00:19:04.678 --> 00:19:08.339
+Caption: and we go
+
+00:19:06.660 --> 00:19:10.919
+Caption: now we&#39;ve got that if else but we&#39;ll
+
+00:19:08.339 --> 00:19:13.619
+Caption: tackle it slightly differently
+
+00:19:10.918 --> 00:19:15.538
+Caption: instead of relying on updating this
+
+00:19:13.619 --> 00:19:18.119
+Caption: thing as it&#39;s happening
+
+00:19:15.538 --> 00:19:20.159
+Caption: we&#39;ve already built a robust solution to
+
+00:19:18.119 --> 00:19:21.479
+Caption: handle those background updates and the
+
+00:19:20.160 --> 00:19:24.239
+Caption: robustness of that is very important
+
+00:19:21.479 --> 00:19:26.219
+Caption: we&#39;ll talk more about that later
+
+00:19:24.239 --> 00:19:28.678
+Caption: so I want to just use that we can get
+
+00:19:26.219 --> 00:19:30.418
+Caption: rid of this whole section entirely
+
+00:19:28.678 --> 00:19:33.119
+Caption: and we&#39;re left with selling pretty
+
+00:19:30.418 --> 00:19:34.979
+Caption: simple right we update the offline data
+
+00:19:33.119 --> 00:19:37.160
+Caption: and then we schedule the update for
+
+00:19:34.979 --> 00:19:37.160
+Caption: later
+
+00:19:38.099 --> 00:19:42.959
+Caption: this idea of updating the offline data
+
+00:19:40.678 --> 00:19:45.298
+Caption: is actually really interesting uh has
+
+00:19:42.959 --> 00:19:47.699
+Caption: anyone heard of optimistic UI or
+
+00:19:45.298 --> 00:19:49.979
+Caption: optimistic updates
+
+00:19:47.699 --> 00:19:51.659
+Caption: a couple of people so that&#39;s the idea
+
+00:19:49.979 --> 00:19:53.520
+Caption: basically that
+
+00:19:51.660 --> 00:19:56.580
+Caption: because it feels slowed away all the
+
+00:19:53.520 --> 00:19:59.760
+Caption: time let&#39;s just update this thing with
+
+00:19:56.579 --> 00:20:02.519
+Caption: the expectation that it works
+
+00:19:59.760 --> 00:20:04.380
+Caption: now that is something that happens in
+
+00:20:02.520 --> 00:20:05.880
+Caption: online apps as well it&#39;s it&#39;s kind of
+
+00:20:04.380 --> 00:20:07.319
+Caption: essential in an offline app because
+
+00:20:05.880 --> 00:20:10.260
+Caption: otherwise you&#39;re always looking at old
+
+00:20:07.319 --> 00:20:13.439
+Caption: data but online apps do this as well to
+
+00:20:10.260 --> 00:20:15.780
+Caption: try and feel faster they basically want
+
+00:20:13.439 --> 00:20:18.359
+Caption: that offline experience where things
+
+00:20:15.780 --> 00:20:21.179
+Caption: just work you know so they
+
+00:20:18.359 --> 00:20:23.459
+Caption: there are lots of tools now to go and do
+
+00:20:21.178 --> 00:20:26.099
+Caption: those optimistic updates they get built
+
+00:20:23.459 --> 00:20:29.159
+Caption: into query libraries like Apollo client
+
+00:20:26.099 --> 00:20:31.199
+Caption: or route query or things like that again
+
+00:20:29.160 --> 00:20:33.559
+Caption: I&#39;m mainly working react so those are my
+
+00:20:31.199 --> 00:20:33.558
+Caption: examples
+
+00:20:34.500 --> 00:20:39.418
+Caption: so appended a pretty Rosy picture about
+
+00:20:37.678 --> 00:20:40.678
+Caption: you know how easy it is to make an
+
+00:20:39.418 --> 00:20:43.918
+Caption: offline app
+
+00:20:40.678 --> 00:20:46.619
+Caption: and there are a bunch of challenges
+
+00:20:43.918 --> 00:20:48.739
+Caption: uh we&#39;re going to talk about them a fair
+
+00:20:46.619 --> 00:20:51.818
+Caption: bit after I&#39;ve had a drink
+
+00:20:48.739 --> 00:20:51.818
+Caption: [Music]
+
+00:20:53.520 --> 00:20:57.719
+Caption: so when you talk about offline apps one
+
+00:20:55.678 --> 00:20:59.819
+Caption: of the big ones that big challenges that
+
+00:20:57.719 --> 00:21:01.979
+Caption: people will raise is the idea of getting
+
+00:20:59.819 --> 00:21:03.479
+Caption: a merge conflict now developers are
+
+00:21:01.979 --> 00:21:05.760
+Caption: pretty familiar with most conflicts
+
+00:21:03.479 --> 00:21:07.140
+Caption: because we get them all the time when
+
+00:21:05.760 --> 00:21:09.839
+Caption: we&#39;re writing code
+
+00:21:07.140 --> 00:21:12.780
+Caption: and you won&#39;t find many people in the
+
+00:21:09.839 --> 00:21:15.779
+Caption: room who actually enjoy that process
+
+00:21:12.780 --> 00:21:17.520
+Caption: but it&#39;s not necessarily as big a deal
+
+00:21:15.780 --> 00:21:18.479
+Caption: as people think it is with an offline
+
+00:21:17.520 --> 00:21:20.580
+Caption: app
+
+00:21:18.479 --> 00:21:21.780
+Caption: so I&#39;ll just run through a little bit of
+
+00:21:20.579 --> 00:21:24.178
+Caption: what a most conflict is because it&#39;s a
+
+00:21:21.780 --> 00:21:26.280
+Caption: complicated idea if you&#39;re not familiar
+
+00:21:24.178 --> 00:21:28.019
+Caption: basically emerge conflict happens when
+
+00:21:26.280 --> 00:21:30.419
+Caption: two people change the same thing around
+
+00:21:28.020 --> 00:21:33.359
+Caption: the same time
+
+00:21:30.418 --> 00:21:37.019
+Caption: so in this case we&#39;ve got Alice and Bob
+
+00:21:33.359 --> 00:21:40.260
+Caption: Alice opens a thing saves the changes
+
+00:21:37.020 --> 00:21:42.839
+Caption: and in that in between phase Bob has
+
+00:21:40.260 --> 00:21:44.099
+Caption: also opened the thing and he saves some
+
+00:21:42.839 --> 00:21:45.538
+Caption: changes
+
+00:21:44.099 --> 00:21:47.280
+Caption: now when you get to the end if they&#39;ve
+
+00:21:45.538 --> 00:21:49.558
+Caption: made different changes
+
+00:21:47.280 --> 00:21:50.940
+Caption: you need to figure out what to do
+
+00:21:49.558 --> 00:21:53.219
+Caption: essentially
+
+00:21:50.939 --> 00:21:56.459
+Caption: so there&#39;s a kind of an important line
+
+00:21:53.219 --> 00:21:58.439
+Caption: we can draw in the sand which is when
+
+00:21:56.459 --> 00:22:00.000
+Caption: that first person saves it
+
+00:21:58.439 --> 00:22:02.038
+Caption: the person who goes after that will get
+
+00:22:00.000 --> 00:22:04.918
+Caption: a problem
+
+00:22:02.038 --> 00:22:06.719
+Caption: uh now I&#39;ve got the lines roughly in
+
+00:22:04.918 --> 00:22:09.199
+Caption: this kind of range but really they can
+
+00:22:06.719 --> 00:22:12.479
+Caption: be anywhere
+
+00:22:09.199 --> 00:22:14.639
+Caption: essentially if you open it before that
+
+00:22:12.479 --> 00:22:16.199
+Caption: dotted blue line and you save it after
+
+00:22:14.640 --> 00:22:17.579
+Caption: that dotted blue line then you have a
+
+00:22:16.199 --> 00:22:19.678
+Caption: problem if you open it and save it
+
+00:22:17.579 --> 00:22:21.779
+Caption: before the other person gets the problem
+
+00:22:19.678 --> 00:22:22.979
+Caption: or if you open it after then you&#39;re
+
+00:22:21.780 --> 00:22:25.200
+Caption: already getting the latest updates
+
+00:22:22.979 --> 00:22:27.418
+Caption: anyway so you&#39;re not going to get that
+
+00:22:25.199 --> 00:22:29.760
+Caption: in those conflict scenario
+
+00:22:27.418 --> 00:22:31.798
+Caption: the thing is for an offline app
+
+00:22:29.760 --> 00:22:34.440
+Caption: it&#39;s not so much about when you open it
+
+00:22:31.798 --> 00:22:37.500
+Caption: and when you save it it&#39;s more like when
+
+00:22:34.439 --> 00:22:38.879
+Caption: you were last online to get the version
+
+00:22:37.500 --> 00:22:40.798
+Caption: at the beginning
+
+00:22:38.880 --> 00:22:41.819
+Caption: and then when you come back online at
+
+00:22:40.798 --> 00:22:43.979
+Caption: the end
+
+00:22:41.819 --> 00:22:45.298
+Caption: so the time frame for actually getting
+
+00:22:43.979 --> 00:22:48.239
+Caption: emerged conflict when you have an
+
+00:22:45.298 --> 00:22:50.579
+Caption: offline app is quite a lot bigger
+
+00:22:48.239 --> 00:22:53.760
+Caption: but the problem is existing no matter
+
+00:22:50.579 --> 00:22:55.739
+Caption: what you know even if it you&#39;ve got a
+
+00:22:53.760 --> 00:22:57.719
+Caption: thing that takes 10 seconds to fill out
+
+00:22:55.739 --> 00:23:00.000
+Caption: but it&#39;s still a 10 second window where
+
+00:22:57.719 --> 00:23:02.459
+Caption: someone might open it and hit this
+
+00:23:00.000 --> 00:23:04.859
+Caption: problem so you already do something
+
+00:23:02.459 --> 00:23:06.479
+Caption: about merge conflicts you probably just
+
+00:23:04.859 --> 00:23:08.520
+Caption: haven&#39;t thought about it
+
+00:23:06.479 --> 00:23:11.158
+Caption: uh common things that you might find
+
+00:23:08.520 --> 00:23:13.558
+Caption: there would be that the last update wins
+
+00:23:11.159 --> 00:23:15.059
+Caption: because they make the change last so
+
+00:23:13.558 --> 00:23:17.099
+Caption: just overwrite whatever was in there
+
+00:23:15.058 --> 00:23:19.678
+Caption: with what they put
+
+00:23:17.099 --> 00:23:22.140
+Caption: hopefully uh some of the changes will be
+
+00:23:19.678 --> 00:23:24.538
+Caption: the same so actually doesn&#39;t matter if
+
+00:23:22.140 --> 00:23:25.979
+Caption: that if that happened or not
+
+00:23:24.538 --> 00:23:28.798
+Caption: but there are other approaches you can
+
+00:23:25.979 --> 00:23:31.079
+Caption: use where rather than say hey here&#39;s
+
+00:23:28.798 --> 00:23:33.899
+Caption: this whole thing you know here&#39;s a title
+
+00:23:31.079 --> 00:23:36.058
+Caption: and description and some tags on how to
+
+00:23:33.900 --> 00:23:38.099
+Caption: do
+
+00:23:36.058 --> 00:23:39.839
+Caption: go and replace whatever was there you
+
+00:23:38.099 --> 00:23:42.538
+Caption: could actually just say all right you
+
+00:23:39.839 --> 00:23:44.880
+Caption: changed the description so let&#39;s update
+
+00:23:42.538 --> 00:23:46.739
+Caption: the description and that limits the
+
+00:23:44.880 --> 00:23:48.359
+Caption: amount of most comic books you&#39;ll get
+
+00:23:46.739 --> 00:23:50.880
+Caption: and the idea behind that&#39;s kind of like
+
+00:23:48.359 --> 00:23:52.979
+Caption: a patch operation
+
+00:23:50.880 --> 00:23:55.140
+Caption: um because it&#39;s a HTTP patch keyword and
+
+00:23:52.979 --> 00:23:56.579
+Caption: an RFC and all this fun stuff around
+
+00:23:55.140 --> 00:23:59.039
+Caption: that
+
+00:23:56.579 --> 00:24:00.239
+Caption: but basically most conflicts are a
+
+00:23:59.038 --> 00:24:02.879
+Caption: problem and you do need to think about
+
+00:24:00.239 --> 00:24:04.918
+Caption: them but they&#39;re already a problem so
+
+00:24:02.880 --> 00:24:08.659
+Caption: going offline doesn&#39;t really change it
+
+00:24:04.918 --> 00:24:08.658
+Caption: except that you might hit it more
+
+00:24:09.839 --> 00:24:15.000
+Caption: another one is API versioning and
+
+00:24:13.439 --> 00:24:16.139
+Caption: backwards compatibility and those kind
+
+00:24:15.000 --> 00:24:19.979
+Caption: of concerns
+
+00:24:16.140 --> 00:24:22.558
+Caption: because you may have had an app that was
+
+00:24:19.979 --> 00:24:24.959
+Caption: yeah last online
+
+00:24:22.558 --> 00:24:27.538
+Caption: three weeks ago if you&#39;ve changed the
+
+00:24:24.959 --> 00:24:30.239
+Caption: API in that three-week period and done a
+
+00:24:27.538 --> 00:24:32.759
+Caption: breaking change then anyone who comes
+
+00:24:30.239 --> 00:24:34.199
+Caption: back online from three weeks ago
+
+00:24:32.760 --> 00:24:35.760
+Caption: yeah the things they&#39;re trying to do
+
+00:24:34.199 --> 00:24:37.678
+Caption: won&#39;t work because
+
+00:24:35.760 --> 00:24:40.678
+Caption: they might be missing required fields or
+
+00:24:37.678 --> 00:24:44.459
+Caption: that kind of thing right so it becomes
+
+00:24:40.678 --> 00:24:46.619
+Caption: more important that you accept
+
+00:24:44.459 --> 00:24:48.658
+Caption: um backwards compatible like old
+
+00:24:46.619 --> 00:24:51.359
+Caption: versions of stuff so I don&#39;t know you
+
+00:24:48.659 --> 00:24:53.640
+Caption: add a new field to your to-do that&#39;s
+
+00:24:51.359 --> 00:24:55.979
+Caption: called assignee or something
+
+00:24:53.640 --> 00:24:58.380
+Caption: and then if you make it a required field
+
+00:24:55.979 --> 00:25:00.418
+Caption: anyone who doesn&#39;t provide an assignee
+
+00:24:58.380 --> 00:25:01.798
+Caption: it&#39;ll fail that&#39;s kind of a problem
+
+00:25:00.418 --> 00:25:04.439
+Caption: right so you still need a way for
+
+00:25:01.798 --> 00:25:07.019
+Caption: someone to do that job without that
+
+00:25:04.439 --> 00:25:08.819
+Caption: field and a common approach to that is
+
+00:25:07.020 --> 00:25:11.039
+Caption: having API versioning there are a bunch
+
+00:25:08.819 --> 00:25:12.779
+Caption: of other ways as well but
+
+00:25:11.038 --> 00:25:16.678
+Caption: again that&#39;s going to depend on what you
+
+00:25:12.780 --> 00:25:18.239
+Caption: uh where your app works
+
+00:25:16.678 --> 00:25:19.619
+Caption: you&#39;ll notice a common theme around
+
+00:25:18.239 --> 00:25:21.599
+Caption: these that they&#39;re all related to
+
+00:25:19.619 --> 00:25:22.979
+Caption: handling errors because when everything
+
+00:25:21.599 --> 00:25:24.798
+Caption: works
+
+00:25:22.979 --> 00:25:28.140
+Caption: everything works and everything&#39;s easy
+
+00:25:24.798 --> 00:25:29.699
+Caption: the problem is when there are problems
+
+00:25:28.140 --> 00:25:32.760
+Caption: so another one is things like field
+
+00:25:29.699 --> 00:25:35.158
+Caption: validation you know if you have a
+
+00:25:32.760 --> 00:25:37.140
+Caption: required field that you&#39;ve added
+
+00:25:35.159 --> 00:25:39.840
+Caption: whether it existed before or exists
+
+00:25:37.140 --> 00:25:43.260
+Caption: later essentially
+
+00:25:39.839 --> 00:25:46.079
+Caption: if you rely on the server to validate
+
+00:25:43.260 --> 00:25:48.178
+Caption: these requests that you&#39;re making
+
+00:25:46.079 --> 00:25:50.219
+Caption: before like rather than letting the
+
+00:25:48.178 --> 00:25:53.099
+Caption: client do it that means your offline
+
+00:25:50.219 --> 00:25:55.260
+Caption: user has to wait potentially weeks until
+
+00:25:53.099 --> 00:25:57.719
+Caption: they actually try and do the thing
+
+00:25:55.260 --> 00:25:58.859
+Caption: and then it fails so that&#39;s a problem
+
+00:25:57.719 --> 00:26:01.859
+Caption: because
+
+00:25:58.859 --> 00:26:05.579
+Caption: to go and add a required field when you
+
+00:26:01.859 --> 00:26:08.158
+Caption: press submit is pretty easy right but if
+
+00:26:05.579 --> 00:26:10.019
+Caption: you&#39;re revisiting it weeks days hours
+
+00:26:08.159 --> 00:26:12.419
+Caption: even later
+
+00:26:10.020 --> 00:26:15.359
+Caption: it&#39;s a lot harder to to know what the
+
+00:26:12.418 --> 00:26:17.839
+Caption: right thing to put in is there put in
+
+00:26:15.359 --> 00:26:17.839
+Caption: there it&#39;s
+
+00:26:17.880 --> 00:26:23.520
+Caption: so I talked about the um the offline
+
+00:26:21.119 --> 00:26:25.020
+Caption: queue or the the queue of changes to
+
+00:26:23.520 --> 00:26:27.119
+Caption: make so we&#39;ve got a little
+
+00:26:25.020 --> 00:26:29.940
+Caption: animation thing that I&#39;m pretty proud of
+
+00:26:27.119 --> 00:26:32.760
+Caption: that I made here basically here on that
+
+00:26:29.939 --> 00:26:34.918
+Caption: process so this little box is going to
+
+00:26:32.760 --> 00:26:35.940
+Caption: be our magical processor and all the
+
+00:26:34.918 --> 00:26:38.699
+Caption: little
+
+00:26:35.939 --> 00:26:40.199
+Caption: rectangles uh other things we&#39;re going
+
+00:26:38.699 --> 00:26:41.819
+Caption: to do with them so we start by
+
+00:26:40.199 --> 00:26:43.918
+Caption: processing one and we take the next one
+
+00:26:41.819 --> 00:26:47.519
+Caption: process that
+
+00:26:43.918 --> 00:26:49.259
+Caption: take the next one and it&#39;s failed
+
+00:26:47.520 --> 00:26:51.419
+Caption: so
+
+00:26:49.260 --> 00:26:53.579
+Caption: if you went to Derek&#39;s talk earlier he
+
+00:26:51.418 --> 00:26:55.918
+Caption: talked a lot about you know retries and
+
+00:26:53.579 --> 00:26:58.140
+Caption: timeouts and exponential back off and
+
+00:26:55.918 --> 00:27:00.058
+Caption: those kind of things and yeah you
+
+00:26:58.140 --> 00:27:02.039
+Caption: probably do want to retry these requests
+
+00:27:00.058 --> 00:27:03.359
+Caption: because they might just be intermittent
+
+00:27:02.038 --> 00:27:06.359
+Caption: errors
+
+00:27:03.359 --> 00:27:09.239
+Caption: if they&#39;re not intermittent errors then
+
+00:27:06.359 --> 00:27:12.298
+Caption: you retry it and it will always fail so
+
+00:27:09.239 --> 00:27:14.579
+Caption: what do you do if you talk about a queue
+
+00:27:12.298 --> 00:27:16.439
+Caption: then there&#39;s this idea that you process
+
+00:27:14.579 --> 00:27:18.178
+Caption: them in the order they came in but this
+
+00:27:16.439 --> 00:27:21.058
+Caption: one is now stuck
+
+00:27:18.178 --> 00:27:23.599
+Caption: so you need something to essentially put
+
+00:27:21.058 --> 00:27:23.599
+Caption: that aside
+
+00:27:26.520 --> 00:27:29.459
+Caption: and then
+
+00:27:27.959 --> 00:27:30.538
+Caption: you can continue pressing the rest of
+
+00:27:29.459 --> 00:27:33.000
+Caption: them
+
+00:27:30.538 --> 00:27:37.319
+Caption: now you&#39;re not done yet that one that
+
+00:27:33.000 --> 00:27:39.000
+Caption: you didn&#39;t process is still
+
+00:27:37.319 --> 00:27:40.798
+Caption: valid it&#39;s still something that someone
+
+00:27:39.000 --> 00:27:44.640
+Caption: tried to do and it didn&#39;t work so you
+
+00:27:40.798 --> 00:27:47.939
+Caption: need a way for them to resume that
+
+00:27:44.640 --> 00:27:50.820
+Caption: um it&#39;ll depend on again what the app is
+
+00:27:47.939 --> 00:27:52.439
+Caption: and and what you expect it to do
+
+00:27:50.819 --> 00:27:54.719
+Caption: but
+
+00:27:52.439 --> 00:27:56.278
+Caption: basically we need to try and reproduce
+
+00:27:54.719 --> 00:27:57.959
+Caption: it again in a different way so that
+
+00:27:56.279 --> 00:27:59.880
+Caption: might be saying you can go back in and
+
+00:27:57.959 --> 00:28:01.558
+Caption: edit and try again
+
+00:27:59.880 --> 00:28:03.900
+Caption: or you
+
+00:28:01.558 --> 00:28:05.880
+Caption: save it to some API and get an admin
+
+00:28:03.900 --> 00:28:07.979
+Caption: team to process them
+
+00:28:05.880 --> 00:28:11.279
+Caption: or you just roll it back and say hey
+
+00:28:07.979 --> 00:28:14.599
+Caption: sorry we couldn&#39;t do that throw it away
+
+00:28:11.279 --> 00:28:17.220
+Caption: again depends on what your data is
+
+00:28:14.599 --> 00:28:20.178
+Caption: but the kind of robustness of this
+
+00:28:17.219 --> 00:28:22.739
+Caption: process is is really important because
+
+00:28:20.178 --> 00:28:25.500
+Caption: it&#39;s called your app now so whereas
+
+00:28:22.739 --> 00:28:28.140
+Caption: before in offline mode it may have been
+
+00:28:25.500 --> 00:28:30.000
+Caption: there and you didn&#39;t spend all of your
+
+00:28:28.140 --> 00:28:31.859
+Caption: effort building it
+
+00:28:30.000 --> 00:28:34.140
+Caption: you know maybe you get some problems and
+
+00:28:31.859 --> 00:28:35.640
+Caption: and it&#39;s sort of okay because when
+
+00:28:34.140 --> 00:28:37.859
+Caption: they&#39;re online it works
+
+00:28:35.640 --> 00:28:39.119
+Caption: but for an offline First Step this is
+
+00:28:37.859 --> 00:28:41.038
+Caption: the only way you get those updates
+
+00:28:39.119 --> 00:28:43.918
+Caption: happening so
+
+00:28:41.038 --> 00:28:46.678
+Caption: again make it robust uh you need to
+
+00:28:43.918 --> 00:28:48.538
+Caption: think about things like having an item
+
+00:28:46.678 --> 00:28:51.119
+Caption: potency on your requests
+
+00:28:48.538 --> 00:28:53.519
+Caption: for example if this was a delete that
+
+00:28:51.119 --> 00:28:56.099
+Caption: failed because the thing was already
+
+00:28:53.520 --> 00:28:57.719
+Caption: deleted you could go well you&#39;re trying
+
+00:28:56.099 --> 00:29:00.058
+Caption: to delete it and it&#39;s deleted so it&#39;s
+
+00:28:57.719 --> 00:29:01.918
+Caption: fine and just mark it as successful
+
+00:29:00.058 --> 00:29:04.619
+Caption: basically
+
+00:29:01.918 --> 00:29:06.359
+Caption: and you might also have the dependent
+
+00:29:04.619 --> 00:29:07.140
+Caption: requests in here so let&#39;s say this was a
+
+00:29:06.359 --> 00:29:09.599
+Caption: create
+
+00:29:07.140 --> 00:29:11.820
+Caption: and then later add an update that update
+
+00:29:09.599 --> 00:29:14.099
+Caption: would also fail because it&#39;s got nothing
+
+00:29:11.819 --> 00:29:15.959
+Caption: to update now so
+
+00:29:14.099 --> 00:29:18.739
+Caption: they might you might finally get a few
+
+00:29:15.959 --> 00:29:18.739
+Caption: of these things happening
+
+00:29:19.260 --> 00:29:23.339
+Caption: another problem is when you have a
+
+00:29:21.899 --> 00:29:26.279
+Caption: patchy internet connection or an
+
+00:29:23.339 --> 00:29:27.778
+Caption: unreliable connection rather than being
+
+00:29:26.279 --> 00:29:30.720
+Caption: just offline
+
+00:29:27.779 --> 00:29:33.240
+Caption: so it&#39;s actually kind of worse
+
+00:29:30.719 --> 00:29:34.859
+Caption: you could look at the things like
+
+00:29:33.239 --> 00:29:36.058
+Caption: on your device they often have
+
+00:29:34.859 --> 00:29:37.500
+Caption: indicators that say whether you&#39;re
+
+00:29:36.058 --> 00:29:40.558
+Caption: online or offline
+
+00:29:37.500 --> 00:29:42.119
+Caption: but how reliable are they actually you
+
+00:29:40.558 --> 00:29:44.398
+Caption: might want to put in something like a
+
+00:29:42.119 --> 00:29:46.319
+Caption: health check endpoint on your API where
+
+00:29:44.399 --> 00:29:48.779
+Caption: you can call that to see
+
+00:29:46.319 --> 00:29:50.939
+Caption: like the device says them online but can
+
+00:29:48.779 --> 00:29:51.960
+Caption: I actually call the apis that I need to
+
+00:29:50.939 --> 00:29:54.479
+Caption: call
+
+00:29:51.959 --> 00:29:56.579
+Caption: and then you know base it on that you
+
+00:29:54.479 --> 00:29:59.939
+Caption: might want to consider
+
+00:29:56.579 --> 00:30:01.380
+Caption: having the app like manually try and
+
+00:29:59.939 --> 00:30:04.079
+Caption: sync up rather than doing it
+
+00:30:01.380 --> 00:30:05.760
+Caption: automatically so the user can say yeah I
+
+00:30:04.079 --> 00:30:07.619
+Caption: want to sync now but again that doesn&#39;t
+
+00:30:05.760 --> 00:30:09.779
+Caption: work for everyone but it&#39;s an approach
+
+00:30:07.619 --> 00:30:13.079
+Caption: that you could take to handle this
+
+00:30:09.779 --> 00:30:15.059
+Caption: problem so rather than just responding
+
+00:30:13.079 --> 00:30:17.158
+Caption: to being online you can wait until the
+
+00:30:15.058 --> 00:30:19.798
+Caption: person who&#39;s like yeah I&#39;m back in the
+
+00:30:17.159 --> 00:30:23.059
+Caption: office now so I can
+
+00:30:19.798 --> 00:30:23.058
+Caption: do the thing and it should work
+
+00:30:26.939 --> 00:30:30.898
+Caption: another thing is when you have an
+
+00:30:28.678 --> 00:30:32.278
+Caption: offline app you probably need to tell
+
+00:30:30.899 --> 00:30:34.799
+Caption: your users
+
+00:30:32.279 --> 00:30:37.919
+Caption: that it&#39;s offline and
+
+00:30:34.798 --> 00:30:39.538
+Caption: uh you could say something like you&#39;re
+
+00:30:37.918 --> 00:30:40.619
+Caption: offline
+
+00:30:39.538 --> 00:30:43.439
+Caption: but do they know what that actually
+
+00:30:40.619 --> 00:30:45.658
+Caption: means so rather than just say you&#39;re
+
+00:30:43.439 --> 00:30:47.939
+Caption: offline you might want to change it up a
+
+00:30:45.659 --> 00:30:50.159
+Caption: little and say something like you&#39;re
+
+00:30:47.939 --> 00:30:51.479
+Caption: offline changes will be saved when
+
+00:30:50.159 --> 00:30:53.520
+Caption: you&#39;re back online
+
+00:30:51.479 --> 00:30:55.678
+Caption: that kind of hints that
+
+00:30:53.520 --> 00:30:57.000
+Caption: oh I&#39;m not done just because I think I&#39;m
+
+00:30:55.678 --> 00:30:59.278
+Caption: done
+
+00:30:57.000 --> 00:31:01.619
+Caption: there&#39;s something else I&#39;ll need to do
+
+00:30:59.279 --> 00:31:03.480
+Caption: again you talk to whoever about the
+
+00:31:01.619 --> 00:31:05.520
+Caption: exact wording there but
+
+00:31:03.479 --> 00:31:07.079
+Caption: there&#39;s that kind of idea where
+
+00:31:05.520 --> 00:31:10.380
+Caption: telling them what the state is doesn&#39;t
+
+00:31:07.079 --> 00:31:12.058
+Caption: help tell them what they can do about it
+
+00:31:10.380 --> 00:31:14.459
+Caption: and then as you go through you might say
+
+00:31:12.058 --> 00:31:15.380
+Caption: we&#39;ve got three changes pending upload
+
+00:31:14.459 --> 00:31:18.119
+Caption: or
+
+00:31:15.380 --> 00:31:20.819
+Caption: we&#39;ve uploaded five of eight of your
+
+00:31:18.119 --> 00:31:22.380
+Caption: changes or you know all changes are
+
+00:31:20.819 --> 00:31:24.959
+Caption: saved at the end
+
+00:31:22.380 --> 00:31:27.298
+Caption: just to help the users understand that
+
+00:31:24.959 --> 00:31:30.599
+Caption: yes you&#39;re offline
+
+00:31:27.298 --> 00:31:32.579
+Caption: and what does it mean for you now you
+
+00:31:30.599 --> 00:31:34.199
+Caption: know are you done yet when you get this
+
+00:31:32.579 --> 00:31:36.239
+Caption: kind of message it&#39;s like oh cool
+
+00:31:34.199 --> 00:31:39.058
+Caption: everything I&#39;ve saved everything I&#39;ve
+
+00:31:36.239 --> 00:31:42.619
+Caption: changed has been saved so I can go about
+
+00:31:39.058 --> 00:31:42.619
+Caption: my day everything&#39;s normal
+
+00:31:42.839 --> 00:31:47.339
+Caption: another one that will be affected by
+
+00:31:45.298 --> 00:31:49.199
+Caption: having an offline app
+
+00:31:47.339 --> 00:31:51.959
+Caption: is that
+
+00:31:49.199 --> 00:31:54.619
+Caption: the security posture of the Europe
+
+00:31:51.959 --> 00:31:54.619
+Caption: changes
+
+00:31:54.899 --> 00:31:57.179
+Caption: um
+
+00:31:55.500 --> 00:32:00.199
+Caption: because you&#39;re getting all this data
+
+00:31:57.178 --> 00:32:00.199
+Caption: onto your device
+
+00:32:00.239 --> 00:32:03.899
+Caption: is potential that someone else could get
+
+00:32:02.339 --> 00:32:05.520
+Caption: that data off the device
+
+00:32:03.899 --> 00:32:07.200
+Caption: so you might want to think about things
+
+00:32:05.520 --> 00:32:09.899
+Caption: like encryption
+
+00:32:07.199 --> 00:32:12.359
+Caption: if that&#39;s important if you do have
+
+00:32:09.899 --> 00:32:15.179
+Caption: encryption then where do you store the
+
+00:32:12.359 --> 00:32:18.599
+Caption: encryption keys if they&#39;re also on the
+
+00:32:15.178 --> 00:32:21.058
+Caption: device then it might be a little I don&#39;t
+
+00:32:18.599 --> 00:32:23.158
+Caption: know pointless to have the key stored
+
+00:32:21.058 --> 00:32:25.380
+Caption: with the data
+
+00:32:23.159 --> 00:32:28.380
+Caption: so you think about how that&#39;s going to
+
+00:32:25.380 --> 00:32:30.659
+Caption: work for you another big one is if you
+
+00:32:28.380 --> 00:32:33.539
+Caption: have shared devices
+
+00:32:30.659 --> 00:32:35.220
+Caption: uh let&#39;s say Yeah in a workplace it
+
+00:32:33.538 --> 00:32:37.739
+Caption: might be there&#39;s a kiosk thing that
+
+00:32:35.219 --> 00:32:39.658
+Caption: people use to do a job
+
+00:32:37.739 --> 00:32:40.918
+Caption: and when someone shift ends they hand it
+
+00:32:39.659 --> 00:32:42.240
+Caption: over to someone else and they&#39;ll go do
+
+00:32:40.918 --> 00:32:44.759
+Caption: their job too
+
+00:32:42.239 --> 00:32:46.798
+Caption: so if there&#39;s kind of user data on there
+
+00:32:44.760 --> 00:32:48.659
+Caption: you might need to think about
+
+00:32:46.798 --> 00:32:51.019
+Caption: keeping it separate from the other users
+
+00:32:48.659 --> 00:32:51.020
+Caption: data
+
+00:32:52.260 --> 00:32:55.320
+Caption: it&#39;s going to defend right maybe it&#39;s
+
+00:32:53.880 --> 00:32:56.880
+Caption: fine for them to see it maybe it&#39;s not
+
+00:32:55.319 --> 00:32:58.019
+Caption: really user sensitive but if you&#39;re
+
+00:32:56.880 --> 00:32:59.940
+Caption: storing
+
+00:32:58.020 --> 00:33:01.440
+Caption: you know their name or date of birth or
+
+00:32:59.939 --> 00:33:04.798
+Caption: something somewhere
+
+00:33:01.439 --> 00:33:06.298
+Caption: then you might want to hide it as well
+
+00:33:04.798 --> 00:33:08.880
+Caption: so that&#39;s where encryption would come in
+
+00:33:06.298 --> 00:33:11.339
+Caption: and all the other fun things
+
+00:33:08.880 --> 00:33:14.159
+Caption: and then another kind of complicated
+
+00:33:11.339 --> 00:33:16.319
+Caption: issue is that most of the apps that we
+
+00:33:14.159 --> 00:33:17.760
+Caption: build especially if you&#39;re going for you
+
+00:33:16.319 --> 00:33:18.839
+Caption: know Enterprise kind of clients or
+
+00:33:17.760 --> 00:33:21.000
+Caption: whatever
+
+00:33:18.839 --> 00:33:25.140
+Caption: you&#39;ll need some kind of authorization
+
+00:33:21.000 --> 00:33:28.199
+Caption: and authentication some like login stuff
+
+00:33:25.140 --> 00:33:31.320
+Caption: now when you&#39;re online you can log in
+
+00:33:28.199 --> 00:33:33.418
+Caption: and get refresh tokens and you know have
+
+00:33:31.319 --> 00:33:36.599
+Caption: a token lifetime to last an hour
+
+00:33:33.418 --> 00:33:38.219
+Caption: and then you go and get a refreshed
+
+00:33:36.599 --> 00:33:40.439
+Caption: version every hour so that you don&#39;t
+
+00:33:38.219 --> 00:33:42.898
+Caption: never run out right
+
+00:33:40.439 --> 00:33:45.418
+Caption: if you&#39;re offline you can&#39;t do that
+
+00:33:42.899 --> 00:33:47.880
+Caption: anymore so you might need to think about
+
+00:33:45.418 --> 00:33:49.439
+Caption: how you need to relax those those rules
+
+00:33:47.880 --> 00:33:52.079
+Caption: those guidelines
+
+00:33:49.439 --> 00:33:54.119
+Caption: just to handle that scenario so
+
+00:33:52.079 --> 00:33:55.500
+Caption: you might let people in if their tokens
+
+00:33:54.119 --> 00:33:57.479
+Caption: expired
+
+00:33:55.500 --> 00:33:58.979
+Caption: and maybe only for a certain amount of
+
+00:33:57.479 --> 00:34:00.418
+Caption: time
+
+00:33:58.979 --> 00:34:02.518
+Caption: but it&#39;s probably something you need
+
+00:34:00.418 --> 00:34:06.058
+Caption: otherwise they can&#39;t go offline to more
+
+00:34:02.519 --> 00:34:07.380
+Caption: than an hour right so it would depend
+
+00:34:06.058 --> 00:34:10.439
+Caption: again
+
+00:34:07.380 --> 00:34:13.439
+Caption: I&#39;m a consultant so it always depends
+
+00:34:10.439 --> 00:34:15.358
+Caption: but if you think about how what it means
+
+00:34:13.439 --> 00:34:17.219
+Caption: for you you know maybe you let people in
+
+00:34:15.358 --> 00:34:18.719
+Caption: and then before you actually save
+
+00:34:17.219 --> 00:34:21.658
+Caption: anything you do go and get that new
+
+00:34:18.719 --> 00:34:24.178
+Caption: token so that it all works
+
+00:34:21.658 --> 00:34:26.418
+Caption: but that&#39;s the sort of thing you need to
+
+00:34:24.178 --> 00:34:26.418
+Caption: think about
+
+00:34:27.118 --> 00:34:31.378
+Caption: another one I&#39;ve I&#39;ve got another
+
+00:34:29.099 --> 00:34:33.659
+Caption: challenge is you want to build
+
+00:34:31.378 --> 00:34:35.719
+Caption: an offline web app so you could have
+
+00:34:33.658 --> 00:34:37.979
+Caption: like a mobile app which has its own
+
+00:34:35.719 --> 00:34:40.678
+Caption: challenges potentially
+
+00:34:37.979 --> 00:34:43.378
+Caption: but a web app is probably even bigger
+
+00:34:40.678 --> 00:34:45.300
+Caption: because the convention is that you would
+
+00:34:43.378 --> 00:34:47.279
+Caption: download everything essentially every
+
+00:34:45.300 --> 00:34:49.199
+Caption: time you visit the app yeah you might
+
+00:34:47.280 --> 00:34:52.379
+Caption: have coaching of style sheets and stuff
+
+00:34:49.199 --> 00:34:54.479
+Caption: through your CDN but if you&#39;re going to
+
+00:34:52.378 --> 00:34:56.158
+Caption: have a fully offline app you need to
+
+00:34:54.479 --> 00:34:58.260
+Caption: have that data saved on the device
+
+00:34:56.158 --> 00:35:00.419
+Caption: always
+
+00:34:58.260 --> 00:35:02.159
+Caption: so there are things to to help you with
+
+00:35:00.419 --> 00:35:05.760
+Caption: that now like if you build a progressive
+
+00:35:02.159 --> 00:35:07.260
+Caption: web app a pwa then you get a lot of that
+
+00:35:05.760 --> 00:35:09.060
+Caption: stuff built in you have a service worker
+
+00:35:07.260 --> 00:35:12.060
+Caption: download all the assets so for later
+
+00:35:09.060 --> 00:35:13.800
+Caption: right it&#39;s not impossible but it is a
+
+00:35:12.060 --> 00:35:16.739
+Caption: little bit more difficult probably than
+
+00:35:13.800 --> 00:35:18.239
+Caption: a native app because the native apps let
+
+00:35:16.739 --> 00:35:19.679
+Caption: you download all that stuff ahead of
+
+00:35:18.239 --> 00:35:22.679
+Caption: time anyway you know you download your
+
+00:35:19.679 --> 00:35:25.679
+Caption: app from the App Store and it&#39;s 50
+
+00:35:22.679 --> 00:35:27.540
+Caption: megabytes or whatever it is and all the
+
+00:35:25.679 --> 00:35:28.979
+Caption: stuff that you need there is included
+
+00:35:27.540 --> 00:35:31.400
+Caption: whereas on the web you download that
+
+00:35:28.979 --> 00:35:31.399
+Caption: every time
+
+00:35:32.879 --> 00:35:37.259
+Caption: and then the last sort of challenge
+
+00:35:35.879 --> 00:35:41.098
+Caption: that I&#39;ve
+
+00:35:37.260 --> 00:35:42.959
+Caption: I&#39;ve got to cover I guess is uh
+
+00:35:41.099 --> 00:35:44.940
+Caption: those features that just won&#39;t work so
+
+00:35:42.959 --> 00:35:46.139
+Caption: you know this is video streaming right
+
+00:35:44.939 --> 00:35:49.679
+Caption: that&#39;s that&#39;s not going to work you
+
+00:35:46.139 --> 00:35:52.858
+Caption: can&#39;t build teams of Zoom
+
+00:35:49.679 --> 00:35:54.540
+Caption: if you&#39;re going for an offline app those
+
+00:35:52.858 --> 00:35:57.118
+Caption: features just won&#39;t work so there are
+
+00:35:54.540 --> 00:35:58.579
+Caption: there are limits
+
+00:35:57.118 --> 00:36:01.199
+Caption: now
+
+00:35:58.579 --> 00:36:03.060
+Caption: we&#39;ve talked a bunch about the benefits
+
+00:36:01.199 --> 00:36:04.679
+Caption: and the challenges that have come with
+
+00:36:03.060 --> 00:36:07.439
+Caption: this
+
+00:36:04.679 --> 00:36:08.760
+Caption: uh we&#39;ve talked about why you might want
+
+00:36:07.439 --> 00:36:10.500
+Caption: to build one so if you want to be used
+
+00:36:08.760 --> 00:36:14.040
+Caption: in remote areas
+
+00:36:10.500 --> 00:36:16.079
+Caption: or just in situational offline times you
+
+00:36:14.040 --> 00:36:18.479
+Caption: know someone&#39;s probably got a Wi-Fi only
+
+00:36:16.079 --> 00:36:19.979
+Caption: tablet or something if you wanted to
+
+00:36:18.479 --> 00:36:22.199
+Caption: bring that here and it didn&#39;t work
+
+00:36:19.979 --> 00:36:24.598
+Caption: because you didn&#39;t connect to the
+
+00:36:22.199 --> 00:36:28.159
+Caption: uh venue Wi-Fi or the venue Wi-Fi was
+
+00:36:24.599 --> 00:36:28.160
+Caption: bad then you&#39;d have a bad time
+
+00:36:28.739 --> 00:36:32.939
+Caption: and the benefits I guess are that you
+
+00:36:31.260 --> 00:36:35.699
+Caption: get a better experience for users they
+
+00:36:32.939 --> 00:36:38.060
+Caption: can use your app in more ways in more
+
+00:36:35.699 --> 00:36:38.060
+Caption: places
+
+00:36:39.719 --> 00:36:43.739
+Caption: and yeah we had to acknowledge that
+
+00:36:41.520 --> 00:36:45.239
+Caption: there are challenges with that so I&#39;m
+
+00:36:43.739 --> 00:36:47.699
+Caption: not saying it&#39;s easier to build an
+
+00:36:45.239 --> 00:36:49.439
+Caption: offline app than an online one
+
+00:36:47.699 --> 00:36:51.358
+Caption: but if you think that you&#39;re going to
+
+00:36:49.439 --> 00:36:53.520
+Caption: build an offline app
+
+00:36:51.358 --> 00:36:55.439
+Caption: or you know you&#39;re going to build an
+
+00:36:53.520 --> 00:36:57.119
+Caption: offline app or even if you just want to
+
+00:36:55.439 --> 00:37:00.000
+Caption: build an offline app
+
+00:36:57.118 --> 00:37:04.500
+Caption: then it&#39;s definitely easier to adopt
+
+00:37:00.000 --> 00:37:06.839
+Caption: that online sorry offline first mindset
+
+00:37:04.500 --> 00:37:09.719
+Caption: and treat it as the normal rather than
+
+00:37:06.839 --> 00:37:11.760
+Caption: trying to
+
+00:37:09.719 --> 00:37:13.199
+Caption: um trying to handle it later you know
+
+00:37:11.760 --> 00:37:16.699
+Caption: it&#39;s easy to know up front what you&#39;re
+
+00:37:13.199 --> 00:37:16.699
+Caption: building and build it from the beginning
+
+00:37:17.099 --> 00:37:21.300
+Caption: so that&#39;s all I&#39;ve got today
+
+00:37:19.858 --> 00:37:23.219
+Caption: I didn&#39;t think I&#39;d have time for
+
+00:37:21.300 --> 00:37:24.920
+Caption: questions but I think I actually do so
+
+00:37:23.219 --> 00:37:27.838
+Caption: if anyone does have a couple
+
+00:37:24.919 --> 00:37:29.939
+Caption: uh thank you
+
+00:37:27.839 --> 00:37:34.909
+Caption: foreign
+
+00:37:29.939 --> 00:37:34.908
+Caption: [Applause]
+
+00:37:37.579 --> 00:37:40.760
+Caption: yes hello
+
+00:37:42.659 --> 00:37:46.639
+Caption: I don&#39;t know if there&#39;s a mic but go out
+
+00:37:44.159 --> 00:37:46.639
+Caption: and I&#39;ll repeat
+
+00:37:57.000 --> 00:38:01.618
+Caption: that cool so the question was how would
+
+00:37:59.579 --> 00:38:02.780
+Caption: basically how do you encrypt data on the
+
+00:38:01.618 --> 00:38:05.358
+Caption: client side
+
+00:38:02.780 --> 00:38:07.919
+Caption: uh so
+
+00:38:05.358 --> 00:38:09.419
+Caption: there are many ways to encrypt let&#39;s
+
+00:38:07.919 --> 00:38:11.760
+Caption: assume you&#39;ve got like a public private
+
+00:38:09.419 --> 00:38:14.760
+Caption: key pair or something which is a pretty
+
+00:38:11.760 --> 00:38:18.599
+Caption: standard way to do it you would
+
+00:38:14.760 --> 00:38:20.699
+Caption: essentially probably rather than
+
+00:38:18.599 --> 00:38:22.920
+Caption: getting the data
+
+00:38:20.699 --> 00:38:24.838
+Caption: on your device
+
+00:38:22.919 --> 00:38:26.399
+Caption: you would download it in an encrypted
+
+00:38:24.839 --> 00:38:30.020
+Caption: format
+
+00:38:26.399 --> 00:38:32.399
+Caption: um I would expect and then
+
+00:38:30.020 --> 00:38:34.320
+Caption: have something on your device to decrypt
+
+00:38:32.399 --> 00:38:36.358
+Caption: it so if you have a private public key
+
+00:38:34.320 --> 00:38:39.180
+Caption: for example the private key can stay on
+
+00:38:36.358 --> 00:38:40.979
+Caption: the server public key on your device the
+
+00:38:39.179 --> 00:38:42.959
+Caption: way those two things work is that
+
+00:38:40.979 --> 00:38:45.358
+Caption: anything encrypted by the private key
+
+00:38:42.959 --> 00:38:47.159
+Caption: can be decrypted by the public key and
+
+00:38:45.358 --> 00:38:49.199
+Caption: you can verify that that&#39;s where it came
+
+00:38:47.159 --> 00:38:52.459
+Caption: from so that does kind of give you that
+
+00:38:49.199 --> 00:38:54.719
+Caption: option to to download the data
+
+00:38:52.459 --> 00:38:56.699
+Caption: uh if you&#39;re going to do something like
+
+00:38:54.719 --> 00:38:58.919
+Caption: encryption that will probably
+
+00:38:56.699 --> 00:39:01.560
+Caption: dramatically slow down the app because
+
+00:38:58.919 --> 00:39:04.020
+Caption: you&#39;ll have to decrypt it
+
+00:39:01.560 --> 00:39:06.300
+Caption: all the time and there are going to be
+
+00:39:04.020 --> 00:39:08.579
+Caption: gaps where it&#39;s in memory and stuff so
+
+00:39:06.300 --> 00:39:10.560
+Caption: when they talk about those kind of hacks
+
+00:39:08.579 --> 00:39:12.359
+Caption: like um I&#39;m trying to think of the names
+
+00:39:10.560 --> 00:39:14.760
+Caption: of them but they have all these memory
+
+00:39:12.358 --> 00:39:16.439
+Caption: overflow like buffer overflow attacks
+
+00:39:14.760 --> 00:39:17.939
+Caption: and stuff you&#39;re probably still going to
+
+00:39:16.439 --> 00:39:20.219
+Caption: be vulnerable to that kind of stuff it&#39;s
+
+00:39:17.939 --> 00:39:23.000
+Caption: not a perfect solution but there&#39;s
+
+00:39:20.219 --> 00:39:23.000
+Caption: something there right
+
+00:39:24.358 --> 00:39:29.539
+Caption: cool another one
+
+00:39:27.300 --> 00:39:29.540
+Caption: foreign
+
+00:39:42.839 --> 00:39:46.980
+Caption: yeah so
+
+00:39:44.639 --> 00:39:48.299
+Caption: when we stopped waiting for the response
+
+00:39:46.979 --> 00:39:49.500
+Caption: and we just kind of updated the
+
+00:39:48.300 --> 00:39:53.280
+Caption: background
+
+00:39:49.500 --> 00:39:55.139
+Caption: uh yeah like like you said you would get
+
+00:39:53.280 --> 00:39:56.520
+Caption: your stale data first and then you&#39;d
+
+00:39:55.139 --> 00:39:58.319
+Caption: replace it with the new data when it
+
+00:39:56.520 --> 00:39:59.880
+Caption: came in so it wouldn&#39;t always have
+
+00:39:58.320 --> 00:40:02.040
+Caption: changed and you might see no difference
+
+00:39:59.879 --> 00:40:03.899
+Caption: but yeah if it did change you&#39;d have to
+
+00:40:02.040 --> 00:40:06.239
+Caption: handle that so again that&#39;s going to
+
+00:40:03.899 --> 00:40:08.760
+Caption: depend how you want to handle it if
+
+00:40:06.239 --> 00:40:10.919
+Caption: you&#39;re okay with it being
+
+00:40:08.760 --> 00:40:12.959
+Caption: yeah initially styled data and then
+
+00:40:10.919 --> 00:40:16.020
+Caption: getting the updated data I guess if you
+
+00:40:12.959 --> 00:40:20.060
+Caption: don&#39;t fetch that data then you would
+
+00:40:16.020 --> 00:40:20.060
+Caption: always get a stale one so
+
+00:40:40.739 --> 00:40:43.520
+Caption: is gonna
+
+00:40:50.099 --> 00:40:55.980
+Caption: yeah so the idea being that if you kind
+
+00:40:54.300 --> 00:40:57.839
+Caption: of do that process we update it after
+
+00:40:55.979 --> 00:40:59.699
+Caption: the fact that there&#39;s stale data does it
+
+00:40:57.839 --> 00:41:02.239
+Caption: always make sense to do that
+
+00:40:59.699 --> 00:41:02.239
+Caption: so
+
+00:41:02.520 --> 00:41:05.339
+Caption: yeah
+
+00:41:03.479 --> 00:41:06.838
+Caption: so something like let&#39;s say in the top
+
+00:41:05.339 --> 00:41:07.980
+Caption: right you&#39;ve got a user Avatar or
+
+00:41:06.839 --> 00:41:09.480
+Caption: something right if that just updates
+
+00:41:07.979 --> 00:41:11.219
+Caption: randomly it doesn&#39;t matter
+
+00:41:09.479 --> 00:41:13.618
+Caption: uh if you&#39;ve just clicked to open
+
+00:41:11.219 --> 00:41:15.118
+Caption: something and that updates later like
+
+00:41:13.618 --> 00:41:18.118
+Caption: you said it might be jarring where
+
+00:41:15.118 --> 00:41:19.019
+Caption: everything changes on them you know
+
+00:41:18.118 --> 00:41:21.019
+Caption: um
+
+00:41:19.020 --> 00:41:23.399
+Caption: you&#39;ll have to decide what works for you
+
+00:41:21.020 --> 00:41:25.679
+Caption: potentially you just update lists of
+
+00:41:23.399 --> 00:41:28.078
+Caption: things like that so you see the old list
+
+00:41:25.679 --> 00:41:31.500
+Caption: first and then the new one loads in
+
+00:41:28.079 --> 00:41:34.440
+Caption: there are kind of balances I guess
+
+00:41:31.500 --> 00:41:38.358
+Caption: it depends but I hate to say that all
+
+00:41:34.439 --> 00:41:38.358
+Caption: the time but it generally does depend
+
+00:41:38.699 --> 00:41:44.780
+Caption: cool one more maybe hello
+
+00:41:41.699 --> 00:41:44.780
+Caption: gosh sorry
+
+00:41:54.060 --> 00:41:58.199
+Caption: um I don&#39;t have any particular thoughts
+
+00:41:56.339 --> 00:42:00.000
+Caption: on that I guess
+
+00:41:58.199 --> 00:42:02.280
+Caption: um if it&#39;s
+
+00:42:00.000 --> 00:42:03.419
+Caption: capable of being offline which is
+
+00:42:02.280 --> 00:42:05.400
+Caption: everything right they&#39;ve all got an
+
+00:42:03.419 --> 00:42:07.520
+Caption: airplane mode
+
+00:42:05.399 --> 00:42:07.520
+Caption: um
+
+00:42:08.339 --> 00:42:14.220
+Caption: yeah okay yep so
+
+00:42:11.939 --> 00:42:15.838
+Caption: if I guess it&#39;s something I was probably
+
+00:42:14.219 --> 00:42:17.820
+Caption: meant to talk about but didn&#39;t
+
+00:42:15.839 --> 00:42:19.320
+Caption: um if you&#39;re going to download gigabytes
+
+00:42:17.820 --> 00:42:20.579
+Caption: of data then you&#39;re probably going to
+
+00:42:19.320 --> 00:42:23.160
+Caption: have a bad time because it&#39;s all going
+
+00:42:20.579 --> 00:42:24.839
+Caption: to be on the device so think about
+
+00:42:23.159 --> 00:42:26.338
+Caption: maybe you only load the last month of
+
+00:42:24.839 --> 00:42:30.239
+Caption: data or something like that you don&#39;t
+
+00:42:26.339 --> 00:42:30.900
+Caption: necessarily need everything from history
+
+00:42:30.239 --> 00:42:32.760
+Caption: um
+
+00:42:30.899 --> 00:42:34.439
+Caption: you might just need stuff that&#39;s
+
+00:42:32.760 --> 00:42:36.359
+Caption: relevant to do your job today while
+
+00:42:34.439 --> 00:42:37.979
+Caption: you&#39;re offline so it could be a very
+
+00:42:36.358 --> 00:42:39.719
+Caption: small set or it could be quite a large
+
+00:42:37.979 --> 00:42:41.899
+Caption: set of things you actually need to
+
+00:42:39.719 --> 00:42:41.899
+Caption: download
+
+00:42:43.199 --> 00:42:47.280
+Caption: cool all right I think we&#39;re probably
+
+00:42:44.879 --> 00:42:48.299
+Caption: done it&#39;s lunch next so I&#39;ll wait up
+
+00:42:47.280 --> 00:42:49.679
+Caption: there and if you have more questions
+
+00:42:48.300 --> 00:42:52.320
+Caption: come see me
+
+00:42:49.679 --> 00:42:55.319
+Caption: um otherwise enjoy your food
+
+00:42:52.320 --> 00:42:55.320
+Caption: foreign
+

@@ -1,0 +1,4577 @@
+WEBVTT
+
+00:00:00.358 --> 00:00:06.720
+Caption: our next speaker is Troy Gerwin his talk
+
+00:00:04.679 --> 00:00:09.239
+Caption: is on the limits of my programming
+
+00:00:06.719 --> 00:00:12.178
+Caption: language meaning the limits mean the
+
+00:00:09.239 --> 00:00:13.859
+Caption: limits of my world Troy is a software
+
+00:00:12.178 --> 00:00:16.198
+Caption: engineer with broad industrial
+
+00:00:13.859 --> 00:00:19.858
+Caption: experience and he&#39;s currently developing
+
+00:00:16.198 --> 00:00:22.319
+Caption: games at vgw he maintains he also
+
+00:00:19.858 --> 00:00:25.139
+Caption: maintains and contributes to several
+
+00:00:22.319 --> 00:00:26.760
+Caption: open source projects and is a mentor at
+
+00:00:25.139 --> 00:00:28.379
+Caption: Coda dijo
+
+00:00:26.760 --> 00:00:30.840
+Caption: Troy is interested in what makes
+
+00:00:28.379 --> 00:00:33.000
+Caption: software great not just for the user but
+
+00:00:30.840 --> 00:00:36.078
+Caption: also for the team maintaining it a big
+
+00:00:33.000 --> 00:00:36.078
+Caption: welcome to Troy
+
+00:00:37.078 --> 00:00:42.479
+Caption: foreign
+
+00:00:39.560 --> 00:00:44.100
+Caption: [Applause]
+
+00:00:42.479 --> 00:00:47.340
+Caption: thanks for that introduction thanks
+
+00:00:44.099 --> 00:00:48.659
+Caption: everyone for for coming and also of
+
+00:00:47.340 --> 00:00:50.159
+Caption: course thanks to the sponsors who&#39;ve
+
+00:00:48.659 --> 00:00:52.919
+Caption: made this whole thing possible and also
+
+00:00:50.159 --> 00:00:55.199
+Caption: the volunteers and the organizers
+
+00:00:52.919 --> 00:00:57.718
+Caption: um one other thing uh to remember about
+
+00:00:55.199 --> 00:00:59.460
+Caption: DDD is that it&#39;s a democracy and that&#39;s
+
+00:00:57.719 --> 00:01:01.940
+Caption: a cool thing right but you know what the
+
+00:00:59.459 --> 00:01:05.699
+Caption: problem is with democracy sometimes
+
+00:01:01.939 --> 00:01:07.680
+Caption: candidates make promises to get voted in
+
+00:01:05.699 --> 00:01:11.039
+Caption: and then they find that they can&#39;t
+
+00:01:07.680 --> 00:01:12.658
+Caption: deliver on their promises so when DDD
+
+00:01:11.040 --> 00:01:13.979
+Caption: called for submissions I was just
+
+00:01:12.658 --> 00:01:15.059
+Caption: thinking like what would be a cool talk
+
+00:01:13.978 --> 00:01:16.859
+Caption: what would be something interesting to
+
+00:01:15.059 --> 00:01:18.599
+Caption: go to and I just sort of thought of this
+
+00:01:16.860 --> 00:01:20.159
+Caption: um there was a phrase that was popping
+
+00:01:18.599 --> 00:01:22.080
+Caption: up and I googled and I found okay was
+
+00:01:20.158 --> 00:01:23.519
+Caption: this phrase by Wittgenstein philosopher
+
+00:01:22.080 --> 00:01:25.020
+Caption: and he said the limits of my language
+
+00:01:23.519 --> 00:01:26.399
+Caption: mean the limits of my world and I
+
+00:01:25.019 --> 00:01:27.779
+Caption: thought wow that&#39;d be an interesting
+
+00:01:26.400 --> 00:01:30.000
+Caption: thing to think about with programming
+
+00:01:27.779 --> 00:01:32.099
+Caption: languages like are we actually stopping
+
+00:01:30.000 --> 00:01:34.199
+Caption: ourselves from doing a better job as a
+
+00:01:32.099 --> 00:01:35.459
+Caption: software industry because of limits in
+
+00:01:34.199 --> 00:01:37.258
+Caption: our programming language not being able
+
+00:01:35.459 --> 00:01:39.959
+Caption: to come up with better Solutions or or
+
+00:01:37.259 --> 00:01:41.040
+Caption: less buggy Solutions so I just shoved
+
+00:01:39.959 --> 00:01:43.139
+Caption: one word in there and I thought okay
+
+00:01:41.040 --> 00:01:44.400
+Caption: that&#39;s a nice catchy title all I need to
+
+00:01:43.139 --> 00:01:45.779
+Caption: do now is come up with a pitch and
+
+00:01:44.400 --> 00:01:47.400
+Caption: here&#39;s like a little summarized version
+
+00:01:45.779 --> 00:01:48.839
+Caption: if you don&#39;t remember it but I&#39;m just
+
+00:01:47.400 --> 00:01:49.979
+Caption: saying like you know badly designed
+
+00:01:48.839 --> 00:01:52.199
+Caption: programming language is thought
+
+00:01:49.978 --> 00:01:54.539
+Caption: Inhibitors are they part of the reason
+
+00:01:52.199 --> 00:01:57.360
+Caption: why we ship projects late and
+
+00:01:54.540 --> 00:01:59.399
+Caption: um and and with flaws so that&#39;s as far
+
+00:01:57.360 --> 00:02:01.020
+Caption: as I went unfortunately I delivered the
+
+00:01:59.399 --> 00:02:02.720
+Caption: promise but I didn&#39;t actually stop to
+
+00:02:01.019 --> 00:02:05.938
+Caption: think of what it would take to to
+
+00:02:02.720 --> 00:02:08.160
+Caption: actually fulfill the promise so when my
+
+00:02:05.939 --> 00:02:09.539
+Caption: talk actually got selected I started to
+
+00:02:08.160 --> 00:02:12.080
+Caption: think about what the content would be be
+
+00:02:09.539 --> 00:02:14.458
+Caption: for this talk and I thought oh crap
+
+00:02:12.080 --> 00:02:15.720
+Caption: anyway it&#39;s too late to change the pitch
+
+00:02:14.458 --> 00:02:17.098
+Caption: at that point
+
+00:02:15.720 --> 00:02:18.419
+Caption: and I didn&#39;t want to do a bait and
+
+00:02:17.098 --> 00:02:19.979
+Caption: switch because there&#39;s a lot of depth
+
+00:02:18.419 --> 00:02:23.098
+Caption: and a lot of breadth to this topic it
+
+00:02:19.979 --> 00:02:25.259
+Caption: turns out so I could either just fly
+
+00:02:23.098 --> 00:02:26.819
+Caption: over the you know
+
+00:02:25.259 --> 00:02:28.919
+Caption: fly over the landscape and not really
+
+00:02:26.819 --> 00:02:30.360
+Caption: give much detail anywhere or I could
+
+00:02:28.919 --> 00:02:31.559
+Caption: Deep dive into one thing but then I
+
+00:02:30.360 --> 00:02:33.360
+Caption: really feel like I&#39;d be breaking my
+
+00:02:31.559 --> 00:02:36.059
+Caption: promise which was to sort of cover it a
+
+00:02:33.360 --> 00:02:38.220
+Caption: bit more broadly in early feedback I
+
+00:02:36.059 --> 00:02:39.479
+Caption: gave this talk earlier a draft version
+
+00:02:38.220 --> 00:02:41.279
+Caption: of this and I got some really cool
+
+00:02:39.479 --> 00:02:44.220
+Caption: feedback and someone said this talk
+
+00:02:41.279 --> 00:02:45.419
+Caption: title could be the title of a whole Tech
+
+00:02:44.220 --> 00:02:47.040
+Caption: conference you could have a whole Tech
+
+00:02:45.419 --> 00:02:49.378
+Caption: conference about this and then people
+
+00:02:47.039 --> 00:02:50.819
+Caption: would go to the individual talks and
+
+00:02:49.378 --> 00:02:52.559
+Caption: focus on the different areas and I
+
+00:02:50.819 --> 00:02:53.878
+Caption: thought that&#39;s a cool idea and it
+
+00:02:52.559 --> 00:02:56.458
+Caption: actually gave me a way of thinking about
+
+00:02:53.878 --> 00:02:58.919
+Caption: what this talk that you&#39;ve come to would
+
+00:02:56.458 --> 00:03:00.899
+Caption: be this talk would be the keynote so
+
+00:02:58.919 --> 00:03:02.759
+Caption: imagine that we&#39;ve got a whole whole day
+
+00:03:00.899 --> 00:03:05.098
+Caption: to talk about this topic and this this
+
+00:03:02.759 --> 00:03:07.378
+Caption: talk then just means I can just kind of
+
+00:03:05.098 --> 00:03:09.119
+Caption: like go at 10 000 meters over the
+
+00:03:07.378 --> 00:03:10.559
+Caption: landscape and just maybe point out a few
+
+00:03:09.119 --> 00:03:11.940
+Caption: little details here and there knowing
+
+00:03:10.559 --> 00:03:14.158
+Caption: that you know that&#39;s something that you
+
+00:03:11.940 --> 00:03:15.900
+Caption: can follow up in a you know in detail in
+
+00:03:14.158 --> 00:03:18.479
+Caption: another area all I can do is really just
+
+00:03:15.899 --> 00:03:20.579
+Caption: give it five minutes and just cover a
+
+00:03:18.479 --> 00:03:23.039
+Caption: whole lot of things
+
+00:03:20.580 --> 00:03:24.720
+Caption: um so just at this high level we&#39;re
+
+00:03:23.039 --> 00:03:26.458
+Caption: talking about programming languages and
+
+00:03:24.720 --> 00:03:28.199
+Caption: I thought that this this is a quote from
+
+00:03:26.458 --> 00:03:30.419
+Caption: a really great introductory textbook on
+
+00:03:28.199 --> 00:03:32.220
+Caption: functional programming uh by a couple of
+
+00:03:30.419 --> 00:03:34.259
+Caption: guys who are really influential in the
+
+00:03:32.220 --> 00:03:36.059
+Caption: ml community and developing camel in
+
+00:03:34.259 --> 00:03:37.619
+Caption: particular uh and they said the
+
+00:03:36.059 --> 00:03:39.419
+Caption: programming language we use influences
+
+00:03:37.619 --> 00:03:41.639
+Caption: our capacity as programmers to produce
+
+00:03:39.419 --> 00:03:44.039
+Caption: correct programs within a reasonable
+
+00:03:41.639 --> 00:03:45.779
+Caption: period of time and
+
+00:03:44.039 --> 00:03:47.219
+Caption: something implied in this we&#39;re not
+
+00:03:45.779 --> 00:03:49.860
+Caption: talking about there&#39;s no problem with
+
+00:03:47.220 --> 00:03:51.598
+Caption: Express being able to express Solutions
+
+00:03:49.860 --> 00:03:52.378
+Caption: we can express Solutions most of you
+
+00:03:51.598 --> 00:03:54.360
+Caption: have probably heard of during
+
+00:03:52.378 --> 00:03:56.098
+Caption: completeness it just means if
+
+00:03:54.360 --> 00:03:57.839
+Caption: something&#39;s true and complete you can
+
+00:03:56.098 --> 00:04:00.000
+Caption: compute absolutely anything that is
+
+00:03:57.839 --> 00:04:01.440
+Caption: computable with with that device or that
+
+00:04:00.000 --> 00:04:03.738
+Caption: language or whatever it is and it&#39;s
+
+00:04:01.440 --> 00:04:06.119
+Caption: actually surprisingly low bar
+
+00:04:03.738 --> 00:04:07.919
+Caption: redstone blocks in Minecraft that you&#39;re
+
+00:04:06.119 --> 00:04:09.360
+Caption: incomplete Excel spreadsheets are
+
+00:04:07.919 --> 00:04:11.580
+Caption: cheering complete I just found out at a
+
+00:04:09.360 --> 00:04:13.378
+Caption: previous talk I went to that PowerPoint
+
+00:04:11.580 --> 00:04:14.699
+Caption: slides are cheering complete you could
+
+00:04:13.378 --> 00:04:16.738
+Caption: you could build your line of business
+
+00:04:14.699 --> 00:04:19.320
+Caption: application as a as a deck of PowerPoint
+
+00:04:16.739 --> 00:04:22.139
+Caption: slides if you really wanted to
+
+00:04:19.320 --> 00:04:24.720
+Caption: um but we don&#39;t do that because the two
+
+00:04:22.139 --> 00:04:25.979
+Caption: real key things are not can you build it
+
+00:04:24.720 --> 00:04:28.440
+Caption: it&#39;s that can you build it in a
+
+00:04:25.979 --> 00:04:31.080
+Caption: reasonable period of time and with few
+
+00:04:28.440 --> 00:04:33.720
+Caption: enough defects so these are the the two
+
+00:04:31.079 --> 00:04:35.099
+Caption: really important things so just to
+
+00:04:33.720 --> 00:04:36.360
+Caption: summarize those two things I&#39;ve just
+
+00:04:35.100 --> 00:04:37.679
+Caption: used the words convenience and
+
+00:04:36.359 --> 00:04:39.839
+Caption: correctness so these are kind of like
+
+00:04:37.679 --> 00:04:41.279
+Caption: the the themes that will come back again
+
+00:04:39.839 --> 00:04:42.119
+Caption: and again
+
+00:04:41.279 --> 00:04:44.220
+Caption: um
+
+00:04:42.119 --> 00:04:46.699
+Caption: the pictures you might be wondering what
+
+00:04:44.220 --> 00:04:48.660
+Caption: that&#39;s all about I went to another
+
+00:04:46.699 --> 00:04:50.639
+Caption: conference the other day that my work
+
+00:04:48.660 --> 00:04:52.619
+Caption: put on and I just heard this phrase
+
+00:04:50.639 --> 00:04:55.259
+Caption: dragons and rabbit holes and I thought
+
+00:04:52.619 --> 00:04:56.399
+Caption: hey that kind of applies so dragons like
+
+00:04:55.259 --> 00:04:57.959
+Caption: on the edge of the map there&#39;d be
+
+00:04:56.399 --> 00:05:00.359
+Caption: dragons right they&#39;re the things you
+
+00:04:57.959 --> 00:05:01.739
+Caption: want to avoid the bugs the the undefined
+
+00:05:00.359 --> 00:05:03.439
+Caption: behavior in your program so that&#39;s
+
+00:05:01.739 --> 00:05:06.239
+Caption: that&#39;s correctness
+
+00:05:03.440 --> 00:05:07.979
+Caption: rabbit holes is when in the context of
+
+00:05:06.239 --> 00:05:09.720
+Caption: programming languages it&#39;s really
+
+00:05:07.979 --> 00:05:11.580
+Caption: difficult to figure out how do I express
+
+00:05:09.720 --> 00:05:13.199
+Caption: the the problem that I&#39;m trying to solve
+
+00:05:11.579 --> 00:05:15.000
+Caption: in the language the language maybe it
+
+00:05:13.199 --> 00:05:16.320
+Caption: gives you no clear ways to do it and
+
+00:05:15.000 --> 00:05:18.239
+Caption: you&#39;ve got to build up all this stuff
+
+00:05:16.320 --> 00:05:20.160
+Caption: yourself or you&#39;re out there searching
+
+00:05:18.239 --> 00:05:22.319
+Caption: through half a dozen libraries that give
+
+00:05:20.160 --> 00:05:25.500
+Caption: you different trade-offs and so on so
+
+00:05:22.320 --> 00:05:26.820
+Caption: convenience is about how what&#39;s a
+
+00:05:25.500 --> 00:05:28.199
+Caption: reasonable amount of time to be able to
+
+00:05:26.820 --> 00:05:30.360
+Caption: come up with a good solution and how
+
+00:05:28.199 --> 00:05:32.639
+Caption: maintainable is that solution so these
+
+00:05:30.359 --> 00:05:35.418
+Caption: are the two sort of overarching themes
+
+00:05:32.639 --> 00:05:35.419
+Caption: that we come across
+
+00:05:36.179 --> 00:05:40.079
+Caption: um just to briefly go on those actually
+
+00:05:37.979 --> 00:05:41.519
+Caption: I I think for time I won&#39;t go into
+
+00:05:40.079 --> 00:05:43.079
+Caption: details but some of you may have heard
+
+00:05:41.519 --> 00:05:44.698
+Caption: of this appear Wharf hypothesis so
+
+00:05:43.079 --> 00:05:47.459
+Caption: convenience is really about this idea
+
+00:05:44.699 --> 00:05:49.919
+Caption: that that limits in what language you
+
+00:05:47.459 --> 00:05:51.359
+Caption: what your language can express mean you
+
+00:05:49.919 --> 00:05:53.220
+Caption: know limits in what you can actually do
+
+00:05:51.359 --> 00:05:55.019
+Caption: so it&#39;s language as a thought tool it
+
+00:05:53.220 --> 00:05:56.820
+Caption: can basically multiply your powers or it
+
+00:05:55.019 --> 00:05:58.759
+Caption: could divide your powers
+
+00:05:56.820 --> 00:06:01.559
+Caption: um so this is the effort to express
+
+00:05:58.759 --> 00:06:03.959
+Caption: requirements as a as a program using a
+
+00:06:01.559 --> 00:06:05.880
+Caption: programming language so the the general
+
+00:06:03.959 --> 00:06:07.259
+Caption: thing with convenience is that we seem
+
+00:06:05.880 --> 00:06:08.699
+Caption: to be suggesting that we want more
+
+00:06:07.259 --> 00:06:09.839
+Caption: flexibility and we want Rich language
+
+00:06:08.699 --> 00:06:12.419
+Caption: because that&#39;s going to make it more
+
+00:06:09.839 --> 00:06:15.059
+Caption: convenient on the other side correctness
+
+00:06:12.419 --> 00:06:18.000
+Caption: the safety of being able to express
+
+00:06:15.059 --> 00:06:19.679
+Caption: things in a program uh the the set of
+
+00:06:18.000 --> 00:06:22.199
+Caption: possible programs that exist out there
+
+00:06:19.679 --> 00:06:24.479
+Caption: is huge right probably infinite
+
+00:06:22.199 --> 00:06:25.860
+Caption: definitely infinite but a lot of those
+
+00:06:24.479 --> 00:06:27.539
+Caption: programs that we could possibly Express
+
+00:06:25.859 --> 00:06:29.279
+Caption: they&#39;re subtly wrong they might be
+
+00:06:27.539 --> 00:06:31.739
+Caption: almost the right solution but not choir
+
+00:06:29.279 --> 00:06:33.179
+Caption: but we can still Express them so this
+
+00:06:31.739 --> 00:06:35.039
+Caption: sort of implies that we want less
+
+00:06:33.179 --> 00:06:37.739
+Caption: expressiveness we want to basically cut
+
+00:06:35.039 --> 00:06:39.660
+Caption: off Avenues towards expressing programs
+
+00:06:37.739 --> 00:06:42.539
+Caption: that are wrong that are subtly wrong
+
+00:06:39.660 --> 00:06:44.639
+Caption: um if for example some some programming
+
+00:06:42.539 --> 00:06:47.220
+Caption: languages allow you to express memory
+
+00:06:44.639 --> 00:06:49.199
+Caption: management explicitly but they introduce
+
+00:06:47.220 --> 00:06:50.819
+Caption: the dangers because of that because they
+
+00:06:49.199 --> 00:06:53.039
+Caption: allow you to express all the incorrect
+
+00:06:50.819 --> 00:06:54.119
+Caption: patterns of memory management as well on
+
+00:06:53.039 --> 00:06:55.979
+Caption: the other hand you&#39;ve got languages like
+
+00:06:54.119 --> 00:06:57.600
+Caption: Java or c-sharp that have automatic
+
+00:06:55.979 --> 00:06:59.100
+Caption: memory management you cannot express
+
+00:06:57.600 --> 00:07:00.119
+Caption: memory management patterns it doesn&#39;t
+
+00:06:59.100 --> 00:07:01.800
+Caption: let you do it it just does it
+
+00:07:00.119 --> 00:07:04.859
+Caption: automatically so it&#39;s less expressive
+
+00:07:01.799 --> 00:07:08.159
+Caption: but it&#39;s more correct
+
+00:07:04.859 --> 00:07:11.219
+Caption: so if this was a fictional conference PL
+
+00:07:08.160 --> 00:07:13.860
+Caption: conf 22 this would be the the billing of
+
+00:07:11.220 --> 00:07:15.419
+Caption: the talks so I&#39;m going to talk just
+
+00:07:13.859 --> 00:07:16.918
+Caption: briefly about a bunch of topics here
+
+00:07:15.419 --> 00:07:17.940
+Caption: basically some fundamentals at the
+
+00:07:16.919 --> 00:07:21.000
+Caption: beginning
+
+00:07:17.940 --> 00:07:22.380
+Caption: um this General theme that I want to
+
+00:07:21.000 --> 00:07:24.059
+Caption: bring out that programming languages are
+
+00:07:22.380 --> 00:07:26.819
+Caption: for humans and then a couple of deep
+
+00:07:24.059 --> 00:07:28.799
+Caption: Dives at the end
+
+00:07:26.819 --> 00:07:30.119
+Caption: all right getting started on the first
+
+00:07:28.799 --> 00:07:30.839
+Caption: one
+
+00:07:30.119 --> 00:07:33.539
+Caption: um
+
+00:07:30.839 --> 00:07:35.819
+Caption: just about motivation
+
+00:07:33.539 --> 00:07:37.019
+Caption: why would we care about programming
+
+00:07:35.819 --> 00:07:39.119
+Caption: language design does it really matter in
+
+00:07:37.019 --> 00:07:42.779
+Caption: the real world so
+
+00:07:39.119 --> 00:07:45.179
+Caption: Mark Anderson about 10 years ago put out
+
+00:07:42.779 --> 00:07:47.039
+Caption: a an article that was quite well known
+
+00:07:45.179 --> 00:07:48.479
+Caption: Wall Street Journal software is eating
+
+00:07:47.039 --> 00:07:50.759
+Caption: the world and he was just pointing out
+
+00:07:48.479 --> 00:07:52.919
+Caption: how we&#39;ve just got this unprecedented
+
+00:07:50.759 --> 00:07:55.919
+Caption: and growing Global dependence on
+
+00:07:52.919 --> 00:07:57.179
+Caption: software systems there&#39;s some just look
+
+00:07:55.919 --> 00:07:58.800
+Caption: at the companies that I&#39;ve listed there
+
+00:07:57.179 --> 00:08:00.959
+Caption: think about what they&#39;ve how they&#39;ve
+
+00:07:58.799 --> 00:08:03.839
+Caption: transformed our economy so bookshops
+
+00:08:00.959 --> 00:08:05.339
+Caption: Amazon comes along the the global book
+
+00:08:03.839 --> 00:08:08.279
+Caption: industry is now basically a software
+
+00:08:05.339 --> 00:08:09.720
+Caption: industry uh Uber Uber doesn&#39;t have taxis
+
+00:08:08.279 --> 00:08:11.579
+Caption: they don&#39;t have their own drivers
+
+00:08:09.720 --> 00:08:13.259
+Caption: they&#39;re basically they have an app and
+
+00:08:11.579 --> 00:08:15.598
+Caption: they have a bunch of software running on
+
+00:08:13.259 --> 00:08:17.059
+Caption: the back end and and that&#39;s the the
+
+00:08:15.598 --> 00:08:19.739
+Caption: global company
+
+00:08:17.059 --> 00:08:21.899
+Caption: so more and more of the global economy
+
+00:08:19.739 --> 00:08:24.598
+Caption: is actually software it&#39;s built and and
+
+00:08:21.899 --> 00:08:26.759
+Caption: runs off both software so this also
+
+00:08:24.598 --> 00:08:29.819
+Caption: implies that there&#39;s these growing and
+
+00:08:26.759 --> 00:08:32.338
+Caption: huge risk and reward multipliers because
+
+00:08:29.819 --> 00:08:35.458
+Caption: so much of what of our economic everyday
+
+00:08:32.338 --> 00:08:37.440
+Caption: activity is mediated through software so
+
+00:08:35.458 --> 00:08:39.059
+Caption: if you can increase the convenience of
+
+00:08:37.440 --> 00:08:41.398
+Caption: being able to create that software more
+
+00:08:39.059 --> 00:08:43.338
+Caption: quickly or more reliably you might have
+
+00:08:41.398 --> 00:08:45.599
+Caption: a great competitive Advantage
+
+00:08:43.338 --> 00:08:47.700
+Caption: equally if you can improve the
+
+00:08:45.599 --> 00:08:49.380
+Caption: correctness because of new patterns in
+
+00:08:47.700 --> 00:08:51.600
+Caption: in programming languages that just you
+
+00:08:49.380 --> 00:08:54.119
+Caption: know block off Avenues of expressing
+
+00:08:51.599 --> 00:08:55.859
+Caption: bugs you might experience less hacks
+
+00:08:54.119 --> 00:08:58.739
+Caption: less exploits and less failures which is
+
+00:08:55.859 --> 00:09:01.440
+Caption: also going to be good so I&#39;m not
+
+00:08:58.739 --> 00:09:05.398
+Caption: suggesting that programming languages
+
+00:09:01.440 --> 00:09:06.778
+Caption: are the only problem for improving our
+
+00:09:05.398 --> 00:09:08.219
+Caption: productivity with software they&#39;re
+
+00:09:06.778 --> 00:09:09.719
+Caption: probably not even the major factor
+
+00:09:08.219 --> 00:09:11.219
+Caption: because we&#39;ve got people and we&#39;ve got
+
+00:09:09.719 --> 00:09:12.958
+Caption: processes and that&#39;s usually where you
+
+00:09:11.219 --> 00:09:14.518
+Caption: look if you want to make things more
+
+00:09:12.958 --> 00:09:16.619
+Caption: efficient
+
+00:09:14.518 --> 00:09:18.239
+Caption: um but I I don&#39;t think it&#39;s zero I think
+
+00:09:16.619 --> 00:09:19.799
+Caption: that I what I&#39;d like to demonstrate
+
+00:09:18.239 --> 00:09:22.320
+Caption: today is that programming languages
+
+00:09:19.799 --> 00:09:23.518
+Caption: themselves can shift the needle on
+
+00:09:22.320 --> 00:09:24.720
+Caption: things that are actually important in
+
+00:09:23.518 --> 00:09:26.458
+Caption: the real world
+
+00:09:24.719 --> 00:09:27.958
+Caption: um and even if it&#39;s a small amount we&#39;re
+
+00:09:26.458 --> 00:09:29.880
+Caption: talking a huge numbers here right so
+
+00:09:27.958 --> 00:09:31.799
+Caption: it&#39;s still a huge number
+
+00:09:29.880 --> 00:09:33.479
+Caption: so the question is what about these
+
+00:09:31.799 --> 00:09:35.518
+Caption: numbers like are we doing fine as a
+
+00:09:33.479 --> 00:09:37.199
+Caption: software industry or aren&#39;t we so it&#39;s
+
+00:09:35.518 --> 00:09:38.700
+Caption: not hard to actually just like troll the
+
+00:09:37.200 --> 00:09:40.980
+Caption: internet and look for example look for
+
+00:09:38.700 --> 00:09:42.119
+Caption: studies I just listed a whole bunch here
+
+00:09:40.979 --> 00:09:44.039
+Caption: I&#39;m not going to go through all of these
+
+00:09:42.119 --> 00:09:46.260
+Caption: but just you can see the the general
+
+00:09:44.039 --> 00:09:47.398
+Caption: size of the numbers so the capital t is
+
+00:09:46.260 --> 00:09:48.838
+Caption: trillion
+
+00:09:47.398 --> 00:09:51.419
+Caption: um there&#39;s studies there that are just
+
+00:09:48.838 --> 00:09:54.059
+Caption: estimating the cost of software failures
+
+00:09:51.419 --> 00:09:56.458
+Caption: in the us alone at something like two
+
+00:09:54.059 --> 00:09:58.979
+Caption: trillion dollars a year which is like 10
+
+00:09:56.458 --> 00:10:01.380
+Caption: of the economy even if the estimates are
+
+00:09:58.979 --> 00:10:03.599
+Caption: way off even if they&#39;re vaguely in the
+
+00:10:01.380 --> 00:10:06.119
+Caption: ballpark it&#39;s there we&#39;re talking really
+
+00:10:03.599 --> 00:10:07.739
+Caption: huge numbers there&#39;s lots of other
+
+00:10:06.119 --> 00:10:09.659
+Caption: things there that are easy to find if
+
+00:10:07.739 --> 00:10:11.398
+Caption: you&#39;re interested there&#39;s also really
+
+00:10:09.659 --> 00:10:13.679
+Caption: interesting individual examples and I&#39;ll
+
+00:10:11.398 --> 00:10:16.739
+Caption: just highlight this thorac 25 back in
+
+00:10:13.679 --> 00:10:19.219
+Caption: the 80s it was a medical device I
+
+00:10:16.739 --> 00:10:22.619
+Caption: believe for taking X-rays of patients
+
+00:10:19.219 --> 00:10:24.419
+Caption: and injuries and deaths were involved so
+
+00:10:22.619 --> 00:10:25.559
+Caption: that was a combined Hardware Software
+
+00:10:24.419 --> 00:10:26.820
+Caption: System that they wrote their own
+
+00:10:25.559 --> 00:10:28.739
+Caption: software for that system the company
+
+00:10:26.820 --> 00:10:30.479
+Caption: that released it it had preemptive
+
+00:10:28.739 --> 00:10:31.979
+Caption: multitasking it was was basically
+
+00:10:30.479 --> 00:10:33.778
+Caption: written in Assembly Language and it also
+
+00:10:31.979 --> 00:10:35.398
+Caption: had mutable shared state so the language
+
+00:10:33.778 --> 00:10:37.080
+Caption: they were using didn&#39;t protect against
+
+00:10:35.398 --> 00:10:39.059
+Caption: any of those things it was all up to the
+
+00:10:37.080 --> 00:10:41.760
+Caption: the programmers to be able to spot their
+
+00:10:39.059 --> 00:10:43.200
+Caption: own errors and in all their test Suites
+
+00:10:41.760 --> 00:10:45.600
+Caption: everything worked fine because they
+
+00:10:43.200 --> 00:10:47.278
+Caption: tested it in test conditions had no
+
+00:10:45.599 --> 00:10:50.000
+Caption: problems eventually they actually
+
+00:10:47.278 --> 00:10:52.619
+Caption: injured and killed a number of people
+
+00:10:50.000 --> 00:10:54.239
+Caption: because certain operators using that
+
+00:10:52.619 --> 00:10:55.440
+Caption: machine typed a bit too fast at the
+
+00:10:54.239 --> 00:10:58.200
+Caption: wrong time and that triggered a race
+
+00:10:55.440 --> 00:10:59.458
+Caption: condition in their code and they didn&#39;t
+
+00:10:58.200 --> 00:11:01.200
+Caption: admit it for a long time because they
+
+00:10:59.458 --> 00:11:03.239
+Caption: couldn&#39;t reproduce it but that was
+
+00:11:01.200 --> 00:11:05.820
+Caption: definitely an issue that could be
+
+00:11:03.239 --> 00:11:07.380
+Caption: resolved with a different choice of
+
+00:11:05.820 --> 00:11:09.000
+Caption: programming language
+
+00:11:07.380 --> 00:11:11.099
+Caption: so that&#39;s just one example and there&#39;s
+
+00:11:09.000 --> 00:11:13.380
+Caption: others there as well
+
+00:11:11.099 --> 00:11:15.059
+Caption: um it&#39;s also easy to come across
+
+00:11:13.380 --> 00:11:16.919
+Caption: articles like this so Microsoft did an
+
+00:11:15.059 --> 00:11:18.719
+Caption: internal study and found that 70 of
+
+00:11:16.919 --> 00:11:20.039
+Caption: their security bugs are memory safety
+
+00:11:18.719 --> 00:11:21.958
+Caption: issues and in that article they
+
+00:11:20.039 --> 00:11:23.880
+Caption: particularly highlight that a lot of the
+
+00:11:21.958 --> 00:11:24.958
+Caption: software involves written in CNC plus
+
+00:11:23.880 --> 00:11:27.479
+Caption: plus
+
+00:11:24.958 --> 00:11:28.739
+Caption: memory unsafe languages where one slip
+
+00:11:27.479 --> 00:11:30.898
+Caption: up in the developers memory management
+
+00:11:28.739 --> 00:11:32.700
+Caption: code can lead to a slew of memory safety
+
+00:11:30.898 --> 00:11:34.619
+Caption: error errors that attackers can exploit
+
+00:11:32.700 --> 00:11:36.838
+Caption: with dangerous and intrusive
+
+00:11:34.619 --> 00:11:37.940
+Caption: consequences so that&#39;s really cheating
+
+00:11:36.838 --> 00:11:40.679
+Caption: home
+
+00:11:37.940 --> 00:11:42.778
+Caption: consequences directly to the programming
+
+00:11:40.679 --> 00:11:44.578
+Caption: language Choice itself
+
+00:11:42.778 --> 00:11:46.140
+Caption: so just to sum up that section
+
+00:11:44.578 --> 00:11:49.458
+Caption: programming language design definitely
+
+00:11:46.140 --> 00:11:49.458
+Caption: does have real world consequences
+
+00:11:49.679 --> 00:11:52.919
+Caption: another one of these topics that we
+
+00:11:51.239 --> 00:11:54.239
+Caption: would fly over in this conference would
+
+00:11:52.919 --> 00:11:55.679
+Caption: be that there&#39;s never going to be one
+
+00:11:54.239 --> 00:11:58.018
+Caption: programming language to rule them all
+
+00:11:55.679 --> 00:12:00.119
+Caption: wouldn&#39;t it it&#39;d be nice right
+
+00:11:58.018 --> 00:12:02.578
+Caption: um but well
+
+00:12:00.119 --> 00:12:04.018
+Caption: here&#39;s a picture of uh each of those
+
+00:12:02.578 --> 00:12:05.338
+Caption: little words it doesn&#39;t matter they&#39;re
+
+00:12:04.018 --> 00:12:06.838
+Caption: too small to read but they&#39;re all names
+
+00:12:05.338 --> 00:12:08.398
+Caption: of programming languages and the little
+
+00:12:06.838 --> 00:12:10.320
+Caption: lines between them basically Trace
+
+00:12:08.398 --> 00:12:12.419
+Caption: influence and we&#39;re going down the page
+
+00:12:10.320 --> 00:12:14.640
+Caption: so we&#39;re back in the 70s up the top and
+
+00:12:12.419 --> 00:12:15.599
+Caption: we&#39;re down to a few years ago at the
+
+00:12:14.640 --> 00:12:17.220
+Caption: bottom
+
+00:12:15.599 --> 00:12:18.838
+Caption: um anyway I don&#39;t know about you but I
+
+00:12:17.219 --> 00:12:23.398
+Caption: don&#39;t really see much sense of
+
+00:12:18.838 --> 00:12:25.200
+Caption: convergence in here it&#39;s and also it
+
+00:12:23.398 --> 00:12:26.700
+Caption: seems like ideas have been around for a
+
+00:12:25.200 --> 00:12:30.119
+Caption: long time and they influence and they
+
+00:12:26.700 --> 00:12:32.579
+Caption: they go away they come back so consensus
+
+00:12:30.119 --> 00:12:35.338
+Caption: in programming languages doesn&#39;t seem to
+
+00:12:32.578 --> 00:12:39.119
+Caption: really be there so why is that it&#39;s not
+
+00:12:35.338 --> 00:12:41.398
+Caption: for lack of trying so
+
+00:12:39.119 --> 00:12:43.200
+Caption: the the current candidate for the one
+
+00:12:41.398 --> 00:12:45.059
+Caption: programming language to rule them all in
+
+00:12:43.200 --> 00:12:46.799
+Caption: many people&#39;s view is is Javascript and
+
+00:12:45.059 --> 00:12:48.239
+Caption: Atwood even made law about well what he
+
+00:12:46.799 --> 00:12:49.380
+Caption: claimed you know to be a law that
+
+00:12:48.239 --> 00:12:50.880
+Caption: anything that can be written in
+
+00:12:49.380 --> 00:12:53.458
+Caption: JavaScript will eventually be written in
+
+00:12:50.880 --> 00:12:55.979
+Caption: JavaScript and on the far side on my um
+
+00:12:53.458 --> 00:12:57.419
+Caption: on the right hand side there uh it
+
+00:12:55.979 --> 00:12:59.278
+Caption: probably too small to read but it just
+
+00:12:57.419 --> 00:13:01.018
+Caption: gives you a glimpse this is the tc39
+
+00:12:59.278 --> 00:13:02.338
+Caption: committee that decides what things are
+
+00:13:01.018 --> 00:13:03.958
+Caption: going to make it into the next version
+
+00:13:02.338 --> 00:13:06.599
+Caption: of JavaScript and pretty much everyone
+
+00:13:03.958 --> 00:13:08.219
+Caption: this is this is like a third of just
+
+00:13:06.599 --> 00:13:09.778
+Caption: what fits on a screen it goes down and
+
+00:13:08.219 --> 00:13:11.638
+Caption: these are only stage one proposals they
+
+00:13:09.778 --> 00:13:13.018
+Caption: also have stage zero stage one two three
+
+00:13:11.638 --> 00:13:15.659
+Caption: and then four means it&#39;s in the language
+
+00:13:13.018 --> 00:13:17.700
+Caption: so basically every everybody is trying
+
+00:13:15.659 --> 00:13:19.319
+Caption: to get the language to do their thing so
+
+00:13:17.700 --> 00:13:20.639
+Caption: you know it&#39;s not like we don&#39;t want
+
+00:13:19.320 --> 00:13:21.359
+Caption: there to be one language to rule them
+
+00:13:20.638 --> 00:13:24.000
+Caption: all
+
+00:13:21.359 --> 00:13:27.479
+Caption: um this is not new so Tony Hawk who gave
+
+00:13:24.000 --> 00:13:30.179
+Caption: us quick sort um he also gave us nulls
+
+00:13:27.479 --> 00:13:32.039
+Caption: the billion dollar mistake uh he&#39;s a
+
+00:13:30.179 --> 00:13:33.179
+Caption: quote from a paper that he wrote he was
+
+00:13:32.039 --> 00:13:35.338
+Caption: it says we were charged with the
+
+00:13:33.179 --> 00:13:37.619
+Caption: standardization of a language to end all
+
+00:13:35.338 --> 00:13:39.479
+Caption: languages designed to meet the needs of
+
+00:13:37.619 --> 00:13:42.778
+Caption: all Computer Applications both social
+
+00:13:39.479 --> 00:13:45.659
+Caption: and scientific and that was in the 1960s
+
+00:13:42.778 --> 00:13:47.338
+Caption: in reference to pli which most of you
+
+00:13:45.659 --> 00:13:50.518
+Caption: including me have probably never even
+
+00:13:47.338 --> 00:13:52.820
+Caption: seen let alone worked on so I guess that
+
+00:13:50.518 --> 00:13:55.619
+Caption: didn&#39;t work out either
+
+00:13:52.820 --> 00:13:57.059
+Caption: the problem really comes down to the
+
+00:13:55.619 --> 00:13:58.739
+Caption: fact that there&#39;s competing goals in
+
+00:13:57.059 --> 00:13:59.880
+Caption: programming language design so I&#39;m not
+
+00:13:58.739 --> 00:14:01.260
+Caption: going to go through all of these but
+
+00:13:59.880 --> 00:14:03.778
+Caption: just to give you an idea there&#39;s just
+
+00:14:01.260 --> 00:14:06.000
+Caption: some I just ham it out just I think a
+
+00:14:03.778 --> 00:14:08.578
+Caption: lot of them would be make sense but I&#39;ll
+
+00:14:06.000 --> 00:14:10.219
+Caption: give you one illustration so going back
+
+00:14:08.578 --> 00:14:14.039
+Caption: to this example with memory safety
+
+00:14:10.219 --> 00:14:15.778
+Caption: that&#39;s relevant here so some trade-offs
+
+00:14:14.039 --> 00:14:17.219
+Caption: here so for example if you were you had
+
+00:14:15.778 --> 00:14:18.119
+Caption: a fresh new application you need to
+
+00:14:17.219 --> 00:14:20.278
+Caption: develop and you&#39;re trying to choose
+
+00:14:18.119 --> 00:14:23.299
+Caption: which language to use
+
+00:14:20.278 --> 00:14:25.380
+Caption: um if you had absolute real-time
+
+00:14:23.299 --> 00:14:27.958
+Caption: performance requirements where you
+
+00:14:25.380 --> 00:14:29.880
+Caption: cannot stand garbage collection pauses
+
+00:14:27.958 --> 00:14:31.200
+Caption: let&#39;s say so you&#39;re on the side of
+
+00:14:29.880 --> 00:14:34.078
+Caption: having to have absolute performance
+
+00:14:31.200 --> 00:14:35.398
+Caption: there is a trade-off there in the sense
+
+00:14:34.078 --> 00:14:37.138
+Caption: that you probably wouldn&#39;t want to use
+
+00:14:35.398 --> 00:14:38.940
+Caption: Java and c-sharp because they do
+
+00:14:37.138 --> 00:14:43.198
+Caption: automatic memory management at the cost
+
+00:14:38.940 --> 00:14:47.220
+Caption: of some stuttering some pauses and just
+
+00:14:43.198 --> 00:14:49.319
+Caption: unpredictable performance so you would
+
+00:14:47.219 --> 00:14:51.239
+Caption: probably want to go on the C plus or
+
+00:14:49.320 --> 00:14:53.760
+Caption: rust side because you can actually
+
+00:14:51.239 --> 00:14:56.219
+Caption: literally control the memory management
+
+00:14:53.760 --> 00:14:58.500
+Caption: in the programming language itself
+
+00:14:56.219 --> 00:15:00.719
+Caption: on the other hand is there a trade-off
+
+00:14:58.500 --> 00:15:04.739
+Caption: let&#39;s say at the bottom between
+
+00:15:00.719 --> 00:15:07.799
+Caption: um Java and rust so if if we choose rust
+
+00:15:04.739 --> 00:15:09.719
+Caption: because it&#39;s really safe with memory why
+
+00:15:07.799 --> 00:15:11.698
+Caption: why wouldn&#39;t we always choose rust well
+
+00:15:09.719 --> 00:15:12.898
+Caption: maybe performance isn&#39;t the the top
+
+00:15:11.698 --> 00:15:15.000
+Caption: thing maybe it&#39;s just speed of
+
+00:15:12.898 --> 00:15:16.559
+Caption: development and um I&#39;m not a super
+
+00:15:15.000 --> 00:15:18.419
+Caption: proficient rust developer but having
+
+00:15:16.559 --> 00:15:19.859
+Caption: looked around I can see that you know a
+
+00:15:18.419 --> 00:15:21.299
+Caption: lot of people say it&#39;s not that
+
+00:15:19.859 --> 00:15:22.619
+Caption: straightforward to satisfy the borrow
+
+00:15:21.299 --> 00:15:23.880
+Caption: Checker you&#39;ve got to do it you&#39;ve got
+
+00:15:22.619 --> 00:15:27.059
+Caption: to really understand what you&#39;re doing
+
+00:15:23.880 --> 00:15:29.160
+Caption: in a non-trivial application so why
+
+00:15:27.059 --> 00:15:31.320
+Caption: would you even put that barrier in front
+
+00:15:29.159 --> 00:15:33.479
+Caption: of your team of software developers if
+
+00:15:31.320 --> 00:15:35.398
+Caption: absolute real-time performance wasn&#39;t an
+
+00:15:33.479 --> 00:15:37.739
+Caption: issue maybe you&#39;re just developing a a
+
+00:15:35.398 --> 00:15:39.179
+Caption: simple app for your own use or I don&#39;t
+
+00:15:37.739 --> 00:15:41.039
+Caption: know there&#39;s lots of situations where
+
+00:15:39.179 --> 00:15:42.898
+Caption: you might not have that requirement so
+
+00:15:41.039 --> 00:15:44.518
+Caption: there&#39;s a trade-off there it&#39;s it&#39;s
+
+00:15:42.898 --> 00:15:46.799
+Caption: harder to get the thing up and running
+
+00:15:44.518 --> 00:15:48.659
+Caption: and shipped in Rust than it would be in
+
+00:15:46.799 --> 00:15:50.099
+Caption: Java and C sharp so it really depends on
+
+00:15:48.659 --> 00:15:51.958
+Caption: whether you have that performance
+
+00:15:50.099 --> 00:15:56.458
+Caption: requirement or not so that&#39;s just some
+
+00:15:51.958 --> 00:15:58.638
+Caption: examples of trade-offs okay moving on
+
+00:15:56.458 --> 00:16:01.919
+Caption: um this section would be about
+
+00:15:58.638 --> 00:16:04.078
+Caption: essential and accidental complexity so
+
+00:16:01.919 --> 00:16:06.239
+Caption: this concept came from Fred Brooks
+
+00:16:04.078 --> 00:16:09.179
+Caption: Brooks who gave us the book The Mythical
+
+00:16:06.239 --> 00:16:10.799
+Caption: man month so back in the 80s he also
+
+00:16:09.179 --> 00:16:13.078
+Caption: wrote this paper called No Silver Bullet
+
+00:16:10.799 --> 00:16:15.359
+Caption: and he he gave us this nice way of
+
+00:16:13.078 --> 00:16:17.159
+Caption: thinking about software systems as uh
+
+00:16:15.359 --> 00:16:19.078
+Caption: having two kinds of complexity in them
+
+00:16:17.159 --> 00:16:21.778
+Caption: essential complexity and accidental
+
+00:16:19.078 --> 00:16:23.398
+Caption: complexity so essential complexity in
+
+00:16:21.778 --> 00:16:25.078
+Caption: software is basically the stuff you
+
+00:16:23.398 --> 00:16:27.119
+Caption: can&#39;t get rid of because it&#39;s the spec
+
+00:16:25.078 --> 00:16:28.979
+Caption: it&#39;s like here here&#39;s the spec please go
+
+00:16:27.119 --> 00:16:30.838
+Caption: and Implement a program that does this
+
+00:16:28.979 --> 00:16:33.299
+Caption: that does what it says so if it&#39;s in the
+
+00:16:30.838 --> 00:16:34.979
+Caption: spec and the Spec&#39;s complicated That&#39;s
+
+00:16:33.299 --> 00:16:36.599
+Caption: essential complexity if it says you&#39;ve
+
+00:16:34.979 --> 00:16:38.578
+Caption: got to do those 25 things you&#39;ve got to
+
+00:16:36.599 --> 00:16:40.619
+Caption: do those 25 things if it says you have
+
+00:16:38.578 --> 00:16:43.198
+Caption: to interface with three wildly
+
+00:16:40.619 --> 00:16:45.239
+Caption: incompatible terribly written external
+
+00:16:43.198 --> 00:16:46.859
+Caption: systems that&#39;s an essential thing
+
+00:16:45.239 --> 00:16:48.619
+Caption: because that&#39;s what&#39;s in the spec right
+
+00:16:46.859 --> 00:16:50.698
+Caption: so you can&#39;t avoid it
+
+00:16:48.619 --> 00:16:52.258
+Caption: accidental complexity on the other hand
+
+00:16:50.698 --> 00:16:53.758
+Caption: is stuff that still makes it difficult
+
+00:16:52.258 --> 00:16:55.679
+Caption: and complex they&#39;re just basically
+
+00:16:53.758 --> 00:16:57.359
+Caption: unhelpful barriers to expressing a
+
+00:16:55.679 --> 00:17:00.000
+Caption: working solution but they&#39;re not
+
+00:16:57.359 --> 00:17:02.518
+Caption: inherent in the spec so for example
+
+00:17:00.000 --> 00:17:04.678
+Caption: manual memory management if you&#39;re
+
+00:17:02.518 --> 00:17:06.359
+Caption: thinking about managing your memory but
+
+00:17:04.678 --> 00:17:08.640
+Caption: the spec just says well we need this
+
+00:17:06.359 --> 00:17:10.260
+Caption: this mobile app for the customer that&#39;s
+
+00:17:08.640 --> 00:17:11.938
+Caption: accidental complexity it&#39;s just
+
+00:17:10.260 --> 00:17:14.880
+Caption: something you you have to do on top of
+
+00:17:11.938 --> 00:17:17.520
+Caption: solving the the essential problem and
+
+00:17:14.880 --> 00:17:19.438
+Caption: choosing different tools can affect how
+
+00:17:17.520 --> 00:17:23.000
+Caption: much accidental complexity makes up the
+
+00:17:19.438 --> 00:17:23.000
+Caption: the overall complexity of your job
+
+00:17:23.160 --> 00:17:26.160
+Caption: so
+
+00:17:24.838 --> 00:17:27.359
+Caption: essential complexity sounds like
+
+00:17:26.160 --> 00:17:29.040
+Caption: something you can&#39;t get rid of I just
+
+00:17:27.359 --> 00:17:31.439
+Caption: wanted to briefly mention that it&#39;s not
+
+00:17:29.040 --> 00:17:33.720
+Caption: actually true you can reduce essential
+
+00:17:31.439 --> 00:17:35.399
+Caption: complexity but with another trade-off so
+
+00:17:33.719 --> 00:17:37.319
+Caption: if you think about domain specific
+
+00:17:35.400 --> 00:17:40.200
+Caption: languages or even visual programming
+
+00:17:37.319 --> 00:17:42.178
+Caption: languages they tend to be reduce
+
+00:17:40.199 --> 00:17:44.038
+Caption: essential complexity by allowing you to
+
+00:17:42.178 --> 00:17:46.260
+Caption: to state things at a higher level you
+
+00:17:44.038 --> 00:17:48.298
+Caption: can quickly say how you want things to
+
+00:17:46.260 --> 00:17:51.119
+Caption: be done so for example SQL for data
+
+00:17:48.298 --> 00:17:53.880
+Caption: access so we don&#39;t write python
+
+00:17:51.119 --> 00:17:55.558
+Caption: generally for doing database queries on
+
+00:17:53.880 --> 00:17:56.819
+Caption: a relational database we write SQL and
+
+00:17:55.558 --> 00:17:59.339
+Caption: it&#39;s really quick and it gets the job
+
+00:17:56.819 --> 00:18:01.380
+Caption: done but it&#39;s basically a domain
+
+00:17:59.339 --> 00:18:04.260
+Caption: specific language or a DSL for that one
+
+00:18:01.380 --> 00:18:06.298
+Caption: job so it sacrifices generality but it
+
+00:18:04.260 --> 00:18:08.099
+Caption: means you can do that one job well so
+
+00:18:06.298 --> 00:18:09.779
+Caption: that&#39;s great there&#39;s languages that do
+
+00:18:08.099 --> 00:18:11.339
+Caption: things regex would be another example
+
+00:18:09.780 --> 00:18:13.080
+Caption: there&#39;s there&#39;s lots of them but they
+
+00:18:11.339 --> 00:18:14.579
+Caption: don&#39;t solve the general problem it&#39;s not
+
+00:18:13.079 --> 00:18:16.439
+Caption: like if you&#39;re given a brief that you&#39;ve
+
+00:18:14.579 --> 00:18:18.058
+Caption: got to develop a whole app you go for
+
+00:18:16.439 --> 00:18:19.439
+Caption: the specific DSL there probably isn&#39;t
+
+00:18:18.058 --> 00:18:20.880
+Caption: one in most cases you need a general
+
+00:18:19.439 --> 00:18:22.798
+Caption: language so you can&#39;t always make this
+
+00:18:20.880 --> 00:18:24.359
+Caption: trade-off
+
+00:18:22.798 --> 00:18:27.239
+Caption: um on the other hand accidental
+
+00:18:24.359 --> 00:18:29.160
+Caption: complexity so we still you know there&#39;s
+
+00:18:27.239 --> 00:18:30.418
+Caption: things like boilerplate code if you have
+
+00:18:29.160 --> 00:18:32.280
+Caption: to if you&#39;re writing your app if you
+
+00:18:30.418 --> 00:18:33.719
+Caption: have to think about managing memory
+
+00:18:32.280 --> 00:18:35.760
+Caption: yourself or managing concurrency
+
+00:18:33.719 --> 00:18:37.380
+Caption: managing dependencies managing versions
+
+00:18:35.760 --> 00:18:38.520
+Caption: these aren&#39;t things that are in the spec
+
+00:18:37.380 --> 00:18:39.959
+Caption: they&#39;re just things that you&#39;ve got to
+
+00:18:38.520 --> 00:18:42.299
+Caption: get right and they just they&#39;re just
+
+00:18:39.959 --> 00:18:44.459
+Caption: unhelpful barriers that get in your way
+
+00:18:42.298 --> 00:18:46.678
+Caption: um Brooks in no Silver Bullet
+
+00:18:44.459 --> 00:18:48.959
+Caption: interestingly says we&#39;ve already solved
+
+00:18:46.678 --> 00:18:50.760
+Caption: The Accidental complexity problem for
+
+00:18:48.959 --> 00:18:52.678
+Caption: the most part that&#39;s that was his view
+
+00:18:50.760 --> 00:18:55.440
+Caption: back in the 1980s
+
+00:18:52.678 --> 00:18:58.260
+Caption: um I don&#39;t know if any of you have can
+
+00:18:55.439 --> 00:18:59.759
+Caption: think of what he said was the number one
+
+00:18:58.260 --> 00:19:02.520
+Caption: thing that made the biggest difference
+
+00:18:59.760 --> 00:19:04.859
+Caption: in accident in solving accidental
+
+00:19:02.520 --> 00:19:06.058
+Caption: complexity
+
+00:19:04.859 --> 00:19:07.140
+Caption: so
+
+00:19:06.058 --> 00:19:10.140
+Caption: the thing that made the biggest
+
+00:19:07.140 --> 00:19:12.359
+Caption: difference was in his View High Level
+
+00:19:10.140 --> 00:19:13.979
+Caption: language so high level language just
+
+00:19:12.359 --> 00:19:15.418
+Caption: means now there&#39;s something we
+
+00:19:13.979 --> 00:19:17.880
+Caption: completely take for granted when you
+
+00:19:15.418 --> 00:19:19.139
+Caption: write program code in in any programming
+
+00:19:17.880 --> 00:19:21.900
+Caption: language that we use today pretty much
+
+00:19:19.140 --> 00:19:23.640
+Caption: you are writing code using for example
+
+00:19:21.900 --> 00:19:25.320
+Caption: English keywords it&#39;s human
+
+00:19:23.640 --> 00:19:27.239
+Caption: understandable it&#39;s written in a high
+
+00:19:25.319 --> 00:19:29.880
+Caption: level you can kind of see that the loops
+
+00:19:27.239 --> 00:19:31.439
+Caption: and the conditions in the code and it&#39;s
+
+00:19:29.880 --> 00:19:33.418
+Caption: translated down to something that the
+
+00:19:31.439 --> 00:19:35.459
+Caption: machine can understand so that&#39;s what we
+
+00:19:33.418 --> 00:19:37.739
+Caption: mean by highly High language high level
+
+00:19:35.459 --> 00:19:39.599
+Caption: language it&#39;s that the code is
+
+00:19:37.739 --> 00:19:41.819
+Caption: independent of the machine that is going
+
+00:19:39.599 --> 00:19:42.780
+Caption: to run it the the specific things the
+
+00:19:41.819 --> 00:19:43.979
+Caption: machine has to do they&#39;re not
+
+00:19:42.780 --> 00:19:45.200
+Caption: represented there in the language that&#39;s
+
+00:19:43.979 --> 00:19:47.579
+Caption: high-level language
+
+00:19:45.199 --> 00:19:50.038
+Caption: he estimates that that gave us a five
+
+00:19:47.579 --> 00:19:51.538
+Caption: times productivity boost so I thought it
+
+00:19:50.038 --> 00:19:52.979
+Caption: would be interesting rather than just
+
+00:19:51.538 --> 00:19:54.659
+Caption: you know five times what does that mean
+
+00:19:52.979 --> 00:19:56.579
+Caption: you know we don&#39;t really think about it
+
+00:19:54.660 --> 00:19:59.160
+Caption: right but I&#39;d like us to actually think
+
+00:19:56.579 --> 00:20:00.719
+Caption: what it was like for our compatriots
+
+00:19:59.160 --> 00:20:02.640
+Caption: software developers back in the day
+
+00:20:00.719 --> 00:20:05.099
+Caption: before high level languages just to give
+
+00:20:02.640 --> 00:20:07.440
+Caption: you an idea of how important accidental
+
+00:20:05.099 --> 00:20:09.839
+Caption: complexity can actually be so what were
+
+00:20:07.439 --> 00:20:11.219
+Caption: they doing well first example this is
+
+00:20:09.839 --> 00:20:13.140
+Caption: something that I personally remember
+
+00:20:11.219 --> 00:20:15.900
+Caption: because I had a Commodore 64 when I was
+
+00:20:13.140 --> 00:20:17.160
+Caption: a kid and no money so rather than being
+
+00:20:15.900 --> 00:20:18.660
+Caption: able to go and buy all the cool games
+
+00:20:17.160 --> 00:20:20.460
+Caption: off the shelf sometimes we&#39;d come across
+
+00:20:18.660 --> 00:20:23.099
+Caption: a magazine and it would say type the
+
+00:20:20.459 --> 00:20:24.418
+Caption: game in yourself so it just sounds
+
+00:20:23.099 --> 00:20:26.280
+Caption: awesome when you&#39;re a kid when you read
+
+00:20:24.418 --> 00:20:27.779
+Caption: the description space Blaster this is
+
+00:20:26.280 --> 00:20:29.160
+Caption: going to be so awesome like it&#39;s
+
+00:20:27.780 --> 00:20:30.479
+Caption: action-packed and everything like that
+
+00:20:29.160 --> 00:20:32.520
+Caption: but then you&#39;ve got to write this out
+
+00:20:30.479 --> 00:20:33.780
+Caption: yourself and you can see there&#39;s a few
+
+00:20:32.520 --> 00:20:35.700
+Caption: lines of basic at the top that&#39;s
+
+00:20:33.780 --> 00:20:38.039
+Caption: bootstrapping but pretty much the whole
+
+00:20:35.699 --> 00:20:41.459
+Caption: game is actually in machine language for
+
+00:20:38.038 --> 00:20:43.739
+Caption: the 6502 CPU inside the Commodore 64 and
+
+00:20:41.459 --> 00:20:45.119
+Caption: you have to specify it byte by byte as
+
+00:20:43.739 --> 00:20:45.719
+Caption: these like
+
+00:20:45.119 --> 00:20:48.359
+Caption: um
+
+00:20:45.719 --> 00:20:50.038
+Caption: hex codes the other thing is if you get
+
+00:20:48.359 --> 00:20:51.719
+Caption: any of those wrong if you get one letter
+
+00:20:50.038 --> 00:20:53.579
+Caption: wrong one character wrong in any of that
+
+00:20:51.719 --> 00:20:55.439
+Caption: well if you&#39;re lucky you&#39;ve probably
+
+00:20:53.579 --> 00:20:56.939
+Caption: just screwed up a Sprite and it&#39;s you
+
+00:20:55.439 --> 00:20:58.739
+Caption: know the colors are mixed up in
+
+00:20:56.939 --> 00:21:00.239
+Caption: somewhere but more likely most of that
+
+00:20:58.739 --> 00:21:01.739
+Caption: will be control flow and Logic for the
+
+00:21:00.239 --> 00:21:03.900
+Caption: game and if you just basically change a
+
+00:21:01.739 --> 00:21:06.058
+Caption: bite there all bets are off you probably
+
+00:21:03.900 --> 00:21:09.239
+Caption: crashed your machine lock it up or who
+
+00:21:06.058 --> 00:21:12.298
+Caption: knows it probably won&#39;t be the fun space
+
+00:21:09.239 --> 00:21:13.918
+Caption: Blaster experience you&#39;re hoping for
+
+00:21:12.298 --> 00:21:15.239
+Caption: um going back even before that they had
+
+00:21:13.918 --> 00:21:17.339
+Caption: even extra steps you know they&#39;d fill
+
+00:21:15.239 --> 00:21:18.839
+Caption: out these punched cards so I won&#39;t go
+
+00:21:17.339 --> 00:21:20.819
+Caption: too much into that that&#39;s really going
+
+00:21:18.839 --> 00:21:22.558
+Caption: back but I think you get the idea that
+
+00:21:20.819 --> 00:21:24.298
+Caption: there was a lot of accidental complexity
+
+00:21:22.558 --> 00:21:25.500
+Caption: involved in developing software back
+
+00:21:24.298 --> 00:21:26.579
+Caption: then you&#39;ve got to think at a really low
+
+00:21:25.500 --> 00:21:28.260
+Caption: level
+
+00:21:26.579 --> 00:21:30.178
+Caption: um the other thing is there&#39;s pretty
+
+00:21:28.260 --> 00:21:32.159
+Caption: much no protection from errors because
+
+00:21:30.178 --> 00:21:34.199
+Caption: the way there&#39;s no interpretation step
+
+00:21:32.159 --> 00:21:35.640
+Caption: what you present to the computer it goes
+
+00:21:34.199 --> 00:21:37.319
+Caption: well this is what this must be what you
+
+00:21:35.640 --> 00:21:38.760
+Caption: meant I&#39;ll just try and execute it so
+
+00:21:37.319 --> 00:21:42.000
+Caption: basically I like to think of that as a
+
+00:21:38.760 --> 00:21:43.678
+Caption: cosmic ray on your on your punch card
+
+00:21:42.000 --> 00:21:45.178
+Caption: give just gives you a new program as far
+
+00:21:43.678 --> 00:21:47.339
+Caption: as the computer is concerned oh okay
+
+00:21:45.178 --> 00:21:48.839
+Caption: every program that you give me is what I
+
+00:21:47.339 --> 00:21:50.158
+Caption: think you meant and it just executes
+
+00:21:48.839 --> 00:21:54.260
+Caption: differently
+
+00:21:50.159 --> 00:21:56.880
+Caption: um so a little a little taste of that
+
+00:21:54.260 --> 00:21:58.979
+Caption: 6502 this was the CPU inside the
+
+00:21:56.880 --> 00:22:01.859
+Caption: Commodore 64 and also the Apple II I&#39;ve
+
+00:21:58.979 --> 00:22:04.140
+Caption: got like six bytes of machine code at
+
+00:22:01.859 --> 00:22:06.058
+Caption: the top there and that decompiles into
+
+00:22:04.140 --> 00:22:07.678
+Caption: these Assembly Language instructions
+
+00:22:06.058 --> 00:22:09.479
+Caption: it&#39;s just a little Loop it just starts
+
+00:22:07.678 --> 00:22:10.918
+Caption: at 255 and it counts down to zero and
+
+00:22:09.479 --> 00:22:13.199
+Caption: then and then it returns so that&#39;s all
+
+00:22:10.918 --> 00:22:14.459
+Caption: it does what I&#39;m going to do is on that
+
+00:22:13.199 --> 00:22:16.619
+Caption: last bite I&#39;m just going to change the
+
+00:22:14.459 --> 00:22:19.319
+Caption: 60 to a 61. it&#39;s one bit it&#39;s just
+
+00:22:16.619 --> 00:22:20.400
+Caption: changing one bit so watch watch down the
+
+00:22:19.319 --> 00:22:22.380
+Caption: bottom
+
+00:22:20.400 --> 00:22:23.940
+Caption: and now instead of returning from the
+
+00:22:22.380 --> 00:22:25.619
+Caption: instruction I&#39;m doing some further
+
+00:22:23.939 --> 00:22:27.359
+Caption: arithmetic and I&#39;m not returning and
+
+00:22:25.619 --> 00:22:28.619
+Caption: whatever comes after that is what is
+
+00:22:27.359 --> 00:22:29.880
+Caption: what the process is going to keep doing
+
+00:22:28.619 --> 00:22:31.619
+Caption: it&#39;s a good example that&#39;s probably just
+
+00:22:29.880 --> 00:22:34.319
+Caption: going to lock up your machine
+
+00:22:31.619 --> 00:22:35.640
+Caption: um yeah I had to restart my computer a
+
+00:22:34.319 --> 00:22:37.319
+Caption: lot of times
+
+00:22:35.640 --> 00:22:39.659
+Caption: um just another example so now I&#39;m just
+
+00:22:37.319 --> 00:22:41.339
+Caption: going to transpose the the two parts of
+
+00:22:39.659 --> 00:22:42.960
+Caption: the third byte so instead of CA it&#39;s
+
+00:22:41.339 --> 00:22:44.760
+Caption: going to be AC and we can watch down the
+
+00:22:42.959 --> 00:22:45.839
+Caption: bottom again and now I&#39;ve got pretty
+
+00:22:44.760 --> 00:22:48.659
+Caption: much a completely different program
+
+00:22:45.839 --> 00:22:51.000
+Caption: there&#39;s now no loop at all and it also
+
+00:22:48.659 --> 00:22:53.340
+Caption: still doesn&#39;t return so you&#39;re going to
+
+00:22:51.000 --> 00:22:54.599
+Caption: get a vastly different outcome and I
+
+00:22:53.339 --> 00:22:56.400
+Caption: just changed a couple of bits the
+
+00:22:54.599 --> 00:22:58.678
+Caption: program looks the same so that&#39;s all
+
+00:22:56.400 --> 00:23:00.119
+Caption: accidental complexity
+
+00:22:58.678 --> 00:23:02.158
+Caption: um just a bonus question to end this
+
+00:23:00.119 --> 00:23:04.579
+Caption: section can anyone think of any language
+
+00:23:02.159 --> 00:23:06.720
+Caption: that we still use very commonly probably
+
+00:23:04.579 --> 00:23:09.298
+Caption: most software developers in this room
+
+00:23:06.719 --> 00:23:10.739
+Caption: have have used at some point that has
+
+00:23:09.298 --> 00:23:12.359
+Caption: some of these characteristics that I&#39;ve
+
+00:23:10.739 --> 00:23:14.219
+Caption: just been describing
+
+00:23:12.359 --> 00:23:15.439
+Caption: yep
+
+00:23:14.219 --> 00:23:19.199
+Caption: yes yes
+
+00:23:15.439 --> 00:23:20.939
+Caption: exactly regex I like to call it a
+
+00:23:19.199 --> 00:23:23.000
+Caption: write-only language
+
+00:23:20.939 --> 00:23:23.000
+Caption: um
+
+00:23:23.038 --> 00:23:27.959
+Caption: see if you can think of what this regex
+
+00:23:24.839 --> 00:23:29.400
+Caption: does I I won&#39;t call for volunteers but
+
+00:23:27.959 --> 00:23:32.819
+Caption: I&#39;ll just tell you it&#39;s it actually
+
+00:23:29.400 --> 00:23:35.400
+Caption: parses or validates email addresses
+
+00:23:32.819 --> 00:23:36.658
+Caption: that&#39;s not obvious from looking at it so
+
+00:23:35.400 --> 00:23:38.219
+Caption: the way you would come up with that is
+
+00:23:36.659 --> 00:23:39.480
+Caption: you&#39;d think at a high level okay what
+
+00:23:38.219 --> 00:23:41.219
+Caption: are the parts of an email address and
+
+00:23:39.479 --> 00:23:44.219
+Caption: you translate it down into this kind of
+
+00:23:41.219 --> 00:23:45.599
+Caption: almost like machine language and then if
+
+00:23:44.219 --> 00:23:47.280
+Caption: you ever try and want to know what that
+
+00:23:45.599 --> 00:23:48.780
+Caption: does again I would probably just copy it
+
+00:23:47.280 --> 00:23:50.580
+Caption: and paste it into one of those websites
+
+00:23:48.780 --> 00:23:52.200
+Caption: that sort of decompiles a regex for you
+
+00:23:50.579 --> 00:23:53.819
+Caption: and gives you a visualization it&#39;s not
+
+00:23:52.199 --> 00:23:55.439
+Caption: that different from what they were doing
+
+00:23:53.819 --> 00:23:56.339
+Caption: back in the day so yeah we still have
+
+00:23:55.439 --> 00:23:58.918
+Caption: this
+
+00:23:56.339 --> 00:24:00.839
+Caption: okay Moving On Again
+
+00:23:58.918 --> 00:24:03.058
+Caption: Now we move into this section where I&#39;m
+
+00:24:00.839 --> 00:24:06.020
+Caption: really focusing on the human aspect of
+
+00:24:03.058 --> 00:24:06.020
+Caption: programming language design
+
+00:24:06.538 --> 00:24:11.339
+Caption: we don&#39;t want to overburden the human
+
+00:24:08.520 --> 00:24:12.479
+Caption: why is that well
+
+00:24:11.339 --> 00:24:14.400
+Caption: I&#39;m just going to start with this quote
+
+00:24:12.479 --> 00:24:15.719
+Caption: from Donald knuth he&#39;s pointing out that
+
+00:24:14.400 --> 00:24:17.460
+Caption: programming is the art of telling
+
+00:24:15.719 --> 00:24:19.319
+Caption: another human being
+
+00:24:17.459 --> 00:24:21.359
+Caption: what one wants the computer to do
+
+00:24:19.319 --> 00:24:23.459
+Caption: programming languages aren&#39;t for the
+
+00:24:21.359 --> 00:24:24.719
+Caption: machine they&#39;re for people if if
+
+00:24:23.459 --> 00:24:26.819
+Caption: programming languages were for the
+
+00:24:24.719 --> 00:24:28.380
+Caption: machine we&#39;d still be programming in
+
+00:24:26.819 --> 00:24:29.939
+Caption: Assembly Language or machine language
+
+00:24:28.380 --> 00:24:31.979
+Caption: because that&#39;s the easiest thing for the
+
+00:24:29.939 --> 00:24:33.599
+Caption: machine to process the reason why we use
+
+00:24:31.979 --> 00:24:35.699
+Caption: these high-level languages and then all
+
+00:24:33.599 --> 00:24:37.619
+Caption: these very sophisticated tools to
+
+00:24:35.699 --> 00:24:39.899
+Caption: translate that down to the machine is
+
+00:24:37.619 --> 00:24:42.918
+Caption: that the source code of programs is for
+
+00:24:39.900 --> 00:24:42.919
+Caption: us it&#39;s for humans
+
+00:24:43.199 --> 00:24:48.058
+Caption: so if you think about what scarce in the
+
+00:24:46.500 --> 00:24:49.798
+Caption: production of software it&#39;s definitely
+
+00:24:48.058 --> 00:24:51.418
+Caption: like making more copies of it it&#39;s free
+
+00:24:49.798 --> 00:24:54.479
+Caption: to make more copies of software like all
+
+00:24:51.418 --> 00:24:57.359
+Caption: the the raw materials of what we use uh
+
+00:24:54.479 --> 00:24:59.400
+Caption: RAM in memory CPU Cycles like they&#39;re
+
+00:24:57.359 --> 00:25:01.199
+Caption: really cheap the marginal cost of that
+
+00:24:59.400 --> 00:25:03.599
+Caption: is almost zero
+
+00:25:01.199 --> 00:25:05.038
+Caption: um so why is software expensive and why
+
+00:25:03.599 --> 00:25:06.719
+Caption: you know we talked before about the
+
+00:25:05.038 --> 00:25:08.219
+Caption: trillions of dollars worth of you know
+
+00:25:06.719 --> 00:25:10.260
+Caption: the cost of software bugs what what
+
+00:25:08.219 --> 00:25:12.599
+Caption: makes up the expense well I&#39;d say it&#39;s
+
+00:25:10.260 --> 00:25:14.339
+Caption: actually human ability so humans we&#39;ve
+
+00:25:12.599 --> 00:25:16.020
+Caption: got limited working memory limited
+
+00:25:14.339 --> 00:25:17.699
+Caption: cognitive powers and limited reliability
+
+00:25:16.020 --> 00:25:19.020
+Caption: this kind of links back to the keynote
+
+00:25:17.699 --> 00:25:22.079
+Caption: this morning when we&#39;re talking about
+
+00:25:19.020 --> 00:25:23.940
+Caption: talking about fallibility of human
+
+00:25:22.079 --> 00:25:26.640
+Caption: memory in particular so that&#39;s just one
+
+00:25:23.939 --> 00:25:30.000
+Caption: of these things and programming
+
+00:25:26.640 --> 00:25:32.520
+Caption: languages that adapt for that can
+
+00:25:30.000 --> 00:25:35.640
+Caption: actually really Empower us ones that
+
+00:25:32.520 --> 00:25:37.679
+Caption: ignore the humanness uh and and we&#39;ll
+
+00:25:35.640 --> 00:25:38.820
+Caption: see some examples anyway they&#39;re
+
+00:25:37.678 --> 00:25:40.558
+Caption: probably the ones where it&#39;s going to be
+
+00:25:38.819 --> 00:25:43.319
+Caption: harder to express a correct program and
+
+00:25:40.558 --> 00:25:45.599
+Caption: and increase your rate of bugs
+
+00:25:43.319 --> 00:25:47.399
+Caption: so how could the programming language
+
+00:25:45.599 --> 00:25:49.500
+Caption: itself how could the design of it
+
+00:25:47.400 --> 00:25:51.059
+Caption: actually help with this sort of human
+
+00:25:49.500 --> 00:25:53.699
+Caption: focus on the programming language
+
+00:25:51.058 --> 00:25:55.260
+Caption: particularly humans being limited so
+
+00:25:53.699 --> 00:25:56.880
+Caption: I&#39;ve just got a whole bunch of examples
+
+00:25:55.260 --> 00:25:59.219
+Caption: there I just bolted a couple that I
+
+00:25:56.880 --> 00:26:01.859
+Caption: could just briefly speak to like raising
+
+00:25:59.219 --> 00:26:03.778
+Caption: the level of abstraction to reduce the
+
+00:26:01.859 --> 00:26:06.239
+Caption: semantic Gap so
+
+00:26:03.779 --> 00:26:08.520
+Caption: um we saw before you know literally
+
+00:26:06.239 --> 00:26:10.020
+Caption: putting in the hex codes you can&#39;t
+
+00:26:08.520 --> 00:26:11.400
+Caption: really look at that and see what the
+
+00:26:10.020 --> 00:26:13.020
+Caption: program does although I did do an early
+
+00:26:11.400 --> 00:26:15.059
+Caption: version of this and someone who saw the
+
+00:26:13.020 --> 00:26:17.099
+Caption: Commodore 64 stuff I know what that does
+
+00:26:15.058 --> 00:26:18.658
+Caption: because he had one when he and he still
+
+00:26:17.099 --> 00:26:19.439
+Caption: remembers all the op codes but for most
+
+00:26:18.659 --> 00:26:21.539
+Caption: of us
+
+00:26:19.439 --> 00:26:23.278
+Caption: if you see source code you want to see
+
+00:26:21.538 --> 00:26:25.259
+Caption: something that is kind of human readable
+
+00:26:23.279 --> 00:26:27.480
+Caption: for most of us in here that&#39;s things
+
+00:26:25.260 --> 00:26:30.659
+Caption: like you know the English keywords and
+
+00:26:27.479 --> 00:26:32.339
+Caption: visual breakdown of of blocks in the
+
+00:26:30.659 --> 00:26:35.760
+Caption: code and I put that one there visuality
+
+00:26:32.339 --> 00:26:37.739
+Caption: use layout and keywords and punctuation
+
+00:26:35.760 --> 00:26:39.359
+Caption: to actually make you know we can
+
+00:26:37.739 --> 00:26:41.400
+Caption: recognize patterns visually very very
+
+00:26:39.359 --> 00:26:43.140
+Caption: quickly so if your source code actually
+
+00:26:41.400 --> 00:26:48.020
+Caption: allows for that pattern recognition of
+
+00:26:43.140 --> 00:26:50.520
+Caption: humans by having visually indented and
+
+00:26:48.020 --> 00:26:52.080
+Caption: delimited blocks we can see that very
+
+00:26:50.520 --> 00:26:53.940
+Caption: very quickly that works with us it helps
+
+00:26:52.079 --> 00:26:57.719
+Caption: us to produce software faster and with
+
+00:26:53.939 --> 00:26:59.579
+Caption: less mistakes and also we what we really
+
+00:26:57.719 --> 00:27:01.859
+Caption: want to optimize in our code is
+
+00:26:59.579 --> 00:27:04.019
+Caption: understandability not necessarily making
+
+00:27:01.859 --> 00:27:06.119
+Caption: source code AS short as possible having
+
+00:27:04.020 --> 00:27:08.400
+Caption: a language that is the the shortest to
+
+00:27:06.119 --> 00:27:10.380
+Caption: express or the most minimal language
+
+00:27:08.400 --> 00:27:12.479
+Caption: like the one with the fewest constructs
+
+00:27:10.380 --> 00:27:13.440
+Caption: that doesn&#39;t necessarily win if it comes
+
+00:27:12.479 --> 00:27:15.178
+Caption: at the expense of human
+
+00:27:13.439 --> 00:27:17.639
+Caption: understandability
+
+00:27:15.178 --> 00:27:18.778
+Caption: so just one quick example for this
+
+00:27:17.640 --> 00:27:20.940
+Caption: section
+
+00:27:18.779 --> 00:27:23.220
+Caption: I&#39;d say most of us are pretty familiar
+
+00:27:20.939 --> 00:27:25.619
+Caption: with basic control flow constructs like
+
+00:27:23.219 --> 00:27:27.839
+Caption: this so control flow is basically just
+
+00:27:25.619 --> 00:27:29.279
+Caption: it&#39;s an imperative concept for
+
+00:27:27.839 --> 00:27:31.380
+Caption: imperative languages which are the ones
+
+00:27:29.279 --> 00:27:33.779
+Caption: I&#39;d say most of us use like Java c-sharp
+
+00:27:31.380 --> 00:27:35.760
+Caption: things like that you do things in order
+
+00:27:33.779 --> 00:27:38.039
+Caption: there&#39;s a time-based component I do step
+
+00:27:35.760 --> 00:27:39.539
+Caption: one then I do step two and if that&#39;s all
+
+00:27:38.038 --> 00:27:41.339
+Caption: you could do step one two three you
+
+00:27:39.538 --> 00:27:42.658
+Caption: could only write a linear logic program
+
+00:27:41.339 --> 00:27:44.099
+Caption: and it would always terminate depending
+
+00:27:42.659 --> 00:27:45.659
+Caption: on how long you know just basically how
+
+00:27:44.099 --> 00:27:47.278
+Caption: many lines you&#39;ve got if you want things
+
+00:27:45.659 --> 00:27:48.779
+Caption: that run forever
+
+00:27:47.279 --> 00:27:50.100
+Caption: um or you know running definitely let&#39;s
+
+00:27:48.779 --> 00:27:52.200
+Caption: say probably you don&#39;t want an infinite
+
+00:27:50.099 --> 00:27:53.699
+Caption: Loop you need control flow constructs
+
+00:27:52.199 --> 00:27:55.319
+Caption: that can alter the order in which
+
+00:27:53.699 --> 00:27:57.479
+Caption: statements are executed and these really
+
+00:27:55.319 --> 00:27:59.459
+Caption: common ones are the top two are Loops so
+
+00:27:57.479 --> 00:28:01.199
+Caption: you can keep repeating the same series
+
+00:27:59.459 --> 00:28:04.859
+Caption: of instructions while some condition is
+
+00:28:01.199 --> 00:28:06.599
+Caption: true or you could Loop over every item
+
+00:28:04.859 --> 00:28:08.699
+Caption: in a collection so they&#39;re really common
+
+00:28:06.599 --> 00:28:10.979
+Caption: and then the bottom two are conditionals
+
+00:28:08.699 --> 00:28:12.298
+Caption: so it&#39;s like just conditionally execute
+
+00:28:10.979 --> 00:28:15.538
+Caption: these things if a certain condition is
+
+00:28:12.298 --> 00:28:17.760
+Caption: true otherwise skip them or look at this
+
+00:28:15.538 --> 00:28:19.859
+Caption: value and then depending on what it is
+
+00:28:17.760 --> 00:28:21.959
+Caption: either do this or do this or do this so
+
+00:28:19.859 --> 00:28:23.219
+Caption: that&#39;s like a switch statement pretty
+
+00:28:21.959 --> 00:28:25.079
+Caption: basic like you know I think we&#39;re all
+
+00:28:23.219 --> 00:28:27.298
+Caption: familiar with that
+
+00:28:25.079 --> 00:28:30.599
+Caption: but what if I told you we could go even
+
+00:28:27.298 --> 00:28:32.819
+Caption: simpler what if I told you that a single
+
+00:28:30.599 --> 00:28:34.439
+Caption: control flow construct could do
+
+00:28:32.819 --> 00:28:36.479
+Caption: everything all those others do and we
+
+00:28:34.439 --> 00:28:38.219
+Caption: can just sweep them away and make our
+
+00:28:36.479 --> 00:28:41.278
+Caption: language even simpler with just one kind
+
+00:28:38.219 --> 00:28:43.199
+Caption: of control flow well it exists if
+
+00:28:41.279 --> 00:28:44.640
+Caption: condition go to label
+
+00:28:43.199 --> 00:28:46.439
+Caption: so
+
+00:28:44.640 --> 00:28:48.900
+Caption: it just means that you should be able to
+
+00:28:46.439 --> 00:28:50.459
+Caption: label any line in your code and then you
+
+00:28:48.900 --> 00:28:53.099
+Caption: can say well if this condition is true
+
+00:28:50.459 --> 00:28:54.599
+Caption: when you execute this line just jump to
+
+00:28:53.099 --> 00:28:56.880
+Caption: that other label
+
+00:28:54.599 --> 00:28:58.859
+Caption: so um I thought I&#39;d give a demonstration
+
+00:28:56.880 --> 00:29:00.239
+Caption: to show how great this would be I picked
+
+00:28:58.859 --> 00:29:02.219
+Caption: a modern language that actually still
+
+00:29:00.239 --> 00:29:04.319
+Caption: allows go to so I was actually able to
+
+00:29:02.219 --> 00:29:07.140
+Caption: test it and this is working code so I&#39;ve
+
+00:29:04.319 --> 00:29:09.178
+Caption: started with a a prime generator that&#39;s
+
+00:29:07.140 --> 00:29:10.558
+Caption: pretty straightforward it basically just
+
+00:29:09.178 --> 00:29:12.239
+Caption: goes through all the numbers from 1 to
+
+00:29:10.558 --> 00:29:14.099
+Caption: 100 and then for that number it doesn&#39;t
+
+00:29:12.239 --> 00:29:15.658
+Caption: interloop to try and find something that
+
+00:29:14.099 --> 00:29:18.778
+Caption: divides into it that excludes it from
+
+00:29:15.659 --> 00:29:19.980
+Caption: being a prime so if it if it gets
+
+00:29:18.779 --> 00:29:22.140
+Caption: through that inner loop and it hasn&#39;t
+
+00:29:19.979 --> 00:29:23.699
+Caption: found any divisors then it&#39;s still a
+
+00:29:22.140 --> 00:29:24.839
+Caption: prime and then we just print it to the
+
+00:29:23.699 --> 00:29:27.418
+Caption: console and that&#39;s what it prints out
+
+00:29:24.839 --> 00:29:29.939
+Caption: one two three five seven and so on up to
+
+00:29:27.418 --> 00:29:32.158
+Caption: 97. so I just chose that example because
+
+00:29:29.939 --> 00:29:33.839
+Caption: it&#39;s relatively simple but it&#39;s got It&#39;s
+
+00:29:32.159 --> 00:29:35.640
+Caption: got loops and it&#39;s got conditionals in
+
+00:29:33.839 --> 00:29:39.119
+Caption: it now I&#39;m going to transform it using
+
+00:29:35.640 --> 00:29:42.419
+Caption: my awesome 101 only control flow
+
+00:29:39.119 --> 00:29:43.979
+Caption: construct if condition go to label so
+
+00:29:42.418 --> 00:29:45.538
+Caption: first of all I get rid of the outer for
+
+00:29:43.979 --> 00:29:46.798
+Caption: Loop and I&#39;ve replaced that I needed a
+
+00:29:45.538 --> 00:29:48.178
+Caption: couple of labels and a couple of new
+
+00:29:46.798 --> 00:29:50.158
+Caption: go-to statements but it&#39;s the same
+
+00:29:48.178 --> 00:29:52.798
+Caption: program still works the same this is
+
+00:29:50.159 --> 00:29:54.299
+Caption: this is all valid C sharp then I get rid
+
+00:29:52.798 --> 00:29:57.119
+Caption: of the inner for Loop then I get rid of
+
+00:29:54.298 --> 00:29:58.439
+Caption: the first if and then I get rid of the
+
+00:29:57.119 --> 00:30:00.418
+Caption: second if and now I&#39;ve got a final
+
+00:29:58.439 --> 00:30:01.979
+Caption: program that does exactly the same thing
+
+00:30:00.418 --> 00:30:03.479
+Caption: as the first one but it&#39;s way simpler
+
+00:30:01.979 --> 00:30:05.398
+Caption: because it&#39;s only got one control flow
+
+00:30:03.479 --> 00:30:06.719
+Caption: construct and also we got rid of all
+
+00:30:05.399 --> 00:30:09.260
+Caption: that weird indenting and now it&#39;s all
+
+00:30:06.719 --> 00:30:09.260
+Caption: nice and straight
+
+00:30:10.439 --> 00:30:14.639
+Caption: so there&#39;s my before and there&#39;s my
+
+00:30:12.058 --> 00:30:16.859
+Caption: after okay it&#39;s slightly longer um what
+
+00:30:14.640 --> 00:30:18.659
+Caption: would you choose in terms of I mean
+
+00:30:16.859 --> 00:30:21.599
+Caption: we&#39;re talking here about human limited
+
+00:30:18.659 --> 00:30:23.039
+Caption: human cognitive ability right maybe it&#39;s
+
+00:30:21.599 --> 00:30:25.619
+Caption: just my training but I would take the
+
+00:30:23.038 --> 00:30:26.879
+Caption: one on the left still even though you
+
+00:30:25.619 --> 00:30:28.260
+Caption: could say it&#39;s more complex because it&#39;s
+
+00:30:26.880 --> 00:30:29.880
+Caption: got more different constructs so it&#39;s
+
+00:30:28.260 --> 00:30:31.919
+Caption: not about minimality sometimes it&#39;s
+
+00:30:29.880 --> 00:30:34.798
+Caption: about working with the human the way we
+
+00:30:31.918 --> 00:30:36.479
+Caption: think I can visually see the loops in
+
+00:30:34.798 --> 00:30:39.439
+Caption: this one on that one I would basically
+
+00:30:36.479 --> 00:30:39.439
+Caption: have to run it in my head
+
+00:30:40.140 --> 00:30:45.058
+Caption: so if you look for pictures of go-to
+
+00:30:43.140 --> 00:30:47.039
+Caption: people doing go-to programming you often
+
+00:30:45.058 --> 00:30:49.079
+Caption: find these print these screenshots that
+
+00:30:47.038 --> 00:30:51.359
+Caption: they&#39;ve done of some old bit of working
+
+00:30:49.079 --> 00:30:53.939
+Caption: out where they obviously drawn all over
+
+00:30:51.359 --> 00:30:55.439
+Caption: the program source code to try and get
+
+00:30:53.939 --> 00:30:57.719
+Caption: it into their head what&#39;s actually going
+
+00:30:55.439 --> 00:30:59.699
+Caption: on so on the left we&#39;ve just got these
+
+00:30:57.719 --> 00:31:01.199
+Caption: you can express any control flow with
+
+00:30:59.699 --> 00:31:04.139
+Caption: these three constructs sequence
+
+00:31:01.199 --> 00:31:05.699
+Caption: selection repetition on the right you
+
+00:31:04.140 --> 00:31:06.779
+Caption: can just use one control flow construct
+
+00:31:05.699 --> 00:31:08.579
+Caption: but it&#39;s actually a lot harder to
+
+00:31:06.779 --> 00:31:10.140
+Caption: understand
+
+00:31:08.579 --> 00:31:11.819
+Caption: okay
+
+00:31:10.140 --> 00:31:13.020
+Caption: so
+
+00:31:11.819 --> 00:31:15.058
+Caption: um that&#39;s probably a good segue into
+
+00:31:13.020 --> 00:31:16.679
+Caption: this one which is also about the
+
+00:31:15.058 --> 00:31:18.658
+Caption: humanity The Human Side of of
+
+00:31:16.678 --> 00:31:20.339
+Caption: programming languages and how to take it
+
+00:31:18.659 --> 00:31:22.200
+Caption: into account so before we were saying
+
+00:31:20.339 --> 00:31:24.058
+Caption: don&#39;t overburden the human now we&#39;re
+
+00:31:22.199 --> 00:31:25.798
+Caption: saying don&#39;t rely on the human because
+
+00:31:24.058 --> 00:31:28.678
+Caption: even if you make it easy for them humans
+
+00:31:25.798 --> 00:31:29.880
+Caption: are fallible we make mistakes
+
+00:31:28.678 --> 00:31:31.319
+Caption: so
+
+00:31:29.880 --> 00:31:32.940
+Caption: um
+
+00:31:31.319 --> 00:31:34.918
+Caption: the main point I want to make in this
+
+00:31:32.939 --> 00:31:36.359
+Caption: section briefly is that if a programming
+
+00:31:34.918 --> 00:31:39.119
+Caption: task could be described as a set of
+
+00:31:36.359 --> 00:31:40.678
+Caption: mechanical transforms then design the
+
+00:31:39.119 --> 00:31:42.658
+Caption: programming language itself to just
+
+00:31:40.678 --> 00:31:44.339
+Caption: fully automate that just take it out of
+
+00:31:42.659 --> 00:31:47.100
+Caption: the hands of the human because we&#39;re not
+
+00:31:44.339 --> 00:31:49.678
+Caption: that good at perfectly reproducing the
+
+00:31:47.099 --> 00:31:53.459
+Caption: same transformation again and again in a
+
+00:31:49.678 --> 00:31:56.819
+Caption: manual way I cut I call this the human
+
+00:31:53.459 --> 00:31:58.380
+Caption: compiler anti-pattern so I don&#39;t think
+
+00:31:56.819 --> 00:31:59.939
+Caption: you&#39;ll find that on Google because I
+
+00:31:58.380 --> 00:32:01.979
+Caption: just made it up
+
+00:31:59.939 --> 00:32:03.538
+Caption: um but the reason I call it the human
+
+00:32:01.979 --> 00:32:05.038
+Caption: compiler antipant because I&#39;m thinking
+
+00:32:03.538 --> 00:32:06.538
+Caption: that you know people even get proud of
+
+00:32:05.038 --> 00:32:08.339
+Caption: doing this stuff you know it&#39;s like wow
+
+00:32:06.538 --> 00:32:10.619
+Caption: you know I can really reliably create
+
+00:32:08.339 --> 00:32:12.298
+Caption: this really complicated code
+
+00:32:10.619 --> 00:32:14.399
+Caption: um but actually what they are doing
+
+00:32:12.298 --> 00:32:16.278
+Caption: could be automated by the the
+
+00:32:14.399 --> 00:32:18.840
+Caption: programming language tools themselves
+
+00:32:16.279 --> 00:32:20.100
+Caption: that&#39;s great for this hot shot whoever
+
+00:32:18.839 --> 00:32:22.699
+Caption: they are you know that&#39;s really awesome
+
+00:32:20.099 --> 00:32:24.839
+Caption: for their self-esteem and so on but
+
+00:32:22.699 --> 00:32:26.339
+Caption: statistically speaking as an industry
+
+00:32:24.839 --> 00:32:28.260
+Caption: it&#39;s going to increase our error rates
+
+00:32:26.339 --> 00:32:30.658
+Caption: if we require humans to do that sort of
+
+00:32:28.260 --> 00:32:31.798
+Caption: stuff so
+
+00:32:30.659 --> 00:32:34.020
+Caption: um
+
+00:32:31.798 --> 00:32:37.199
+Caption: let&#39;s have a quick look at an example
+
+00:32:34.020 --> 00:32:40.619
+Caption: that I set up this is Javascript
+
+00:32:37.199 --> 00:32:42.719
+Caption: and I&#39;ve just got a function here that
+
+00:32:40.619 --> 00:32:44.099
+Caption: as it says at the top it returns a
+
+00:32:42.719 --> 00:32:45.839
+Caption: number of files in a given directory so
+
+00:32:44.099 --> 00:32:47.819
+Caption: it&#39;s a function I pass it in a directory
+
+00:32:45.839 --> 00:32:49.859
+Caption: path and at the end it&#39;s going to return
+
+00:32:47.819 --> 00:32:52.079
+Caption: me a number which is how many files not
+
+00:32:49.859 --> 00:32:53.939
+Caption: directories but files in there and the
+
+00:32:52.079 --> 00:32:56.880
+Caption: way it works is by making a couple of
+
+00:32:53.939 --> 00:32:58.259
+Caption: system calls one is to get a list of all
+
+00:32:56.880 --> 00:32:59.760
+Caption: the files in the directory and it just
+
+00:32:58.260 --> 00:33:01.079
+Caption: gives the short names of the files not
+
+00:32:59.760 --> 00:33:03.000
+Caption: the full paths so then we have to map
+
+00:33:01.079 --> 00:33:05.099
+Caption: them to full paths and then we can go
+
+00:33:03.000 --> 00:33:07.439
+Caption: and make another series of system called
+
+00:33:05.099 --> 00:33:09.058
+Caption: one per file and get the stats and the
+
+00:33:07.439 --> 00:33:10.199
+Caption: stats will tell us if it&#39;s a file or a
+
+00:33:09.058 --> 00:33:11.579
+Caption: directory and then we&#39;ve got all the
+
+00:33:10.199 --> 00:33:13.918
+Caption: information we need to count up the
+
+00:33:11.579 --> 00:33:14.880
+Caption: files in the directory so I think that&#39;s
+
+00:33:13.918 --> 00:33:16.380
+Caption: pretty
+
+00:33:14.880 --> 00:33:18.479
+Caption: um pretty straightforward and I just
+
+00:33:16.380 --> 00:33:21.178
+Caption: wanted to highlight that this is in a
+
+00:33:18.479 --> 00:33:23.038
+Caption: sync function and we use a weight I
+
+00:33:21.178 --> 00:33:24.418
+Caption: don&#39;t want to go into all the ins and
+
+00:33:23.038 --> 00:33:26.459
+Caption: outs and that I&#39;m hoping that enough of
+
+00:33:24.418 --> 00:33:29.459
+Caption: you understand a bit about asynchronous
+
+00:33:26.459 --> 00:33:31.140
+Caption: programming to just you know if you if
+
+00:33:29.459 --> 00:33:32.760
+Caption: you came into JavaScript or another
+
+00:33:31.140 --> 00:33:35.279
+Caption: language with a sync await in the last
+
+00:33:32.760 --> 00:33:38.279
+Caption: say five years I think that&#39;s hopefully
+
+00:33:35.279 --> 00:33:39.720
+Caption: fairly easy to understand but async away
+
+00:33:38.279 --> 00:33:41.580
+Caption: is another one of these things that is
+
+00:33:39.719 --> 00:33:44.038
+Caption: an innovation that wasn&#39;t always around
+
+00:33:41.579 --> 00:33:46.260
+Caption: what came before sink away what was
+
+00:33:44.038 --> 00:33:48.298
+Caption: being required of the programmer before
+
+00:33:46.260 --> 00:33:50.339
+Caption: it sort of took care of these
+
+00:33:48.298 --> 00:33:51.479
+Caption: concurrency patterns for us
+
+00:33:50.339 --> 00:33:53.760
+Caption: well
+
+00:33:51.479 --> 00:33:56.839
+Caption: when I first started using node it was
+
+00:33:53.760 --> 00:33:59.219
+Caption: on the Zero Point X version number
+
+00:33:56.839 --> 00:34:01.260
+Caption: JavaScript it was always running on
+
+00:33:59.219 --> 00:34:03.058
+Caption: JavaScript on V8 but JavaScript at the
+
+00:34:01.260 --> 00:34:05.579
+Caption: time didn&#39;t have a sink away it didn&#39;t
+
+00:34:03.058 --> 00:34:07.380
+Caption: even have promises so if you wanted to
+
+00:34:05.579 --> 00:34:08.699
+Caption: do asynchronous operations and node has
+
+00:34:07.380 --> 00:34:11.459
+Caption: always been fully asynchronous from day
+
+00:34:08.699 --> 00:34:13.739
+Caption: one you basically say go and start this
+
+00:34:11.459 --> 00:34:16.080
+Caption: job like go and get the the file stats
+
+00:34:13.739 --> 00:34:17.339
+Caption: for me and when you&#39;re done call this
+
+00:34:16.080 --> 00:34:18.839
+Caption: callback that I&#39;m going to give you now
+
+00:34:17.339 --> 00:34:21.720
+Caption: so it&#39;s all callback based it&#39;s
+
+00:34:18.839 --> 00:34:24.000
+Caption: basically continuation passing so I&#39;ve
+
+00:34:21.719 --> 00:34:25.439
+Caption: got the next slide is this exact same
+
+00:34:24.000 --> 00:34:28.080
+Caption: program that you would have to write
+
+00:34:25.439 --> 00:34:29.280
+Caption: manually it&#39;s the same program
+
+00:34:28.080 --> 00:34:31.979
+Caption: you would have to write this out
+
+00:34:29.280 --> 00:34:33.898
+Caption: manually and manage all the uh the
+
+00:34:31.979 --> 00:34:37.378
+Caption: callbacks yourself there&#39;s a bunch of
+
+00:34:33.898 --> 00:34:39.358
+Caption: them up there so uh you pass you ask for
+
+00:34:37.378 --> 00:34:41.760
+Caption: a call back and then you call that call
+
+00:34:39.358 --> 00:34:43.618
+Caption: back when you&#39;ve either got an error
+
+00:34:41.760 --> 00:34:46.500
+Caption: well actually there&#39;s all the error
+
+00:34:43.618 --> 00:34:48.059
+Caption: Pathways so there&#39;s several ways that
+
+00:34:46.500 --> 00:34:50.158
+Caption: you could get errors at different points
+
+00:34:48.060 --> 00:34:51.659
+Caption: you&#39;ve now got to manually do all that
+
+00:34:50.158 --> 00:34:54.780
+Caption: bookkeeping and if you get that wrong
+
+00:34:51.658 --> 00:34:57.118
+Caption: you might just swallow the error or you
+
+00:34:54.780 --> 00:34:58.500
+Caption: might just actually return several
+
+00:34:57.118 --> 00:35:00.479
+Caption: errors like a basic thing about
+
+00:34:58.500 --> 00:35:02.820
+Caption: functions is that if you call it once
+
+00:35:00.479 --> 00:35:05.280
+Caption: it&#39;s either going to return or it&#39;s
+
+00:35:02.820 --> 00:35:06.420
+Caption: going to throw an exception right the
+
+00:35:05.280 --> 00:35:08.280
+Caption: only exception to that is like an
+
+00:35:06.419 --> 00:35:10.679
+Caption: infinite Loop but we won&#39;t go into that
+
+00:35:08.280 --> 00:35:12.839
+Caption: here you&#39;ve actually got the the
+
+00:35:10.679 --> 00:35:14.098
+Caption: erroneous possibilities of calling the
+
+00:35:12.839 --> 00:35:16.500
+Caption: Callback which is the equivalent of
+
+00:35:14.099 --> 00:35:19.320
+Caption: returning from the function and sending
+
+00:35:16.500 --> 00:35:21.899
+Caption: back multiple errors or multiple returns
+
+00:35:19.320 --> 00:35:23.520
+Caption: or even sending back errors and return
+
+00:35:21.899 --> 00:35:25.439
+Caption: values at the same time there&#39;s so many
+
+00:35:23.520 --> 00:35:26.939
+Caption: ways that this could go wrong but people
+
+00:35:25.439 --> 00:35:28.560
+Caption: and and I remember you know coming
+
+00:35:26.939 --> 00:35:29.819
+Caption: across Reddit threads like it&#39;s not that
+
+00:35:28.560 --> 00:35:31.619
+Caption: hard like I&#39;m really good at it I&#39;ve
+
+00:35:29.820 --> 00:35:35.160
+Caption: never made any mistakes
+
+00:35:31.618 --> 00:35:37.379
+Caption: um yeah sure however
+
+00:35:35.159 --> 00:35:39.059
+Caption: uh this is really just gonna on
+
+00:35:37.379 --> 00:35:40.259
+Caption: statistically speaking on average that&#39;s
+
+00:35:39.060 --> 00:35:42.000
+Caption: really going to reduce error rates
+
+00:35:40.260 --> 00:35:44.099
+Caption: across the board right so if the
+
+00:35:42.000 --> 00:35:46.280
+Caption: compiler can do it it should do it for
+
+00:35:44.099 --> 00:35:46.280
+Caption: you
+
+00:35:46.560 --> 00:35:49.680
+Caption: um that does sort of raise the question
+
+00:35:48.060 --> 00:35:51.119
+Caption: of design patterns because they sort of
+
+00:35:49.679 --> 00:35:53.639
+Caption: meet that thing of
+
+00:35:51.118 --> 00:35:55.919
+Caption: um really mechanical transforms on code
+
+00:35:53.639 --> 00:35:58.379
+Caption: to to handle certain situations that you
+
+00:35:55.919 --> 00:35:59.280
+Caption: can always apply reliably right
+
+00:35:58.379 --> 00:36:00.959
+Caption: um so I&#39;m not saying that they&#39;re all
+
+00:35:59.280 --> 00:36:03.119
+Caption: bad but I think it&#39;s interesting to look
+
+00:36:00.959 --> 00:36:04.739
+Caption: at some of the design patterns and
+
+00:36:03.118 --> 00:36:06.179
+Caption: they&#39;re written for specific languages
+
+00:36:04.739 --> 00:36:07.979
+Caption: some design patterns you really don&#39;t
+
+00:36:06.179 --> 00:36:09.598
+Caption: need to code in a special way depending
+
+00:36:07.979 --> 00:36:10.919
+Caption: on which language it&#39;s in and it&#39;s an
+
+00:36:09.599 --> 00:36:12.839
+Caption: interesting framework to look at design
+
+00:36:10.919 --> 00:36:14.459
+Caption: patterns that they&#39;re not always a great
+
+00:36:12.839 --> 00:36:16.200
+Caption: idea they might actually be telling you
+
+00:36:14.459 --> 00:36:17.820
+Caption: that your programming language itself is
+
+00:36:16.199 --> 00:36:19.919
+Caption: not expressive enough because you&#39;ve got
+
+00:36:17.820 --> 00:36:21.900
+Caption: to do this sort of manual transformation
+
+00:36:19.919 --> 00:36:23.760
+Caption: to get the that kind of code to work
+
+00:36:21.899 --> 00:36:27.358
+Caption: that&#39;s for that&#39;s a talk for another
+
+00:36:23.760 --> 00:36:29.399
+Caption: time so moving on making invalid States
+
+00:36:27.358 --> 00:36:31.319
+Caption: unrepresentable now this is the section
+
+00:36:29.399 --> 00:36:33.479
+Caption: that I would want to do the full talk on
+
+00:36:31.320 --> 00:36:36.560
+Caption: because this is my Jam what I really
+
+00:36:33.479 --> 00:36:38.520
+Caption: want to talk about here is type systems
+
+00:36:36.560 --> 00:36:43.140
+Caption: unfortunately I&#39;ve probably got about
+
+00:36:38.520 --> 00:36:45.599
+Caption: five minutes to cover this section and
+
+00:36:43.139 --> 00:36:46.919
+Caption: to motivate this like why would we care
+
+00:36:45.599 --> 00:36:48.240
+Caption: about type systems how does that fit
+
+00:36:46.919 --> 00:36:50.879
+Caption: into this whole thing of programming
+
+00:36:48.239 --> 00:36:52.800
+Caption: language limitations and so on well this
+
+00:36:50.879 --> 00:36:54.299
+Caption: chart kind of says it all so on this
+
+00:36:52.800 --> 00:36:56.040
+Caption: chart we&#39;ve got these bars that get
+
+00:36:54.300 --> 00:36:58.439
+Caption: bigger to the right um the but the
+
+00:36:56.040 --> 00:37:00.900
+Caption: bigger the bar the higher the cost to
+
+00:36:58.439 --> 00:37:02.639
+Caption: repair a defect in software and the
+
+00:37:00.899 --> 00:37:05.520
+Caption: further to the right you go it may seem
+
+00:37:02.639 --> 00:37:08.098
+Caption: to mean it means the later the bug was
+
+00:37:05.520 --> 00:37:10.380
+Caption: discovered so that really tall bar on
+
+00:37:08.099 --> 00:37:12.359
+Caption: the right is bugs that were discovered
+
+00:37:10.379 --> 00:37:13.979
+Caption: in production so you&#39;ve you&#39;ve crafted
+
+00:37:12.358 --> 00:37:16.199
+Caption: your piece of software it&#39;s gone through
+
+00:37:13.979 --> 00:37:18.540
+Caption: all your QA it&#39;s gone out to customers
+
+00:37:16.199 --> 00:37:21.179
+Caption: and at that point the bug is discovered
+
+00:37:18.540 --> 00:37:22.739
+Caption: if you&#39;re lucky the bug was discovered
+
+00:37:21.179 --> 00:37:24.239
+Caption: by your customers and only hopefully a
+
+00:37:22.739 --> 00:37:25.320
+Caption: few of them and you might have to make
+
+00:37:24.239 --> 00:37:28.079
+Caption: them whole and that might cost some
+
+00:37:25.320 --> 00:37:30.420
+Caption: money if you&#39;re unlucky it might affect
+
+00:37:28.079 --> 00:37:32.460
+Caption: all your customers catastrophically with
+
+00:37:30.419 --> 00:37:34.439
+Caption: whatever Financial losses if you&#39;re even
+
+00:37:32.459 --> 00:37:36.300
+Caption: more unlucky it&#39;s not the customers that
+
+00:37:34.439 --> 00:37:38.098
+Caption: are affected it&#39;s it&#39;s you that&#39;s
+
+00:37:36.300 --> 00:37:40.380
+Caption: affected because someone has found a
+
+00:37:38.099 --> 00:37:42.480
+Caption: vulnerability in your code and they&#39;ve
+
+00:37:40.379 --> 00:37:44.759
+Caption: found a way to hack the system and cause
+
+00:37:42.479 --> 00:37:46.439
+Caption: all kinds of other damage like stealing
+
+00:37:44.760 --> 00:37:48.780
+Caption: information about your customers that
+
+00:37:46.439 --> 00:37:51.000
+Caption: can be extremely costly so that&#39;s I
+
+00:37:48.780 --> 00:37:52.679
+Caption: think the sort of rationale for why
+
+00:37:51.000 --> 00:37:54.599
+Caption: there&#39;s this pattern of raising costs
+
+00:37:52.679 --> 00:37:57.239
+Caption: the further out you go catching it
+
+00:37:54.599 --> 00:37:59.280
+Caption: earlier means catching it in say QC but
+
+00:37:57.239 --> 00:38:01.500
+Caption: if you&#39;ve got say a big team of human QC
+
+00:37:59.280 --> 00:38:02.880
+Caption: testers there&#39;s a cost involved in
+
+00:38:01.500 --> 00:38:05.520
+Caption: having that team right so it&#39;s quite
+
+00:38:02.879 --> 00:38:07.618
+Caption: costly to to be using that team if
+
+00:38:05.520 --> 00:38:09.419
+Caption: there&#39;s whole classes of bugs that you
+
+00:38:07.618 --> 00:38:10.919
+Caption: could find before it even leaves your
+
+00:38:09.419 --> 00:38:13.020
+Caption: laptop where you&#39;re where you&#39;re making
+
+00:38:10.919 --> 00:38:14.578
+Caption: the software it&#39;s even cheaper because
+
+00:38:13.020 --> 00:38:16.380
+Caption: you never it never goes through those
+
+00:38:14.579 --> 00:38:17.820
+Caption: later steps right so this is a time when
+
+00:38:16.379 --> 00:38:19.259
+Caption: it&#39;s really cheap to catch bugs the
+
+00:38:17.820 --> 00:38:20.520
+Caption: cheapest time is when you just catch
+
+00:38:19.260 --> 00:38:22.439
+Caption: things that are that are wrong in the
+
+00:38:20.520 --> 00:38:23.520
+Caption: spec before you even write code but
+
+00:38:22.439 --> 00:38:25.020
+Caption: we&#39;re talking about programming
+
+00:38:23.520 --> 00:38:26.699
+Caption: languages so let&#39;s assume the spec is
+
+00:38:25.020 --> 00:38:29.459
+Caption: correct what can the programming
+
+00:38:26.699 --> 00:38:30.959
+Caption: language do to actually help you catch
+
+00:38:29.459 --> 00:38:32.820
+Caption: bugs before they even go out to
+
+00:38:30.959 --> 00:38:34.260
+Caption: production because it&#39;s a lot cheaper to
+
+00:38:32.820 --> 00:38:36.420
+Caption: catch them there and that&#39;s where type
+
+00:38:34.260 --> 00:38:38.280
+Caption: systems come in by the way this this
+
+00:38:36.419 --> 00:38:40.379
+Caption: graph really motivates this concept of
+
+00:38:38.280 --> 00:38:42.000
+Caption: shift left the idea of shift left
+
+00:38:40.379 --> 00:38:44.459
+Caption: testing is basically looking at this
+
+00:38:42.000 --> 00:38:45.899
+Caption: graph and saying with all these defects
+
+00:38:44.459 --> 00:38:47.639
+Caption: and bugs we want to shift to the left
+
+00:38:45.899 --> 00:38:50.219
+Caption: and catch them way earlier because it
+
+00:38:47.639 --> 00:38:52.098
+Caption: saves us a lot of trouble uh money and
+
+00:38:50.219 --> 00:38:54.479
+Caption: time so
+
+00:38:52.099 --> 00:38:56.040
+Caption: there&#39;s a very very strong link between
+
+00:38:54.479 --> 00:38:57.838
+Caption: most people think of shift left as
+
+00:38:56.040 --> 00:38:59.520
+Caption: having better unit tests but I think
+
+00:38:57.839 --> 00:39:01.260
+Caption: there&#39;s a really strong link between the
+
+00:38:59.520 --> 00:39:04.679
+Caption: idea of shift left which is great and
+
+00:39:01.260 --> 00:39:07.020
+Caption: static type checking because type checks
+
+00:39:04.679 --> 00:39:08.699
+Caption: are tests they&#39;re tests that you don&#39;t
+
+00:39:07.020 --> 00:39:10.199
+Caption: have to write as separate unit tests but
+
+00:39:08.699 --> 00:39:11.939
+Caption: they will catch bugs for you before you
+
+00:39:10.199 --> 00:39:13.739
+Caption: even run the code
+
+00:39:11.939 --> 00:39:17.280
+Caption: so
+
+00:39:13.739 --> 00:39:18.598
+Caption: good would be that you run some sort of
+
+00:39:17.280 --> 00:39:19.739
+Caption: build tool and it tells you so I&#39;m
+
+00:39:18.599 --> 00:39:21.359
+Caption: looking at the top of the screen here
+
+00:39:19.739 --> 00:39:22.618
+Caption: and it says hey there&#39;s these errors in
+
+00:39:21.358 --> 00:39:24.719
+Caption: your code and you can&#39;t take it any
+
+00:39:22.618 --> 00:39:25.919
+Caption: further you can&#39;t run that program you
+
+00:39:24.719 --> 00:39:28.560
+Caption: can&#39;t release it to production you can&#39;t
+
+00:39:25.919 --> 00:39:30.959
+Caption: merge it to main that&#39;s great even
+
+00:39:28.560 --> 00:39:32.939
+Caption: better would be the middle one whereas
+
+00:39:30.959 --> 00:39:34.500
+Caption: you&#39;re just typing in your IDE it&#39;s
+
+00:39:32.939 --> 00:39:36.959
+Caption: already putting up a red squiggle and
+
+00:39:34.500 --> 00:39:38.219
+Caption: saying hey this isn&#39;t right so just as
+
+00:39:36.959 --> 00:39:39.239
+Caption: you&#39;re typing you&#39;re already learning
+
+00:39:38.219 --> 00:39:41.820
+Caption: that there&#39;s a bug and you fix it
+
+00:39:39.239 --> 00:39:43.560
+Caption: straight away super easy and cheap even
+
+00:39:41.820 --> 00:39:45.420
+Caption: better than that is before you&#39;ve even
+
+00:39:43.560 --> 00:39:48.540
+Caption: typed something it tells you what the
+
+00:39:45.419 --> 00:39:50.578
+Caption: options are so a lot of these powers are
+
+00:39:48.540 --> 00:39:52.859
+Caption: actually driven by Static type systems
+
+00:39:50.579 --> 00:39:54.660
+Caption: all of that this this intellisense in
+
+00:39:52.858 --> 00:39:56.459
+Caption: the bottom that it knows what the valid
+
+00:39:54.659 --> 00:39:58.199
+Caption: options are because of the type system
+
+00:39:56.459 --> 00:40:00.479
+Caption: that your programming language has built
+
+00:39:58.199 --> 00:40:03.838
+Caption: into it most of the time
+
+00:40:00.479 --> 00:40:06.000
+Caption: um so these are really powerful things
+
+00:40:03.839 --> 00:40:07.800
+Caption: and type systems are getting really good
+
+00:40:06.000 --> 00:40:10.020
+Caption: so I think most of us are familiar with
+
+00:40:07.800 --> 00:40:11.339
+Caption: the old classics classes interfaces and
+
+00:40:10.020 --> 00:40:13.020
+Caption: then basic types like numbers and
+
+00:40:11.339 --> 00:40:14.220
+Caption: strings and booleans but if you look out
+
+00:40:13.020 --> 00:40:15.119
+Caption: there at all the programming languages
+
+00:40:14.219 --> 00:40:17.040
+Caption: that are being developed between
+
+00:40:15.118 --> 00:40:18.838
+Caption: research languages functional languages
+
+00:40:17.040 --> 00:40:21.540
+Caption: there&#39;s a lot of languages out there and
+
+00:40:18.839 --> 00:40:22.859
+Caption: there&#39;s a lot of types some of them are
+
+00:40:21.540 --> 00:40:24.479
+Caption: actually not new like sum and product
+
+00:40:22.858 --> 00:40:25.759
+Caption: types have been around for decades in
+
+00:40:24.479 --> 00:40:27.959
+Caption: functional languages
+
+00:40:25.760 --> 00:40:29.760
+Caption: others are like at the bottom they&#39;re
+
+00:40:27.959 --> 00:40:32.219
+Caption: linear types and affine types don&#39;t even
+
+00:40:29.760 --> 00:40:34.560
+Caption: ask me what that last one is um yeah
+
+00:40:32.219 --> 00:40:36.118
+Caption: yeah they can get pretty
+
+00:40:34.560 --> 00:40:38.520
+Caption: um tricky
+
+00:40:36.118 --> 00:40:40.078
+Caption: and um but there&#39;s a there&#39;s a richness
+
+00:40:38.520 --> 00:40:41.099
+Caption: out there now
+
+00:40:40.079 --> 00:40:42.660
+Caption: um so
+
+00:40:41.099 --> 00:40:44.940
+Caption: if you want to learn about some of those
+
+00:40:42.659 --> 00:40:46.439
+Caption: things like me putting on a top where I
+
+00:40:44.939 --> 00:40:48.419
+Caption: feel like I should have some some sort
+
+00:40:46.439 --> 00:40:50.159
+Caption: of authority about it uh you can just go
+
+00:40:48.419 --> 00:40:51.780
+Caption: to YouTube and start googling making
+
+00:40:50.159 --> 00:40:52.858
+Caption: illegal States unrepresentable and
+
+00:40:51.780 --> 00:40:54.599
+Caption: there&#39;s a whole bunch of videos and
+
+00:40:52.858 --> 00:40:57.719
+Caption: they&#39;ll often be talking about type
+
+00:40:54.599 --> 00:40:58.980
+Caption: system solutions to this problem of you
+
+00:40:57.719 --> 00:41:01.139
+Caption: know making illegal States
+
+00:40:58.979 --> 00:41:04.020
+Caption: unrepresentable basically means the type
+
+00:41:01.139 --> 00:41:06.659
+Caption: system should pick up errors straight
+
+00:41:04.020 --> 00:41:09.540
+Caption: away if you&#39;ve specified
+
+00:41:06.659 --> 00:41:11.039
+Caption: I don&#39;t know um for user first name
+
+00:41:09.540 --> 00:41:12.540
+Caption: middle name last name first and last
+
+00:41:11.040 --> 00:41:14.280
+Caption: name are required middle name is
+
+00:41:12.540 --> 00:41:17.459
+Caption: optional if you can say in the type
+
+00:41:14.280 --> 00:41:18.959
+Caption: system that if that intent and you can
+
+00:41:17.459 --> 00:41:21.118
+Caption: see it in the code then you&#39;ll catch
+
+00:41:18.959 --> 00:41:24.358
+Caption: that error straight away if if nulls are
+
+00:41:21.118 --> 00:41:26.219
+Caption: just implicit in all in all strings then
+
+00:41:24.358 --> 00:41:28.199
+Caption: you can&#39;t specify that intent in the
+
+00:41:26.219 --> 00:41:30.239
+Caption: code and you can&#39;t catch that that error
+
+00:41:28.199 --> 00:41:32.280
+Caption: until you write a unit test for it or it
+
+00:41:30.239 --> 00:41:33.300
+Caption: goes out to production and crashes so
+
+00:41:32.280 --> 00:41:34.979
+Caption: that&#39;s what that&#39;s what we&#39;re really
+
+00:41:33.300 --> 00:41:37.079
+Caption: talking about making illegal States
+
+00:41:34.979 --> 00:41:38.358
+Caption: unrepresentable it&#39;s a type system thing
+
+00:41:37.079 --> 00:41:42.060
+Caption: usually
+
+00:41:38.358 --> 00:41:44.039
+Caption: it can go pretty far so in my wanderings
+
+00:41:42.060 --> 00:41:46.140
+Caption: I came across this video and I thought
+
+00:41:44.040 --> 00:41:47.579
+Caption: oh there&#39;s a there&#39;s a typo in the in
+
+00:41:46.139 --> 00:41:48.838
+Caption: the video name and then I actually
+
+00:41:47.579 --> 00:41:52.079
+Caption: started watching the video by the way
+
+00:41:48.839 --> 00:41:55.020
+Caption: ATS is a research functional language
+
+00:41:52.079 --> 00:41:57.720
+Caption: that implements linear types and they
+
+00:41:55.020 --> 00:41:59.820
+Caption: can do amazing things but the guy says
+
+00:41:57.719 --> 00:42:01.858
+Caption: in the first sentence of his talk he
+
+00:41:59.820 --> 00:42:04.739
+Caption: says by the way that&#39;s not a typo I
+
+00:42:01.858 --> 00:42:06.299
+Caption: actually meant to say a tase of ATS like
+
+00:42:04.739 --> 00:42:09.358
+Caption: he said you know it&#39;s so difficult to
+
+00:42:06.300 --> 00:42:11.400
+Caption: get right that it&#39;s like being tased so
+
+00:42:09.358 --> 00:42:13.679
+Caption: you know types there&#39;s a trade-off again
+
+00:42:11.399 --> 00:42:16.020
+Caption: there&#39;s a trade-off they can be really
+
+00:42:13.679 --> 00:42:17.399
+Caption: super powerful but they also mean you
+
+00:42:16.020 --> 00:42:19.619
+Caption: know you might add complexity to the
+
+00:42:17.399 --> 00:42:20.819
+Caption: development process along the way that
+
+00:42:19.618 --> 00:42:22.199
+Caption: brings us to typescript which is a
+
+00:42:20.820 --> 00:42:24.479
+Caption: language I really love
+
+00:42:22.199 --> 00:42:25.500
+Caption: type typescript is basically making a
+
+00:42:24.479 --> 00:42:28.139
+Caption: lot of these Advanced types go
+
+00:42:25.500 --> 00:42:30.540
+Caption: mainstream because they set as a design
+
+00:42:28.139 --> 00:42:32.539
+Caption: goal to statically identify constructs
+
+00:42:30.540 --> 00:42:35.939
+Caption: that are likely to be errors
+
+00:42:32.540 --> 00:42:37.800
+Caption: encode that already existed in massive
+
+00:42:35.939 --> 00:42:39.479
+Caption: quantities JavaScript is already out
+
+00:42:37.800 --> 00:42:41.640
+Caption: there lots of libraries were already out
+
+00:42:39.479 --> 00:42:43.560
+Caption: there they said how could we actually
+
+00:42:41.639 --> 00:42:44.760
+Caption: analyze code that already exists that
+
+00:42:43.560 --> 00:42:48.479
+Caption: people are already writing with all
+
+00:42:44.760 --> 00:42:50.099
+Caption: sorts of patterns and add this layer
+
+00:42:48.479 --> 00:42:52.139
+Caption: over the top of that a type system it&#39;s
+
+00:42:50.099 --> 00:42:54.599
+Caption: a superset of JavaScript that can
+
+00:42:52.139 --> 00:42:56.219
+Caption: actually detect where there&#39;s errors in
+
+00:42:54.599 --> 00:42:58.140
+Caption: the code there&#39;s the low hanging fruit
+
+00:42:56.219 --> 00:43:00.659
+Caption: like just spotting typos in property
+
+00:42:58.139 --> 00:43:02.459
+Caption: names that&#39;s pretty easy right but as
+
+00:43:00.659 --> 00:43:06.439
+Caption: the project has evolved and matured
+
+00:43:02.459 --> 00:43:06.439
+Caption: they&#39;ve added some amazing abilities
+
+00:43:06.719 --> 00:43:10.319
+Caption: um we&#39;re at the point now in typestrip
+
+00:43:08.760 --> 00:43:13.439
+Caption: where it&#39;s probably easier to think of
+
+00:43:10.319 --> 00:43:15.239
+Caption: the type system as itself a separate
+
+00:43:13.439 --> 00:43:17.098
+Caption: programming language
+
+00:43:15.239 --> 00:43:18.780
+Caption: as a programming language I would
+
+00:43:17.099 --> 00:43:20.220
+Caption: describe it as a DSL or a domain
+
+00:43:18.780 --> 00:43:22.739
+Caption: specific language it&#39;s a language really
+
+00:43:20.219 --> 00:43:25.020
+Caption: specifically for checking types for
+
+00:43:22.739 --> 00:43:27.598
+Caption: inferring checking and proving that
+
+00:43:25.020 --> 00:43:29.819
+Caption: certain type relationships hold
+
+00:43:27.599 --> 00:43:32.099
+Caption: as a language it&#39;s also a purely
+
+00:43:29.819 --> 00:43:34.020
+Caption: functional language with no side effects
+
+00:43:32.099 --> 00:43:35.099
+Caption: and it&#39;s also Turing complete so you can
+
+00:43:34.020 --> 00:43:37.500
+Caption: actually compute anything that&#39;s
+
+00:43:35.099 --> 00:43:41.819
+Caption: computable purely at compile time in the
+
+00:43:37.500 --> 00:43:43.919
+Caption: type system so a pro of that is that
+
+00:43:41.819 --> 00:43:46.380
+Caption: it&#39;s it really enables you to set up
+
+00:43:43.919 --> 00:43:48.118
+Caption: really really specific static checks so
+
+00:43:46.379 --> 00:43:49.618
+Caption: you can shift left in all kinds of ways
+
+00:43:48.118 --> 00:43:51.179
+Caption: you can catch a lot of Errors before you
+
+00:43:49.618 --> 00:43:52.318
+Caption: even run the program because static
+
+00:43:51.179 --> 00:43:53.760
+Caption: checks at the end of the day are things
+
+00:43:52.319 --> 00:43:55.260
+Caption: that you can identify just from looking
+
+00:43:53.760 --> 00:43:58.979
+Caption: at source code you don&#39;t even have to
+
+00:43:55.260 --> 00:44:01.439
+Caption: run it a downside of type systems that
+
+00:43:58.979 --> 00:44:03.358
+Caption: are this this rich is that they tend to
+
+00:44:01.439 --> 00:44:05.040
+Caption: have some pretty weird syntax that&#39;s not
+
+00:44:03.358 --> 00:44:06.299
+Caption: familiar to us and in typescript case
+
+00:44:05.040 --> 00:44:07.560
+Caption: it&#39;s really interesting because a lot of
+
+00:44:06.300 --> 00:44:10.199
+Caption: the types they actually have the same
+
+00:44:07.560 --> 00:44:12.839
+Caption: syntax as the the runtime code it
+
+00:44:10.199 --> 00:44:14.219
+Caption: mirrors but not perfectly so you&#39;ve
+
+00:44:12.839 --> 00:44:16.140
+Caption: really got a sort of you&#39;ve got that
+
+00:44:14.219 --> 00:44:17.760
+Caption: cognitive load of learning two sets of
+
+00:44:16.139 --> 00:44:19.799
+Caption: things and a lot of I think for a lot of
+
+00:44:17.760 --> 00:44:21.540
+Caption: people that don&#39;t even recognize the
+
+00:44:19.800 --> 00:44:23.520
+Caption: same control flow constructs in the type
+
+00:44:21.540 --> 00:44:25.679
+Caption: system as in the runtime system but
+
+00:44:23.520 --> 00:44:28.560
+Caption: they&#39;re all there
+
+00:44:25.679 --> 00:44:30.179
+Caption: um I just grabbed one quick example of
+
+00:44:28.560 --> 00:44:32.339
+Caption: the typescript blog and I just modified
+
+00:44:30.179 --> 00:44:33.838
+Caption: a little bit for this talk but this is
+
+00:44:32.339 --> 00:44:36.359
+Caption: basically off their blog so it&#39;s not a
+
+00:44:33.839 --> 00:44:38.160
+Caption: super complicated one but in in
+
+00:44:36.358 --> 00:44:39.899
+Caption: JavaScript you might just want to have a
+
+00:44:38.159 --> 00:44:41.399
+Caption: a simple object Watcher where you could
+
+00:44:39.899 --> 00:44:44.039
+Caption: pass in an object with some properties
+
+00:44:41.399 --> 00:44:45.779
+Caption: in it and it will return to you a
+
+00:44:44.040 --> 00:44:47.160
+Caption: version of that object that&#39;s still got
+
+00:44:45.780 --> 00:44:49.619
+Caption: the original properties but it&#39;s got a
+
+00:44:47.159 --> 00:44:51.239
+Caption: couple of callback methods that you can
+
+00:44:49.618 --> 00:44:52.919
+Caption: attach a callback to and they&#39;ll be
+
+00:44:51.239 --> 00:44:54.179
+Caption: called when one of those properties
+
+00:44:52.919 --> 00:44:56.338
+Caption: changes
+
+00:44:54.179 --> 00:44:58.500
+Caption: so I&#39;ve got an example there if you gave
+
+00:44:56.339 --> 00:45:00.060
+Caption: it a just an object with an X and A Y in
+
+00:44:58.500 --> 00:45:01.919
+Caption: their numbers it will give you back an
+
+00:45:00.060 --> 00:45:03.540
+Caption: object with the X and the Y but also
+
+00:45:01.919 --> 00:45:04.799
+Caption: it&#39;s got an X changed method and a y
+
+00:45:03.540 --> 00:45:07.199
+Caption: change method and you could put your
+
+00:45:04.800 --> 00:45:09.599
+Caption: call back in there and get notified If X
+
+00:45:07.199 --> 00:45:11.520
+Caption: Change and why change super cool and
+
+00:45:09.599 --> 00:45:13.440
+Caption: this is a dynamic language so it would
+
+00:45:11.520 --> 00:45:15.179
+Caption: accept any object you like and it will
+
+00:45:13.439 --> 00:45:17.159
+Caption: set up different different properties
+
+00:45:15.179 --> 00:45:20.300
+Caption: depending
+
+00:45:17.159 --> 00:45:20.299
+Caption: um depending on
+
+00:45:20.459 --> 00:45:23.760
+Caption: um what those that what those property
+
+00:45:22.020 --> 00:45:25.919
+Caption: names were so we could express the
+
+00:45:23.760 --> 00:45:27.359
+Caption: runtime code and that&#39;s what that make
+
+00:45:25.919 --> 00:45:28.679
+Caption: watch object is I haven&#39;t put the
+
+00:45:27.358 --> 00:45:29.879
+Caption: runtime code there like that&#39;s something
+
+00:45:28.679 --> 00:45:30.899
+Caption: that most of us could probably figure
+
+00:45:29.879 --> 00:45:33.118
+Caption: out
+
+00:45:30.899 --> 00:45:34.318
+Caption: um but the bottom part is a type so
+
+00:45:33.118 --> 00:45:36.358
+Caption: we&#39;ve basically got a type level
+
+00:45:34.319 --> 00:45:38.280
+Caption: function here and we&#39;re mapping from
+
+00:45:36.358 --> 00:45:40.139
+Caption: this the type of the source object which
+
+00:45:38.280 --> 00:45:41.400
+Caption: typescript can see because if you pass
+
+00:45:40.139 --> 00:45:43.618
+Caption: in an object there it can see what
+
+00:45:41.399 --> 00:45:45.358
+Caption: properties it&#39;s got and it&#39;s going to to
+
+00:45:43.618 --> 00:45:47.279
+Caption: it&#39;s basically a function running at the
+
+00:45:45.358 --> 00:45:49.019
+Caption: type level it&#39;s going to actually call a
+
+00:45:47.280 --> 00:45:50.400
+Caption: few other type level functions to do a
+
+00:45:49.020 --> 00:45:52.319
+Caption: calculation of what these new property
+
+00:45:50.399 --> 00:45:55.139
+Caption: names are going to be and what their
+
+00:45:52.319 --> 00:45:58.099
+Caption: types are and return that as the output
+
+00:45:55.139 --> 00:46:01.199
+Caption: type so that that type is actually used
+
+00:45:58.099 --> 00:46:02.339
+Caption: where it says T and I won&#39;t go into the
+
+00:46:01.199 --> 00:46:04.020
+Caption: details of that but it&#39;s basically a
+
+00:46:02.339 --> 00:46:05.760
+Caption: tight level function so it can do the
+
+00:46:04.020 --> 00:46:08.339
+Caption: same computation statically as the
+
+00:46:05.760 --> 00:46:09.599
+Caption: program is doing dynamically so the way
+
+00:46:08.339 --> 00:46:11.040
+Caption: that works in practice is that you can
+
+00:46:09.599 --> 00:46:14.040
+Caption: say hey I want to make a watched object
+
+00:46:11.040 --> 00:46:16.800
+Caption: with first name last name and age so if
+
+00:46:14.040 --> 00:46:18.900
+Caption: I now go person.on I realize now that my
+
+00:46:16.800 --> 00:46:20.760
+Caption: my previous slide had an error and the
+
+00:46:18.899 --> 00:46:22.379
+Caption: the Callback that it adds is on but it&#39;s
+
+00:46:20.760 --> 00:46:24.479
+Caption: strongly typed for the different um
+
+00:46:22.379 --> 00:46:26.639
+Caption: strings that you could pass into it so I
+
+00:46:24.479 --> 00:46:28.319
+Caption: want to listen for changes
+
+00:46:26.639 --> 00:46:29.699
+Caption: um first name changed and then you can
+
+00:46:28.319 --> 00:46:31.680
+Caption: supply your callback that&#39;s fine because
+
+00:46:29.699 --> 00:46:33.659
+Caption: that&#39;s valid the second two they&#39;re
+
+00:46:31.679 --> 00:46:35.338
+Caption: errors because the first one&#39;s saying
+
+00:46:33.659 --> 00:46:36.780
+Caption: well there&#39;s you can&#39;t say first name
+
+00:46:35.339 --> 00:46:38.579
+Caption: has to be first name change and the
+
+00:46:36.780 --> 00:46:40.079
+Caption: second one&#39;s just a plain old typo so
+
+00:46:38.579 --> 00:46:41.280
+Caption: those are things that before they would
+
+00:46:40.079 --> 00:46:42.540
+Caption: have just only been discovered at
+
+00:46:41.280 --> 00:46:44.219
+Caption: runtime and now you can find them at
+
+00:46:42.540 --> 00:46:46.020
+Caption: compile time and not only that it&#39;s not
+
+00:46:44.219 --> 00:46:47.219
+Caption: rigid you don&#39;t have to set up separate
+
+00:46:46.020 --> 00:46:49.199
+Caption: types for every possible different
+
+00:46:47.219 --> 00:46:51.239
+Caption: object it&#39;s like whatever the shape of
+
+00:46:49.199 --> 00:46:53.338
+Caption: the object is it will do a type level
+
+00:46:51.239 --> 00:46:55.139
+Caption: function work out what the the shape of
+
+00:46:53.339 --> 00:46:57.359
+Caption: this watched object that corresponds to
+
+00:46:55.139 --> 00:46:59.219
+Caption: will be and this kind of thing this is a
+
+00:46:57.358 --> 00:47:01.379
+Caption: simple example but with typescript you
+
+00:46:59.219 --> 00:47:04.199
+Caption: can go way beyond that I would love to
+
+00:47:01.379 --> 00:47:08.719
+Caption: do a talk on more thing cover more
+
+00:47:04.199 --> 00:47:08.719
+Caption: things like web servers for example
+
+00:47:09.300 --> 00:47:12.660
+Caption: um finally has everyone got their
+
+00:47:10.800 --> 00:47:15.780
+Caption: popcorn ready
+
+00:47:12.659 --> 00:47:18.299
+Caption: o o versus FP
+
+00:47:15.780 --> 00:47:20.459
+Caption: so um if this was a conference this
+
+00:47:18.300 --> 00:47:23.040
+Caption: would be such an interesting and
+
+00:47:20.459 --> 00:47:24.540
+Caption: um controversial topic I think that um
+
+00:47:23.040 --> 00:47:26.219
+Caption: language paradigms which we haven&#39;t
+
+00:47:24.540 --> 00:47:27.660
+Caption: really touched on yet that would be
+
+00:47:26.219 --> 00:47:28.800
+Caption: covered here language paradigms is the
+
+00:47:27.659 --> 00:47:30.299
+Caption: closest thing our industry has to
+
+00:47:28.800 --> 00:47:32.459
+Caption: religions
+
+00:47:30.300 --> 00:47:33.500
+Caption: um it&#39;s very dangerous to you know
+
+00:47:32.459 --> 00:47:35.699
+Caption: you&#39;ve got to watch what you say
+
+00:47:33.500 --> 00:47:37.139
+Caption: fortunately for me I realized in running
+
+00:47:35.699 --> 00:47:38.879
+Caption: through this talk a few times that I
+
+00:47:37.139 --> 00:47:42.179
+Caption: wouldn&#39;t have time to really do it
+
+00:47:38.879 --> 00:47:43.379
+Caption: justice so sorry guys put the popcorn
+
+00:47:42.179 --> 00:47:45.899
+Caption: away
+
+00:47:43.379 --> 00:47:48.179
+Caption: um I did try but I really found that in
+
+00:47:45.899 --> 00:47:50.219
+Caption: a little five minute window you really
+
+00:47:48.179 --> 00:47:52.979
+Caption: couldn&#39;t do justice
+
+00:47:50.219 --> 00:47:54.838
+Caption: um to to to to the debate so that one
+
+00:47:52.979 --> 00:47:56.098
+Caption: you know if that&#39;s something that you
+
+00:47:54.839 --> 00:47:58.319
+Caption: guys are interested in maybe I&#39;ll pitch
+
+00:47:56.099 --> 00:47:59.880
+Caption: it for DDD next year
+
+00:47:58.319 --> 00:48:01.380
+Caption: um I thought though you know I should at
+
+00:47:59.879 --> 00:48:02.759
+Caption: least try and find some good trolling
+
+00:48:01.379 --> 00:48:05.159
+Caption: quotes about
+
+00:48:02.760 --> 00:48:06.719
+Caption: um the two paradigms you know the funny
+
+00:48:05.159 --> 00:48:08.399
+Caption: thing was it was super easy to find them
+
+00:48:06.719 --> 00:48:10.139
+Caption: for object oriented but it was very very
+
+00:48:08.399 --> 00:48:12.118
+Caption: hard the I could basically only find
+
+00:48:10.139 --> 00:48:14.899
+Caption: this one sort of meme quote for um
+
+00:48:12.118 --> 00:48:14.899
+Caption: functional languages
+
+00:48:15.179 --> 00:48:19.679
+Caption: okay endnote
+
+00:48:17.939 --> 00:48:21.419
+Caption: in a nutshell
+
+00:48:19.679 --> 00:48:22.858
+Caption: the things we&#39;re interested in program
+
+00:48:21.419 --> 00:48:24.179
+Caption: and language design in ways that it can
+
+00:48:22.858 --> 00:48:26.939
+Caption: actually make our lives better and
+
+00:48:24.179 --> 00:48:28.800
+Caption: easier and safer is convenience we want
+
+00:48:26.939 --> 00:48:30.719
+Caption: less of these rabbit holes where you get
+
+00:48:28.800 --> 00:48:32.400
+Caption: lost trying to find a good solution we
+
+00:48:30.719 --> 00:48:34.858
+Caption: want convenience that we can express
+
+00:48:32.399 --> 00:48:36.899
+Caption: things at a high level in a reasonable
+
+00:48:34.858 --> 00:48:39.118
+Caption: amount of time and the way we do that is
+
+00:48:36.899 --> 00:48:41.598
+Caption: by leveling up human capabilities by
+
+00:48:39.118 --> 00:48:44.219
+Caption: taking into account human weaknesses
+
+00:48:41.599 --> 00:48:46.200
+Caption: correctness we just want to like squeeze
+
+00:48:44.219 --> 00:48:48.000
+Caption: bugs out of the system by Design make
+
+00:48:46.199 --> 00:48:50.338
+Caption: them less possible to even express by
+
+00:48:48.000 --> 00:48:52.439
+Caption: shifting left and in particular with
+
+00:48:50.339 --> 00:48:54.180
+Caption: expressive type systems and I think when
+
+00:48:52.439 --> 00:48:55.919
+Caption: it come I pitched that we look at things
+
+00:48:54.179 --> 00:48:57.358
+Caption: that will emerge in the future this is a
+
+00:48:55.919 --> 00:48:59.299
+Caption: big area I think there&#39;s a lot of work
+
+00:48:57.358 --> 00:49:01.799
+Caption: going on in programming language design
+
+00:48:59.300 --> 00:49:04.020
+Caption: and finally we need to embrace
+
+00:49:01.800 --> 00:49:05.540
+Caption: trade-offs so different languages
+
+00:49:04.020 --> 00:49:07.979
+Caption: express some things better than others
+
+00:49:05.540 --> 00:49:09.540
+Caption: and it I think it&#39;s going to always
+
+00:49:07.979 --> 00:49:11.040
+Caption: remain the case that we should choose
+
+00:49:09.540 --> 00:49:12.359
+Caption: the the best programming language for
+
+00:49:11.040 --> 00:49:16.160
+Caption: the job
+
+00:49:12.358 --> 00:49:16.159
+Caption: and that&#39;s it thank you very much
+
+00:49:23.159 --> 00:49:27.539
+Caption: thank you very much Troy uh what an
+
+00:49:24.959 --> 00:49:29.939
+Caption: engaging thought-provoking talk I think
+
+00:49:27.540 --> 00:49:30.839
+Caption: one of the most gripping of today so
+
+00:49:29.939 --> 00:49:32.098
+Caption: thank you
+
+00:49:30.839 --> 00:49:34.200
+Caption: um now we&#39;re going to open up the floor
+
+00:49:32.099 --> 00:49:37.220
+Caption: for questions uh do we have any
+
+00:49:34.199 --> 00:49:37.219
+Caption: questions for drawing this one
+
+00:49:38.939 --> 00:49:42.899
+Caption: sorry uh some people would be so
+
+00:49:41.099 --> 00:49:45.980
+Caption: emotional sorry
+
+00:49:42.899 --> 00:49:45.979
+Caption: uh buddy
+
+00:49:46.739 --> 00:49:49.760
+Caption: like it sent off
+
+00:49:51.618 --> 00:49:56.098
+Caption: try it again
+
+00:49:53.939 --> 00:49:58.379
+Caption: I can hear you I can hear you next so I
+
+00:49:56.099 --> 00:50:00.420
+Caption: can repeat your question if you
+
+00:49:58.379 --> 00:50:01.679
+Caption: hello okay that&#39;s better
+
+00:50:00.419 --> 00:50:04.618
+Caption: um what do you think drives some people
+
+00:50:01.679 --> 00:50:06.719
+Caption: to be so emotionally attached to a
+
+00:50:04.618 --> 00:50:08.578
+Caption: certain Paradigm or a certain language
+
+00:50:06.719 --> 00:50:10.319
+Caption: if you&#39;ve seen it happen well I think
+
+00:50:08.579 --> 00:50:12.479
+Caption: it&#39;s a like a bit of a Minefield even
+
+00:50:10.319 --> 00:50:14.520
+Caption: discussing it because I said I made an
+
+00:50:12.479 --> 00:50:17.040
+Caption: analogy to religion and there&#39;s probably
+
+00:50:14.520 --> 00:50:17.939
+Caption: that there&#39;s a deep analogy there so I
+
+00:50:17.040 --> 00:50:20.760
+Caption: would say
+
+00:50:17.939 --> 00:50:22.318
+Caption: um some sometimes it&#39;s you&#39;ve you&#39;ve
+
+00:50:20.760 --> 00:50:25.020
+Caption: grown up knowing one thing all your life
+
+00:50:22.319 --> 00:50:27.800
+Caption: and it&#39;s very difficult to hear things
+
+00:50:25.020 --> 00:50:27.800
+Caption: that say you&#39;re wrong
+
+00:50:28.139 --> 00:50:34.078
+Caption: and or even if you came to a certain way
+
+00:50:31.439 --> 00:50:36.060
+Caption: of say developing software in a certain
+
+00:50:34.079 --> 00:50:40.140
+Caption: Paradigm yourself you may have invested
+
+00:50:36.060 --> 00:50:42.239
+Caption: a lot in in doing it that way and maybe
+
+00:50:40.139 --> 00:50:43.858
+Caption: people with really different views from
+
+00:50:42.239 --> 00:50:46.020
+Caption: you just um
+
+00:50:43.858 --> 00:50:47.639
+Caption: you know it&#39;s risky to to embrace new
+
+00:50:46.020 --> 00:50:49.020
+Caption: ideas sometimes because you&#39;ve invested
+
+00:50:47.639 --> 00:50:50.699
+Caption: a lot in what you already know and
+
+00:50:49.020 --> 00:50:52.380
+Caption: typically no idea is perfect so you can
+
+00:50:50.699 --> 00:50:54.000
+Caption: always Point flaws in the other people&#39;s
+
+00:50:52.379 --> 00:50:55.679
+Caption: way of looking at the world
+
+00:50:54.000 --> 00:50:58.199
+Caption: so a little bit of resistance to change
+
+00:50:55.679 --> 00:51:00.739
+Caption: and fear of the unknown I think so yeah
+
+00:50:58.199 --> 00:51:00.739
+Caption: thanks
+
+00:51:01.439 --> 00:51:04.280
+Caption: any other question
+
+00:51:07.319 --> 00:51:11.280
+Caption: that&#39;s great thank you everyone
+
+00:51:09.118 --> 00:51:13.189
+Caption: um lunch is served out in the foyer
+
+00:51:11.280 --> 00:51:17.380
+Caption: and a big round of Records to try
+
+00:51:13.189 --> 00:51:17.379
+Caption: [Applause]
+

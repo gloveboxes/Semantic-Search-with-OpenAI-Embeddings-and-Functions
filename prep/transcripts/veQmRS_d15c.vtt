@@ -1,0 +1,1226 @@
+WEBVTT
+
+00:00:07.519 --> 00:00:13.440
+Caption: hi i&#39;m jason and welcome to my
+
+00:00:09.439 --> 00:00:13.439
+Caption: presentation let&#39;s build a cowplay app
+
+00:00:13.598 --> 00:00:17.118
+Caption: i&#39;m a senior developer at adapter a
+
+00:00:15.598 --> 00:00:18.639
+Caption: mobile centric dev house based right
+
+00:00:17.118 --> 00:00:20.159
+Caption: here in perth
+
+00:00:18.639 --> 00:00:21.840
+Caption: i&#39;m also a volunteer instructor at
+
+00:00:20.159 --> 00:00:23.438
+Caption: rockingham dog club i like to talk
+
+00:00:21.840 --> 00:00:25.198
+Caption: training as a hobby and have started
+
+00:00:23.438 --> 00:00:28.159
+Caption: competing in obedience and jumping with
+
+00:00:25.198 --> 00:00:29.759
+Caption: my cocker spaniel layer
+
+00:00:28.159 --> 00:00:31.518
+Caption: first of all i&#39;d like to take a moment
+
+00:00:29.760 --> 00:00:34.959
+Caption: to thank our sponsors for giving me the
+
+00:00:31.518 --> 00:00:34.959
+Caption: opportunity to speak today
+
+00:00:35.840 --> 00:00:40.238
+Caption: on this slide we have a photo of the
+
+00:00:37.360 --> 00:00:41.840
+Caption: wilson parking app running on carplay
+
+00:00:40.238 --> 00:00:42.718
+Caption: this is the second parking app in the
+
+00:00:41.840 --> 00:00:45.680
+Caption: world
+
+00:00:42.719 --> 00:00:48.000
+Caption: it was so close to being the first
+
+00:00:45.680 --> 00:00:49.760
+Caption: i implemented this functionality and
+
+00:00:48.000 --> 00:00:53.360
+Caption: during this presentation i am going to
+
+00:00:49.759 --> 00:00:53.359
+Caption: show you how to build a carplay app
+
+00:00:55.199 --> 00:00:58.399
+Caption: most new cars have started supporting
+
+00:00:56.879 --> 00:01:00.079
+Caption: carplay
+
+00:00:58.398 --> 00:01:01.759
+Caption: this integrates your iphone&#39;s operating
+
+00:01:00.078 --> 00:01:05.040
+Caption: system with your car&#39;s infotainment
+
+00:01:01.759 --> 00:01:06.959
+Caption: system the touchscreen in your car
+
+00:01:05.040 --> 00:01:08.479
+Caption: once you plug your iphone in to your car
+
+00:01:06.959 --> 00:01:10.319
+Caption: via usb
+
+00:01:08.478 --> 00:01:11.839
+Caption: a carplay version of the iphone&#39;s
+
+00:01:10.319 --> 00:01:14.000
+Caption: operating system will be displayed on
+
+00:01:11.839 --> 00:01:15.599
+Caption: your car&#39;s touchscreen
+
+00:01:14.000 --> 00:01:17.519
+Caption: this will only include apps which
+
+00:01:15.599 --> 00:01:19.599
+Caption: support carplay
+
+00:01:17.519 --> 00:01:22.319
+Caption: i personally use spotify and maps most
+
+00:01:19.599 --> 00:01:23.919
+Caption: of the time when i&#39;m driving
+
+00:01:22.319 --> 00:01:26.239
+Caption: there&#39;s a single app which runs on your
+
+00:01:23.919 --> 00:01:27.839
+Caption: iphone
+
+00:01:26.239 --> 00:01:29.519
+Caption: carplay is treated as an external
+
+00:01:27.839 --> 00:01:31.359
+Caption: display
+
+00:01:29.519 --> 00:01:33.279
+Caption: and has its own ui independent of the
+
+00:01:31.360 --> 00:01:34.959
+Caption: iphone&#39;s ui
+
+00:01:33.279 --> 00:01:37.360
+Caption: all the processing is still done on the
+
+00:01:34.959 --> 00:01:37.360
+Caption: iphone
+
+00:01:37.439 --> 00:01:41.360
+Caption: carplay is an apple system and will only
+
+00:01:39.360 --> 00:01:42.959
+Caption: work with iphones
+
+00:01:41.360 --> 00:01:45.119
+Caption: android has a different system called
+
+00:01:42.959 --> 00:01:49.438
+Caption: android auto this presentation is
+
+00:01:45.119 --> 00:01:49.439
+Caption: focused on the apple carplay system
+
+00:01:50.799 --> 00:01:55.360
+Caption: apple only allows a small handful of app
+
+00:01:52.879 --> 00:01:57.758
+Caption: categories to support carplay originally
+
+00:01:55.360 --> 00:01:58.719
+Caption: back in 2014 when one carplay first
+
+00:01:57.759 --> 00:02:00.479
+Caption: launched
+
+00:01:58.719 --> 00:02:02.639
+Caption: this was just audio navigation and
+
+00:02:00.478 --> 00:02:05.519
+Caption: communication apps
+
+00:02:02.639 --> 00:02:08.479
+Caption: last year as part of the ios 14 release
+
+00:02:05.519 --> 00:02:10.559
+Caption: apple changed the way carplay works
+
+00:02:08.479 --> 00:02:12.639
+Caption: and expand the supported categories to
+
+00:02:10.559 --> 00:02:15.279
+Caption: include ev charging parking and quick
+
+00:02:12.639 --> 00:02:15.279
+Caption: food ordering
+
+00:02:16.399 --> 00:02:20.000
+Caption: most ui frameworks let you create
+
+00:02:18.559 --> 00:02:22.720
+Caption: screens by nesting and arranging
+
+00:02:20.000 --> 00:02:24.958
+Caption: components as you like in order to
+
+00:02:22.720 --> 00:02:26.720
+Caption: ensure carplay apps remain safe to use
+
+00:02:24.958 --> 00:02:29.520
+Caption: in the complex driving environment this
+
+00:02:26.720 --> 00:02:31.919
+Caption: is a lot more restrictive
+
+00:02:29.520 --> 00:02:34.400
+Caption: instead carplay apps
+
+00:02:31.919 --> 00:02:36.639
+Caption: oh sorry i&#39;ll scratch that instead
+
+00:02:34.399 --> 00:02:39.518
+Caption: carplay screens are created from a fixed
+
+00:02:36.639 --> 00:02:39.518
+Caption: set of templates
+
+00:02:41.759 --> 00:02:46.720
+Caption: there are some examples on this slide
+
+00:02:45.039 --> 00:02:48.399
+Caption: and there are more available
+
+00:02:46.720 --> 00:02:50.559
+Caption: the carplay app programming guide
+
+00:02:48.399 --> 00:02:52.958
+Caption: contains documents all the templates
+
+00:02:50.559 --> 00:02:52.958
+Caption: available
+
+00:02:53.679 --> 00:02:58.399
+Caption: carplay apps decide when a template is
+
+00:02:56.319 --> 00:03:00.639
+Caption: is displayed on the screen and what data
+
+00:02:58.399 --> 00:03:02.878
+Caption: is shown the template handles everything
+
+00:03:00.639 --> 00:03:02.878
+Caption: else
+
+00:03:03.279 --> 00:03:06.878
+Caption: oh
+
+00:03:04.158 --> 00:03:06.878
+Caption: sorry um
+
+00:03:16.639 --> 00:03:21.119
+Caption: so i&#39;ve just come back um
+
+00:03:20.080 --> 00:03:22.878
+Caption: ah
+
+00:03:21.119 --> 00:03:23.919
+Caption: all carplay apps will look and feel the
+
+00:03:22.878 --> 00:03:26.158
+Caption: same
+
+00:03:23.919 --> 00:03:28.639
+Caption: as templates provide no styling options
+
+00:03:26.158 --> 00:03:31.119
+Caption: except in our cases this is great as all
+
+00:03:28.639 --> 00:03:32.319
+Caption: carplay apps will um this is great as
+
+00:03:31.119 --> 00:03:34.080
+Caption: you can achieve a lot with a small
+
+00:03:32.319 --> 00:03:35.679
+Caption: amount of code
+
+00:03:34.080 --> 00:03:37.839
+Caption: the downside is you can only do what the
+
+00:03:35.679 --> 00:03:40.319
+Caption: templates provide
+
+00:03:37.839 --> 00:03:42.399
+Caption: user input is also very limited in
+
+00:03:40.319 --> 00:03:43.919
+Caption: carplay there there are no text fields
+
+00:03:42.399 --> 00:03:45.439
+Caption: there is no keyboard
+
+00:03:43.919 --> 00:03:47.039
+Caption: templates only provide pressable
+
+00:03:45.440 --> 00:03:48.319
+Caption: controls like buttons
+
+00:03:47.039 --> 00:03:50.878
+Caption: and siri can be used for more
+
+00:03:48.319 --> 00:03:52.559
+Caption: complicated inputs
+
+00:03:50.878 --> 00:03:54.639
+Caption: your carplay app will also determine
+
+00:03:52.559 --> 00:03:56.319
+Caption: which templates it has access to some
+
+00:03:54.639 --> 00:03:58.080
+Caption: templates like the list can be used by
+
+00:03:56.319 --> 00:03:59.279
+Caption: all car players
+
+00:03:58.080 --> 00:04:01.360
+Caption: other templates like the point of
+
+00:03:59.279 --> 00:04:04.158
+Caption: interest can only be used by ev charging
+
+00:04:01.360 --> 00:04:06.639
+Caption: parking and quick food ordering apps
+
+00:04:04.158 --> 00:04:08.399
+Caption: the carplay app programming guide
+
+00:04:06.639 --> 00:04:12.000
+Caption: will tell you which
+
+00:04:08.399 --> 00:04:12.000
+Caption: templates your app has access to
+
+00:04:12.958 --> 00:04:16.239
+Caption: templates only display a small amount of
+
+00:04:15.119 --> 00:04:18.160
+Caption: information
+
+00:04:16.239 --> 00:04:20.720
+Caption: for example this template will display a
+
+00:04:18.160 --> 00:04:25.040
+Caption: maximum of 12 items each item will have
+
+00:04:20.720 --> 00:04:25.040
+Caption: a title a subtitle and maybe an image
+
+00:04:25.679 --> 00:04:29.679
+Caption: carplay uses a stack for navigation and
+
+00:04:28.079 --> 00:04:31.758
+Caption: also limits the number of templates
+
+00:04:29.679 --> 00:04:34.239
+Caption: which can go on the stack
+
+00:04:31.759 --> 00:04:36.479
+Caption: the quick food ordering apps can only
+
+00:04:34.239 --> 00:04:37.918
+Caption: have two templates on this stack whereas
+
+00:04:36.479 --> 00:04:42.839
+Caption: all other carplay apps can have a
+
+00:04:37.919 --> 00:04:42.839
+Caption: maximum of five templates on this stack
+
+00:04:43.199 --> 00:04:48.479
+Caption: apple defines a bunch of guidelines
+
+00:04:44.880 --> 00:04:48.479
+Caption: which ios apps must follow
+
+00:04:48.639 --> 00:04:52.639
+Caption: when you have finished your app and are
+
+00:04:50.079 --> 00:04:54.319
+Caption: ready to submit to the store apple will
+
+00:04:52.639 --> 00:04:56.240
+Caption: check your app to ensure it follows
+
+00:04:54.320 --> 00:04:58.080
+Caption: these guidelines if they think you have
+
+00:04:56.239 --> 00:05:00.000
+Caption: breached a guideline your submission
+
+00:04:58.079 --> 00:05:02.079
+Caption: will be rejected
+
+00:05:00.000 --> 00:05:05.039
+Caption: carplay has its own set of guidelines
+
+00:05:02.079 --> 00:05:05.039
+Caption: which must be followed
+
+00:05:05.600 --> 00:05:09.360
+Caption: i will not bore you today by going over
+
+00:05:07.440 --> 00:05:10.720
+Caption: all of the carplay guidelines
+
+00:05:09.359 --> 00:05:13.679
+Caption: and instead have selected some of the
+
+00:05:10.720 --> 00:05:15.199
+Caption: main ones which i&#39;ll go over
+
+00:05:13.679 --> 00:05:16.559
+Caption: the best place to check all of these
+
+00:05:15.199 --> 00:05:20.039
+Caption: guidelines is the carplay out
+
+00:05:16.559 --> 00:05:20.039
+Caption: programming guide
+
+00:05:27.039 --> 00:05:30.320
+Caption: the first one
+
+00:05:28.399 --> 00:05:32.559
+Caption: essentially means
+
+00:05:30.320 --> 00:05:34.639
+Caption: that your app must provide appropriate
+
+00:05:32.559 --> 00:05:36.639
+Caption: functionality for its category
+
+00:05:34.639 --> 00:05:39.839
+Caption: so a parking app is expected to provide
+
+00:05:36.639 --> 00:05:39.839
+Caption: some sort of parking service
+
+00:05:40.639 --> 00:05:45.360
+Caption: all carplay flows must be meaningful to
+
+00:05:42.479 --> 00:05:45.360
+Caption: use whilst driving
+
+00:05:45.839 --> 00:05:49.440
+Caption: apple doesn&#39;t apple only wants us to
+
+00:05:47.759 --> 00:05:50.720
+Caption: include a feature in carplay if it&#39;s
+
+00:05:49.440 --> 00:05:52.399
+Caption: called to the app and make sense to
+
+00:05:50.720 --> 00:05:54.160
+Caption: perform whilst driving features like
+
+00:05:52.399 --> 00:05:56.000
+Caption: maintenance unrelated settings and
+
+00:05:54.160 --> 00:05:57.600
+Caption: filling out forms should be left to be
+
+00:05:56.000 --> 00:06:00.639
+Caption: done on the iphone when it is safe to
+
+00:05:57.600 --> 00:06:00.639
+Caption: perform these tasks
+
+00:06:00.799 --> 00:06:04.478
+Caption: all carplay flows must be possible
+
+00:06:02.559 --> 00:06:06.000
+Caption: without interacting with the iphone
+
+00:06:04.479 --> 00:06:07.360
+Caption: templates do not provide the same
+
+00:06:06.000 --> 00:06:08.399
+Caption: functionality as what can be done on the
+
+00:06:07.359 --> 00:06:09.918
+Caption: iphone
+
+00:06:08.399 --> 00:06:12.000
+Caption: you&#39;re not allowed to launch a screen on
+
+00:06:09.919 --> 00:06:13.440
+Caption: the iphone to continue your flow instead
+
+00:06:12.000 --> 00:06:15.039
+Caption: you have to look at either changing your
+
+00:06:13.440 --> 00:06:16.720
+Caption: carplay flow so that it will work
+
+00:06:15.039 --> 00:06:18.880
+Caption: entirely and carefully or remove that
+
+00:06:16.720 --> 00:06:20.079
+Caption: feature from carplay
+
+00:06:18.880 --> 00:06:22.959
+Caption: and finally you&#39;re not allowed to
+
+00:06:20.079 --> 00:06:25.599
+Caption: instruct a user to to manipulate their
+
+00:06:22.959 --> 00:06:26.638
+Caption: iphone to perform a task
+
+00:06:25.600 --> 00:06:30.319
+Caption: and
+
+00:06:26.639 --> 00:06:31.919
+Caption: you can quite common uh so um
+
+00:06:30.319 --> 00:06:33.679
+Caption: common error conditions can easily be
+
+00:06:31.919 --> 00:06:35.360
+Caption: resolved by performing a task on an
+
+00:06:33.679 --> 00:06:37.039
+Caption: iphone for example
+
+00:06:35.359 --> 00:06:39.519
+Caption: a user not being logged in you can
+
+00:06:37.039 --> 00:06:41.440
+Caption: simply prompt the user to log in
+
+00:06:39.519 --> 00:06:44.720
+Caption: on carplay you&#39;re not you are not
+
+00:06:41.440 --> 00:06:46.239
+Caption: allowed to instruct the user to log in
+
+00:06:44.720 --> 00:06:48.319
+Caption: instead you have to be clever about your
+
+00:06:46.239 --> 00:06:50.319
+Caption: error message indicating something is
+
+00:06:48.319 --> 00:06:52.959
+Caption: wrong without tempting the user to touch
+
+00:06:50.319 --> 00:06:52.959
+Caption: their iphone
+
+00:06:53.279 --> 00:06:57.279
+Caption: before we jump into the code i&#39;m going
+
+00:06:55.679 --> 00:06:59.039
+Caption: to go over the scope of the app we&#39;re
+
+00:06:57.279 --> 00:07:00.799
+Caption: going to build today first of all we are
+
+00:06:59.039 --> 00:07:02.399
+Caption: going to make a parking app
+
+00:07:00.799 --> 00:07:04.079
+Caption: this is because we get access to the
+
+00:07:02.399 --> 00:07:06.319
+Caption: point of interest template which is
+
+00:07:04.079 --> 00:07:08.638
+Caption: flashy and great for a demo
+
+00:07:06.319 --> 00:07:10.079
+Caption: we&#39;re going to need an iphone ui
+
+00:07:08.639 --> 00:07:13.039
+Caption: in our case it&#39;s going to be very
+
+00:07:10.079 --> 00:07:15.359
+Caption: complex and display hello world
+
+00:07:13.039 --> 00:07:17.598
+Caption: our carplay ui is going to display us
+
+00:07:15.359 --> 00:07:19.198
+Caption: car parks nearby allow us to select a
+
+00:07:17.598 --> 00:07:22.000
+Caption: car park and navigate to a screen for
+
+00:07:19.199 --> 00:07:22.000
+Caption: more information
+
+00:07:22.319 --> 00:07:25.679
+Caption: before we can start creating carplay
+
+00:07:24.000 --> 00:07:26.959
+Caption: functionality we first need an iphone
+
+00:07:25.679 --> 00:07:28.639
+Caption: app
+
+00:07:26.959 --> 00:07:31.039
+Caption: in our case we&#39;re going to use the one
+
+00:07:28.639 --> 00:07:33.679
+Caption: auto generated by xcode using swift and
+
+00:07:31.039 --> 00:07:35.440
+Caption: ios 14.
+
+00:07:33.679 --> 00:07:37.359
+Caption: our appdelegate class has been already
+
+00:07:35.440 --> 00:07:39.440
+Caption: generated for us
+
+00:07:37.359 --> 00:07:41.038
+Caption: this manages the lifecycle of the app
+
+00:07:39.440 --> 00:07:42.399
+Caption: and is the entry point for when the app
+
+00:07:41.039 --> 00:07:45.759
+Caption: starts
+
+00:07:42.399 --> 00:07:47.679
+Caption: all this does oh sorry well currently
+
+00:07:45.759 --> 00:07:51.440
+Caption: all this does is return
+
+00:07:47.679 --> 00:07:51.440
+Caption: our iphone scene configuration
+
+00:07:51.759 --> 00:07:55.598
+Caption: our iphone scene configuration
+
+00:07:53.919 --> 00:07:57.520
+Caption: will create this
+
+00:07:55.598 --> 00:07:59.839
+Caption: scene delegate which manages the life
+
+00:07:57.519 --> 00:08:02.079
+Caption: cycle of the iphone&#39;s ui
+
+00:07:59.839 --> 00:08:04.559
+Caption: all this does is
+
+00:08:02.079 --> 00:08:06.239
+Caption: create a window and populate it with the
+
+00:08:04.559 --> 00:08:08.559
+Caption: content view which will display hello
+
+00:08:06.239 --> 00:08:08.559
+Caption: world
+
+00:08:08.720 --> 00:08:13.039
+Caption: this scene delegate currently uses a
+
+00:08:10.959 --> 00:08:15.598
+Caption: swift window but we could change this to
+
+00:08:13.039 --> 00:08:16.799
+Caption: use whatever technology your iphone ui
+
+00:08:15.598 --> 00:08:19.279
+Caption: is rendered in
+
+00:08:16.799 --> 00:08:21.039
+Caption: the wilson parking app uses react native
+
+00:08:19.279 --> 00:08:23.440
+Caption: to render its iphone
+
+00:08:21.039 --> 00:08:23.440
+Caption: ui
+
+00:08:23.598 --> 00:08:26.479
+Caption: react native is a lot more complicated
+
+00:08:25.279 --> 00:08:28.319
+Caption: to set up and if you would like
+
+00:08:26.479 --> 00:08:29.679
+Caption: information about this i have written a
+
+00:08:28.319 --> 00:08:32.719
+Caption: blog post which will be shared at the
+
+00:08:29.679 --> 00:08:32.719
+Caption: end of this presentation
+
+00:08:35.119 --> 00:08:38.958
+Caption: we have an iphone app let&#39;s start adding
+
+00:08:36.799 --> 00:08:41.039
+Caption: some carplay functionality
+
+00:08:38.958 --> 00:08:44.000
+Caption: carplay will be written in swift using
+
+00:08:41.039 --> 00:08:44.000
+Caption: the carplay api
+
+00:08:47.518 --> 00:08:51.200
+Caption: to build our carplay app we must first
+
+00:08:49.440 --> 00:08:52.720
+Caption: specify an entitlement in order to use
+
+00:08:51.200 --> 00:08:54.480
+Caption: carplay
+
+00:08:52.719 --> 00:08:57.679
+Caption: create a carplay scene to manage the
+
+00:08:54.479 --> 00:09:00.000
+Caption: lifecycle of our carplay ui
+
+00:08:57.679 --> 00:09:02.239
+Caption: configure to configure our app to use
+
+00:09:00.000 --> 00:09:04.398
+Caption: two scenes one for carplay and one for
+
+00:09:02.239 --> 00:09:06.000
+Caption: the iphone and finally construct some
+
+00:09:04.398 --> 00:09:09.398
+Caption: templates which will be displayed on the
+
+00:09:06.000 --> 00:09:09.398
+Caption: carplay screen
+
+00:09:10.239 --> 00:09:14.000
+Caption: in order to use carplay you need an
+
+00:09:11.919 --> 00:09:16.719
+Caption: appropriate entitlement
+
+00:09:14.000 --> 00:09:18.719
+Caption: each app category supported by carplay
+
+00:09:16.719 --> 00:09:20.398
+Caption: has a
+
+00:09:18.719 --> 00:09:22.958
+Caption: has an associated entitlement this is
+
+00:09:20.398 --> 00:09:25.760
+Caption: because each car play entitled
+
+00:09:22.958 --> 00:09:27.440
+Caption: this is because each carplay entitlement
+
+00:09:25.760 --> 00:09:30.320
+Caption: unlocks different functionality from the
+
+00:09:27.440 --> 00:09:30.320
+Caption: carplay api
+
+00:09:30.958 --> 00:09:34.479
+Caption: first we must create an entitlements
+
+00:09:32.479 --> 00:09:36.639
+Caption: file and specify our parking entitlement
+
+00:09:34.479 --> 00:09:39.278
+Caption: like what is shown on the screen
+
+00:09:36.640 --> 00:09:41.838
+Caption: in order to deploy to a device or the
+
+00:09:39.278 --> 00:09:41.838
+Caption: app store
+
+00:09:42.880 --> 00:09:44.640
+Caption: we need
+
+00:09:43.919 --> 00:09:46.559
+Caption: and
+
+00:09:44.640 --> 00:09:49.600
+Caption: we need the same configuration in an
+
+00:09:46.559 --> 00:09:51.838
+Caption: associated apple developer account
+
+00:09:49.599 --> 00:09:53.679
+Caption: common entitlements like camera access
+
+00:09:51.838 --> 00:09:55.919
+Caption: can simply be configured
+
+00:09:53.679 --> 00:09:59.599
+Caption: carplay is a lot more exclusive you must
+
+00:09:55.919 --> 00:09:59.599
+Caption: first contact apple and apply
+
+00:09:59.679 --> 00:10:03.599
+Caption: for the carplay entitlement as part of
+
+00:10:01.760 --> 00:10:05.278
+Caption: this application process apple will
+
+00:10:03.599 --> 00:10:07.440
+Caption: check your company
+
+00:10:05.278 --> 00:10:08.719
+Caption: and the app being developed
+
+00:10:07.440 --> 00:10:10.398
+Caption: when we were working on the carplay
+
+00:10:08.719 --> 00:10:12.000
+Caption: functionality for the wilson parking app
+
+00:10:10.398 --> 00:10:14.000
+Caption: we had to get wilson to apply for the
+
+00:10:12.000 --> 00:10:15.760
+Caption: parking entitlement
+
+00:10:14.000 --> 00:10:17.518
+Caption: apple could see that wilson is a parking
+
+00:10:15.760 --> 00:10:20.078
+Caption: company they have a parking app and we
+
+00:10:17.518 --> 00:10:22.958
+Caption: eventually got the parking entitlement
+
+00:10:20.078 --> 00:10:24.078
+Caption: if your application is is successful you
+
+00:10:22.958 --> 00:10:25.359
+Caption: can then
+
+00:10:24.078 --> 00:10:27.919
+Caption: configure the entitlement through your
+
+00:10:25.359 --> 00:10:29.679
+Caption: apple developer account
+
+00:10:27.919 --> 00:10:32.479
+Caption: our project does not have an associated
+
+00:10:29.679 --> 00:10:34.958
+Caption: apple developer account
+
+00:10:32.479 --> 00:10:38.559
+Caption: so it will not be able to so it can only
+
+00:10:34.958 --> 00:10:38.559
+Caption: run in the simulator environment
+
+00:10:39.838 --> 00:10:44.479
+Caption: our carplay scene delegate manages the
+
+00:10:42.159 --> 00:10:47.679
+Caption: lifecycle of the carplay ui all this
+
+00:10:44.479 --> 00:10:50.559
+Caption: does is create our first template and
+
+00:10:47.679 --> 00:10:50.559
+Caption: set it as through
+
+00:10:52.799 --> 00:10:57.440
+Caption: our app delegate needs to change so that
+
+00:10:55.278 --> 00:10:59.359
+Caption: when carplay connects we return the car
+
+00:10:57.440 --> 00:11:03.599
+Caption: placing configuration otherwise we
+
+00:10:59.359 --> 00:11:03.599
+Caption: return the iphone&#39;s same configuration
+
+00:11:05.679 --> 00:11:08.479
+Caption: let&#39;s now have a look at making our
+
+00:11:07.200 --> 00:11:10.079
+Caption: first screen
+
+00:11:08.479 --> 00:11:11.838
+Caption: our first screen is going to show us car
+
+00:11:10.078 --> 00:11:14.559
+Caption: parks nearby for the purpose of this
+
+00:11:11.838 --> 00:11:17.200
+Caption: demo i have three markers on the map
+
+00:11:14.559 --> 00:11:19.760
+Caption: which are three random locations sorry
+
+00:11:17.200 --> 00:11:22.720
+Caption: can i start that bit um
+
+00:11:19.760 --> 00:11:22.720
+Caption: i&#39;ll take that forward
+
+00:11:24.640 --> 00:11:29.119
+Caption: let&#39;s first let&#39;s have a look at making
+
+00:11:26.719 --> 00:11:31.599
+Caption: our first screen our first screen is
+
+00:11:29.119 --> 00:11:33.760
+Caption: going to show us carpark
+
+00:11:31.599 --> 00:11:36.398
+Caption: our first screen is going to show us car
+
+00:11:33.760 --> 00:11:38.160
+Caption: parks nearby
+
+00:11:36.398 --> 00:11:39.838
+Caption: for the purpose of this demo i have
+
+00:11:38.159 --> 00:11:41.440
+Caption: chosen three random locations around
+
+00:11:39.838 --> 00:11:42.958
+Caption: perth which you can see via the yellow
+
+00:11:41.440 --> 00:11:44.398
+Caption: markers
+
+00:11:42.958 --> 00:11:46.398
+Caption: to achieve this we are going to use the
+
+00:11:44.398 --> 00:11:48.320
+Caption: point of interest template which has two
+
+00:11:46.398 --> 00:11:50.078
+Caption: modes one mode shows us a list of point
+
+00:11:48.320 --> 00:11:51.600
+Caption: of interest objects and another mode
+
+00:11:50.078 --> 00:11:55.159
+Caption: shows us different data when a point of
+
+00:11:51.599 --> 00:11:55.159
+Caption: interest has been selected
+
+00:11:57.919 --> 00:12:00.799
+Caption: this code creates our point of interest
+
+00:11:59.599 --> 00:12:04.719
+Caption: object
+
+00:12:00.799 --> 00:12:07.518
+Caption: with three random locations around perth
+
+00:12:04.719 --> 00:12:09.439
+Caption: with the aid of a helper method
+
+00:12:07.518 --> 00:12:11.599
+Caption: sorry i&#39;ll just done that
+
+00:12:09.440 --> 00:12:13.359
+Caption: this code creates our point of interest
+
+00:12:11.599 --> 00:12:14.799
+Caption: template
+
+00:12:13.359 --> 00:12:17.278
+Caption: with three random
+
+00:12:14.799 --> 00:12:18.799
+Caption: carpark locations with the aid of a help
+
+00:12:17.278 --> 00:12:20.559
+Caption: or function
+
+00:12:18.799 --> 00:12:23.039
+Caption: our helper function simply creates a
+
+00:12:20.559 --> 00:12:24.638
+Caption: point of interest object and returns it
+
+00:12:23.039 --> 00:12:25.518
+Caption: this will add a button at the bottom of
+
+00:12:24.638 --> 00:12:27.440
+Caption: our
+
+00:12:25.518 --> 00:12:28.638
+Caption: point of interest object so that when it
+
+00:12:27.440 --> 00:12:30.559
+Caption: is selected in the point of interest
+
+00:12:28.638 --> 00:12:32.638
+Caption: template we will see more details which
+
+00:12:30.559 --> 00:12:36.679
+Caption: will navigate us to the next
+
+00:12:32.638 --> 00:12:36.679
+Caption: to the next screen
+
+00:12:38.159 --> 00:12:42.000
+Caption: our next screen is going to show us more
+
+00:12:39.838 --> 00:12:43.440
+Caption: specific information about a selected
+
+00:12:42.000 --> 00:12:44.880
+Caption: car park
+
+00:12:43.440 --> 00:12:46.880
+Caption: to achieve this we&#39;re going to use the
+
+00:12:44.880 --> 00:12:48.799
+Caption: information template which is a couple
+
+00:12:46.880 --> 00:12:50.559
+Caption: of items in the center of the screen and
+
+00:12:48.799 --> 00:12:53.838
+Caption: a button at the bottom which takes us
+
+00:12:50.559 --> 00:12:53.838
+Caption: back to the previous screen
+
+00:12:56.398 --> 00:12:59.518
+Caption: this code creates our point of in our
+
+00:12:58.638 --> 00:13:01.119
+Caption: sorry
+
+00:12:59.518 --> 00:13:03.359
+Caption: this code creates our information
+
+00:13:01.119 --> 00:13:05.119
+Caption: template
+
+00:13:03.359 --> 00:13:07.119
+Caption: with our list of items displayed in the
+
+00:13:05.119 --> 00:13:09.359
+Caption: center and our done button which takes
+
+00:13:07.119 --> 00:13:12.719
+Caption: us back to the previous screen
+
+00:13:09.359 --> 00:13:12.719
+Caption: let&#39;s now see this code running
+
+00:13:15.518 --> 00:13:18.880
+Caption: on our iphone simulator we have the
+
+00:13:17.200 --> 00:13:20.958
+Caption: carplay demo
+
+00:13:18.880 --> 00:13:23.359
+Caption: app this doesn&#39;t have an icon because
+
+00:13:20.958 --> 00:13:25.919
+Caption: i&#39;ve just not set one up
+
+00:13:23.359 --> 00:13:29.518
+Caption: when we press this we get our iphone ui
+
+00:13:25.919 --> 00:13:29.518
+Caption: which will display hello world
+
+00:13:30.479 --> 00:13:34.398
+Caption: on our carplay simulator when we press
+
+00:13:32.719 --> 00:13:36.479
+Caption: our carplay demo app
+
+00:13:34.398 --> 00:13:38.000
+Caption: we&#39;ll get our carplay ui
+
+00:13:36.479 --> 00:13:39.838
+Caption: which displays our
+
+00:13:38.000 --> 00:13:42.320
+Caption: screen containing car parks nearby you
+
+00:13:39.838 --> 00:13:44.078
+Caption: can see the three markers
+
+00:13:42.320 --> 00:13:46.160
+Caption: our list on the left containing three
+
+00:13:44.078 --> 00:13:48.000
+Caption: car parks
+
+00:13:46.159 --> 00:13:51.359
+Caption: we can select a car park showing us
+
+00:13:48.000 --> 00:13:53.119
+Caption: different information about the car park
+
+00:13:51.359 --> 00:13:54.880
+Caption: we can select more details which will
+
+00:13:53.119 --> 00:13:56.638
+Caption: take us to the next screen showing us in
+
+00:13:54.880 --> 00:13:58.799
+Caption: more information about the selected car
+
+00:13:56.638 --> 00:14:00.719
+Caption: park
+
+00:13:58.799 --> 00:14:04.479
+Caption: we can then press our done button which
+
+00:14:00.719 --> 00:14:04.479
+Caption: takes us back to the previous screen
+
+00:14:10.000 --> 00:14:14.398
+Caption: not everything can be tested in the
+
+00:14:11.760 --> 00:14:16.160
+Caption: simulator environment
+
+00:14:14.398 --> 00:14:18.078
+Caption: carplay functionality can differ on
+
+00:14:16.159 --> 00:14:20.078
+Caption: actual car to play devices for example
+
+00:14:18.078 --> 00:14:22.320
+Caption: in the demo you just saw
+
+00:14:20.078 --> 00:14:25.119
+Caption: the information template shows the data
+
+00:14:22.320 --> 00:14:25.119
+Caption: area on the left
+
+00:14:26.159 --> 00:14:29.440
+Caption: and then it&#39;s um
+
+00:14:28.078 --> 00:14:31.518
+Caption: on the screen we have a photo of the
+
+00:14:29.440 --> 00:14:33.278
+Caption: wilson parking app which is also using
+
+00:14:31.518 --> 00:14:36.638
+Caption: the information template which shows the
+
+00:14:33.278 --> 00:14:36.638
+Caption: data area on the right
+
+00:14:36.799 --> 00:14:41.599
+Caption: this is because
+
+00:14:39.119 --> 00:14:45.719
+Caption: the photo is showing and showing an
+
+00:14:41.599 --> 00:14:45.719
+Caption: australian carplay device
+
+00:14:46.559 --> 00:14:49.679
+Caption: when developing the carplay
+
+00:14:47.919 --> 00:14:51.440
+Caption: functionality for the wilson parking app
+
+00:14:49.679 --> 00:14:55.039
+Caption: we had to test on
+
+00:14:51.440 --> 00:14:56.958
+Caption: cars which supported carplay as well as
+
+00:14:55.039 --> 00:14:59.838
+Caption: the carplay device which you can see on
+
+00:14:56.958 --> 00:15:01.119
+Caption: the slide
+
+00:14:59.838 --> 00:15:03.039
+Caption: if you would like to play further with
+
+00:15:01.119 --> 00:15:05.198
+Caption: the demo you just saw you can download
+
+00:15:03.039 --> 00:15:06.799
+Caption: it from my github
+
+00:15:05.198 --> 00:15:08.479
+Caption: the carplay app programming guide
+
+00:15:06.799 --> 00:15:10.559
+Caption: documents all the information you need
+
+00:15:08.479 --> 00:15:12.000
+Caption: to build a carplay app
+
+00:15:10.559 --> 00:15:13.599
+Caption: if you would like more information on
+
+00:15:12.000 --> 00:15:15.599
+Caption: carplay development i&#39;ve written a blog
+
+00:15:13.599 --> 00:15:16.880
+Caption: post which is available here and finally
+
+00:15:15.599 --> 00:15:18.000
+Caption: you should check out what my awesome
+
+00:15:16.880 --> 00:15:20.479
+Caption: colleagues at
+
+00:15:18.000 --> 00:15:22.479
+Caption: colleagues and i get up to an adapter as
+
+00:15:20.479 --> 00:15:25.638
+Caption: we&#39;ll quite often feature book posts on
+
+00:15:22.479 --> 00:15:25.638
+Caption: our website
+
+00:15:26.799 --> 00:15:30.880
+Caption: thanks everyone that&#39;s the end of my
+
+00:15:28.078 --> 00:15:30.880
+Caption: presentation
+

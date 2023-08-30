@@ -1,0 +1,1322 @@
+WEBVTT
+
+00:00:06.989 --> 00:00:13.770
+Caption: hello good afternoon how how is everyone
+
+00:00:09.720 --> 00:00:17.610
+Caption: feeling after lunch sounds a bit sleepy
+
+00:00:13.770 --> 00:00:19.590
+Caption: woof tough crowd so I have the great
+
+00:00:17.610 --> 00:00:21.659
+Caption: pleasure of introducing Mac linearity
+
+00:00:19.590 --> 00:00:23.970
+Caption: and Macklin&#39;s being incredibly
+
+00:00:21.659 --> 00:00:25.799
+Caption: incredibly awesome with Dee Dee Dee
+
+00:00:23.969 --> 00:00:28.648
+Caption: helping us to solve a huge amount of
+
+00:00:25.799 --> 00:00:30.930
+Caption: issues on the front of our website as
+
+00:00:28.649 --> 00:00:32.639
+Caption: well accessibility issues as well so and
+
+00:00:30.930 --> 00:00:34.799
+Caption: in fact this is actually one of the
+
+00:00:32.639 --> 00:00:35.700
+Caption: talks that I voted for as well so yeah
+
+00:00:34.799 --> 00:00:37.470
+Caption: go dee dee dee
+
+00:00:35.700 --> 00:00:44.010
+Caption: I don&#39;t know further ado had to overto
+
+00:00:37.470 --> 00:00:46.620
+Caption: back lid thanks Rob good afternoon
+
+00:00:44.009 --> 00:00:49.049
+Caption: everyone how great was lunch by the way
+
+00:00:46.619 --> 00:00:50.669
+Caption: it was fantastic wasn&#39;t it delicious I&#39;m
+
+00:00:49.049 --> 00:00:52.859
+Caption: actually hoping you&#39;re all in a bit of a
+
+00:00:50.669 --> 00:00:56.639
+Caption: food coma so you don&#39;t notice any of my
+
+00:00:52.859 --> 00:00:58.440
+Caption: mistakes if I make them so it&#39;s great to
+
+00:00:56.639 --> 00:01:01.439
+Caption: see so many people here here to hear me
+
+00:00:58.439 --> 00:01:04.529
+Caption: ranting about my my talk every good
+
+00:01:01.439 --> 00:01:08.119
+Caption: outage starts with a cue so let&#39;s get us
+
+00:01:04.529 --> 00:01:11.009
+Caption: started first off what exactly is a cue
+
+00:01:08.120 --> 00:01:12.389
+Caption: well you might remember cues from
+
+00:01:11.009 --> 00:01:17.100
+Caption: various normal day-to-day activities
+
+00:01:12.389 --> 00:01:18.839
+Caption: such as climbing Mount Everest or that
+
+00:01:17.099 --> 00:01:20.250
+Caption: one time your engineering league got
+
+00:01:18.839 --> 00:01:21.769
+Caption: stuck in the train and it was late for
+
+00:01:20.250 --> 00:01:25.290
+Caption: work
+
+00:01:21.769 --> 00:01:27.718
+Caption: or maybe that one super interesting and
+
+00:01:25.290 --> 00:01:30.869
+Caption: riveting data structures unit that you
+
+00:01:27.719 --> 00:01:33.779
+Caption: had in University house how cute is
+
+00:01:30.869 --> 00:01:36.240
+Caption: actually pretty simple the first it&#39;s a
+
+00:01:33.779 --> 00:01:39.089
+Caption: bit like the the Mount Everest q example
+
+00:01:36.239 --> 00:01:40.680
+Caption: the first person in the queue actually
+
+00:01:39.089 --> 00:01:45.179
+Caption: gets to see the top of the mountain
+
+00:01:40.680 --> 00:01:48.569
+Caption: first and subsequent items in that queue
+
+00:01:45.180 --> 00:01:51.329
+Caption: I join at the end and they have to wait
+
+00:01:48.569 --> 00:01:53.699
+Caption: until they can be moved to the front of
+
+00:01:51.329 --> 00:01:56.219
+Caption: the queue before they can get they can
+
+00:01:53.699 --> 00:01:56.930
+Caption: get DQ&#39;d at the end it is really quite
+
+00:01:56.219 --> 00:01:59.189
+Caption: simple
+
+00:01:56.930 --> 00:02:02.929
+Caption: I&#39;m going to be talking specifically
+
+00:01:59.189 --> 00:02:05.310
+Caption: about messaging keys which are
+
+00:02:02.929 --> 00:02:08.339
+Caption: specifically for distributed messaging
+
+00:02:05.309 --> 00:02:10.889
+Caption: systems so maybe I could get a little
+
+00:02:08.339 --> 00:02:13.470
+Caption: bit of hands up who&#39;s used distributed
+
+00:02:10.889 --> 00:02:16.350
+Caption: messaging before so something like
+
+00:02:13.470 --> 00:02:19.020
+Caption: Amazon sqs for example or as you a
+
+00:02:16.350 --> 00:02:21.210
+Caption: service bus RabbitMQ
+
+00:02:19.020 --> 00:02:23.309
+Caption: or perhaps you like us we actually
+
+00:02:21.210 --> 00:02:27.150
+Caption: rolled our own because it was fairly
+
+00:02:23.309 --> 00:02:29.220
+Caption: simple for us so I hope I saw a lot of
+
+00:02:27.149 --> 00:02:31.919
+Caption: hands up that gives me the impression
+
+00:02:29.220 --> 00:02:37.139
+Caption: that I think developers actually quite
+
+00:02:31.919 --> 00:02:40.050
+Caption: like use they had quite keen on them but
+
+00:02:37.139 --> 00:02:42.419
+Caption: why exactly is that I can think of a
+
+00:02:40.050 --> 00:02:45.330
+Caption: couple of reasons right so first of all
+
+00:02:42.419 --> 00:02:48.839
+Caption: you they offer a really just a really
+
+00:02:45.330 --> 00:02:51.380
+Caption: simple logical separation so the idea is
+
+00:02:48.839 --> 00:02:53.369
+Caption: the message publisher the person who
+
+00:02:51.380 --> 00:02:55.830
+Caption: publishes his message into the queue
+
+00:02:53.369 --> 00:02:58.169
+Caption: they don&#39;t have to really understand how
+
+00:02:55.830 --> 00:03:00.720
+Caption: the downstream processes are going to be
+
+00:02:58.169 --> 00:03:02.580
+Caption: doing their job or in fact how many of
+
+00:03:00.720 --> 00:03:05.520
+Caption: those downstream processes there are so
+
+00:03:02.580 --> 00:03:06.960
+Caption: that&#39;s kind of nice on top of that they
+
+00:03:05.520 --> 00:03:09.360
+Caption: can act like a bit of a shock absorber
+
+00:03:06.960 --> 00:03:11.310
+Caption: so they can iron out the effects of
+
+00:03:09.360 --> 00:03:11.639
+Caption: getting a whole lot of traffic all at
+
+00:03:11.309 --> 00:03:13.589
+Caption: once
+
+00:03:11.639 --> 00:03:18.059
+Caption: and that will ultimately make your
+
+00:03:13.589 --> 00:03:20.519
+Caption: system much more responsive lastly and
+
+00:03:18.059 --> 00:03:23.279
+Caption: this this is more important for us they
+
+00:03:20.520 --> 00:03:25.680
+Caption: offer this you know kind of persistence
+
+00:03:23.279 --> 00:03:27.360
+Caption: mechanism so we store our all our
+
+00:03:25.679 --> 00:03:30.029
+Caption: messages indefinitely in the queues that
+
+00:03:27.360 --> 00:03:33.630
+Caption: we build and that will allow us to later
+
+00:03:30.029 --> 00:03:36.029
+Caption: on we could reprocess that data to gain
+
+00:03:33.630 --> 00:03:41.010
+Caption: new insights and get new information out
+
+00:03:36.029 --> 00:03:42.479
+Caption: of that so I&#39;m going to talk a little
+
+00:03:41.009 --> 00:03:44.459
+Caption: bit now about the system that I&#39;ve been
+
+00:03:42.479 --> 00:03:47.399
+Caption: working on lately that does use queues
+
+00:03:44.460 --> 00:03:49.320
+Caption: so what we have here to begin with is
+
+00:03:47.399 --> 00:03:51.809
+Caption: there was a third part of party system
+
+00:03:49.320 --> 00:03:54.870
+Caption: and they were sending messages on to
+
+00:03:51.809 --> 00:03:58.529
+Caption: consumers various internal consumers
+
+00:03:54.869 --> 00:04:00.179
+Caption: internal systems that we also have none
+
+00:03:58.529 --> 00:04:02.550
+Caption: of this is our stuff what we wanted to
+
+00:04:00.179 --> 00:04:04.169
+Caption: introduce in the middle was a message
+
+00:04:02.550 --> 00:04:04.910
+Caption: proxy that could listen to these
+
+00:04:04.169 --> 00:04:07.949
+Caption: messages
+
+00:04:04.910 --> 00:04:11.070
+Caption: maybe store them and maybe later on we
+
+00:04:07.949 --> 00:04:13.739
+Caption: could process that information later on
+
+00:04:11.070 --> 00:04:17.520
+Caption: for to gain insights from like I
+
+00:04:13.740 --> 00:04:19.830
+Caption: described before in this example here
+
+00:04:17.519 --> 00:04:23.809
+Caption: our consumers have turned into the
+
+00:04:19.829 --> 00:04:23.809
+Caption: tenants of this message proxy system
+
+00:04:24.730 --> 00:04:30.710
+Caption: so the problem here is if we do this
+
+00:04:27.410 --> 00:04:32.239
+Caption: naively and the message proxy receives a
+
+00:04:30.709 --> 00:04:34.399
+Caption: message from this the external third
+
+00:04:32.239 --> 00:04:38.388
+Caption: party what happens if we fail to send
+
+00:04:34.399 --> 00:04:39.500
+Caption: that message on to our tenon so that we
+
+00:04:38.389 --> 00:04:41.149
+Caption: could just drop that message on the
+
+00:04:39.500 --> 00:04:42.649
+Caption: floor but then the the tenant would
+
+00:04:41.149 --> 00:04:44.029
+Caption: never receive that data and that&#39;s a
+
+00:04:42.649 --> 00:04:46.369
+Caption: potential loss of data which is not
+
+00:04:44.029 --> 00:04:49.579
+Caption: really what we want I guess the other
+
+00:04:46.369 --> 00:04:50.989
+Caption: thing we could do here is stop and wait
+
+00:04:49.579 --> 00:04:53.659
+Caption: a little bit and retry it and hope that
+
+00:04:50.989 --> 00:04:56.239
+Caption: it works but what happens if that tenant
+
+00:04:53.660 --> 00:04:58.130
+Caption: is down for like five minutes we can&#39;t
+
+00:04:56.239 --> 00:05:02.989
+Caption: keep this request open for five minutes
+
+00:04:58.130 --> 00:05:05.450
+Caption: that&#39;s just not going to work either so
+
+00:05:02.989 --> 00:05:07.638
+Caption: what we decided to do was introduce a
+
+00:05:05.450 --> 00:05:11.270
+Caption: queue now the queue is the orange thing
+
+00:05:07.639 --> 00:05:13.729
+Caption: in the middle and what happens now is
+
+00:05:11.269 --> 00:05:16.279
+Caption: the message from the third party system
+
+00:05:13.729 --> 00:05:17.600
+Caption: is received and we immediately store it
+
+00:05:16.279 --> 00:05:21.470
+Caption: and we can return a response straight
+
+00:05:17.600 --> 00:05:23.179
+Caption: away after that a process manager is
+
+00:05:21.470 --> 00:05:26.059
+Caption: picking up these messages off the top of
+
+00:05:23.179 --> 00:05:28.429
+Caption: the queue one by one and it will send
+
+00:05:26.059 --> 00:05:32.209
+Caption: that message on to our tenant the great
+
+00:05:28.429 --> 00:05:34.009
+Caption: thing here is if that tenant is down and
+
+00:05:32.209 --> 00:05:36.500
+Caption: we fail to send that message we can just
+
+00:05:34.010 --> 00:05:38.270
+Caption: wait and retry without keeping requests
+
+00:05:36.500 --> 00:05:42.950
+Caption: open because the process manager is in a
+
+00:05:38.269 --> 00:05:45.079
+Caption: different process so it&#39;s worth noting
+
+00:05:42.950 --> 00:05:48.260
+Caption: here that we were very confident about
+
+00:05:45.079 --> 00:05:50.989
+Caption: this system I&#39;m actually the the the
+
+00:05:48.260 --> 00:05:52.460
+Caption: diagrams I had here represent a very
+
+00:05:50.989 --> 00:05:54.949
+Caption: small man of the system we had actually
+
+00:05:52.459 --> 00:05:56.660
+Caption: tons of process managers I was just
+
+00:05:54.950 --> 00:05:58.130
+Caption: trying to keep it simple but we were
+
+00:05:56.660 --> 00:06:02.179
+Caption: quite confident that we&#39;d built
+
+00:05:58.130 --> 00:06:05.470
+Caption: something that was resilient and would
+
+00:06:02.179 --> 00:06:08.029
+Caption: scale pretty well and we were probably
+
+00:06:05.470 --> 00:06:10.010
+Caption: very close to learning that at this
+
+00:06:08.029 --> 00:06:11.899
+Caption: point that we were actually probably a
+
+00:06:10.010 --> 00:06:14.869
+Caption: little bit cocky is the way I describe
+
+00:06:11.899 --> 00:06:17.720
+Caption: it we built a system but we&#39;ve done it
+
+00:06:14.869 --> 00:06:19.070
+Caption: quite naively and I&#39;m about to go into
+
+00:06:17.720 --> 00:06:21.919
+Caption: some lessons that we&#39;ve learned in our
+
+00:06:19.070 --> 00:06:25.460
+Caption: process so the first lesson we learned
+
+00:06:21.919 --> 00:06:27.500
+Caption: was that observability and monitoring
+
+00:06:25.459 --> 00:06:31.059
+Caption: are absolutely essential if you&#39;re
+
+00:06:27.500 --> 00:06:31.059
+Caption: building any sort of distributed system
+
+00:06:32.299 --> 00:06:37.970
+Caption: so many monitoring tools these days are
+
+00:06:35.510 --> 00:06:39.890
+Caption: actually fantastic without much
+
+00:06:37.970 --> 00:06:42.709
+Caption: configuration they can tell us lots of
+
+00:06:39.890 --> 00:06:44.360
+Caption: details about the web layer they come
+
+00:06:42.709 --> 00:06:46.160
+Caption: with default configurations usually for
+
+00:06:44.359 --> 00:06:48.649
+Caption: the web layer and they can tell us stuff
+
+00:06:46.160 --> 00:06:50.209
+Caption: like our average response time how many
+
+00:06:48.649 --> 00:06:51.559
+Caption: errors were getting and this thing
+
+00:06:50.209 --> 00:06:53.809
+Caption: called app stack scores which I don&#39;t
+
+00:06:51.559 --> 00:06:56.869
+Caption: fully understand but that&#39;s in there as
+
+00:06:53.809 --> 00:06:58.429
+Caption: well however when we set up her
+
+00:06:56.869 --> 00:07:00.739
+Caption: monitoring because these tools were
+
+00:06:58.429 --> 00:07:03.229
+Caption: configured to their defaults we actually
+
+00:07:00.739 --> 00:07:04.729
+Caption: neglected to think about the metrics
+
+00:07:03.230 --> 00:07:08.890
+Caption: that were directly related to the
+
+00:07:04.730 --> 00:07:11.059
+Caption: performance of these queues one that we
+
+00:07:08.890 --> 00:07:13.100
+Caption: found was actually particularly
+
+00:07:11.059 --> 00:07:17.029
+Caption: important at least for us was a metric
+
+00:07:13.100 --> 00:07:18.920
+Caption: called queue depth so queue depth is
+
+00:07:17.029 --> 00:07:21.950
+Caption: basically the number of messages behind
+
+00:07:18.920 --> 00:07:24.470
+Caption: in the queue your process managers are
+
+00:07:21.950 --> 00:07:26.930
+Caption: compared to the top of the queue so as
+
+00:07:24.470 --> 00:07:29.570
+Caption: you can see here we were finding that we
+
+00:07:26.929 --> 00:07:32.179
+Caption: were recording occasional very large
+
+00:07:29.570 --> 00:07:35.149
+Caption: spikes in our queue depth at its peak
+
+00:07:32.179 --> 00:07:36.739
+Caption: there it&#39;s about 8,000 or just under but
+
+00:07:35.149 --> 00:07:41.269
+Caption: there that was never to the to the
+
+00:07:36.739 --> 00:07:45.529
+Caption: detriment of our response times whenever
+
+00:07:41.269 --> 00:07:47.750
+Caption: queue depth rises it takes a long time
+
+00:07:45.529 --> 00:07:49.670
+Caption: for messages to be received because our
+
+00:07:47.750 --> 00:07:52.549
+Caption: queues have to actually catch up and
+
+00:07:49.670 --> 00:07:55.760
+Caption: that causes delays this actually for us
+
+00:07:52.549 --> 00:08:02.419
+Caption: represented an outage of over 40 minutes
+
+00:07:55.760 --> 00:08:04.250
+Caption: which was not not a great outcome so the
+
+00:08:02.420 --> 00:08:06.470
+Caption: second lesson we learned was that it&#39;s
+
+00:08:04.250 --> 00:08:09.880
+Caption: important to learn and understand the
+
+00:08:06.470 --> 00:08:12.140
+Caption: true throughput of your system
+
+00:08:09.880 --> 00:08:14.300
+Caption: throughput was actually really big issue
+
+00:08:12.140 --> 00:08:16.880
+Caption: for us in general and going back to the
+
+00:08:14.299 --> 00:08:18.289
+Caption: system that we were working on we
+
+00:08:16.880 --> 00:08:20.660
+Caption: identified that only some of the
+
+00:08:18.290 --> 00:08:22.670
+Caption: messages that we were receiving even
+
+00:08:20.660 --> 00:08:24.860
+Caption: though they all looked the same some of
+
+00:08:22.670 --> 00:08:26.090
+Caption: them were important enough they did they
+
+00:08:24.859 --> 00:08:28.339
+Caption: needed to be delivered as soon as
+
+00:08:26.089 --> 00:08:30.320
+Caption: possible and the rest but there was
+
+00:08:28.339 --> 00:08:33.559
+Caption: never any detriment to any delay in
+
+00:08:30.320 --> 00:08:35.960
+Caption: sending those messages so what we did to
+
+00:08:33.559 --> 00:08:38.359
+Caption: combat that as we chose to put these
+
+00:08:35.960 --> 00:08:39.410
+Caption: messages into two different queues and
+
+00:08:38.359 --> 00:08:41.959
+Caption: they&#39;d have two different process
+
+00:08:39.409 --> 00:08:45.440
+Caption: managers that could process them in in
+
+00:08:41.960 --> 00:08:46.309
+Caption: concurrently but now we have twice as
+
+00:08:45.440 --> 00:08:48.349
+Caption: many queues
+
+00:08:46.309 --> 00:08:49.549
+Caption: that should mean we fixed our q-tip
+
+00:08:48.349 --> 00:08:51.649
+Caption: there she&#39;s right we&#39;ve turned this into
+
+00:08:49.549 --> 00:08:53.839
+Caption: a concurrent process we can have two
+
+00:08:51.650 --> 00:08:56.809
+Caption: processes firing twice as many messages
+
+00:08:53.840 --> 00:08:59.080
+Caption: to our tenant it&#39;s faster now right well
+
+00:08:56.809 --> 00:09:02.719
+Caption: probably not unfortunately
+
+00:08:59.080 --> 00:09:05.960
+Caption: so it pays to think about cues a bit
+
+00:09:02.719 --> 00:09:08.869
+Caption: like leaky buckets the bucket gets
+
+00:09:05.960 --> 00:09:11.750
+Caption: filled from the top with messages and it
+
+00:09:08.869 --> 00:09:13.849
+Caption: can get filled very quickly and then
+
+00:09:11.750 --> 00:09:15.919
+Caption: messages are drained at the bottom
+
+00:09:13.849 --> 00:09:18.259
+Caption: through the small hole that you can see
+
+00:09:15.919 --> 00:09:20.570
+Caption: there it&#39;s possible to fill this bucket
+
+00:09:18.260 --> 00:09:23.809
+Caption: up much quicker than the bucket is
+
+00:09:20.570 --> 00:09:25.789
+Caption: actually draining out our keys were able
+
+00:09:23.809 --> 00:09:28.309
+Caption: to ingest roughly 2,000 messages per
+
+00:09:25.789 --> 00:09:30.769
+Caption: minute but we found out later through
+
+00:09:28.309 --> 00:09:32.989
+Caption: through measuring this stuff that our
+
+00:09:30.770 --> 00:09:34.429
+Caption: messages per minute going out that the
+
+00:09:32.989 --> 00:09:38.839
+Caption: messages that we were able to produce
+
+00:09:34.429 --> 00:09:40.849
+Caption: was only roughly 500 this is what this
+
+00:09:38.840 --> 00:09:43.100
+Caption: calls the the buckets to fill up very
+
+00:09:40.849 --> 00:09:45.949
+Caption: quickly now and it&#39;s important to think
+
+00:09:43.099 --> 00:09:47.989
+Caption: maybe you can think of a queue depth for
+
+00:09:45.950 --> 00:09:53.480
+Caption: example as how full this bucket is at
+
+00:09:47.989 --> 00:09:55.399
+Caption: any given time so deciding to put in a
+
+00:09:53.479 --> 00:09:57.589
+Caption: second queue a high priority queue and a
+
+00:09:55.400 --> 00:10:00.320
+Caption: low product you is it actually a bit
+
+00:09:57.590 --> 00:10:02.540
+Caption: like adding a second bucket so now we
+
+00:10:00.320 --> 00:10:05.270
+Caption: can process a thousand messages per
+
+00:10:02.539 --> 00:10:07.279
+Caption: minute great that&#39;s fantastic but we can
+
+00:10:05.270 --> 00:10:09.440
+Caption: also ingest twice as many as we could
+
+00:10:07.280 --> 00:10:10.900
+Caption: before so we&#39;ve not actually solved any
+
+00:10:09.440 --> 00:10:13.010
+Caption: problem here
+
+00:10:10.900 --> 00:10:14.780
+Caption: not to mention nothing was really
+
+00:10:13.010 --> 00:10:17.750
+Caption: guaranteeing us at this point that we
+
+00:10:14.780 --> 00:10:20.450
+Caption: wouldn&#39;t fill one bucket exclusively so
+
+00:10:17.750 --> 00:10:22.940
+Caption: nothing was stopping us from receiving a
+
+00:10:20.450 --> 00:10:25.040
+Caption: high volume of load of these high
+
+00:10:22.940 --> 00:10:29.650
+Caption: priority messages and just having the
+
+00:10:25.039 --> 00:10:32.089
+Caption: same problem that we started with so
+
+00:10:29.650 --> 00:10:34.130
+Caption: measuring the limits of our queues was
+
+00:10:32.090 --> 00:10:36.980
+Caption: actually very valuable to us we learned
+
+00:10:34.130 --> 00:10:39.919
+Caption: that adding more queues didn&#39;t
+
+00:10:36.979 --> 00:10:42.739
+Caption: necessarily equate to more throughput
+
+00:10:39.919 --> 00:10:45.440
+Caption: unfortunately we&#39;ve actually solved our
+
+00:10:42.739 --> 00:10:49.179
+Caption: problem at least for 99% of the time the
+
+00:10:45.440 --> 00:10:51.440
+Caption: high product key is working for us well
+
+00:10:49.179 --> 00:10:55.719
+Caption: but unfortunately it was never going to
+
+00:10:51.440 --> 00:10:55.720
+Caption: be enough to protect us from a high load
+
+00:10:56.328 --> 00:11:01.440
+Caption: so on to the last lesson that we learn
+
+00:10:58.679 --> 00:11:03.989
+Caption: and that is understanding how the
+
+00:11:01.440 --> 00:11:08.638
+Caption: external factors of the system can
+
+00:11:03.989 --> 00:11:10.559
+Caption: impact your throughput so going back to
+
+00:11:08.638 --> 00:11:12.568
+Caption: how our processes managers worked what
+
+00:11:10.559 --> 00:11:14.758
+Caption: they did is they were DQ one message at
+
+00:11:12.568 --> 00:11:16.409
+Caption: a time one another time and they would
+
+00:11:14.758 --> 00:11:20.128
+Caption: forward that message on to our tenant
+
+00:11:16.409 --> 00:11:22.768
+Caption: and that was actually through HTTP we
+
+00:11:20.129 --> 00:11:25.339
+Caption: measured how long that entire process
+
+00:11:22.768 --> 00:11:29.698
+Caption: took and we learned that it was about
+
+00:11:25.338 --> 00:11:32.398
+Caption: 150 to 200 milliseconds doing a bit of
+
+00:11:29.698 --> 00:11:34.049
+Caption: calculation based on that number we can
+
+00:11:32.398 --> 00:11:36.208
+Caption: calculate that it should be able to
+
+00:11:34.049 --> 00:11:38.849
+Caption: process around 500 messages per minute
+
+00:11:36.208 --> 00:11:40.619
+Caption: and that was actually more than enough
+
+00:11:38.849 --> 00:11:42.979
+Caption: for our general load we did load testing
+
+00:11:40.619 --> 00:11:47.729
+Caption: to confirm this but most of the time
+
+00:11:42.979 --> 00:11:51.989
+Caption: that was perfectly fine for us but what
+
+00:11:47.729 --> 00:11:53.938
+Caption: would happen if our tenants their
+
+00:11:51.989 --> 00:11:57.659
+Caption: response time significantly increased
+
+00:11:53.939 --> 00:11:59.339
+Caption: what if the response time actually
+
+00:11:57.659 --> 00:12:02.849
+Caption: jumped up to somewhere between 2 &amp; 5
+
+00:11:59.338 --> 00:12:04.828
+Caption: seconds I sounds oddly specific because
+
+00:12:02.849 --> 00:12:09.479
+Caption: this is something that actually happened
+
+00:12:04.828 --> 00:12:12.148
+Caption: to us exactly this so when we
+
+00:12:09.479 --> 00:12:13.948
+Caption: recalculate with this in mind we
+
+00:12:12.148 --> 00:12:16.588
+Caption: actually have a message straight that
+
+00:12:13.948 --> 00:12:20.578
+Caption: wrote rate that significantly drops to
+
+00:12:16.588 --> 00:12:22.109
+Caption: only about 30 messages per minute the
+
+00:12:20.578 --> 00:12:22.799
+Caption: response time was actually also fairly
+
+00:12:22.109 --> 00:12:24.630
+Caption: erratic
+
+00:12:22.799 --> 00:12:27.539
+Caption: so it was jumping up to I was often
+
+00:12:24.630 --> 00:12:29.338
+Caption: jumping up to more than 5 seconds that
+
+00:12:27.539 --> 00:12:34.469
+Caption: made the calculations much less reliable
+
+00:12:29.338 --> 00:12:35.938
+Caption: as well 30 messages per minute was never
+
+00:12:34.469 --> 00:12:38.039
+Caption: going to be enough to to cover our
+
+00:12:35.939 --> 00:12:41.540
+Caption: general load as well so that was not
+
+00:12:38.039 --> 00:12:44.880
+Caption: good so why exactly does this happen
+
+00:12:41.539 --> 00:12:47.568
+Caption: well one big reason is because our
+
+00:12:44.880 --> 00:12:50.369
+Caption: system is using sequential our queues so
+
+00:12:47.568 --> 00:12:53.609
+Caption: the only way to get sequential messages
+
+00:12:50.369 --> 00:12:56.250
+Caption: messages one after the other to our mind
+
+00:12:53.609 --> 00:12:57.808
+Caption: was to perform the to send those
+
+00:12:56.250 --> 00:12:59.898
+Caption: messages through sequential queues to
+
+00:12:57.809 --> 00:13:01.589
+Caption: perform as messages one after the other
+
+00:12:59.898 --> 00:13:05.068
+Caption: something that I&#39;ve been thinking about
+
+00:13:01.588 --> 00:13:06.869
+Caption: for a while is that trying to do this
+
+00:13:05.068 --> 00:13:08.719
+Caption: sequential queueing is probably a little
+
+00:13:06.869 --> 00:13:10.828
+Caption: bit naive
+
+00:13:08.719 --> 00:13:12.448
+Caption: putting such a restriction around these
+
+00:13:10.828 --> 00:13:16.008
+Caption: cues made them easier for us to
+
+00:13:12.448 --> 00:13:18.929
+Caption: conceptualize and validate and and test
+
+00:13:16.008 --> 00:13:20.338
+Caption: and it was a lot clearer and there&#39;s a
+
+00:13:18.929 --> 00:13:23.099
+Caption: lot of value in that in terms of
+
+00:13:20.338 --> 00:13:24.719
+Caption: building a distributed system because
+
+00:13:23.099 --> 00:13:26.188
+Caption: that system was already really complex
+
+00:13:24.719 --> 00:13:27.568
+Caption: like I said before we had lots of these
+
+00:13:26.189 --> 00:13:29.420
+Caption: process managers and was all very
+
+00:13:27.568 --> 00:13:32.398
+Caption: complicated so it was nice of these
+
+00:13:29.419 --> 00:13:35.998
+Caption: these were easy to quite like to
+
+00:13:32.398 --> 00:13:38.489
+Caption: visualize but ultimately that limitation
+
+00:13:35.999 --> 00:13:42.569
+Caption: alone caused us all sorts of headaches
+
+00:13:38.489 --> 00:13:45.028
+Caption: for throughput what it really means is
+
+00:13:42.568 --> 00:13:47.159
+Caption: the only way to think about beginning to
+
+00:13:45.028 --> 00:13:48.809
+Caption: fix this is to start thinking about how
+
+00:13:47.159 --> 00:13:53.659
+Caption: we could process these many messages
+
+00:13:48.809 --> 00:13:57.959
+Caption: concurrently so we tried a few things
+
+00:13:53.659 --> 00:14:00.388
+Caption: first thing we did was batching so this
+
+00:13:57.958 --> 00:14:01.859
+Caption: is similar to what we had before we were
+
+00:14:00.388 --> 00:14:04.169
+Caption: still going to be sending one request
+
+00:14:01.859 --> 00:14:05.669
+Caption: after the other but instead of that
+
+00:14:04.169 --> 00:14:07.469
+Caption: request containing one message why
+
+00:14:05.669 --> 00:14:10.518
+Caption: wouldn&#39;t it contain a hundred messages
+
+00:14:07.469 --> 00:14:12.359
+Caption: then we could send stuff a lot faster
+
+00:14:10.518 --> 00:14:14.638
+Caption: unfortunately something weird happened
+
+00:14:12.359 --> 00:14:17.219
+Caption: here it turns out the response time at
+
+00:14:14.638 --> 00:14:19.078
+Caption: the tenon increased the the larger
+
+00:14:17.219 --> 00:14:20.188
+Caption: number of messages that we sent and that
+
+00:14:19.078 --> 00:14:22.169
+Caption: was just something that was out of our
+
+00:14:20.189 --> 00:14:24.839
+Caption: control was up to the implementation on
+
+00:14:22.169 --> 00:14:26.938
+Caption: the other side and ultimately this had
+
+00:14:24.838 --> 00:14:29.250
+Caption: zero effect on the throughput obviously
+
+00:14:26.939 --> 00:14:31.980
+Caption: so we were still sending roughly 50
+
+00:14:29.250 --> 00:14:33.809
+Caption: messages per minute and honestly the
+
+00:14:31.979 --> 00:14:35.188
+Caption: response time was about 50 seconds so
+
+00:14:33.809 --> 00:14:39.689
+Caption: that was never going to work in the real
+
+00:14:35.189 --> 00:14:41.490
+Caption: world the next thing we tried is
+
+00:14:39.689 --> 00:14:43.170
+Caption: something that we came up with that we
+
+00:14:41.489 --> 00:14:44.398
+Caption: came up with the name for it I don&#39;t
+
+00:14:43.169 --> 00:14:47.729
+Caption: know if there is a known for this but we
+
+00:14:44.398 --> 00:14:49.229
+Caption: called it fan-out and ultimately this is
+
+00:14:47.729 --> 00:14:51.599
+Caption: similar again to what we have in our
+
+00:14:49.229 --> 00:14:54.078
+Caption: current process there&#39;s just one process
+
+00:14:51.599 --> 00:14:56.609
+Caption: but the idea is that will fan out to
+
+00:14:54.078 --> 00:15:00.989
+Caption: multiple threads and try to send those
+
+00:14:56.609 --> 00:15:02.039
+Caption: messages concurrently if it could it
+
+00:15:00.989 --> 00:15:06.088
+Caption: would then wait for all of those
+
+00:15:02.039 --> 00:15:07.708
+Caption: messages to be sent before continuing on
+
+00:15:06.088 --> 00:15:10.619
+Caption: and if any of them failed it would be
+
+00:15:07.708 --> 00:15:12.568
+Caption: able to retry the result there was
+
+00:15:10.619 --> 00:15:14.609
+Caption: actually pretty good it was a lot faster
+
+00:15:12.568 --> 00:15:17.508
+Caption: we were looking at roughly 4,000
+
+00:15:14.609 --> 00:15:17.508
+Caption: messages per minute
+
+00:15:18.159 --> 00:15:22.299
+Caption: another implementation that we we
+
+00:15:20.169 --> 00:15:26.049
+Caption: haven&#39;t had a lot of chance to look at
+
+00:15:22.299 --> 00:15:29.049
+Caption: yet is sharding so going back to that
+
+00:15:26.049 --> 00:15:32.649
+Caption: bucket analogy sharding is is a bit like
+
+00:15:29.049 --> 00:15:34.359
+Caption: adding lots and lots of buckets but the
+
+00:15:32.650 --> 00:15:36.970
+Caption: difference here is that we can guarantee
+
+00:15:34.359 --> 00:15:38.589
+Caption: that an even distribution of messages
+
+00:15:36.969 --> 00:15:41.709
+Caption: well will land in each one of those
+
+00:15:38.590 --> 00:15:43.180
+Caption: buckets we&#39;re hoping we&#39;re still
+
+00:15:41.710 --> 00:15:46.330
+Caption: experimenting with this but we&#39;re hoping
+
+00:15:43.179 --> 00:15:51.039
+Caption: that this is faster still just because
+
+00:15:46.330 --> 00:15:52.270
+Caption: this will be leveraging lots like will
+
+00:15:51.039 --> 00:15:53.589
+Caption: be scaled out to lots of process
+
+00:15:52.270 --> 00:15:59.410
+Caption: managers and will be leveraging that
+
+00:15:53.590 --> 00:16:03.040
+Caption: computer a lot better so what do we
+
+00:15:59.409 --> 00:16:04.659
+Caption: learn today well it&#39;s important to think
+
+00:16:03.039 --> 00:16:08.229
+Caption: about how you&#39;ll observe and monitor
+
+00:16:04.659 --> 00:16:10.119
+Caption: your queues think about the metrics in
+
+00:16:08.229 --> 00:16:14.309
+Caption: particular that are directly related to
+
+00:16:10.119 --> 00:16:14.309
+Caption: queue performance such as queue depth
+
+00:16:14.969 --> 00:16:19.269
+Caption: understand the throughput and the load
+
+00:16:16.989 --> 00:16:20.649
+Caption: limitations of your systems make sure
+
+00:16:19.270 --> 00:16:22.840
+Caption: you get accurate measurements and
+
+00:16:20.650 --> 00:16:26.559
+Caption: understand the maximum throughput of
+
+00:16:22.840 --> 00:16:28.330
+Caption: your process managers and keys and think
+
+00:16:26.559 --> 00:16:29.190
+Caption: about queues a bit like leaky buckets if
+
+00:16:28.330 --> 00:16:33.790
+Caption: that helps
+
+00:16:29.190 --> 00:16:35.710
+Caption: and lastly learn the behavior of your
+
+00:16:33.789 --> 00:16:37.269
+Caption: external systems I make sure you
+
+00:16:35.710 --> 00:16:39.309
+Caption: understand how that has an effect on
+
+00:16:37.270 --> 00:16:41.260
+Caption: your keys so don&#39;t make assumptions
+
+00:16:39.309 --> 00:16:42.210
+Caption: about how your external dependencies
+
+00:16:41.260 --> 00:16:45.190
+Caption: will behave
+
+00:16:42.210 --> 00:16:46.869
+Caption: maybe measure and and try to understand
+
+00:16:45.190 --> 00:16:49.090
+Caption: what happens if that behavior does
+
+00:16:46.869 --> 00:16:51.270
+Caption: change because ultimately it could it
+
+00:16:49.090 --> 00:16:54.940
+Caption: did to us
+
+00:16:51.270 --> 00:16:59.500
+Caption: so queues are often a great tool and I
+
+00:16:54.940 --> 00:17:01.210
+Caption: have many many usages but and as well
+
+00:16:59.500 --> 00:17:03.489
+Caption: often they&#39;re the perfect solution to a
+
+00:17:01.210 --> 00:17:05.410
+Caption: particular problem as well but
+
+00:17:03.489 --> 00:17:07.448
+Caption: it&#39;s really important to understand that
+
+00:17:05.410 --> 00:17:09.939
+Caption: they have their limitations
+
+00:17:07.448 --> 00:17:13.750
+Caption: I think queues are a really powerful
+
+00:17:09.938 --> 00:17:15.549
+Caption: tool but they&#39;re only powerful when they
+
+00:17:13.750 --> 00:17:18.750
+Caption: use thoughtfully and if they use naively
+
+00:17:15.550 --> 00:17:18.750
+Caption: they can cause you all sorts of issues
+
+00:17:19.948 --> 00:17:24.039
+Caption: so that&#39;s it for me I&#39;ve actually
+
+00:17:22.119 --> 00:17:26.739
+Caption: finished a little bit early but that&#39;s a
+
+00:17:24.040 --> 00:17:28.690
+Caption: fine I&#39;d like to thank the team at ddd
+
+00:17:26.739 --> 00:17:31.989
+Caption: perth i think this is actually truly a
+
+00:17:28.689 --> 00:17:34.089
+Caption: great conference fantastic community
+
+00:17:31.989 --> 00:17:35.229
+Caption: everything I&#39;ve actually tended for a
+
+00:17:34.089 --> 00:17:36.668
+Caption: number of years and it&#39;s actually a
+
+00:17:35.229 --> 00:17:38.890
+Caption: really awesome privilege to be able to
+
+00:17:36.668 --> 00:17:42.428
+Caption: speak it this one I&#39;m really really
+
+00:17:38.890 --> 00:17:44.829
+Caption: stoked about that I&#39;m gonna do a little
+
+00:17:42.428 --> 00:17:48.489
+Caption: plug cuz I&#39;ve got a time now I guess I
+
+00:17:44.829 --> 00:17:52.199
+Caption: work for let&#39;s see if I can get this oh
+
+00:17:48.489 --> 00:17:54.699
+Caption: for these guys here vgw
+
+00:17:52.199 --> 00:17:56.109
+Caption: it&#39;s a great place to work if you want
+
+00:17:54.699 --> 00:17:58.599
+Caption: to have lots of opportunities to learn
+
+00:17:56.109 --> 00:18:00.219
+Caption: from like amazing senior developers and
+
+00:17:58.599 --> 00:18:02.859
+Caption: if you&#39;re interested in tackling
+
+00:18:00.219 --> 00:18:05.319
+Caption: problems like this like large scale and
+
+00:18:02.859 --> 00:18:07.239
+Caption: using the latest technologies I I work
+
+00:18:05.319 --> 00:18:09.479
+Caption: with kubernetes day-to-day which is
+
+00:18:07.239 --> 00:18:12.668
+Caption: fantastic and we use all sorts of other
+
+00:18:09.479 --> 00:18:15.069
+Caption: cutting-edge stuff you can make the team
+
+00:18:12.668 --> 00:18:16.509
+Caption: they&#39;re running the coffee cart sort of
+
+00:18:15.069 --> 00:18:18.189
+Caption: down the back on the opposite end of the
+
+00:18:16.510 --> 00:18:21.969
+Caption: theater or you can have a chat with me
+
+00:18:18.189 --> 00:18:23.889
+Caption: after so yeah that&#39;s it for me
+
+00:18:21.969 --> 00:18:25.390
+Caption: I&#39;m not taking questions because well I
+
+00:18:23.890 --> 00:18:26.890
+Caption: say here there&#39;s not enough time but
+
+00:18:25.390 --> 00:18:28.989
+Caption: yeah there&#39;s enough time I&#39;m not taking
+
+00:18:26.890 --> 00:18:31.619
+Caption: questions but you can reach out to me on
+
+00:18:28.989 --> 00:18:34.329
+Caption: Twitter if you like or you can catch me
+
+00:18:31.619 --> 00:18:35.500
+Caption: at the coffee cart I might wait around
+
+00:18:34.329 --> 00:18:38.140
+Caption: there after there if you want to talk to
+
+00:18:35.500 --> 00:18:40.569
+Caption: me or if you&#39;re coming to the after
+
+00:18:38.140 --> 00:18:41.829
+Caption: party just just come and say hi thank
+
+00:18:40.569 --> 00:18:45.529
+Caption: you very much
+
+00:18:41.829 --> 00:18:45.529
+Caption: [Applause]
+

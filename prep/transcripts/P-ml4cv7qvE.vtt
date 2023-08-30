@@ -1,0 +1,1919 @@
+WEBVTT
+
+00:00:01.439 --> 00:00:05.460
+Caption: alrighty we&#39;ve
+
+00:00:03.418 --> 00:00:09.059
+Caption: pretty much officially filled out
+
+00:00:05.460 --> 00:00:11.819
+Caption: Jakarta goal uh here today
+
+00:00:09.059 --> 00:00:14.819
+Caption: um next up I&#39;m pleased to introduce Todd
+
+00:00:11.819 --> 00:00:17.939
+Caption: Becker uh who will be talking about
+
+00:00:14.819 --> 00:00:21.500
+Caption: distributed databases why what and how
+
+00:00:17.940 --> 00:00:21.500
+Caption: so please make him welcome
+
+00:00:26.278 --> 00:00:30.598
+Caption: thanks hi I&#39;m Todd
+
+00:00:28.858 --> 00:00:32.758
+Caption: I&#39;m a principal software engineer at
+
+00:00:30.599 --> 00:00:34.800
+Caption: Family Zone which is a local Perth based
+
+00:00:32.758 --> 00:00:36.119
+Caption: company in the field of cyber safety for
+
+00:00:34.799 --> 00:00:38.159
+Caption: children
+
+00:00:36.119 --> 00:00:40.558
+Caption: and so first I&#39;d like to thank the
+
+00:00:38.159 --> 00:00:44.058
+Caption: sponsors of DG Perth 2022 I&#39;m grateful
+
+00:00:40.558 --> 00:00:44.058
+Caption: to be up here to speak to you today
+
+00:00:44.520 --> 00:00:47.760
+Caption: I&#39;m going to be talking about
+
+00:00:45.540 --> 00:00:49.139
+Caption: distributed databases
+
+00:00:47.759 --> 00:00:51.538
+Caption: and first the distributed database
+
+00:00:49.139 --> 00:00:53.340
+Caption: refers to a database that just uses more
+
+00:00:51.539 --> 00:00:55.620
+Caption: than one network computer or a cluster
+
+00:00:53.340 --> 00:00:57.299
+Caption: of computers this allows them to scale
+
+00:00:55.619 --> 00:00:59.639
+Caption: up to handle more work and more data
+
+00:00:57.299 --> 00:01:02.099
+Caption: than a single computer can do but why
+
+00:00:59.639 --> 00:01:03.659
+Caption: why talk about this well the amount of
+
+00:01:02.099 --> 00:01:05.400
+Caption: data that&#39;s been collected and managed
+
+00:01:03.659 --> 00:01:08.099
+Caption: has grown immensely over the past couple
+
+00:01:05.400 --> 00:01:10.020
+Caption: of decades the rise of the internet and
+
+00:01:08.099 --> 00:01:12.360
+Caption: the proliferation of devices in that
+
+00:01:10.019 --> 00:01:14.819
+Caption: time has driven the development of more
+
+00:01:12.360 --> 00:01:16.680
+Caption: advanced software to handle that data
+
+00:01:14.819 --> 00:01:18.119
+Caption: but as Tech professionals we don&#39;t often
+
+00:01:16.680 --> 00:01:19.919
+Caption: need to actually use this kind of
+
+00:01:18.119 --> 00:01:21.479
+Caption: database system and the majority of
+
+00:01:19.919 --> 00:01:23.819
+Caption: software just works well with a
+
+00:01:21.478 --> 00:01:25.679
+Caption: traditional relational database
+
+00:01:23.819 --> 00:01:28.680
+Caption: but if we do use a distributed database
+
+00:01:25.680 --> 00:01:30.779
+Caption: we may not truly understand how it works
+
+00:01:28.680 --> 00:01:33.419
+Caption: or what its strengths and weaknesses are
+
+00:01:30.779 --> 00:01:35.639
+Caption: and how to use it most effectively
+
+00:01:33.419 --> 00:01:37.319
+Caption: so distributed databases however are a
+
+00:01:35.639 --> 00:01:39.839
+Caption: vast and complex subject and my short
+
+00:01:37.319 --> 00:01:41.158
+Caption: talk can only barely skim the surface
+
+00:01:39.839 --> 00:01:42.539
+Caption: my aim is to give you a little
+
+00:01:41.158 --> 00:01:45.179
+Caption: understanding of some of the concepts
+
+00:01:42.540 --> 00:01:48.380
+Caption: which may help evaluate a distributed
+
+00:01:45.180 --> 00:01:48.379
+Caption: database for solving your problem
+
+00:01:48.478 --> 00:01:52.978
+Caption: relational databases have been around
+
+00:01:50.339 --> 00:01:54.839
+Caption: since the mid 1970s and this model has
+
+00:01:52.978 --> 00:01:57.118
+Caption: proven incredibly flexible and useful
+
+00:01:54.839 --> 00:01:58.618
+Caption: for solving any number of problems and
+
+00:01:57.119 --> 00:02:00.360
+Caption: in my opinion this Tech has been a
+
+00:01:58.619 --> 00:02:02.040
+Caption: Cornerstone of why software now runs
+
+00:02:00.360 --> 00:02:03.779
+Caption: much of the world
+
+00:02:02.040 --> 00:02:05.639
+Caption: a crucial feature of these databases
+
+00:02:03.779 --> 00:02:08.399
+Caption: isn&#39;t apparent in the name and that&#39;s
+
+00:02:05.639 --> 00:02:09.899
+Caption: acid transactions I won&#39;t go through the
+
+00:02:08.399 --> 00:02:12.059
+Caption: full definitions right now but to
+
+00:02:09.899 --> 00:02:13.559
+Caption: paraphrase these properties provide
+
+00:02:12.059 --> 00:02:15.660
+Caption: guarantees on the correctness and
+
+00:02:13.559 --> 00:02:17.580
+Caption: reliability of your data and they
+
+00:02:15.660 --> 00:02:19.260
+Caption: prevent transactions from interfering
+
+00:02:17.580 --> 00:02:21.779
+Caption: with each other
+
+00:02:19.259 --> 00:02:24.179
+Caption: structured query language or SQL was
+
+00:02:21.779 --> 00:02:26.039
+Caption: also invented at the end of the 1970s to
+
+00:02:24.179 --> 00:02:28.979
+Caption: make good use of relational databases
+
+00:02:26.039 --> 00:02:31.378
+Caption: and still very popular today
+
+00:02:28.979 --> 00:02:35.179
+Caption: so these DBS dominated the landscape for
+
+00:02:31.378 --> 00:02:35.179
+Caption: 40 years and are still prevalent today
+
+00:02:36.958 --> 00:02:40.619
+Caption: however towards the turn of the century
+
+00:02:38.819 --> 00:02:42.839
+Caption: people started to find that they were
+
+00:02:40.619 --> 00:02:44.518
+Caption: needing more and more powerful systems
+
+00:02:42.839 --> 00:02:45.899
+Caption: they were reading sorry they were
+
+00:02:44.518 --> 00:02:47.339
+Caption: reaching the limit of how much computing
+
+00:02:45.899 --> 00:02:48.539
+Caption: power they could throw at any particular
+
+00:02:47.339 --> 00:02:50.580
+Caption: data set
+
+00:02:48.539 --> 00:02:52.139
+Caption: but data was still being produced at an
+
+00:02:50.580 --> 00:02:54.238
+Caption: increasing rate
+
+00:02:52.139 --> 00:02:55.979
+Caption: so some vendors did produce large
+
+00:02:54.238 --> 00:02:58.559
+Caption: specialized computers like mainframes
+
+00:02:55.979 --> 00:03:00.360
+Caption: but they&#39;re extremely expensive and they
+
+00:02:58.559 --> 00:03:01.860
+Caption: require that big upfront investment for
+
+00:03:00.360 --> 00:03:03.300
+Caption: your Peak capacity
+
+00:03:01.860 --> 00:03:04.919
+Caption: but some of the big companies that we
+
+00:03:03.300 --> 00:03:06.900
+Caption: know today like Google and Amazon were
+
+00:03:04.919 --> 00:03:09.179
+Caption: just just starting to experience their
+
+00:03:06.899 --> 00:03:11.279
+Caption: rise so they needed to find ways to
+
+00:03:09.179 --> 00:03:13.018
+Caption: scale up in a big way to cope with their
+
+00:03:11.279 --> 00:03:14.399
+Caption: new demand
+
+00:03:13.018 --> 00:03:16.378
+Caption: they didn&#39;t want to use expensive
+
+00:03:14.399 --> 00:03:18.000
+Caption: specialized Hardware if they were going
+
+00:03:16.378 --> 00:03:19.319
+Caption: to scale they would need to do do it
+
+00:03:18.000 --> 00:03:20.699
+Caption: with the commodity Hardware that was
+
+00:03:19.319 --> 00:03:22.679
+Caption: readily available
+
+00:03:20.699 --> 00:03:24.059
+Caption: so as the saying goes necessity is the
+
+00:03:22.679 --> 00:03:25.619
+Caption: mother of invention
+
+00:03:24.059 --> 00:03:28.080
+Caption: and the needs of these first internet
+
+00:03:25.619 --> 00:03:30.119
+Caption: scale companies led to innovation in
+
+00:03:28.080 --> 00:03:31.500
+Caption: this area and new systems were built
+
+00:03:30.119 --> 00:03:33.899
+Caption: that could share the load across many
+
+00:03:31.500 --> 00:03:36.000
+Caption: computers
+
+00:03:33.899 --> 00:03:38.098
+Caption: so a wave of new databases appeared to
+
+00:03:36.000 --> 00:03:41.098
+Caption: help solve the problem
+
+00:03:38.098 --> 00:03:43.018
+Caption: in 2006 and 2007 Google published the
+
+00:03:41.098 --> 00:03:44.220
+Caption: big table paper and Amazon published the
+
+00:03:43.018 --> 00:03:46.199
+Caption: Dynamo paper
+
+00:03:44.220 --> 00:03:48.238
+Caption: and these seminal papers ceded the
+
+00:03:46.199 --> 00:03:50.399
+Caption: generation of new systems that were
+
+00:03:48.238 --> 00:03:51.839
+Caption: inspired by them they were pushing the
+
+00:03:50.399 --> 00:03:52.559
+Caption: boundaries of what was possible at the
+
+00:03:51.839 --> 00:03:55.319
+Caption: time
+
+00:03:52.559 --> 00:03:57.119
+Caption: most importantly they were very scalable
+
+00:03:55.319 --> 00:03:58.798
+Caption: they all had some things in common they
+
+00:03:57.119 --> 00:04:00.360
+Caption: didn&#39;t use SQL for reading and writing
+
+00:03:58.798 --> 00:04:01.559
+Caption: data and they didn&#39;t use the relational
+
+00:04:00.360 --> 00:04:02.940
+Caption: model at all
+
+00:04:01.559 --> 00:04:05.098
+Caption: there were lots of different approaches
+
+00:04:02.940 --> 00:04:07.500
+Caption: to modeling the data each originally
+
+00:04:05.098 --> 00:04:10.259
+Caption: targeted at solving a specific problem
+
+00:04:07.500 --> 00:04:13.438
+Caption: so for example key value databases graph
+
+00:04:10.259 --> 00:04:15.539
+Caption: wide column and document Etc
+
+00:04:13.438 --> 00:04:16.979
+Caption: in the era of the purpose-built data
+
+00:04:15.539 --> 00:04:19.018
+Caption: store had begun
+
+00:04:16.979 --> 00:04:21.779
+Caption: choose to suit your specific need rather
+
+00:04:19.019 --> 00:04:23.880
+Caption: than a one-size-fits-all approach
+
+00:04:21.779 --> 00:04:26.100
+Caption: the data modeling is denormalized and
+
+00:04:23.880 --> 00:04:28.380
+Caption: flexible some were optimized for very
+
+00:04:26.100 --> 00:04:30.419
+Caption: right heavy workloads some are optimized
+
+00:04:28.380 --> 00:04:32.160
+Caption: for read heavy workloads
+
+00:04:30.419 --> 00:04:35.040
+Caption: and this shift away from the relational
+
+00:04:32.160 --> 00:04:37.259
+Caption: model and from SQL led to the term no
+
+00:04:35.040 --> 00:04:39.839
+Caption: SQL being coined to emphasize that
+
+00:04:37.259 --> 00:04:41.160
+Caption: they&#39;re not an SQL or not only SQL
+
+00:04:39.839 --> 00:04:43.019
+Caption: systems
+
+00:04:41.160 --> 00:04:46.380
+Caption: but they had real limitations as well
+
+00:04:43.019 --> 00:04:48.000
+Caption: they didn&#39;t support asset transactions
+
+00:04:46.380 --> 00:04:50.339
+Caption: generally and they did not replace
+
+00:04:48.000 --> 00:04:53.279
+Caption: relational databases and some of the
+
+00:04:50.339 --> 00:04:55.019
+Caption: reasons for that why I&#39;ll cover
+
+00:04:53.279 --> 00:04:58.199
+Caption: computer scientists were a little ahead
+
+00:04:55.019 --> 00:04:59.819
+Caption: of this need so in 1999 Eric Brewer
+
+00:04:58.199 --> 00:05:01.619
+Caption: published the cap principle which became
+
+00:04:59.820 --> 00:05:03.119
+Caption: the cap theorem and I mentioned it
+
+00:05:01.619 --> 00:05:05.160
+Caption: because the cap theorem has heavily
+
+00:05:03.119 --> 00:05:07.979
+Caption: influenced the design of many
+
+00:05:05.160 --> 00:05:09.899
+Caption: distributed data stores since that time
+
+00:05:07.979 --> 00:05:11.759
+Caption: it says that any distributed data store
+
+00:05:09.899 --> 00:05:13.739
+Caption: can only provide two of the following
+
+00:05:11.759 --> 00:05:17.160
+Caption: three guarantees consistency
+
+00:05:13.739 --> 00:05:19.679
+Caption: availability and partition tolerance
+
+00:05:17.160 --> 00:05:21.479
+Caption: now consistency we&#39;re familiar with from
+
+00:05:19.679 --> 00:05:23.880
+Caption: asset transactions
+
+00:05:21.479 --> 00:05:25.860
+Caption: partition tolerance and availability are
+
+00:05:23.880 --> 00:05:30.080
+Caption: Concepts that only exist in distributed
+
+00:05:25.859 --> 00:05:30.079
+Caption: systems with multiple separate computers
+
+00:05:30.239 --> 00:05:35.399
+Caption: a CP system is one that gives up
+
+00:05:32.579 --> 00:05:38.039
+Caption: availability to guarantee consistency if
+
+00:05:35.399 --> 00:05:39.959
+Caption: you write value a all subsequent reads
+
+00:05:38.039 --> 00:05:42.239
+Caption: will read value a
+
+00:05:39.959 --> 00:05:44.100
+Caption: if there&#39;s a network problem it may
+
+00:05:42.239 --> 00:05:46.679
+Caption: prevent you from writing or writing data
+
+00:05:44.100 --> 00:05:48.779
+Caption: that if it might cause problems later
+
+00:05:46.679 --> 00:05:51.539
+Caption: an AP system is one that gives up
+
+00:05:48.779 --> 00:05:53.579
+Caption: consistency to be available you&#39;ll
+
+00:05:51.539 --> 00:05:54.720
+Caption: always get an answer even if the data
+
+00:05:53.579 --> 00:05:56.698
+Caption: could be stale
+
+00:05:54.720 --> 00:05:58.440
+Caption: and if there&#39;s a network problem it&#39;ll
+
+00:05:56.699 --> 00:06:00.360
+Caption: accept your rights and reads even if
+
+00:05:58.440 --> 00:06:03.179
+Caption: there&#39;s a chance for it to be lost later
+
+00:06:00.359 --> 00:06:05.099
+Caption: or even stale
+
+00:06:03.179 --> 00:06:07.199
+Caption: theoretically a CA system would give up
+
+00:06:05.100 --> 00:06:09.000
+Caption: neither but it&#39;s generally considered
+
+00:06:07.199 --> 00:06:11.039
+Caption: infeasible
+
+00:06:09.000 --> 00:06:12.720
+Caption: this way of thinking became the de facto
+
+00:06:11.039 --> 00:06:14.399
+Caption: way to categorize these distributed
+
+00:06:12.720 --> 00:06:16.679
+Caption: databases because it answers the
+
+00:06:14.399 --> 00:06:19.019
+Caption: important question if something starts
+
+00:06:16.679 --> 00:06:20.759
+Caption: to fail can I align the database to say
+
+00:06:19.019 --> 00:06:23.160
+Caption: consistent no matter what
+
+00:06:20.759 --> 00:06:26.479
+Caption: or can I rely on the database to stay
+
+00:06:23.160 --> 00:06:26.479
+Caption: available as much as I can
+
+00:06:27.359 --> 00:06:31.019
+Caption: before distributed databases people are
+
+00:06:29.399 --> 00:06:32.639
+Caption: already dealing with scale problems with
+
+00:06:31.019 --> 00:06:34.079
+Caption: the concept of partitioning which you
+
+00:06:32.639 --> 00:06:35.399
+Caption: may have heard of
+
+00:06:34.079 --> 00:06:37.079
+Caption: partitioning is the name for just
+
+00:06:35.399 --> 00:06:39.419
+Caption: splitting up a data set into smaller
+
+00:06:37.079 --> 00:06:40.978
+Caption: subsets or pieces and this is for
+
+00:06:39.419 --> 00:06:43.319
+Caption: improved performance or easier
+
+00:06:40.979 --> 00:06:45.119
+Caption: management of the data
+
+00:06:43.319 --> 00:06:46.559
+Caption: for petitioning to work there needs to
+
+00:06:45.119 --> 00:06:48.419
+Caption: be a way of deciding where a particular
+
+00:06:46.559 --> 00:06:50.039
+Caption: piece of data belongs and this is
+
+00:06:48.419 --> 00:06:52.380
+Caption: usually done by taking a key from your
+
+00:06:50.039 --> 00:06:54.720
+Caption: data and this is called the partition
+
+00:06:52.380 --> 00:06:56.279
+Caption: key and the choice of partition key can
+
+00:06:54.720 --> 00:06:59.660
+Caption: be crucial in determining the
+
+00:06:56.279 --> 00:06:59.660
+Caption: performance of your workload
+
+00:06:59.880 --> 00:07:03.419
+Caption: partitioning using a Time Field is a
+
+00:07:01.799 --> 00:07:05.339
+Caption: good choice for data sets to continually
+
+00:07:03.419 --> 00:07:07.020
+Caption: grow over time
+
+00:07:05.339 --> 00:07:08.759
+Caption: by petitioning where the range of time
+
+00:07:07.019 --> 00:07:11.339
+Caption: means that one partition can&#39;t grow
+
+00:07:08.759 --> 00:07:13.380
+Caption: forever and if you need to prune off the
+
+00:07:11.339 --> 00:07:15.479
+Caption: oldest times you can just drop the
+
+00:07:13.380 --> 00:07:18.179
+Caption: oldest partitions
+
+00:07:15.479 --> 00:07:20.819
+Caption: but for petitioning a regular string key
+
+00:07:18.179 --> 00:07:22.859
+Caption: and imagine in this example that your
+
+00:07:20.819 --> 00:07:24.839
+Caption: keys only start with the 26 letters of
+
+00:07:22.859 --> 00:07:26.698
+Caption: the English alphabet if you wanted to
+
+00:07:24.839 --> 00:07:29.098
+Caption: split this into three partitions you
+
+00:07:26.699 --> 00:07:32.279
+Caption: could just simply take a to G for
+
+00:07:29.098 --> 00:07:35.359
+Caption: petition 1 HTTP for partition 2 and Q to
+
+00:07:32.279 --> 00:07:35.359
+Caption: Z for partition 3.
+
+00:07:35.880 --> 00:07:40.440
+Caption: hash partitioning is another common type
+
+00:07:37.859 --> 00:07:42.299
+Caption: where a hash function is used applied to
+
+00:07:40.440 --> 00:07:44.220
+Caption: the key and the result is used to work
+
+00:07:42.299 --> 00:07:46.198
+Caption: out what partitioned to use
+
+00:07:44.220 --> 00:07:47.940
+Caption: this is similar to how hash table works
+
+00:07:46.199 --> 00:07:49.440
+Caption: which you&#39;ve probably come across but
+
+00:07:47.940 --> 00:07:51.539
+Caption: good hash functions are excellent at
+
+00:07:49.440 --> 00:07:53.759
+Caption: spreading your keys across out across
+
+00:07:51.539 --> 00:07:55.500
+Caption: any range even if you have keys that are
+
+00:07:53.759 --> 00:07:57.899
+Caption: very similar which might not have worked
+
+00:07:55.500 --> 00:08:00.059
+Caption: in the alphabetical example
+
+00:07:57.899 --> 00:08:02.220
+Caption: for a distributed database to spread the
+
+00:08:00.059 --> 00:08:03.959
+Caption: load across multiple computers clearly
+
+00:08:02.220 --> 00:08:06.959
+Caption: you need to spread the data across these
+
+00:08:03.959 --> 00:08:09.119
+Caption: computers or nodes as well if each node
+
+00:08:06.959 --> 00:08:10.799
+Caption: had a full copy of the data it would
+
+00:08:09.119 --> 00:08:12.179
+Caption: limit the size of your database somewhat
+
+00:08:10.799 --> 00:08:13.679
+Caption: defeating the purpose
+
+00:08:12.179 --> 00:08:16.319
+Caption: so what makes sense is divide the
+
+00:08:13.679 --> 00:08:18.239
+Caption: divider sorry is to divide the data up
+
+00:08:16.319 --> 00:08:19.319
+Caption: and share it across those multiple
+
+00:08:18.239 --> 00:08:21.299
+Caption: computers
+
+00:08:19.319 --> 00:08:22.979
+Caption: this sounds like partitioning well it is
+
+00:08:21.299 --> 00:08:24.299
+Caption: there&#39;s also another name for this
+
+00:08:22.979 --> 00:08:26.220
+Caption: sharding
+
+00:08:24.299 --> 00:08:28.019
+Caption: they&#39;re often used interchangeably but
+
+00:08:26.220 --> 00:08:29.940
+Caption: strictly sharding is partitioning data
+
+00:08:28.019 --> 00:08:32.580
+Caption: across multiple computers or multiple
+
+00:08:29.940 --> 00:08:34.559
+Caption: database instances
+
+00:08:32.580 --> 00:08:36.239
+Caption: a common sharding technique is known as
+
+00:08:34.559 --> 00:08:38.760
+Caption: consistent hashing
+
+00:08:36.239 --> 00:08:40.380
+Caption: and this type of house partitioning is
+
+00:08:38.760 --> 00:08:41.218
+Caption: designed to avoid an awkward scaling
+
+00:08:40.380 --> 00:08:43.500
+Caption: problem
+
+00:08:41.218 --> 00:08:45.359
+Caption: if you take this simple approach with
+
+00:08:43.500 --> 00:08:47.458
+Caption: the formula on screen
+
+00:08:45.359 --> 00:08:48.599
+Caption: if we want to add a new node or remove a
+
+00:08:47.458 --> 00:08:50.700
+Caption: node
+
+00:08:48.599 --> 00:08:53.579
+Caption: The Shard count in this formula changes
+
+00:08:50.700 --> 00:08:55.440
+Caption: and what that means though is that
+
+00:08:53.580 --> 00:08:57.299
+Caption: most of the keys now go to a different
+
+00:08:55.440 --> 00:08:58.919
+Caption: Shard number it means your data needs to
+
+00:08:57.299 --> 00:09:01.018
+Caption: be moved from many nodes to many other
+
+00:08:58.919 --> 00:09:03.059
+Caption: nodes essentially you can&#39;t scale up or
+
+00:09:01.018 --> 00:09:05.458
+Caption: down
+
+00:09:03.059 --> 00:09:07.440
+Caption: way back in 1997 Akamai Technologies
+
+00:09:05.458 --> 00:09:09.239
+Caption: invented consistent hashing
+
+00:09:07.440 --> 00:09:11.640
+Caption: so what it does differently is that it
+
+00:09:09.239 --> 00:09:14.398
+Caption: instead assigns each node in equal range
+
+00:09:11.640 --> 00:09:15.720
+Caption: of that hash base and this is visualized
+
+00:09:14.398 --> 00:09:18.059
+Caption: as being distributed around the outside
+
+00:09:15.719 --> 00:09:19.739
+Caption: of a ring which is where the term hash
+
+00:09:18.059 --> 00:09:21.719
+Caption: ring comes from
+
+00:09:19.739 --> 00:09:23.700
+Caption: you can imagine that each node is inside
+
+00:09:21.719 --> 00:09:25.799
+Caption: an equal piece of the pie
+
+00:09:23.700 --> 00:09:28.018
+Caption: and the output of the hash function is
+
+00:09:25.799 --> 00:09:30.000
+Caption: mapped onto the ring and this Maps it to
+
+00:09:28.018 --> 00:09:31.679
+Caption: a node
+
+00:09:30.000 --> 00:09:33.419
+Caption: the major advantage that this approach
+
+00:09:31.679 --> 00:09:35.940
+Caption: has is that if a node is added or
+
+00:09:33.419 --> 00:09:37.500
+Caption: removed then far less the data needs to
+
+00:09:35.940 --> 00:09:40.018
+Caption: be moved between the nodes just the
+
+00:09:37.500 --> 00:09:41.760
+Caption: overlapping sections of your ring
+
+00:09:40.018 --> 00:09:43.260
+Caption: and this overhead is relatively low and
+
+00:09:41.760 --> 00:09:45.000
+Caption: manageable
+
+00:09:43.260 --> 00:09:47.100
+Caption: the process of moving this data around
+
+00:09:45.000 --> 00:09:48.599
+Caption: is usually called rebalancing and this
+
+00:09:47.099 --> 00:09:50.518
+Caption: is an important thing for a database to
+
+00:09:48.599 --> 00:09:52.979
+Caption: do if it wants to allow scaling up or
+
+00:09:50.518 --> 00:09:55.260
+Caption: down without rebuilding the database and
+
+00:09:52.979 --> 00:09:56.699
+Caption: while data is being moved the DB might
+
+00:09:55.260 --> 00:09:59.820
+Caption: need to reroute requests internally
+
+00:09:56.700 --> 00:10:01.679
+Caption: until the rebalance is complete
+
+00:09:59.820 --> 00:10:03.720
+Caption: in a distributed data system there&#39;s
+
+00:10:01.679 --> 00:10:05.580
+Caption: often several copies of the data on
+
+00:10:03.719 --> 00:10:07.079
+Caption: multiple nodes as well to guard against
+
+00:10:05.580 --> 00:10:09.360
+Caption: losing one of them
+
+00:10:07.080 --> 00:10:11.580
+Caption: this gives the benefit of redundancy but
+
+00:10:09.359 --> 00:10:14.640
+Caption: plus higher availability should one of
+
+00:10:11.580 --> 00:10:16.440
+Caption: the copies become unavailable
+
+00:10:14.640 --> 00:10:18.720
+Caption: because this this also reduces the need
+
+00:10:16.440 --> 00:10:21.778
+Caption: for Ultra expensive Reliable Hardware
+
+00:10:18.719 --> 00:10:24.059
+Caption: because failures do happen anyway so if
+
+00:10:21.778 --> 00:10:27.440
+Caption: they&#39;re embraced and handled this is a
+
+00:10:24.059 --> 00:10:27.440
+Caption: win for reliability and cost
+
+00:10:28.200 --> 00:10:31.799
+Caption: okay we&#39;ve talked a bit about how data
+
+00:10:30.000 --> 00:10:33.239
+Caption: is logically distributed
+
+00:10:31.799 --> 00:10:34.739
+Caption: but how do the nodes actually know
+
+00:10:33.239 --> 00:10:37.200
+Caption: what&#39;s going on elsewhere in the cluster
+
+00:10:34.739 --> 00:10:38.820
+Caption: and what what makes them a team
+
+00:10:37.200 --> 00:10:41.160
+Caption: they might need to know where a piece of
+
+00:10:38.820 --> 00:10:42.898
+Caption: data belongs who&#39;s responsible for it
+
+00:10:41.159 --> 00:10:45.119
+Caption: who else has a copy
+
+00:10:42.898 --> 00:10:47.518
+Caption: other no other nodes healthy failing
+
+00:10:45.119 --> 00:10:49.018
+Caption: shutdown there&#39;s been a node added or
+
+00:10:47.518 --> 00:10:51.239
+Caption: removed how does it learn of all this
+
+00:10:49.018 --> 00:10:53.099
+Caption: this needs to be shared and this can&#39;t
+
+00:10:51.239 --> 00:10:54.719
+Caption: always be configured up front and never
+
+00:10:53.099 --> 00:10:55.919
+Caption: change
+
+00:10:54.719 --> 00:10:59.179
+Caption: so I&#39;m going to talk about two
+
+00:10:55.919 --> 00:10:59.179
+Caption: techniques that are used for this
+
+00:10:59.518 --> 00:11:03.599
+Caption: if you can tolerate a slight delay
+
+00:11:01.380 --> 00:11:05.039
+Caption: before all of your nodes are in sync say
+
+00:11:03.599 --> 00:11:06.659
+Caption: less than 10 seconds
+
+00:11:05.039 --> 00:11:08.219
+Caption: then a common approach is to use a
+
+00:11:06.659 --> 00:11:10.259
+Caption: gossip protocol
+
+00:11:08.219 --> 00:11:11.939
+Caption: a gossip protocol is sometimes also
+
+00:11:10.260 --> 00:11:13.200
+Caption: called an epidemic protocol
+
+00:11:11.940 --> 00:11:15.419
+Caption: because it&#39;s similar to the way that
+
+00:11:13.200 --> 00:11:17.100
+Caption: epidemics spread
+
+00:11:15.419 --> 00:11:19.139
+Caption: when a node receives a new piece of
+
+00:11:17.099 --> 00:11:20.940
+Caption: Gossip it randomly picks one or more
+
+00:11:19.140 --> 00:11:22.679
+Caption: other nodes to pass it onto
+
+00:11:20.940 --> 00:11:24.659
+Caption: and this piece of Gossip spreads until
+
+00:11:22.679 --> 00:11:26.880
+Caption: all of the nodes have it
+
+00:11:24.659 --> 00:11:30.000
+Caption: this can happen surprisingly quickly and
+
+00:11:26.880 --> 00:11:32.220
+Caption: large clusters can converge in seconds
+
+00:11:30.000 --> 00:11:34.260
+Caption: why bother with this trouble though
+
+00:11:32.219 --> 00:11:36.958
+Caption: can we just tell all of the other nodes
+
+00:11:34.260 --> 00:11:38.278
+Caption: directly or maybe our Network supports a
+
+00:11:36.958 --> 00:11:40.260
+Caption: broadcast
+
+00:11:38.278 --> 00:11:42.479
+Caption: the problem with that is that it doesn&#39;t
+
+00:11:40.260 --> 00:11:44.458
+Caption: scale very well as the number of nodes
+
+00:11:42.479 --> 00:11:46.679
+Caption: increases the amount of network traffic
+
+00:11:44.458 --> 00:11:48.239
+Caption: goes up exponentially until the system
+
+00:11:46.679 --> 00:11:50.219
+Caption: collapses
+
+00:11:48.239 --> 00:11:52.018
+Caption: so gossip protocol instead keeps the
+
+00:11:50.219 --> 00:11:54.119
+Caption: overhead on the network and each node to
+
+00:11:52.018 --> 00:11:56.099
+Caption: a pretty constant level even for very
+
+00:11:54.119 --> 00:11:58.458
+Caption: large clusters you just sacrifice a
+
+00:11:56.099 --> 00:11:58.458
+Caption: little time
+
+00:11:58.559 --> 00:12:02.578
+Caption: but you might also think why can&#39;t they
+
+00:12:00.179 --> 00:12:04.679
+Caption: just be a coordinator or a leader and
+
+00:12:02.578 --> 00:12:07.199
+Caption: the nodes stay in sync with this leader
+
+00:12:04.679 --> 00:12:09.359
+Caption: absolutely that works very well for
+
+00:12:07.200 --> 00:12:10.799
+Caption: mostly smaller clusters and there are
+
+00:12:09.359 --> 00:12:13.200
+Caption: plenty of distributed databases out
+
+00:12:10.799 --> 00:12:15.179
+Caption: there that operate with this model
+
+00:12:13.200 --> 00:12:16.500
+Caption: but we&#39;ve introduced a weakness what
+
+00:12:15.179 --> 00:12:17.760
+Caption: happens when the leader becomes
+
+00:12:16.500 --> 00:12:19.440
+Caption: unavailable
+
+00:12:17.760 --> 00:12:22.320
+Caption: the system can&#39;t share any new
+
+00:12:19.440 --> 00:12:23.518
+Caption: information until that&#39;s resolved
+
+00:12:22.320 --> 00:12:26.578
+Caption: okay let&#39;s make the coordinator
+
+00:12:23.518 --> 00:12:28.260
+Caption: redundant have three of them but how do
+
+00:12:26.578 --> 00:12:30.239
+Caption: they stay in perfect sync and how do
+
+00:12:28.260 --> 00:12:31.559
+Caption: they decide on a leader so we&#39;ve come up
+
+00:12:30.239 --> 00:12:34.219
+Caption: against the problem of distributed
+
+00:12:31.559 --> 00:12:34.219
+Caption: consensus
+
+00:12:34.979 --> 00:12:38.039
+Caption: so one way to decide on something is to
+
+00:12:36.719 --> 00:12:40.139
+Caption: have a simple vote
+
+00:12:38.039 --> 00:12:42.299
+Caption: a simple majority is enough to decide on
+
+00:12:40.140 --> 00:12:44.579
+Caption: the outcome but computers and networks
+
+00:12:42.299 --> 00:12:46.138
+Caption: can fail at any moment and this can skew
+
+00:12:44.578 --> 00:12:48.119
+Caption: the voting
+
+00:12:46.138 --> 00:12:51.059
+Caption: it&#39;s pretty fundamental need to be sure
+
+00:12:48.119 --> 00:12:53.398
+Caption: of what has happened in your system
+
+00:12:51.059 --> 00:12:55.200
+Caption: in 1990 Leslie Lampert first wrote a
+
+00:12:53.398 --> 00:12:57.599
+Caption: paper describing the paxos algorithm
+
+00:12:55.200 --> 00:12:58.739
+Caption: which is the seminal work on distributed
+
+00:12:57.599 --> 00:13:00.599
+Caption: consensus
+
+00:12:58.739 --> 00:13:02.700
+Caption: but it turned out to be hard to
+
+00:13:00.599 --> 00:13:04.739
+Caption: implement and hard to understand and
+
+00:13:02.700 --> 00:13:07.739
+Caption: left a lot to be solved by developers so
+
+00:13:04.739 --> 00:13:09.059
+Caption: much later in 2013 the raft algorithm
+
+00:13:07.739 --> 00:13:11.219
+Caption: was published
+
+00:13:09.059 --> 00:13:13.380
+Caption: it&#39;s based on paxos but but easier to
+
+00:13:11.219 --> 00:13:16.578
+Caption: understand and to to work with and so
+
+00:13:13.380 --> 00:13:16.578
+Caption: it&#39;s been popular since then
+
+00:13:17.338 --> 00:13:23.159
+Caption: so consistency in a distributed system
+
+00:13:19.979 --> 00:13:24.958
+Caption: needs Global agreement on changes but
+
+00:13:23.159 --> 00:13:26.759
+Caption: how does it work if instead we chose to
+
+00:13:24.958 --> 00:13:28.138
+Caption: give up strong consistency to be
+
+00:13:26.760 --> 00:13:31.018
+Caption: available
+
+00:13:28.138 --> 00:13:33.000
+Caption: we can&#39;t just let changes be lost can we
+
+00:13:31.018 --> 00:13:36.000
+Caption: so instead practical systems are instead
+
+00:13:33.000 --> 00:13:37.500
+Caption: what&#39;s called eventually consistent
+
+00:13:36.000 --> 00:13:39.239
+Caption: this means that the different nodes in
+
+00:13:37.500 --> 00:13:41.760
+Caption: this system asynchronously replicate
+
+00:13:39.239 --> 00:13:43.859
+Caption: data to each other and then Converge on
+
+00:13:41.760 --> 00:13:44.820
+Caption: one just just one value for any piece of
+
+00:13:43.859 --> 00:13:46.739
+Caption: data
+
+00:13:44.820 --> 00:13:49.559
+Caption: in the meantime it&#39;s sometimes possible
+
+00:13:46.739 --> 00:13:51.179
+Caption: to read a value that&#39;s out of date
+
+00:13:49.559 --> 00:13:52.739
+Caption: a new value is being written somewhere
+
+00:13:51.179 --> 00:13:55.200
+Caption: else in the system but it&#39;s not yet
+
+00:13:52.739 --> 00:13:56.880
+Caption: visible to me but if I wait it will
+
+00:13:55.200 --> 00:13:59.760
+Caption: arrive
+
+00:13:56.880 --> 00:14:02.518
+Caption: but how long is eventually of course the
+
+00:13:59.760 --> 00:14:04.619
+Caption: answer is it depends it&#39;s milliseconds
+
+00:14:02.518 --> 00:14:09.359
+Caption: or often seconds but it could be hours
+
+00:14:04.619 --> 00:14:11.338
+Caption: when recovering from complex failures
+
+00:14:09.359 --> 00:14:13.859
+Caption: there also needs to be a way to decide
+
+00:14:11.338 --> 00:14:15.299
+Caption: how to convert these conflicting changes
+
+00:14:13.859 --> 00:14:17.338
+Caption: into one result
+
+00:14:15.299 --> 00:14:20.219
+Caption: the simplest approach is just last right
+
+00:14:17.338 --> 00:14:22.500
+Caption: to wins and this is a common choice in
+
+00:14:20.219 --> 00:14:25.500
+Caption: eventually consistent systems because
+
+00:14:22.500 --> 00:14:27.898
+Caption: you just compare the timestamps and take
+
+00:14:25.500 --> 00:14:30.239
+Caption: the latest one and discard the others
+
+00:14:27.898 --> 00:14:31.859
+Caption: it&#39;s intuitive enough but for it to be
+
+00:14:30.239 --> 00:14:34.380
+Caption: practical it depends on servers having
+
+00:14:31.859 --> 00:14:36.419
+Caption: fairly synchronized clocks
+
+00:14:34.380 --> 00:14:39.059
+Caption: algorithms exist to detect conflicts
+
+00:14:36.419 --> 00:14:40.500
+Caption: like logical clocks or vector clocks but
+
+00:14:39.059 --> 00:14:42.539
+Caption: they don&#39;t automatically resolve these
+
+00:14:40.500 --> 00:14:47.000
+Caption: conflicts necessarily and so a lot of AP
+
+00:14:42.539 --> 00:14:47.000
+Caption: systems decided not to use them
+
+00:14:48.119 --> 00:14:52.619
+Caption: the reality is often never as simple as
+
+00:14:49.919 --> 00:14:55.859
+Caption: a choice between these two opposites and
+
+00:14:52.619 --> 00:14:58.500
+Caption: this is true of cap the CP versus AP
+
+00:14:55.859 --> 00:15:01.260
+Caption: trade-off is more of a spectrum and
+
+00:14:58.500 --> 00:15:03.059
+Caption: databases exist somewhere in there
+
+00:15:01.260 --> 00:15:05.040
+Caption: a very important real world Factor
+
+00:15:03.059 --> 00:15:08.099
+Caption: that&#39;s missing from cap theorem is L for
+
+00:15:05.039 --> 00:15:09.599
+Caption: latency how of how quick it is to read
+
+00:15:08.099 --> 00:15:10.559
+Caption: or write your data is often very
+
+00:15:09.599 --> 00:15:12.179
+Caption: important
+
+00:15:10.559 --> 00:15:13.619
+Caption: unfortunately there&#39;s a fundamental
+
+00:15:12.179 --> 00:15:16.380
+Caption: trade-off between consistency
+
+00:15:13.619 --> 00:15:18.299
+Caption: availability and latency
+
+00:15:16.380 --> 00:15:20.160
+Caption: a big motivation for building these
+
+00:15:18.299 --> 00:15:21.359
+Caption: database systems to begin with was scale
+
+00:15:20.159 --> 00:15:23.879
+Caption: and performance
+
+00:15:21.359 --> 00:15:25.500
+Caption: Amazon design Dynamo to serve its
+
+00:15:23.880 --> 00:15:27.539
+Caption: shopping cart
+
+00:15:25.500 --> 00:15:30.359
+Caption: Google built bigtable to serve and store
+
+00:15:27.539 --> 00:15:33.000
+Caption: web search maps Etc Facebook built
+
+00:15:30.359 --> 00:15:35.099
+Caption: Cassandra to power its inbox search
+
+00:15:33.000 --> 00:15:37.198
+Caption: uh LinkedIn and Yahoo have similar
+
+00:15:35.099 --> 00:15:39.119
+Caption: examples these systems needed
+
+00:15:37.198 --> 00:15:43.398
+Caption: scalability and performance and this is
+
+00:15:39.119 --> 00:15:43.398
+Caption: a big part of why they were AP systems
+
+00:15:43.440 --> 00:15:46.380
+Caption: potential trade-off you make as we
+
+00:15:45.119 --> 00:15:48.419
+Caption: discussed is the chance of reading
+
+00:15:46.380 --> 00:15:50.578
+Caption: inconsistent data
+
+00:15:48.419 --> 00:15:52.859
+Caption: this may be a non-issue when your data
+
+00:15:50.578 --> 00:15:54.119
+Caption: doesn&#39;t change much these systems can be
+
+00:15:52.859 --> 00:15:56.398
+Caption: a great fit for collecting mostly
+
+00:15:54.119 --> 00:15:57.719
+Caption: immutable data like Telemetry events
+
+00:15:56.398 --> 00:15:59.159
+Caption: messages
+
+00:15:57.719 --> 00:16:00.898
+Caption: and they&#39;re also great for use cases
+
+00:15:59.159 --> 00:16:01.979
+Caption: where you&#39;re okay with the occasional
+
+00:16:00.898 --> 00:16:03.659
+Caption: glitch
+
+00:16:01.979 --> 00:16:05.219
+Caption: and I&#39;m sure that on the rare occasion
+
+00:16:03.659 --> 00:16:06.299
+Caption: an item has just mysteriously
+
+00:16:05.219 --> 00:16:07.500
+Caption: disappeared from someone&#39;s Amazon
+
+00:16:06.299 --> 00:16:09.659
+Caption: shopping cart
+
+00:16:07.500 --> 00:16:11.820
+Caption: has this hurt Amazon&#39;s reputation or
+
+00:16:09.659 --> 00:16:13.440
+Caption: profits no
+
+00:16:11.820 --> 00:16:15.119
+Caption: and not every business who made this
+
+00:16:13.440 --> 00:16:16.500
+Caption: trade-off feels the same way though Uber
+
+00:16:15.119 --> 00:16:18.898
+Caption: is one example but I&#39;ll talk about
+
+00:16:16.500 --> 00:16:20.458
+Caption: trolling
+
+00:16:18.898 --> 00:16:21.778
+Caption: after a while working with these
+
+00:16:20.458 --> 00:16:23.338
+Caption: databases people were starting to
+
+00:16:21.778 --> 00:16:25.320
+Caption: realize the cap theorem while
+
+00:16:23.338 --> 00:16:27.599
+Caption: technically true and insightful wasn&#39;t
+
+00:16:25.320 --> 00:16:29.638
+Caption: really nuanced enough for them
+
+00:16:27.599 --> 00:16:31.919
+Caption: it&#39;s only an algorithmic property it
+
+00:16:29.638 --> 00:16:33.778
+Caption: doesn&#39;t guarantee that AP systems are
+
+00:16:31.919 --> 00:16:35.578
+Caption: actually up all the time
+
+00:16:33.778 --> 00:16:36.419
+Caption: so the other other ways to think about
+
+00:16:35.578 --> 00:16:39.239
+Caption: it
+
+00:16:36.419 --> 00:16:41.278
+Caption: so Rick Houlihan introduced this tasty
+
+00:16:39.239 --> 00:16:42.898
+Caption: concept called the pi theorem
+
+00:16:41.278 --> 00:16:45.479
+Caption: you can choose two of these three
+
+00:16:42.898 --> 00:16:48.299
+Caption: desirable properties of your data store
+
+00:16:45.479 --> 00:16:49.380
+Caption: pattern flexibility infinite scale and
+
+00:16:48.299 --> 00:16:51.059
+Caption: efficiency
+
+00:16:49.380 --> 00:16:52.679
+Caption: and recall that the Iron Triangle of
+
+00:16:51.059 --> 00:16:54.599
+Caption: purpose
+
+00:16:52.679 --> 00:16:57.239
+Caption: so for some examples a relational
+
+00:16:54.599 --> 00:16:58.799
+Caption: database is a PE system it&#39;s very
+
+00:16:57.239 --> 00:17:00.299
+Caption: flexible to query it&#39;s usually quite
+
+00:16:58.799 --> 00:17:02.039
+Caption: efficient but it definitely has a
+
+00:17:00.299 --> 00:17:04.338
+Caption: scaling cap
+
+00:17:02.039 --> 00:17:07.198
+Caption: a nosql database is an ie system
+
+00:17:04.338 --> 00:17:10.020
+Caption: typically because it scales very well
+
+00:17:07.198 --> 00:17:12.119
+Caption: it&#39;s got great efficiency but you can&#39;t
+
+00:17:10.020 --> 00:17:13.619
+Caption: produce you can&#39;t do flexible queries
+
+00:17:12.119 --> 00:17:14.938
+Caption: that you haven&#39;t planned for to begin
+
+00:17:13.619 --> 00:17:17.160
+Caption: with
+
+00:17:14.938 --> 00:17:21.178
+Caption: aquarable data Lake might be an IP
+
+00:17:17.160 --> 00:17:22.979
+Caption: system huge scale low efficiency
+
+00:17:21.178 --> 00:17:24.359
+Caption: so when you next need to choose a data
+
+00:17:22.979 --> 00:17:26.540
+Caption: store you should consider this model as
+
+00:17:24.359 --> 00:17:26.540
+Caption: well
+
+00:17:26.938 --> 00:17:30.959
+Caption: in addition people some people learn the
+
+00:17:29.099 --> 00:17:32.640
+Caption: hard way that eventually consistent
+
+00:17:30.959 --> 00:17:34.619
+Caption: systems could be more trouble than their
+
+00:17:32.640 --> 00:17:37.020
+Caption: worth for instance Google published this
+
+00:17:34.619 --> 00:17:39.660
+Caption: and I&#39;ll paraphrase it&#39;s hard to build
+
+00:17:37.020 --> 00:17:43.099
+Caption: bug-free systems when the database
+
+00:17:39.660 --> 00:17:43.099
+Caption: doesn&#39;t guarantee consistency
+
+00:17:44.939 --> 00:17:49.259
+Caption: the dynamodb offered by AWS has the
+
+00:17:47.400 --> 00:17:52.020
+Caption: option of strong consistency within a
+
+00:17:49.260 --> 00:17:53.880
+Caption: region azure&#39;s Cosmos DB has the option
+
+00:17:52.020 --> 00:17:56.039
+Caption: of strong consistency Google&#39;s three
+
+00:17:53.880 --> 00:17:57.719
+Caption: main databases for internal and external
+
+00:17:56.038 --> 00:17:59.759
+Caption: use they all offer in some form of
+
+00:17:57.719 --> 00:18:02.038
+Caption: consist strong consistency
+
+00:17:59.760 --> 00:18:04.678
+Caption: some nosql data stores have since been
+
+00:18:02.038 --> 00:18:07.379
+Caption: extended or even custom built
+
+00:18:04.678 --> 00:18:09.899
+Caption: to support full asset transactions for
+
+00:18:07.380 --> 00:18:12.539
+Caption: example Apple open source Foundation DB
+
+00:18:09.900 --> 00:18:14.580
+Caption: which is a highly scalable nosql
+
+00:18:12.538 --> 00:18:15.959
+Caption: database that supports full asset
+
+00:18:14.579 --> 00:18:18.178
+Caption: transactions
+
+00:18:15.959 --> 00:18:20.038
+Caption: and it Powers Apple&#39;s Cloud kit service
+
+00:18:18.178 --> 00:18:22.579
+Caption: and snowflake uses it to store their
+
+00:18:20.038 --> 00:18:22.579
+Caption: metadata
+
+00:18:23.038 --> 00:18:27.779
+Caption: research continued in big Tech as well
+
+00:18:25.439 --> 00:18:29.399
+Caption: as Academia and a new generation of
+
+00:18:27.780 --> 00:18:31.859
+Caption: databases has emerged in the recent
+
+00:18:29.400 --> 00:18:33.299
+Caption: decade and these have been dubbed new
+
+00:18:31.859 --> 00:18:35.939
+Caption: SQL
+
+00:18:33.298 --> 00:18:37.678
+Caption: it&#39;s a play or nosql but it represents
+
+00:18:35.939 --> 00:18:40.500
+Caption: that they&#39;re a new generation of SQL
+
+00:18:37.678 --> 00:18:43.079
+Caption: databases they can provide much higher
+
+00:18:40.500 --> 00:18:44.760
+Caption: scalability and availability without
+
+00:18:43.079 --> 00:18:46.380
+Caption: giving up the advantages of a relational
+
+00:18:44.760 --> 00:18:48.599
+Caption: database
+
+00:18:46.380 --> 00:18:51.479
+Caption: and this was seated Again by more papers
+
+00:18:48.599 --> 00:18:54.058
+Caption: released by Google F1 and spanner
+
+00:18:51.479 --> 00:18:55.500
+Caption: this was novel and it it inspired the
+
+00:18:54.058 --> 00:18:57.119
+Caption: creation of a number of similar
+
+00:18:55.500 --> 00:18:59.699
+Caption: databases
+
+00:18:57.119 --> 00:19:02.339
+Caption: some of these are cockroachdb Thai DB
+
+00:18:59.699 --> 00:19:04.019
+Caption: and gigabyte DB
+
+00:19:02.339 --> 00:19:06.359
+Caption: so I mentioned a little startup you
+
+00:19:04.020 --> 00:19:08.400
+Caption: might have heard of earlier Uber
+
+00:19:06.359 --> 00:19:10.678
+Caption: Uber handles billions of transactions
+
+00:19:08.400 --> 00:19:12.719
+Caption: per day now on their core order tracking
+
+00:19:10.678 --> 00:19:14.099
+Caption: system if you&#39;ve ordered an Uber or an
+
+00:19:12.719 --> 00:19:15.178
+Caption: Uber Eats it&#39;s probably been through
+
+00:19:14.099 --> 00:19:16.798
+Caption: there
+
+00:19:15.178 --> 00:19:18.899
+Caption: and this was originally built on the
+
+00:19:16.798 --> 00:19:21.000
+Caption: Cassandra database and they embraced
+
+00:19:18.900 --> 00:19:23.160
+Caption: eventual consistency in this system in
+
+00:19:21.000 --> 00:19:25.260
+Caption: order to get the scale they needed
+
+00:19:23.160 --> 00:19:28.140
+Caption: however they were still frustrated by
+
+00:19:25.260 --> 00:19:30.419
+Caption: occasional consistency problems and the
+
+00:19:28.140 --> 00:19:32.160
+Caption: complexity of this added to their code
+
+00:19:30.418 --> 00:19:33.659
+Caption: they&#39;ve publicly talked about this and
+
+00:19:32.160 --> 00:19:35.880
+Caption: how they&#39;re they&#39;ve done a full rewrite
+
+00:19:33.660 --> 00:19:37.619
+Caption: now to move to a consistent store
+
+00:19:35.880 --> 00:19:40.020
+Caption: and they&#39;re using Google Cloud spanner
+
+00:19:37.619 --> 00:19:41.880
+Caption: as the pro MDB
+
+00:19:40.020 --> 00:19:42.959
+Caption: as more examples Netflix have blogged
+
+00:19:41.880 --> 00:19:44.219
+Caption: about how they&#39;re making use of
+
+00:19:42.959 --> 00:19:45.899
+Caption: cockroachdb
+
+00:19:44.219 --> 00:19:48.319
+Caption: and we&#39;re using cockroach to be a family
+
+00:19:45.900 --> 00:19:48.320
+Caption: Zone
+
+00:19:49.140 --> 00:19:52.619
+Caption: this all sounds too complicated why
+
+00:19:51.119 --> 00:19:53.939
+Caption: should I bother with the distributed
+
+00:19:52.619 --> 00:19:56.579
+Caption: database
+
+00:19:53.939 --> 00:19:58.739
+Caption: well if you don&#39;t have a need for high
+
+00:19:56.579 --> 00:20:00.899
+Caption: scalability and high availability you
+
+00:19:58.739 --> 00:20:02.400
+Caption: probably don&#39;t need one
+
+00:20:00.900 --> 00:20:04.500
+Caption: however more and more apps find
+
+00:20:02.400 --> 00:20:06.419
+Caption: themselves needing to handle bigger and
+
+00:20:04.500 --> 00:20:08.280
+Caption: bigger data sets and sometimes sad that
+
+00:20:06.418 --> 00:20:09.859
+Caption: the Common App is becoming a big data
+
+00:20:08.280 --> 00:20:12.299
+Caption: app
+
+00:20:09.859 --> 00:20:14.280
+Caption: the distributed databases that exist
+
+00:20:12.298 --> 00:20:16.380
+Caption: today are the culmination of Decades of
+
+00:20:14.280 --> 00:20:18.539
+Caption: research and development so you can have
+
+00:20:16.380 --> 00:20:21.539
+Caption: your cake and eat it too with scalable
+
+00:20:18.538 --> 00:20:24.119
+Caption: transactional databases that support SQL
+
+00:20:21.538 --> 00:20:25.619
+Caption: and the relational model
+
+00:20:24.119 --> 00:20:27.780
+Caption: and there are choices available out
+
+00:20:25.619 --> 00:20:30.859
+Caption: there in addition to what&#39;s offered up
+
+00:20:27.780 --> 00:20:30.859
+Caption: by your cloud provider
+
+00:20:31.380 --> 00:20:35.640
+Caption: beware of giving up strong consistency
+
+00:20:33.298 --> 00:20:37.859
+Caption: or at least be sure why you don&#39;t need
+
+00:20:35.640 --> 00:20:39.719
+Caption: it before you give it up
+
+00:20:37.859 --> 00:20:41.459
+Caption: if you need to work around the database
+
+00:20:39.719 --> 00:20:44.538
+Caption: then perhaps it wasn&#39;t the ideal choice
+
+00:20:41.459 --> 00:20:44.538
+Caption: for your problem
+
+00:20:44.819 --> 00:20:48.000
+Caption: despite these these breakthroughs
+
+00:20:46.558 --> 00:20:50.760
+Caption: there&#39;s still no one-size-fits-all
+
+00:20:48.000 --> 00:20:52.558
+Caption: distributed database solution
+
+00:20:50.760 --> 00:20:54.058
+Caption: there are generally purpose-built data
+
+00:20:52.558 --> 00:20:56.099
+Caption: stores that might be ideal for your
+
+00:20:54.058 --> 00:20:57.599
+Caption: particular workload perhaps an
+
+00:20:56.099 --> 00:21:00.719
+Caption: analytical database was what you
+
+00:20:57.599 --> 00:21:03.178
+Caption: actually needed or even a graph database
+
+00:21:00.719 --> 00:21:05.159
+Caption: so do your research before you jump
+
+00:21:03.178 --> 00:21:07.880
+Caption: and don&#39;t choose just based on the high
+
+00:21:05.160 --> 00:21:07.880
+Caption: for the marketing
+
+00:21:07.979 --> 00:21:14.369
+Caption: thank you for listening
+
+00:21:09.500 --> 00:21:14.369
+Caption: [Applause]
+
+00:21:18.000 --> 00:21:21.660
+Caption: do we have any time for questions are we
+
+00:21:20.339 --> 00:21:23.159
+Caption: out
+
+00:21:21.660 --> 00:21:25.799
+Caption: time for
+
+00:21:23.160 --> 00:21:27.840
+Caption: one or two quick questions uh we are on
+
+00:21:25.798 --> 00:21:30.558
+Caption: a time but yeah if there are questions
+
+00:21:27.839 --> 00:21:30.558
+Caption: for Todd
+
+00:21:34.619 --> 00:21:36.979
+Caption: sure
+
+00:21:40.339 --> 00:21:44.939
+Caption: I think that&#39;s probably a lot of nuance
+
+00:21:43.678 --> 00:21:46.260
+Caption: to that but
+
+00:21:44.939 --> 00:21:49.379
+Caption: I think
+
+00:21:46.260 --> 00:21:51.659
+Caption: if you&#39;re if your organization justifies
+
+00:21:49.380 --> 00:21:53.280
+Caption: it so you have a big enough need
+
+00:21:51.659 --> 00:21:54.900
+Caption: for using more than one database because
+
+00:21:53.280 --> 00:21:56.159
+Caption: you need people that understand the
+
+00:21:54.900 --> 00:21:57.659
+Caption: different Technologies you need to
+
+00:21:56.159 --> 00:21:59.760
+Caption: maintain those different Technologies so
+
+00:21:57.659 --> 00:22:02.760
+Caption: if you need the scale yes if you don&#39;t
+
+00:21:59.760 --> 00:22:05.400
+Caption: need the scale that&#39;s where I&#39;d consider
+
+00:22:02.760 --> 00:22:07.440
+Caption: just making do with one but
+
+00:22:05.400 --> 00:22:09.900
+Caption: absolutely if you
+
+00:22:07.439 --> 00:22:12.298
+Caption: the point was that they&#39;re purpose built
+
+00:22:09.900 --> 00:22:14.000
+Caption: so if if one suits your need very well
+
+00:22:12.298 --> 00:22:17.279
+Caption: use it for that need
+
+00:22:14.000 --> 00:22:19.918
+Caption: but you know that&#39;s easy to say and and
+
+00:22:17.280 --> 00:22:21.780
+Caption: reality usually dictates that only if it
+
+00:22:19.918 --> 00:22:23.899
+Caption: it&#39;s got the money behind it to justify
+
+00:22:21.780 --> 00:22:23.900
+Caption: it
+
+00:22:24.839 --> 00:22:28.500
+Caption: okay
+
+00:22:26.520 --> 00:22:29.940
+Caption: thank you very much Todd uh we&#39;ll wrap
+
+00:22:28.500 --> 00:22:31.678
+Caption: it there please give Todd another round
+
+00:22:29.939 --> 00:22:33.979
+Caption: of applause and we&#39;ll move to our next
+
+00:22:31.678 --> 00:22:33.979
+Caption: sessions
+
+00:22:34.060 --> 00:22:38.500
+Caption: [Applause]
+

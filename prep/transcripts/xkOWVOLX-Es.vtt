@@ -1,0 +1,3959 @@
+WEBVTT
+
+00:00:00.538 --> 00:00:06.119
+Caption: but in the meantime I will give a bit of
+
+00:00:02.940 --> 00:00:09.239
+Caption: an intro so Josh is here with us today
+
+00:00:06.119 --> 00:00:12.420
+Caption: he&#39;s a distinguished technologist at
+
+00:00:09.239 --> 00:00:15.178
+Caption: cantino he&#39;s also a published author
+
+00:00:12.420 --> 00:00:18.179
+Caption: which I think is bloody Wicked he&#39;s
+
+00:00:15.178 --> 00:00:18.179
+Caption: generally
+
+00:00:18.479 --> 00:00:25.559
+Caption: he is generally referred to at cantino
+
+00:00:21.600 --> 00:00:27.539
+Caption: as the break glass in case of emergency
+
+00:00:25.559 --> 00:00:29.879
+Caption: made human
+
+00:00:27.538 --> 00:00:32.398
+Caption: he works with businesses all over
+
+00:00:29.879 --> 00:00:35.639
+Caption: Australia helping them to digitally
+
+00:00:32.398 --> 00:00:38.279
+Caption: transform he will also be taking some
+
+00:00:35.639 --> 00:00:40.139
+Caption: questions and from what I hear that are
+
+00:00:38.279 --> 00:00:44.040
+Caption: signing of the book could be a
+
+00:00:40.139 --> 00:00:47.159
+Caption: possibility guys so Josh are we good
+
+00:00:44.040 --> 00:00:49.260
+Caption: hopefully let&#39;s give it a red hot go if
+
+00:00:47.159 --> 00:00:50.759
+Caption: you can use that one so we can all hear
+
+00:00:49.259 --> 00:00:52.319
+Caption: you I mean people can probably hear me
+
+00:00:50.759 --> 00:00:54.680
+Caption: oh God people can probably hear me
+
+00:00:52.319 --> 00:00:57.479
+Caption: anyway so I&#39;m generally loud all right
+
+00:00:54.680 --> 00:01:00.479
+Caption: serverless testing uh local considered
+
+00:00:57.479 --> 00:01:03.299
+Caption: harmful so people may have heard me
+
+00:01:00.479 --> 00:01:05.400
+Caption: speak before in which case you might
+
+00:01:03.299 --> 00:01:06.599
+Caption: have presumed this warning was coming
+
+00:01:05.400 --> 00:01:09.299
+Caption: it&#39;s going to be a lot of strong
+
+00:01:06.599 --> 00:01:11.519
+Caption: opinions they&#39;re hopefully loosely held
+
+00:01:09.299 --> 00:01:13.140
+Caption: your mileage may vary I&#39;m not saying I
+
+00:01:11.519 --> 00:01:14.639
+Caption: have all the answers just most of them
+
+00:01:13.139 --> 00:01:16.559
+Caption: so you know we&#39;ll have to see how that
+
+00:01:14.639 --> 00:01:19.438
+Caption: goes right
+
+00:01:16.559 --> 00:01:20.579
+Caption: all right the hero slash villain uh for
+
+00:01:19.439 --> 00:01:22.319
+Caption: our story today it&#39;s a friend of mine
+
+00:01:20.580 --> 00:01:23.520
+Caption: called Richards who I worked with in the
+
+00:01:22.319 --> 00:01:25.259
+Caption: UK
+
+00:01:23.519 --> 00:01:27.059
+Caption: um he&#39;s drunk the cloud native Kool-Aid
+
+00:01:25.259 --> 00:01:30.299
+Caption: as you can see
+
+00:01:27.059 --> 00:01:33.360
+Caption: um that is a suit he actually owns
+
+00:01:30.299 --> 00:01:35.759
+Caption: um so when I talk about Cloud native
+
+00:01:33.360 --> 00:01:38.459
+Caption: I&#39;m not meaning this Unholy Cambrian
+
+00:01:35.759 --> 00:01:41.939
+Caption: explosion of things that the cncf has
+
+00:01:38.459 --> 00:01:44.879
+Caption: really it&#39;s building for the cloud not
+
+00:01:41.939 --> 00:01:47.159
+Caption: just on the cloud right that can mean
+
+00:01:44.879 --> 00:01:48.180
+Caption: kubernetes but I argue in most cases it
+
+00:01:47.158 --> 00:01:50.758
+Caption: probably not
+
+00:01:48.180 --> 00:01:53.158
+Caption: but okay so
+
+00:01:50.759 --> 00:01:54.720
+Caption: back to Richard and we&#39;re gonna we&#39;re
+
+00:01:53.158 --> 00:01:56.279
+Caption: gonna start and I always try and start
+
+00:01:54.720 --> 00:01:58.139
+Caption: this way so when people get bored of me
+
+00:01:56.279 --> 00:01:59.459
+Caption: speaking hopefully they&#39;ve got the
+
+00:01:58.139 --> 00:02:01.739
+Caption: takeaways to start so we&#39;re going to
+
+00:01:59.459 --> 00:02:03.540
+Caption: start with the three key takeaways
+
+00:02:01.739 --> 00:02:05.099
+Caption: the first is that the testing pyramid
+
+00:02:03.540 --> 00:02:07.020
+Caption: that we&#39;ve all held dear to our hearts
+
+00:02:05.099 --> 00:02:09.720
+Caption: for many many years is a service
+
+00:02:07.019 --> 00:02:10.738
+Caption: anti-pattern in reality
+
+00:02:09.720 --> 00:02:12.360
+Caption: um hopefully some of these are
+
+00:02:10.738 --> 00:02:14.160
+Caption: contentious I&#39;m hoping to you know piss
+
+00:02:12.360 --> 00:02:16.199
+Caption: people off as we go
+
+00:02:14.160 --> 00:02:17.639
+Caption: um again it makes it more fun
+
+00:02:16.199 --> 00:02:19.500
+Caption: um second emulating the cloud is a
+
+00:02:17.639 --> 00:02:21.238
+Caption: recipe for disappointment I will be
+
+00:02:19.500 --> 00:02:23.699
+Caption: ragging on local stack for about half
+
+00:02:21.238 --> 00:02:25.080
+Caption: this talk maybe not half but you know
+
+00:02:23.699 --> 00:02:26.940
+Caption: you&#39;ve got to go with me on this and
+
+00:02:25.080 --> 00:02:28.860
+Caption: hopefully I can convince you to throw it
+
+00:02:26.940 --> 00:02:30.238
+Caption: in the bin tomorrow and the last is
+
+00:02:28.860 --> 00:02:32.098
+Caption: testing doesn&#39;t stop when code hits
+
+00:02:30.238 --> 00:02:34.860
+Caption: production
+
+00:02:32.098 --> 00:02:36.539
+Caption: um again hopefully people agree with me
+
+00:02:34.860 --> 00:02:38.160
+Caption: on this or they don&#39;t either way
+
+00:02:36.539 --> 00:02:40.079
+Caption: hopefully you agree with me by the end
+
+00:02:38.160 --> 00:02:41.580
+Caption: so there&#39;s already an intro on me so
+
+00:02:40.080 --> 00:02:42.720
+Caption: I&#39;ll go very very quick
+
+00:02:41.580 --> 00:02:45.779
+Caption: um so yeah we&#39;re seeing this technology
+
+00:02:42.720 --> 00:02:48.180
+Caption: container which is a ridiculous title
+
+00:02:45.779 --> 00:02:50.819
+Caption: um I work with Enterprises I&#39;ve done
+
+00:02:48.179 --> 00:02:52.018
+Caption: world first service architecture on AWS
+
+00:02:50.819 --> 00:02:53.518
+Caption: um I&#39;ve done mainframes I&#39;ve done
+
+00:02:52.018 --> 00:02:54.899
+Caption: machine learning
+
+00:02:53.518 --> 00:02:56.699
+Caption: um I am a speaker and I do have a few
+
+00:02:54.899 --> 00:02:58.679
+Caption: copies to give away I can sign them if
+
+00:02:56.699 --> 00:02:59.819
+Caption: you want but I feel really weird doing
+
+00:02:58.679 --> 00:03:01.079
+Caption: it
+
+00:02:59.819 --> 00:03:02.339
+Caption: um I&#39;m davido&#39;s Ambassador hashing
+
+00:03:01.080 --> 00:03:05.660
+Caption: Ambassador you know all the kind of
+
+00:03:02.339 --> 00:03:05.660
+Caption: stuff I&#39;m a professional lab mouth
+
+00:03:05.759 --> 00:03:09.779
+Caption: um so I&#39;m going to talk about functional
+
+00:03:07.679 --> 00:03:12.658
+Caption: testing today when I say testing that&#39;s
+
+00:03:09.779 --> 00:03:13.919
+Caption: what most people think and there are so
+
+00:03:12.658 --> 00:03:16.679
+Caption: many other things you can and should be
+
+00:03:13.919 --> 00:03:18.779
+Caption: testing but I have 45 minutes so I&#39;m
+
+00:03:16.679 --> 00:03:20.878
+Caption: going to focus or try anyway I generally
+
+00:03:18.779 --> 00:03:24.059
+Caption: add lead a lot so we&#39;ll see how this
+
+00:03:20.878 --> 00:03:25.738
+Caption: goes uh why do we test and I just
+
+00:03:24.059 --> 00:03:26.878
+Caption: realized I have that slide twice why do
+
+00:03:25.738 --> 00:03:29.458
+Caption: we test
+
+00:03:26.878 --> 00:03:31.738
+Caption: is it to prevent bugs
+
+00:03:29.458 --> 00:03:33.238
+Caption: yes and no
+
+00:03:31.738 --> 00:03:35.279
+Caption: um kind of
+
+00:03:33.238 --> 00:03:37.860
+Caption: I&#39;m gonna apologies for this I&#39;m going
+
+00:03:35.279 --> 00:03:38.699
+Caption: to go a little bit of complexity Theory
+
+00:03:37.860 --> 00:03:40.500
+Caption: um
+
+00:03:38.699 --> 00:03:44.158
+Caption: so when we build systems they are
+
+00:03:40.500 --> 00:03:46.440
+Caption: complex adaptive systems it&#39;s a very uh
+
+00:03:44.158 --> 00:03:47.580
+Caption: very long way of saying when we make
+
+00:03:46.440 --> 00:03:49.018
+Caption: changes we don&#39;t really know what&#39;s
+
+00:03:47.580 --> 00:03:51.598
+Caption: going to happen we have ideas we have
+
+00:03:49.018 --> 00:03:52.559
+Caption: theories but we can&#39;t know what&#39;s going
+
+00:03:51.598 --> 00:03:54.298
+Caption: to happen
+
+00:03:52.559 --> 00:03:56.399
+Caption: and if you don&#39;t believe me or this is
+
+00:03:54.298 --> 00:03:58.860
+Caption: kind of new I think we&#39;ve all been
+
+00:03:56.399 --> 00:04:01.018
+Caption: through this you know you&#39;re working on
+
+00:03:58.860 --> 00:04:04.018
+Caption: something you know you get to daily
+
+00:04:01.018 --> 00:04:06.839
+Caption: stand-up the next day and yeah no I
+
+00:04:04.018 --> 00:04:08.699
+Caption: found something new it&#39;s kind of the
+
+00:04:06.839 --> 00:04:10.199
+Caption: it&#39;s the problem and the fun of software
+
+00:04:08.699 --> 00:04:11.518
+Caption: development it&#39;s emergent you don&#39;t know
+
+00:04:10.199 --> 00:04:13.679
+Caption: what you&#39;re doing until you do it which
+
+00:04:11.518 --> 00:04:16.260
+Caption: is why estimating another one of my uh
+
+00:04:13.679 --> 00:04:17.399
+Caption: pain points is pointless and that&#39;s
+
+00:04:16.260 --> 00:04:19.380
+Caption: probably also going to piss some people
+
+00:04:17.399 --> 00:04:22.139
+Caption: off which is fantastic
+
+00:04:19.380 --> 00:04:22.800
+Caption: going from complexity Theory
+
+00:04:22.139 --> 00:04:24.660
+Caption: um
+
+00:04:22.799 --> 00:04:27.418
+Caption: so behaviors of systems of complex
+
+00:04:24.660 --> 00:04:29.279
+Caption: adapter systems an emergent property you
+
+00:04:27.419 --> 00:04:33.360
+Caption: can try and control them but effectively
+
+00:04:29.279 --> 00:04:34.679
+Caption: they happen not 100 by chance but just
+
+00:04:33.359 --> 00:04:36.839
+Caption: because you build something doesn&#39;t mean
+
+00:04:34.679 --> 00:04:38.579
+Caption: you know what it&#39;s going to do
+
+00:04:36.839 --> 00:04:41.339
+Caption: this also means that unintended
+
+00:04:38.579 --> 00:04:42.418
+Caption: behaviors are emergent property because
+
+00:04:41.339 --> 00:04:44.940
+Caption: you don&#39;t know what&#39;s going to happen
+
+00:04:42.419 --> 00:04:46.380
+Caption: which that means that bugs an emergent
+
+00:04:44.940 --> 00:04:50.100
+Caption: property because bugs is effectively
+
+00:04:46.380 --> 00:04:52.979
+Caption: just a synonym for unintended behaviors
+
+00:04:50.100 --> 00:04:54.000
+Caption: the bugs are inevitable
+
+00:04:52.979 --> 00:04:57.959
+Caption: um you&#39;re really not going to get around
+
+00:04:54.000 --> 00:04:59.820
+Caption: them so if testing isn&#39;t about the you
+
+00:04:57.959 --> 00:05:01.259
+Caption: know preventing bugs in their entirety
+
+00:04:59.820 --> 00:05:03.000
+Caption: what what are you actually trying to
+
+00:05:01.259 --> 00:05:06.600
+Caption: achieve
+
+00:05:03.000 --> 00:05:07.619
+Caption: really for me it&#39;s this the the value of
+
+00:05:06.600 --> 00:05:08.820
+Caption: the release you&#39;re trying to do the
+
+00:05:07.619 --> 00:05:10.679
+Caption: value of the change you&#39;re trying to do
+
+00:05:08.820 --> 00:05:11.460
+Caption: is greater than the risk of doing the
+
+00:05:10.679 --> 00:05:12.660
+Caption: change
+
+00:05:11.459 --> 00:05:13.859
+Caption: that&#39;s all you&#39;re trying to really do
+
+00:05:12.660 --> 00:05:14.820
+Caption: you&#39;re trying to go actually putting
+
+00:05:13.859 --> 00:05:17.279
+Caption: this change of production is more
+
+00:05:14.820 --> 00:05:18.899
+Caption: valuable than the potential risk impact
+
+00:05:17.279 --> 00:05:20.100
+Caption: you can&#39;t be sure about this it&#39;s all
+
+00:05:18.899 --> 00:05:22.079
+Caption: about confidence you can have to be 100
+
+00:05:20.100 --> 00:05:23.880
+Caption: confidence even with an ego as big as
+
+00:05:22.079 --> 00:05:25.859
+Caption: mine I can never be 100 confident that
+
+00:05:23.880 --> 00:05:28.320
+Caption: I&#39;ve got it right
+
+00:05:25.859 --> 00:05:30.119
+Caption: um but really what fundamentally what
+
+00:05:28.320 --> 00:05:31.860
+Caption: we&#39;re trying to do is how cheaply can
+
+00:05:30.119 --> 00:05:33.239
+Caption: you be confident or sufficiently
+
+00:05:31.859 --> 00:05:36.119
+Caption: confident that the value of the release
+
+00:05:33.239 --> 00:05:37.918
+Caption: is more than the risk and obviously risk
+
+00:05:36.119 --> 00:05:40.859
+Caption: can take many different factors in terms
+
+00:05:37.919 --> 00:05:42.000
+Caption: of you break production or unintended or
+
+00:05:40.859 --> 00:05:43.559
+Caption: the you know there&#39;s all the damage that
+
+00:05:42.000 --> 00:05:46.019
+Caption: comes from that in terms of Financial
+
+00:05:43.559 --> 00:05:47.519
+Caption: and reputational and maybe you get
+
+00:05:46.019 --> 00:05:48.660
+Caption: smarts across the head because you&#39;ve
+
+00:05:47.519 --> 00:05:49.918
+Caption: released so many bugs into production
+
+00:05:48.660 --> 00:05:51.899
+Caption: there&#39;s lots of different kinds of risk
+
+00:05:49.919 --> 00:05:54.179
+Caption: in there
+
+00:05:51.899 --> 00:05:56.100
+Caption: again just stepping back to complexity
+
+00:05:54.179 --> 00:05:57.000
+Caption: Theory one last time I promise I&#39;ll move
+
+00:05:56.100 --> 00:06:00.119
+Caption: on
+
+00:05:57.000 --> 00:06:02.220
+Caption: um when you look at complex area and
+
+00:06:00.119 --> 00:06:04.380
+Caption: then you get test run are these enabling
+
+00:06:02.220 --> 00:06:06.360
+Caption: constraints they allow us to preserve
+
+00:06:04.380 --> 00:06:07.800
+Caption: certain behaviors of the system but
+
+00:06:06.359 --> 00:06:08.879
+Caption: they&#39;re not guaranteed to exercise the
+
+00:06:07.799 --> 00:06:09.720
+Caption: entirety of the system so you&#39;re not
+
+00:06:08.880 --> 00:06:12.119
+Caption: going to cover everything but you&#39;re
+
+00:06:09.720 --> 00:06:15.899
+Caption: going to cover a lot
+
+00:06:12.119 --> 00:06:17.220
+Caption: Google very eloquently put it uh like
+
+00:06:15.899 --> 00:06:19.380
+Caption: this
+
+00:06:17.220 --> 00:06:21.179
+Caption: um the Beyonce rule if you liked it you
+
+00:06:19.380 --> 00:06:23.339
+Caption: should have put a CI test on it Google
+
+00:06:21.179 --> 00:06:25.679
+Caption: have taken this idea to the extreme with
+
+00:06:23.339 --> 00:06:26.880
+Caption: the idea that anyone in the business can
+
+00:06:25.679 --> 00:06:28.319
+Caption: make pretty much any change to any
+
+00:06:26.880 --> 00:06:30.720
+Caption: system that they want
+
+00:06:28.319 --> 00:06:32.339
+Caption: so upgrading a package take the log4j
+
+00:06:30.720 --> 00:06:34.319
+Caption: thing that happened right Google can
+
+00:06:32.339 --> 00:06:36.059
+Caption: update that in their one giant monorepo
+
+00:06:34.319 --> 00:06:38.459
+Caption: they are insane
+
+00:06:36.059 --> 00:06:40.619
+Caption: um but that can be done by security and
+
+00:06:38.459 --> 00:06:42.239
+Caption: if your system breaks it is your fault
+
+00:06:40.619 --> 00:06:43.919
+Caption: not theirs
+
+00:06:42.239 --> 00:06:45.239
+Caption: so it&#39;s changing with accountability
+
+00:06:43.919 --> 00:06:46.919
+Caption: lies from the person that made to change
+
+00:06:45.239 --> 00:06:48.779
+Caption: the person that owns the system but
+
+00:06:46.919 --> 00:06:50.819
+Caption: fundamentally Google has probably second
+
+00:06:48.779 --> 00:06:53.839
+Caption: to non-testing culture and it enables a
+
+00:06:50.819 --> 00:06:53.839
+Caption: lot of the stuff that they do
+
+00:06:53.880 --> 00:06:57.660
+Caption: again
+
+00:06:55.079 --> 00:06:59.220
+Caption: when we build a system we have a mental
+
+00:06:57.660 --> 00:07:01.500
+Caption: model of how we think the system works
+
+00:06:59.220 --> 00:07:03.419
+Caption: and we have a software model which is
+
+00:07:01.500 --> 00:07:04.979
+Caption: how the system actually works and
+
+00:07:03.419 --> 00:07:06.600
+Caption: testing is an opportunity to refine our
+
+00:07:04.979 --> 00:07:08.339
+Caption: mental to try and bring it closer to the
+
+00:07:06.600 --> 00:07:09.899
+Caption: software model and the closer you are
+
+00:07:08.339 --> 00:07:11.279
+Caption: the better the quicker you can develop
+
+00:07:09.899 --> 00:07:13.380
+Caption: the less bugs you&#39;re going to introduce
+
+00:07:11.279 --> 00:07:14.459
+Caption: this is kind of the basis around you
+
+00:07:13.380 --> 00:07:15.660
+Caption: know when you&#39;re on board onto a new
+
+00:07:14.459 --> 00:07:16.679
+Caption: team you have to understand what&#39;s going
+
+00:07:15.660 --> 00:07:20.039
+Caption: on right
+
+00:07:16.679 --> 00:07:21.539
+Caption: so as you know you have to build these
+
+00:07:20.039 --> 00:07:22.679
+Caption: mental models over time which is why you
+
+00:07:21.539 --> 00:07:24.000
+Caption: get the guys who&#39;ve worked on the system
+
+00:07:22.679 --> 00:07:25.319
+Caption: for 20 years seem to know everything
+
+00:07:24.000 --> 00:07:26.339
+Caption: backwards and forwards and the guy&#39;s
+
+00:07:25.319 --> 00:07:29.000
+Caption: been there two months it&#39;s like what the
+
+00:07:26.339 --> 00:07:29.000
+Caption: hell is going on
+
+00:07:29.339 --> 00:07:34.199
+Caption: really common refrain that I see when
+
+00:07:31.919 --> 00:07:36.720
+Caption: people start on the serverless bit is
+
+00:07:34.199 --> 00:07:37.679
+Caption: they find that testing just feels really
+
+00:07:36.720 --> 00:07:39.059
+Caption: hard
+
+00:07:37.679 --> 00:07:40.619
+Caption: it feels really hard for them to do
+
+00:07:39.059 --> 00:07:42.419
+Caption: they&#39;re like man it doesn&#39;t work the way
+
+00:07:40.619 --> 00:07:43.380
+Caption: it used to
+
+00:07:42.419 --> 00:07:44.520
+Caption: um you know I&#39;m starting to do a whole
+
+00:07:43.380 --> 00:07:46.800
+Caption: bunch of different things it&#39;s not
+
+00:07:44.519 --> 00:07:48.359
+Caption: really working like all of a sudden I
+
+00:07:46.799 --> 00:07:50.098
+Caption: need Docker compose to run like 10
+
+00:07:48.359 --> 00:07:51.839
+Caption: containers on my laptop and it&#39;s set on
+
+00:07:50.098 --> 00:07:54.419
+Caption: fire that kind of stuff that you see
+
+00:07:51.839 --> 00:07:56.160
+Caption: happening around the track right
+
+00:07:54.419 --> 00:07:58.440
+Caption: the fundamental problems that although
+
+00:07:56.160 --> 00:08:00.539
+Caption: serverless you know Lambda functions and
+
+00:07:58.440 --> 00:08:02.279
+Caption: Cloud run and visual functions all that
+
+00:08:00.539 --> 00:08:03.899
+Caption: wonderful stuff although there is
+
+00:08:02.279 --> 00:08:07.259
+Caption: technology Service as a whole is
+
+00:08:03.899 --> 00:08:08.880
+Caption: actually a mindset it&#39;s not just about
+
+00:08:07.259 --> 00:08:10.500
+Caption: moving the technology it&#39;s a new
+
+00:08:08.880 --> 00:08:12.419
+Caption: paradigm that comes with new ways of
+
+00:08:10.500 --> 00:08:13.919
+Caption: working if you try and apply all the
+
+00:08:12.419 --> 00:08:16.319
+Caption: ways you used to do things in like a
+
+00:08:13.919 --> 00:08:17.940
+Caption: monolithic on-premise environment to a
+
+00:08:16.319 --> 00:08:19.378
+Caption: serverless environment you can have a
+
+00:08:17.940 --> 00:08:20.759
+Caption: bad time which is what a lot of people
+
+00:08:19.378 --> 00:08:22.500
+Caption: do
+
+00:08:20.759 --> 00:08:23.878
+Caption: if you try and do Cloud native
+
+00:08:22.500 --> 00:08:27.598
+Caption: development with a pre-cloud testing
+
+00:08:23.878 --> 00:08:28.919
+Caption: approach local Dev sub is hellish you
+
+00:08:27.598 --> 00:08:30.720
+Caption: know the working with some Enterprise
+
+00:08:28.919 --> 00:08:32.098
+Caption: like oh someone&#39;s onboarding cool all
+
+00:08:30.720 --> 00:08:34.020
+Caption: right well it might have the laptops out
+
+00:08:32.098 --> 00:08:35.278
+Caption: ready to go in two weeks it&#39;s like
+
+00:08:34.020 --> 00:08:37.080
+Caption: that&#39;s a lot of time I&#39;ve worked on
+
+00:08:35.278 --> 00:08:38.880
+Caption: teams where we had people joining
+
+00:08:37.080 --> 00:08:40.500
+Caption: pushing to production within an hour of
+
+00:08:38.880 --> 00:08:42.658
+Caption: joining if you get this stuff right you
+
+00:08:40.500 --> 00:08:44.218
+Caption: can move so fast testing across multiple
+
+00:08:42.658 --> 00:08:45.419
+Caption: Services is brittle
+
+00:08:44.218 --> 00:08:47.039
+Caption: um this is something people find when
+
+00:08:45.419 --> 00:08:49.619
+Caption: they go to microservices like oh my God
+
+00:08:47.039 --> 00:08:51.659
+Caption: what is this how do I get the same level
+
+00:08:49.619 --> 00:08:53.640
+Caption: of confidence and really comes down to
+
+00:08:51.659 --> 00:08:55.199
+Caption: the tests they write are either really
+
+00:08:53.640 --> 00:08:56.398
+Caption: hard they&#39;re hard to be impactful
+
+00:08:55.200 --> 00:08:58.260
+Caption: because either they&#39;re very brittle and
+
+00:08:56.398 --> 00:08:59.640
+Caption: really hard to work with or they&#39;re kind
+
+00:08:58.260 --> 00:09:01.500
+Caption: of tortological tests are really not
+
+00:08:59.640 --> 00:09:02.880
+Caption: testing anything at all and they kind of
+
+00:09:01.500 --> 00:09:04.140
+Caption: end up in this really weird space where
+
+00:09:02.880 --> 00:09:05.700
+Caption: they&#39;re like I don&#39;t have any confidence
+
+00:09:04.140 --> 00:09:06.838
+Caption: that my system even works when I make a
+
+00:09:05.700 --> 00:09:08.640
+Caption: change
+
+00:09:06.838 --> 00:09:11.159
+Caption: and coming back to this serverless as a
+
+00:09:08.640 --> 00:09:14.760
+Caption: mindset piece there&#39;s kind of Three core
+
+00:09:11.159 --> 00:09:17.099
+Caption: drivers that led to it and they all have
+
+00:09:14.760 --> 00:09:17.820
+Caption: impacts on the way you test
+
+00:09:17.099 --> 00:09:19.979
+Caption: um
+
+00:09:17.820 --> 00:09:23.039
+Caption: so these are kind of wider macroeconomic
+
+00:09:19.979 --> 00:09:25.739
+Caption: things but really this is what the cloud
+
+00:09:23.039 --> 00:09:28.320
+Caption: to a large degree has brought to itm
+
+00:09:25.739 --> 00:09:29.580
+Caption: businesses so it historically and
+
+00:09:28.320 --> 00:09:31.140
+Caption: unfortunately still in some places seen
+
+00:09:29.580 --> 00:09:32.278
+Caption: as a cost center
+
+00:09:31.140 --> 00:09:34.200
+Caption: um you don&#39;t want it to be you want to
+
+00:09:32.278 --> 00:09:36.059
+Caption: see The Innovation Center
+
+00:09:34.200 --> 00:09:38.100
+Caption: um with that comes a very different
+
+00:09:36.059 --> 00:09:41.760
+Caption: level of expectation you are expected to
+
+00:09:38.099 --> 00:09:43.199
+Caption: produce value not maintain costs ideally
+
+00:09:41.760 --> 00:09:45.359
+Caption: um generally we&#39;re moving to modernist
+
+00:09:43.200 --> 00:09:46.320
+Caption: and microservices if you&#39;re going down a
+
+00:09:45.359 --> 00:09:47.820
+Caption: serverless path you&#39;re going to end up
+
+00:09:46.320 --> 00:09:49.200
+Caption: doing microservices that kind of is no
+
+00:09:47.820 --> 00:09:50.820
+Caption: way about it and you know if you&#39;re
+
+00:09:49.200 --> 00:09:52.320
+Caption: deploying one Lambda there&#39;s God that
+
+00:09:50.820 --> 00:09:54.299
+Caption: does everything
+
+00:09:52.320 --> 00:09:55.260
+Caption: um think again
+
+00:09:54.299 --> 00:09:57.838
+Caption: um
+
+00:09:55.260 --> 00:09:58.919
+Caption: and one of the more interesting bits
+
+00:09:57.838 --> 00:10:00.659
+Caption: especially compared to a on-premise
+
+00:09:58.919 --> 00:10:02.880
+Caption: world that used to be long lead times I
+
+00:10:00.659 --> 00:10:04.559
+Caption: need a new service setting up okay the
+
+00:10:02.880 --> 00:10:06.720
+Caption: best case is maybe it goes to the server
+
+00:10:04.559 --> 00:10:08.640
+Caption: team that goes and sets something up the
+
+00:10:06.719 --> 00:10:10.379
+Caption: worst case is oh we&#39;re out of capacity
+
+00:10:08.640 --> 00:10:11.519
+Caption: we&#39;re going to go find the server come
+
+00:10:10.380 --> 00:10:13.200
+Caption: back in three months we might have
+
+00:10:11.518 --> 00:10:16.320
+Caption: something for you right
+
+00:10:13.200 --> 00:10:18.179
+Caption: it&#39;s really really different nowadays
+
+00:10:16.320 --> 00:10:19.739
+Caption: and just on that Innovation certain
+
+00:10:18.179 --> 00:10:21.239
+Caption: point because if people know me they
+
+00:10:19.739 --> 00:10:22.979
+Caption: know I&#39;d never shut up about the Dora
+
+00:10:21.239 --> 00:10:24.539
+Caption: metrics and I&#39;ve managed to find a way
+
+00:10:22.979 --> 00:10:28.260
+Caption: to fit them in again
+
+00:10:24.539 --> 00:10:29.278
+Caption: there so the reality is that nowadays we
+
+00:10:28.260 --> 00:10:31.140
+Caption: actually have some statistically
+
+00:10:29.278 --> 00:10:34.320
+Caption: verified ways of looking at entering
+
+00:10:31.140 --> 00:10:36.059
+Caption: performance and it is not velocity
+
+00:10:34.320 --> 00:10:39.000
+Caption: um the idea is you should be able to
+
+00:10:36.059 --> 00:10:40.440
+Caption: deliver change frequently routinely you
+
+00:10:39.000 --> 00:10:41.820
+Caption: don&#39;t break things very often and when
+
+00:10:40.440 --> 00:10:44.159
+Caption: you do break things it&#39;s quick to fix
+
+00:10:41.820 --> 00:10:45.660
+Caption: now a lot of the time people come back
+
+00:10:44.159 --> 00:10:47.278
+Caption: and go well okay that&#39;s all right for
+
+00:10:45.659 --> 00:10:48.719
+Caption: the digital natives the Googles whatever
+
+00:10:47.278 --> 00:10:52.200
+Caption: blah blah
+
+00:10:48.719 --> 00:10:54.479
+Caption: the reality is nowadays it&#39;s 26 of
+
+00:10:52.200 --> 00:10:55.739
+Caption: businesses one in four from the survey
+
+00:10:54.479 --> 00:10:57.239
+Caption: respondents so obviously there&#39;s going
+
+00:10:55.739 --> 00:11:00.778
+Caption: to be a bias there but you can even see
+
+00:10:57.239 --> 00:11:02.159
+Caption: over time 7 to 2026 this is not about
+
+00:11:00.778 --> 00:11:03.778
+Caption: digital natives anymore this is about
+
+00:11:02.159 --> 00:11:05.879
+Caption: table Stakes
+
+00:11:03.778 --> 00:11:07.320
+Caption: if you can&#39;t do this
+
+00:11:05.880 --> 00:11:08.458
+Caption: um you&#39;re really going to run into stuff
+
+00:11:07.320 --> 00:11:09.479
+Caption: if you&#39;re not moving in this direction
+
+00:11:08.458 --> 00:11:10.859
+Caption: you&#39;re really going to start to run into
+
+00:11:09.479 --> 00:11:12.119
+Caption: problems a lot of sudden the business
+
+00:11:10.859 --> 00:11:15.059
+Caption: can be like well our competitors
+
+00:11:12.119 --> 00:11:17.398
+Caption: innovating so much faster than us it go
+
+00:11:15.059 --> 00:11:19.320
+Caption: faster we&#39;ve done safe now you can go
+
+00:11:17.398 --> 00:11:21.479
+Caption: faster right and we&#39;ve added more scrum
+
+00:11:19.320 --> 00:11:24.000
+Caption: Masters we&#39;re going to go faster
+
+00:11:21.479 --> 00:11:25.260
+Caption: not how it works at all
+
+00:11:24.000 --> 00:11:27.299
+Caption: um so now on the monolith versus
+
+00:11:25.260 --> 00:11:30.299
+Caption: microservice is about
+
+00:11:27.299 --> 00:11:31.979
+Caption: the the way it used to be
+
+00:11:30.299 --> 00:11:33.898
+Caption: um was used to have a simple arrangement
+
+00:11:31.979 --> 00:11:35.639
+Caption: of complex objects you had virtual
+
+00:11:33.898 --> 00:11:38.278
+Caption: machines that did a hell of a lot and
+
+00:11:35.640 --> 00:11:39.778
+Caption: not that many of them
+
+00:11:38.278 --> 00:11:41.700
+Caption: where it&#39;s kind of gone to now
+
+00:11:39.778 --> 00:11:43.078
+Caption: especially in serverless applications is
+
+00:11:41.700 --> 00:11:45.119
+Caption: it&#39;s a complex arrangement of simple
+
+00:11:43.078 --> 00:11:46.679
+Caption: objects everything is easy to read is
+
+00:11:45.119 --> 00:11:49.500
+Caption: about in isolation but instead the
+
+00:11:46.679 --> 00:11:50.940
+Caption: complexity is actually moved it&#39;s made
+
+00:11:49.500 --> 00:11:53.458
+Caption: from within the service to the
+
+00:11:50.940 --> 00:11:55.440
+Caption: Integrations between services
+
+00:11:53.458 --> 00:11:57.179
+Caption: so now when you&#39;re trying to test the
+
+00:11:55.440 --> 00:11:58.018
+Caption: whole kit and caboodle on a monolith and
+
+00:11:57.179 --> 00:11:59.039
+Caption: then you try and do the same in the
+
+00:11:58.018 --> 00:12:00.479
+Caption: Lambda function you&#39;re not going to have
+
+00:11:59.039 --> 00:12:01.739
+Caption: a good time because what you&#39;re trying
+
+00:12:00.479 --> 00:12:02.880
+Caption: to do is get to the heart of the
+
+00:12:01.739 --> 00:12:05.338
+Caption: complexity and the complexity is
+
+00:12:02.880 --> 00:12:07.859
+Caption: actually moved where it is
+
+00:12:05.338 --> 00:12:09.239
+Caption: the test pyramids everyone&#39;s familiar
+
+00:12:07.859 --> 00:12:10.140
+Caption: surely
+
+00:12:09.239 --> 00:12:13.018
+Caption: um
+
+00:12:10.140 --> 00:12:14.519
+Caption: so this doesn&#39;t this really starts to
+
+00:12:13.018 --> 00:12:15.898
+Caption: not apply
+
+00:12:14.518 --> 00:12:18.000
+Caption: anymore
+
+00:12:15.898 --> 00:12:20.099
+Caption: because really a lot of that complexity
+
+00:12:18.000 --> 00:12:21.359
+Caption: that we used to kind of capture within
+
+00:12:20.099 --> 00:12:24.139
+Caption: the unit testing start to move to
+
+00:12:21.359 --> 00:12:24.140
+Caption: integration testing
+
+00:12:24.299 --> 00:12:30.479
+Caption: Spotify came up with this I
+
+00:12:27.359 --> 00:12:32.940
+Caption: it&#39;s better I mean all models um all
+
+00:12:30.479 --> 00:12:34.619
+Caption: models are wrong some are useful it you
+
+00:12:32.940 --> 00:12:36.140
+Caption: know it starts to actually point to the
+
+00:12:34.619 --> 00:12:39.000
+Caption: fact that actually integration testing
+
+00:12:36.140 --> 00:12:40.320
+Caption: unfortunately because there are caveats
+
+00:12:39.000 --> 00:12:41.820
+Caption: on speed
+
+00:12:40.320 --> 00:12:43.200
+Caption: um it&#39;s starting to get the more
+
+00:12:41.820 --> 00:12:45.539
+Caption: important part to do
+
+00:12:43.200 --> 00:12:47.160
+Caption: and really when you look at this there
+
+00:12:45.539 --> 00:12:48.778
+Caption: are conversations we had about how
+
+00:12:47.159 --> 00:12:51.119
+Caption: complex what are you actually trying to
+
+00:12:48.778 --> 00:12:52.919
+Caption: achieve and this will speak to kind of
+
+00:12:51.119 --> 00:12:54.539
+Caption: the years I&#39;ve spent working on NATO&#39;s
+
+00:12:52.919 --> 00:12:56.099
+Caption: platforms when you talk about this
+
+00:12:54.539 --> 00:12:58.259
+Caption: complex we look at Lambda functions
+
+00:12:56.099 --> 00:13:00.838
+Caption: there are kind of two general types I
+
+00:12:58.260 --> 00:13:02.518
+Caption: see there is adoles Lambda is glue
+
+00:13:00.838 --> 00:13:04.138
+Caption: because AWS haven&#39;t done something so
+
+00:13:02.518 --> 00:13:04.799
+Caption: you write a Lambda function to do it for
+
+00:13:04.138 --> 00:13:06.599
+Caption: them
+
+00:13:04.799 --> 00:13:08.099
+Caption: um which is you know all the time and
+
+00:13:06.599 --> 00:13:09.419
+Caption: really at this point you&#39;re probably
+
+00:13:08.099 --> 00:13:11.398
+Caption: gonna have all integration tests and
+
+00:13:09.419 --> 00:13:13.859
+Caption: very little implementation detail tests
+
+00:13:11.398 --> 00:13:16.138
+Caption: because
+
+00:13:13.859 --> 00:13:17.638
+Caption: your implementation detail really
+
+00:13:16.138 --> 00:13:19.138
+Caption: doesn&#39;t mean anything anymore because if
+
+00:13:17.638 --> 00:13:20.338
+Caption: you take that code out of AWS it&#39;s
+
+00:13:19.138 --> 00:13:21.958
+Caption: useless
+
+00:13:20.338 --> 00:13:23.578
+Caption: so what you know you don&#39;t have this
+
+00:13:21.958 --> 00:13:25.619
+Caption: nice pure domain you&#39;re trying to look
+
+00:13:23.578 --> 00:13:26.699
+Caption: after it&#39;s about like well actually all
+
+00:13:25.619 --> 00:13:28.138
+Caption: I&#39;m trying to do is Stitch to radio
+
+00:13:26.700 --> 00:13:30.838
+Caption: Services together there is nothing
+
+00:13:28.138 --> 00:13:32.219
+Caption: reusable here so really all I need to do
+
+00:13:30.838 --> 00:13:34.138
+Caption: is integrate against AWS services not
+
+00:13:32.219 --> 00:13:35.278
+Caption: really point trying to configure it so
+
+00:13:34.138 --> 00:13:37.320
+Caption: you can test something locally because
+
+00:13:35.278 --> 00:13:39.479
+Caption: what what is the point and I&#39;ll get into
+
+00:13:37.320 --> 00:13:41.220
+Caption: more about how you can kind of test in
+
+00:13:39.479 --> 00:13:42.000
+Caption: AWS a little bit more natively as we go
+
+00:13:41.219 --> 00:13:43.379
+Caption: along
+
+00:13:42.000 --> 00:13:45.299
+Caption: the kind of more interesting one
+
+00:13:43.380 --> 00:13:46.500
+Caption: personally is with the main logic we&#39;re
+
+00:13:45.299 --> 00:13:49.200
+Caption: actually trying to build like a system
+
+00:13:46.500 --> 00:13:51.179
+Caption: of some form that Services uses not just
+
+00:13:49.200 --> 00:13:52.380
+Caption: makes AWS go quicker
+
+00:13:51.179 --> 00:13:53.700
+Caption: um and at this point you do end up with
+
+00:13:52.380 --> 00:13:55.320
+Caption: a mix of integration implementation
+
+00:13:53.700 --> 00:13:58.200
+Caption: detail
+
+00:13:55.320 --> 00:14:00.419
+Caption: one of the core things to do when you&#39;re
+
+00:13:58.200 --> 00:14:02.518
+Caption: doing serverless development is all the
+
+00:14:00.419 --> 00:14:04.380
+Caption: side effects now if there&#39;s any
+
+00:14:02.518 --> 00:14:05.880
+Caption: functional programmers in the room
+
+00:14:04.380 --> 00:14:07.500
+Caption: they&#39;ll be very used to the comments
+
+00:14:05.880 --> 00:14:08.278
+Caption: like talking about side effects as a
+
+00:14:07.500 --> 00:14:09.958
+Caption: concept
+
+00:14:08.278 --> 00:14:11.099
+Caption: you want to keep your domain logic like
+
+00:14:09.958 --> 00:14:13.200
+Caption: the business logic of what you&#39;re trying
+
+00:14:11.099 --> 00:14:14.699
+Caption: to do that should be kept pure if
+
+00:14:13.200 --> 00:14:16.859
+Caption: there&#39;s anything if there&#39;s any Bodo
+
+00:14:14.700 --> 00:14:19.619
+Caption: calls or AWS SDK calls anyway in your
+
+00:14:16.859 --> 00:14:21.719
+Caption: business logic you&#39;ve got a problem
+
+00:14:19.619 --> 00:14:24.659
+Caption: the business logic shouldn&#39;t know it&#39;s
+
+00:14:21.719 --> 00:14:25.919
+Caption: going into AWS or gcp or Azure or you
+
+00:14:24.659 --> 00:14:29.099
+Caption: know a Raspberry Pi you&#39;ve got sitting
+
+00:14:25.919 --> 00:14:30.898
+Caption: on the desk you really shouldn&#39;t know
+
+00:14:29.099 --> 00:14:32.518
+Caption: at the point you&#39;ve made it so it
+
+00:14:30.898 --> 00:14:34.979
+Caption: doesn&#39;t know
+
+00:14:32.518 --> 00:14:37.619
+Caption: now I can test locally
+
+00:14:34.979 --> 00:14:39.359
+Caption: because it&#39;s it&#39;s just logic that&#39;s
+
+00:14:37.619 --> 00:14:41.638
+Caption: working it doesn&#39;t understand about any
+
+00:14:39.359 --> 00:14:43.320
+Caption: external dependencies in any way so for
+
+00:14:41.638 --> 00:14:45.359
+Caption: my domain logic I can actually iterate
+
+00:14:43.320 --> 00:14:48.419
+Caption: on that very locally very very quickly
+
+00:14:45.359 --> 00:14:49.919
+Caption: then I can independently test that the
+
+00:14:48.419 --> 00:14:51.599
+Caption: drivers I&#39;ve got that are interacting
+
+00:14:49.919 --> 00:14:53.578
+Caption: with the cloud vendor
+
+00:14:51.599 --> 00:14:55.940
+Caption: a work is expected and then some
+
+00:14:53.578 --> 00:14:59.518
+Caption: end-to-end tests to stitch it together
+
+00:14:55.940 --> 00:15:01.018
+Caption: this forces you to structure your code
+
+00:14:59.518 --> 00:15:02.578
+Caption: in a particular way I didn&#39;t have enough
+
+00:15:01.018 --> 00:15:04.559
+Caption: time to kind of go into a lot of depth
+
+00:15:02.578 --> 00:15:06.119
+Caption: with it today but if you go look at
+
+00:15:04.559 --> 00:15:07.919
+Caption: clean architecture there&#39;s a book
+
+00:15:06.119 --> 00:15:09.659
+Caption: floating around there if you have a look
+
+00:15:07.919 --> 00:15:10.559
+Caption: at the way they structure code
+
+00:15:09.659 --> 00:15:11.940
+Caption: um that&#39;s generally how we do it
+
+00:15:10.559 --> 00:15:14.099
+Caption: nowadays been doing for a few years it&#39;s
+
+00:15:11.940 --> 00:15:15.720
+Caption: worked very well for this
+
+00:15:14.099 --> 00:15:17.159
+Caption: um potentially how I go on time and I
+
+00:15:15.719 --> 00:15:18.719
+Caption: know I&#39;m stopping everyone from lunch I
+
+00:15:17.159 --> 00:15:21.440
+Caption: might have chance to show an example but
+
+00:15:18.719 --> 00:15:21.439
+Caption: we&#39;ll see how we go
+
+00:15:22.198 --> 00:15:25.259
+Caption: um
+
+00:15:23.159 --> 00:15:26.698
+Caption: one of these things is when you get to
+
+00:15:25.260 --> 00:15:28.679
+Caption: this point
+
+00:15:26.698 --> 00:15:30.119
+Caption: um you can this is a make file that I
+
+00:15:28.679 --> 00:15:31.679
+Caption: use there&#39;s a Three Musketeers pattern
+
+00:15:30.119 --> 00:15:32.940
+Caption: we use at container which I&#39;m a big
+
+00:15:31.679 --> 00:15:34.320
+Caption: proponent of
+
+00:15:32.940 --> 00:15:36.419
+Caption: um effectively abstract all your repos
+
+00:15:34.320 --> 00:15:39.239
+Caption: with make files to make it wonderful
+
+00:15:36.419 --> 00:15:40.679
+Caption: um this is a internal project the make
+
+00:15:39.239 --> 00:15:42.119
+Caption: file from an internal project and I
+
+00:15:40.679 --> 00:15:43.440
+Caption: abstract it a little bit and taken some
+
+00:15:42.119 --> 00:15:44.820
+Caption: stuff out but when you look at testing
+
+00:15:43.440 --> 00:15:47.039
+Caption: and kind of setting up local development
+
+00:15:44.820 --> 00:15:48.600
+Caption: there&#39;s no Docker nonsense in here
+
+00:15:47.039 --> 00:15:50.039
+Caption: there&#39;s no setting up databases there&#39;s
+
+00:15:48.599 --> 00:15:52.440
+Caption: no orchestrating a million dependencies
+
+00:15:50.039 --> 00:15:54.539
+Caption: locally to do things and they have split
+
+00:15:52.440 --> 00:15:56.940
+Caption: my tests up into integration and not
+
+00:15:54.539 --> 00:15:58.500
+Caption: integration so I can very easily run my
+
+00:15:56.940 --> 00:16:00.539
+Caption: local tests that&#39;ll run really fast and
+
+00:15:58.500 --> 00:16:01.739
+Caption: check all my domain logic works and then
+
+00:16:00.539 --> 00:16:03.539
+Caption: I can run integration tests and
+
+00:16:01.739 --> 00:16:05.039
+Caption: separation and then for CI I&#39;ve got to
+
+00:16:03.539 --> 00:16:07.018
+Caption: test everything in report coverage right
+
+00:16:05.039 --> 00:16:08.278
+Caption: because when you struck to the test like
+
+00:16:07.018 --> 00:16:09.299
+Caption: that to get coverage you kind of need
+
+00:16:08.278 --> 00:16:10.799
+Caption: both running and they&#39;ve got set
+
+00:16:09.299 --> 00:16:12.838
+Caption: end-to-end stuff that I did with bdd and
+
+00:16:10.799 --> 00:16:15.778
+Caption: behave in in this example
+
+00:16:12.838 --> 00:16:17.820
+Caption: but really I always
+
+00:16:15.778 --> 00:16:20.698
+Caption: um shudder to think when I see what
+
+00:16:17.820 --> 00:16:22.919
+Caption: level of complexity people take on to
+
+00:16:20.698 --> 00:16:24.299
+Caption: try and get their testing apparatus set
+
+00:16:22.919 --> 00:16:26.099
+Caption: up like okay now I&#39;ve got to run Docker
+
+00:16:24.299 --> 00:16:28.078
+Caption: I&#39;ve got to run local stack I have to
+
+00:16:26.099 --> 00:16:29.578
+Caption: kind of actually get on top of the AWS
+
+00:16:28.078 --> 00:16:31.799
+Caption: SDK that I&#39;m using to make sure it&#39;s
+
+00:16:29.578 --> 00:16:33.958
+Caption: actually point to local stack apis
+
+00:16:31.799 --> 00:16:36.299
+Caption: okay that you know all of a sudden it&#39;s
+
+00:16:33.958 --> 00:16:38.638
+Caption: like well it worked on my machine yeah
+
+00:16:36.299 --> 00:16:39.599
+Caption: who cares like that&#39;s so not a valuable
+
+00:16:38.638 --> 00:16:41.219
+Caption: thing
+
+00:16:39.599 --> 00:16:42.838
+Caption: um you want to be actually I want it to
+
+00:16:41.219 --> 00:16:45.119
+Caption: work in AWS I want to be confident that
+
+00:16:42.838 --> 00:16:46.500
+Caption: it works and really the amount of
+
+00:16:45.119 --> 00:16:48.479
+Caption: competition get locally is pretty pretty
+
+00:16:46.500 --> 00:16:50.219
+Caption: low when it comes down to it
+
+00:16:48.479 --> 00:16:51.659
+Caption: this is a really interesting one I find
+
+00:16:50.219 --> 00:16:52.979
+Caption: in serverless
+
+00:16:51.659 --> 00:16:55.500
+Caption: um because I&#39;ve done it and it&#39;s quite
+
+00:16:52.979 --> 00:16:57.778
+Caption: quite a cool thing to do like the
+
+00:16:55.500 --> 00:17:01.138
+Caption: testing heuristic like if if you kept
+
+00:16:57.778 --> 00:17:03.119
+Caption: all your tests but deleted all the code
+
+00:17:01.138 --> 00:17:05.338
+Caption: how confident are you that if you wrote
+
+00:17:03.119 --> 00:17:07.380
+Caption: new code it would work would you feel
+
+00:17:05.338 --> 00:17:09.900
+Caption: confident running that to production yes
+
+00:17:07.380 --> 00:17:11.280
+Caption: or no I&#39;ve gone through the point of
+
+00:17:09.900 --> 00:17:12.540
+Caption: actually deleting functions because I
+
+00:17:11.280 --> 00:17:13.919
+Caption: hated the way I read it initially and
+
+00:17:12.540 --> 00:17:16.500
+Caption: rewrote it and pushed that to production
+
+00:17:13.918 --> 00:17:18.000
+Caption: with sufficient testing like this is the
+
+00:17:16.500 --> 00:17:19.678
+Caption: best heuristic I found in the case of
+
+00:17:18.000 --> 00:17:22.380
+Caption: like okay well how do I know that my
+
+00:17:19.678 --> 00:17:23.760
+Caption: tests are sufficient and it this is the
+
+00:17:22.380 --> 00:17:24.780
+Caption: best thing like if you lose your code
+
+00:17:23.760 --> 00:17:25.919
+Caption: today but you&#39;ve got your testing there
+
+00:17:24.780 --> 00:17:27.419
+Caption: you should be able to get close back to
+
+00:17:25.918 --> 00:17:29.899
+Caption: production quality very very very
+
+00:17:27.418 --> 00:17:29.899
+Caption: quickly
+
+00:17:30.000 --> 00:17:34.859
+Caption: um yeah uh local stack I&#39;ve already
+
+00:17:33.058 --> 00:17:36.119
+Caption: mentioned it more times than I plan to
+
+00:17:34.859 --> 00:17:38.760
+Caption: but now I&#39;m going to mention it a whole
+
+00:17:36.119 --> 00:17:40.439
+Caption: bunch more either so I can run locally I
+
+00:17:38.760 --> 00:17:42.839
+Caption: am saved
+
+00:17:40.439 --> 00:17:46.199
+Caption: um now I&#39;ve done projects with local
+
+00:17:42.839 --> 00:17:48.359
+Caption: stack I I&#39;ve done done a lot with it to
+
+00:17:46.199 --> 00:17:48.979
+Caption: be honest in the past
+
+00:17:48.359 --> 00:17:52.380
+Caption: um
+
+00:17:48.979 --> 00:17:54.599
+Caption: it&#39;s just not how to do things in the
+
+00:17:52.380 --> 00:17:57.298
+Caption: cloud native sense yes you can emulate
+
+00:17:54.599 --> 00:17:59.160
+Caption: address locally but why what what
+
+00:17:57.298 --> 00:18:01.019
+Caption: actually leads us down the path of test
+
+00:17:59.160 --> 00:18:04.640
+Caption: doubles because generally in the past it
+
+00:18:01.020 --> 00:18:04.640
+Caption: was yeah at a testable at a mark
+
+00:18:04.819 --> 00:18:11.519
+Caption: run some kind of slim down system that
+
+00:18:08.219 --> 00:18:13.380
+Caption: kind of responds like the real thing
+
+00:18:11.520 --> 00:18:15.239
+Caption: and they&#39;re fundamentally for when
+
+00:18:13.380 --> 00:18:19.020
+Caption: orchestrating the dependency was too
+
+00:18:15.239 --> 00:18:20.939
+Caption: expensive now what classifies the
+
+00:18:19.020 --> 00:18:23.400
+Caption: expensive in here can be the amount of
+
+00:18:20.939 --> 00:18:25.019
+Caption: time it takes to substantiate maybe as a
+
+00:18:23.400 --> 00:18:26.820
+Caption: high running cost maybe you have to talk
+
+00:18:25.020 --> 00:18:29.339
+Caption: with other teams to set them up like
+
+00:18:26.819 --> 00:18:31.019
+Caption: obviously if you&#39;ve got a sap install or
+
+00:18:29.339 --> 00:18:32.520
+Caption: something like that you can&#39;t just run
+
+00:18:31.020 --> 00:18:35.039
+Caption: up a new sap install the test against
+
+00:18:32.520 --> 00:18:36.419
+Caption: that&#39;s not a realistic thing to do and
+
+00:18:35.038 --> 00:18:38.339
+Caption: I&#39;ll talk about some strategies you can
+
+00:18:36.418 --> 00:18:40.798
+Caption: use for that as you go on a little bit
+
+00:18:38.339 --> 00:18:42.959
+Caption: but generally in serverless like yeah
+
+00:18:40.798 --> 00:18:45.418
+Caption: you&#39;re trying to show that actually
+
+00:18:42.959 --> 00:18:47.339
+Caption: managing independency is more expensive
+
+00:18:45.418 --> 00:18:50.239
+Caption: than the test double therefore the test
+
+00:18:47.339 --> 00:18:50.239
+Caption: double is worth having
+
+00:18:50.280 --> 00:18:54.239
+Caption: but when you get to serverless
+
+00:18:52.140 --> 00:18:57.000
+Caption: all those things that kind of drove the
+
+00:18:54.239 --> 00:18:58.918
+Caption: dependency costs are no longer true
+
+00:18:57.000 --> 00:19:00.660
+Caption: um hard to configure you&#39;ve got
+
+00:18:58.918 --> 00:19:03.418
+Caption: infrastructure as code you know running
+
+00:19:00.660 --> 00:19:04.679
+Caption: up a Dynamo tables 20 seconds like it&#39;s
+
+00:19:03.418 --> 00:19:07.678
+Caption: not that hard to actually configure
+
+00:19:04.678 --> 00:19:09.719
+Caption: anymore High running costs most server
+
+00:19:07.678 --> 00:19:10.918
+Caption: stuff is completely paper use if you&#39;re
+
+00:19:09.719 --> 00:19:12.298
+Caption: using it for testing and just leave it
+
+00:19:10.918 --> 00:19:15.239
+Caption: alone it will cost
+
+00:19:12.298 --> 00:19:16.979
+Caption: cents a month right when you contrast to
+
+00:19:15.239 --> 00:19:19.199
+Caption: compare this about how much a developer
+
+00:19:16.979 --> 00:19:20.699
+Caption: costs a day and I normally use kind of a
+
+00:19:19.199 --> 00:19:22.019
+Caption: benchmark of roughly a thousand dollars
+
+00:19:20.699 --> 00:19:24.298
+Caption: a day
+
+00:19:22.020 --> 00:19:26.280
+Caption: any time like if my developer has to
+
+00:19:24.298 --> 00:19:28.139
+Caption: spend two minutes on this every day it&#39;s
+
+00:19:26.280 --> 00:19:30.239
+Caption: more expensive than just running all the
+
+00:19:28.140 --> 00:19:31.558
+Caption: stuff leaving all the stuff running and
+
+00:19:30.239 --> 00:19:33.058
+Caption: generally in serverless if you&#39;re doing
+
+00:19:31.558 --> 00:19:34.500
+Caption: it correctly with autonomous teams and
+
+00:19:33.058 --> 00:19:35.699
+Caption: everything else you don&#39;t generally have
+
+00:19:34.500 --> 00:19:36.959
+Caption: dependencies on other teams you have
+
+00:19:35.699 --> 00:19:39.119
+Caption: empowered teams you&#39;re able to take
+
+00:19:36.959 --> 00:19:40.439
+Caption: control of this for themselves and we
+
+00:19:39.119 --> 00:19:42.719
+Caption: all know that handoffs are where
+
+00:19:40.439 --> 00:19:44.099
+Caption: productivity goes to die
+
+00:19:42.719 --> 00:19:46.260
+Caption: um so you know
+
+00:19:44.099 --> 00:19:48.298
+Caption: generally if you find the empowered
+
+00:19:46.260 --> 00:19:49.739
+Caption: teams thing really hard to do no
+
+00:19:48.298 --> 00:19:50.819
+Caption: technology is going to save you you need
+
+00:19:49.739 --> 00:19:53.280
+Caption: to revisit how you&#39;ve actually
+
+00:19:50.819 --> 00:19:55.500
+Caption: structured the organization
+
+00:19:53.280 --> 00:19:57.660
+Caption: um just one of those things
+
+00:19:55.500 --> 00:19:58.979
+Caption: so one of the common refrains and I even
+
+00:19:57.660 --> 00:20:00.299
+Caption: get this internally and I&#39;ve had this
+
+00:19:58.979 --> 00:20:01.500
+Caption: debate so many times which one of the
+
+00:20:00.298 --> 00:20:02.819
+Caption: reasons for writing this talk because I
+
+00:20:01.500 --> 00:20:04.678
+Caption: got sick of writing the same thing in
+
+00:20:02.819 --> 00:20:06.959
+Caption: slack every week people always like oh
+
+00:20:04.678 --> 00:20:08.279
+Caption: but then I want to run a local test and
+
+00:20:06.959 --> 00:20:09.659
+Caption: oh it takes a while to stand up the
+
+00:20:08.280 --> 00:20:12.179
+Caption: infrastructure and I don&#39;t want to do
+
+00:20:09.660 --> 00:20:13.979
+Caption: that every time I run my tests I said
+
+00:20:12.178 --> 00:20:15.178
+Caption: who said that you&#39;re standing up the
+
+00:20:13.979 --> 00:20:17.699
+Caption: infrastructure every single time you run
+
+00:20:15.178 --> 00:20:18.899
+Caption: your test Suite that&#39;s that&#39;s insane why
+
+00:20:17.699 --> 00:20:20.279
+Caption: would you do that
+
+00:20:18.900 --> 00:20:22.260
+Caption: um this is just some python code that
+
+00:20:20.280 --> 00:20:23.760
+Caption: I&#39;ve used and I don&#39;t want to think how
+
+00:20:22.260 --> 00:20:26.039
+Caption: many repos now
+
+00:20:23.760 --> 00:20:28.500
+Caption: um that effectively just dump jumps in
+
+00:20:26.038 --> 00:20:30.839
+Caption: and runs terraform terraform
+
+00:20:28.500 --> 00:20:33.178
+Caption: um approve uh terraform apply and
+
+00:20:30.839 --> 00:20:35.339
+Caption: terraform destroy what you&#39;ll notice is
+
+00:20:33.178 --> 00:20:36.779
+Caption: there is a like environment variable
+
+00:20:35.339 --> 00:20:38.699
+Caption: escape hatch
+
+00:20:36.780 --> 00:20:40.619
+Caption: that if I set that environmental to
+
+00:20:38.699 --> 00:20:42.178
+Caption: local I can just stand up the terraform
+
+00:20:40.619 --> 00:20:43.260
+Caption: once outside of my test suite and it
+
+00:20:42.178 --> 00:20:44.880
+Caption: will be long-lived it&#39;s not going to get
+
+00:20:43.260 --> 00:20:45.900
+Caption: automatically torn down so I can lift
+
+00:20:44.880 --> 00:20:47.219
+Caption: stuff up for the whole day and then pull
+
+00:20:45.900 --> 00:20:48.660
+Caption: it down at the end of the day
+
+00:20:47.219 --> 00:20:51.000
+Caption: so then when I&#39;m actually running these
+
+00:20:48.660 --> 00:20:52.799
+Caption: tests my data layer and all that kind of
+
+00:20:51.000 --> 00:20:54.418
+Caption: stuff is long-lived so I&#39;m not having to
+
+00:20:52.798 --> 00:20:55.678
+Caption: wait every time for terraformal car
+
+00:20:54.418 --> 00:20:58.859
+Caption: information or what have you to do
+
+00:20:55.678 --> 00:21:00.659
+Caption: things instead for CI it defaults to
+
+00:20:58.859 --> 00:21:02.280
+Caption: running new stuff up and see how you
+
+00:21:00.660 --> 00:21:04.799
+Caption: want under 10 minutes like don&#39;t overly
+
+00:21:02.280 --> 00:21:06.059
+Caption: stress about like my CI job took more
+
+00:21:04.798 --> 00:21:08.939
+Caption: than two minutes now I&#39;m losing
+
+00:21:06.058 --> 00:21:10.319
+Caption: productivity it&#39;s not worth optimization
+
+00:21:08.939 --> 00:21:11.819
+Caption: kind of Beyond 10 that seems to be the
+
+00:21:10.319 --> 00:21:13.500
+Caption: general rule of thumb and generally with
+
+00:21:11.819 --> 00:21:16.918
+Caption: terraform and cloud formation most stuff
+
+00:21:13.500 --> 00:21:20.000
+Caption: you can rig up in two minutes and then
+
+00:21:16.918 --> 00:21:20.000
+Caption: have all your tests run on top
+
+00:21:20.339 --> 00:21:23.939
+Caption: um this was of an example that you know
+
+00:21:22.678 --> 00:21:26.640
+Caption: something I did for a client back in the
+
+00:21:23.939 --> 00:21:28.199
+Caption: UK with AWS config because some AWS
+
+00:21:26.640 --> 00:21:29.520
+Caption: stuff like download you can build up
+
+00:21:28.199 --> 00:21:31.439
+Caption: it&#39;s yours you can deal with it
+
+00:21:29.520 --> 00:21:32.580
+Caption: something like AWS config and this is
+
+00:21:31.439 --> 00:21:34.139
+Caption: again kind of working at the platform
+
+00:21:32.579 --> 00:21:36.119
+Caption: level I was trying to build the Lambda
+
+00:21:34.140 --> 00:21:38.039
+Caption: function the aggregated certain config
+
+00:21:36.119 --> 00:21:39.959
+Caption: rules across the entire organization
+
+00:21:38.038 --> 00:21:41.339
+Caption: reported kind of the classification of
+
+00:21:39.959 --> 00:21:43.619
+Caption: resources
+
+00:21:41.339 --> 00:21:44.819
+Caption: now AWS config
+
+00:21:43.619 --> 00:21:46.319
+Caption: um will give me different responses
+
+00:21:44.819 --> 00:21:49.079
+Caption: every single day because people change
+
+00:21:46.319 --> 00:21:51.000
+Caption: things and I can&#39;t control that I can&#39;t
+
+00:21:49.079 --> 00:21:52.558
+Caption: tell everyone no stop you can&#39;t deploy
+
+00:21:51.000 --> 00:21:53.400
+Caption: resources because I need to test my
+
+00:21:52.558 --> 00:21:55.859
+Caption: thing
+
+00:21:53.400 --> 00:21:57.839
+Caption: so this kind of comes from the react
+
+00:21:55.859 --> 00:22:00.000
+Caption: testing House of snapshot testing so
+
+00:21:57.839 --> 00:22:02.579
+Caption: people have done um unfortunately had to
+
+00:22:00.000 --> 00:22:03.900
+Caption: do front end work which I honestly hate
+
+00:22:02.579 --> 00:22:06.058
+Caption: um then you will come across snapshot
+
+00:22:03.900 --> 00:22:07.440
+Caption: testing in here within python there&#39;s a
+
+00:22:06.058 --> 00:22:10.319
+Caption: library called Placebo that allows you
+
+00:22:07.439 --> 00:22:12.178
+Caption: to effectively you call AWS once and it
+
+00:22:10.319 --> 00:22:13.859
+Caption: stores the response so next time you&#39;re
+
+00:22:12.178 --> 00:22:15.239
+Caption: on your test it replays that response
+
+00:22:13.859 --> 00:22:17.459
+Caption: back to you
+
+00:22:15.239 --> 00:22:20.459
+Caption: this is higher Fidelity than local stack
+
+00:22:17.459 --> 00:22:22.439
+Caption: because it&#39;s actually coming from AWS
+
+00:22:20.459 --> 00:22:26.158
+Caption: and it allows you to actually test
+
+00:22:22.439 --> 00:22:29.519
+Caption: things properly so I can you know verify
+
+00:22:26.159 --> 00:22:30.900
+Caption: that my function running actually does
+
+00:22:29.520 --> 00:22:34.260
+Caption: um
+
+00:22:30.900 --> 00:22:36.179
+Caption: it does give me the right responses and
+
+00:22:34.260 --> 00:22:38.339
+Caption: like has anyone ever configured local
+
+00:22:36.178 --> 00:22:40.500
+Caption: stack with the python helper because
+
+00:22:38.339 --> 00:22:43.079
+Caption: it&#39;s about five times more code than
+
+00:22:40.500 --> 00:22:44.819
+Caption: that just to make it work
+
+00:22:43.079 --> 00:22:46.260
+Caption: this is really really simple they get
+
+00:22:44.819 --> 00:22:48.178
+Caption: get committed to get everyone&#39;s working
+
+00:22:46.260 --> 00:22:51.479
+Caption: from the same thing really really simple
+
+00:22:48.178 --> 00:22:52.678
+Caption: to do if you can&#39;t um control if you
+
+00:22:51.479 --> 00:22:54.058
+Caption: can&#39;t orchestrate the dependency
+
+00:22:52.678 --> 00:22:55.678
+Caption: properly then you can just capture the
+
+00:22:54.058 --> 00:22:57.058
+Caption: responses you can refresh it
+
+00:22:55.678 --> 00:22:58.500
+Caption: occasionally but don&#39;t change your code
+
+00:22:57.058 --> 00:23:00.418
+Caption: and try and do the refresh at the same
+
+00:22:58.500 --> 00:23:01.918
+Caption: time it&#39;s one or the other
+
+00:23:00.418 --> 00:23:04.079
+Caption: um
+
+00:23:01.918 --> 00:23:05.880
+Caption: there are better things there are more
+
+00:23:04.079 --> 00:23:08.880
+Caption: Cloud native things there are things far
+
+00:23:05.880 --> 00:23:10.380
+Caption: more in line with what we want to do AWS
+
+00:23:08.880 --> 00:23:12.619
+Caption: themselves have released some accelerate
+
+00:23:10.380 --> 00:23:15.959
+Caption: serverless framework has a similar thing
+
+00:23:12.619 --> 00:23:18.359
+Caption: where instead as you make code changes
+
+00:23:15.959 --> 00:23:20.219
+Caption: they are live streamed in data s you get
+
+00:23:18.359 --> 00:23:22.678
+Caption: full Fidelity testing at speed and you
+
+00:23:20.219 --> 00:23:25.260
+Caption: get true Cloud native testing when you
+
+00:23:22.678 --> 00:23:27.178
+Caption: kind of get down to it and as you
+
+00:23:25.260 --> 00:23:29.280
+Caption: actually properly secure your Cloud
+
+00:23:27.178 --> 00:23:31.380
+Caption: environments and you actually have
+
+00:23:29.280 --> 00:23:34.440
+Caption: production like infrastructure
+
+00:23:31.380 --> 00:23:36.659
+Caption: running as you in the account will not
+
+00:23:34.439 --> 00:23:39.178
+Caption: allow you to test anymore
+
+00:23:36.659 --> 00:23:41.340
+Caption: because data should be locked away KMS
+
+00:23:39.178 --> 00:23:43.260
+Caption: Keys you should not have access I&#39;ll
+
+00:23:41.339 --> 00:23:44.640
+Caption: I&#39;ll make the point that generally most
+
+00:23:43.260 --> 00:23:46.079
+Caption: environments are not set up to this
+
+00:23:44.640 --> 00:23:47.700
+Caption: level but they should be
+
+00:23:46.079 --> 00:23:49.019
+Caption: but fundamentally you want to be
+
+00:23:47.699 --> 00:23:50.880
+Caption: actually assuming the principle of the
+
+00:23:49.020 --> 00:23:51.959
+Caption: Lambda function or equivalent when
+
+00:23:50.880 --> 00:23:53.219
+Caption: you&#39;re actually doing this testing
+
+00:23:51.959 --> 00:23:54.899
+Caption: because it actually tells you what&#39;s
+
+00:23:53.219 --> 00:23:57.239
+Caption: actually going to happen
+
+00:23:54.900 --> 00:23:59.159
+Caption: um you know you&#39;d actually if you try
+
+00:23:57.239 --> 00:24:00.780
+Caption: and do all this local SEC testing or
+
+00:23:59.159 --> 00:24:04.140
+Caption: even just testing locally against AWS
+
+00:24:00.780 --> 00:24:06.239
+Caption: apis or GPS apis or what have you
+
+00:24:04.140 --> 00:24:09.359
+Caption: if your security matures to a certain
+
+00:24:06.239 --> 00:24:12.000
+Caption: point it&#39;s all going to break
+
+00:24:09.359 --> 00:24:13.140
+Caption: um and it should break because the
+
+00:24:12.000 --> 00:24:14.459
+Caption: reality is you should be testing against
+
+00:24:13.140 --> 00:24:16.079
+Caption: production like infrastructure
+
+00:24:14.459 --> 00:24:17.219
+Caption: production like infrastructure shouldn&#39;t
+
+00:24:16.079 --> 00:24:18.479
+Caption: be allowing you to get into all the
+
+00:24:17.219 --> 00:24:20.158
+Caption: databases and pull stuff out as
+
+00:24:18.479 --> 00:24:22.199
+Caption: willy-nilly to check things have gone
+
+00:24:20.159 --> 00:24:23.460
+Caption: where they should go right
+
+00:24:22.199 --> 00:24:25.678
+Caption: um
+
+00:24:23.459 --> 00:24:27.178
+Caption: so coming back to this refinement piece
+
+00:24:25.678 --> 00:24:29.699
+Caption: I talked about before
+
+00:24:27.178 --> 00:24:30.899
+Caption: when you&#39;re testing this local stack you
+
+00:24:29.699 --> 00:24:32.219
+Caption: are testing how your system works in
+
+00:24:30.900 --> 00:24:34.080
+Caption: local stack and you&#39;re bringing your
+
+00:24:32.219 --> 00:24:35.760
+Caption: mental model closer and closer in tune
+
+00:24:34.079 --> 00:24:36.538
+Caption: with that not actually with where it&#39;s
+
+00:24:35.760 --> 00:24:38.280
+Caption: actually going to be running in
+
+00:24:36.538 --> 00:24:40.319
+Caption: production
+
+00:24:38.280 --> 00:24:41.880
+Caption: um for example in local stack face fixed
+
+00:24:40.319 --> 00:24:44.939
+Caption: this ages ago but when I was using it I
+
+00:24:41.880 --> 00:24:47.159
+Caption: found that the dynamodb types were a lot
+
+00:24:44.939 --> 00:24:48.719
+Caption: looser so what was working in local
+
+00:24:47.159 --> 00:24:51.900
+Caption: stack when I went to AWS was being
+
+00:24:48.719 --> 00:24:54.178
+Caption: rejected by the API now you know
+
+00:24:51.900 --> 00:24:57.059
+Caption: that in and of itself maybe lost me 10
+
+00:24:54.178 --> 00:24:58.558
+Caption: minutes of time but 10 minutes of time
+
+00:24:57.058 --> 00:25:00.119
+Caption: multiplied by the amount of devs hitting
+
+00:24:58.558 --> 00:25:01.439
+Caption: all these random little edge cases and
+
+00:25:00.119 --> 00:25:03.780
+Caption: all those kind of things
+
+00:25:01.439 --> 00:25:06.058
+Caption: doesn&#39;t really work and also when you
+
+00:25:03.780 --> 00:25:08.700
+Caption: start to look at local stack yeah kind
+
+00:25:06.058 --> 00:25:10.739
+Caption: of the basics are there and
+
+00:25:08.699 --> 00:25:12.599
+Caption: um you&#39;ve got like the services enough
+
+00:25:10.739 --> 00:25:14.339
+Caption: to wet like wet your whistle you can get
+
+00:25:12.599 --> 00:25:16.739
+Caption: in like okay lambda&#39;s there Dino&#39;s there
+
+00:25:14.339 --> 00:25:18.719
+Caption: cool I can start working now I want to
+
+00:25:16.739 --> 00:25:19.859
+Caption: kind of I have x-ray in there and I have
+
+00:25:18.719 --> 00:25:23.099
+Caption: a whole bunch of other things in here
+
+00:25:19.859 --> 00:25:24.839
+Caption: looks like cool payers no what this was
+
+00:25:23.099 --> 00:25:25.859
+Caption: all about saving costs against AWS what
+
+00:25:24.839 --> 00:25:27.298
+Caption: are you telling me I now have to pay a
+
+00:25:25.859 --> 00:25:29.278
+Caption: license for every single developer are
+
+00:25:27.298 --> 00:25:32.219
+Caption: you insane and fundamentally these ideas
+
+00:25:29.279 --> 00:25:34.200
+Caption: costs are so minuscule like your local
+
+00:25:32.219 --> 00:25:37.678
+Caption: set cost is going to massively outweigh
+
+00:25:34.199 --> 00:25:38.760
+Caption: your Cloud Bill and this is insane
+
+00:25:37.678 --> 00:25:40.678
+Caption: um
+
+00:25:38.760 --> 00:25:43.558
+Caption: it&#39;s kind of on the last
+
+00:25:40.678 --> 00:25:45.839
+Caption: the last kind of rant I&#39;m going to go on
+
+00:25:43.558 --> 00:25:48.899
+Caption: um again this is comes from people and
+
+00:25:45.839 --> 00:25:50.459
+Caption: it&#39;s not that these approaches were were
+
+00:25:48.900 --> 00:25:51.599
+Caption: wrong at the time they were came from a
+
+00:25:50.459 --> 00:25:53.579
+Caption: certain time certain place certain
+
+00:25:51.599 --> 00:25:55.678
+Caption: Paradigm and certain ways of working and
+
+00:25:53.579 --> 00:25:57.178
+Caption: they made a lot of sense
+
+00:25:55.678 --> 00:25:58.798
+Caption: um the point is that when you go to
+
+00:25:57.178 --> 00:26:00.479
+Caption: serverless that a lot of you need to
+
+00:25:58.798 --> 00:26:02.760
+Caption: reevaluate how you do things one of
+
+00:26:00.479 --> 00:26:04.859
+Caption: these things is I mean I&#39;ve
+
+00:26:02.760 --> 00:26:07.260
+Caption: hardly ever used a debugger I&#39;m really
+
+00:26:04.859 --> 00:26:08.520
+Caption: bad with them but you know a lot of the
+
+00:26:07.260 --> 00:26:09.719
+Caption: time people get used to being able to
+
+00:26:08.520 --> 00:26:11.039
+Caption: attach a debugger to their running code
+
+00:26:09.719 --> 00:26:12.778
+Caption: so they&#39;ve got the variables as they&#39;re
+
+00:26:11.038 --> 00:26:14.399
+Caption: going and all that kind of stuff
+
+00:26:12.779 --> 00:26:15.900
+Caption: and then they get to this point like how
+
+00:26:14.400 --> 00:26:19.080
+Caption: do I attach my debugger to the Lambda
+
+00:26:15.900 --> 00:26:22.080
+Caption: functions you can&#39;t you know people used
+
+00:26:19.079 --> 00:26:23.579
+Caption: to do what seems in retrospect insane
+
+00:26:22.079 --> 00:26:25.019
+Caption: where they&#39;d like go onto a production
+
+00:26:23.579 --> 00:26:26.219
+Caption: system attach a debugger to a running
+
+00:26:25.020 --> 00:26:27.659
+Caption: Java process to have a look at what&#39;s
+
+00:26:26.219 --> 00:26:30.058
+Caption: going on
+
+00:26:27.659 --> 00:26:31.380
+Caption: um you know in my mind that&#39;s insane but
+
+00:26:30.058 --> 00:26:34.319
+Caption: I can also understand why they did it at
+
+00:26:31.380 --> 00:26:36.119
+Caption: the time but nowadays you know that&#39;s
+
+00:26:34.319 --> 00:26:37.918
+Caption: not an option and you shouldn&#39;t be
+
+00:26:36.119 --> 00:26:40.020
+Caption: annoyed that&#39;s not an option but some
+
+00:26:37.918 --> 00:26:42.899
+Caption: people do get annoyed
+
+00:26:40.020 --> 00:26:45.779
+Caption: um you know this this is just absolute
+
+00:26:42.900 --> 00:26:48.179
+Caption: classic meme within the space right
+
+00:26:45.779 --> 00:26:51.299
+Caption: um the thing is it used to be loaded at
+
+00:26:48.178 --> 00:26:53.278
+Caption: as being ridiculous when in reality it&#39;s
+
+00:26:51.298 --> 00:26:56.038
+Caption: actually the case of how you should be
+
+00:26:53.279 --> 00:26:57.480
+Caption: doing things for a large part you know
+
+00:26:56.038 --> 00:26:59.699
+Caption: we always come out with the adage that
+
+00:26:57.479 --> 00:27:01.678
+Caption: you know code is read 10 more times and
+
+00:26:59.699 --> 00:27:03.119
+Caption: it&#39;s written the reality is it&#39;s run in
+
+00:27:01.678 --> 00:27:04.979
+Caption: production of thousands to millions of
+
+00:27:03.119 --> 00:27:06.900
+Caption: times for every time it&#39;s written for
+
+00:27:04.979 --> 00:27:10.918
+Caption: any code that&#39;s doing a lot of stuff
+
+00:27:06.900 --> 00:27:13.200
+Caption: so really where you need to focus your
+
+00:27:10.918 --> 00:27:15.778
+Caption: efforts is in how do I understand when
+
+00:27:13.199 --> 00:27:19.380
+Caption: stuff breaks in production more so than
+
+00:27:15.779 --> 00:27:22.080
+Caption: how do I fix stuff locally
+
+00:27:19.380 --> 00:27:23.339
+Caption: one of the things that I do a lot with
+
+00:27:22.079 --> 00:27:25.199
+Caption: teams
+
+00:27:23.339 --> 00:27:26.760
+Caption: um is beginning with the end in mind and
+
+00:27:25.199 --> 00:27:28.139
+Caption: this is trying to bring SRE principles
+
+00:27:26.760 --> 00:27:30.119
+Caption: in just just kind of service lab
+
+00:27:28.140 --> 00:27:31.979
+Caption: objectives not the other six
+
+00:27:30.119 --> 00:27:33.599
+Caption: um but just looking at how can I use
+
+00:27:31.979 --> 00:27:35.038
+Caption: Services objectives to Define what I&#39;m
+
+00:27:33.599 --> 00:27:36.959
+Caption: doing
+
+00:27:35.038 --> 00:27:38.459
+Caption: um you kind of got whenever you&#39;re kind
+
+00:27:36.959 --> 00:27:39.658
+Caption: of developing anything really and these
+
+00:27:38.459 --> 00:27:41.880
+Caption: are two questions that every single
+
+00:27:39.659 --> 00:27:43.440
+Caption: feature should be asked is how will I
+
+00:27:41.880 --> 00:27:44.400
+Caption: know my feature is broken and that gives
+
+00:27:43.439 --> 00:27:46.319
+Caption: you your like mean time to
+
+00:27:44.400 --> 00:27:48.479
+Caption: identification and how will I determine
+
+00:27:46.319 --> 00:27:50.880
+Caption: why it&#39;s broken which is my your mean
+
+00:27:48.479 --> 00:27:52.798
+Caption: time to recovery if
+
+00:27:50.880 --> 00:27:54.298
+Caption: on every like pull request review if
+
+00:27:52.798 --> 00:27:55.619
+Caption: you&#39;re not asking these questions you&#39;re
+
+00:27:54.298 --> 00:27:57.658
+Caption: going to end up pushing code which isn&#39;t
+
+00:27:55.619 --> 00:27:59.880
+Caption: operationally sound maybe functionally
+
+00:27:57.659 --> 00:28:02.220
+Caption: correct but when it blows up you&#39;re
+
+00:27:59.880 --> 00:28:03.539
+Caption: going to be really sorry at the end
+
+00:28:02.219 --> 00:28:04.558
+Caption: right
+
+00:28:03.538 --> 00:28:06.298
+Caption: um
+
+00:28:04.558 --> 00:28:07.739
+Caption: for me you should be looking at this one
+
+00:28:06.298 --> 00:28:09.479
+Caption: first
+
+00:28:07.739 --> 00:28:10.798
+Caption: before you actually develop the feature
+
+00:28:09.479 --> 00:28:11.699
+Caption: you should be building the apparatus
+
+00:28:10.798 --> 00:28:13.500
+Caption: that allows you to understand your
+
+00:28:11.699 --> 00:28:15.479
+Caption: feature is broken
+
+00:28:13.500 --> 00:28:17.640
+Caption: and then second you can just type in why
+
+00:28:15.479 --> 00:28:21.959
+Caption: it&#39;s broken
+
+00:28:17.640 --> 00:28:23.700
+Caption: so SLI is slos slas I talk about these
+
+00:28:21.959 --> 00:28:25.558
+Caption: way too much but for anyone that&#39;s not
+
+00:28:23.699 --> 00:28:27.658
+Caption: not familiar
+
+00:28:25.558 --> 00:28:29.038
+Caption: um service level SLI serviceable
+
+00:28:27.659 --> 00:28:31.080
+Caption: indicators defines your success and
+
+00:28:29.038 --> 00:28:32.759
+Caption: failure so for the feature how can I
+
+00:28:31.079 --> 00:28:34.439
+Caption: measure that it was successful or it
+
+00:28:32.760 --> 00:28:35.640
+Caption: failed in production what&#39;s actually
+
+00:28:34.439 --> 00:28:37.619
+Caption: look like
+
+00:28:35.640 --> 00:28:39.479
+Caption: service level objective then defines
+
+00:28:37.619 --> 00:28:42.298
+Caption: what an acceptable failure frequency is
+
+00:28:39.479 --> 00:28:43.979
+Caption: so you know for every thousand requests
+
+00:28:42.298 --> 00:28:45.719
+Caption: one&#39;s allowed to fail something like
+
+00:28:43.979 --> 00:28:47.880
+Caption: that expressed as percentages I&#39;m sure
+
+00:28:45.719 --> 00:28:50.400
+Caption: you&#39;ve kind of all seen slas floating
+
+00:28:47.880 --> 00:28:52.199
+Caption: around and then an SLA is a like
+
+00:28:50.400 --> 00:28:53.460
+Caption: contractual obligation defies a penalty
+
+00:28:52.199 --> 00:28:56.339
+Caption: for every time you actually fall
+
+00:28:53.459 --> 00:28:57.959
+Caption: underneath that failure goal
+
+00:28:56.339 --> 00:28:59.520
+Caption: um reality most systems you can just
+
+00:28:57.959 --> 00:29:00.839
+Caption: stop at slos especially for internal
+
+00:28:59.520 --> 00:29:03.119
+Caption: systems
+
+00:29:00.839 --> 00:29:04.739
+Caption: um one one thing I&#39;m going to get into
+
+00:29:03.119 --> 00:29:07.678
+Caption: here uh which is just something that
+
+00:29:04.739 --> 00:29:10.619
+Caption: always shits me is an SLO written in
+
+00:29:07.678 --> 00:29:13.019
+Caption: Confluence doesn&#39;t mean anything at all
+
+00:29:10.619 --> 00:29:15.779
+Caption: um I call them schroding as slos because
+
+00:29:13.020 --> 00:29:17.820
+Caption: no one knows whether it&#39;s alive or dead
+
+00:29:15.779 --> 00:29:19.320
+Caption: um I hate the I hate how often I see
+
+00:29:17.819 --> 00:29:20.519
+Caption: systems where people don&#39;t know whether
+
+00:29:19.319 --> 00:29:22.199
+Caption: system is alive or dead they&#39;re just
+
+00:29:20.520 --> 00:29:23.459
+Caption: kind of hoping it is
+
+00:29:22.199 --> 00:29:24.898
+Caption: um you know
+
+00:29:23.459 --> 00:29:26.339
+Caption: not going to say anything about putting
+
+00:29:24.899 --> 00:29:29.039
+Caption: them in a box with poison and waiting
+
+00:29:26.339 --> 00:29:31.739
+Caption: for a timer um one thing that we&#39;ve done
+
+00:29:29.038 --> 00:29:33.298
+Caption: and this is going open source this is
+
+00:29:31.739 --> 00:29:35.640
+Caption: not a sales pitch please don&#39;t take it
+
+00:29:33.298 --> 00:29:38.760
+Caption: as one whereas we built at container I
+
+00:29:35.640 --> 00:29:40.500
+Caption: built this for a client in the UK a um a
+
+00:29:38.760 --> 00:29:43.380
+Caption: way of dashboarding things in AWS that
+
+00:29:40.500 --> 00:29:46.739
+Caption: was SLO focused that we kept kind of
+
+00:29:43.380 --> 00:29:49.319
+Caption: it&#39;s all serverless all very extensible
+
+00:29:46.739 --> 00:29:51.000
+Caption: um but this you know when we on the team
+
+00:29:49.319 --> 00:29:53.579
+Caption: I built this with
+
+00:29:51.000 --> 00:29:55.619
+Caption: the first thing we did for every new
+
+00:29:53.579 --> 00:29:57.479
+Caption: feature was added to the SLO dashboard
+
+00:29:55.619 --> 00:29:59.219
+Caption: before we started working on the feature
+
+00:29:57.479 --> 00:30:00.959
+Caption: you can see some at the bottom around
+
+00:29:59.219 --> 00:30:02.819
+Caption: patching compliance testing and backups
+
+00:30:00.959 --> 00:30:05.099
+Caption: and stuff like that I built the backups
+
+00:30:02.819 --> 00:30:06.298
+Caption: was one I did just before I left where
+
+00:30:05.099 --> 00:30:07.918
+Caption: we were running out a new backup
+
+00:30:06.298 --> 00:30:09.359
+Caption: solution so the first thing I did was
+
+00:30:07.918 --> 00:30:10.918
+Caption: roll out and this was where the config
+
+00:30:09.359 --> 00:30:12.418
+Caption: bit came in as well the ability to
+
+00:30:10.918 --> 00:30:14.038
+Caption: understand how many instances are
+
+00:30:12.418 --> 00:30:16.019
+Caption: currently outside of backup plans how
+
+00:30:14.038 --> 00:30:17.519
+Caption: many don&#39;t have active backups with the
+
+00:30:16.020 --> 00:30:19.380
+Caption: idea that as I build the backup solution
+
+00:30:17.520 --> 00:30:21.179
+Caption: and roll it out and this is on a this is
+
+00:30:19.380 --> 00:30:22.619
+Caption: across 500 AWS accounts you can
+
+00:30:21.178 --> 00:30:24.359
+Caption: understand why I&#39;m trying to track these
+
+00:30:22.619 --> 00:30:25.918
+Caption: numbers because you can&#39;t possibly hold
+
+00:30:24.359 --> 00:30:27.538
+Caption: that in your head but I wanted to be
+
+00:30:25.918 --> 00:30:28.979
+Caption: able to show as we roll it out that
+
+00:30:27.538 --> 00:30:30.719
+Caption: these numbers going down
+
+00:30:28.979 --> 00:30:32.459
+Caption: because otherwise you&#39;re a backup
+
+00:30:30.719 --> 00:30:34.439
+Caption: solution and this is a classic thing we
+
+00:30:32.459 --> 00:30:35.760
+Caption: built the tool is anyone using the tool
+
+00:30:34.439 --> 00:30:37.979
+Caption: I don&#39;t know
+
+00:30:35.760 --> 00:30:41.099
+Caption: okay why do you build it
+
+00:30:37.979 --> 00:30:42.359
+Caption: and really fundamentally when you&#39;re
+
+00:30:41.099 --> 00:30:43.918
+Caption: doing this Cloud native development and
+
+00:30:42.359 --> 00:30:46.199
+Caption: talking about testing and getting into
+
+00:30:43.918 --> 00:30:47.398
+Caption: debugging you should be trying to debug
+
+00:30:46.199 --> 00:30:48.538
+Caption: your development with the same tools
+
+00:30:47.399 --> 00:30:49.559
+Caption: you&#39;re going to use to debug in
+
+00:30:48.538 --> 00:30:51.058
+Caption: production
+
+00:30:49.558 --> 00:30:54.119
+Caption: because otherwise and this is another
+
+00:30:51.058 --> 00:30:56.459
+Caption: rant of mine debug logs why do they
+
+00:30:54.119 --> 00:30:58.380
+Caption: exist why do they ever get committed to
+
+00:30:56.459 --> 00:30:59.278
+Caption: Mainline because you get them in
+
+00:30:58.380 --> 00:31:01.199
+Caption: production you&#39;re like I&#39;ll be able to
+
+00:30:59.279 --> 00:31:03.000
+Caption: figure this out if I had the debug logs
+
+00:31:01.199 --> 00:31:05.398
+Caption: great what are you going to do about it
+
+00:31:03.000 --> 00:31:07.020
+Caption: now if you if you wrote These logs to
+
+00:31:05.399 --> 00:31:08.039
+Caption: understand things in development you
+
+00:31:07.020 --> 00:31:10.739
+Caption: should be turning them on in production
+
+00:31:08.038 --> 00:31:12.839
+Caption: as well I I yeah it&#39;s just a round of
+
+00:31:10.739 --> 00:31:14.579
+Caption: pie because again going back in time you
+
+00:31:12.839 --> 00:31:15.839
+Caption: used to be able to switch on debug logs
+
+00:31:14.579 --> 00:31:17.278
+Caption: by changing the environment variable or
+
+00:31:15.839 --> 00:31:19.918
+Caption: something like that you can&#39;t really do
+
+00:31:17.279 --> 00:31:21.899
+Caption: that anymore and even if you can like
+
+00:31:19.918 --> 00:31:23.099
+Caption: transient issues that you see that have
+
+00:31:21.899 --> 00:31:25.380
+Caption: disappeared you really wish you had that
+
+00:31:23.099 --> 00:31:27.479
+Caption: log data oh it&#39;s gone oh well too bad
+
+00:31:25.380 --> 00:31:28.739
+Caption: right
+
+00:31:27.479 --> 00:31:30.359
+Caption: um really you get down to what you end
+
+00:31:28.739 --> 00:31:32.399
+Caption: up with you know be able to use X-ray
+
+00:31:30.359 --> 00:31:34.140
+Caption: and cloudwatch
+
+00:31:32.399 --> 00:31:35.940
+Caption: um you know grafana Prometheus all these
+
+00:31:34.140 --> 00:31:38.099
+Caption: kind of tools in production and you know
+
+00:31:35.939 --> 00:31:40.558
+Caption: Cloud operations suite and Azure logic
+
+00:31:38.099 --> 00:31:42.359
+Caption: monitor you know yeah you apply the
+
+00:31:40.558 --> 00:31:43.500
+Caption: tools synonyms for whatever Cloud you
+
+00:31:42.359 --> 00:31:45.778
+Caption: use
+
+00:31:43.500 --> 00:31:47.159
+Caption: um but really if you can&#39;t use these to
+
+00:31:45.779 --> 00:31:48.600
+Caption: figure out why your development&#39;s not
+
+00:31:47.159 --> 00:31:51.299
+Caption: working how are you going to use them to
+
+00:31:48.599 --> 00:31:53.760
+Caption: figure out a production is not working
+
+00:31:51.298 --> 00:31:55.500
+Caption: um you know debugger and local tools and
+
+00:31:53.760 --> 00:31:57.479
+Caption: that kind of stuff you&#39;re not going to
+
+00:31:55.500 --> 00:31:59.038
+Caption: have them when you really need them
+
+00:31:57.479 --> 00:32:00.599
+Caption: so why are you focused on becoming
+
+00:31:59.038 --> 00:32:02.398
+Caption: really strong with them
+
+00:32:00.599 --> 00:32:03.778
+Caption: like when you look at honeycomb and
+
+00:32:02.399 --> 00:32:05.940
+Caption: observability which I suggest everyone
+
+00:32:03.779 --> 00:32:07.740
+Caption: do you know they instrument everything
+
+00:32:05.939 --> 00:32:09.778
+Caption: and they use honeycomb for all their all
+
+00:32:07.739 --> 00:32:11.819
+Caption: their kind of needs it allows you to
+
+00:32:09.779 --> 00:32:13.080
+Caption: actually just yeah
+
+00:32:11.819 --> 00:32:15.239
+Caption: your code&#39;s going to be running in
+
+00:32:13.079 --> 00:32:16.558
+Caption: production for much longer than it takes
+
+00:32:15.239 --> 00:32:19.020
+Caption: you to write it
+
+00:32:16.558 --> 00:32:20.699
+Caption: you should be focusing on that
+
+00:32:19.020 --> 00:32:21.779
+Caption: and when you get good with the
+
+00:32:20.699 --> 00:32:23.760
+Caption: production tools they&#39;re not going to
+
+00:32:21.779 --> 00:32:25.919
+Caption: slow down your development Cycles by
+
+00:32:23.760 --> 00:32:28.199
+Caption: using these things but it makes a lot
+
+00:32:25.918 --> 00:32:29.398
+Caption: more sense than trying to use a debugger
+
+00:32:28.199 --> 00:32:31.139
+Caption: locally and then getting stuck in
+
+00:32:29.399 --> 00:32:33.179
+Caption: production
+
+00:32:31.140 --> 00:32:34.979
+Caption: so I&#39;m actually running ahead of time
+
+00:32:33.178 --> 00:32:36.658
+Caption: which is nice unusual for me and I know
+
+00:32:34.979 --> 00:32:37.739
+Caption: I&#39;m keeping everyone from lunch so you
+
+00:32:36.659 --> 00:32:39.179
+Caption: know go figure
+
+00:32:37.739 --> 00:32:40.918
+Caption: um but I just wanted to kind of revisit
+
+00:32:39.178 --> 00:32:42.839
+Caption: back revisit back on the three key
+
+00:32:40.918 --> 00:32:44.158
+Caption: lessons the one testing period is
+
+00:32:42.839 --> 00:32:45.778
+Caption: anti-pattern there&#39;s the testing
+
+00:32:44.159 --> 00:32:47.760
+Caption: honeycomb that
+
+00:32:45.779 --> 00:32:50.640
+Caption: um Spotify have
+
+00:32:47.760 --> 00:32:52.558
+Caption: it&#39;s better I still think as an industry
+
+00:32:50.640 --> 00:32:53.760
+Caption: we can do better than that
+
+00:32:52.558 --> 00:32:55.439
+Caption: um emulator the rest of your
+
+00:32:53.760 --> 00:32:57.119
+Caption: disappointment I hope any of you that
+
+00:32:55.439 --> 00:32:58.199
+Caption: are using local stack or equivalents
+
+00:32:57.119 --> 00:33:00.479
+Caption: today
+
+00:32:58.199 --> 00:33:01.739
+Caption: um maybe maybe I might get lucky and
+
+00:33:00.479 --> 00:33:03.599
+Caption: some of you might revisit that decision
+
+00:33:01.739 --> 00:33:05.278
+Caption: next week I understand that it&#39;s
+
+00:33:03.599 --> 00:33:06.479
+Caption: investment and everything else and oh
+
+00:33:05.279 --> 00:33:08.820
+Caption: we&#39;re going to change the way we test
+
+00:33:06.479 --> 00:33:09.658
+Caption: makes a product owner cry
+
+00:33:08.819 --> 00:33:11.880
+Caption: um because they&#39;re not getting any
+
+00:33:09.659 --> 00:33:14.039
+Caption: features but you know you need that time
+
+00:33:11.880 --> 00:33:15.178
+Caption: to actually invest in you know paying
+
+00:33:14.038 --> 00:33:16.259
+Caption: down Tech debt and to be honest if
+
+00:33:15.178 --> 00:33:18.959
+Caption: you&#39;re using local stack I would
+
+00:33:16.260 --> 00:33:20.159
+Caption: classify that as technical debt nowadays
+
+00:33:18.959 --> 00:33:22.319
+Caption: um unless it&#39;s testing as a shopping
+
+00:33:20.159 --> 00:33:24.419
+Caption: code hits production you really like
+
+00:33:22.319 --> 00:33:26.219
+Caption: that&#39;s what you should be focusing for
+
+00:33:24.418 --> 00:33:27.898
+Caption: because that&#39;s where your code delivers
+
+00:33:26.219 --> 00:33:30.658
+Caption: value and where braking actually becomes
+
+00:33:27.899 --> 00:33:33.360
+Caption: a problem so yeah fundamentally look at
+
+00:33:30.659 --> 00:33:34.919
+Caption: what tools are in the cloud that you can
+
+00:33:33.359 --> 00:33:37.319
+Caption: use to understand your production code
+
+00:33:34.918 --> 00:33:38.518
+Caption: use those for your development code at
+
+00:33:37.319 --> 00:33:41.459
+Caption: the same time
+
+00:33:38.519 --> 00:33:44.179
+Caption: that that was all I had so hopefully
+
+00:33:41.459 --> 00:33:44.178
+Caption: there&#39;s some questions
+
+00:33:50.219 --> 00:33:55.380
+Caption: first of all Josh I love your brutally
+
+00:33:53.640 --> 00:33:58.619
+Caption: honest approach
+
+00:33:55.380 --> 00:34:02.058
+Caption: um it is fantastic it&#39;s very real I just
+
+00:33:58.619 --> 00:34:02.058
+Caption: wanted to throw that out there question
+
+00:34:03.479 --> 00:34:09.418
+Caption: oh sorry
+
+00:34:05.178 --> 00:34:11.459
+Caption: sorry yeah so um I guess if you need to
+
+00:34:09.418 --> 00:34:12.658
+Caption: keep CI tests fast
+
+00:34:11.459 --> 00:34:14.580
+Caption: um that requires that you&#39;re able to
+
+00:34:12.658 --> 00:34:16.079
+Caption: kind of spin up an ephemeral stack and
+
+00:34:14.580 --> 00:34:19.020
+Caption: then tear it down in a matter of minutes
+
+00:34:16.080 --> 00:34:20.639
+Caption: like what patterns
+
+00:34:19.020 --> 00:34:22.158
+Caption: um would you use when you have like a
+
+00:34:20.638 --> 00:34:24.838
+Caption: hybrid architecture where you kind of
+
+00:34:22.158 --> 00:34:27.658
+Caption: necessarily have one or two server full
+
+00:34:24.839 --> 00:34:28.500
+Caption: resources say AWS elasticsearch for
+
+00:34:27.658 --> 00:34:30.358
+Caption: example
+
+00:34:28.500 --> 00:34:32.398
+Caption: yeah at that point you&#39;ve got to make
+
+00:34:30.358 --> 00:34:34.858
+Caption: like a trade-off at some point for going
+
+00:34:32.398 --> 00:34:36.719
+Caption: well the cost of keeping it running
+
+00:34:34.858 --> 00:34:38.158
+Caption: versus the time saving you should be
+
+00:34:36.719 --> 00:34:39.540
+Caption: able to kind of when I come back to that
+
+00:34:38.158 --> 00:34:41.040
+Caption: kind of thousand dollars a day you can
+
+00:34:39.540 --> 00:34:42.839
+Caption: run the data and go it&#39;s going to be
+
+00:34:41.040 --> 00:34:44.699
+Caption: more effective to do it one way or the
+
+00:34:42.839 --> 00:34:45.839
+Caption: other but I think it would be try and
+
+00:34:44.699 --> 00:34:47.219
+Caption: get the data together to go running
+
+00:34:45.839 --> 00:34:48.780
+Caption: elasticsearch is going to cost us this
+
+00:34:47.219 --> 00:34:51.598
+Caption: much if we just leave it on
+
+00:34:48.780 --> 00:34:54.540
+Caption: okay well is that worth the speed up and
+
+00:34:51.599 --> 00:34:55.800
+Caption: development time for that like it comes
+
+00:34:54.540 --> 00:34:56.879
+Caption: down to you&#39;ve got you&#39;ve got to make
+
+00:34:55.800 --> 00:34:59.640
+Caption: trade-offs you just want to make the
+
+00:34:56.878 --> 00:35:01.739
+Caption: cheapest trade-off whatever that is
+
+00:34:59.639 --> 00:35:03.059
+Caption: um but yeah elasticsearch is a pain and
+
+00:35:01.739 --> 00:35:04.439
+Caption: it&#39;s expensive as well so it&#39;s a hard
+
+00:35:03.060 --> 00:35:06.599
+Caption: one and in that case you might want to
+
+00:35:04.439 --> 00:35:08.159
+Caption: actually eat the CI run or yeah
+
+00:35:06.599 --> 00:35:09.599
+Caption: generally have some kind of mocked
+
+00:35:08.159 --> 00:35:11.098
+Caption: version of elasticsearch I&#39;m not saying
+
+00:35:09.599 --> 00:35:13.380
+Caption: you can&#39;t Mark I&#39;m just saying don&#39;t
+
+00:35:11.099 --> 00:35:14.099
+Caption: default to it if it&#39;s going to be
+
+00:35:13.379 --> 00:35:15.899
+Caption: cheaper and you&#39;re going to get the
+
+00:35:14.099 --> 00:35:17.579
+Caption: Fidelity you want then Mark away but
+
+00:35:15.899 --> 00:35:19.379
+Caption: just it should be not the default
+
+00:35:17.579 --> 00:35:20.700
+Caption: position it should be yeah the other
+
+00:35:19.379 --> 00:35:23.239
+Caption: ones are too expensive we need to go
+
+00:35:20.699 --> 00:35:23.239
+Caption: down this path
+
+00:35:24.020 --> 00:35:28.280
+Caption: fantastic next one
+
+00:35:30.479 --> 00:35:38.459
+Caption: alrighty heckler&#39;s in the front audience
+
+00:35:34.020 --> 00:35:41.040
+Caption: now I am told you are here to Hackle so
+
+00:35:38.459 --> 00:35:43.919
+Caption: have we got any heckling
+
+00:35:41.040 --> 00:35:46.320
+Caption: no right all right so disappointing
+
+00:35:43.919 --> 00:35:49.919
+Caption: looks like uh I&#39;m gonna get all the
+
+00:35:46.320 --> 00:35:52.140
+Caption: books so uh joking seriously if we&#39;ve
+
+00:35:49.919 --> 00:35:53.760
+Caption: got any questions guys please put your
+
+00:35:52.139 --> 00:35:57.139
+Caption: hand up
+
+00:35:53.760 --> 00:35:57.139
+Caption: fantastic thank you
+
+00:35:57.379 --> 00:36:04.858
+Caption: what&#39;s your opinion on uh sort of Docker
+
+00:36:01.379 --> 00:36:07.500
+Caption: versus Lambda so you know running native
+
+00:36:04.858 --> 00:36:09.479
+Caption: Native lambdas versus running
+
+00:36:07.500 --> 00:36:10.979
+Caption: Docker containers or Docker serverless
+
+00:36:09.479 --> 00:36:13.379
+Caption: or
+
+00:36:10.979 --> 00:36:15.060
+Caption: um I mean with container
+
+00:36:13.379 --> 00:36:17.578
+Caption: it&#39;s an abstraction but uh it&#39;s also
+
+00:36:15.060 --> 00:36:20.160
+Caption: another level of testability yeah I like
+
+00:36:17.579 --> 00:36:21.239
+Caption: Dockers for I like Docker using Docker
+
+00:36:20.159 --> 00:36:22.500
+Caption: images Docker containers for local
+
+00:36:21.239 --> 00:36:24.479
+Caption: development to try and get some
+
+00:36:22.500 --> 00:36:26.579
+Caption: standardization on environments but if
+
+00:36:24.479 --> 00:36:28.560
+Caption: you&#39;re throwing them into production
+
+00:36:26.579 --> 00:36:30.239
+Caption: be aware that you&#39;re accepting a high
+
+00:36:28.560 --> 00:36:32.520
+Caption: level of accountability when it comes to
+
+00:36:30.239 --> 00:36:34.439
+Caption: your security posture in terms of
+
+00:36:32.520 --> 00:36:35.760
+Caption: managing the containers fixing
+
+00:36:34.439 --> 00:36:37.858
+Caption: vulnerabilities all that kind of stuff
+
+00:36:35.760 --> 00:36:40.020
+Caption: like you know when you&#39;re in a lab when
+
+00:36:37.858 --> 00:36:42.479
+Caption: you&#39;re running Lambda without containers
+
+00:36:40.020 --> 00:36:44.640
+Caption: you know AWS fixed stuff
+
+00:36:42.479 --> 00:36:45.780
+Caption: for you underneath if you&#39;ve got a
+
+00:36:44.639 --> 00:36:46.919
+Caption: container strategy and everything else
+
+00:36:45.780 --> 00:36:48.060
+Caption: and you&#39;ve got all that kind of stuff
+
+00:36:46.919 --> 00:36:49.439
+Caption: in-house because maybe you&#39;ve got some
+
+00:36:48.060 --> 00:36:50.820
+Caption: kubernetes somewhere else and whatever
+
+00:36:49.439 --> 00:36:53.280
+Caption: and you can kind of piggyback on that
+
+00:36:50.820 --> 00:36:54.900
+Caption: but I still generally try and go with
+
+00:36:53.280 --> 00:36:56.280
+Caption: Native Lambda where possible because
+
+00:36:54.899 --> 00:36:57.959
+Caption: it&#39;s less work
+
+00:36:56.280 --> 00:37:00.239
+Caption: for me to do from a security perspective
+
+00:36:57.959 --> 00:37:02.459
+Caption: operationally it&#39;s not fantastically
+
+00:37:00.239 --> 00:37:03.959
+Caption: different but still doggier pulling
+
+00:37:02.459 --> 00:37:07.159
+Caption: extra packages that you have to rotate
+
+00:37:03.959 --> 00:37:07.159
+Caption: and fix the CVS for
+
+00:37:07.679 --> 00:37:11.098
+Caption: um I think Sheldon had one
+
+00:37:09.780 --> 00:37:15.060
+Caption: listen
+
+00:37:11.099 --> 00:37:17.040
+Caption: one repo one function Primal and a mono
+
+00:37:15.060 --> 00:37:18.610
+Caption: repo mono repo
+
+00:37:17.040 --> 00:37:20.719
+Caption: what one
+
+00:37:18.610 --> 00:37:24.119
+Caption: [Laughter]
+
+00:37:20.719 --> 00:37:25.679
+Caption: one one Function One repo which my God
+
+00:37:24.118 --> 00:37:26.338
+Caption: you&#39;d hit you GitHub limits in about a
+
+00:37:25.679 --> 00:37:28.260
+Caption: week
+
+00:37:26.339 --> 00:37:30.420
+Caption: um but uh
+
+00:37:28.260 --> 00:37:32.219
+Caption: like
+
+00:37:30.419 --> 00:37:36.118
+Caption: I always think start with monorepo
+
+00:37:32.219 --> 00:37:37.379
+Caption: because it&#39;s easier and you can wait
+
+00:37:36.118 --> 00:37:39.299
+Caption: till you hit a scaling Point you&#39;re like
+
+00:37:37.379 --> 00:37:40.919
+Caption: actually multi-repo work for us like
+
+00:37:39.300 --> 00:37:42.060
+Caption: normally when I started a multi repo
+
+00:37:40.919 --> 00:37:43.500
+Caption: before and it&#39;s like okay well now we
+
+00:37:42.060 --> 00:37:45.060
+Caption: need to share this kind of package of
+
+00:37:43.500 --> 00:37:47.280
+Caption: types around between the repos now I&#39;ve
+
+00:37:45.060 --> 00:37:48.780
+Caption: got to figure all that out and it&#39;s like
+
+00:37:47.280 --> 00:37:49.679
+Caption: um now I&#39;ve got to push dependency yeah
+
+00:37:48.780 --> 00:37:51.179
+Caption: we&#39;ve got pulled dependency version
+
+00:37:49.679 --> 00:37:52.979
+Caption: Independence he&#39;s like oh what&#39;s the
+
+00:37:51.179 --> 00:37:55.020
+Caption: value in doing this oh we have multiple
+
+00:37:52.979 --> 00:37:57.118
+Caption: repos yeah but what&#39;s the value multiple
+
+00:37:55.020 --> 00:37:58.320
+Caption: repos like if you&#39;re working in vertical
+
+00:37:57.118 --> 00:37:59.459
+Caption: slice and you have your code set up
+
+00:37:58.320 --> 00:38:00.780
+Caption: properly that you shouldn&#39;t be hitting
+
+00:37:59.459 --> 00:38:02.459
+Caption: like merge conflicts all the time or
+
+00:38:00.780 --> 00:38:04.800
+Caption: anything like that and at least it keeps
+
+00:38:02.459 --> 00:38:05.939
+Caption: your code more consistent more easily
+
+00:38:04.800 --> 00:38:07.439
+Caption: um I&#39;ve kind of gone back and forth on
+
+00:38:05.939 --> 00:38:08.939
+Caption: this over the years but at the moment I
+
+00:38:07.439 --> 00:38:10.618
+Caption: just go monore until I feel the pain
+
+00:38:08.939 --> 00:38:12.899
+Caption: especially if you do clean architecture
+
+00:38:10.618 --> 00:38:14.399
+Caption: like you end up with one code base that
+
+00:38:12.899 --> 00:38:16.319
+Caption: you kind of change the entry points for
+
+00:38:14.399 --> 00:38:17.699
+Caption: to do different Lambda functions so you
+
+00:38:16.320 --> 00:38:18.959
+Caption: end up with just kind of one blob of
+
+00:38:17.699 --> 00:38:21.118
+Caption: code that you deploy in different kind
+
+00:38:18.959 --> 00:38:22.800
+Caption: of configurations to do things
+
+00:38:21.118 --> 00:38:24.779
+Caption: um which is generally a lot easier from
+
+00:38:22.800 --> 00:38:26.939
+Caption: a packaging point of view it makes stuff
+
+00:38:24.780 --> 00:38:29.579
+Caption: a lot simpler
+
+00:38:26.939 --> 00:38:31.679
+Caption: well done because I didn&#39;t know what you
+
+00:38:29.579 --> 00:38:33.479
+Caption: were going to answer to my why because I
+
+00:38:31.679 --> 00:38:36.419
+Caption: am not sure what I&#39;m on read probably as
+
+00:38:33.479 --> 00:38:39.618
+Caption: if I&#39;m honest guys so sorry for throwing
+
+00:38:36.419 --> 00:38:39.618
+Caption: you a little bit for success
+
+00:38:40.110 --> 00:38:45.730
+Caption: [Music]
+
+00:38:42.270 --> 00:38:45.729
+Caption: [Laughter]
+
+00:38:46.739 --> 00:38:51.479
+Caption: have you applied these techniques in a
+
+00:38:49.560 --> 00:38:54.660
+Caption: kubernetes environment
+
+00:38:51.479 --> 00:38:56.760
+Caption: yeah I mean it&#39;s
+
+00:38:54.659 --> 00:38:57.899
+Caption: not fundamentally all that different it
+
+00:38:56.760 --> 00:38:58.979
+Caption: depends on how much managed Services
+
+00:38:57.899 --> 00:39:00.598
+Caption: you&#39;re running and all that kind of
+
+00:38:58.979 --> 00:39:03.239
+Caption: stuff but effectively I think the
+
+00:39:00.599 --> 00:39:05.099
+Caption: patterns still apply like when I um did
+
+00:39:03.239 --> 00:39:06.659
+Caption: some work for one of the mining
+
+00:39:05.099 --> 00:39:07.980
+Caption: companies in town a few years ago and we
+
+00:39:06.659 --> 00:39:10.618
+Caption: built it and we deployed it into Lambda
+
+00:39:07.979 --> 00:39:11.760
+Caption: and ECS from the same code base we just
+
+00:39:10.618 --> 00:39:13.919
+Caption: had to change stuff on the edge and it
+
+00:39:11.760 --> 00:39:16.439
+Caption: was the same approach for both
+
+00:39:13.919 --> 00:39:18.179
+Caption: um there&#39;s nothing like effectively your
+
+00:39:16.439 --> 00:39:19.319
+Caption: code to a large degree really shouldn&#39;t
+
+00:39:18.179 --> 00:39:20.459
+Caption: understand where the hell it&#39;s being
+
+00:39:19.320 --> 00:39:21.540
+Caption: deployed
+
+00:39:20.459 --> 00:39:23.219
+Caption: um and you should be trying to take
+
+00:39:21.540 --> 00:39:25.140
+Caption: those changes and push them right out to
+
+00:39:23.219 --> 00:39:27.239
+Caption: the far edge of your code again clean
+
+00:39:25.139 --> 00:39:30.299
+Caption: architecture helps a lot with this but
+
+00:39:27.239 --> 00:39:31.919
+Caption: yeah running in kubernetes or not the
+
+00:39:30.300 --> 00:39:33.300
+Caption: same principles I think still apply of
+
+00:39:31.919 --> 00:39:35.280
+Caption: just try and use the cloud as much as
+
+00:39:33.300 --> 00:39:38.040
+Caption: possible and stop trying to run like a
+
+00:39:35.280 --> 00:39:40.140
+Caption: postgres database locally or whatever
+
+00:39:38.040 --> 00:39:41.459
+Caption: um like you shouldn&#39;t need to I mean
+
+00:39:40.139 --> 00:39:42.959
+Caption: postgres is a little bit different
+
+00:39:41.459 --> 00:39:45.000
+Caption: because it&#39;s such a standard like stable
+
+00:39:42.959 --> 00:39:47.399
+Caption: platform that the emulation is generally
+
+00:39:45.000 --> 00:39:50.099
+Caption: very very high fidelity but still like
+
+00:39:47.399 --> 00:39:52.919
+Caption: you know try and figure out what you can
+
+00:39:50.099 --> 00:39:56.160
+Caption: do cheapest and generally developer time
+
+00:39:52.919 --> 00:39:57.358
+Caption: is the is the big one for cheap families
+
+00:39:56.159 --> 00:39:59.159
+Caption: don&#39;t I know sometimes you guys have
+
+00:39:57.358 --> 00:40:01.139
+Caption: different ideas on that but most of us
+
+00:39:59.159 --> 00:40:02.879
+Caption: it&#39;s developer time you guys have scale
+
+00:40:01.139 --> 00:40:05.219
+Caption: problems that all of us wish we had so
+
+00:40:02.879 --> 00:40:07.739
+Caption: it changes the needle sometimes
+
+00:40:05.219 --> 00:40:12.199
+Caption: alrighty we can probably fit one more
+
+00:40:07.739 --> 00:40:12.199
+Caption: question in if we have it
+
+00:40:13.199 --> 00:40:15.919
+Caption: thanks guys
+
+00:40:17.040 --> 00:40:21.660
+Caption: um do you kind of have any thoughts on
+
+00:40:19.079 --> 00:40:23.099
+Caption: what might be good kinds of production
+
+00:40:21.659 --> 00:40:24.899
+Caption: tests to do and maybe sort of
+
+00:40:23.099 --> 00:40:26.220
+Caption: organizational pushback on doing that
+
+00:40:24.899 --> 00:40:27.959
+Caption: kind of thing
+
+00:40:26.219 --> 00:40:30.838
+Caption: I mean yeah organizations really always
+
+00:40:27.959 --> 00:40:32.399
+Caption: push back on testing I think is that um
+
+00:40:30.839 --> 00:40:33.839
+Caption: I really like the service lab objective
+
+00:40:32.399 --> 00:40:36.118
+Caption: stuff I really like being able to
+
+00:40:33.839 --> 00:40:37.920
+Caption: understand
+
+00:40:36.118 --> 00:40:38.879
+Caption: Um how my feature is supposed to be
+
+00:40:37.919 --> 00:40:40.260
+Caption: working I&#39;m going to track how that
+
+00:40:38.879 --> 00:40:41.459
+Caption: feature is working
+
+00:40:40.260 --> 00:40:43.079
+Caption: um and having just that really quick
+
+00:40:41.459 --> 00:40:45.239
+Caption: feedback I can see I&#39;m burning error
+
+00:40:43.079 --> 00:40:47.160
+Caption: budget so something&#39;s gone wrong I do
+
+00:40:45.239 --> 00:40:48.300
+Caption: think the SRE looking at SRE for how to
+
+00:40:47.159 --> 00:40:50.578
+Caption: run stuff in production is probably the
+
+00:40:48.300 --> 00:40:52.439
+Caption: way to go but I would say that&#39;s SRE as
+
+00:40:50.579 --> 00:40:54.000
+Caption: in like the Google Books not what a lot
+
+00:40:52.439 --> 00:40:55.800
+Caption: of vendors sell
+
+00:40:54.000 --> 00:40:57.000
+Caption: um today because I&#39;ve had so many
+
+00:40:55.800 --> 00:40:59.400
+Caption: arguments on redefining it at
+
+00:40:57.000 --> 00:41:00.780
+Caption: Enterprises where gsis got him first and
+
+00:40:59.399 --> 00:41:02.879
+Caption: they&#39;re like oh and then there&#39;s a
+
+00:41:00.780 --> 00:41:04.320
+Caption: rebadged ITIL build and run that&#39;s not
+
+00:41:02.879 --> 00:41:05.519
+Caption: where Siri is
+
+00:41:04.320 --> 00:41:07.140
+Caption: um I think in production is pretty much
+
+00:41:05.520 --> 00:41:08.939
+Caption: like how do I know something&#39;s broken is
+
+00:41:07.139 --> 00:41:11.338
+Caption: is the big thing and service level
+
+00:41:08.939 --> 00:41:13.739
+Caption: objectives are probably the kind of the
+
+00:41:11.339 --> 00:41:16.020
+Caption: becoming dominant way of doing that like
+
+00:41:13.739 --> 00:41:18.300
+Caption: there is the classic monitoring of my
+
+00:41:16.020 --> 00:41:21.719
+Caption: CPU is spiking send an alert and it&#39;s
+
+00:41:18.300 --> 00:41:23.160
+Caption: like no that&#39;s you need the kind of
+
+00:41:21.719 --> 00:41:24.419
+Caption: business impact level metrics to
+
+00:41:23.159 --> 00:41:25.618
+Caption: understand that customers are being
+
+00:41:24.419 --> 00:41:28.078
+Caption: impacted because you measure from the
+
+00:41:25.618 --> 00:41:29.819
+Caption: customer then CPU spiking useful
+
+00:41:28.079 --> 00:41:31.560
+Caption: diagnostic metric when you&#39;re in kind of
+
+00:41:29.820 --> 00:41:32.880
+Caption: debug mode but you shouldn&#39;t be alerting
+
+00:41:31.560 --> 00:41:35.160
+Caption: and actually be alerting on you know
+
+00:41:32.879 --> 00:41:36.659
+Caption: winning so many 500 like 500 responses
+
+00:41:35.159 --> 00:41:39.539
+Caption: are spiking something&#39;s gone wrong on
+
+00:41:36.659 --> 00:41:41.939
+Caption: our API cool let&#39;s go and fix that
+
+00:41:39.540 --> 00:41:43.919
+Caption: um again observability in honeycomb is
+
+00:41:41.939 --> 00:41:46.260
+Caption: the big kind of I think it&#39;s the big
+
+00:41:43.919 --> 00:41:47.459
+Caption: paradigm shift that&#39;s coming
+
+00:41:46.260 --> 00:41:49.260
+Caption: um where you&#39;ve got like high
+
+00:41:47.459 --> 00:41:50.459
+Caption: cardinality events okay I definitely do
+
+00:41:49.260 --> 00:41:51.899
+Caption: not have time to get into that in any
+
+00:41:50.459 --> 00:41:54.118
+Caption: great detail but I can afterwards if
+
+00:41:51.899 --> 00:41:58.139
+Caption: you&#39;d like I&#39;m more than happy to
+
+00:41:54.118 --> 00:42:01.260
+Caption: 100 look guys that&#39;s probably time Josh
+
+00:41:58.139 --> 00:42:04.279
+Caption: but a big round of applause
+
+00:42:01.260 --> 00:42:04.280
+Caption: um that was Unreal
+
+00:42:08.520 --> 00:42:14.699
+Caption: now just a few friendly reminders lunch
+
+00:42:12.179 --> 00:42:17.578
+Caption: will be immediately served once you
+
+00:42:14.699 --> 00:42:20.338
+Caption: leave this store now you can go to the
+
+00:42:17.579 --> 00:42:21.599
+Caption: North or the South we &#39;ve stuck over in
+
+00:42:20.339 --> 00:42:23.280
+Caption: front of the theater room there&#39;s going
+
+00:42:21.599 --> 00:42:25.079
+Caption: to be food sort of everywhere basically
+
+00:42:23.280 --> 00:42:28.199
+Caption: from what I&#39;m reading here
+
+00:42:25.079 --> 00:42:29.400
+Caption: uh lunchtime sessions will commence at 2
+
+00:42:28.199 --> 00:42:31.618
+Caption: 30
+
+00:42:29.399 --> 00:42:35.338
+Caption: 5 in the theater that&#39;s definitely a
+
+00:42:31.618 --> 00:42:38.098
+Caption: typo at 1 35 in the theater and both the
+
+00:42:35.339 --> 00:42:40.200
+Caption: river rooms notes do not do what I did
+
+00:42:38.099 --> 00:42:43.020
+Caption: before and eat your Apple because you
+
+00:42:40.199 --> 00:42:45.239
+Caption: will get in trouble in there
+
+00:42:43.020 --> 00:42:47.640
+Caption: um attendees there will also be breakout
+
+00:42:45.239 --> 00:42:49.379
+Caption: sessions that will commence again
+
+00:42:47.639 --> 00:42:51.000
+Caption: at
+
+00:42:49.379 --> 00:42:54.479
+Caption: 2 15.
+
+00:42:51.000 --> 00:42:57.839
+Caption: definitely 215 and I&#39;ve got one in here
+
+00:42:54.479 --> 00:43:00.899
+Caption: with a wonderful wonderful lady and she
+
+00:42:57.839 --> 00:43:02.400
+Caption: will be talking about standing on this
+
+00:43:00.899 --> 00:43:05.219
+Caption: blah blah blah
+
+00:43:02.399 --> 00:43:08.338
+Caption: standing on the shoulder of giants the
+
+00:43:05.219 --> 00:43:11.159
+Caption: next great generation in Tech nichu so
+
+00:43:08.339 --> 00:43:13.500
+Caption: on that note thank you again Josh thank
+
+00:43:11.159 --> 00:43:15.739
+Caption: you heckles and everybody have a great
+
+00:43:13.500 --> 00:43:15.739
+Caption: lunch
+

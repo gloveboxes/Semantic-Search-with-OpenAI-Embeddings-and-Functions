@@ -1,0 +1,1907 @@
+WEBVTT
+
+00:00:05.599 --> 00:00:10.799
+Caption: hello and welcome so quick question
+
+00:00:08.800 --> 00:00:12.239
+Caption: or by razer hands who here writes fast
+
+00:00:10.800 --> 00:00:14.159
+Caption: software or thinks they write fast
+
+00:00:12.239 --> 00:00:16.559
+Caption: software
+
+00:00:14.159 --> 00:00:18.559
+Caption: who here thinks can write kind of fast
+
+00:00:16.559 --> 00:00:22.879
+Caption: software
+
+00:00:18.559 --> 00:00:22.879
+Caption: who thinks they write slow software
+
+00:00:23.118 --> 00:00:27.198
+Caption: who thinks they don&#39;t write fast
+
+00:00:24.559 --> 00:00:29.118
+Caption: software at all
+
+00:00:27.198 --> 00:00:32.078
+Caption: now i&#39;ll get to that in a moment
+
+00:00:29.118 --> 00:00:34.880
+Caption: so thank you for the amazing sponsors uh
+
+00:00:32.078 --> 00:00:37.039
+Caption: for which ddd wouldn&#39;t happen
+
+00:00:34.880 --> 00:00:39.280
+Caption: and who am i i&#39;m the founder of office
+
+00:00:37.040 --> 00:00:40.559
+Caption: floor so office 4 is the inversion of
+
+00:00:39.279 --> 00:00:42.878
+Caption: coupling control container bit like
+
+00:00:40.558 --> 00:00:44.558
+Caption: inversion of control
+
+00:00:42.879 --> 00:00:46.399
+Caption: except that it takes it further it takes
+
+00:00:44.558 --> 00:00:48.398
+Caption: it not just only to injecting dependency
+
+00:00:46.398 --> 00:00:50.319
+Caption: injecting objects it injects threads and
+
+00:00:48.398 --> 00:00:51.359
+Caption: it injects functions and it&#39;s a
+
+00:00:50.319 --> 00:00:52.878
+Caption: different way of looking things in
+
+00:00:51.360 --> 00:00:54.079
+Caption: solving many of the underlying patterns
+
+00:00:52.879 --> 00:00:57.039
+Caption: but if you want to know more about that
+
+00:00:54.078 --> 00:00:58.398
+Caption: see my previous dvd presentation today
+
+00:00:57.039 --> 00:00:59.440
+Caption: we&#39;re talking about office law&#39;s web
+
+00:00:58.398 --> 00:01:01.279
+Caption: server
+
+00:00:59.439 --> 00:01:03.519
+Caption: now the first question you have is
+
+00:01:01.279 --> 00:01:04.720
+Caption: why write a web server there&#39;s so many
+
+00:01:03.520 --> 00:01:06.319
+Caption: of them out there and office floor being
+
+00:01:04.720 --> 00:01:08.080
+Caption: an inversion control container can
+
+00:01:06.319 --> 00:01:10.158
+Caption: inject them all in and use them as
+
+00:01:08.080 --> 00:01:12.880
+Caption: necessary so why did i go to the effort
+
+00:01:10.158 --> 00:01:14.798
+Caption: of actually writing an own web server
+
+00:01:12.879 --> 00:01:16.798
+Caption: well it comes to what we&#39;re doing more
+
+00:01:14.799 --> 00:01:19.200
+Caption: and more with our modern day apps
+
+00:01:16.799 --> 00:01:20.799
+Caption: now if you have an sba application that
+
+00:01:19.199 --> 00:01:23.279
+Caption: loads up and starts firing requests at
+
+00:01:20.799 --> 00:01:24.560
+Caption: your server the specs actually say your
+
+00:01:23.279 --> 00:01:26.720
+Caption: browser is only allowed to have two
+
+00:01:24.559 --> 00:01:28.079
+Caption: connections to the server now some of
+
+00:01:26.720 --> 00:01:30.959
+Caption: the browsers have pushed that further
+
+00:01:28.080 --> 00:01:32.639
+Caption: and gone four to six and eight in three
+
+00:01:30.959 --> 00:01:35.118
+Caption: cases but they limit the number of
+
+00:01:32.639 --> 00:01:36.639
+Caption: connections to servers so if you&#39;ve got
+
+00:01:35.119 --> 00:01:37.759
+Caption: two requests going down on two
+
+00:01:36.639 --> 00:01:40.000
+Caption: connections
+
+00:01:37.759 --> 00:01:42.240
+Caption: the big problem is the request the web
+
+00:01:40.000 --> 00:01:44.798
+Caption: server will only service one of those
+
+00:01:42.239 --> 00:01:46.000
+Caption: requests off the connection at a time
+
+00:01:44.799 --> 00:01:48.399
+Caption: so if you&#39;ve got two long running
+
+00:01:46.000 --> 00:01:50.720
+Caption: requests
+
+00:01:48.399 --> 00:01:54.279
+Caption: and lots of requests behind it you get
+
+00:01:50.720 --> 00:01:54.279
+Caption: loading on the page
+
+00:01:54.399 --> 00:01:58.159
+Caption: so what we&#39;ve done in office floor is
+
+00:01:56.399 --> 00:01:59.599
+Caption: that we process all the requests off the
+
+00:01:58.158 --> 00:02:01.039
+Caption: connection concurrently so as the
+
+00:01:59.599 --> 00:02:02.399
+Caption: requests come in it process it doesn&#39;t
+
+00:02:01.040 --> 00:02:04.479
+Caption: just do one it actually processes more
+
+00:02:02.399 --> 00:02:06.479
+Caption: and more and what you get is you get
+
+00:02:04.478 --> 00:02:07.919
+Caption: reduced latency so this everything just
+
+00:02:06.478 --> 00:02:09.919
+Caption: gets processed and then sent back to the
+
+00:02:07.919 --> 00:02:11.679
+Caption: front and overload is handled by in
+
+00:02:09.919 --> 00:02:13.440
+Caption: thread injection and again topic for
+
+00:02:11.679 --> 00:02:15.039
+Caption: previous conversation
+
+00:02:13.440 --> 00:02:16.559
+Caption: um
+
+00:02:15.039 --> 00:02:19.039
+Caption: so
+
+00:02:16.559 --> 00:02:20.878
+Caption: like all things on office floor
+
+00:02:19.039 --> 00:02:22.238
+Caption: side tracked
+
+00:02:20.878 --> 00:02:24.559
+Caption: kind of came across the tech and power
+
+00:02:22.238 --> 00:02:26.479
+Caption: benchmarks in 2015 and thought hey i can
+
+00:02:24.559 --> 00:02:28.639
+Caption: do good at this submitted my results and
+
+00:02:26.479 --> 00:02:28.639
+Caption: went
+
+00:02:28.958 --> 00:02:33.039
+Caption: that didn&#39;t go well
+
+00:02:30.720 --> 00:02:36.639
+Caption: and let&#39;s not talk about that
+
+00:02:33.039 --> 00:02:38.000
+Caption: but since then and the last round 20
+
+00:02:36.639 --> 00:02:41.279
+Caption: been doing improvements in the last
+
+00:02:38.000 --> 00:02:43.039
+Caption: around 20 have become top 20
+
+00:02:41.279 --> 00:02:44.000
+Caption: and there&#39;s a 6.4 million requests per
+
+00:02:43.039 --> 00:02:46.000
+Caption: second
+
+00:02:44.000 --> 00:02:48.399
+Caption: about 122 servers entered and the next
+
+00:02:46.000 --> 00:02:50.238
+Caption: round 21 will have about 126 servers
+
+00:02:48.399 --> 00:02:52.479
+Caption: entered the number&#39;s always growing
+
+00:02:50.238 --> 00:02:55.598
+Caption: everyone thinks they can run a hp server
+
+00:02:52.479 --> 00:02:57.598
+Caption: and just like myself and
+
+00:02:55.598 --> 00:03:01.440
+Caption: just recently i changed the database
+
+00:02:57.598 --> 00:03:01.440
+Caption: driver and now sitting in top 10.
+
+00:03:02.399 --> 00:03:05.518
+Caption: and hopefully to keep that position for
+
+00:03:03.919 --> 00:03:07.119
+Caption: round 21 and i&#39;ll be in the top 10
+
+00:03:05.518 --> 00:03:08.720
+Caption: officially
+
+00:03:07.119 --> 00:03:11.518
+Caption: so
+
+00:03:08.720 --> 00:03:11.518
+Caption: how do i do that
+
+00:03:12.479 --> 00:03:16.479
+Caption: well first off let&#39;s get this out there
+
+00:03:14.800 --> 00:03:19.518
+Caption: programming languages have nothing to do
+
+00:03:16.479 --> 00:03:22.319
+Caption: with it office 4 is written in standard
+
+00:03:19.518 --> 00:03:24.319
+Caption: java non-blocking io there&#39;s no special
+
+00:03:22.319 --> 00:03:26.080
+Caption: libraries or anything it just simply
+
+00:03:24.319 --> 00:03:28.399
+Caption: uses the standard socket libraries and
+
+00:03:26.080 --> 00:03:29.440
+Caption: does what it needs to do
+
+00:03:28.399 --> 00:03:30.720
+Caption: and if you want to argue that
+
+00:03:29.440 --> 00:03:31.440
+Caption: programming languages have nothing to do
+
+00:03:30.720 --> 00:03:33.759
+Caption: with
+
+00:03:31.440 --> 00:03:36.479
+Caption: rank number two is just and it&#39;s written
+
+00:03:33.759 --> 00:03:36.479
+Caption: in javascript
+
+00:03:37.279 --> 00:03:40.798
+Caption: so
+
+00:03:38.958 --> 00:03:43.360
+Caption: question comes down to what dick takes
+
+00:03:40.798 --> 00:03:43.360
+Caption: performance
+
+00:03:45.039 --> 00:03:50.319
+Caption: well i do not write fast software
+
+00:03:48.479 --> 00:03:52.479
+Caption: hardware deals in speed hardware has
+
+00:03:50.319 --> 00:03:54.559
+Caption: better clock cycles increased bus speeds
+
+00:03:52.479 --> 00:03:56.399
+Caption: faster networks
+
+00:03:54.559 --> 00:03:58.399
+Caption: software deals in efficiency it&#39;s
+
+00:03:56.399 --> 00:03:59.839
+Caption: instructions to the hardware no matter
+
+00:03:58.399 --> 00:04:01.759
+Caption: how many instructions i can send to the
+
+00:03:59.839 --> 00:04:03.839
+Caption: hardware i can&#39;t make the hardware go
+
+00:04:01.759 --> 00:04:07.279
+Caption: faster i can only be more efficient in
+
+00:04:03.839 --> 00:04:08.158
+Caption: my instructions to that hardware
+
+00:04:07.279 --> 00:04:09.598
+Caption: so
+
+00:04:08.158 --> 00:04:10.639
+Caption: now i need to understand hardware and
+
+00:04:09.598 --> 00:04:13.199
+Caption: i&#39;m not an electrical engineer and
+
+00:04:10.639 --> 00:04:14.639
+Caption: there&#39;s all these things and this
+
+00:04:13.199 --> 00:04:16.399
+Caption: we don&#39;t need to understand it heavily
+
+00:04:14.639 --> 00:04:18.320
+Caption: what you need to really focus on to get
+
+00:04:16.399 --> 00:04:20.479
+Caption: performance is to get your data to the
+
+00:04:18.320 --> 00:04:21.839
+Caption: cpu the more data you can get to the cpu
+
+00:04:20.479 --> 00:04:23.040
+Caption: the more you can process things through
+
+00:04:21.839 --> 00:04:24.959
+Caption: and the quicker you can get your
+
+00:04:23.040 --> 00:04:26.160
+Caption: performance through
+
+00:04:24.959 --> 00:04:27.279
+Caption: so then i said they&#39;re going well how do
+
+00:04:26.160 --> 00:04:29.040
+Caption: i explain this because everything&#39;s
+
+00:04:27.279 --> 00:04:30.559
+Caption: measured in milliseconds microseconds
+
+00:04:29.040 --> 00:04:32.320
+Caption: nanoseconds and i really can&#39;t get a
+
+00:04:30.559 --> 00:04:33.600
+Caption: feel for that because
+
+00:04:32.320 --> 00:04:36.479
+Caption: i&#39;ve never experienced it nanosecond
+
+00:04:33.600 --> 00:04:37.759
+Caption: because it&#39;s just way too fast
+
+00:04:36.479 --> 00:04:39.679
+Caption: already had too many of them are in the
+
+00:04:37.759 --> 00:04:41.279
+Caption: talk
+
+00:04:39.679 --> 00:04:42.639
+Caption: so
+
+00:04:41.279 --> 00:04:44.479
+Caption: when it comes that i thought well how&#39;s
+
+00:04:42.639 --> 00:04:45.520
+Caption: the best way to describe it and with
+
+00:04:44.479 --> 00:04:46.880
+Caption: this covert i&#39;ve been sitting there
+
+00:04:45.519 --> 00:04:48.399
+Caption: going doing a lot of camping and it&#39;s
+
+00:04:46.880 --> 00:04:50.959
+Caption: like ah
+
+00:04:48.399 --> 00:04:53.040
+Caption: red&#39;s process is camping in cpus is a
+
+00:04:50.959 --> 00:04:54.799
+Caption: bit like what goes on because if you
+
+00:04:53.040 --> 00:04:56.880
+Caption: come up with this model you actually sit
+
+00:04:54.799 --> 00:04:59.198
+Caption: there going well if a process camps on
+
+00:04:56.880 --> 00:05:01.039
+Caption: the campsite and it needs to get data
+
+00:04:59.199 --> 00:05:03.440
+Caption: out of its registers or it needs to get
+
+00:05:01.039 --> 00:05:04.720
+Caption: stuff out of its l1 or l2 caches that&#39;s
+
+00:05:03.440 --> 00:05:06.080
+Caption: a bit like sitting on your campsite and
+
+00:05:04.720 --> 00:05:08.399
+Caption: going your rescue and getting something
+
+00:05:06.079 --> 00:05:10.000
+Caption: out nice and quick it&#39;s nice and fast
+
+00:05:08.399 --> 00:05:10.959
+Caption: however if i have to get something from
+
+00:05:10.000 --> 00:05:12.239
+Caption: ram
+
+00:05:10.959 --> 00:05:13.679
+Caption: well i kind of got to get in my car and
+
+00:05:12.239 --> 00:05:16.239
+Caption: drive to the local shops that kind of
+
+00:05:13.679 --> 00:05:17.359
+Caption: gives you the difference in sort of um
+
+00:05:16.239 --> 00:05:20.000
+Caption: magnitude difference in terms of
+
+00:05:17.359 --> 00:05:21.679
+Caption: performance then if i have to go to disk
+
+00:05:20.000 --> 00:05:23.600
+Caption: what&#39;s a bit like driving back to perth
+
+00:05:21.679 --> 00:05:26.000
+Caption: and back again
+
+00:05:23.600 --> 00:05:28.559
+Caption: and if i have to do network calls
+
+00:05:26.000 --> 00:05:29.919
+Caption: it&#39;s like driving across australia in
+
+00:05:28.559 --> 00:05:31.279
+Caption: comparison and hopefully there&#39;s no
+
+00:05:29.919 --> 00:05:32.080
+Caption: covered firewall stopping us getting
+
+00:05:31.279 --> 00:05:33.119
+Caption: there
+
+00:05:32.079 --> 00:05:34.399
+Caption: so
+
+00:05:33.119 --> 00:05:35.679
+Caption: that gives you it now don&#39;t quote me on
+
+00:05:34.399 --> 00:05:37.279
+Caption: the kilometers or the rest but that
+
+00:05:35.679 --> 00:05:38.639
+Caption: gives you a sense of the magnitude of
+
+00:05:37.279 --> 00:05:40.239
+Caption: the performance differences of where you
+
+00:05:38.639 --> 00:05:41.360
+Caption: get the data from so you need to keep
+
+00:05:40.239 --> 00:05:42.720
+Caption: that in mind when you&#39;re writing your
+
+00:05:41.359 --> 00:05:45.519
+Caption: software
+
+00:05:42.720 --> 00:05:48.079
+Caption: so the first and most obvious thing
+
+00:05:45.519 --> 00:05:50.160
+Caption: is don&#39;t write small chatty networking
+
+00:05:48.079 --> 00:05:52.239
+Caption: so don&#39;t keep driving back and forth
+
+00:05:50.160 --> 00:05:53.679
+Caption: across the nullarbor that&#39;s inefficient
+
+00:05:52.239 --> 00:05:55.199
+Caption: it&#39;s not going to work
+
+00:05:53.679 --> 00:05:56.959
+Caption: the other thing is
+
+00:05:55.199 --> 00:05:58.319
+Caption: don&#39;t take lots of separate cars in
+
+00:05:56.959 --> 00:06:00.559
+Caption: other words don&#39;t do lots of small
+
+00:05:58.319 --> 00:06:02.639
+Caption: requests all your requests have
+
+00:06:00.559 --> 00:06:04.239
+Caption: overheads with 38 bytes to all the
+
+00:06:02.639 --> 00:06:05.839
+Caption: packets that go over
+
+00:06:04.239 --> 00:06:07.279
+Caption: and that adds up if you&#39;re sending only
+
+00:06:05.839 --> 00:06:08.319
+Caption: one or two bytes that starts adding up
+
+00:06:07.279 --> 00:06:09.759
+Caption: and choking your network you actually
+
+00:06:08.319 --> 00:06:11.119
+Caption: spend more time with overhead than you
+
+00:06:09.759 --> 00:06:12.559
+Caption: actually do it so if you looked at it
+
+00:06:11.119 --> 00:06:13.679
+Caption: it&#39;s a bit like this
+
+00:06:12.559 --> 00:06:15.679
+Caption: you&#39;ve got all these cars there and
+
+00:06:13.679 --> 00:06:17.600
+Caption: there&#39;s all this wasted space
+
+00:06:15.679 --> 00:06:18.720
+Caption: now your operating system kind of helps
+
+00:06:17.600 --> 00:06:19.679
+Caption: you out a little bit with this because
+
+00:06:18.720 --> 00:06:21.759
+Caption: it&#39;s got what&#39;s called naggle&#39;s
+
+00:06:19.679 --> 00:06:24.959
+Caption: algorithm or if you ever heard of the no
+
+00:06:21.759 --> 00:06:26.880
+Caption: tcp delay um flag what that basically
+
+00:06:24.959 --> 00:06:28.399
+Caption: does is it stops the packet for a moment
+
+00:06:26.880 --> 00:06:29.759
+Caption: allows it to be filled with more data
+
+00:06:28.399 --> 00:06:30.959
+Caption: and then sends it on away it&#39;s a little
+
+00:06:29.759 --> 00:06:32.479
+Caption: bit more efficient you think of it it&#39;s
+
+00:06:30.959 --> 00:06:34.559
+Caption: a bit more like a train
+
+00:06:32.479 --> 00:06:36.160
+Caption: train pulls up to the station waits a
+
+00:06:34.559 --> 00:06:37.440
+Caption: while gets filled up with data then
+
+00:06:36.160 --> 00:06:39.360
+Caption: moves out and then it uses more
+
+00:06:37.440 --> 00:06:41.360
+Caption: efficiency on the network
+
+00:06:39.359 --> 00:06:42.879
+Caption: now the nice thing is right back at the
+
+00:06:41.359 --> 00:06:44.879
+Caption: beginning of talk i told you office 4
+
+00:06:42.880 --> 00:06:46.319
+Caption: processes these things in parallel i
+
+00:06:44.880 --> 00:06:48.239
+Caption: don&#39;t have to wait to the station i&#39;ve
+
+00:06:46.319 --> 00:06:49.759
+Caption: got parallel requests coming in i&#39;ve got
+
+00:06:48.239 --> 00:06:50.959
+Caption: lots of data feeding back into that
+
+00:06:49.759 --> 00:06:51.679
+Caption: train station
+
+00:06:50.959 --> 00:06:53.919
+Caption: so
+
+00:06:51.679 --> 00:06:56.160
+Caption: office 4 turns the naggles algorithm off
+
+00:06:53.919 --> 00:06:57.919
+Caption: and writes its own and actually avoids
+
+00:06:56.160 --> 00:07:00.160
+Caption: sleeping and that gets more efficiency
+
+00:06:57.919 --> 00:07:00.160
+Caption: through
+
+00:07:00.559 --> 00:07:03.759
+Caption: now you&#39;ve got to get talk about threads
+
+00:07:02.959 --> 00:07:05.359
+Caption: so
+
+00:07:03.759 --> 00:07:06.880
+Caption: threading is an important part about
+
+00:07:05.359 --> 00:07:09.758
+Caption: performance and if you think about
+
+00:07:06.880 --> 00:07:11.839
+Caption: threading it&#39;s a bit the same as camping
+
+00:07:09.759 --> 00:07:13.199
+Caption: on a campsite when the thread comes in
+
+00:07:11.839 --> 00:07:14.880
+Caption: it turns up from the cpu it&#39;s got to
+
+00:07:13.199 --> 00:07:16.160
+Caption: warm up and sell one or two or two cases
+
+00:07:14.880 --> 00:07:17.598
+Caption: it&#39;s got to get the things going it&#39;s a
+
+00:07:16.160 --> 00:07:18.959
+Caption: bit like turning up the campsite and
+
+00:07:17.598 --> 00:07:20.399
+Caption: unpacking and getting set up it&#39;s kind
+
+00:07:18.959 --> 00:07:22.079
+Caption: of got to get itself set up and start
+
+00:07:20.399 --> 00:07:24.079
+Caption: processing so when you look at the
+
+00:07:22.079 --> 00:07:26.079
+Caption: actual efficiency of using a thread
+
+00:07:24.079 --> 00:07:28.319
+Caption: you&#39;ve got the setup time and then the
+
+00:07:26.079 --> 00:07:29.519
+Caption: processing time
+
+00:07:28.319 --> 00:07:32.239
+Caption: and when you&#39;re talking at this
+
+00:07:29.519 --> 00:07:33.598
+Caption: performance this becomes important
+
+00:07:32.239 --> 00:07:36.399
+Caption: because if i start using multiple
+
+00:07:33.598 --> 00:07:38.239
+Caption: threads i get more setup time now i
+
+00:07:36.399 --> 00:07:39.440
+Caption: could use that and reduce the latency of
+
+00:07:38.239 --> 00:07:41.759
+Caption: the request and get the request going
+
+00:07:39.440 --> 00:07:43.759
+Caption: through faster but there&#39;s overall more
+
+00:07:41.759 --> 00:07:45.039
+Caption: cpu used it&#39;s more it&#39;s inefficient
+
+00:07:43.759 --> 00:07:46.720
+Caption: there&#39;s more setup time there&#39;s more
+
+00:07:45.039 --> 00:07:48.160
+Caption: things setting up and then actually
+
+00:07:46.720 --> 00:07:51.039
+Caption: finally getting to process it&#39;s more
+
+00:07:48.160 --> 00:07:53.440
+Caption: overall processing time
+
+00:07:51.039 --> 00:07:55.039
+Caption: and this becomes worse
+
+00:07:53.440 --> 00:07:56.720
+Caption: when you try to do parallelism which is
+
+00:07:55.039 --> 00:07:58.799
+Caption: creating more threads under high
+
+00:07:56.720 --> 00:08:00.399
+Caption: concurrency because what happens is your
+
+00:07:58.799 --> 00:08:01.839
+Caption: request comes in it&#39;s using a thread for
+
+00:08:00.399 --> 00:08:03.199
+Caption: the socket process and then all your
+
+00:08:01.839 --> 00:08:04.720
+Caption: child requests come and steal the rest
+
+00:08:03.199 --> 00:08:05.919
+Caption: of the cpus
+
+00:08:04.720 --> 00:08:07.199
+Caption: and then what happens is all the rest of
+
+00:08:05.919 --> 00:08:09.520
+Caption: the requests are seen they&#39;re going well
+
+00:08:07.199 --> 00:08:10.800
+Caption: can i have a cpu no because they&#39;re all
+
+00:08:09.519 --> 00:08:12.720
+Caption: processing those extra threads you
+
+00:08:10.799 --> 00:08:14.799
+Caption: created so actually under high
+
+00:08:12.720 --> 00:08:16.720
+Caption: concurrency doing parallelism and
+
+00:08:14.799 --> 00:08:18.399
+Caption: actually adding more threads
+
+00:08:16.720 --> 00:08:20.160
+Caption: ties up your cpus and actually reduces
+
+00:08:18.399 --> 00:08:22.079
+Caption: your throughput and made worse because
+
+00:08:20.160 --> 00:08:25.039
+Caption: there&#39;s more setups going on so it
+
+00:08:22.079 --> 00:08:27.279
+Caption: actually becomes double worse
+
+00:08:25.039 --> 00:08:28.160
+Caption: and then we get into thread coordination
+
+00:08:27.279 --> 00:08:30.160
+Caption: so
+
+00:08:28.160 --> 00:08:31.519
+Caption: you&#39;ve got locks and locks are a bit
+
+00:08:30.160 --> 00:08:33.838
+Caption: like going to see the camp host and
+
+00:08:31.519 --> 00:08:35.200
+Caption: going hey can i use the camp kitchen and
+
+00:08:33.838 --> 00:08:37.359
+Caption: the host is like okay let me check the
+
+00:08:35.200 --> 00:08:38.479
+Caption: schedule and i&#39;ll put you in and work
+
+00:08:37.359 --> 00:08:40.479
+Caption: all that out
+
+00:08:38.479 --> 00:08:41.679
+Caption: that takes time that&#39;s that&#39;s an
+
+00:08:40.479 --> 00:08:43.278
+Caption: overhead
+
+00:08:41.679 --> 00:08:45.359
+Caption: whereas you use atomic operation which
+
+00:08:43.278 --> 00:08:47.359
+Caption: most languages now have it&#39;s just a
+
+00:08:45.359 --> 00:08:50.000
+Caption: quick check is it there is it free
+
+00:08:47.359 --> 00:08:52.239
+Caption: um and do that as an example in this i
+
+00:08:50.000 --> 00:08:54.080
+Caption: had two uncontended locks in one of the
+
+00:08:52.239 --> 00:08:55.119
+Caption: tests that was running at 150 000 per
+
+00:08:54.080 --> 00:08:56.640
+Caption: second
+
+00:08:55.119 --> 00:08:59.599
+Caption: just removing those two uncontended
+
+00:08:56.640 --> 00:09:01.440
+Caption: locks i got up to 450 000 a second
+
+00:08:59.599 --> 00:09:02.958
+Caption: so at that type of level you can see
+
+00:09:01.440 --> 00:09:04.880
+Caption: there are overheads these things aren&#39;t
+
+00:09:02.958 --> 00:09:06.159
+Caption: cheap
+
+00:09:04.880 --> 00:09:07.359
+Caption: and then it gets worse with a thread
+
+00:09:06.159 --> 00:09:08.879
+Caption: scheduling
+
+00:09:07.359 --> 00:09:12.000
+Caption: because what happens is when i lock up
+
+00:09:08.880 --> 00:09:14.239
+Caption: that thread it goes to sleep now being a
+
+00:09:12.000 --> 00:09:16.398
+Caption: good schedule on an operating system it
+
+00:09:14.239 --> 00:09:18.719
+Caption: moves another thread in there which then
+
+00:09:16.398 --> 00:09:20.080
+Caption: starts invalid indication moving its
+
+00:09:18.719 --> 00:09:21.278
+Caption: stuff into the cache and then what
+
+00:09:20.080 --> 00:09:22.640
+Caption: happens another thread moves and
+
+00:09:21.278 --> 00:09:24.080
+Caption: everything starts moving around again
+
+00:09:22.640 --> 00:09:25.440
+Caption: and then everything needs to be set up
+
+00:09:24.080 --> 00:09:27.278
+Caption: again and then everything starts
+
+00:09:25.440 --> 00:09:29.039
+Caption: creating overhead and you go back to
+
+00:09:27.278 --> 00:09:30.159
+Caption: that problem of having lots of overhead
+
+00:09:29.039 --> 00:09:31.278
+Caption: to process through your request you&#39;re
+
+00:09:30.159 --> 00:09:34.958
+Caption: spending more time setting up your
+
+00:09:31.278 --> 00:09:37.119
+Caption: threads then you are actually processing
+
+00:09:34.958 --> 00:09:40.559
+Caption: and furthermore
+
+00:09:37.119 --> 00:09:42.479
+Caption: more cpus is not always better
+
+00:09:40.559 --> 00:09:44.080
+Caption: because the more cpus i have the more
+
+00:09:42.479 --> 00:09:45.518
+Caption: that has to go across to ram and
+
+00:09:44.080 --> 00:09:47.519
+Caption: actually access it there&#39;s more
+
+00:09:45.518 --> 00:09:50.479
+Caption: contention
+
+00:09:47.518 --> 00:09:52.320
+Caption: that all slows you down again
+
+00:09:50.479 --> 00:09:54.239
+Caption: and if you&#39;re actually doing cloud
+
+00:09:52.320 --> 00:09:56.000
+Caption: consider getting smaller cheaper
+
+00:09:54.239 --> 00:09:57.440
+Caption: instances of having more of them
+
+00:09:56.000 --> 00:09:59.200
+Caption: with less you know you&#39;ve got more ram
+
+00:09:57.440 --> 00:10:01.760
+Caption: to go around
+
+00:09:59.200 --> 00:10:03.440
+Caption: i&#39;d be surprised
+
+00:10:01.760 --> 00:10:04.958
+Caption: but the question is what was the
+
+00:10:03.440 --> 00:10:08.559
+Caption: threading model that office will use to
+
+00:10:04.958 --> 00:10:08.559
+Caption: get the six million requests per second
+
+00:10:09.838 --> 00:10:14.320
+Caption: basically it just had one thread per cpu
+
+00:10:12.719 --> 00:10:16.559
+Caption: and just processed the thread was hot
+
+00:10:14.320 --> 00:10:18.239
+Caption: and ready the cases the cases were all
+
+00:10:16.559 --> 00:10:20.320
+Caption: hot and ready and processing away the
+
+00:10:18.239 --> 00:10:22.078
+Caption: request comes in and process out it&#39;s a
+
+00:10:20.320 --> 00:10:23.838
+Caption: bit like the campsite already being set
+
+00:10:22.078 --> 00:10:25.919
+Caption: up by someone you come in enjoy the
+
+00:10:23.838 --> 00:10:27.200
+Caption: campsite jump out most efficient camping
+
+00:10:25.919 --> 00:10:28.958
+Caption: you get you don&#39;t have all the setup
+
+00:10:27.200 --> 00:10:30.160
+Caption: tear down and dealing with cleaning and
+
+00:10:28.958 --> 00:10:33.039
+Caption: all the rest of it you just come in
+
+00:10:30.159 --> 00:10:34.159
+Caption: enjoy the campsite get out um and that&#39;s
+
+00:10:33.039 --> 00:10:35.679
+Caption: effectively what it does it just runs a
+
+00:10:34.159 --> 00:10:38.159
+Caption: single thread on the on the cpu and
+
+00:10:35.679 --> 00:10:41.518
+Caption: processes away
+
+00:10:38.159 --> 00:10:41.518
+Caption: but there&#39;s a gotcha to that problem
+
+00:10:41.838 --> 00:10:45.679
+Caption: you&#39;ve got callback threads coming back
+
+00:10:43.760 --> 00:10:47.440
+Caption: from the database they want to come in
+
+00:10:45.679 --> 00:10:48.958
+Caption: and say hey i need to process the data
+
+00:10:47.440 --> 00:10:50.320
+Caption: and then they say give me a cpu and then
+
+00:10:48.958 --> 00:10:52.000
+Caption: one of the socket threads has to move
+
+00:10:50.320 --> 00:10:53.600
+Caption: out and then it goes in and then the
+
+00:10:52.000 --> 00:10:54.799
+Caption: other callback comes in another socket
+
+00:10:53.599 --> 00:10:56.880
+Caption: thread has to move out and then they all
+
+00:10:54.799 --> 00:10:58.398
+Caption: start jumbling around they start moving
+
+00:10:56.880 --> 00:10:59.599
+Caption: and then you get that setup costs again
+
+00:10:58.398 --> 00:11:01.440
+Caption: and then everything starts slowing down
+
+00:10:59.599 --> 00:11:04.479
+Caption: now the schedule do their best to
+
+00:11:01.440 --> 00:11:06.159
+Caption: minimize it but you get that overhead
+
+00:11:04.479 --> 00:11:07.518
+Caption: what you can do to improve that
+
+00:11:06.159 --> 00:11:09.518
+Caption: situation
+
+00:11:07.518 --> 00:11:11.919
+Caption: is do threat affinity
+
+00:11:09.518 --> 00:11:14.398
+Caption: red affinity binds the thread to run on
+
+00:11:11.919 --> 00:11:16.159
+Caption: only a single cpu or a group of cpus you
+
+00:11:14.398 --> 00:11:17.440
+Caption: can set up the configuration you want
+
+00:11:16.159 --> 00:11:19.199
+Caption: basically you limit what the thread can
+
+00:11:17.440 --> 00:11:21.838
+Caption: run on so you limit that socket thread
+
+00:11:19.200 --> 00:11:24.559
+Caption: to only run on the one cpu
+
+00:11:21.838 --> 00:11:26.719
+Caption: now this is a non-standard java library
+
+00:11:24.559 --> 00:11:29.039
+Caption: check it out it&#39;s quite a good library
+
+00:11:26.719 --> 00:11:31.278
+Caption: but it is about allowed me access to get
+
+00:11:29.039 --> 00:11:33.039
+Caption: to do set up that thread affinity
+
+00:11:31.278 --> 00:11:34.320
+Caption: and what this effectively looks like now
+
+00:11:33.039 --> 00:11:37.518
+Caption: is you&#39;ve got the socket thread happily
+
+00:11:34.320 --> 00:11:39.760
+Caption: camping away using the hot uh l1 and l2
+
+00:11:37.518 --> 00:11:40.958
+Caption: caches processing away callback thread
+
+00:11:39.760 --> 00:11:43.200
+Caption: pops in
+
+00:11:40.958 --> 00:11:45.039
+Caption: uses a bit of space in the side
+
+00:11:43.200 --> 00:11:46.640
+Caption: does its processing jumps out the socket
+
+00:11:45.039 --> 00:11:48.000
+Caption: thread jumps back in it&#39;s all still nice
+
+00:11:46.640 --> 00:11:50.000
+Caption: and warm and cozy and continues
+
+00:11:48.000 --> 00:11:51.679
+Caption: processing through very little overhead
+
+00:11:50.000 --> 00:11:54.958
+Caption: and it just processes the data through
+
+00:11:51.679 --> 00:11:54.958
+Caption: as efficiently as possible
+
+00:11:55.440 --> 00:11:59.200
+Caption: and big thing on this be careful of
+
+00:11:57.679 --> 00:12:01.119
+Caption: doing this yourself if the web server
+
+00:11:59.200 --> 00:12:02.639
+Caption: doesn&#39;t support it you get into lots of
+
+00:12:01.119 --> 00:12:03.838
+Caption: fun problems with thread pulls and then
+
+00:12:02.638 --> 00:12:05.278
+Caption: going to the wrong thread pools and you
+
+00:12:03.838 --> 00:12:06.159
+Caption: can actually make the situation worse
+
+00:12:05.278 --> 00:12:07.278
+Caption: you really need to understand what
+
+00:12:06.159 --> 00:12:10.638
+Caption: you&#39;re doing or at least have your web
+
+00:12:07.278 --> 00:12:11.440
+Caption: servers support this functionality
+
+00:12:10.638 --> 00:12:12.799
+Caption: so
+
+00:12:11.440 --> 00:12:15.599
+Caption: who here
+
+00:12:12.799 --> 00:12:16.958
+Caption: runs database connection pools
+
+00:12:15.599 --> 00:12:19.359
+Caption: all right who here has about 200
+
+00:12:16.958 --> 00:12:21.278
+Caption: connections in the database pool
+
+00:12:19.359 --> 00:12:23.278
+Caption: 100
+
+00:12:21.278 --> 00:12:25.838
+Caption: 50
+
+00:12:23.278 --> 00:12:27.518
+Caption: 20
+
+00:12:25.838 --> 00:12:30.559
+Caption: n
+
+00:12:27.518 --> 00:12:32.000
+Caption: well the same problems here typically
+
+00:12:30.559 --> 00:12:33.278
+Caption: and we&#39;re talking about the sql variety
+
+00:12:32.000 --> 00:12:34.638
+Caption: of databases we&#39;re not talking about the
+
+00:12:33.278 --> 00:12:36.880
+Caption: nosql they&#39;re a different beast
+
+00:12:34.638 --> 00:12:38.239
+Caption: altogether the sql databases have
+
+00:12:36.880 --> 00:12:39.440
+Caption: typically one thread per connection
+
+00:12:38.239 --> 00:12:40.398
+Caption: because you&#39;ve got the thread to process
+
+00:12:39.440 --> 00:12:41.760
+Caption: away and it gets into locks and
+
+00:12:40.398 --> 00:12:43.838
+Caption: contentions and thread blocks on that
+
+00:12:41.760 --> 00:12:45.679
+Caption: and processes through
+
+00:12:43.838 --> 00:12:47.518
+Caption: but we said we want to reduce contention
+
+00:12:45.679 --> 00:12:48.958
+Caption: because that gets better throughput
+
+00:12:47.518 --> 00:12:50.398
+Caption: so what you actually want to do is
+
+00:12:48.958 --> 00:12:51.440
+Caption: minimize the number of threads you
+
+00:12:50.398 --> 00:12:53.679
+Caption: actually need to minimize the number of
+
+00:12:51.440 --> 00:12:55.119
+Caption: connections
+
+00:12:53.679 --> 00:12:56.719
+Caption: kind of counter-intuitive but if you can
+
+00:12:55.119 --> 00:12:59.200
+Caption: process requests faster you can get more
+
+00:12:56.719 --> 00:12:59.199
+Caption: of them through
+
+00:12:59.278 --> 00:13:03.838
+Caption: so if you actually look at postgres or
+
+00:13:02.159 --> 00:13:05.838
+Caption: hikari which supports this as one of the
+
+00:13:03.838 --> 00:13:07.119
+Caption: java top-end
+
+00:13:05.838 --> 00:13:08.320
+Caption: connection pools
+
+00:13:07.119 --> 00:13:10.159
+Caption: it actually has this as your rule of
+
+00:13:08.320 --> 00:13:11.760
+Caption: thumb to start
+
+00:13:10.159 --> 00:13:15.199
+Caption: call count which is not hyper threading
+
+00:13:11.760 --> 00:13:18.320
+Caption: cause it&#39;s actual core counts times two
+
+00:13:15.200 --> 00:13:20.880
+Caption: plus the effective spindle count
+
+00:13:18.320 --> 00:13:22.958
+Caption: now with ssds
+
+00:13:20.880 --> 00:13:24.720
+Caption: we have zero spindles
+
+00:13:22.958 --> 00:13:26.000
+Caption: so when we&#39;ve introduced ssds we should
+
+00:13:24.719 --> 00:13:28.159
+Caption: actually be reducing the number of
+
+00:13:26.000 --> 00:13:29.518
+Caption: connections not increasing them
+
+00:13:28.159 --> 00:13:30.958
+Caption: it might be slightly countersuited but
+
+00:13:29.518 --> 00:13:32.479
+Caption: the same thing comprised you&#39;ve got
+
+00:13:30.958 --> 00:13:33.440
+Caption: contention it&#39;s slowing everything down
+
+00:13:32.479 --> 00:13:34.559
+Caption: and you&#39;re not getting the throughput
+
+00:13:33.440 --> 00:13:36.159
+Caption: you want you want to get these things
+
+00:13:34.559 --> 00:13:37.278
+Caption: through quickly and therefore you get
+
+00:13:36.159 --> 00:13:38.879
+Caption: more of them
+
+00:13:37.278 --> 00:13:40.000
+Caption: so if you actually have a four cpu
+
+00:13:38.880 --> 00:13:41.440
+Caption: database
+
+00:13:40.000 --> 00:13:43.838
+Caption: you should actually only have eight
+
+00:13:41.440 --> 00:13:45.198
+Caption: connections that donate
+
+00:13:43.838 --> 00:13:46.398
+Caption: it might be counterintuitive but next
+
+00:13:45.198 --> 00:13:48.239
+Caption: time you have database performance
+
+00:13:46.398 --> 00:13:49.599
+Caption: problems try reducing the number of
+
+00:13:48.239 --> 00:13:53.039
+Caption: connections and see what happens you
+
+00:13:49.599 --> 00:13:53.039
+Caption: might actually be pleasantly surprised
+
+00:13:53.359 --> 00:13:56.958
+Caption: but that&#39;s all be interesting but what
+
+00:13:55.119 --> 00:13:58.320
+Caption: about the code itself
+
+00:13:56.958 --> 00:13:59.679
+Caption: we&#39;re all developers
+
+00:13:58.320 --> 00:14:01.440
+Caption: vast majority maybe developers are
+
+00:13:59.679 --> 00:14:04.799
+Caption: interested how do i write this code
+
+00:14:01.440 --> 00:14:06.559
+Caption: faster or more efficiently
+
+00:14:04.799 --> 00:14:08.479
+Caption: so first thing don&#39;t outsmart the
+
+00:14:06.559 --> 00:14:10.479
+Caption: compilers
+
+00:14:08.479 --> 00:14:13.119
+Caption: there are multiple registers on the cpu
+
+00:14:10.479 --> 00:14:14.000
+Caption: and they all run in parallel
+
+00:14:13.119 --> 00:14:16.320
+Caption: so
+
+00:14:14.000 --> 00:14:19.679
+Caption: compilers look for code patterns in your
+
+00:14:16.320 --> 00:14:21.440
+Caption: code to optimize the register use
+
+00:14:19.679 --> 00:14:22.958
+Caption: so if you&#39;re looking at your code going
+
+00:14:21.440 --> 00:14:25.278
+Caption: what&#39;s that thing doing and i&#39;ve tried
+
+00:14:22.958 --> 00:14:26.880
+Caption: to do that to make it highly optimized
+
+00:14:25.278 --> 00:14:28.958
+Caption: your poor compiler is doing exactly the
+
+00:14:26.880 --> 00:14:31.599
+Caption: same thing going how do i optimize this
+
+00:14:28.958 --> 00:14:33.359
+Caption: thing
+
+00:14:31.599 --> 00:14:35.679
+Caption: basically the rule of this is write
+
+00:14:33.359 --> 00:14:37.599
+Caption: readable code that camps well
+
+00:14:35.679 --> 00:14:38.958
+Caption: it sits well doesn&#39;t have overheads it
+
+00:14:37.599 --> 00:14:40.319
+Caption: camps well and it&#39;s readable so the
+
+00:14:38.958 --> 00:14:42.638
+Caption: compiler can see the patterns in it and
+
+00:14:40.320 --> 00:14:44.398
+Caption: actually optimize it
+
+00:14:42.638 --> 00:14:46.799
+Caption: the question is what style of readable
+
+00:14:44.398 --> 00:14:46.799
+Caption: code
+
+00:14:46.958 --> 00:14:49.838
+Caption: we need to look at memory management to
+
+00:14:48.638 --> 00:14:50.958
+Caption: have a look at this
+
+00:14:49.838 --> 00:14:52.239
+Caption: because when you look at memory you&#39;ve
+
+00:14:50.958 --> 00:14:53.679
+Caption: got the lower layer
+
+00:14:52.239 --> 00:14:55.119
+Caption: memory which is all the physical memory
+
+00:14:53.679 --> 00:14:56.559
+Caption: into there and then what happens is
+
+00:14:55.119 --> 00:14:59.119
+Caption: applications take buffers out of the
+
+00:14:56.559 --> 00:15:00.719
+Caption: memory it doesn&#39;t take the full process
+
+00:14:59.119 --> 00:15:02.479
+Caption: full size otherwise you can run too much
+
+00:15:00.719 --> 00:15:03.838
+Caption: on your cpu it only takes what it needs
+
+00:15:02.479 --> 00:15:05.760
+Caption: it buffers and then sort of takes more
+
+00:15:03.838 --> 00:15:07.518
+Caption: and more as it needs from the os and
+
+00:15:05.760 --> 00:15:08.958
+Caption: then pages there so effectively that&#39;s
+
+00:15:07.518 --> 00:15:10.880
+Caption: what it&#39;s doing and then your compiler
+
+00:15:08.958 --> 00:15:12.398
+Caption: comes in and starts typing that memory
+
+00:15:10.880 --> 00:15:13.838
+Caption: so it says there&#39;s a byte and there&#39;s a
+
+00:15:12.398 --> 00:15:15.679
+Caption: chart which is two bytes and there&#39;s an
+
+00:15:13.838 --> 00:15:17.919
+Caption: int which is four bytes float four bytes
+
+00:15:15.679 --> 00:15:20.799
+Caption: and references and so forth
+
+00:15:17.919 --> 00:15:22.958
+Caption: and then we started adding oo on top of
+
+00:15:20.799 --> 00:15:24.398
+Caption: that so basically
+
+00:15:22.958 --> 00:15:25.760
+Caption: you&#39;ve got all these types they&#39;re made
+
+00:15:24.398 --> 00:15:27.919
+Caption: private and then you start accessing
+
+00:15:25.760 --> 00:15:29.440
+Caption: them by methods
+
+00:15:27.919 --> 00:15:30.479
+Caption: and this may be slightly controversial
+
+00:15:29.440 --> 00:15:31.838
+Caption: the functional progress might have an
+
+00:15:30.479 --> 00:15:35.119
+Caption: issue with me
+
+00:15:31.838 --> 00:15:36.559
+Caption: but if never legal up is that functions
+
+00:15:35.119 --> 00:15:37.919
+Caption: then are another level up which just
+
+00:15:36.559 --> 00:15:38.958
+Caption: don&#39;t have the mutate on they don&#39;t have
+
+00:15:37.919 --> 00:15:40.159
+Caption: the settlement they have all the other
+
+00:15:38.958 --> 00:15:41.758
+Caption: methods but they don&#39;t have the
+
+00:15:40.159 --> 00:15:44.239
+Caption: mutations so you just create muni data
+
+00:15:41.758 --> 00:15:44.239
+Caption: all the time
+
+00:15:44.479 --> 00:15:49.679
+Caption: now you can argue which way or form but
+
+00:15:47.359 --> 00:15:53.078
+Caption: typically you get less bugs as you go
+
+00:15:49.679 --> 00:15:53.078
+Caption: further up
+
+00:15:54.078 --> 00:15:57.518
+Caption: but also when you&#39;re dealing with this
+
+00:15:56.000 --> 00:15:59.278
+Caption: level you&#39;re dealing with mutation
+
+00:15:57.518 --> 00:16:01.119
+Caption: you&#39;re dealing with changing data you&#39;re
+
+00:15:59.278 --> 00:16:02.479
+Caption: dealing with mutations which means locks
+
+00:16:01.119 --> 00:16:05.838
+Caption: which means contention which means all
+
+00:16:02.479 --> 00:16:05.838
+Caption: these bits and pieces on top of it
+
+00:16:07.039 --> 00:16:10.799
+Caption: but with functional you&#39;re just creating
+
+00:16:08.559 --> 00:16:12.958
+Caption: new things all the time
+
+00:16:10.799 --> 00:16:14.559
+Caption: no new mutation there&#39;s no actual real
+
+00:16:12.958 --> 00:16:16.559
+Caption: need to lock you&#39;re just creating new
+
+00:16:14.559 --> 00:16:18.638
+Caption: things and processing and if new threads
+
+00:16:16.559 --> 00:16:19.758
+Caption: need to access it&#39;s read-only memory so
+
+00:16:18.638 --> 00:16:21.599
+Caption: go for it
+
+00:16:19.758 --> 00:16:23.039
+Caption: caveat on that a lot of functional
+
+00:16:21.599 --> 00:16:25.198
+Caption: libraries actually use mutation under
+
+00:16:23.039 --> 00:16:26.719
+Caption: hood just be careful of it but generally
+
+00:16:25.198 --> 00:16:28.559
+Caption: functional style code which is just
+
+00:16:26.719 --> 00:16:31.439
+Caption: always creating things without mutation
+
+00:16:28.559 --> 00:16:32.479
+Caption: doesn&#39;t need the locks around it
+
+00:16:31.440 --> 00:16:33.758
+Caption: gently
+
+00:16:32.479 --> 00:16:37.838
+Caption: so what we actually do in high
+
+00:16:33.758 --> 00:16:37.838
+Caption: performance is we prefer functional code
+
+00:16:39.838 --> 00:16:42.078
+Caption: but
+
+00:16:42.638 --> 00:16:46.239
+Caption: we can use memory to our advantage
+
+00:16:46.320 --> 00:16:52.720
+Caption: so if i was to parse a http get request
+
+00:16:50.000 --> 00:16:54.078
+Caption: in a object or functional type of way
+
+00:16:52.719 --> 00:16:56.398
+Caption: this would be the kind of thing you do
+
+00:16:54.078 --> 00:16:58.719
+Caption: you go you know buffer tostring and then
+
+00:16:56.398 --> 00:17:01.119
+Caption: check that the string starts with get
+
+00:16:58.719 --> 00:17:03.198
+Caption: a lot of operations in there
+
+00:17:01.119 --> 00:17:05.678
+Caption: but i can kind of know that
+
+00:17:03.198 --> 00:17:07.359
+Caption: http is us actually octates so if i use
+
+00:17:05.678 --> 00:17:09.119
+Caption: the compiler typing
+
+00:17:07.359 --> 00:17:11.198
+Caption: i can just check the first three bytes
+
+00:17:09.119 --> 00:17:12.958
+Caption: to go ah is the first byte of g is the
+
+00:17:11.198 --> 00:17:14.640
+Caption: second byte an e and there&#39;s the third
+
+00:17:12.958 --> 00:17:17.038
+Caption: byte t now i&#39;ve done three operations a
+
+00:17:14.640 --> 00:17:17.039
+Caption: lot less
+
+00:17:17.520 --> 00:17:20.400
+Caption: but that&#39;s not good enough
+
+00:17:20.798 --> 00:17:25.119
+Caption: i can actually use the knowledge the
+
+00:17:22.318 --> 00:17:27.599
+Caption: registers are 64 bits
+
+00:17:25.119 --> 00:17:29.280
+Caption: that&#39;s 8 bytes
+
+00:17:27.599 --> 00:17:31.359
+Caption: so i can read the long out of the buffer
+
+00:17:29.280 --> 00:17:33.119
+Caption: and go right let&#39;s mask out the
+
+00:17:31.359 --> 00:17:35.038
+Caption: remaining five bytes and then just check
+
+00:17:33.119 --> 00:17:37.520
+Caption: the first three bytes now i&#39;ve done it
+
+00:17:35.038 --> 00:17:40.239
+Caption: in two operations
+
+00:17:37.520 --> 00:17:41.520
+Caption: and if i need to check the put one more
+
+00:17:40.239 --> 00:17:44.239
+Caption: operation
+
+00:17:41.520 --> 00:17:45.839
+Caption: a lot less involved
+
+00:17:44.239 --> 00:17:47.839
+Caption: and when you start looking at http
+
+00:17:45.839 --> 00:17:49.199
+Caption: limited parsing and bits and pieces you
+
+00:17:47.839 --> 00:17:50.479
+Caption: can actually use this to advantage you
+
+00:17:49.199 --> 00:17:53.678
+Caption: can sit there and go right read out
+
+00:17:50.479 --> 00:17:54.880
+Caption: eight bytes you mask out the bytes zero
+
+00:17:53.678 --> 00:17:57.199
+Caption: out the bytes for the character you&#39;re
+
+00:17:54.880 --> 00:17:59.359
+Caption: looking for trigger and overflow if
+
+00:17:57.199 --> 00:18:01.199
+Caption: there&#39;s an overflow bit because all hps
+
+00:17:59.359 --> 00:18:03.199
+Caption: is the last seven bite or seven bits of
+
+00:18:01.199 --> 00:18:04.399
+Caption: the bite and the top end bite is one
+
+00:18:03.199 --> 00:18:05.678
+Caption: bite it triggers an overflow into the
+
+00:18:04.400 --> 00:18:06.960
+Caption: top end bite
+
+00:18:05.678 --> 00:18:08.159
+Caption: mask that out and then check if there&#39;s
+
+00:18:06.959 --> 00:18:09.359
+Caption: an overflow if there&#39;s an overflow in
+
+00:18:08.160 --> 00:18:11.359
+Caption: every bite
+
+00:18:09.359 --> 00:18:13.439
+Caption: your character&#39;s not in there
+
+00:18:11.359 --> 00:18:15.199
+Caption: so instead of having to do a for loop
+
+00:18:13.439 --> 00:18:17.199
+Caption: which is eight operations and eight
+
+00:18:15.199 --> 00:18:18.719
+Caption: checks which is about 16 operations in
+
+00:18:17.199 --> 00:18:20.959
+Caption: total
+
+00:18:18.719 --> 00:18:23.119
+Caption: you can do this in four
+
+00:18:20.959 --> 00:18:24.880
+Caption: quarter of the effort
+
+00:18:23.119 --> 00:18:26.839
+Caption: and this is what&#39;s called bit twiddling
+
+00:18:24.880 --> 00:18:29.359
+Caption: if you&#39;ve never heard the
+
+00:18:26.839 --> 00:18:31.119
+Caption: term and there&#39;s bit twiddlers out there
+
+00:18:29.359 --> 00:18:32.479
+Caption: quite literally um
+
+00:18:31.119 --> 00:18:33.760
+Caption: and you can see sites a lot of the
+
+00:18:32.479 --> 00:18:35.760
+Caption: universities have sites that actually
+
+00:18:33.760 --> 00:18:37.919
+Caption: show you all bitterly tricks and so
+
+00:18:35.760 --> 00:18:39.119
+Caption: forth and this is very useful in
+
+00:18:37.918 --> 00:18:40.959
+Caption: shortcut you know shortcutting
+
+00:18:39.119 --> 00:18:42.798
+Caption: repetitive hd process
+
+00:18:40.959 --> 00:18:44.558
+Caption: now in office for it&#39;s used only for
+
+00:18:42.798 --> 00:18:46.319
+Caption: that the rest of the application server
+
+00:18:44.558 --> 00:18:47.199
+Caption: is using functional compiler upgrades
+
+00:18:46.319 --> 00:18:48.959
+Caption: code
+
+00:18:47.199 --> 00:18:50.239
+Caption: and the thing on this is typically there
+
+00:18:48.959 --> 00:18:51.918
+Caption: is little value bit twitter in your
+
+00:18:50.239 --> 00:18:54.160
+Caption: application logic because the compiler
+
+00:18:51.918 --> 00:18:55.038
+Caption: will come in and optimize it for you
+
+00:18:54.160 --> 00:18:56.640
+Caption: um
+
+00:18:55.038 --> 00:18:58.479
+Caption: so the moral of this is write
+
+00:18:56.640 --> 00:19:00.239
+Caption: functionally styled application code
+
+00:18:58.479 --> 00:19:02.558
+Caption: that the compiler generally optimizes
+
+00:19:00.239 --> 00:19:02.558
+Caption: for you
+
+00:19:03.760 --> 00:19:06.719
+Caption: so
+
+00:19:04.719 --> 00:19:08.959
+Caption: in summary
+
+00:19:06.719 --> 00:19:11.038
+Caption: hardware is about fast
+
+00:19:08.959 --> 00:19:12.640
+Caption: software is about efficiency
+
+00:19:11.038 --> 00:19:14.159
+Caption: understand the hardware at least in a
+
+00:19:12.640 --> 00:19:16.079
+Caption: logical level kind of understand that
+
+00:19:14.160 --> 00:19:17.760
+Caption: map of australia and where the cost is
+
+00:19:16.079 --> 00:19:19.519
+Caption: of getting the data
+
+00:19:17.760 --> 00:19:20.880
+Caption: code design is more important than
+
+00:19:19.520 --> 00:19:22.000
+Caption: coding language when i start hearing
+
+00:19:20.880 --> 00:19:24.160
+Caption: people complaining this language is
+
+00:19:22.000 --> 00:19:25.760
+Caption: fascinating
+
+00:19:24.160 --> 00:19:27.280
+Caption: it&#39;s how you write the code and manage
+
+00:19:25.760 --> 00:19:29.039
+Caption: it is more important
+
+00:19:27.280 --> 00:19:30.799
+Caption: minimize the number of threads ideally
+
+00:19:29.038 --> 00:19:32.319
+Caption: one per cpu minimize the number of
+
+00:19:30.798 --> 00:19:34.079
+Caption: database connections you may be very
+
+00:19:32.319 --> 00:19:34.880
+Caption: surprised when you do that consider
+
+00:19:34.079 --> 00:19:37.359
+Caption: topping
+
+00:19:34.880 --> 00:19:39.678
+Caption: operations over locking having on that
+
+00:19:37.359 --> 00:19:41.839
+Caption: if you&#39;ve got critical sections don&#39;t do
+
+00:19:39.678 --> 00:19:41.839
+Caption: that
+
+00:19:42.239 --> 00:19:45.359
+Caption: but try and use algorithms that use
+
+00:19:43.439 --> 00:19:46.798
+Caption: atomic operations rather than critical
+
+00:19:45.359 --> 00:19:48.719
+Caption: sections
+
+00:19:46.798 --> 00:19:50.079
+Caption: more often scaling instances is better
+
+00:19:48.719 --> 00:19:52.079
+Caption: than more cpus because you&#39;re not
+
+00:19:50.079 --> 00:19:54.239
+Caption: contending over ram and consider
+
+00:19:52.079 --> 00:19:57.918
+Caption: functional programming pro practices
+
+00:19:54.239 --> 00:20:00.079
+Caption: because lack of mutation
+
+00:19:57.918 --> 00:20:01.918
+Caption: all across cpus
+
+00:20:00.079 --> 00:20:03.439
+Caption: oh on that amount
+
+00:20:01.918 --> 00:20:06.918
+Caption: thank you and i&#39;m happy to take
+
+00:20:03.439 --> 00:20:06.918
+Caption: questions with time
+

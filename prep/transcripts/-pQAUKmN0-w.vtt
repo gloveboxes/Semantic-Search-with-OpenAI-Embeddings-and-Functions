@@ -1,0 +1,3767 @@
+WEBVTT
+
+00:00:03.198 --> 00:00:07.519
+Caption: all right uh so yeah today i&#39;m talking
+
+00:00:05.440 --> 00:00:09.039
+Caption: about feature toggles so let&#39;s toggle
+
+00:00:07.519 --> 00:00:11.519
+Caption: some features
+
+00:00:09.039 --> 00:00:13.440
+Caption: um before we start this is a picture of
+
+00:00:11.519 --> 00:00:14.798
+Caption: my face with a circle in it
+
+00:00:13.439 --> 00:00:16.639
+Caption: and my name
+
+00:00:14.798 --> 00:00:18.879
+Caption: if you wanted to tweet anything at me
+
+00:00:16.639 --> 00:00:20.639
+Caption: that&#39;s um that&#39;s my twitter handle and
+
+00:00:18.879 --> 00:00:22.159
+Caption: there&#39;s a website there with some more
+
+00:00:20.639 --> 00:00:24.719
+Caption: stuff about me if you wanted to have a
+
+00:00:22.159 --> 00:00:26.559
+Caption: look um this talk will be put up there
+
+00:00:24.719 --> 00:00:28.079
+Caption: um once they&#39;re made available on
+
+00:00:26.559 --> 00:00:30.399
+Caption: youtube
+
+00:00:28.079 --> 00:00:32.639
+Caption: another thing before we start uh thank
+
+00:00:30.399 --> 00:00:34.000
+Caption: you to our amazing sponsors um
+
+00:00:32.639 --> 00:00:36.479
+Caption: we keep saying that
+
+00:00:34.000 --> 00:00:37.919
+Caption: uh sorry that uh ddd doesn&#39;t happen um
+
+00:00:36.479 --> 00:00:39.360
+Caption: without the sponsors but i think it&#39;s
+
+00:00:37.919 --> 00:00:41.599
+Caption: just as much everyone who&#39;s bought a
+
+00:00:39.360 --> 00:00:43.840
+Caption: ticket and is sitting here as well um
+
+00:00:41.599 --> 00:00:47.038
+Caption: doesn&#39;t happen without the audience and
+
+00:00:43.840 --> 00:00:48.639
+Caption: buying for tickets so thank you
+
+00:00:47.039 --> 00:00:51.520
+Caption: all right so i want to start by going
+
+00:00:48.639 --> 00:00:53.439
+Caption: back to the title image i put on my uh
+
+00:00:51.520 --> 00:00:56.238
+Caption: on my slide here does anyone know where
+
+00:00:53.439 --> 00:00:56.238
+Caption: this image is from
+
+00:00:57.119 --> 00:01:02.159
+Caption: yeah it uh it&#39;s from uh a movie called
+
+00:00:59.599 --> 00:01:04.238
+Caption: the martian which was released in 2018.
+
+00:01:02.159 --> 00:01:05.919
+Caption: uh it&#39;s an image of the nasa mission
+
+00:01:04.238 --> 00:01:07.040
+Caption: control center in the context of that
+
+00:01:05.919 --> 00:01:09.599
+Caption: movie
+
+00:01:07.040 --> 00:01:11.520
+Caption: um so it&#39;s set slightly in the future
+
+00:01:09.599 --> 00:01:12.798
+Caption: it&#39;s more futuristic than what you might
+
+00:01:11.519 --> 00:01:14.319
+Caption: be used to
+
+00:01:12.799 --> 00:01:16.000
+Caption: um and i think it&#39;s definitely a bit of
+
+00:01:14.319 --> 00:01:17.519
+Caption: a cliche to use an image like this in my
+
+00:01:16.000 --> 00:01:19.439
+Caption: title slide like you might be getting a
+
+00:01:17.519 --> 00:01:20.798
+Caption: feeling of deja vu like you&#39;ve seen this
+
+00:01:19.439 --> 00:01:23.040
+Caption: talk before
+
+00:01:20.799 --> 00:01:25.439
+Caption: and i understand right like nasa&#39;s cool
+
+00:01:23.040 --> 00:01:27.680
+Caption: and space is really cool and sometimes
+
+00:01:25.439 --> 00:01:31.439
+Caption: launching a new piece of software to the
+
+00:01:27.680 --> 00:01:33.599
+Caption: world feels a bit like this
+
+00:01:31.439 --> 00:01:36.319
+Caption: but i&#39;m using this image for my title
+
+00:01:33.599 --> 00:01:37.919
+Caption: slide with some irony because i think
+
+00:01:36.319 --> 00:01:40.478
+Caption: this actually represents the opposite of
+
+00:01:37.919 --> 00:01:42.078
+Caption: what we want to do in the real world is
+
+00:01:40.478 --> 00:01:43.758
+Caption: why
+
+00:01:42.079 --> 00:01:45.279
+Caption: nasa typically has to work really hard
+
+00:01:43.759 --> 00:01:46.959
+Caption: to prevent anything going wrong for
+
+00:01:45.279 --> 00:01:49.360
+Caption: obvious reasons
+
+00:01:46.959 --> 00:01:50.959
+Caption: that&#39;s why they have mission control
+
+00:01:49.360 --> 00:01:53.279
+Caption: launching people into space is very
+
+00:01:50.959 --> 00:01:55.199
+Caption: expensive and very dangerous
+
+00:01:53.279 --> 00:01:57.118
+Caption: more so when something goes wrong we
+
+00:01:55.199 --> 00:01:58.718
+Caption: want to avoid that
+
+00:01:57.119 --> 00:02:00.079
+Caption: so i&#39;m not going to spoil it but for
+
+00:01:58.719 --> 00:02:02.880
+Caption: those who might not have seen this movie
+
+00:02:00.079 --> 00:02:04.560
+Caption: the mission does go very wrong basically
+
+00:02:02.879 --> 00:02:07.680
+Caption: there&#39;s an incident and one of the
+
+00:02:04.559 --> 00:02:10.639
+Caption: astronauts his name is mark watney
+
+00:02:07.680 --> 00:02:12.720
+Caption: is left on mars by himself
+
+00:02:10.639 --> 00:02:15.839
+Caption: probably goes without saying that
+
+00:02:12.720 --> 00:02:19.520
+Caption: this kind of incident was unexpected so
+
+00:02:15.839 --> 00:02:20.639
+Caption: no amount of planning or pre-preparation
+
+00:02:19.520 --> 00:02:23.440
+Caption: could have prepared them for this
+
+00:02:20.639 --> 00:02:24.720
+Caption: scenario
+
+00:02:23.440 --> 00:02:26.800
+Caption: and i think the real problem with this
+
+00:02:24.720 --> 00:02:29.040
+Caption: image or the real problem with
+
+00:02:26.800 --> 00:02:31.120
+Caption: the people in mission control was not a
+
+00:02:29.039 --> 00:02:33.199
+Caption: single person in this room
+
+00:02:31.119 --> 00:02:35.679
+Caption: has any agency to to help him fix this
+
+00:02:33.199 --> 00:02:37.679
+Caption: problem mark&#39;s out there on his own
+
+00:02:35.679 --> 00:02:39.039
+Caption: they can&#39;t provide any direct support to
+
+00:02:37.679 --> 00:02:40.319
+Caption: mark
+
+00:02:39.039 --> 00:02:41.679
+Caption: they actually couldn&#39;t communicate with
+
+00:02:40.319 --> 00:02:43.759
+Caption: him either
+
+00:02:41.679 --> 00:02:45.359
+Caption: mostly all they can really do is just
+
+00:02:43.759 --> 00:02:48.238
+Caption: sit in front of those screens and watch
+
+00:02:45.360 --> 00:02:48.238
+Caption: as everything happens
+
+00:02:48.720 --> 00:02:52.800
+Caption: i think we can draw some comparisons to
+
+00:02:50.800 --> 00:02:53.919
+Caption: this situation in history
+
+00:02:52.800 --> 00:02:56.559
+Caption: uh in the history of software
+
+00:02:53.919 --> 00:02:58.958
+Caption: development our software development
+
+00:02:56.559 --> 00:03:00.800
+Caption: so microsoft windows is historically
+
+00:02:58.958 --> 00:03:01.679
+Caption: very very expensive piece of software to
+
+00:03:00.800 --> 00:03:04.639
+Caption: build
+
+00:03:01.679 --> 00:03:06.079
+Caption: um much like a rocket launch right
+
+00:03:04.639 --> 00:03:07.759
+Caption: microsoft has to spend an enormous
+
+00:03:06.080 --> 00:03:10.158
+Caption: amount of money to make sure that there
+
+00:03:07.759 --> 00:03:11.839
+Caption: are a few as few bugs as possible
+
+00:03:10.158 --> 00:03:14.000
+Caption: um they have to be absolutely certain
+
+00:03:11.839 --> 00:03:15.598
+Caption: that everything works before they burn
+
+00:03:14.000 --> 00:03:18.479
+Caption: their copy of that software onto that
+
+00:03:15.598 --> 00:03:20.479
+Caption: disk because once it&#39;s on that disk
+
+00:03:18.479 --> 00:03:22.238
+Caption: and then once they put that disk inside
+
+00:03:20.479 --> 00:03:24.639
+Caption: the box and then they put that box
+
+00:03:22.238 --> 00:03:26.080
+Caption: inside a bigger box in a truck
+
+00:03:24.639 --> 00:03:28.158
+Caption: there&#39;s basically nothing they can do
+
+00:03:26.080 --> 00:03:30.958
+Caption: after that point
+
+00:03:28.158 --> 00:03:33.518
+Caption: uh fixing something after launch for for
+
+00:03:30.958 --> 00:03:36.958
+Caption: microsoft for windows engineers is an
+
+00:03:33.518 --> 00:03:36.958
+Caption: exercise that&#39;s very very expensive
+
+00:03:37.598 --> 00:03:40.798
+Caption: there are a lot of changes and new
+
+00:03:38.958 --> 00:03:43.039
+Caption: releases in this particular
+
+00:03:40.798 --> 00:03:45.039
+Caption: version of windows so this delayed the
+
+00:03:43.039 --> 00:03:46.798
+Caption: launch and then thusly increased the
+
+00:03:45.039 --> 00:03:48.238
+Caption: risk
+
+00:03:46.798 --> 00:03:49.679
+Caption: and this meant that more testing was
+
+00:03:48.238 --> 00:03:52.158
+Caption: going to be required
+
+00:03:49.679 --> 00:03:53.518
+Caption: so microsoft always tests
+
+00:03:52.158 --> 00:03:55.039
+Caption: windows with a lot of different
+
+00:03:53.518 --> 00:03:57.759
+Caption: configurations of hardware and stuff
+
+00:03:55.039 --> 00:03:58.839
+Caption: like that but vista failed because of
+
+00:03:57.759 --> 00:04:01.199
+Caption: unforeseen
+
+00:03:58.839 --> 00:04:02.399
+Caption: circumstances that happened after launch
+
+00:04:01.199 --> 00:04:04.080
+Caption: so essentially they were testing the
+
+00:04:02.399 --> 00:04:05.839
+Caption: wrong things
+
+00:04:04.080 --> 00:04:08.080
+Caption: essentially what happened with vista
+
+00:04:05.839 --> 00:04:09.279
+Caption: particularly was they were at odds at
+
+00:04:08.080 --> 00:04:10.639
+Caption: the time with
+
+00:04:09.279 --> 00:04:12.399
+Caption: their hardware
+
+00:04:10.639 --> 00:04:14.559
+Caption: developers
+
+00:04:12.399 --> 00:04:16.720
+Caption: and then those hardware builders
+
+00:04:14.559 --> 00:04:18.880
+Caption: as maybe a better word they went against
+
+00:04:16.720 --> 00:04:20.079
+Caption: the advice of microsoft and shipped
+
+00:04:18.880 --> 00:04:22.639
+Caption: configurations that weren&#39;t really
+
+00:04:20.079 --> 00:04:25.680
+Caption: compatible with this software
+
+00:04:22.639 --> 00:04:27.199
+Caption: so this was an unexpected event
+
+00:04:25.679 --> 00:04:29.039
+Caption: it&#39;s probably a little bit unfair to
+
+00:04:27.199 --> 00:04:30.479
+Caption: pick on vista because a lot of the same
+
+00:04:29.040 --> 00:04:31.919
+Caption: problems were true of any piece of
+
+00:04:30.479 --> 00:04:33.600
+Caption: software at the time and any windows
+
+00:04:31.919 --> 00:04:35.279
+Caption: release or any like any large releases
+
+00:04:33.600 --> 00:04:37.440
+Caption: of software at the time it was pretty
+
+00:04:35.279 --> 00:04:39.199
+Caption: common
+
+00:04:37.440 --> 00:04:40.880
+Caption: so going back to the martian for a
+
+00:04:39.199 --> 00:04:43.040
+Caption: little bit
+
+00:04:40.880 --> 00:04:45.279
+Caption: this is an image from a scene without
+
+00:04:43.040 --> 00:04:47.360
+Caption: spoiling anything again hopefully
+
+00:04:45.279 --> 00:04:48.720
+Caption: uh it&#39;s an image from a scene where mark
+
+00:04:47.359 --> 00:04:51.039
+Caption: was able to make first contact with
+
+00:04:48.720 --> 00:04:54.399
+Caption: mission control back on earth
+
+00:04:51.040 --> 00:04:56.320
+Caption: um so he used a pretty clever hack
+
+00:04:54.399 --> 00:04:58.479
+Caption: to to get this to work it was it was
+
+00:04:56.320 --> 00:04:59.440
+Caption: quite an interesting part of the movie
+
+00:04:58.479 --> 00:05:01.759
+Caption: um but
+
+00:04:59.440 --> 00:05:04.239
+Caption: nonetheless communication was still
+
+00:05:01.759 --> 00:05:06.559
+Caption: pretty slow and difficult and that&#39;s a
+
+00:05:04.239 --> 00:05:09.199
+Caption: problem so if if mark was a windows
+
+00:05:06.559 --> 00:05:11.279
+Caption: vista user we&#39;d probably describe him as
+
+00:05:09.199 --> 00:05:12.399
+Caption: a power user
+
+00:05:11.279 --> 00:05:14.479
+Caption: and the fact that he was able to
+
+00:05:12.399 --> 00:05:17.519
+Caption: communicate with the crew on earth at
+
+00:05:14.479 --> 00:05:19.039
+Caption: all was actually largely incidental
+
+00:05:17.519 --> 00:05:20.079
+Caption: this is probably
+
+00:05:19.039 --> 00:05:22.239
+Caption: the same could really be said for
+
+00:05:20.079 --> 00:05:23.519
+Caption: windows vista as well
+
+00:05:22.239 --> 00:05:25.199
+Caption: customers would
+
+00:05:23.519 --> 00:05:27.440
+Caption: typically buy a new machine that a
+
+00:05:25.199 --> 00:05:28.800
+Caption: typical customer not a power user would
+
+00:05:27.440 --> 00:05:30.880
+Caption: buy a machine
+
+00:05:28.799 --> 00:05:32.799
+Caption: um and they&#39;d quickly find all of these
+
+00:05:30.880 --> 00:05:34.239
+Caption: bugs that were common amongst uh lots of
+
+00:05:32.799 --> 00:05:36.079
+Caption: people who bought this
+
+00:05:34.239 --> 00:05:37.599
+Caption: um and it was very difficult for them to
+
+00:05:36.079 --> 00:05:39.839
+Caption: communicate with the engineers that
+
+00:05:37.600 --> 00:05:41.279
+Caption: built microsoft microsoft windows as
+
+00:05:39.839 --> 00:05:42.399
+Caption: well as um
+
+00:05:41.279 --> 00:05:43.600
+Caption: they couldn&#39;t really get the support
+
+00:05:42.399 --> 00:05:45.519
+Caption: they needed
+
+00:05:43.600 --> 00:05:47.199
+Caption: there&#39;s if they did get in touch with
+
+00:05:45.519 --> 00:05:48.559
+Caption: support there was often very little that
+
+00:05:47.199 --> 00:05:50.000
+Caption: those microsoft engineers could do
+
+00:05:48.559 --> 00:05:51.839
+Caption: because they had software that was burnt
+
+00:05:50.000 --> 00:05:53.839
+Caption: onto a disk so it was very difficult to
+
+00:05:51.839 --> 00:05:54.639
+Caption: change at that point
+
+00:05:53.839 --> 00:05:55.919
+Caption: and
+
+00:05:54.639 --> 00:05:57.039
+Caption: ask the question
+
+00:05:55.919 --> 00:05:59.279
+Caption: is this something that we really want
+
+00:05:57.039 --> 00:06:00.479
+Caption: for our customers whether it be our
+
+00:05:59.279 --> 00:06:02.559
+Caption: customer
+
+00:06:00.479 --> 00:06:04.399
+Caption: alone by himself on mars or a customer
+
+00:06:02.559 --> 00:06:06.639
+Caption: who&#39;s bought a machine with windows
+
+00:06:04.399 --> 00:06:08.160
+Caption: vista on it i don&#39;t think so i think
+
+00:06:06.639 --> 00:06:09.839
+Caption: we&#39;ve learned enough about software
+
+00:06:08.160 --> 00:06:12.559
+Caption: development over the years vista was a
+
+00:06:09.839 --> 00:06:14.559
+Caption: long time ago that we can do better
+
+00:06:12.559 --> 00:06:16.880
+Caption: and that&#39;s exactly what feature toggles
+
+00:06:14.559 --> 00:06:16.880
+Caption: are for
+
+00:06:17.199 --> 00:06:20.000
+Caption: so quick outline
+
+00:06:18.559 --> 00:06:22.160
+Caption: i&#39;m going to go through a really quick a
+
+00:06:20.000 --> 00:06:23.440
+Caption: bridge history of feature toggles
+
+00:06:22.160 --> 00:06:24.479
+Caption: that&#39;s important
+
+00:06:23.440 --> 00:06:27.119
+Caption: and then i&#39;m going to talk about what
+
+00:06:24.479 --> 00:06:28.880
+Caption: exactly a feature toggle is and then i&#39;m
+
+00:06:27.119 --> 00:06:30.959
+Caption: going to finish on some techniques and
+
+00:06:28.880 --> 00:06:32.800
+Caption: strategy
+
+00:06:30.959 --> 00:06:35.679
+Caption: so the story of feature toggle starts
+
+00:06:32.799 --> 00:06:38.239
+Caption: with this book um it was written by some
+
+00:06:35.679 --> 00:06:40.160
+Caption: microsoft engineers who built microsoft
+
+00:06:38.239 --> 00:06:41.679
+Caption: word early versions of word and excel
+
+00:06:40.160 --> 00:06:43.279
+Caption: and one version of windows i can&#39;t
+
+00:06:41.679 --> 00:06:45.199
+Caption: remember which one it was released in
+
+00:06:43.279 --> 00:06:48.319
+Caption: about 1995
+
+00:06:45.199 --> 00:06:50.239
+Caption: might be windows 95 in that case um so
+
+00:06:48.319 --> 00:06:51.679
+Caption: it&#39;s kind of an old book and i haven&#39;t
+
+00:06:50.239 --> 00:06:53.359
+Caption: actually read it i&#39;m not i&#39;m not going
+
+00:06:51.679 --> 00:06:54.959
+Caption: to admit that i&#39;ve read this and i
+
+00:06:53.359 --> 00:06:56.079
+Caption: probably won&#39;t recommend reading it
+
+00:06:54.959 --> 00:06:58.319
+Caption: either i don&#39;t think a lot of the
+
+00:06:56.079 --> 00:07:00.478
+Caption: information in here is relevant anymore
+
+00:06:58.319 --> 00:07:02.799
+Caption: but it does have one interesting
+
+00:07:00.479 --> 00:07:04.880
+Caption: section in the book uh it goes through
+
+00:07:02.799 --> 00:07:06.239
+Caption: the details of how microsoft was
+
+00:07:04.880 --> 00:07:07.759
+Caption: developing software at that time what
+
+00:07:06.239 --> 00:07:10.479
+Caption: their process was
+
+00:07:07.759 --> 00:07:12.239
+Caption: um essentially it was a 10-step process
+
+00:07:10.479 --> 00:07:14.160
+Caption: and it would probably look pretty
+
+00:07:12.239 --> 00:07:16.959
+Caption: familiar to most people now
+
+00:07:14.160 --> 00:07:18.800
+Caption: even though this was set in 1995
+
+00:07:16.959 --> 00:07:20.638
+Caption: this process has a name
+
+00:07:18.799 --> 00:07:22.239
+Caption: it&#39;s not it&#39;s not exactly like this now
+
+00:07:20.639 --> 00:07:24.160
+Caption: in modern software development but this
+
+00:07:22.239 --> 00:07:27.759
+Caption: process is something that we use today
+
+00:07:24.160 --> 00:07:27.759
+Caption: and it&#39;s called trunk based development
+
+00:07:28.160 --> 00:07:32.160
+Caption: so trunk based development actually as
+
+00:07:29.759 --> 00:07:33.919
+Caption: it turns out was pretty much
+
+00:07:32.160 --> 00:07:36.160
+Caption: it was getting pushed by um a lot of
+
+00:07:33.919 --> 00:07:38.800
+Caption: people around that time um
+
+00:07:36.160 --> 00:07:41.039
+Caption: starting in around 1985 to 2005. so you
+
+00:07:38.799 --> 00:07:43.119
+Caption: had this book that came out it was 1995
+
+00:07:41.039 --> 00:07:44.720
+Caption: but around the same time thought works
+
+00:07:43.119 --> 00:07:47.039
+Caption: were really pushing this as well they
+
+00:07:44.720 --> 00:07:49.360
+Caption: had a piece of um it was a build server
+
+00:07:47.039 --> 00:07:50.720
+Caption: called cruise control
+
+00:07:49.359 --> 00:07:53.679
+Caption: and that was really kind of pushing the
+
+00:07:50.720 --> 00:07:55.759
+Caption: idea of continuous integration
+
+00:07:53.679 --> 00:07:58.799
+Caption: and then something happened
+
+00:07:55.759 --> 00:08:00.559
+Caption: we had git and github not to say that
+
+00:07:58.799 --> 00:08:02.638
+Caption: either of these software are
+
+00:08:00.559 --> 00:08:06.239
+Caption: particularly bad like um who uses git i
+
+00:08:02.639 --> 00:08:06.240
+Caption: think everyone does right yeah
+
+00:08:06.559 --> 00:08:10.399
+Caption: it introduced the idea of distributed
+
+00:08:08.639 --> 00:08:12.399
+Caption: version control first of all
+
+00:08:10.399 --> 00:08:13.839
+Caption: but also lightweight branching so
+
+00:08:12.399 --> 00:08:15.839
+Caption: branching before
+
+00:08:13.839 --> 00:08:17.839
+Caption: git came along was this exercise that
+
+00:08:15.839 --> 00:08:19.279
+Caption: was quite heavy um
+
+00:08:17.839 --> 00:08:21.759
+Caption: it wasn&#39;t slow or anything like that or
+
+00:08:19.279 --> 00:08:24.399
+Caption: difficult but uh you did need to take an
+
+00:08:21.759 --> 00:08:27.119
+Caption: entire copy of all the code and create a
+
+00:08:24.399 --> 00:08:29.039
+Caption: branch with that um whereas was able to
+
+00:08:27.119 --> 00:08:31.039
+Caption: do that without taking an entire copy of
+
+00:08:29.039 --> 00:08:33.359
+Caption: all your code all at once so it took up
+
+00:08:31.039 --> 00:08:35.119
+Caption: disk space
+
+00:08:33.359 --> 00:08:36.640
+Caption: and then github came along shortly after
+
+00:08:35.119 --> 00:08:38.398
+Caption: and introduced the idea of pull requests
+
+00:08:36.640 --> 00:08:40.718
+Caption: so if you think about those steps in
+
+00:08:38.398 --> 00:08:41.518
+Caption: that process there was a step where if
+
+00:08:40.718 --> 00:08:43.200
+Caption: we&#39;ve
+
+00:08:41.518 --> 00:08:44.799
+Caption: successfully built our software and all
+
+00:08:43.200 --> 00:08:46.559
+Caption: the tests passed and we&#39;ve run our smoke
+
+00:08:44.799 --> 00:08:49.039
+Caption: tests and stuff like that we can just
+
+00:08:46.559 --> 00:08:50.559
+Caption: merge that software straight back into
+
+00:08:49.039 --> 00:08:52.159
+Caption: whatever we&#39;re working on microsoft word
+
+00:08:50.559 --> 00:08:54.880
+Caption: for example so our feature goes straight
+
+00:08:52.159 --> 00:08:56.799
+Caption: in but pull requests add another layer
+
+00:08:54.880 --> 00:09:00.320
+Caption: of friction there in order to get your
+
+00:08:56.799 --> 00:09:01.440
+Caption: software into the product um by creating
+
+00:09:00.320 --> 00:09:03.440
+Caption: a step where you have to have a review
+
+00:09:01.440 --> 00:09:04.799
+Caption: first sometimes
+
+00:09:03.440 --> 00:09:06.720
+Caption: i don&#39;t know if anyone&#39;s experienced
+
+00:09:04.799 --> 00:09:08.559
+Caption: this but have a pull request open for
+
+00:09:06.719 --> 00:09:12.000
+Caption: several days takes a long time that&#39;s
+
+00:09:08.559 --> 00:09:12.000
+Caption: just adding friction to the process
+
+00:09:12.159 --> 00:09:16.799
+Caption: so people got fed up with this
+
+00:09:14.640 --> 00:09:19.760
+Caption: and then some developments start to come
+
+00:09:16.799 --> 00:09:21.679
+Caption: out after that so around the end of 2010
+
+00:09:19.760 --> 00:09:23.119
+Caption: a couple of books came out so we have
+
+00:09:21.679 --> 00:09:25.039
+Caption: the book by
+
+00:09:23.119 --> 00:09:27.119
+Caption: dave farley and jess humble that&#39;s
+
+00:09:25.039 --> 00:09:29.119
+Caption: continuous delivery
+
+00:09:27.119 --> 00:09:31.679
+Caption: really pushing the idea of
+
+00:09:29.119 --> 00:09:33.599
+Caption: high degrees of automation lots of
+
+00:09:31.679 --> 00:09:35.599
+Caption: avoiding manual testing
+
+00:09:33.599 --> 00:09:38.319
+Caption: and trunk-based development is part of
+
+00:09:35.599 --> 00:09:39.679
+Caption: that book as well as well as accelerate
+
+00:09:38.320 --> 00:09:40.958
+Caption: you might have seen some other people in
+
+00:09:39.679 --> 00:09:42.239
+Caption: this conference talking about that book
+
+00:09:40.958 --> 00:09:44.000
+Caption: as well
+
+00:09:42.239 --> 00:09:45.919
+Caption: and these also coincide with the devops
+
+00:09:44.000 --> 00:09:48.000
+Caption: movement and various other things as
+
+00:09:45.919 --> 00:09:51.639
+Caption: well and this is where our story of
+
+00:09:48.000 --> 00:09:51.640
+Caption: feature toggle starts
+
+00:09:52.080 --> 00:09:56.000
+Caption: so i want to talk about something
+
+00:09:54.080 --> 00:09:58.799
+Caption: that is in the continuous delivery book
+
+00:09:56.000 --> 00:10:00.080
+Caption: by dave farley it&#39;s this idea of cones
+
+00:09:58.799 --> 00:10:02.159
+Caption: of change
+
+00:10:00.080 --> 00:10:03.519
+Caption: so you can imagine two developers are
+
+00:10:02.159 --> 00:10:05.518
+Caption: working on a new feature so they&#39;re
+
+00:10:03.518 --> 00:10:06.799
+Caption: working inside the same repository for
+
+00:10:05.518 --> 00:10:08.639
+Caption: example
+
+00:10:06.799 --> 00:10:12.320
+Caption: and we can imagine working on that
+
+00:10:08.640 --> 00:10:14.160
+Caption: feature as the culmination of a numerous
+
+00:10:12.320 --> 00:10:16.000
+Caption: changes so we&#39;ll open up a file we&#39;ll
+
+00:10:14.159 --> 00:10:18.879
+Caption: make a little change there we&#39;ll open up
+
+00:10:16.000 --> 00:10:20.559
+Caption: another file maybe add new files delete
+
+00:10:18.880 --> 00:10:22.320
+Caption: files and stuff like that
+
+00:10:20.559 --> 00:10:23.838
+Caption: and that accumulation of change is is
+
+00:10:22.320 --> 00:10:25.200
+Caption: known as a cone of change and the
+
+00:10:23.838 --> 00:10:28.880
+Caption: problem with
+
+00:10:25.200 --> 00:10:30.880
+Caption: uh large amounts of change is or the
+
+00:10:28.880 --> 00:10:33.039
+Caption: culmination of lots of change is that
+
+00:10:30.880 --> 00:10:35.760
+Caption: eventually that cone gets wide enough
+
+00:10:33.039 --> 00:10:38.078
+Caption: that it might clash with other cones
+
+00:10:35.760 --> 00:10:40.000
+Caption: we can see those collisions there
+
+00:10:38.078 --> 00:10:42.000
+Caption: those collisions are in the form of
+
+00:10:40.000 --> 00:10:43.359
+Caption: merge conflicts but also it can be code
+
+00:10:42.000 --> 00:10:44.880
+Caption: that
+
+00:10:43.359 --> 00:10:46.799
+Caption: is going completely in two different
+
+00:10:44.880 --> 00:10:49.919
+Caption: directions it&#39;s really not able to be
+
+00:10:46.799 --> 00:10:52.159
+Caption: merged it gets difficult
+
+00:10:49.919 --> 00:10:54.000
+Caption: so we can see that yeah the wider our
+
+00:10:52.159 --> 00:10:55.359
+Caption: kind of change the more likely we are to
+
+00:10:54.000 --> 00:10:57.039
+Caption: have
+
+00:10:55.359 --> 00:11:01.479
+Caption: collisions there that are hard to hard
+
+00:10:57.039 --> 00:11:01.479
+Caption: to work with so how do we fix that
+
+00:11:02.078 --> 00:11:06.559
+Caption: picks up with the idea of continuous
+
+00:11:03.518 --> 00:11:09.039
+Caption: integration so instead of thinking about
+
+00:11:06.559 --> 00:11:10.559
+Caption: features what we can do instead is start
+
+00:11:09.039 --> 00:11:12.880
+Caption: to think about something that&#39;s smaller
+
+00:11:10.559 --> 00:11:14.479
+Caption: than a feature just a small change some
+
+00:11:12.880 --> 00:11:15.838
+Caption: some part of a feature but not the whole
+
+00:11:14.479 --> 00:11:17.919
+Caption: thing because those features could be
+
+00:11:15.838 --> 00:11:20.479
+Caption: too big and could be creating too many
+
+00:11:17.919 --> 00:11:21.518
+Caption: of those large cones
+
+00:11:20.479 --> 00:11:23.199
+Caption: so
+
+00:11:21.518 --> 00:11:24.320
+Caption: if we&#39;re going to go and change this up
+
+00:11:23.200 --> 00:11:25.919
+Caption: so that we&#39;re using continuous
+
+00:11:24.320 --> 00:11:27.359
+Caption: integration instead it will look
+
+00:11:25.919 --> 00:11:28.398
+Caption: something like this
+
+00:11:27.359 --> 00:11:29.760
+Caption: instead of
+
+00:11:28.398 --> 00:11:31.359
+Caption: keeping that feature to ourselves and
+
+00:11:29.760 --> 00:11:33.119
+Caption: building and building a building upon it
+
+00:11:31.359 --> 00:11:34.880
+Caption: let&#39;s commit
+
+00:11:33.119 --> 00:11:38.000
+Caption: to the trunk this is trunk based
+
+00:11:34.880 --> 00:11:39.919
+Caption: development um small changes
+
+00:11:38.000 --> 00:11:42.078
+Caption: and and
+
+00:11:39.919 --> 00:11:43.359
+Caption: yeah then what we can see here is we&#39;re
+
+00:11:42.078 --> 00:11:46.398
+Caption: not seeing those kinds of changes we&#39;re
+
+00:11:43.359 --> 00:11:49.838
+Caption: not seeing any sort of collisions there
+
+00:11:46.398 --> 00:11:49.838
+Caption: so that&#39;s continuous integration
+
+00:11:50.559 --> 00:11:54.398
+Caption: if we look at trunk based development
+
+00:11:52.078 --> 00:11:56.398
+Caption: versus something more traditional like
+
+00:11:54.398 --> 00:11:57.838
+Caption: feature branches now we go from having
+
+00:11:56.398 --> 00:12:00.320
+Caption: our branches be something that&#39;s
+
+00:11:57.838 --> 00:12:01.919
+Caption: long-lived um feature branches you might
+
+00:12:00.320 --> 00:12:04.398
+Caption: find you have a long-lived branch that&#39;s
+
+00:12:01.919 --> 00:12:05.679
+Caption: uh per environment for example so that&#39;s
+
+00:12:04.398 --> 00:12:06.638
+Caption: almost like the longest loop branch you
+
+00:12:05.679 --> 00:12:08.479
+Caption: can have you&#39;re not going to have an
+
+00:12:06.638 --> 00:12:10.559
+Caption: environment like dev
+
+00:12:08.479 --> 00:12:13.278
+Caption: come and go that&#39;s around forever
+
+00:12:10.559 --> 00:12:15.200
+Caption: versus something like a trunk based
+
+00:12:13.278 --> 00:12:19.039
+Caption: approach where branches are all geared
+
+00:12:15.200 --> 00:12:19.040
+Caption: to be short-lived as short as possible
+
+00:12:19.838 --> 00:12:24.239
+Caption: what typically happens with feature
+
+00:12:21.200 --> 00:12:26.480
+Caption: branches is the batch size for a release
+
+00:12:24.239 --> 00:12:28.078
+Caption: as in a new version that&#39;s usable for
+
+00:12:26.479 --> 00:12:30.320
+Caption: your customers
+
+00:12:28.078 --> 00:12:32.320
+Caption: is a number of features
+
+00:12:30.320 --> 00:12:34.320
+Caption: just because you&#39;ll have to align a
+
+00:12:32.320 --> 00:12:35.760
+Caption: whole bunch of things and it tends to
+
+00:12:34.320 --> 00:12:37.200
+Caption: align that you can release a bunch of
+
+00:12:35.760 --> 00:12:39.679
+Caption: features all at once
+
+00:12:37.200 --> 00:12:41.440
+Caption: whereas releasing trunk based software
+
+00:12:39.679 --> 00:12:42.880
+Caption: we might be releasing
+
+00:12:41.440 --> 00:12:45.919
+Caption: something less than a feature that batch
+
+00:12:42.880 --> 00:12:48.000
+Caption: size is going to be smaller than that
+
+00:12:45.919 --> 00:12:49.359
+Caption: as well as that because
+
+00:12:48.000 --> 00:12:51.518
+Caption: we&#39;re not releasing huge amounts of
+
+00:12:49.359 --> 00:12:55.278
+Caption: change all at once our change risk goes
+
+00:12:51.518 --> 00:12:55.278
+Caption: from being high to low instead
+
+00:12:55.679 --> 00:12:59.518
+Caption: so to summarize trunk based development
+
+00:12:57.278 --> 00:13:02.479
+Caption: it&#39;s a branching model for code cable a
+
+00:12:59.518 --> 00:13:04.159
+Caption: collaboration on a single branch
+
+00:13:02.479 --> 00:13:05.278
+Caption: and that&#39;s an enabler of continuous
+
+00:13:04.159 --> 00:13:08.638
+Caption: integration
+
+00:13:05.278 --> 00:13:10.398
+Caption: hopefully that that makes sense
+
+00:13:08.638 --> 00:13:11.679
+Caption: cool so what exactly is a feature toggle
+
+00:13:10.398 --> 00:13:13.278
+Caption: what is where do feature toggles come
+
+00:13:11.679 --> 00:13:15.518
+Caption: into this
+
+00:13:13.278 --> 00:13:16.880
+Caption: uh let&#39;s take a definition
+
+00:13:15.518 --> 00:13:18.479
+Caption: so a feature toggle is a software
+
+00:13:16.880 --> 00:13:20.720
+Caption: engineering technique for enabling
+
+00:13:18.479 --> 00:13:22.719
+Caption: feature life cycle management with or
+
+00:13:20.719 --> 00:13:25.518
+Caption: without deploying new code
+
+00:13:22.719 --> 00:13:27.838
+Caption: so who&#39;s used feature toggles before
+
+00:13:25.518 --> 00:13:30.320
+Caption: that&#39;s quite a few people too
+
+00:13:27.838 --> 00:13:32.320
+Caption: um just the with or without part without
+
+00:13:30.320 --> 00:13:35.039
+Caption: with or without deploying your code
+
+00:13:32.320 --> 00:13:37.119
+Caption: does that does that sound a bit odd
+
+00:13:35.039 --> 00:13:39.518
+Caption: it did to me i had maybe a picture of
+
+00:13:37.119 --> 00:13:40.559
+Caption: how feature toggles work um and the idea
+
+00:13:39.518 --> 00:13:42.239
+Caption: to me was
+
+00:13:40.559 --> 00:13:43.838
+Caption: we can deploy a piece of software and we
+
+00:13:42.239 --> 00:13:45.278
+Caption: can fiddle with it we can change things
+
+00:13:43.838 --> 00:13:46.559
+Caption: turn them off and on without having to
+
+00:13:45.278 --> 00:13:48.719
+Caption: deploy new code
+
+00:13:46.559 --> 00:13:49.919
+Caption: but actually it turns out it&#39;s something
+
+00:13:48.719 --> 00:13:52.398
+Caption: larger than that
+
+00:13:49.919 --> 00:13:54.479
+Caption: so let&#39;s go into it
+
+00:13:52.398 --> 00:13:55.760
+Caption: here&#39;s some code that is a feature
+
+00:13:54.479 --> 00:13:57.679
+Caption: toggle
+
+00:13:55.760 --> 00:13:58.398
+Caption: feature toggle code um let&#39;s go through
+
+00:13:57.679 --> 00:14:00.159
+Caption: it
+
+00:13:58.398 --> 00:14:02.638
+Caption: we have this function here this is
+
+00:14:00.159 --> 00:14:04.398
+Caption: typescript by the way we have this
+
+00:14:02.638 --> 00:14:05.838
+Caption: feature here we can ask for a feature by
+
+00:14:04.398 --> 00:14:08.159
+Caption: name and this function will tell us
+
+00:14:05.838 --> 00:14:09.760
+Caption: whether that feature is enabled not
+
+00:14:08.159 --> 00:14:11.198
+Caption: we&#39;ll wrap it in a functional interface
+
+00:14:09.760 --> 00:14:12.639
+Caption: called feature toggle
+
+00:14:11.198 --> 00:14:13.679
+Caption: and then we can use that functional
+
+00:14:12.638 --> 00:14:14.559
+Caption: interface
+
+00:14:13.679 --> 00:14:16.958
+Caption: to
+
+00:14:14.559 --> 00:14:20.239
+Caption: whether a feature is disabled or not run
+
+00:14:16.958 --> 00:14:22.638
+Caption: uh one branch of code or another
+
+00:14:20.239 --> 00:14:24.479
+Caption: so who can tell me
+
+00:14:22.638 --> 00:14:26.880
+Caption: uh we don&#39;t have to answer this
+
+00:14:24.479 --> 00:14:28.559
+Caption: very quite difficult but who can tell me
+
+00:14:26.880 --> 00:14:30.638
+Caption: what happens when this code runs or who
+
+00:14:28.559 --> 00:14:32.398
+Caption: knows
+
+00:14:30.638 --> 00:14:33.759
+Caption: problem is we don&#39;t know
+
+00:14:32.398 --> 00:14:35.599
+Caption: what we actually don&#39;t have here is an
+
+00:14:33.760 --> 00:14:36.880
+Caption: implementation all we have is interfaces
+
+00:14:35.599 --> 00:14:38.559
+Caption: and stuff like that so i don&#39;t know
+
+00:14:36.880 --> 00:14:40.398
+Caption: which log message i&#39;m going to get i
+
+00:14:38.559 --> 00:14:42.958
+Caption: don&#39;t have that information
+
+00:14:40.398 --> 00:14:45.679
+Caption: so what that interface alone isn&#39;t
+
+00:14:42.958 --> 00:14:47.440
+Caption: telling me is what&#39;s the persistence of
+
+00:14:45.679 --> 00:14:48.880
+Caption: this feature toggle like where does the
+
+00:14:47.440 --> 00:14:51.919
+Caption: value live it could live in some
+
+00:14:48.880 --> 00:14:54.479
+Caption: database or it could live in sorry a
+
+00:14:51.919 --> 00:14:56.838
+Caption: relational database nosql database it
+
+00:14:54.479 --> 00:14:59.359
+Caption: could leave in some sort of flat file
+
+00:14:56.838 --> 00:15:01.440
+Caption: um we live in a json file or some format
+
+00:14:59.359 --> 00:15:02.799
+Caption: that i&#39;ve never seen before
+
+00:15:01.440 --> 00:15:04.078
+Caption: there&#39;s third-party services where we
+
+00:15:02.799 --> 00:15:05.679
+Caption: can get our feature talkers from so
+
+00:15:04.078 --> 00:15:08.398
+Caption: launch darkly is
+
+00:15:05.679 --> 00:15:10.320
+Caption: the most common one i think
+
+00:15:08.398 --> 00:15:12.159
+Caption: as well as it could just be something we
+
+00:15:10.320 --> 00:15:13.359
+Caption: calculate on the fly or it could just be
+
+00:15:12.159 --> 00:15:15.838
+Caption: something that lives in the code
+
+00:15:13.359 --> 00:15:15.838
+Caption: somewhere
+
+00:15:16.479 --> 00:15:19.838
+Caption: it also doesn&#39;t tell me when this
+
+00:15:17.919 --> 00:15:21.919
+Caption: feature toggle is evaluated
+
+00:15:19.838 --> 00:15:23.198
+Caption: so this could be evaluated per request
+
+00:15:21.919 --> 00:15:25.440
+Caption: every time we request it it could
+
+00:15:23.198 --> 00:15:27.119
+Caption: potentially be different or maybe we
+
+00:15:25.440 --> 00:15:28.559
+Caption: resolve all the values of our feature
+
+00:15:27.119 --> 00:15:30.320
+Caption: toggles at startup
+
+00:15:28.559 --> 00:15:32.320
+Caption: um so that they once we start up the
+
+00:15:30.320 --> 00:15:34.000
+Caption: application they&#39;re always the same
+
+00:15:32.320 --> 00:15:35.440
+Caption: maybe it&#39;s something that we resolve at
+
+00:15:34.000 --> 00:15:36.880
+Caption: build time so we can build different
+
+00:15:35.440 --> 00:15:38.239
+Caption: versions with different feature toggles
+
+00:15:36.880 --> 00:15:39.359
+Caption: but they once they&#39;re built they stay
+
+00:15:38.239 --> 00:15:40.880
+Caption: the same
+
+00:15:39.359 --> 00:15:42.479
+Caption: or perhaps it&#39;s something that&#39;s just
+
+00:15:40.880 --> 00:15:43.838
+Caption: completely static it&#39;s just always the
+
+00:15:42.479 --> 00:15:45.198
+Caption: same
+
+00:15:43.838 --> 00:15:47.679
+Caption: regardless of when you build it or when
+
+00:15:45.198 --> 00:15:47.679
+Caption: you run it
+
+00:15:48.000 --> 00:15:51.838
+Caption: it also doesn&#39;t describe the longevity
+
+00:15:50.239 --> 00:15:54.159
+Caption: of the feature toggle like how long is
+
+00:15:51.838 --> 00:15:55.679
+Caption: this designed to last for how long how
+
+00:15:54.159 --> 00:15:57.679
+Caption: long is this meant to be a feature
+
+00:15:55.679 --> 00:16:00.398
+Caption: toggle for it could be somewhere between
+
+00:15:57.679 --> 00:16:02.078
+Caption: hours or years and i think years really
+
+00:16:00.398 --> 00:16:04.958
+Caption: means it definitely
+
+00:16:02.078 --> 00:16:04.958
+Caption: a very long time
+
+00:16:05.359 --> 00:16:08.719
+Caption: it also doesn&#39;t really describe some
+
+00:16:06.958 --> 00:16:09.599
+Caption: aspects of the behavior
+
+00:16:08.719 --> 00:16:11.198
+Caption: so
+
+00:16:09.599 --> 00:16:13.679
+Caption: we don&#39;t know anything about the input
+
+00:16:11.198 --> 00:16:16.078
+Caption: validation here what if that feature is
+
+00:16:13.679 --> 00:16:17.119
+Caption: one that i&#39;m not familiar with me is the
+
+00:16:16.078 --> 00:16:18.479
+Caption: code
+
+00:16:17.119 --> 00:16:21.359
+Caption: what should happen there should there be
+
+00:16:18.479 --> 00:16:23.119
+Caption: some sort of safe fallback
+
+00:16:21.359 --> 00:16:24.958
+Caption: should the default value be false or
+
+00:16:23.119 --> 00:16:26.000
+Caption: true should it throw an exception
+
+00:16:24.958 --> 00:16:27.518
+Caption: because i don&#39;t really know what the
+
+00:16:26.000 --> 00:16:29.198
+Caption: default value is
+
+00:16:27.518 --> 00:16:30.320
+Caption: and it doesn&#39;t really give me any idea
+
+00:16:29.198 --> 00:16:32.799
+Caption: whether the
+
+00:16:30.320 --> 00:16:34.880
+Caption: output of this is consistent at all
+
+00:16:32.799 --> 00:16:37.440
+Caption: so not much there that an interface can
+
+00:16:34.880 --> 00:16:39.278
+Caption: tell us
+
+00:16:37.440 --> 00:16:41.039
+Caption: i&#39;ve got a hypothesis
+
+00:16:39.278 --> 00:16:43.198
+Caption: let&#39;s implement our feature toggle this
+
+00:16:41.039 --> 00:16:45.919
+Caption: way so this is this is a feature toggle
+
+00:16:43.198 --> 00:16:47.919
+Caption: service called always off and what we do
+
+00:16:45.919 --> 00:16:49.599
+Caption: is we ignore the input we don&#39;t care
+
+00:16:47.919 --> 00:16:52.719
+Caption: what feature toggle it is we&#39;ll just
+
+00:16:49.599 --> 00:16:52.719
+Caption: always return false
+
+00:16:52.880 --> 00:16:57.198
+Caption: we can implement the feature toggle down
+
+00:16:54.719 --> 00:16:59.518
+Caption: here in the closure
+
+00:16:57.198 --> 00:17:01.359
+Caption: so is this a feature toggle
+
+00:16:59.518 --> 00:17:02.880
+Caption: i think it is it looks like it looks
+
+00:17:01.359 --> 00:17:04.719
+Caption: like one to me right it implements the
+
+00:17:02.880 --> 00:17:05.918
+Caption: feature toggle interface
+
+00:17:04.719 --> 00:17:07.359
+Caption: it returns
+
+00:17:05.918 --> 00:17:10.000
+Caption: the correct value something that i&#39;m
+
+00:17:07.359 --> 00:17:11.520
+Caption: kind of expecting it&#39;s a boolean
+
+00:17:10.000 --> 00:17:13.438
+Caption: but i&#39;m looking at this and i&#39;m going
+
+00:17:11.520 --> 00:17:15.599
+Caption: there&#39;s a lot of superfluous code here i
+
+00:17:13.438 --> 00:17:17.198
+Caption: don&#39;t really need half of this right
+
+00:17:15.599 --> 00:17:19.359
+Caption: i&#39;m always getting the same value from
+
+00:17:17.198 --> 00:17:20.958
+Caption: this feature toggle it&#39;s always false so
+
+00:17:19.359 --> 00:17:22.719
+Caption: why don&#39;t i just do a bit of refactoring
+
+00:17:20.958 --> 00:17:24.719
+Caption: right
+
+00:17:22.719 --> 00:17:26.159
+Caption: what if i just remove
+
+00:17:24.719 --> 00:17:27.678
+Caption: some of that feature toggle stuff and i
+
+00:17:26.160 --> 00:17:28.960
+Caption: just drop that false in there so it&#39;s
+
+00:17:27.678 --> 00:17:30.159
+Caption: always because it&#39;s always going to be
+
+00:17:28.959 --> 00:17:32.798
+Caption: false
+
+00:17:30.160 --> 00:17:34.479
+Caption: is this a feature toggle well it doesn&#39;t
+
+00:17:32.798 --> 00:17:35.678
+Caption: say it&#39;s a feature toggle anymore
+
+00:17:34.479 --> 00:17:37.520
+Caption: there&#39;s no interface i&#39;m not
+
+00:17:35.678 --> 00:17:38.880
+Caption: implementing a feature toggle interface
+
+00:17:37.520 --> 00:17:40.400
+Caption: but i think this still is a feature
+
+00:17:38.880 --> 00:17:42.239
+Caption: toggle
+
+00:17:40.400 --> 00:17:44.239
+Caption: let&#39;s go a step further
+
+00:17:42.239 --> 00:17:46.079
+Caption: if my compiler&#39;s having a look at this
+
+00:17:44.239 --> 00:17:47.439
+Caption: so i&#39;m using typescript although this
+
+00:17:46.079 --> 00:17:49.599
+Caption: code kind of looks like it&#39;s just
+
+00:17:47.439 --> 00:17:50.959
+Caption: javascript by now
+
+00:17:49.599 --> 00:17:52.400
+Caption: if i&#39;m using typescript typestrip&#39;s
+
+00:17:50.959 --> 00:17:54.399
+Caption: going to have a look at that and start
+
+00:17:52.400 --> 00:17:55.280
+Caption: to make efficiencies here and there and
+
+00:17:54.400 --> 00:17:56.880
+Caption: it doesn&#39;t really matter if it&#39;s
+
+00:17:55.280 --> 00:17:58.160
+Caption: typescript or other compilers that
+
+00:17:56.880 --> 00:18:00.160
+Caption: mostly do this
+
+00:17:58.160 --> 00:18:02.160
+Caption: it&#39;ll look at that if false statement
+
+00:18:00.160 --> 00:18:03.679
+Caption: and go what&#39;s the point in that there&#39;s
+
+00:18:02.160 --> 00:18:05.599
+Caption: it&#39;s i don&#39;t like i&#39;m never going to
+
+00:18:03.678 --> 00:18:07.359
+Caption: execute that code on line five it&#39;s i
+
+00:18:05.599 --> 00:18:09.359
+Caption: might as well get rid of it so let&#39;s say
+
+00:18:07.359 --> 00:18:10.640
+Caption: the compiler has a go in it um just
+
+00:18:09.359 --> 00:18:12.798
+Caption: removes that
+
+00:18:10.640 --> 00:18:14.239
+Caption: is that a feature toggle
+
+00:18:12.798 --> 00:18:17.199
+Caption: not looking much like a feature toggle
+
+00:18:14.239 --> 00:18:19.280
+Caption: anymore but i still believe that that is
+
+00:18:17.199 --> 00:18:20.959
+Caption: that might look a bit strange but i did
+
+00:18:19.280 --> 00:18:22.400
+Caption: title my talk everything&#39;s a feature
+
+00:18:20.959 --> 00:18:23.520
+Caption: toggle so i had to work something like
+
+00:18:22.400 --> 00:18:24.880
+Caption: that in there
+
+00:18:23.520 --> 00:18:26.160
+Caption: um yeah it doesn&#39;t look like a feature
+
+00:18:24.880 --> 00:18:29.400
+Caption: talk was just a bit of code but yeah
+
+00:18:26.160 --> 00:18:29.400
+Caption: that is
+
+00:18:30.000 --> 00:18:33.520
+Caption: i&#39;m going to give this feature toggle a
+
+00:18:31.280 --> 00:18:35.359
+Caption: name i don&#39;t think there&#39;s commonly used
+
+00:18:33.520 --> 00:18:37.760
+Caption: names for a lot of this stuff so
+
+00:18:35.359 --> 00:18:39.359
+Caption: these names are just made up by me but
+
+00:18:37.760 --> 00:18:41.919
+Caption: i&#39;m going to call this a static toggle
+
+00:18:39.359 --> 00:18:43.918
+Caption: and a static toggle is categorized by
+
+00:18:41.918 --> 00:18:44.880
+Caption: being persisted in code so i don&#39;t have
+
+00:18:43.918 --> 00:18:46.880
+Caption: to ask
+
+00:18:44.880 --> 00:18:49.760
+Caption: some database or some file for the value
+
+00:18:46.880 --> 00:18:52.400
+Caption: of this one it&#39;s just in the code
+
+00:18:49.760 --> 00:18:54.400
+Caption: i get static and very consistent
+
+00:18:52.400 --> 00:18:56.400
+Caption: evaluation it&#39;s basically just always
+
+00:18:54.400 --> 00:18:58.160
+Caption: false it&#39;s very very predictable and
+
+00:18:56.400 --> 00:19:00.799
+Caption: that&#39;s nice
+
+00:18:58.160 --> 00:19:02.239
+Caption: and this is a tool you can do
+
+00:19:00.798 --> 00:19:04.319
+Caption: you can use to do a thing called
+
+00:19:02.239 --> 00:19:05.359
+Caption: branching by abstraction
+
+00:19:04.319 --> 00:19:08.558
+Caption: so
+
+00:19:05.359 --> 00:19:11.199
+Caption: let&#39;s talk about what that means
+
+00:19:08.558 --> 00:19:12.959
+Caption: let&#39;s say we have um some old code that
+
+00:19:11.199 --> 00:19:14.479
+Caption: we want to replace we&#39;ve got a new
+
+00:19:12.959 --> 00:19:16.319
+Caption: version maybe a new version of an
+
+00:19:14.479 --> 00:19:18.079
+Caption: algorithm that we want um to put in
+
+00:19:16.319 --> 00:19:19.918
+Caption: there that&#39;s more efficient
+
+00:19:18.079 --> 00:19:21.519
+Caption: but what we want to do is that algorithm
+
+00:19:19.918 --> 00:19:22.798
+Caption: is going to take a little bit of back
+
+00:19:21.520 --> 00:19:25.440
+Caption: and forth maybe it&#39;s going to be
+
+00:19:22.798 --> 00:19:27.519
+Caption: multiple commits to our repository it&#39;s
+
+00:19:25.439 --> 00:19:29.119
+Caption: going to take a little while to write
+
+00:19:27.520 --> 00:19:30.640
+Caption: i want to i want guarantees that i can
+
+00:19:29.119 --> 00:19:32.319
+Caption: start writing that code make commits
+
+00:19:30.640 --> 00:19:33.919
+Caption: maybe someone else can kind of um
+
+00:19:32.319 --> 00:19:35.439
+Caption: collaborate with me but i want
+
+00:19:33.918 --> 00:19:37.199
+Caption: guarantees that that code that i&#39;ve got
+
+00:19:35.439 --> 00:19:38.639
+Caption: in that term in my repository is not
+
+00:19:37.199 --> 00:19:40.239
+Caption: going to run right
+
+00:19:38.640 --> 00:19:41.119
+Caption: so what i could do
+
+00:19:40.239 --> 00:19:43.038
+Caption: is
+
+00:19:41.119 --> 00:19:44.798
+Caption: do a commit um i don&#39;t have to do a
+
+00:19:43.038 --> 00:19:46.719
+Caption: commit and push all of this up but like
+
+00:19:44.798 --> 00:19:48.558
+Caption: the first change i might look at making
+
+00:19:46.719 --> 00:19:50.798
+Caption: is putting a feature toggle in front of
+
+00:19:48.558 --> 00:19:53.279
+Caption: it and this can be an always off feature
+
+00:19:50.798 --> 00:19:54.079
+Caption: toggle so i&#39;m always going to go down to
+
+00:19:53.280 --> 00:19:55.679
+Caption: that
+
+00:19:54.079 --> 00:19:57.439
+Caption: old code path so it doesn&#39;t really
+
+00:19:55.678 --> 00:19:59.678
+Caption: matter what on what&#39;s on that new code
+
+00:19:57.439 --> 00:20:01.119
+Caption: path there at the top at the moment
+
+00:19:59.678 --> 00:20:03.038
+Caption: there&#39;s nothing i haven&#39;t put anything
+
+00:20:01.119 --> 00:20:04.959
+Caption: in yet
+
+00:20:03.038 --> 00:20:06.798
+Caption: then what i might do is start working on
+
+00:20:04.959 --> 00:20:08.479
+Caption: that new algorithm and if i&#39;m just
+
+00:20:06.798 --> 00:20:10.079
+Caption: playing around locally i can switch that
+
+00:20:08.479 --> 00:20:12.079
+Caption: to an always-on toggle as long as i
+
+00:20:10.079 --> 00:20:13.599
+Caption: don&#39;t commit that anywhere
+
+00:20:12.079 --> 00:20:15.839
+Caption: i can start working with that new
+
+00:20:13.599 --> 00:20:17.918
+Caption: algorithm test the performance do stuff
+
+00:20:15.839 --> 00:20:19.439
+Caption: like that i can commit that
+
+00:20:17.918 --> 00:20:20.880
+Caption: and let one of my colleagues have a play
+
+00:20:19.439 --> 00:20:22.479
+Caption: around with it and see if they can make
+
+00:20:20.880 --> 00:20:24.319
+Caption: it more efficient
+
+00:20:22.479 --> 00:20:26.640
+Caption: i get a guarantee that i know that
+
+00:20:24.319 --> 00:20:28.399
+Caption: code&#39;s not going to run
+
+00:20:26.640 --> 00:20:29.200
+Caption: in production it&#39;s not going to make it
+
+00:20:28.400 --> 00:20:30.719
+Caption: into
+
+00:20:29.199 --> 00:20:32.000
+Caption: into the hands of users which is quite
+
+00:20:30.719 --> 00:20:33.359
+Caption: nice
+
+00:20:32.000 --> 00:20:35.038
+Caption: once i&#39;m ready
+
+00:20:33.359 --> 00:20:37.359
+Caption: i can flip that feature toggle from
+
+00:20:35.038 --> 00:20:38.558
+Caption: being always off to always on or i might
+
+00:20:37.359 --> 00:20:40.158
+Caption: have some other feature toggling
+
+00:20:38.558 --> 00:20:41.520
+Caption: strategy there
+
+00:20:40.159 --> 00:20:42.720
+Caption: i&#39;ll talk about more of those in a
+
+00:20:41.520 --> 00:20:44.400
+Caption: minute but
+
+00:20:42.719 --> 00:20:46.079
+Caption: once i&#39;m ready basically i&#39;m going to
+
+00:20:44.400 --> 00:20:46.960
+Caption: start executing code on that new code
+
+00:20:46.079 --> 00:20:49.279
+Caption: path
+
+00:20:46.959 --> 00:20:50.640
+Caption: and then when i&#39;m happy with the final
+
+00:20:49.280 --> 00:20:51.919
+Caption: solution here
+
+00:20:50.640 --> 00:20:53.678
+Caption: it looks like it&#39;s running perfectly
+
+00:20:51.918 --> 00:20:55.119
+Caption: fine the last step i can do is just to
+
+00:20:53.678 --> 00:20:56.959
+Caption: remove both the feature toggle and the
+
+00:20:55.119 --> 00:20:59.038
+Caption: old version of code it&#39;s quite a safe
+
+00:20:56.959 --> 00:21:00.719
+Caption: approach to incrementally adding new
+
+00:20:59.038 --> 00:21:03.839
+Caption: features and that&#39;s what branch by
+
+00:21:00.719 --> 00:21:03.839
+Caption: abstraction is
+
+00:21:04.479 --> 00:21:08.719
+Caption: so this is a quote from martin feller&#39;s
+
+00:21:06.798 --> 00:21:10.319
+Caption: article about feature toggles um
+
+00:21:08.719 --> 00:21:11.520
+Caption: specifically in the context of what i&#39;ve
+
+00:21:10.319 --> 00:21:12.959
+Caption: just talked about
+
+00:21:11.520 --> 00:21:14.880
+Caption: feature toggles are an interesting way
+
+00:21:12.959 --> 00:21:16.640
+Caption: to allow incomplete and untested code
+
+00:21:14.880 --> 00:21:18.959
+Caption: paths to be shipped to production as
+
+00:21:16.640 --> 00:21:20.479
+Caption: latent code i sometimes call it floating
+
+00:21:18.959 --> 00:21:22.079
+Caption: code
+
+00:21:20.479 --> 00:21:23.678
+Caption: but the idea of that is that we get
+
+00:21:22.079 --> 00:21:25.279
+Caption: guarantees that it will never be turned
+
+00:21:23.678 --> 00:21:27.599
+Caption: on it&#39;ll ever be executed which is quite
+
+00:21:25.280 --> 00:21:27.599
+Caption: nice
+
+00:21:28.479 --> 00:21:31.439
+Caption: let&#39;s uh go back to our static toggle
+
+00:21:30.239 --> 00:21:32.880
+Caption: for a minute
+
+00:21:31.439 --> 00:21:34.798
+Caption: um let&#39;s just work through an
+
+00:21:32.880 --> 00:21:36.719
+Caption: implementation just so we get an idea of
+
+00:21:34.798 --> 00:21:37.519
+Caption: what that might actually look like
+
+00:21:36.719 --> 00:21:39.918
+Caption: so
+
+00:21:37.520 --> 00:21:41.760
+Caption: what we have here is uh i&#39;m looking at
+
+00:21:39.918 --> 00:21:44.959
+Caption: implementing a new version of my payment
+
+00:21:41.760 --> 00:21:46.880
+Caption: gateway um maybe we&#39;ve moved from xml
+
+00:21:44.959 --> 00:21:48.959
+Caption: and soap to something a bit nicer like
+
+00:21:46.880 --> 00:21:50.959
+Caption: json
+
+00:21:48.959 --> 00:21:52.640
+Caption: the idea here is that
+
+00:21:50.959 --> 00:21:54.079
+Caption: the input and output basically the
+
+00:21:52.640 --> 00:21:56.000
+Caption: interface to this plane and gateway&#39;s
+
+00:21:54.079 --> 00:21:58.880
+Caption: the same that&#39;s how we can use branch by
+
+00:21:56.000 --> 00:22:01.520
+Caption: abstraction here so i&#39;ve got both
+
+00:21:58.880 --> 00:22:03.760
+Caption: implementations here and what i can do
+
+00:22:01.520 --> 00:22:05.440
+Caption: is i can use the feature toggle i&#39;ll put
+
+00:22:03.760 --> 00:22:07.359
+Caption: a feature toggle in front of it and we
+
+00:22:05.439 --> 00:22:10.079
+Caption: can see that that feature toggle is by
+
+00:22:07.359 --> 00:22:12.798
+Caption: default it&#39;s always off but my
+
+00:22:10.079 --> 00:22:14.079
+Caption: implementation here um if if my feature
+
+00:22:12.798 --> 00:22:17.359
+Caption: tag was actually turned on at this given
+
+00:22:14.079 --> 00:22:17.359
+Caption: time i&#39;d use that new gateway
+
+00:22:17.439 --> 00:22:22.558
+Caption: um so yeah i can see where i&#39;ve always
+
+00:22:19.119 --> 00:22:22.558
+Caption: i&#39;ve defaulted always off here
+
+00:22:22.798 --> 00:22:27.760
+Caption: here&#39;s some unit tests because we always
+
+00:22:24.640 --> 00:22:29.760
+Caption: have to test our code
+
+00:22:27.760 --> 00:22:31.599
+Caption: and what we can see here is
+
+00:22:29.760 --> 00:22:33.520
+Caption: we&#39;ve got this one test suite we&#39;re
+
+00:22:31.599 --> 00:22:34.558
+Caption: going to
+
+00:22:33.520 --> 00:22:36.479
+Caption: test
+
+00:22:34.558 --> 00:22:38.319
+Caption: this old version of our gateway and a
+
+00:22:36.479 --> 00:22:39.520
+Caption: new version of a gateway with the same
+
+00:22:38.319 --> 00:22:43.119
+Caption: test suite because we know that they
+
+00:22:39.520 --> 00:22:45.760
+Caption: should behave the same mostly
+
+00:22:43.119 --> 00:22:47.199
+Caption: if we run our tests
+
+00:22:45.760 --> 00:22:50.079
+Caption: with the old gateway we can run it with
+
+00:22:47.199 --> 00:22:51.519
+Caption: that always off feature toggle there
+
+00:22:50.079 --> 00:22:52.798
+Caption: and if we want to test our new gateway
+
+00:22:51.520 --> 00:22:54.640
+Caption: we can test it with that always-on
+
+00:22:52.798 --> 00:22:57.519
+Caption: feature toggle there we&#39;ll get the same
+
+00:22:54.640 --> 00:22:57.520
+Caption: test suite over both
+
+00:22:58.798 --> 00:23:04.479
+Caption: we can plot feature toggles
+
+00:23:01.839 --> 00:23:07.599
+Caption: on a on a graph i guess
+
+00:23:04.479 --> 00:23:09.599
+Caption: plotting longevity versus evaluation
+
+00:23:07.599 --> 00:23:11.280
+Caption: and our static toggles land in this sort
+
+00:23:09.599 --> 00:23:12.880
+Caption: of bottom corner down here they&#39;re
+
+00:23:11.280 --> 00:23:15.520
+Caption: grouped under a section of toggles
+
+00:23:12.880 --> 00:23:16.959
+Caption: called i call release toggles
+
+00:23:15.520 --> 00:23:19.039
+Caption: and the idea is you might use something
+
+00:23:16.959 --> 00:23:20.479
+Caption: like this for a couple of days while
+
+00:23:19.038 --> 00:23:21.678
+Caption: you&#39;re collaborating on some new code
+
+00:23:20.479 --> 00:23:23.038
+Caption: that you&#39;re writing not going to be
+
+00:23:21.678 --> 00:23:24.399
+Caption: using these all the time by the way as
+
+00:23:23.038 --> 00:23:26.239
+Caption: well
+
+00:23:24.400 --> 00:23:28.159
+Caption: and in terms of how how they&#39;re
+
+00:23:26.239 --> 00:23:29.918
+Caption: evaluated you get
+
+00:23:28.159 --> 00:23:34.000
+Caption: they kind of don&#39;t they land completely
+
+00:23:29.918 --> 00:23:34.000
+Caption: in that static kind of area down there
+
+00:23:35.359 --> 00:23:39.520
+Caption: let&#39;s uh continue on with some more
+
+00:23:37.678 --> 00:23:42.399
+Caption: different types of fiji toggles
+
+00:23:39.520 --> 00:23:43.679
+Caption: so this is an environment toggle um a
+
+00:23:42.400 --> 00:23:45.039
+Caption: lot of people might be quite familiar
+
+00:23:43.678 --> 00:23:47.119
+Caption: with something like this if you do a lot
+
+00:23:45.038 --> 00:23:50.158
+Caption: of node.js development but there&#39;ll be
+
+00:23:47.119 --> 00:23:52.640
+Caption: equivalence in other languages as well
+
+00:23:50.159 --> 00:23:54.400
+Caption: these are also persisted in code
+
+00:23:52.640 --> 00:23:56.799
+Caption: and the idea here is you might evaluate
+
+00:23:54.400 --> 00:23:57.760
+Caption: this at either build time or startup
+
+00:23:56.798 --> 00:23:59.839
+Caption: so
+
+00:23:57.760 --> 00:24:01.599
+Caption: if you&#39;re doing a web application using
+
+00:23:59.839 --> 00:24:02.640
+Caption: webpack you&#39;re actually evaluating stuff
+
+00:24:01.599 --> 00:24:03.839
+Caption: like this at build time and you&#39;re
+
+00:24:02.640 --> 00:24:05.279
+Caption: building different versions of your
+
+00:24:03.839 --> 00:24:06.959
+Caption: application
+
+00:24:05.279 --> 00:24:09.039
+Caption: whereas other frameworks you might be
+
+00:24:06.959 --> 00:24:10.719
+Caption: doing that at startup you&#39;ll decide okay
+
+00:24:09.038 --> 00:24:12.158
+Caption: i&#39;m starting out what environment am i
+
+00:24:10.719 --> 00:24:14.158
+Caption: in i&#39;m going to set all my features
+
+00:24:12.159 --> 00:24:15.440
+Caption: there
+
+00:24:14.159 --> 00:24:16.320
+Caption: and these are great sorry i&#39;ll go back
+
+00:24:15.439 --> 00:24:18.000
+Caption: for a sec these are great for
+
+00:24:16.319 --> 00:24:19.519
+Caption: integration and uat testing you might
+
+00:24:18.000 --> 00:24:21.199
+Caption: have multiple environments you want
+
+00:24:19.520 --> 00:24:23.520
+Caption: features on in this environment but not
+
+00:24:21.199 --> 00:24:25.918
+Caption: that environment obviously
+
+00:24:23.520 --> 00:24:27.679
+Caption: uh how are they used
+
+00:24:25.918 --> 00:24:28.880
+Caption: uh what we have here is
+
+00:24:27.678 --> 00:24:30.079
+Caption: we&#39;ve got a feature that we&#39;re wanting
+
+00:24:28.880 --> 00:24:31.918
+Caption: to use
+
+00:24:30.079 --> 00:24:33.278
+Caption: we&#39;ve got this environment toggle here
+
+00:24:31.918 --> 00:24:35.038
+Caption: essentially we&#39;re checking if we&#39;re in
+
+00:24:33.279 --> 00:24:36.400
+Caption: the development environment
+
+00:24:35.038 --> 00:24:37.519
+Caption: in our development environment we want
+
+00:24:36.400 --> 00:24:40.080
+Caption: to play around with toggles have
+
+00:24:37.520 --> 00:24:42.239
+Caption: different stuff running so we can see
+
+00:24:40.079 --> 00:24:43.439
+Caption: we check for that
+
+00:24:42.239 --> 00:24:45.278
+Caption: and then yeah
+
+00:24:43.439 --> 00:24:47.278
+Caption: if we&#39;re looking at our dev toggles here
+
+00:24:45.279 --> 00:24:48.640
+Caption: we can check if we&#39;re matching certain
+
+00:24:47.279 --> 00:24:50.559
+Caption: toggles what we want to have on what we
+
+00:24:48.640 --> 00:24:53.119
+Caption: want to have off at the time
+
+00:24:50.558 --> 00:24:54.239
+Caption: but we get a guarantee here that
+
+00:24:53.119 --> 00:24:56.239
+Caption: if we&#39;re not in the development
+
+00:24:54.239 --> 00:24:58.000
+Caption: environment we turn everything off
+
+00:24:56.239 --> 00:24:58.798
+Caption: everything&#39;s every every new features
+
+00:24:58.000 --> 00:25:01.439
+Caption: there
+
+00:24:58.798 --> 00:25:02.558
+Caption: is off that&#39;s really nice because um it
+
+00:25:01.439 --> 00:25:03.678
+Caption: gives you guarantee that you&#39;re not
+
+00:25:02.558 --> 00:25:05.439
+Caption: gonna accidentally run any of the
+
+00:25:03.678 --> 00:25:08.239
+Caption: software in the wrong environment um not
+
+00:25:05.439 --> 00:25:08.239
+Caption: when it&#39;s not ready
+
+00:25:09.439 --> 00:25:12.879
+Caption: environment toggles will are the sort of
+
+00:25:11.359 --> 00:25:14.400
+Caption: thing that are built into your software
+
+00:25:12.880 --> 00:25:16.239
+Caption: development life cycle
+
+00:25:14.400 --> 00:25:18.479
+Caption: so they&#39;ll last a little bit longer
+
+00:25:16.239 --> 00:25:20.239
+Caption: they&#39;ll go beyond just collaborating and
+
+00:25:18.479 --> 00:25:22.000
+Caption: experimenting with code they&#39;re built
+
+00:25:20.239 --> 00:25:23.918
+Caption: into the testing process so like i said
+
+00:25:22.000 --> 00:25:26.000
+Caption: you&#39;ll use them in your uat or
+
+00:25:23.918 --> 00:25:28.158
+Caption: integration environments
+
+00:25:26.000 --> 00:25:30.479
+Caption: and they trend over towards the the
+
+00:25:28.159 --> 00:25:32.400
+Caption: right a little bit in terms of um when
+
+00:25:30.479 --> 00:25:34.880
+Caption: they&#39;re evaluated so either build time
+
+00:25:32.400 --> 00:25:34.880
+Caption: or start up
+
+00:25:35.599 --> 00:25:38.880
+Caption: moving on this is actually the type of
+
+00:25:37.279 --> 00:25:41.440
+Caption: feature talk that i was most familiar
+
+00:25:38.880 --> 00:25:42.798
+Caption: with um when i started
+
+00:25:41.439 --> 00:25:44.319
+Caption: uh
+
+00:25:42.798 --> 00:25:46.399
+Caption: using them i guess
+
+00:25:44.319 --> 00:25:47.759
+Caption: this is an application toggle
+
+00:25:46.400 --> 00:25:49.679
+Caption: and these are the most flexible so the
+
+00:25:47.760 --> 00:25:51.039
+Caption: idea is that the persistence will vary
+
+00:25:49.678 --> 00:25:52.158
+Caption: when i was talking about
+
+00:25:51.038 --> 00:25:54.879
+Caption: where can your feature toggle be
+
+00:25:52.159 --> 00:25:57.279
+Caption: persisted could it be in a database or
+
+00:25:54.880 --> 00:25:58.239
+Caption: in code or in a nosql database or
+
+00:25:57.279 --> 00:25:59.440
+Caption: something like that that&#39;s usually
+
+00:25:58.239 --> 00:26:02.000
+Caption: talking about these types of feature
+
+00:25:59.439 --> 00:26:03.678
+Caption: doubles here so this example
+
+00:26:02.000 --> 00:26:05.279
+Caption: runs against the sql database i&#39;m
+
+00:26:03.678 --> 00:26:07.678
+Caption: running a sql query to decide whether
+
+00:26:05.279 --> 00:26:09.760
+Caption: this feature toggles on or off
+
+00:26:07.678 --> 00:26:12.000
+Caption: and i can do that i can evaluate that
+
+00:26:09.760 --> 00:26:13.678
+Caption: either at startup application starts up
+
+00:26:12.000 --> 00:26:14.719
+Caption: i&#39;ll decide what&#39;s what&#39;s enabled what&#39;s
+
+00:26:13.678 --> 00:26:15.678
+Caption: not
+
+00:26:14.719 --> 00:26:17.439
+Caption: or
+
+00:26:15.678 --> 00:26:19.119
+Caption: i can do that per request as well i can
+
+00:26:17.439 --> 00:26:22.000
+Caption: turn things on and off while people are
+
+00:26:19.119 --> 00:26:23.599
+Caption: using this application
+
+00:26:22.000 --> 00:26:24.959
+Caption: talking about them being versatile and
+
+00:26:23.599 --> 00:26:27.199
+Caption: extendable
+
+00:26:24.959 --> 00:26:28.880
+Caption: what we could do is we could tweak the
+
+00:26:27.199 --> 00:26:31.359
+Caption: interface a little bit if we wanted so
+
+00:26:28.880 --> 00:26:33.359
+Caption: we can create a user toggle which
+
+00:26:31.359 --> 00:26:35.839
+Caption: accepts two parameters instead of one
+
+00:26:33.359 --> 00:26:37.760
+Caption: we&#39;ve got the feature name but also a
+
+00:26:35.839 --> 00:26:39.918
+Caption: user id
+
+00:26:37.760 --> 00:26:42.159
+Caption: and then what we can do is enable
+
+00:26:39.918 --> 00:26:44.719
+Caption: features for certain users so a canary
+
+00:26:42.159 --> 00:26:46.320
+Caption: toggle is a toggle based on
+
+00:26:44.719 --> 00:26:47.918
+Caption: identifiers
+
+00:26:46.319 --> 00:26:49.599
+Caption: identifiers of your user but not
+
+00:26:47.918 --> 00:26:51.199
+Caption: necessarily user maybe other things as
+
+00:26:49.599 --> 00:26:52.798
+Caption: well
+
+00:26:51.199 --> 00:26:54.479
+Caption: probably want to evaluate these ones per
+
+00:26:52.798 --> 00:26:56.000
+Caption: request if you&#39;ve got a lot of users you
+
+00:26:54.479 --> 00:26:57.839
+Caption: can&#39;t really evaluate this once at
+
+00:26:56.000 --> 00:26:59.359
+Caption: startup so this is something you do per
+
+00:26:57.839 --> 00:27:02.640
+Caption: request
+
+00:26:59.359 --> 00:27:04.839
+Caption: and this is useful for canary releases
+
+00:27:02.640 --> 00:27:07.839
+Caption: but hence the name
+
+00:27:04.839 --> 00:27:10.239
+Caption: right another type of toggle you might
+
+00:27:07.839 --> 00:27:13.038
+Caption: use um in this kind of familiar to this
+
+00:27:10.239 --> 00:27:15.839
+Caption: one as well is a calculated toggle
+
+00:27:13.038 --> 00:27:18.239
+Caption: so the idea here is um these are these
+
+00:27:15.839 --> 00:27:20.158
+Caption: go back to being persisted in code
+
+00:27:18.239 --> 00:27:21.520
+Caption: um we&#39;re not going to ask a database for
+
+00:27:20.159 --> 00:27:23.440
+Caption: something like that but what we&#39;ll do is
+
+00:27:21.520 --> 00:27:25.679
+Caption: we&#39;ll do a calculation of those per user
+
+00:27:23.439 --> 00:27:28.319
+Caption: attributes so something like the user id
+
+00:27:25.678 --> 00:27:31.278
+Caption: um and we&#39;ll use that in order to split
+
+00:27:28.319 --> 00:27:32.558
+Caption: our traffic um in a certain way what we
+
+00:27:31.279 --> 00:27:35.119
+Caption: can do is
+
+00:27:32.558 --> 00:27:36.319
+Caption: this example here we&#39;ve got a hash
+
+00:27:35.119 --> 00:27:37.599
+Caption: um
+
+00:27:36.319 --> 00:27:39.599
+Caption: you don&#39;t want to see how that sausage
+
+00:27:37.599 --> 00:27:41.278
+Caption: is made it&#39;s it&#39;s uh there&#39;s quite a
+
+00:27:39.599 --> 00:27:42.880
+Caption: complex little algorithm there but the
+
+00:27:41.279 --> 00:27:44.720
+Caption: idea is you input a string and you get a
+
+00:27:42.880 --> 00:27:46.640
+Caption: number that&#39;s somewhere between one and
+
+00:27:44.719 --> 00:27:48.798
+Caption: zero and what we can do is our
+
+00:27:46.640 --> 00:27:50.640
+Caption: calculator toggle just checks if that
+
+00:27:48.798 --> 00:27:51.918
+Caption: number is greater than 0.05 that&#39;s
+
+00:27:50.640 --> 00:27:54.479
+Caption: actually going to split our cohort
+
+00:27:51.918 --> 00:27:56.398
+Caption: essentially in half
+
+00:27:54.479 --> 00:27:58.079
+Caption: again you&#39;d evaluate this per request
+
+00:27:56.399 --> 00:28:00.480
+Caption: and this is something you&#39;d use in a b
+
+00:27:58.079 --> 00:28:00.479
+Caption: testing
+
+00:28:01.119 --> 00:28:05.520
+Caption: so we can see these three types of
+
+00:28:03.199 --> 00:28:07.038
+Caption: feature toggles they they uh they land
+
+00:28:05.520 --> 00:28:09.119
+Caption: in this kind of section called
+
+00:28:07.038 --> 00:28:11.119
+Caption: experiment toggles
+
+00:28:09.119 --> 00:28:13.199
+Caption: uh what we can see is
+
+00:28:11.119 --> 00:28:15.038
+Caption: um they trend more towards the right
+
+00:28:13.199 --> 00:28:17.359
+Caption: where they&#39;re evaluated typically per
+
+00:28:15.038 --> 00:28:18.798
+Caption: request although sometimes not
+
+00:28:17.359 --> 00:28:20.959
+Caption: and these are something you&#39;ll leave in
+
+00:28:18.798 --> 00:28:22.639
+Caption: your system a little bit longer still
+
+00:28:20.959 --> 00:28:24.158
+Caption: something you want to have running in
+
+00:28:22.640 --> 00:28:26.880
+Caption: production you can play around with turn
+
+00:28:24.159 --> 00:28:26.880
+Caption: things off and on
+
+00:28:28.880 --> 00:28:33.678
+Caption: there&#39;s another type of feature toggle
+
+00:28:30.640 --> 00:28:36.079
+Caption: this is a circuit breaker so like a
+
+00:28:33.678 --> 00:28:39.038
+Caption: canary toggle or a calculated toggle is
+
+00:28:36.079 --> 00:28:40.479
+Caption: a calculation of user attributes a
+
+00:28:39.038 --> 00:28:41.439
+Caption: circuit breaker is slightly different
+
+00:28:40.479 --> 00:28:42.959
+Caption: it&#39;s a
+
+00:28:41.439 --> 00:28:44.639
+Caption: it&#39;s based on a calculation of your
+
+00:28:42.959 --> 00:28:47.119
+Caption: current system health
+
+00:28:44.640 --> 00:28:48.880
+Caption: um so what you want to do is evaluate
+
+00:28:47.119 --> 00:28:50.158
+Caption: that probably per request as well you
+
+00:28:48.880 --> 00:28:52.239
+Caption: wouldn&#39;t want to evaluate that at
+
+00:28:50.159 --> 00:28:53.679
+Caption: startup because your system help at
+
+00:28:52.239 --> 00:28:55.599
+Caption: startup&#39;s not the same as it&#39;s going to
+
+00:28:53.678 --> 00:28:56.959
+Caption: be later on
+
+00:28:55.599 --> 00:28:58.959
+Caption: and then in this example what we&#39;re
+
+00:28:56.959 --> 00:29:00.719
+Caption: doing here is um
+
+00:28:58.959 --> 00:29:02.880
+Caption: uh we&#39;re checking for queue depth so
+
+00:29:00.719 --> 00:29:04.558
+Caption: essentially if if our queue is getting
+
+00:29:02.880 --> 00:29:06.959
+Caption: too long if we&#39;ve got too many things to
+
+00:29:04.558 --> 00:29:08.640
+Caption: process what we can do is return files
+
+00:29:06.959 --> 00:29:10.319
+Caption: and we can back off we can
+
+00:29:08.640 --> 00:29:11.440
+Caption: essentially stop adding new things to
+
+00:29:10.319 --> 00:29:13.759
+Caption: that queue
+
+00:29:11.439 --> 00:29:15.119
+Caption: we can disable features if our system
+
+00:29:13.760 --> 00:29:17.359
+Caption: health
+
+00:29:15.119 --> 00:29:19.119
+Caption: isn&#39;t looking too good
+
+00:29:17.359 --> 00:29:21.678
+Caption: these are really useful for operational
+
+00:29:19.119 --> 00:29:21.678
+Caption: purposes
+
+00:29:22.239 --> 00:29:24.959
+Caption: similarly
+
+00:29:23.520 --> 00:29:27.760
+Caption: there&#39;s the idea of a kill switch as
+
+00:29:24.959 --> 00:29:30.798
+Caption: well so this code example
+
+00:29:27.760 --> 00:29:32.399
+Caption: is for an express middleware and we can
+
+00:29:30.798 --> 00:29:34.158
+Caption: actually see a different feature toggles
+
+00:29:32.399 --> 00:29:36.559
+Caption: embedded in there but the idea here is
+
+00:29:34.159 --> 00:29:38.720
+Caption: we can just disable an entire endpoint
+
+00:29:36.558 --> 00:29:40.158
+Caption: that we don&#39;t we don&#39;t want to um
+
+00:29:38.719 --> 00:29:41.839
+Caption: our customers to have access to maybe
+
+00:29:40.159 --> 00:29:45.200
+Caption: something&#39;s broken it&#39;s not working or
+
+00:29:41.839 --> 00:29:47.119
+Caption: maybe that endpoint is being abused
+
+00:29:45.199 --> 00:29:49.199
+Caption: and this is essentially just a manually
+
+00:29:47.119 --> 00:29:51.359
+Caption: managed circuit breaker so we&#39;ll notice
+
+00:29:49.199 --> 00:29:52.880
+Caption: a problem um the difference here is it&#39;s
+
+00:29:51.359 --> 00:29:54.158
+Caption: not automated whether that feature
+
+00:29:52.880 --> 00:29:57.039
+Caption: toggles on or off we&#39;re doing that
+
+00:29:54.159 --> 00:29:57.039
+Caption: manually yourself
+
+00:29:57.279 --> 00:30:00.640
+Caption: these feature toggles
+
+00:29:58.880 --> 00:30:01.918
+Caption: um because they&#39;re operational toggles
+
+00:30:00.640 --> 00:30:03.760
+Caption: they&#39;re going to last a lot longer in
+
+00:30:01.918 --> 00:30:05.278
+Caption: our system we don&#39;t really know when
+
+00:30:03.760 --> 00:30:06.880
+Caption: exactly we&#39;re going to need to use these
+
+00:30:05.279 --> 00:30:08.559
+Caption: or not they&#39;re probably going to live in
+
+00:30:06.880 --> 00:30:11.199
+Caption: your system a little bit longer
+
+00:30:08.558 --> 00:30:13.599
+Caption: um so longevity is somewhere up in in
+
+00:30:11.199 --> 00:30:15.519
+Caption: months maybe even indefinitely
+
+00:30:13.599 --> 00:30:17.599
+Caption: and we can also see
+
+00:30:15.520 --> 00:30:19.119
+Caption: as well the the there&#39;s an overlap there
+
+00:30:17.599 --> 00:30:20.558
+Caption: with that application toggle as well so
+
+00:30:19.119 --> 00:30:22.158
+Caption: you can use those um you might have seen
+
+00:30:20.558 --> 00:30:24.000
+Caption: inside the kill switch there was that
+
+00:30:22.159 --> 00:30:27.600
+Caption: application toggle as well
+
+00:30:24.000 --> 00:30:29.760
+Caption: um so you can see some overlap there
+
+00:30:27.599 --> 00:30:31.119
+Caption: the last category of feature toggles i
+
+00:30:29.760 --> 00:30:32.719
+Caption: want to talk about is something called
+
+00:30:31.119 --> 00:30:34.479
+Caption: customization
+
+00:30:32.719 --> 00:30:36.398
+Caption: um so you might have heard customization
+
+00:30:34.479 --> 00:30:38.398
+Caption: versus personalization before
+
+00:30:36.399 --> 00:30:40.239
+Caption: talk about that in a sec but
+
+00:30:38.399 --> 00:30:42.559
+Caption: this example here i haven&#39;t got any code
+
+00:30:40.239 --> 00:30:45.038
+Caption: to show you but this example here is
+
+00:30:42.558 --> 00:30:48.079
+Caption: github so they&#39;ve got a little feature
+
+00:30:45.038 --> 00:30:50.158
+Caption: preview model that you can access
+
+00:30:48.079 --> 00:30:51.599
+Caption: and if you&#39;re if you want you can enable
+
+00:30:50.159 --> 00:30:52.640
+Caption: certain features that they&#39;re currently
+
+00:30:51.599 --> 00:30:53.839
+Caption: running through they don&#39;t want everyone
+
+00:30:52.640 --> 00:30:55.760
+Caption: to have access to it but if you&#39;re
+
+00:30:53.839 --> 00:30:57.599
+Caption: interested in using that feature you can
+
+00:30:55.760 --> 00:30:59.199
+Caption: enable that yourself
+
+00:30:57.599 --> 00:31:01.119
+Caption: um you have control over it that&#39;s the
+
+00:30:59.199 --> 00:31:05.038
+Caption: important part that differentiates
+
+00:31:01.119 --> 00:31:06.640
+Caption: customization versus personalization
+
+00:31:05.038 --> 00:31:08.639
+Caption: so these customizations are the sort of
+
+00:31:06.640 --> 00:31:10.399
+Caption: thing you might want to run for a longer
+
+00:31:08.640 --> 00:31:12.399
+Caption: period of time as well
+
+00:31:10.399 --> 00:31:14.399
+Caption: they fall under a category of toggles
+
+00:31:12.399 --> 00:31:17.440
+Caption: called permission toggles we can see
+
+00:31:14.399 --> 00:31:19.279
+Caption: that the canary lives in here as well
+
+00:31:17.439 --> 00:31:21.199
+Caption: this is the differentiation between
+
+00:31:19.279 --> 00:31:23.600
+Caption: customization and personalization so
+
+00:31:21.199 --> 00:31:25.518
+Caption: personalization are those canary toggles
+
+00:31:23.599 --> 00:31:28.158
+Caption: and personalizations are the the
+
+00:31:25.519 --> 00:31:30.080
+Caption: difference there is whether we as the
+
+00:31:28.159 --> 00:31:31.120
+Caption: developers or the people making the
+
+00:31:30.079 --> 00:31:32.719
+Caption: product
+
+00:31:31.119 --> 00:31:34.640
+Caption: deciding whether those feature toggles
+
+00:31:32.719 --> 00:31:36.959
+Caption: are shown to those customers all those
+
+00:31:34.640 --> 00:31:40.479
+Caption: features are versus customization those
+
+00:31:36.959 --> 00:31:40.479
+Caption: customers are opting in themselves
+
+00:31:42.239 --> 00:31:44.959
+Caption: so i&#39;ve shown you a bunch of different
+
+00:31:43.439 --> 00:31:46.719
+Caption: types of feature toggles and what they
+
+00:31:44.959 --> 00:31:49.119
+Caption: look like let&#39;s quickly talk about some
+
+00:31:46.719 --> 00:31:50.398
+Caption: techniques and strategy
+
+00:31:49.119 --> 00:31:51.599
+Caption: so if you remember branching by
+
+00:31:50.399 --> 00:31:54.080
+Caption: abstraction in our trunk based
+
+00:31:51.599 --> 00:31:56.000
+Caption: development stuff
+
+00:31:54.079 --> 00:31:58.079
+Caption: before when we had feature branches what
+
+00:31:56.000 --> 00:31:59.760
+Caption: we did is we we put all of our branching
+
+00:31:58.079 --> 00:32:01.439
+Caption: into our source control so we&#39;d have
+
+00:31:59.760 --> 00:32:03.199
+Caption: lots of branches running different
+
+00:32:01.439 --> 00:32:04.959
+Caption: versions of the software there and that
+
+00:32:03.199 --> 00:32:07.199
+Caption: was quite hard to manage many many
+
+00:32:04.959 --> 00:32:08.798
+Caption: branches lots of merge conflicts when
+
+00:32:07.199 --> 00:32:10.158
+Caption: we&#39;re trying to merge things over the
+
+00:32:08.798 --> 00:32:12.398
+Caption: top of each other
+
+00:32:10.159 --> 00:32:14.559
+Caption: difficult right branching is bad
+
+00:32:12.399 --> 00:32:16.080
+Caption: but we did have versions of our code
+
+00:32:14.558 --> 00:32:17.678
+Caption: that didn&#39;t have as many branches in
+
+00:32:16.079 --> 00:32:19.918
+Caption: them so we&#39;d have this linear code
+
+00:32:17.678 --> 00:32:21.439
+Caption: execution paths
+
+00:32:19.918 --> 00:32:23.439
+Caption: when we moved to trunk based development
+
+00:32:21.439 --> 00:32:26.239
+Caption: we didn&#39;t solve that problem all we did
+
+00:32:23.439 --> 00:32:27.599
+Caption: was move it so we moved our branching
+
+00:32:26.239 --> 00:32:30.158
+Caption: our stuff that&#39;s hard that we don&#39;t
+
+00:32:27.599 --> 00:32:32.398
+Caption: really like we move that into our code
+
+00:32:30.159 --> 00:32:34.320
+Caption: that&#39;s not necessarily bad like code&#39;s
+
+00:32:32.399 --> 00:32:36.239
+Caption: easier to work with it&#39;s it&#39;s nicer and
+
+00:32:34.319 --> 00:32:38.158
+Caption: we get more flexibility and control
+
+00:32:36.239 --> 00:32:40.079
+Caption: whereas source control&#39;s a bit rigid and
+
+00:32:38.159 --> 00:32:41.440
+Caption: has limitations right
+
+00:32:40.079 --> 00:32:44.239
+Caption: but we just moved the problem that&#39;s
+
+00:32:41.439 --> 00:32:44.239
+Caption: important to note
+
+00:32:44.319 --> 00:32:46.880
+Caption: so
+
+00:32:45.439 --> 00:32:48.639
+Caption: there&#39;s three things that are
+
+00:32:46.880 --> 00:32:51.519
+Caption: potentially true of any long-lived
+
+00:32:48.640 --> 00:32:53.760
+Caption: feature branch this is feature branches
+
+00:32:51.519 --> 00:32:55.279
+Caption: um in our old way of working
+
+00:32:53.760 --> 00:32:57.119
+Caption: any feature branch that&#39;s been around
+
+00:32:55.279 --> 00:32:58.240
+Caption: for a long time has either already been
+
+00:32:57.119 --> 00:32:59.839
+Caption: merged
+
+00:32:58.239 --> 00:33:02.158
+Caption: or it can&#39;t be merged there&#39;s too many
+
+00:32:59.839 --> 00:33:04.479
+Caption: conflicts it&#39;s not possible anymore
+
+00:33:02.159 --> 00:33:06.960
+Caption: or it&#39;s code that&#39;s no longer relevant
+
+00:33:04.479 --> 00:33:08.640
+Caption: it&#39;s been superseded by something else
+
+00:33:06.959 --> 00:33:10.798
+Caption: and the same
+
+00:33:08.640 --> 00:33:12.640
+Caption: three or similar three
+
+00:33:10.798 --> 00:33:14.398
+Caption: characteristics are true of any feature
+
+00:33:12.640 --> 00:33:16.079
+Caption: toggle you&#39;ve had in your system for a
+
+00:33:14.399 --> 00:33:18.159
+Caption: very long period of time
+
+00:33:16.079 --> 00:33:18.880
+Caption: so those feature toggles are permanently
+
+00:33:18.159 --> 00:33:20.640
+Caption: on
+
+00:33:18.880 --> 00:33:22.079
+Caption: or they&#39;re permanently off so you can
+
+00:33:20.640 --> 00:33:23.599
+Caption: remove them
+
+00:33:22.079 --> 00:33:25.119
+Caption: otherwise if they&#39;re somewhere in the
+
+00:33:23.599 --> 00:33:27.119
+Caption: middle like they&#39;re a canary that&#39;s been
+
+00:33:25.119 --> 00:33:28.239
+Caption: running for a very long period of time
+
+00:33:27.119 --> 00:33:30.399
+Caption: you&#39;re actually probably at the stage
+
+00:33:28.239 --> 00:33:31.839
+Caption: with that isn&#39;t a feature toggle anymore
+
+00:33:30.399 --> 00:33:34.159
+Caption: it&#39;s actually part of your business
+
+00:33:31.839 --> 00:33:34.158
+Caption: logic
+
+00:33:35.119 --> 00:33:40.079
+Caption: so we want to be removing toggles where
+
+00:33:36.798 --> 00:33:41.760
+Caption: we can our idea here is that
+
+00:33:40.079 --> 00:33:43.518
+Caption: basically in all three of these cases
+
+00:33:41.760 --> 00:33:45.279
+Caption: here we can we can remove that feature
+
+00:33:43.519 --> 00:33:46.960
+Caption: toggle if it&#39;s been around for a very
+
+00:33:45.279 --> 00:33:48.399
+Caption: long period of time so
+
+00:33:46.959 --> 00:33:50.398
+Caption: let&#39;s make sure we remove our feature
+
+00:33:48.399 --> 00:33:52.239
+Caption: toggles
+
+00:33:50.399 --> 00:33:53.760
+Caption: essentially one thing to remember here
+
+00:33:52.239 --> 00:33:56.079
+Caption: one thing to take away is that every
+
+00:33:53.760 --> 00:33:57.678
+Caption: feature toggle should have an expiry so
+
+00:33:56.079 --> 00:33:59.119
+Caption: here&#39;s an interesting piece of code this
+
+00:33:57.678 --> 00:34:00.239
+Caption: is a test
+
+00:33:59.119 --> 00:34:02.319
+Caption: um
+
+00:34:00.239 --> 00:34:04.319
+Caption: what we have here is the toggle like
+
+00:34:02.319 --> 00:34:05.918
+Caption: it&#39;s a test that fails um if your
+
+00:34:04.319 --> 00:34:07.278
+Caption: feature toggle is still in the system
+
+00:34:05.918 --> 00:34:09.678
+Caption: after one month
+
+00:34:07.279 --> 00:34:12.239
+Caption: i wouldn&#39;t recommend doing this because
+
+00:34:09.678 --> 00:34:14.000
+Caption: what happens with something like this is
+
+00:34:12.239 --> 00:34:16.479
+Caption: yeah your developer who&#39;s working on the
+
+00:34:14.000 --> 00:34:18.959
+Caption: code at the time sees this random test
+
+00:34:16.479 --> 00:34:21.040
+Caption: failing um and what they&#39;ll do is
+
+00:34:18.959 --> 00:34:22.719
+Caption: they&#39;ll just remove that test so that
+
+00:34:21.040 --> 00:34:25.119
+Caption: isn&#39;t going to work very well or they&#39;ll
+
+00:34:22.719 --> 00:34:26.320
+Caption: change the date to 2022. developers are
+
+00:34:25.118 --> 00:34:27.118
+Caption: lazy
+
+00:34:26.320 --> 00:34:29.119
+Caption: so
+
+00:34:27.118 --> 00:34:31.760
+Caption: the best way to approach this instead is
+
+00:34:29.118 --> 00:34:34.559
+Caption: to remove feature toggles proactively
+
+00:34:31.760 --> 00:34:36.398
+Caption: make an effort to do it um make sure you
+
+00:34:34.560 --> 00:34:38.639
+Caption: go and check and see if anything&#39;s still
+
+00:34:36.398 --> 00:34:41.598
+Caption: still in use and don&#39;t do that yourself
+
+00:34:38.638 --> 00:34:41.598
+Caption: but do it proactively
+
+00:34:41.839 --> 00:34:45.919
+Caption: the other lesson
+
+00:34:43.118 --> 00:34:48.959
+Caption: is naming toggles so i&#39;ve got a feature
+
+00:34:45.918 --> 00:34:51.040
+Caption: toggle here it&#39;s called internal staff
+
+00:34:48.959 --> 00:34:52.878
+Caption: and we can see it uses one version of a
+
+00:34:51.040 --> 00:34:54.879
+Caption: payment gateway or another
+
+00:34:52.878 --> 00:34:56.638
+Caption: internal staff or not
+
+00:34:54.878 --> 00:34:58.719
+Caption: problem here is this feature toggle&#39;s
+
+00:34:56.638 --> 00:35:00.559
+Caption: naming is a bit vague and
+
+00:34:58.719 --> 00:35:02.479
+Caption: if i dig a little bit what i find is
+
+00:35:00.560 --> 00:35:04.160
+Caption: that it&#39;s being used in other places so
+
+00:35:02.479 --> 00:35:05.838
+Caption: this isn&#39;t good
+
+00:35:04.159 --> 00:35:07.039
+Caption: the problem here is i&#39;ve got a feature
+
+00:35:05.839 --> 00:35:08.000
+Caption: toggle
+
+00:35:07.040 --> 00:35:09.679
+Caption: that
+
+00:35:08.000 --> 00:35:11.040
+Caption: when i turn it on i actually don&#39;t
+
+00:35:09.679 --> 00:35:12.639
+Caption: really know all the things that it could
+
+00:35:11.040 --> 00:35:15.280
+Caption: be potentially either enabling or
+
+00:35:12.639 --> 00:35:17.358
+Caption: disabling it&#39;s not very specific
+
+00:35:15.280 --> 00:35:18.719
+Caption: looks like here i get a new version of a
+
+00:35:17.358 --> 00:35:20.719
+Caption: payment gateway
+
+00:35:18.719 --> 00:35:23.118
+Caption: but also i send different emails and i
+
+00:35:20.719 --> 00:35:25.199
+Caption: use different algorithms so do i want to
+
+00:35:23.118 --> 00:35:27.519
+Caption: turn this on or not
+
+00:35:25.199 --> 00:35:29.598
+Caption: so it&#39;s important to be specific
+
+00:35:27.520 --> 00:35:31.599
+Caption: we&#39;re talking about names let&#39;s try and
+
+00:35:29.599 --> 00:35:34.320
+Caption: come up with a better name right
+
+00:35:31.599 --> 00:35:36.240
+Caption: what if we took the jira ticket and just
+
+00:35:34.320 --> 00:35:38.160
+Caption: stuck that in there well now you&#39;ve got
+
+00:35:36.239 --> 00:35:39.679
+Caption: this problem where if i&#39;m looking at a
+
+00:35:38.159 --> 00:35:42.159
+Caption: feature toggle and wanting to work out
+
+00:35:39.679 --> 00:35:44.319
+Caption: what it does i now have to jump into
+
+00:35:42.159 --> 00:35:46.879
+Caption: jira and i don&#39;t really like euro it&#39;s
+
+00:35:44.320 --> 00:35:48.560
+Caption: slow and hard i&#39;m just i&#39;m
+
+00:35:46.879 --> 00:35:50.399
+Caption: putting in indirection for the sake of
+
+00:35:48.560 --> 00:35:53.119
+Caption: it so that&#39;s not great so avoid
+
+00:35:50.399 --> 00:35:55.358
+Caption: indirection as well
+
+00:35:53.118 --> 00:35:56.639
+Caption: the other thing is naming wise don&#39;t be
+
+00:35:55.358 --> 00:35:58.159
+Caption: don&#39;t be cutesy because that&#39;s the same
+
+00:35:56.639 --> 00:35:58.959
+Caption: thing that&#39;s just in direction as well
+
+00:35:58.159 --> 00:36:00.639
+Caption: so
+
+00:35:58.959 --> 00:36:02.000
+Caption: if i&#39;m looking at that feature toggle
+
+00:36:00.639 --> 00:36:03.679
+Caption: this feature toggle called george i
+
+00:36:02.000 --> 00:36:04.800
+Caption: don&#39;t know what that does if i&#39;ve just
+
+00:36:03.679 --> 00:36:07.040
+Caption: got that i haven&#39;t got this i haven&#39;t
+
+00:36:04.800 --> 00:36:08.959
+Caption: got the code i&#39;m just looking at george
+
+00:36:07.040 --> 00:36:11.280
+Caption: it doesn&#39;t tell me what it does so
+
+00:36:08.959 --> 00:36:13.118
+Caption: probably a best the best version
+
+00:36:11.280 --> 00:36:15.599
+Caption: of a name for this particular feature
+
+00:36:13.118 --> 00:36:17.760
+Caption: toggle is use old payment gateway or
+
+00:36:15.599 --> 00:36:19.119
+Caption: something like that so that if it&#39;s on i
+
+00:36:17.760 --> 00:36:21.599
+Caption: know i&#39;m going to that old payment
+
+00:36:19.118 --> 00:36:21.598
+Caption: gateway
+
+00:36:22.159 --> 00:36:26.319
+Caption: lastly i think it&#39;s important to also
+
+00:36:24.560 --> 00:36:27.920
+Caption: make sure you have an audit log of some
+
+00:36:26.320 --> 00:36:30.400
+Caption: kind
+
+00:36:27.919 --> 00:36:32.000
+Caption: when you&#39;re using feature toggles
+
+00:36:30.399 --> 00:36:33.598
+Caption: just because
+
+00:36:32.000 --> 00:36:35.760
+Caption: you&#39;re changing the way your application
+
+00:36:33.599 --> 00:36:37.680
+Caption: works right so
+
+00:36:35.760 --> 00:36:40.639
+Caption: if there&#39;s something that goes wrong as
+
+00:36:37.679 --> 00:36:41.919
+Caption: a result of that we really need to know
+
+00:36:40.639 --> 00:36:44.078
+Caption: uh
+
+00:36:41.919 --> 00:36:45.598
+Caption: i guess when when that change happens so
+
+00:36:44.079 --> 00:36:46.800
+Caption: that we can kind of track that down and
+
+00:36:45.599 --> 00:36:48.480
+Caption: make sure that
+
+00:36:46.800 --> 00:36:51.040
+Caption: we&#39;re able to fix that so it&#39;s a
+
+00:36:48.479 --> 00:36:51.040
+Caption: debugging
+
+00:36:51.199 --> 00:36:55.280
+Caption: it&#39;s a debugging problem
+
+00:36:53.679 --> 00:36:56.719
+Caption: so if we go and look at all the
+
+00:36:55.280 --> 00:36:58.320
+Caption: different types of feature toggles that
+
+00:36:56.719 --> 00:37:00.159
+Caption: we have
+
+00:36:58.320 --> 00:37:03.040
+Caption: using an audit log kind of differs
+
+00:37:00.159 --> 00:37:04.559
+Caption: depending on what you&#39;re doing
+
+00:37:03.040 --> 00:37:06.400
+Caption: when you have these
+
+00:37:04.560 --> 00:37:07.920
+Caption: static and environment toggles it&#39;s
+
+00:37:06.399 --> 00:37:10.319
+Caption: actually really easy you&#39;ve already got
+
+00:37:07.919 --> 00:37:12.799
+Caption: an audit log because those those feature
+
+00:37:10.320 --> 00:37:14.400
+Caption: toggles live in code so
+
+00:37:12.800 --> 00:37:16.239
+Caption: um anything that lives in code is
+
+00:37:14.399 --> 00:37:19.520
+Caption: already audited by source control that&#39;s
+
+00:37:16.239 --> 00:37:19.520
+Caption: really nice we don&#39;t have to do anything
+
+00:37:19.839 --> 00:37:26.640
+Caption: if you&#39;ve got some of these
+
+00:37:23.520 --> 00:37:28.959
+Caption: database driven ones or these
+
+00:37:26.639 --> 00:37:30.399
+Caption: application feature toggles
+
+00:37:28.959 --> 00:37:32.078
+Caption: what you might want to use is a change
+
+00:37:30.399 --> 00:37:34.159
+Caption: log and you want that change log to live
+
+00:37:32.079 --> 00:37:37.440
+Caption: probably close to where the actual value
+
+00:37:34.159 --> 00:37:39.118
+Caption: of the feature toggles persisted
+
+00:37:37.439 --> 00:37:40.800
+Caption: so if you&#39;re putting your feature
+
+00:37:39.118 --> 00:37:42.399
+Caption: talkers in a database have a secondary
+
+00:37:40.800 --> 00:37:45.280
+Caption: table that tells us when those feature
+
+00:37:42.399 --> 00:37:45.279
+Caption: toggles were changed
+
+00:37:45.839 --> 00:37:49.440
+Caption: and lastly if you&#39;ve got one of the
+
+00:37:47.520 --> 00:37:51.679
+Caption: calculated styles of feature toggles so
+
+00:37:49.439 --> 00:37:53.598
+Caption: the circuit breaker or a calculated a b
+
+00:37:51.679 --> 00:37:55.760
+Caption: test feature toggle um you need some
+
+00:37:53.599 --> 00:37:57.440
+Caption: sort of decision log just log when a
+
+00:37:55.760 --> 00:37:59.599
+Caption: decision was made
+
+00:37:57.439 --> 00:38:01.118
+Caption: about enabling a feature or disabling a
+
+00:37:59.599 --> 00:38:03.040
+Caption: feature that can that doesn&#39;t actually
+
+00:38:01.118 --> 00:38:05.598
+Caption: have to be too complicated just log
+
+00:38:03.040 --> 00:38:09.439
+Caption: message send it to your log aggregator
+
+00:38:05.599 --> 00:38:09.440
+Caption: and then you can just track it later
+
+00:38:10.239 --> 00:38:13.839
+Caption: cool so these are the lessons the
+
+00:38:12.000 --> 00:38:16.000
+Caption: techniques
+
+00:38:13.839 --> 00:38:18.000
+Caption: remove feature toggles proactively use
+
+00:38:16.000 --> 00:38:19.280
+Caption: deliberate and descriptive naming and
+
+00:38:18.000 --> 00:38:21.839
+Caption: make sure to use an audit log that&#39;s
+
+00:38:19.280 --> 00:38:21.839
+Caption: really important
+
+00:38:22.399 --> 00:38:25.039
+Caption: cool
+
+00:38:23.520 --> 00:38:26.800
+Caption: so i think it&#39;s important to look back
+
+00:38:25.040 --> 00:38:28.239
+Caption: over the history of software development
+
+00:38:26.800 --> 00:38:29.359
+Caption: and draw from some of the lessons that
+
+00:38:28.239 --> 00:38:31.118
+Caption: we&#39;ve learned
+
+00:38:29.358 --> 00:38:33.358
+Caption: over this journey so we might assume
+
+00:38:31.118 --> 00:38:35.118
+Caption: that techniques like feature toggling
+
+00:38:33.358 --> 00:38:37.439
+Caption: they kind of just appeared one day but
+
+00:38:35.118 --> 00:38:38.879
+Caption: the reality is we went through a journey
+
+00:38:37.439 --> 00:38:40.959
+Caption: of
+
+00:38:38.879 --> 00:38:43.358
+Caption: lots of failures and learning from those
+
+00:38:40.959 --> 00:38:43.358
+Caption: failures
+
+00:38:44.800 --> 00:38:49.280
+Caption: we talked about the many forms of
+
+00:38:46.879 --> 00:38:51.679
+Caption: uh feature toggle that you can have
+
+00:38:49.280 --> 00:38:54.000
+Caption: um and how they map in terms of
+
+00:38:51.679 --> 00:38:54.000
+Caption: um
+
+00:38:54.079 --> 00:38:58.079
+Caption: sorry how they map in terms of uh
+
+00:38:56.399 --> 00:39:00.959
+Caption: plotting them in terms of evaluation
+
+00:38:58.079 --> 00:39:02.960
+Caption: versus longevity so evaluation being how
+
+00:39:00.959 --> 00:39:04.399
+Caption: often are we are we looking for that
+
+00:39:02.959 --> 00:39:05.280
+Caption: value and how often does that value
+
+00:39:04.399 --> 00:39:06.639
+Caption: change
+
+00:39:05.280 --> 00:39:08.320
+Caption: versus
+
+00:39:06.639 --> 00:39:09.760
+Caption: how long we just we
+
+00:39:08.320 --> 00:39:12.719
+Caption: deciding that feature toggle is going to
+
+00:39:09.760 --> 00:39:15.199
+Caption: live for in our system
+
+00:39:12.719 --> 00:39:16.560
+Caption: and like any technique that we have in
+
+00:39:15.199 --> 00:39:18.399
+Caption: software development and software
+
+00:39:16.560 --> 00:39:19.680
+Caption: architecture there&#39;s always going to be
+
+00:39:18.399 --> 00:39:20.639
+Caption: trade-offs
+
+00:39:19.679 --> 00:39:22.078
+Caption: so
+
+00:39:20.639 --> 00:39:23.598
+Caption: the best example here is we wanted to
+
+00:39:22.079 --> 00:39:24.960
+Caption: avoid branching and source control
+
+00:39:23.599 --> 00:39:26.960
+Caption: because it was rigid and it was
+
+00:39:24.959 --> 00:39:28.879
+Caption: difficult and merge conflicts are hard
+
+00:39:26.959 --> 00:39:30.560
+Caption: right
+
+00:39:28.879 --> 00:39:32.479
+Caption: but all we ended up doing was taking
+
+00:39:30.560 --> 00:39:34.400
+Caption: that branching strategy and moving that
+
+00:39:32.479 --> 00:39:35.838
+Caption: somewhere else it moved into our code so
+
+00:39:34.399 --> 00:39:38.879
+Caption: now we have to have appropriate
+
+00:39:35.839 --> 00:39:40.480
+Caption: mechanisms to deal with that as well
+
+00:39:38.879 --> 00:39:42.799
+Caption: be aware of some of the techniques that
+
+00:39:40.479 --> 00:39:44.879
+Caption: we have at our disposal and the many
+
+00:39:42.800 --> 00:39:47.199
+Caption: ways that we can use them
+
+00:39:44.879 --> 00:39:49.118
+Caption: as well as how to use them properly
+
+00:39:47.199 --> 00:39:50.719
+Caption: use feature toggles as a tool to plan
+
+00:39:49.118 --> 00:39:52.159
+Caption: for the unexpected
+
+00:39:50.719 --> 00:39:54.320
+Caption: because the unexpected is something
+
+00:39:52.159 --> 00:39:56.239
+Caption: that&#39;s always going to happen take this
+
+00:39:54.320 --> 00:39:58.320
+Caption: picture and basically the whole story of
+
+00:39:56.239 --> 00:40:00.159
+Caption: this movie
+
+00:39:58.320 --> 00:40:01.680
+Caption: uh planning for the unexpected can make
+
+00:40:00.159 --> 00:40:04.399
+Caption: a huge difference to the difference to
+
+00:40:01.679 --> 00:40:05.919
+Caption: the success of your product
+
+00:40:04.399 --> 00:40:08.399
+Caption: but also the experience for your
+
+00:40:05.919 --> 00:40:08.399
+Caption: customers
+
+00:40:09.040 --> 00:40:13.520
+Caption: i&#39;m going to thank the sponsors again um
+
+00:40:12.399 --> 00:40:15.358
+Caption: as i can
+
+00:40:13.520 --> 00:40:17.919
+Caption: but also i want to point out that i work
+
+00:40:15.358 --> 00:40:19.759
+Caption: for one of the companies on this slide
+
+00:40:17.919 --> 00:40:20.959
+Caption: that&#39;s these guys here
+
+00:40:19.760 --> 00:40:23.439
+Caption: if
+
+00:40:20.959 --> 00:40:25.439
+Caption: uh feature toggles and the idea of using
+
+00:40:23.439 --> 00:40:27.199
+Caption: them is interesting to you we use them a
+
+00:40:25.439 --> 00:40:29.598
+Caption: lot we play around with the various
+
+00:40:27.199 --> 00:40:32.159
+Caption: different versions and as well um we&#39;re
+
+00:40:29.599 --> 00:40:33.839
+Caption: also hiring i&#39;m up here doing the the
+
+00:40:32.159 --> 00:40:35.838
+Caption: hiring spiel because
+
+00:40:33.839 --> 00:40:39.119
+Caption: we&#39;re looking for people so if if you&#39;re
+
+00:40:35.839 --> 00:40:41.920
+Caption: interested come talk to me or um we have
+
+00:40:39.118 --> 00:40:43.760
+Caption: a booth down in in the back corner
+
+00:40:41.919 --> 00:40:45.118
+Caption: with jacob and travis down there i&#39;ll
+
+00:40:43.760 --> 00:40:46.239
+Caption: give you a free pair of socks if you
+
+00:40:45.118 --> 00:40:48.639
+Caption: haven&#39;t got them already they look
+
+00:40:46.239 --> 00:40:52.520
+Caption: really cool
+
+00:40:48.639 --> 00:40:52.519
+Caption: that&#39;s been me thank you
+
+00:40:58.159 --> 00:41:00.239
+Caption: you
+

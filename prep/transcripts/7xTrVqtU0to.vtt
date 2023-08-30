@@ -1,0 +1,3734 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.920
+Caption: going to kick us off today is Dawn Dawn
+
+00:00:02.220 --> 00:00:07.439
+Caption: e collet Dawn likes to Tinker with Cloud
+
+00:00:04.920 --> 00:00:09.360
+Caption: infrastructure and security and
+
+00:00:07.440 --> 00:00:10.739
+Caption: regularly goes down rabbit holes in a
+
+00:00:09.359 --> 00:00:12.479
+Caption: futile search
+
+00:00:10.739 --> 00:00:14.340
+Caption: a futile search for ways to develop
+
+00:00:12.479 --> 00:00:16.979
+Caption: systems that are both reliable and
+
+00:00:14.340 --> 00:00:19.500
+Caption: impenetrable as well as accidental
+
+00:00:16.979 --> 00:00:21.479
+Caption: accessibility advocacy Dawn can
+
+00:00:19.500 --> 00:00:22.680
+Caption: regularly be found sharing knowledge
+
+00:00:21.479 --> 00:00:25.079
+Caption: within the Melbourne Cloud
+
+00:00:22.680 --> 00:00:27.778
+Caption: infrastructure and devops communities
+
+00:00:25.079 --> 00:00:30.899
+Caption: outside work Dawn is an occasional
+
+00:00:27.778 --> 00:00:34.939
+Caption: author a kitchen Alchemist and a raging
+
+00:00:30.899 --> 00:00:34.939
+Caption: sports ball fan over to you Dawn
+
+00:00:35.219 --> 00:00:40.079
+Caption: thank you
+
+00:00:37.799 --> 00:00:42.000
+Caption: can everyone hear me am I hooked up to
+
+00:00:40.078 --> 00:00:45.238
+Caption: the AV
+
+00:00:42.000 --> 00:00:47.578
+Caption: so I was supposed to come here today to
+
+00:00:45.238 --> 00:00:49.619
+Caption: talk to you about web accessibility
+
+00:00:47.578 --> 00:00:52.019
+Caption: but unfortunately on my flight from
+
+00:00:49.619 --> 00:00:53.939
+Caption: Melbourne to Perth yesterday my talk was
+
+00:00:52.020 --> 00:00:55.920
+Caption: disabled so I&#39;m going to spend
+
+00:00:53.939 --> 00:00:58.078
+Caption: approximately the next 45 minutes
+
+00:00:55.919 --> 00:01:00.599
+Caption: explaining to you how we go about
+
+00:00:58.078 --> 00:01:02.340
+Caption: re-enabling it if you want to follow
+
+00:01:00.599 --> 00:01:04.378
+Caption: along with the sources that I used when
+
+00:01:02.340 --> 00:01:06.720
+Caption: I was putting together this talk you can
+
+00:01:04.378 --> 00:01:08.399
+Caption: scan that QR code up there or go to the
+
+00:01:06.720 --> 00:01:10.380
+Caption: GitHub link that will take you to a
+
+00:01:08.400 --> 00:01:14.000
+Caption: GitHub repository which has all of the
+
+00:01:10.379 --> 00:01:14.000
+Caption: sources sorted by type
+
+00:01:14.220 --> 00:01:18.779
+Caption: to begin with I want to acknowledge the
+
+00:01:16.619 --> 00:01:20.759
+Caption: fact that I am presenting today on
+
+00:01:18.779 --> 00:01:22.500
+Caption: Aboriginal land I want to acknowledge
+
+00:01:20.759 --> 00:01:25.380
+Caption: the traditional owners of the land here
+
+00:01:22.500 --> 00:01:27.419
+Caption: the wajukununga people and also the war
+
+00:01:25.379 --> 00:01:29.360
+Caption: injury people of the colon Nation on
+
+00:01:27.419 --> 00:01:32.099
+Caption: Whose land this talk came into being
+
+00:01:29.360 --> 00:01:34.439
+Caption: this country is and always will be
+
+00:01:32.099 --> 00:01:36.180
+Caption: Aboriginal land their sovereignty was
+
+00:01:34.439 --> 00:01:39.540
+Caption: never ceded
+
+00:01:36.180 --> 00:01:41.220
+Caption: I also want to tip my hat to the old men
+
+00:01:39.540 --> 00:01:43.079
+Caption: and women the Aboriginal and Torres
+
+00:01:41.220 --> 00:01:46.139
+Caption: Strait Islander mentors that I myself
+
+00:01:43.079 --> 00:01:48.299
+Caption: had growing up because among many other
+
+00:01:46.139 --> 00:01:50.099
+Caption: incredibly valuable lessons that I
+
+00:01:48.299 --> 00:01:52.200
+Caption: learned from them they taught me about
+
+00:01:50.099 --> 00:01:54.118
+Caption: the importance of stories and I wouldn&#39;t
+
+00:01:52.199 --> 00:01:57.118
+Caption: be here giving this presentation to you
+
+00:01:54.119 --> 00:01:59.399
+Caption: today without them
+
+00:01:57.119 --> 00:02:01.320
+Caption: I also want to thank all of the sponsors
+
+00:01:59.399 --> 00:02:02.819
+Caption: who have made this possible it has been
+
+00:02:01.319 --> 00:02:05.158
+Caption: amazing to be able to come from
+
+00:02:02.819 --> 00:02:07.860
+Caption: Melbourne to Perth to do this all ready
+
+00:02:05.158 --> 00:02:09.419
+Caption: to meet so many awesome people and it
+
+00:02:07.860 --> 00:02:11.839
+Caption: would not be possible without all of the
+
+00:02:09.419 --> 00:02:11.839
+Caption: sponsors
+
+00:02:12.238 --> 00:02:17.279
+Caption: you&#39;ve kind of got the introduction
+
+00:02:13.860 --> 00:02:19.738
+Caption: there that&#39;s me my name is Dawn my day
+
+00:02:17.279 --> 00:02:21.479
+Caption: job is I&#39;m an engineer at enabler we are
+
+00:02:19.738 --> 00:02:24.119
+Caption: a tiny little consultancy in Melbourne
+
+00:02:21.479 --> 00:02:26.159
+Caption: we love solving devops and cloudy type
+
+00:02:24.119 --> 00:02:27.659
+Caption: problems that&#39;s what I do in my day job
+
+00:02:26.160 --> 00:02:30.238
+Caption: if you want to know more about that you
+
+00:02:27.660 --> 00:02:32.339
+Caption: can ask me more but the reason that I&#39;m
+
+00:02:30.238 --> 00:02:34.199
+Caption: here speaking to all of you today is
+
+00:02:32.339 --> 00:02:36.059
+Caption: because I am an accidental accessibility
+
+00:02:34.199 --> 00:02:36.839
+Caption: Advocate we&#39;re going to get back to that
+
+00:02:36.059 --> 00:02:39.000
+Caption: one
+
+00:02:36.839 --> 00:02:40.619
+Caption: as Hannah said outside work I am an
+
+00:02:39.000 --> 00:02:42.300
+Caption: occasional author and kitchen Alchemist
+
+00:02:40.619 --> 00:02:45.419
+Caption: sometimes that ends really well
+
+00:02:42.300 --> 00:02:47.878
+Caption: sometimes doesn&#39;t I am also a raging
+
+00:02:45.419 --> 00:02:50.339
+Caption: sports ball fan hence that picture and
+
+00:02:47.878 --> 00:02:53.339
+Caption: this being me in Boston Bruins clothing
+
+00:02:50.339 --> 00:02:56.339
+Caption: that&#39;s a hockey team for the record
+
+00:02:53.339 --> 00:02:59.039
+Caption: so The Accidental accessibility Advocate
+
+00:02:56.339 --> 00:03:00.479
+Caption: bit the last two words of that are very
+
+00:02:59.039 --> 00:03:03.238
+Caption: easy to understand
+
+00:03:00.479 --> 00:03:06.119
+Caption: The Accidental is a bit less so and in
+
+00:03:03.238 --> 00:03:08.399
+Caption: order to explain that I need to take you
+
+00:03:06.119 --> 00:03:10.500
+Caption: on a little bit of a tour
+
+00:03:08.399 --> 00:03:12.839
+Caption: and we are going to start that tour in
+
+00:03:10.500 --> 00:03:15.899
+Caption: the UK with this excellent disabled
+
+00:03:12.839 --> 00:03:17.458
+Caption: toilet which is down the set of stairs
+
+00:03:15.899 --> 00:03:19.319
+Caption: I don&#39;t know if any of you have ever
+
+00:03:17.458 --> 00:03:22.759
+Caption: tried to take a wheelchair down a set of
+
+00:03:19.319 --> 00:03:22.759
+Caption: stairs do not recommend
+
+00:03:22.800 --> 00:03:26.940
+Caption: over in New Zealand much closer to home
+
+00:03:24.958 --> 00:03:28.919
+Caption: we do actually have a ramp to be able to
+
+00:03:26.940 --> 00:03:30.658
+Caption: get into this building but unfortunately
+
+00:03:28.919 --> 00:03:32.580
+Caption: for the poor power chair user who&#39;s
+
+00:03:30.658 --> 00:03:34.139
+Caption: currently sitting and staring at it it
+
+00:03:32.580 --> 00:03:36.779
+Caption: is blocked off by a couple of large
+
+00:03:34.139 --> 00:03:39.238
+Caption: orange traffic cones again if you want
+
+00:03:36.779 --> 00:03:41.878
+Caption: to get into the building not absolutely
+
+00:03:39.238 --> 00:03:44.580
+Caption: conducive to that
+
+00:03:41.878 --> 00:03:46.378
+Caption: and finally the place where I could save
+
+00:03:44.580 --> 00:03:48.958
+Caption: this talk in the place where I live in
+
+00:03:46.378 --> 00:03:51.899
+Caption: Melbourne we have these exalus around
+
+00:03:48.958 --> 00:03:53.039
+Caption: the place Space Age public toilets if
+
+00:03:51.899 --> 00:03:56.039
+Caption: you will
+
+00:03:53.039 --> 00:03:57.899
+Caption: and the reason why these made it into a
+
+00:03:56.039 --> 00:04:00.658
+Caption: talk about accidental accessibility
+
+00:03:57.899 --> 00:04:03.779
+Caption: advocacy is because they have a cleaning
+
+00:04:00.658 --> 00:04:05.819
+Caption: cycle which runs and that is indicated
+
+00:04:03.779 --> 00:04:07.440
+Caption: by a large light which will go on in the
+
+00:04:05.819 --> 00:04:09.479
+Caption: cubicle of the toilet
+
+00:04:07.440 --> 00:04:11.220
+Caption: there is also a panel in the toilet
+
+00:04:09.479 --> 00:04:12.899
+Caption: which explains that when the large light
+
+00:04:11.220 --> 00:04:14.878
+Caption: goes on you should vacate because it&#39;s
+
+00:04:12.899 --> 00:04:19.279
+Caption: about to start its cleaning cycle
+
+00:04:14.878 --> 00:04:19.279
+Caption: that panel is translated into Braille
+
+00:04:19.320 --> 00:04:27.000
+Caption: Braille blind people light
+
+00:04:23.160 --> 00:04:28.500
+Caption: doesn&#39;t quite compute that
+
+00:04:27.000 --> 00:04:31.139
+Caption: so
+
+00:04:28.500 --> 00:04:32.639
+Caption: before I get on let&#39;s define a few
+
+00:04:31.139 --> 00:04:35.820
+Caption: important terms
+
+00:04:32.639 --> 00:04:37.559
+Caption: to begin with disability by the
+
+00:04:35.820 --> 00:04:39.000
+Caption: Australian definition is a continuing
+
+00:04:37.559 --> 00:04:42.119
+Caption: condition which restricts everyday
+
+00:04:39.000 --> 00:04:44.279
+Caption: activities A continuing condition means
+
+00:04:42.119 --> 00:04:45.899
+Caption: that it&#39;s likely to last for six months
+
+00:04:44.279 --> 00:04:47.459
+Caption: or more the restricting everyday
+
+00:04:45.899 --> 00:04:49.320
+Caption: activities bit is fairly
+
+00:04:47.459 --> 00:04:51.479
+Caption: self-explanatory
+
+00:04:49.320 --> 00:04:53.460
+Caption: then there&#39;s accessibility and that&#39;s
+
+00:04:51.479 --> 00:04:54.779
+Caption: the degree to which an activity can be
+
+00:04:53.459 --> 00:04:57.559
+Caption: done by everyone
+
+00:04:54.779 --> 00:05:00.299
+Caption: now this is not just about disability
+
+00:04:57.559 --> 00:05:02.759
+Caption: one case study that I like to use here
+
+00:05:00.299 --> 00:05:05.759
+Caption: is from about December 2009 if anyone
+
+00:05:02.759 --> 00:05:07.259
+Caption: remembers hp&#39;s racist webcam where a
+
+00:05:05.759 --> 00:05:09.559
+Caption: black gentleman had gone out and bought
+
+00:05:07.259 --> 00:05:12.119
+Caption: himself a state-of-the-art HP laptop
+
+00:05:09.559 --> 00:05:13.619
+Caption: which had a wonderful web camera which
+
+00:05:12.119 --> 00:05:16.139
+Caption: was supposed to be able to do facial
+
+00:05:13.619 --> 00:05:19.139
+Caption: recognition except it couldn&#39;t until he
+
+00:05:16.139 --> 00:05:21.720
+Caption: got his white co-worker to test it
+
+00:05:19.139 --> 00:05:23.460
+Caption: and then there&#39;s adaptive technology and
+
+00:05:21.720 --> 00:05:25.380
+Caption: those are tools that disabled people to
+
+00:05:23.459 --> 00:05:28.440
+Caption: use to improve access
+
+00:05:25.380 --> 00:05:31.559
+Caption: that can be exceptionally low-tech this
+
+00:05:28.440 --> 00:05:33.899
+Caption: my walking stick is a piece of adaptive
+
+00:05:31.559 --> 00:05:36.179
+Caption: technology wheelchairs are adaptive
+
+00:05:33.899 --> 00:05:38.160
+Caption: technology some things that we use in
+
+00:05:36.179 --> 00:05:40.199
+Caption: architecture like ramps can be part of
+
+00:05:38.160 --> 00:05:42.539
+Caption: adaptive technology
+
+00:05:40.199 --> 00:05:44.459
+Caption: but in the broader sense in terms of
+
+00:05:42.539 --> 00:05:46.320
+Caption: technical pieces of adaptive technology
+
+00:05:44.459 --> 00:05:48.539
+Caption: we&#39;re talking here about things like
+
+00:05:46.320 --> 00:05:50.880
+Caption: screen readers things like adaptive and
+
+00:05:48.539 --> 00:05:53.160
+Caption: augmentative communication things which
+
+00:05:50.880 --> 00:05:55.739
+Caption: are essentially attached to a computer
+
+00:05:53.160 --> 00:05:58.580
+Caption: and warning this is where we get
+
+00:05:55.739 --> 00:05:58.579
+Caption: political for a minute
+
+00:05:59.160 --> 00:06:04.259
+Caption: excuse me
+
+00:06:00.899 --> 00:06:06.839
+Caption: as I get back to the right slide
+
+00:06:04.259 --> 00:06:08.940
+Caption: there are broadly two different ways
+
+00:06:06.839 --> 00:06:11.220
+Caption: that we can Define disability the
+
+00:06:08.940 --> 00:06:13.440
+Caption: medical model and the social model
+
+00:06:11.220 --> 00:06:15.959
+Caption: the medical model of disability holds
+
+00:06:13.440 --> 00:06:17.519
+Caption: that disability itself is a problem that
+
+00:06:15.959 --> 00:06:19.259
+Caption: disability is something that we should
+
+00:06:17.519 --> 00:06:21.599
+Caption: try to resolve something that we should
+
+00:06:19.259 --> 00:06:23.339
+Caption: try to cure and that is Illustrated here
+
+00:06:21.600 --> 00:06:24.839
+Caption: by this clipart lob in a wheelchair
+
+00:06:23.339 --> 00:06:27.299
+Caption: being comforted by a vaguely
+
+00:06:24.839 --> 00:06:29.699
+Caption: doctor-looking clipart blob
+
+00:06:27.299 --> 00:06:31.500
+Caption: on the other hand the social model holds
+
+00:06:29.699 --> 00:06:33.959
+Caption: that it&#39;s not so much disability that&#39;s
+
+00:06:31.500 --> 00:06:35.940
+Caption: the problem it&#39;s accessibility that we
+
+00:06:33.959 --> 00:06:37.259
+Caption: shouldn&#39;t be trying to change people we
+
+00:06:35.940 --> 00:06:38.819
+Caption: should be trying to change the world
+
+00:06:37.259 --> 00:06:41.399
+Caption: around them to make it easier to
+
+00:06:38.819 --> 00:06:43.079
+Caption: navigate and when that goes well that&#39;s
+
+00:06:41.399 --> 00:06:45.299
+Caption: illustrated by things like adaptive
+
+00:06:43.079 --> 00:06:47.099
+Caption: sports that we have over here you know
+
+00:06:45.299 --> 00:06:49.918
+Caption: these people who are playing sports in
+
+00:06:47.100 --> 00:06:51.720
+Caption: wheelchairs look perfectly happy doing
+
+00:06:49.919 --> 00:06:53.699
+Caption: and I wouldn&#39;t want to dismiss the
+
+00:06:51.720 --> 00:06:55.199
+Caption: medical model entirely because there are
+
+00:06:53.699 --> 00:06:57.660
+Caption: some great interventions that have come
+
+00:06:55.199 --> 00:06:59.699
+Caption: out of that but for the purposes of the
+
+00:06:57.660 --> 00:07:01.139
+Caption: work that we&#39;re doing the way that I
+
+00:06:59.699 --> 00:07:03.419
+Caption: would suggest that we look at this is
+
+00:07:01.139 --> 00:07:06.179
+Caption: through the lens of the social model we
+
+00:07:03.419 --> 00:07:08.880
+Caption: want to try to modify the environment to
+
+00:07:06.179 --> 00:07:10.859
+Caption: make it easier for people to use
+
+00:07:08.880 --> 00:07:12.839
+Caption: and if you&#39;re here I feel pretty
+
+00:07:10.859 --> 00:07:14.279
+Caption: confident in saying that this is part of
+
+00:07:12.839 --> 00:07:16.380
+Caption: your job
+
+00:07:14.279 --> 00:07:18.299
+Caption: so to illustrate that let&#39;s look at a
+
+00:07:16.380 --> 00:07:20.399
+Caption: few case studies of how this goes well
+
+00:07:18.299 --> 00:07:23.220
+Caption: and how this goes badly
+
+00:07:20.399 --> 00:07:25.799
+Caption: this is on grand.net and I didn&#39;t have
+
+00:07:23.220 --> 00:07:28.319
+Caption: to look very hard to find this it&#39;s on a
+
+00:07:25.799 --> 00:07:29.220
+Caption: great many list of top 10 worst websites
+
+00:07:28.319 --> 00:07:32.098
+Caption: ever
+
+00:07:29.220 --> 00:07:33.779
+Caption: and it&#39;s visually very cluttered you can
+
+00:07:32.098 --> 00:07:35.639
+Caption: see that I mean it would probably make
+
+00:07:33.779 --> 00:07:37.979
+Caption: more sense to me if I spoke Norwegian
+
+00:07:35.639 --> 00:07:39.899
+Caption: but you&#39;ve got a bunch of pictures here
+
+00:07:37.979 --> 00:07:41.639
+Caption: which are all very confused you&#39;ve got a
+
+00:07:39.899 --> 00:07:43.799
+Caption: bunch of colors there&#39;s not really a
+
+00:07:41.639 --> 00:07:45.960
+Caption: whole lot of structure to it and it
+
+00:07:43.799 --> 00:07:48.059
+Caption: would not surprise you that if you try
+
+00:07:45.959 --> 00:07:50.160
+Caption: to navigate on grand.net with a screen
+
+00:07:48.059 --> 00:07:52.440
+Caption: reader you&#39;re going to have a great deal
+
+00:07:50.160 --> 00:07:54.300
+Caption: of difficulty doing it because that
+
+00:07:52.440 --> 00:07:56.279
+Caption: structure that&#39;s replicated that
+
+00:07:54.299 --> 00:07:58.138
+Caption: structure that we see here visually is
+
+00:07:56.279 --> 00:07:59.759
+Caption: replicated in the lack of structure that
+
+00:07:58.139 --> 00:08:02.039
+Caption: you get when trying to navigate it with
+
+00:07:59.759 --> 00:08:04.319
+Caption: a screen reader there&#39;s a hell of a lot
+
+00:08:02.039 --> 00:08:06.679
+Caption: of red and green here and that&#39;s really
+
+00:08:04.319 --> 00:08:08.759
+Caption: difficult for colorblind people
+
+00:08:06.679 --> 00:08:11.098
+Caption: unsurprisingly many of the images here
+
+00:08:08.759 --> 00:08:13.619
+Caption: don&#39;t actually have alt text and it&#39;s
+
+00:08:11.098 --> 00:08:15.179
+Caption: also not clear which images are tied to
+
+00:08:13.619 --> 00:08:17.098
+Caption: which links because of the lack of
+
+00:08:15.179 --> 00:08:19.739
+Caption: structure
+
+00:08:17.098 --> 00:08:21.779
+Caption: and then there&#39;s distinctive Design This
+
+00:08:19.739 --> 00:08:24.479
+Caption: is Ling&#39;s cars and you may or may not
+
+00:08:21.779 --> 00:08:26.279
+Caption: believe this but this is actually one of
+
+00:08:24.479 --> 00:08:28.619
+Caption: the most successful Car leasing
+
+00:08:26.279 --> 00:08:30.959
+Caption: businesses in the United Kingdom
+
+00:08:28.619 --> 00:08:34.080
+Caption: and it is built around the brand of Ling
+
+00:08:30.959 --> 00:08:38.039
+Caption: Valentine the owner and the brand is
+
+00:08:34.080 --> 00:08:39.778
+Caption: obvious Ling&#39;s face is animated the uh
+
+00:08:38.039 --> 00:08:41.880
+Caption: tongue with the British flag on it is
+
+00:08:39.778 --> 00:08:43.679
+Caption: animated the traffic lights are animated
+
+00:08:41.880 --> 00:08:45.539
+Caption: and my favorite bit which I couldn&#39;t get
+
+00:08:43.679 --> 00:08:48.359
+Caption: into this screenshot from when I
+
+00:08:45.539 --> 00:08:50.820
+Caption: originally took it was the GIF of Boris
+
+00:08:48.359 --> 00:08:54.239
+Caption: Johnson shrugging used to illustrate the
+
+00:08:50.820 --> 00:08:56.640
+Caption: Boris brexit guarantee that if the UK
+
+00:08:54.239 --> 00:08:58.739
+Caption: left the EU the cost of leasing your car
+
+00:08:56.640 --> 00:09:00.838
+Caption: would not go up
+
+00:08:58.739 --> 00:09:02.820
+Caption: but if you want to build a distinctive
+
+00:09:00.838 --> 00:09:05.640
+Caption: website like this there are a lot of
+
+00:09:02.820 --> 00:09:07.919
+Caption: considerations that go into it you have
+
+00:09:05.640 --> 00:09:10.920
+Caption: to think about things like that text
+
+00:09:07.919 --> 00:09:12.898
+Caption: across the top that&#39;s not text that&#39;s
+
+00:09:10.919 --> 00:09:14.458
+Caption: actually clip art so it&#39;s not
+
+00:09:12.898 --> 00:09:16.320
+Caption: necessarily going to be immediately
+
+00:09:14.458 --> 00:09:19.018
+Caption: apparent that that&#39;s the launching point
+
+00:09:16.320 --> 00:09:21.600
+Caption: of your page and you also need to then
+
+00:09:19.018 --> 00:09:23.458
+Caption: add alt text to it you can have issues
+
+00:09:21.599 --> 00:09:25.440
+Caption: with backgrounds making it difficult for
+
+00:09:23.458 --> 00:09:27.958
+Caption: people to navigate things
+
+00:09:25.440 --> 00:09:29.700
+Caption: you know there is a lot of alt text that
+
+00:09:27.958 --> 00:09:31.260
+Caption: has gone into this website but when I
+
+00:09:29.700 --> 00:09:32.518
+Caption: originally looked at it there wasn&#39;t a
+
+00:09:31.260 --> 00:09:34.140
+Caption: lot of it there there were a lot of
+
+00:09:32.518 --> 00:09:36.539
+Caption: scenarios where pictures were used to
+
+00:09:34.140 --> 00:09:38.278
+Caption: illustrate things without something that
+
+00:09:36.539 --> 00:09:40.380
+Caption: would be backed up by a screen reader
+
+00:09:38.278 --> 00:09:42.479
+Caption: and if you have photosensitivity
+
+00:09:40.380 --> 00:09:45.359
+Caption: problems you are not going to have fun
+
+00:09:42.479 --> 00:09:47.099
+Caption: trying to navigate this site
+
+00:09:45.359 --> 00:09:49.079
+Caption: then there&#39;s an example of good design
+
+00:09:47.099 --> 00:09:52.018
+Caption: and this is one that probably a lot of
+
+00:09:49.080 --> 00:09:54.720
+Caption: us use every day and that is GitHub
+
+00:09:52.018 --> 00:09:57.239
+Caption: GitHub does a few things really well
+
+00:09:54.719 --> 00:09:59.099
+Caption: that are not necessarily intuitive to
+
+00:09:57.239 --> 00:10:01.140
+Caption: start with if you look at that top bar
+
+00:09:59.099 --> 00:10:03.599
+Caption: over there you can see that you&#39;ve got
+
+00:10:01.140 --> 00:10:05.700
+Caption: the GitHub logo the search bar but then
+
+00:10:03.599 --> 00:10:08.458
+Caption: next to it you&#39;ve actually got pull
+
+00:10:05.700 --> 00:10:10.919
+Caption: request issues Marketplace explore and
+
+00:10:08.458 --> 00:10:13.739
+Caption: those are easy anchors for screen reader
+
+00:10:10.919 --> 00:10:16.260
+Caption: users to be able to get to the areas of
+
+00:10:13.739 --> 00:10:19.080
+Caption: GitHub that they might frequently use
+
+00:10:16.260 --> 00:10:21.479
+Caption: GitHub is very very good about not just
+
+00:10:19.080 --> 00:10:22.980
+Caption: conveying information with color the
+
+00:10:21.479 --> 00:10:26.338
+Caption: layout is quite easy to understand
+
+00:10:22.979 --> 00:10:28.859
+Caption: visually it scales very well and this is
+
+00:10:26.338 --> 00:10:30.778
+Caption: actually a screenshot of the nvda repo
+
+00:10:28.859 --> 00:10:33.119
+Caption: the free and open source screen reader
+
+00:10:30.778 --> 00:10:36.059
+Caption: for Windows and the people who developed
+
+00:10:33.119 --> 00:10:39.239
+Caption: nvda migrated it over to GitHub because
+
+00:10:36.059 --> 00:10:41.159
+Caption: they found that for their users the vast
+
+00:10:39.239 --> 00:10:43.619
+Caption: majority of rumor screen reader users
+
+00:10:41.159 --> 00:10:46.338
+Caption: GitHub was a very easy way for them to
+
+00:10:43.619 --> 00:10:46.338
+Caption: submit bugs
+
+00:10:46.440 --> 00:10:51.778
+Caption: if you want to do this well there are a
+
+00:10:49.559 --> 00:10:53.700
+Caption: bunch of resources for it the web
+
+00:10:51.778 --> 00:10:57.000
+Caption: content accessibility guides are sort of
+
+00:10:53.700 --> 00:10:59.040
+Caption: the canonical resource but if you find
+
+00:10:57.000 --> 00:11:00.359
+Caption: those too difficult or if you&#39;re doing
+
+00:10:59.039 --> 00:11:01.739
+Caption: this for the first time and you want
+
+00:11:00.359 --> 00:11:04.320
+Caption: something that&#39;s a bit easier to
+
+00:11:01.739 --> 00:11:06.479
+Caption: understand the accessibility project has
+
+00:11:04.320 --> 00:11:10.078
+Caption: produced a checklist where you can just
+
+00:11:06.479 --> 00:11:12.359
+Caption: go down the checklist and it conveys it
+
+00:11:10.078 --> 00:11:14.039
+Caption: all to you in a much simpler Manner and
+
+00:11:12.359 --> 00:11:15.659
+Caption: you can pretty much just tick boxes to
+
+00:11:14.039 --> 00:11:17.518
+Caption: work out do you actually follow the
+
+00:11:15.659 --> 00:11:19.500
+Caption: guidelines
+
+00:11:17.518 --> 00:11:21.539
+Caption: one thing that I don&#39;t talk very much
+
+00:11:19.500 --> 00:11:23.398
+Caption: about in this talk is designing for
+
+00:11:21.539 --> 00:11:25.380
+Caption: intellectual and cognitive disabilities
+
+00:11:23.398 --> 00:11:27.000
+Caption: but the main resource that you&#39;re going
+
+00:11:25.380 --> 00:11:29.458
+Caption: to want for that is the U.S federal
+
+00:11:27.000 --> 00:11:31.619
+Caption: plain language guidelines these are
+
+00:11:29.458 --> 00:11:33.599
+Caption: published by the US government and they
+
+00:11:31.619 --> 00:11:36.419
+Caption: provide you instructions on how to use
+
+00:11:33.599 --> 00:11:37.979
+Caption: plain clear English which is going to be
+
+00:11:36.419 --> 00:11:41.599
+Caption: easier for people with intellectual and
+
+00:11:37.979 --> 00:11:41.599
+Caption: cognitive disabilities to understand
+
+00:11:42.000 --> 00:11:47.219
+Caption: and there&#39;s a blind lady called Christy
+
+00:11:44.219 --> 00:11:49.319
+Caption: viers who produced a video which went
+
+00:11:47.219 --> 00:11:51.958
+Caption: viral on Twitter showing how she uses
+
+00:11:49.320 --> 00:11:55.018
+Caption: her iPhone and this I think is a really
+
+00:11:51.958 --> 00:11:56.700
+Caption: important thing for people to see not
+
+00:11:55.018 --> 00:11:59.159
+Caption: because
+
+00:11:56.700 --> 00:12:01.739
+Caption: well because it shows you what&#39;s
+
+00:11:59.159 --> 00:12:04.078
+Caption: possible when you think outside the box
+
+00:12:01.739 --> 00:12:06.059
+Caption: and when you design these things taking
+
+00:12:04.078 --> 00:12:08.398
+Caption: into account a wide variety of different
+
+00:12:06.059 --> 00:12:10.380
+Caption: perspectives the iPhone has Braille
+
+00:12:08.398 --> 00:12:12.898
+Caption: keyboards it has a great number of
+
+00:12:10.380 --> 00:12:16.640
+Caption: haptic touch features which deliver data
+
+00:12:12.898 --> 00:12:16.640
+Caption: that you would usually only get visually
+
+00:12:18.778 --> 00:12:23.458
+Caption: in the resources for accessible design
+
+00:12:20.820 --> 00:12:25.078
+Caption: there are a there&#39;s a web page which
+
+00:12:23.458 --> 00:12:27.239
+Caption: links to a whole list of different
+
+00:12:25.078 --> 00:12:29.159
+Caption: resources I&#39;m going to call out a few of
+
+00:12:27.239 --> 00:12:30.419
+Caption: them here that I think are important and
+
+00:12:29.159 --> 00:12:32.759
+Caption: the first one is the ax core
+
+00:12:30.419 --> 00:12:35.639
+Caption: accessibility testing Library
+
+00:12:32.760 --> 00:12:37.260
+Caption: now this is very important for
+
+00:12:35.640 --> 00:12:38.820
+Caption: accessibility because it is entirely
+
+00:12:37.260 --> 00:12:40.320
+Caption: open source and it&#39;s what Google&#39;s
+
+00:12:38.820 --> 00:12:43.078
+Caption: accessibility Checker and a lot of other
+
+00:12:40.320 --> 00:12:45.479
+Caption: similar things are built on
+
+00:12:43.078 --> 00:12:47.338
+Caption: the color Oracle desktop filter is a
+
+00:12:45.479 --> 00:12:49.199
+Caption: very important one for color blindness
+
+00:12:47.338 --> 00:12:51.359
+Caption: and the reason why I&#39;m calling this tool
+
+00:12:49.200 --> 00:12:53.579
+Caption: out specifically is there are a bunch of
+
+00:12:51.359 --> 00:12:55.739
+Caption: browser extensions that you can get but
+
+00:12:53.578 --> 00:12:59.159
+Caption: the color Oracle desktop filter is the
+
+00:12:55.739 --> 00:13:01.979
+Caption: only one that will allow you to plug it
+
+00:12:59.159 --> 00:13:03.599
+Caption: into desktop applications as well so if
+
+00:13:01.979 --> 00:13:06.000
+Caption: you&#39;re developing a desktop application
+
+00:13:03.599 --> 00:13:07.919
+Caption: rather than a web application that&#39;s a
+
+00:13:06.000 --> 00:13:09.479
+Caption: very useful tool
+
+00:13:07.919 --> 00:13:11.219
+Caption: if you want to test what you&#39;re doing
+
+00:13:09.479 --> 00:13:12.479
+Caption: with a screen reader the patch yellow
+
+00:13:11.219 --> 00:13:14.939
+Caption: group one of the very early
+
+00:13:12.479 --> 00:13:16.679
+Caption: accessibility consultancies produced a
+
+00:13:14.940 --> 00:13:18.000
+Caption: list of basic screen reader commands for
+
+00:13:16.679 --> 00:13:20.039
+Caption: pretty much all of the common screen
+
+00:13:18.000 --> 00:13:23.099
+Caption: readers and you can just get those up on
+
+00:13:20.039 --> 00:13:25.799
+Caption: a computer and try them out yourself
+
+00:13:23.099 --> 00:13:27.419
+Caption: Additionally the researchers at the
+
+00:13:25.799 --> 00:13:30.059
+Caption: University of Maryland produce the
+
+00:13:27.419 --> 00:13:32.219
+Caption: photosensitive epilepsy analysis tool a
+
+00:13:30.059 --> 00:13:33.719
+Caption: few years ago and that one is really
+
+00:13:32.219 --> 00:13:36.179
+Caption: important because photosensitive
+
+00:13:33.719 --> 00:13:39.179
+Caption: epilepsy is a disability that we can&#39;t
+
+00:13:36.179 --> 00:13:40.739
+Caption: ask people to test for if you&#39;re asking
+
+00:13:39.179 --> 00:13:42.599
+Caption: people to test for that and they have a
+
+00:13:40.739 --> 00:13:44.398
+Caption: seizure that&#39;s potentially going to be
+
+00:13:42.599 --> 00:13:46.500
+Caption: threatening to their health or in the
+
+00:13:44.398 --> 00:13:48.000
+Caption: worst case threatening to their life so
+
+00:13:46.500 --> 00:13:50.219
+Caption: the researchers at the University of
+
+00:13:48.000 --> 00:13:51.539
+Caption: Maryland produce this tool which
+
+00:13:50.219 --> 00:13:53.699
+Caption: basically allows you to check the
+
+00:13:51.539 --> 00:13:55.559
+Caption: contrast and animations on your website
+
+00:13:53.700 --> 00:13:57.179
+Caption: to ensure that they&#39;re not going to be a
+
+00:13:55.559 --> 00:13:59.778
+Caption: problem for people with photosensitive
+
+00:13:57.179 --> 00:13:59.778
+Caption: epilepsy
+
+00:14:00.059 --> 00:14:05.338
+Caption: now guidelines are great guidelines are
+
+00:14:03.419 --> 00:14:08.458
+Caption: a really good starting point but
+
+00:14:05.338 --> 00:14:12.119
+Caption: guidelines do not tell the whole story
+
+00:14:08.458 --> 00:14:15.000
+Caption: this really comes down to that often
+
+00:14:12.119 --> 00:14:16.799
+Caption: misused adage of the 80 20 principle and
+
+00:14:15.000 --> 00:14:18.719
+Caption: I&#39;ll sum it up like this
+
+00:14:16.799 --> 00:14:20.940
+Caption: the vast majority of accessibility
+
+00:14:18.719 --> 00:14:22.919
+Caption: issues that you might run into can be
+
+00:14:20.940 --> 00:14:24.720
+Caption: very easily solved by looking at and
+
+00:14:22.919 --> 00:14:26.820
+Caption: understanding the guidelines
+
+00:14:24.719 --> 00:14:28.739
+Caption: but there are some accessibility issues
+
+00:14:26.820 --> 00:14:29.940
+Caption: that the guidelines don&#39;t cover and
+
+00:14:28.739 --> 00:14:31.799
+Caption: there are situations where the
+
+00:14:29.940 --> 00:14:34.919
+Caption: guidelines are misleading
+
+00:14:31.799 --> 00:14:37.018
+Caption: in those sorts of scenarios what you
+
+00:14:34.919 --> 00:14:39.239
+Caption: want to do is make sure that you have a
+
+00:14:37.018 --> 00:14:41.539
+Caption: clear and understandable path for people
+
+00:14:39.239 --> 00:14:43.559
+Caption: who have those issues to come to you
+
+00:14:41.539 --> 00:14:45.778
+Caption: report them
+
+00:14:43.559 --> 00:14:49.278
+Caption: and get them to the right people so that
+
+00:14:45.778 --> 00:14:49.278
+Caption: they are going to be actioned
+
+00:14:50.458 --> 00:14:54.778
+Caption: and with most accessibility talks this
+
+00:14:53.159 --> 00:14:56.819
+Caption: is the point at which the person giving
+
+00:14:54.778 --> 00:14:59.099
+Caption: the talk would explain to you how to
+
+00:14:56.820 --> 00:15:00.898
+Caption: solve one particular problem in one
+
+00:14:59.099 --> 00:15:02.698
+Caption: particular language for one particular
+
+00:15:00.898 --> 00:15:05.219
+Caption: scenario
+
+00:15:02.698 --> 00:15:06.958
+Caption: this is not one of that talks and the
+
+00:15:05.219 --> 00:15:08.819
+Caption: reason for that is because I think it&#39;s
+
+00:15:06.958 --> 00:15:11.398
+Caption: often very instructive to look at the
+
+00:15:08.820 --> 00:15:13.018
+Caption: ways that people do this wrong
+
+00:15:11.398 --> 00:15:15.659
+Caption: so that we can learn from them and
+
+00:15:13.018 --> 00:15:18.778
+Caption: hopefully not repeat the mistakes
+
+00:15:15.659 --> 00:15:20.638
+Caption: this is atlassian Confluence and my
+
+00:15:18.778 --> 00:15:22.500
+Caption: assumption is that the vast majority of
+
+00:15:20.638 --> 00:15:24.898
+Caption: the people in the audience here have
+
+00:15:22.500 --> 00:15:26.518
+Caption: used atlassian Confluence before for
+
+00:15:24.898 --> 00:15:29.099
+Caption: those of you who haven&#39;t it&#39;s basically
+
+00:15:26.518 --> 00:15:31.198
+Caption: a shared documentation Wiki so you&#39;ve
+
+00:15:29.099 --> 00:15:34.018
+Caption: got a test space here you&#39;ve got a bunch
+
+00:15:31.198 --> 00:15:36.778
+Caption: of data you can click around it you can
+
+00:15:34.018 --> 00:15:39.059
+Caption: go in and create pages and when you
+
+00:15:36.778 --> 00:15:40.799
+Caption: click the button to create a page you
+
+00:15:39.059 --> 00:15:42.539
+Caption: get something back that looks a bit like
+
+00:15:40.799 --> 00:15:48.479
+Caption: this
+
+00:15:42.539 --> 00:15:48.479
+Caption: and that looks fine right
+
+00:15:48.719 --> 00:15:53.278
+Caption: but we&#39;re gonna go back and look at that
+
+00:15:50.458 --> 00:15:55.559
+Caption: again because despite the fact that this
+
+00:15:53.278 --> 00:15:57.719
+Caption: page was created in my test space which
+
+00:15:55.559 --> 00:15:59.940
+Caption: you can see because my name is up there
+
+00:15:57.719 --> 00:16:01.679
+Caption: I actually wasn&#39;t the person who created
+
+00:15:59.940 --> 00:16:04.018
+Caption: it it was created by someone called
+
+00:16:01.679 --> 00:16:07.018
+Caption: Matthew Gregory and at the time that I
+
+00:16:04.018 --> 00:16:09.179
+Caption: first gave this talk Matt was my manager
+
+00:16:07.018 --> 00:16:11.099
+Caption: so why was it that Matt was the person
+
+00:16:09.179 --> 00:16:13.380
+Caption: who was creating this page and not me
+
+00:16:11.099 --> 00:16:17.099
+Caption: well
+
+00:16:13.380 --> 00:16:18.898
+Caption: that would be your answer because when I
+
+00:16:17.099 --> 00:16:21.119
+Caption: went into Confluence back in the day and
+
+00:16:18.898 --> 00:16:23.219
+Caption: I tried to create Pages what I would get
+
+00:16:21.119 --> 00:16:25.679
+Caption: is that the button there would be cut
+
+00:16:23.219 --> 00:16:27.299
+Caption: off the bottom of the screen which meant
+
+00:16:25.679 --> 00:16:31.018
+Caption: that I could not navigate to it which
+
+00:16:27.299 --> 00:16:32.880
+Caption: meant that I could not create pages
+
+00:16:31.018 --> 00:16:35.398
+Caption: oops
+
+00:16:32.880 --> 00:16:36.958
+Caption: so you can actually scroll the options
+
+00:16:35.398 --> 00:16:38.578
+Caption: within the Confluence pop-up and
+
+00:16:36.958 --> 00:16:40.859
+Caption: atlassian have done a bit of work in
+
+00:16:38.578 --> 00:16:43.018
+Caption: fixing this since but
+
+00:16:40.859 --> 00:16:45.119
+Caption: what this essentially meant at the time
+
+00:16:43.018 --> 00:16:46.679
+Caption: was that if you were using a magnified
+
+00:16:45.119 --> 00:16:48.659
+Caption: screen for particular configurations
+
+00:16:46.679 --> 00:16:50.880
+Caption: because you couldn&#39;t scroll the whole
+
+00:16:48.659 --> 00:16:52.799
+Caption: screen to see the whole pop-up you just
+
+00:16:50.880 --> 00:16:54.419
+Caption: wouldn&#39;t be able to create Pages at all
+
+00:16:52.799 --> 00:16:57.179
+Caption: or you would have to learn how to tab
+
+00:16:54.419 --> 00:16:59.099
+Caption: navigate your way around blind without
+
+00:16:57.179 --> 00:17:00.838
+Caption: screen reader cues to be able to do it
+
+00:16:59.099 --> 00:17:02.698
+Caption: and that pretty much meant that that was
+
+00:17:00.838 --> 00:17:04.260
+Caption: a piece of work that I just offloaded
+
+00:17:02.698 --> 00:17:06.119
+Caption: onto my colleagues every time I needed
+
+00:17:04.260 --> 00:17:07.919
+Caption: to create a page I called someone over
+
+00:17:06.119 --> 00:17:09.958
+Caption: and I went hey can you come do this for
+
+00:17:07.918 --> 00:17:12.000
+Caption: me please
+
+00:17:09.958 --> 00:17:14.938
+Caption: so how do we improve it
+
+00:17:12.000 --> 00:17:16.918
+Caption: well you want to make sure that your UI
+
+00:17:14.938 --> 00:17:18.599
+Caption: elements are all scrollable and that
+
+00:17:16.918 --> 00:17:21.178
+Caption: nothing is cut off by the bottom of the
+
+00:17:18.599 --> 00:17:23.760
+Caption: screen so you want to set it up so that
+
+00:17:21.178 --> 00:17:25.558
+Caption: it&#39;s not just you know scrolling the
+
+00:17:23.760 --> 00:17:28.318
+Caption: options within the pop-up that the whole
+
+00:17:25.558 --> 00:17:30.178
+Caption: page there is scrollable
+
+00:17:28.318 --> 00:17:32.280
+Caption: you want to make sure that you test your
+
+00:17:30.178 --> 00:17:34.319
+Caption: pop-up windows for accessibility so
+
+00:17:32.280 --> 00:17:37.020
+Caption: looking at things like do they block out
+
+00:17:34.319 --> 00:17:39.000
+Caption: other elements of the user interface if
+
+00:17:37.020 --> 00:17:41.099
+Caption: someone is using a zoomed in screen or a
+
+00:17:39.000 --> 00:17:42.780
+Caption: screen reader can they actually navigate
+
+00:17:41.099 --> 00:17:44.939
+Caption: their way around this pop-up window
+
+00:17:42.780 --> 00:17:47.099
+Caption: without losing focus without things
+
+00:17:44.939 --> 00:17:48.959
+Caption: being cut off the bottom of the screen
+
+00:17:47.099 --> 00:17:51.660
+Caption: and the best way to deal with it is you
+
+00:17:48.959 --> 00:17:53.520
+Caption: zooming up yourself or you find a
+
+00:17:51.660 --> 00:17:55.619
+Caption: visually impaired person you get them to
+
+00:17:53.520 --> 00:17:57.780
+Caption: test it for you and that will very
+
+00:17:55.619 --> 00:18:00.859
+Caption: quickly show you where a lot of those
+
+00:17:57.780 --> 00:18:00.859
+Caption: issues are going to be
+
+00:18:01.439 --> 00:18:06.058
+Caption: I need a human screen reader now I was
+
+00:18:04.319 --> 00:18:08.038
+Caption: not the person who said this the person
+
+00:18:06.058 --> 00:18:10.739
+Caption: who said I need a human screen reader
+
+00:18:08.038 --> 00:18:12.779
+Caption: was my friend&#39;s grandmother she is
+
+00:18:10.739 --> 00:18:15.959
+Caption: unfortunately now deceased she was a
+
+00:18:12.780 --> 00:18:18.059
+Caption: lovely person and later on in life due
+
+00:18:15.959 --> 00:18:21.719
+Caption: to a degenerative disease she became
+
+00:18:18.058 --> 00:18:24.359
+Caption: blind now she was quite religious and
+
+00:18:21.719 --> 00:18:26.159
+Caption: she used the pathos website which built
+
+00:18:24.359 --> 00:18:27.839
+Caption: itself as hosting the conversation on
+
+00:18:26.160 --> 00:18:29.700
+Caption: faith to keep in touch with her
+
+00:18:27.839 --> 00:18:32.819
+Caption: religious community when she was no
+
+00:18:29.699 --> 00:18:35.639
+Caption: longer able to easily go to church
+
+00:18:32.819 --> 00:18:38.519
+Caption: and when she started using papayos many
+
+00:18:35.640 --> 00:18:41.579
+Caption: many years ago it looked like this
+
+00:18:38.520 --> 00:18:43.799
+Caption: and Visually that site is not too bad it
+
+00:18:41.579 --> 00:18:46.439
+Caption: was also not all that bad to navigate
+
+00:18:43.798 --> 00:18:49.439
+Caption: with a screen reader it wasn&#39;t perfect
+
+00:18:46.439 --> 00:18:51.418
+Caption: but you could see where things were you
+
+00:18:49.439 --> 00:18:54.298
+Caption: could relatively easily navigate your
+
+00:18:51.418 --> 00:18:56.579
+Caption: way around most of it and it was fairly
+
+00:18:54.298 --> 00:18:58.260
+Caption: apparent what was going on where they
+
+00:18:56.579 --> 00:19:01.260
+Caption: also designed it in such a way that you
+
+00:18:58.260 --> 00:19:02.940
+Caption: didn&#39;t have Auto playing videos and
+
+00:19:01.260 --> 00:19:05.339
+Caption: cluttered pop-ups which would come up
+
+00:19:02.939 --> 00:19:09.599
+Caption: and block your view of part of the page
+
+00:19:05.339 --> 00:19:11.400
+Caption: until in late 2017 early 2018 pathos
+
+00:19:09.599 --> 00:19:13.140
+Caption: went through a redesign and at the end
+
+00:19:11.400 --> 00:19:15.119
+Caption: of the redesign their website looked
+
+00:19:13.140 --> 00:19:18.299
+Caption: like this
+
+00:19:15.119 --> 00:19:20.459
+Caption: and I can&#39;t show you the accessibility
+
+00:19:18.298 --> 00:19:22.199
+Caption: issues with their website
+
+00:19:20.459 --> 00:19:24.599
+Caption: because some of the problems that they
+
+00:19:22.199 --> 00:19:26.339
+Caption: had were so bad that at the time I was
+
+00:19:24.599 --> 00:19:27.900
+Caption: originally putting this talk together a
+
+00:19:26.339 --> 00:19:29.880
+Caption: lot of the major browsers released a
+
+00:19:27.900 --> 00:19:32.219
+Caption: feature that blocked a lot of these
+
+00:19:29.880 --> 00:19:33.298
+Caption: obnoxious pop-ups on site that the
+
+00:19:32.219 --> 00:19:34.798
+Caption: beginning of that text there
+
+00:19:33.298 --> 00:19:36.599
+Caption: advertisement
+
+00:19:34.798 --> 00:19:38.699
+Caption: I wasn&#39;t using an ad blocker when I did
+
+00:19:36.599 --> 00:19:40.380
+Caption: this that was just blocked but back in
+
+00:19:38.699 --> 00:19:42.599
+Caption: the day when my friend&#39;s grandmother was
+
+00:19:40.380 --> 00:19:45.298
+Caption: trying to use this website what would
+
+00:19:42.599 --> 00:19:47.160
+Caption: happen was she would tab around and
+
+00:19:45.298 --> 00:19:49.199
+Caption: suddenly she would find herself in an ad
+
+00:19:47.160 --> 00:19:51.059
+Caption: pop-up or there would be Auto playing
+
+00:19:49.199 --> 00:19:52.739
+Caption: videos that were talking over her screen
+
+00:19:51.058 --> 00:19:54.359
+Caption: reader which meant that she couldn&#39;t
+
+00:19:52.739 --> 00:19:56.459
+Caption: hear the cues that she needed to
+
+00:19:54.359 --> 00:19:58.500
+Caption: navigate around the website and that
+
+00:19:56.459 --> 00:20:00.418
+Caption: made her feel something like this
+
+00:19:58.500 --> 00:20:02.219
+Caption: she was not happy she was not very
+
+00:20:00.418 --> 00:20:03.839
+Caption: pleased and she no longer used the
+
+00:20:02.219 --> 00:20:05.819
+Caption: pathos website
+
+00:20:03.839 --> 00:20:10.439
+Caption: if you want an example of this closer to
+
+00:20:05.819 --> 00:20:13.079
+Caption: home Coles the big supermarket chain got
+
+00:20:10.439 --> 00:20:15.839
+Caption: sued by a screen reader user because of
+
+00:20:13.079 --> 00:20:18.119
+Caption: their website for online ordering was
+
+00:20:15.839 --> 00:20:21.058
+Caption: not accessible with a screen reader
+
+00:20:18.119 --> 00:20:22.859
+Caption: and Coles ended up settling that lawsuit
+
+00:20:21.058 --> 00:20:24.418
+Caption: and one of the stipulations of the
+
+00:20:22.859 --> 00:20:26.339
+Caption: settlement was that Coles actually had
+
+00:20:24.418 --> 00:20:29.399
+Caption: to make sure that their online website
+
+00:20:26.339 --> 00:20:30.839
+Caption: was accessible to screen reader users so
+
+00:20:29.400 --> 00:20:32.820
+Caption: if you want to have a look at someone
+
+00:20:30.839 --> 00:20:34.319
+Caption: who does this really well causes it and
+
+00:20:32.819 --> 00:20:36.178
+Caption: that&#39;s because now they know they have
+
+00:20:34.319 --> 00:20:38.219
+Caption: to do it
+
+00:20:36.178 --> 00:20:40.739
+Caption: oops
+
+00:20:38.219 --> 00:20:42.780
+Caption: so the sound on auto playing videos
+
+00:20:40.739 --> 00:20:44.459
+Caption: talks over screen readers and when you
+
+00:20:42.780 --> 00:20:47.400
+Caption: think about the fact that screen readers
+
+00:20:44.459 --> 00:20:49.199
+Caption: are providing auditor cues to help you
+
+00:20:47.400 --> 00:20:51.719
+Caption: with the visual cues that you miss if
+
+00:20:49.199 --> 00:20:54.119
+Caption: your vision impaired that can be quite a
+
+00:20:51.719 --> 00:20:56.699
+Caption: big problem but the bigger problem is
+
+00:20:54.119 --> 00:20:59.880
+Caption: that if you can&#39;t see the video on the
+
+00:20:56.699 --> 00:21:01.439
+Caption: page you&#39;re relying on being able to
+
+00:20:59.880 --> 00:21:03.539
+Caption: hear the screen readers triggers that
+
+00:21:01.439 --> 00:21:05.399
+Caption: will tell you how to close it if the
+
+00:21:03.538 --> 00:21:06.959
+Caption: video is talking over the screen reader
+
+00:21:05.400 --> 00:21:08.820
+Caption: that&#39;s not something that you&#39;re going
+
+00:21:06.959 --> 00:21:10.678
+Caption: to be able to do
+
+00:21:08.819 --> 00:21:12.178
+Caption: and what&#39;s even worse is that some of
+
+00:21:10.678 --> 00:21:13.979
+Caption: these pop-up advertisements and auto
+
+00:21:12.178 --> 00:21:16.140
+Caption: playing videos will actually take screen
+
+00:21:13.979 --> 00:21:18.418
+Caption: readers into an entirely new container
+
+00:21:16.140 --> 00:21:20.579
+Caption: which acts as a new page and then you
+
+00:21:18.418 --> 00:21:24.000
+Caption: just get a bunch of triggers that go
+
+00:21:20.579 --> 00:21:26.640
+Caption: image image image item text and so on
+
+00:21:24.000 --> 00:21:28.739
+Caption: and so forth looping around
+
+00:21:26.640 --> 00:21:30.419
+Caption: and if you are a screen reader user
+
+00:21:28.739 --> 00:21:32.219
+Caption: expecting to see a whole page and you
+
+00:21:30.418 --> 00:21:34.939
+Caption: don&#39;t know what&#39;s happened that can be
+
+00:21:32.219 --> 00:21:34.939
+Caption: really confusing
+
+00:21:35.280 --> 00:21:39.419
+Caption: to make matters worse not all pop-ups
+
+00:21:37.678 --> 00:21:41.219
+Caption: and auto playing videos have a dismiss
+
+00:21:39.418 --> 00:21:43.918
+Caption: button that won&#39;t even work if you don&#39;t
+
+00:21:41.219 --> 00:21:45.959
+Caption: have a mouse there are some scenarios in
+
+00:21:43.918 --> 00:21:47.880
+Caption: which you set up your whole page and you
+
+00:21:45.959 --> 00:21:49.558
+Caption: go through and you try and make sure
+
+00:21:47.880 --> 00:21:51.058
+Caption: that you can actually close things and
+
+00:21:49.558 --> 00:21:52.859
+Caption: you find that that close Trigger or that
+
+00:21:51.058 --> 00:21:55.199
+Caption: dismiss trigger just isn&#39;t visible if
+
+00:21:52.859 --> 00:21:57.058
+Caption: you&#39;re navigating via keyboard it&#39;s not
+
+00:21:55.199 --> 00:21:59.038
+Caption: correctly placed and that can be a
+
+00:21:57.058 --> 00:22:01.918
+Caption: really big problem
+
+00:21:59.038 --> 00:22:03.719
+Caption: so how do we improve it well it&#39;s pretty
+
+00:22:01.918 --> 00:22:05.579
+Caption: good design just let people decide
+
+00:22:03.719 --> 00:22:08.400
+Caption: whether they want to play videos Auto
+
+00:22:05.579 --> 00:22:11.038
+Caption: playing videos are really annoying and
+
+00:22:08.400 --> 00:22:12.539
+Caption: it is even more important to let users
+
+00:22:11.038 --> 00:22:14.819
+Caption: decide because of the accessibility
+
+00:22:12.538 --> 00:22:16.798
+Caption: implications of this
+
+00:22:14.819 --> 00:22:18.599
+Caption: you also want to make it easy for
+
+00:22:16.798 --> 00:22:20.819
+Caption: keyboard Navigators and screen reader
+
+00:22:18.599 --> 00:22:22.798
+Caption: users to ignore or close those pop-up
+
+00:22:20.819 --> 00:22:25.619
+Caption: elements so make sure that the dismiss
+
+00:22:22.798 --> 00:22:27.779
+Caption: trigger is easily visible to a screen
+
+00:22:25.619 --> 00:22:29.819
+Caption: reader make sure that it&#39;s very early on
+
+00:22:27.780 --> 00:22:31.320
+Caption: make sure that it&#39;s placed in the sort
+
+00:22:29.819 --> 00:22:32.939
+Caption: of location that they would think it
+
+00:22:31.319 --> 00:22:35.939
+Caption: would be
+
+00:22:32.939 --> 00:22:37.199
+Caption: now Safari has a reader mode a lot of
+
+00:22:35.939 --> 00:22:38.699
+Caption: other browsers have reader mode
+
+00:22:37.199 --> 00:22:40.859
+Caption: extensions there&#39;s even one you can get
+
+00:22:38.699 --> 00:22:42.418
+Caption: for the CLI which I probably need to go
+
+00:22:40.859 --> 00:22:43.140
+Caption: back and add to the sources at some
+
+00:22:42.418 --> 00:22:45.418
+Caption: point
+
+00:22:43.140 --> 00:22:47.700
+Caption: but what reader mode essentially does is
+
+00:22:45.418 --> 00:22:50.639
+Caption: it strips out everything on the website
+
+00:22:47.699 --> 00:22:52.619
+Caption: except for the text and the images and
+
+00:22:50.640 --> 00:22:53.940
+Caption: that can be a really useful fullback for
+
+00:22:52.619 --> 00:22:55.558
+Caption: blind or visually impaired people
+
+00:22:53.939 --> 00:22:57.599
+Caption: because the screen reader is then going
+
+00:22:55.558 --> 00:23:00.479
+Caption: to be able to readily navigate around it
+
+00:22:57.599 --> 00:23:02.400
+Caption: so do check to make sure that your HTML
+
+00:23:00.479 --> 00:23:03.959
+Caption: is properly formatted check to make sure
+
+00:23:02.400 --> 00:23:05.339
+Caption: that reader mode works the way that you
+
+00:23:03.959 --> 00:23:07.558
+Caption: would expect it to
+
+00:23:05.339 --> 00:23:09.599
+Caption: and then put on a blindfold cover your
+
+00:23:07.558 --> 00:23:10.739
+Caption: screen use a screen reader yourself it&#39;s
+
+00:23:09.599 --> 00:23:12.719
+Caption: not going to be as good as getting
+
+00:23:10.739 --> 00:23:14.520
+Caption: people who use it day to day but you
+
+00:23:12.719 --> 00:23:16.380
+Caption: will very quickly pick up on what the
+
+00:23:14.520 --> 00:23:18.179
+Caption: issues might be when you do a direct
+
+00:23:16.380 --> 00:23:21.479
+Caption: comparison of what the screen reader
+
+00:23:18.178 --> 00:23:24.380
+Caption: gives you to what you actually get when
+
+00:23:21.479 --> 00:23:24.380
+Caption: you look at it visually
+
+00:23:24.900 --> 00:23:30.599
+Caption: does anyone here remember geocities
+
+00:23:28.439 --> 00:23:33.000
+Caption: cool yup we have an audience of people
+
+00:23:30.599 --> 00:23:34.979
+Caption: that remember geocities
+
+00:23:33.000 --> 00:23:37.199
+Caption: those of you who don&#39;t geoseties
+
+00:23:34.979 --> 00:23:39.780
+Caption: websites tended to look something like
+
+00:23:37.199 --> 00:23:41.339
+Caption: this this is admittedly one of the less
+
+00:23:39.780 --> 00:23:43.500
+Caption: obnoxious options that I could have
+
+00:23:41.339 --> 00:23:45.359
+Caption: picked but it&#39;s still very emblematic of
+
+00:23:43.500 --> 00:23:47.219
+Caption: what web design in that sort of era was
+
+00:23:45.359 --> 00:23:48.839
+Caption: like we&#39;ve got the word up we&#39;ve got the
+
+00:23:47.219 --> 00:23:51.298
+Caption: dancing penguin we&#39;ve got a bunch of
+
+00:23:48.839 --> 00:23:53.400
+Caption: clashing colors we&#39;ve got broken links
+
+00:23:51.298 --> 00:23:55.558
+Caption: we&#39;ve got a whole lot of text in
+
+00:23:53.400 --> 00:23:56.820
+Caption: different colors in Thai
+
+00:23:55.558 --> 00:23:58.678
+Caption: um all that we&#39;re really missing is you
+
+00:23:56.819 --> 00:24:00.000
+Caption: know the line of rainbow Kirby&#39;s jumping
+
+00:23:58.678 --> 00:24:03.058
+Caption: across the top and then it would be very
+
+00:24:00.000 --> 00:24:06.418
+Caption: much a geocities website
+
+00:24:03.058 --> 00:24:10.500
+Caption: geocities is dead Yahoo bought it and
+
+00:24:06.418 --> 00:24:12.538
+Caption: they killed it off in March of 2019.
+
+00:24:10.500 --> 00:24:14.159
+Caption: fortunately or unfortunately depending
+
+00:24:12.538 --> 00:24:17.519
+Caption: on how you look at it a lot of the
+
+00:24:14.159 --> 00:24:19.380
+Caption: people who came into web design in the
+
+00:24:17.520 --> 00:24:20.219
+Caption: era where geocities were state of the
+
+00:24:19.380 --> 00:24:22.199
+Caption: art
+
+00:24:20.219 --> 00:24:24.418
+Caption: now actually have quite a lot of
+
+00:24:22.199 --> 00:24:26.880
+Caption: creative control over their own websites
+
+00:24:24.418 --> 00:24:29.339
+Caption: and many of them have Incorporated some
+
+00:24:26.880 --> 00:24:31.500
+Caption: of these elements of the geocities era
+
+00:24:29.339 --> 00:24:33.359
+Caption: into their corporate websites which is
+
+00:24:31.500 --> 00:24:35.339
+Caption: essentially the equivalent of taking
+
+00:24:33.359 --> 00:24:37.260
+Caption: your very productive businesses fancy
+
+00:24:35.339 --> 00:24:39.418
+Caption: corporate website we are very amazing
+
+00:24:37.260 --> 00:24:41.880
+Caption: and we will show you why
+
+00:24:39.418 --> 00:24:43.859
+Caption: and putting a Nyan cat across the top of
+
+00:24:41.880 --> 00:24:45.659
+Caption: it which is not something I&#39;m going to
+
+00:24:43.859 --> 00:24:49.439
+Caption: recommend unless whatever your business
+
+00:24:45.659 --> 00:24:51.600
+Caption: is is very very niche
+
+00:24:49.439 --> 00:24:53.519
+Caption: I have a friend who has photosensitive
+
+00:24:51.599 --> 00:24:56.099
+Caption: epilepsy and she works in the IT
+
+00:24:53.520 --> 00:24:57.900
+Caption: industry several years ago she had an
+
+00:24:56.099 --> 00:25:00.359
+Caption: encounter with one of these enterprising
+
+00:24:57.900 --> 00:25:01.979
+Caption: designers from the geocities era
+
+00:25:00.359 --> 00:25:04.619
+Caption: she heard about this particular tech
+
+00:25:01.979 --> 00:25:06.479
+Caption: company and she wanted to see what they
+
+00:25:04.619 --> 00:25:07.558
+Caption: were all about and so she went to their
+
+00:25:06.479 --> 00:25:09.599
+Caption: website
+
+00:25:07.558 --> 00:25:11.819
+Caption: and what she encountered there was a
+
+00:25:09.599 --> 00:25:14.280
+Caption: giant strobing Pink element that took up
+
+00:25:11.819 --> 00:25:16.380
+Caption: the top two-thirds of her screen
+
+00:25:14.280 --> 00:25:18.780
+Caption: which pretty much immediately caused her
+
+00:25:16.380 --> 00:25:20.760
+Caption: to have a seizure and the end result of
+
+00:25:18.780 --> 00:25:23.520
+Caption: that was that the enterprising designer
+
+00:25:20.760 --> 00:25:25.260
+Caption: had a phone call which I really
+
+00:25:23.520 --> 00:25:27.900
+Caption: suspected he probably didn&#39;t want to be
+
+00:25:25.260 --> 00:25:29.159
+Caption: on the other end of
+
+00:25:27.900 --> 00:25:32.099
+Caption: oops
+
+00:25:29.159 --> 00:25:34.740
+Caption: so flashing flickering and strobing
+
+00:25:32.099 --> 00:25:36.298
+Caption: effects are one of the major causes of
+
+00:25:34.739 --> 00:25:38.459
+Caption: seizures and if you&#39;re a video game
+
+00:25:36.298 --> 00:25:41.399
+Caption: player and you get games in physical
+
+00:25:38.459 --> 00:25:43.380
+Caption: boxes if you flip over to the back of
+
+00:25:41.400 --> 00:25:46.140
+Caption: the game quite often they have that
+
+00:25:43.380 --> 00:25:48.000
+Caption: little bit of text there that says hey
+
+00:25:46.140 --> 00:25:49.320
+Caption: there&#39;s a flashing flickering and
+
+00:25:48.000 --> 00:25:51.178
+Caption: strobing warning here if you&#39;re
+
+00:25:49.319 --> 00:25:52.859
+Caption: photosensitive you want to be careful
+
+00:25:51.178 --> 00:25:53.819
+Caption: about playing this that&#39;s what that is
+
+00:25:52.859 --> 00:25:56.278
+Caption: for
+
+00:25:53.819 --> 00:25:58.918
+Caption: and it&#39;s much more severe generally if
+
+00:25:56.279 --> 00:26:01.200
+Caption: you&#39;re looking at saturated Reds pinks
+
+00:25:58.918 --> 00:26:02.939
+Caption: oranges and really high contrast effect
+
+00:26:01.199 --> 00:26:05.099
+Caption: so if you&#39;re strobing something from
+
+00:26:02.939 --> 00:26:06.538
+Caption: pink to white or red to White that&#39;s
+
+00:26:05.099 --> 00:26:08.219
+Caption: going to be much more of a problem than
+
+00:26:06.538 --> 00:26:10.558
+Caption: a tiny little animation in the corner
+
+00:26:08.219 --> 00:26:12.239
+Caption: that&#39;s going dark blue to dark green
+
+00:26:10.558 --> 00:26:14.278
+Caption: particularly because photosensitive
+
+00:26:12.239 --> 00:26:15.778
+Caption: epilepsy is a spectrum from mild to
+
+00:26:14.279 --> 00:26:17.640
+Caption: severe
+
+00:26:15.779 --> 00:26:19.740
+Caption: at the milder end it&#39;s quite easy to
+
+00:26:17.640 --> 00:26:22.200
+Caption: work out but my friend being one of the
+
+00:26:19.739 --> 00:26:24.000
+Caption: more severe cases runs into this more
+
+00:26:22.199 --> 00:26:25.678
+Caption: often than she should and so you&#39;ve got
+
+00:26:24.000 --> 00:26:28.199
+Caption: to be aware then of what the parameters
+
+00:26:25.678 --> 00:26:31.319
+Caption: are that you&#39;re dealing with
+
+00:26:28.199 --> 00:26:33.959
+Caption: so how do we improve it well to begin
+
+00:26:31.319 --> 00:26:35.699
+Caption: with if you can you want to avoid using
+
+00:26:33.959 --> 00:26:36.899
+Caption: those flashing flickering and strobing
+
+00:26:35.699 --> 00:26:39.418
+Caption: effects
+
+00:26:36.900 --> 00:26:40.979
+Caption: if you do need to use them the two
+
+00:26:39.418 --> 00:26:42.178
+Caption: changes that you want to make are you
+
+00:26:40.979 --> 00:26:43.979
+Caption: want to make sure that they are low
+
+00:26:42.178 --> 00:26:45.778
+Caption: contrast and you want to make sure that
+
+00:26:43.979 --> 00:26:47.640
+Caption: they&#39;re as small as possible that
+
+00:26:45.779 --> 00:26:49.500
+Caption: flashing from dark blue to dark green in
+
+00:26:47.640 --> 00:26:51.359
+Caption: the corner is not going to be nearly as
+
+00:26:49.500 --> 00:26:52.918
+Caption: much of a problem as the giant strobing
+
+00:26:51.359 --> 00:26:54.418
+Caption: Pink element that takes up the top two
+
+00:26:52.918 --> 00:26:56.699
+Caption: thirds of your page
+
+00:26:54.418 --> 00:26:58.859
+Caption: and if you can avoid it don&#39;t use
+
+00:26:56.699 --> 00:27:01.139
+Caption: particularly saturated Reds and pinks
+
+00:26:58.859 --> 00:27:03.658
+Caption: and also sometimes oranges for those
+
+00:27:01.140 --> 00:27:05.760
+Caption: sorts of flashing effects
+
+00:27:03.659 --> 00:27:07.620
+Caption: if you really want to do this well and
+
+00:27:05.760 --> 00:27:10.260
+Caption: you have a website where you absolutely
+
+00:27:07.619 --> 00:27:12.298
+Caption: have to have animation on it give users
+
+00:27:10.260 --> 00:27:13.678
+Caption: the option to disable and enable it at
+
+00:27:12.298 --> 00:27:15.839
+Caption: will that&#39;s the sort of thing that&#39;s
+
+00:27:13.678 --> 00:27:17.760
+Caption: really useful for scenarios like Ling&#39;s
+
+00:27:15.839 --> 00:27:19.020
+Caption: cars because it means that if you have
+
+00:27:17.760 --> 00:27:21.539
+Caption: people who have those sorts of
+
+00:27:19.020 --> 00:27:23.880
+Caption: photosensitivity issues they can still
+
+00:27:21.538 --> 00:27:25.139
+Caption: actually access your website even if
+
+00:27:23.880 --> 00:27:27.739
+Caption: it&#39;s not quite in the way that you might
+
+00:27:25.140 --> 00:27:27.739
+Caption: have intended
+
+00:27:28.079 --> 00:27:33.359
+Caption: now there is actually a certain amount
+
+00:27:31.199 --> 00:27:35.880
+Caption: of precedent for disabled people being
+
+00:27:33.359 --> 00:27:37.558
+Caption: involved in integrated Sports and that
+
+00:27:35.880 --> 00:27:39.418
+Caption: can be everything from kids playing in
+
+00:27:37.558 --> 00:27:42.178
+Caption: the schoolyard to Olympic Champions like
+
+00:27:39.418 --> 00:27:45.239
+Caption: rato ildico the Hungarian fencer and
+
+00:27:42.178 --> 00:27:47.579
+Caption: imdong Hyun the Korean Archer
+
+00:27:45.239 --> 00:27:49.439
+Caption: but for this specific case study I want
+
+00:27:47.579 --> 00:27:51.859
+Caption: to look at a more modern version of
+
+00:27:49.439 --> 00:27:54.839
+Caption: sports we&#39;re going to look at Esports
+
+00:27:51.859 --> 00:27:57.418
+Caption: specifically League of Legends
+
+00:27:54.839 --> 00:27:59.579
+Caption: this is for those of you who are not
+
+00:27:57.418 --> 00:28:01.319
+Caption: into video games pretty much a
+
+00:27:59.579 --> 00:28:03.899
+Caption: computerized Tower Defense you have
+
+00:28:01.319 --> 00:28:05.880
+Caption: teams of five people and they&#39;re trying
+
+00:28:03.900 --> 00:28:08.099
+Caption: to defend a tower
+
+00:28:05.880 --> 00:28:10.140
+Caption: each of the people on those five teams
+
+00:28:08.099 --> 00:28:12.538
+Caption: can pick characters or Champions that
+
+00:28:10.140 --> 00:28:14.640
+Caption: have different abilities and League of
+
+00:28:12.538 --> 00:28:17.219
+Caption: Legends has a really thriving
+
+00:28:14.640 --> 00:28:19.558
+Caption: professional scene you can actually make
+
+00:28:17.219 --> 00:28:21.178
+Caption: a decent living playing League of
+
+00:28:19.558 --> 00:28:23.158
+Caption: Legends professionally if you&#39;re very
+
+00:28:21.178 --> 00:28:25.380
+Caption: good at it
+
+00:28:23.159 --> 00:28:27.120
+Caption: several years ago the creators of League
+
+00:28:25.380 --> 00:28:29.699
+Caption: of Legends introduced a new Champion
+
+00:28:27.119 --> 00:28:33.000
+Caption: called Tom kench and this is the titular
+
+00:28:29.699 --> 00:28:36.599
+Caption: catfish you can see there redfish on the
+
+00:28:33.000 --> 00:28:38.640
+Caption: left and green fish on the right
+
+00:28:36.599 --> 00:28:40.739
+Caption: time can turn a mechanic that no other
+
+00:28:38.640 --> 00:28:43.320
+Caption: character in the game had had before and
+
+00:28:40.739 --> 00:28:45.119
+Caption: that mechanic is called gray health and
+
+00:28:43.319 --> 00:28:46.678
+Caption: this is where we find out how many
+
+00:28:45.119 --> 00:28:48.719
+Caption: colorblind people are in the audience
+
+00:28:46.678 --> 00:28:50.459
+Caption: today because for those of you who are
+
+00:28:48.719 --> 00:28:52.619
+Caption: not colorblind if you have a look at
+
+00:28:50.459 --> 00:28:53.880
+Caption: that on the red side you can see that
+
+00:28:52.619 --> 00:28:55.678
+Caption: there&#39;s a chunk of the health bar that&#39;s
+
+00:28:53.880 --> 00:28:57.599
+Caption: red then there&#39;s a big chunk of the
+
+00:28:55.678 --> 00:28:59.158
+Caption: health bar that&#39;s great and that&#39;s
+
+00:28:57.599 --> 00:29:00.719
+Caption: essentially acting as a shield which
+
+00:28:59.159 --> 00:29:02.880
+Caption: means that at this point Tom kench is
+
+00:29:00.719 --> 00:29:04.678
+Caption: unkillable and then on the right hand
+
+00:29:02.880 --> 00:29:06.719
+Caption: side you&#39;ve got that little bit which is
+
+00:29:04.678 --> 00:29:08.760
+Caption: kind of shaded out red and that&#39;s the
+
+00:29:06.719 --> 00:29:10.859
+Caption: health that he&#39;s lost
+
+00:29:08.760 --> 00:29:12.839
+Caption: but if I put a color blindness filter
+
+00:29:10.859 --> 00:29:16.260
+Caption: over that particularly on the left side
+
+00:29:12.839 --> 00:29:18.719
+Caption: the red side which is the enemy side
+
+00:29:16.260 --> 00:29:20.760
+Caption: that&#39;s suddenly not so clear
+
+00:29:18.719 --> 00:29:22.678
+Caption: and given that somewhere between eight
+
+00:29:20.760 --> 00:29:25.260
+Caption: and ten percent of the population mostly
+
+00:29:22.678 --> 00:29:27.479
+Caption: men are colorblind it was inevitable
+
+00:29:25.260 --> 00:29:28.859
+Caption: that when with teams of five you are
+
+00:29:27.479 --> 00:29:31.260
+Caption: eventually going to have a tweet like
+
+00:29:28.859 --> 00:29:33.178
+Caption: this from a professional player if you
+
+00:29:31.260 --> 00:29:35.219
+Caption: didn&#39;t know I&#39;m colorblind along with
+
+00:29:33.178 --> 00:29:36.898
+Caption: two other members of my team all three
+
+00:29:35.219 --> 00:29:40.380
+Caption: of us can&#39;t see what health he&#39;s at in
+
+00:29:36.899 --> 00:29:42.299
+Caption: colorblind mode he being Tom kenchier
+
+00:29:40.380 --> 00:29:43.918
+Caption: again these are professional players
+
+00:29:42.298 --> 00:29:47.298
+Caption: this is something that they need to be
+
+00:29:43.918 --> 00:29:47.298
+Caption: able to do to do their job
+
+00:29:48.659 --> 00:29:53.159
+Caption: so most colorblind people can&#39;t tell the
+
+00:29:51.119 --> 00:29:54.899
+Caption: difference between red and green but as
+
+00:29:53.159 --> 00:29:56.640
+Caption: you can see there from the colorblind
+
+00:29:54.899 --> 00:29:58.799
+Caption: filter the other crucial bit of
+
+00:29:56.640 --> 00:30:01.260
+Caption: information here is the contrast between
+
+00:29:58.798 --> 00:30:03.359
+Caption: colors if you can&#39;t distinguish the
+
+00:30:01.260 --> 00:30:06.419
+Caption: difference between particular colors
+
+00:30:03.359 --> 00:30:09.599
+Caption: you&#39;re going to use that contrast to see
+
+00:30:06.418 --> 00:30:11.459
+Caption: is this what I think it is or is it not
+
+00:30:09.599 --> 00:30:13.020
+Caption: because what you basically get with
+
+00:30:11.459 --> 00:30:14.699
+Caption: colors that colorblind people can&#39;t see
+
+00:30:13.020 --> 00:30:17.039
+Caption: is they&#39;ll generally look some variation
+
+00:30:14.699 --> 00:30:19.199
+Caption: of gray black brown or black or they&#39;ll
+
+00:30:17.038 --> 00:30:21.599
+Caption: be ambiguous
+
+00:30:19.199 --> 00:30:24.239
+Caption: and the way that we improve this to
+
+00:30:21.599 --> 00:30:25.918
+Caption: start with is by using a contrast
+
+00:30:24.239 --> 00:30:27.658
+Caption: Checker to make sure that elements are
+
+00:30:25.918 --> 00:30:29.398
+Caption: going to be viewable
+
+00:30:27.659 --> 00:30:31.140
+Caption: to people with all different types of
+
+00:30:29.399 --> 00:30:33.059
+Caption: color blindness and I&#39;m not just talking
+
+00:30:31.140 --> 00:30:35.579
+Caption: about red and green color blindness here
+
+00:30:33.058 --> 00:30:37.619
+Caption: which are the most common types you also
+
+00:30:35.579 --> 00:30:40.558
+Caption: need to design for blue color blindness
+
+00:30:37.619 --> 00:30:42.599
+Caption: and people with no color vision at all
+
+00:30:40.558 --> 00:30:44.699
+Caption: slack does this really well slack for
+
+00:30:42.599 --> 00:30:47.038
+Caption: many years has had accessibility themes
+
+00:30:44.699 --> 00:30:49.199
+Caption: for protonopia and deuteronopia so red
+
+00:30:47.038 --> 00:30:51.298
+Caption: green color blindness but also Patrician
+
+00:30:49.199 --> 00:30:52.859
+Caption: appeal which is blue GitHub is another
+
+00:30:51.298 --> 00:30:54.839
+Caption: one that more recently has done that
+
+00:30:52.859 --> 00:30:56.699
+Caption: very well
+
+00:30:54.839 --> 00:30:58.199
+Caption: and even if you have a colorblind mode
+
+00:30:56.699 --> 00:31:00.359
+Caption: particularly if you&#39;re just designing
+
+00:30:58.199 --> 00:31:02.459
+Caption: for red and green color blindness try
+
+00:31:00.359 --> 00:31:03.839
+Caption: putting a filter over get people to test
+
+00:31:02.459 --> 00:31:06.119
+Caption: it and make sure that it actually does
+
+00:31:03.839 --> 00:31:08.038
+Caption: what you think it would do right games
+
+00:31:06.119 --> 00:31:09.899
+Caption: the creators of League of Legends to
+
+00:31:08.038 --> 00:31:11.879
+Caption: their credit did actually fix this quite
+
+00:31:09.899 --> 00:31:13.980
+Caption: quickly when it came to their attention
+
+00:31:11.880 --> 00:31:15.539
+Caption: but it&#39;s that sort of user acceptance
+
+00:31:13.979 --> 00:31:18.239
+Caption: testing that can often pick up those
+
+00:31:15.538 --> 00:31:20.278
+Caption: issues before they get to production
+
+00:31:18.239 --> 00:31:22.079
+Caption: and if you&#39;re building a colorblind mode
+
+00:31:20.279 --> 00:31:24.059
+Caption: for something you want to try and make
+
+00:31:22.079 --> 00:31:26.099
+Caption: sure that you&#39;re using meaningful icons
+
+00:31:24.058 --> 00:31:28.439
+Caption: or meaningful information to indicate
+
+00:31:26.099 --> 00:31:30.298
+Caption: different elements in state not just
+
+00:31:28.439 --> 00:31:32.158
+Caption: color if what you&#39;re getting is you know
+
+00:31:30.298 --> 00:31:33.599
+Caption: we&#39;re using a square a circle on a
+
+00:31:32.159 --> 00:31:35.760
+Caption: rectangle to try to tell difference
+
+00:31:33.599 --> 00:31:37.739
+Caption: between these things that&#39;s not much
+
+00:31:35.760 --> 00:31:38.699
+Caption: better whereas if you&#39;ve got a great big
+
+00:31:37.739 --> 00:31:40.500
+Caption: tick
+
+00:31:38.699 --> 00:31:43.699
+Caption: it&#39;s going to be apparent what it means
+
+00:31:40.500 --> 00:31:43.699
+Caption: whether it&#39;s green or not
+
+00:31:45.239 --> 00:31:50.640
+Caption: it&#39;s 2020 round three and I can&#39;t
+
+00:31:48.000 --> 00:31:53.699
+Caption: believe I&#39;m saying this but if we cast
+
+00:31:50.640 --> 00:31:54.659
+Caption: our mind back a few years to 2020 round
+
+00:31:53.699 --> 00:31:56.760
+Caption: one
+
+00:31:54.659 --> 00:31:59.159
+Caption: before the whole covert pandemic thing
+
+00:31:56.760 --> 00:32:01.500
+Caption: happened you might remember I certainly
+
+00:31:59.159 --> 00:32:03.480
+Caption: do in Melbourne we had pretty extensive
+
+00:32:01.500 --> 00:32:05.520
+Caption: bushfires which blanketed quite a lot of
+
+00:32:03.479 --> 00:32:07.260
+Caption: the country in Smoke and through
+
+00:32:05.520 --> 00:32:10.320
+Caption: bushfires and through the covid-19
+
+00:32:07.260 --> 00:32:12.178
+Caption: pandemic a lot of people became aware of
+
+00:32:10.319 --> 00:32:14.398
+Caption: different aspects of accessibility that
+
+00:32:12.178 --> 00:32:16.019
+Caption: they hadn&#39;t been aware of before and one
+
+00:32:14.399 --> 00:32:18.179
+Caption: of these was sign language interpreters
+
+00:32:16.020 --> 00:32:20.520
+Caption: because every time we had the prime
+
+00:32:18.178 --> 00:32:22.319
+Caption: minister or a premier or a chief Health
+
+00:32:20.520 --> 00:32:24.899
+Caption: officer or someone from the Emergency
+
+00:32:22.319 --> 00:32:27.178
+Caption: Services coming onto our televisions
+
+00:32:24.899 --> 00:32:28.919
+Caption: giving broadcasts there was always an
+
+00:32:27.178 --> 00:32:31.079
+Caption: Australian sign language interpreter
+
+00:32:28.918 --> 00:32:32.819
+Caption: next to them and that was to ensure that
+
+00:32:31.079 --> 00:32:34.918
+Caption: for people where sign language is their
+
+00:32:32.819 --> 00:32:37.500
+Caption: first language they were able to get
+
+00:32:34.918 --> 00:32:39.599
+Caption: that information conveyed to them in a
+
+00:32:37.500 --> 00:32:41.339
+Caption: timely manner in case they needed to
+
+00:32:39.599 --> 00:32:44.038
+Caption: evacuate or to make sure that they knew
+
+00:32:41.339 --> 00:32:46.380
+Caption: what health orders were changing
+
+00:32:44.038 --> 00:32:48.599
+Caption: but sign language interpretation is not
+
+00:32:46.380 --> 00:32:50.579
+Caption: the only way to make things accessible
+
+00:32:48.599 --> 00:32:51.959
+Caption: to people who are deaf or hard of
+
+00:32:50.579 --> 00:32:53.939
+Caption: hearing
+
+00:32:51.959 --> 00:32:56.158
+Caption: you also want to look at things like
+
+00:32:53.939 --> 00:32:58.199
+Caption: captions and a lot of people will do
+
+00:32:56.159 --> 00:32:59.580
+Caption: that using automated captioning
+
+00:32:58.199 --> 00:33:02.339
+Caption: Solutions
+
+00:32:59.579 --> 00:33:04.140
+Caption: which can be great until they&#39;re not as
+
+00:33:02.339 --> 00:33:06.719
+Caption: illustrated by this tweet from Kell
+
+00:33:04.140 --> 00:33:08.700
+Caption: Montgomery a disability activist beta
+
+00:33:06.719 --> 00:33:10.918
+Caption: based out of the US
+
+00:33:08.699 --> 00:33:13.439
+Caption: if you value US equally and want us to
+
+00:33:10.918 --> 00:33:15.298
+Caption: participate fully we need full access to
+
+00:33:13.439 --> 00:33:16.918
+Caption: the Paul say briefing with enough lead
+
+00:33:15.298 --> 00:33:19.260
+Caption: time to absorb it
+
+00:33:16.918 --> 00:33:20.819
+Caption: that chance is gone for this year which
+
+00:33:19.260 --> 00:33:22.380
+Caption: means that you have just sabotaged your
+
+00:33:20.819 --> 00:33:24.418
+Caption: own legislative agenda by leaving
+
+00:33:22.380 --> 00:33:27.000
+Caption: Advocates unprepared
+
+00:33:24.418 --> 00:33:29.099
+Caption: Now cal here was referring to one of the
+
+00:33:27.000 --> 00:33:32.339
+Caption: biggest disability organizations in the
+
+00:33:29.099 --> 00:33:34.619
+Caption: U.S who had run an event the Paul say
+
+00:33:32.339 --> 00:33:36.898
+Caption: briefing and if you&#39;re wondering what
+
+00:33:34.619 --> 00:33:39.359
+Caption: Paul say means that&#39;s how the automated
+
+00:33:36.899 --> 00:33:41.039
+Caption: captioning solution that they said was
+
+00:33:39.359 --> 00:33:44.339
+Caption: adequate for people to access that
+
+00:33:41.038 --> 00:33:46.798
+Caption: briefing rendered the term policy
+
+00:33:44.339 --> 00:33:48.418
+Caption: the rest of the the rest of the
+
+00:33:46.798 --> 00:33:50.038
+Caption: transcript of the briefing was similarly
+
+00:33:48.418 --> 00:33:52.500
+Caption: garbled
+
+00:33:50.038 --> 00:33:54.359
+Caption: now that&#39;s actually not that hard to
+
+00:33:52.500 --> 00:33:57.119
+Caption: solve it just requires a bit of human
+
+00:33:54.359 --> 00:33:58.739
+Caption: review afterwards and one group of
+
+00:33:57.119 --> 00:34:00.658
+Caption: people that do this really well are the
+
+00:33:58.739 --> 00:34:02.939
+Caption: podcasts This American Life which is
+
+00:34:00.659 --> 00:34:04.019
+Caption: backed by national public radio in the
+
+00:34:02.939 --> 00:34:05.819
+Caption: US
+
+00:34:04.019 --> 00:34:07.859
+Caption: they do have a note on their website
+
+00:34:05.819 --> 00:34:10.319
+Caption: that says This American Life is produced
+
+00:34:07.859 --> 00:34:12.540
+Caption: for the ear and designed to be heard
+
+00:34:10.320 --> 00:34:14.280
+Caption: but they produce transcripts which are
+
+00:34:12.540 --> 00:34:16.800
+Caption: run through an automated transcription
+
+00:34:14.280 --> 00:34:19.080
+Caption: engine and then corrected manually by
+
+00:34:16.800 --> 00:34:21.418
+Caption: human captioners and what that means is
+
+00:34:19.080 --> 00:34:23.459
+Caption: that if you are deaf if you are hard of
+
+00:34:21.418 --> 00:34:25.138
+Caption: hearing or if you have auditory
+
+00:34:23.459 --> 00:34:27.658
+Caption: processing issues or for any other
+
+00:34:25.138 --> 00:34:29.338
+Caption: reason are text Reliant you can go
+
+00:34:27.658 --> 00:34:30.780
+Caption: through and read through that transcript
+
+00:34:29.339 --> 00:34:33.020
+Caption: and it will provide you with all of the
+
+00:34:30.780 --> 00:34:33.020
+Caption: information
+
+00:34:33.118 --> 00:34:37.439
+Caption: one group of people that don&#39;t do this
+
+00:34:35.219 --> 00:34:39.898
+Caption: quite so well are Guardian Australia and
+
+00:34:37.439 --> 00:34:42.060
+Caption: this is relevant because they produced
+
+00:34:39.898 --> 00:34:44.520
+Caption: one of the better sources of information
+
+00:34:42.060 --> 00:34:46.320
+Caption: in audio form about what was actually
+
+00:34:44.520 --> 00:34:48.719
+Caption: going on in terms of health roundups and
+
+00:34:46.320 --> 00:34:50.520
+Caption: things during the covid-19 pandemic
+
+00:34:48.719 --> 00:34:51.898
+Caption: but their approach to transcribing
+
+00:34:50.520 --> 00:34:54.780
+Caption: things can be described with this
+
+00:34:51.898 --> 00:34:56.040
+Caption: headline here Guardian podcasts why no
+
+00:34:54.780 --> 00:34:57.839
+Caption: transcripts
+
+00:34:56.040 --> 00:35:01.500
+Caption: that is to say that their approach is to
+
+00:34:57.839 --> 00:35:04.260
+Caption: not transcribe anything at all
+
+00:35:01.500 --> 00:35:06.899
+Caption: which means that if you are deaf or hard
+
+00:35:04.260 --> 00:35:08.639
+Caption: of hearing or otherwise text Reliant you
+
+00:35:06.899 --> 00:35:10.139
+Caption: cannot actually access any of the
+
+00:35:08.639 --> 00:35:12.539
+Caption: material that Guardian Australia
+
+00:35:10.139 --> 00:35:14.760
+Caption: produces in audio form
+
+00:35:12.540 --> 00:35:16.859
+Caption: oops
+
+00:35:14.760 --> 00:35:19.199
+Caption: and this is also important because text
+
+00:35:16.858 --> 00:35:21.118
+Caption: Reliant people aren&#39;t necessarily deaf
+
+00:35:19.199 --> 00:35:23.939
+Caption: or hard of hearing autistic people
+
+00:35:21.118 --> 00:35:26.399
+Caption: people with ADHD people with sensory
+
+00:35:23.939 --> 00:35:28.379
+Caption: processing disorders people who are on a
+
+00:35:26.399 --> 00:35:30.539
+Caption: busy train and want to be able to read
+
+00:35:28.379 --> 00:35:32.939
+Caption: information rather than listening to it
+
+00:35:30.540 --> 00:35:35.099
+Caption: people with disorders like tinnitus
+
+00:35:32.939 --> 00:35:36.419
+Caption: which affect the hearing in situational
+
+00:35:35.099 --> 00:35:38.339
+Caption: manners
+
+00:35:36.419 --> 00:35:40.618
+Caption: are all going to find themselves text
+
+00:35:38.339 --> 00:35:42.960
+Caption: Reliant at some point or another even if
+
+00:35:40.618 --> 00:35:44.819
+Caption: it&#39;s not all the time
+
+00:35:42.959 --> 00:35:46.739
+Caption: so how do we improve it
+
+00:35:44.820 --> 00:35:48.540
+Caption: you want to provide transcripts for any
+
+00:35:46.739 --> 00:35:50.159
+Caption: spoken audio on your website and you
+
+00:35:48.540 --> 00:35:52.380
+Caption: want to make sure that you caption any
+
+00:35:50.159 --> 00:35:54.539
+Caption: videos but do bear in mind that
+
+00:35:52.379 --> 00:35:56.939
+Caption: automated transcription software is not
+
+00:35:54.540 --> 00:35:58.859
+Caption: a complete solution if you get a human
+
+00:35:56.939 --> 00:36:00.358
+Caption: to correct the transcription before it&#39;s
+
+00:35:58.858 --> 00:36:01.559
+Caption: published you&#39;re going to produce
+
+00:36:00.358 --> 00:36:03.719
+Caption: something that people can actually
+
+00:36:01.560 --> 00:36:05.400
+Caption: access
+
+00:36:03.719 --> 00:36:07.618
+Caption: and the captions which were done by
+
+00:36:05.399 --> 00:36:09.179
+Caption: Netflix for stranger things sort of made
+
+00:36:07.618 --> 00:36:11.159
+Caption: their way around the internet multiple
+
+00:36:09.179 --> 00:36:12.959
+Caption: times because they did a lot of other
+
+00:36:11.159 --> 00:36:14.819
+Caption: things really well in terms of
+
+00:36:12.959 --> 00:36:16.618
+Caption: describing changes in vocal tone and
+
+00:36:14.820 --> 00:36:18.599
+Caption: background noise if you&#39;re producing
+
+00:36:16.618 --> 00:36:22.439
+Caption: particularly video content or complex
+
+00:36:18.599 --> 00:36:25.859
+Caption: video content that&#39;s really important
+
+00:36:22.439 --> 00:36:27.959
+Caption: acting in artificial pancreas now that
+
+00:36:25.858 --> 00:36:29.399
+Caption: can be read in two different ways we can
+
+00:36:27.959 --> 00:36:31.500
+Caption: talk about hacking together an
+
+00:36:29.399 --> 00:36:34.199
+Caption: artificial pancreas or we can talk about
+
+00:36:31.500 --> 00:36:37.379
+Caption: hacking into an artificial pancreas
+
+00:36:34.199 --> 00:36:39.838
+Caption: but this case study actually covers both
+
+00:36:37.379 --> 00:36:41.879
+Caption: this is a Medtronic mini-med insulin
+
+00:36:39.839 --> 00:36:44.460
+Caption: pump it is used by people who are
+
+00:36:41.879 --> 00:36:47.159
+Caption: insulin dependent with diabetes
+
+00:36:44.459 --> 00:36:48.899
+Caption: basically the pump sits just under your
+
+00:36:47.159 --> 00:36:52.139
+Caption: skin you plug it in and it delivers
+
+00:36:48.899 --> 00:36:54.059
+Caption: insulin at regular intervals without you
+
+00:36:52.139 --> 00:36:56.039
+Caption: having to inject yourself that&#39;s really
+
+00:36:54.060 --> 00:36:57.900
+Caption: good for a lot of people
+
+00:36:56.040 --> 00:37:00.300
+Caption: there&#39;s also been another recent
+
+00:36:57.899 --> 00:37:01.979
+Caption: invention of the constant blood glucose
+
+00:37:00.300 --> 00:37:04.739
+Caption: monitor
+
+00:37:01.979 --> 00:37:06.239
+Caption: and that again similarly sits just below
+
+00:37:04.739 --> 00:37:09.118
+Caption: your skin provides information on what
+
+00:37:06.239 --> 00:37:11.219
+Caption: your blood glucose is all the time and
+
+00:37:09.118 --> 00:37:13.139
+Caption: these Medtronic minimet insulin pumps
+
+00:37:11.219 --> 00:37:15.780
+Caption: had a really interesting security flaw
+
+00:37:13.139 --> 00:37:18.118
+Caption: which resulted in a lot of people with
+
+00:37:15.780 --> 00:37:20.760
+Caption: diabetes hunting them down because what
+
+00:37:18.118 --> 00:37:23.519
+Caption: you could do is there was an unsecured
+
+00:37:20.760 --> 00:37:25.679
+Caption: radio frequency which was used by the
+
+00:37:23.520 --> 00:37:27.419
+Caption: remote but you could also hook that up
+
+00:37:25.679 --> 00:37:29.639
+Caption: with a bridge between it and a little
+
+00:37:27.419 --> 00:37:32.159
+Caption: bit of open source source code
+
+00:37:29.639 --> 00:37:34.078
+Caption: to a constant blood glucose monitor and
+
+00:37:32.159 --> 00:37:36.719
+Caption: have the insulin pump react and deliver
+
+00:37:34.079 --> 00:37:37.800
+Caption: insulin at various intervals based on
+
+00:37:36.719 --> 00:37:39.780
+Caption: that
+
+00:37:37.800 --> 00:37:42.000
+Caption: but the problem is
+
+00:37:39.780 --> 00:37:44.280
+Caption: that security flaws always come with
+
+00:37:42.000 --> 00:37:46.320
+Caption: other issues and the fact that you could
+
+00:37:44.280 --> 00:37:48.179
+Caption: hook in Via this piece of source code
+
+00:37:46.320 --> 00:37:49.800
+Caption: also meant that your Medtronic MiniMed
+
+00:37:48.179 --> 00:37:51.719
+Caption: insulin pump was potentially vulnerable
+
+00:37:49.800 --> 00:37:53.520
+Caption: to hacker attacks
+
+00:37:51.719 --> 00:37:55.379
+Caption: which is not great because that allows
+
+00:37:53.520 --> 00:37:57.719
+Caption: you to actually modify the amount of
+
+00:37:55.379 --> 00:38:00.000
+Caption: insulin that you give to someone
+
+00:37:57.719 --> 00:38:01.379
+Caption: so the FDA the drug regulator in the US
+
+00:38:00.000 --> 00:38:03.358
+Caption: were made aware of this and they went
+
+00:38:01.379 --> 00:38:05.819
+Caption: away and issued an alert on it
+
+00:38:03.358 --> 00:38:07.199
+Caption: but there were a few enterprising hacker
+
+00:38:05.820 --> 00:38:08.520
+Caption: types in the healthcare industry who
+
+00:38:07.199 --> 00:38:11.040
+Caption: didn&#39;t think that they were taking this
+
+00:38:08.520 --> 00:38:12.719
+Caption: very seriously so they got out their
+
+00:38:11.040 --> 00:38:14.760
+Caption: phones and they did a little bit of
+
+00:38:12.719 --> 00:38:16.739
+Caption: coding and they produced an Android app
+
+00:38:14.760 --> 00:38:19.199
+Caption: which you could use to hook into that
+
+00:38:16.739 --> 00:38:21.239
+Caption: really common frequency on any Medtronic
+
+00:38:19.199 --> 00:38:23.760
+Caption: mini-med insulin pump in the immediate
+
+00:38:21.239 --> 00:38:25.739
+Caption: vicinity and either entirely withhold
+
+00:38:23.760 --> 00:38:28.260
+Caption: insulin from its user or deliver a
+
+00:38:25.739 --> 00:38:30.839
+Caption: lethal dose of insulin immediately
+
+00:38:28.260 --> 00:38:32.159
+Caption: which finally resulted in Medtronic
+
+00:38:30.839 --> 00:38:33.900
+Caption: recalling their vulnerable Mini Med
+
+00:38:32.159 --> 00:38:36.358
+Caption: insulin pumps
+
+00:38:33.899 --> 00:38:38.459
+Caption: oh dear
+
+00:38:36.358 --> 00:38:40.500
+Caption: and this is where we get into the fact
+
+00:38:38.459 --> 00:38:43.800
+Caption: that accessibility is not just about web
+
+00:38:40.500 --> 00:38:46.139
+Caption: accessibility in some scenarios security
+
+00:38:43.800 --> 00:38:49.079
+Caption: issues and many other types of issues
+
+00:38:46.139 --> 00:38:51.000
+Caption: can actually be accessibility problems
+
+00:38:49.079 --> 00:38:54.479
+Caption: medical devices you&#39;re dealing with
+
+00:38:51.000 --> 00:38:55.800
+Caption: people&#39;s lives it&#39;s really important and
+
+00:38:54.479 --> 00:38:57.239
+Caption: what&#39;s more problematic is that if
+
+00:38:55.800 --> 00:38:59.760
+Caption: you&#39;re regulated by an external
+
+00:38:57.239 --> 00:39:02.098
+Caption: organization like the FDA you may not
+
+00:38:59.760 --> 00:39:03.839
+Caption: hear about these issues quickly in some
+
+00:39:02.099 --> 00:39:05.880
+Caption: scenarios you may not actually hear
+
+00:39:03.839 --> 00:39:08.400
+Caption: about them at all
+
+00:39:05.879 --> 00:39:10.078
+Caption: so how do we improve this you want to
+
+00:39:08.399 --> 00:39:12.179
+Caption: start by considering the possible attack
+
+00:39:10.079 --> 00:39:14.880
+Caption: factors a lot of this is just good basic
+
+00:39:12.179 --> 00:39:17.338
+Caption: security get a good pen testing company
+
+00:39:14.879 --> 00:39:19.379
+Caption: in particularly Hardware pen testers for
+
+00:39:17.339 --> 00:39:21.239
+Caption: stuff like medical devices before your
+
+00:39:19.379 --> 00:39:23.159
+Caption: device goes to Market
+
+00:39:21.239 --> 00:39:24.899
+Caption: and make sure that if people notify you
+
+00:39:23.159 --> 00:39:26.760
+Caption: about security vulnerabilities you
+
+00:39:24.899 --> 00:39:28.739
+Caption: respond promptly
+
+00:39:26.760 --> 00:39:30.839
+Caption: because the really sad thing about this
+
+00:39:28.739 --> 00:39:33.060
+Caption: use case is that unintended users can
+
+00:39:30.839 --> 00:39:35.339
+Caption: actually be a business opportunity and
+
+00:39:33.060 --> 00:39:37.920
+Caption: Medtronic weren&#39;t the ones that ended up
+
+00:39:35.339 --> 00:39:40.079
+Caption: capitalizing on it there were a couple
+
+00:39:37.919 --> 00:39:42.959
+Caption: of different companies who saw these
+
+00:39:40.079 --> 00:39:45.359
+Caption: issues and produced secure insulin pumps
+
+00:39:42.959 --> 00:39:47.399
+Caption: which were set up properly which you
+
+00:39:45.358 --> 00:39:49.379
+Caption: could use to hook into derivatives of
+
+00:39:47.399 --> 00:39:52.078
+Caption: that original source code on a secure
+
+00:39:49.379 --> 00:39:55.338
+Caption: channel to produce your closed loop
+
+00:39:52.079 --> 00:39:55.339
+Caption: insulin delivery system
+
+00:39:55.800 --> 00:39:59.219
+Caption: and this is where we get to my favorite
+
+00:39:57.479 --> 00:40:01.260
+Caption: case study of the bunch because this is
+
+00:39:59.219 --> 00:40:05.459
+Caption: another one that concerns me
+
+00:40:01.260 --> 00:40:07.859
+Caption: I have been giving this talk since 2019.
+
+00:40:05.459 --> 00:40:09.118
+Caption: and when I realized that I was going to
+
+00:40:07.858 --> 00:40:10.858
+Caption: be talking to people a lot about
+
+00:40:09.118 --> 00:40:13.019
+Caption: accessibility when I became an
+
+00:40:10.858 --> 00:40:15.779
+Caption: accidental accessibility advocate
+
+00:40:13.020 --> 00:40:18.000
+Caption: I went okay I&#39;ve got to find some way of
+
+00:40:15.780 --> 00:40:20.339
+Caption: making sure that I know about what is
+
+00:40:18.000 --> 00:40:21.839
+Caption: going on in the accessibility world and
+
+00:40:20.339 --> 00:40:23.339
+Caption: one way that I did that was through my
+
+00:40:21.839 --> 00:40:25.260
+Caption: LinkedIn feed
+
+00:40:23.339 --> 00:40:27.359
+Caption: so I was looking a lot of information
+
+00:40:25.260 --> 00:40:30.118
+Caption: about accessibility I was following the
+
+00:40:27.358 --> 00:40:31.559
+Caption: accessibility hashtag and one day I was
+
+00:40:30.118 --> 00:40:33.419
+Caption: going through my LinkedIn feed and a
+
+00:40:31.560 --> 00:40:35.099
+Caption: post popped up saying there&#39;s an
+
+00:40:33.419 --> 00:40:37.439
+Caption: accessibility consultant that&#39;s giving a
+
+00:40:35.099 --> 00:40:39.300
+Caption: talk about accessibility on this date at
+
+00:40:37.439 --> 00:40:42.179
+Caption: this time at this venue
+
+00:40:39.300 --> 00:40:44.160
+Caption: and I went great cool I know some things
+
+00:40:42.179 --> 00:40:45.719
+Caption: about accessibility I know quite a lot
+
+00:40:44.159 --> 00:40:48.118
+Caption: about the things that are directly
+
+00:40:45.719 --> 00:40:49.618
+Caption: applicable to me as well as more about
+
+00:40:48.118 --> 00:40:52.019
+Caption: the things that are applicable to my
+
+00:40:49.618 --> 00:40:54.779
+Caption: friends people that I know but there&#39;s
+
+00:40:52.020 --> 00:40:56.760
+Caption: always something that you can learn from
+
+00:40:54.780 --> 00:40:59.339
+Caption: scenarios like this
+
+00:40:56.760 --> 00:41:01.139
+Caption: so I go along I get off work at 4 30 I
+
+00:40:59.339 --> 00:41:03.900
+Caption: take the train to venue
+
+00:41:01.139 --> 00:41:05.819
+Caption: to see this
+
+00:41:03.899 --> 00:41:08.039
+Caption: that&#39;s a set of steps
+
+00:41:05.820 --> 00:41:09.540
+Caption: that wasn&#39;t the only set of stairs to
+
+00:41:08.040 --> 00:41:12.239
+Caption: get into the building there were in fact
+
+00:41:09.540 --> 00:41:14.880
+Caption: three similar sets of stairs that one
+
+00:41:12.239 --> 00:41:16.979
+Caption: and two more after the glass door to get
+
+00:41:14.879 --> 00:41:20.159
+Caption: to the lift which would then take you up
+
+00:41:16.979 --> 00:41:21.959
+Caption: to where the event was being held
+
+00:41:20.159 --> 00:41:24.479
+Caption: and I described this to a couple of
+
+00:41:21.959 --> 00:41:26.338
+Caption: friends of mine as being like a Roomba
+
+00:41:24.479 --> 00:41:28.858
+Caption: just sitting at the bottom of a set of
+
+00:41:26.339 --> 00:41:30.720
+Caption: stairs repeatedly shouting error 406
+
+00:41:28.858 --> 00:41:33.358
+Caption: which for those of you who are not well
+
+00:41:30.719 --> 00:41:35.699
+Caption: versed in HTML error codes means not
+
+00:41:33.358 --> 00:41:38.219
+Caption: acceptable
+
+00:41:35.699 --> 00:41:41.159
+Caption: so I get up there I listen to the whole
+
+00:41:38.219 --> 00:41:42.899
+Caption: talk and I had basically crawled up I I
+
+00:41:41.159 --> 00:41:44.639
+Caption: basically called up the last flight of
+
+00:41:42.899 --> 00:41:46.379
+Caption: stairs to get there
+
+00:41:44.639 --> 00:41:48.779
+Caption: and I said to the accessibility
+
+00:41:46.379 --> 00:41:50.459
+Caption: consultant does it strike you as ironic
+
+00:41:48.780 --> 00:41:52.500
+Caption: that you&#39;re giving a talk about web
+
+00:41:50.459 --> 00:41:54.540
+Caption: accessibility in a venue that&#39;s
+
+00:41:52.500 --> 00:41:55.379
+Caption: inaccessible and he looks at me and he
+
+00:41:54.540 --> 00:41:56.880
+Caption: goes
+
+00:41:55.379 --> 00:41:58.979
+Caption: you know I hadn&#39;t really thought about
+
+00:41:56.879 --> 00:42:02.219
+Caption: that
+
+00:41:58.979 --> 00:42:04.439
+Caption: and I don&#39;t think that I need to explain
+
+00:42:02.219 --> 00:42:06.479
+Caption: the irony here but we&#39;re going to do the
+
+00:42:04.439 --> 00:42:08.760
+Caption: postmortem anyway
+
+00:42:06.479 --> 00:42:10.560
+Caption: so if you&#39;re running events and full
+
+00:42:08.760 --> 00:42:12.540
+Caption: credit to DDD perk here because they&#39;ve
+
+00:42:10.560 --> 00:42:13.739
+Caption: done a brilliant job of this you want to
+
+00:42:12.540 --> 00:42:15.300
+Caption: make sure that your venues are
+
+00:42:13.739 --> 00:42:17.699
+Caption: wheelchair accessible you want to make
+
+00:42:15.300 --> 00:42:19.800
+Caption: sure that they have disabled bathrooms I
+
+00:42:17.699 --> 00:42:21.419
+Caption: so many times I have gone to events to
+
+00:42:19.800 --> 00:42:23.520
+Caption: find that the disabled bathrooms are on
+
+00:42:21.419 --> 00:42:25.260
+Caption: a different floor or they&#39;re locked or
+
+00:42:23.520 --> 00:42:27.060
+Caption: no one knows where they are or you&#39;ve
+
+00:42:25.260 --> 00:42:30.179
+Caption: got to go and talk to security to
+
+00:42:27.060 --> 00:42:32.459
+Caption: actually get the key
+
+00:42:30.179 --> 00:42:33.899
+Caption: but there are more advanced types of
+
+00:42:32.459 --> 00:42:35.820
+Caption: things that you can do which help people
+
+00:42:33.899 --> 00:42:37.618
+Caption: with a variety of different disabilities
+
+00:42:35.820 --> 00:42:39.420
+Caption: so you want to look at things like
+
+00:42:37.618 --> 00:42:41.338
+Caption: providing quiet spaces for people which
+
+00:42:39.419 --> 00:42:44.159
+Caption: again is something that DDD Perth has
+
+00:42:41.339 --> 00:42:45.780
+Caption: done and making sure that there is a lot
+
+00:42:44.159 --> 00:42:48.838
+Caption: of different adaptive technology around
+
+00:42:45.780 --> 00:42:51.959
+Caption: so sign language interpreters if you&#39;ve
+
+00:42:48.839 --> 00:42:53.640
+Caption: got hearing loops one of my friends has
+
+00:42:51.959 --> 00:42:55.800
+Caption: been hard of hearing basically her whole
+
+00:42:53.639 --> 00:42:58.858
+Caption: life when got fitted with a hearing aid
+
+00:42:55.800 --> 00:43:01.079
+Caption: in her 40s and she called me up and she
+
+00:42:58.858 --> 00:43:02.578
+Caption: said Dawn I am so happy because For the
+
+00:43:01.079 --> 00:43:04.680
+Caption: First Time I can hear the announcements
+
+00:43:02.579 --> 00:43:05.880
+Caption: at the train station when I turn on my
+
+00:43:04.679 --> 00:43:08.040
+Caption: hearing aid and I plug it into the
+
+00:43:05.879 --> 00:43:09.539
+Caption: hearing Loop
+
+00:43:08.040 --> 00:43:11.339
+Caption: and things like you know audio
+
+00:43:09.540 --> 00:43:12.599
+Caption: descriptions of slides you&#39;ll see as I
+
+00:43:11.339 --> 00:43:14.099
+Caption: go through this talk I&#39;ve tried to
+
+00:43:12.599 --> 00:43:16.380
+Caption: describe everything that&#39;s on the slides
+
+00:43:14.099 --> 00:43:17.940
+Caption: as I go but what&#39;s really important here
+
+00:43:16.379 --> 00:43:19.979
+Caption: is making sure that you include people
+
+00:43:17.939 --> 00:43:22.618
+Caption: with disabilities in discussions about
+
+00:43:19.979 --> 00:43:24.899
+Caption: accessibility and if you don&#39;t know
+
+00:43:22.618 --> 00:43:26.279
+Caption: whether people with disabilities are the
+
+00:43:24.899 --> 00:43:28.500
+Caption: question that you need to ask yourself
+
+00:43:26.280 --> 00:43:31.140
+Caption: and again this is not just applicable to
+
+00:43:28.500 --> 00:43:33.118
+Caption: disability is who&#39;s not in the room and
+
+00:43:31.139 --> 00:43:34.979
+Caption: why aren&#39;t they here because sometimes
+
+00:43:33.118 --> 00:43:36.539
+Caption: the reason why they aren&#39;t here is going
+
+00:43:34.979 --> 00:43:38.399
+Caption: to be as simple as three flights of
+
+00:43:36.540 --> 00:43:41.819
+Caption: stairs into the venue
+
+00:43:38.399 --> 00:43:44.459
+Caption: so to recap accessibility benefits
+
+00:43:41.819 --> 00:43:46.920
+Caption: everyone not just disabled people
+
+00:43:44.459 --> 00:43:48.780
+Caption: and you can do this really well by
+
+00:43:46.919 --> 00:43:51.780
+Caption: building accessibility into your design
+
+00:43:48.780 --> 00:43:53.640
+Caption: principles from the start but it&#39;s not
+
+00:43:51.780 --> 00:43:56.339
+Caption: just about the web accessibility piece
+
+00:43:53.639 --> 00:43:58.919
+Caption: other issues like security risks can
+
+00:43:56.339 --> 00:44:01.260
+Caption: also be accessibility issues you need to
+
+00:43:58.919 --> 00:44:04.639
+Caption: make an individualized assessment based
+
+00:44:01.260 --> 00:44:04.639
+Caption: on what it is that you&#39;re trying to do
+
+00:44:04.739 --> 00:44:08.339
+Caption: excuse me my slides are stuffing up
+
+00:44:06.540 --> 00:44:10.439
+Caption: again
+
+00:44:08.339 --> 00:44:12.000
+Caption: thorough testing is really important and
+
+00:44:10.439 --> 00:44:13.919
+Caption: the best case scenario is that you can
+
+00:44:12.000 --> 00:44:15.540
+Caption: get adaptive technology users to test
+
+00:44:13.919 --> 00:44:17.520
+Caption: your software themselves but if you
+
+00:44:15.540 --> 00:44:19.020
+Caption: can&#39;t think about the things that
+
+00:44:17.520 --> 00:44:21.899
+Caption: disabled people might need to do
+
+00:44:19.020 --> 00:44:23.579
+Caption: differently and most importantly
+
+00:44:21.899 --> 00:44:25.439
+Caption: regardless of whether they have
+
+00:44:23.579 --> 00:44:26.880
+Caption: accessibility needs or not listen to
+
+00:44:25.439 --> 00:44:29.280
+Caption: your users
+
+00:44:26.879 --> 00:44:31.259
+Caption: I do want to give a couple of thanks to
+
+00:44:29.280 --> 00:44:33.179
+Caption: Melissa who did my former colleague who
+
+00:44:31.260 --> 00:44:34.859
+Caption: did the fancy website mock-ups for me
+
+00:44:33.179 --> 00:44:36.540
+Caption: Matt for the atlassian Confluence
+
+00:44:34.858 --> 00:44:38.039
+Caption: screenshots and my friend Annie who
+
+00:44:36.540 --> 00:44:39.419
+Caption: produced the accessibility Roomba
+
+00:44:38.040 --> 00:44:40.500
+Caption: drawing
+
+00:44:39.419 --> 00:44:42.899
+Caption: we&#39;re not going to have time for
+
+00:44:40.500 --> 00:44:45.679
+Caption: questions I&#39;ll be around I have colored
+
+00:44:42.899 --> 00:44:48.779
+Caption: hair I&#39;m not hard to find come find me
+
+00:44:45.679 --> 00:44:50.699
+Caption: my email is up there there&#39;s also a link
+
+00:44:48.780 --> 00:44:52.260
+Caption: there to GitHub repo which has all of
+
+00:44:50.699 --> 00:44:54.060
+Caption: the talks that I&#39;ve previously done and
+
+00:44:52.260 --> 00:44:56.219
+Caption: I&#39;ve done a million different talks on
+
+00:44:54.060 --> 00:44:58.859
+Caption: accessibility but it was amazing to be
+
+00:44:56.219 --> 00:45:01.139
+Caption: here to do this in person for a group of
+
+00:44:58.858 --> 00:45:03.299
+Caption: people for the first time and thank you
+
+00:45:01.139 --> 00:45:05.699
+Caption: all so much for coming on this journey
+
+00:45:03.300 --> 00:45:08.699
+Caption: with me
+
+00:45:05.699 --> 00:45:08.699
+Caption: foreign
+

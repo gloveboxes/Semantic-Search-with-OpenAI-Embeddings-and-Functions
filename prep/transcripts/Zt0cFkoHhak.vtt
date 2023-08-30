@@ -1,0 +1,3872 @@
+WEBVTT
+
+00:00:01.019 --> 00:00:05.880
+Caption: um so we have Damien here he is a
+
+00:00:03.839 --> 00:00:09.178
+Caption: consultant CTO architect and trainer
+
+00:00:05.880 --> 00:00:11.340
+Caption: from Brisbane and he&#39;s here today
+
+00:00:09.178 --> 00:00:14.098
+Caption: to tell us the most important thing you
+
+00:00:11.340 --> 00:00:18.319
+Caption: need to know about microservices
+
+00:00:14.098 --> 00:00:22.199
+Caption: so take it away thank you
+
+00:00:18.319 --> 00:00:23.760
+Caption: yeah there we go thank you so much April
+
+00:00:22.198 --> 00:00:26.038
+Caption: um this is amazing how good are
+
+00:00:23.760 --> 00:00:27.180
+Caption: conferences
+
+00:00:26.038 --> 00:00:29.518
+Caption: um
+
+00:00:27.180 --> 00:00:31.380
+Caption: this is cool thank you all for coming
+
+00:00:29.518 --> 00:00:34.159
+Caption: um so my name is Damian
+
+00:00:31.379 --> 00:00:37.139
+Caption: um as April said I&#39;m I&#39;m from Brisbane
+
+00:00:34.159 --> 00:00:38.219
+Caption: Damien M on Twitter and I&#39;m here to talk
+
+00:00:37.139 --> 00:00:39.540
+Caption: about the most important thing you need
+
+00:00:38.219 --> 00:00:42.540
+Caption: to know about microservices which is
+
+00:00:39.540 --> 00:00:44.540
+Caption: somewhat clickbaity but I will get there
+
+00:00:42.540 --> 00:00:44.540
+Caption: um
+
+00:00:44.879 --> 00:00:48.960
+Caption: for those who can&#39;t see well
+
+00:00:47.159 --> 00:00:51.000
+Caption: um this photo I took on Thursday were
+
+00:00:48.959 --> 00:00:52.259
+Caption: sitting at the docks on Frio watching
+
+00:00:51.000 --> 00:00:53.700
+Caption: container ships come in and I thought
+
+00:00:52.259 --> 00:00:55.919
+Caption: that&#39;s a perfect
+
+00:00:53.700 --> 00:00:58.199
+Caption: picture for this talk so I added that
+
+00:00:55.919 --> 00:00:59.639
+Caption: one in
+
+00:00:58.199 --> 00:01:01.020
+Caption: um firstly
+
+00:00:59.639 --> 00:01:02.578
+Caption: um I&#39;d like to thank all of the sponsors
+
+00:01:01.020 --> 00:01:05.819
+Caption: of this event um obviously without
+
+00:01:02.578 --> 00:01:08.639
+Caption: sponsors events um can&#39;t go ahead and
+
+00:01:05.819 --> 00:01:10.619
+Caption: also all of the the Krillin volunteers
+
+00:01:08.639 --> 00:01:12.959
+Caption: for this conference it&#39;s been as a
+
+00:01:10.619 --> 00:01:16.340
+Caption: speaker it&#39;s been amazing so far and I
+
+00:01:12.959 --> 00:01:16.339
+Caption: hope you&#39;re having a really cool day
+
+00:01:16.500 --> 00:01:21.658
+Caption: cool
+
+00:01:18.119 --> 00:01:23.939
+Caption: start my timer all right so who am I um
+
+00:01:21.658 --> 00:01:26.039
+Caption: I&#39;m a consultant CTO essentially I&#39;ve
+
+00:01:23.939 --> 00:01:27.600
+Caption: been a consultant for a long time and
+
+00:01:26.040 --> 00:01:29.279
+Caption: I&#39;ve been a CTO of a few different
+
+00:01:27.599 --> 00:01:30.599
+Caption: companies so
+
+00:01:29.279 --> 00:01:32.580
+Caption: um a few of these you might have heard
+
+00:01:30.599 --> 00:01:34.080
+Caption: of ratify which is now Telstra purple I
+
+00:01:32.580 --> 00:01:36.060
+Caption: worked there for a long time
+
+00:01:34.080 --> 00:01:39.119
+Caption: it was an early
+
+00:01:36.059 --> 00:01:40.860
+Caption: um early person at octopus deploy I&#39;ve
+
+00:01:39.119 --> 00:01:42.979
+Caption: done a couple of very bad hardware and
+
+00:01:40.860 --> 00:01:45.360
+Caption: software startups
+
+00:01:42.978 --> 00:01:46.739
+Caption: that I don&#39;t talk about too much at
+
+00:01:45.360 --> 00:01:49.199
+Caption: parties
+
+00:01:46.739 --> 00:01:50.938
+Caption: um and and as a result of that I&#39;m now a
+
+00:01:49.199 --> 00:01:53.398
+Caption: freelance kind of consultancy yeah it&#39;s
+
+00:01:50.939 --> 00:01:55.740
+Caption: what I call it so essentially I I help
+
+00:01:53.399 --> 00:01:58.560
+Caption: I&#39;ve I found a little happy spot where I
+
+00:01:55.739 --> 00:02:01.139
+Caption: I work with smaller businesses
+
+00:01:58.559 --> 00:02:04.199
+Caption: um and bring you know my
+
+00:02:01.139 --> 00:02:06.719
+Caption: you can see from here in the photo I am
+
+00:02:04.199 --> 00:02:07.860
+Caption: middle-aged white guy in Tech
+
+00:02:06.719 --> 00:02:10.139
+Caption: um
+
+00:02:07.860 --> 00:02:11.759
+Caption: I&#39;ve got 23 years experience of seeing
+
+00:02:10.139 --> 00:02:13.800
+Caption: the good and the bad and and I sort of
+
+00:02:11.759 --> 00:02:16.738
+Caption: work with smaller companies to help them
+
+00:02:13.800 --> 00:02:17.699
+Caption: avoid those sorts of problems
+
+00:02:16.738 --> 00:02:19.559
+Caption: um
+
+00:02:17.699 --> 00:02:21.899
+Caption: and
+
+00:02:19.559 --> 00:02:22.919
+Caption: yeah that&#39;s what I do and also I&#39;m going
+
+00:02:21.899 --> 00:02:23.639
+Caption: to talk about this a little bit at the
+
+00:02:22.919 --> 00:02:25.679
+Caption: end
+
+00:02:23.639 --> 00:02:27.238
+Caption: um I&#39;m a trainer at a company called
+
+00:02:25.679 --> 00:02:29.699
+Caption: stack mechanics which I&#39;ll talk a little
+
+00:02:27.238 --> 00:02:31.619
+Caption: bit about later on essentially to help
+
+00:02:29.699 --> 00:02:33.539
+Caption: people you know in larger groups to
+
+00:02:31.619 --> 00:02:35.458
+Caption: avoid some of these mistakes
+
+00:02:33.539 --> 00:02:38.339
+Caption: uh ramblings is the first time back for
+
+00:02:35.458 --> 00:02:39.539
+Caption: a while all right so the agenda today
+
+00:02:38.339 --> 00:02:40.500
+Caption: um
+
+00:02:39.539 --> 00:02:43.979
+Caption: I&#39;m gonna give you a little bit of
+
+00:02:40.500 --> 00:02:46.738
+Caption: background and historical context
+
+00:02:43.979 --> 00:02:48.300
+Caption: um about microservices because I&#39;m a big
+
+00:02:46.738 --> 00:02:49.378
+Caption: believer that in understanding the
+
+00:02:48.300 --> 00:02:51.660
+Caption: history of something you can kind of
+
+00:02:49.378 --> 00:02:54.179
+Caption: understand what problem it&#39;s solving and
+
+00:02:51.660 --> 00:02:56.160
+Caption: you know why we might want to do that
+
+00:02:54.179 --> 00:02:58.439
+Caption: um I&#39;m going to talk about some of the
+
+00:02:56.160 --> 00:03:00.419
+Caption: mistakes that I see and the impact of
+
+00:02:58.440 --> 00:03:01.919
+Caption: those mistakes that I&#39;ve seen and then
+
+00:03:00.419 --> 00:03:04.679
+Caption: some of the principles and techniques
+
+00:03:01.919 --> 00:03:05.940
+Caption: and and thinking and design principles
+
+00:03:04.679 --> 00:03:07.079
+Caption: to
+
+00:03:05.940 --> 00:03:09.419
+Caption: um
+
+00:03:07.080 --> 00:03:10.919
+Caption: not make those mistakes and I&#39;m going to
+
+00:03:09.419 --> 00:03:13.080
+Caption: get into some of the sort of tech stack
+
+00:03:10.919 --> 00:03:15.300
+Caption: details but um essentially it&#39;s more
+
+00:03:13.080 --> 00:03:17.779
+Caption: around conceptual stuff
+
+00:03:15.300 --> 00:03:17.779
+Caption: so
+
+00:03:18.119 --> 00:03:20.839
+Caption: some background
+
+00:03:21.839 --> 00:03:27.720
+Caption: for a lot of years with with ratify
+
+00:03:25.199 --> 00:03:29.639
+Caption: and also my solo consulting stuff we&#39;d
+
+00:03:27.720 --> 00:03:30.958
+Caption: often kind of go into the burning
+
+00:03:29.639 --> 00:03:33.059
+Caption: building
+
+00:03:30.958 --> 00:03:36.539
+Caption: rescue stuff
+
+00:03:33.059 --> 00:03:38.339
+Caption: um and often in those situations you get
+
+00:03:36.539 --> 00:03:39.839
+Caption: to a point where people are like we need
+
+00:03:38.339 --> 00:03:41.339
+Caption: guarantees that this is going to work
+
+00:03:39.839 --> 00:03:43.919
+Caption: and you know we can&#39;t guarantee anything
+
+00:03:41.339 --> 00:03:46.080
+Caption: because everything&#39;s on fire so what we
+
+00:03:43.919 --> 00:03:47.458
+Caption: started to do you know and and you know
+
+00:03:46.080 --> 00:03:49.378
+Caption: these sorts of approaches over the last
+
+00:03:47.458 --> 00:03:52.199
+Caption: 10 12 13 years
+
+00:03:49.378 --> 00:03:53.819
+Caption: is you can&#39;t make big promises so what
+
+00:03:52.199 --> 00:03:55.440
+Caption: we would do is ship something really
+
+00:03:53.819 --> 00:03:56.518
+Caption: small really quickly and then ship
+
+00:03:55.440 --> 00:03:58.559
+Caption: something else really small really
+
+00:03:56.518 --> 00:04:00.779
+Caption: quickly to kind of get some runs on the
+
+00:03:58.559 --> 00:04:01.738
+Caption: board and and prove things
+
+00:04:00.779 --> 00:04:04.080
+Caption: um
+
+00:04:01.738 --> 00:04:05.878
+Caption: and you know these patterns that we sort
+
+00:04:04.080 --> 00:04:06.598
+Caption: of took out of that
+
+00:04:05.878 --> 00:04:08.098
+Caption: um
+
+00:04:06.598 --> 00:04:09.598
+Caption: eventually became you know called
+
+00:04:08.098 --> 00:04:11.119
+Caption: microservices
+
+00:04:09.598 --> 00:04:14.158
+Caption: lots of Tooling in the sort of
+
+00:04:11.119 --> 00:04:16.199
+Caption: infrastructure octopus deploy and and
+
+00:04:14.158 --> 00:04:18.000
+Caption: cerealog and some of the sort of tools
+
+00:04:16.199 --> 00:04:20.459
+Caption: that as.net developers I&#39;m assuming most
+
+00:04:18.000 --> 00:04:22.380
+Caption: people here.net Developers
+
+00:04:20.459 --> 00:04:23.880
+Caption: about half okay cool
+
+00:04:22.380 --> 00:04:25.380
+Caption: um it&#39;s almost came out of that space
+
+00:04:23.880 --> 00:04:26.759
+Caption: where we&#39;re just like getting in as a
+
+00:04:25.380 --> 00:04:28.679
+Caption: consultancy and having to solve problems
+
+00:04:26.759 --> 00:04:30.179
+Caption: really really quickly
+
+00:04:28.679 --> 00:04:31.739
+Caption: um
+
+00:04:30.179 --> 00:04:33.660
+Caption: so
+
+00:04:31.739 --> 00:04:35.279
+Caption: that&#39;s part of the background of why I
+
+00:04:33.660 --> 00:04:38.040
+Caption: like microservices the other part of
+
+00:04:35.279 --> 00:04:39.779
+Caption: this talk is we are in a very hype
+
+00:04:38.040 --> 00:04:41.940
+Caption: driven industry you would probably know
+
+00:04:39.779 --> 00:04:42.540
+Caption: this yes
+
+00:04:41.940 --> 00:04:44.399
+Caption: um
+
+00:04:42.540 --> 00:04:45.479
+Caption: and it&#39;s very cyclic as well and sort of
+
+00:04:44.399 --> 00:04:48.419
+Caption: part of my
+
+00:04:45.479 --> 00:04:50.399
+Caption: advantage of being you know in tech for
+
+00:04:48.419 --> 00:04:53.100
+Caption: 20 something years is you start to see
+
+00:04:50.399 --> 00:04:54.540
+Caption: the same bad ideas recycle with new
+
+00:04:53.100 --> 00:04:57.360
+Caption: names and you&#39;ll see a couple of nods
+
+00:04:54.540 --> 00:04:59.460
+Caption: here you go yes and
+
+00:04:57.359 --> 00:05:00.959
+Caption: you know sometimes those those ideas get
+
+00:04:59.459 --> 00:05:02.519
+Caption: renamed it&#39;s like this is a great new
+
+00:05:00.959 --> 00:05:04.500
+Caption: thing and I kind of you know put on my
+
+00:05:02.519 --> 00:05:06.899
+Caption: grumpy old man pants I&#39;m like no we&#39;ve
+
+00:05:04.500 --> 00:05:09.299
+Caption: done that you know
+
+00:05:06.899 --> 00:05:10.559
+Caption: and and what happens is
+
+00:05:09.299 --> 00:05:11.940
+Caption: everyone&#39;s kind of jumps on these
+
+00:05:10.559 --> 00:05:13.139
+Caption: bandwagons and they write blog posts
+
+00:05:11.940 --> 00:05:14.699
+Caption: because everyone wants to kind of get
+
+00:05:13.139 --> 00:05:15.899
+Caption: noticed for Stuff
+
+00:05:14.699 --> 00:05:17.220
+Caption: um and you&#39;ve got blog posts like oh
+
+00:05:15.899 --> 00:05:18.660
+Caption: this is an amazing thing and people want
+
+00:05:17.220 --> 00:05:20.160
+Caption: to get on Hacker News and companies
+
+00:05:18.660 --> 00:05:21.779
+Caption: wanted to attract Talent you know we&#39;ll
+
+00:05:20.160 --> 00:05:24.959
+Caption: do posts
+
+00:05:21.779 --> 00:05:26.699
+Caption: um about how they how they did things
+
+00:05:24.959 --> 00:05:28.380
+Caption: um my favorite is Uber engineering&#39;s
+
+00:05:26.699 --> 00:05:29.820
+Caption: blog because every couple of years they
+
+00:05:28.380 --> 00:05:30.839
+Caption: change everything and write a blog post
+
+00:05:29.820 --> 00:05:31.979
+Caption: about it
+
+00:05:30.839 --> 00:05:34.440
+Caption: um you know one year it was like we&#39;ve
+
+00:05:31.979 --> 00:05:36.239
+Caption: moved away from postgres to mySQL
+
+00:05:34.440 --> 00:05:37.860
+Caption: because it&#39;s faster and then two years
+
+00:05:36.239 --> 00:05:39.899
+Caption: later they just finished that migration
+
+00:05:37.859 --> 00:05:41.459
+Caption: go well no that was a bad idea we&#39;re
+
+00:05:39.899 --> 00:05:43.380
+Caption: going back again
+
+00:05:41.459 --> 00:05:44.699
+Caption: um and and that&#39;s kind of fine for Uber
+
+00:05:43.380 --> 00:05:46.139
+Caption: because they&#39;re massive and they&#39;ve got
+
+00:05:44.699 --> 00:05:48.479
+Caption: you know billions of dollars of venture
+
+00:05:46.139 --> 00:05:50.220
+Caption: capital funding and most of us aren&#39;t
+
+00:05:48.479 --> 00:05:51.660
+Caption: Uber we don&#39;t we can&#39;t afford to make
+
+00:05:50.220 --> 00:05:52.679
+Caption: those mistakes and you know rebuild our
+
+00:05:51.660 --> 00:05:55.500
+Caption: database
+
+00:05:52.679 --> 00:05:58.139
+Caption: um every you know two years
+
+00:05:55.500 --> 00:05:59.880
+Caption: um so yeah part of the problem is very
+
+00:05:58.139 --> 00:06:01.679
+Caption: high driven everyone wants to be kind of
+
+00:05:59.880 --> 00:06:03.899
+Caption: in on the latest thing
+
+00:06:01.679 --> 00:06:06.239
+Caption: and we end up with this
+
+00:06:03.899 --> 00:06:08.339
+Caption: so for anyone who can&#39;t see it as well
+
+00:06:06.239 --> 00:06:09.839
+Caption: this is a sort of well-known meme
+
+00:06:08.339 --> 00:06:11.940
+Caption: um of a dog sitting drinking a coffee
+
+00:06:09.839 --> 00:06:13.320
+Caption: with flames all around him I&#39;m saying
+
+00:06:11.940 --> 00:06:15.119
+Caption: this is fine
+
+00:06:13.320 --> 00:06:17.580
+Caption: um and I&#39;m going to repeat this a few
+
+00:06:15.119 --> 00:06:19.320
+Caption: times so if you sort of can&#39;t see the
+
+00:06:17.579 --> 00:06:20.819
+Caption: slides and you hear me say this is fine
+
+00:06:19.320 --> 00:06:22.139
+Caption: just picture the dog in the burning
+
+00:06:20.820 --> 00:06:23.880
+Caption: building things that everything&#39;s all
+
+00:06:22.139 --> 00:06:26.639
+Caption: good
+
+00:06:23.880 --> 00:06:29.160
+Caption: um so yeah we built these things and it
+
+00:06:26.639 --> 00:06:31.020
+Caption: ends up just in in a disaster and as
+
+00:06:29.160 --> 00:06:32.699
+Caption: much as I love I actually quite enjoy as
+
+00:06:31.019 --> 00:06:34.859
+Caption: a consultant you know going to the
+
+00:06:32.699 --> 00:06:37.020
+Caption: burning building and picking stuff up I
+
+00:06:34.859 --> 00:06:38.339
+Caption: I it&#39;s a sick satisfaction I get from it
+
+00:06:37.019 --> 00:06:40.679
+Caption: it would be great for the entire
+
+00:06:38.339 --> 00:06:43.019
+Caption: industry if we didn&#39;t do it if we didn&#39;t
+
+00:06:40.679 --> 00:06:45.179
+Caption: set stuff on fire in the first place
+
+00:06:43.019 --> 00:06:48.119
+Caption: um so my goal today is sort of I
+
+00:06:45.179 --> 00:06:49.799
+Caption: understand why we might do microservices
+
+00:06:48.119 --> 00:06:51.959
+Caption: um and and some of the thinking we need
+
+00:06:49.799 --> 00:06:53.399
+Caption: to do so that we can stop um setting
+
+00:06:51.959 --> 00:06:56.100
+Caption: things on fire
+
+00:06:53.399 --> 00:06:58.259
+Caption: all right so history
+
+00:06:56.100 --> 00:07:00.059
+Caption: again this is one of these everything
+
+00:06:58.259 --> 00:07:01.380
+Caption: old is new again
+
+00:07:00.059 --> 00:07:03.179
+Caption: um
+
+00:07:01.380 --> 00:07:04.739
+Caption: every idea in software is built on
+
+00:07:03.179 --> 00:07:06.660
+Caption: something before it solving a problem
+
+00:07:04.739 --> 00:07:08.339
+Caption: before it so I want to sort of talk a
+
+00:07:06.660 --> 00:07:10.500
+Caption: little bit about
+
+00:07:08.339 --> 00:07:14.059
+Caption: um my version of the history of
+
+00:07:10.500 --> 00:07:14.059
+Caption: microservices and
+
+00:07:14.459 --> 00:07:17.339
+Caption: so
+
+00:07:15.899 --> 00:07:18.600
+Caption: again there&#39;s some assumptions and
+
+00:07:17.339 --> 00:07:20.399
+Caption: opinions here but I have you know
+
+00:07:18.600 --> 00:07:23.220
+Caption: cross-checked this with a few people
+
+00:07:20.399 --> 00:07:25.559
+Caption: so it started with something called SOA
+
+00:07:23.220 --> 00:07:26.779
+Caption: service oriented architecture if you
+
+00:07:25.559 --> 00:07:29.940
+Caption: know ingots
+
+00:07:26.779 --> 00:07:33.059
+Caption: who was around when Soul was a thing
+
+00:07:29.940 --> 00:07:33.899
+Caption: yeah good number good number
+
+00:07:33.059 --> 00:07:37.440
+Caption: um
+
+00:07:33.899 --> 00:07:41.339
+Caption: so that was a cool idea and the idea was
+
+00:07:37.440 --> 00:07:43.259
+Caption: that and this has been the early 2000s
+
+00:07:41.339 --> 00:07:46.199
+Caption: um in the sort of.net space it was like
+
+00:07:43.259 --> 00:07:47.598
+Caption: dot Net One soap was the great new thing
+
+00:07:46.199 --> 00:07:51.380
+Caption: and web services
+
+00:07:47.598 --> 00:07:51.380
+Caption: a few people go oh
+
+00:07:52.019 --> 00:07:57.000
+Caption: and the idea was good it was you had
+
+00:07:54.720 --> 00:07:59.819
+Caption: Loosely coupled services
+
+00:07:57.000 --> 00:08:01.380
+Caption: that that autonomously managed a
+
+00:07:59.819 --> 00:08:03.679
+Caption: business process
+
+00:08:01.380 --> 00:08:06.598
+Caption: and you could then build applications
+
+00:08:03.679 --> 00:08:08.098
+Caption: based on those services so you know you
+
+00:08:06.598 --> 00:08:09.479
+Caption: might have service a and service B and
+
+00:08:08.098 --> 00:08:11.220
+Caption: server C and service D and then
+
+00:08:09.479 --> 00:08:12.899
+Caption: application a goes well I would like
+
+00:08:11.220 --> 00:08:14.459
+Caption: that thing and that thing and that thing
+
+00:08:12.899 --> 00:08:15.839
+Caption: and the applications that sit on top of
+
+00:08:14.459 --> 00:08:17.579
+Caption: the services and big companies could
+
+00:08:15.839 --> 00:08:20.000
+Caption: build that services and everything would
+
+00:08:17.579 --> 00:08:20.000
+Caption: be great
+
+00:08:20.039 --> 00:08:23.639
+Caption: it wasn&#39;t
+
+00:08:22.019 --> 00:08:25.918
+Caption: because what we&#39;d end up with
+
+00:08:23.639 --> 00:08:28.800
+Caption: is something that looked a little bit
+
+00:08:25.919 --> 00:08:30.479
+Caption: more like this where every service or
+
+00:08:28.799 --> 00:08:32.519
+Caption: every application talks to every service
+
+00:08:30.479 --> 00:08:34.500
+Caption: and every service talks to every other
+
+00:08:32.520 --> 00:08:36.598
+Caption: service and they&#39;re usually all sitting
+
+00:08:34.500 --> 00:08:39.539
+Caption: on top of a shared database
+
+00:08:36.598 --> 00:08:41.098
+Caption: and it was just a mess and a lot of this
+
+00:08:39.539 --> 00:08:43.260
+Caption: was because we got the modeling wrong
+
+00:08:41.098 --> 00:08:45.359
+Caption: you know it was meant to be
+
+00:08:43.260 --> 00:08:47.458
+Caption: an autonomous business process managed
+
+00:08:45.359 --> 00:08:50.338
+Caption: by a service but typically it wasn&#39;t
+
+00:08:47.458 --> 00:08:51.419
+Caption: um the modeling got wrong and it wasn&#39;t
+
+00:08:50.338 --> 00:08:54.059
+Caption: self-contained at all it wasn&#39;t
+
+00:08:51.419 --> 00:08:56.039
+Caption: autonomous and everything you know
+
+00:08:54.059 --> 00:08:58.200
+Caption: looked like this and from the last I
+
+00:08:56.039 --> 00:08:59.699
+Caption: know a few a few of you have worked on
+
+00:08:58.200 --> 00:09:01.380
+Caption: this sort of fun
+
+00:08:59.700 --> 00:09:02.940
+Caption: um you know I worked on one where you
+
+00:09:01.380 --> 00:09:04.320
+Caption: had a data manager service where they
+
+00:09:02.940 --> 00:09:06.179
+Caption: sort of re-implemented a relational
+
+00:09:04.320 --> 00:09:07.919
+Caption: database on top of a relational database
+
+00:09:06.179 --> 00:09:11.398
+Caption: over soap
+
+00:09:07.919 --> 00:09:13.079
+Caption: um and it looked a lot like this and
+
+00:09:11.398 --> 00:09:15.239
+Caption: every service needed to start in the
+
+00:09:13.080 --> 00:09:17.640
+Caption: right order or the application would not
+
+00:09:15.239 --> 00:09:19.260
+Caption: work so then we had a service manager
+
+00:09:17.640 --> 00:09:21.540
+Caption: run a service or something that made
+
+00:09:19.260 --> 00:09:23.458
+Caption: sure that things got started in the
+
+00:09:21.539 --> 00:09:27.059
+Caption: right way
+
+00:09:23.458 --> 00:09:28.919
+Caption: um and it was bad so the software
+
+00:09:27.059 --> 00:09:30.239
+Caption: industry came up with a great solution
+
+00:09:28.919 --> 00:09:32.359
+Caption: to this does anyone remember what that
+
+00:09:30.239 --> 00:09:32.359
+Caption: was
+
+00:09:33.239 --> 00:09:37.320
+Caption: it was the Enterprise service bus
+
+00:09:35.940 --> 00:09:39.479
+Caption: um
+
+00:09:37.320 --> 00:09:41.338
+Caption: which was you know vendors came in we&#39;ll
+
+00:09:39.479 --> 00:09:43.440
+Caption: solve these problems
+
+00:09:41.338 --> 00:09:44.458
+Caption: um and Enterprise service buses if you
+
+00:09:43.440 --> 00:09:45.720
+Caption: don&#39;t remember they were they were
+
+00:09:44.458 --> 00:09:47.579
+Caption: expensive
+
+00:09:45.719 --> 00:09:50.579
+Caption: um they were generally sold on golf
+
+00:09:47.580 --> 00:09:51.959
+Caption: courses to cios and then just put in
+
+00:09:50.580 --> 00:09:54.059
+Caption: place
+
+00:09:51.958 --> 00:09:55.200
+Caption: is very triggering for you I can tell
+
+00:09:54.059 --> 00:09:57.778
+Caption: you
+
+00:09:55.200 --> 00:10:01.200
+Caption: so and again the idea of an Enterprise
+
+00:09:57.778 --> 00:10:04.200
+Caption: service bus wasn&#39;t a bad one so the idea
+
+00:10:01.200 --> 00:10:06.419
+Caption: is that we had our services and rather
+
+00:10:04.200 --> 00:10:07.799
+Caption: than them all talking to each other they
+
+00:10:06.419 --> 00:10:09.958
+Caption: would talk to this Enterprise service
+
+00:10:07.799 --> 00:10:12.299
+Caption: bus and the applications would talk to
+
+00:10:09.958 --> 00:10:14.039
+Caption: the Enterprise service bus and the
+
+00:10:12.299 --> 00:10:16.799
+Caption: Enterprise service bus would figure out
+
+00:10:14.039 --> 00:10:18.719
+Caption: where to Route requests and how to
+
+00:10:16.799 --> 00:10:21.119
+Caption: translate them and whatever else
+
+00:10:18.719 --> 00:10:24.359
+Caption: and all of this
+
+00:10:21.119 --> 00:10:26.700
+Caption: um logic was in the hands of of business
+
+00:10:24.359 --> 00:10:28.380
+Caption: analysts and Enterprise Architects and
+
+00:10:26.700 --> 00:10:31.200
+Caption: the idea is that the the developers
+
+00:10:28.380 --> 00:10:33.200
+Caption: could just cut code on these Services
+
+00:10:31.200 --> 00:10:33.200
+Caption: um
+
+00:10:33.419 --> 00:10:37.919
+Caption: the problem was
+
+00:10:35.820 --> 00:10:39.539
+Caption: we ended up with so much logic in this
+
+00:10:37.919 --> 00:10:41.219
+Caption: service bus
+
+00:10:39.539 --> 00:10:42.419
+Caption: um they became very fragile because
+
+00:10:41.219 --> 00:10:45.199
+Caption: essentially you&#39;re doing software
+
+00:10:42.419 --> 00:10:47.398
+Caption: development in a browser window
+
+00:10:45.200 --> 00:10:49.440
+Caption: for this talk was a browser window that
+
+00:10:47.398 --> 00:10:51.778
+Caption: looked a lot like SharePoint writing
+
+00:10:49.440 --> 00:10:53.700
+Caption: code in there without validation without
+
+00:10:51.778 --> 00:10:55.619
+Caption: testing things
+
+00:10:53.700 --> 00:10:57.299
+Caption: um and so what happened was it became
+
+00:10:55.619 --> 00:10:58.940
+Caption: very fragile so nobody wanted to touch
+
+00:10:57.299 --> 00:11:01.320
+Caption: the logic in the Enterprise service bus
+
+00:10:58.940 --> 00:11:04.440
+Caption: so as
+
+00:11:01.320 --> 00:11:07.220
+Caption: agile developers what did we do we
+
+00:11:04.440 --> 00:11:07.220
+Caption: routed around it
+
+00:11:08.640 --> 00:11:11.600
+Caption: this is fine
+
+00:11:13.919 --> 00:11:17.820
+Caption: so
+
+00:11:15.119 --> 00:11:19.979
+Caption: what came next and this is my again this
+
+00:11:17.820 --> 00:11:21.958
+Caption: is my memory of history and everyone&#39;s
+
+00:11:19.979 --> 00:11:24.000
+Caption: memory of history is a little bit
+
+00:11:21.958 --> 00:11:25.919
+Caption: you know
+
+00:11:24.000 --> 00:11:29.219
+Caption: Along Came
+
+00:11:25.919 --> 00:11:31.078
+Caption: um rest so essentially
+
+00:11:29.219 --> 00:11:32.518
+Caption: um there was a guy named Jim Webber who
+
+00:11:31.078 --> 00:11:34.260
+Caption: worked at a company called thoughtworks
+
+00:11:32.518 --> 00:11:36.059
+Caption: I&#39;m sure evidence of everyone here has
+
+00:11:34.260 --> 00:11:37.500
+Caption: sort of thought Works yep so we&#39;re going
+
+00:11:36.059 --> 00:11:40.559
+Caption: to Jim Webber
+
+00:11:37.500 --> 00:11:43.078
+Caption: um The Story Goes he was working on some
+
+00:11:40.559 --> 00:11:46.859
+Caption: horrible rescue project sitting in a
+
+00:11:43.078 --> 00:11:48.838
+Caption: data center trying to fix Biz talk at
+
+00:11:46.859 --> 00:11:51.059
+Caption: one in the morning and just where enough
+
+00:11:48.838 --> 00:11:53.760
+Caption: of this is terrible so he and a couple
+
+00:11:51.059 --> 00:11:55.140
+Caption: of colleagues started to just go we&#39;re
+
+00:11:53.760 --> 00:11:56.820
+Caption: not going to put some in this talk we&#39;re
+
+00:11:55.140 --> 00:12:00.179
+Caption: just going to build a service over here
+
+00:11:56.820 --> 00:12:01.799
+Caption: in tomcat and just put an HTTP API on it
+
+00:12:00.179 --> 00:12:04.140
+Caption: and and we can call that and just kind
+
+00:12:01.799 --> 00:12:05.940
+Caption: of you know
+
+00:12:04.140 --> 00:12:08.338
+Caption: um separate some of those functionality
+
+00:12:05.940 --> 00:12:09.778
+Caption: out and end up writing a book on rest
+
+00:12:08.338 --> 00:12:11.880
+Caption: called rest in practice I think really
+
+00:12:09.778 --> 00:12:13.679
+Caption: good book on rest and sort of it was
+
+00:12:11.880 --> 00:12:15.778
+Caption: around the time that rest sort of became
+
+00:12:13.679 --> 00:12:17.760
+Caption: popular and and you know thought work
+
+00:12:15.778 --> 00:12:19.919
+Caption: started to do a lot of stuff around
+
+00:12:17.760 --> 00:12:22.919
+Caption: these HTTP Based Services that were
+
+00:12:19.919 --> 00:12:27.320
+Caption: simple built on I think Jetty
+
+00:12:22.919 --> 00:12:27.320
+Caption: um and and using rest and and hypertext
+
+00:12:27.958 --> 00:12:32.398
+Caption: um around the time I first heard the
+
+00:12:29.820 --> 00:12:34.018
+Caption: term microservices it was sort of it&#39;s
+
+00:12:32.398 --> 00:12:35.760
+Caption: sort of emanating
+
+00:12:34.018 --> 00:12:36.898
+Caption: um from a company called SoundCloud I&#39;m
+
+00:12:35.760 --> 00:12:39.179
+Caption: sure a lot of you heard of SoundCloud
+
+00:12:36.898 --> 00:12:40.619
+Caption: needed audio streaming and downloading
+
+00:12:39.179 --> 00:12:43.219
+Caption: stuff
+
+00:12:40.619 --> 00:12:43.219
+Caption: so
+
+00:12:43.679 --> 00:12:47.578
+Caption: um
+
+00:12:44.278 --> 00:12:48.838
+Caption: SoundCloud had an application it was
+
+00:12:47.578 --> 00:12:50.000
+Caption: um it was getting big they were getting
+
+00:12:48.838 --> 00:12:52.440
+Caption: popular
+
+00:12:50.000 --> 00:12:55.320
+Caption: and it was very monolithic very hard to
+
+00:12:52.440 --> 00:12:56.760
+Caption: maintain wasn&#39;t scaling well so they
+
+00:12:55.320 --> 00:12:58.799
+Caption: hired a bunch of people actually from
+
+00:12:56.760 --> 00:13:00.600
+Caption: thoughtworks in Berlin
+
+00:12:58.799 --> 00:13:02.159
+Caption: and one of the leaders there was a guy
+
+00:13:00.599 --> 00:13:04.018
+Caption: named Phil calcotto
+
+00:13:02.159 --> 00:13:05.940
+Caption: and so what they what Phil started to do
+
+00:13:04.018 --> 00:13:08.039
+Caption: with this team was was breaking stuff
+
+00:13:05.940 --> 00:13:09.659
+Caption: off so I had this this big monolithic
+
+00:13:08.039 --> 00:13:12.119
+Caption: rails app and they&#39;d break some stuff
+
+00:13:09.659 --> 00:13:14.219
+Caption: off built a simple HTTP service over it
+
+00:13:12.119 --> 00:13:16.760
+Caption: and um you know and a few other people
+
+00:13:14.219 --> 00:13:19.859
+Caption: in that space were doing similar things
+
+00:13:16.760 --> 00:13:21.660
+Caption: and eventually they became sort of known
+
+00:13:19.859 --> 00:13:22.799
+Caption: as microservices
+
+00:13:21.659 --> 00:13:25.739
+Caption: so
+
+00:13:22.799 --> 00:13:28.679
+Caption: the historical sort of timeline here is
+
+00:13:25.739 --> 00:13:33.599
+Caption: you can kind of go from sewer to bad
+
+00:13:28.679 --> 00:13:35.458
+Caption: sewer to http to rest to microservices
+
+00:13:33.599 --> 00:13:36.719
+Caption: and then a guy named Sam Newman who was
+
+00:13:35.458 --> 00:13:38.398
+Caption: also a thoughtworks wrote a book on it
+
+00:13:36.719 --> 00:13:42.679
+Caption: which I&#39;m sure a lot of people have seen
+
+00:13:38.398 --> 00:13:42.679
+Caption: and it kind of just exploded from there
+
+00:13:45.958 --> 00:13:50.940
+Caption: but of course we ended up back here
+
+00:13:48.719 --> 00:13:52.379
+Caption: where we had lots of services a couple
+
+00:13:50.940 --> 00:13:54.059
+Caption: of applications but all the services
+
+00:13:52.380 --> 00:13:56.940
+Caption: talking to each other a lot of people
+
+00:13:54.059 --> 00:14:00.958
+Caption: did it again with a shared database and
+
+00:13:56.940 --> 00:14:03.059
+Caption: got the modeling completely wrong
+
+00:14:00.958 --> 00:14:06.059
+Caption: and we ended up back here this is fine
+
+00:14:03.059 --> 00:14:07.500
+Caption: so who&#39;s worked on one of these in my in
+
+00:14:06.059 --> 00:14:09.479
+Caption: microservice land yeah a few people
+
+00:14:07.500 --> 00:14:13.380
+Caption: right
+
+00:14:09.479 --> 00:14:15.479
+Caption: so that&#39;s the history so where does it
+
+00:14:13.380 --> 00:14:17.518
+Caption: go wrong and this is you know I&#39;ve spent
+
+00:14:15.479 --> 00:14:20.338
+Caption: a lot of time digging out of this and
+
+00:14:17.518 --> 00:14:23.638
+Caption: and thinking about it
+
+00:14:20.338 --> 00:14:25.799
+Caption: and the first place that goes wrong
+
+00:14:23.638 --> 00:14:26.820
+Caption: is people get way too caught up in the
+
+00:14:25.799 --> 00:14:28.440
+Caption: tech
+
+00:14:26.820 --> 00:14:30.479
+Caption: yeah and this is a
+
+00:14:28.440 --> 00:14:32.338
+Caption: fairly common pattern in our industry
+
+00:14:30.479 --> 00:14:34.919
+Caption: you&#39;ve got a problem to solve
+
+00:14:32.338 --> 00:14:36.479
+Caption: you start a project everyone&#39;s excited
+
+00:14:34.919 --> 00:14:38.760
+Caption: you still don&#39;t really know what the
+
+00:14:36.479 --> 00:14:41.000
+Caption: business requirements are because that&#39;s
+
+00:14:38.760 --> 00:14:43.078
+Caption: someone else&#39;s job as a developer
+
+00:14:41.000 --> 00:14:44.578
+Caption: and so we&#39;re like we&#39;re sitting here we
+
+00:14:43.078 --> 00:14:46.679
+Caption: don&#39;t know what to do I know we&#39;ll build
+
+00:14:44.578 --> 00:14:49.380
+Caption: our own framework and we&#39;ll build our
+
+00:14:46.679 --> 00:14:51.179
+Caption: own orm and we&#39;ll build out whatever and
+
+00:14:49.380 --> 00:14:53.458
+Caption: so
+
+00:14:51.179 --> 00:14:55.198
+Caption: in in in more recent years people then
+
+00:14:53.458 --> 00:14:57.059
+Caption: get really hung up on the infrastructure
+
+00:14:55.198 --> 00:14:59.099
+Caption: it&#39;s like right we need to build a thing
+
+00:14:57.059 --> 00:15:01.320
+Caption: it&#39;s like cool first we need to do is
+
+00:14:59.099 --> 00:15:03.359
+Caption: get kubernetes and put Kafka and
+
+00:15:01.320 --> 00:15:04.679
+Caption: postgres and kubernetes and just get way
+
+00:15:03.359 --> 00:15:06.898
+Caption: hung up on the infrastructure before
+
+00:15:04.679 --> 00:15:08.698
+Caption: shipping a loan of code
+
+00:15:06.898 --> 00:15:10.078
+Caption: and essentially you start solving
+
+00:15:08.698 --> 00:15:12.000
+Caption: problems that you don&#39;t have yet you
+
+00:15:10.078 --> 00:15:13.500
+Caption: don&#39;t know you&#39;re going to have yet
+
+00:15:12.000 --> 00:15:15.000
+Caption: um you know tools are great all of those
+
+00:15:13.500 --> 00:15:17.698
+Caption: tools that I mentioned are fantastic
+
+00:15:15.000 --> 00:15:20.338
+Caption: tools and fantastic infrastructure but
+
+00:15:17.698 --> 00:15:22.859
+Caption: um if you
+
+00:15:20.338 --> 00:15:25.919
+Caption: start layering on stuff before you&#39;ve
+
+00:15:22.859 --> 00:15:27.659
+Caption: even understand the problem you probably
+
+00:15:25.919 --> 00:15:29.338
+Caption: need to stop
+
+00:15:27.659 --> 00:15:30.898
+Caption: it&#39;s kind of agile one-on-one right like
+
+00:15:29.338 --> 00:15:32.940
+Caption: we don&#39;t do big design up front a lot of
+
+00:15:30.898 --> 00:15:35.039
+Caption: people do it like a map I saw one
+
+00:15:32.940 --> 00:15:37.380
+Caption: recently there&#39;s some tool
+
+00:15:35.039 --> 00:15:40.198
+Caption: it&#39;s like a graph like a graphing tool
+
+00:15:37.380 --> 00:15:42.898
+Caption: for sort of object graphs and like a
+
+00:15:40.198 --> 00:15:45.898
+Caption: team that had not actually shipped
+
+00:15:42.898 --> 00:15:47.458
+Caption: the system and the object graph of
+
+00:15:45.898 --> 00:15:48.958
+Caption: services was like I couldn&#39;t fit in on
+
+00:15:47.458 --> 00:15:50.578
+Caption: my monitor and they&#39;d never actually
+
+00:15:48.958 --> 00:15:52.198
+Caption: shipped anything this has got way hung
+
+00:15:50.578 --> 00:15:55.380
+Caption: up on stuff and just solving problems
+
+00:15:52.198 --> 00:15:57.239
+Caption: that you know they didn&#39;t have yet
+
+00:15:55.380 --> 00:15:58.500
+Caption: so sometimes when I&#39;m feeling snarky
+
+00:15:57.239 --> 00:16:00.838
+Caption: I&#39;ll say to people if you haven&#39;t
+
+00:15:58.500 --> 00:16:03.599
+Caption: shipped one thing what makes you think
+
+00:16:00.838 --> 00:16:06.059
+Caption: you can ship 20 tomorrow
+
+00:16:03.599 --> 00:16:07.440
+Caption: and that makes me popular
+
+00:16:06.059 --> 00:16:08.820
+Caption: yeah I&#39;ve never had this conversation
+
+00:16:07.440 --> 00:16:09.958
+Caption: like right we need to start this thing
+
+00:16:08.820 --> 00:16:10.979
+Caption: it&#39;s like first thing we need to do is
+
+00:16:09.958 --> 00:16:12.719
+Caption: choose a container orchestration
+
+00:16:10.979 --> 00:16:14.219
+Caption: platforms like well you really don&#39;t you
+
+00:16:12.719 --> 00:16:16.379
+Caption: actually have a bunch of stuff over here
+
+00:16:14.219 --> 00:16:18.059
+Caption: your legacy system it&#39;s a bunch of
+
+00:16:16.380 --> 00:16:19.440
+Caption: servers and you know there&#39;s a proof of
+
+00:16:18.059 --> 00:16:20.638
+Caption: concept like let&#39;s see if we can ship a
+
+00:16:19.440 --> 00:16:22.799
+Caption: small thing
+
+00:16:20.638 --> 00:16:25.099
+Caption: and um you know so people just way hung
+
+00:16:22.799 --> 00:16:25.099
+Caption: up on that
+
+00:16:25.739 --> 00:16:29.940
+Caption: so
+
+00:16:27.119 --> 00:16:31.679
+Caption: one of the the attributes I&#39;ve seen of
+
+00:16:29.940 --> 00:16:34.078
+Caption: microservices architecture that have
+
+00:16:31.679 --> 00:16:35.760
+Caption: been very successful is they&#39;ve evolved
+
+00:16:34.078 --> 00:16:38.039
+Caption: from something that worked
+
+00:16:35.760 --> 00:16:41.040
+Caption: apparently SoundCloud example that had a
+
+00:16:38.039 --> 00:16:43.619
+Caption: rails app had traffic they might have
+
+00:16:41.039 --> 00:16:45.239
+Caption: even been making money crazy
+
+00:16:43.619 --> 00:16:47.219
+Caption: um
+
+00:16:45.239 --> 00:16:48.599
+Caption: and
+
+00:16:47.219 --> 00:16:50.819
+Caption: you know they started with something and
+
+00:16:48.599 --> 00:16:51.898
+Caption: it was creaky and they sort of broke a
+
+00:16:50.820 --> 00:16:54.380
+Caption: little about and started with something
+
+00:16:51.898 --> 00:16:56.880
+Caption: that worked and typically those things
+
+00:16:54.380 --> 00:16:59.398
+Caption: work quite well because you here&#39;s a
+
+00:16:56.880 --> 00:17:00.958
+Caption: problem let&#39;s take a chunk of it off the
+
+00:16:59.398 --> 00:17:02.578
+Caption: ones that start with a blank slate and
+
+00:17:00.958 --> 00:17:04.739
+Caption: go cool we&#39;re going to need 30 Services
+
+00:17:02.578 --> 00:17:06.900
+Caption: typically never ship
+
+00:17:04.739 --> 00:17:07.918
+Caption: again because if people have not worked
+
+00:17:06.900 --> 00:17:08.938
+Caption: with this stuff before they don&#39;t
+
+00:17:07.918 --> 00:17:10.198
+Caption: actually know what challenges they&#39;re
+
+00:17:08.938 --> 00:17:12.659
+Caption: going to hit
+
+00:17:10.198 --> 00:17:14.880
+Caption: so yeah often good architecture will
+
+00:17:12.660 --> 00:17:16.500
+Caption: evolve from good working software or
+
+00:17:14.880 --> 00:17:17.640
+Caption: maybe it&#39;s not working well but you&#39;ve
+
+00:17:16.500 --> 00:17:20.400
+Caption: got something that works you understand
+
+00:17:17.640 --> 00:17:22.140
+Caption: it and you evolve from there so often
+
+00:17:20.400 --> 00:17:23.818
+Caption: the the yeah most of the successful
+
+00:17:22.140 --> 00:17:26.280
+Caption: stories I&#39;ve seen have started from
+
+00:17:23.818 --> 00:17:28.140
+Caption: something that was already there
+
+00:17:26.280 --> 00:17:30.059
+Caption: particularly with Legacy systems I&#39;ve
+
+00:17:28.140 --> 00:17:31.500
+Caption: seen a lot of
+
+00:17:30.058 --> 00:17:33.798
+Caption: who&#39;s worked on a failed Legacy system
+
+00:17:31.500 --> 00:17:33.798
+Caption: replacement
+
+00:17:34.038 --> 00:17:40.558
+Caption: yeah right and generally they were like
+
+00:17:37.619 --> 00:17:42.298
+Caption: here&#39;s this thing it&#39;s old it&#39;s clunky
+
+00:17:40.558 --> 00:17:43.380
+Caption: we don&#39;t like it it&#39;s buggy it&#39;s hard to
+
+00:17:42.298 --> 00:17:44.159
+Caption: maintain you&#39;re like cool what we&#39;re
+
+00:17:43.380 --> 00:17:46.140
+Caption: going to do is we&#39;re going to start
+
+00:17:44.160 --> 00:17:48.299
+Caption: again over here and this time we&#39;re
+
+00:17:46.140 --> 00:17:49.859
+Caption: going to do it right
+
+00:17:48.298 --> 00:17:51.839
+Caption: yeah
+
+00:17:49.859 --> 00:17:54.479
+Caption: and you never get there right like you
+
+00:17:51.839 --> 00:17:56.579
+Caption: never you never ship it so
+
+00:17:54.479 --> 00:17:57.900
+Caption: whenever a new requirement comes in a
+
+00:17:56.579 --> 00:18:00.058
+Caption: new requirements always come in they&#39;re
+
+00:17:57.900 --> 00:18:02.099
+Caption: like well that&#39;s not ready it doesn&#39;t do
+
+00:18:00.058 --> 00:18:03.239
+Caption: X Y and Z so we&#39;ll put it over here and
+
+00:18:02.099 --> 00:18:05.160
+Caption: all of a sudden you&#39;re chasing the
+
+00:18:03.239 --> 00:18:06.900
+Caption: target you&#39;ll never actually hit yes
+
+00:18:05.160 --> 00:18:10.140
+Caption: Familia
+
+00:18:06.900 --> 00:18:11.760
+Caption: yep um Legacy system Replacements that
+
+00:18:10.140 --> 00:18:13.260
+Caption: work really well is you&#39;ve got an
+
+00:18:11.760 --> 00:18:15.119
+Caption: architecture that lets you sort of move
+
+00:18:13.260 --> 00:18:16.140
+Caption: something across at a time and make them
+
+00:18:15.119 --> 00:18:17.459
+Caption: talk and go we&#39;ve got this new
+
+00:18:16.140 --> 00:18:19.979
+Caption: requirement we&#39;ll put it over here and
+
+00:18:17.459 --> 00:18:22.439
+Caption: we&#39;ll integrate it because software is
+
+00:18:19.979 --> 00:18:25.439
+Caption: never done you know software is done
+
+00:18:22.439 --> 00:18:27.058
+Caption: like a lawn is mode you can mow the lawn
+
+00:18:25.439 --> 00:18:29.699
+Caption: you know the next day you&#39;re gonna need
+
+00:18:27.058 --> 00:18:31.619
+Caption: to mow it again or the next week so the
+
+00:18:29.699 --> 00:18:33.599
+Caption: idea that we&#39;re going to just replace a
+
+00:18:31.619 --> 00:18:35.280
+Caption: system turn it on turn the old one off
+
+00:18:33.599 --> 00:18:38.239
+Caption: and we&#39;re done you know it&#39;s just not
+
+00:18:35.280 --> 00:18:38.239
+Caption: not a realistic one
+
+00:18:38.939 --> 00:18:42.959
+Caption: so now I get to the click bait
+
+00:18:40.859 --> 00:18:45.058
+Caption: other than all of that stuff
+
+00:18:42.959 --> 00:18:48.479
+Caption: the one thing that you need to know for
+
+00:18:45.058 --> 00:18:50.520
+Caption: successful microservices architecture
+
+00:18:48.479 --> 00:18:53.339
+Caption: is software modeling
+
+00:18:50.520 --> 00:18:55.440
+Caption: which you know gets thrown away modeling
+
+00:18:53.339 --> 00:18:56.880
+Caption: is hard like software modeling is hard
+
+00:18:55.439 --> 00:18:58.798
+Caption: this is why we have jobs because
+
+00:18:56.880 --> 00:19:00.839
+Caption: modeling good software is a tricky thing
+
+00:18:58.798 --> 00:19:02.579
+Caption: to do and it&#39;s hard to do in one
+
+00:19:00.839 --> 00:19:05.159
+Caption: solution you know if you like file a new
+
+00:19:02.579 --> 00:19:06.538
+Caption: project in your IDE of choice
+
+00:19:05.160 --> 00:19:07.679
+Caption: and you go right we need to solve this
+
+00:19:06.538 --> 00:19:10.019
+Caption: problem
+
+00:19:07.678 --> 00:19:11.399
+Caption: um it&#39;s hard right like coming up with
+
+00:19:10.020 --> 00:19:14.280
+Caption: the design and the modeling is a tricky
+
+00:19:11.400 --> 00:19:16.380
+Caption: thing to do and it&#39;s hard in one project
+
+00:19:14.280 --> 00:19:19.140
+Caption: if you start with 20 and you need to
+
+00:19:16.380 --> 00:19:20.819
+Caption: refactor something you know all of a
+
+00:19:19.140 --> 00:19:22.320
+Caption: sudden you&#39;ve just you know multiplied
+
+00:19:20.819 --> 00:19:26.699
+Caption: this problem
+
+00:19:22.319 --> 00:19:30.599
+Caption: and so what people typically do is
+
+00:19:26.699 --> 00:19:32.519
+Caption: spin out all their services 20 of them
+
+00:19:30.599 --> 00:19:34.500
+Caption: um and then realize that they&#39;ve not got
+
+00:19:32.520 --> 00:19:35.940
+Caption: the modeling right and then you sort of
+
+00:19:34.500 --> 00:19:37.380
+Caption: start routing around everything and
+
+00:19:35.939 --> 00:19:40.199
+Caption: everything talks to everything else and
+
+00:19:37.380 --> 00:19:42.660
+Caption: you know we&#39;re back to that kind of bad
+
+00:19:40.199 --> 00:19:44.159
+Caption: sewer thing and then people bring in
+
+00:19:42.660 --> 00:19:45.239
+Caption: more infrastructure to solve our
+
+00:19:44.160 --> 00:19:46.799
+Caption: services are talking too much let&#39;s
+
+00:19:45.239 --> 00:19:48.959
+Caption: bring in a service match or poly or
+
+00:19:46.798 --> 00:19:50.159
+Caption: something like that
+
+00:19:48.959 --> 00:19:51.979
+Caption: um
+
+00:19:50.160 --> 00:19:54.539
+Caption: so yeah modeling
+
+00:19:51.979 --> 00:19:56.160
+Caption: so a couple of common really like common
+
+00:19:54.538 --> 00:19:57.899
+Caption: sort of code smells or architecture
+
+00:19:56.160 --> 00:19:59.340
+Caption: smells that I see
+
+00:19:57.900 --> 00:20:01.200
+Caption: um
+
+00:19:59.339 --> 00:20:03.058
+Caption: my favorite one is when you&#39;ve got a
+
+00:20:01.199 --> 00:20:06.298
+Caption: service for an infrastructure function
+
+00:20:03.058 --> 00:20:08.640
+Caption: who has worked on a data service or a
+
+00:20:06.298 --> 00:20:09.479
+Caption: data manager no good
+
+00:20:08.640 --> 00:20:11.640
+Caption: um
+
+00:20:09.479 --> 00:20:13.380
+Caption: so you know if you&#39;ve got a service that
+
+00:20:11.640 --> 00:20:14.820
+Caption: are based around sort of infrastructure
+
+00:20:13.380 --> 00:20:17.839
+Caption: things you&#39;re probably going to be
+
+00:20:14.819 --> 00:20:17.839
+Caption: having a bit of a bad time
+
+00:20:18.239 --> 00:20:21.959
+Caption: um but the other main one that goes
+
+00:20:19.859 --> 00:20:24.239
+Caption: wrong is what gets called The Entity
+
+00:20:21.959 --> 00:20:25.918
+Caption: service anti-pattern or a service per
+
+00:20:24.239 --> 00:20:27.479
+Caption: aggregate route
+
+00:20:25.918 --> 00:20:29.038
+Caption: do those names just go over everyone&#39;s
+
+00:20:27.479 --> 00:20:31.380
+Caption: head around me
+
+00:20:29.038 --> 00:20:34.759
+Caption: who&#39;s read this book
+
+00:20:31.380 --> 00:20:34.760
+Caption: who&#39;s actually read it
+
+00:20:35.880 --> 00:20:41.819
+Caption: who got to the end
+
+00:20:38.520 --> 00:20:43.979
+Caption: yeah it is it&#39;s a it&#39;s an amazing book
+
+00:20:41.819 --> 00:20:46.279
+Caption: it&#39;s one of the driest books you&#39;ll ever
+
+00:20:43.979 --> 00:20:46.280
+Caption: read
+
+00:20:46.380 --> 00:20:49.260
+Caption: um
+
+00:20:47.339 --> 00:20:51.959
+Caption: and and one of the things about this
+
+00:20:49.260 --> 00:20:53.820
+Caption: book is actually who does domain driven
+
+00:20:51.959 --> 00:20:55.319
+Caption: design
+
+00:20:53.819 --> 00:20:56.519
+Caption: a few people you&#39;re hesitant you like
+
+00:20:55.319 --> 00:20:59.819
+Caption: and I&#39;m gonna get called out in a second
+
+00:20:56.520 --> 00:21:01.320
+Caption: so you&#39;ve got some repositories
+
+00:20:59.819 --> 00:21:02.519
+Caption: some services
+
+00:21:01.319 --> 00:21:04.859
+Caption: yeah
+
+00:21:02.520 --> 00:21:06.419
+Caption: do you have an on-site business Expert
+
+00:21:04.859 --> 00:21:08.699
+Caption: that you talk to and develop a custom
+
+00:21:06.418 --> 00:21:10.199
+Caption: vocabulary vocab you yeah okay cool
+
+00:21:08.699 --> 00:21:11.779
+Caption: excellent
+
+00:21:10.199 --> 00:21:14.279
+Caption: um you&#39;re the first one
+
+00:21:11.780 --> 00:21:15.780
+Caption: so domain driven design is actually a
+
+00:21:14.280 --> 00:21:17.280
+Caption: book around software modeling but nobody
+
+00:21:15.780 --> 00:21:18.780
+Caption: gets to that bit because it&#39;s a chapter
+
+00:21:17.280 --> 00:21:20.820
+Caption: 15.
+
+00:21:18.780 --> 00:21:22.979
+Caption: people get through the first few
+
+00:21:20.819 --> 00:21:25.558
+Caption: chapters around services and repository
+
+00:21:22.979 --> 00:21:27.178
+Caption: pattern and blah blah blah blah and
+
+00:21:25.558 --> 00:21:29.158
+Caption: naming your functions really long things
+
+00:21:27.178 --> 00:21:31.798
+Caption: and then never get to the final chapters
+
+00:21:29.159 --> 00:21:33.659
+Caption: and Eric Evans actually I saw him give a
+
+00:21:31.798 --> 00:21:35.038
+Caption: talk about
+
+00:21:33.659 --> 00:21:36.960
+Caption: um about this book and he went if I had
+
+00:21:35.038 --> 00:21:38.579
+Caption: my time again I would just like change
+
+00:21:36.959 --> 00:21:42.918
+Caption: the order of the chapters because nobody
+
+00:21:38.579 --> 00:21:42.918
+Caption: actually gets to the to the meaty bit
+
+00:21:45.239 --> 00:21:48.839
+Caption: so
+
+00:21:46.678 --> 00:21:50.939
+Caption: you know if you&#39;re modeling software
+
+00:21:48.839 --> 00:21:52.319
+Caption: you might have a customer an order in a
+
+00:21:50.939 --> 00:21:53.339
+Caption: shopping cart and catalog and pricing
+
+00:21:52.319 --> 00:21:56.158
+Caption: things like that when you&#39;re doing your
+
+00:21:53.339 --> 00:21:58.260
+Caption: modeling and
+
+00:21:56.159 --> 00:22:00.000
+Caption: that&#39;s called an entity or an aggregate
+
+00:21:58.260 --> 00:22:02.339
+Caption: route in in domain driven design right
+
+00:22:00.000 --> 00:22:03.538
+Caption: so often what we see is services that
+
+00:22:02.339 --> 00:22:04.558
+Caption: look like this and you can go and look
+
+00:22:03.538 --> 00:22:06.658
+Caption: like Microsoft best practice
+
+00:22:04.558 --> 00:22:08.339
+Caption: microservices you get something that
+
+00:22:06.659 --> 00:22:09.539
+Caption: looks a lot like this and all of a
+
+00:22:08.339 --> 00:22:13.140
+Caption: sudden we&#39;ve got a service for every
+
+00:22:09.538 --> 00:22:15.538
+Caption: entity in our in our model yeah does
+
+00:22:13.140 --> 00:22:20.700
+Caption: anyone remember JaVale Lowe
+
+00:22:15.538 --> 00:22:22.079
+Caption: early no cool early so uh said and I
+
+00:22:20.699 --> 00:22:24.359
+Caption: never thought this was a very outlandish
+
+00:22:22.079 --> 00:22:26.760
+Caption: thing to say but JaVale Lowry said that
+
+00:22:24.359 --> 00:22:28.500
+Caption: that in a good service oriented
+
+00:22:26.760 --> 00:22:29.339
+Caption: architecture every class would be a
+
+00:22:28.500 --> 00:22:30.959
+Caption: service
+
+00:22:29.339 --> 00:22:32.699
+Caption: and everyone laughed this was a
+
+00:22:30.959 --> 00:22:34.140
+Caption: ridiculous thing to say but we&#39;ve kind
+
+00:22:32.699 --> 00:22:36.658
+Caption: of ended up here
+
+00:22:34.140 --> 00:22:37.739
+Caption: again this is my grumpy old man showing
+
+00:22:36.659 --> 00:22:40.620
+Caption: um
+
+00:22:37.739 --> 00:22:42.658
+Caption: so what happens is you know software
+
+00:22:40.619 --> 00:22:44.640
+Caption: there&#39;s a couple of
+
+00:22:42.659 --> 00:22:46.320
+Caption: principles of good software design
+
+00:22:44.640 --> 00:22:49.200
+Caption: around
+
+00:22:46.319 --> 00:22:50.699
+Caption: um like loose coupling and and cohesion
+
+00:22:49.199 --> 00:22:53.219
+Caption: and
+
+00:22:50.699 --> 00:22:56.158
+Caption: as a software to collaborate within its
+
+00:22:53.219 --> 00:22:58.739
+Caption: design needs you know cohesion and if
+
+00:22:56.159 --> 00:23:01.320
+Caption: we&#39;ve split it too far apart then all of
+
+00:22:58.739 --> 00:23:03.538
+Caption: a sudden you know
+
+00:23:01.319 --> 00:23:06.058
+Caption: we&#39;re talking too much over you know
+
+00:23:03.538 --> 00:23:09.058
+Caption: http
+
+00:23:06.058 --> 00:23:10.859
+Caption: and you know then you have to deal with
+
+00:23:09.058 --> 00:23:13.380
+Caption: distributed computing
+
+00:23:10.859 --> 00:23:15.239
+Caption: a lot you know because software you know
+
+00:23:13.380 --> 00:23:16.739
+Caption: is cohesive all these things talk to
+
+00:23:15.239 --> 00:23:18.000
+Caption: each other and if all of a sudden you&#39;re
+
+00:23:16.739 --> 00:23:19.739
+Caption: talking to each other over a network
+
+00:23:18.000 --> 00:23:21.599
+Caption: boundary then you know again you&#39;ve got
+
+00:23:19.739 --> 00:23:24.298
+Caption: all sorts of problems
+
+00:23:21.599 --> 00:23:26.158
+Caption: and so what I see is service is just are
+
+00:23:24.298 --> 00:23:27.298
+Caption: way too chatty has anyone kind of worked
+
+00:23:26.159 --> 00:23:28.980
+Caption: on a microservices architecture it&#39;s
+
+00:23:27.298 --> 00:23:30.479
+Caption: just way too chatty
+
+00:23:28.979 --> 00:23:34.020
+Caption: so then you bring in more infrastructure
+
+00:23:30.479 --> 00:23:36.959
+Caption: you bring in you know istio and
+
+00:23:34.020 --> 00:23:38.820
+Caption: um sidecar services and service meshes
+
+00:23:36.959 --> 00:23:40.319
+Caption: and and things like that to solve the
+
+00:23:38.819 --> 00:23:42.119
+Caption: fact that we&#39;ve just split our design
+
+00:23:40.319 --> 00:23:43.558
+Caption: way too early and our boundaries are
+
+00:23:42.119 --> 00:23:46.640
+Caption: done um
+
+00:23:43.558 --> 00:23:46.640
+Caption: way way too early
+
+00:23:47.359 --> 00:23:53.640
+Caption: so some of the symptoms of that
+
+00:23:50.099 --> 00:23:55.859
+Caption: when you see it is
+
+00:23:53.640 --> 00:23:58.079
+Caption: um massive amounts of shared code
+
+00:23:55.859 --> 00:24:00.538
+Caption: so then we go okay all of our services
+
+00:23:58.079 --> 00:24:03.239
+Caption: need the same classes in there so okay
+
+00:24:00.538 --> 00:24:05.939
+Caption: we need a mono repo or or Worse still we
+
+00:24:03.239 --> 00:24:07.439
+Caption: have everything in one giant solution
+
+00:24:05.939 --> 00:24:09.678
+Caption: and I&#39;ve seen that like 20 micro
+
+00:24:07.439 --> 00:24:14.000
+Caption: services in one Visual Studio solution
+
+00:24:09.678 --> 00:24:16.079
+Caption: because they need so much shared code
+
+00:24:14.000 --> 00:24:17.819
+Caption: and then you have back to the problem
+
+00:24:16.079 --> 00:24:19.500
+Caption: that we had in you know the early 2000s
+
+00:24:17.819 --> 00:24:21.359
+Caption: which is you need to deploy everything
+
+00:24:19.500 --> 00:24:23.459
+Caption: exactly the same order
+
+00:24:21.359 --> 00:24:25.380
+Caption: because you&#39;ve got four services with
+
+00:24:23.459 --> 00:24:26.699
+Caption: the same classes and if those classes
+
+00:24:25.380 --> 00:24:28.678
+Caption: don&#39;t match
+
+00:24:26.699 --> 00:24:30.418
+Caption: you got all sorts of Errors so then you
+
+00:24:28.678 --> 00:24:31.859
+Caption: know everything has to be deployed at
+
+00:24:30.418 --> 00:24:33.658
+Caption: exactly the same time so they&#39;re not
+
+00:24:31.859 --> 00:24:35.819
+Caption: autonomous anymore
+
+00:24:33.659 --> 00:24:37.440
+Caption: um when I was at octopus deploy one of
+
+00:24:35.819 --> 00:24:38.519
+Caption: the things that we did at octopus and
+
+00:24:37.439 --> 00:24:40.399
+Caption: they still do is pretty much everyone
+
+00:24:38.520 --> 00:24:43.440
+Caption: does a rotation on customer support
+
+00:24:40.400 --> 00:24:45.059
+Caption: which is if you&#39;ve never done it it&#39;s an
+
+00:24:43.439 --> 00:24:45.979
+Caption: amazing way to develop empathy for your
+
+00:24:45.058 --> 00:24:48.479
+Caption: customer
+
+00:24:45.979 --> 00:24:50.760
+Caption: and you can make design decisions and
+
+00:24:48.479 --> 00:24:52.140
+Caption: then see the impact of that by figuring
+
+00:24:50.760 --> 00:24:53.940
+Caption: out what&#39;s hard for people to do and
+
+00:24:52.140 --> 00:24:55.739
+Caption: where they get it wrong it&#39;s amazingly
+
+00:24:53.939 --> 00:24:57.899
+Caption: an amazing process for kind of building
+
+00:24:55.739 --> 00:25:00.178
+Caption: empathy when you&#39;re within your team
+
+00:24:57.900 --> 00:25:02.159
+Caption: the people would would write in or email
+
+00:25:00.178 --> 00:25:04.619
+Caption: in right in
+
+00:25:02.159 --> 00:25:07.020
+Caption: and they&#39;d say octopus doesn&#39;t support
+
+00:25:04.619 --> 00:25:08.939
+Caption: microservices I mean like what what do
+
+00:25:07.020 --> 00:25:11.400
+Caption: you mean it&#39;s like we have all of our
+
+00:25:08.939 --> 00:25:13.259
+Caption: services each one&#39;s its own project but
+
+00:25:11.400 --> 00:25:16.339
+Caption: we need all the projects to be deployed
+
+00:25:13.260 --> 00:25:16.339
+Caption: at exactly the same time
+
+00:25:17.819 --> 00:25:21.178
+Caption: so what this gets snarkly cold is you
+
+00:25:19.678 --> 00:25:23.279
+Caption: don&#39;t have microservices you have a
+
+00:25:21.178 --> 00:25:24.979
+Caption: distributed monolith which is kind of
+
+00:25:23.280 --> 00:25:28.260
+Caption: the worst of
+
+00:25:24.979 --> 00:25:30.058
+Caption: the worst of all of those worlds
+
+00:25:28.260 --> 00:25:32.279
+Caption: um and then again when you start adding
+
+00:25:30.058 --> 00:25:33.899
+Caption: infrastructure to it
+
+00:25:32.279 --> 00:25:35.400
+Caption: so
+
+00:25:33.900 --> 00:25:36.719
+Caption: for those of you who got through 15
+
+00:25:35.400 --> 00:25:38.400
+Caption: chapters of the domain-driven design
+
+00:25:36.719 --> 00:25:39.839
+Caption: book
+
+00:25:38.400 --> 00:25:41.520
+Caption: there&#39;s a concept called a bounded
+
+00:25:39.839 --> 00:25:42.839
+Caption: context
+
+00:25:41.520 --> 00:25:45.179
+Caption: and
+
+00:25:42.839 --> 00:25:47.158
+Caption: again this is a book about modeling and
+
+00:25:45.178 --> 00:25:48.298
+Caption: and you start speaking to experts within
+
+00:25:47.159 --> 00:25:51.179
+Caption: the business
+
+00:25:48.298 --> 00:25:53.219
+Caption: and you develop a shared vocabulary and
+
+00:25:51.178 --> 00:25:54.959
+Caption: in chapter 15 of the domain driven
+
+00:25:53.219 --> 00:25:57.119
+Caption: design book
+
+00:25:54.959 --> 00:25:59.699
+Caption: Eric Evan says that if you start to
+
+00:25:57.119 --> 00:26:01.739
+Caption: notice that different groups of people
+
+00:25:59.699 --> 00:26:03.538
+Caption: in the business start using words
+
+00:26:01.739 --> 00:26:06.418
+Caption: differently or talking about something
+
+00:26:03.538 --> 00:26:08.579
+Caption: with a different phrase that&#39;s a bounded
+
+00:26:06.418 --> 00:26:10.859
+Caption: context yeah
+
+00:26:08.579 --> 00:26:12.899
+Caption: um and you find that you know if anyone
+
+00:26:10.859 --> 00:26:14.339
+Caption: sort of worked in a big organization you
+
+00:26:12.900 --> 00:26:16.500
+Caption: might say well this thing is an order
+
+00:26:14.339 --> 00:26:18.178
+Caption: but an order to somebody else is a
+
+00:26:16.500 --> 00:26:21.538
+Caption: completely different concept someone
+
+00:26:18.178 --> 00:26:24.538
+Caption: felt felt that one yep
+
+00:26:21.538 --> 00:26:26.699
+Caption: so the best example of this I&#39;ve heard
+
+00:26:24.538 --> 00:26:28.439
+Caption: um was from a guy named Dan North who
+
+00:26:26.699 --> 00:26:31.380
+Caption: was also thoughtworks and and he had a
+
+00:26:28.439 --> 00:26:34.579
+Caption: taught a bunch of years ago
+
+00:26:31.380 --> 00:26:38.219
+Caption: that I&#39;m going to steal shamelessly
+
+00:26:34.579 --> 00:26:40.918
+Caption: where he talked about going on holiday
+
+00:26:38.219 --> 00:26:42.418
+Caption: and he has this this concept of okay I&#39;m
+
+00:26:40.918 --> 00:26:43.859
+Caption: going on holiday
+
+00:26:42.418 --> 00:26:47.038
+Caption: um
+
+00:26:43.859 --> 00:26:50.640
+Caption: and your view of your holiday might be a
+
+00:26:47.038 --> 00:26:52.979
+Caption: a postcard or or a you know a website or
+
+00:26:50.640 --> 00:26:55.979
+Caption: a magazine article where you&#39;ve got
+
+00:26:52.979 --> 00:26:58.439
+Caption: Beach you know white sandy beach
+
+00:26:55.979 --> 00:27:00.538
+Caption: cocktail umbrella you know snorkeling
+
+00:26:58.439 --> 00:27:02.219
+Caption: whatever it is that&#39;s your I&#39;m going on
+
+00:27:00.538 --> 00:27:03.658
+Caption: holiday I&#39;m really stressed I need to go
+
+00:27:02.219 --> 00:27:05.099
+Caption: and sit on the beach okay that&#39;s your
+
+00:27:03.659 --> 00:27:06.659
+Caption: view of a holiday
+
+00:27:05.099 --> 00:27:07.678
+Caption: um but to get there you need to do a few
+
+00:27:06.659 --> 00:27:11.760
+Caption: things you need to put in a leave
+
+00:27:07.678 --> 00:27:13.140
+Caption: request okay it&#39;s in your HR department
+
+00:27:11.760 --> 00:27:15.058
+Caption: um needs to think about your holiday now
+
+00:27:13.140 --> 00:27:16.739
+Caption: your HR department&#39;s view of your
+
+00:27:15.058 --> 00:27:18.599
+Caption: holiday is not like sandy beaches in a
+
+00:27:16.739 --> 00:27:21.538
+Caption: cocktail with an umbrella in it
+
+00:27:18.599 --> 00:27:24.058
+Caption: um your hr&#39;s view of your holiday is do
+
+00:27:21.538 --> 00:27:25.619
+Caption: you have enough leave days
+
+00:27:24.058 --> 00:27:27.359
+Caption: kind of thing how many hours have you
+
+00:27:25.619 --> 00:27:29.520
+Caption: accrued you might also have to get that
+
+00:27:27.359 --> 00:27:31.619
+Caption: signed up by your manager
+
+00:27:29.520 --> 00:27:33.479
+Caption: your manager&#39;s view of your holiday
+
+00:27:31.619 --> 00:27:34.918
+Caption: might be well actually we have this
+
+00:27:33.479 --> 00:27:36.359
+Caption: project deadline we&#39;ve got our Legacy
+
+00:27:34.918 --> 00:27:38.699
+Caption: system replacement it&#39;s due to go live
+
+00:27:36.359 --> 00:27:39.959
+Caption: next month no you can&#39;t go on holiday
+
+00:27:38.699 --> 00:27:41.099
+Caption: um which is exactly why you need to go
+
+00:27:39.959 --> 00:27:41.699
+Caption: on holiday
+
+00:27:41.099 --> 00:27:43.798
+Caption: um
+
+00:27:41.699 --> 00:27:46.380
+Caption: you might call a travel agent to you
+
+00:27:43.798 --> 00:27:47.459
+Caption: know book you a flight and a hotel so
+
+00:27:46.380 --> 00:27:48.839
+Caption: they&#39;re going to have a completely
+
+00:27:47.459 --> 00:27:50.699
+Caption: different set of words and different
+
+00:27:48.839 --> 00:27:53.099
+Caption: lens and different framing of your
+
+00:27:50.699 --> 00:27:55.859
+Caption: holiday it&#39;s all the same thing
+
+00:27:53.099 --> 00:27:57.900
+Caption: but everybody has a completely different
+
+00:27:55.859 --> 00:28:00.119
+Caption: set of terminology and way of thinking
+
+00:27:57.900 --> 00:28:02.820
+Caption: about and framing your holiday and and
+
+00:28:00.119 --> 00:28:05.298
+Caption: that&#39;s about a context yeah
+
+00:28:02.819 --> 00:28:05.298
+Caption: so
+
+00:28:06.779 --> 00:28:11.520
+Caption: it&#39;s a bounded context around the people
+
+00:28:09.058 --> 00:28:14.418
+Caption: involved in something and and the
+
+00:28:11.520 --> 00:28:14.419
+Caption: interactions with it
+
+00:28:15.659 --> 00:28:20.340
+Caption: Okay so
+
+00:28:17.699 --> 00:28:22.678
+Caption: if you think about Building Services you
+
+00:28:20.339 --> 00:28:25.140
+Caption: can start to use that framing around
+
+00:28:22.678 --> 00:28:26.760
+Caption: what a service is so if you&#39;ve got a
+
+00:28:25.140 --> 00:28:29.400
+Caption: bounded context you know well we look at
+
+00:28:26.760 --> 00:28:30.839
+Caption: this thing and it means this to us that
+
+00:28:29.400 --> 00:28:33.299
+Caption: might be a really good place to start
+
+00:28:30.839 --> 00:28:35.819
+Caption: with a service yeah
+
+00:28:33.298 --> 00:28:37.739
+Caption: and then what you can do is model the
+
+00:28:35.819 --> 00:28:39.719
+Caption: communication across the people in this
+
+00:28:37.739 --> 00:28:42.239
+Caption: organization and
+
+00:28:39.719 --> 00:28:44.158
+Caption: how they communicate that stuff and that
+
+00:28:42.239 --> 00:28:45.599
+Caption: becomes then a really good shape of of
+
+00:28:44.159 --> 00:28:46.980
+Caption: what your service looks like and what
+
+00:28:45.599 --> 00:28:49.558
+Caption: that sort of bounded context looks like
+
+00:28:46.979 --> 00:28:51.359
+Caption: so you know
+
+00:28:49.558 --> 00:28:54.058
+Caption: um
+
+00:28:51.359 --> 00:28:55.380
+Caption: if somebody says in your organization go
+
+00:28:54.058 --> 00:28:57.839
+Caption: do this
+
+00:28:55.380 --> 00:28:59.339
+Caption: that&#39;s a that&#39;s called a command or if
+
+00:28:57.839 --> 00:29:00.778
+Caption: somebody else sits there and they wait
+
+00:28:59.339 --> 00:29:02.640
+Caption: for it wait to be told about something
+
+00:29:00.779 --> 00:29:04.500
+Caption: that&#39;s an event and we can start to
+
+00:29:02.640 --> 00:29:07.760
+Caption: model then commands and events and
+
+00:29:04.500 --> 00:29:07.760
+Caption: requests within an organization
+
+00:29:08.459 --> 00:29:11.880
+Caption: so
+
+00:29:10.079 --> 00:29:13.439
+Caption: to put an example on that
+
+00:29:11.880 --> 00:29:15.659
+Caption: think about
+
+00:29:13.439 --> 00:29:17.278
+Caption: a really bad restaurant
+
+00:29:15.659 --> 00:29:18.960
+Caption: okay you imagine turning up to a
+
+00:29:17.279 --> 00:29:20.880
+Caption: restaurant and you sit down with your
+
+00:29:18.959 --> 00:29:23.520
+Caption: friends and
+
+00:29:20.880 --> 00:29:24.959
+Caption: a waiter comes up with a menu board with
+
+00:29:23.520 --> 00:29:27.539
+Caption: no prices on it
+
+00:29:24.959 --> 00:29:29.699
+Caption: let&#39;s go here are the things
+
+00:29:27.538 --> 00:29:30.658
+Caption: and you&#39;d say
+
+00:29:29.699 --> 00:29:32.639
+Caption: um
+
+00:29:30.659 --> 00:29:34.679
+Caption: how much is the burger and they just run
+
+00:29:32.640 --> 00:29:36.119
+Caption: away and come back and go that&#39;s you
+
+00:29:34.678 --> 00:29:37.500
+Caption: know 12.
+
+00:29:36.119 --> 00:29:39.298
+Caption: and you go
+
+00:29:37.500 --> 00:29:40.500
+Caption: I&#39;ll have a burger thanks and they go
+
+00:29:39.298 --> 00:29:42.898
+Caption: okay
+
+00:29:40.500 --> 00:29:44.339
+Caption: I&#39;ll just check if we have them and they
+
+00:29:42.899 --> 00:29:45.840
+Caption: run back into the kitchen come back and
+
+00:29:44.339 --> 00:29:48.000
+Caption: go yes you can have a Bergen like cool
+
+00:29:45.839 --> 00:29:49.918
+Caption: well I&#39;d like the burger thanks
+
+00:29:48.000 --> 00:29:52.558
+Caption: um and we&#39;d also like the fish and like
+
+00:29:49.918 --> 00:29:53.699
+Caption: hang on and they run back into the
+
+00:29:52.558 --> 00:29:56.579
+Caption: kitchen a few minutes later come back
+
+00:29:53.699 --> 00:29:59.519
+Caption: okay no we don&#39;t have fish
+
+00:29:56.579 --> 00:30:01.619
+Caption: and so you&#39;re frustrating well can we
+
+00:29:59.520 --> 00:30:02.940
+Caption: have some pizza now run back in and they
+
+00:30:01.619 --> 00:30:04.500
+Caption: go through this process of like running
+
+00:30:02.939 --> 00:30:06.119
+Caption: back in and checking if they have it for
+
+00:30:04.500 --> 00:30:09.439
+Caption: all of the food and all of the drinks
+
+00:30:06.119 --> 00:30:09.439
+Caption: for every single person at the table
+
+00:30:09.779 --> 00:30:14.940
+Caption: and then you go okay got the order right
+
+00:30:11.880 --> 00:30:16.140
+Caption: I would like that and they go cool that
+
+00:30:14.939 --> 00:30:17.819
+Caption: will cost this
+
+00:30:16.140 --> 00:30:19.558
+Caption: well we haven&#39;t eaten yet but you know
+
+00:30:17.819 --> 00:30:20.939
+Caption: okay here&#39;s the card and they walk and
+
+00:30:19.558 --> 00:30:22.918
+Caption: they stand in line behind all the other
+
+00:30:20.939 --> 00:30:24.778
+Caption: staff in one line to get to the one f
+
+00:30:22.918 --> 00:30:28.319
+Caption: plus machine payment gateways are hard
+
+00:30:24.779 --> 00:30:31.200
+Caption: and eventually they get there
+
+00:30:28.319 --> 00:30:32.699
+Caption: process your card and it&#39;s declined so
+
+00:30:31.199 --> 00:30:34.199
+Caption: they come back and go that card was
+
+00:30:32.699 --> 00:30:35.398
+Caption: declined Ah that&#39;s right I&#39;m gonna put
+
+00:30:34.199 --> 00:30:37.260
+Caption: money on that account so you transfer
+
+00:30:35.399 --> 00:30:39.179
+Caption: some money over and they go and get back
+
+00:30:37.260 --> 00:30:40.558
+Caption: in the line
+
+00:30:39.178 --> 00:30:42.239
+Caption: and you&#39;re sitting there at this point
+
+00:30:40.558 --> 00:30:43.380
+Caption: you&#39;re hungry you&#39;re grumpy
+
+00:30:42.239 --> 00:30:44.640
+Caption: um because this order still hasn&#39;t gone
+
+00:30:43.380 --> 00:30:46.558
+Caption: to the kitchen because you haven&#39;t paid
+
+00:30:44.640 --> 00:30:48.299
+Caption: for it yet they come back and go yes
+
+00:30:46.558 --> 00:30:50.278
+Caption: that was successful and then they go
+
+00:30:48.298 --> 00:30:51.839
+Caption: into the kitchen to place your order and
+
+00:30:50.279 --> 00:30:52.619
+Caption: they just disappear you don&#39;t see them
+
+00:30:51.839 --> 00:30:54.239
+Caption: again
+
+00:30:52.619 --> 00:30:56.579
+Caption: for a long time
+
+00:30:54.239 --> 00:30:58.500
+Caption: and you realize that all the weight
+
+00:30:56.579 --> 00:31:00.178
+Caption: staff are walking into the kitchen
+
+00:30:58.500 --> 00:31:01.500
+Caption: and not coming out until they have the
+
+00:31:00.178 --> 00:31:04.798
+Caption: food
+
+00:31:01.500 --> 00:31:05.760
+Caption: yeah So eventually your waiter comes out
+
+00:31:04.798 --> 00:31:07.739
+Caption: um
+
+00:31:05.760 --> 00:31:09.599
+Caption: gives you food and you and you eat the
+
+00:31:07.739 --> 00:31:11.399
+Caption: field but eat the meal at that point you
+
+00:31:09.599 --> 00:31:13.558
+Caption: know you&#39;re having a bad time it&#39;s not
+
+00:31:11.399 --> 00:31:16.380
+Caption: it&#39;s not a great dining experience one
+
+00:31:13.558 --> 00:31:17.699
+Caption: star would not do again
+
+00:31:16.380 --> 00:31:18.959
+Caption: um and this company is not going to last
+
+00:31:17.699 --> 00:31:20.939
+Caption: too long because they&#39;re going to need
+
+00:31:18.959 --> 00:31:21.898
+Caption: way too many staff they&#39;re going to go
+
+00:31:20.939 --> 00:31:23.219
+Caption: through the stuff because everyone&#39;s
+
+00:31:21.899 --> 00:31:25.140
+Caption: rude to them
+
+00:31:23.219 --> 00:31:27.658
+Caption: um and it just it&#39;s not going to scale
+
+00:31:25.140 --> 00:31:28.678
+Caption: right
+
+00:31:27.659 --> 00:31:30.720
+Caption: has anyone been to this restaurant
+
+00:31:28.678 --> 00:31:32.880
+Caption: sounds pretty bad
+
+00:31:30.719 --> 00:31:35.398
+Caption: this is how we build systems this is how
+
+00:31:32.880 --> 00:31:37.459
+Caption: a lot of people build software
+
+00:31:35.399 --> 00:31:37.460
+Caption: um
+
+00:31:38.038 --> 00:31:40.798
+Caption: because you know coming back to this
+
+00:31:39.538 --> 00:31:42.418
+Caption: kind of
+
+00:31:40.798 --> 00:31:44.459
+Caption: sort of canonical microservice
+
+00:31:42.418 --> 00:31:45.298
+Caption: architecture that you see it looks like
+
+00:31:44.459 --> 00:31:47.579
+Caption: this
+
+00:31:45.298 --> 00:31:49.739
+Caption: and we&#39;ve got all of these HTTP requests
+
+00:31:47.579 --> 00:31:52.558
+Caption: now what&#39;s something about HTTP requests
+
+00:31:49.739 --> 00:31:53.939
+Caption: the synchronous okay and so we build
+
+00:31:52.558 --> 00:31:55.439
+Caption: this stuff and this is kind of how we
+
+00:31:53.939 --> 00:31:56.939
+Caption: build this restaurant like I would like
+
+00:31:55.439 --> 00:31:58.319
+Caption: to do this I will go check the pricing
+
+00:31:56.939 --> 00:32:00.239
+Caption: service like literally every micro
+
+00:31:58.319 --> 00:32:02.339
+Caption: service kind of beginning article has a
+
+00:32:00.239 --> 00:32:03.658
+Caption: cart service and a pricing service
+
+00:32:02.339 --> 00:32:05.099
+Caption: um and that&#39;s like the way to holding
+
+00:32:03.659 --> 00:32:07.140
+Caption: the board and then going have to ask the
+
+00:32:05.099 --> 00:32:08.579
+Caption: manager how much the burger is
+
+00:32:07.140 --> 00:32:10.260
+Caption: um
+
+00:32:08.579 --> 00:32:11.459
+Caption: and it&#39;s bad this is how we build
+
+00:32:10.260 --> 00:32:12.479
+Caption: systems
+
+00:32:11.459 --> 00:32:15.739
+Caption: so
+
+00:32:12.479 --> 00:32:15.739
+Caption: let&#39;s think about a better restaurant
+
+00:32:15.959 --> 00:32:19.859
+Caption: you walk in you sit down the staff hands
+
+00:32:18.479 --> 00:32:21.359
+Caption: you out some menus the menus have prices
+
+00:32:19.859 --> 00:32:23.339
+Caption: on the menus have specials on them
+
+00:32:21.359 --> 00:32:25.500
+Caption: because somebody sat down when those
+
+00:32:23.339 --> 00:32:26.939
+Caption: prices change created a menu and put it
+
+00:32:25.500 --> 00:32:28.678
+Caption: on there you sit down and they go
+
+00:32:26.939 --> 00:32:30.058
+Caption: actually look I just the kitchen just
+
+00:32:28.678 --> 00:32:31.380
+Caption: told me we&#39;ve just run out of fish so
+
+00:32:30.058 --> 00:32:32.520
+Caption: that one&#39;s not in there you know okay
+
+00:32:31.380 --> 00:32:34.199
+Caption: cool that&#39;s fine I&#39;ll order something
+
+00:32:32.520 --> 00:32:36.058
+Caption: else
+
+00:32:34.199 --> 00:32:38.579
+Caption: you sit there and you go here&#39;s the
+
+00:32:36.058 --> 00:32:39.839
+Caption: order and the staff you know write the
+
+00:32:38.579 --> 00:32:43.019
+Caption: food on one slip and the drinks on
+
+00:32:39.839 --> 00:32:45.058
+Caption: another slip and they you know take one
+
+00:32:43.020 --> 00:32:48.719
+Caption: slip to the kitchen another one to the
+
+00:32:45.058 --> 00:32:50.819
+Caption: bar and your orders in all easy
+
+00:32:48.719 --> 00:32:51.959
+Caption: and then after a few minutes
+
+00:32:50.819 --> 00:32:53.699
+Caption: um
+
+00:32:51.959 --> 00:32:56.099
+Caption: bell rings at the kitchen
+
+00:32:53.699 --> 00:32:57.599
+Caption: okay and some staff go over to see what
+
+00:32:56.099 --> 00:32:59.520
+Caption: the Bell was for it&#39;s like okay table
+
+00:32:57.599 --> 00:33:01.500
+Caption: ten food&#39;s ready and they bring
+
+00:32:59.520 --> 00:33:02.940
+Caption: to your table and you sit down and eat
+
+00:33:01.500 --> 00:33:05.599
+Caption: it
+
+00:33:02.939 --> 00:33:05.599
+Caption: and
+
+00:33:05.880 --> 00:33:10.079
+Caption: when it&#39;s time to go you go up and you
+
+00:33:07.918 --> 00:33:11.339
+Caption: pay like to pay for table 10. again you
+
+00:33:10.079 --> 00:33:12.898
+Caption: might still have the f plus problem but
+
+00:33:11.339 --> 00:33:14.278
+Caption: it&#39;s easy you know just just kind of
+
+00:33:12.899 --> 00:33:16.140
+Caption: solve it
+
+00:33:14.279 --> 00:33:17.340
+Caption: and meanwhile you&#39;ve got a restaurant
+
+00:33:16.140 --> 00:33:19.019
+Caption: manager who&#39;s sitting there kind of
+
+00:33:17.339 --> 00:33:20.699
+Caption: overseeing like this table got their
+
+00:33:19.019 --> 00:33:22.980
+Caption: food on time is anyone waiting too long
+
+00:33:20.699 --> 00:33:24.658
+Caption: is everything kind of working as it is
+
+00:33:22.979 --> 00:33:26.339
+Caption: right
+
+00:33:24.659 --> 00:33:28.500
+Caption: that&#39;s a better restaurant because
+
+00:33:26.339 --> 00:33:29.339
+Caption: you&#39;ve got
+
+00:33:28.500 --> 00:33:31.260
+Caption: um
+
+00:33:29.339 --> 00:33:32.398
+Caption: it&#39;s for your staff and they&#39;re getting
+
+00:33:31.260 --> 00:33:35.880
+Caption: more done
+
+00:33:32.399 --> 00:33:38.039
+Caption: because they&#39;re not relying on waiting
+
+00:33:35.880 --> 00:33:40.199
+Caption: for answers all the time they take your
+
+00:33:38.038 --> 00:33:42.058
+Caption: order into the kitchen they say make
+
+00:33:40.199 --> 00:33:43.859
+Caption: this yep
+
+00:33:42.058 --> 00:33:46.380
+Caption: and when it&#39;s ready someone rings a bell
+
+00:33:43.859 --> 00:33:47.939
+Caption: and they come and get it
+
+00:33:46.380 --> 00:33:51.019
+Caption: one&#39;s a command
+
+00:33:47.939 --> 00:33:53.099
+Caption: another one&#39;s an event yeah
+
+00:33:51.019 --> 00:33:55.080
+Caption: and so
+
+00:33:53.099 --> 00:33:56.398
+Caption: the way these like it&#39;s the same
+
+00:33:55.079 --> 00:33:57.538
+Caption: activities they&#39;re still ordering food
+
+00:33:56.399 --> 00:33:58.919
+Caption: and they&#39;re still cooking food and the
+
+00:33:57.538 --> 00:34:01.798
+Caption: silvering is still paying but it&#39;s the
+
+00:33:58.918 --> 00:34:03.538
+Caption: way those activities are are grouped and
+
+00:34:01.798 --> 00:34:05.639
+Caption: who&#39;s in charge of it and how the
+
+00:34:03.538 --> 00:34:08.098
+Caption: communication happens is better modeling
+
+00:34:05.640 --> 00:34:10.800
+Caption: yeah does anyone go and watch businesses
+
+00:34:08.099 --> 00:34:12.300
+Caption: and just like think about the systems
+
+00:34:10.800 --> 00:34:14.099
+Caption: you know like massively into systems
+
+00:34:12.300 --> 00:34:15.479
+Caption: thinking and you look at that and go if
+
+00:34:14.099 --> 00:34:17.580
+Caption: that person did that job everything
+
+00:34:15.479 --> 00:34:18.959
+Caption: would go better yeah it&#39;s great great
+
+00:34:17.580 --> 00:34:20.820
+Caption: people watching
+
+00:34:18.959 --> 00:34:23.280
+Caption: I can&#39;t help myself
+
+00:34:20.820 --> 00:34:25.320
+Caption: um and and it&#39;s modeling right
+
+00:34:23.280 --> 00:34:27.178
+Caption: um and so in this restaurant the staff
+
+00:34:25.320 --> 00:34:29.159
+Caption: know when something&#39;s run out they&#39;ve
+
+00:34:27.178 --> 00:34:30.959
+Caption: got the prices of stuff the kitchen
+
+00:34:29.158 --> 00:34:32.098
+Caption: knows when to make something you don&#39;t
+
+00:34:30.959 --> 00:34:33.898
+Caption: have
+
+00:34:32.099 --> 00:34:35.339
+Caption: a waiter standing in this kitchen going
+
+00:34:33.898 --> 00:34:36.479
+Caption: is it ready yet is it ready yet is it
+
+00:34:35.339 --> 00:34:38.520
+Caption: ready yet is it ready yet is it ready
+
+00:34:36.479 --> 00:34:40.439
+Caption: yet you know someone rings a bell okay
+
+00:34:38.520 --> 00:34:42.418
+Caption: good modeling and this is a good
+
+00:34:40.439 --> 00:34:46.219
+Caption: restaurant you leave from this good
+
+00:34:42.418 --> 00:34:46.219
+Caption: experience five-star would eat again
+
+00:34:47.459 --> 00:34:51.118
+Caption: so
+
+00:34:49.199 --> 00:34:53.820
+Caption: what can we take from this
+
+00:34:51.118 --> 00:34:55.858
+Caption: chains of requests do not scale well
+
+00:34:53.820 --> 00:34:57.420
+Caption: yeah then I worked in a company where to
+
+00:34:55.858 --> 00:34:59.399
+Caption: get anything done you have to ask your
+
+00:34:57.419 --> 00:35:01.260
+Caption: manager and they ask their manager and
+
+00:34:59.399 --> 00:35:02.279
+Caption: then they asked kind of a sideways and
+
+00:35:01.260 --> 00:35:03.239
+Caption: it goes down and you&#39;re sitting there
+
+00:35:02.280 --> 00:35:05.219
+Caption: and you&#39;re like couldn&#39;t I have just
+
+00:35:03.239 --> 00:35:06.780
+Caption: gone and talked to them
+
+00:35:05.219 --> 00:35:08.879
+Caption: it doesn&#39;t scale
+
+00:35:06.780 --> 00:35:11.099
+Caption: um it&#39;s not a fun place to work the
+
+00:35:08.879 --> 00:35:13.078
+Caption: chains of requests do not scale it&#39;s not
+
+00:35:11.099 --> 00:35:14.520
+Caption: a way to get things done
+
+00:35:13.079 --> 00:35:18.359
+Caption: people that have the information to do
+
+00:35:14.520 --> 00:35:20.520
+Caption: their job are a lot more effective at it
+
+00:35:18.358 --> 00:35:22.319
+Caption: um again these are kind of Fairly
+
+00:35:20.520 --> 00:35:23.099
+Caption: commonly known things
+
+00:35:22.320 --> 00:35:25.920
+Caption: um
+
+00:35:23.099 --> 00:35:27.960
+Caption: but software boundaries that follow
+
+00:35:25.919 --> 00:35:29.280
+Caption: these same principles tend to work
+
+00:35:27.959 --> 00:35:31.679
+Caption: better and a lot of it is around
+
+00:35:29.280 --> 00:35:33.359
+Caption: synchronicity so you know synchronous
+
+00:35:31.679 --> 00:35:35.578
+Caption: things where you&#39;re waiting for an
+
+00:35:33.358 --> 00:35:36.659
+Caption: answer don&#39;t scale and don&#39;t kind of
+
+00:35:35.579 --> 00:35:37.739
+Caption: work as well as things that are
+
+00:35:36.659 --> 00:35:38.879
+Caption: asynchronous
+
+00:35:37.739 --> 00:35:41.760
+Caption: again
+
+00:35:38.879 --> 00:35:42.779
+Caption: ring the bell the food&#39;s ready
+
+00:35:41.760 --> 00:35:44.699
+Caption: so
+
+00:35:42.780 --> 00:35:47.099
+Caption: applying this to Services if a service
+
+00:35:44.699 --> 00:35:48.719
+Caption: knows enough to do its job
+
+00:35:47.099 --> 00:35:51.359
+Caption: then it&#39;s going to scale better it&#39;s
+
+00:35:48.719 --> 00:35:52.260
+Caption: going to work better so I have a I have
+
+00:35:51.358 --> 00:35:54.239
+Caption: a cute name for this which is
+
+00:35:52.260 --> 00:35:55.280
+Caption: human-shaped microservices
+
+00:35:54.239 --> 00:35:58.260
+Caption: trademark
+
+00:35:55.280 --> 00:36:00.000
+Caption: [Laughter]
+
+00:35:58.260 --> 00:36:02.639
+Caption: um so you know when I look at it when I
+
+00:36:00.000 --> 00:36:05.040
+Caption: look at a a software system and kind of
+
+00:36:02.639 --> 00:36:07.379
+Caption: try to to bring it down to well if
+
+00:36:05.040 --> 00:36:09.300
+Caption: people were doing it
+
+00:36:07.379 --> 00:36:10.919
+Caption: who would the people be what would they
+
+00:36:09.300 --> 00:36:12.479
+Caption: be in charge of
+
+00:36:10.919 --> 00:36:14.399
+Caption: um how would they do that thing and how
+
+00:36:12.479 --> 00:36:16.260
+Caption: would they communicate it so what would
+
+00:36:14.399 --> 00:36:17.939
+Caption: people do if we were building this
+
+00:36:16.260 --> 00:36:19.380
+Caption: system out of people
+
+00:36:17.939 --> 00:36:21.540
+Caption: and
+
+00:36:19.379 --> 00:36:23.039
+Caption: again synchronous chains of people
+
+00:36:21.540 --> 00:36:24.000
+Caption: asking a question going what&#39;s the
+
+00:36:23.040 --> 00:36:25.679
+Caption: answer what&#39;s the answer what&#39;s the
+
+00:36:24.000 --> 00:36:28.199
+Caption: answer is not a good it&#39;s not you know
+
+00:36:25.679 --> 00:36:29.399
+Caption: an effective business to to be in so you
+
+00:36:28.199 --> 00:36:31.979
+Caption: look at well if you&#39;re going to group
+
+00:36:29.399 --> 00:36:32.939
+Caption: this and have people doing those jobs
+
+00:36:31.979 --> 00:36:35.820
+Caption: um
+
+00:36:32.939 --> 00:36:37.500
+Caption: how would you organize that company to
+
+00:36:35.820 --> 00:36:41.760
+Caption: be effective
+
+00:36:37.500 --> 00:36:43.139
+Caption: and then build the systems the same way
+
+00:36:41.760 --> 00:36:44.760
+Caption: so a really good technique for this
+
+00:36:43.139 --> 00:36:46.919
+Caption: something called event storming has
+
+00:36:44.760 --> 00:36:49.199
+Caption: anyone seen events stormy what kind of a
+
+00:36:46.919 --> 00:36:52.379
+Caption: modeling technique where you get Post-it
+
+00:36:49.199 --> 00:36:54.659
+Caption: notes on a board and and you say well
+
+00:36:52.379 --> 00:36:56.519
+Caption: if we&#39;re doing this you know I would
+
+00:36:54.659 --> 00:36:58.679
+Caption: tell the kitchen to make these things
+
+00:36:56.520 --> 00:37:00.599
+Caption: okay that&#39;s a command and then the
+
+00:36:58.679 --> 00:37:02.159
+Caption: kitchen would say this order is ready
+
+00:37:00.599 --> 00:37:04.560
+Caption: that&#39;s an event and you kind of with
+
+00:37:02.159 --> 00:37:06.539
+Caption: different colored sticky notes
+
+00:37:04.560 --> 00:37:07.800
+Caption: stick them all on a board with these are
+
+00:37:06.540 --> 00:37:10.160
+Caption: the commands and these are the events
+
+00:37:07.800 --> 00:37:13.619
+Caption: and then figure out what talks to what
+
+00:37:10.159 --> 00:37:15.780
+Caption: and why and you end up with a really
+
+00:37:13.618 --> 00:37:16.919
+Caption: good mapping of the way an organization
+
+00:37:15.780 --> 00:37:20.159
+Caption: should work
+
+00:37:16.919 --> 00:37:21.838
+Caption: and then build the software around that
+
+00:37:20.159 --> 00:37:22.618
+Caption: so again
+
+00:37:21.839 --> 00:37:24.119
+Caption: um
+
+00:37:22.618 --> 00:37:26.098
+Caption: commands and events work really well
+
+00:37:24.118 --> 00:37:27.779
+Caption: here
+
+00:37:26.099 --> 00:37:31.380
+Caption: I&#39;m going to quickly talk about kind of
+
+00:37:27.780 --> 00:37:33.859
+Caption: the tech of that because often like
+
+00:37:31.379 --> 00:37:37.858
+Caption: people sort of tend to think about
+
+00:37:33.858 --> 00:37:39.239
+Caption: microservices as you know just rest but
+
+00:37:37.858 --> 00:37:40.319
+Caption: I actually really like messaging for a
+
+00:37:39.239 --> 00:37:42.719
+Caption: lot of this stuff
+
+00:37:40.320 --> 00:37:45.959
+Caption: because it Maps really quite well
+
+00:37:42.719 --> 00:37:47.879
+Caption: so HTTP is a synchronous
+
+00:37:45.959 --> 00:37:49.260
+Caption: transport you know that&#39;s about
+
+00:37:47.879 --> 00:37:51.959
+Caption: requesting a document and getting
+
+00:37:49.260 --> 00:37:53.939
+Caption: something back and what we&#39;ve learned is
+
+00:37:51.959 --> 00:37:55.618
+Caption: synchronous calls will reduce your
+
+00:37:53.939 --> 00:37:57.959
+Caption: reliability
+
+00:37:55.618 --> 00:37:59.578
+Caption: um and they reduce your ability to scale
+
+00:37:57.959 --> 00:38:00.598
+Caption: and you have to deploy stuff at exactly
+
+00:37:59.579 --> 00:38:03.180
+Caption: the right time because it&#39;s not
+
+00:38:00.599 --> 00:38:04.020
+Caption: something there you know it gets hard
+
+00:38:03.179 --> 00:38:07.020
+Caption: um
+
+00:38:04.020 --> 00:38:09.000
+Caption: so you can still use HTTP to model
+
+00:38:07.020 --> 00:38:10.500
+Caption: commands and events if you want but it
+
+00:38:09.000 --> 00:38:11.820
+Caption: ends up being a bunch more work you
+
+00:38:10.500 --> 00:38:13.260
+Caption: might have a table of events and then
+
+00:38:11.820 --> 00:38:15.599
+Caption: you know all the other services have to
+
+00:38:13.260 --> 00:38:17.579
+Caption: kind of poll that table and keep a
+
+00:38:15.599 --> 00:38:19.079
+Caption: cursor and it&#39;s extra database stuff so
+
+00:38:17.579 --> 00:38:20.640
+Caption: messaging kind of works really really
+
+00:38:19.079 --> 00:38:22.640
+Caption: well for this
+
+00:38:20.639 --> 00:38:22.639
+Caption: um
+
+00:38:23.459 --> 00:38:26.459
+Caption: um you know for this for this style of
+
+00:38:25.020 --> 00:38:29.159
+Caption: thing because you can you can put a
+
+00:38:26.459 --> 00:38:31.500
+Caption: command on a queue
+
+00:38:29.159 --> 00:38:32.639
+Caption: sorry
+
+00:38:31.500 --> 00:38:35.280
+Caption: um
+
+00:38:32.639 --> 00:38:36.838
+Caption: and yeah you can have Pub sub and and
+
+00:38:35.280 --> 00:38:40.320
+Caption: messaging systems work really really
+
+00:38:36.839 --> 00:38:40.320
+Caption: well for microservices
+
+00:38:40.739 --> 00:38:43.919
+Caption: rest is still a great API service
+
+00:38:42.358 --> 00:38:46.078
+Caption: particularly on the web like the web is
+
+00:38:43.919 --> 00:38:47.699
+Caption: built around HTTP we&#39;ve got cdns we&#39;ve
+
+00:38:46.079 --> 00:38:49.380
+Caption: got proxies you know like it&#39;s a it&#39;s a
+
+00:38:47.699 --> 00:38:51.060
+Caption: really good protocol and there&#39;s lots of
+
+00:38:49.379 --> 00:38:53.939
+Caption: semantics built into it
+
+00:38:51.060 --> 00:38:56.040
+Caption: um into HTTP and then you sort of apply
+
+00:38:53.939 --> 00:38:57.719
+Caption: a rest Style on top of that that&#39;s a
+
+00:38:56.040 --> 00:38:58.320
+Caption: whole other discussion
+
+00:38:57.719 --> 00:39:00.659
+Caption: um
+
+00:38:58.320 --> 00:39:02.219
+Caption: let me get a hypertext is a good thing
+
+00:39:00.659 --> 00:39:05.358
+Caption: like a lot of the web is built on that
+
+00:39:02.219 --> 00:39:05.358
+Caption: and the scales really really well
+
+00:39:07.199 --> 00:39:10.979
+Caption: so I have a pattern that I&#39;ve had a lot
+
+00:39:08.520 --> 00:39:13.679
+Caption: of success with that again as a joke one
+
+00:39:10.979 --> 00:39:14.760
+Caption: day I call it mullet micro services
+
+00:39:13.679 --> 00:39:17.659
+Caption: um because it&#39;s got rest on the front
+
+00:39:14.760 --> 00:39:17.659
+Caption: and messaging in the back
+
+00:39:18.060 --> 00:39:21.660
+Caption: and people seem to like that so I&#39;m I&#39;m
+
+00:39:19.858 --> 00:39:23.759
+Caption: sticking with it but this is the part
+
+00:39:21.659 --> 00:39:25.439
+Caption: I&#39;ve had a lot of success with even in
+
+00:39:23.760 --> 00:39:27.959
+Caption: sort of replacing Legacy systems where
+
+00:39:25.439 --> 00:39:29.520
+Caption: you can build Services behind a load
+
+00:39:27.959 --> 00:39:31.379
+Caption: balancer yeah
+
+00:39:29.520 --> 00:39:33.959
+Caption: but their back plane the way they
+
+00:39:31.379 --> 00:39:35.578
+Caption: communicate to each other is through
+
+00:39:33.959 --> 00:39:37.078
+Caption: messages from a message broker or you
+
+00:39:35.579 --> 00:39:39.239
+Caption: know something like that
+
+00:39:37.079 --> 00:39:40.560
+Caption: and I&#39;m running out of time quickly some
+
+00:39:39.239 --> 00:39:41.639
+Caption: conclusions
+
+00:39:40.560 --> 00:39:43.920
+Caption: um
+
+00:39:41.639 --> 00:39:46.439
+Caption: from all of this is learn from history
+
+00:39:43.919 --> 00:39:48.179
+Caption: like if you want to set out to to use a
+
+00:39:46.439 --> 00:39:50.098
+Caption: new technique or a new tool or a piece
+
+00:39:48.179 --> 00:39:52.679
+Caption: of infrastructure or a pattern or you
+
+00:39:50.099 --> 00:39:55.619
+Caption: know whatever it is understand that idea
+
+00:39:52.679 --> 00:39:57.899
+Caption: and what led to it like what problem
+
+00:39:55.618 --> 00:40:00.419
+Caption: was being solved when somebody created
+
+00:39:57.899 --> 00:40:01.858
+Caption: this thing what caused that problem that
+
+00:40:00.419 --> 00:40:03.899
+Caption: they were going to solve
+
+00:40:01.858 --> 00:40:06.179
+Caption: what caused that you know understand the
+
+00:40:03.899 --> 00:40:07.020
+Caption: history of of in context of how we got
+
+00:40:06.179 --> 00:40:08.459
+Caption: there
+
+00:40:07.020 --> 00:40:10.199
+Caption: and doing that will just make you a
+
+00:40:08.459 --> 00:40:11.399
+Caption: better technologist like we&#39;re going to
+
+00:40:10.199 --> 00:40:13.260
+Caption: use this thing and it was designed to
+
+00:40:11.399 --> 00:40:15.779
+Caption: solve this problem we have that problem
+
+00:40:13.260 --> 00:40:16.919
+Caption: it&#39;s a good fit if it&#39;s we want to do
+
+00:40:15.780 --> 00:40:18.780
+Caption: that because it&#39;s on hacking news and
+
+00:40:16.919 --> 00:40:21.799
+Caption: it&#39;s really cool you&#39;re going to be a
+
+00:40:18.780 --> 00:40:21.800
+Caption: less effective technologist
+
+00:40:24.899 --> 00:40:29.279
+Caption: um another takeaway is microservices and
+
+00:40:27.419 --> 00:40:31.260
+Caption: so I kind of have the same roots and the
+
+00:40:29.280 --> 00:40:33.000
+Caption: same problems they&#39;re about if you go
+
+00:40:31.260 --> 00:40:35.820
+Caption: back and read sort of the the early
+
+00:40:33.000 --> 00:40:38.579
+Caption: stuff around so it&#39;s about services that
+
+00:40:35.820 --> 00:40:41.219
+Caption: are Loosely coupled and autonomously
+
+00:40:38.579 --> 00:40:42.780
+Caption: manage a business process and
+
+00:40:41.219 --> 00:40:44.098
+Caption: microservices are kind of the same but a
+
+00:40:42.780 --> 00:40:45.659
+Caption: bit smaller but essentially the
+
+00:40:44.099 --> 00:40:46.560
+Caption: principles are there
+
+00:40:45.659 --> 00:40:49.020
+Caption: um
+
+00:40:46.560 --> 00:40:50.219
+Caption: and you know if we sort of don&#39;t like
+
+00:40:49.020 --> 00:40:54.380
+Caption: autonomously manage that business
+
+00:40:50.219 --> 00:40:54.379
+Caption: process they get super chatty
+
+00:40:55.560 --> 00:40:59.820
+Caption: in modeling look at the people business
+
+00:40:57.479 --> 00:41:01.560
+Caption: processes how would people do that model
+
+00:40:59.820 --> 00:41:02.880
+Caption: your software after that and then the
+
+00:41:01.560 --> 00:41:05.040
+Caption: main one is never forget that actually
+
+00:41:02.879 --> 00:41:06.959
+Caption: delivering value is the goal
+
+00:41:05.040 --> 00:41:09.419
+Caption: um that&#39;s what we&#39;re here for that&#39;s the
+
+00:41:06.959 --> 00:41:11.520
+Caption: smart bit like your job isn&#39;t well I you
+
+00:41:09.419 --> 00:41:14.280
+Caption: know bring containers to an organization
+
+00:41:11.520 --> 00:41:15.839
+Caption: your job is about you know delivering
+
+00:41:14.280 --> 00:41:17.099
+Caption: value where that&#39;s selling something to
+
+00:41:15.839 --> 00:41:19.500
+Caption: customers or solving the internal
+
+00:41:17.099 --> 00:41:23.359
+Caption: Problem whatever it is that&#39;s the goal
+
+00:41:19.500 --> 00:41:23.358
+Caption: um and we get way too caught up in that
+
+00:41:23.820 --> 00:41:26.880
+Caption: um
+
+00:41:24.479 --> 00:41:28.379
+Caption: so yeah with that I&#39;m going to do a a
+
+00:41:26.879 --> 00:41:30.779
+Caption: quick plug
+
+00:41:28.379 --> 00:41:32.159
+Caption: um which is I&#39;m teaching this stuff
+
+00:41:30.780 --> 00:41:33.300
+Caption: um and if anyone wants to come and talk
+
+00:41:32.159 --> 00:41:34.379
+Caption: to me about that I would love to have
+
+00:41:33.300 --> 00:41:36.540
+Caption: that chat
+
+00:41:34.379 --> 00:41:39.598
+Caption: um essentially I&#39;ve seen this enough
+
+00:41:36.540 --> 00:41:41.579
+Caption: times that I&#39;m like what can I do about
+
+00:41:39.599 --> 00:41:43.260
+Caption: this so I actually want to teach it you
+
+00:41:41.579 --> 00:41:44.700
+Caption: know teach this stuff and get Hands-On
+
+00:41:43.260 --> 00:41:47.040
+Caption: but I don&#39;t want to make it too much of
+
+00:41:44.699 --> 00:41:48.179
+Caption: a plug with that we&#39;re getting low on
+
+00:41:47.040 --> 00:41:50.579
+Caption: time
+
+00:41:48.179 --> 00:41:52.618
+Caption: any questions and I&#39;m happy to I&#39;m happy
+
+00:41:50.579 --> 00:41:54.660
+Caption: for you too I cost me all day and and
+
+00:41:52.618 --> 00:41:57.199
+Caption: chat about this stuff but any questions
+
+00:41:54.659 --> 00:41:57.199
+Caption: in the room
+
+00:41:59.339 --> 00:42:03.900
+Caption: what
+
+00:42:01.618 --> 00:42:06.059
+Caption: thanks for that that was great mate
+
+00:42:03.899 --> 00:42:07.919
+Caption: um I work in a medium-sized organization
+
+00:42:06.060 --> 00:42:10.260
+Caption: that was that&#39;s now integrating with a
+
+00:42:07.919 --> 00:42:12.358
+Caption: very large organization
+
+00:42:10.260 --> 00:42:14.639
+Caption: um what are the kind of
+
+00:42:12.358 --> 00:42:16.979
+Caption: I guess cultural preconditions for
+
+00:42:14.639 --> 00:42:18.419
+Caption: microservices and especially in an
+
+00:42:16.979 --> 00:42:22.260
+Caption: organization that&#39;s already on the
+
+00:42:18.419 --> 00:42:23.939
+Caption: journey but but yeah yeah that&#39;s a
+
+00:42:22.260 --> 00:42:26.280
+Caption: that&#39;s a tricky one and I like honestly
+
+00:42:23.939 --> 00:42:27.118
+Caption: I&#39;ve not seen a one-size-fits all to
+
+00:42:26.280 --> 00:42:29.159
+Caption: that
+
+00:42:27.118 --> 00:42:30.838
+Caption: um the biggest problem seems to be in
+
+00:42:29.159 --> 00:42:32.819
+Caption: those those Journeys and those
+
+00:42:30.839 --> 00:42:34.800
+Caption: organizations is that
+
+00:42:32.820 --> 00:42:37.140
+Caption: it&#39;s very hard to get anything started
+
+00:42:34.800 --> 00:42:39.239
+Caption: because they&#39;re so risk adverse that no
+
+00:42:37.139 --> 00:42:40.739
+Caption: one ever wants to fail so it&#39;s you know
+
+00:42:39.239 --> 00:42:42.000
+Caption: and I&#39;ve I&#39;ve seen this in a big
+
+00:42:40.739 --> 00:42:44.040
+Caption: organization where it&#39;s like we want to
+
+00:42:42.000 --> 00:42:46.379
+Caption: do this thing very simple and they&#39;re
+
+00:42:44.040 --> 00:42:48.780
+Caption: like you can&#39;t do that because we are
+
+00:42:46.379 --> 00:42:50.699
+Caption: still figuring out what our container
+
+00:42:48.780 --> 00:42:52.560
+Caption: strategy is or what our messaging
+
+00:42:50.699 --> 00:42:54.118
+Caption: strategy is or and then you&#39;ve got you
+
+00:42:52.560 --> 00:42:56.219
+Caption: know a team of Enterprise Architects
+
+00:42:54.118 --> 00:42:57.598
+Caption: that will take 12 months to make a
+
+00:42:56.219 --> 00:42:59.760
+Caption: ruling on something before you can touch
+
+00:42:57.599 --> 00:43:02.099
+Caption: it it&#39;s all very like oh
+
+00:42:59.760 --> 00:43:03.959
+Caption: um and that&#39;s super hard
+
+00:43:02.099 --> 00:43:05.520
+Caption: um if you&#39;re in that organization and
+
+00:43:03.959 --> 00:43:07.379
+Caption: you can ship
+
+00:43:05.520 --> 00:43:08.159
+Caption: then
+
+00:43:07.379 --> 00:43:10.858
+Caption: um
+
+00:43:08.159 --> 00:43:12.780
+Caption: yeah just do small things quickly and
+
+00:43:10.858 --> 00:43:14.639
+Caption: again you know in in sort of technical
+
+00:43:12.780 --> 00:43:16.319
+Caption: stuff HTTP is great like you don&#39;t want
+
+00:43:14.639 --> 00:43:18.299
+Caption: to expose like if you&#39;ve got you know
+
+00:43:16.319 --> 00:43:19.440
+Caption: active mq or like a message broker back
+
+00:43:18.300 --> 00:43:20.939
+Caption: there you probably don&#39;t want to expose
+
+00:43:19.439 --> 00:43:23.459
+Caption: that because you want to change your
+
+00:43:20.939 --> 00:43:25.439
+Caption: semantics so if you go well this is our
+
+00:43:23.459 --> 00:43:28.199
+Caption: boundary is an API that people can
+
+00:43:25.439 --> 00:43:30.118
+Caption: request and treat it like a third party
+
+00:43:28.199 --> 00:43:33.118
+Caption: um yeah we&#39;d love to hear more about it
+
+00:43:30.118 --> 00:43:35.219
+Caption: later it&#39;s a yeah it&#39;s a tricky one
+
+00:43:33.118 --> 00:43:37.439
+Caption: sorry everyone um Damien&#39;s been called
+
+00:43:35.219 --> 00:43:38.819
+Caption: to the speaker photo now okay yeah we&#39;re
+
+00:43:37.439 --> 00:43:42.060
+Caption: going to have to gotta go get my photo
+
+00:43:38.819 --> 00:43:44.819
+Caption: took I&#39;m sure though you can yes I&#39;ll be
+
+00:43:42.060 --> 00:43:47.660
+Caption: right down later yeah
+
+00:43:44.819 --> 00:43:47.660
+Caption: all right
+
+00:43:48.659 --> 00:43:52.379
+Caption: yeah also if you don&#39;t want to come talk
+
+00:43:50.939 --> 00:43:54.659
+Caption: to me Damien M on Twitter if you&#39;d like
+
+00:43:52.379 --> 00:43:57.500
+Caption: to tweet at me happy to do it um thank
+
+00:43:54.659 --> 00:43:57.500
+Caption: you everyone so much
+

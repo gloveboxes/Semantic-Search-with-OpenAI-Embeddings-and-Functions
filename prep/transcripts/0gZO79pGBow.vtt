@@ -1,0 +1,3770 @@
+WEBVTT
+
+00:00:01.019 --> 00:00:04.019
+Caption: foreign
+
+00:00:04.139 --> 00:00:09.059
+Caption: okay
+
+00:00:06.539 --> 00:00:12.598
+Caption: well thank you everyone for coming back
+
+00:00:09.059 --> 00:00:14.460
+Caption: to jacquel Negal again up next we have
+
+00:00:12.598 --> 00:00:16.378
+Caption: Aaron who&#39;s going to be talking about
+
+00:00:14.460 --> 00:00:19.859
+Caption: unleashing the power of Visual Studio
+
+00:00:16.378 --> 00:00:22.379
+Caption: code probably one of the more industry
+
+00:00:19.858 --> 00:00:24.599
+Caption: changing editors of recent times I would
+
+00:00:22.379 --> 00:00:28.219
+Caption: say so please everyone put your hands
+
+00:00:24.600 --> 00:00:28.220
+Caption: together to welcome Aaron to the stage
+
+00:00:31.260 --> 00:00:35.040
+Caption: thanks for having me
+
+00:00:33.000 --> 00:00:36.659
+Caption: um as mentioned my name is Aaron I work
+
+00:00:35.040 --> 00:00:40.020
+Caption: for Microsoft as part of the cloud
+
+00:00:36.659 --> 00:00:41.279
+Caption: advocacy team I&#39;ve been doing software
+
+00:00:40.020 --> 00:00:42.959
+Caption: development and web development for
+
+00:00:41.279 --> 00:00:44.398
+Caption: longer that I&#39;m going to admit to or
+
+00:00:42.959 --> 00:00:48.479
+Caption: that in a session that&#39;s being recorded
+
+00:00:44.398 --> 00:00:50.819
+Caption: and streamed out but I I I&#39;ve used a lot
+
+00:00:48.479 --> 00:00:53.279
+Caption: of editors in my time like I I got
+
+00:00:50.819 --> 00:00:56.279
+Caption: started with like pico and
+
+00:00:53.279 --> 00:00:58.319
+Caption: um and stuff like that emacs on on Linux
+
+00:00:56.279 --> 00:01:01.259
+Caption: machines when I was uh
+
+00:00:58.319 --> 00:01:03.659
+Caption: first at Uni and then obviously have
+
+00:01:01.259 --> 00:01:07.139
+Caption: graduated to more complex editors but
+
+00:01:03.659 --> 00:01:10.139
+Caption: yeah like vs code is it&#39;s been huge like
+
+00:01:07.139 --> 00:01:12.658
+Caption: in like the way that has changed how
+
+00:01:10.139 --> 00:01:13.739
+Caption: people think about you know Simple Text
+
+00:01:12.658 --> 00:01:15.839
+Caption: editors because at the end of the day
+
+00:01:13.739 --> 00:01:17.938
+Caption: that&#39;s that&#39;s what it is and the fact
+
+00:01:15.839 --> 00:01:19.798
+Caption: that I&#39;m I&#39;m here and you&#39;re stuck in a
+
+00:01:17.939 --> 00:01:22.799
+Caption: room with me for the next 45 minutes to
+
+00:01:19.799 --> 00:01:25.259
+Caption: hear me talk about a text editor I think
+
+00:01:22.799 --> 00:01:28.020
+Caption: that&#39;s kind of a kind of a big deal out
+
+00:01:25.259 --> 00:01:29.700
+Caption: but yeah if you if you want to uh get in
+
+00:01:28.019 --> 00:01:30.719
+Caption: contact with you after the session ask
+
+00:01:29.699 --> 00:01:33.839
+Caption: me any questions that I don&#39;t get a
+
+00:01:30.720 --> 00:01:36.000
+Caption: chance to cover off during uh during the
+
+00:01:33.839 --> 00:01:37.798
+Caption: talk uh that&#39;s my social media and uh
+
+00:01:36.000 --> 00:01:38.639
+Caption: website and email address and all that
+
+00:01:37.799 --> 00:01:40.979
+Caption: kind of stuff
+
+00:01:38.639 --> 00:01:42.298
+Caption: but um before we jump into the talk I
+
+00:01:40.978 --> 00:01:44.819
+Caption: want to thank the sponsors
+
+00:01:42.299 --> 00:01:47.040
+Caption: um I&#39;ve been doing DDD conferences in
+
+00:01:44.819 --> 00:01:49.019
+Caption: Australia for 12 years now and they
+
+00:01:47.040 --> 00:01:50.700
+Caption: can&#39;t happen without sponsors um like
+
+00:01:49.019 --> 00:01:52.078
+Caption: all the ones we&#39;ve got here particularly
+
+00:01:50.699 --> 00:01:53.158
+Caption: Microsoft they&#39;re an awesome sponsor you
+
+00:01:52.079 --> 00:01:54.720
+Caption: should really come and see us at the
+
+00:01:53.158 --> 00:01:55.739
+Caption: booth afterwards um yeah and that&#39;s
+
+00:01:54.720 --> 00:01:57.180
+Caption: where I&#39;ll be hanging out for the rest
+
+00:01:55.739 --> 00:01:59.398
+Caption: of the day so if you do want to come ask
+
+00:01:57.180 --> 00:02:00.959
+Caption: any other questions find me there
+
+00:01:59.399 --> 00:02:03.899
+Caption: but
+
+00:02:00.959 --> 00:02:05.099
+Caption: we&#39;re here to to talk about the power of
+
+00:02:03.899 --> 00:02:07.799
+Caption: vs code
+
+00:02:05.099 --> 00:02:09.720
+Caption: um no so whether whether you&#39;re brand
+
+00:02:07.799 --> 00:02:11.400
+Caption: new to the tech industry you&#39;re looking
+
+00:02:09.720 --> 00:02:14.160
+Caption: to get into Tech
+
+00:02:11.399 --> 00:02:16.979
+Caption: um or you&#39;ve been in it for you know the
+
+00:02:14.160 --> 00:02:18.360
+Caption: nearly 20 years that I&#39;ve been in it
+
+00:02:16.979 --> 00:02:20.399
+Caption: um yeah I hope that there&#39;s going to be
+
+00:02:18.360 --> 00:02:22.619
+Caption: something in this session for you
+
+00:02:20.399 --> 00:02:26.458
+Caption: um I I&#39;ve put this together because I
+
+00:02:22.619 --> 00:02:28.259
+Caption: I&#39;m I think that it&#39;s while it seems so
+
+00:02:26.458 --> 00:02:30.000
+Caption: simple it&#39;s a text editor there&#39;s so
+
+00:02:28.259 --> 00:02:33.179
+Caption: many hidden things in it
+
+00:02:30.000 --> 00:02:34.559
+Caption: um but to get started I&#39;m going to just
+
+00:02:33.179 --> 00:02:36.659
+Caption: make sure that you know for those of you
+
+00:02:34.559 --> 00:02:37.679
+Caption: that haven&#39;t used vs code before or you
+
+00:02:36.660 --> 00:02:39.120
+Caption: haven&#39;t had
+
+00:02:37.679 --> 00:02:40.799
+Caption: um I had much experience with it let&#39;s
+
+00:02:39.119 --> 00:02:42.839
+Caption: just make sure that we&#39;re all on the
+
+00:02:40.800 --> 00:02:47.040
+Caption: same page so we&#39;re gonna do a quick lap
+
+00:02:42.839 --> 00:02:49.199
+Caption: around vs code so this is uh vs code um
+
+00:02:47.039 --> 00:02:50.579
+Caption: I&#39;ve got a project of mine open there um
+
+00:02:49.199 --> 00:02:52.139
+Caption: don&#39;t try and read the text it&#39;s not
+
+00:02:50.580 --> 00:02:53.458
+Caption: particularly interesting or relevant um
+
+00:02:52.139 --> 00:02:55.378
+Caption: but what I&#39;m going to do is I want to
+
+00:02:53.458 --> 00:02:57.300
+Caption: break down the core features of the text
+
+00:02:55.378 --> 00:03:00.059
+Caption: editor
+
+00:02:57.300 --> 00:03:01.919
+Caption: across the top we have the the title bar
+
+00:03:00.059 --> 00:03:03.720
+Caption: and that&#39;s where you your menu systems
+
+00:03:01.919 --> 00:03:05.699
+Caption: are and like every application Under the
+
+00:03:03.720 --> 00:03:07.259
+Caption: Sun has got a title bar of someone&#39;s
+
+00:03:05.699 --> 00:03:09.839
+Caption: description but the interesting thing
+
+00:03:07.259 --> 00:03:11.220
+Caption: about the vs code one is that it&#39;s
+
+00:03:09.839 --> 00:03:12.899
+Caption: highly customizable in fact like
+
+00:03:11.220 --> 00:03:14.819
+Caption: everything in vs code is highly
+
+00:03:12.899 --> 00:03:17.158
+Caption: customizable so at the top it&#39;s got
+
+00:03:14.819 --> 00:03:18.598
+Caption: things like the the file name um of the
+
+00:03:17.158 --> 00:03:21.598
+Caption: file that we&#39;re currently got open it&#39;s
+
+00:03:18.598 --> 00:03:24.720
+Caption: got the the information about the uh the
+
+00:03:21.598 --> 00:03:26.639
+Caption: repo this is connected to I&#39;m connected
+
+00:03:24.720 --> 00:03:28.080
+Caption: to a remote vs code instance so I&#39;m
+
+00:03:26.639 --> 00:03:29.458
+Caption: using it with WSL so it&#39;s got that
+
+00:03:28.080 --> 00:03:31.378
+Caption: information in there but you can
+
+00:03:29.458 --> 00:03:32.819
+Caption: actually edit that and change you know
+
+00:03:31.378 --> 00:03:34.080
+Caption: strip out information you don&#39;t think is
+
+00:03:32.819 --> 00:03:36.000
+Caption: going to be needed or you don&#39;t want to
+
+00:03:34.080 --> 00:03:38.220
+Caption: display in there and this can be really
+
+00:03:36.000 --> 00:03:41.458
+Caption: really useful some someone that has
+
+00:03:38.220 --> 00:03:43.619
+Caption: maybe some attention uh issues and some
+
+00:03:41.458 --> 00:03:45.298
+Caption: some newer diversion in that regardless
+
+00:03:43.619 --> 00:03:46.919
+Caption: I can strip out the stuff that isn&#39;t
+
+00:03:45.298 --> 00:03:48.238
+Caption: like I don&#39;t need to have it there I
+
+00:03:46.919 --> 00:03:50.158
+Caption: don&#39;t need it to tell me I&#39;m in vs code
+
+00:03:48.238 --> 00:03:51.779
+Caption: because I know I&#39;m in vs code um for
+
+00:03:50.158 --> 00:03:55.319
+Caption: example like you can you can modify it
+
+00:03:51.779 --> 00:03:57.598
+Caption: to be the editor that you need it to be
+
+00:03:55.319 --> 00:03:59.399
+Caption: we have the sidebar um on the left-hand
+
+00:03:57.598 --> 00:04:01.139
+Caption: side um I actually hit mine on the right
+
+00:03:59.399 --> 00:04:03.419
+Caption: hand side and you know I&#39;ll I&#39;ll show
+
+00:04:01.139 --> 00:04:05.518
+Caption: you uh why when I jump into actually
+
+00:04:03.419 --> 00:04:06.839
+Caption: editor but this is where we have like
+
+00:04:05.518 --> 00:04:08.279
+Caption: our files and our folder structure
+
+00:04:06.839 --> 00:04:10.080
+Caption: that&#39;s all there it&#39;s where we get to
+
+00:04:08.279 --> 00:04:12.779
+Caption: the debugger we get to Source control so
+
+00:04:10.080 --> 00:04:14.339
+Caption: we can um like make our commits into the
+
+00:04:12.779 --> 00:04:16.019
+Caption: git repo or
+
+00:04:14.339 --> 00:04:20.100
+Caption: um is there any other source control
+
+00:04:16.019 --> 00:04:24.240
+Caption: that people still use like it&#39;s like SVN
+
+00:04:20.100 --> 00:04:27.899
+Caption: oh now now am I really dating myself CVS
+
+00:04:24.239 --> 00:04:29.699
+Caption: anyone anyone serious yeah yeah
+
+00:04:27.899 --> 00:04:31.739
+Caption: um but so the other thing with the
+
+00:04:29.699 --> 00:04:33.899
+Caption: sidebar is that uh extensions that you
+
+00:04:31.739 --> 00:04:35.399
+Caption: can add to vs code can also introduce
+
+00:04:33.899 --> 00:04:37.079
+Caption: things in here so I&#39;ve got a couple
+
+00:04:35.399 --> 00:04:38.639
+Caption: additional icons down the bottom there
+
+00:04:37.079 --> 00:04:41.279
+Caption: the Azure extension a Docker extension
+
+00:04:38.639 --> 00:04:42.960
+Caption: and a few things like that so that that
+
+00:04:41.279 --> 00:04:45.419
+Caption: um there&#39;s functionality specific to
+
+00:04:42.959 --> 00:04:47.100
+Caption: that I don&#39;t know a complex extension
+
+00:04:45.419 --> 00:04:48.899
+Caption: like the Azure one that allows you work
+
+00:04:47.100 --> 00:04:50.160
+Caption: with Azure resources you know it&#39;s all
+
+00:04:48.899 --> 00:04:51.899
+Caption: there and I can do it with inside of the
+
+00:04:50.160 --> 00:04:55.259
+Caption: editor so the editor goes beyond just
+
+00:04:51.899 --> 00:04:57.899
+Caption: being a um a text editing place it&#39;s
+
+00:04:55.259 --> 00:04:59.399
+Caption: also a more complex tool there are seats
+
+00:04:57.899 --> 00:05:00.479
+Caption: up the front feel like you don&#39;t feel
+
+00:04:59.399 --> 00:05:02.779
+Caption: like you need to awkwardly stand around
+
+00:05:00.479 --> 00:05:02.779
+Caption: the back
+
+00:05:03.359 --> 00:05:07.258
+Caption: down the bottom we have our status bar
+
+00:05:05.339 --> 00:05:09.600
+Caption: and this is again showing just a whole
+
+00:05:07.259 --> 00:05:12.720
+Caption: bunch of uh like little quick quick
+
+00:05:09.600 --> 00:05:14.759
+Caption: pieces of information things like what
+
+00:05:12.720 --> 00:05:16.199
+Caption: branch are we on in the the git repo
+
+00:05:14.759 --> 00:05:18.600
+Caption: that we&#39;ve got open now are there any
+
+00:05:16.199 --> 00:05:20.100
+Caption: errors or warnings in the project that
+
+00:05:18.600 --> 00:05:22.440
+Caption: I&#39;ve got open
+
+00:05:20.100 --> 00:05:24.839
+Caption: um what&#39;s the what&#39;s the lining Coatings
+
+00:05:22.440 --> 00:05:27.899
+Caption: because that&#39;s a painful thing there are
+
+00:05:24.839 --> 00:05:29.039
+Caption: still seats please do come in don&#39;t you
+
+00:05:27.899 --> 00:05:30.899
+Caption: don&#39;t feel like you need to stand in the
+
+00:05:29.039 --> 00:05:33.660
+Caption: doorway
+
+00:05:30.899 --> 00:05:35.220
+Caption: um and like what what uh language
+
+00:05:33.660 --> 00:05:37.380
+Caption: Services being used so this is It&#39;s a
+
+00:05:35.220 --> 00:05:38.940
+Caption: HTML file that&#39;s got open HTML but I can
+
+00:05:37.380 --> 00:05:40.380
+Caption: change that to you know what and that
+
+00:05:38.940 --> 00:05:43.380
+Caption: indicates then and that can be useful if
+
+00:05:40.380 --> 00:05:46.500
+Caption: uh you know you&#39;ve uh working with you
+
+00:05:43.380 --> 00:05:48.959
+Caption: know multiple languages that uh maybe uh
+
+00:05:46.500 --> 00:05:50.940
+Caption: more esoteric than uh and kind of just
+
+00:05:48.959 --> 00:05:52.559
+Caption: you common run in the middle sort of
+
+00:05:50.940 --> 00:05:54.360
+Caption: stuff but again you can turn as much of
+
+00:05:52.559 --> 00:05:55.979
+Caption: this stuff off as you want because again
+
+00:05:54.359 --> 00:05:57.478
+Caption: you might not want that information you
+
+00:05:55.979 --> 00:06:00.539
+Caption: might not need it there because you know
+
+00:05:57.479 --> 00:06:02.100
+Caption: it&#39;s contextually irrelevant to you or
+
+00:06:00.539 --> 00:06:04.079
+Caption: um you find it distracting to have that
+
+00:06:02.100 --> 00:06:06.539
+Caption: kind of stuff all there
+
+00:06:04.079 --> 00:06:07.439
+Caption: uh then we&#39;ve got our terminal across
+
+00:06:06.539 --> 00:06:08.940
+Caption: the bottom so there&#39;s an integrated
+
+00:06:07.440 --> 00:06:10.739
+Caption: terminal in vs code
+
+00:06:08.940 --> 00:06:11.940
+Caption: um uh that we can we can open up but we
+
+00:06:10.739 --> 00:06:13.979
+Caption: can open up as many terminal Windows as
+
+00:06:11.940 --> 00:06:15.660
+Caption: we can um when I&#39;m working I tend to
+
+00:06:13.979 --> 00:06:16.800
+Caption: have just vs code open and I don&#39;t even
+
+00:06:15.660 --> 00:06:18.600
+Caption: have a separate terminal app running
+
+00:06:16.799 --> 00:06:20.759
+Caption: anymore I just pop the terminal up um
+
+00:06:18.600 --> 00:06:22.679
+Caption: run my npm commands or run my git
+
+00:06:20.759 --> 00:06:23.819
+Caption: installs oh sorry get my GIF commands
+
+00:06:22.679 --> 00:06:26.160
+Caption: and stuff like that
+
+00:06:23.819 --> 00:06:28.619
+Caption: um all within here also interestingly um
+
+00:06:26.160 --> 00:06:32.220
+Caption: if you do run like a node uh command so
+
+00:06:28.619 --> 00:06:34.259
+Caption: like in a npm start to how to run a web
+
+00:06:32.220 --> 00:06:35.759
+Caption: server from the VSCO terminal it will
+
+00:06:34.259 --> 00:06:37.319
+Caption: automatically attach a debugger for you
+
+00:06:35.759 --> 00:06:39.419
+Caption: you don&#39;t even have to like do anything
+
+00:06:37.319 --> 00:06:42.479
+Caption: extra to get debugging running for like
+
+00:06:39.419 --> 00:06:45.899
+Caption: a node application yeah npm start as
+
+00:06:42.479 --> 00:06:47.160
+Caption: your debugger already ready to go
+
+00:06:45.899 --> 00:06:50.399
+Caption: um and then there&#39;s actually a text
+
+00:06:47.160 --> 00:06:52.080
+Caption: editing surface as well like it&#39;s been
+
+00:06:50.399 --> 00:06:53.639
+Caption: like five minutes and I haven&#39;t talked
+
+00:06:52.079 --> 00:06:56.638
+Caption: about the fact that you could edit a
+
+00:06:53.639 --> 00:06:58.259
+Caption: text document in a text editor
+
+00:06:56.639 --> 00:07:01.319
+Caption: but I mean you can it&#39;s it&#39;s it&#39;s
+
+00:06:58.259 --> 00:07:02.459
+Caption: obviously the core feature um no it does
+
+00:07:01.319 --> 00:07:05.100
+Caption: all the things you&#39;d expect from a text
+
+00:07:02.459 --> 00:07:06.899
+Caption: that ever does syntax highlighting um I
+
+00:07:05.100 --> 00:07:08.399
+Caption: have like errors and stuff like that
+
+00:07:06.899 --> 00:07:10.079
+Caption: will appear if the language service that
+
+00:07:08.399 --> 00:07:11.339
+Caption: you&#39;re using is um is servicing that
+
+00:07:10.079 --> 00:07:13.739
+Caption: information up
+
+00:07:11.339 --> 00:07:15.660
+Caption: um and this is a HTML file it&#39;s you know
+
+00:07:13.739 --> 00:07:17.039
+Caption: if it&#39;s got a variety of colors in there
+
+00:07:15.660 --> 00:07:18.000
+Caption: to indicate the different things inside
+
+00:07:17.039 --> 00:07:20.220
+Caption: of that
+
+00:07:18.000 --> 00:07:22.019
+Caption: and lastly we have our mini map view of
+
+00:07:20.220 --> 00:07:23.699
+Caption: the file so there&#39;s like a 10 000 view
+
+00:07:22.019 --> 00:07:25.198
+Caption: of the file that you&#39;re in
+
+00:07:23.699 --> 00:07:26.459
+Caption: um and this is not a particularly long
+
+00:07:25.199 --> 00:07:27.720
+Caption: file so it&#39;s all condensed at the top
+
+00:07:26.459 --> 00:07:30.239
+Caption: and you can see even like the the
+
+00:07:27.720 --> 00:07:31.380
+Caption: colorization appears there um but this
+
+00:07:30.239 --> 00:07:34.679
+Caption: can be useful if you&#39;re scrolling
+
+00:07:31.380 --> 00:07:36.419
+Caption: through a thousand long thousands of
+
+00:07:34.679 --> 00:07:38.459
+Caption: like a file that&#39;s like a thousand miles
+
+00:07:36.419 --> 00:07:41.039
+Caption: long not that anyone&#39;s writing like
+
+00:07:38.459 --> 00:07:43.079
+Caption: single files that are like like several
+
+00:07:41.039 --> 00:07:44.160
+Caption: thousands Lines no no one does that do
+
+00:07:43.079 --> 00:07:46.500
+Caption: they
+
+00:07:44.160 --> 00:07:49.559
+Caption: I see some I see some awkward uh awkward
+
+00:07:46.500 --> 00:07:52.380
+Caption: nodding of the head there
+
+00:07:49.559 --> 00:07:54.299
+Caption: um all right so that&#39;s vs code in a very
+
+00:07:52.380 --> 00:07:56.160
+Caption: quick nutshell uh and you know kind of
+
+00:07:54.299 --> 00:07:57.899
+Caption: like all like all the different aspects
+
+00:07:56.160 --> 00:08:00.959
+Caption: of vs code and the things that are in
+
+00:07:57.899 --> 00:08:02.759
+Caption: there so let&#39;s now
+
+00:08:00.959 --> 00:08:04.380
+Caption: talk about all right how can we use it
+
+00:08:02.759 --> 00:08:07.619
+Caption: to be productive and and for me being
+
+00:08:04.380 --> 00:08:10.619
+Caption: productive means keyboard like I&#39;m I&#39;m a
+
+00:08:07.619 --> 00:08:12.239
+Caption: keyboard um user I I don&#39;t have an
+
+00:08:10.619 --> 00:08:13.739
+Caption: external Mouse like when I&#39;m when I&#39;m
+
+00:08:12.239 --> 00:08:15.119
+Caption: using my laptop I don&#39;t use an external
+
+00:08:13.739 --> 00:08:17.459
+Caption: Mouse I can use an external Mouse at
+
+00:08:15.119 --> 00:08:19.378
+Caption: home because I have a desktop but I so
+
+00:08:17.459 --> 00:08:21.479
+Caption: I&#39;ve done everything I can to try and
+
+00:08:19.378 --> 00:08:24.179
+Caption: memorize as many keyboard shortcuts as I
+
+00:08:21.479 --> 00:08:25.559
+Caption: can I know a scary amount of word
+
+00:08:24.179 --> 00:08:28.378
+Caption: shortcuts
+
+00:08:25.559 --> 00:08:29.699
+Caption: so like I can power using my way through
+
+00:08:28.378 --> 00:08:32.338
+Caption: Microsoft Word
+
+00:08:29.699 --> 00:08:34.080
+Caption: um but also in vs code
+
+00:08:32.338 --> 00:08:35.820
+Caption: um and
+
+00:08:34.080 --> 00:08:36.898
+Caption: let&#39;s jump over
+
+00:08:35.820 --> 00:08:38.338
+Caption: there&#39;s enough slides at the moment
+
+00:08:36.898 --> 00:08:40.619
+Caption: let&#39;s jump over and actually have a look
+
+00:08:38.338 --> 00:08:43.200
+Caption: at BS code and some stuff that we&#39;ve got
+
+00:08:40.619 --> 00:08:45.119
+Caption: in here so I&#39;ve got a couple of
+
+00:08:43.200 --> 00:08:45.720
+Caption: different vs coded this is open
+
+00:08:45.119 --> 00:08:47.338
+Caption: um
+
+00:08:45.719 --> 00:08:49.319
+Caption: the the you should be able to read the
+
+00:08:47.338 --> 00:08:51.119
+Caption: text but again don&#39;t worry about the
+
+00:08:49.320 --> 00:08:52.500
+Caption: text in there this is mostly my notes so
+
+00:08:51.119 --> 00:08:55.619
+Caption: feel free to read ahead and just then
+
+00:08:52.500 --> 00:08:57.659
+Caption: zone out to me because this is what I&#39;m
+
+00:08:55.619 --> 00:09:01.440
+Caption: going to be covering but
+
+00:08:57.659 --> 00:09:04.799
+Caption: if there is only one shortcut key in vs
+
+00:09:01.440 --> 00:09:06.299
+Caption: code that you learn it is control p
+
+00:09:04.799 --> 00:09:08.580
+Caption: this brings up
+
+00:09:06.299 --> 00:09:11.278
+Caption: um the defaults to the file picker so I
+
+00:09:08.580 --> 00:09:12.600
+Caption: can use this to find the readme file hit
+
+00:09:11.278 --> 00:09:15.838
+Caption: enter and opens the file I&#39;m currently
+
+00:09:12.599 --> 00:09:17.759
+Caption: in but we can also use uh this to say
+
+00:09:15.838 --> 00:09:19.739
+Caption: type a question mark and here are all
+
+00:09:17.760 --> 00:09:22.500
+Caption: the other things that we can get from
+
+00:09:19.739 --> 00:09:24.719
+Caption: this um the it moves on from being just
+
+00:09:22.500 --> 00:09:27.239
+Caption: a file a file picker to being a command
+
+00:09:24.719 --> 00:09:28.679
+Caption: palette so I could do a greater than
+
+00:09:27.239 --> 00:09:30.778
+Caption: symbol and then these are all the things
+
+00:09:28.679 --> 00:09:34.320
+Caption: like the actions I can perform within uh
+
+00:09:30.778 --> 00:09:38.640
+Caption: vs code I can open the settings or I can
+
+00:09:34.320 --> 00:09:40.018
+Caption: go to uh like uh so I&#39;ve actually
+
+00:09:38.640 --> 00:09:41.700
+Caption: traveled on a thing called screencast
+
+00:09:40.018 --> 00:09:43.919
+Caption: mode uh so as I type the keyboard
+
+00:09:41.700 --> 00:09:45.660
+Caption: shortcuts uh they&#39;ll pop up quickly on
+
+00:09:43.919 --> 00:09:47.039
+Caption: the screen so you know I&#39;m like here&#39;s
+
+00:09:45.659 --> 00:09:49.859
+Caption: the keyboard shortcut and you&#39;re like I
+
+00:09:47.039 --> 00:09:51.778
+Caption: can&#39;t see the keyboard Aaron you&#39;re up
+
+00:09:49.859 --> 00:09:53.579
+Caption: there and there&#39;s a screen
+
+00:09:51.778 --> 00:09:56.518
+Caption: um so I&#39;ve got that turned on so you can
+
+00:09:53.580 --> 00:09:58.799
+Caption: see uh so control P comes with the file
+
+00:09:56.518 --> 00:10:01.380
+Caption: picker control shift p
+
+00:09:58.799 --> 00:10:03.778
+Caption: if I hit the correct Keys um go straight
+
+00:10:01.380 --> 00:10:05.518
+Caption: to the actions so uh this is just a
+
+00:10:03.778 --> 00:10:07.200
+Caption: because it&#39;s a quick one because this is
+
+00:10:05.518 --> 00:10:09.059
+Caption: probably the most common thing that you
+
+00:10:07.200 --> 00:10:11.338
+Caption: tend to do from the file picker uh so
+
+00:10:09.059 --> 00:10:12.719
+Caption: from from the the command palette
+
+00:10:11.338 --> 00:10:14.940
+Caption: um other things I like like if I type
+
+00:10:12.719 --> 00:10:16.739
+Caption: view I can get to the slide bar
+
+00:10:14.940 --> 00:10:18.179
+Caption: um on the right hand side there cool
+
+00:10:16.739 --> 00:10:19.559
+Caption: it&#39;s a false to the left-hand side I
+
+00:10:18.179 --> 00:10:22.919
+Caption: move it to the right hand side because
+
+00:10:19.559 --> 00:10:25.018
+Caption: if I expand it and collapse it
+
+00:10:22.919 --> 00:10:26.760
+Caption: pops in and out if I have it on the left
+
+00:10:25.018 --> 00:10:28.739
+Caption: let&#39;s see if I can remember how to move
+
+00:10:26.760 --> 00:10:29.820
+Caption: it to the left
+
+00:10:28.739 --> 00:10:31.320
+Caption: I actually can&#39;t remember how to move it
+
+00:10:29.820 --> 00:10:33.119
+Caption: to the left it&#39;s somewhere in settings
+
+00:10:31.320 --> 00:10:35.580
+Caption: it&#39;s been so long since I&#39;ve done that
+
+00:10:33.119 --> 00:10:38.338
+Caption: oh was it
+
+00:10:35.580 --> 00:10:40.739
+Caption: ah excellent there we go
+
+00:10:38.338 --> 00:10:42.599
+Caption: um control B hides and shows it but this
+
+00:10:40.739 --> 00:10:46.078
+Caption: is really annoying for me because you
+
+00:10:42.599 --> 00:10:48.059
+Caption: now your focal point is um is Shifting
+
+00:10:46.078 --> 00:10:51.958
+Caption: because the the editor surface is moving
+
+00:10:48.059 --> 00:10:54.719
+Caption: so that&#39;s why I move mine to the right
+
+00:10:51.958 --> 00:10:57.239
+Caption: um anyway so control P View and then I
+
+00:10:54.719 --> 00:11:00.958
+Caption: can go to explore pop up into this bit
+
+00:10:57.239 --> 00:11:03.599
+Caption: or control B P view uh debug
+
+00:11:00.958 --> 00:11:04.979
+Caption: and get to the debug section okay
+
+00:11:03.599 --> 00:11:07.139
+Caption: um so I don&#39;t have to maybe like
+
+00:11:04.979 --> 00:11:08.699
+Caption: memorize um the shortcut keys I think
+
+00:11:07.140 --> 00:11:10.739
+Caption: that&#39;s wow
+
+00:11:08.700 --> 00:11:11.458
+Caption: F5 I think might get you to that I
+
+00:11:10.739 --> 00:11:13.919
+Caption: forget
+
+00:11:11.458 --> 00:11:17.278
+Caption: um but I just do control P view
+
+00:11:13.919 --> 00:11:20.039
+Caption: um but also then I can say in Explorer
+
+00:11:17.278 --> 00:11:22.679
+Caption: if I was in Explorer I can then go to
+
+00:11:20.039 --> 00:11:25.018
+Caption: like the uh the folders or the outline
+
+00:11:22.679 --> 00:11:27.719
+Caption: view or um you know so I can actually
+
+00:11:25.018 --> 00:11:29.820
+Caption: navigate the sub menus within or the sub
+
+00:11:27.719 --> 00:11:32.338
+Caption: sections with inside of
+
+00:11:29.820 --> 00:11:34.260
+Caption: um the the sidebar um using the command
+
+00:11:32.338 --> 00:11:35.640
+Caption: palette again just all off the off the
+
+00:11:34.260 --> 00:11:38.518
+Caption: keyboard there
+
+00:11:35.640 --> 00:11:40.739
+Caption: another one um term for uh quick access
+
+00:11:38.518 --> 00:11:42.299
+Caption: to anything to do with thermals and
+
+00:11:40.739 --> 00:11:43.799
+Caption: create a new terminal
+
+00:11:42.299 --> 00:11:45.419
+Caption: that one&#39;s going to be down there and a
+
+00:11:43.799 --> 00:11:46.679
+Caption: term
+
+00:11:45.419 --> 00:11:49.260
+Caption: whoops
+
+00:11:46.679 --> 00:11:51.359
+Caption: turn and then I can create
+
+00:11:49.260 --> 00:11:54.299
+Caption: another terminal
+
+00:11:51.359 --> 00:11:56.760
+Caption: and then I can swap between them
+
+00:11:54.299 --> 00:11:58.320
+Caption: um but we tell them they&#39;re all called
+
+00:11:56.760 --> 00:12:00.059
+Caption: zsh because that&#39;s the shell that I&#39;m
+
+00:11:58.320 --> 00:12:01.679
+Caption: using in this case uh but it was like
+
+00:12:00.059 --> 00:12:04.440
+Caption: well which one which ones which how do I
+
+00:12:01.679 --> 00:12:05.940
+Caption: easily know that well Ctrl shift p
+
+00:12:04.440 --> 00:12:08.159
+Caption: command palette and then we&#39;re going to
+
+00:12:05.940 --> 00:12:09.419
+Caption: go terminal rename and we&#39;ll call this
+
+00:12:08.159 --> 00:12:10.619
+Caption: one we&#39;ll call this git because I&#39;m
+
+00:12:09.419 --> 00:12:13.679
+Caption: going to use that for my git operations
+
+00:12:10.619 --> 00:12:16.078
+Caption: and now if I go control P term I can
+
+00:12:13.679 --> 00:12:17.760
+Caption: type git and jump to that particular
+
+00:12:16.078 --> 00:12:19.139
+Caption: terminal so this is usually if you&#39;ve
+
+00:12:17.760 --> 00:12:20.700
+Caption: got a couple opens maybe you&#39;re maybe
+
+00:12:19.140 --> 00:12:22.200
+Caption: you&#39;re building an application has got a
+
+00:12:20.700 --> 00:12:23.338
+Caption: like a front end and a back end and if
+
+00:12:22.200 --> 00:12:25.260
+Caption: you&#39;ve got a couple of terminals open
+
+00:12:23.338 --> 00:12:26.880
+Caption: ones running the back end um like the
+
+00:12:25.260 --> 00:12:28.919
+Caption: npm command to run the back end the
+
+00:12:26.880 --> 00:12:30.500
+Caption: others uh the the front end web
+
+00:12:28.919 --> 00:12:32.518
+Caption: application so you&#39;ve got multiple
+
+00:12:30.500 --> 00:12:34.440
+Caption: terminals running node processors well
+
+00:12:32.518 --> 00:12:36.059
+Caption: you could rename them so that you can
+
+00:12:34.440 --> 00:12:38.338
+Caption: jump back and forth and you can see the
+
+00:12:36.059 --> 00:12:41.820
+Caption: uh which one like the log messages from
+
+00:12:38.338 --> 00:12:43.260
+Caption: the right one um easily from there
+
+00:12:41.820 --> 00:12:45.979
+Caption: all right
+
+00:12:43.260 --> 00:12:45.979
+Caption: um so
+
+00:12:46.619 --> 00:12:51.539
+Caption: yeah Ctrl P probably like the number one
+
+00:12:49.559 --> 00:12:53.898
+Caption: shortcut to take away and to remember uh
+
+00:12:51.539 --> 00:12:53.898
+Caption: from this
+
+00:12:54.599 --> 00:12:58.559
+Caption: now I&#39;m talking about screencast mode
+
+00:12:57.059 --> 00:13:00.359
+Caption: which I&#39;ve got turned on and we can get
+
+00:12:58.559 --> 00:13:02.700
+Caption: to that from settings control comma
+
+00:13:00.359 --> 00:13:04.679
+Caption: we&#39;ll get to settings we type screen
+
+00:13:02.700 --> 00:13:07.260
+Caption: cast
+
+00:13:04.679 --> 00:13:09.359
+Caption: and I have that done here um you can
+
+00:13:07.260 --> 00:13:11.398
+Caption: actually let me hide terminals uh
+
+00:13:09.359 --> 00:13:13.739
+Caption: control backtick will collapse the
+
+00:13:11.398 --> 00:13:16.440
+Caption: terminals um error at the bottom hide
+
+00:13:13.739 --> 00:13:19.200
+Caption: and show short back tick and how&#39;s that
+
+00:13:16.440 --> 00:13:21.419
+Caption: control B to collapse that um so with uh
+
+00:13:19.200 --> 00:13:23.338
+Caption: with screencast mode Um this can be good
+
+00:13:21.419 --> 00:13:24.599
+Caption: for pair programming as well uh so
+
+00:13:23.338 --> 00:13:25.679
+Caption: you&#39;re uh whether you&#39;re doing it like
+
+00:13:24.599 --> 00:13:27.599
+Caption: as a
+
+00:13:25.679 --> 00:13:29.099
+Caption: um like a remote peer programming
+
+00:13:27.599 --> 00:13:30.179
+Caption: session or you&#39;ve just got someone um
+
+00:13:29.099 --> 00:13:31.078
+Caption: that&#39;s sitting next to you and you know
+
+00:13:30.179 --> 00:13:32.278
+Caption: you don&#39;t want them kind of breathing
+
+00:13:31.078 --> 00:13:33.599
+Caption: down your neck trying to work out well
+
+00:13:32.278 --> 00:13:35.458
+Caption: they see what you&#39;re doing
+
+00:13:33.599 --> 00:13:37.739
+Caption: um and just total it on can be a useful
+
+00:13:35.458 --> 00:13:40.500
+Caption: thing but you can it can be a little bit
+
+00:13:37.739 --> 00:13:42.179
+Caption: annoying because like every key stroke
+
+00:13:40.500 --> 00:13:44.219
+Caption: is getting captured in here but I can
+
+00:13:42.179 --> 00:13:45.898
+Caption: change that and say that I only want it
+
+00:13:44.219 --> 00:13:47.219
+Caption: to show you just like the commands so if
+
+00:13:45.898 --> 00:13:48.778
+Caption: I&#39;m using the command or I&#39;ll sort of
+
+00:13:47.219 --> 00:13:49.619
+Caption: those kind of keys it&#39;ll just show those
+
+00:13:48.778 --> 00:13:51.059
+Caption: up
+
+00:13:49.619 --> 00:13:52.440
+Caption: um and that could be a bit more useful I
+
+00:13:51.059 --> 00:13:53.458
+Caption: guess if you&#39;re doing demos and stuff
+
+00:13:52.440 --> 00:13:55.739
+Caption: like that
+
+00:13:53.458 --> 00:13:58.700
+Caption: um change font size change uh styling
+
+00:13:55.739 --> 00:13:58.700
+Caption: all that kind of stuff there
+
+00:13:59.398 --> 00:14:06.419
+Caption: um another useful uh mode of uh this
+
+00:14:03.119 --> 00:14:09.119
+Caption: code is Zen mode control K Zed
+
+00:14:06.419 --> 00:14:10.500
+Caption: now you just you you want to kind of
+
+00:14:09.119 --> 00:14:11.700
+Caption: turn off as many of the distractions as
+
+00:14:10.500 --> 00:14:12.898
+Caption: you&#39;ve got because you you&#39;re like
+
+00:14:11.700 --> 00:14:14.940
+Caption: you&#39;re you&#39;re in you&#39;re in the moment
+
+00:14:12.898 --> 00:14:16.260
+Caption: like you&#39;re trying to you know get
+
+00:14:14.940 --> 00:14:17.398
+Caption: through a bug or whatever the case may
+
+00:14:16.260 --> 00:14:19.500
+Caption: be
+
+00:14:17.398 --> 00:14:20.458
+Caption: um this as you can see it&#39;s hidden
+
+00:14:19.500 --> 00:14:22.440
+Caption: pretty much everything we&#39;ve hidden the
+
+00:14:20.458 --> 00:14:25.018
+Caption: sidebar we&#39;ve hit the status bar
+
+00:14:22.440 --> 00:14:26.458
+Caption: um the the top menus um hidden like we
+
+00:14:25.018 --> 00:14:27.719
+Caption: don&#39;t even have the you can&#39;t even see
+
+00:14:26.458 --> 00:14:28.919
+Caption: the different files we&#39;ve got open I
+
+00:14:27.719 --> 00:14:30.958
+Caption: only have one file open at the moment
+
+00:14:28.919 --> 00:14:32.820
+Caption: anyway but like you would you could
+
+00:14:30.958 --> 00:14:34.799
+Caption: control tab to get between the the files
+
+00:14:32.820 --> 00:14:36.299
+Caption: but yeah this is like you know it&#39;s a
+
+00:14:34.799 --> 00:14:38.278
+Caption: it&#39;s a focus mode like we&#39;ve hidden
+
+00:14:36.299 --> 00:14:40.078
+Caption: everything that could be a potential
+
+00:14:38.278 --> 00:14:42.299
+Caption: distraction just so we can focus on the
+
+00:14:40.078 --> 00:14:44.880
+Caption: thing that we&#39;re currently trying to do
+
+00:14:42.299 --> 00:14:47.278
+Caption: uh control KZ to get back out of that
+
+00:14:44.880 --> 00:14:49.320
+Caption: there are a bunch of settings for Zen
+
+00:14:47.278 --> 00:14:50.278
+Caption: mode as well so let&#39;s say that it&#39;s
+
+00:14:49.320 --> 00:14:52.559
+Caption: actually maybe a little bit too
+
+00:14:50.278 --> 00:14:55.559
+Caption: aggressive I do still want to have uh
+
+00:14:52.559 --> 00:14:57.479
+Caption: line numbers in here I can say that well
+
+00:14:55.559 --> 00:14:59.398
+Caption: no don&#39;t hide the line numbers
+
+00:14:57.479 --> 00:15:00.778
+Caption: go back into zen mode
+
+00:14:59.398 --> 00:15:02.219
+Caption: so I can still have my line numbers in
+
+00:15:00.778 --> 00:15:04.018
+Caption: there because I like I remember I find
+
+00:15:02.219 --> 00:15:05.759
+Caption: that useful so I can navigate up and
+
+00:15:04.018 --> 00:15:07.398
+Caption: down or I know where uh where I&#39;m at and
+
+00:15:05.760 --> 00:15:10.018
+Caption: things like that
+
+00:15:07.398 --> 00:15:12.778
+Caption: customize it for the way that you want
+
+00:15:10.018 --> 00:15:14.760
+Caption: to use it it&#39;s not just the it&#39;s not
+
+00:15:12.778 --> 00:15:17.159
+Caption: just trying to be an editor that is
+
+00:15:14.760 --> 00:15:18.179
+Caption: generic and you like it forces you to
+
+00:15:17.159 --> 00:15:20.099
+Caption: work in a particular way no you
+
+00:15:18.179 --> 00:15:21.179
+Caption: customize it for the needs that you&#39;ve
+
+00:15:20.099 --> 00:15:22.919
+Caption: got
+
+00:15:21.179 --> 00:15:26.099
+Caption: and I&#39;m just going to turn that back on
+
+00:15:22.919 --> 00:15:28.799
+Caption: so that my zen mode is nice
+
+00:15:26.099 --> 00:15:31.679
+Caption: clean
+
+00:15:28.799 --> 00:15:33.719
+Caption: um from uh from an accessibility
+
+00:15:31.679 --> 00:15:36.539
+Caption: standpoint there&#39;s been a lot of work in
+
+00:15:33.719 --> 00:15:37.439
+Caption: vs code to make that uh an easy Editor
+
+00:15:36.539 --> 00:15:39.239
+Caption: to use
+
+00:15:37.440 --> 00:15:41.760
+Caption: um and something that
+
+00:15:39.239 --> 00:15:43.799
+Caption: I think that people don&#39;t consider um
+
+00:15:41.760 --> 00:15:44.940
+Caption: too much and and what and I know I
+
+00:15:43.799 --> 00:15:46.820
+Caption: didn&#39;t consider this for a long time but
+
+00:15:44.940 --> 00:15:49.919
+Caption: I used to work uh with a colleague who
+
+00:15:46.820 --> 00:15:52.078
+Caption: has albinism and he had very poor
+
+00:15:49.919 --> 00:15:55.018
+Caption: eyesight as a result of that so he had
+
+00:15:52.078 --> 00:15:57.119
+Caption: to have his font um incredibly large so
+
+00:15:55.018 --> 00:16:00.119
+Caption: that he could read it and and that kind
+
+00:15:57.119 --> 00:16:01.919
+Caption: of stuff but that can be a problem when
+
+00:16:00.119 --> 00:16:03.659
+Caption: you&#39;re working on code files because we
+
+00:16:01.919 --> 00:16:05.760
+Caption: tend to well
+
+00:16:03.659 --> 00:16:08.398
+Caption: I&#39;m lazy so I just you know write things
+
+00:16:05.760 --> 00:16:10.739
+Caption: as long as I can I I&#39;ve got a giant
+
+00:16:08.398 --> 00:16:13.440
+Caption: screen at home and a reasonable enough
+
+00:16:10.739 --> 00:16:15.239
+Caption: eyesight so I&#39;m quite content to have
+
+00:16:13.440 --> 00:16:16.859
+Caption: you know hundreds and hundreds of
+
+00:16:15.239 --> 00:16:18.898
+Caption: characters spread across a 32 inch
+
+00:16:16.859 --> 00:16:21.539
+Caption: monitor because that&#39;s like that&#39;s my
+
+00:16:18.898 --> 00:16:24.059
+Caption: working experience but that might not be
+
+00:16:21.539 --> 00:16:26.698
+Caption: great for everyone on the team so we can
+
+00:16:24.059 --> 00:16:29.518
+Caption: turn on editor rules in uh
+
+00:16:26.698 --> 00:16:31.979
+Caption: there&#39;s code whoops let me just control
+
+00:16:29.518 --> 00:16:33.179
+Caption: control K control U to comment and
+
+00:16:31.979 --> 00:16:36.059
+Caption: uncomment
+
+00:16:33.179 --> 00:16:39.179
+Caption: um so control uh yeah control K is yeah
+
+00:16:36.059 --> 00:16:40.078
+Caption: okay U is uncomment control K C is to
+
+00:16:39.179 --> 00:16:41.219
+Caption: comment
+
+00:16:40.078 --> 00:16:43.018
+Caption: um but there we are so I&#39;ve turned on
+
+00:16:41.219 --> 00:16:45.059
+Caption: some editor rules um and so you can see
+
+00:16:43.018 --> 00:16:47.578
+Caption: these uh lines there or you can maybe
+
+00:16:45.059 --> 00:16:49.078
+Caption: make it a bit like get that real retro
+
+00:16:47.578 --> 00:16:51.958
+Caption: experience and just have a whole heap of
+
+00:16:49.078 --> 00:16:53.518
+Caption: scan lines across the screen uh but you
+
+00:16:51.958 --> 00:16:55.138
+Caption: can then customize the colors for them
+
+00:16:53.518 --> 00:16:56.820
+Caption: and it could be usually it&#39;s like oh
+
+00:16:55.138 --> 00:16:58.859
+Caption: well we want to keep to it like an 80
+
+00:16:56.820 --> 00:17:01.679
+Caption: character width because we know that
+
+00:16:58.859 --> 00:17:04.619
+Caption: there&#39;s someone on our team that that&#39;s
+
+00:17:01.679 --> 00:17:06.540
+Caption: kind of the the width of code that they
+
+00:17:04.619 --> 00:17:08.040
+Caption: can show at any point in time so we
+
+00:17:06.540 --> 00:17:09.660
+Caption: don&#39;t just want to be mindful of that so
+
+00:17:08.040 --> 00:17:11.819
+Caption: we you know we have an indicator in
+
+00:17:09.660 --> 00:17:13.260
+Caption: there or you know you&#39;re you&#39;re working
+
+00:17:11.818 --> 00:17:14.938
+Caption: on something that&#39;s got to be shipped to
+
+00:17:13.260 --> 00:17:16.739
+Caption: a Mainframe and it is actually like an
+
+00:17:14.938 --> 00:17:17.938
+Caption: 80 character width uh terminal that
+
+00:17:16.739 --> 00:17:19.500
+Caption: they&#39;re going to be working with so so
+
+00:17:17.938 --> 00:17:21.119
+Caption: you want to know where 80 characters is
+
+00:17:19.500 --> 00:17:23.160
+Caption: or you&#39;re one of those people that is
+
+00:17:21.119 --> 00:17:25.798
+Caption: militant about no it doesn&#39;t matter that
+
+00:17:23.160 --> 00:17:27.900
+Caption: we can have a curved 49 inch monitor
+
+00:17:25.798 --> 00:17:29.459
+Caption: around us I am going to have a fixed
+
+00:17:27.900 --> 00:17:31.739
+Caption: width of 80 characters in my texts
+
+00:17:29.459 --> 00:17:34.140
+Caption: because that&#39;s that&#39;s what I grew up
+
+00:17:31.739 --> 00:17:35.579
+Caption: with uh coding um but yeah it&#39;s just
+
+00:17:34.140 --> 00:17:38.099
+Caption: like it&#39;s it&#39;s kind of one of those
+
+00:17:35.579 --> 00:17:39.659
+Caption: random little features that I think
+
+00:17:38.099 --> 00:17:42.000
+Caption: um can be useful particularly when
+
+00:17:39.660 --> 00:17:44.760
+Caption: you&#39;re considering
+
+00:17:42.000 --> 00:17:46.380
+Caption: uh how other people are also going to be
+
+00:17:44.760 --> 00:17:48.660
+Caption: working on
+
+00:17:46.380 --> 00:17:50.099
+Caption: um a bio code base or something like
+
+00:17:48.660 --> 00:17:51.059
+Caption: that for you but we&#39;ll turn them off
+
+00:17:50.099 --> 00:17:52.500
+Caption: because they might be a little bit
+
+00:17:51.058 --> 00:17:54.959
+Caption: distracted
+
+00:17:52.500 --> 00:17:56.939
+Caption: uh another kind of actually I should
+
+00:17:54.959 --> 00:17:59.459
+Caption: have kept that open Ctrl shift t
+
+00:17:56.939 --> 00:18:01.859
+Caption: open the last file
+
+00:17:59.459 --> 00:18:06.418
+Caption: another thing that uh
+
+00:18:01.859 --> 00:18:08.819
+Caption: is um is useful and uh I tend to forget
+
+00:18:06.418 --> 00:18:10.558
+Caption: to turn it on because I I add it for
+
+00:18:08.819 --> 00:18:11.759
+Caption: like the demos I do then I take it out
+
+00:18:10.558 --> 00:18:14.219
+Caption: because
+
+00:18:11.760 --> 00:18:15.479
+Caption: um I don&#39;t try to clean up my uh my
+
+00:18:14.219 --> 00:18:17.579
+Caption: workspace beforehand and then forget to
+
+00:18:15.479 --> 00:18:20.280
+Caption: have it put it back in uh they&#39;re called
+
+00:18:17.579 --> 00:18:22.918
+Caption: code actions on save so you want to
+
+00:18:20.280 --> 00:18:25.799
+Caption: perform something when uh when the file
+
+00:18:22.918 --> 00:18:29.159
+Caption: is being saved that&#39;s what code actions
+
+00:18:25.798 --> 00:18:31.319
+Caption: on Save code action on Save
+
+00:18:29.160 --> 00:18:33.299
+Caption: and oops
+
+00:18:31.319 --> 00:18:35.459
+Caption: we can get it to do a variety of
+
+00:18:33.298 --> 00:18:37.918
+Caption: different things so what
+
+00:18:35.459 --> 00:18:40.500
+Caption: control space one of those is organize
+
+00:18:37.918 --> 00:18:42.418
+Caption: Imports so we&#39;re going to hit set that
+
+00:18:40.500 --> 00:18:46.798
+Caption: to true so let&#39;s say that we&#39;re working
+
+00:18:42.418 --> 00:18:49.619
+Caption: on like a Javascript file one here and
+
+00:18:46.798 --> 00:18:51.298
+Caption: we&#39;ve got a like a a linting rule where
+
+00:18:49.619 --> 00:18:52.798
+Caption: we have to we want to keep the order of
+
+00:18:51.298 --> 00:18:54.599
+Caption: our Imports in an alphabetical manner
+
+00:18:52.798 --> 00:18:57.839
+Caption: it&#39;s a it&#39;s a fairly common integral
+
+00:18:54.599 --> 00:18:59.459
+Caption: well I&#39;ve got them a bit uh back with
+
+00:18:57.839 --> 00:19:01.140
+Caption: you because I want the destructor
+
+00:18:59.459 --> 00:19:03.839
+Caption: Imports at the very top
+
+00:19:01.140 --> 00:19:07.919
+Caption: so I can go control shift p and then uh
+
+00:19:03.839 --> 00:19:09.538
+Caption: all organize Imports or shift alt o is
+
+00:19:07.918 --> 00:19:10.439
+Caption: the the default shortcut key for that
+
+00:19:09.538 --> 00:19:11.819
+Caption: one
+
+00:19:10.439 --> 00:19:15.000
+Caption: I can hit it and it&#39;s going to do that
+
+00:19:11.819 --> 00:19:17.699
+Caption: for me or with code actions on Save now
+
+00:19:15.000 --> 00:19:19.380
+Caption: as soon as I hit Ctrl s to save the file
+
+00:19:17.699 --> 00:19:21.899
+Caption: it&#39;s going to just run that for me yeah
+
+00:19:19.380 --> 00:19:23.160
+Caption: it just like it&#39;s a useful little thing
+
+00:19:21.900 --> 00:19:24.299
+Caption: particularly if like those are the sorts
+
+00:19:23.160 --> 00:19:25.739
+Caption: of things that you&#39;re putting in your
+
+00:19:24.298 --> 00:19:26.939
+Caption: like your linting rules
+
+00:19:25.739 --> 00:19:29.939
+Caption: um there&#39;s also another one in there for
+
+00:19:26.939 --> 00:19:31.678
+Caption: uh for fix all um so it&#39;ll uh if you&#39;ve
+
+00:19:29.939 --> 00:19:34.379
+Caption: got a like a linter installed that is
+
+00:19:31.678 --> 00:19:35.819
+Caption: going to be applying um fixing rules it
+
+00:19:34.380 --> 00:19:38.400
+Caption: can try and run those for you so like
+
+00:19:35.819 --> 00:19:40.199
+Caption: you know eslint um it&#39;ll try and apply
+
+00:19:38.400 --> 00:19:43.200
+Caption: those fixes to the file as you hit save
+
+00:19:40.199 --> 00:19:45.839
+Caption: so okay just like little quality of life
+
+00:19:43.199 --> 00:19:47.939
+Caption: improvements that are there
+
+00:19:45.839 --> 00:19:49.319
+Caption: uh
+
+00:19:47.939 --> 00:19:51.379
+Caption: come back
+
+00:19:49.319 --> 00:19:51.380
+Caption: um
+
+00:19:51.418 --> 00:19:56.699
+Caption: oh uh the last one from a setting
+
+00:19:54.538 --> 00:19:58.859
+Caption: standpoint that could be useful is this
+
+00:19:56.699 --> 00:19:59.599
+Caption: default editor language
+
+00:19:58.859 --> 00:20:02.579
+Caption: um
+
+00:19:59.599 --> 00:20:05.520
+Caption: what it will do is it will attempt to
+
+00:20:02.579 --> 00:20:08.038
+Caption: work out from the workspace
+
+00:20:05.520 --> 00:20:09.900
+Caption: what is the most common programming
+
+00:20:08.038 --> 00:20:12.058
+Caption: language of the files that are in there
+
+00:20:09.900 --> 00:20:14.219
+Caption: and when you do control n to create a
+
+00:20:12.058 --> 00:20:16.079
+Caption: new file it will assign that language
+
+00:20:14.219 --> 00:20:18.538
+Caption: service to the new file so you
+
+00:20:16.079 --> 00:20:20.519
+Caption: immediately get your code completion
+
+00:20:18.538 --> 00:20:22.918
+Caption: turned on for the file you immediately
+
+00:20:20.520 --> 00:20:24.839
+Caption: get the correct like syntax highlighting
+
+00:20:22.918 --> 00:20:26.459
+Caption: and colorizations and stuff like that
+
+00:20:24.839 --> 00:20:29.279
+Caption: but you can actually overwrite that
+
+00:20:26.459 --> 00:20:31.500
+Caption: setting uh so you know I want new files
+
+00:20:29.280 --> 00:20:34.619
+Caption: in this repo to be always defaulted to
+
+00:20:31.500 --> 00:20:36.780
+Caption: markdown for example I do that for my my
+
+00:20:34.619 --> 00:20:38.219
+Caption: blog is running in markdown so I default
+
+00:20:36.780 --> 00:20:41.160
+Caption: the files to always be marked down
+
+00:20:38.219 --> 00:20:42.599
+Caption: unless I change the the the file with
+
+00:20:41.160 --> 00:20:45.780
+Caption: Ctrl k m
+
+00:20:42.599 --> 00:20:47.459
+Caption: it&#39;s okay m not control K control M Ctrl
+
+00:20:45.780 --> 00:20:48.960
+Caption: k m and that&#39;s how we can change the
+
+00:20:47.459 --> 00:20:51.058
+Caption: language of the file
+
+00:20:48.959 --> 00:20:53.038
+Caption: um and so yeah but you can you can set
+
+00:20:51.058 --> 00:20:54.119
+Caption: you can let vs code attempt to figure
+
+00:20:53.038 --> 00:20:56.459
+Caption: out what should be the default language
+
+00:20:54.119 --> 00:20:58.140
+Caption: for a new file or you can force that uh
+
+00:20:56.459 --> 00:21:00.479
+Caption: with settings
+
+00:20:58.140 --> 00:21:03.320
+Caption: um active active editor language is the
+
+00:21:00.479 --> 00:21:03.319
+Caption: the default that&#39;s there
+
+00:21:03.479 --> 00:21:06.020
+Caption: all right
+
+00:21:06.298 --> 00:21:09.859
+Caption: we&#39;ll come back to slides for a minute
+
+00:21:10.500 --> 00:21:16.619
+Caption: because I want to talk about extensions
+
+00:21:13.219 --> 00:21:17.900
+Caption: vs code has a huge amount of
+
+00:21:16.619 --> 00:21:21.178
+Caption: extensibility
+
+00:21:17.900 --> 00:21:23.520
+Caption: and out of that has grown a massive
+
+00:21:21.178 --> 00:21:25.199
+Caption: extensions ecosystem everyone&#39;s going to
+
+00:21:23.520 --> 00:21:27.419
+Caption: have their favorite extension that you
+
+00:21:25.199 --> 00:21:29.158
+Caption: should have installed or that they
+
+00:21:27.418 --> 00:21:31.859
+Caption: believe is that it&#39;s going to change the
+
+00:21:29.159 --> 00:21:33.539
+Caption: way that you use vs code and there are
+
+00:21:31.859 --> 00:21:34.918
+Caption: literally thousands of extensions so I
+
+00:21:33.538 --> 00:21:36.000
+Caption: am not going to cover them all off in
+
+00:21:34.918 --> 00:21:38.279
+Caption: here I&#39;m just going to talk about a
+
+00:21:36.000 --> 00:21:40.199
+Caption: couple that I think are really useful
+
+00:21:38.280 --> 00:21:43.080
+Caption: and that I&#39;ve got installed on my
+
+00:21:40.199 --> 00:21:44.158
+Caption: machine and they&#39;re generic ones they&#39;re
+
+00:21:43.079 --> 00:21:46.678
+Caption: not
+
+00:21:44.159 --> 00:21:48.720
+Caption: um they&#39;re not specific to a particular
+
+00:21:46.678 --> 00:21:51.058
+Caption: programming language or anything like
+
+00:21:48.719 --> 00:21:53.520
+Caption: that so these are these are six um top
+
+00:21:51.058 --> 00:21:56.158
+Caption: ones for me um editor config for vs code
+
+00:21:53.520 --> 00:21:58.558
+Caption: so editor config if you&#39;re unfamiliar
+
+00:21:56.159 --> 00:22:02.539
+Caption: with it is a file that you can put into
+
+00:21:58.558 --> 00:22:05.640
+Caption: a repo that that you use to define the
+
+00:22:02.538 --> 00:22:07.439
+Caption: set default things about a file like
+
+00:22:05.640 --> 00:22:09.780
+Caption: what is the default line encoding how
+
+00:22:07.439 --> 00:22:12.178
+Caption: many are we using tabs or spaces now
+
+00:22:09.780 --> 00:22:14.159
+Caption: what&#39;s in default indentation depth and
+
+00:22:12.178 --> 00:22:15.779
+Caption: you can then set that for
+
+00:22:14.159 --> 00:22:17.580
+Caption: um uh like different for different files
+
+00:22:15.780 --> 00:22:20.219
+Caption: so maybe you&#39;re like your your bash
+
+00:22:17.579 --> 00:22:22.140
+Caption: files they need to have an LF as the
+
+00:22:20.219 --> 00:22:24.298
+Caption: default line encoding whereas other
+
+00:22:22.140 --> 00:22:25.859
+Caption: files you might want to have a crlf as
+
+00:22:24.298 --> 00:22:28.319
+Caption: the the line encoding and then you can
+
+00:22:25.859 --> 00:22:30.000
+Caption: and so that that one&#39;s a useful one just
+
+00:22:28.319 --> 00:22:31.319
+Caption: to enforce standardization with inside
+
+00:22:30.000 --> 00:22:34.140
+Caption: of a code base
+
+00:22:31.319 --> 00:22:36.119
+Caption: I&#39;ll get on pull requests and issues uh
+
+00:22:34.140 --> 00:22:37.859
+Caption: just manage all your GitHub stuff uh
+
+00:22:36.119 --> 00:22:40.020
+Caption: what full requested issues aspects of
+
+00:22:37.859 --> 00:22:41.459
+Caption: GitHub from within vs code don&#39;t have to
+
+00:22:40.020 --> 00:22:43.979
+Caption: jump out to the website don&#39;t have to
+
+00:22:41.459 --> 00:22:46.199
+Caption: jump out to the the GitHub
+
+00:22:43.979 --> 00:22:49.079
+Caption: um uh desktop application or anything
+
+00:22:46.199 --> 00:22:50.760
+Caption: like that um just do it from vs code
+
+00:22:49.079 --> 00:22:53.640
+Caption: um rest client if you&#39;re doing anything
+
+00:22:50.760 --> 00:22:55.859
+Caption: that involves calling apis rest client
+
+00:22:53.640 --> 00:22:57.599
+Caption: is so useful
+
+00:22:55.859 --> 00:22:59.280
+Caption: um it&#39;s the same as like Postman and
+
+00:22:57.599 --> 00:23:01.859
+Caption: Insomniac and all those sorts of tools
+
+00:22:59.280 --> 00:23:04.320
+Caption: so it allows you to invoke HTTP
+
+00:23:01.859 --> 00:23:07.260
+Caption: um requests but the advantage of rest
+
+00:23:04.319 --> 00:23:09.479
+Caption: client is that you create a file and
+
+00:23:07.260 --> 00:23:12.000
+Caption: then you just execute the things out of
+
+00:23:09.479 --> 00:23:14.400
+Caption: that file so you can have you know your
+
+00:23:12.000 --> 00:23:15.659
+Caption: examples of how to call an API as a file
+
+00:23:14.400 --> 00:23:16.559
+Caption: that you just check in part of your git
+
+00:23:15.659 --> 00:23:18.840
+Caption: repo
+
+00:23:16.558 --> 00:23:20.699
+Caption: and then you like it&#39;s it&#39;s all there
+
+00:23:18.839 --> 00:23:22.260
+Caption: it&#39;s all in one location and you can
+
+00:23:20.699 --> 00:23:23.819
+Caption: then execute those from uh with the side
+
+00:23:22.260 --> 00:23:25.260
+Caption: of vs code
+
+00:23:23.819 --> 00:23:27.359
+Caption: uh peacock this was actually written by
+
+00:23:25.260 --> 00:23:30.000
+Caption: a colleague of mine at Microsoft uh and
+
+00:23:27.359 --> 00:23:31.979
+Caption: it&#39;s it&#39;s what a what it does is it
+
+00:23:30.000 --> 00:23:35.400
+Caption: changes the colors of like the borders
+
+00:23:31.979 --> 00:23:37.380
+Caption: of vs code so you would have seen uh the
+
+00:23:35.400 --> 00:23:38.820
+Caption: one that I had uh
+
+00:23:37.380 --> 00:23:41.219
+Caption: where is it
+
+00:23:38.819 --> 00:23:42.959
+Caption: it&#39;s my lovely background
+
+00:23:41.219 --> 00:23:45.119
+Caption: uh so see how this has got the green
+
+00:23:42.959 --> 00:23:46.500
+Caption: around it uh peacock&#39;s done that so if
+
+00:23:45.119 --> 00:23:48.839
+Caption: you&#39;ve got a couple of vs code instances
+
+00:23:46.500 --> 00:23:49.979
+Caption: open maybe you want to um you set
+
+00:23:48.839 --> 00:23:52.319
+Caption: different colors on them so you know
+
+00:23:49.979 --> 00:23:55.880
+Caption: which one it is as your old tabbing
+
+00:23:52.319 --> 00:24:00.418
+Caption: um between your uh between your windows
+
+00:23:55.880 --> 00:24:02.940
+Caption: uh code spell checker funny story was uh
+
+00:24:00.418 --> 00:24:05.339
+Caption: when I was working for a company a
+
+00:24:02.939 --> 00:24:07.379
+Caption: number of years ago we were um we were
+
+00:24:05.339 --> 00:24:09.500
+Caption: building a custom CRM and we needed to
+
+00:24:07.380 --> 00:24:11.640
+Caption: keep track of our person name history
+
+00:24:09.500 --> 00:24:13.140
+Caption: because you know if someone changed
+
+00:24:11.640 --> 00:24:14.640
+Caption: their name we need to attract that so we
+
+00:24:13.140 --> 00:24:16.260
+Caption: created a table called person name
+
+00:24:14.640 --> 00:24:17.640
+Caption: history
+
+00:24:16.260 --> 00:24:18.479
+Caption: also we thought that&#39;s what we named the
+
+00:24:17.640 --> 00:24:19.979
+Caption: table
+
+00:24:18.479 --> 00:24:21.058
+Caption: it wasn&#39;t until several months later
+
+00:24:19.979 --> 00:24:24.479
+Caption: that we realized that we&#39;d actually
+
+00:24:21.058 --> 00:24:26.459
+Caption: named the table person named his Troy
+
+00:24:24.479 --> 00:24:27.900
+Caption: we&#39;d also read in customer RM it had
+
+00:24:26.459 --> 00:24:29.760
+Caption: generated a whole bunch of C sharp code
+
+00:24:27.900 --> 00:24:31.859
+Caption: from the database so we had all these
+
+00:24:29.760 --> 00:24:33.900
+Caption: classes called person name history
+
+00:24:31.859 --> 00:24:35.339
+Caption: uh you would get that person if you have
+
+00:24:33.900 --> 00:24:37.679
+Caption: a collection of person named his Troy&#39;s
+
+00:24:35.339 --> 00:24:40.619
+Caption: uh and all that kind of stuff
+
+00:24:37.678 --> 00:24:41.939
+Caption: um it was then like this was then in in
+
+00:24:40.619 --> 00:24:43.439
+Caption: testing and it was just it was too hard
+
+00:24:41.939 --> 00:24:44.579
+Caption: to go back and fix it so like oh well
+
+00:24:43.439 --> 00:24:47.178
+Caption: we&#39;re shipping to production with person
+
+00:24:44.579 --> 00:24:47.178
+Caption: name his choice
+
+00:24:47.280 --> 00:24:51.119
+Caption: you want an extension like this one like
+
+00:24:49.319 --> 00:24:53.399
+Caption: code spell check
+
+00:24:51.119 --> 00:24:56.099
+Caption: sure you don&#39;t do that
+
+00:24:53.400 --> 00:24:57.780
+Caption: um I I and I&#39;m just horrendously bad at
+
+00:24:56.099 --> 00:24:59.038
+Caption: spelling you know the best of times so I
+
+00:24:57.780 --> 00:25:01.559
+Caption: use that on my blog and it&#39;s just like
+
+00:24:59.038 --> 00:25:03.479
+Caption: it&#39;s just so nice and uh that I could
+
+00:25:01.558 --> 00:25:05.339
+Caption: just not have to worry about that
+
+00:25:03.479 --> 00:25:07.558
+Caption: uh and then the last one is to do
+
+00:25:05.339 --> 00:25:10.020
+Caption: highlight so uh to do how I&#39;d actually
+
+00:25:07.558 --> 00:25:12.359
+Caption: like to use with uh the GitHub uh one so
+
+00:25:10.020 --> 00:25:14.159
+Caption: where where you put likewife or like put
+
+00:25:12.359 --> 00:25:15.900
+Caption: a comment in you know to do I&#39;m totally
+
+00:25:14.159 --> 00:25:17.880
+Caption: going to fix this code later
+
+00:25:15.900 --> 00:25:19.140
+Caption: like and you totally gonna come back and
+
+00:25:17.880 --> 00:25:20.760
+Caption: do that right
+
+00:25:19.140 --> 00:25:22.440
+Caption: um what what to do highlight will do is
+
+00:25:20.760 --> 00:25:24.298
+Caption: it will actually find all those in and
+
+00:25:22.439 --> 00:25:25.739
+Caption: give you a list of that like you can see
+
+00:25:24.298 --> 00:25:26.699
+Caption: that with inside of vs code like here&#39;s
+
+00:25:25.739 --> 00:25:28.020
+Caption: all the to-do&#39;s you&#39;ve got with inside
+
+00:25:26.699 --> 00:25:29.278
+Caption: of the solution
+
+00:25:28.020 --> 00:25:31.799
+Caption: um but then I combine that with the
+
+00:25:29.279 --> 00:25:34.080
+Caption: GitHub full requests and issues so that
+
+00:25:31.798 --> 00:25:36.000
+Caption: you you just select that to do and then
+
+00:25:34.079 --> 00:25:37.918
+Caption: immediately create a GitHub issue out of
+
+00:25:36.000 --> 00:25:39.119
+Caption: that so that it&#39;s not just in the code
+
+00:25:37.918 --> 00:25:40.678
+Caption: base that you&#39;re totally going to fix it
+
+00:25:39.119 --> 00:25:41.640
+Caption: later it&#39;s also in your GitHub issues
+
+00:25:40.678 --> 00:25:42.538
+Caption: that you&#39;re totally going to come back
+
+00:25:41.640 --> 00:25:44.339
+Caption: and fix
+
+00:25:42.538 --> 00:25:46.259
+Caption: and you just gets de-prioritized down
+
+00:25:44.339 --> 00:25:49.380
+Caption: the back
+
+00:25:46.260 --> 00:25:51.058
+Caption: um yeah uh these things are like yeah
+
+00:25:49.380 --> 00:25:52.500
+Caption: the ones that I find really useful and
+
+00:25:51.058 --> 00:25:53.579
+Caption: like I said these aren&#39;t specific to any
+
+00:25:52.500 --> 00:25:56.339
+Caption: kind of program you&#39;re like whether
+
+00:25:53.579 --> 00:25:58.140
+Caption: you&#39;re writing markdown or python or net
+
+00:25:56.339 --> 00:25:59.520
+Caption: or whatever um these can all help out
+
+00:25:58.140 --> 00:26:01.739
+Caption: there
+
+00:25:59.520 --> 00:26:03.599
+Caption: but I&#39;m a web developer at heart uh so I
+
+00:26:01.739 --> 00:26:05.939
+Caption: want to talk about a couple of
+
+00:26:03.599 --> 00:26:09.239
+Caption: um my favorite uh web developer or
+
+00:26:05.939 --> 00:26:12.058
+Caption: JavaScript developer extensions
+
+00:26:09.239 --> 00:26:14.520
+Caption: um and uh since my animations are not
+
+00:26:12.058 --> 00:26:17.278
+Caption: quite right uh so
+
+00:26:14.520 --> 00:26:19.859
+Caption: um prettier so uh if you&#39;re if you&#39;re
+
+00:26:17.279 --> 00:26:21.659
+Caption: doing JavaScript projects prettier is
+
+00:26:19.859 --> 00:26:23.640
+Caption: kind of like it&#39;s the de facto standard
+
+00:26:21.659 --> 00:26:25.740
+Caption: I think at the moment for doing
+
+00:26:23.640 --> 00:26:27.359
+Caption: um code formatting uh for JavaScript
+
+00:26:25.739 --> 00:26:29.278
+Caption: applications it also does like HTML and
+
+00:26:27.359 --> 00:26:31.439
+Caption: CSS and I think a couple other languages
+
+00:26:29.279 --> 00:26:33.600
+Caption: markdown stuff like that there is an
+
+00:26:31.439 --> 00:26:36.658
+Caption: extension for vs code so that uh like
+
+00:26:33.599 --> 00:26:38.699
+Caption: you don&#39;t have to do anything it just uh
+
+00:26:36.659 --> 00:26:40.559
+Caption: it includes it and then it gets you can
+
+00:26:38.699 --> 00:26:43.019
+Caption: set that as the default format of
+
+00:26:40.558 --> 00:26:45.359
+Caption: formatter for for the right files are
+
+00:26:43.020 --> 00:26:46.979
+Caption: you JavaScript files so when you um in
+
+00:26:45.359 --> 00:26:49.260
+Caption: vs code you tell it to format the file
+
+00:26:46.979 --> 00:26:50.939
+Caption: it will execute prettier for you uh
+
+00:26:49.260 --> 00:26:52.199
+Caption: combine that with eslint so then you can
+
+00:26:50.939 --> 00:26:54.000
+Caption: get your linting
+
+00:26:52.199 --> 00:26:55.979
+Caption: um rules uh the the linting information
+
+00:26:54.000 --> 00:26:57.000
+Caption: surfaced up with inside of the editor so
+
+00:26:55.979 --> 00:26:58.739
+Caption: you can quickly jump around and find
+
+00:26:57.000 --> 00:27:00.599
+Caption: those without having to wait until the
+
+00:26:58.739 --> 00:27:02.939
+Caption: CIA build has failed because you didn&#39;t
+
+00:27:00.599 --> 00:27:05.699
+Caption: run uh npm no you didn&#39;t run your yield
+
+00:27:02.939 --> 00:27:08.038
+Caption: into before pushing uh npm
+
+00:27:05.699 --> 00:27:10.260
+Caption: um this is a just a useful extension uh
+
+00:27:08.038 --> 00:27:12.178
+Caption: for working with npm I will like when
+
+00:27:10.260 --> 00:27:14.279
+Caption: you&#39;re working in a package Json file uh
+
+00:27:12.178 --> 00:27:15.658
+Caption: you can do control space uh on the
+
+00:27:14.279 --> 00:27:16.799
+Caption: version and we&#39;ll show you the the
+
+00:27:15.659 --> 00:27:18.600
+Caption: vision
+
+00:27:16.798 --> 00:27:21.899
+Caption: um versions available for that package
+
+00:27:18.599 --> 00:27:22.558
+Caption: and also give you like the the December
+
+00:27:21.900 --> 00:27:24.419
+Caption: um
+
+00:27:22.558 --> 00:27:27.199
+Caption: City attack sports are like do you want
+
+00:27:24.418 --> 00:27:29.819
+Caption: the the hat or do you want a
+
+00:27:27.199 --> 00:27:32.219
+Caption: star or whatever the case may be um so
+
+00:27:29.819 --> 00:27:34.139
+Caption: yeah you can uh make sure your lucky
+
+00:27:32.219 --> 00:27:35.158
+Caption: patch is the right point and the last
+
+00:27:34.140 --> 00:27:38.279
+Caption: one is
+
+00:27:35.159 --> 00:27:40.799
+Caption: um we shift uh for vs code a bunch of
+
+00:27:38.279 --> 00:27:42.179
+Caption: extent an extension for uh Edge so that
+
+00:27:40.798 --> 00:27:44.819
+Caption: you can do
+
+00:27:42.178 --> 00:27:46.500
+Caption: um like work with the browser from vs
+
+00:27:44.819 --> 00:27:47.699
+Caption: code and I&#39;m going to have a crack at
+
+00:27:46.500 --> 00:27:49.859
+Caption: actually testing that one out now
+
+00:27:47.699 --> 00:27:52.739
+Caption: because I totally didn&#39;t just try and do
+
+00:27:49.859 --> 00:27:54.719
+Caption: this before okay before I came to uh
+
+00:27:52.739 --> 00:27:57.418
+Caption: into the room for the session I totally
+
+00:27:54.719 --> 00:27:59.158
+Caption: this was all pre-planned and done this
+
+00:27:57.418 --> 00:28:01.380
+Caption: is the day-to-day Perth website
+
+00:27:59.159 --> 00:28:03.059
+Caption: I brought it down um I&#39;m gonna let&#39;s do
+
+00:28:01.380 --> 00:28:06.959
+Caption: npm start
+
+00:28:03.058 --> 00:28:08.520
+Caption: and we&#39;ll see if that works there we go
+
+00:28:06.959 --> 00:28:10.079
+Caption: um and I do have the edge extension
+
+00:28:08.520 --> 00:28:12.599
+Caption: installed uh so the edge extension I
+
+00:28:10.079 --> 00:28:14.158
+Caption: think it also works with chrome to a
+
+00:28:12.599 --> 00:28:17.939
+Caption: degree so because it&#39;s it&#39;s chromium
+
+00:28:14.159 --> 00:28:22.260
+Caption: browsers but this is
+
+00:28:17.939 --> 00:28:24.418
+Caption: not working fantastic all right
+
+00:28:22.260 --> 00:28:27.539
+Caption: um well the
+
+00:28:24.418 --> 00:28:29.099
+Caption: oh I had to do like npm building npm run
+
+00:28:27.538 --> 00:28:30.778
+Caption: build
+
+00:28:29.099 --> 00:28:32.219
+Caption: I totally didn&#39;t read that readme either
+
+00:28:30.779 --> 00:28:33.900
+Caption: so I was just like I can clone this run
+
+00:28:32.219 --> 00:28:37.798
+Caption: npm install and yeah like everything
+
+00:28:33.900 --> 00:28:40.739
+Caption: will be fine yep yep that might not be
+
+00:28:37.798 --> 00:28:43.558
+Caption: fine that&#39;s going to take a while um
+
+00:28:40.739 --> 00:28:45.599
+Caption: let&#39;s try I&#39;ll show I&#39;ll show us a
+
+00:28:43.558 --> 00:28:49.079
+Caption: slightly different uh
+
+00:28:45.599 --> 00:28:51.479
+Caption: one of it that does work but not quite
+
+00:28:49.079 --> 00:28:53.640
+Caption: as much as I wanted there uh so oh
+
+00:28:51.479 --> 00:28:55.140
+Caption: another one from there task and then
+
+00:28:53.640 --> 00:28:56.940
+Caption: these are uh scripts that I&#39;ve already
+
+00:28:55.140 --> 00:28:59.219
+Caption: got inside of my repo uh that I can run
+
+00:28:56.939 --> 00:29:01.079
+Caption: uh this is my this is my blog I&#39;m just
+
+00:28:59.219 --> 00:29:02.579
+Caption: going to uh run the the little web
+
+00:29:01.079 --> 00:29:04.859
+Caption: server for that
+
+00:29:02.579 --> 00:29:06.479
+Caption: it&#39;s open and now I&#39;m going to use the
+
+00:29:04.859 --> 00:29:07.319
+Caption: edge extension which I&#39;ve got installed
+
+00:29:06.479 --> 00:29:10.260
+Caption: here
+
+00:29:07.319 --> 00:29:13.439
+Caption: and there it is I have my website there
+
+00:29:10.260 --> 00:29:16.739
+Caption: and I want to hit open
+
+00:29:13.439 --> 00:29:18.178
+Caption: so there we go I I do apologize it is
+
+00:29:16.739 --> 00:29:22.199
+Caption: going to be very cramped because it&#39;s
+
+00:29:18.178 --> 00:29:24.239
+Caption: all zoomed in for the editor but there&#39;s
+
+00:29:22.199 --> 00:29:25.798
+Caption: my there&#39;s my website on one side and
+
+00:29:24.239 --> 00:29:29.819
+Caption: there&#39;s a Dom inspector on the other
+
+00:29:25.798 --> 00:29:31.019
+Caption: side so I could go hey let&#39;s find
+
+00:29:29.819 --> 00:29:33.898
+Caption: that element
+
+00:29:31.020 --> 00:29:35.520
+Caption: so I can like I can ins like all that
+
+00:29:33.899 --> 00:29:39.299
+Caption: Dom inspectory goodness that&#39;s there I
+
+00:29:35.520 --> 00:29:40.440
+Caption: have the the CSS um information there uh
+
+00:29:39.298 --> 00:29:42.178
+Caption: you probably can&#39;t read that unless
+
+00:29:40.439 --> 00:29:45.000
+Caption: you&#39;re in the front view rows but uh I&#39;m
+
+00:29:42.178 --> 00:29:46.918
+Caption: actually using SAS to uh instead of like
+
+00:29:45.000 --> 00:29:49.339
+Caption: raw CSS so I&#39;m compiling that down to
+
+00:29:46.918 --> 00:29:51.538
+Caption: CSS and that&#39;s telling me this is uh
+
+00:29:49.339 --> 00:29:53.099
+Caption: banner.scss file
+
+00:29:51.538 --> 00:29:55.379
+Caption: um and
+
+00:29:53.099 --> 00:29:57.359
+Caption: if I wasn&#39;t
+
+00:29:55.380 --> 00:29:58.319
+Caption: using it in the way that I&#39;m using it I
+
+00:29:57.359 --> 00:29:59.640
+Caption: could actually click through that file
+
+00:29:58.319 --> 00:30:01.500
+Caption: and we&#39;ll go through the file and disk
+
+00:29:59.640 --> 00:30:03.779
+Caption: unfortunately it&#39;s not working in this
+
+00:30:01.500 --> 00:30:07.199
+Caption: particular vs code instance because I&#39;m
+
+00:30:03.779 --> 00:30:08.880
+Caption: connected to a remote machine and it
+
+00:30:07.199 --> 00:30:10.678
+Caption: doesn&#39;t like so it can&#39;t access the file
+
+00:30:08.880 --> 00:30:11.880
+Caption: system uh properly to do that pass
+
+00:30:10.678 --> 00:30:13.619
+Caption: through that&#39;s why I was trying to get
+
+00:30:11.880 --> 00:30:14.579
+Caption: this one up and running and it&#39;s a good
+
+00:30:13.619 --> 00:30:15.899
+Caption: idea that I didn&#39;t wait for that because
+
+00:30:14.579 --> 00:30:18.000
+Caption: it&#39;s still building
+
+00:30:15.899 --> 00:30:19.919
+Caption: um but if if you&#39;re working with it just
+
+00:30:18.000 --> 00:30:22.260
+Caption: like directly on your Mac or Windows
+
+00:30:19.918 --> 00:30:24.178
+Caption: machine or Linux machine then um like it
+
+00:30:22.260 --> 00:30:26.640
+Caption: like you can click through to that file
+
+00:30:24.178 --> 00:30:29.278
+Caption: if you edit in the Styles editor with
+
+00:30:26.640 --> 00:30:31.619
+Caption: inside of this extension here it will
+
+00:30:29.279 --> 00:30:33.480
+Caption: actually push those to the file on disk
+
+00:30:31.619 --> 00:30:35.219
+Caption: so like you know just like full
+
+00:30:33.479 --> 00:30:38.158
+Caption: real-time feedback loop that you get
+
+00:30:35.219 --> 00:30:39.839
+Caption: there yeah it&#39;s a it&#39;s a really Nifty
+
+00:30:38.159 --> 00:30:41.220
+Caption: extension and I&#39;m not just trying to
+
+00:30:39.839 --> 00:30:42.418
+Caption: pimp it because I work for Microsoft and
+
+00:30:41.219 --> 00:30:43.380
+Caption: I think Edge is actually a decent
+
+00:30:42.418 --> 00:30:45.000
+Caption: browser
+
+00:30:43.380 --> 00:30:47.099
+Caption: um like being able to like have like
+
+00:30:45.000 --> 00:30:49.558
+Caption: having everything contextually in the
+
+00:30:47.099 --> 00:30:51.719
+Caption: one location I find is quite useful
+
+00:30:49.558 --> 00:30:53.339
+Caption: all right
+
+00:30:51.719 --> 00:30:55.619
+Caption: now
+
+00:30:53.339 --> 00:30:57.418
+Caption: I did Consulting work for nearly a
+
+00:30:55.619 --> 00:30:59.880
+Caption: decade before joining Microsoft and
+
+00:30:57.418 --> 00:31:02.339
+Caption: something that was always frustrating
+
+00:30:59.880 --> 00:31:04.319
+Caption: when uh I was doing my Consulting work
+
+00:31:02.339 --> 00:31:07.439
+Caption: was that I would come to a new client
+
+00:31:04.319 --> 00:31:09.479
+Caption: and be like cool ma&#39;am welcome
+
+00:31:07.439 --> 00:31:12.119
+Caption: um here&#39;s your machine
+
+00:31:09.479 --> 00:31:13.859
+Caption: boom big pile of paper uh that&#39;s the
+
+00:31:12.119 --> 00:31:15.599
+Caption: setup guide for your machine we&#39;ll see
+
+00:31:13.859 --> 00:31:17.278
+Caption: at the end of the week who&#39;s who&#39;s
+
+00:31:15.599 --> 00:31:18.599
+Caption: experienced something like that I&#39;m
+
+00:31:17.279 --> 00:31:21.600
+Caption: saying I&#39;ve seen a lot of heads tonight
+
+00:31:18.599 --> 00:31:23.339
+Caption: yeah it and just like
+
+00:31:21.599 --> 00:31:26.099
+Caption: I feel bad because like I know how much
+
+00:31:23.339 --> 00:31:27.359
+Caption: I&#39;m billing for you to be here and
+
+00:31:26.099 --> 00:31:28.798
+Caption: you&#39;re telling me it&#39;s going to take me
+
+00:31:27.359 --> 00:31:30.839
+Caption: a week before I can be productive
+
+00:31:28.798 --> 00:31:32.099
+Caption: because I&#39;ve got to you know like and
+
+00:31:30.839 --> 00:31:34.439
+Caption: you go through it and then it doesn&#39;t
+
+00:31:32.099 --> 00:31:36.898
+Caption: work anyway oh yeah sorry it turns out
+
+00:31:34.439 --> 00:31:38.879
+Caption: that um no we&#39;re actually using the the
+
+00:31:36.899 --> 00:31:40.559
+Caption: newer version of Reddit sorry just not
+
+00:31:38.880 --> 00:31:41.760
+Caption: like not the old version that&#39;s listed
+
+00:31:40.558 --> 00:31:43.319
+Caption: in there can you actually got to
+
+00:31:41.760 --> 00:31:44.520
+Caption: download the new can you can you upgrade
+
+00:31:43.319 --> 00:31:47.038
+Caption: that or
+
+00:31:44.520 --> 00:31:50.339
+Caption: um oh yeah we&#39;ve we forgot to add this
+
+00:31:47.038 --> 00:31:51.959
+Caption: step or actually can you go talk to uh
+
+00:31:50.339 --> 00:31:53.640
+Caption: this person on the other side of the
+
+00:31:51.959 --> 00:31:55.020
+Caption: room because they&#39;re going to have to
+
+00:31:53.640 --> 00:31:56.219
+Caption: help you um because yeah we haven&#39;t
+
+00:31:55.020 --> 00:31:58.020
+Caption: documented some of the new stuff that
+
+00:31:56.219 --> 00:32:00.298
+Caption: they&#39;ve added to the uh the environment
+
+00:31:58.020 --> 00:32:01.558
+Caption: and like ah it&#39;s just it&#39;s so
+
+00:32:00.298 --> 00:32:03.599
+Caption: frustrating
+
+00:32:01.558 --> 00:32:05.760
+Caption: um but with vs code
+
+00:32:03.599 --> 00:32:07.918
+Caption: um one of the one of the things we can
+
+00:32:05.760 --> 00:32:09.419
+Caption: do with that is uh I mentioned before
+
+00:32:07.918 --> 00:32:10.739
+Caption: like editor config and things like that
+
+00:32:09.418 --> 00:32:12.479
+Caption: just to reinforce them like code
+
+00:32:10.739 --> 00:32:13.678
+Caption: standardization but you can even do that
+
+00:32:12.479 --> 00:32:15.000
+Caption: to the point of like editor
+
+00:32:13.678 --> 00:32:16.798
+Caption: standardization
+
+00:32:15.000 --> 00:32:19.260
+Caption: where
+
+00:32:16.798 --> 00:32:22.500
+Caption: um where we can have inside of our DOT
+
+00:32:19.260 --> 00:32:23.579
+Caption: vs code folder uh we can include things
+
+00:32:22.500 --> 00:32:25.640
+Caption: like
+
+00:32:23.579 --> 00:32:28.619
+Caption: settings so settings that are specific
+
+00:32:25.640 --> 00:32:30.839
+Caption: for this repo so when you open this repo
+
+00:32:28.619 --> 00:32:33.839
+Caption: in vs code these settings are going to
+
+00:32:30.839 --> 00:32:36.778
+Caption: be applied so like if if you&#39;ve got like
+
+00:32:33.839 --> 00:32:37.918
+Caption: a you know default file extension that
+
+00:32:36.779 --> 00:32:39.659
+Caption: you want to set you can set that just
+
+00:32:37.918 --> 00:32:41.038
+Caption: for this project so that you opened up
+
+00:32:39.659 --> 00:32:43.620
+Caption: you&#39;re not having to set this on a
+
+00:32:41.038 --> 00:32:46.199
+Caption: machine wide wide config
+
+00:32:43.619 --> 00:32:48.418
+Caption: um another one I don&#39;t have it in this
+
+00:32:46.199 --> 00:32:51.719
+Caption: one but I think I might have it in
+
+00:32:48.418 --> 00:32:54.119
+Caption: actually I&#39;ll have it in here maybe
+
+00:32:51.719 --> 00:32:57.479
+Caption: I have so many oh there&#39;s so many things
+
+00:32:54.119 --> 00:32:58.798
+Caption: open uh whoops let&#39;s collapse that
+
+00:32:57.479 --> 00:33:02.219
+Caption: now
+
+00:32:58.798 --> 00:33:04.558
+Caption: uh you can also include uh I don&#39;t have
+
+00:33:02.219 --> 00:33:08.038
+Caption: extensions in this one either ah but I
+
+00:33:04.558 --> 00:33:10.079
+Caption: know where it was I did see one earlier
+
+00:33:08.038 --> 00:33:12.178
+Caption: inside of this vs code folder
+
+00:33:10.079 --> 00:33:14.038
+Caption: extensions so these are recommended
+
+00:33:12.178 --> 00:33:16.558
+Caption: extensions that you should have to work
+
+00:33:14.038 --> 00:33:17.759
+Caption: on this particular project so they&#39;re um
+
+00:33:16.558 --> 00:33:19.380
+Caption: they&#39;re encourage you to install the
+
+00:33:17.760 --> 00:33:20.719
+Caption: Chrome debugger which ironically is
+
+00:33:19.380 --> 00:33:22.558
+Caption: actually deprecated
+
+00:33:20.719 --> 00:33:25.199
+Caption: they&#39;re recommending that you install
+
+00:33:22.558 --> 00:33:27.000
+Caption: editor config and prettier and and uh
+
+00:33:25.199 --> 00:33:29.518
+Caption: ESPN so what will happen is when you
+
+00:33:27.000 --> 00:33:30.899
+Caption: open up this uh this folder in vs code
+
+00:33:29.519 --> 00:33:32.399
+Caption: if you don&#39;t have those extensions
+
+00:33:30.899 --> 00:33:34.080
+Caption: installed you&#39;ll get a note noticing
+
+00:33:32.399 --> 00:33:36.119
+Caption: there are recommended extensions would
+
+00:33:34.079 --> 00:33:37.558
+Caption: you like to install them so that way you
+
+00:33:36.119 --> 00:33:39.058
+Caption: can make sure that everyone&#39;s kind of
+
+00:33:37.558 --> 00:33:41.479
+Caption: got that same sort of development
+
+00:33:39.058 --> 00:33:41.479
+Caption: experience
+
+00:33:41.880 --> 00:33:47.058
+Caption: but
+
+00:33:43.918 --> 00:33:47.058
+Caption: let&#39;s go back into the slides
+
+00:33:47.279 --> 00:33:50.700
+Caption: in a moment there we go
+
+00:33:49.079 --> 00:33:52.500
+Caption: but there&#39;s another level we can take
+
+00:33:50.699 --> 00:33:55.619
+Caption: this to and that&#39;s with a feature of vs
+
+00:33:52.500 --> 00:33:56.640
+Caption: code uh called uh Dev containers
+
+00:33:55.619 --> 00:33:59.399
+Caption: so
+
+00:33:56.640 --> 00:34:01.140
+Caption: a Dev container is a way to dockerize
+
+00:33:59.399 --> 00:34:05.100
+Caption: the development environment that you&#39;re
+
+00:34:01.140 --> 00:34:06.959
+Caption: working in or dockerize the the
+
+00:34:05.099 --> 00:34:09.000
+Caption: yeah the thing that you&#39;re you&#39;re
+
+00:34:06.959 --> 00:34:11.820
+Caption: building with and
+
+00:34:09.000 --> 00:34:13.618
+Caption: then because it&#39;s in a environment&#39;s in
+
+00:34:11.820 --> 00:34:16.020
+Caption: a docking container you can control
+
+00:34:13.618 --> 00:34:18.299
+Caption: what&#39;s there so you can pre-install like
+
+00:34:16.020 --> 00:34:20.339
+Caption: the correct version of node or net or go
+
+00:34:18.300 --> 00:34:24.119
+Caption: or whatever runtime you&#39;re working with
+
+00:34:20.339 --> 00:34:25.080
+Caption: you can pre-install like a database
+
+00:34:24.118 --> 00:34:26.819
+Caption: um and
+
+00:34:25.080 --> 00:34:28.619
+Caption: I&#39;m gonna I&#39;m Gonna Keep just dropping
+
+00:34:26.820 --> 00:34:30.379
+Caption: in and out of my slides
+
+00:34:28.618 --> 00:34:33.358
+Caption: uh so
+
+00:34:30.378 --> 00:34:34.979
+Caption: this project Yep this one here so this
+
+00:34:33.358 --> 00:34:36.658
+Caption: is one of my open source projects it&#39;s a
+
+00:34:34.979 --> 00:34:38.280
+Caption: F-sharp project if anyone wants to talk
+
+00:34:36.658 --> 00:34:39.598
+Caption: F sharp come see me I&#39;m like probably
+
+00:34:38.280 --> 00:34:41.099
+Caption: the only person here that actually cares
+
+00:34:39.599 --> 00:34:44.460
+Caption: about that but it&#39;s awesome and if
+
+00:34:41.099 --> 00:34:45.720
+Caption: you&#39;re a DOT net developer learn F-sharp
+
+00:34:44.459 --> 00:34:49.979
+Caption: um but this is a project for working
+
+00:34:45.719 --> 00:34:51.598
+Caption: with uh Cosmos DB uh from F-sharp but
+
+00:34:49.979 --> 00:34:53.098
+Caption: for local development well I don&#39;t have
+
+00:34:51.599 --> 00:34:54.780
+Caption: to speed up an Azure resource for for
+
+00:34:53.099 --> 00:34:57.780
+Caption: Cosmos Divi or if someone wants to come
+
+00:34:54.780 --> 00:34:59.159
+Caption: along and contribute a fix to it or a
+
+00:34:57.780 --> 00:35:00.540
+Caption: feature or anything like that I don&#39;t
+
+00:34:59.159 --> 00:35:02.939
+Caption: want them to have to stand up at Azure
+
+00:35:00.540 --> 00:35:04.679
+Caption: account stand up for a cosmos instance
+
+00:35:02.939 --> 00:35:06.838
+Caption: inside of there so I have a Dev
+
+00:35:04.679 --> 00:35:09.059
+Caption: container that does that for you
+
+00:35:06.839 --> 00:35:11.280
+Caption: um this one is using uh Docker compose
+
+00:35:09.060 --> 00:35:12.540
+Caption: so it has the environment that you&#39;re
+
+00:35:11.280 --> 00:35:14.280
+Caption: going to be actually developing with
+
+00:35:12.540 --> 00:35:16.859
+Caption: inside of so this will pre-install
+
+00:35:14.280 --> 00:35:18.599
+Caption: the.net runtime for you the correct
+
+00:35:16.858 --> 00:35:21.358
+Caption: version because I&#39;m working on dot net
+
+00:35:18.599 --> 00:35:24.480
+Caption: six so that&#39;ll all be pre-installed for
+
+00:35:21.358 --> 00:35:27.598
+Caption: you plus a few tools make uh for working
+
+00:35:24.479 --> 00:35:29.399
+Caption: with F sharp but then I have a another
+
+00:35:27.599 --> 00:35:31.200
+Caption: Docker container that started up next to
+
+00:35:29.399 --> 00:35:34.919
+Caption: it which is going to be the cosmos DB
+
+00:35:31.199 --> 00:35:36.479
+Caption: emulator I then also so when I open in
+
+00:35:34.919 --> 00:35:37.739
+Caption: vs code it detects this Dev Contender
+
+00:35:36.479 --> 00:35:40.079
+Caption: says hey do you want to run this as a
+
+00:35:37.739 --> 00:35:41.639
+Caption: Dev container you do that it will start
+
+00:35:40.079 --> 00:35:42.839
+Caption: this all up
+
+00:35:41.639 --> 00:35:46.199
+Caption: um it will start up the the docking
+
+00:35:42.839 --> 00:35:47.760
+Caption: container side by side and now I I can
+
+00:35:46.199 --> 00:35:49.800
+Caption: do full local development and I haven&#39;t
+
+00:35:47.760 --> 00:35:52.139
+Caption: had to install anything other than
+
+00:35:49.800 --> 00:35:53.579
+Caption: Docker and vs code
+
+00:35:52.139 --> 00:35:55.618
+Caption: um and then if I when I&#39;m finished
+
+00:35:53.579 --> 00:35:58.200
+Caption: working on this delete the repo off my
+
+00:35:55.618 --> 00:36:00.239
+Caption: machine and I don&#39;t have to uninstall
+
+00:35:58.199 --> 00:36:01.800
+Caption: you know the cosmos emulator I don&#39;t
+
+00:36:00.239 --> 00:36:03.959
+Caption: have to install the.net framework or
+
+00:36:01.800 --> 00:36:05.339
+Caption: anything like that it&#39;s all isolated uh
+
+00:36:03.959 --> 00:36:07.560
+Caption: and what this means is that yeah like
+
+00:36:05.339 --> 00:36:09.239
+Caption: it&#39;s very easy to come across as like an
+
+00:36:07.560 --> 00:36:12.060
+Caption: open source contributor pick up a
+
+00:36:09.239 --> 00:36:14.280
+Caption: project clone it open it and have all
+
+00:36:12.060 --> 00:36:16.680
+Caption: this uh like all the environment ready
+
+00:36:14.280 --> 00:36:18.119
+Caption: to go you haven&#39;t had to read like a a
+
+00:36:16.679 --> 00:36:19.739
+Caption: massive contributing guide or anything
+
+00:36:18.118 --> 00:36:22.679
+Caption: like that
+
+00:36:19.739 --> 00:36:24.899
+Caption: um the the next kind of power of this is
+
+00:36:22.679 --> 00:36:27.838
+Caption: that if you&#39;re working with GitHub code
+
+00:36:24.899 --> 00:36:29.699
+Caption: spaces uh when you open it in code
+
+00:36:27.839 --> 00:36:31.739
+Caption: spaces it will detect the dev container
+
+00:36:29.699 --> 00:36:33.659
+Caption: and provision the code space through
+
+00:36:31.739 --> 00:36:36.000
+Caption: those specifications for you
+
+00:36:33.659 --> 00:36:37.199
+Caption: um uh the the GitHub folks um over at
+
+00:36:36.000 --> 00:36:39.540
+Caption: the the booth actually have this running
+
+00:36:37.199 --> 00:36:42.959
+Caption: uh with another project of mine where it
+
+00:36:39.540 --> 00:36:44.699
+Caption: is running a cosmos DBA emulator and a a
+
+00:36:42.959 --> 00:36:46.139
+Caption: Docker container side-by-side inside of
+
+00:36:44.699 --> 00:36:47.939
+Caption: code spaces and they&#39;re running that
+
+00:36:46.139 --> 00:36:50.098
+Caption: from a Raspberry Pi so you&#39;re like doing
+
+00:36:47.939 --> 00:36:51.899
+Caption: full development with two running Docker
+
+00:36:50.099 --> 00:36:53.940
+Caption: containers off a Raspberry Pi
+
+00:36:51.899 --> 00:36:55.799
+Caption: um but a Dev containers are really
+
+00:36:53.939 --> 00:36:59.540
+Caption: useful for doing
+
+00:36:55.800 --> 00:37:01.380
+Caption: um so yeah like this remote uh so this
+
+00:36:59.540 --> 00:37:03.599
+Caption: pre-provisioned environment and it can
+
+00:37:01.379 --> 00:37:07.019
+Caption: save so much time you know having to
+
+00:37:03.599 --> 00:37:08.579
+Caption: install this uh keep these docs up to
+
+00:37:07.020 --> 00:37:09.959
+Caption: date this is the right version of
+
+00:37:08.579 --> 00:37:12.479
+Caption: whatever the dependency is that we need
+
+00:37:09.959 --> 00:37:14.219
+Caption: to install you have it all there um uh
+
+00:37:12.479 --> 00:37:16.579
+Caption: pre-built and combined into this one
+
+00:37:14.219 --> 00:37:16.578
+Caption: folder
+
+00:37:17.579 --> 00:37:21.540
+Caption: um all right we&#39;ve got about
+
+00:37:20.219 --> 00:37:24.118
+Caption: um I&#39;m going to leave some time for
+
+00:37:21.540 --> 00:37:26.280
+Caption: questions at the end um so uh we&#39;ll go
+
+00:37:24.118 --> 00:37:29.699
+Caption: for about probably I think well like 10
+
+00:37:26.280 --> 00:37:31.500
+Caption: minutes left I think uh I&#39;m getting some
+
+00:37:29.699 --> 00:37:32.939
+Caption: vagueness on that I&#39;m also the thing
+
+00:37:31.500 --> 00:37:35.820
+Caption: that&#39;s standing between everyone and
+
+00:37:32.939 --> 00:37:36.838
+Caption: lunch so uh
+
+00:37:35.820 --> 00:37:39.959
+Caption: um
+
+00:37:36.839 --> 00:37:41.520
+Caption: uh I talked a bit about code spaces but
+
+00:37:39.959 --> 00:37:45.479
+Caption: there is
+
+00:37:41.520 --> 00:37:47.219
+Caption: one other thing that I will show off
+
+00:37:45.479 --> 00:37:50.639
+Caption: because I think it is super cool
+
+00:37:47.219 --> 00:37:52.199
+Caption: particularly in um and the fact that a
+
+00:37:50.639 --> 00:37:54.358
+Caption: lot more of us are working from home now
+
+00:37:52.199 --> 00:37:56.280
+Caption: I&#39;ve got to find the right vs code
+
+00:37:54.358 --> 00:38:01.019
+Caption: instance that I have open
+
+00:37:56.280 --> 00:38:03.419
+Caption: where is it here here and I have so many
+
+00:38:01.020 --> 00:38:05.520
+Caption: vs codes where are all the vs codes it&#39;s
+
+00:38:03.419 --> 00:38:07.979
+Caption: not that one
+
+00:38:05.520 --> 00:38:09.060
+Caption: is it this one no no I don&#39;t have it on
+
+00:38:07.979 --> 00:38:10.439
+Caption: any of them
+
+00:38:09.060 --> 00:38:14.599
+Caption: um there&#39;s an extension that I&#39;m going
+
+00:38:10.439 --> 00:38:14.598
+Caption: to install called live share
+
+00:38:15.060 --> 00:38:18.119
+Caption: um and this should actually install
+
+00:38:16.439 --> 00:38:21.719
+Caption: pretty quickly because I already have it
+
+00:38:18.118 --> 00:38:26.939
+Caption: done live share there we go okay so live
+
+00:38:21.719 --> 00:38:29.098
+Caption: share is a extension that uh it&#39;s a
+
+00:38:26.939 --> 00:38:33.959
+Caption: this is I guess you&#39;d call it a product
+
+00:38:29.099 --> 00:38:35.160
+Caption: um we created Microsoft for uh doing
+
+00:38:33.959 --> 00:38:38.000
+Caption: um
+
+00:38:35.159 --> 00:38:38.000
+Caption: uh remote
+
+00:38:38.040 --> 00:38:41.699
+Caption: pair programming I guess probably a good
+
+00:38:40.139 --> 00:38:43.679
+Caption: way to do it a good way to describe it
+
+00:38:41.699 --> 00:38:45.959
+Caption: so with live share I&#39;m going to hit
+
+00:38:43.679 --> 00:38:47.639
+Caption: share now that I&#39;ve installed that
+
+00:38:45.959 --> 00:38:50.939
+Caption: and what it&#39;s going to do is it&#39;s going
+
+00:38:47.639 --> 00:38:54.899
+Caption: to start up a collaboration session from
+
+00:38:50.939 --> 00:38:57.300
+Caption: my machine and uh it&#39;s gonna this is
+
+00:38:54.899 --> 00:38:58.439
+Caption: probably going to not go as fast as I
+
+00:38:57.300 --> 00:39:01.140
+Caption: would like it to go and that&#39;s going to
+
+00:38:58.439 --> 00:39:03.419
+Caption: be very depressing but by by doing this
+
+00:39:01.139 --> 00:39:05.760
+Caption: I can I&#39;ll then end up with a URL that I
+
+00:39:03.419 --> 00:39:07.679
+Caption: can give out to you know someone that I
+
+00:39:05.760 --> 00:39:10.560
+Caption: might be pair programming with and they
+
+00:39:07.679 --> 00:39:13.739
+Caption: can connect from their machine uh to
+
+00:39:10.560 --> 00:39:15.119
+Caption: essentially my vs code instance but they
+
+00:39:13.739 --> 00:39:16.260
+Caption: don&#39;t actually have to have vs code
+
+00:39:15.118 --> 00:39:18.179
+Caption: installed they can do it directly from
+
+00:39:16.260 --> 00:39:19.739
+Caption: the browser they could open it up in
+
+00:39:18.179 --> 00:39:22.618
+Caption: full visual studio and live share
+
+00:39:19.739 --> 00:39:25.020
+Caption: actually works with um Visual Studio as
+
+00:39:22.618 --> 00:39:27.779
+Caption: well as vs code
+
+00:39:25.020 --> 00:39:31.399
+Caption: that&#39;s it share again ah there we go oh
+
+00:39:27.780 --> 00:39:31.400
+Caption: cool we&#39;re gonna do a signing dance
+
+00:39:33.300 --> 00:39:37.619
+Caption: everyone&#39;s gonna learn my password to
+
+00:39:34.919 --> 00:39:39.358
+Caption: GitHub that
+
+00:39:37.618 --> 00:39:41.879
+Caption: nope I should be already authenticated
+
+00:39:39.358 --> 00:39:44.039
+Caption: uh so it&#39;s done okay
+
+00:39:41.879 --> 00:39:48.419
+Caption: um it&#39;s collaboration session come on
+
+00:39:44.040 --> 00:39:50.760
+Caption: there we go okay so that is open uh we
+
+00:39:48.419 --> 00:39:53.819
+Caption: don&#39;t need Dutch I want to grab the URL
+
+00:39:50.760 --> 00:39:56.459
+Caption: when it starts
+
+00:39:53.820 --> 00:39:58.859
+Caption: here we go okay
+
+00:39:56.459 --> 00:40:02.520
+Caption: session details
+
+00:39:58.858 --> 00:40:04.679
+Caption: copy link okay excellent now
+
+00:40:02.520 --> 00:40:07.079
+Caption: I&#39;m going to paste this into the browser
+
+00:40:04.679 --> 00:40:08.459
+Caption: and
+
+00:40:07.079 --> 00:40:10.200
+Caption: it&#39;s going to start
+
+00:40:08.459 --> 00:40:12.919
+Caption: vs code in the browser
+
+00:40:10.199 --> 00:40:12.919
+Caption: so here we go
+
+00:40:13.320 --> 00:40:17.040
+Caption: and it&#39;s going to take a few minutes or
+
+00:40:15.839 --> 00:40:18.000
+Caption: hopefully not a few minutes it&#39;s going
+
+00:40:17.040 --> 00:40:20.160
+Caption: to take a little bit of time because it
+
+00:40:18.000 --> 00:40:22.199
+Caption: what it&#39;s doing is it&#39;s talking into my
+
+00:40:20.159 --> 00:40:23.639
+Caption: laptop which is actually going uh I&#39;m
+
+00:40:22.199 --> 00:40:25.020
+Caption: going to continue on the web which is
+
+00:40:23.639 --> 00:40:27.239
+Caption: going over the 5G connection on my phone
+
+00:40:25.020 --> 00:40:30.000
+Caption: continue is anonymous
+
+00:40:27.239 --> 00:40:33.239
+Caption: yeah we&#39;ll call that guest user uh and
+
+00:40:30.000 --> 00:40:34.800
+Caption: they are going to be able to uh see like
+
+00:40:33.239 --> 00:40:35.520
+Caption: all the files on my machine they&#39;re also
+
+00:40:34.800 --> 00:40:37.320
+Caption: going to be able to connect to the
+
+00:40:35.520 --> 00:40:40.439
+Caption: locally running web server that I&#39;ve got
+
+00:40:37.320 --> 00:40:42.479
+Caption: so they can view the the website well
+
+00:40:40.439 --> 00:40:44.159
+Caption: which happens to be my blog um there we
+
+00:40:42.479 --> 00:40:45.179
+Caption: go so there&#39;s all the files uh starting
+
+00:40:44.159 --> 00:40:48.659
+Caption: to come in
+
+00:40:45.179 --> 00:40:51.419
+Caption: uh I can open up let&#39;s just pick a
+
+00:40:48.659 --> 00:40:53.039
+Caption: random file let&#39;s pick this package Json
+
+00:40:51.419 --> 00:40:56.338
+Caption: um it&#39;s going to have syntax
+
+00:40:53.040 --> 00:40:58.859
+Caption: highlighting and colorization and all
+
+00:40:56.339 --> 00:41:00.480
+Caption: that kind of stuff in there but then as
+
+00:40:58.858 --> 00:41:02.759
+Caption: the as the host of this collaboration
+
+00:41:00.479 --> 00:41:04.979
+Caption: session I can see here&#39;s guest user7
+
+00:41:02.760 --> 00:41:08.179
+Caption: there on that file and that line I can
+
+00:41:04.979 --> 00:41:08.179
+Caption: go follow participant
+
+00:41:10.139 --> 00:41:15.598
+Caption: let&#39;s just close off some of these okay
+
+00:41:12.800 --> 00:41:17.939
+Caption: that&#39;s it oh sorry Focus participant no
+
+00:41:15.599 --> 00:41:20.160
+Caption: follow to the side
+
+00:41:17.939 --> 00:41:22.919
+Caption: and there we go I can see that&#39;s where
+
+00:41:20.159 --> 00:41:24.059
+Caption: guest user is that there&#39;s a little
+
+00:41:22.919 --> 00:41:25.559
+Caption: purple
+
+00:41:24.060 --> 00:41:28.979
+Caption: um
+
+00:41:25.560 --> 00:41:33.239
+Caption: carrot here which is uh where they are
+
+00:41:28.979 --> 00:41:37.679
+Caption: put these Side by side-ish
+
+00:41:33.239 --> 00:41:40.679
+Caption: and uh where let&#39;s go come on let&#39;s need
+
+00:41:37.679 --> 00:41:43.618
+Caption: more space on my screen so so we&#39;re so
+
+00:41:40.679 --> 00:41:45.479
+Caption: zoomed in uh okay and you can see as
+
+00:41:43.618 --> 00:41:48.539
+Caption: that guest user clicks around we can see
+
+00:41:45.479 --> 00:41:50.939
+Caption: what they&#39;re doing uh and then if I was
+
+00:41:48.540 --> 00:41:54.719
+Caption: to come into let&#39;s go into here we want
+
+00:41:50.939 --> 00:41:57.959
+Caption: to come into my graphql file
+
+00:41:54.719 --> 00:41:59.820
+Caption: here we go so I can like remotely that
+
+00:41:57.959 --> 00:42:00.959
+Caption: person like I can see in real time
+
+00:41:59.820 --> 00:42:02.699
+Caption: what&#39;s happening
+
+00:42:00.959 --> 00:42:05.459
+Caption: um you know if I&#39;m making changes in one
+
+00:42:02.699 --> 00:42:08.459
+Caption: uh uh in one editor those will be
+
+00:42:05.459 --> 00:42:10.078
+Caption: reflected so if we yeah yeah if I was to
+
+00:42:08.459 --> 00:42:11.699
+Caption: do that like that those changes would be
+
+00:42:10.079 --> 00:42:14.040
+Caption: reflected across I said they get full
+
+00:42:11.699 --> 00:42:16.078
+Caption: debugging um they can set break points
+
+00:42:14.040 --> 00:42:17.939
+Caption: and all that sort of stuff um which is
+
+00:42:16.079 --> 00:42:20.160
+Caption: really useful if you&#39;re doing like yeah
+
+00:42:17.939 --> 00:42:22.800
+Caption: remote stuff
+
+00:42:20.159 --> 00:42:25.078
+Caption: um a pair now pair programming pool
+
+00:42:22.800 --> 00:42:27.479
+Caption: request reviews you know you just jump
+
+00:42:25.079 --> 00:42:29.160
+Caption: on a call using whatever conference
+
+00:42:27.479 --> 00:42:30.899
+Caption: calling platform you of choice and just
+
+00:42:29.159 --> 00:42:32.159
+Caption: be like hey can we walk through this
+
+00:42:30.899 --> 00:42:33.899
+Caption: together here&#39;s a live share link
+
+00:42:32.159 --> 00:42:36.059
+Caption: actually live chat has built-in audio
+
+00:42:33.899 --> 00:42:37.500
+Caption: support as well so you don&#39;t even need a
+
+00:42:36.060 --> 00:42:38.880
+Caption: separate conference calling platform but
+
+00:42:37.500 --> 00:42:40.560
+Caption: yeah it&#39;s like let&#39;s just walk through
+
+00:42:38.879 --> 00:42:43.679
+Caption: this code together show me how that fix
+
+00:42:40.560 --> 00:42:45.979
+Caption: is applied and all that kind of fun
+
+00:42:43.679 --> 00:42:45.979
+Caption: stuff
+
+00:42:46.760 --> 00:42:51.359
+Caption: and the very last thing about vs code
+
+00:42:50.099 --> 00:42:53.099
+Caption: that I want to tell you is that they
+
+00:42:51.358 --> 00:42:54.719
+Caption: have a tick tock account I don&#39;t know
+
+00:42:53.099 --> 00:42:57.720
+Caption: what that is because I am too old for
+
+00:42:54.719 --> 00:43:00.239
+Caption: Tick Tock but there it is
+
+00:42:57.719 --> 00:43:01.699
+Caption: uh yeah yep
+
+00:43:00.239 --> 00:43:05.760
+Caption: um tick tock.com
+
+00:43:01.699 --> 00:43:06.838
+Caption: vs code uh yeah for for the younger
+
+00:43:05.760 --> 00:43:09.899
+Caption: people in the room you might enjoy that
+
+00:43:06.839 --> 00:43:11.880
+Caption: I said I&#39;m just too old for tick tock uh
+
+00:43:09.899 --> 00:43:14.159
+Caption: but it&#39;s there I&#39;ve watched a bunch of
+
+00:43:11.879 --> 00:43:15.598
+Caption: the videos like they&#39;re pretty funny
+
+00:43:14.159 --> 00:43:18.118
+Caption: um but there&#39;s also a bunch of like
+
+00:43:15.599 --> 00:43:19.079
+Caption: really uh useful informative things in
+
+00:43:18.118 --> 00:43:21.479
+Caption: there like
+
+00:43:19.079 --> 00:43:22.800
+Caption: um did you know I I learned from
+
+00:43:21.479 --> 00:43:24.598
+Caption: watching one of their tick tocks that
+
+00:43:22.800 --> 00:43:26.640
+Caption: you can change the scroll back history
+
+00:43:24.599 --> 00:43:28.980
+Caption: in the terminal um by default it&#39;s like
+
+00:43:26.639 --> 00:43:30.358
+Caption: a thousand lines but if you&#39;re doing
+
+00:43:28.979 --> 00:43:32.760
+Caption: something that you know might be
+
+00:43:30.358 --> 00:43:34.078
+Caption: outputting more than that
+
+00:43:32.760 --> 00:43:35.819
+Caption: um you can change the scroll back depth
+
+00:43:34.079 --> 00:43:37.319
+Caption: uh and you can you know and I learned
+
+00:43:35.819 --> 00:43:42.239
+Caption: that from tick tock
+
+00:43:37.319 --> 00:43:44.940
+Caption: yeah I&#39;m like so hip and cool and Young
+
+00:43:42.239 --> 00:43:46.739
+Caption: and look there&#39;s a thousand one other
+
+00:43:44.939 --> 00:43:48.899
+Caption: things that you can do with vs code but
+
+00:43:46.739 --> 00:43:50.520
+Caption: I&#39;m just about out of time
+
+00:43:48.899 --> 00:43:52.078
+Caption: I want to gain thank you our sponsors
+
+00:43:50.520 --> 00:43:54.239
+Caption: for making sure that DVD Perth could
+
+00:43:52.079 --> 00:43:56.819
+Caption: happen again this year um I&#39;m I&#39;m glad
+
+00:43:54.239 --> 00:43:58.020
+Caption: to be back uh at a daily event I&#39;m glad
+
+00:43:56.819 --> 00:43:59.640
+Caption: to be back at the input person
+
+00:43:58.020 --> 00:44:02.219
+Caption: conferences even though I&#39;d forgotten
+
+00:43:59.639 --> 00:44:03.598
+Caption: just how exhausting they are I&#39;m pretty
+
+00:44:02.219 --> 00:44:05.399
+Caption: sure my voice will give out before the
+
+00:44:03.599 --> 00:44:07.800
+Caption: end of the day but
+
+00:44:05.399 --> 00:44:08.939
+Caption: we&#39;ve got a couple minutes for questions
+
+00:44:07.800 --> 00:44:11.040
+Caption: um or you can run off and grab lunch
+
+00:44:08.939 --> 00:44:12.838
+Caption: early at the very least thanks for
+
+00:44:11.040 --> 00:44:14.520
+Caption: coming to my session today I hope you&#39;ve
+
+00:44:12.839 --> 00:44:17.040
+Caption: learned a couple of tips and tricks for
+
+00:44:14.520 --> 00:44:18.839
+Caption: working with vs code and do feel free to
+
+00:44:17.040 --> 00:44:21.839
+Caption: reach out after the session as well if
+
+00:44:18.839 --> 00:44:24.500
+Caption: you want yeah thank you
+
+00:44:21.839 --> 00:44:24.500
+Caption: thank you
+
