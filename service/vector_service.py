@@ -44,7 +44,7 @@ class Session(BaseModel):
 
 
 @app.get("/search", status_code=200)
-async def create_upload_file(query: str, top_n: int = 6) -> List[Session]:
+async def create_upload_file(query: str, top_n: int = 6, dedup: bool = True) -> List[Session]:
     '''search the documents using the user query and return the top_n results'''
 
     embedding = get_embedding(
@@ -55,11 +55,17 @@ async def create_upload_file(query: str, top_n: int = 6) -> List[Session]:
 
     df_sessions["similarities"] = df_sessions.ada_v2.apply(
         lambda x: cosine_similarity(x, embedding))
+    
+    if dedup:
+        res = (
+            df_sessions.sort_values("similarities", ascending=False)
+            .drop_duplicates("videoId")
+        )
+    else:
+        res = df_sessions.sort_values("similarities", ascending=False)
 
     res = (
-        df_sessions.sort_values("similarities", ascending=False)
-        # .drop_duplicates("videoId")
-        .head(top_n)
+        res.head(top_n)
         .drop(columns=["ada_v2"])
         .drop(columns=["n_tokens"])
         .fillna("")
