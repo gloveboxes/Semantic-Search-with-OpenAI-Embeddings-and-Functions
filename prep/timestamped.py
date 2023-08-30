@@ -19,6 +19,7 @@ def parse_vtt_transcript(vtt, segment):
     '''parse the vtt file and return the transcript'''
     # segments = []
     text = ""
+    current_time = None
     segment_begin_time = None
     segment_finish_time = None
     segment_count = 0
