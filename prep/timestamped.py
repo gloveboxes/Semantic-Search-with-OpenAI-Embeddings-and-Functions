@@ -12,7 +12,8 @@ import re
 
 
 segments = []
-SEGMENT_MIN_LENGTH = 5
+SEGMENT_MIN_LENGTH = 10
+PERCENTAGE_OVERLAP = 0.05
 
 
 def parse_vtt_transcript(vtt, segment):
@@ -23,6 +24,17 @@ def parse_vtt_transcript(vtt, segment):
     segment_begin_time = None
     segment_finish_time = None
     segment_count = 0
+
+    # add the speaker name to the transcript
+    if 'speaker' in meta:
+        text = "The speaker's name is " + meta['speaker'] + "."
+    # add the title to the transcript
+    if 'title' in meta:
+        text += meta['title'] + "."
+
+    # add the description to the transcript
+    if 'description' in meta:
+        text += meta['description'] + "."
 
     # open the vtt file
     with open(vtt, 'r', encoding='utf-8') as f:
@@ -74,11 +86,11 @@ def parse_vtt_transcript(vtt, segment):
             else:
                 # add 15% of the text to the previous segment
                 if segment_count > 0:
-                    # add 15% of the text to the previous segment
+                    # add % of the text to the previous segment
                     words = text.split(' ')
                     word_count = len(words)
                     if word_count > 0:
-                        append_text = ' '.join(words[0: int(word_count * 0.15)])
+                        append_text = ' '.join(words[0: int(word_count * PERCENTAGE_OVERLAP)])
                         segments[-1]['text'] += append_text
 
                 segment_count += 1

@@ -33,9 +33,11 @@ df_sessions['ada_v2'] = df_sessions['ada_v2'].apply(lambda x: eval(x))
 
 class Session(BaseModel):
     videoId: str
-    description: str
-    title: str
+    start: str
     speaker: str
+    title: str
+    description: str
+    text: str
     similarities: float
 
 # https://fastapi.tiangolo.com/tutorial/response-model/#__tabbed_1_3 Compatible with Python 3.6+
@@ -56,7 +58,7 @@ async def create_upload_file(query: str, top_n: int = 6) -> List[Session]:
 
     res = (
         df_sessions.sort_values("similarities", ascending=False)
-        .drop_duplicates("title")
+        # .drop_duplicates("videoId")
         .head(top_n)
         .drop(columns=["ada_v2"])
         .drop(columns=["n_tokens"])
