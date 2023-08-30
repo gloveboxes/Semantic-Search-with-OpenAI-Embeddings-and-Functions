@@ -19,9 +19,11 @@ sessions = []
 
 def get_transcript(meta):
     '''get the transcript from the .vtt file'''
-    vtt = './transcripts/' + meta['videoId'] + '.vtt'
+    vtt = './prep/transcripts/' + meta['videoId'] + '.vtt'
 
     text = ""
+
+    meta['start'] = "00:00:00"
 
     # add the speaker name to the transcript
     if 'speaker' in meta:
@@ -86,7 +88,7 @@ for file in glob.glob("./transcripts/*.json"):
 
 # # write the sessions to a csv file
 with open('master.csv', 'w', newline='', encoding='utf-8') as csvfile:
-    fieldnames = ['videoId', 'title', 'description', 'speaker', 'text']
+    fieldnames = ['videoId', 'start', 'title', 'description', 'speaker', 'text']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
 
