@@ -33,7 +33,7 @@ class Session(BaseModel):
     speaker: str
     title: str
     description: str
-    text: str
+    # text: str
     summary: str
     similarities: float
 
@@ -72,6 +72,7 @@ async def create_upload_file(query: str, top_n: int = 6, dedup: bool = True) -> 
         res.head(top_n)
         .drop(columns=["ada_v2"])
         .drop(columns=["n_tokens"])
+        .drop(columns=["text"])
         .fillna("")
     ).to_dict('records')
 
