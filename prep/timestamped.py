@@ -12,12 +12,31 @@ import re
 
 
 segments = []
-SEGMENT_MIN_LENGTH = 10
+SEGMENT_MIN_LENGTH = 5
 PERCENTAGE_OVERLAP = 0.05
+
+total_segments = 0
+total_files = 0
+
+def gen_metadata_master(meta):
+    '''generate the metadata master csv file'''
+    text = meta['title'] + " " + meta['description']
+    meta['start'] = '00:00:00'
+
+    text = text.strip()
+
+    if text == "" or text is None:
+        meta['text'] = "No description available."
+    else:
+        # clean the text
+        text = text.replace('\n', '')
+        meta['text'] = text.strip()
+
 
 
 def parse_vtt_transcript(vtt, segment):
     '''parse the vtt file and return the transcript'''
+    global total_segments
     # segments = []
     text = ""
     current_time = None
@@ -94,6 +113,7 @@ def parse_vtt_transcript(vtt, segment):
                         segments[-1]['text'] += append_text
 
                 segment_count += 1
+                total_segments += 1
                 segment['start'] = segment_begin_time.strftime('%H:%M:%S')
                 segment['text'] = text
                 segments.append(segment.copy())
@@ -109,7 +129,8 @@ def parse_vtt_transcript(vtt, segment):
 
 def get_transcript(meta):
     '''get the transcript from the .vtt file'''
-    vtt = './prep/transcripts/' + meta['videoId'] + '.vtt'
+    global total_files
+    vtt = './transcripts/' + meta['videoId'] + '.vtt'
 
     text = ""
 
@@ -128,23 +149,29 @@ def get_transcript(meta):
     if not os.path.exists(vtt):
         print("vtt file does not exist: ", vtt)
         return None
+    else:
+        print("Processing file: ", vtt)
+        total_files += 1
 
     parse_vtt_transcript(vtt, meta)
 
 
-for file in glob.glob("./prep/transcripts/*.json"):
+for file in glob.glob("./transcripts/*.json"):
 
     # load the json file
     meta = json.load(open(file, encoding='utf-8'))
 
     get_transcript(meta)
 
-# gen_overlapping_segments()
 
-# # write the sessions to a csv file
-with open('master.csv', 'w', newline='', encoding='utf-8') as csvfile:
+print("Total files: ", total_files)
+print("Total segments: ", total_segments)
+
+# write the sessions to a csv file
+
+with open('./output/master.csv', 'w', newline='', encoding='utf-8') as csvfile:
     fieldnames = ['videoId', 'title',
-                  'description', 'speaker', 'start', 'text']
+                'description', 'speaker', 'start', 'text']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
 

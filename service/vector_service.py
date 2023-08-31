@@ -23,12 +23,8 @@ openai.api_base = RESOURCE_ENDPOINT
 openai.api_version = "2023-05-15"
 
 
-# load the session data from csv file
-df_sessions = pd.read_csv('../master_embeddings.csv')
-# convert the embedding column from string to list
-df_sessions['ada_v2'] = df_sessions['ada_v2'].apply(lambda x: eval(x))
-
-# {'videoId': 'LK-3YtMIel8', 'description': 'Women make up 31% of...anisation.', 'title': 'Attraction and reten...en in tech', 'speaker': 'Donna Edwards', 'similarities': 0.8331244588766407}
+# load the session data from json file
+df_sessions = pd.read_json('../prep/output/master_embeddings.json')
 
 
 class Session(BaseModel):
@@ -38,6 +34,7 @@ class Session(BaseModel):
     title: str
     description: str
     text: str
+    summary: str
     similarities: float
 
 # https://fastapi.tiangolo.com/tutorial/response-model/#__tabbed_1_3 Compatible with Python 3.6+
@@ -55,14 +52,21 @@ async def create_upload_file(query: str, top_n: int = 6, dedup: bool = True) -> 
 
     df_sessions["similarities"] = df_sessions.ada_v2.apply(
         lambda x: cosine_similarity(x, embedding))
-    
+
+    # df_metadata["similarities"] = df_metadata.ada_v2.apply(
+    #     lambda x: cosine_similarity(x, embedding))
+
+    # df_merged = pd.concat([df_metadata, df_sessions])
+
+    df_merged = df_sessions
+
     if dedup:
         res = (
-            df_sessions.sort_values("similarities", ascending=False)
+            df_merged.sort_values("similarities", ascending=False)
             .drop_duplicates("videoId")
         )
     else:
-        res = df_sessions.sort_values("similarities", ascending=False)
+        res = df_merged.sort_values("similarities", ascending=False)
 
     res = (
         res.head(top_n)

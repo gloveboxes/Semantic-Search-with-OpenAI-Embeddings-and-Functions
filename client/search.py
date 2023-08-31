@@ -18,7 +18,7 @@ def search(query, top_n=20):
     ''' requests get to the search endpoint'''
     endpoint = f"{HOST_ADDRESS}/search"
     result = requests.get(endpoint, timeout=30, params={
-                          "query": query, "top_n": top_n})
+                          "query": query, "top_n": top_n, "dedup": False})
     if result.status_code == 200:
         # convert the json to a list of dictionaries
         dict_list = json.loads(result.text)
@@ -53,8 +53,8 @@ def main():
         [
             sg.Table(
                 values=[],
-                headings=["Title", "Video Id", "Start", "Speaker"],
-                col_widths=[40, 20, 10, 20],
+                headings=["Title", "Video Id", "Start", "Speaker", "Similarity"],
+                col_widths=[30, 20, 10, 20, 10],
                 auto_size_columns=False,
                 justification="left",
                 num_rows=20,
@@ -102,12 +102,12 @@ def main():
 
             result = search(query, 20)
             # convert a list of dictionaries to a list of lists
-            result_list = [[x["title"], x["videoId"], x["start"], x["speaker"]]
+            result_list = [[x["title"], x["videoId"], x["start"], x["speaker"], x["similarities"]]
                            for x in result]
 
             window['-TABLE-'].update(values=result_list)
 
-            description = result[0]["text"]
+            description = result[0]["summary"]
             if description is None:
                 description = ""
 
@@ -125,7 +125,7 @@ def main():
             # get the selected row
             row = values["-TABLE-"][0]
 
-            description = result[row]["text"]
+            description = result[row]["summary"]
             if description is None:
                 description = ""
 
