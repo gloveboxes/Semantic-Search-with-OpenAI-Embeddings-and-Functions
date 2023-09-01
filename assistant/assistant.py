@@ -89,13 +89,25 @@ def report_sessions(function_call, function_arguments):
     top_n = 4 if top_n > 4 else top_n
 
     search_response = requests.get(
-        f"{VECTOR_SEARCH_ENDPOINT}/search?query={function_arguments['query']}&top_n={top_n}", timeout=4)
+        f"{VECTOR_SEARCH_ENDPOINT}/search?query={function_arguments['query']}&top_n={top_n}",
+        timeout=4)
 
     if search_response.ok:
         data = search_response.json()
 
+        response = f"The following sessions were found for {function_arguments['query']}:\n\n"
+        for item in data:
+            start = item['start']
+            hours, minutes, seconds = start.split(':')
+            start_time = int(hours) * 3600 + int(minutes) * 60 + int(seconds)
+            start_time = str(start_time)
+            response += f"- [{item['title']} by {item['speaker']}](https://www.youtube.com/watch?v={item['videoId']}&t={start_time})\n"
+            response += item['summary'] + "\n\n"
+
+        return response, True
+
         messages = []
-        items = []
+        # messages.append({"role": "user", "content": f"what sessions were about {function_arguments['query']}:"})
 
         for item in data:
             # get start from item and convert '00:00:01' to seconds
@@ -104,7 +116,7 @@ def report_sessions(function_call, function_arguments):
             start_time = int(hours) * 3600 + int(minutes) * 60 + int(seconds)
             start_time = str(start_time)
 
-            items.append(
+            messages.append(
                 {"role": "user", "content": f"[{item['title']} by {item['speaker']}](https://www.youtube.com/watch?v={item['videoId']}&t={start_time})"})
 
             # items.append(
@@ -112,9 +124,11 @@ def report_sessions(function_call, function_arguments):
 
         # TODO: This needs reviewing as I don't think 100% correct way to do this and causing performance issues
 
-        messages.append({"role": "assistant", "content": None, "function_call": {
-                        "name": function_call, "arguments": json.dumps(function_arguments)}})
-        messages.append({"role": "function", "name": function_call, "content": json.dumps(items)})
+        messages.append({"role": "system", "content": "Here are some sessions, format as points:"})
+
+        # messages.append({"role": "assistant", "content": None, "function_call": {
+        #                 "name": function_call, "arguments": json.dumps(function_arguments)}})
+        # messages.append({"role": "function", "name": function_call, "content": json.dumps(items)})
 
     # Chat History:
 
@@ -124,13 +138,21 @@ def report_sessions(function_call, function_arguments):
 
         # We call the OpenAI API again, this time providing the assistant with the session details
 
-        response_2 = openai.ChatCompletion.create(
-            messages=messages,
-            functions=[get_session],
-            engine=AZURE_OPENAI_MODEL_DEPLOYMENT_NAME,
-        )
+        try:
 
-        return response_2['choices'][0]['message']['content'], True
+            response_2 = openai.ChatCompletion.create(
+                messages=messages,
+                functions=[get_session],
+                engine=AZURE_OPENAI_MODEL_DEPLOYMENT_NAME,
+                temperature=0.1,
+                max_tokens=1024,
+            )
+
+            return response_2['choices'][0]['message']['content'], True
+
+        except Exception as exception:
+            print(exception)
+            return "return from report sessions", True
 
     return "return from report sessions", True
 
