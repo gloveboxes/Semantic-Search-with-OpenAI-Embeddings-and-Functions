@@ -13,9 +13,16 @@ import openai
 import PySimpleGUI as sg
 import requests
 
-OPENAI_MODEL_NAME = "gpt-3.5-turbo-0613"
 OPENAI_MAX_TOKENS = 64
-WHISPER_API_KEY_NAME = 'Api-Key'
+
+AZURE_OPENAI_MODEL_DEPLOYMENT_NAME = os.environ['AZURE_OPENAI_MODEL_DEPLOYMENT_NAME']
+VECTOR_SEARCH_ENDPOINT = os.environ['VECTOR_SEARCH_ENDPOINT']
+
+
+openai.api_type = "azure"
+openai.api_key = os.environ['AZURE_OPENAI_API_KEY']
+openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT")
+openai.api_version = "2023-07-01-preview"
 
 
 window = None
@@ -118,9 +125,9 @@ def report_sessions(function_call, function_arguments):
         # We call the OpenAI API again, this time providing the assistant with the session details
 
         response_2 = openai.ChatCompletion.create(
-            model=OPENAI_MODEL_NAME,
             messages=messages,
-            functions=[get_session]
+            functions=[get_session],
+            engine=AZURE_OPENAI_MODEL_DEPLOYMENT_NAME,
         )
 
         return response_2['choices'][0]['message']['content'], True
@@ -151,7 +158,8 @@ def get_openai_functions(text, last_assistant_message):
         ],
         functions=openai_functions,
         temperature=0.0,
-        max_tokens=OPENAI_MAX_TOKENS
+        max_tokens=OPENAI_MAX_TOKENS,
+        engine=AZURE_OPENAI_MODEL_DEPLOYMENT_NAME,
     )
 
     # The assistant's response includes a function call. We extract the arguments from this function call
@@ -308,10 +316,5 @@ def main():
 
 
 if __name__ == "__main__":
-
-    OPENAI_API_KEY = os.environ['OPENAI_API_KEY']
-    VECTOR_SEARCH_ENDPOINT = os.environ['VECTOR_SEARCH_ENDPOINT']
-
-    openai.api_key = OPENAI_API_KEY
 
     main()
