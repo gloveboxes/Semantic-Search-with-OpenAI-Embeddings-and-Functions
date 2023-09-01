@@ -39,6 +39,12 @@ class Counter:
 
 counter = Counter()
 
+def print_to_stderr(*a):
+    '''print to stderr'''
+    # Here a is the array holding the objects
+    # passed as the argument of the function
+    print(*a, file=sys.stderr)
+
 
 def chatgpt_summary(text):
     '''generate a summary using chatgpt'''
@@ -72,12 +78,13 @@ def chatgpt_summary(text):
                     if 'content' in response.choices[0]['message']:
                         result = response.choices[0]['message']['content']
                     else:
-                        print("No content key in response")
+                        # print("No content key in response")
+                        print_to_stderr("No content key in response")
                         return text
 
     except openai.error.InvalidRequestError as invalid_request_exception:
-        print(f"Invalid request: {invalid_request_exception}")
-        print("Error with segment: ", text)
+        print_to_stderr(f"Invalid request: {invalid_request_exception}")
+        print_to_stderr(f"Error with segment: {text}")
         # just return the original text
         return text
 
@@ -85,42 +92,37 @@ def chatgpt_summary(text):
     # https://platform.openai.com/docs/guides/error-codes/handling-errors
 
     except openai.error.RateLimitError:
-        # retry_time = rate_limit_exception.retry_after if hasattr(
-        #     rate_limit_exception, 'retry_after') else 20
-        print(
+        print_to_stderr(
             f"Rate limit exceeded. Retrying in {request_retry_time} seconds...")
         time.sleep(request_retry_time)
         return chatgpt_summary(text)
 
     except openai.error.APIError:
-        # retry_time = api_error_exception.retry_after if hasattr(
-        #     api_error_exception, 'retry_after') else 20
-        print(
-            f"API error occurred. Retrying in {request_retry_time} seconds...")
+        print_to_stderr(f"API error occurred. Retrying in {request_retry_time} seconds...")
         time.sleep(request_retry_time)
         return chatgpt_summary(text)
 
     except openai.error.ServiceUnavailableError:
-        print(
+        print_to_stderr(
             f"Service is unavailable. Retrying in {request_retry_time} seconds...")
         time.sleep(request_retry_time)
         return chatgpt_summary(text)
 
     except openai.error.Timeout as timeout_exception:
-        print(
+        print_to_stderr(
             f"Request timed out: {timeout_exception}. Retrying in {request_retry_time} seconds...")
         time.sleep(request_retry_time)
         return chatgpt_summary(text)
 
     except openai.error.OpenAIError as openai_error_exception:
-        print(
+        print_to_stderr(
             f"OpenAI error occurred: {openai_error_exception}. Retrying in {request_retry_time} seconds...")
         time.sleep(request_retry_time)
         return chatgpt_summary(text)
 
     except Exception as general_exception:
-        print(general_exception)
-        print("Error with chunk: ", text)
+        print_to_stderr(general_exception)
+        print_to_stderr("Error with chunk: ", text)
         return text
 
     return result
@@ -134,7 +136,7 @@ def process_queue():
         summary = chatgpt_summary(segment['text'])
 
         counter.increment()
-        print(f"Processed {counter.value} segments")
+        print_to_stderr(f"Processed {counter.value} segments")
 
         # add the summary to the segment dictionary
         segment['summary'] = summary
@@ -148,7 +150,7 @@ reader = csv.DictReader(
 next(reader)  # skip header row
 segments = list(reader)
 
-print("Total segments to be processed: ", len(segments))
+print_to_stderr("Total segments to be processed: ", len(segments))
 
 # add segment list to a queue
 q = queue.Queue()
