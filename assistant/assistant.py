@@ -2,7 +2,7 @@
 '''gui to call the OpenAI Whisper Transcribe Server.'''
 
 # https://github.com/openai/openai-cookbook/blob/main/examples/How_to_call_functions_with_chat_models.ipynb
-
+# https://www.youtube.com/watch?v=yOZ3po-BV1Q
 
 import os
 import json
@@ -85,8 +85,8 @@ def report_more_sessions(function_call, function_arguments):
 def report_sessions(function_call, function_arguments):
     '''This function is called when the assistant is asked for sessions.'''
 
-    top_n = function_arguments.get("top_n", 4)
-    top_n = 4 if top_n > 4 else top_n
+    top_n = function_arguments.get("top_n", 5)
+    top_n = 10 if top_n > 10 else top_n
 
     search_response = requests.get(
         f"{VECTOR_SEARCH_ENDPOINT}/search?query={function_arguments['query']}&top_n={top_n}",
@@ -106,56 +106,6 @@ def report_sessions(function_call, function_arguments):
 
         return response, True
 
-        messages = []
-        # messages.append({"role": "user", "content": f"what sessions were about {function_arguments['query']}:"})
-
-        for item in data:
-            # get start from item and convert '00:00:01' to seconds
-            start = item['start']
-            hours, minutes, seconds = start.split(':')
-            start_time = int(hours) * 3600 + int(minutes) * 60 + int(seconds)
-            start_time = str(start_time)
-
-            messages.append(
-                {"role": "user", "content": f"[{item['title']} by {item['speaker']}](https://www.youtube.com/watch?v={item['videoId']}&t={start_time})"})
-
-            # items.append(
-            #     {"role": "user", "content": f"[{item['title']} by {item['speaker']}](https://www.youtube.com/watch?v={item['videoId']}&t={start_time}) and here is a summary: {item['summary']}"})
-
-        # TODO: This needs reviewing as I don't think 100% correct way to do this and causing performance issues
-
-        messages.append({"role": "system", "content": "Here are some sessions, format as points:"})
-
-        # messages.append({"role": "assistant", "content": None, "function_call": {
-        #                 "name": function_call, "arguments": json.dumps(function_arguments)}})
-        # messages.append({"role": "function", "name": function_call, "content": json.dumps(items)})
-
-    # Chat History:
-
-    # <|im_start|>user
-    # what sessions were on vscode
-    # <|im_end|>
-
-        # We call the OpenAI API again, this time providing the assistant with the session details
-
-        try:
-
-            response_2 = openai.ChatCompletion.create(
-                messages=messages,
-                functions=[get_session],
-                engine=AZURE_OPENAI_MODEL_DEPLOYMENT_NAME,
-                temperature=0.1,
-                max_tokens=1024,
-            )
-
-            return response_2['choices'][0]['message']['content'], True
-
-        except Exception as exception:
-            print(exception)
-            return "return from report sessions", True
-
-    return "return from report sessions", True
-
 
 # these maps are used to make the function name string to the function call
 function_map = {"get_session": report_sessions, "get_more_sessions": report_more_sessions}
@@ -172,9 +122,7 @@ def get_openai_functions(text, last_assistant_message):
         model="gpt-3.5-turbo-0613",
         messages=[
             {"role": "system", "content": "You are a system assistant who helps the conference attendees in finding content from past events. Be brief in your answers."},
-            {"role": "system", "content": "Answer ONLY with the facts listed in the list of sessions below. If there isn't enough information below, say you don't know. Do not generate answers that don't use the sources below."},
-            {"role": "system", "content": "Each source is in the format of a markdown link with the title of the talk and the speaker's name."},
-            {"role": "system", "content": "ALWAYS reference source for each fact you use in the response. List each source separately."},
+            {"role": "system", "content": "If there isn't enough information below, say you don't know."},
             {"role": "assistant", "content": last_assistant_message},
             {"role": "user", "content": text},
         ],
@@ -286,14 +234,12 @@ def main():
     '''Main function'''
     global window
 
-    button_font = ("Arial", 14)
+    button_font = ("Arial", 18)
 
     user_frame = [
         [
-            sg.Button("Send", font=button_font, size=(
-                28, 1), key="-SEND-", enable_events=True),
-            sg.Input(font=button_font, size=(28, 1),
-                     justification="left", expand_x=True, key="-QUERY-"),
+            sg.Button("Send", font=button_font, size=(28, 1), key="-SEND-", enable_events=True),
+            sg.Input(font=button_font, size=(28, 1), justification="left", expand_x=True, key="-QUERY-")
         ]
     ]
 
