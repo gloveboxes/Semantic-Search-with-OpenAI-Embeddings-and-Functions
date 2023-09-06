@@ -18,6 +18,12 @@ total_segments = 0
 total_files = 0
 
 
+def print_to_stderr(*a):
+    '''print to stderr'''
+    # Here a is the array holding the objects
+    # passed as the argument of the function
+    print(*a, file=sys.stderr)
+
 def gen_metadata_master(meta):
     '''generate the metadata master csv file'''
     text = meta['title'] + " " + meta['description']
@@ -148,10 +154,10 @@ def get_transcript(meta):
 
     # check that the .vtt file exists
     if not os.path.exists(vtt):
-        print("vtt file does not exist: ", vtt)
+        print_to_stderr("vtt file does not exist: ", vtt)
         return None
     else:
-        print("Processing file: ", vtt)
+        print_to_stderr("Processing file: ", vtt)
         total_files += 1
 
     parse_vtt_transcript(vtt, meta)
@@ -165,8 +171,8 @@ for file in glob.glob("./transcripts/*.json"):
     get_transcript(meta)
 
 
-print("Total files: ", total_files)
-print("Total segments: ", total_segments)
+print_to_stderr("Total files: ", total_files)
+print_to_stderr("Total segments: ", total_segments)
 
 # save segments to a json file
 with open('./output/master_transcriptions.json', 'w', encoding='utf-8') as f:
