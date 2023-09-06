@@ -2,6 +2,7 @@
 import os
 import sys
 import json
+import time
 import threading
 import queue
 import googleapiclient.discovery
@@ -9,17 +10,19 @@ import googleapiclient.errors
 from youtube_transcript_api import YouTubeTranscriptApi
 from youtube_transcript_api.formatters import WebVTTFormatter
 
-playlist_id = "PLlrxD0HtieHi0mwteKBOfEeOYf0LJU4O1"
+PLAYLIST_ID = "PLlrxD0HtieHi0mwteKBOfEeOYf0LJU4O1"
 OUTPUT_FOLDER = './the_ai_show_transcripts/'
-max_results = 50
 
 # Initialize the Google developer API client
 GOOGLE_DEVELOPER_API_KEY = os.environ['GOOGLE_DEVELOPER_API_KEY']
-api_service_name = "youtube"
-api_version = "v3"
+API_SERVICE_NAME = "youtube"
+API_VERSION = "v3"
+
+videos = []
+MAX_RESULTS = 50
+PROCESSING_THREADS = 40
 
 formatter = WebVTTFormatter()
-videos = []
 q = queue.Queue()
 
 
@@ -50,9 +53,9 @@ def print_to_stderr(*a):
 def gen_metadata(playlist_item):
     '''Generate metadata for a video'''
 
-    videoId = playlist_item['snippet']['resourceId']['videoId']
+    video_id = playlist_item['snippet']['resourceId']['videoId']
+    filename = os.path.join(OUTPUT_FOLDER, video_id + '.json')
 
-    filename = os.path.join(OUTPUT_FOLDER, videoId + '.json')
     metadata = {}
     metadata['speaker'] = ''
     metadata['title'] = playlist_item['snippet']['title']
@@ -75,15 +78,17 @@ def get_transcript(playlist_item, counter_id):
         return False
 
     try:
+
         transcript = YouTubeTranscriptApi.get_transcript(video_id)
-        print_to_stderr(f"Transcription download completed: {counter_id}, {video_id}")
+        print_to_stderr(
+            f"Transcription download completed: {counter_id}, {video_id}")
+        # save the transcript as a .vtt file
+        with open(filename, 'w', encoding='utf-8') as file:
+            file.write(formatter.format_transcript(transcript))
+
     except Exception:
         print_to_stderr("Transcription not found for video: " + video_id)
         return False
-
-    # save the transcript as a .vtt file
-    with open(filename, 'w', encoding='utf-8') as file:
-        file.write(formatter.format_transcript(transcript))
 
     return True
 
@@ -105,13 +110,13 @@ def process_queue():
 print_to_stderr("Starting transcript download")
 
 youtube = googleapiclient.discovery.build(
-    api_service_name, api_version, developerKey=GOOGLE_DEVELOPER_API_KEY)
+    API_SERVICE_NAME, API_VERSION, developerKey=GOOGLE_DEVELOPER_API_KEY)
 
 # Create a request object with the playlist ID and the max results
 request = youtube.playlistItems().list(
     part="snippet",
-    playlistId=playlist_id,
-    maxResults=max_results
+    playlistId=PLAYLIST_ID,
+    maxResults=MAX_RESULTS
 )
 
 # Loop through the pages of results until there is no next page token
@@ -128,18 +133,19 @@ while request is not None:
     if next_page_token is not None:
         request = youtube.playlistItems().list(
             part="snippet",
-            playlistId=playlist_id,
-            maxResults=max_results,
+            playlistId=PLAYLIST_ID,
+            maxResults=MAX_RESULTS,
             pageToken=next_page_token
         )
     else:
         request = None
 
-print_to_stderr("Total videos to be processed: ", q.qsize())
+print_to_stderr("Total transcriptions to be download: ", q.qsize())
+start_time = time.time()
 
 # create multiple threads to process the queue
 threads = []
-for i in range(30):
+for i in range(PROCESSING_THREADS):
     t = threading.Thread(target=process_queue)
     t.start()
     threads.append(t)
@@ -148,8 +154,5 @@ for i in range(30):
 for t in threads:
     t.join()
 
-print_to_stderr("Finished processing all videos")
-
-# for video in videos:
-#     if get_transcript(video):
-#         gen_metadata(video)
+finish_time = time.time()
+print_to_stderr("Total time taken: ", finish_time - start_time)
