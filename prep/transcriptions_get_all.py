@@ -11,15 +11,14 @@ import googleapiclient.errors
 from youtube_transcript_api import YouTubeTranscriptApi
 from youtube_transcript_api.formatters import WebVTTFormatter
 
+GOOGLE_DEVELOPER_API_KEY = os.environ['GOOGLE_DEVELOPER_API_KEY']
 PLAYLIST_ID = "PLlrxD0HtieHi0mwteKBOfEeOYf0LJU4O1"
 OUTPUT_FOLDER = './the_ai_show_transcripts/'
 
 # Initialize the Google developer API client
-GOOGLE_DEVELOPER_API_KEY = os.environ['GOOGLE_DEVELOPER_API_KEY']
-API_SERVICE_NAME = "youtube"
-API_VERSION = "v3"
+GOOGLE_API_SERVICE_NAME = "youtube"
+GOOGLE_API_VERSION = "v3"
 
-videos = []
 MAX_RESULTS = 50
 PROCESSING_THREADS = 40
 
@@ -111,7 +110,7 @@ def process_queue():
 print_to_stderr("Starting transcript download")
 
 youtube = googleapiclient.discovery.build(
-    API_SERVICE_NAME, API_VERSION, developerKey=GOOGLE_DEVELOPER_API_KEY)
+    GOOGLE_API_SERVICE_NAME, GOOGLE_API_VERSION, developerKey=GOOGLE_DEVELOPER_API_KEY)
 
 # Create a request object with the playlist ID and the max results
 request = youtube.playlistItems().list(
