@@ -24,8 +24,6 @@ output_segments = []
 csv_fieldnames = ['videoId', 'title',
                   'description', 'speaker', 'start', 'text', 'summary']
 
-# create a thread safe counter
-
 
 class Counter:
     '''thread safe counter'''
@@ -147,6 +145,8 @@ def process_queue():
         output_segments.append(segment.copy())
         q.task_done()
         time.sleep(0.2)
+
+print_to_stderr("Starting OpenAI summarization")
 
 # load the segments from a json file
 with open('./output/master_transcriptions.json', 'r', encoding='utf-8') as f:

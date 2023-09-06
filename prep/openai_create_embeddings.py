@@ -22,7 +22,7 @@ def print_to_stderr(*a):
     # passed as the argument of the function
     print(*a, file=sys.stderr)
 
-# load df from a json file
+print_to_stderr("Starting OpenAI Embeddings")
 
 # example: df = pd.read_csv("./data/bill_sum_data.csv")df
 df = pd.read_json("./output/master_summarized.json")
