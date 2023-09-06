@@ -14,6 +14,7 @@ import sys
 segments = []
 SEGMENT_MIN_LENGTH = 5
 PERCENTAGE_OVERLAP = 0.05
+INPUT_FOLDER = './the_ai_show_transcripts/'
 
 total_segments = 0
 total_files = 0
@@ -138,7 +139,7 @@ def parse_vtt_transcript(vtt, segment):
 def get_transcript(meta):
     '''get the transcript from the .vtt file'''
     global total_files
-    vtt = './transcripts/' + meta['videoId'] + '.vtt'
+    vtt = INPUT_FOLDER + meta['videoId'] + '.vtt'
 
     text = ""
 
@@ -164,7 +165,7 @@ def get_transcript(meta):
     parse_vtt_transcript(vtt, meta)
 
 
-for file in glob.glob("./transcripts/*.json"):
+for file in glob.glob(f"{INPUT_FOLDER}*.json"):
 
     # load the json file
     meta = json.load(open(file, encoding='utf-8'))

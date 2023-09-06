@@ -13,7 +13,7 @@ from youtube_transcript_api.formatters import WebVTTFormatter
 
 GOOGLE_DEVELOPER_API_KEY = os.environ['GOOGLE_DEVELOPER_API_KEY']
 PLAYLIST_ID = "PLlrxD0HtieHi0mwteKBOfEeOYf0LJU4O1"
-OUTPUT_FOLDER = './the_ai_show_transcripts/'
+OUTPUT_FOLDER = './the_ai_show_transcripts'
 
 # Initialize the Google developer API client
 GOOGLE_API_SERVICE_NAME = "youtube"
@@ -80,6 +80,10 @@ def get_transcript(playlist_item, counter_id):
     try:
 
         transcript = YouTubeTranscriptApi.get_transcript(video_id)
+        # remove \n from the text
+        for item in transcript:
+            item['text'] = item['text'].replace('\n', ' ')
+
         print_to_stderr(
             f"Transcription download completed: {counter_id}, {video_id}")
         # save the transcript as a .vtt file
