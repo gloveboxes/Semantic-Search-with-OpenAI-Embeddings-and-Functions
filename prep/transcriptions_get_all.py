@@ -99,7 +99,6 @@ def process_queue():
         video = q.get()
 
         counter.increment()
-        # print_to_stderr(f"Processed {counter.value} videos")
 
         if get_transcript(video, counter.value):
             gen_metadata(video)
