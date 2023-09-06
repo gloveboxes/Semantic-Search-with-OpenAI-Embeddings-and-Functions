@@ -1,3 +1,5 @@
+''' This script downloads the transcripts for all the videos in a YouTube playlist. '''
+
 # Import the modules
 import os
 import sys
