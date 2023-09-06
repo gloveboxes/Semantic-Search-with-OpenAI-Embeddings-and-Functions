@@ -123,7 +123,7 @@ def parse_vtt_transcript(vtt, segment):
                 segment_begin_time = None
                 segment_finish_time = None
 
-    # add the last text segment segments dictionary
+    # Append the last text segment to the last segment in segments dictionary
     if segment_begin_time is not None and text != "":
         segments[-1]['text'] += text
 
