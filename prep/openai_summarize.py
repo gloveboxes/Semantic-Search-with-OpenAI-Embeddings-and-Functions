@@ -5,7 +5,6 @@ import json
 import sys
 import os
 import queue
-import csv
 import threading
 import time
 import openai
@@ -29,11 +28,14 @@ csv_fieldnames = ['videoId', 'title',
 
 
 class Counter:
+    '''thread safe counter'''
     def __init__(self):
+        '''initialize the counter'''
         self.value = 0
         self.lock = threading.Lock()
 
     def increment(self):
+        '''increment the counter'''
         with self.lock:
             self.value += 1
 
@@ -146,11 +148,9 @@ def process_queue():
         q.task_done()
         time.sleep(0.2)
 
-
-reader = csv.DictReader(
-    sys.stdin, fieldnames=csv_fieldnames, skipinitialspace=True)
-next(reader)  # skip header row
-segments = list(reader)
+# load the segments from a json file
+with open('./output/master_transcriptions.json', 'r', encoding='utf-8') as f:
+    segments = json.load(f)
 
 print_to_stderr("Total segments to be processed: ", len(segments))
 
@@ -189,10 +189,3 @@ print_to_stderr("Total segments processed: ", len(output_segments))
 # save the output segments to a json file
 with open('./output/master_summarized.json', 'w', encoding='utf-8') as f:
     json.dump(output_segments, f, ensure_ascii=False, indent=4)
-
-# # write the sessions to a csv file
-# with open('./output/master_summarized.csv', 'w', newline='', encoding='utf-8') as csvfile:
-#     writer = csv.DictWriter(csvfile, fieldnames=csv_fieldnames)
-#     writer.writeheader()
-#     for segment in output_segments:
-#         writer.writerow(segment)
