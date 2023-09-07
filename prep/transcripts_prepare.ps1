@@ -9,6 +9,9 @@ $env:TRANSCRIPT_FOLDER = "the_ai_show_transcripts"
 # echo the TRANSCRIPT_FOLDER environment variable
 Write-Output $env:TRANSCRIPT_FOLDER
 
+# make directory for the transcripts
+New-Item -ItemType Directory -Force -Path $env:TRANSCRIPT_FOLDER
+
 python3 transcriptions_get_all.py -f $env:TRANSCRIPT_FOLDER
 python3 transcription_speaker_info.py -f $env:TRANSCRIPT_FOLDER
 python3 transcriptions_bucket.py -f $env:TRANSCRIPT_FOLDER
