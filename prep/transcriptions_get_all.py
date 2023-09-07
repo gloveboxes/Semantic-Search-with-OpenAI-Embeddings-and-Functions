@@ -5,6 +5,7 @@ import sys
 import json
 import time
 import threading
+import argparse
 import queue
 import googleapiclient.discovery
 import googleapiclient.errors
@@ -13,7 +14,7 @@ from youtube_transcript_api.formatters import WebVTTFormatter
 
 GOOGLE_DEVELOPER_API_KEY = os.environ['GOOGLE_DEVELOPER_API_KEY']
 PLAYLIST_ID = "PLlrxD0HtieHi0mwteKBOfEeOYf0LJU4O1"
-OUTPUT_FOLDER = './the_ai_show_transcripts'
+TRANSCRIPT_FOLDER = 'transcripts'
 
 # Initialize the Google developer API client
 GOOGLE_API_SERVICE_NAME = "youtube"
@@ -24,6 +25,11 @@ PROCESSING_THREADS = 40
 
 formatter = WebVTTFormatter()
 q = queue.Queue()
+
+parser = argparse.ArgumentParser()
+parser.add_argument("-f", "--folder")
+args = parser.parse_args()
+TRANSCRIPT_FOLDER = args.folder if args.folder else TRANSCRIPT_FOLDER
 
 
 class Counter:
@@ -54,7 +60,7 @@ def gen_metadata(playlist_item):
     '''Generate metadata for a video'''
 
     video_id = playlist_item['snippet']['resourceId']['videoId']
-    filename = os.path.join(OUTPUT_FOLDER, video_id + '.json')
+    filename = os.path.join(TRANSCRIPT_FOLDER, video_id + '.json')
 
     metadata = {}
     metadata['speaker'] = ''
@@ -70,7 +76,7 @@ def get_transcript(playlist_item, counter_id):
     '''Get the transcript for a video'''
 
     video_id = playlist_item['snippet']['resourceId']['videoId']
-    filename = os.path.join(OUTPUT_FOLDER, video_id + '.vtt')
+    filename = os.path.join(TRANSCRIPT_FOLDER, video_id + '.vtt')
 
     # if video transcript already exists, skip it
     if os.path.exists(filename):
@@ -110,6 +116,7 @@ def process_queue():
         q.task_done()
 
 
+print_to_stderr(f"Transcription folder {TRANSCRIPT_FOLDER}")
 print_to_stderr("Starting transcript download")
 
 youtube = googleapiclient.discovery.build(

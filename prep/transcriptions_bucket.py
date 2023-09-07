@@ -9,15 +9,22 @@ import os
 import json
 import re
 import sys
+import argparse
 
 
 segments = []
 SEGMENT_MIN_LENGTH = 5
 PERCENTAGE_OVERLAP = 0.05
-INPUT_FOLDER = './the_ai_show_transcripts/'
+TRANSCRIPT_FOLDER = 'transcripts'
 
 total_segments = 0
 total_files = 0
+
+parser = argparse.ArgumentParser()
+parser.add_argument("-f", "--folder")
+args = parser.parse_args()
+
+TRANSCRIPT_FOLDER = args.folder if args.folder else TRANSCRIPT_FOLDER
 
 
 def print_to_stderr(*a):
@@ -25,6 +32,7 @@ def print_to_stderr(*a):
     # Here a is the array holding the objects
     # passed as the argument of the function
     print(*a, file=sys.stderr)
+
 
 def gen_metadata_master(meta):
     '''generate the metadata master csv file'''
@@ -139,7 +147,7 @@ def parse_vtt_transcript(vtt, segment):
 def get_transcript(meta):
     '''get the transcript from the .vtt file'''
     global total_files
-    vtt = INPUT_FOLDER + meta['videoId'] + '.vtt'
+    vtt = os.path.join(TRANSCRIPT_FOLDER, meta['videoId'] + '.vtt')
 
     text = ""
 
@@ -165,7 +173,10 @@ def get_transcript(meta):
     parse_vtt_transcript(vtt, meta)
 
 
-for file in glob.glob(f"{INPUT_FOLDER}*.json"):
+print_to_stderr(f"Transcription folder {TRANSCRIPT_FOLDER}")
+folder = os.path.join(TRANSCRIPT_FOLDER, '*.json')
+
+for file in glob.glob(folder):
 
     # load the json file
     meta = json.load(open(file, encoding='utf-8'))
