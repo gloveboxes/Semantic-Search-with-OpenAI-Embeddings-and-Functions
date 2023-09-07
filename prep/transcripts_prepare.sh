@@ -7,6 +7,8 @@
 
 export TRANSCRIPT_FOLDER=the_ai_show_transcripts
 
+mkdir -p $TRANSCRIPT_FOLDER
+
 python3 transcriptions_get_all.py -f $TRANSCRIPT_FOLDER
 python3 transcription_speaker_info.py -f $TRANSCRIPT_FOLDER
 python3 transcriptions_bucket.py -f $TRANSCRIPT_FOLDER
