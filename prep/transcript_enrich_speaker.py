@@ -1,4 +1,4 @@
-''' This script will take a text column and create embeddings for each text using the OpenAI API.'''
+''' This script will get the speaker name from the YouTube video metadata and the first minute of the transcript using the OpenAI Functions entity extraction.'''
 
 import sys
 import json
