@@ -187,5 +187,5 @@ output_segments.sort(key=lambda x: (x['videoId'], convert_time_to_seconds(x['sta
 print_to_stderr("Total segments processed: ", len(output_segments))
 
 # save the output segments to a json file
-with open('./output/master_summarized.json', 'w', encoding='utf-8') as f:
+with open('./output/master_enriched.json', 'w', encoding='utf-8') as f:
     json.dump(output_segments, f, ensure_ascii=False, indent=4)

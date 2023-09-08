@@ -76,7 +76,7 @@ def get_transcript(playlist_item, counter_id):
     '''Get the transcript for a video'''
 
     video_id = playlist_item['snippet']['resourceId']['videoId']
-    filename = os.path.join(TRANSCRIPT_FOLDER, video_id + '.vtt')
+    filename = os.path.join(TRANSCRIPT_FOLDER, video_id + '.json.vtt')
 
     # if video transcript already exists, skip it
     if os.path.exists(filename):
@@ -94,9 +94,11 @@ def get_transcript(playlist_item, counter_id):
             f"Transcription download completed: {counter_id}, {video_id}")
         # save the transcript as a .vtt file
         with open(filename, 'w', encoding='utf-8') as file:
-            file.write(formatter.format_transcript(transcript))
+            json.dump(transcript, file, indent=4, ensure_ascii=False)
+            # file.write(transcript)
 
-    except Exception:
+    except Exception as e:
+        print_to_stderr(e)
         print_to_stderr("Transcription not found for video: " + video_id)
         return False
 

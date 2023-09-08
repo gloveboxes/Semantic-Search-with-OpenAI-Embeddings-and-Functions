@@ -70,6 +70,9 @@ def parse_vtt_transcript(vtt, segment):
     if 'description' in meta:
         text += meta['description'] + "."
 
+    text = text.replace('\n', '')
+    text = text.replace('&#39;', "'")
+
     # open the vtt file
     with open(vtt, 'r', encoding='utf-8') as f:
         # read the file line by line
@@ -117,7 +120,7 @@ def parse_vtt_transcript(vtt, segment):
 
             if current_time < segment_finish_time:
                 # add the text to the transcript
-                text += line
+                text += line + " "
             else:
                 # add 15% of the text to the previous segment
                 if segment_count > 0:

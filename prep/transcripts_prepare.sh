@@ -5,12 +5,12 @@
 # Next it will call OpenAI ChatGPT to summarize each 5 minute segment
 # Finally, it will create embeddings for each 5 minute segment
 
-export TRANSCRIPT_FOLDER=the_ai_show_transcripts
+export TRANSCRIPT_FOLDER=transcripts_the_ai_show
 
 mkdir -p $TRANSCRIPT_FOLDER
 
-python3 transcriptions_get_all.py -f $TRANSCRIPT_FOLDER
-python3 transcription_speaker_info.py -f $TRANSCRIPT_FOLDER
-python3 transcriptions_bucket.py -f $TRANSCRIPT_FOLDER
-python3 openai_summarize_transcripts.py
-python3 openai_create_embeddings.py
+python3 transcript_download.py -f $TRANSCRIPT_FOLDER
+python3 transcript_enrich_speaker.py -f $TRANSCRIPT_FOLDER
+python3 transcript_enrich_bucket.py -f $TRANSCRIPT_FOLDER
+python3 transcript_enrich_summaries.py
+python3 transcript_enrich_embeddings.py

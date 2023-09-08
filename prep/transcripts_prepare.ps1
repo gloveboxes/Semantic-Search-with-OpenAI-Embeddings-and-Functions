@@ -4,7 +4,7 @@
 # Finally, it will create embeddings for each 5 minute segment
 
 # set the folder environment variable where the transcripts are located
-$env:TRANSCRIPT_FOLDER = "the_ai_show_transcripts"
+$env:TRANSCRIPT_FOLDER = "transcripts_the_ai_show"
 
 # echo the TRANSCRIPT_FOLDER environment variable
 Write-Output $env:TRANSCRIPT_FOLDER
@@ -12,8 +12,8 @@ Write-Output $env:TRANSCRIPT_FOLDER
 # make directory for the transcripts
 New-Item -ItemType Directory -Force -Path $env:TRANSCRIPT_FOLDER
 
-python3 transcriptions_get_all.py -f $env:TRANSCRIPT_FOLDER
-python3 transcription_speaker_info.py -f $env:TRANSCRIPT_FOLDER
-python3 transcriptions_bucket.py -f $env:TRANSCRIPT_FOLDER
-python3 openai_summarize_transcripts.py
-python3 openai_create_embeddings.py
+python3 transcript_download.py -f $env:TRANSCRIPT_FOLDER
+python3 transcriptions_enrich_speaker.py -f $env:TRANSCRIPT_FOLDER
+python3 transcriptions_enrich_bucket.py -f $env:TRANSCRIPT_FOLDER
+python3 transcriptions_enrich_summaries.py
+python3 transcriptions_enrich_embeddings.py
