@@ -1,9 +1,12 @@
 #!/bin/bash
 
 # This script will process the transcripts
-# First it will bucket up all the transcripts into 5 minute segments
-# Next it will call OpenAI ChatGPT to summarize each 5 minute segment
-# Finally, it will create embeddings for each 5 minute segment
+# 1. Download the transcripts from YouTube
+# 2. Enrich the transcripts with speaker information
+# 3. Enrich the transcripts into 5 minute buckets
+# 4. Enrich the transcripts with with OpenAI ChatGPT summaries
+# 5. Enrich the transcripts with embeddings
+
 
 export TRANSCRIPT_FOLDER=transcripts_the_ai_show
 
