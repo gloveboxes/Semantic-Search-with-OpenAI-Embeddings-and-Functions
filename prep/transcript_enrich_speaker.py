@@ -4,13 +4,11 @@ import sys
 import json
 import os
 import glob
-import re
 import threading
 import queue
 import random
 import time
 import argparse
-from datetime import datetime, timedelta
 import openai
 
 
@@ -18,8 +16,8 @@ API_KEY = os.getenv("AZURE_OPENAI_API_KEY")
 RESOURCE_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT")
 TRANSCRIPT_FOLDER = 'transcripts'
 PROCESSING_THREADS = 5
+SEGMENT_MIN_LENGTH_MINUTES = 2
 
-SEGMENT_MIN_LENGTH = 1
 OPENAI_MAX_TOKENS = 1024
 AZURE_OPENAI_MODEL_DEPLOYMENT_NAME = os.environ['AZURE_OPENAI_MODEL_DEPLOYMENT_NAME']
 
@@ -161,61 +159,40 @@ def print_to_stderr(*a):
     # passed as the argument of the function
     print(*a, file=sys.stderr)
 
+def clean_text(text):
+    '''clean the text'''
+    text = text.replace('\n', '') # remove new lines
+    text = text.replace('&#39;', "'")
+    text = text.replace('>>', '') # remove '>>'
+    text = text.replace('  ', ' ') # remove double spaces
+
+    return text
+
 
 def get_first_segment(file_name):
     '''Gets the first segment from the filename'''
 
     text = ""
-    current_time = None
-    segment_begin_time = None
-    segment_finish_time = None
+    current_seconds = None
+    segment_begin_seconds = None
+    segment_finish_seconds = None
 
-    vtt = file_name.replace('.json', '.vtt')
+    vtt = file_name.replace('.json', '.json.vtt')
 
-    with open(vtt, 'r', encoding='utf-8') as f:
-        # read the file line by line
-        for line in f:
-            # ignore the empty lines
-            if line == '\n':
-                continue
+    with open(vtt, 'r', encoding='utf-8') as json_file:
+        json_vtt = json.load(json_file)
 
-            # ignore line with WEBVTT\n
-            if line == 'WEBVTT\n':
-                continue
+        for segment in json_vtt:
+            current_seconds = segment.get('start')
 
-            # ignore the line with time stamps
-            if re.match(r'^\d', line):
+            if segment_begin_seconds is None:
+                segment_begin_seconds = current_seconds
+                # calculate the finish time from the segment_begin_time
+                segment_finish_seconds = segment_begin_seconds + SEGMENT_MIN_LENGTH_MINUTES * 60
 
-                time_stamps = line.split(' --> ')
-
-                try:
-                    current_time = datetime.strptime(time_stamps[0], "%H:%M:%S.%f")
-                except ValueError:
-                    continue
-
-                if segment_begin_time is None:
-                    # get the time stamps
-                    segment_begin_time = current_time
-                    # calculate the finish time from the segment_begin_time by adding 5 minutes
-                    segment_finish_time = segment_begin_time + timedelta(minutes=SEGMENT_MIN_LENGTH)
-
-                continue
-
-            if current_time is None:
-                continue
-
-            # replace the string Caption: with empty string
-            line = line.replace('Caption:', '')
-
-            # replace new line with empty string
-            line = line.replace('\n', '')
-
-            # replace &#39; with '
-            line = line.replace('&#39;', "'")
-
-            if current_time < segment_finish_time:
+            if current_seconds < segment_finish_seconds:
                 # add the text to the transcript
-                text += line
+                text += clean_text(segment.get('text')) + " "
 
     return text
 

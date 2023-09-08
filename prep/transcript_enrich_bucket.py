@@ -7,13 +7,12 @@ from datetime import datetime, timedelta
 import glob
 import os
 import json
-import re
 import sys
 import argparse
 
 
 segments = []
-SEGMENT_MIN_LENGTH = 5
+SEGMENT_MIN_LENGTH_MINUTES = 5
 PERCENTAGE_OVERLAP = 0.05
 TRANSCRIPT_FOLDER = 'transcripts'
 
@@ -34,136 +33,101 @@ def print_to_stderr(*a):
     print(*a, file=sys.stderr)
 
 
-def gen_metadata_master(meta):
+def gen_metadata_master(metadata):
     '''generate the metadata master csv file'''
-    text = meta['title'] + " " + meta['description']
-    meta['start'] = '00:00:00'
+    text = metadata['title'] + " " + metadata['description']
+    metadata['start'] = '00:00:00'
 
     text = text.strip()
 
     if text == "" or text is None:
-        meta['text'] = "No description available."
+        metadata['text'] = "No description available."
     else:
         # clean the text
         text = text.replace('\n', '')
-        meta['text'] = text.strip()
+        metadata['text'] = text.strip()
 
+def clean_text(text):
+    '''clean the text'''
+    text = text.replace('\n', '') # remove new lines
+    text = text.replace('&#39;', "'")
+    text = text.replace('>>', '') # remove '>>'
+    text = text.replace('  ', ' ') # remove double spaces
 
-def parse_vtt_transcript(vtt, segment):
-    '''parse the vtt file and return the transcript'''
-    global total_segments
-    # segments = []
+    return text
+
+def parse_json_vtt_transcript(vtt, metadata, total_segments):
+    '''parse the json vtt file and return the transcript'''
     text = ""
-    current_time = None
-    segment_begin_time = None
-    segment_finish_time = None
+    current_seconds = None
+    segment_begin_seconds = None
+    segment_finish_seconds = None
     segment_count = 0
 
     # add the speaker name to the transcript
-    if 'speaker' in meta:
-        text = "The speaker's name is " + meta['speaker'] + "."
+    if 'speaker' in metadata and metadata['speaker'] != "":
+        metadata['speaker'] = clean_text(metadata.get('speaker'))
+        text = "The speaker's name is " + metadata['speaker'] + ". "
+
     # add the title to the transcript
-    if 'title' in meta:
-        text += meta['title'] + "."
+    if 'title' in metadata and metadata['title'] != "":
+        metadata['title'] = clean_text(metadata.get('title'))
+        text += metadata.get('title') + ". "
 
     # add the description to the transcript
-    if 'description' in meta:
-        text += meta['description'] + "."
-
-    text = text.replace('\n', '')
-    text = text.replace('&#39;', "'")
+    if 'description' in metadata and metadata['description'] != "":
+        metadata['description'] = clean_text(metadata.get('description'))
+        text += metadata.get('description') + ". "
 
     # open the vtt file
-    with open(vtt, 'r', encoding='utf-8') as f:
-        # read the file line by line
-        for line in f:
-            # ignore the empty lines
-            if line == '\n':
-                continue
+    with open(vtt, 'r', encoding='utf-8') as json_file:
+        json_vtt = json.load(json_file)
 
-            # ignore line with WEBVTT\n
-            if line == 'WEBVTT\n':
-                continue
+        for segment in json_vtt:
+            current_seconds = segment.get('start')
 
-            # ignore the line with time stamps
-            if re.match(r'^\d', line):
+            if segment_begin_seconds is None:
+                segment_begin_seconds = current_seconds
+                # calculate the finish time from the segment_begin_time
+                segment_finish_seconds = segment_begin_seconds + SEGMENT_MIN_LENGTH_MINUTES * 60
 
-                time_stamps = line.split(' --> ')
-
-                try:
-                    current_time = datetime.strptime(
-                        time_stamps[0], "%H:%M:%S.%f")
-                except ValueError:
-                    continue
-
-                if segment_begin_time is None:
-                    # get the time stamps
-
-                    segment_begin_time = current_time
-                    # calculate the finish time from the segment_begin_time by adding 5 minutes
-                    segment_finish_time = segment_begin_time + \
-                        timedelta(minutes=SEGMENT_MIN_LENGTH)
-
-                continue
-
-            if current_time is None:
-                continue
-
-            # replace the string Caption: with empty string
-            line = line.replace('Caption:', '')
-
-            # replace new line with empty string
-            line = line.replace('\n', '')
-
-            # replace &#39; with '
-            line = line.replace('&#39;', "'")
-
-            if current_time < segment_finish_time:
+            if current_seconds < segment_finish_seconds:
                 # add the text to the transcript
-                text += line + " "
+                text += clean_text(segment.get('text')) + " "
             else:
-                # add 15% of the text to the previous segment
                 if segment_count > 0:
-                    # add % of the text to the previous segment
+                    # add PERCENTAGE_OVERLAP of the text of the previous segment
                     words = text.split(' ')
                     word_count = len(words)
                     if word_count > 0:
-                        append_text = ' '.join(
-                            words[0: int(word_count * PERCENTAGE_OVERLAP)])
+                        append_text = ' '.join(words[0: int(word_count * PERCENTAGE_OVERLAP)])
                         segments[-1]['text'] += append_text
 
                 segment_count += 1
                 total_segments += 1
-                segment['start'] = segment_begin_time.strftime('%H:%M:%S')
-                segment['text'] = text
-                segments.append(segment.copy())
+
+                # convert the segment_begin_time float to 00:00:00 formatted string
+                delta = timedelta(seconds=segment_begin_seconds)
+                begin_time = datetime.min + delta
+                metadata['start'] = begin_time.strftime('%H:%M:%S')
+
+                metadata['text'] = text
+                segments.append(metadata.copy())
+
+                text = clean_text(segment.get('text')) + " "
+
                 # reset the segment_begin_time
-                text = line
-                segment_begin_time = None
-                segment_finish_time = None
+                segment_begin_seconds = None
+                segment_finish_seconds = None
 
     # Append the last text segment to the last segment in segments dictionary
-    if segment_begin_time is not None and text != "":
+    if segment_begin_seconds is not None and text != "":
         segments[-1]['text'] += text
 
-
-def get_transcript(meta):
+def get_transcript(metadata, total_segments):
     '''get the transcript from the .vtt file'''
     global total_files
-    vtt = os.path.join(TRANSCRIPT_FOLDER, meta['videoId'] + '.vtt')
-
-    text = ""
-
-    # add the speaker name to the transcript
-    if 'speaker' in meta:
-        text = "The speaker's name is " + meta['speaker'] + "."
-    # add the title to the transcript
-    if 'title' in meta:
-        text += meta['title'] + "."
-
-    # add the description to the transcript
-    if 'description' in meta:
-        text += meta['description'] + "."
+    vtt = os.path.join(TRANSCRIPT_FOLDER, metadata['videoId'] + '.json.vtt')
 
     # check that the .vtt file exists
     if not os.path.exists(vtt):
@@ -173,7 +137,7 @@ def get_transcript(meta):
         print_to_stderr("Processing file: ", vtt)
         total_files += 1
 
-    parse_vtt_transcript(vtt, meta)
+    parse_json_vtt_transcript(vtt, metadata, total_segments)
 
 
 print_to_stderr(f"Transcription folder {TRANSCRIPT_FOLDER}")
@@ -184,7 +148,7 @@ for file in glob.glob(folder):
     # load the json file
     meta = json.load(open(file, encoding='utf-8'))
 
-    get_transcript(meta)
+    get_transcript(meta, total_segments)
 
 
 print_to_stderr("Total files: ", total_files)

@@ -11,6 +11,7 @@ import openai
 
 API_KEY = os.getenv("AZURE_OPENAI_API_KEY")
 RESOURCE_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT")
+AZURE_OPENAI_GPT_DEPLOYMENT_NAME = os.getenv("AZURE_OPENAI_GPT_DEPLOYMENT_NAME")
 
 openai.api_type = "azure"
 openai.api_key = API_KEY
@@ -60,7 +61,7 @@ def chatgpt_summary(text):
                     {"role": "user", "content": text}]
 
         response = openai.ChatCompletion.create(
-            engine="glovebox-chat",
+            engine="AZURE_OPENAI_GPT_DEPLOYMENT_NAME",
             messages=messages,
             temperature=0.4,
             max_tokens=2048,
