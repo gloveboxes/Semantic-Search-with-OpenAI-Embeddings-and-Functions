@@ -27,7 +27,6 @@ Recommend adding the variables to your `user` environment variables.
 ```text
 AZURE_OPENAI_API_KEY  \<your Azure OpenAI Service API key>
 AZURE_OPENAI_ENDPOINT \<your Azure OpenAI Service endpoint>
-VECTOR_SEARCH_ENDPOINT \<your vector search endpoint>
 AZURE_OPENAI_MODEL_DEPLOYMENT_NAME \<your Azure OpenAI Service model deployment name>
 GOOGLE_DEVELOPER_API_KEY = \<your Google developer API key>
 ``````
@@ -37,7 +36,6 @@ GOOGLE_DEVELOPER_API_KEY = \<your Google developer API key>
 ```powershell
 $env:AZURE_OPENAI_API_KEY = "<your Azure OpenAI Service API key>"
 $env:AZURE_OPENAI_ENDPOINT = "<your Azure OpenAI Service endpoint>"
-$env:VECTOR_SEARCH_ENDPOINT = "<your vector search endpoint>"
 $env:AZURE_OPENAI_MODEL_DEPLOYMENT_NAME = "<your Azure OpenAI Service model deployment name>"
 $env:GOOGLE_DEVELOPER_API_KEY = "<your Google developer API key>"
 ``` -->
@@ -49,7 +47,6 @@ Recommend adding the following exports to your `~/.bashrc` or `~/.zshrc` file.
 ```bash
 export AZURE_OPENAI_API_KEY=<your Azure OpenAI Service API key>
 export AZURE_OPENAI_ENDPOINT=<your Azure OpenAI Service endpoint>
-export VECTOR_SEARCH_ENDPOINT=<your vector search endpoint>
 export AZURE_OPENAI_MODEL_DEPLOYMENT_NAME=<your Azure OpenAI Service model deployment name>
 export GOOGLE_DEVELOPER_API_KEY=<your Google developer API key>
 ```
