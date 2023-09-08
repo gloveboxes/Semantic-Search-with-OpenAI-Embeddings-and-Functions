@@ -28,6 +28,7 @@ Recommend adding the variables to your `user` environment variables.
 AZURE_OPENAI_API_KEY  \<your Azure OpenAI Service API key>
 AZURE_OPENAI_ENDPOINT \<your Azure OpenAI Service endpoint>
 AZURE_OPENAI_MODEL_DEPLOYMENT_NAME \<your Azure OpenAI Service model deployment name>
+AZURE_OPENAI_GPT_DEPLOYMENT_NAME \< your Azure OpenAI gpt-35-turbo (or above) model deployment name>
 GOOGLE_DEVELOPER_API_KEY = \<your Google developer API key>
 ``````
 
@@ -37,6 +38,7 @@ GOOGLE_DEVELOPER_API_KEY = \<your Google developer API key>
 $env:AZURE_OPENAI_API_KEY = "<your Azure OpenAI Service API key>"
 $env:AZURE_OPENAI_ENDPOINT = "<your Azure OpenAI Service endpoint>"
 $env:AZURE_OPENAI_MODEL_DEPLOYMENT_NAME = "<your Azure OpenAI Service model deployment name>"
+$env:AZURE_OPENAI_GPT_DEPLOYMENT_NAME \< your Azure OpenAI gpt-35-turbo (or above) model deployment name>
 $env:GOOGLE_DEVELOPER_API_KEY = "<your Google developer API key>"
 ``` -->
 
@@ -48,6 +50,7 @@ Recommend adding the following exports to your `~/.bashrc` or `~/.zshrc` file.
 export AZURE_OPENAI_API_KEY=<your Azure OpenAI Service API key>
 export AZURE_OPENAI_ENDPOINT=<your Azure OpenAI Service endpoint>
 export AZURE_OPENAI_MODEL_DEPLOYMENT_NAME=<your Azure OpenAI Service model deployment name>
+export AZURE_OPENAI_GPT_DEPLOYMENT_NAME \< your Azure OpenAI gpt-35-turbo (or above) model deployment name>
 export GOOGLE_DEVELOPER_API_KEY=<your Google developer API key>
 ```
 
