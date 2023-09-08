@@ -1,0 +1,2477 @@
+WEBVTT
+
+00:00:08.510 --> 00:00:13.950
+Caption: thank you everybody for coming along
+
+00:00:11.340 --> 00:00:15.750
+Caption: this morning to my talk I know it&#39;s
+
+00:00:13.949 --> 00:00:18.059
+Caption: rough the coffee still hasn&#39;t quite
+
+00:00:15.750 --> 00:00:20.819
+Caption: kicked in well the third coffee hasn&#39;t
+
+00:00:18.059 --> 00:00:22.618
+Caption: quite kicked in yet to start off today I
+
+00:00:20.819 --> 00:00:26.129
+Caption: want to give a quick shout out to our
+
+00:00:22.618 --> 00:00:28.559
+Caption: sponsors without sponsors conferences
+
+00:00:26.129 --> 00:00:31.168
+Caption: like DDD couldn&#39;t happen or at least
+
+00:00:28.559 --> 00:00:34.610
+Caption: they wouldn&#39;t be as spectacular as they
+
+00:00:31.169 --> 00:00:37.729
+Caption: are today so thanks to all of our
+
+00:00:34.610 --> 00:00:39.930
+Caption: sponsors both local companies and
+
+00:00:37.729 --> 00:00:43.349
+Caption: interstate for supporting this
+
+00:00:39.930 --> 00:00:46.829
+Caption: conference today I want to talk to you
+
+00:00:43.349 --> 00:00:49.919
+Caption: about CSS green haven&#39;t heard of it is a
+
+00:00:46.828 --> 00:00:52.559
+Caption: spec that came to browsers a few years
+
+00:00:49.919 --> 00:00:55.259
+Caption: ago and has revolutionized the way we
+
+00:00:52.560 --> 00:00:58.280
+Caption: build layouts on the web to start off
+
+00:00:55.259 --> 00:01:01.828
+Caption: today I want to tell you a little story
+
+00:00:58.279 --> 00:01:06.048
+Caption: in the beginning there was darkness and
+
+00:01:01.828 --> 00:01:10.078
+Caption: emptiness and then Tim berners-lee said
+
+00:01:06.049 --> 00:01:12.539
+Caption: let there be Internet the internet was
+
+00:01:10.079 --> 00:01:14.939
+Caption: much simpler in those times was just
+
+00:01:12.539 --> 00:01:16.700
+Caption: HTML content on a page similar to how
+
+00:01:14.939 --> 00:01:19.319
+Caption: you would see in a Word document
+
+00:01:16.699 --> 00:01:21.419
+Caption: but pretty soon everybody got sick of
+
+00:01:19.319 --> 00:01:24.809
+Caption: looking at times new roman&#39; and so Tim
+
+00:01:21.419 --> 00:01:27.599
+Caption: said let the fonts colors and sizes and
+
+00:01:24.809 --> 00:01:32.429
+Caption: positions be changeable and then there
+
+00:01:27.599 --> 00:01:34.469
+Caption: was CSS but before too long this wasn&#39;t
+
+00:01:32.429 --> 00:01:37.169
+Caption: good enough either I mean he can&#39;t keep
+
+00:01:34.469 --> 00:01:40.169
+Caption: us developers happy we wanted to do more
+
+00:01:37.169 --> 00:01:43.649
+Caption: I was great because then we discovered
+
+00:01:40.169 --> 00:01:46.438
+Caption: that you could use tables for creating
+
+00:01:43.649 --> 00:01:47.729
+Caption: layouts you could break your page up
+
+00:01:46.439 --> 00:01:49.590
+Caption: into a grid
+
+00:01:47.728 --> 00:01:52.048
+Caption: you could put tables inside the tables
+
+00:01:49.589 --> 00:01:54.118
+Caption: and merge cells together we finally had
+
+00:01:52.049 --> 00:01:57.958
+Caption: better control over how our content was
+
+00:01:54.119 --> 00:01:59.520
+Caption: being laid out on the page but before
+
+00:01:57.958 --> 00:02:02.449
+Caption: too long we worked out
+
+00:01:59.519 --> 00:02:06.019
+Caption: although tables inside tables is okay
+
+00:02:02.449 --> 00:02:10.470
+Caption: tables inside tables inside tables
+
+00:02:06.019 --> 00:02:13.539
+Caption: inside tables inside tables was not so
+
+00:02:10.470 --> 00:02:16.208
+Caption: much fun to work with it&#39;s
+
+00:02:13.539 --> 00:02:18.279
+Caption: getting really complex and it also made
+
+00:02:16.208 --> 00:02:20.408
+Caption: it more difficult when we started trying
+
+00:02:18.279 --> 00:02:22.869
+Caption: to make our websites work on different
+
+00:02:20.408 --> 00:02:24.878
+Caption: device sizes which meant we often had to
+
+00:02:22.869 --> 00:02:30.458
+Caption: build a completely different website for
+
+00:02:24.878 --> 00:02:32.229
+Caption: mobile so we started using floats this
+
+00:02:30.458 --> 00:02:33.720
+Caption: was kind of good because it meant we
+
+00:02:32.229 --> 00:02:37.628
+Caption: were back to following the separation
+
+00:02:33.720 --> 00:02:40.298
+Caption: sans principles which says that hTML is
+
+00:02:37.628 --> 00:02:46.358
+Caption: for our content and CSS is for how that
+
+00:02:40.298 --> 00:02:50.018
+Caption: content looks and fields but before too
+
+00:02:46.358 --> 00:02:54.128
+Caption: long we also found that floats weren&#39;t
+
+00:02:50.018 --> 00:02:57.188
+Caption: working too well either you had to clear
+
+00:02:54.128 --> 00:02:59.078
+Caption: fix everything there were a bunch more
+
+00:02:57.188 --> 00:03:02.649
+Caption: container divs to keep floating elements
+
+00:02:59.078 --> 00:03:04.988
+Caption: together or apart when using media
+
+00:03:02.649 --> 00:03:08.289
+Caption: queries you often had to reset things or
+
+00:03:04.988 --> 00:03:11.168
+Caption: do complex calculations and you had to
+
+00:03:08.289 --> 00:03:13.869
+Caption: use a lot of important which I know some
+
+00:03:11.169 --> 00:03:18.040
+Caption: of you think is the answer and it makes
+
+00:03:13.869 --> 00:03:20.138
+Caption: front-end developers cry so by the time
+
+00:03:18.039 --> 00:03:22.779
+Caption: we&#39;d memorized how many percent wide
+
+00:03:20.139 --> 00:03:25.959
+Caption: each column needed to be in the six
+
+00:03:22.779 --> 00:03:28.149
+Caption: column grid with a 1% margin we were
+
+00:03:25.958 --> 00:03:30.638
+Caption: pretty excited to have flexbox come
+
+00:03:28.149 --> 00:03:33.009
+Caption: along we didn&#39;t have to do percentage
+
+00:03:30.639 --> 00:03:36.159
+Caption: math anymore it reduced the number of
+
+00:03:33.009 --> 00:03:38.888
+Caption: media queries we needed and we were able
+
+00:03:36.158 --> 00:03:41.018
+Caption: to easily vertically sent a content
+
+00:03:38.889 --> 00:03:45.040
+Caption: which is something we hadn&#39;t been able
+
+00:03:41.018 --> 00:03:47.018
+Caption: to do since tables we were finally
+
+00:03:45.039 --> 00:03:49.929
+Caption: starting to get the functionality that
+
+00:03:47.018 --> 00:03:52.388
+Caption: we needed out of our CSS we no longer
+
+00:03:49.929 --> 00:03:54.698
+Caption: needed to write complicated code or work
+
+00:03:52.389 --> 00:03:57.310
+Caption: with percentages and our code was more
+
+00:03:54.699 --> 00:03:59.169
+Caption: responsive than ever but although
+
+00:03:57.309 --> 00:04:02.078
+Caption: flexbox was really good for flowing
+
+00:03:59.169 --> 00:04:05.019
+Caption: content we had limited control in the
+
+00:04:02.078 --> 00:04:07.509
+Caption: cross access and having gaps between
+
+00:04:05.018 --> 00:04:10.869
+Caption: items tended to get things a little
+
+00:04:07.509 --> 00:04:14.470
+Caption: complicated but things were looking up
+
+00:04:10.869 --> 00:04:17.348
+Caption: we finally had a CSX Technology was
+
+00:04:14.470 --> 00:04:20.880
+Caption: built for layout and in the distance we
+
+00:04:17.348 --> 00:04:25.028
+Caption: could see the cavalry was on its way in
+
+00:04:20.880 --> 00:04:27.369
+Caption: 2017 CSS grid launched in all major
+
+00:04:25.028 --> 00:04:29.259
+Caption: browsers this gave us
+
+00:04:27.369 --> 00:04:33.040
+Caption: everything we&#39;ve been asking for from
+
+00:04:29.260 --> 00:04:35.470
+Caption: CSS layouts like flexbox we were able to
+
+00:04:33.040 --> 00:04:39.369
+Caption: define a set of constraints and have the
+
+00:04:35.470 --> 00:04:41.709
+Caption: browser make our layout responsive but
+
+00:04:39.369 --> 00:04:45.250
+Caption: we were also able to control that layout
+
+00:04:41.709 --> 00:04:48.100
+Caption: in two directions with grid we were able
+
+00:04:45.250 --> 00:04:50.739
+Caption: to define areas of a layout we&#39;re able
+
+00:04:48.100 --> 00:04:53.440
+Caption: to dictate how elements inside of a grid
+
+00:04:50.739 --> 00:04:55.720
+Caption: behave we could make our code more
+
+00:04:53.440 --> 00:05:01.750
+Caption: responsive and reduce the code that we
+
+00:04:55.720 --> 00:05:03.639
+Caption: were writing but everybody asks isn&#39;t
+
+00:05:01.750 --> 00:05:07.359
+Caption: this something we already had with
+
+00:05:03.639 --> 00:05:09.880
+Caption: tables isn&#39;t CSS grid Justin you are
+
+00:05:07.359 --> 00:05:11.619
+Caption: slightly shinier version of the table
+
+00:05:09.880 --> 00:05:12.869
+Caption: layout that we&#39;ve been scoffing out for
+
+00:05:11.619 --> 00:05:18.910
+Caption: years
+
+00:05:12.869 --> 00:05:22.000
+Caption: no CSS grid is specifically built for
+
+00:05:18.910 --> 00:05:26.110
+Caption: web layouts whereas tables are something
+
+00:05:22.000 --> 00:05:29.199
+Caption: that we used as a hack it&#39;s designed for
+
+00:05:26.109 --> 00:05:32.500
+Caption: this use we&#39;re also following the
+
+00:05:29.199 --> 00:05:35.619
+Caption: separation of concerns principles hTML
+
+00:05:32.500 --> 00:05:38.789
+Caption: is for the content and CSS is for how
+
+00:05:35.619 --> 00:05:42.190
+Caption: that content looks and feels on a page
+
+00:05:38.789 --> 00:05:44.529
+Caption: now don&#39;t get me wrong tables still have
+
+00:05:42.190 --> 00:05:47.559
+Caption: a place but that would be when you&#39;d
+
+00:05:44.529 --> 00:05:53.139
+Caption: expect to see a table see a table of
+
+00:05:47.559 --> 00:05:56.559
+Caption: data not for your layout CSS grid also
+
+00:05:53.139 --> 00:05:59.529
+Caption: helps us to write semantic and logical
+
+00:05:56.559 --> 00:06:02.199
+Caption: HTML we&#39;re no longer required to write
+
+00:05:59.529 --> 00:06:04.989
+Caption: our HTML based on how the page design
+
+00:06:02.199 --> 00:06:07.239
+Caption: looks like we can write our HTML based
+
+00:06:04.989 --> 00:06:11.138
+Caption: on the logical flow of the document and
+
+00:06:07.239 --> 00:06:13.630
+Caption: let CSS rearrange it visually when this
+
+00:06:11.139 --> 00:06:15.610
+Caption: is done right it means that our content
+
+00:06:13.630 --> 00:06:18.760
+Caption: is more accessible to anybody who&#39;s
+
+00:06:15.609 --> 00:06:21.189
+Caption: using a screen reader reader mode saving
+
+00:06:18.760 --> 00:06:23.940
+Caption: an article for later or any other kind
+
+00:06:21.190 --> 00:06:23.940
+Caption: of assistive technology
+
+00:06:24.899 --> 00:06:30.820
+Caption: thanks to CSS grid it&#39;s now easier and
+
+00:06:28.359 --> 00:06:33.728
+Caption: faster to mock up or to build out the
+
+00:06:30.820 --> 00:06:36.190
+Caption: layout of an app and to prove that today
+
+00:06:33.729 --> 00:06:39.640
+Caption: we&#39;re going to build and note-taking out
+
+00:06:36.190 --> 00:06:41.510
+Caption: using CSS grid we&#39;ve got a wireframe
+
+00:06:39.640 --> 00:06:45.110
+Caption: which tells us how we want our
+
+00:06:41.510 --> 00:06:49.250
+Caption: look and we&#39;ve got a basic HTML
+
+00:06:45.109 --> 00:06:52.879
+Caption: structure now it&#39;s also important to
+
+00:06:49.250 --> 00:06:54.920
+Caption: note that this is a semantic HTML
+
+00:06:52.880 --> 00:06:57.050
+Caption: structure there are no container divs
+
+00:06:54.920 --> 00:06:59.900
+Caption: there is nothing extra this is pure
+
+00:06:57.049 --> 00:07:02.179
+Caption: semantic HTML so we don&#39;t know what
+
+00:06:59.899 --> 00:07:03.799
+Caption: happens next right this is when we spend
+
+00:07:02.179 --> 00:07:04.820
+Caption: hours fighting with trying to get the
+
+00:07:03.799 --> 00:07:06.769
+Caption: layout to work and we&#39;ve got a
+
+00:07:04.820 --> 00:07:08.990
+Caption: completely restructure how the HTML
+
+00:07:06.769 --> 00:07:13.160
+Caption: looks see what happens
+
+00:07:08.989 --> 00:07:17.079
+Caption: so our HTML structure loosely looks like
+
+00:07:13.160 --> 00:07:19.640
+Caption: this except for with some beautiful
+
+00:07:17.079 --> 00:07:22.309
+Caption: backgrounds and effects so you can see
+
+00:07:19.640 --> 00:07:24.080
+Caption: the different elements in a grid to
+
+00:07:22.309 --> 00:07:26.000
+Caption: start off we&#39;re going to use something
+
+00:07:24.079 --> 00:07:29.629
+Caption: fairly simple and we&#39;re going to say
+
+00:07:26.000 --> 00:07:32.929
+Caption: body display grid which tells the
+
+00:07:29.630 --> 00:07:38.270
+Caption: browser we&#39;re using grid now this
+
+00:07:32.929 --> 00:07:40.459
+Caption: doesn&#39;t do too much it looks exactly as
+
+00:07:38.269 --> 00:07:48.229
+Caption: it did before because we haven&#39;t told it
+
+00:07:40.459 --> 00:07:50.269
+Caption: what a grid looks like you next we want
+
+00:07:48.230 --> 00:07:54.470
+Caption: to tell the browser how big our grid is
+
+00:07:50.269 --> 00:07:56.779
+Caption: so if we have a look again at our
+
+00:07:54.470 --> 00:08:01.459
+Caption: wireframe we&#39;re going to break our app
+
+00:07:56.779 --> 00:08:03.709
+Caption: up into five columns so to define that
+
+00:08:01.459 --> 00:08:07.880
+Caption: we use the property grid template
+
+00:08:03.709 --> 00:08:09.919
+Caption: columns and so here I can write good
+
+00:08:07.880 --> 00:08:14.119
+Caption: tempeh columns joiner pixels turn pixels
+
+00:08:09.920 --> 00:08:17.000
+Caption: 200 pixels 200 pixels 200 pixels now I
+
+00:08:14.119 --> 00:08:18.889
+Caption: said you could write less code it&#39;s grid
+
+00:08:17.000 --> 00:08:20.679
+Caption: denied this seems a bit difficult what
+
+00:08:18.890 --> 00:08:23.420
+Caption: happens if you want a 10 column grid
+
+00:08:20.679 --> 00:08:25.669
+Caption: something else great gives us is the
+
+00:08:23.420 --> 00:08:29.930
+Caption: repeat function so I can instead say
+
+00:08:25.670 --> 00:08:33.049
+Caption: repeat 5 200 pixels the repeat function
+
+00:08:29.929 --> 00:08:34.909
+Caption: allows us to define a number of times to
+
+00:08:33.049 --> 00:08:39.080
+Caption: repeat something and the size of the
+
+00:08:34.909 --> 00:08:42.228
+Caption: column that it&#39;s repeating for example 3
+
+00:08:39.080 --> 00:08:45.830
+Caption: 200 pixels would give us George 200
+
+00:08:42.229 --> 00:08:47.570
+Caption: pixels 200 pixels 200 pixels great thing
+
+00:08:45.830 --> 00:08:49.910
+Caption: about the repeat function is you can use
+
+00:08:47.570 --> 00:08:52.400
+Caption: whatever units you would like you can
+
+00:08:49.909 --> 00:08:55.489
+Caption: use pixels percentage ms ramps for pop
+
+00:08:52.400 --> 00:08:59.390
+Caption: widths viewport height anything goes
+
+00:08:55.489 --> 00:09:03.260
+Caption: you can also use it to define a path for
+
+00:08:59.390 --> 00:09:05.270
+Caption: example repeat to 10 pixels 20 viewport
+
+00:09:03.260 --> 00:09:06.799
+Caption: whets would give you 10 pixels 20
+
+00:09:05.270 --> 00:09:09.730
+Caption: viewport width 10 pixels 20 of your
+
+00:09:06.799 --> 00:09:15.380
+Caption: twits try saying that 10 times quickly
+
+00:09:09.729 --> 00:09:20.958
+Caption: so instead of writing with a fixed width
+
+00:09:15.380 --> 00:09:24.229
+Caption: I could go repeat 5 20 % so that way I
+
+00:09:20.958 --> 00:09:29.359
+Caption: don&#39;t have a fixed pixel size of the
+
+00:09:24.229 --> 00:09:31.789
+Caption: container will just take 20 percent but
+
+00:09:29.359 --> 00:09:33.950
+Caption: then what if I want to change the size
+
+00:09:31.789 --> 00:09:38.469
+Caption: of my grid say I want to have 7 colors
+
+00:09:33.950 --> 00:09:42.559
+Caption: then I&#39;ve got to work out how wide I
+
+00:09:38.469 --> 00:09:49.009
+Caption: don&#39;t want to do that math so instead I
+
+00:09:42.559 --> 00:09:51.919
+Caption: could say repeat 5 105 now the FI unit
+
+00:09:49.010 --> 00:09:54.549
+Caption: is another new thing which comes to CSS
+
+00:09:51.919 --> 00:09:58.369
+Caption: grid and is often used in the place of
+
+00:09:54.549 --> 00:10:00.859
+Caption: percentage widths it&#39;s a little bit
+
+00:09:58.369 --> 00:10:03.770
+Caption: difficult to explain so I&#39;m going to try
+
+00:10:00.859 --> 00:10:07.278
+Caption: and explain it visually say for example
+
+00:10:03.770 --> 00:10:12.290
+Caption: I have a grid where I have 100 pixels
+
+00:10:07.278 --> 00:10:14.528
+Caption: 1fr 50 pixels to Fr I also want to have
+
+00:10:12.289 --> 00:10:17.179
+Caption: a gap between each of those columns of
+
+00:10:14.528 --> 00:10:21.169
+Caption: 20 pixels we&#39;re going to touch on the
+
+00:10:17.179 --> 00:10:24.619
+Caption: gap a bit more later so what the FI unit
+
+00:10:21.169 --> 00:10:28.510
+Caption: does is it takes 100% of the element
+
+00:10:24.619 --> 00:10:31.309
+Caption: widths which in this case is 510 pixels
+
+00:10:28.510 --> 00:10:33.588
+Caption: and then takes into account any existing
+
+00:10:31.309 --> 00:10:35.900
+Caption: content that we&#39;ve set and here we&#39;ve
+
+00:10:33.588 --> 00:10:39.950
+Caption: got a hundred pixel column and a 50
+
+00:10:35.900 --> 00:10:43.160
+Caption: pixel column so that&#39;s 150 pixels it
+
+00:10:39.950 --> 00:10:46.820
+Caption: then takes into account any gap that
+
+00:10:43.159 --> 00:10:50.028
+Caption: we&#39;ve got so we&#39;ve got 20 pixel gap
+
+00:10:46.820 --> 00:10:55.760
+Caption: between 4 columns which means there&#39;s a
+
+00:10:50.028 --> 00:10:59.179
+Caption: total gap of 60 pixels it then looks at
+
+00:10:55.760 --> 00:11:00.919
+Caption: how many fr-s there are so here we&#39;ve
+
+00:10:59.179 --> 00:11:05.119
+Caption: got 1 fr to Fr
+
+00:11:00.919 --> 00:11:07.328
+Caption: total of 3 fr anybody able to do that
+
+00:11:05.119 --> 00:11:07.328
+Caption: mass
+
+00:11:12.309 --> 00:11:20.000
+Caption: in this case when FR is equal to hundred
+
+00:11:16.130 --> 00:11:25.148
+Caption: pixels so that grid would become 100
+
+00:11:20.000 --> 00:11:28.148
+Caption: pixels 100 pixels 50 pixels 200 pixels
+
+00:11:25.148 --> 00:11:32.510
+Caption: sorry if I have a look at my grid again
+
+00:11:28.148 --> 00:11:34.698
+Caption: repeat 5 whenever that&#39;s saying that I
+
+00:11:32.510 --> 00:11:36.500
+Caption: want to have 5 columns all of which
+
+00:11:34.698 --> 00:11:38.719
+Caption: should be equal widths
+
+00:11:36.500 --> 00:11:40.760
+Caption: this means that if I change the number
+
+00:11:38.719 --> 00:11:42.379
+Caption: of columns in my grid I don&#39;t have to
+
+00:11:40.760 --> 00:11:43.958
+Caption: work out the percentage anymore the
+
+00:11:42.380 --> 00:11:46.160
+Caption: browser is going to do it for me
+
+00:11:43.958 --> 00:11:49.338
+Caption: so if we have a look at what that looks
+
+00:11:46.159 --> 00:11:50.869
+Caption: like in our grid you can see our
+
+00:11:49.338 --> 00:11:53.570
+Caption: elements have now started to lay
+
+00:11:50.869 --> 00:11:56.328
+Caption: themselves out on the grid they&#39;ve taken
+
+00:11:53.570 --> 00:11:57.619
+Caption: out four columns out of our five column
+
+00:11:56.328 --> 00:12:00.409
+Caption: grid it because there&#39;s only four
+
+00:11:57.619 --> 00:12:02.539
+Caption: elements there next we&#39;re going to
+
+00:12:00.409 --> 00:12:06.289
+Caption: define the roads so if we have a look at
+
+00:12:02.539 --> 00:12:07.909
+Caption: our wireframe again we have three rows
+
+00:12:06.289 --> 00:12:13.009
+Caption: here we&#39;ve got the header the main
+
+00:12:07.909 --> 00:12:15.619
+Caption: section and then the footer row so we&#39;re
+
+00:12:13.010 --> 00:12:18.619
+Caption: going to use a similar property grid
+
+00:12:15.619 --> 00:12:24.109
+Caption: template rows and I&#39;m just going to
+
+00:12:18.619 --> 00:12:27.409
+Caption: define 100 pixels 1fr 20 pixels so fixed
+
+00:12:24.109 --> 00:12:29.919
+Caption: header and footer and then the main
+
+00:12:27.409 --> 00:12:29.919
+Caption: content
+
+00:12:37.838 --> 00:12:43.458
+Caption: next we want to stop placing out
+
+00:12:40.398 --> 00:12:45.229
+Caption: elements in the grade so to start off we
+
+00:12:43.458 --> 00:12:48.648
+Caption: want to tell it where our head is going
+
+00:12:45.229 --> 00:12:51.409
+Caption: to sit so we&#39;re going to define grid of
+
+00:12:48.648 --> 00:12:53.599
+Caption: columns stop this says where we want our
+
+00:12:51.409 --> 00:12:56.078
+Caption: header to start which is at line one in
+
+00:12:53.599 --> 00:13:01.159
+Caption: the grid so right at the very beginning
+
+00:12:56.078 --> 00:13:03.229
+Caption: now CSS grid defines each of numbers
+
+00:13:01.159 --> 00:13:05.388
+Caption: each of its lines goes right from the
+
+00:13:03.229 --> 00:13:08.388
+Caption: beginning one two three four five six
+
+00:13:05.388 --> 00:13:11.388
+Caption: but then CSS grid also counts those
+
+00:13:08.388 --> 00:13:14.659
+Caption: backwards so minus one when it&#39;s two -
+
+00:13:11.388 --> 00:13:16.549
+Caption: three - four - five - six this is really
+
+00:13:14.659 --> 00:13:20.268
+Caption: useful because say we want our header to
+
+00:13:16.549 --> 00:13:24.619
+Caption: go all the way across the top I could
+
+00:13:20.268 --> 00:13:26.448
+Caption: just say one to six but then if I change
+
+00:13:24.619 --> 00:13:28.789
+Caption: how many columns wide oh great is I need
+
+00:13:26.448 --> 00:13:34.458
+Caption: to change which line it&#39;s going to
+
+00:13:28.789 --> 00:13:37.190
+Caption: instead I can say 1 2 minus 1 which is
+
+00:13:34.458 --> 00:13:39.528
+Caption: right at the end so it doesn&#39;t matter
+
+00:13:37.190 --> 00:13:45.380
+Caption: how wide the grid is the head is gonna
+
+00:13:39.528 --> 00:13:48.018
+Caption: go from 1 all the way to minus 1 can
+
+00:13:45.380 --> 00:13:52.130
+Caption: also use the shorthand so grid column 1
+
+00:13:48.018 --> 00:13:53.838
+Caption: / - 1 there&#39;s a lot of different ways
+
+00:13:52.130 --> 00:13:55.448
+Caption: that you can define the grid column as
+
+00:13:53.838 --> 00:13:58.099
+Caption: well it really depends on the situation
+
+00:13:55.448 --> 00:14:01.309
+Caption: so for example you can also say grid
+
+00:13:58.099 --> 00:14:04.130
+Caption: column span 5 so I want to suspend 5
+
+00:14:01.309 --> 00:14:05.989
+Caption: columns but today as we said the header
+
+00:14:04.130 --> 00:14:09.880
+Caption: should go all the way across the top so
+
+00:14:05.989 --> 00:14:13.549
+Caption: we&#39;re gonna say grid column 1 / - 1
+
+00:14:09.880 --> 00:14:15.859
+Caption: which has now stretched our header all
+
+00:14:13.549 --> 00:14:17.268
+Caption: the way across the top you can see the
+
+00:14:15.859 --> 00:14:19.458
+Caption: rest of the elements have now been
+
+00:14:17.268 --> 00:14:23.898
+Caption: pushed down on to the second row you
+
+00:14:19.458 --> 00:14:26.688
+Caption: know grid so to get somewhere next we
+
+00:14:23.898 --> 00:14:29.239
+Caption: want to assign the nav so we want the
+
+00:14:26.689 --> 00:14:32.180
+Caption: nav to take up our just the first column
+
+00:14:29.239 --> 00:14:35.359
+Caption: but the second and third row so we&#39;re
+
+00:14:32.179 --> 00:14:37.698
+Caption: going to define read row span - so we
+
+00:14:35.359 --> 00:14:40.130
+Caption: want it to span two rows we don&#39;t need
+
+00:14:37.698 --> 00:14:43.429
+Caption: to define read column cuz it&#39;s only
+
+00:14:40.130 --> 00:14:46.189
+Caption: gonna spend one column so you can see
+
+00:14:43.429 --> 00:14:48.369
+Caption: our nav has now pushed down on to the
+
+00:14:46.189 --> 00:14:52.160
+Caption: bottom row as well
+
+00:14:48.369 --> 00:14:54.648
+Caption: next we want to assign our main content
+
+00:14:52.159 --> 00:14:57.919
+Caption: so that&#39;s where our main note is and
+
+00:14:54.648 --> 00:15:00.260
+Caption: we&#39;re gonna say main grid column span
+
+00:14:57.919 --> 00:15:02.719
+Caption: before we want it to spend four columns
+
+00:15:00.260 --> 00:15:04.338
+Caption: which pushes that all the way out and
+
+00:15:02.719 --> 00:15:09.648
+Caption: then you can see the footer has been
+
+00:15:04.338 --> 00:15:11.059
+Caption: pushed down to the bottom finally we
+
+00:15:09.648 --> 00:15:13.190
+Caption: want our foot out to take up the
+
+00:15:11.059 --> 00:15:17.000
+Caption: remainder of the grid so we&#39;re gonna say
+
+00:15:13.190 --> 00:15:18.559
+Caption: grid column span four and you can see
+
+00:15:17.000 --> 00:15:21.578
+Caption: the footer has now pushed all the way
+
+00:15:18.559 --> 00:15:24.458
+Caption: out to the end and filled our grid in
+
+00:15:21.578 --> 00:15:27.588
+Caption: now one of the other useful things about
+
+00:15:24.458 --> 00:15:29.690
+Caption: CSS grid is it gives us the ability to
+
+00:15:27.588 --> 00:15:32.000
+Caption: name these areas which makes it a bit
+
+00:15:29.690 --> 00:15:34.630
+Caption: easier for when laying elements out in
+
+00:15:32.000 --> 00:15:38.359
+Caption: your grid so once we&#39;ve defined our
+
+00:15:34.630 --> 00:15:41.630
+Caption: columns and rows we can also use grid
+
+00:15:38.359 --> 00:15:43.820
+Caption: template areas and actually assign names
+
+00:15:41.630 --> 00:15:46.250
+Caption: to them and where different areas are
+
+00:15:43.820 --> 00:15:48.949
+Caption: combining so for example you can see
+
+00:15:46.250 --> 00:15:54.109
+Caption: here there&#39;s one word for each column
+
+00:15:48.948 --> 00:15:56.179
+Caption: and one row for one line for each row in
+
+00:15:54.109 --> 00:15:58.369
+Caption: our grid the top should be all header
+
+00:15:56.179 --> 00:16:01.039
+Caption: the name should be the first column of
+
+00:15:58.369 --> 00:16:03.979
+Caption: the second and third row the note should
+
+00:16:01.039 --> 00:16:05.838
+Caption: go the rest of the way along second row
+
+00:16:03.979 --> 00:16:07.698
+Caption: and the footer should go the rest of the
+
+00:16:05.838 --> 00:16:10.010
+Caption: way along the bottom row
+
+00:16:07.698 --> 00:16:12.198
+Caption: this is really good because it makes it
+
+00:16:10.010 --> 00:16:15.708
+Caption: much easier when you&#39;re rearranging a
+
+00:16:12.198 --> 00:16:18.708
+Caption: layout you can just rearrange the grid
+
+00:16:15.708 --> 00:16:22.159
+Caption: template areas here once we&#39;ve defined
+
+00:16:18.708 --> 00:16:24.409
+Caption: these we then go through and assign grid
+
+00:16:22.159 --> 00:16:27.469
+Caption: areas to each of our elements in the
+
+00:16:24.409 --> 00:16:31.219
+Caption: grid henna grid area header now grid
+
+00:16:27.469 --> 00:16:33.198
+Caption: area now naming things is hard Maine is
+
+00:16:31.219 --> 00:16:35.989
+Caption: grid area no it&#39;s just to be a little
+
+00:16:33.198 --> 00:16:41.328
+Caption: bit different and footer is red area
+
+00:16:35.989 --> 00:16:45.440
+Caption: footer so this will look pretty much
+
+00:16:41.328 --> 00:16:47.659
+Caption: exactly like what it did before now this
+
+00:16:45.440 --> 00:16:50.479
+Caption: is where one of the useful tools for CSS
+
+00:16:47.659 --> 00:16:52.568
+Caption: crude comes into play anybody here use
+
+00:16:50.479 --> 00:16:55.219
+Caption: Firefox as their main tab browser if
+
+00:16:52.568 --> 00:16:57.559
+Caption: you&#39;re using CSS grid you need to
+
+00:16:55.219 --> 00:17:00.648
+Caption: install it and use it because they have
+
+00:16:57.559 --> 00:17:01.939
+Caption: a grid inspector tool which is amazing
+
+00:17:00.648 --> 00:17:03.588
+Caption: particularly when you&#39;re getting
+
+00:17:01.939 --> 00:17:06.649
+Caption: started and then even when you use it
+
+00:17:03.588 --> 00:17:07.818
+Caption: every day degra inspector tool is
+
+00:17:06.649 --> 00:17:11.739
+Caption: fantastic
+
+00:17:07.818 --> 00:17:14.688
+Caption: Firefox gritty inspector allows you to
+
+00:17:11.739 --> 00:17:16.308
+Caption: allows you to inspect your grid and have
+
+00:17:14.688 --> 00:17:19.038
+Caption: a look at what&#39;s going on you can
+
+00:17:16.308 --> 00:17:23.208
+Caption: overlay any named areas you can see
+
+00:17:19.038 --> 00:17:24.648
+Caption: lines it is a complete life changer if
+
+00:17:23.208 --> 00:17:32.500
+Caption: you&#39;re using grid so make sure you&#39;re
+
+00:17:24.649 --> 00:17:38.600
+Caption: using that so basic layout over app done
+
+00:17:32.500 --> 00:17:41.538
+Caption: in seven lines of CSS and about ten
+
+00:17:38.599 --> 00:17:46.939
+Caption: minutes that&#39;s pretty impressive anybody
+
+00:17:41.538 --> 00:17:49.459
+Caption: think that was but if we have a look at
+
+00:17:46.939 --> 00:17:50.778
+Caption: our wireframe again what we actually
+
+00:17:49.459 --> 00:17:53.119
+Caption: wanted in the middle so we actually
+
+00:17:50.779 --> 00:17:56.570
+Caption: wanted our note to take up most of the
+
+00:17:53.119 --> 00:17:58.489
+Caption: section but it had a little sidebar
+
+00:17:56.569 --> 00:18:02.778
+Caption: there as well where a lot of the meta
+
+00:17:58.489 --> 00:18:05.119
+Caption: info and all of the tags are but if you
+
+00:18:02.779 --> 00:18:06.950
+Caption: have a look that&#39;s not really what it
+
+00:18:05.119 --> 00:18:11.178
+Caption: looks like right now so those are still
+
+00:18:06.949 --> 00:18:14.000
+Caption: taking up the main section the middle we
+
+00:18:11.178 --> 00:18:17.388
+Caption: want the article to take up just the
+
+00:18:14.000 --> 00:18:20.779
+Caption: first three columns and side by to taper
+
+00:18:17.389 --> 00:18:23.509
+Caption: fourth column so here we can use another
+
+00:18:20.779 --> 00:18:27.639
+Caption: property which we would apply to the
+
+00:18:23.509 --> 00:18:31.009
+Caption: main element which is display contents
+
+00:18:27.639 --> 00:18:32.629
+Caption: now what display contents does is so if
+
+00:18:31.009 --> 00:18:35.239
+Caption: we have a look at our main element here
+
+00:18:32.629 --> 00:18:37.639
+Caption: got a main element inside of that is an
+
+00:18:35.239 --> 00:18:39.649
+Caption: article and a side element and both of
+
+00:18:37.639 --> 00:18:43.299
+Caption: those have their own content inside of
+
+00:18:39.649 --> 00:18:45.799
+Caption: it what display contents does is
+
+00:18:43.298 --> 00:18:48.979
+Caption: basically makes that main element
+
+00:18:45.798 --> 00:18:51.739
+Caption: disappear and so article and a side then
+
+00:18:48.979 --> 00:18:54.979
+Caption: become children of the grid instead of
+
+00:18:51.739 --> 00:19:00.079
+Caption: main element so if we assign display
+
+00:18:54.979 --> 00:19:02.959
+Caption: contents to the main element that will
+
+00:19:00.079 --> 00:19:05.418
+Caption: then make article and a side take up
+
+00:19:02.959 --> 00:19:07.548
+Caption: there or in separate columns in the grid
+
+00:19:05.418 --> 00:19:10.038
+Caption: rather than taking up the full section
+
+00:19:07.548 --> 00:19:12.518
+Caption: and we can then place them similarly to
+
+00:19:10.038 --> 00:19:15.778
+Caption: how we placed the rest of the elements
+
+00:19:12.519 --> 00:19:18.450
+Caption: so we can reject our
+
+00:19:15.779 --> 00:19:21.029
+Caption: template areas here so the middle row
+
+00:19:18.449 --> 00:19:23.428
+Caption: instead of being note note note note it
+
+00:19:21.029 --> 00:19:26.309
+Caption: should just be no no sigh note note
+
+00:19:23.428 --> 00:19:28.589
+Caption: notes sidebar so that notes takes up
+
+00:19:26.308 --> 00:19:33.268
+Caption: three columns sidebar takes up the final
+
+00:19:28.589 --> 00:19:37.499
+Caption: column we can then assign a grid area to
+
+00:19:33.269 --> 00:19:39.690
+Caption: article and a side and that pushes the
+
+00:19:37.499 --> 00:19:44.098
+Caption: article out and keeps the sidebar in the
+
+00:19:39.689 --> 00:19:50.418
+Caption: end that&#39;s pretty cool one thing that&#39;s
+
+00:19:44.098 --> 00:19:54.808
+Caption: worth noting though is so there&#39;s a bug
+
+00:19:50.418 --> 00:19:58.288
+Caption: and it so it&#39;s not meant to happen and
+
+00:19:54.808 --> 00:20:00.838
+Caption: it&#39;s only in some browsers but in some
+
+00:19:58.288 --> 00:20:03.238
+Caption: browsers when you apply display contents
+
+00:20:00.838 --> 00:20:05.639
+Caption: to an element for example the main
+
+00:20:03.239 --> 00:20:09.419
+Caption: element it makes the whole thing
+
+00:20:05.639 --> 00:20:11.098
+Caption: disappear including the children so you
+
+00:20:09.418 --> 00:20:14.008
+Caption: know how display contents is meant to do
+
+00:20:11.098 --> 00:20:18.409
+Caption: this in these browsers according to
+
+00:20:14.009 --> 00:20:18.409
+Caption: screen readers it does this
+
+00:20:18.650 --> 00:20:24.349
+Caption: so it will still appear on the page so
+
+00:20:22.339 --> 00:20:26.209
+Caption: when you&#39;re looking at it you may look
+
+00:20:24.349 --> 00:20:28.339
+Caption: at it and go it&#39;s fine the contents
+
+00:20:26.209 --> 00:20:30.709
+Caption: there it&#39;s fine but if you&#39;re not
+
+00:20:28.339 --> 00:20:32.270
+Caption: testing with screen readers the screen
+
+00:20:30.709 --> 00:20:34.609
+Caption: reader doesn&#39;t know it&#39;s there it
+
+00:20:32.270 --> 00:20:37.670
+Caption: doesn&#39;t announce it and so anybody who&#39;s
+
+00:20:34.609 --> 00:20:41.589
+Caption: using assistive technology won&#39;t get
+
+00:20:37.670 --> 00:20:43.700
+Caption: anything that&#39;s inside of that element
+
+00:20:41.589 --> 00:20:46.039
+Caption: there&#39;s a bit more information about
+
+00:20:43.699 --> 00:20:48.500
+Caption: what&#39;s going on with this hearing this
+
+00:20:46.040 --> 00:20:50.960
+Caption: really great article by Adrian Roselli I
+
+00:20:48.500 --> 00:20:53.089
+Caption: don&#39;t worry about taking notes of all of
+
+00:20:50.959 --> 00:20:55.699
+Caption: these resources they will be tweeted out
+
+00:20:53.089 --> 00:21:00.229
+Caption: hands-free as I&#39;m going along and also
+
+00:20:55.699 --> 00:21:03.199
+Caption: on my slides at the end the gist of this
+
+00:21:00.229 --> 00:21:04.910
+Caption: article though is just don&#39;t go messing
+
+00:21:03.199 --> 00:21:07.939
+Caption: with the dot don&#39;t don&#39;t play with the
+
+00:21:04.910 --> 00:21:12.559
+Caption: Dom thankfully there is a better
+
+00:21:07.939 --> 00:21:14.169
+Caption: alternative CSS subgrid has come to the
+
+00:21:12.558 --> 00:21:18.709
+Caption: rescue
+
+00:21:14.170 --> 00:21:21.530
+Caption: so we want we want out layout to look
+
+00:21:18.709 --> 00:21:24.829
+Caption: like this rather than making the main
+
+00:21:21.530 --> 00:21:26.869
+Caption: element disappear we can just as we can
+
+00:21:24.829 --> 00:21:30.799
+Caption: just align the article and a side
+
+00:21:26.869 --> 00:21:33.319
+Caption: elements as part of the main grid now
+
+00:21:30.800 --> 00:21:35.600
+Caption: you can define a separate grid on main
+
+00:21:33.319 --> 00:21:37.669
+Caption: and just completely do it that way which
+
+00:21:35.599 --> 00:21:39.410
+Caption: is fine but then if you change the size
+
+00:21:37.670 --> 00:21:41.330
+Caption: of the overall parent grid you go to
+
+00:21:39.410 --> 00:21:44.179
+Caption: change the size of the child grid it
+
+00:21:41.329 --> 00:21:47.359
+Caption: gets complicated sub grid allows you to
+
+00:21:44.178 --> 00:21:50.630
+Caption: define it so that it aligns with the
+
+00:21:47.359 --> 00:21:53.270
+Caption: parent grid so if we take our grid
+
+00:21:50.630 --> 00:21:55.670
+Caption: template areas back here so where it
+
+00:21:53.270 --> 00:22:01.400
+Caption: says note note note note all the way
+
+00:21:55.670 --> 00:22:03.650
+Caption: along where it was looking like that we
+
+00:22:01.400 --> 00:22:08.690
+Caption: then want to instead of display contents
+
+00:22:03.650 --> 00:22:10.969
+Caption: we want to say display grip so that
+
+00:22:08.689 --> 00:22:15.250
+Caption: looks like that that&#39;s now filling out
+
+00:22:10.969 --> 00:22:15.250
+Caption: the whole area that it&#39;s got
+
+00:22:18.349 --> 00:22:25.380
+Caption: now rather than defining that this grid
+
+00:22:23.308 --> 00:22:27.058
+Caption: should be four columns wide and then
+
+00:22:25.380 --> 00:22:29.010
+Caption: having to redefine it when the parent
+
+00:22:27.058 --> 00:22:32.668
+Caption: grid changes what we can instead do is
+
+00:22:29.010 --> 00:22:34.739
+Caption: say grid template columns sub grid so we
+
+00:22:32.668 --> 00:22:38.369
+Caption: want it to take into account however
+
+00:22:34.739 --> 00:22:41.849
+Caption: many columns the main element does you
+
+00:22:38.369 --> 00:22:45.329
+Caption: have a look yeah you can see our article
+
+00:22:41.849 --> 00:22:48.538
+Caption: and aside have now taken places as part
+
+00:22:45.329 --> 00:22:52.288
+Caption: of the parent grid even though their
+
+00:22:48.538 --> 00:22:55.589
+Caption: grandchildren elements all we have to do
+
+00:22:52.288 --> 00:22:57.479
+Caption: then is a sign where article and a side
+
+00:22:55.589 --> 00:23:00.298
+Caption: would sit inside of that sub grid sir
+
+00:22:57.479 --> 00:23:04.530
+Caption: article grid column span three and
+
+00:23:00.298 --> 00:23:08.389
+Caption: that&#39;s pushed it way out so this one
+
+00:23:04.530 --> 00:23:08.390
+Caption: will work with screen readers
+
+00:23:08.630 --> 00:23:14.459
+Caption: now subgrade is still relatively new
+
+00:23:12.030 --> 00:23:16.619
+Caption: there&#39;s lots of information about it
+
+00:23:14.459 --> 00:23:18.178
+Caption: though the Mozilla dev Doc&#39;s are
+
+00:23:16.619 --> 00:23:21.900
+Caption: fantastic they&#39;ve got lots of
+
+00:23:18.178 --> 00:23:23.788
+Caption: information also Rachel Andrew has a lot
+
+00:23:21.900 --> 00:23:24.780
+Caption: of really great blog posts and talks on
+
+00:23:23.788 --> 00:23:27.869
+Caption: it if you&#39;re looking for a more
+
+00:23:24.780 --> 00:23:30.840
+Caption: information one of the other questions
+
+00:23:27.869 --> 00:23:33.270
+Caption: that comes up with grid is does it
+
+00:23:30.839 --> 00:23:35.579
+Caption: replace flexbox if I haven&#39;t learnt
+
+00:23:33.270 --> 00:23:37.380
+Caption: either of them can I just learn three
+
+00:23:35.579 --> 00:23:39.538
+Caption: then don&#39;t have to worry about flexbox
+
+00:23:37.380 --> 00:23:44.539
+Caption: do I not use flexbox do I just use grid
+
+00:23:39.538 --> 00:23:47.668
+Caption: everywhere now let me ask you a question
+
+00:23:44.538 --> 00:23:54.009
+Caption: batgirls pretty awesome right she kicks
+
+00:23:47.668 --> 00:23:57.039
+Caption: ass black is also pretty awesome
+
+00:23:54.010 --> 00:24:03.239
+Caption: but do we question whether or not we
+
+00:23:57.040 --> 00:24:09.460
+Caption: only need one of them no they form a
+
+00:24:03.239 --> 00:24:13.020
+Caption: super crime-fighting duo so CSS grid is
+
+00:24:09.459 --> 00:24:16.270
+Caption: really awesome as great for layouts and
+
+00:24:13.020 --> 00:24:18.640
+Caption: face box is also really awesome and it&#39;s
+
+00:24:16.270 --> 00:24:21.849
+Caption: great for flowing content and centering
+
+00:24:18.640 --> 00:24:26.440
+Caption: things vertically which is massive over
+
+00:24:21.849 --> 00:24:31.119
+Caption: use of a fairly technical spec so
+
+00:24:26.439 --> 00:24:37.149
+Caption: therefore grid and flex box form a super
+
+00:24:31.119 --> 00:24:40.209
+Caption: CSS layout do it these two specs both
+
+00:24:37.150 --> 00:24:41.859
+Caption: complement each other yes you could
+
+00:24:40.209 --> 00:24:44.589
+Caption: replace everything with Flex box with
+
+00:24:41.859 --> 00:24:48.160
+Caption: grid but a lot of the time it&#39;s overkill
+
+00:24:44.589 --> 00:24:50.140
+Caption: if I&#39;m doing something like a navbar
+
+00:24:48.160 --> 00:24:51.489
+Caption: I&#39;m gonna go flex box every time if I&#39;m
+
+00:24:50.140 --> 00:24:54.190
+Caption: trying to send her something vertically
+
+00:24:51.489 --> 00:24:56.199
+Caption: see me flex box but if I&#39;m building out
+
+00:24:54.189 --> 00:24:59.709
+Caption: the layout of an app then yes I&#39;m going
+
+00:24:56.199 --> 00:25:01.209
+Caption: to use CSS grid it&#39;s worth using both of
+
+00:24:59.709 --> 00:25:10.630
+Caption: them and knowing which one you should
+
+00:25:01.209 --> 00:25:13.109
+Caption: use when now if I take away all of my
+
+00:25:10.630 --> 00:25:16.209
+Caption: beautiful background colors and effects
+
+00:25:13.109 --> 00:25:20.229
+Caption: this is looking pretty good I mean I
+
+00:25:16.209 --> 00:25:22.270
+Caption: wouldn&#39;t say ship it but we&#39;ve got a
+
+00:25:20.229 --> 00:25:25.270
+Caption: pretty good actor there
+
+00:25:22.270 --> 00:25:26.669
+Caption: and considering how much code we&#39;ve
+
+00:25:25.270 --> 00:25:29.349
+Caption: written that&#39;s pretty impressive
+
+00:25:26.668 --> 00:25:33.789
+Caption: but this is okay while I&#39;ve only got a
+
+00:25:29.349 --> 00:25:36.189
+Caption: couple of notes I really want an overall
+
+00:25:33.790 --> 00:25:39.400
+Caption: view where I can see them all at once so
+
+00:25:36.189 --> 00:25:43.569
+Caption: we&#39;re gonna build a different view where
+
+00:25:39.400 --> 00:25:46.750
+Caption: we&#39;ve got cards so to do this again
+
+00:25:43.569 --> 00:25:51.009
+Caption: we&#39;re going to define columns so we&#39;re
+
+00:25:46.750 --> 00:25:55.928
+Caption: gonna say grid template columns 100 300
+
+00:25:51.010 --> 00:25:58.619
+Caption: pixels now this is okay but this means
+
+00:25:55.928 --> 00:26:02.349
+Caption: don&#39;t grid these feet 3,000 pixels wide
+
+00:25:58.619 --> 00:26:05.400
+Caption: it&#39;s not very responsive is it so
+
+00:26:02.349 --> 00:26:07.219
+Caption: instead I&#39;m gonna say repeat autofill
+
+00:26:05.400 --> 00:26:13.019
+Caption: surrounded pixels
+
+00:26:07.219 --> 00:26:15.089
+Caption: now autofill is something else that
+
+00:26:13.019 --> 00:26:15.769
+Caption: comes with the repeat function there&#39;s
+
+00:26:15.089 --> 00:26:19.558
+Caption: two of them
+
+00:26:15.769 --> 00:26:22.049
+Caption: autofill and autofit and there&#39;s a
+
+00:26:19.558 --> 00:26:24.599
+Caption: really great visual representation in
+
+00:26:22.048 --> 00:26:28.709
+Caption: its code penned by sarasota which shows
+
+00:26:24.599 --> 00:26:31.379
+Caption: them now autofill fills the row as many
+
+00:26:28.709 --> 00:26:33.538
+Caption: columns as it can fit even if you don&#39;t
+
+00:26:31.379 --> 00:26:36.929
+Caption: have enough elements to fill them
+
+00:26:33.538 --> 00:26:38.758
+Caption: whereas auto fit put in as many column
+
+00:26:36.928 --> 00:26:41.668
+Caption: as many columns as it needs for the
+
+00:26:38.759 --> 00:26:44.639
+Caption: elements and then stretches them out to
+
+00:26:41.668 --> 00:26:46.918
+Caption: take up the extra space or you can just
+
+00:26:44.639 --> 00:26:49.799
+Caption: do what I do and just flick between the
+
+00:26:46.918 --> 00:26:52.949
+Caption: two them until it does the one that you
+
+00:26:49.798 --> 00:26:54.359
+Caption: want to do this is like the one thing I
+
+00:26:52.949 --> 00:26:59.219
+Caption: still have to read off my slides because
+
+00:26:54.359 --> 00:27:01.979
+Caption: I could not switch so if I say repeat
+
+00:26:59.219 --> 00:27:07.109
+Caption: autofill anyone remember which one that
+
+00:27:01.979 --> 00:27:09.178
+Caption: does as many columns as you can fit even
+
+00:27:07.109 --> 00:27:11.489
+Caption: if we&#39;re not going to need them so
+
+00:27:09.178 --> 00:27:14.479
+Caption: repeat autofill hundred pixels it&#39;s many
+
+00:27:11.489 --> 00:27:17.428
+Caption: hundred pixel columns as you can fit in
+
+00:27:14.479 --> 00:27:20.099
+Caption: so if we have a look at our columns we
+
+00:27:17.428 --> 00:27:22.408
+Caption: say autofill 300 pixels as many 300
+
+00:27:20.099 --> 00:27:27.028
+Caption: pixel columns as you can fit even if
+
+00:27:22.409 --> 00:27:29.909
+Caption: we&#39;re not going to need them but then we
+
+00:27:27.029 --> 00:27:32.009
+Caption: may what happens if we&#39;ve got say 250
+
+00:27:29.909 --> 00:27:33.869
+Caption: pixels left over that&#39;s not enough for a
+
+00:27:32.009 --> 00:27:35.789
+Caption: column and our grids not going to line
+
+00:27:33.869 --> 00:27:37.889
+Caption: up with everything else which may be
+
+00:27:35.788 --> 00:27:40.408
+Caption: okay but the designer says everything&#39;s
+
+00:27:37.889 --> 00:27:44.779
+Caption: got to line up perfectly so instead
+
+00:27:40.409 --> 00:27:50.999
+Caption: we&#39;re gonna say repeat autofill min/max
+
+00:27:44.779 --> 00:27:53.720
+Caption: 300 pixels when fr now min max does what
+
+00:27:50.999 --> 00:27:58.889
+Caption: you&#39;d expect it to it defines a minimum
+
+00:27:53.719 --> 00:28:02.249
+Caption: maximum again you can use any unit you
+
+00:27:58.889 --> 00:28:05.039
+Caption: like pixels M&#39;s ramps percentage report
+
+00:28:02.249 --> 00:28:07.200
+Caption: wits if you put Heights the FI unit we
+
+00:28:05.038 --> 00:28:10.979
+Caption: learned earlier you can use them all so
+
+00:28:07.199 --> 00:28:14.989
+Caption: minimum of 100 pixels maximum of 20 whew
+
+00:28:10.979 --> 00:28:19.459
+Caption: port widths minimum of 100 pixels
+
+00:28:14.989 --> 00:28:20.569
+Caption: maximum of 1f our minimum of 1f our
+
+00:28:19.459 --> 00:28:24.949
+Caption: maximum
+
+00:28:20.569 --> 00:28:28.009
+Caption: 300 pixels these all work so I can go
+
+00:28:24.949 --> 00:28:30.979
+Caption: repeat autofill as many columns as we
+
+00:28:28.010 --> 00:28:34.010
+Caption: can fit even if we don&#39;t need them min
+
+00:28:30.979 --> 00:28:36.619
+Caption: max 300 pixels so there should be 300
+
+00:28:34.010 --> 00:28:39.079
+Caption: pixels wide at least but then expand out
+
+00:28:36.619 --> 00:28:42.530
+Caption: to take extra space that means if we
+
+00:28:39.079 --> 00:28:44.149
+Caption: have 250 pixels left over it&#39;s going to
+
+00:28:42.530 --> 00:28:48.849
+Caption: expand to make sure the grid aligns
+
+00:28:44.150 --> 00:28:51.290
+Caption: where it should so you can see here our
+
+00:28:48.849 --> 00:28:57.260
+Caption: cards have now taken their places
+
+00:28:51.290 --> 00:28:58.700
+Caption: columns but nice little compact cards
+
+00:28:57.260 --> 00:29:01.310
+Caption: that looks really weird so we&#39;re gonna
+
+00:28:58.699 --> 00:29:03.380
+Caption: define group rows as well and when you
+
+00:29:01.310 --> 00:29:05.780
+Caption: say grid template rows repeat or don&#39;t
+
+00:29:03.380 --> 00:29:07.369
+Caption: fill as many as we can fit even if we
+
+00:29:05.780 --> 00:29:11.390
+Caption: don&#39;t need them and they&#39;re just gonna
+
+00:29:07.369 --> 00:29:14.839
+Caption: be 150 pixels high that&#39;s not bad
+
+00:29:11.390 --> 00:29:19.190
+Caption: nice little cards but they&#39;re fairly
+
+00:29:14.839 --> 00:29:20.809
+Caption: cramped so we want to add a gap between
+
+00:29:19.189 --> 00:29:22.549
+Caption: them and so this is where we&#39;re going to
+
+00:29:20.810 --> 00:29:25.790
+Caption: use the gap property that we touched on
+
+00:29:22.550 --> 00:29:29.780
+Caption: earlier and so I wanted to fine grid a
+
+00:29:25.790 --> 00:29:32.119
+Caption: column gap 20 pixels so this says that
+
+00:29:29.780 --> 00:29:35.420
+Caption: between each of the columns I want a 20
+
+00:29:32.119 --> 00:29:37.309
+Caption: pixels gap I then want to have a gap
+
+00:29:35.420 --> 00:29:41.510
+Caption: between each of the rows so I&#39;m gonna
+
+00:29:37.310 --> 00:29:43.700
+Caption: say grid where gap 20 pixels or I can
+
+00:29:41.510 --> 00:29:46.430
+Caption: use the shorthand and just say grid gap
+
+00:29:43.699 --> 00:29:48.889
+Caption: 20 pixels because I want it to be the
+
+00:29:46.430 --> 00:29:53.570
+Caption: same gap between each row and each
+
+00:29:48.890 --> 00:29:56.239
+Caption: column now one question people often ask
+
+00:29:53.569 --> 00:29:58.630
+Caption: is will work why can&#39;t I just use
+
+00:29:56.239 --> 00:30:03.770
+Caption: margins I can just use margins for that
+
+00:29:58.630 --> 00:30:05.719
+Caption: because margins have issues for this so
+
+00:30:03.770 --> 00:30:09.560
+Caption: you&#39;ve probably encountered things like
+
+00:30:05.719 --> 00:30:11.209
+Caption: this where you things putting a margin
+
+00:30:09.560 --> 00:30:12.920
+Caption: means it doesn&#39;t line up properly so
+
+00:30:11.209 --> 00:30:14.539
+Caption: you&#39;ve got to add a negative margin so
+
+00:30:12.920 --> 00:30:16.790
+Caption: the children are out where they should
+
+00:30:14.540 --> 00:30:19.130
+Caption: be or you get to do these lovely and
+
+00:30:16.790 --> 00:30:20.479
+Caption: child recipes where well every fifth one
+
+00:30:19.130 --> 00:30:22.430
+Caption: shouldn&#39;t have one on the right and
+
+00:30:20.479 --> 00:30:24.020
+Caption: every fifth one plus one shouldn&#39;t have
+
+00:30:22.430 --> 00:30:25.280
+Caption: one on the left and the first five
+
+00:30:24.020 --> 00:30:26.330
+Caption: shouldn&#39;t have one on the top and the
+
+00:30:25.280 --> 00:30:26.690
+Caption: last five shouldn&#39;t have one on the
+
+00:30:26.329 --> 00:30:28.399
+Caption: bottom
+
+00:30:26.689 --> 00:30:32.500
+Caption: which then changes when your grid
+
+00:30:28.400 --> 00:30:32.500
+Caption: changes sides or
+
+00:30:32.849 --> 00:30:40.558
+Caption: grid gap 20 pixels so if we add that
+
+00:30:38.428 --> 00:30:45.569
+Caption: we&#39;re now starting to get nice little
+
+00:30:40.558 --> 00:30:47.638
+Caption: gaps between each of our cards now this
+
+00:30:45.569 --> 00:30:49.678
+Caption: is where we can also have a look at five
+
+00:30:47.639 --> 00:30:52.380
+Caption: hooks this grid inspector again and we
+
+00:30:49.678 --> 00:30:54.209
+Caption: can see these are all the spaces we&#39;ve
+
+00:30:52.380 --> 00:30:57.389
+Caption: got in our grid even though we don&#39;t
+
+00:30:54.209 --> 00:30:59.038
+Caption: actually need them and you can also see
+
+00:30:57.389 --> 00:31:02.009
+Caption: the gap between each of them
+
+00:30:59.038 --> 00:31:04.018
+Caption: so again if you doing grid use Firefox&#39;s
+
+00:31:02.009 --> 00:31:06.830
+Caption: grid inspector I swear they&#39;re not
+
+00:31:04.019 --> 00:31:09.269
+Caption: paying me I just believe in it that much
+
+00:31:06.829 --> 00:31:15.089
+Caption: now again if we take away all my
+
+00:31:09.269 --> 00:31:20.730
+Caption: beautiful colors it&#39;s not bad right it&#39;s
+
+00:31:15.089 --> 00:31:23.609
+Caption: pretty good now is it just me what is
+
+00:31:20.729 --> 00:31:26.518
+Caption: this sound too good to be true like this
+
+00:31:23.609 --> 00:31:28.408
+Caption: would clearly make our lives easier
+
+00:31:26.519 --> 00:31:35.669
+Caption: what&#39;s the catch
+
+00:31:28.409 --> 00:31:38.519
+Caption: what am I not mentioning yeah so it&#39;s
+
+00:31:35.668 --> 00:31:41.308
+Caption: better it&#39;s better than you might think
+
+00:31:38.519 --> 00:31:45.029
+Caption: so as I said this has been around since
+
+00:31:41.308 --> 00:31:47.219
+Caption: 2017 and for the first time it kind of
+
+00:31:45.029 --> 00:31:48.750
+Caption: all happened at once because CSS grid
+
+00:31:47.219 --> 00:31:50.638
+Caption: was actually developed under a feature
+
+00:31:48.750 --> 00:31:53.308
+Caption: flag which meant that when we were all
+
+00:31:50.639 --> 00:31:56.580
+Caption: getting it all the kinks were pretty
+
+00:31:53.308 --> 00:32:03.239
+Caption: much ironed out so chrome has had it
+
+00:31:56.579 --> 00:32:07.979
+Caption: since 57 Firefox since 52 Safari since
+
+00:32:03.239 --> 00:32:11.839
+Caption: 10.1 edge since 16 and with it that&#39;s
+
+00:32:07.979 --> 00:32:11.839
+Caption: that&#39;s all the browsers writers
+
+00:32:13.510 --> 00:32:31.969
+Caption: so I sort of so I II was actually the
+
+00:32:29.329 --> 00:32:35.839
+Caption: first browser to implement CSS grit I
+
+00:32:31.969 --> 00:32:40.400
+Caption: know right mind-blowing but they did it
+
+00:32:35.839 --> 00:32:42.739
+Caption: way way back when it was a completely
+
+00:32:40.400 --> 00:32:45.260
+Caption: different version of spec and because
+
+00:32:42.739 --> 00:32:48.770
+Caption: it&#39;s no look I maintained and it hasn&#39;t
+
+00:32:45.260 --> 00:32:50.829
+Caption: actually been updated so ie does a
+
+00:32:48.770 --> 00:32:53.808
+Caption: completely different thing with
+
+00:32:50.829 --> 00:32:56.089
+Caption: depending on what you&#39;re doing it may
+
+00:32:53.808 --> 00:32:58.459
+Caption: still work for you you can find their
+
+00:32:56.089 --> 00:33:00.949
+Caption: version of the spec if you&#39;re bored or
+
+00:32:58.459 --> 00:33:04.428
+Caption: really procrastinating or have
+
+00:33:00.949 --> 00:33:07.939
+Caption: difficulty sleeping and find out to see
+
+00:33:04.428 --> 00:33:10.510
+Caption: if that would work for you otherwise it
+
+00:33:07.939 --> 00:33:12.500
+Caption: may be best to just leave it alone now
+
+00:33:10.510 --> 00:33:15.829
+Caption: what are these numbers actually mean
+
+00:33:12.500 --> 00:33:18.469
+Caption: well globally we&#39;re looking at 91%
+
+00:33:15.829 --> 00:33:23.359
+Caption: support for CSS grid that&#39;s pretty good
+
+00:33:18.469 --> 00:33:25.010
+Caption: right um so so you know how we use sub
+
+00:33:23.359 --> 00:33:27.589
+Caption: grid before the really cool thing that
+
+00:33:25.010 --> 00:33:37.190
+Caption: changed everything and was just really
+
+00:33:27.589 --> 00:33:39.529
+Caption: great so um what I didn&#39;t mention so the
+
+00:33:37.189 --> 00:33:43.759
+Caption: sub grid launched about two months ago
+
+00:33:39.530 --> 00:33:48.890
+Caption: in Firefox nightly not even Firefox dev
+
+00:33:43.760 --> 00:33:50.780
+Caption: version firefox nightly only so you
+
+00:33:48.890 --> 00:33:54.979
+Caption: definitely cannot use these in
+
+00:33:50.780 --> 00:33:57.799
+Caption: production but it is available to start
+
+00:33:54.979 --> 00:33:59.298
+Caption: playing around with so I got to use it
+
+00:33:57.798 --> 00:34:01.399
+Caption: myself for the first time when I was
+
+00:33:59.298 --> 00:34:03.199
+Caption: updating this talk a few months ago I
+
+00:34:01.400 --> 00:34:06.200
+Caption: was really exciting to get to do
+
+00:34:03.199 --> 00:34:07.909
+Caption: something so new so download Firefox
+
+00:34:06.199 --> 00:34:12.168
+Caption: nightly and have a look if you&#39;re
+
+00:34:07.910 --> 00:34:14.418
+Caption: interested remember flex box has been
+
+00:34:12.168 --> 00:34:19.760
+Caption: around for a while longer so their
+
+00:34:14.418 --> 00:34:22.040
+Caption: supports looking fairly good 98% and in
+
+00:34:19.760 --> 00:34:24.439
+Caption: my opinion there is two percent
+
+00:34:22.040 --> 00:34:28.418
+Caption: remaining they can deal with it there is
+
+00:34:24.439 --> 00:34:28.418
+Caption: two percent a user websites not
+
+00:34:28.989 --> 00:34:35.300
+Caption: one of the other great things we have
+
+00:34:31.550 --> 00:34:37.070
+Caption: with this is the supports query so the
+
+00:34:35.300 --> 00:34:40.879
+Caption: supports query if you haven&#39;t used it
+
+00:34:37.070 --> 00:34:44.510
+Caption: before is a CSS query that allows us to
+
+00:34:40.878 --> 00:34:48.338
+Caption: define a CSS property and a value and
+
+00:34:44.510 --> 00:34:48.339
+Caption: then code it inside of it
+
+00:34:48.909 --> 00:34:54.829
+Caption: and if the browser doesn&#39;t know what to
+
+00:34:53.300 --> 00:34:59.860
+Caption: do with the property in value
+
+00:34:54.830 --> 00:35:02.150
+Caption: it won&#39;t use the code now supports is
+
+00:34:59.860 --> 00:35:04.040
+Caption: fairly new like it&#39;s been around for a
+
+00:35:02.149 --> 00:35:06.199
+Caption: while but it is still failing you the
+
+00:35:04.040 --> 00:35:08.449
+Caption: great thing is if a browser doesn&#39;t know
+
+00:35:06.199 --> 00:35:10.070
+Caption: what to do with supports there is no way
+
+00:35:08.449 --> 00:35:11.510
+Caption: it&#39;s gonna know what to do with grid and
+
+00:35:10.070 --> 00:35:19.790
+Caption: it&#39;s just gonna ignore the whole lot
+
+00:35:11.510 --> 00:35:21.949
+Caption: anyway so for example I can say supports
+
+00:35:19.790 --> 00:35:24.080
+Caption: display grid I can put my grid code
+
+00:35:21.949 --> 00:35:26.659
+Caption: inside of this and if a browser doesn&#39;t
+
+00:35:24.080 --> 00:35:28.700
+Caption: know what to do with that it&#39;s not gonna
+
+00:35:26.659 --> 00:35:29.929
+Caption: use the grid code this is really useful
+
+00:35:28.699 --> 00:35:32.419
+Caption: because it means we&#39;re not delivering
+
+00:35:29.929 --> 00:35:33.739
+Caption: code to browsers where they&#39;re not
+
+00:35:32.419 --> 00:35:37.369
+Caption: supporting the properties that we&#39;re
+
+00:35:33.739 --> 00:35:41.510
+Caption: using there is one issue with this so
+
+00:35:37.370 --> 00:35:44.690
+Caption: cuz remember this guy sorry if you give
+
+00:35:41.510 --> 00:35:46.699
+Caption: it supports display grid are you guys I
+
+00:35:44.689 --> 00:35:51.079
+Caption: know this I know this one I know son I
+
+00:35:46.699 --> 00:35:53.510
+Caption: can do it I got it except it&#39;s using a
+
+00:35:51.080 --> 00:35:55.130
+Caption: completely different spec so depending
+
+00:35:53.510 --> 00:35:57.500
+Caption: on what properties you&#39;re using it&#39;s
+
+00:35:55.129 --> 00:35:59.269
+Caption: it&#39;s got no clue what any of the code
+
+00:35:57.500 --> 00:36:00.770
+Caption: inside of your supports query is doing
+
+00:35:59.270 --> 00:36:03.530
+Caption: or it does something completely
+
+00:36:00.770 --> 00:36:05.750
+Caption: different to what you&#39;re expecting the
+
+00:36:03.530 --> 00:36:07.939
+Caption: great thing is though you can instead do
+
+00:36:05.750 --> 00:36:10.550
+Caption: a supports query for a property that it
+
+00:36:07.939 --> 00:36:12.859
+Caption: doesn&#39;t support for example grid
+
+00:36:10.550 --> 00:36:14.900
+Caption: template areas you don&#39;t actually need
+
+00:36:12.860 --> 00:36:17.450
+Caption: to define areas you can just say dot to
+
+00:36:14.899 --> 00:36:20.569
+Caption: say there is an area and I look at this
+
+00:36:17.449 --> 00:36:24.479
+Caption: and go no no clue and it will leave it
+
+00:36:20.570 --> 00:36:28.320
+Caption: all alone so
+
+00:36:24.479 --> 00:36:32.219
+Caption: what you can do is just sew supports
+
+00:36:28.320 --> 00:36:34.290
+Caption: display supports grid template areas and
+
+00:36:32.219 --> 00:36:35.939
+Caption: then put all of your grid code inside of
+
+00:36:34.290 --> 00:36:37.439
+Caption: it that means that any of those browsers
+
+00:36:35.939 --> 00:36:41.328
+Caption: that don&#39;t know what to do with it
+
+00:36:37.439 --> 00:36:41.328
+Caption: they&#39;re just not going to touch it this
+
+00:36:41.868 --> 00:36:48.118
+Caption: is pretty awesome right this is exciting
+
+00:36:45.329 --> 00:36:50.250
+Caption: you can use this you can go back I know
+
+00:36:48.118 --> 00:36:52.739
+Caption: you can all go back to your team you can
+
+00:36:50.250 --> 00:36:54.899
+Caption: go yes I learn about this thing was a
+
+00:36:52.739 --> 00:36:56.879
+Caption: really amazing talk that I totally rated
+
+00:36:54.899 --> 00:37:00.059
+Caption: five stars for it gave really great
+
+00:36:56.879 --> 00:37:03.389
+Caption: feedback and we should start using this
+
+00:37:00.060 --> 00:37:06.020
+Caption: now and I know exactly what your team is
+
+00:37:03.389 --> 00:37:06.019
+Caption: going to say
+
+00:37:06.419 --> 00:37:16.739
+Caption: but so today I&#39;m gonna give you answers
+
+00:37:12.510 --> 00:37:23.519
+Caption: so that BOTS but there&#39;s not enough
+
+00:37:16.739 --> 00:37:24.000
+Caption: support 91 percent that&#39;s pretty good
+
+00:37:23.519 --> 00:37:26.339
+Caption: support
+
+00:37:24.000 --> 00:37:28.229
+Caption: it is completely depends on your UK use
+
+00:37:26.339 --> 00:37:33.839
+Caption: case anyone from Bank West I&#39;m really
+
+00:37:28.229 --> 00:37:35.669
+Caption: sorry I know you can&#39;t use this I used
+
+00:37:33.839 --> 00:37:38.910
+Caption: to work at banquets it&#39;s fine I know the
+
+00:37:35.669 --> 00:37:42.000
+Caption: deal you&#39;ve also got the supports query
+
+00:37:38.909 --> 00:37:46.199
+Caption: so remember if someone doesn&#39;t support
+
+00:37:42.000 --> 00:37:50.010
+Caption: it they&#39;re not gonna get grid code but
+
+00:37:46.199 --> 00:37:52.409
+Caption: then we have to write a fallback does
+
+00:37:50.010 --> 00:37:57.630
+Caption: your layout currently work in those
+
+00:37:52.409 --> 00:38:00.479
+Caption: browsers you&#39;ve only got one your
+
+00:37:57.629 --> 00:38:02.518
+Caption: current code is your fallback you can
+
+00:38:00.479 --> 00:38:04.588
+Caption: just write a great alternative and tired
+
+00:38:02.519 --> 00:38:08.369
+Caption: of it supports free now will only go to
+
+00:38:04.589 --> 00:38:14.849
+Caption: the browsers that can do it but we don&#39;t
+
+00:38:08.368 --> 00:38:16.139
+Caption: have time to do all of that the secret
+
+00:38:14.849 --> 00:38:19.730
+Caption: is you don&#39;t actually have to use this
+
+00:38:16.139 --> 00:38:23.328
+Caption: everywhere pick one thing
+
+00:38:19.729 --> 00:38:26.530
+Caption: the blog page one particular layout in a
+
+00:38:23.329 --> 00:38:32.440
+Caption: part of your application or website
+
+00:38:26.530 --> 00:38:32.439
+Caption: implement grid down then go from there
+
+00:38:33.820 --> 00:38:41.109
+Caption: but then will have to maintain it who
+
+00:38:37.608 --> 00:38:41.108
+Caption: here uses bootstrap at work
+
+00:38:41.290 --> 00:38:52.369
+Caption: guess what CSS grid is CSS there aren&#39;t
+
+00:38:48.858 --> 00:38:54.649
+Caption: frameworks to update and maintain and
+
+00:38:52.368 --> 00:38:57.529
+Caption: check to see whether or not something&#39;s
+
+00:38:54.649 --> 00:38:59.358
+Caption: broken this will literally take less
+
+00:38:57.530 --> 00:39:05.959
+Caption: time to maintain than whatever you&#39;re
+
+00:38:59.358 --> 00:39:07.909
+Caption: using now it&#39;s just CSS so to sum up my
+
+00:39:05.959 --> 00:39:10.939
+Caption: talk I can&#39;t cover the really amazing
+
+00:39:07.909 --> 00:39:15.949
+Caption: points the really important points CSS
+
+00:39:10.939 --> 00:39:20.358
+Caption: grid is awesome though is it right was
+
+00:39:15.949 --> 00:39:25.068
+Caption: it yeah no in all seriousness CSS grid
+
+00:39:20.358 --> 00:39:27.139
+Caption: is amazing it is fantastic to use it
+
+00:39:25.069 --> 00:39:29.479
+Caption: makes your life easier there are so
+
+00:39:27.139 --> 00:39:32.209
+Caption: times when I realize I can use grid for
+
+00:39:29.479 --> 00:39:34.909
+Caption: something or a particular use case I can
+
+00:39:32.209 --> 00:39:37.639
+Caption: I can do this grid and there&#39;s a mic
+
+00:39:34.909 --> 00:39:39.229
+Caption: drop moment and a happy dance and my dog
+
+00:39:37.639 --> 00:39:40.669
+Caption: looks at me weird because I work at home
+
+00:39:39.229 --> 00:39:42.588
+Caption: by myself and so there&#39;s no one there to
+
+00:39:40.669 --> 00:39:44.598
+Caption: see the happy dance and and then I
+
+00:39:42.589 --> 00:39:47.089
+Caption: message my boss all my friends go I can
+
+00:39:44.599 --> 00:39:48.170
+Caption: do this thing with grid and they have no
+
+00:39:47.089 --> 00:39:50.569
+Caption: clue what I&#39;m talking about
+
+00:39:48.169 --> 00:39:52.520
+Caption: well she will now she&#39;s sitting right at
+
+00:39:50.569 --> 00:39:56.739
+Caption: the back but she hasn&#39;t been listening
+
+00:39:52.520 --> 00:39:56.739
+Caption: so she still has no clue what I&#39;m doing
+
+00:39:58.868 --> 00:40:03.649
+Caption: there are a lot of really great
+
+00:40:00.679 --> 00:40:06.379
+Caption: resources out there again I&#39;m tweeting
+
+00:40:03.649 --> 00:40:08.598
+Caption: these out as we speak so don&#39;t worry if
+
+00:40:06.379 --> 00:40:10.699
+Caption: I&#39;m going through them too fast CSS
+
+00:40:08.599 --> 00:40:13.369
+Caption: tricks has a really amazing guide to
+
+00:40:10.699 --> 00:40:15.409
+Caption: grid I use these every day I&#39;m pretty
+
+00:40:13.368 --> 00:40:16.969
+Caption: sure I really messed up their stats when
+
+00:40:15.409 --> 00:40:18.979
+Caption: I wrote this talk because I was
+
+00:40:16.969 --> 00:40:20.780
+Caption: constantly reloading the page because
+
+00:40:18.979 --> 00:40:23.689
+Caption: they&#39;d close it and come straight back
+
+00:40:20.780 --> 00:40:26.390
+Caption: to it if you&#39;re wanting to get started
+
+00:40:23.689 --> 00:40:29.838
+Caption: where&#39;s boss has a really amazing CSS
+
+00:40:26.389 --> 00:40:31.519
+Caption: grid course guess what it&#39;s free if
+
+00:40:29.839 --> 00:40:33.890
+Caption: you&#39;re familiar with any is JavaScript
+
+00:40:31.520 --> 00:40:35.929
+Caption: talks so JavaScript
+
+00:40:33.889 --> 00:40:38.118
+Caption: horses you can have a look at that one
+
+00:40:35.929 --> 00:40:39.858
+Caption: even if you&#39;re the kind of person who
+
+00:40:38.118 --> 00:40:42.889
+Caption: doesn&#39;t like doing video courses I
+
+00:40:39.858 --> 00:40:45.229
+Caption: recommend looking anyway I hate doing
+
+00:40:42.889 --> 00:40:47.139
+Caption: video courses but these ones are great
+
+00:40:45.229 --> 00:40:49.549
+Caption: if you&#39;re a little bit more
+
+00:40:47.139 --> 00:40:53.208
+Caption: old-fashioned no I&#39;m not making fun of
+
+00:40:49.549 --> 00:40:55.309
+Caption: you I have this book this is a really
+
+00:40:53.208 --> 00:40:57.319
+Caption: great book from Rachel Andrew goes
+
+00:40:55.309 --> 00:41:02.239
+Caption: through a lot about CSS layout
+
+00:40:57.319 --> 00:41:05.479
+Caption: particularly CSS grid really anything by
+
+00:41:02.239 --> 00:41:07.549
+Caption: Rachel Andrew is is good for grid she&#39;s
+
+00:41:05.479 --> 00:41:11.839
+Caption: got a lot of blog posts and talks as
+
+00:41:07.549 --> 00:41:13.940
+Caption: well as written books I would actually
+
+00:41:11.839 --> 00:41:16.789
+Caption: recommend anything by Rachel Andrew or
+
+00:41:13.939 --> 00:41:19.608
+Caption: Jenn Simmons I would like to credit them
+
+00:41:16.789 --> 00:41:21.979
+Caption: with creating grid but I have absolutely
+
+00:41:19.608 --> 00:41:24.468
+Caption: no idea if that&#39;s true they just do a
+
+00:41:21.979 --> 00:41:26.539
+Caption: lot of talking about it if you&#39;re
+
+00:41:24.468 --> 00:41:29.779
+Caption: looking for a really fun way to do it
+
+00:41:26.539 --> 00:41:32.208
+Caption: you can use CSS grid garden which is a
+
+00:41:29.779 --> 00:41:34.339
+Caption: nice fun way to learn all of the
+
+00:41:32.208 --> 00:41:36.679
+Caption: different grid properties and if you
+
+00:41:34.339 --> 00:41:39.489
+Caption: haven&#39;t learned so Xbox yet or you want
+
+00:41:36.679 --> 00:41:45.288
+Caption: to refresher they also have flexbox
+
+00:41:39.489 --> 00:41:46.169
+Caption: froggie thank you everybody for having
+
+00:41:45.289 --> 00:41:51.678
+Caption: me along
+
+00:41:46.169 --> 00:41:51.678
+Caption: [Applause]
+

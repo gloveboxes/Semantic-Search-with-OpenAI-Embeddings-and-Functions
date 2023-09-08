@@ -1,0 +1,1737 @@
+[
+    {
+        "text": "you're not going to want to miss this",
+        "start": 0.0,
+        "duration": 2.82
+    },
+    {
+        "text": "episode of the AI show we're going to",
+        "start": 1.38,
+        "duration": 3.72
+    },
+    {
+        "text": "talk all about scaling your AIML",
+        "start": 2.82,
+        "duration": 4.439
+    },
+    {
+        "text": "practices with ML Ops and Azure machine",
+        "start": 5.1,
+        "duration": 5.22
+    },
+    {
+        "text": "learning part three the Practical bits",
+        "start": 7.259,
+        "duration": 5.701
+    },
+    {
+        "text": "with my uh friend Scott make sure you",
+        "start": 10.32,
+        "duration": 3.32
+    },
+    {
+        "text": "tune in",
+        "start": 12.96,
+        "duration": 6.5
+    },
+    {
+        "text": "[Music]",
+        "start": 13.64,
+        "duration": 7.899
+    },
+    {
+        "text": "hello and welcome to this episode of the",
+        "start": 19.46,
+        "duration": 4.42
+    },
+    {
+        "text": "AI show we're talking all about scaling",
+        "start": 21.539,
+        "duration": 4.621
+    },
+    {
+        "text": "your AIML practices with ML Ops and",
+        "start": 23.88,
+        "duration": 3.78
+    },
+    {
+        "text": "Azure machine learning this is part",
+        "start": 26.16,
+        "duration": 3.779
+    },
+    {
+        "text": "three where we get into some actual code",
+        "start": 27.66,
+        "duration": 4.919
+    },
+    {
+        "text": "is that right Scott that's right",
+        "start": 29.939,
+        "duration": 4.381
+    },
+    {
+        "text": "fantastic I want to show us who you are",
+        "start": 32.579,
+        "duration": 4.021
+    },
+    {
+        "text": "and what you do before we get started uh",
+        "start": 34.32,
+        "duration": 4.44
+    },
+    {
+        "text": "I am Scott Donahue I'm A Cloud solution",
+        "start": 36.6,
+        "duration": 5.04
+    },
+    {
+        "text": "architect in our AI specialized CSA",
+        "start": 38.76,
+        "duration": 5.34
+    },
+    {
+        "text": "group at Microsoft and part of the team",
+        "start": 41.64,
+        "duration": 4.439
+    },
+    {
+        "text": "that has built this solution accelerator",
+        "start": 44.1,
+        "duration": 3.72
+    },
+    {
+        "text": "over the past year and a half that is",
+        "start": 46.079,
+        "duration": 4.5
+    },
+    {
+        "text": "amazing look but people don't know I",
+        "start": 47.82,
+        "duration": 4.62
+    },
+    {
+        "text": "work in the product group and people",
+        "start": 50.579,
+        "duration": 5.46
+    },
+    {
+        "text": "like Scott do the actual work to make",
+        "start": 52.44,
+        "duration": 6.119
+    },
+    {
+        "text": "these products work for customers which",
+        "start": 56.039,
+        "duration": 4.141
+    },
+    {
+        "text": "is which is amazing I know it's a little",
+        "start": 58.559,
+        "duration": 3.0
+    },
+    {
+        "text": "inside baseball but I just want you to",
+        "start": 60.18,
+        "duration": 4.14
+    },
+    {
+        "text": "know how awesome these folks are so we",
+        "start": 61.559,
+        "duration": 6.001
+    },
+    {
+        "text": "we talked in in part one to Abe about",
+        "start": 64.32,
+        "duration": 5.7
+    },
+    {
+        "text": "some general ml Ops principle in part",
+        "start": 67.56,
+        "duration": 4.98
+    },
+    {
+        "text": "two we talked to setu about the",
+        "start": 70.02,
+        "duration": 4.62
+    },
+    {
+        "text": "accelerator I was hoping maybe we could",
+        "start": 72.54,
+        "duration": 4.32
+    },
+    {
+        "text": "dive in and see how we could take these",
+        "start": 74.64,
+        "duration": 3.659
+    },
+    {
+        "text": "accelerators and put them into practice",
+        "start": 76.86,
+        "duration": 4.259
+    },
+    {
+        "text": "can we do that you bet",
+        "start": 78.299,
+        "duration": 5.941
+    },
+    {
+        "text": "fantastic so just a review from the past",
+        "start": 81.119,
+        "duration": 4.921
+    },
+    {
+        "text": "two things that we talked about can you",
+        "start": 84.24,
+        "duration": 3.36
+    },
+    {
+        "text": "give us a little review",
+        "start": 86.04,
+        "duration": 3.719
+    },
+    {
+        "text": "sure in part one",
+        "start": 87.6,
+        "duration": 3.0
+    },
+    {
+        "text": "um",
+        "start": 89.759,
+        "duration": 4.201
+    },
+    {
+        "text": "Abe talked about uh the overall ml Ops",
+        "start": 90.6,
+        "duration": 4.559
+    },
+    {
+        "text": "story and what we're doing here at",
+        "start": 93.96,
+        "duration": 3.839
+    },
+    {
+        "text": "Microsoft in part two",
+        "start": 95.159,
+        "duration": 5.401
+    },
+    {
+        "text": "um setu talked about uh the mlops",
+        "start": 97.799,
+        "duration": 4.86
+    },
+    {
+        "text": "solution accelerator how how much",
+        "start": 100.56,
+        "duration": 4.44
+    },
+    {
+        "text": "success we've had with it with uh our",
+        "start": 102.659,
+        "duration": 3.901
+    },
+    {
+        "text": "customers where we're trying to go with",
+        "start": 105.0,
+        "duration": 4.32
+    },
+    {
+        "text": "it and so now for part three I want to",
+        "start": 106.56,
+        "duration": 4.739
+    },
+    {
+        "text": "give a little bit of a look at what that",
+        "start": 109.32,
+        "duration": 3.659
+    },
+    {
+        "text": "accelerator looks like and how it works",
+        "start": 111.299,
+        "duration": 3.18
+    },
+    {
+        "text": "for you all right let's dive in let me",
+        "start": 112.979,
+        "duration": 2.82
+    },
+    {
+        "text": "share your screen",
+        "start": 114.479,
+        "duration": 3.841
+    },
+    {
+        "text": "great",
+        "start": 115.799,
+        "duration": 5.161
+    },
+    {
+        "text": "okay so what we're looking here at here",
+        "start": 118.32,
+        "duration": 5.579
+    },
+    {
+        "text": "is the the homepage repo for the Azure",
+        "start": 120.96,
+        "duration": 6.68
+    },
+    {
+        "text": "Mill Ops V2 solution accelerator",
+        "start": 123.899,
+        "duration": 6.661
+    },
+    {
+        "text": "this is open source in public so anyone",
+        "start": 127.64,
+        "duration": 6.819
+    },
+    {
+        "text": "can use it and what it attempts to do is",
+        "start": 130.56,
+        "duration": 8.46
+    },
+    {
+        "text": "to create a a project Factory so that",
+        "start": 134.459,
+        "duration": 7.621
+    },
+    {
+        "text": "you can easily bootstrap new ml projects",
+        "start": 139.02,
+        "duration": 5.18
+    },
+    {
+        "text": "with end-to-end",
+        "start": 142.08,
+        "duration": 6.239
+    },
+    {
+        "text": "pipelines and data flows already built",
+        "start": 144.2,
+        "duration": 5.86
+    },
+    {
+        "text": "for you so that you can quickly get",
+        "start": 148.319,
+        "duration": 3.481
+    },
+    {
+        "text": "started",
+        "start": 150.06,
+        "duration": 2.52
+    },
+    {
+        "text": "um",
+        "start": 151.8,
+        "duration": 3.24
+    },
+    {
+        "text": "the",
+        "start": 152.58,
+        "duration": 5.22
+    },
+    {
+        "text": "once the the accelerator can be used",
+        "start": 155.04,
+        "duration": 6.479
+    },
+    {
+        "text": "either with Azure devops or in GitHub",
+        "start": 157.8,
+        "duration": 5.579
+    },
+    {
+        "text": "for for uh source code for management",
+        "start": 161.519,
+        "duration": 4.621
+    },
+    {
+        "text": "pipeline management and workflows so",
+        "start": 163.379,
+        "duration": 4.44
+    },
+    {
+        "text": "what I'm going to show here is an",
+        "start": 166.14,
+        "duration": 3.66
+    },
+    {
+        "text": "example that I've built using this",
+        "start": 167.819,
+        "duration": 4.92
+    },
+    {
+        "text": "accelerator that is in azure devops",
+        "start": 169.8,
+        "duration": 6.0
+    },
+    {
+        "text": "so once this solution accelerator is set",
+        "start": 172.739,
+        "duration": 4.441
+    },
+    {
+        "text": "up and your project and your",
+        "start": 175.8,
+        "duration": 4.38
+    },
+    {
+        "text": "organization in Azure devops you'll have",
+        "start": 177.18,
+        "duration": 5.339
+    },
+    {
+        "text": "available to you a pipeline called",
+        "start": 180.18,
+        "duration": 4.32
+    },
+    {
+        "text": "initialize project",
+        "start": 182.519,
+        "duration": 6.241
+    },
+    {
+        "text": "and when I run this pipeline manually I",
+        "start": 184.5,
+        "duration": 7.2
+    },
+    {
+        "text": "can select all the characteristics of",
+        "start": 188.76,
+        "duration": 5.82
+    },
+    {
+        "text": "the project that I want to build so I",
+        "start": 191.7,
+        "duration": 5.28
+    },
+    {
+        "text": "want to give a new project name or the",
+        "start": 194.58,
+        "duration": 3.78
+    },
+    {
+        "text": "project name I'm going to pull all these",
+        "start": 196.98,
+        "duration": 3.72
+    },
+    {
+        "text": "ml apps templates from a new project",
+        "start": 198.36,
+        "duration": 5.7
+    },
+    {
+        "text": "name for my repository my my Pro ml",
+        "start": 200.7,
+        "duration": 4.619
+    },
+    {
+        "text": "project itself",
+        "start": 204.06,
+        "duration": 4.38
+    },
+    {
+        "text": "the set of templates to use and I can",
+        "start": 205.319,
+        "duration": 5.28
+    },
+    {
+        "text": "specify some other characteristics of my",
+        "start": 208.44,
+        "duration": 5.64
+    },
+    {
+        "text": "project for instance ml project type of",
+        "start": 210.599,
+        "duration": 7.321
+    },
+    {
+        "text": "classical so typical ml workflow",
+        "start": 214.08,
+        "duration": 7.14
+    },
+    {
+        "text": "with tabular data computer vision",
+        "start": 217.92,
+        "duration": 6.66
+    },
+    {
+        "text": "workflow and natural language processing",
+        "start": 221.22,
+        "duration": 6.42
+    },
+    {
+        "text": "as well I can select the interfaced",
+        "start": 224.58,
+        "duration": 4.739
+    },
+    {
+        "text": "Azure machine learning that I prefer to",
+        "start": 227.64,
+        "duration": 6.959
+    },
+    {
+        "text": "use so the Azure ml CLI V2 python sdks",
+        "start": 229.319,
+        "duration": 8.881
+    },
+    {
+        "text": "V1 and V2 and our responsible AI CLI as",
+        "start": 234.599,
+        "duration": 4.621
+    },
+    {
+        "text": "well",
+        "start": 238.2,
+        "duration": 3.899
+    },
+    {
+        "text": "this is this is really cool so if I'm if",
+        "start": 239.22,
+        "duration": 6.42
+    },
+    {
+        "text": "I'm understanding this right you you",
+        "start": 242.099,
+        "duration": 6.181
+    },
+    {
+        "text": "clone the repo",
+        "start": 245.64,
+        "duration": 5.22
+    },
+    {
+        "text": "and then you get the like you could do",
+        "start": 248.28,
+        "duration": 4.5
+    },
+    {
+        "text": "it in get GitHub actions you decided to",
+        "start": 250.86,
+        "duration": 3.78
+    },
+    {
+        "text": "do Azure devops which is awesome in",
+        "start": 252.78,
+        "duration": 3.359
+    },
+    {
+        "text": "either case but there is going to be",
+        "start": 254.64,
+        "duration": 4.319
+    },
+    {
+        "text": "some pipelines that you run that's going",
+        "start": 256.139,
+        "duration": 4.44
+    },
+    {
+        "text": "to set everything up according to the",
+        "start": 258.959,
+        "duration": 3.0
+    },
+    {
+        "text": "principles that were described in the",
+        "start": 260.579,
+        "duration": 4.321
+    },
+    {
+        "text": "previous videos that's right okay and so",
+        "start": 261.959,
+        "duration": 4.441
+    },
+    {
+        "text": "what you're putting in here is it's the",
+        "start": 264.9,
+        "duration": 3.06
+    },
+    {
+        "text": "custom names of the things you want to",
+        "start": 266.4,
+        "duration": 4.14
+    },
+    {
+        "text": "do up to including the project type is",
+        "start": 267.96,
+        "duration": 5.16
+    },
+    {
+        "text": "that correct that's right and based on",
+        "start": 270.54,
+        "duration": 4.92
+    },
+    {
+        "text": "the project type you will get a",
+        "start": 273.12,
+        "duration": 6.18
+    },
+    {
+        "text": "different set of template pipelines and",
+        "start": 275.46,
+        "duration": 6.06
+    },
+    {
+        "text": "Sample data provided in your project to",
+        "start": 279.3,
+        "duration": 3.6
+    },
+    {
+        "text": "work with so you can get an",
+        "start": 281.52,
+        "duration": 3.84
+    },
+    {
+        "text": "understanding of of what those flows",
+        "start": 282.9,
+        "duration": 3.9
+    },
+    {
+        "text": "look like",
+        "start": 285.36,
+        "duration": 3.42
+    },
+    {
+        "text": "yeah that's really cool that one of the",
+        "start": 286.8,
+        "duration": 4.02
+    },
+    {
+        "text": "biggest challenges that I found when I'm",
+        "start": 288.78,
+        "duration": 4.08
+    },
+    {
+        "text": "explaining this stuff or using this",
+        "start": 290.82,
+        "duration": 4.02
+    },
+    {
+        "text": "stuff is people like I just want to get",
+        "start": 292.86,
+        "duration": 4.98
+    },
+    {
+        "text": "my hands into the Pod and start mixing",
+        "start": 294.84,
+        "duration": 5.16
+    },
+    {
+        "text": "things around but you've basically",
+        "start": 297.84,
+        "duration": 3.9
+    },
+    {
+        "text": "brought all the ingredients for an",
+        "start": 300.0,
+        "duration": 3.84
+    },
+    {
+        "text": "entire meal in this case",
+        "start": 301.74,
+        "duration": 4.679
+    },
+    {
+        "text": "trying to and working improving that",
+        "start": 303.84,
+        "duration": 4.68
+    },
+    {
+        "text": "meal as we go I love it all right keep",
+        "start": 306.419,
+        "duration": 4.621
+    },
+    {
+        "text": "showing us so the next",
+        "start": 308.52,
+        "duration": 4.8
+    },
+    {
+        "text": "um part that the last parameter of",
+        "start": 311.04,
+        "duration": 5.159
+    },
+    {
+        "text": "creating your project is you can select",
+        "start": 313.32,
+        "duration": 5.159
+    },
+    {
+        "text": "your the preferred infra infrastructure",
+        "start": 316.199,
+        "duration": 5.22
+    },
+    {
+        "text": "provider either bicep or terraform",
+        "start": 318.479,
+        "duration": 5.761
+    },
+    {
+        "text": "uh and I'll get into uh some of the",
+        "start": 321.419,
+        "duration": 4.981
+    },
+    {
+        "text": "aspects of how these are divided up in",
+        "start": 324.24,
+        "duration": 4.5
+    },
+    {
+        "text": "the project so once I've selected all",
+        "start": 326.4,
+        "duration": 4.799
+    },
+    {
+        "text": "this I would click run to execute this",
+        "start": 328.74,
+        "duration": 5.64
+    },
+    {
+        "text": "Pipeline and this Azure devops pipeline",
+        "start": 331.199,
+        "duration": 7.741
+    },
+    {
+        "text": "will bootstrap my actual ml project",
+        "start": 334.38,
+        "duration": 7.56
+    },
+    {
+        "text": "when that is complete I'll wind up with",
+        "start": 338.94,
+        "duration": 4.74
+    },
+    {
+        "text": "something like this",
+        "start": 341.94,
+        "duration": 3.12
+    },
+    {
+        "text": "and",
+        "start": 343.68,
+        "duration": 1.92
+    },
+    {
+        "text": "um",
+        "start": 345.06,
+        "duration": 2.479
+    },
+    {
+        "text": "as might have been mentioned in part two",
+        "start": 345.6,
+        "duration": 5.4
+    },
+    {
+        "text": "uh we div we try to make this",
+        "start": 347.539,
+        "duration": 6.761
+    },
+    {
+        "text": "accelerator modular and flexible",
+        "start": 351.0,
+        "duration": 6.539
+    },
+    {
+        "text": "so that it was easy to modify and also",
+        "start": 354.3,
+        "duration": 5.82
+    },
+    {
+        "text": "had a separation of concerns for the",
+        "start": 357.539,
+        "duration": 4.681
+    },
+    {
+        "text": "people that are often involved in ml Ops",
+        "start": 360.12,
+        "duration": 4.98
+    },
+    {
+        "text": "so we talked about mlots process",
+        "start": 362.22,
+        "duration": 5.4
+    },
+    {
+        "text": "processes and people well a lot of those",
+        "start": 365.1,
+        "duration": 4.439
+    },
+    {
+        "text": "peoples have different skill sets",
+        "start": 367.62,
+        "duration": 4.859
+    },
+    {
+        "text": "different roles data scientists data",
+        "start": 369.539,
+        "duration": 6.181
+    },
+    {
+        "text": "Engineers ml engineers and nit",
+        "start": 372.479,
+        "duration": 7.381
+    },
+    {
+        "text": "so the form of these the projects that's",
+        "start": 375.72,
+        "duration": 7.44
+    },
+    {
+        "text": "bootstrapped for you is we've got sample",
+        "start": 379.86,
+        "duration": 6.059
+    },
+    {
+        "text": "data in this case for a taxi regression",
+        "start": 383.16,
+        "duration": 5.52
+    },
+    {
+        "text": "uh example",
+        "start": 385.919,
+        "duration": 5.041
+    },
+    {
+        "text": "the data scientists would be concerned",
+        "start": 388.68,
+        "duration": 4.139
+    },
+    {
+        "text": "with the code that is under the data",
+        "start": 390.96,
+        "duration": 4.739
+    },
+    {
+        "text": "science directory so we've got the",
+        "start": 392.819,
+        "duration": 6.061
+    },
+    {
+        "text": "source code for preparing data training",
+        "start": 395.699,
+        "duration": 4.861
+    },
+    {
+        "text": "a model evaluating the model and",
+        "start": 398.88,
+        "duration": 3.42
+    },
+    {
+        "text": "registering it in Azure machine learning",
+        "start": 400.56,
+        "duration": 4.079
+    },
+    {
+        "text": "as well as defining the environment that",
+        "start": 402.3,
+        "duration": 3.26
+    },
+    {
+        "text": "we need",
+        "start": 404.639,
+        "duration": 5.9
+    },
+    {
+        "text": "for all of those phases of our pipeline",
+        "start": 405.56,
+        "duration": 8.5
+    },
+    {
+        "text": "infrastructure defines either in bicep",
+        "start": 410.539,
+        "duration": 6.521
+    },
+    {
+        "text": "or terraform the complete Azure ml",
+        "start": 414.06,
+        "duration": 5.16
+    },
+    {
+        "text": "environment that we want to be able to",
+        "start": 417.06,
+        "duration": 4.979
+    },
+    {
+        "text": "deploy and the pipeline in this case an",
+        "start": 419.22,
+        "duration": 5.759
+    },
+    {
+        "text": "Azure devops pipeline for deploying it",
+        "start": 422.039,
+        "duration": 4.701
+    },
+    {
+        "text": "so your it",
+        "start": 424.979,
+        "duration": 4.261
+    },
+    {
+        "text": "group may be more concerned with what's",
+        "start": 426.74,
+        "duration": 4.54
+    },
+    {
+        "text": "in this directory here",
+        "start": 429.24,
+        "duration": 5.76
+    },
+    {
+        "text": "and then under ml Ops we have both the",
+        "start": 431.28,
+        "duration": 7.68
+    },
+    {
+        "text": "devops pipelines for CI CD so deploying",
+        "start": 435.0,
+        "duration": 6.06
+    },
+    {
+        "text": "the model training pipeline into Azure",
+        "start": 438.96,
+        "duration": 5.579
+    },
+    {
+        "text": "ML and optionally deploying either an",
+        "start": 441.06,
+        "duration": 5.82
+    },
+    {
+        "text": "online managed endpoint in Azure ml or a",
+        "start": 444.539,
+        "duration": 6.361
+    },
+    {
+        "text": "batch managed endpoint in Azure ml",
+        "start": 446.88,
+        "duration": 5.7
+    },
+    {
+        "text": "um these are pipelines that are run from",
+        "start": 450.9,
+        "duration": 5.82
+    },
+    {
+        "text": "Azure devops and what they deploy into",
+        "start": 452.58,
+        "duration": 6.42
+    },
+    {
+        "text": "Azure ml are the actual Azure ml",
+        "start": 456.72,
+        "duration": 4.14
+    },
+    {
+        "text": "pipelines so we've got a training",
+        "start": 459.0,
+        "duration": 6.0
+    },
+    {
+        "text": "pipeline that registers data",
+        "start": 460.86,
+        "duration": 6.48
+    },
+    {
+        "text": "um runs on compute and registers the",
+        "start": 465.0,
+        "duration": 4.319
+    },
+    {
+        "text": "model and then we've got a deployment",
+        "start": 467.34,
+        "duration": 4.199
+    },
+    {
+        "text": "pipeline for both cases of either batch",
+        "start": 469.319,
+        "duration": 3.901
+    },
+    {
+        "text": "or online",
+        "start": 471.539,
+        "duration": 4.741
+    },
+    {
+        "text": "I mean this is it really is the Soup To",
+        "start": 473.22,
+        "duration": 4.86
+    },
+    {
+        "text": "Nuts kind of experience with with",
+        "start": 476.28,
+        "duration": 3.479
+    },
+    {
+        "text": "everything in there and it's really cool",
+        "start": 478.08,
+        "duration": 4.98
+    },
+    {
+        "text": "that it has the data the the pipelines",
+        "start": 479.759,
+        "duration": 5.701
+    },
+    {
+        "text": "both for running it outside of azure",
+        "start": 483.06,
+        "duration": 3.419
+    },
+    {
+        "text": "machine learning and providing the",
+        "start": 485.46,
+        "duration": 2.28
+    },
+    {
+        "text": "machine learning pipelines which are",
+        "start": 486.479,
+        "duration": 3.84
+    },
+    {
+        "text": "different things what does this look",
+        "start": 487.74,
+        "duration": 4.739
+    },
+    {
+        "text": "like is there like a you how do you run",
+        "start": 490.319,
+        "duration": 4.921
+    },
+    {
+        "text": "this to get actual artifacts produced",
+        "start": 492.479,
+        "duration": 5.521
+    },
+    {
+        "text": "right so the next step after having",
+        "start": 495.24,
+        "duration": 5.7
+    },
+    {
+        "text": "bootstrap this project repository in",
+        "start": 498.0,
+        "duration": 5.879
+    },
+    {
+        "text": "Azure devops would be to configure the",
+        "start": 500.94,
+        "duration": 4.74
+    },
+    {
+        "text": "environment I actually want to deploy",
+        "start": 503.879,
+        "duration": 3.72
+    },
+    {
+        "text": "for Azure machine learning and to do",
+        "start": 505.68,
+        "duration": 4.56
+    },
+    {
+        "text": "that I would select I would edit this",
+        "start": 507.599,
+        "duration": 7.041
+    },
+    {
+        "text": "file here infra prod and I can specify",
+        "start": 510.24,
+        "duration": 6.599
+    },
+    {
+        "text": "some of the characteristics of the",
+        "start": 514.64,
+        "duration": 3.759
+    },
+    {
+        "text": "environment that I want I give it a",
+        "start": 516.839,
+        "duration": 3.241
+    },
+    {
+        "text": "namespace",
+        "start": 518.399,
+        "duration": 4.44
+    },
+    {
+        "text": "a post-fix this could be a number or a",
+        "start": 520.08,
+        "duration": 5.46
+    },
+    {
+        "text": "string the Azure ml region I want to",
+        "start": 522.839,
+        "duration": 5.101
+    },
+    {
+        "text": "deploy to and",
+        "start": 525.54,
+        "duration": 4.799
+    },
+    {
+        "text": "um and what I want to use to represent",
+        "start": 527.94,
+        "duration": 5.579
+    },
+    {
+        "text": "where this particular environment fits",
+        "start": 530.339,
+        "duration": 6.541
+    },
+    {
+        "text": "in My overall mlops practice so I can",
+        "start": 533.519,
+        "duration": 5.101
+    },
+    {
+        "text": "deploy this three times from different",
+        "start": 536.88,
+        "duration": 5.22
+    },
+    {
+        "text": "branches of this repo to create a prod",
+        "start": 538.62,
+        "duration": 6.48
+    },
+    {
+        "text": "environment a Dev environment a test or",
+        "start": 542.1,
+        "duration": 5.46
+    },
+    {
+        "text": "staging environment and so forth I can",
+        "start": 545.1,
+        "duration": 4.46
+    },
+    {
+        "text": "also ask it to",
+        "start": 547.56,
+        "duration": 5.1
+    },
+    {
+        "text": "configure to to pre-create a compute",
+        "start": 549.56,
+        "duration": 4.66
+    },
+    {
+        "text": "cluster for me so that I can just go",
+        "start": 552.66,
+        "duration": 3.72
+    },
+    {
+        "text": "straight into running a trading training",
+        "start": 554.22,
+        "duration": 4.02
+    },
+    {
+        "text": "pipeline",
+        "start": 556.38,
+        "duration": 3.92
+    },
+    {
+        "text": "so once I've done this",
+        "start": 558.24,
+        "duration": 7.68
+    },
+    {
+        "text": "then I would first deploy",
+        "start": 560.3,
+        "duration": 7.74
+    },
+    {
+        "text": "um",
+        "start": 565.92,
+        "duration": 2.12
+    },
+    {
+        "text": "the infrastructure Pipeline",
+        "start": 569.94,
+        "duration": 7.64
+    },
+    {
+        "text": "and when that pipeline is run",
+        "start": 572.6,
+        "duration": 4.98
+    },
+    {
+        "text": "it's deploying an Azure ml workspace for",
+        "start": 578.88,
+        "duration": 4.68
+    },
+    {
+        "text": "me along with all of the other assets",
+        "start": 581.7,
+        "duration": 5.48
+    },
+    {
+        "text": "that I need to run my Azure ml pipelines",
+        "start": 583.56,
+        "duration": 7.44
+    },
+    {
+        "text": "and so when this pipeline is complete",
+        "start": 587.18,
+        "duration": 5.5
+    },
+    {
+        "text": "I don't have",
+        "start": 591.0,
+        "duration": 4.32
+    },
+    {
+        "text": "my Azure ml pipeline",
+        "start": 592.68,
+        "duration": 4.98
+    },
+    {
+        "text": "and I'm ready to run training and run",
+        "start": 595.32,
+        "duration": 4.079
+    },
+    {
+        "text": "deployment",
+        "start": 597.66,
+        "duration": 3.359
+    },
+    {
+        "text": "that's cool as part of the",
+        "start": 599.399,
+        "duration": 3.901
+    },
+    {
+        "text": "infrastructure",
+        "start": 601.019,
+        "duration": 4.201
+    },
+    {
+        "text": "pipeline is it just creating the",
+        "start": 603.3,
+        "duration": 5.88
+    },
+    {
+        "text": "workspace or is it doing more than that",
+        "start": 605.22,
+        "duration": 5.94
+    },
+    {
+        "text": "playing the Azure ml workspace the",
+        "start": 609.18,
+        "duration": 3.48
+    },
+    {
+        "text": "deployment just creates the workspace",
+        "start": 611.16,
+        "duration": 3.359
+    },
+    {
+        "text": "right and it could be it could be",
+        "start": 612.66,
+        "duration": 4.02
+    },
+    {
+        "text": "enhanced to add other assets that might",
+        "start": 614.519,
+        "duration": 5.041
+    },
+    {
+        "text": "be associated with the particular",
+        "start": 616.68,
+        "duration": 6.06
+    },
+    {
+        "text": "project in mind I see okay cool",
+        "start": 619.56,
+        "duration": 6.779
+    },
+    {
+        "text": "so now that I have my Azure ml workspace",
+        "start": 622.74,
+        "duration": 6.14
+    },
+    {
+        "text": "deployed",
+        "start": 626.339,
+        "duration": 2.541
+    },
+    {
+        "text": "I would run my model training pipeline",
+        "start": 629.58,
+        "duration": 5.28
+    },
+    {
+        "text": "now the model training pipeline does",
+        "start": 632.339,
+        "duration": 4.321
+    },
+    {
+        "text": "quite a bit it creates the compute",
+        "start": 634.86,
+        "duration": 3.06
+    },
+    {
+        "text": "cluster",
+        "start": 636.66,
+        "duration": 2.58
+    },
+    {
+        "text": "it",
+        "start": 637.92,
+        "duration": 3.0
+    },
+    {
+        "text": "um trains the model",
+        "start": 639.24,
+        "duration": 4.5
+    },
+    {
+        "text": "tests the model against some test data",
+        "start": 640.92,
+        "duration": 5.94
+    },
+    {
+        "text": "and registers the model in Azure ml",
+        "start": 643.74,
+        "duration": 6.48
+    },
+    {
+        "text": "as well as registering the data set that",
+        "start": 646.86,
+        "duration": 6.719
+    },
+    {
+        "text": "we're operating on so if we go into",
+        "start": 650.22,
+        "duration": 6.359
+    },
+    {
+        "text": "the workspace after that pipeline has",
+        "start": 653.579,
+        "duration": 4.26
+    },
+    {
+        "text": "been run",
+        "start": 656.579,
+        "duration": 3.241
+    },
+    {
+        "text": "I can see that I've got",
+        "start": 657.839,
+        "duration": 4.62
+    },
+    {
+        "text": "my taxi data is registered as a data",
+        "start": 659.82,
+        "duration": 4.94
+    },
+    {
+        "text": "asset",
+        "start": 662.459,
+        "duration": 2.301
+    },
+    {
+        "text": "the pipeline has been registered and",
+        "start": 665.88,
+        "duration": 5.36
+    },
+    {
+        "text": "published",
+        "start": 668.76,
+        "duration": 2.48
+    },
+    {
+        "text": "I've got an environment that contains",
+        "start": 671.279,
+        "duration": 5.761
+    },
+    {
+        "text": "all of the Python packages and the base",
+        "start": 673.56,
+        "duration": 5.64
+    },
+    {
+        "text": "image that I need to do the training for",
+        "start": 677.04,
+        "duration": 3.72
+    },
+    {
+        "text": "my particular model",
+        "start": 679.2,
+        "duration": 2.819
+    },
+    {
+        "text": "I see",
+        "start": 680.76,
+        "duration": 3.66
+    },
+    {
+        "text": "and when that training is complete it",
+        "start": 682.019,
+        "duration": 3.901
+    },
+    {
+        "text": "will register the model",
+        "start": 684.42,
+        "duration": 4.02
+    },
+    {
+        "text": "as an ml flow model so at this point",
+        "start": 685.92,
+        "duration": 4.979
+    },
+    {
+        "text": "we're done and we can get to this point",
+        "start": 688.44,
+        "duration": 7.019
+    },
+    {
+        "text": "in in about a half hour or 45 minutes",
+        "start": 690.899,
+        "duration": 7.201
+    },
+    {
+        "text": "that's cool and so the first pipeline",
+        "start": 695.459,
+        "duration": 4.741
+    },
+    {
+        "text": "sets up the workspace the second",
+        "start": 698.1,
+        "duration": 5.16
+    },
+    {
+        "text": "pipeline sets up all of the attend",
+        "start": 700.2,
+        "duration": 5.16
+    },
+    {
+        "text": "attendant assets that you would need to",
+        "start": 703.26,
+        "duration": 4.319
+    },
+    {
+        "text": "run this job up to it including running",
+        "start": 705.36,
+        "duration": 3.9
+    },
+    {
+        "text": "a machine learning job and creating the",
+        "start": 707.579,
+        "duration": 3.361
+    },
+    {
+        "text": "model in a Azure machine learning",
+        "start": 709.26,
+        "duration": 4.199
+    },
+    {
+        "text": "pipeline that's correct okay cool this",
+        "start": 710.94,
+        "duration": 3.6
+    },
+    {
+        "text": "is cool",
+        "start": 713.459,
+        "duration": 3.841
+    },
+    {
+        "text": "and then lastly we have optionally we",
+        "start": 714.54,
+        "duration": 4.56
+    },
+    {
+        "text": "can choose to deploy that ml flow",
+        "start": 717.3,
+        "duration": 3.18
+    },
+    {
+        "text": "registered model",
+        "start": 719.1,
+        "duration": 4.14
+    },
+    {
+        "text": "as an online managed endpoint or a batch",
+        "start": 720.48,
+        "duration": 5.58
+    },
+    {
+        "text": "endpoint in Azure ml in this case I've",
+        "start": 723.24,
+        "duration": 4.02
+    },
+    {
+        "text": "done both",
+        "start": 726.06,
+        "duration": 2.459
+    },
+    {
+        "text": "so",
+        "start": 727.26,
+        "duration": 3.3
+    },
+    {
+        "text": "I can look at the endpoints that I have",
+        "start": 728.519,
+        "duration": 3.361
+    },
+    {
+        "text": "available to me",
+        "start": 730.56,
+        "duration": 4.5
+    },
+    {
+        "text": "and I've got some sample data in the",
+        "start": 731.88,
+        "duration": 5.6
+    },
+    {
+        "text": "repo",
+        "start": 735.06,
+        "duration": 2.42
+    },
+    {
+        "text": "so if I put some sample data in here",
+        "start": 738.36,
+        "duration": 5.24
+    },
+    {
+        "text": "we have a live endpoint with that model",
+        "start": 743.7,
+        "duration": 5.04
+    },
+    {
+        "text": "deployed and we can put in data and get",
+        "start": 746.1,
+        "duration": 4.919
+    },
+    {
+        "text": "back results that's cool",
+        "start": 748.74,
+        "duration": 6.18
+    },
+    {
+        "text": "and and you said so this is a look I",
+        "start": 751.019,
+        "duration": 5.701
+    },
+    {
+        "text": "we're all amongst friends here you said",
+        "start": 754.92,
+        "duration": 4.2
+    },
+    {
+        "text": "you could do this all in like a",
+        "start": 756.72,
+        "duration": 3.9
+    },
+    {
+        "text": "under an hour",
+        "start": 759.12,
+        "duration": 5.219
+    },
+    {
+        "text": "I would say under an hour so the uh",
+        "start": 760.62,
+        "duration": 6.12
+    },
+    {
+        "text": "the nuts and bolts parts of it are just",
+        "start": 764.339,
+        "duration": 5.701
+    },
+    {
+        "text": "setting up the credentials necessary to",
+        "start": 766.74,
+        "duration": 6.48
+    },
+    {
+        "text": "to generate the project and to deploy",
+        "start": 770.04,
+        "duration": 6.18
+    },
+    {
+        "text": "the Azure ml assets so some service",
+        "start": 773.22,
+        "duration": 5.82
+    },
+    {
+        "text": "principles basically well I mean this",
+        "start": 776.22,
+        "duration": 4.44
+    },
+    {
+        "text": "this is impressive is there anything",
+        "start": 779.04,
+        "duration": 3.479
+    },
+    {
+        "text": "else to show us or do you where can",
+        "start": 780.66,
+        "duration": 4.32
+    },
+    {
+        "text": "people go and get this stuff",
+        "start": 782.519,
+        "duration": 6.181
+    },
+    {
+        "text": "the place to go is to start at Azure",
+        "start": 784.98,
+        "duration": 8.039
+    },
+    {
+        "text": "Azure ml Ops V2 we have a deployment",
+        "start": 788.7,
+        "duration": 6.98
+    },
+    {
+        "text": "guide",
+        "start": 793.019,
+        "duration": 2.661
+    },
+    {
+        "text": "for what I just showed right here that",
+        "start": 796.86,
+        "duration": 5.64
+    },
+    {
+        "text": "will help you get started",
+        "start": 800.519,
+        "duration": 4.081
+    },
+    {
+        "text": "so this link that I put up this this",
+        "start": 802.5,
+        "duration": 3.959
+    },
+    {
+        "text": "link that you gave me is is this",
+        "start": 804.6,
+        "duration": 3.84
+    },
+    {
+        "text": "solution accelerator that has all of",
+        "start": 806.459,
+        "duration": 3.661
+    },
+    {
+        "text": "this goodness that you just showed is",
+        "start": 808.44,
+        "duration": 3.899
+    },
+    {
+        "text": "that right that's correct that is",
+        "start": 810.12,
+        "duration": 4.92
+    },
+    {
+        "text": "amazing well my friend thank you so much",
+        "start": 812.339,
+        "duration": 5.761
+    },
+    {
+        "text": "so much for this uh are people using",
+        "start": 815.04,
+        "duration": 5.58
+    },
+    {
+        "text": "this are you getting some traction they",
+        "start": 818.1,
+        "duration": 4.62
+    },
+    {
+        "text": "are and it's increasing",
+        "start": 820.62,
+        "duration": 3.12
+    },
+    {
+        "text": "um",
+        "start": 822.72,
+        "duration": 3.78
+    },
+    {
+        "text": "yeah from from part two I think setu had",
+        "start": 823.74,
+        "duration": 4.74
+    },
+    {
+        "text": "some good examples in customer use cases",
+        "start": 826.5,
+        "duration": 4.74
+    },
+    {
+        "text": "I know but you you it's like these these",
+        "start": 828.48,
+        "duration": 4.2
+    },
+    {
+        "text": "are your babies and you've got to be",
+        "start": 831.24,
+        "duration": 3.48
+    },
+    {
+        "text": "proud of them too so thank you so much",
+        "start": 832.68,
+        "duration": 4.08
+    },
+    {
+        "text": "thank you so much for being with us my",
+        "start": 834.72,
+        "duration": 2.82
+    },
+    {
+        "text": "friend",
+        "start": 836.76,
+        "duration": 2.819
+    },
+    {
+        "text": "thanks Seth awesome we've been learning",
+        "start": 837.54,
+        "duration": 4.919
+    },
+    {
+        "text": "all about all about scaling your AIML",
+        "start": 839.579,
+        "duration": 4.621
+    },
+    {
+        "text": "presence with ML Ops and Azure machine",
+        "start": 842.459,
+        "duration": 3.541
+    },
+    {
+        "text": "learning part three this is with Scott",
+        "start": 844.2,
+        "duration": 4.02
+    },
+    {
+        "text": "where he showed us how it actually works",
+        "start": 846.0,
+        "duration": 3.959
+    },
+    {
+        "text": "thank you so much for watching and",
+        "start": 848.22,
+        "duration": 3.0
+    },
+    {
+        "text": "hopefully we'll see you next time take",
+        "start": 849.959,
+        "duration": 1.671
+    },
+    {
+        "text": "care",
+        "start": 851.22,
+        "duration": 3.08
+    },
+    {
+        "text": "[Music]",
+        "start": 851.63,
+        "duration": 4.76
+    },
+    {
+        "text": "thank you",
+        "start": 854.3,
+        "duration": 5.15
+    },
+    {
+        "text": "[Music]",
+        "start": 856.39,
+        "duration": 3.06
+    }
+]

@@ -1,0 +1,1537 @@
+[
+    {
+        "text": "[MUSIC]",
+        "start": 0.0,
+        "duration": 7.83
+    },
+    {
+        "text": ">> I'm Cheng from China.",
+        "start": 7.83,
+        "duration": 1.485
+    },
+    {
+        "text": "I'm actually, working in AI Platform Team.",
+        "start": 9.315,
+        "duration": 2.79
+    },
+    {
+        "text": "I'm the Program Manager of Anomaly Detector.",
+        "start": 12.105,
+        "duration": 3.165
+    },
+    {
+        "text": "In our previous AI shows,",
+        "start": 15.27,
+        "duration": 2.55
+    },
+    {
+        "text": "we have talked about Anomaly Detector on the Cloud,",
+        "start": 17.82,
+        "duration": 4.485
+    },
+    {
+        "text": "and Anomaly Detector On-prem as Containers,",
+        "start": 22.305,
+        "duration": 3.255
+    },
+    {
+        "text": "and you know that both of them are available to you.",
+        "start": 25.56,
+        "duration": 3.585
+    },
+    {
+        "text": "But now, I'm going to introduce to you some more interesting tips.",
+        "start": 29.145,
+        "duration": 6.72
+    },
+    {
+        "text": "Actually, three tips to help you build",
+        "start": 35.865,
+        "duration": 2.885
+    },
+    {
+        "text": "your Anomaly Detection solution",
+        "start": 38.75,
+        "duration": 2.97
+    },
+    {
+        "text": "that's going to be used in production.",
+        "start": 41.72,
+        "duration": 4.24
+    },
+    {
+        "text": "We are going to start with the first step as Batch vs Streaming.",
+        "start": 46.75,
+        "duration": 6.215
+    },
+    {
+        "text": "So Anomaly Detector APIs,",
+        "start": 52.965,
+        "duration": 2.95
+    },
+    {
+        "text": "we have provided a two functionalities or endpoints,",
+        "start": 55.915,
+        "duration": 4.99
+    },
+    {
+        "text": "and namely /entire for batch scenarios,",
+        "start": 60.905,
+        "duration": 4.094
+    },
+    {
+        "text": "and /last for streaming scenarios respectively.",
+        "start": 64.999,
+        "duration": 4.441
+    },
+    {
+        "text": "When you want to detect all anomalies,",
+        "start": 69.44,
+        "duration": 2.57
+    },
+    {
+        "text": "every anomaly from the entire data",
+        "start": 72.01,
+        "duration": 2.26
+    },
+    {
+        "text": "set that you've sent in a single API call,",
+        "start": 74.27,
+        "duration": 3.6
+    },
+    {
+        "text": "a single HTTP call,",
+        "start": 77.87,
+        "duration": 2.16
+    },
+    {
+        "text": "/entire is what you need as it will create",
+        "start": 80.03,
+        "duration": 3.405
+    },
+    {
+        "text": "a single statistical model and",
+        "start": 83.435,
+        "duration": 2.295
+    },
+    {
+        "text": "apply that to every measure point in the data set.",
+        "start": 85.73,
+        "duration": 3.575
+    },
+    {
+        "text": "On the other hand, when you",
+        "start": 89.305,
+        "duration": 2.74
+    },
+    {
+        "text": "want to detect anomalies from a stream of data,",
+        "start": 92.045,
+        "duration": 3.405
+    },
+    {
+        "text": "/last is [inaudible] as it returns only when the last data point,",
+        "start": 95.45,
+        "duration": 6.24
+    },
+    {
+        "text": "whether the last data point in",
+        "start": 101.69,
+        "duration": 1.98
+    },
+    {
+        "text": "your [inaudible] is anomalous or not.",
+        "start": 103.67,
+        "duration": 2.59
+    },
+    {
+        "text": "In general, entire is for Batch and last is for Streaming.",
+        "start": 106.26,
+        "duration": 6.825
+    },
+    {
+        "text": "However, /entire is a bit slower than /last,",
+        "start": 113.085,
+        "duration": 4.59
+    },
+    {
+        "text": "so customers would prefer to use",
+        "start": 117.675,
+        "duration": 3.06
+    },
+    {
+        "text": "the /entire in the cases when latency in seconds is not an issue.",
+        "start": 120.735,
+        "duration": 6.525
+    },
+    {
+        "text": "For example, historical data analysis or you",
+        "start": 127.26,
+        "duration": 4.07
+    },
+    {
+        "text": "want to take a preview the data set,",
+        "start": 131.33,
+        "duration": 4.02
+    },
+    {
+        "text": "what's the pattern of the data is or there are",
+        "start": 135.35,
+        "duration": 3.54
+    },
+    {
+        "text": "some business KPIs with really large granularity,",
+        "start": 138.89,
+        "duration": 3.65
+    },
+    {
+        "text": "like hours, days, or even weeks,",
+        "start": 142.54,
+        "duration": 2.35
+    },
+    {
+        "text": "you can go with /entire,",
+        "start": 144.89,
+        "duration": 2.35
+    },
+    {
+        "text": "and it will tell you-all anomalies.",
+        "start": 147.24,
+        "duration": 2.295
+    },
+    {
+        "text": "Now, /last is most suitable for real-time monitoring cases.",
+        "start": 149.535,
+        "duration": 5.315
+    },
+    {
+        "text": "For example, IoT metrics or",
+        "start": 154.85,
+        "duration": 2.91
+    },
+    {
+        "text": "cases when the data is in a streaming session,",
+        "start": 157.76,
+        "duration": 3.525
+    },
+    {
+        "text": "although latency is not a concern.",
+        "start": 161.285,
+        "duration": 3.705
+    },
+    {
+        "text": "For example, business metrics in",
+        "start": 164.99,
+        "duration": 2.52
+    },
+    {
+        "text": "production that constantly updates with new data points.",
+        "start": 167.51,
+        "duration": 3.63
+    },
+    {
+        "text": "So that is still streaming data,",
+        "start": 171.14,
+        "duration": 2.335
+    },
+    {
+        "text": "but it's not the fine granularity like some IoT data.",
+        "start": 173.475,
+        "duration": 5.51
+    },
+    {
+        "text": "Anyway, those are all suitable for the /last API.",
+        "start": 178.985,
+        "duration": 6.46
+    },
+    {
+        "text": "I'm going to show you some examples.",
+        "start": 185.445,
+        "duration": 4.285
+    },
+    {
+        "text": "So these are the examples of endpoints because",
+        "start": 190.82,
+        "duration": 4.39
+    },
+    {
+        "text": "the service so far is still in public preview as we speak,",
+        "start": 195.21,
+        "duration": 6.215
+    },
+    {
+        "text": "and we will host",
+        "start": 201.425,
+        "duration": 3.745
+    },
+    {
+        "text": "the service and the API Service more Azure regions.",
+        "start": 205.17,
+        "duration": 4.525
+    },
+    {
+        "text": "But now, you have less westus2 and westeurope.",
+        "start": 209.695,
+        "duration": 4.135
+    },
+    {
+        "text": "These are the different endpoints for those Azure regions.",
+        "start": 213.83,
+        "duration": 5.135
+    },
+    {
+        "text": "As you can see in the table,",
+        "start": 218.965,
+        "duration": 1.485
+    },
+    {
+        "text": "I've highlighted the /entire and the /last.",
+        "start": 220.45,
+        "duration": 3.075
+    },
+    {
+        "text": "Now, when more Azure regions will come,",
+        "start": 223.525,
+        "duration": 3.36
+    },
+    {
+        "text": "the endpoint for the region will change.",
+        "start": 226.885,
+        "duration": 3.525
+    },
+    {
+        "text": "Apart from those Azure regions,",
+        "start": 230.41,
+        "duration": 2.315
+    },
+    {
+        "text": "we also have Containers.",
+        "start": 232.725,
+        "duration": 1.93
+    },
+    {
+        "text": "So with Containers, you are able to spin up",
+        "start": 234.655,
+        "duration": 3.405
+    },
+    {
+        "text": "the Anomaly Detector Containers with the local host IP address.",
+        "start": 238.06,
+        "duration": 3.985
+    },
+    {
+        "text": "It could be your local host or a host",
+        "start": 242.045,
+        "duration": 4.215
+    },
+    {
+        "text": "that's sitting side-by-side with their production environment.",
+        "start": 246.26,
+        "duration": 4.655
+    },
+    {
+        "text": "Anyway, you'll get an API endpoint with your local host address.",
+        "start": 250.915,
+        "duration": 4.225
+    },
+    {
+        "text": "Then the rest of the URL,",
+        "start": 255.14,
+        "duration": 2.4
+    },
+    {
+        "text": "just resemble the Cloud Endpoint.",
+        "start": 257.54,
+        "duration": 4.14
+    },
+    {
+        "text": "Yeah, so that's it.",
+        "start": 261.68,
+        "duration": 1.665
+    },
+    {
+        "text": "That's the first tip, the /last vs the /entire.",
+        "start": 263.345,
+        "duration": 4.81
+    },
+    {
+        "text": "/entire for the batch scenario",
+        "start": 268.155,
+        "duration": 3.045
+    },
+    {
+        "text": "while the /last is for the streaming scenario.",
+        "start": 271.2,
+        "duration": 2.7
+    },
+    {
+        "text": "That's pretty straightforward.",
+        "start": 273.9,
+        "duration": 1.68
+    },
+    {
+        "text": "Now, let's go to the second tip.",
+        "start": 275.58,
+        "duration": 2.56
+    },
+    {
+        "text": "This is about streaming.",
+        "start": 278.14,
+        "duration": 2.29
+    },
+    {
+        "text": "We have the last /endpoint,",
+        "start": 280.43,
+        "duration": 3.3
+    },
+    {
+        "text": "and that is designed exactly for streaming scenarios,",
+        "start": 283.73,
+        "duration": 4.32
+    },
+    {
+        "text": "no matter where your streaming data is coming from,",
+        "start": 288.05,
+        "duration": 2.655
+    },
+    {
+        "text": "Event Hubs, IoT Hub, or Kafka.",
+        "start": 290.705,
+        "duration": 4.475
+    },
+    {
+        "text": "You could write code to load that data",
+        "start": 296.0,
+        "duration": 3.49
+    },
+    {
+        "text": "in sliding windows and send over HTTP",
+        "start": 299.49,
+        "duration": 2.64
+    },
+    {
+        "text": "requests to Anomaly Detector APIs",
+        "start": 302.13,
+        "duration": 2.849
+    },
+    {
+        "text": "to detect anomalies in a streaming session.",
+        "start": 304.979,
+        "duration": 4.051
+    },
+    {
+        "text": "However, from time to time,",
+        "start": 309.03,
+        "duration": 2.64
+    },
+    {
+        "text": "some developers who start to call you with Anomaly Detector APIs,",
+        "start": 311.67,
+        "duration": 3.855
+    },
+    {
+        "text": "get really confused about the /last API.",
+        "start": 315.525,
+        "duration": 3.645
+    },
+    {
+        "text": "They will find it a bit difficult to",
+        "start": 319.17,
+        "duration": 2.66
+    },
+    {
+        "text": "connect the API with the streaming data source.",
+        "start": 321.83,
+        "duration": 4.095
+    },
+    {
+        "text": "In order to build a streaming anomaly detection solution",
+        "start": 325.925,
+        "duration": 3.975
+    },
+    {
+        "text": "with Anomaly Detector,",
+        "start": 329.9,
+        "duration": 1.645
+    },
+    {
+        "text": "Developers and Architects, they really",
+        "start": 331.545,
+        "duration": 2.915
+    },
+    {
+        "text": "need to keep two important things in mind.",
+        "start": 334.46,
+        "duration": 3.795
+    },
+    {
+        "text": "Firstly, it's about the caller",
+        "start": 338.255,
+        "duration": 3.945
+    },
+    {
+        "text": "because with the service as REST APIs,",
+        "start": 342.2,
+        "duration": 3.505
+    },
+    {
+        "text": "what you need is really",
+        "start": 345.705,
+        "duration": 1.935
+    },
+    {
+        "text": "an application that's play the role as caller,",
+        "start": 347.64,
+        "duration": 2.925
+    },
+    {
+        "text": "to load, to cache,",
+        "start": 350.565,
+        "duration": 1.605
+    },
+    {
+        "text": "and to prepare the time series data,",
+        "start": 352.17,
+        "duration": 2.295
+    },
+    {
+        "text": "and make the HTTP calls with the data that you've prepared.",
+        "start": 354.465,
+        "duration": 5.105
+    },
+    {
+        "text": "This application could be implemented with.NET, Python.",
+        "start": 359.57,
+        "duration": 5.865
+    },
+    {
+        "text": "Basically, any programming language that it",
+        "start": 365.435,
+        "duration": 2.385
+    },
+    {
+        "text": "can load data from your streaming source,",
+        "start": 367.82,
+        "duration": 2.685
+    },
+    {
+        "text": "Event Hub, etc, and make an HTTP call.",
+        "start": 370.505,
+        "duration": 4.09
+    },
+    {
+        "text": "The compute infrastructure for",
+        "start": 374.595,
+        "duration": 2.085
+    },
+    {
+        "text": "your caller application for",
+        "start": 376.68,
+        "duration": 4.47
+    },
+    {
+        "text": "Data Prep application could be Azure Notebooks,",
+        "start": 381.15,
+        "duration": 3.585
+    },
+    {
+        "text": "Jupyter notebooks or Azure Databricks,",
+        "start": 384.735,
+        "duration": 3.195
+    },
+    {
+        "text": "Azure Functions or even some infrastructure as",
+        "start": 387.93,
+        "duration": 4.65
+    },
+    {
+        "text": "a service solution only your",
+        "start": 392.58,
+        "duration": 2.835
+    },
+    {
+        "text": "On-prem infrastructure and also Power BI.",
+        "start": 395.415,
+        "duration": 3.835
+    },
+    {
+        "text": "I'd like to highlight this,",
+        "start": 399.25,
+        "duration": 1.33
+    },
+    {
+        "text": "Power BI can also do this.",
+        "start": 400.58,
+        "duration": 1.92
+    },
+    {
+        "text": "I mean, Power BI is not only a visualization tool,",
+        "start": 402.5,
+        "duration": 3.3
+    },
+    {
+        "text": "it can [inaudible] and it will call",
+        "start": 405.8,
+        "duration": 2.455
+    },
+    {
+        "text": "Anomaly Detector APIs with customized queries.",
+        "start": 408.255,
+        "duration": 5.715
+    },
+    {
+        "text": "The second thing that you'd like",
+        "start": 413.97,
+        "duration": 1.83
+    },
+    {
+        "text": "to keep in mind is about sliding window.",
+        "start": 415.8,
+        "duration": 4.15
+    },
+    {
+        "text": "It's basically a part of",
+        "start": 419.95,
+        "duration": 1.92
+    },
+    {
+        "text": "the data preparation because I'd like to mention,",
+        "start": 421.87,
+        "duration": 4.22
+    },
+    {
+        "text": "I think is in the previous slide,",
+        "start": 426.09,
+        "duration": 2.92
+    },
+    {
+        "text": "you see the endpoint,",
+        "start": 429.01,
+        "duration": 1.544
+    },
+    {
+        "text": "there's 1.0, which means,",
+        "start": 430.554,
+        "duration": 3.691
+    },
+    {
+        "text": "this is the first version.",
+        "start": 434.245,
+        "duration": 1.275
+    },
+    {
+        "text": "This is 1.0 version of APIs.",
+        "start": 435.52,
+        "duration": 2.76
+    },
+    {
+        "text": "This version is stateless.",
+        "start": 438.28,
+        "duration": 3.275
+    },
+    {
+        "text": "It means, every API request is independent from each other.",
+        "start": 441.555,
+        "duration": 5.87
+    },
+    {
+        "text": "If you call the API with your data,",
+        "start": 447.425,
+        "duration": 4.065
+    },
+    {
+        "text": "and then you make a second call,",
+        "start": 451.49,
+        "duration": 1.87
+    },
+    {
+        "text": "there's correlation between the two API calls.",
+        "start": 453.36,
+        "duration": 4.47
+    },
+    {
+        "text": "With that, the /last API will pass",
+        "start": 457.83,
+        "duration": 3.36
+    },
+    {
+        "text": "a window of data points from your request.",
+        "start": 461.19,
+        "duration": 4.035
+    },
+    {
+        "text": "It runs detection only on",
+        "start": 465.225,
+        "duration": 2.985
+    },
+    {
+        "text": "that data set that you send over each individual request.",
+        "start": 468.21,
+        "duration": 3.785
+    },
+    {
+        "text": "You cannot send over only one single data point,",
+        "start": 471.995,
+        "duration": 3.625
+    },
+    {
+        "text": "even if you have already sent over a lot of data in prior to that.",
+        "start": 475.62,
+        "duration": 5.94
+    },
+    {
+        "text": "Therefore, you need to create",
+        "start": 481.56,
+        "duration": 1.985
+    },
+    {
+        "text": "a sliding window over your streaming data,",
+        "start": 483.545,
+        "duration": 2.535
+    },
+    {
+        "text": "and move the sliding window as new data streams in.",
+        "start": 486.08,
+        "duration": 3.14
+    },
+    {
+        "text": "The sliding window could be sent over the API Endpoint",
+        "start": 489.22,
+        "duration": 4.655
+    },
+    {
+        "text": "over HTTP at the same cartons with your data granularity.",
+        "start": 493.875,
+        "duration": 6.28
+    },
+    {
+        "text": "I'm going to show you a really cool and interesting demo,",
+        "start": 500.155,
+        "duration": 5.165
+    },
+    {
+        "text": "that's going to explain much better about",
+        "start": 505.32,
+        "duration": 2.96
+    },
+    {
+        "text": "how the sliding window works.",
+        "start": 508.28,
+        "duration": 3.995
+    },
+    {
+        "text": "This is basically a demo that you can",
+        "start": 512.275,
+        "duration": 4.225
+    },
+    {
+        "text": "access from internet aka.ms/addemo,",
+        "start": 516.5,
+        "duration": 5.81
+    },
+    {
+        "text": "and you will be able to play with it.",
+        "start": 522.31,
+        "duration": 2.46
+    },
+    {
+        "text": "Now, the first thing that you need to grab from",
+        "start": 524.77,
+        "duration": 3.645
+    },
+    {
+        "text": "Azure pothole is that API key and endpoint.",
+        "start": 528.415,
+        "duration": 4.455
+    },
+    {
+        "text": "If you create your Anomaly Detector resource on westus,",
+        "start": 532.87,
+        "duration": 4.245
+    },
+    {
+        "text": "you have this, otherwise, there's westeu.",
+        "start": 537.115,
+        "duration": 3.41
+    },
+    {
+        "text": "Input your key anomaly detector resource here.",
+        "start": 540.525,
+        "duration": 6.99
+    },
+    {
+        "text": "Now, you are ready to play with it.",
+        "start": 547.515,
+        "duration": 2.62
+    },
+    {
+        "text": "We can actually play with this sample.",
+        "start": 550.135,
+        "duration": 2.31
+    },
+    {
+        "text": "So this is the last API.",
+        "start": 552.445,
+        "duration": 2.94
+    },
+    {
+        "text": "It's about streaming. Now, I'm going to run it first.",
+        "start": 555.385,
+        "duration": 4.855
+    },
+    {
+        "text": "As you can see, on",
+        "start": 565.85,
+        "duration": 2.38
+    },
+    {
+        "text": "the right side in the current end request input,",
+        "start": 568.23,
+        "duration": 3.12
+    },
+    {
+        "text": "there's the data that's being sent over HTTP.",
+        "start": 571.35,
+        "duration": 4.2
+    },
+    {
+        "text": "On the left side,",
+        "start": 575.55,
+        "duration": 2.205
+    },
+    {
+        "text": "there's this gray shade which is moving,",
+        "start": 577.755,
+        "duration": 4.28
+    },
+    {
+        "text": "this is my favorite part.",
+        "start": 582.035,
+        "duration": 1.83
+    },
+    {
+        "text": "It is the sliding window of the data",
+        "start": 583.865,
+        "duration": 3.905
+    },
+    {
+        "text": "that's being sent over HTTP to the API Endpoint.",
+        "start": 587.77,
+        "duration": 4.75
+    },
+    {
+        "text": "The response that's on the bottom on",
+        "start": 592.53,
+        "duration": 3.55
+    },
+    {
+        "text": "the right side is basically telling you",
+        "start": 596.08,
+        "duration": 2.82
+    },
+    {
+        "text": "whether the last data point in this API call is anomalous or not,",
+        "start": 598.9,
+        "duration": 7.23
+    },
+    {
+        "text": "together with something like upper margin, lower margin.",
+        "start": 606.13,
+        "duration": 6.03
+    },
+    {
+        "text": "You can play with it, tune the sensitivity,",
+        "start": 613.92,
+        "duration": 3.775
+    },
+    {
+        "text": "and change some next detecting window.",
+        "start": 617.695,
+        "duration": 2.76
+    },
+    {
+        "text": "It will actually change the size of the shade.",
+        "start": 620.455,
+        "duration": 3.84
+    },
+    {
+        "text": "So this is very intuitive,",
+        "start": 624.295,
+        "duration": 3.644
+    },
+    {
+        "text": "and we'll show you how streaming works with",
+        "start": 627.939,
+        "duration": 3.856
+    },
+    {
+        "text": "Anomaly detector, the slash API.",
+        "start": 631.795,
+        "duration": 4.71
+    },
+    {
+        "text": "Lets dive into the code.",
+        "start": 636.505,
+        "duration": 1.605
+    },
+    {
+        "text": "Here's some snippet of Python code that gives",
+        "start": 638.11,
+        "duration": 3.33
+    },
+    {
+        "text": "you an overview of how to create such an application.",
+        "start": 641.44,
+        "duration": 4.23
+    },
+    {
+        "text": "As you can see the second function,",
+        "start": 645.67,
+        "duration": 2.235
+    },
+    {
+        "text": "the stream detection function,",
+        "start": 647.905,
+        "duration": 1.92
+    },
+    {
+        "text": "it really creates a sliding window with maximum size,",
+        "start": 649.825,
+        "duration": 4.89
+    },
+    {
+        "text": "this predefined sliding window size.",
+        "start": 654.715,
+        "duration": 3.165
+    },
+    {
+        "text": "So this is predefined.",
+        "start": 657.88,
+        "duration": 1.515
+    },
+    {
+        "text": "Then call the other function detect last,",
+        "start": 659.395,
+        "duration": 4.29
+    },
+    {
+        "text": "which will call the endpoint slash endpoint to detect anomaly.",
+        "start": 663.685,
+        "duration": 6.96
+    },
+    {
+        "text": "Back to this function,",
+        "start": 670.645,
+        "duration": 1.68
+    },
+    {
+        "text": "you will see a loop here,",
+        "start": 672.325,
+        "duration": 2.97
+    },
+    {
+        "text": "this loop is how you build a demo.",
+        "start": 675.295,
+        "duration": 2.94
+    },
+    {
+        "text": "It moves to the sliding window from left to right.",
+        "start": 678.235,
+        "duration": 3.645
+    },
+    {
+        "text": "In production applications, in",
+        "start": 681.88,
+        "duration": 2.61
+    },
+    {
+        "text": "real life what you want to do is increment",
+        "start": 684.49,
+        "duration": 3.54
+    },
+    {
+        "text": "something like scheduled job",
+        "start": 688.03,
+        "duration": 3.435
+    },
+    {
+        "text": "to move the slide window instead of just a rope, right?",
+        "start": 691.465,
+        "duration": 3.0
+    },
+    {
+        "text": "Because it should move",
+        "start": 694.465,
+        "duration": 2.205
+    },
+    {
+        "text": "when new data streams in in your data granularity.",
+        "start": 696.67,
+        "duration": 5.445
+    },
+    {
+        "text": "On the right side, this is",
+        "start": 702.115,
+        "duration": 1.935
+    },
+    {
+        "text": "output that you also see in the previous demo.",
+        "start": 704.05,
+        "duration": 3.96
+    },
+    {
+        "text": "Now, the remaining question is,",
+        "start": 708.01,
+        "duration": 1.905
+    },
+    {
+        "text": "How do we actually determine",
+        "start": 709.915,
+        "duration": 2.22
+    },
+    {
+        "text": "the number of data points that we should",
+        "start": 712.135,
+        "duration": 2.94
+    },
+    {
+        "text": "send over to the API endpoint over one single HTTP request?",
+        "start": 715.075,
+        "duration": 5.82
+    },
+    {
+        "text": "In the streaming case,",
+        "start": 720.895,
+        "duration": 2.04
+    },
+    {
+        "text": "What is the best deciding window size?",
+        "start": 722.935,
+        "duration": 2.55
+    },
+    {
+        "text": "In the batch scenarios,",
+        "start": 725.485,
+        "duration": 1.995
+    },
+    {
+        "text": "How many data points should be sent when your data",
+        "start": 727.48,
+        "duration": 3.24
+    },
+    {
+        "text": "has different granularity and patterns?",
+        "start": 730.72,
+        "duration": 5.55
+    },
+    {
+        "text": "We have the third tip,",
+        "start": 736.27,
+        "duration": 2.1
+    },
+    {
+        "text": "is going to address that.",
+        "start": 738.37,
+        "duration": 1.785
+    },
+    {
+        "text": "Tip number three, it's about data preparation,",
+        "start": 740.155,
+        "duration": 4.29
+    },
+    {
+        "text": "because of performance and accuracy of",
+        "start": 744.445,
+        "duration": 2.97
+    },
+    {
+        "text": "anomaly detection results really",
+        "start": 747.415,
+        "duration": 2.955
+    },
+    {
+        "text": "can be impacted by how your data is prepared,",
+        "start": 750.37,
+        "duration": 2.774
+    },
+    {
+        "text": "how your parameters, although there are only",
+        "start": 753.144,
+        "duration": 2.746
+    },
+    {
+        "text": "one that you see previously,",
+        "start": 755.89,
+        "duration": 3.27
+    },
+    {
+        "text": "how that parameter is used,",
+        "start": 759.16,
+        "duration": 2.28
+    },
+    {
+        "text": "and the number of data points in your API request.",
+        "start": 761.44,
+        "duration": 3.315
+    },
+    {
+        "text": "So starting with some basic requirements that your API,",
+        "start": 764.755,
+        "duration": 5.04
+    },
+    {
+        "text": "the anomaly data had a API.",
+        "start": 769.795,
+        "duration": 2.055
+    },
+    {
+        "text": "It requires time-series data formatted into JSON request object.",
+        "start": 771.85,
+        "duration": 6.12
+    },
+    {
+        "text": "The minimum number of data points that it accepts is",
+        "start": 777.97,
+        "duration": 4.77
+    },
+    {
+        "text": "12 and the maximum is 8,640 points.",
+        "start": 782.74,
+        "duration": 5.01
+    },
+    {
+        "text": "You're data point that's sent over to the API must have",
+        "start": 787.75,
+        "duration": 3.87
+    },
+    {
+        "text": "a valid UTC timestamp and a numerical value,",
+        "start": 791.62,
+        "duration": 3.975
+    },
+    {
+        "text": "and that defines a time series.",
+        "start": 795.595,
+        "duration": 3.615
+    },
+    {
+        "text": "Then with the basic requirements met how to make it work better.",
+        "start": 799.21,
+        "duration": 8.355
+    },
+    {
+        "text": "If your data is evenly",
+        "start": 807.565,
+        "duration": 3.315
+    },
+    {
+        "text": "distributed that's good because that's what the API needs.",
+        "start": 810.88,
+        "duration": 4.74
+    },
+    {
+        "text": "If your data is randomly distributed over",
+        "start": 815.62,
+        "duration": 3.06
+    },
+    {
+        "text": "timeline as you can see in this slide,",
+        "start": 818.68,
+        "duration": 3.225
+    },
+    {
+        "text": "this is evenly distributed,",
+        "start": 821.905,
+        "duration": 2.61
+    },
+    {
+        "text": "and these are the cases when data is not evenly distributed.",
+        "start": 824.515,
+        "duration": 4.545
+    },
+    {
+        "text": "The left one is like a random distribution,",
+        "start": 829.06,
+        "duration": 2.715
+    },
+    {
+        "text": "and the right one is more like missing data point.",
+        "start": 831.775,
+        "duration": 4.71
+    },
+    {
+        "text": "When data is randomly distributed,",
+        "start": 836.485,
+        "duration": 2.52
+    },
+    {
+        "text": "you should aggregate it by a unit of time such as per minute,",
+        "start": 839.005,
+        "duration": 5.16
+    },
+    {
+        "text": "per hour, or daily so that it will be evenly distributed.",
+        "start": 844.165,
+        "duration": 6.795
+    },
+    {
+        "text": "If there are missing data points,",
+        "start": 850.96,
+        "duration": 2.595
+    },
+    {
+        "text": "well it's common, there are sometimes missing data point.",
+        "start": 853.555,
+        "duration": 6.015
+    },
+    {
+        "text": "What you need to do is to have",
+        "start": 859.57,
+        "duration": 3.705
+    },
+    {
+        "text": "a statistic algorithm here to fill the gaps.",
+        "start": 863.275,
+        "duration": 5.035
+    },
+    {
+        "text": "I would just say normally missing",
+        "start": 868.35,
+        "duration": 2.29
+    },
+    {
+        "text": "less than 10 percent of the expected number of data points,",
+        "start": 870.64,
+        "duration": 4.335
+    },
+    {
+        "text": "is not a big issue,",
+        "start": 874.975,
+        "duration": 1.665
+    },
+    {
+        "text": "it will not have a negative impact on the results.",
+        "start": 876.64,
+        "duration": 4.07
+    },
+    {
+        "text": "While in other cases, if",
+        "start": 880.71,
+        "duration": 1.935
+    },
+    {
+        "text": "the missing data points are more than 10 percent,",
+        "start": 882.645,
+        "duration": 3.825
+    },
+    {
+        "text": "you can fill the gap based on it's characteristics",
+        "start": 886.47,
+        "duration": 3.975
+    },
+    {
+        "text": "like substituting data points from an earlier period,",
+        "start": 890.445,
+        "duration": 5.44
+    },
+    {
+        "text": "or linear interpolation, or maybe a moving average.",
+        "start": 895.885,
+        "duration": 4.935
+    },
+    {
+        "text": "Anyway the goal is to make it evenly distributed.",
+        "start": 900.82,
+        "duration": 3.735
+    },
+    {
+        "text": "Finally, if your data have seasonal patterns,",
+        "start": 904.555,
+        "duration": 5.25
+    },
+    {
+        "text": "normally we call it seasonality,",
+        "start": 909.805,
+        "duration": 2.79
+    },
+    {
+        "text": "so if your data has seasonality,",
+        "start": 912.595,
+        "duration": 3.27
+    },
+    {
+        "text": "which means the pattern actually occurs",
+        "start": 915.865,
+        "duration": 3.915
+    },
+    {
+        "text": "at regular intervals like what do you see on this chart,",
+        "start": 919.78,
+        "duration": 4.53
+    },
+    {
+        "text": "you can actually improve the accuracy and the performance.",
+        "start": 924.31,
+        "duration": 4.965
+    },
+    {
+        "text": "One way to do that is to specify",
+        "start": 929.275,
+        "duration": 2.91
+    },
+    {
+        "text": "a period that this is another parameter that's hidden,",
+        "start": 932.185,
+        "duration": 4.605
+    },
+    {
+        "text": "and you don't normally use it.",
+        "start": 936.79,
+        "duration": 1.935
+    },
+    {
+        "text": "But with seasonality, you can specify",
+        "start": 938.725,
+        "duration": 3.615
+    },
+    {
+        "text": "this period perimeter when you construct your additional request.",
+        "start": 942.34,
+        "duration": 4.23
+    },
+    {
+        "text": "It can actually reduce the latency by up to 50 percent.",
+        "start": 946.57,
+        "duration": 4.335
+    },
+    {
+        "text": "This period is basically an integer,",
+        "start": 950.905,
+        "duration": 2.97
+    },
+    {
+        "text": "and it specifies roughly how many",
+        "start": 953.875,
+        "duration": 3.015
+    },
+    {
+        "text": "data points the PAM series takes to repeat a pattern.",
+        "start": 956.89,
+        "duration": 3.54
+    },
+    {
+        "text": "Let me give you an example,",
+        "start": 960.43,
+        "duration": 2.1
+    },
+    {
+        "text": "if you have a time series data with",
+        "start": 962.53,
+        "duration": 1.95
+    },
+    {
+        "text": "weekly pattern and one data point per day,",
+        "start": 964.48,
+        "duration": 4.23
+    },
+    {
+        "text": "so it means seven data points per week,",
+        "start": 968.71,
+        "duration": 3.72
+    },
+    {
+        "text": "and there's a seasonality occurs every week,",
+        "start": 972.43,
+        "duration": 4.77
+    },
+    {
+        "text": "then the period could be specified as seven.",
+        "start": 977.2,
+        "duration": 4.05
+    },
+    {
+        "text": "If the weekly pattern",
+        "start": 981.25,
+        "duration": 3.479
+    },
+    {
+        "text": "is with some time-series with like one point per hour,",
+        "start": 984.729,
+        "duration": 5.251
+    },
+    {
+        "text": "then you want to have your period as seven by 24.",
+        "start": 989.98,
+        "duration": 5.41
+    },
+    {
+        "text": "This parameter is actually optional.",
+        "start": 995.4,
+        "duration": 3.34
+    },
+    {
+        "text": "So if you're unsure of the data patterns,",
+        "start": 998.74,
+        "duration": 2.73
+    },
+    {
+        "text": "unsure about the seasonality,",
+        "start": 1001.47,
+        "duration": 2.445
+    },
+    {
+        "text": "you'd have to specify it.",
+        "start": 1003.915,
+        "duration": 2.875
+    },
+    {
+        "text": "Another practice here for best results is,",
+        "start": 1007.49,
+        "duration": 4.105
+    },
+    {
+        "text": "if you provide full periods",
+        "start": 1011.595,
+        "duration": 4.215
+    },
+    {
+        "text": "worth of data points plus additional one,",
+        "start": 1015.81,
+        "duration": 4.965
+    },
+    {
+        "text": "that it will make the API worked",
+        "start": 1020.775,
+        "duration": 2.115
+    },
+    {
+        "text": "better with better accuracy; for example,",
+        "start": 1022.89,
+        "duration": 3.135
+    },
+    {
+        "text": "if you have hourly data with",
+        "start": 1026.025,
+        "duration": 3.0
+    },
+    {
+        "text": "weekly pattern as described previously,",
+        "start": 1029.025,
+        "duration": 5.249
+    },
+    {
+        "text": "you could provide 673 data points in your request body.",
+        "start": 1034.274,
+        "duration": 7.756
+    },
+    {
+        "text": "So which is seven by 24 by",
+        "start": 1042.03,
+        "duration": 3.09
+    },
+    {
+        "text": "four plus one extra data point, that's it.",
+        "start": 1045.12,
+        "duration": 4.86
+    },
+    {
+        "text": "Those are straight tips of using anomaly detector.",
+        "start": 1049.98,
+        "duration": 4.02
+    },
+    {
+        "text": "If you want to build a production environment,",
+        "start": 1054.0,
+        "duration": 2.58
+    },
+    {
+        "text": "you may want to check that out.",
+        "start": 1056.58,
+        "duration": 2.865
+    },
+    {
+        "text": "Also with anomaly detector shaped as API service,",
+        "start": 1059.445,
+        "duration": 4.71
+    },
+    {
+        "text": "and we have these quick links for you.",
+        "start": 1064.155,
+        "duration": 2.715
+    },
+    {
+        "text": "So firstly, go to",
+        "start": 1066.87,
+        "duration": 2.8
+    },
+    {
+        "text": "aka.ms/AnomalyDetector or search on Bing to check out",
+        "start": 1070.46,
+        "duration": 2.71
+    },
+    {
+        "text": "the overview of the API service,",
+        "start": 1073.17,
+        "duration": 2.19
+    },
+    {
+        "text": "or you can join our community where",
+        "start": 1075.36,
+        "duration": 1.92
+    },
+    {
+        "text": "there are our engineering group,",
+        "start": 1077.28,
+        "duration": 2.16
+    },
+    {
+        "text": "as well as other customers,",
+        "start": 1079.44,
+        "duration": 1.739
+    },
+    {
+        "text": "and the Microsoft partners,",
+        "start": 1081.179,
+        "duration": 2.131
+    },
+    {
+        "text": "and the Microsoft teams",
+        "start": 1083.31,
+        "duration": 2.86
+    },
+    {
+        "text": "by going to aka.ms/adAdvisorsJoin,",
+        "start": 1086.21,
+        "duration": 8.05
+    },
+    {
+        "text": "and to get the containers,",
+        "start": 1094.26,
+        "duration": 1.59
+    },
+    {
+        "text": "you can go to",
+        "start": 1095.85,
+        "duration": 2.47
+    },
+    {
+        "text": "aka.ms/adContainer to apply for",
+        "start": 1099.17,
+        "duration": 2.65
+    },
+    {
+        "text": "the container credentials.",
+        "start": 1101.82,
+        "duration": 1.62
+    },
+    {
+        "text": "Thank you for watching.",
+        "start": 1103.44,
+        "duration": 1.29
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 1104.73,
+        "duration": 10.27
+    }
+]

@@ -1,0 +1,2197 @@
+[
+    {
+        "text": ">> Hey everyone you're not going to",
+        "start": 0.0,
+        "duration": 2.13
+    },
+    {
+        "text": "want to miss this episode of the AI Show.",
+        "start": 2.13,
+        "duration": 2.29
+    },
+    {
+        "text": "We're going to talking to Baiju from",
+        "start": 4.42,
+        "duration": 2.03
+    },
+    {
+        "text": "the ONNX Runtime team and he's going to show us how we can",
+        "start": 6.45,
+        "duration": 2.88
+    },
+    {
+        "text": "start doing on-device training with",
+        "start": 9.33,
+        "duration": 2.55
+    },
+    {
+        "text": "the ONNX Runtime in gen, let's jump in.",
+        "start": 11.88,
+        "duration": 2.67
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 14.55,
+        "duration": 1.16
+    },
+    {
+        "text": "We're joined by Baiju.",
+        "start": 23.12,
+        "duration": 2.08
+    },
+    {
+        "text": "Thank you so much for being here why don't you tell us",
+        "start": 25.2,
+        "duration": 1.8
+    },
+    {
+        "text": "a little bit about who you are and what you do at Microsoft?",
+        "start": 27.0,
+        "duration": 2.46
+    },
+    {
+        "text": ">> Hey Cassie. It's great to be on",
+        "start": 29.46,
+        "duration": 1.59
+    },
+    {
+        "text": "this show with you. Thanks for having me.",
+        "start": 31.05,
+        "duration": 3.07
+    },
+    {
+        "text": "I'm Baiju, I'm part of",
+        "start": 34.34,
+        "duration": 3.805
+    },
+    {
+        "text": "the ONNX Runtime team specifically working on training.",
+        "start": 38.145,
+        "duration": 4.86
+    },
+    {
+        "text": "Most people think of ONNX Runtime as",
+        "start": 43.005,
+        "duration": 3.63
+    },
+    {
+        "text": "influence accelerator and know",
+        "start": 46.635,
+        "duration": 3.425
+    },
+    {
+        "text": "about its cross-platform compatibilities.",
+        "start": 50.06,
+        "duration": 3.065
+    },
+    {
+        "text": "But very few know that ONNX Runtime",
+        "start": 53.125,
+        "duration": 3.325
+    },
+    {
+        "text": "also support streaming workloads and",
+        "start": 56.45,
+        "duration": 3.225
+    },
+    {
+        "text": "accelerates streaming scenarios for a large variety of models.",
+        "start": 59.675,
+        "duration": 7.775
+    },
+    {
+        "text": "I'm part of the ONNX Runtime training group",
+        "start": 67.88,
+        "duration": 3.045
+    },
+    {
+        "text": "and I'm here to talk about on-device training.",
+        "start": 70.925,
+        "duration": 2.225
+    },
+    {
+        "text": ">> That's cool. I'm excited to talk to me about some of",
+        "start": 73.15,
+        "duration": 2.65
+    },
+    {
+        "text": "the less known and newer features within ONNX Runtime.",
+        "start": 75.8,
+        "duration": 2.715
+    },
+    {
+        "text": "There's accelerating for training with large transformer models,",
+        "start": 78.515,
+        "duration": 3.675
+    },
+    {
+        "text": "but now we're going to be looking at more of",
+        "start": 82.19,
+        "duration": 1.41
+    },
+    {
+        "text": "the smaller models that you can run",
+        "start": 83.6,
+        "duration": 1.86
+    },
+    {
+        "text": "on-device and there's a lot of",
+        "start": 85.46,
+        "duration": 1.95
+    },
+    {
+        "text": "benefits to doing on-device training.",
+        "start": 87.41,
+        "duration": 2.385
+    },
+    {
+        "text": "But if you don't know what it is, can you",
+        "start": 89.795,
+        "duration": 2.445
+    },
+    {
+        "text": "tell me a little bit about what on-device training is?",
+        "start": 92.24,
+        "duration": 2.735
+    },
+    {
+        "text": ">> Sure. On-device training refers to having the ability to",
+        "start": 94.975,
+        "duration": 5.155
+    },
+    {
+        "text": "train deep learning models on edge devices such as mobile phones,",
+        "start": 100.13,
+        "duration": 7.53
+    },
+    {
+        "text": "gaming consoles or even web browsers",
+        "start": 107.66,
+        "duration": 3.305
+    },
+    {
+        "text": "and over the past few months,",
+        "start": 110.965,
+        "duration": 3.335
+    },
+    {
+        "text": "our training group at Microsoft, ONNX Runtime team,",
+        "start": 114.3,
+        "duration": 4.085
+    },
+    {
+        "text": "has been working hard to add this capability to train",
+        "start": 118.385,
+        "duration": 3.745
+    },
+    {
+        "text": "deep learning models on",
+        "start": 122.13,
+        "duration": 1.395
+    },
+    {
+        "text": "edge devices and that's what on-device training is all about.",
+        "start": 123.525,
+        "duration": 3.795
+    },
+    {
+        "text": ">> That's cool. The benefits of",
+        "start": 127.32,
+        "duration": 1.905
+    },
+    {
+        "text": "the cost savings for running on-device,",
+        "start": 129.225,
+        "duration": 2.195
+    },
+    {
+        "text": "the data privacy because the data never leaves the device,",
+        "start": 131.42,
+        "duration": 3.125
+    },
+    {
+        "text": "the updated model also stays on the device.",
+        "start": 134.545,
+        "duration": 2.96
+    },
+    {
+        "text": "There is ways I think to",
+        "start": 137.505,
+        "duration": 1.935
+    },
+    {
+        "text": "push that stuff off the device when you need to,",
+        "start": 139.44,
+        "duration": 2.77
+    },
+    {
+        "text": "but the latency,",
+        "start": 142.21,
+        "duration": 2.7
+    },
+    {
+        "text": "it's better for latency for on-device",
+        "start": 144.91,
+        "duration": 1.89
+    },
+    {
+        "text": "as well because you're not making any calls",
+        "start": 146.8,
+        "duration": 1.71
+    },
+    {
+        "text": "out and then limitations are",
+        "start": 148.51,
+        "duration": 1.665
+    },
+    {
+        "text": "obviously like the hardware size and how to optimize for that.",
+        "start": 150.175,
+        "duration": 3.17
+    },
+    {
+        "text": ">> For this show I've prepared",
+        "start": 153.345,
+        "duration": 2.505
+    },
+    {
+        "text": "a demo that walks us through how we can start",
+        "start": 155.85,
+        "duration": 3.62
+    },
+    {
+        "text": "from a forward only ONNX model and go all the way to",
+        "start": 159.47,
+        "duration": 4.71
+    },
+    {
+        "text": "deploying the models on",
+        "start": 164.18,
+        "duration": 2.03
+    },
+    {
+        "text": "the Android application",
+        "start": 166.21,
+        "duration": 2.98
+    },
+    {
+        "text": "and doing the [inaudible] leukotrienes there.",
+        "start": 169.19,
+        "duration": 1.32
+    },
+    {
+        "text": "In this demo we'll be using the transfer learning capabilities.",
+        "start": 170.51,
+        "duration": 4.91
+    },
+    {
+        "text": "We will be starting with the MobileNetV2 model in PyTorch",
+        "start": 175.42,
+        "duration": 3.52
+    },
+    {
+        "text": "exploiting it to ONNX creating a training artifacts and",
+        "start": 178.94,
+        "duration": 3.18
+    },
+    {
+        "text": "this Jupyter Notebook leverages",
+        "start": 182.12,
+        "duration": 2.38
+    },
+    {
+        "text": "all of these steps that I just mentioned",
+        "start": 184.64,
+        "duration": 2.41
+    },
+    {
+        "text": "and we'll go through them one at a time.",
+        "start": 187.05,
+        "duration": 2.505
+    },
+    {
+        "text": "To begin with we pull",
+        "start": 189.555,
+        "duration": 1.845
+    },
+    {
+        "text": "the MobileNetV2 from PyTorch and export it to ONNX,",
+        "start": 191.4,
+        "duration": 4.695
+    },
+    {
+        "text": "keeping in mind that we're moving from 1,000",
+        "start": 196.095,
+        "duration": 2.225
+    },
+    {
+        "text": "classes of the output to just four because in",
+        "start": 198.32,
+        "duration": 2.22
+    },
+    {
+        "text": "our scenario we're going to do",
+        "start": 200.54,
+        "duration": 1.44
+    },
+    {
+        "text": "image classification of the four classes with volumes.",
+        "start": 201.98,
+        "duration": 4.39
+    },
+    {
+        "text": "As you can see the first step is exploiting the model",
+        "start": 207.32,
+        "duration": 3.24
+    },
+    {
+        "text": "to ONNX from PyTorch and this",
+        "start": 210.56,
+        "duration": 2.715
+    },
+    {
+        "text": "should create an ONNX model and the training artifacts directly.",
+        "start": 213.275,
+        "duration": 5.995
+    },
+    {
+        "text": "There we go. This created the mobilenetv2 model.",
+        "start": 219.32,
+        "duration": 5.9
+    },
+    {
+        "text": "You're the forward do ONNX model as you can imagine.",
+        "start": 225.86,
+        "duration": 3.73
+    },
+    {
+        "text": "This is the MobileNetV2 so it has a bunch of conditional",
+        "start": 229.59,
+        "duration": 3.475
+    },
+    {
+        "text": "is and the final classifier here",
+        "start": 233.065,
+        "duration": 3.28
+    },
+    {
+        "text": "which is a Gemn has four levels associated with",
+        "start": 236.345,
+        "duration": 5.775
+    },
+    {
+        "text": "them and for the purpose of",
+        "start": 242.12,
+        "duration": 2.94
+    },
+    {
+        "text": "this demo we're just going to be training",
+        "start": 245.06,
+        "duration": 1.47
+    },
+    {
+        "text": "the last layout, the classifier layout.",
+        "start": 246.53,
+        "duration": 1.995
+    },
+    {
+        "text": "The rest of the model rates remain intact",
+        "start": 248.525,
+        "duration": 2.4
+    },
+    {
+        "text": "only the last layout models",
+        "start": 250.925,
+        "duration": 2.07
+    },
+    {
+        "text": "multi-perimeter will be loaned or train philosophy.",
+        "start": 252.995,
+        "duration": 3.09
+    },
+    {
+        "text": ">> We're able to just grab this pre-trained model open source from",
+        "start": 256.085,
+        "duration": 3.315
+    },
+    {
+        "text": "the torchvision API and then now we have",
+        "start": 259.4,
+        "duration": 3.14
+    },
+    {
+        "text": "base model that you've exported",
+        "start": 262.54,
+        "duration": 1.42
+    },
+    {
+        "text": "in our just going to be able to uptake at",
+        "start": 263.96,
+        "duration": 1.59
+    },
+    {
+        "text": "last layer with our local device",
+        "start": 265.55,
+        "duration": 1.92
+    },
+    {
+        "text": "on training that's high-level but you just didn't.",
+        "start": 267.47,
+        "duration": 1.86
+    },
+    {
+        "text": ">> That's right. We will be training",
+        "start": 269.33,
+        "duration": 2.28
+    },
+    {
+        "text": "last year and keeping all the remaining of multi-perimeter intact.",
+        "start": 271.61,
+        "duration": 3.33
+    },
+    {
+        "text": ">> Cool.",
+        "start": 274.94,
+        "duration": 0.795
+    },
+    {
+        "text": ">> Now that we have the forward only ONNX model",
+        "start": 275.735,
+        "duration": 2.325
+    },
+    {
+        "text": "it's time to create",
+        "start": 278.06,
+        "duration": 1.47
+    },
+    {
+        "text": "the training artifacts as a robot we have the",
+        "start": 279.53,
+        "duration": 2.85
+    },
+    {
+        "text": "onnxruntime.training.artifact utility that helps us do this.",
+        "start": 282.38,
+        "duration": 3.69
+    },
+    {
+        "text": "The first thing is we're going to load the photo you",
+        "start": 286.07,
+        "duration": 3.39
+    },
+    {
+        "text": "want explore and there was stored in the fitting anthropometry",
+        "start": 289.46,
+        "duration": 3.165
+    },
+    {
+        "text": "define the parameters that requires",
+        "start": 292.625,
+        "duration": 2.37
+    },
+    {
+        "text": "gradient computation that's going to be",
+        "start": 294.995,
+        "duration": 2.115
+    },
+    {
+        "text": "the last layers weight and bias.",
+        "start": 297.11,
+        "duration": 3.93
+    },
+    {
+        "text": "All the other parameters are going to be frozen or",
+        "start": 301.28,
+        "duration": 4.38
+    },
+    {
+        "text": "constant so to speak they will not be updated",
+        "start": 305.66,
+        "duration": 1.785
+    },
+    {
+        "text": "while the training happens on the device.",
+        "start": 307.445,
+        "duration": 2.73
+    },
+    {
+        "text": "But those perimeters those variables set we",
+        "start": 310.175,
+        "duration": 2.565
+    },
+    {
+        "text": "can call artifacts to generate artifacts",
+        "start": 312.74,
+        "duration": 2.61
+    },
+    {
+        "text": "and provide the ONNX provided requires",
+        "start": 315.35,
+        "duration": 1.92
+    },
+    {
+        "text": "gradient parameter of frozen_ params",
+        "start": 317.27,
+        "duration": 3.29
+    },
+    {
+        "text": "and for the purpose of this model they're",
+        "start": 320.56,
+        "duration": 3.05
+    },
+    {
+        "text": "going to use the Softmax CrossEntropyLoss function.",
+        "start": 323.61,
+        "duration": 3.12
+    },
+    {
+        "text": "You're going to use AdamW optimizer and we're going to save",
+        "start": 326.73,
+        "duration": 3.41
+    },
+    {
+        "text": "all these artifacts to the same tinning artifacts repository and",
+        "start": 330.14,
+        "duration": 3.3
+    },
+    {
+        "text": "when we run the cell that should generate",
+        "start": 333.44,
+        "duration": 3.3
+    },
+    {
+        "text": "all the necessary multi-factor models",
+        "start": 336.74,
+        "duration": 2.22
+    },
+    {
+        "text": "or artifacts in the training artifacts anthropology.",
+        "start": 338.96,
+        "duration": 2.34
+    },
+    {
+        "text": "We'll walk through each of them one at a time",
+        "start": 341.3,
+        "duration": 1.68
+    },
+    {
+        "text": "so first let's look at the eval_model.",
+        "start": 342.98,
+        "duration": 3.1
+    },
+    {
+        "text": "The eval_model is basically the same as",
+        "start": 347.33,
+        "duration": 2.36
+    },
+    {
+        "text": "the forward anionic model except for the fact that",
+        "start": 349.69,
+        "duration": 2.325
+    },
+    {
+        "text": "the last layer has a loss attached to it",
+        "start": 352.015,
+        "duration": 4.515
+    },
+    {
+        "text": "which of the Softmax cross-entropy loss",
+        "start": 356.53,
+        "duration": 1.95
+    },
+    {
+        "text": "but the remainder of the model remains exactly the same.",
+        "start": 358.48,
+        "duration": 3.475
+    },
+    {
+        "text": "Next let's look at the training_model.",
+        "start": 361.955,
+        "duration": 3.055
+    },
+    {
+        "text": "The training_model is very similar to",
+        "start": 365.01,
+        "duration": 1.99
+    },
+    {
+        "text": "the loss model with a distinction",
+        "start": 367.0,
+        "duration": 3.195
+    },
+    {
+        "text": "that after the loss we have",
+        "start": 370.195,
+        "duration": 3.675
+    },
+    {
+        "text": "the gradient graph for the classifier bait and classify bias.",
+        "start": 373.87,
+        "duration": 4.53
+    },
+    {
+        "text": "This is the gradient graph attached to",
+        "start": 378.4,
+        "duration": 1.53
+    },
+    {
+        "text": "the eval_model and that defines the training_model.",
+        "start": 379.93,
+        "duration": 3.43
+    },
+    {
+        "text": "The optimizer_model is a very simple one it",
+        "start": 383.36,
+        "duration": 2.69
+    },
+    {
+        "text": "takes the perimeters in ingredients and updates to",
+        "start": 386.05,
+        "duration": 3.27
+    },
+    {
+        "text": "gradients in the direction of",
+        "start": 389.32,
+        "duration": 3.04
+    },
+    {
+        "text": "gradients and this is the learning process on device training.",
+        "start": 392.49,
+        "duration": 6.61
+    },
+    {
+        "text": "Finally the other checkpoint photo",
+        "start": 399.38,
+        "duration": 2.835
+    },
+    {
+        "text": "which encompasses all the model parameters",
+        "start": 402.215,
+        "duration": 3.315
+    },
+    {
+        "text": "but as well as non-tradable so that they're not embedded within",
+        "start": 405.53,
+        "duration": 2.88
+    },
+    {
+        "text": "the ONNX model so they're shared",
+        "start": 408.41,
+        "duration": 1.035
+    },
+    {
+        "text": "across to a training_model and the eval_model.",
+        "start": 409.445,
+        "duration": 2.405
+    },
+    {
+        "text": "These will be the four training artifacts",
+        "start": 411.85,
+        "duration": 2.5
+    },
+    {
+        "text": "that people need to deploy to",
+        "start": 414.35,
+        "duration": 2.04
+    },
+    {
+        "text": "the device in our case to Android application for device training.",
+        "start": 416.39,
+        "duration": 4.82
+    },
+    {
+        "text": ">> Those are the high-level steps that you need to do.",
+        "start": 421.21,
+        "duration": 2.36
+    },
+    {
+        "text": "Now when it comes to choosing the last function an optimizer,",
+        "start": 423.57,
+        "duration": 4.475
+    },
+    {
+        "text": "that type of stuff those are things people",
+        "start": 428.045,
+        "duration": 1.725
+    },
+    {
+        "text": "can play around with to see what they need for their scenarios.",
+        "start": 429.77,
+        "duration": 2.595
+    },
+    {
+        "text": "But they're tends to be like these are probably",
+        "start": 432.365,
+        "duration": 2.625
+    },
+    {
+        "text": "the more widely used ones for this type of task.",
+        "start": 434.99,
+        "duration": 2.965
+    },
+    {
+        "text": ">> These are customizable users can",
+        "start": 437.955,
+        "duration": 2.015
+    },
+    {
+        "text": "attach a loss function of the liking.",
+        "start": 439.97,
+        "duration": 2.475
+    },
+    {
+        "text": "We offer a few out of the box but if the developer wants to define",
+        "start": 442.445,
+        "duration": 4.965
+    },
+    {
+        "text": "their own custom loss function they can do",
+        "start": 447.41,
+        "duration": 2.67
+    },
+    {
+        "text": "so and just provide that as an argument to this function.",
+        "start": 450.08,
+        "duration": 3.945
+    },
+    {
+        "text": ">> These artifacts are part of",
+        "start": 454.025,
+        "duration": 1.755
+    },
+    {
+        "text": "the ONNX Runtime library that you're setting here.",
+        "start": 455.78,
+        "duration": 2.525
+    },
+    {
+        "text": ">> Yes exactly one of those are probably in the training library.",
+        "start": 458.305,
+        "duration": 2.825
+    },
+    {
+        "text": ">> Cool so now we're ready to actually see how we take this",
+        "start": 461.13,
+        "duration": 2.06
+    },
+    {
+        "text": "and do the training in the application itself.",
+        "start": 463.19,
+        "duration": 2.325
+    },
+    {
+        "text": ">> Now with these artifacts",
+        "start": 465.515,
+        "duration": 2.745
+    },
+    {
+        "text": "generated we are ready to perform training.",
+        "start": 468.26,
+        "duration": 2.355
+    },
+    {
+        "text": "Before we go into the Android application and let's",
+        "start": 470.615,
+        "duration": 3.495
+    },
+    {
+        "text": "just see if we can actually train using",
+        "start": 474.11,
+        "duration": 3.78
+    },
+    {
+        "text": "these artifacts and prove",
+        "start": 477.89,
+        "duration": 1.8
+    },
+    {
+        "text": "that this transfer learning",
+        "start": 479.69,
+        "duration": 3.18
+    },
+    {
+        "text": "is possible on the mobile API to model.",
+        "start": 482.87,
+        "duration": 2.765
+    },
+    {
+        "text": "We will do this experimentation in",
+        "start": 485.635,
+        "duration": 2.695
+    },
+    {
+        "text": "Python as I mentioned before ONNX Runtime training offers",
+        "start": 488.33,
+        "duration": 4.275
+    },
+    {
+        "text": "Python bindings and other sheet to",
+        "start": 492.605,
+        "duration": 1.875
+    },
+    {
+        "text": "other bindings so that we can test out",
+        "start": 494.48,
+        "duration": 2.55
+    },
+    {
+        "text": "our solution on our local machine",
+        "start": 497.03,
+        "duration": 2.91
+    },
+    {
+        "text": "before we actually go into writing application.",
+        "start": 499.94,
+        "duration": 2.66
+    },
+    {
+        "text": "We have this Jupiter notebook called",
+        "start": 502.6,
+        "duration": 3.37
+    },
+    {
+        "text": "Train which takes these assets that we generated in",
+        "start": 505.97,
+        "duration": 4.17
+    },
+    {
+        "text": "the previous step and learns to classify animals in",
+        "start": 510.14,
+        "duration": 3.81
+    },
+    {
+        "text": "our case learns to classify between dog, cat, elephant and cow.",
+        "start": 513.95,
+        "duration": 4.91
+    },
+    {
+        "text": "The process is really simple.",
+        "start": 520.25,
+        "duration": 3.415
+    },
+    {
+        "text": "We do some preprocessing again",
+        "start": 523.665,
+        "duration": 3.755
+    },
+    {
+        "text": "some more preprocessing define the number of",
+        "start": 527.42,
+        "duration": 3.505
+    },
+    {
+        "text": "epochs and the samples for each class and you can see we only",
+        "start": 530.925,
+        "duration": 3.395
+    },
+    {
+        "text": "need 20 examples for each class and we've done it for five epochs.",
+        "start": 534.32,
+        "duration": 4.505
+    },
+    {
+        "text": "You're very interface with ONNX Runtime training API so we import",
+        "start": 538.825,
+        "duration": 5.43
+    },
+    {
+        "text": "onnxruntime.training.API and there are",
+        "start": 544.255,
+        "duration": 3.815
+    },
+    {
+        "text": "three important classes that the training API exposes.",
+        "start": 548.07,
+        "duration": 6.075
+    },
+    {
+        "text": "The first is the CheckpointState,",
+        "start": 554.145,
+        "duration": 2.085
+    },
+    {
+        "text": "the next of the module and the last is the optimizer.",
+        "start": 556.23,
+        "duration": 2.97
+    },
+    {
+        "text": "The checkpoint_state can load",
+        "start": 559.2,
+        "duration": 2.21
+    },
+    {
+        "text": "the checkpoint artifact that was generated",
+        "start": 561.41,
+        "duration": 1.29
+    },
+    {
+        "text": "earlier and loads all the model parameters",
+        "start": 562.7,
+        "duration": 1.83
+    },
+    {
+        "text": "defined within the checkpoint artifact.",
+        "start": 564.53,
+        "duration": 2.67
+    },
+    {
+        "text": "The module class takes in",
+        "start": 567.2,
+        "duration": 2.22
+    },
+    {
+        "text": "the training model the checkpoint_state that we just created and",
+        "start": 569.42,
+        "duration": 3.15
+    },
+    {
+        "text": "the eval_model will be",
+        "start": 572.57,
+        "duration": 2.43
+    },
+    {
+        "text": "responsible for orchestrating the training so",
+        "start": 575.0,
+        "duration": 2.49
+    },
+    {
+        "text": "functions like train step resetting",
+        "start": 577.49,
+        "duration": 2.37
+    },
+    {
+        "text": "the gradients will be exposed through the module or the class.",
+        "start": 579.86,
+        "duration": 3.735
+    },
+    {
+        "text": "Finally the optimizer takes in",
+        "start": 583.595,
+        "duration": 1.695
+    },
+    {
+        "text": "the optimizer_model and is responsible for exploiting",
+        "start": 585.29,
+        "duration": 3.78
+    },
+    {
+        "text": "functions such as optimizer step which essentially",
+        "start": 589.07,
+        "duration": 2.235
+    },
+    {
+        "text": "means updating the model parameters",
+        "start": 591.305,
+        "duration": 2.49
+    },
+    {
+        "text": "in the direction of the gradient.",
+        "start": 593.795,
+        "duration": 1.97
+    },
+    {
+        "text": "As you can see the optimizer takes in the optimizer_model",
+        "start": 595.765,
+        "duration": 2.95
+    },
+    {
+        "text": "as well as the model that we just created here.",
+        "start": 598.715,
+        "duration": 3.66
+    },
+    {
+        "text": "Following the office setting up these three variables",
+        "start": 602.375,
+        "duration": 4.425
+    },
+    {
+        "text": "these objects we can define",
+        "start": 606.8,
+        "duration": 2.61
+    },
+    {
+        "text": "our training loop and over your B trade",
+        "start": 609.41,
+        "duration": 2.735
+    },
+    {
+        "text": "over five epochs and",
+        "start": 612.145,
+        "duration": 3.885
+    },
+    {
+        "text": "within each epoch we run through 20 examples per",
+        "start": 616.03,
+        "duration": 2.34
+    },
+    {
+        "text": "class and run the model and so we compute the training loss",
+        "start": 618.37,
+        "duration": 4.195
+    },
+    {
+        "text": "by providing the input images and the labels to the model.",
+        "start": 622.565,
+        "duration": 5.715
+    },
+    {
+        "text": "We take the gradient step or",
+        "start": 628.28,
+        "duration": 2.4
+    },
+    {
+        "text": "the optimizer step and then",
+        "start": 630.68,
+        "duration": 1.41
+    },
+    {
+        "text": "these are the gradient for the next computation.",
+        "start": 632.09,
+        "duration": 2.41
+    },
+    {
+        "text": "We can run this. At the end",
+        "start": 634.5,
+        "duration": 5.11
+    },
+    {
+        "text": "of each epoch I'm outputting the training loss.",
+        "start": 639.61,
+        "duration": 3.04
+    },
+    {
+        "text": ">> Now this is the logic that we need to take",
+        "start": 643.37,
+        "duration": 2.55
+    },
+    {
+        "text": "those assets that I created and actually run that training loop",
+        "start": 645.92,
+        "duration": 2.4
+    },
+    {
+        "text": "and now we're doing it in Python notebook but this is going to be",
+        "start": 648.32,
+        "duration": 3.57
+    },
+    {
+        "text": "the same steps you would follow for",
+        "start": 651.89,
+        "duration": 2.01
+    },
+    {
+        "text": "implementation and any of the supported languages, right?",
+        "start": 653.9,
+        "duration": 2.285
+    },
+    {
+        "text": ">> That's right. This is a proof-of-concept showing",
+        "start": 656.185,
+        "duration": 2.615
+    },
+    {
+        "text": "the training is possible with our artifacts but",
+        "start": 658.8,
+        "duration": 2.48
+    },
+    {
+        "text": "so V2 expedite experimentation",
+        "start": 661.28,
+        "duration": 2.22
+    },
+    {
+        "text": "so instead of doing all the experimentation on",
+        "start": 663.5,
+        "duration": 1.575
+    },
+    {
+        "text": "the device application we do it offline",
+        "start": 665.075,
+        "duration": 2.525
+    },
+    {
+        "text": "to prove that such training is possible and then once",
+        "start": 667.6,
+        "duration": 3.07
+    },
+    {
+        "text": "we have our experimentation done we can just",
+        "start": 670.67,
+        "duration": 2.7
+    },
+    {
+        "text": "put what we've done in",
+        "start": 673.37,
+        "duration": 2.37
+    },
+    {
+        "text": "Python to the application so",
+        "start": 675.74,
+        "duration": 1.29
+    },
+    {
+        "text": "in this example the Android application.",
+        "start": 677.03,
+        "duration": 1.955
+    },
+    {
+        "text": "As you can see after each epoch we have",
+        "start": 678.985,
+        "duration": 2.15
+    },
+    {
+        "text": "the training loss decreasing.",
+        "start": 681.135,
+        "duration": 2.835
+    },
+    {
+        "text": ">> This could also be used then for them to figure out",
+        "start": 683.97,
+        "duration": 2.12
+    },
+    {
+        "text": "what the right amount of epoch and sample images and that",
+        "start": 686.09,
+        "duration": 2.82
+    },
+    {
+        "text": "type of thing for their scenario",
+        "start": 688.91,
+        "duration": 1.35
+    },
+    {
+        "text": "trying maybe different loss functions things like that.",
+        "start": 690.26,
+        "duration": 1.62
+    },
+    {
+        "text": "This is like our development loop for building",
+        "start": 691.88,
+        "duration": 2.07
+    },
+    {
+        "text": "our model and how our model is going to learn on our device.",
+        "start": 693.95,
+        "duration": 2.96
+    },
+    {
+        "text": ">> That's right. All the hyper-parameters or loss function",
+        "start": 696.91,
+        "duration": 2.86
+    },
+    {
+        "text": "though loaning read and aiding the",
+        "start": 699.77,
+        "duration": 3.525
+    },
+    {
+        "text": "specific to the training solution for our users can be",
+        "start": 703.295,
+        "duration": 5.16
+    },
+    {
+        "text": "experimented with in this four entries before",
+        "start": 708.455,
+        "duration": 2.265
+    },
+    {
+        "text": "actually going to the application development phase.",
+        "start": 710.72,
+        "duration": 3.07
+    },
+    {
+        "text": ">> Great.",
+        "start": 713.79,
+        "duration": 1.045
+    },
+    {
+        "text": ">> Cool. Now that we have a trained model,",
+        "start": 714.835,
+        "duration": 2.535
+    },
+    {
+        "text": "the next step is how do we know",
+        "start": 717.37,
+        "duration": 1.71
+    },
+    {
+        "text": "whether this model looks in the real world?",
+        "start": 719.08,
+        "duration": 2.235
+    },
+    {
+        "text": "For that we expose a functionality which is",
+        "start": 721.315,
+        "duration": 3.36
+    },
+    {
+        "text": "exporting the training artifacts for inferencing.",
+        "start": 724.675,
+        "duration": 4.065
+    },
+    {
+        "text": "Given a trained model we can export",
+        "start": 728.74,
+        "duration": 2.49
+    },
+    {
+        "text": "that trained model to an inference ready ONNX model.",
+        "start": 731.23,
+        "duration": 3.06
+    },
+    {
+        "text": "Then after doing that we just load up this inference ONNX model",
+        "start": 734.29,
+        "duration": 4.005
+    },
+    {
+        "text": "with the existing ONNX runtime inference session",
+        "start": 738.295,
+        "duration": 2.595
+    },
+    {
+        "text": "and perform inferencing with that.",
+        "start": 740.89,
+        "duration": 2.44
+    },
+    {
+        "text": "After setting up the inference session,",
+        "start": 746.1,
+        "duration": 3.325
+    },
+    {
+        "text": "I can run a quick test to make sure that our model works well.",
+        "start": 749.425,
+        "duration": 5.97
+    },
+    {
+        "text": "As you can see that the input image that I",
+        "start": 755.395,
+        "duration": 1.695
+    },
+    {
+        "text": "provided is one of a dog and",
+        "start": 757.09,
+        "duration": 1.845
+    },
+    {
+        "text": "our model predicted with 61 percent accuracy that it is a dog.",
+        "start": 758.935,
+        "duration": 4.44
+    },
+    {
+        "text": "It seems like we can actually use the mobile network to",
+        "start": 763.375,
+        "duration": 2.385
+    },
+    {
+        "text": "model the Petri model only and only update the last layer so",
+        "start": 765.76,
+        "duration": 5.13
+    },
+    {
+        "text": "that we rely on the perimeters in",
+        "start": 770.89,
+        "duration": 1.92
+    },
+    {
+        "text": "the last layer to use it for an application of our",
+        "start": 772.81,
+        "duration": 3.18
+    },
+    {
+        "text": "choosing or to classify images of labels of our tooling.",
+        "start": 775.99,
+        "duration": 5.445
+    },
+    {
+        "text": ">> We saw how you're able to do on-device training with",
+        "start": 781.435,
+        "duration": 1.965
+    },
+    {
+        "text": "your customized images into this response.",
+        "start": 783.4,
+        "duration": 1.935
+    },
+    {
+        "text": "How does that compare to the accuracy of the model without",
+        "start": 785.335,
+        "duration": 2.385
+    },
+    {
+        "text": "any additional training like how is it",
+        "start": 787.72,
+        "duration": 1.17
+    },
+    {
+        "text": "performing before we did this additional step?",
+        "start": 788.89,
+        "duration": 3.28
+    },
+    {
+        "text": ">> That's a good question. We can",
+        "start": 792.24,
+        "duration": 4.195
+    },
+    {
+        "text": "basically load the original ONNX model and test it out.",
+        "start": 796.435,
+        "duration": 5.235
+    },
+    {
+        "text": "Test out whether the original ONNX model performance well or not.",
+        "start": 801.67,
+        "duration": 4.185
+    },
+    {
+        "text": "What I've just copied over the same block as audio but",
+        "start": 805.855,
+        "duration": 3.285
+    },
+    {
+        "text": "the one difference is that instead of loading the training model,",
+        "start": 809.14,
+        "duration": 4.89
+    },
+    {
+        "text": "export it to entrance model in the interim session,",
+        "start": 814.03,
+        "duration": 2.385
+    },
+    {
+        "text": "I'm going to load the original ONNX model.",
+        "start": 816.415,
+        "duration": 1.53
+    },
+    {
+        "text": "You can see over here and I'm loading",
+        "start": 817.945,
+        "duration": 1.155
+    },
+    {
+        "text": "the training artifact mobile-net ONNX,",
+        "start": 819.1,
+        "duration": 1.77
+    },
+    {
+        "text": "so this is the original forward on the ONNX model.",
+        "start": 820.87,
+        "duration": 2.505
+    },
+    {
+        "text": "Then let's run this and then if he call predict on",
+        "start": 823.375,
+        "duration": 5.595
+    },
+    {
+        "text": "the same testament you can see that it",
+        "start": 828.97,
+        "duration": 3.21
+    },
+    {
+        "text": "gives random accuracies for each of the four classes.",
+        "start": 832.18,
+        "duration": 4.11
+    },
+    {
+        "text": "In this case it actually predicts that",
+        "start": 836.29,
+        "duration": 1.86
+    },
+    {
+        "text": "the given images out of an elephant.",
+        "start": 838.15,
+        "duration": 3.105
+    },
+    {
+        "text": ">> Yeah we got a lot better results.",
+        "start": 841.255,
+        "duration": 2.775
+    },
+    {
+        "text": "I mean it's an elephant that was",
+        "start": 844.03,
+        "duration": 1.62
+    },
+    {
+        "text": "maybe a little bit longer trunk I think but it's definately a dog.",
+        "start": 845.65,
+        "duration": 5.05
+    },
+    {
+        "text": "Cool, so that really showcase nicely",
+        "start": 851.31,
+        "duration": 2.965
+    },
+    {
+        "text": "the power of just a little bit of extra training on some",
+        "start": 854.275,
+        "duration": 2.775
+    },
+    {
+        "text": "customized around some custom image sets",
+        "start": 857.05,
+        "duration": 3.12
+    },
+    {
+        "text": "to improve performance with on by streaming.",
+        "start": 860.17,
+        "duration": 4.095
+    },
+    {
+        "text": ">> I think at this point we've showcased that you can",
+        "start": 864.265,
+        "duration": 3.585
+    },
+    {
+        "text": "actually use the mobilenet model argued it for",
+        "start": 867.85,
+        "duration": 3.03
+    },
+    {
+        "text": "other needs and learn to",
+        "start": 870.88,
+        "duration": 2.97
+    },
+    {
+        "text": "classify images of any classes the video you want to do,",
+        "start": 873.85,
+        "duration": 3.345
+    },
+    {
+        "text": "that you want to classify.",
+        "start": 877.195,
+        "duration": 2.07
+    },
+    {
+        "text": "Now we can extend this application",
+        "start": 879.265,
+        "duration": 3.51
+    },
+    {
+        "text": "and known to even classify images",
+        "start": 882.775,
+        "duration": 2.955
+    },
+    {
+        "text": "of houses for example so we could learn",
+        "start": 885.73,
+        "duration": 2.94
+    },
+    {
+        "text": "to distinguish Kathy from Baidu for example.",
+        "start": 888.67,
+        "duration": 3.96
+    },
+    {
+        "text": "I think the Android application will strive to do",
+        "start": 892.63,
+        "duration": 3.03
+    },
+    {
+        "text": "that so let's just try to",
+        "start": 895.66,
+        "duration": 1.77
+    },
+    {
+        "text": "see how we can do that in the Android application.",
+        "start": 897.43,
+        "duration": 2.805
+    },
+    {
+        "text": "You'll have open up Android studio and loaded",
+        "start": 900.235,
+        "duration": 3.255
+    },
+    {
+        "text": "the code that's available in",
+        "start": 903.49,
+        "duration": 1.02
+    },
+    {
+        "text": "the ONNX Random Training Samples Repository.",
+        "start": 904.51,
+        "duration": 2.145
+    },
+    {
+        "text": "Also note however copied over",
+        "start": 906.655,
+        "duration": 2.595
+    },
+    {
+        "text": "the assets that we created previously in",
+        "start": 909.25,
+        "duration": 2.16
+    },
+    {
+        "text": "the often Python script",
+        "start": 911.41,
+        "duration": 1.755
+    },
+    {
+        "text": "and added them to our assets folder in your application.",
+        "start": 913.165,
+        "duration": 4.245
+    },
+    {
+        "text": "Just head over to the two important functions in",
+        "start": 917.41,
+        "duration": 3.9
+    },
+    {
+        "text": "this application the first one being cleaning.",
+        "start": 921.31,
+        "duration": 5.62
+    },
+    {
+        "text": "Here I defined the training loop again and",
+        "start": 928.47,
+        "duration": 3.955
+    },
+    {
+        "text": "it's pretty much the same as the one that",
+        "start": 932.425,
+        "duration": 1.665
+    },
+    {
+        "text": "we defined in the Python script.",
+        "start": 934.09,
+        "duration": 1.785
+    },
+    {
+        "text": "The number of epochs are five and",
+        "start": 935.875,
+        "duration": 1.725
+    },
+    {
+        "text": "that size is four so we process four images at a time",
+        "start": 937.6,
+        "duration": 2.07
+    },
+    {
+        "text": "and so we loop over the number of epochs and our input data.",
+        "start": 939.67,
+        "duration": 7.93
+    },
+    {
+        "text": "We do some preprocessing and then we call perform",
+        "start": 948.39,
+        "duration": 5.41
+    },
+    {
+        "text": "training and this is where we interface with only funded.",
+        "start": 953.8,
+        "duration": 5.025
+    },
+    {
+        "text": "We go into this quantity in a class and look at the functioning.",
+        "start": 958.825,
+        "duration": 4.255
+    },
+    {
+        "text": "The first thing to notice is the constructor we cleared",
+        "start": 963.81,
+        "duration": 2.83
+    },
+    {
+        "text": "the ORT environment using ORT environment you create environment,",
+        "start": 966.64,
+        "duration": 3.36
+    },
+    {
+        "text": "you clear the training session",
+        "start": 970.0,
+        "duration": 1.2
+    },
+    {
+        "text": "using the environment that we just created.",
+        "start": 971.2,
+        "duration": 2.295
+    },
+    {
+        "text": "ORT.trainingSession provide the necessary checkpointPath,",
+        "start": 973.495,
+        "duration": 3.39
+    },
+    {
+        "text": "trainingmodelPath, evaluationmodelPath and optimizermodelPath.",
+        "start": 976.885,
+        "duration": 3.105
+    },
+    {
+        "text": "Now we are ready to perform training.",
+        "start": 979.99,
+        "duration": 1.53
+    },
+    {
+        "text": "This perform training function creates",
+        "start": 981.52,
+        "duration": 2.91
+    },
+    {
+        "text": "the input ONNX values",
+        "start": 984.43,
+        "duration": 2.505
+    },
+    {
+        "text": "and so the input tensor is too far for training",
+        "start": 986.935,
+        "duration": 2.4
+    },
+    {
+        "text": "that can be comprehended by",
+        "start": 989.335,
+        "duration": 2.595
+    },
+    {
+        "text": "unexpanded and he called",
+        "start": 991.93,
+        "duration": 3.11
+    },
+    {
+        "text": "orttrainingsession.trainstep and provide the inputs to that.",
+        "start": 995.04,
+        "duration": 4.585
+    },
+    {
+        "text": "Then put the going to be the image data",
+        "start": 999.625,
+        "duration": 2.175
+    },
+    {
+        "text": "and the labels associated with limited to",
+        "start": 1001.8,
+        "duration": 1.875
+    },
+    {
+        "text": "our images and we",
+        "start": 1003.675,
+        "duration": 3.975
+    },
+    {
+        "text": "can get the training loss as output from this change stub call.",
+        "start": 1007.65,
+        "duration": 4.71
+    },
+    {
+        "text": "After getting the training loss we can call",
+        "start": 1012.36,
+        "duration": 3.975
+    },
+    {
+        "text": "trainingsession.optimizeStep and",
+        "start": 1016.335,
+        "duration": 2.175
+    },
+    {
+        "text": "trainingsession.lazyResetGrad",
+        "start": 1018.51,
+        "duration": 1.77
+    },
+    {
+        "text": "which will at least have the appearance.",
+        "start": 1020.28,
+        "duration": 1.95
+    },
+    {
+        "text": "As you can see this is pretty much similar to the way we",
+        "start": 1022.23,
+        "duration": 2.19
+    },
+    {
+        "text": "defined the training loop in",
+        "start": 1024.42,
+        "duration": 2.07
+    },
+    {
+        "text": "Python and the other function",
+        "start": 1026.49,
+        "duration": 3.74
+    },
+    {
+        "text": "of interest is the perform inference one.",
+        "start": 1030.23,
+        "duration": 2.88
+    },
+    {
+        "text": "What you do is once you've completed training the model,",
+        "start": 1033.11,
+        "duration": 5.445
+    },
+    {
+        "text": "if we create",
+        "start": 1038.555,
+        "duration": 2.695
+    },
+    {
+        "text": "the inference ready ONNX model from the trained model,",
+        "start": 1041.25,
+        "duration": 2.205
+    },
+    {
+        "text": "so we call ortTrainindSession.exportModelForInference",
+        "start": 1043.455,
+        "duration": 2.925
+    },
+    {
+        "text": "provide the model path where you",
+        "start": 1046.38,
+        "duration": 1.17
+    },
+    {
+        "text": "want to save the inference model to",
+        "start": 1047.55,
+        "duration": 1.995
+    },
+    {
+        "text": "and this will generate the inferencing model.",
+        "start": 1049.545,
+        "duration": 4.41
+    },
+    {
+        "text": "That's pretty much it and that's how we interface the ONNX under.",
+        "start": 1053.955,
+        "duration": 3.69
+    },
+    {
+        "text": ">> Let's go and I think that anyone's probably",
+        "start": 1057.645,
+        "duration": 1.635
+    },
+    {
+        "text": "works if you've worked with image",
+        "start": 1059.28,
+        "duration": 1.41
+    },
+    {
+        "text": "classification sounds really super",
+        "start": 1060.69,
+        "duration": 1.56
+    },
+    {
+        "text": "familiar and if you've worked with",
+        "start": 1062.25,
+        "duration": 1.14
+    },
+    {
+        "text": "answer and an inference sessions even",
+        "start": 1063.39,
+        "duration": 1.41
+    },
+    {
+        "text": "that having the training session but it's still following",
+        "start": 1064.8,
+        "duration": 2.82
+    },
+    {
+        "text": "a lot of the state that like things that you would",
+        "start": 1067.62,
+        "duration": 1.53
+    },
+    {
+        "text": "expect the steps that you would expect to happen.",
+        "start": 1069.15,
+        "duration": 1.785
+    },
+    {
+        "text": "I went straight from like you",
+        "start": 1070.935,
+        "duration": 1.905
+    },
+    {
+        "text": "created your inference model and you created your session is",
+        "start": 1072.84,
+        "duration": 2.43
+    },
+    {
+        "text": "that model saved like as an output to",
+        "start": 1075.27,
+        "duration": 1.65
+    },
+    {
+        "text": "the device to or you just know the memory?",
+        "start": 1076.92,
+        "duration": 4.065
+    },
+    {
+        "text": ">> Got into this was output to a file location on",
+        "start": 1080.985,
+        "duration": 3.165
+    },
+    {
+        "text": "the device competitive solution",
+        "start": 1084.15,
+        "duration": 3.24
+    },
+    {
+        "text": "instead of only outputting to",
+        "start": 1087.39,
+        "duration": 1.515
+    },
+    {
+        "text": "a file you can also get it in memory,",
+        "start": 1088.905,
+        "duration": 2.265
+    },
+    {
+        "text": "so that's not available yet but be able.",
+        "start": 1091.17,
+        "duration": 2.805
+    },
+    {
+        "text": ">> What are the device requirements for running training?",
+        "start": 1093.975,
+        "duration": 4.56
+    },
+    {
+        "text": "Will it run on anything as long as there's enough memory to do it?",
+        "start": 1098.535,
+        "duration": 3.6
+    },
+    {
+        "text": "Is there, I guess how are the constraints",
+        "start": 1102.135,
+        "duration": 4.02
+    },
+    {
+        "text": "around local training considered within MV training API?",
+        "start": 1106.155,
+        "duration": 5.535
+    },
+    {
+        "text": ">> Pretty much underestimating will look for",
+        "start": 1111.69,
+        "duration": 2.985
+    },
+    {
+        "text": "any device that our ONNX inference solution works on.",
+        "start": 1114.675,
+        "duration": 3.72
+    },
+    {
+        "text": "The only limitation is that you don't want to",
+        "start": 1118.395,
+        "duration": 2.73
+    },
+    {
+        "text": "train out of time when the user is probably",
+        "start": 1121.125,
+        "duration": 4.215
+    },
+    {
+        "text": "interacting with the device you'd want us",
+        "start": 1125.34,
+        "duration": 1.11
+    },
+    {
+        "text": "to know their functionality",
+        "start": 1126.45,
+        "duration": 1.11
+    },
+    {
+        "text": "or impact there or the device functionality",
+        "start": 1127.56,
+        "duration": 2.31
+    },
+    {
+        "text": "anyway so you would tell me Jane",
+        "start": 1129.87,
+        "duration": 1.59
+    },
+    {
+        "text": "during iodine probably even though devices",
+        "start": 1131.46,
+        "duration": 3.075
+    },
+    {
+        "text": "talking to each other are",
+        "start": 1134.535,
+        "duration": 2.535
+    },
+    {
+        "text": "at night when there isn't much activity on the device.",
+        "start": 1137.07,
+        "duration": 4.185
+    },
+    {
+        "text": "But the unexpanded training,",
+        "start": 1141.255,
+        "duration": 2.595
+    },
+    {
+        "text": "audio streaming solution should just look for",
+        "start": 1143.85,
+        "duration": 2.985
+    },
+    {
+        "text": "any other application or any other devices that are",
+        "start": 1146.835,
+        "duration": 3.015
+    },
+    {
+        "text": "running on inference session looks for intake will be looks.",
+        "start": 1149.85,
+        "duration": 3.54
+    },
+    {
+        "text": ">> Cool, that's awesome. I think I have a good idea of how we",
+        "start": 1153.39,
+        "duration": 3.555
+    },
+    {
+        "text": "now can take a logic and implement it into our Java application.",
+        "start": 1156.945,
+        "duration": 3.72
+    },
+    {
+        "text": "We would be fairly similar with the other",
+        "start": 1160.665,
+        "duration": 1.215
+    },
+    {
+        "text": "APIs that are smooth forehead like",
+        "start": 1161.88,
+        "duration": 1.14
+    },
+    {
+        "text": "C Sharp seemed to be JavaScript as well, or T-web.",
+        "start": 1163.02,
+        "duration": 4.035
+    },
+    {
+        "text": "But I would love to see this work on the Android and",
+        "start": 1167.055,
+        "duration": 2.025
+    },
+    {
+        "text": "I think you have a demo of this working.",
+        "start": 1169.08,
+        "duration": 2.445
+    },
+    {
+        "text": ">> Yeah, so let's just jump into the demo.",
+        "start": 1171.525,
+        "duration": 3.265
+    },
+    {
+        "text": "For this demo we are going to learn to classify images of",
+        "start": 1174.83,
+        "duration": 4.48
+    },
+    {
+        "text": "four popular celebrities Tom Cruise,",
+        "start": 1179.31,
+        "duration": 4.425
+    },
+    {
+        "text": "Brad Pitt, Ryan Reynolds and Leonardo DiCaprio.",
+        "start": 1183.735,
+        "duration": 5.745
+    },
+    {
+        "text": "As I mentioned earlier we probably we can use",
+        "start": 1189.48,
+        "duration": 3.195
+    },
+    {
+        "text": "the same transfer learning technique and learn to",
+        "start": 1192.675,
+        "duration": 2.655
+    },
+    {
+        "text": "classify images of custom classes.",
+        "start": 1195.33,
+        "duration": 3.21
+    },
+    {
+        "text": "I know you're I'm doing that it's celebrities and I can see",
+        "start": 1198.54,
+        "duration": 2.76
+    },
+    {
+        "text": "that I'm actually I'm trying to predict",
+        "start": 1201.3,
+        "duration": 3.585
+    },
+    {
+        "text": "the celebrities but it got to draw on",
+        "start": 1204.885,
+        "duration": 4.23
+    },
+    {
+        "text": "the testimonials that I provided it and",
+        "start": 1209.115,
+        "duration": 2.685
+    },
+    {
+        "text": "that's because we have not yet started the training process.",
+        "start": 1211.8,
+        "duration": 3.48
+    },
+    {
+        "text": "Now we're feeding in images for each class.",
+        "start": 1215.28,
+        "duration": 4.125
+    },
+    {
+        "text": "We're feeding for images or 16 images per",
+        "start": 1219.405,
+        "duration": 3.945
+    },
+    {
+        "text": "class for Tom Brad driving you and you start the training process.",
+        "start": 1223.35,
+        "duration": 5.58
+    },
+    {
+        "text": "In the training process you are looping",
+        "start": 1228.93,
+        "duration": 2.31
+    },
+    {
+        "text": "over these 16 images book loss for",
+        "start": 1231.24,
+        "duration": 3.93
+    },
+    {
+        "text": "five epochs and at the same time during",
+        "start": 1235.17,
+        "duration": 4.65
+    },
+    {
+        "text": "all the preprocessing and post processing and all of",
+        "start": 1239.82,
+        "duration": 1.68
+    },
+    {
+        "text": "that and now we're ready to perform the entrance,",
+        "start": 1241.5,
+        "duration": 3.33
+    },
+    {
+        "text": "you can see that after exploiting to inference P can",
+        "start": 1244.83,
+        "duration": 2.955
+    },
+    {
+        "text": "actually learn to predict the celebrities correctly.",
+        "start": 1247.785,
+        "duration": 3.675
+    },
+    {
+        "text": ">> For people that were watching and really want",
+        "start": 1251.46,
+        "duration": 3.36
+    },
+    {
+        "text": "to get started and try this out where can they go to learn more?",
+        "start": 1254.82,
+        "duration": 4.54
+    },
+    {
+        "text": "I think onyyxruntime.ai has a really good Getting Started",
+        "start": 1259.67,
+        "duration": 5.65
+    },
+    {
+        "text": "page it links to our blog",
+        "start": 1265.32,
+        "duration": 5.175
+    },
+    {
+        "text": "which goes into in-depth into",
+        "start": 1270.495,
+        "duration": 1.965
+    },
+    {
+        "text": "our architecture so it has a link to this current that",
+        "start": 1272.46,
+        "duration": 3.03
+    },
+    {
+        "text": "I'm all it explains",
+        "start": 1275.49,
+        "duration": 2.955
+    },
+    {
+        "text": "the trade offs the benefits of",
+        "start": 1278.445,
+        "duration": 1.965
+    },
+    {
+        "text": "on-device tuning and when to use it it",
+        "start": 1280.41,
+        "duration": 2.82
+    },
+    {
+        "text": "also has some instructions on how to get started",
+        "start": 1283.23,
+        "duration": 3.87
+    },
+    {
+        "text": "with the different language bindings",
+        "start": 1287.1,
+        "duration": 2.205
+    },
+    {
+        "text": "how to install the libraries,",
+        "start": 1289.305,
+        "duration": 2.355
+    },
+    {
+        "text": "and I also have the link to",
+        "start": 1291.66,
+        "duration": 2.22
+    },
+    {
+        "text": "the tutorial demo that we",
+        "start": 1293.88,
+        "duration": 2.13
+    },
+    {
+        "text": "presented today so I think I don't ever get to stop.",
+        "start": 1296.01,
+        "duration": 2.82
+    },
+    {
+        "text": ">> Awesome so we got everything you need on that link",
+        "start": 1298.83,
+        "duration": 2.19
+    },
+    {
+        "text": "that we're showing below you can go there read the blog",
+        "start": 1301.02,
+        "duration": 2.13
+    },
+    {
+        "text": "to get a more detailed look at what we were showing you there's",
+        "start": 1303.15,
+        "duration": 2.34
+    },
+    {
+        "text": "those examples on the GitHub lots of",
+        "start": 1305.49,
+        "duration": 2.4
+    },
+    {
+        "text": "ways to get started with this and",
+        "start": 1307.89,
+        "duration": 1.485
+    },
+    {
+        "text": "again thank you so much for joining today and showing us",
+        "start": 1309.375,
+        "duration": 2.385
+    },
+    {
+        "text": "these really neat features for how to train on-device unexpanded.",
+        "start": 1311.76,
+        "duration": 5.04
+    },
+    {
+        "text": ">> Thank you Cassie.",
+        "start": 1316.8,
+        "duration": 1.9
+    }
+]

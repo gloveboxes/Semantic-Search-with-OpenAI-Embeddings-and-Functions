@@ -1,0 +1,1627 @@
+[
+    {
+        "text": ">> You're not going to want to miss this episode of the AI Show,",
+        "start": 0.0,
+        "duration": 2.81
+    },
+    {
+        "text": "learn how to protect privacy in",
+        "start": 2.81,
+        "duration": 2.02
+    },
+    {
+        "text": "your data using differential privacy.",
+        "start": 4.83,
+        "duration": 2.1
+    },
+    {
+        "text": "You're not going to want to miss it. Make sure you tune in.",
+        "start": 6.93,
+        "duration": 2.16
+    },
+    {
+        "text": "[MUSIC].",
+        "start": 9.09,
+        "duration": 8.16
+    },
+    {
+        "text": ">> Hello and welcome to this episode of the AI Show.",
+        "start": 17.25,
+        "duration": 2.19
+    },
+    {
+        "text": "We're going to learn all about protecting",
+        "start": 19.44,
+        "duration": 1.8
+    },
+    {
+        "text": "sensitive data using differential privacy.",
+        "start": 21.24,
+        "duration": 2.82
+    },
+    {
+        "text": "I've got a special guest with me.",
+        "start": 24.06,
+        "duration": 1.17
+    },
+    {
+        "text": "Hello, my friend. Tell us who you are and what you do.",
+        "start": 25.23,
+        "duration": 2.19
+    },
+    {
+        "text": ">> Hi. I'm Sarah Bird,",
+        "start": 27.42,
+        "duration": 2.19
+    },
+    {
+        "text": "and I work in Azure AI.",
+        "start": 29.61,
+        "duration": 2.655
+    },
+    {
+        "text": "I focus on incubations and",
+        "start": 32.265,
+        "duration": 2.765
+    },
+    {
+        "text": "productizing emerging technology coming from research.",
+        "start": 35.03,
+        "duration": 3.424
+    },
+    {
+        "text": "I'm spending all of my time these days on",
+        "start": 38.454,
+        "duration": 2.576
+    },
+    {
+        "text": "responsible AI tools that we can use to build AI responsibly.",
+        "start": 41.03,
+        "duration": 3.93
+    },
+    {
+        "text": ">> Fantastic. So differential privacy,",
+        "start": 44.96,
+        "duration": 2.88
+    },
+    {
+        "text": "what is it and why should we be thinking about it?",
+        "start": 47.84,
+        "duration": 3.635
+    },
+    {
+        "text": ">> So differential privacy is an idea that was published in",
+        "start": 51.475,
+        "duration": 4.105
+    },
+    {
+        "text": "research, actually, quite a few years ago,",
+        "start": 55.58,
+        "duration": 3.59
+    },
+    {
+        "text": "and the idea is that if we do",
+        "start": 59.17,
+        "duration": 2.47
+    },
+    {
+        "text": "a certain type of statistical techniques,",
+        "start": 61.64,
+        "duration": 3.014
+    },
+    {
+        "text": "we can actually hide the contribution of",
+        "start": 64.654,
+        "duration": 3.016
+    },
+    {
+        "text": "an individual in an output computation.",
+        "start": 67.67,
+        "duration": 3.59
+    },
+    {
+        "text": "So if we make that less abstract,",
+        "start": 71.26,
+        "duration": 3.085
+    },
+    {
+        "text": "the idea here is that I want to do analytics or machine learning,",
+        "start": 74.345,
+        "duration": 6.735
+    },
+    {
+        "text": "but I want to be able to guarantee that I'm not",
+        "start": 81.08,
+        "duration": 3.105
+    },
+    {
+        "text": "revealing any individual who",
+        "start": 84.185,
+        "duration": 2.745
+    },
+    {
+        "text": "was in that data set for the analytics.",
+        "start": 86.93,
+        "duration": 2.105
+    },
+    {
+        "text": "A lot of people don't realize that, for example,",
+        "start": 89.035,
+        "duration": 3.685
+    },
+    {
+        "text": "when I'm building a machine learning model,",
+        "start": 92.72,
+        "duration": 1.95
+    },
+    {
+        "text": "the model might memorize particular data points.",
+        "start": 94.67,
+        "duration": 3.69
+    },
+    {
+        "text": "So if we think of a smart reply example,",
+        "start": 98.36,
+        "duration": 2.88
+    },
+    {
+        "text": "my model could have been trained on a lot of data,",
+        "start": 101.24,
+        "duration": 3.81
+    },
+    {
+        "text": "but there might be",
+        "start": 105.05,
+        "duration": 1.65
+    },
+    {
+        "text": "particular sentences that don't",
+        "start": 106.7,
+        "duration": 2.61
+    },
+    {
+        "text": "exist in the data set very frequently,",
+        "start": 109.31,
+        "duration": 2.145
+    },
+    {
+        "text": "as my model might just learn from one or two examples.",
+        "start": 111.455,
+        "duration": 3.764
+    },
+    {
+        "text": "Which means you could have a scenario where I'm typing",
+        "start": 115.219,
+        "duration": 2.461
+    },
+    {
+        "text": "an e-mail saying basically,",
+        "start": 117.68,
+        "duration": 3.805
+    },
+    {
+        "text": "my social security number is,",
+        "start": 121.485,
+        "duration": 1.98
+    },
+    {
+        "text": "and the model autocompletes with",
+        "start": 123.465,
+        "duration": 1.565
+    },
+    {
+        "text": "the social security number that it found in the data set,",
+        "start": 125.03,
+        "duration": 2.52
+    },
+    {
+        "text": "which would be a problem.",
+        "start": 127.55,
+        "duration": 1.8
+    },
+    {
+        "text": "We can have the same issue with statistics,",
+        "start": 129.35,
+        "duration": 3.27
+    },
+    {
+        "text": "where if you publish",
+        "start": 132.62,
+        "duration": 1.965
+    },
+    {
+        "text": "statistics or aggregate results from a data set,",
+        "start": 134.585,
+        "duration": 3.585
+    },
+    {
+        "text": "it's often possible to put those results back",
+        "start": 138.17,
+        "duration": 2.73
+    },
+    {
+        "text": "together and actually recreate the underlying data set.",
+        "start": 140.9,
+        "duration": 3.9
+    },
+    {
+        "text": "This has been used to find",
+        "start": 144.8,
+        "duration": 3.36
+    },
+    {
+        "text": "very sensitive information about",
+        "start": 148.16,
+        "duration": 1.89
+    },
+    {
+        "text": "individuals based on public data sets, for example.",
+        "start": 150.05,
+        "duration": 3.284
+    },
+    {
+        "text": ">> So let's pause right there.",
+        "start": 153.334,
+        "duration": 2.801
+    },
+    {
+        "text": "What you're saying that then is even",
+        "start": 156.135,
+        "duration": 3.185
+    },
+    {
+        "text": "if I'm only outputting the aggregation,",
+        "start": 159.32,
+        "duration": 2.94
+    },
+    {
+        "text": "like here's the sum,",
+        "start": 162.26,
+        "duration": 1.11
+    },
+    {
+        "text": "here's the average, I can somehow reconstruct individual records,",
+        "start": 163.37,
+        "duration": 5.16
+    },
+    {
+        "text": "single items that are not in the aggregate?",
+        "start": 168.53,
+        "duration": 2.765
+    },
+    {
+        "text": ">> Yeah. Absolutely. So it depends on how",
+        "start": 171.295,
+        "duration": 3.175
+    },
+    {
+        "text": "much information you have and how much computational power.",
+        "start": 174.47,
+        "duration": 3.48
+    },
+    {
+        "text": "But there's different types of attacks that in fact can be quite",
+        "start": 177.95,
+        "duration": 3.78
+    },
+    {
+        "text": "easy to do that will reveal private information,",
+        "start": 181.73,
+        "duration": 3.99
+    },
+    {
+        "text": "or at least give you a good guess at the private information.",
+        "start": 185.72,
+        "duration": 3.09
+    },
+    {
+        "text": ">> I'd love to see that because",
+        "start": 188.81,
+        "duration": 1.77
+    },
+    {
+        "text": "that's surprising to me because most people",
+        "start": 190.58,
+        "duration": 2.22
+    },
+    {
+        "text": "try to obfuscate their data by only releasing aggregate data lake,",
+        "start": 192.8,
+        "duration": 4.215
+    },
+    {
+        "text": "average, whatever mean, mode.",
+        "start": 197.015,
+        "duration": 2.13
+    },
+    {
+        "text": "But you're saying you can actually reconstruct,",
+        "start": 199.145,
+        "duration": 1.725
+    },
+    {
+        "text": "I'd love to see an example of that.",
+        "start": 200.87,
+        "duration": 1.895
+    },
+    {
+        "text": ">> Sure. Let me show you an example in my notebook here.",
+        "start": 202.765,
+        "duration": 3.925
+    },
+    {
+        "text": "Great. So what I have here is",
+        "start": 206.69,
+        "duration": 3.285
+    },
+    {
+        "text": "an example that is",
+        "start": 209.975,
+        "duration": 2.625
+    },
+    {
+        "text": "a synthetic example so that I can run it locally on my machine.",
+        "start": 212.6,
+        "duration": 3.465
+    },
+    {
+        "text": "But it's actually very similar to what",
+        "start": 216.065,
+        "duration": 3.69
+    },
+    {
+        "text": "the US census demonstrated this past year as well.",
+        "start": 219.755,
+        "duration": 4.2
+    },
+    {
+        "text": "So it's taking a type of report that the census releases,",
+        "start": 223.955,
+        "duration": 4.62
+    },
+    {
+        "text": "and instead we're filling it with fake data that's synthetic,",
+        "start": 228.575,
+        "duration": 4.604
+    },
+    {
+        "text": "but it's still holds the same.",
+        "start": 233.179,
+        "duration": 2.426
+    },
+    {
+        "text": "So what I'm going to do then is I'm going to take this data,",
+        "start": 235.605,
+        "duration": 3.39
+    },
+    {
+        "text": "and what I'm trying to do is I want to do an income analysis.",
+        "start": 238.995,
+        "duration": 4.49
+    },
+    {
+        "text": "So what I'm going to do here is I'm going to run,",
+        "start": 243.485,
+        "duration": 4.455
+    },
+    {
+        "text": "and I want to actually study",
+        "start": 247.94,
+        "duration": 2.34
+    },
+    {
+        "text": "the distribution of income",
+        "start": 250.28,
+        "duration": 3.48
+    },
+    {
+        "text": "for individuals with a high school degree.",
+        "start": 253.76,
+        "duration": 1.8
+    },
+    {
+        "text": "So I get a distribution here,",
+        "start": 255.56,
+        "duration": 3.855
+    },
+    {
+        "text": "and I can use this to do the analytics that I want to do.",
+        "start": 259.415,
+        "duration": 4.59
+    },
+    {
+        "text": "However, the attack that I want to show you is,",
+        "start": 264.005,
+        "duration": 3.97
+    },
+    {
+        "text": "what I've done here is taking",
+        "start": 267.975,
+        "duration": 1.635
+    },
+    {
+        "text": "a simple off-the-shelf SAT solver",
+        "start": 269.61,
+        "duration": 4.175
+    },
+    {
+        "text": "that you can actually just could do install.",
+        "start": 273.785,
+        "duration": 2.265
+    },
+    {
+        "text": "Anyone can use it.",
+        "start": 276.05,
+        "duration": 2.025
+    },
+    {
+        "text": "In this case I've assumed that I",
+        "start": 278.075,
+        "duration": 2.835
+    },
+    {
+        "text": "know just a little bit of information.",
+        "start": 280.91,
+        "duration": 2.41
+    },
+    {
+        "text": "I know very specific data points in",
+        "start": 283.32,
+        "duration": 2.0
+    },
+    {
+        "text": "my data set about a few people,",
+        "start": 285.32,
+        "duration": 2.884
+    },
+    {
+        "text": "and what I'm trying to do is guess that income.",
+        "start": 288.204,
+        "duration": 2.886
+    },
+    {
+        "text": "The income is the private information.",
+        "start": 291.09,
+        "duration": 3.06
+    },
+    {
+        "text": "So what I'm going to do is I'm going to",
+        "start": 294.15,
+        "duration": 2.79
+    },
+    {
+        "text": "let my SAT solver see if it can",
+        "start": 296.94,
+        "duration": 2.66
+    },
+    {
+        "text": "create a version of the database",
+        "start": 299.6,
+        "duration": 2.595
+    },
+    {
+        "text": "that matches up with the published results,",
+        "start": 302.195,
+        "duration": 3.419
+    },
+    {
+        "text": "the results that would've been in the census report.",
+        "start": 305.614,
+        "duration": 3.061
+    },
+    {
+        "text": "So if we run here,",
+        "start": 308.675,
+        "duration": 2.085
+    },
+    {
+        "text": "I'm going to click down.",
+        "start": 310.76,
+        "duration": 2.8
+    },
+    {
+        "text": "So what we actually see is it's",
+        "start": 313.56,
+        "duration": 2.3
+    },
+    {
+        "text": "still running and trying to find an example.",
+        "start": 315.86,
+        "duration": 3.46
+    },
+    {
+        "text": "What we found is there's 500 individuals in this data set,",
+        "start": 320.44,
+        "duration": 4.72
+    },
+    {
+        "text": "but we were able to",
+        "start": 325.16,
+        "duration": 2.875
+    },
+    {
+        "text": "correctly guess the income of 50 individuals exactly.",
+        "start": 328.035,
+        "duration": 5.36
+    },
+    {
+        "text": "There are more than 80 individuals",
+        "start": 333.395,
+        "duration": 2.415
+    },
+    {
+        "text": "where we were guessing it within $2,000,",
+        "start": 335.81,
+        "duration": 2.915
+    },
+    {
+        "text": "120 individuals where we were guessing it correctly within $5,000.",
+        "start": 338.725,
+        "duration": 4.765
+    },
+    {
+        "text": ">> Holy cow. So can we scroll up",
+        "start": 343.49,
+        "duration": 2.1
+    },
+    {
+        "text": "because I'm obviously not as smart as you,",
+        "start": 345.59,
+        "duration": 2.01
+    },
+    {
+        "text": "and I want to make sure that I understand.",
+        "start": 347.6,
+        "duration": 1.74
+    },
+    {
+        "text": "So can you scroll up just a little bit more?",
+        "start": 349.34,
+        "duration": 3.48
+    },
+    {
+        "text": "So basically what you're doing when",
+        "start": 352.82,
+        "duration": 2.4
+    },
+    {
+        "text": "you're looking at that formula,",
+        "start": 355.22,
+        "duration": 2.07
+    },
+    {
+        "text": "you're basically using a SAT solver",
+        "start": 357.29,
+        "duration": 2.55
+    },
+    {
+        "text": "by filling in information that's an aggregate,",
+        "start": 359.84,
+        "duration": 2.83
+    },
+    {
+        "text": "and because you might know a record or two in the database,",
+        "start": 362.67,
+        "duration": 3.68
+    },
+    {
+        "text": "you can use that SAT solver to",
+        "start": 366.35,
+        "duration": 2.61
+    },
+    {
+        "text": "reconstruct pretty closely everyone",
+        "start": 368.96,
+        "duration": 2.91
+    },
+    {
+        "text": "else's income. Am I getting it right?",
+        "start": 371.87,
+        "duration": 2.72
+    },
+    {
+        "text": ">> Yeah. For about a third of the individuals,",
+        "start": 374.59,
+        "duration": 3.44
+    },
+    {
+        "text": "we're correctly guessing it.",
+        "start": 378.03,
+        "duration": 1.725
+    },
+    {
+        "text": "We wouldn't know which third we were correct",
+        "start": 379.755,
+        "duration": 2.615
+    },
+    {
+        "text": "for unless we run this many times.",
+        "start": 382.37,
+        "duration": 2.73
+    },
+    {
+        "text": "If I run the SAT solver over and over again,",
+        "start": 385.1,
+        "duration": 3.9
+    },
+    {
+        "text": "I could get a distribution of",
+        "start": 389.0,
+        "duration": 1.92
+    },
+    {
+        "text": "possible reconstructions and have",
+        "start": 390.92,
+        "duration": 2.34
+    },
+    {
+        "text": "a much higher chance of guessing the incomes correctly.",
+        "start": 393.26,
+        "duration": 2.58
+    },
+    {
+        "text": "So it's just an example to show how easy it can",
+        "start": 395.84,
+        "duration": 4.11
+    },
+    {
+        "text": "be to get pretty close on some of this information.",
+        "start": 399.95,
+        "duration": 4.41
+    },
+    {
+        "text": ">> That's surprising to me primarily because,",
+        "start": 404.36,
+        "duration": 3.994
+    },
+    {
+        "text": "let's just say if you run it for a day for sure you",
+        "start": 408.354,
+        "duration": 2.846
+    },
+    {
+        "text": "could reconstruct pretty closely what's going on,",
+        "start": 411.2,
+        "duration": 3.255
+    },
+    {
+        "text": "you're able to extract sensitive information from",
+        "start": 414.455,
+        "duration": 3.855
+    },
+    {
+        "text": "aggregate data using off-the-shelf stuff basically. Is that right?",
+        "start": 418.31,
+        "duration": 4.175
+    },
+    {
+        "text": ">> Yeah. I'm using a little bit of",
+        "start": 422.485,
+        "duration": 1.795
+    },
+    {
+        "text": "outside knowledge and some other published information,",
+        "start": 424.28,
+        "duration": 3.09
+    },
+    {
+        "text": "but information that it would be",
+        "start": 427.37,
+        "duration": 1.8
+    },
+    {
+        "text": "very reasonable to assume is published.",
+        "start": 429.17,
+        "duration": 2.385
+    },
+    {
+        "text": ">> I see. So this is obviously a problem and",
+        "start": 431.555,
+        "duration": 3.555
+    },
+    {
+        "text": "there's a lot of data sets out there that",
+        "start": 435.11,
+        "duration": 1.59
+    },
+    {
+        "text": "maybe suffering from that problem.",
+        "start": 436.7,
+        "duration": 2.205
+    },
+    {
+        "text": "What is differential privacy and how can it help?",
+        "start": 438.905,
+        "duration": 3.915
+    },
+    {
+        "text": "Is there something we can do to fix this?",
+        "start": 442.82,
+        "duration": 2.24
+    },
+    {
+        "text": ">> Yes. So the way that differential privacy algorithms work,",
+        "start": 445.06,
+        "duration": 4.39
+    },
+    {
+        "text": "is they're actually going to take two steps here in order to mask",
+        "start": 449.45,
+        "duration": 5.1
+    },
+    {
+        "text": "the contribution of individuals",
+        "start": 454.55,
+        "duration": 2.925
+    },
+    {
+        "text": "so that now I won't be able to do this type of attack.",
+        "start": 457.475,
+        "duration": 3.075
+    },
+    {
+        "text": "So the first thing that it does",
+        "start": 460.55,
+        "duration": 2.1
+    },
+    {
+        "text": "is we're going to add noise to that aggregate result.",
+        "start": 462.65,
+        "duration": 5.58
+    },
+    {
+        "text": "So I can't give you the exact answer anymore.",
+        "start": 468.23,
+        "duration": 3.03
+    },
+    {
+        "text": "I'm going to give you an answer",
+        "start": 471.26,
+        "duration": 1.83
+    },
+    {
+        "text": "with a little bit of statistical noise.",
+        "start": 473.09,
+        "duration": 2.54
+    },
+    {
+        "text": "What that does is mask that contribution of the individuals,",
+        "start": 475.63,
+        "duration": 3.83
+    },
+    {
+        "text": "so now I can directly connect it back.",
+        "start": 479.46,
+        "duration": 3.9
+    },
+    {
+        "text": "The second thing that we need to do is track of privacy budget.",
+        "start": 483.36,
+        "duration": 4.475
+    },
+    {
+        "text": "Because if I were basically doing too many of these queries,",
+        "start": 487.835,
+        "duration": 6.845
+    },
+    {
+        "text": "too many reports were published,",
+        "start": 494.68,
+        "duration": 2.025
+    },
+    {
+        "text": "then each of them might",
+        "start": 496.705,
+        "duration": 1.855
+    },
+    {
+        "text": "have a little bit of information about someone,",
+        "start": 498.56,
+        "duration": 1.8
+    },
+    {
+        "text": "but I could put them together and still",
+        "start": 500.36,
+        "duration": 2.52
+    },
+    {
+        "text": "recreate that underlying row in the database.",
+        "start": 502.88,
+        "duration": 2.73
+    },
+    {
+        "text": "So the idea is that we both need to add some noise,",
+        "start": 505.61,
+        "duration": 4.74
+    },
+    {
+        "text": "and then we need to make sure that we're",
+        "start": 510.35,
+        "duration": 2.79
+    },
+    {
+        "text": "not allowing too much information to be released.",
+        "start": 513.14,
+        "duration": 3.27
+    },
+    {
+        "text": ">> So let me ask you the first question.",
+        "start": 516.41,
+        "duration": 2.04
+    },
+    {
+        "text": "I saw some of this earlier and it was confusing to me.",
+        "start": 518.45,
+        "duration": 4.23
+    },
+    {
+        "text": "What we're saying is that are we literally",
+        "start": 522.68,
+        "duration": 2.16
+    },
+    {
+        "text": "flipping answers in the database on the add noise step?",
+        "start": 524.84,
+        "duration": 4.07
+    },
+    {
+        "text": "Is that what's happening?",
+        "start": 528.91,
+        "duration": 1.475
+    },
+    {
+        "text": ">> No. It works more,",
+        "start": 530.385,
+        "duration": 2.45
+    },
+    {
+        "text": "you could think of it as adding",
+        "start": 532.835,
+        "duration": 1.275
+    },
+    {
+        "text": "a small amount of it on top of the aggregates.",
+        "start": 534.11,
+        "duration": 2.7
+    },
+    {
+        "text": "So if my real answer were 60,",
+        "start": 536.81,
+        "duration": 4.26
+    },
+    {
+        "text": "you might actually get back 61 or 65.",
+        "start": 541.07,
+        "duration": 3.675
+    },
+    {
+        "text": "So I can actually show you how it works in my notebook.",
+        "start": 544.745,
+        "duration": 3.0
+    },
+    {
+        "text": ">> Let's do that.",
+        "start": 547.745,
+        "duration": 1.32
+    },
+    {
+        "text": ">> So if I move down here,",
+        "start": 549.065,
+        "duration": 2.46
+    },
+    {
+        "text": "what I'm going to do is now use",
+        "start": 551.525,
+        "duration": 2.505
+    },
+    {
+        "text": "the WhiteNoise system to publish the reports,",
+        "start": 554.03,
+        "duration": 4.8
+    },
+    {
+        "text": "and WhiteNoise is our differential privacy system that",
+        "start": 558.83,
+        "duration": 3.6
+    },
+    {
+        "text": "we've built and basically it contains all of",
+        "start": 562.43,
+        "duration": 3.93
+    },
+    {
+        "text": "the proven differential privacy algorithms",
+        "start": 566.36,
+        "duration": 4.65
+    },
+    {
+        "text": "that have been developed",
+        "start": 571.01,
+        "duration": 1.59
+    },
+    {
+        "text": "over the last decade in research and",
+        "start": 572.6,
+        "duration": 1.89
+    },
+    {
+        "text": "then the ones that we're",
+        "start": 574.49,
+        "duration": 2.04
+    },
+    {
+        "text": "finding are actually working well in practice.",
+        "start": 576.53,
+        "duration": 2.52
+    },
+    {
+        "text": "So the system sits on top of",
+        "start": 579.05,
+        "duration": 2.52
+    },
+    {
+        "text": "that data store and does the two steps we were just talking about.",
+        "start": 581.57,
+        "duration": 3.585
+    },
+    {
+        "text": "So it will take your query,",
+        "start": 585.155,
+        "duration": 3.705
+    },
+    {
+        "text": "add that bit of noise,",
+        "start": 588.86,
+        "duration": 2.055
+    },
+    {
+        "text": "compute how much information the queries would be revealing,",
+        "start": 590.915,
+        "duration": 4.53
+    },
+    {
+        "text": "subtract that from the budget,",
+        "start": 595.445,
+        "duration": 1.455
+    },
+    {
+        "text": "and give you a result back.",
+        "start": 596.9,
+        "duration": 2.53
+    },
+    {
+        "text": ">> Let's pause. Is it okay if I ask a question or",
+        "start": 600.7,
+        "duration": 2.77
+    },
+    {
+        "text": "two because this is super fascinating to me.",
+        "start": 603.47,
+        "duration": 1.965
+    },
+    {
+        "text": "So you're saying that the WhiteNoise module",
+        "start": 605.435,
+        "duration": 3.18
+    },
+    {
+        "text": "sits on top of the query.",
+        "start": 608.615,
+        "duration": 2.535
+    },
+    {
+        "text": "So you're actually querying the privacy module.",
+        "start": 611.15,
+        "duration": 2.714
+    },
+    {
+        "text": "The privacy module asks the real data",
+        "start": 613.864,
+        "duration": 2.506
+    },
+    {
+        "text": "for the real aggregate information and",
+        "start": 616.37,
+        "duration": 2.67
+    },
+    {
+        "text": "then it adds noise to it in",
+        "start": 619.04,
+        "duration": 1.8
+    },
+    {
+        "text": "a way that makes the aggregate data still be valid,",
+        "start": 620.84,
+        "duration": 3.69
+    },
+    {
+        "text": "but make it harder to reconstruct",
+        "start": 624.53,
+        "duration": 1.53
+    },
+    {
+        "text": "the original data. Am I getting that right?",
+        "start": 626.06,
+        "duration": 2.115
+    },
+    {
+        "text": ">> Exactly. Right now,",
+        "start": 628.175,
+        "duration": 3.03
+    },
+    {
+        "text": "the system, you would use it when you have access to the data.",
+        "start": 631.205,
+        "duration": 5.67
+    },
+    {
+        "text": "But just to guarantee that those reports that you publish or",
+        "start": 636.875,
+        "duration": 3.075
+    },
+    {
+        "text": "the model that you build has",
+        "start": 639.95,
+        "duration": 1.77
+    },
+    {
+        "text": "these differential privacy guarantees.",
+        "start": 641.72,
+        "duration": 1.905
+    },
+    {
+        "text": "However, in the future, we're also hoping to enable this to be",
+        "start": 643.625,
+        "duration": 3.375
+    },
+    {
+        "text": "a situation where the data scientists",
+        "start": 647.0,
+        "duration": 1.92
+    },
+    {
+        "text": "can't access the dataset directly,",
+        "start": 648.92,
+        "duration": 1.83
+    },
+    {
+        "text": "but they could do this query because it will",
+        "start": 650.75,
+        "duration": 2.19
+    },
+    {
+        "text": "enable us to allow more people,",
+        "start": 652.94,
+        "duration": 2.7
+    },
+    {
+        "text": "for example, to do research on top of datasets,",
+        "start": 655.64,
+        "duration": 2.655
+    },
+    {
+        "text": "do medical research, social science research.",
+        "start": 658.295,
+        "duration": 2.745
+    },
+    {
+        "text": "So we think it's a really exciting direction going forward.",
+        "start": 661.04,
+        "duration": 3.66
+    },
+    {
+        "text": ">> Cool. The second question.",
+        "start": 664.7,
+        "duration": 1.68
+    },
+    {
+        "text": "The budget, and that's an interesting thing because",
+        "start": 666.38,
+        "duration": 3.015
+    },
+    {
+        "text": "what you're saying is that an attacker knowing,",
+        "start": 669.395,
+        "duration": 2.835
+    },
+    {
+        "text": "because it's probably some mathematical distributions that",
+        "start": 672.23,
+        "duration": 2.61
+    },
+    {
+        "text": "you're using to add the noise that are well-known.",
+        "start": 674.84,
+        "duration": 2.805
+    },
+    {
+        "text": "What you're saying is that if the attacker",
+        "start": 677.645,
+        "duration": 2.475
+    },
+    {
+        "text": "does a bunch of systematic queries,",
+        "start": 680.12,
+        "duration": 2.865
+    },
+    {
+        "text": "knowing the distribution of the noise,",
+        "start": 682.985,
+        "duration": 1.725
+    },
+    {
+        "text": "they should be able to reconstruct",
+        "start": 684.71,
+        "duration": 2.16
+    },
+    {
+        "text": "the data and so the budget is just saying,",
+        "start": 686.87,
+        "duration": 2.67
+    },
+    {
+        "text": "''You can only query this so many times.''",
+        "start": 689.54,
+        "duration": 2.175
+    },
+    {
+        "text": "Am I right on that?",
+        "start": 691.715,
+        "duration": 1.125
+    },
+    {
+        "text": "Because that's what I'm getting,",
+        "start": 692.84,
+        "duration": 1.02
+    },
+    {
+        "text": "but I want to make sure I'm correct.",
+        "start": 693.86,
+        "duration": 1.44
+    },
+    {
+        "text": ">> Yeah. I think it's basically",
+        "start": 695.3,
+        "duration": 2.37
+    },
+    {
+        "text": "that if I reveal too much information,",
+        "start": 697.67,
+        "duration": 3.285
+    },
+    {
+        "text": "then you could basically remove the noise.",
+        "start": 700.955,
+        "duration": 3.51
+    },
+    {
+        "text": "You could understand what the noise that was added is,",
+        "start": 704.465,
+        "duration": 4.215
+    },
+    {
+        "text": "and so you could get that private information.",
+        "start": 708.68,
+        "duration": 2.49
+    },
+    {
+        "text": ">> Well, let's take a look at a demo.",
+        "start": 711.17,
+        "duration": 1.89
+    },
+    {
+        "text": ">> Great. So I use the WhiteNoise system",
+        "start": 713.06,
+        "duration": 3.3
+    },
+    {
+        "text": "above here to generate some histograms.",
+        "start": 716.36,
+        "duration": 3.105
+    },
+    {
+        "text": "Then what I'm doing now is,",
+        "start": 719.465,
+        "duration": 2.91
+    },
+    {
+        "text": "I'm first going to show",
+        "start": 722.375,
+        "duration": 1.905
+    },
+    {
+        "text": "that where we're achieving what we said we would,",
+        "start": 724.28,
+        "duration": 3.075
+    },
+    {
+        "text": "which is not allowing that type of attack.",
+        "start": 727.355,
+        "duration": 2.685
+    },
+    {
+        "text": "So I'm going to do the same SAT solver.",
+        "start": 730.04,
+        "duration": 2.28
+    },
+    {
+        "text": "But what we get back now is unset,",
+        "start": 732.32,
+        "duration": 3.029
+    },
+    {
+        "text": "which means it couldn't find a database that satisfies the output,",
+        "start": 735.349,
+        "duration": 5.401
+    },
+    {
+        "text": "the reports that were published.",
+        "start": 740.75,
+        "duration": 2.175
+    },
+    {
+        "text": "So it doesn't have any guesses in terms",
+        "start": 742.925,
+        "duration": 2.775
+    },
+    {
+        "text": "of people's income, which is great.",
+        "start": 745.7,
+        "duration": 2.64
+    },
+    {
+        "text": "So we've achieved one goal here,",
+        "start": 748.34,
+        "duration": 2.52
+    },
+    {
+        "text": "but we also need to show that the data is still useful.",
+        "start": 750.86,
+        "duration": 3.78
+    },
+    {
+        "text": "We're adding noise and so people often ask,",
+        "start": 754.64,
+        "duration": 3.96
+    },
+    {
+        "text": "''Well, what am I going to do with noisy data.",
+        "start": 758.6,
+        "duration": 2.85
+    },
+    {
+        "text": "How useful is this?''",
+        "start": 761.45,
+        "duration": 2.19
+    },
+    {
+        "text": "So I still want to be able to do that income analysis,",
+        "start": 763.64,
+        "duration": 5.925
+    },
+    {
+        "text": "but now we're going to do it using the private data.",
+        "start": 769.565,
+        "duration": 2.94
+    },
+    {
+        "text": "So if I generate my plot here,",
+        "start": 772.505,
+        "duration": 3.9
+    },
+    {
+        "text": "here are the two results side by side.",
+        "start": 776.405,
+        "duration": 3.855
+    },
+    {
+        "text": "I have my nonprivate version,",
+        "start": 780.26,
+        "duration": 2.22
+    },
+    {
+        "text": "which we saw above in blue,",
+        "start": 782.48,
+        "duration": 1.44
+    },
+    {
+        "text": "and I have my private version in orange,",
+        "start": 783.92,
+        "duration": 2.94
+    },
+    {
+        "text": "and what we see here is",
+        "start": 786.86,
+        "duration": 2.22
+    },
+    {
+        "text": "that in some cases is actually quite close.",
+        "start": 789.08,
+        "duration": 2.94
+    },
+    {
+        "text": "Very usable the noise is very small.",
+        "start": 792.02,
+        "duration": 2.595
+    },
+    {
+        "text": "In other cases, the noise is actually quite",
+        "start": 794.615,
+        "duration": 2.565
+    },
+    {
+        "text": "significant and that's because these are",
+        "start": 797.18,
+        "duration": 2.76
+    },
+    {
+        "text": "really small values and so",
+        "start": 799.94,
+        "duration": 1.815
+    },
+    {
+        "text": "the relative noise we're adding could be a lot more.",
+        "start": 801.755,
+        "duration": 4.435
+    },
+    {
+        "text": "For how usable it is,",
+        "start": 808.36,
+        "duration": 2.05
+    },
+    {
+        "text": "it's going to depend on basically how large your dataset",
+        "start": 810.41,
+        "duration": 5.25
+    },
+    {
+        "text": "is and how much noise needs",
+        "start": 815.66,
+        "duration": 2.985
+    },
+    {
+        "text": "to be added depending on what privacy you need.",
+        "start": 818.645,
+        "duration": 3.6
+    },
+    {
+        "text": "In this case, we're using a pretty small dataset so",
+        "start": 822.245,
+        "duration": 2.295
+    },
+    {
+        "text": "that I could show that attack in my notebook.",
+        "start": 824.54,
+        "duration": 2.16
+    },
+    {
+        "text": "But if you're using a very large dataset,",
+        "start": 826.7,
+        "duration": 2.64
+    },
+    {
+        "text": "which is the case for a lot",
+        "start": 829.34,
+        "duration": 1.83
+    },
+    {
+        "text": "of our machine learning and statistics,",
+        "start": 831.17,
+        "duration": 1.935
+    },
+    {
+        "text": "then the amount of noise that's added is often negligible.",
+        "start": 833.105,
+        "duration": 3.405
+    },
+    {
+        "text": ">> So looking at this,",
+        "start": 836.51,
+        "duration": 1.59
+    },
+    {
+        "text": "my guess is that there is some slider",
+        "start": 838.1,
+        "duration": 2.73
+    },
+    {
+        "text": "between how much privacy you want and how much noise is added.",
+        "start": 840.83,
+        "duration": 4.71
+    },
+    {
+        "text": "Is that an accurate statement?",
+        "start": 845.54,
+        "duration": 1.785
+    },
+    {
+        "text": ">> Yeah. Exactly, and how",
+        "start": 847.325,
+        "duration": 3.075
+    },
+    {
+        "text": "much budget you want to spend on a particular query.",
+        "start": 850.4,
+        "duration": 3.33
+    },
+    {
+        "text": "If I only want to do",
+        "start": 853.73,
+        "duration": 1.86
+    },
+    {
+        "text": "one query and I'm willing to spend all of my budget on that.",
+        "start": 855.59,
+        "duration": 2.46
+    },
+    {
+        "text": "I can get a lot more accurate information than if I want do",
+        "start": 858.05,
+        "duration": 2.94
+    },
+    {
+        "text": "many different queries and I only want to",
+        "start": 860.99,
+        "duration": 2.04
+    },
+    {
+        "text": "use a little bit of budget on each query.",
+        "start": 863.03,
+        "duration": 2.61
+    },
+    {
+        "text": "Then of course, how",
+        "start": 865.64,
+        "duration": 3.255
+    },
+    {
+        "text": "private you want it to be affects the accuracy,",
+        "start": 868.895,
+        "duration": 3.885
+    },
+    {
+        "text": "and then as I was saying for the scale.",
+        "start": 872.78,
+        "duration": 2.04
+    },
+    {
+        "text": "So if it's a very large dataset,",
+        "start": 874.82,
+        "duration": 2.85
+    },
+    {
+        "text": "you will still have that slider,",
+        "start": 877.67,
+        "duration": 1.56
+    },
+    {
+        "text": "but it'll look much lower in terms of the trade-offs.",
+        "start": 879.23,
+        "duration": 3.585
+    },
+    {
+        "text": ">> I see. So basically you're putting the user in",
+        "start": 882.815,
+        "duration": 2.925
+    },
+    {
+        "text": "control over how private they want the data to be,",
+        "start": 885.74,
+        "duration": 3.96
+    },
+    {
+        "text": "how big the budget is, etc.",
+        "start": 889.7,
+        "duration": 1.68
+    },
+    {
+        "text": "It's all a user approach to this.",
+        "start": 891.38,
+        "duration": 2.685
+    },
+    {
+        "text": ">> Yes. Absolutely.",
+        "start": 894.065,
+        "duration": 1.56
+    },
+    {
+        "text": ">> Fantastic. So where can people go to find out more about this?",
+        "start": 895.625,
+        "duration": 3.345
+    },
+    {
+        "text": "Unless did you have any more you want to show in the notebook..",
+        "start": 898.97,
+        "duration": 2.88
+    },
+    {
+        "text": ">> No. I think this is everything.",
+        "start": 901.85,
+        "duration": 2.235
+    },
+    {
+        "text": ">> Where can people go to find out more about this?",
+        "start": 904.085,
+        "duration": 2.4
+    },
+    {
+        "text": ">> So we have a GitHub repository.",
+        "start": 906.485,
+        "duration": 6.33
+    },
+    {
+        "text": "So you can go and check out all of the code on GitHub,",
+        "start": 912.815,
+        "duration": 3.6
+    },
+    {
+        "text": "contribute, see this notebook and lots of others that we have.",
+        "start": 916.415,
+        "duration": 4.83
+    },
+    {
+        "text": "Then also WhiteNoise is part of",
+        "start": 921.245,
+        "duration": 2.715
+    },
+    {
+        "text": "a larger community that we're starting",
+        "start": 923.96,
+        "duration": 2.67
+    },
+    {
+        "text": "to enable differential privacy tools and research in the open,",
+        "start": 926.63,
+        "duration": 6.15
+    },
+    {
+        "text": "and that's called OpenDP.",
+        "start": 932.78,
+        "duration": 1.62
+    },
+    {
+        "text": "So you can also check out our community and get involved.",
+        "start": 934.4,
+        "duration": 3.57
+    },
+    {
+        "text": ">> Fantastic. Well, this has been very instructive.",
+        "start": 937.97,
+        "duration": 2.52
+    },
+    {
+        "text": "Thank you so much for spending some time with us,",
+        "start": 940.49,
+        "duration": 1.92
+    },
+    {
+        "text": "and thank you so much for watching.",
+        "start": 942.41,
+        "duration": 1.5
+    },
+    {
+        "text": "This has been another episode of the AI show,",
+        "start": 943.91,
+        "duration": 1.71
+    },
+    {
+        "text": "we've learned all about Protecting",
+        "start": 945.62,
+        "duration": 1.83
+    },
+    {
+        "text": "Sensitive Data using Differential Privacy.",
+        "start": 947.45,
+        "duration": 2.745
+    },
+    {
+        "text": "We'll see you next time. Take care.",
+        "start": 950.195,
+        "duration": 1.185
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 951.38,
+        "duration": 14.62
+    }
+]

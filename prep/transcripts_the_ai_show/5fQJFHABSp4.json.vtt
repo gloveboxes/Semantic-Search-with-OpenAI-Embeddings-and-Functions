@@ -1,0 +1,1952 @@
+[
+    {
+        "text": ">> You're not going to want to miss",
+        "start": 0.0,
+        "duration": 1.05
+    },
+    {
+        "text": "this episode of The AI Show where we take a look",
+        "start": 1.05,
+        "duration": 2.07
+    },
+    {
+        "text": "at how to tag audio using deep learning.",
+        "start": 3.12,
+        "duration": 3.165
+    },
+    {
+        "text": "I was surprised because it gets to use some",
+        "start": 6.285,
+        "duration": 1.965
+    },
+    {
+        "text": "of the stuff that I know how to do.",
+        "start": 8.25,
+        "duration": 2.115
+    },
+    {
+        "text": "Pretty excited. Make sure you tune in.",
+        "start": 10.365,
+        "duration": 1.455
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 11.82,
+        "duration": 8.76
+    },
+    {
+        "text": ">> Hello, and welcome to this episode of The AI Show.",
+        "start": 20.58,
+        "duration": 2.88
+    },
+    {
+        "text": "We're going to learn about tagging audio using deep learning.",
+        "start": 23.46,
+        "duration": 3.45
+    },
+    {
+        "text": "I'm pretty excited to have a guest with us today.",
+        "start": 26.91,
+        "duration": 1.65
+    },
+    {
+        "text": "Andreas, how are you doing, my friend?",
+        "start": 28.56,
+        "duration": 1.815
+    },
+    {
+        "text": ">> Thank you, Seth. I'm really happy to be here,",
+        "start": 30.375,
+        "duration": 2.805
+    },
+    {
+        "text": "and I'm very fine. Thanks.",
+        "start": 33.18,
+        "duration": 2.67
+    },
+    {
+        "text": ">> Tell us a little bit about Peltarion, the company you work for.",
+        "start": 35.85,
+        "duration": 3.33
+    },
+    {
+        "text": ">> Yes, I'm calling from Stockholm,",
+        "start": 39.18,
+        "duration": 3.04
+    },
+    {
+        "text": "and working on a company called Peltarion.",
+        "start": 42.22,
+        "duration": 3.115
+    },
+    {
+        "text": "I work here as a developer advocate.",
+        "start": 45.335,
+        "duration": 2.1
+    },
+    {
+        "text": "What we do is we develop a web-based tool",
+        "start": 47.435,
+        "duration": 2.805
+    },
+    {
+        "text": "for training deep learning AI models,",
+        "start": 50.24,
+        "duration": 3.68
+    },
+    {
+        "text": "and just trying to make it as convenient as possible for you.",
+        "start": 53.92,
+        "duration": 3.46
+    },
+    {
+        "text": "So you don't need to know",
+        "start": 57.38,
+        "duration": 1.8
+    },
+    {
+        "text": "all the nitty-gritty in PyTorch and TensorFlow,",
+        "start": 59.18,
+        "duration": 2.88
+    },
+    {
+        "text": "but you can still go in and classify images,",
+        "start": 62.06,
+        "duration": 2.79
+    },
+    {
+        "text": "or run sentiment analysis on your text,",
+        "start": 64.85,
+        "duration": 3.25
+    },
+    {
+        "text": "or recognize sounds, or stuff like that,",
+        "start": 68.1,
+        "duration": 3.04
+    },
+    {
+        "text": "or you could even combine different resources. That's what we do.",
+        "start": 71.14,
+        "duration": 4.19
+    },
+    {
+        "text": ">> That's awesome. Tell us",
+        "start": 75.33,
+        "duration": 1.4
+    },
+    {
+        "text": "a little bit about what we're talking about today,",
+        "start": 76.73,
+        "duration": 1.68
+    },
+    {
+        "text": "because I think we're going to actually",
+        "start": 78.41,
+        "duration": 1.05
+    },
+    {
+        "text": "dive in and solve a problem.",
+        "start": 79.46,
+        "duration": 1.52
+    },
+    {
+        "text": "Why don't you describe it for us?",
+        "start": 80.98,
+        "duration": 1.75
+    },
+    {
+        "text": ">> Yeah, we are. Today, I'm about to show you",
+        "start": 82.73,
+        "duration": 3.18
+    },
+    {
+        "text": "a case working with mood detection in audio.",
+        "start": 85.91,
+        "duration": 4.02
+    },
+    {
+        "text": "A case that we made for a customer of ours that they use.",
+        "start": 89.93,
+        "duration": 5.165
+    },
+    {
+        "text": "I'm really excited to show that.",
+        "start": 95.095,
+        "duration": 2.09
+    },
+    {
+        "text": "Let's start with looking at some code, so you can see what we do.",
+        "start": 97.185,
+        "duration": 3.795
+    },
+    {
+        "text": "But essentially, it's me playing a song,",
+        "start": 100.98,
+        "duration": 2.955
+    },
+    {
+        "text": "and the computer can detect the moods in that piece of audio.",
+        "start": 103.935,
+        "duration": 6.445
+    },
+    {
+        "text": "Let's start with just playing that song real quick,",
+        "start": 110.38,
+        "duration": 3.055
+    },
+    {
+        "text": "and then I'm going to ask you to",
+        "start": 113.435,
+        "duration": 2.3
+    },
+    {
+        "text": "say what kind of moods you feel in this song.",
+        "start": 115.735,
+        "duration": 4.455
+    },
+    {
+        "text": "Listen to this one.",
+        "start": 120.56,
+        "duration": 2.02
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 122.58,
+        "duration": 1.71
+    },
+    {
+        "text": ">> Sounds happyish.",
+        "start": 124.29,
+        "duration": 2.17
+    },
+    {
+        "text": ">> Yeah, agreed. To be honest, it's from [inaudible].",
+        "start": 128.69,
+        "duration": 9.43
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 138.12,
+        "duration": 0.1
+    },
+    {
+        "text": ">> Yeah. Now we've heard that for a little while.",
+        "start": 138.22,
+        "duration": 2.075
+    },
+    {
+        "text": "Let's see what the computer think about that one.",
+        "start": 140.295,
+        "duration": 3.64
+    },
+    {
+        "text": "We're going to go back to the code a bit",
+        "start": 143.935,
+        "duration": 2.515
+    },
+    {
+        "text": "later and dig into the details here.",
+        "start": 146.45,
+        "duration": 2.39
+    },
+    {
+        "text": "Now let's run through it real quick to see the results.",
+        "start": 148.84,
+        "duration": 5.124
+    },
+    {
+        "text": "This part I'm going to be quite quick.",
+        "start": 153.964,
+        "duration": 2.486
+    },
+    {
+        "text": "Now just loading the audio file.",
+        "start": 156.45,
+        "duration": 3.37
+    },
+    {
+        "text": "Let's see. You see a lot of things pop up,",
+        "start": 163.16,
+        "duration": 3.39
+    },
+    {
+        "text": "and we're going to go back and have a look at that.",
+        "start": 166.55,
+        "duration": 1.95
+    },
+    {
+        "text": "We can see here that the computer said,",
+        "start": 168.5,
+        "duration": 2.52
+    },
+    {
+        "text": "there's a lot of moods that it can detect,",
+        "start": 171.02,
+        "duration": 2.415
+    },
+    {
+        "text": "and in descending order,",
+        "start": 173.435,
+        "duration": 1.065
+    },
+    {
+        "text": "it starts with hopeful,",
+        "start": 174.5,
+        "duration": 1.965
+    },
+    {
+        "text": "and then happy, and running,",
+        "start": 176.465,
+        "duration": 2.95
+    },
+    {
+        "text": "and breathless, and so on.",
+        "start": 179.415,
+        "duration": 2.295
+    },
+    {
+        "text": "Quite close to your guess here, which was cool.",
+        "start": 181.71,
+        "duration": 4.965
+    },
+    {
+        "text": "As I said, we're going get back to that,",
+        "start": 186.675,
+        "duration": 2.64
+    },
+    {
+        "text": "to this code, and go through the bit more in detail.",
+        "start": 189.315,
+        "duration": 2.985
+    },
+    {
+        "text": "But let's start out with having a look at",
+        "start": 192.3,
+        "duration": 2.64
+    },
+    {
+        "text": "the platform and see how we built this model.",
+        "start": 194.94,
+        "duration": 3.915
+    },
+    {
+        "text": "What you can see on the screen here now is I just logged in.",
+        "start": 198.855,
+        "duration": 4.205
+    },
+    {
+        "text": "This is my dashboard, and",
+        "start": 203.06,
+        "duration": 2.37
+    },
+    {
+        "text": "I've been working with this for quite some time now.",
+        "start": 205.43,
+        "duration": 2.46
+    },
+    {
+        "text": "We can see a lot of projects on the left side.",
+        "start": 207.89,
+        "duration": 2.495
+    },
+    {
+        "text": "I will start with creating a project.",
+        "start": 210.385,
+        "duration": 3.565
+    },
+    {
+        "text": "Well, we've just created one actually.",
+        "start": 213.95,
+        "duration": 2.71
+    },
+    {
+        "text": "Once you create a project,",
+        "start": 216.66,
+        "duration": 2.21
+    },
+    {
+        "text": "you can see there are four steps to your model or to your project.",
+        "start": 218.87,
+        "duration": 5.565
+    },
+    {
+        "text": "Start with uploading your data. Makes a lot of sense.",
+        "start": 224.435,
+        "duration": 4.075
+    },
+    {
+        "text": "On the modeling view,",
+        "start": 228.59,
+        "duration": 2.62
+    },
+    {
+        "text": "we can build a model from scratch,",
+        "start": 231.21,
+        "duration": 2.36
+    },
+    {
+        "text": "or we can also use",
+        "start": 233.57,
+        "duration": 1.41
+    },
+    {
+        "text": "a pre-built model architecture from the library that we see there.",
+        "start": 234.98,
+        "duration": 4.58
+    },
+    {
+        "text": "We'll start training from that one.",
+        "start": 239.56,
+        "duration": 3.17
+    },
+    {
+        "text": "Once you've started training,",
+        "start": 242.73,
+        "duration": 1.705
+    },
+    {
+        "text": "we can go to evaluation tab,",
+        "start": 244.435,
+        "duration": 1.615
+    },
+    {
+        "text": "and we will see how the model performs as it trains or as it go.",
+        "start": 246.05,
+        "duration": 4.34
+    },
+    {
+        "text": "The last step will be deployment.",
+        "start": 250.39,
+        "duration": 2.075
+    },
+    {
+        "text": "From the deployment view,",
+        "start": 252.465,
+        "duration": 1.185
+    },
+    {
+        "text": "what you can do is you press a button",
+        "start": 253.65,
+        "duration": 2.6
+    },
+    {
+        "text": "and you will deploy the model as a REST API,",
+        "start": 256.25,
+        "duration": 3.06
+    },
+    {
+        "text": "or you can access it through a REST API.",
+        "start": 259.31,
+        "duration": 3.095
+    },
+    {
+        "text": "Let's go through the different steps here.",
+        "start": 262.405,
+        "duration": 2.82
+    },
+    {
+        "text": "On this page, we upload datasets and as you can see here,",
+        "start": 265.225,
+        "duration": 3.995
+    },
+    {
+        "text": "my dataset is 1.8 gigabytes roughly.",
+        "start": 269.22,
+        "duration": 2.97
+    },
+    {
+        "text": "So I decided to upload that before this demo.",
+        "start": 272.19,
+        "duration": 4.24
+    },
+    {
+        "text": ">> Of course.",
+        "start": 276.43,
+        "duration": 1.46
+    },
+    {
+        "text": ">> But once you have loaded that one,",
+        "start": 277.89,
+        "duration": 2.025
+    },
+    {
+        "text": "you will come in here and see you",
+        "start": 279.915,
+        "duration": 1.825
+    },
+    {
+        "text": "can inspect your data a little bit.",
+        "start": 281.74,
+        "duration": 1.93
+    },
+    {
+        "text": "What we have in the dataset is a CSV file with a audio file.",
+        "start": 283.67,
+        "duration": 5.145
+    },
+    {
+        "text": "Then you have all the different moods that we have,",
+        "start": 288.815,
+        "duration": 2.665
+    },
+    {
+        "text": "and in this case, we have 46 different moods.",
+        "start": 291.48,
+        "duration": 2.645
+    },
+    {
+        "text": "We can see a song can be angry,",
+        "start": 294.125,
+        "duration": 2.055
+    },
+    {
+        "text": "or dark, or epic, or so.",
+        "start": 296.18,
+        "duration": 3.64
+    },
+    {
+        "text": "It can also be casino.",
+        "start": 299.82,
+        "duration": 1.545
+    },
+    {
+        "text": "I'm not really sure what that is, but anyway.",
+        "start": 301.365,
+        "duration": 4.015
+    },
+    {
+        "text": "Now we have the data up here,",
+        "start": 305.38,
+        "duration": 2.57
+    },
+    {
+        "text": "and the data is automatically split into the default.",
+        "start": 307.95,
+        "duration": 5.335
+    },
+    {
+        "text": "When it splits, we have 80 percent as",
+        "start": 313.285,
+        "duration": 2.325
+    },
+    {
+        "text": "training data and 20 percent of validation.",
+        "start": 315.61,
+        "duration": 3.045
+    },
+    {
+        "text": "What we want to do here now is we create the feature",
+        "start": 318.655,
+        "duration": 3.995
+    },
+    {
+        "text": "set just saying what is the output data from our model.",
+        "start": 322.65,
+        "duration": 4.38
+    },
+    {
+        "text": "The input is going to be the audio file,",
+        "start": 327.03,
+        "duration": 3.085
+    },
+    {
+        "text": "and the output is all the different moods,",
+        "start": 330.115,
+        "duration": 3.229
+    },
+    {
+        "text": "and it's 46 different moods in this case.",
+        "start": 333.344,
+        "duration": 2.866
+    },
+    {
+        "text": "All these moods, and we hit the \"Create\" button,",
+        "start": 336.21,
+        "duration": 4.245
+    },
+    {
+        "text": "and we save this version of the dataset.",
+        "start": 340.455,
+        "duration": 3.59
+    },
+    {
+        "text": "Just going to load for a little bit,",
+        "start": 344.045,
+        "duration": 3.805
+    },
+    {
+        "text": "and save all of this.",
+        "start": 347.85,
+        "duration": 2.685
+    },
+    {
+        "text": ">> While it's doing that, let me ask you a couple of questions.",
+        "start": 350.535,
+        "duration": 2.165
+    },
+    {
+        "text": "Basically, you're uploading the dataset,",
+        "start": 352.7,
+        "duration": 2.505
+    },
+    {
+        "text": "and you're telling the system what are the features,",
+        "start": 355.205,
+        "duration": 3.225
+    },
+    {
+        "text": "and then what are the labels, basically.",
+        "start": 358.43,
+        "duration": 1.89
+    },
+    {
+        "text": "You just do this in the UI?",
+        "start": 360.32,
+        "duration": 2.085
+    },
+    {
+        "text": ">> Yeah. Exactly, and we're going to see more",
+        "start": 362.405,
+        "duration": 2.995
+    },
+    {
+        "text": "of that in a second while we open the reset as well.",
+        "start": 365.4,
+        "duration": 2.535
+    },
+    {
+        "text": "For the model, we can select that again.",
+        "start": 367.935,
+        "duration": 2.21
+    },
+    {
+        "text": "We can select with this input feature,",
+        "start": 370.145,
+        "duration": 2.025
+    },
+    {
+        "text": "and what is the outputs of what we want to train it to do.",
+        "start": 372.17,
+        "duration": 4.295
+    },
+    {
+        "text": ">> Awesome.",
+        "start": 376.465,
+        "duration": 1.055
+    },
+    {
+        "text": ">> Now, once we've saved this dataset,",
+        "start": 377.52,
+        "duration": 3.33
+    },
+    {
+        "text": "and the reason we save the dataset here is that you",
+        "start": 380.85,
+        "duration": 1.91
+    },
+    {
+        "text": "can go back and use an older version,",
+        "start": 382.76,
+        "duration": 2.22
+    },
+    {
+        "text": "and try a new version, and stuff like that.",
+        "start": 384.98,
+        "duration": 2.205
+    },
+    {
+        "text": "We'll post the used experiments,",
+        "start": 387.185,
+        "duration": 2.205
+    },
+    {
+        "text": "or using new experiment,",
+        "start": 389.39,
+        "duration": 1.43
+    },
+    {
+        "text": "and we'll just name it.",
+        "start": 390.82,
+        "duration": 2.03
+    },
+    {
+        "text": "Let's call it experiment 1 for now.",
+        "start": 392.85,
+        "duration": 3.1
+    },
+    {
+        "text": "Here is what you just asked about,",
+        "start": 396.14,
+        "duration": 3.265
+    },
+    {
+        "text": "Seth, we can select the input feature.",
+        "start": 399.405,
+        "duration": 2.64
+    },
+    {
+        "text": "Just going to be the song in this case.",
+        "start": 402.045,
+        "duration": 1.755
+    },
+    {
+        "text": "It's a spectogram and we're going to go back to that in a while.",
+        "start": 403.8,
+        "duration": 5.265
+    },
+    {
+        "text": "The target feature in",
+        "start": 409.065,
+        "duration": 1.605
+    },
+    {
+        "text": "this case is the mood. We can just create it.",
+        "start": 410.67,
+        "duration": 3.12
+    },
+    {
+        "text": "Now, the problem type,",
+        "start": 413.79,
+        "duration": 1.515
+    },
+    {
+        "text": "since we want the label to find many different tags or moods,",
+        "start": 415.305,
+        "duration": 8.19
+    },
+    {
+        "text": "we're going to start multi-label image classification.",
+        "start": 423.495,
+        "duration": 3.265
+    },
+    {
+        "text": "Once we have done that,",
+        "start": 426.76,
+        "duration": 1.94
+    },
+    {
+        "text": "we set the recommended number of different models and it's",
+        "start": 428.7,
+        "duration": 4.35
+    },
+    {
+        "text": "often difficult to say which one is going to perform the best.",
+        "start": 433.05,
+        "duration": 4.04
+    },
+    {
+        "text": "That's also why we can try different experiments.",
+        "start": 437.09,
+        "duration": 2.07
+    },
+    {
+        "text": "But let's just pick one for now and press \"Create.\"",
+        "start": 439.16,
+        "duration": 5.355
+    },
+    {
+        "text": "Now, what happens now, you can",
+        "start": 444.515,
+        "duration": 2.095
+    },
+    {
+        "text": "see we come to the next field called modeling,",
+        "start": 446.61,
+        "duration": 1.89
+    },
+    {
+        "text": "and we can see this snippet on the canvas.",
+        "start": 448.5,
+        "duration": 3.989
+    },
+    {
+        "text": "This is the dense net,",
+        "start": 452.489,
+        "duration": 1.316
+    },
+    {
+        "text": "and we can open it and change it if it want to.",
+        "start": 453.805,
+        "duration": 4.235
+    },
+    {
+        "text": "I would like to do that.",
+        "start": 458.04,
+        "duration": 1.545
+    },
+    {
+        "text": "An alternative to this is to start from scratch,",
+        "start": 459.585,
+        "duration": 3.21
+    },
+    {
+        "text": "where we're going to building blocks",
+        "start": 462.795,
+        "duration": 1.815
+    },
+    {
+        "text": "and we can add all the pieces.",
+        "start": 464.61,
+        "duration": 1.95
+    },
+    {
+        "text": "We can start with an input,",
+        "start": 466.56,
+        "duration": 2.07
+    },
+    {
+        "text": "and we can add convolutions,",
+        "start": 468.63,
+        "duration": 3.9
+    },
+    {
+        "text": "and whatever you want to do here. It's up to you.",
+        "start": 472.53,
+        "duration": 4.095
+    },
+    {
+        "text": ">> This is pretty cool, as I'm looking at this, basically,",
+        "start": 476.625,
+        "duration": 3.37
+    },
+    {
+        "text": "you can build your neural network with the standard blocks.",
+        "start": 479.995,
+        "duration": 3.635
+    },
+    {
+        "text": "It looks like you have dense net there.",
+        "start": 483.63,
+        "duration": 1.81
+    },
+    {
+        "text": "I'm guessing you res nets and BGG.",
+        "start": 485.44,
+        "duration": 2.115
+    },
+    {
+        "text": "You just bring the box on,",
+        "start": 487.555,
+        "duration": 1.59
+    },
+    {
+        "text": "and you build the entire neural that were visually. Is that right?",
+        "start": 489.145,
+        "duration": 4.05
+    },
+    {
+        "text": ">> Exactly. That's how. That's how it runs.",
+        "start": 493.195,
+        "duration": 2.885
+    },
+    {
+        "text": "Just dragging and dropping,",
+        "start": 496.08,
+        "duration": 1.11
+    },
+    {
+        "text": "and you got some information down here on the left side as",
+        "start": 497.19,
+        "duration": 3.01
+    },
+    {
+        "text": "well if it doesn't work out for some reason.",
+        "start": 500.2,
+        "duration": 4.105
+    },
+    {
+        "text": "We're going to add more of these to,",
+        "start": 504.305,
+        "duration": 2.125
+    },
+    {
+        "text": "just helping you through the process.",
+        "start": 506.43,
+        "duration": 2.88
+    },
+    {
+        "text": "After we've started training,",
+        "start": 509.31,
+        "duration": 1.89
+    },
+    {
+        "text": "we can go in here and have a quick look at the settings.",
+        "start": 511.2,
+        "duration": 2.41
+    },
+    {
+        "text": "It tries to give you",
+        "start": 513.61,
+        "duration": 1.11
+    },
+    {
+        "text": "the best possible settings for this architecture.",
+        "start": 514.72,
+        "duration": 2.18
+    },
+    {
+        "text": "But we can say about size and number of epochs.",
+        "start": 516.9,
+        "duration": 3.775
+    },
+    {
+        "text": "Number of epochs is quite high.",
+        "start": 520.675,
+        "duration": 1.725
+    },
+    {
+        "text": "That works because we have activated early stopping as well.",
+        "start": 522.4,
+        "duration": 4.065
+    },
+    {
+        "text": "If the model trains and trains without increasing the performance,",
+        "start": 526.465,
+        "duration": 6.375
+    },
+    {
+        "text": "it will just stop by itself.",
+        "start": 532.84,
+        "duration": 2.66
+    },
+    {
+        "text": "Once you've gone through the settings,",
+        "start": 535.57,
+        "duration": 2.475
+    },
+    {
+        "text": "we press the button up here, and it starts training.",
+        "start": 538.045,
+        "duration": 3.67
+    },
+    {
+        "text": "In this case, since the input data is",
+        "start": 541.715,
+        "duration": 3.32
+    },
+    {
+        "text": "tens of thousands of songs and a quite big model,",
+        "start": 545.035,
+        "duration": 3.87
+    },
+    {
+        "text": "this will take a while.",
+        "start": 548.905,
+        "duration": 2.22
+    },
+    {
+        "text": "What I have done here is I prepared this already.",
+        "start": 551.125,
+        "duration": 4.355
+    },
+    {
+        "text": "We can save some time here,",
+        "start": 555.48,
+        "duration": 2.77
+    },
+    {
+        "text": "actually save many hours.",
+        "start": 558.25,
+        "duration": 2.37
+    },
+    {
+        "text": "Here we have it's the same model, again,",
+        "start": 560.62,
+        "duration": 3.385
+    },
+    {
+        "text": "and I've been running the same thing,",
+        "start": 564.005,
+        "duration": 1.975
+    },
+    {
+        "text": "and I'm just heading to the evaluation view.",
+        "start": 565.98,
+        "duration": 2.195
+    },
+    {
+        "text": "We can see here that we have all kind of",
+        "start": 568.175,
+        "duration": 2.015
+    },
+    {
+        "text": "metrics that you would like to go through it to",
+        "start": 570.19,
+        "duration": 2.11
+    },
+    {
+        "text": "make sure that your model performs as well as you want it to.",
+        "start": 572.3,
+        "duration": 4.9
+    },
+    {
+        "text": "Once we have inspected it and we are",
+        "start": 578.35,
+        "duration": 3.73
+    },
+    {
+        "text": "happy with the quality and how well it performs,",
+        "start": 582.08,
+        "duration": 2.955
+    },
+    {
+        "text": "we can go to the next step, which is the deployment view up here.",
+        "start": 585.035,
+        "duration": 4.905
+    },
+    {
+        "text": "Once we go through deployment here,",
+        "start": 590.0,
+        "duration": 4.045
+    },
+    {
+        "text": "this side it pops up.",
+        "start": 594.045,
+        "duration": 2.07
+    },
+    {
+        "text": "This is quite cool actually because you can press",
+        "start": 596.115,
+        "duration": 2.735
+    },
+    {
+        "text": "the deployment and you select your experiment.",
+        "start": 598.85,
+        "duration": 3.73
+    },
+    {
+        "text": "When you Press \"Create\" here,",
+        "start": 603.15,
+        "duration": 2.86
+    },
+    {
+        "text": "it will deploy an API for you.",
+        "start": 606.01,
+        "duration": 3.315
+    },
+    {
+        "text": "Now, by calling this endpoint here with this token,",
+        "start": 609.325,
+        "duration": 3.72
+    },
+    {
+        "text": "we can send in a song and it will come back with all the moods.",
+        "start": 613.045,
+        "duration": 6.325
+    },
+    {
+        "text": "That is how the platform works.",
+        "start": 619.95,
+        "duration": 4.15
+    },
+    {
+        "text": ">> This is really cool. Basically, you start with your data,",
+        "start": 624.1,
+        "duration": 4.41
+    },
+    {
+        "text": "you create a dataset,",
+        "start": 628.51,
+        "duration": 1.215
+    },
+    {
+        "text": "you look at the featurization that you want to do,",
+        "start": 629.725,
+        "duration": 2.475
+    },
+    {
+        "text": "the system will suggest the type of",
+        "start": 632.2,
+        "duration": 1.86
+    },
+    {
+        "text": "model that you might want to use,",
+        "start": 634.06,
+        "duration": 2.445
+    },
+    {
+        "text": "and then you can actually rearrange it visually,",
+        "start": 636.505,
+        "duration": 3.165
+    },
+    {
+        "text": "train it, and then deploy",
+        "start": 639.67,
+        "duration": 1.83
+    },
+    {
+        "text": "that particular model to where you want it to go.",
+        "start": 641.5,
+        "duration": 2.32
+    },
+    {
+        "text": ">> Exactly. That's how it works.",
+        "start": 643.82,
+        "duration": 4.25
+    },
+    {
+        "text": ">> That's cool. This is a really cool demo.",
+        "start": 648.07,
+        "duration": 3.345
+    },
+    {
+        "text": "The thing you were showing me in the notebook was",
+        "start": 651.415,
+        "duration": 1.725
+    },
+    {
+        "text": "actually calling the endpoint, is that right?",
+        "start": 653.14,
+        "duration": 2.505
+    },
+    {
+        "text": ">> Yeah, it is. Let's go back to that one as",
+        "start": 655.645,
+        "duration": 5.205
+    },
+    {
+        "text": "well and we can dig into the code a little",
+        "start": 660.85,
+        "duration": 1.83
+    },
+    {
+        "text": "bit more, go through the details here.",
+        "start": 662.68,
+        "duration": 3.285
+    },
+    {
+        "text": "But first, I just want to go through.",
+        "start": 665.965,
+        "duration": 2.325
+    },
+    {
+        "text": "We can see it here as input.",
+        "start": 668.29,
+        "duration": 1.2
+    },
+    {
+        "text": "It's not actually the song itself,",
+        "start": 669.49,
+        "duration": 1.95
+    },
+    {
+        "text": "but it's the spectrogram.",
+        "start": 671.44,
+        "duration": 1.799
+    },
+    {
+        "text": "I'm not sure if everyone here has worked with spectrograms before,",
+        "start": 673.239,
+        "duration": 6.991
+    },
+    {
+        "text": "so let's go through that really quick.",
+        "start": 680.23,
+        "duration": 2.415
+    },
+    {
+        "text": ">> Let's do it.",
+        "start": 682.645,
+        "duration": 1.68
+    },
+    {
+        "text": ">> The first one, I wonder why do you",
+        "start": 684.325,
+        "duration": 2.385
+    },
+    {
+        "text": "want to be able to have a computer",
+        "start": 686.71,
+        "duration": 1.71
+    },
+    {
+        "text": "to tag your songs and say what kind of mood it is?",
+        "start": 688.42,
+        "duration": 4.095
+    },
+    {
+        "text": "As I mentioned real quick earlier,",
+        "start": 692.515,
+        "duration": 1.815
+    },
+    {
+        "text": "we did this together with a customer of ours.",
+        "start": 694.33,
+        "duration": 3.54
+    },
+    {
+        "text": "What they have, they had a library of",
+        "start": 697.87,
+        "duration": 2.325
+    },
+    {
+        "text": "tens of thousands of songs from different artists,",
+        "start": 700.195,
+        "duration": 2.685
+    },
+    {
+        "text": "and they work with licensing these songs.",
+        "start": 702.88,
+        "duration": 3.015
+    },
+    {
+        "text": "They spent a lot of time to manually go",
+        "start": 705.895,
+        "duration": 3.555
+    },
+    {
+        "text": "in and tag all the songs",
+        "start": 709.45,
+        "duration": 1.455
+    },
+    {
+        "text": "and you have a lot of people dealing with that.",
+        "start": 710.905,
+        "duration": 1.995
+    },
+    {
+        "text": "There's also a risk of it being a little bit inconsistent,",
+        "start": 712.9,
+        "duration": 2.88
+    },
+    {
+        "text": "because it's your subjective.",
+        "start": 715.78,
+        "duration": 2.325
+    },
+    {
+        "text": "It's your opinion like,",
+        "start": 718.105,
+        "duration": 1.41
+    },
+    {
+        "text": "is this song happy?",
+        "start": 719.515,
+        "duration": 1.71
+    },
+    {
+        "text": "Me and my set, we agreed quite well and we tried it out,",
+        "start": 721.225,
+        "duration": 3.135
+    },
+    {
+        "text": "and it might be that we have",
+        "start": 724.36,
+        "duration": 1.29
+    },
+    {
+        "text": "a slightly different opinions as well.",
+        "start": 725.65,
+        "duration": 2.79
+    },
+    {
+        "text": "So it's really good to have a machine to do it.",
+        "start": 728.44,
+        "duration": 2.115
+    },
+    {
+        "text": ">> Sure.",
+        "start": 730.555,
+        "duration": 0.555
+    },
+    {
+        "text": ">> It becomes really consistent.",
+        "start": 731.11,
+        "duration": 2.805
+    },
+    {
+        "text": "What we did here is we take",
+        "start": 733.915,
+        "duration": 1.995
+    },
+    {
+        "text": "this song and we get the moods out of it.",
+        "start": 735.91,
+        "duration": 3.1
+    },
+    {
+        "text": "The process is to take the song,",
+        "start": 739.65,
+        "duration": 3.23
+    },
+    {
+        "text": "and once we want to do it,",
+        "start": 742.88,
+        "duration": 2.095
+    },
+    {
+        "text": "you can go in and train based on the raw WAV file,",
+        "start": 744.975,
+        "duration": 3.96
+    },
+    {
+        "text": "but usually we get much better performance",
+        "start": 748.935,
+        "duration": 1.875
+    },
+    {
+        "text": "if you work with images directly,",
+        "start": 750.81,
+        "duration": 1.38
+    },
+    {
+        "text": "so we want to find a way to do that.",
+        "start": 752.19,
+        "duration": 1.895
+    },
+    {
+        "text": "What we do is we take the song and we",
+        "start": 754.085,
+        "duration": 2.155
+    },
+    {
+        "text": "transform it into a spectrogram.",
+        "start": 756.24,
+        "duration": 2.595
+    },
+    {
+        "text": "Then as you saw earlier, we go",
+        "start": 758.835,
+        "duration": 2.115
+    },
+    {
+        "text": "in on the platform and we train the model.",
+        "start": 760.95,
+        "duration": 2.235
+    },
+    {
+        "text": "We deploy it, and then we can send",
+        "start": 763.185,
+        "duration": 2.115
+    },
+    {
+        "text": "in our favorite song and get back the results.",
+        "start": 765.3,
+        "duration": 3.28
+    },
+    {
+        "text": "What we're doing here in spectrogram is just going from",
+        "start": 769.44,
+        "duration": 3.55
+    },
+    {
+        "text": "the wave form representation to image representation.",
+        "start": 772.99,
+        "duration": 5.05
+    },
+    {
+        "text": "The idea here is that you can look at",
+        "start": 778.71,
+        "duration": 2.77
+    },
+    {
+        "text": "the audio file and you can see things in it.",
+        "start": 781.48,
+        "duration": 3.585
+    },
+    {
+        "text": "Let's try this real quick.",
+        "start": 785.065,
+        "duration": 1.65
+    },
+    {
+        "text": "Let's start with the one on the left side here.",
+        "start": 786.715,
+        "duration": 3.39
+    },
+    {
+        "text": "We can listen to that at the same time as we can see it.",
+        "start": 790.105,
+        "duration": 4.575
+    },
+    {
+        "text": "Horizontal axis is the time and vertical axis is frequency.",
+        "start": 794.68,
+        "duration": 3.9
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 798.58,
+        "duration": 6.21
+    },
+    {
+        "text": ">> Yeah, so you can see what it sounds like.",
+        "start": 804.79,
+        "duration": 2.55
+    },
+    {
+        "text": "Let's try the one at the top right now.",
+        "start": 807.34,
+        "duration": 3.165
+    },
+    {
+        "text": "We can see with the eye that it goes up a little bit,",
+        "start": 810.505,
+        "duration": 3.375
+    },
+    {
+        "text": "which means it should be a higher and higher pitch.",
+        "start": 813.88,
+        "duration": 2.655
+    },
+    {
+        "text": "Let's have a listen.",
+        "start": 816.535,
+        "duration": 0.975
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 817.51,
+        "duration": 4.98
+    },
+    {
+        "text": ">> You can hear that as well. What do",
+        "start": 822.49,
+        "duration": 1.62
+    },
+    {
+        "text": "you think the bottom right sounds like?",
+        "start": 824.11,
+        "duration": 2.16
+    },
+    {
+        "text": ">> It's probably going to sound like",
+        "start": 826.27,
+        "duration": 1.92
+    },
+    {
+        "text": "[inaudible] all the way because it seems like all the frequencies,",
+        "start": 828.19,
+        "duration": 4.26
+    },
+    {
+        "text": "they're higher ones and there's lower ones.",
+        "start": 832.45,
+        "duration": 2.46
+    },
+    {
+        "text": "I don't know. I'm excited to hear them.",
+        "start": 834.91,
+        "duration": 3.03
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 837.94,
+        "duration": 2.94
+    },
+    {
+        "text": ">> Whoa, I was right.",
+        "start": 840.88,
+        "duration": 1.275
+    },
+    {
+        "text": ">> You're so right. Really good work.",
+        "start": 842.155,
+        "duration": 2.605
+    },
+    {
+        "text": ">> This was not rehearsed.",
+        "start": 844.76,
+        "duration": 1.325
+    },
+    {
+        "text": "I literally looked at it, I was like",
+        "start": 846.085,
+        "duration": 1.365
+    },
+    {
+        "text": "it sounds like [inaudible] I'm",
+        "start": 847.45,
+        "duration": 1.41
+    },
+    {
+        "text": "really good at looking at pictures and",
+        "start": 848.86,
+        "duration": 1.32
+    },
+    {
+        "text": "knowing what they sound like apparently.",
+        "start": 850.18,
+        "duration": 2.115
+    },
+    {
+        "text": ">> Yeah, that was awesome.",
+        "start": 852.295,
+        "duration": 1.905
+    },
+    {
+        "text": "You're right really quickly.",
+        "start": 854.2,
+        "duration": 1.8
+    },
+    {
+        "text": "You just needed three samples or actually just two,",
+        "start": 856.0,
+        "duration": 2.64
+    },
+    {
+        "text": "and then you train, and then you can tell what it is.",
+        "start": 858.64,
+        "duration": 3.24
+    },
+    {
+        "text": "Wow. That's really cool.",
+        "start": 861.88,
+        "duration": 4.21
+    },
+    {
+        "text": "How do we make this up?",
+        "start": 867.89,
+        "duration": 3.17
+    },
+    {
+        "text": "This is a whole song.",
+        "start": 871.49,
+        "duration": 2.125
+    },
+    {
+        "text": "You take a small frame from that,",
+        "start": 873.615,
+        "duration": 2.925
+    },
+    {
+        "text": "and now we zoom in on it.",
+        "start": 876.54,
+        "duration": 1.665
+    },
+    {
+        "text": "It's just a number of samples,",
+        "start": 878.205,
+        "duration": 1.635
+    },
+    {
+        "text": "and then we apply for real transform on that.",
+        "start": 879.84,
+        "duration": 4.36
+    },
+    {
+        "text": "Based on that, you build the first frame of",
+        "start": 884.2,
+        "duration": 3.18
+    },
+    {
+        "text": "the spectrogram of this file, the first line.",
+        "start": 887.38,
+        "duration": 2.64
+    },
+    {
+        "text": "Then you just apply that for",
+        "start": 890.02,
+        "duration": 1.47
+    },
+    {
+        "text": "the whole audio file and then have your spectrogram.",
+        "start": 891.49,
+        "duration": 3.91
+    },
+    {
+        "text": "Color-wise, we use a library called Librosa.",
+        "start": 895.44,
+        "duration": 4.435
+    },
+    {
+        "text": "There are other libraries as well,",
+        "start": 899.875,
+        "duration": 1.425
+    },
+    {
+        "text": "but I find this very convenient to use.",
+        "start": 901.3,
+        "duration": 3.765
+    },
+    {
+        "text": "Essentially just this single line,",
+        "start": 905.065,
+        "duration": 2.655
+    },
+    {
+        "text": "you can go from the waveform to the spectrogram.",
+        "start": 907.72,
+        "duration": 4.71
+    },
+    {
+        "text": ">> This is pretty cool. This is pretty cool because I saw you",
+        "start": 912.43,
+        "duration": 4.5
+    },
+    {
+        "text": "using image-based neural networks,",
+        "start": 916.93,
+        "duration": 4.185
+    },
+    {
+        "text": "and it confused me at first.",
+        "start": 921.115,
+        "duration": 1.245
+    },
+    {
+        "text": "I was like, I thought we're working with audio data.",
+        "start": 922.36,
+        "duration": 1.23
+    },
+    {
+        "text": "But basically what you're saying is you convert",
+        "start": 923.59,
+        "duration": 1.62
+    },
+    {
+        "text": "the audio data into a spectrogram which is an image,",
+        "start": 925.21,
+        "duration": 3.09
+    },
+    {
+        "text": "and then use standard image processing to do the actual learning.",
+        "start": 928.3,
+        "duration": 4.89
+    },
+    {
+        "text": ">> Exactly.",
+        "start": 933.19,
+        "duration": 1.17
+    },
+    {
+        "text": ">> Cool.",
+        "start": 934.36,
+        "duration": 0.19
+    },
+    {
+        "text": ">> Exactly. It's just because that makes it perform even better.",
+        "start": 934.55,
+        "duration": 5.94
+    },
+    {
+        "text": "That's the trick that we apply here.",
+        "start": 940.53,
+        "duration": 3.65
+    },
+    {
+        "text": "Once you have all these spectrograms that we get from",
+        "start": 944.49,
+        "duration": 2.95
+    },
+    {
+        "text": "preprocessing, and then we train it,",
+        "start": 947.44,
+        "duration": 2.025
+    },
+    {
+        "text": "and then we get out the moods that we",
+        "start": 949.465,
+        "duration": 3.405
+    },
+    {
+        "text": "can see on the right side like happy and smooth in this case.",
+        "start": 952.87,
+        "duration": 4.305
+    },
+    {
+        "text": "That's all there is to it.",
+        "start": 957.175,
+        "duration": 2.37
+    },
+    {
+        "text": "Let's have a look at the code to call this.",
+        "start": 959.545,
+        "duration": 3.75
+    },
+    {
+        "text": "Now, we have trained our model algorithm and it's up and running.",
+        "start": 963.295,
+        "duration": 4.89
+    },
+    {
+        "text": "Then what we do to send in our song is actually really easy.",
+        "start": 968.185,
+        "duration": 5.43
+    },
+    {
+        "text": "We just load some dependencies and",
+        "start": 973.615,
+        "duration": 3.105
+    },
+    {
+        "text": "the important ones here",
+        "start": 976.72,
+        "duration": 1.95
+    },
+    {
+        "text": "or the ones I want to highlight is Librosa,",
+        "start": 978.67,
+        "duration": 2.459
+    },
+    {
+        "text": "which we work with for loading",
+        "start": 981.129,
+        "duration": 2.971
+    },
+    {
+        "text": "audio and also the transformations or transforms.",
+        "start": 984.1,
+        "duration": 4.38
+    },
+    {
+        "text": "We have a library called Sidekick as well,",
+        "start": 988.48,
+        "duration": 2.295
+    },
+    {
+        "text": "which you probably haven't heard of",
+        "start": 990.775,
+        "duration": 1.905
+    },
+    {
+        "text": "because that's a library we made or it's",
+        "start": 992.68,
+        "duration": 2.43
+    },
+    {
+        "text": "just a little convenient way to call our deployments.",
+        "start": 995.11,
+        "duration": 6.24
+    },
+    {
+        "text": "It's a Python bindings for the deployment APIs.",
+        "start": 1001.35,
+        "duration": 4.259
+    },
+    {
+        "text": "First step is to load the audio file,",
+        "start": 1005.609,
+        "duration": 3.226
+    },
+    {
+        "text": "and that was the one we listened to earlier",
+        "start": 1008.835,
+        "duration": 1.905
+    },
+    {
+        "text": "at the beginning of the episode.",
+        "start": 1010.74,
+        "duration": 2.835
+    },
+    {
+        "text": "It just takes some time and we just use 30 seconds from this one.",
+        "start": 1013.575,
+        "duration": 5.145
+    },
+    {
+        "text": "That's because earlier, we",
+        "start": 1018.72,
+        "duration": 2.34
+    },
+    {
+        "text": "just listened to roughly 20 or 30 seconds, I think,",
+        "start": 1021.06,
+        "duration": 2.37
+    },
+    {
+        "text": "and were able to decide",
+        "start": 1023.43,
+        "duration": 4.62
+    },
+    {
+        "text": "on what emotions or moods we go through from this song.",
+        "start": 1028.05,
+        "duration": 3.15
+    },
+    {
+        "text": "So we don't do the whole song for that.",
+        "start": 1031.2,
+        "duration": 3.07
+    },
+    {
+        "text": "Then we create the spectrogram.",
+        "start": 1034.46,
+        "duration": 4.105
+    },
+    {
+        "text": "We can see here this line to create the (mel) spectrogram,",
+        "start": 1038.565,
+        "duration": 4.005
+    },
+    {
+        "text": "we can see it here.",
+        "start": 1042.57,
+        "duration": 2.44
+    },
+    {
+        "text": "Then we just convert that into a grayscale image",
+        "start": 1045.89,
+        "duration": 4.885
+    },
+    {
+        "text": "which we use on training the model, and that's it.",
+        "start": 1050.775,
+        "duration": 4.47
+    },
+    {
+        "text": "Now, we can send that to the platform.",
+        "start": 1055.245,
+        "duration": 2.13
+    },
+    {
+        "text": "We can see here back on the platform",
+        "start": 1057.375,
+        "duration": 2.445
+    },
+    {
+        "text": "that if you remember when we deployed the API,",
+        "start": 1059.82,
+        "duration": 3.225
+    },
+    {
+        "text": "we got an URL and a token that we can see here.",
+        "start": 1063.045,
+        "duration": 4.35
+    },
+    {
+        "text": "We just copy these two and enter",
+        "start": 1067.395,
+        "duration": 2.835
+    },
+    {
+        "text": "it here in the notebook, URL and token.",
+        "start": 1070.23,
+        "duration": 2.985
+    },
+    {
+        "text": "Then we use this tool called Sidekick with your own token.",
+        "start": 1073.215,
+        "duration": 5.185
+    },
+    {
+        "text": "Then we ask to get the prediction,",
+        "start": 1078.59,
+        "duration": 4.195
+    },
+    {
+        "text": "and then we get the output.",
+        "start": 1082.785,
+        "duration": 2.515
+    },
+    {
+        "text": "I forgot to call this one, but let's do that.",
+        "start": 1085.82,
+        "duration": 4.75
+    },
+    {
+        "text": "Here's what we call for the prediction,",
+        "start": 1090.57,
+        "duration": 3.525
+    },
+    {
+        "text": "and then we just print them.",
+        "start": 1094.095,
+        "duration": 3.355
+    },
+    {
+        "text": ">> That's cool.",
+        "start": 1098.33,
+        "duration": 1.81
+    },
+    {
+        "text": ">> That was what I want to show you today.",
+        "start": 1100.14,
+        "duration": 3.435
+    },
+    {
+        "text": ">> Well, this is awesome. Where can people go to find out more?",
+        "start": 1103.575,
+        "duration": 3.535
+    },
+    {
+        "text": ">> I recommend starting on our webpage.",
+        "start": 1107.24,
+        "duration": 2.875
+    },
+    {
+        "text": "It's really a good place, peltarion.com,",
+        "start": 1110.115,
+        "duration": 3.135
+    },
+    {
+        "text": "and I also have this specific place as a tutorial there as well.",
+        "start": 1113.25,
+        "duration": 3.99
+    },
+    {
+        "text": "We show how you can login to the platform and",
+        "start": 1117.24,
+        "duration": 2.13
+    },
+    {
+        "text": "just do exactly what I did now.",
+        "start": 1119.37,
+        "duration": 3.02
+    },
+    {
+        "text": "We also have this notebook code on GitHub so you can find that.",
+        "start": 1122.39,
+        "duration": 5.355
+    },
+    {
+        "text": ">> Well, this has been amazing.",
+        "start": 1127.745,
+        "duration": 1.695
+    },
+    {
+        "text": "We're going to make sure to put the links in the show notes so",
+        "start": 1129.44,
+        "duration": 1.86
+    },
+    {
+        "text": "people can obviously go and do this.",
+        "start": 1131.3,
+        "duration": 2.16
+    },
+    {
+        "text": "I love the idea of converting",
+        "start": 1133.46,
+        "duration": 1.49
+    },
+    {
+        "text": "audio to images because I'm an image guy,",
+        "start": 1134.95,
+        "duration": 2.66
+    },
+    {
+        "text": "and so it's really cool.",
+        "start": 1137.61,
+        "duration": 1.515
+    },
+    {
+        "text": "Thank you so much for being with us, Andreas.",
+        "start": 1139.125,
+        "duration": 2.475
+    },
+    {
+        "text": "We've been learning all about tagging audio",
+        "start": 1141.6,
+        "duration": 2.1
+    },
+    {
+        "text": "using deep learning with our friend Andreas from Peltarion.",
+        "start": 1143.7,
+        "duration": 3.18
+    },
+    {
+        "text": "Thank you so much for watching. Hopefully you've had",
+        "start": 1146.88,
+        "duration": 1.56
+    },
+    {
+        "text": "a good time and hopefully we'll see you next time. Take care.",
+        "start": 1148.44,
+        "duration": 2.22
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 1150.66,
+        "duration": 14.34
+    }
+]

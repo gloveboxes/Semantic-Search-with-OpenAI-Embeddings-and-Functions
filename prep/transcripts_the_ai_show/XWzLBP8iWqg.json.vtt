@@ -1,0 +1,1422 @@
+[
+    {
+        "text": ">> You're not going to want to miss",
+        "start": 0.0,
+        "duration": 1.41
+    },
+    {
+        "text": "this episode of the AI Show where",
+        "start": 1.41,
+        "duration": 1.53
+    },
+    {
+        "text": "we look at knowledge store inside of Azure Cognitive Search.",
+        "start": 2.94,
+        "duration": 3.045
+    },
+    {
+        "text": "Imagine being able to get structured data out of",
+        "start": 5.985,
+        "duration": 2.88
+    },
+    {
+        "text": "unstructured things to do",
+        "start": 8.865,
+        "duration": 1.845
+    },
+    {
+        "text": "amazing applications. Make sure you tune in.",
+        "start": 10.71,
+        "duration": 2.67
+    },
+    {
+        "text": "[MUSIC].",
+        "start": 13.38,
+        "duration": 8.61
+    },
+    {
+        "text": ">> Hello and welcome to this episode of the AI Show.",
+        "start": 21.99,
+        "duration": 1.89
+    },
+    {
+        "text": "We're going to talk about knowledge store",
+        "start": 23.88,
+        "duration": 2.22
+    },
+    {
+        "text": "in Azure Cognitive Search.",
+        "start": 26.1,
+        "duration": 1.47
+    },
+    {
+        "text": "I've got a special guest with me. How you doing, my friend?",
+        "start": 27.57,
+        "duration": 2.625
+    },
+    {
+        "text": ">> Great, Seth. It's absolutely great to be on the show.",
+        "start": 30.195,
+        "duration": 3.06
+    },
+    {
+        "text": ">> Tell us who you are and what you do.",
+        "start": 33.255,
+        "duration": 2.835
+    },
+    {
+        "text": ">> I'm Vinod Kurpad and I'm a program manager",
+        "start": 36.09,
+        "duration": 3.0
+    },
+    {
+        "text": "on the Azure Cognitive Search team and I work on",
+        "start": 39.09,
+        "duration": 3.44
+    },
+    {
+        "text": "scenarios that deal with ingesting your data and enriching",
+        "start": 42.53,
+        "duration": 3.03
+    },
+    {
+        "text": "with AI skills as we load that data into the search index for you.",
+        "start": 45.56,
+        "duration": 3.105
+    },
+    {
+        "text": ">> Awesome. So for those who",
+        "start": 48.665,
+        "duration": 1.315
+    },
+    {
+        "text": "don't know what Azure Cognitive Search is,",
+        "start": 49.98,
+        "duration": 1.47
+    },
+    {
+        "text": "can you give us like a 10 second elevator pitch?",
+        "start": 51.45,
+        "duration": 2.535
+    },
+    {
+        "text": ">> Yes. So Azure Cognitive Search",
+        "start": 53.985,
+        "duration": 2.38
+    },
+    {
+        "text": "is a search as a service solution.",
+        "start": 56.365,
+        "duration": 2.26
+    },
+    {
+        "text": "We have a number of different capabilities",
+        "start": 58.625,
+        "duration": 2.415
+    },
+    {
+        "text": "that are built into the search solution.",
+        "start": 61.04,
+        "duration": 2.04
+    },
+    {
+        "text": "Obviously, you get a search index",
+        "start": 63.08,
+        "duration": 1.65
+    },
+    {
+        "text": "where you can do full text searching.",
+        "start": 64.73,
+        "duration": 1.89
+    },
+    {
+        "text": "But we also have ways for us to be able",
+        "start": 66.62,
+        "duration": 2.25
+    },
+    {
+        "text": "to enrich your data as it's being brought into",
+        "start": 68.87,
+        "duration": 2.22
+    },
+    {
+        "text": "the index to ensure that your search experience",
+        "start": 71.09,
+        "duration": 2.94
+    },
+    {
+        "text": "is more relevant and tuned to your application's needs.",
+        "start": 74.03,
+        "duration": 2.97
+    },
+    {
+        "text": ">> Fantastic. So what is",
+        "start": 77.0,
+        "duration": 1.44
+    },
+    {
+        "text": "knowledge store and what does it have to do with all this?",
+        "start": 78.44,
+        "duration": 2.81
+    },
+    {
+        "text": ">> Great. So the knowledge store is",
+        "start": 81.25,
+        "duration": 2.17
+    },
+    {
+        "text": "a new feature in Azure Cognitive Search.",
+        "start": 83.42,
+        "duration": 2.16
+    },
+    {
+        "text": "One of the things that we do that we can",
+        "start": 85.58,
+        "duration": 3.27
+    },
+    {
+        "text": "apply enrichments as we bring your data into the search index",
+        "start": 88.85,
+        "duration": 3.54
+    },
+    {
+        "text": "is using a knowledge store to be able to represent",
+        "start": 92.39,
+        "duration": 3.81
+    },
+    {
+        "text": "this data in a form that is not",
+        "start": 96.2,
+        "duration": 2.34
+    },
+    {
+        "text": "necessarily just the search index itself.",
+        "start": 98.54,
+        "duration": 2.52
+    },
+    {
+        "text": "So think about scenarios where you've got, for example,",
+        "start": 101.06,
+        "duration": 3.255
+    },
+    {
+        "text": "a web application where you want to be able to",
+        "start": 104.315,
+        "duration": 2.445
+    },
+    {
+        "text": "provide a rich and relevant search experience,",
+        "start": 106.76,
+        "duration": 3.03
+    },
+    {
+        "text": "but you also want to be able to represent this information in",
+        "start": 109.79,
+        "duration": 3.51
+    },
+    {
+        "text": "a way that is maybe different",
+        "start": 113.3,
+        "duration": 1.8
+    },
+    {
+        "text": "from just the way it's stored in the search index.",
+        "start": 115.1,
+        "duration": 2.1
+    },
+    {
+        "text": "So for example, data in your search index is stored as plain text.",
+        "start": 117.2,
+        "duration": 3.315
+    },
+    {
+        "text": "You might have PDF files that you're ingesting,",
+        "start": 120.515,
+        "duration": 2.445
+    },
+    {
+        "text": "enriching, and then making those searchable.",
+        "start": 122.96,
+        "duration": 2.295
+    },
+    {
+        "text": "But when you want to render this information back,",
+        "start": 125.255,
+        "duration": 2.295
+    },
+    {
+        "text": "you might want to render it in a way that breaks",
+        "start": 127.55,
+        "duration": 2.37
+    },
+    {
+        "text": "apart this PDF file into different components and",
+        "start": 129.92,
+        "duration": 2.4
+    },
+    {
+        "text": "makes it easy for you to be able to",
+        "start": 132.32,
+        "duration": 2.19
+    },
+    {
+        "text": "create a web based experience based on that.",
+        "start": 134.51,
+        "duration": 2.805
+    },
+    {
+        "text": "What the knowledge store allows you to do is",
+        "start": 137.315,
+        "duration": 2.025
+    },
+    {
+        "text": "take each of these components, enrich it,",
+        "start": 139.34,
+        "duration": 2.235
+    },
+    {
+        "text": "and then be able to store them in a way",
+        "start": 141.575,
+        "duration": 2.16
+    },
+    {
+        "text": "that aligns with that search experience.",
+        "start": 143.735,
+        "duration": 2.44
+    },
+    {
+        "text": "That is just one example of how you could use the knowledge store.",
+        "start": 146.175,
+        "duration": 2.6
+    },
+    {
+        "text": ">> I see. So basically,",
+        "start": 148.775,
+        "duration": 1.71
+    },
+    {
+        "text": "if I'm understanding this right,",
+        "start": 150.485,
+        "duration": 1.35
+    },
+    {
+        "text": "the index is designed",
+        "start": 151.835,
+        "duration": 1.455
+    },
+    {
+        "text": "primarily for searching and returning documents,",
+        "start": 153.29,
+        "duration": 2.475
+    },
+    {
+        "text": "the knowledge store is for storing whatever you",
+        "start": 155.765,
+        "duration": 3.555
+    },
+    {
+        "text": "want based upon the arrangements and",
+        "start": 159.32,
+        "duration": 1.53
+    },
+    {
+        "text": "whatever format that you need to do other things?",
+        "start": 160.85,
+        "duration": 2.97
+    },
+    {
+        "text": ">> Yeah, exactly.",
+        "start": 163.82,
+        "duration": 2.235
+    },
+    {
+        "text": "So there's a couple of",
+        "start": 166.055,
+        "duration": 1.755
+    },
+    {
+        "text": "fairly straightforward or canonical scenarios",
+        "start": 167.81,
+        "duration": 2.865
+    },
+    {
+        "text": "that customers want to use this data.",
+        "start": 170.675,
+        "duration": 1.8
+    },
+    {
+        "text": "One example is, for example,",
+        "start": 172.475,
+        "duration": 2.295
+    },
+    {
+        "text": "building a data visualization dashboard.",
+        "start": 174.77,
+        "duration": 2.625
+    },
+    {
+        "text": "So we have a set of tools",
+        "start": 177.395,
+        "duration": 3.0
+    },
+    {
+        "text": "that you could use the knowledge store for",
+        "start": 180.395,
+        "duration": 1.545
+    },
+    {
+        "text": "to be able to enrich your data,",
+        "start": 181.94,
+        "duration": 1.625
+    },
+    {
+        "text": "project it, and structure it in a way that",
+        "start": 183.565,
+        "duration": 2.305
+    },
+    {
+        "text": "is just instantly recognizable within Power BI.",
+        "start": 185.87,
+        "duration": 2.46
+    },
+    {
+        "text": "So all you have to do is enrich your data,",
+        "start": 188.33,
+        "duration": 2.4
+    },
+    {
+        "text": "project it out into the knowledge store,",
+        "start": 190.73,
+        "duration": 1.905
+    },
+    {
+        "text": "point Power BI at the knowledge store as a data source,",
+        "start": 192.635,
+        "duration": 3.735
+    },
+    {
+        "text": "and Power BI instantly knows how to recognize that data,",
+        "start": 196.37,
+        "duration": 3.42
+    },
+    {
+        "text": "how to preserve those relationships",
+        "start": 199.79,
+        "duration": 1.65
+    },
+    {
+        "text": "that we've built in within that data,",
+        "start": 201.44,
+        "duration": 1.47
+    },
+    {
+        "text": "and how do you navigate to that data.",
+        "start": 202.91,
+        "duration": 1.98
+    },
+    {
+        "text": "So think about scenarios where you want to maybe",
+        "start": 204.89,
+        "duration": 3.03
+    },
+    {
+        "text": "explore this data in a dimension",
+        "start": 207.92,
+        "duration": 2.415
+    },
+    {
+        "text": "that is not best suited for search.",
+        "start": 210.335,
+        "duration": 2.325
+    },
+    {
+        "text": "For example, you want to look at things how it's",
+        "start": 212.66,
+        "duration": 1.965
+    },
+    {
+        "text": "iterated over time or how something is changed over time.",
+        "start": 214.625,
+        "duration": 3.75
+    },
+    {
+        "text": "So you should be able to use the time dimension within Power BI,",
+        "start": 218.375,
+        "duration": 4.59
+    },
+    {
+        "text": "there's a number of",
+        "start": 222.965,
+        "duration": 0.675
+    },
+    {
+        "text": "different visualizations that allow you to do that,",
+        "start": 223.64,
+        "duration": 2.96
+    },
+    {
+        "text": "but the data is presented within the knowledge store",
+        "start": 226.6,
+        "duration": 2.86
+    },
+    {
+        "text": "and you should now be able to",
+        "start": 229.46,
+        "duration": 1.08
+    },
+    {
+        "text": "visualize how your data is evolved over time.",
+        "start": 230.54,
+        "duration": 1.995
+    },
+    {
+        "text": ">> Well, let's look at the process. I see you",
+        "start": 232.535,
+        "duration": 1.335
+    },
+    {
+        "text": "have a really awesome graphic here.",
+        "start": 233.87,
+        "duration": 2.105
+    },
+    {
+        "text": ">> Yeah. So let's talk a little bit about",
+        "start": 235.975,
+        "duration": 2.185
+    },
+    {
+        "text": "what the enrichment pipeline looks like.",
+        "start": 238.16,
+        "duration": 2.79
+    },
+    {
+        "text": "So for those of you who are familiar",
+        "start": 240.95,
+        "duration": 1.71
+    },
+    {
+        "text": "with the cognitive search process,",
+        "start": 242.66,
+        "duration": 2.175
+    },
+    {
+        "text": "you typically start with the data in a data source.",
+        "start": 244.835,
+        "duration": 3.375
+    },
+    {
+        "text": "That data source is",
+        "start": 248.21,
+        "duration": 2.1
+    },
+    {
+        "text": "essentially one of the data sources that we support,",
+        "start": 250.31,
+        "duration": 2.48
+    },
+    {
+        "text": "it would be either things like a Blob storage account,",
+        "start": 252.79,
+        "duration": 3.715
+    },
+    {
+        "text": "a SQL database, a Cosmos database,",
+        "start": 256.505,
+        "duration": 2.775
+    },
+    {
+        "text": "and there's a number of different data sources we support.",
+        "start": 259.28,
+        "duration": 2.22
+    },
+    {
+        "text": "You bring that data into your enrichment pipeline",
+        "start": 261.5,
+        "duration": 2.91
+    },
+    {
+        "text": "which is essentially your indexer through a field mappings,",
+        "start": 264.41,
+        "duration": 3.495
+    },
+    {
+        "text": "then it goes through a process we call document cracking.",
+        "start": 267.905,
+        "duration": 3.42
+    },
+    {
+        "text": "Document cracking is essentially,",
+        "start": 271.325,
+        "duration": 1.95
+    },
+    {
+        "text": "think of it as a way for us to crack open",
+        "start": 273.275,
+        "duration": 2.325
+    },
+    {
+        "text": "your document and extract",
+        "start": 275.6,
+        "duration": 1.17
+    },
+    {
+        "text": "the actual contents that could be then enriched.",
+        "start": 276.77,
+        "duration": 3.01
+    },
+    {
+        "text": "If it's a Cosmos database,",
+        "start": 281.14,
+        "duration": 2.83
+    },
+    {
+        "text": "so it's just a document.",
+        "start": 283.97,
+        "duration": 2.07
+    },
+    {
+        "text": "In that case, we are talking",
+        "start": 286.04,
+        "duration": 1.08
+    },
+    {
+        "text": "about essentially just looking at each",
+        "start": 287.12,
+        "duration": 1.44
+    },
+    {
+        "text": "of the different objects within that within that document.",
+        "start": 288.56,
+        "duration": 2.7
+    },
+    {
+        "text": "But if it's something more complex like Blob storage, for example,",
+        "start": 291.26,
+        "duration": 3.33
+    },
+    {
+        "text": "we're talking about opening up a Word document and looking at",
+        "start": 294.59,
+        "duration": 3.27
+    },
+    {
+        "text": "each of the different elements within it",
+        "start": 297.86,
+        "duration": 1.74
+    },
+    {
+        "text": "which might be text or images.",
+        "start": 299.6,
+        "duration": 2.22
+    },
+    {
+        "text": "So you're now essentially in the enrichment pipeline",
+        "start": 301.82,
+        "duration": 4.02
+    },
+    {
+        "text": "with the contents of",
+        "start": 305.84,
+        "duration": 1.77
+    },
+    {
+        "text": "your document that can then be enriched with skills.",
+        "start": 307.61,
+        "duration": 3.14
+    },
+    {
+        "text": "Skills are typically one of two types,",
+        "start": 310.75,
+        "duration": 2.11
+    },
+    {
+        "text": "they're either cognitive skills or custom skills.",
+        "start": 312.86,
+        "duration": 2.85
+    },
+    {
+        "text": "Essentially, what a skill does is it acts on a component of",
+        "start": 315.71,
+        "duration": 4.5
+    },
+    {
+        "text": "the data that is extracted from",
+        "start": 320.21,
+        "duration": 1.98
+    },
+    {
+        "text": "the document as part of",
+        "start": 322.19,
+        "duration": 1.47
+    },
+    {
+        "text": "document tracking and can then enrich that.",
+        "start": 323.66,
+        "duration": 2.16
+    },
+    {
+        "text": "So think about a scenario where you've got a document,",
+        "start": 325.82,
+        "duration": 3.68
+    },
+    {
+        "text": "let's just assume it's a PowerPoint file with",
+        "start": 329.5,
+        "duration": 3.19
+    },
+    {
+        "text": "a number of different bullets and text and images,",
+        "start": 332.69,
+        "duration": 3.27
+    },
+    {
+        "text": "and so you're able to enrich",
+        "start": 335.96,
+        "duration": 1.425
+    },
+    {
+        "text": "all these different components as you go along.",
+        "start": 337.385,
+        "duration": 2.145
+    },
+    {
+        "text": "So you're able to run text analytics skills on the text,",
+        "start": 339.53,
+        "duration": 3.18
+    },
+    {
+        "text": "you're able to run some image skills on the images,",
+        "start": 342.71,
+        "duration": 2.285
+    },
+    {
+        "text": "and now you've got this enriched document that",
+        "start": 344.995,
+        "duration": 2.215
+    },
+    {
+        "text": "contains all the things that you extracted out of a data source.",
+        "start": 347.21,
+        "duration": 3.165
+    },
+    {
+        "text": "In addition to that, it also",
+        "start": 350.375,
+        "duration": 1.665
+    },
+    {
+        "text": "contains all these different enrichments",
+        "start": 352.04,
+        "duration": 1.695
+    },
+    {
+        "text": "that you're just being able to run on this particular document.",
+        "start": 353.735,
+        "duration": 3.885
+    },
+    {
+        "text": "At this point, you can now obviously continue down the path",
+        "start": 357.62,
+        "duration": 4.02
+    },
+    {
+        "text": "of actually projecting this information out into the search index,",
+        "start": 361.64,
+        "duration": 3.99
+    },
+    {
+        "text": "but you could also project that information",
+        "start": 365.63,
+        "duration": 1.695
+    },
+    {
+        "text": "out optionally into the knowledge store.",
+        "start": 367.325,
+        "duration": 2.145
+    },
+    {
+        "text": "What the knowledge store allows you to",
+        "start": 369.47,
+        "duration": 1.56
+    },
+    {
+        "text": "do is project this information",
+        "start": 371.03,
+        "duration": 1.62
+    },
+    {
+        "text": "out into tables, objects, and files.",
+        "start": 372.65,
+        "duration": 3.42
+    },
+    {
+        "text": "So tables, think about it as data that you want to represent as",
+        "start": 376.07,
+        "duration": 3.57
+    },
+    {
+        "text": "highly structured data but relatively low in terms of data size.",
+        "start": 379.64,
+        "duration": 5.955
+    },
+    {
+        "text": "Objects, think about it as JSON files that are",
+        "start": 385.595,
+        "duration": 4.53
+    },
+    {
+        "text": "essentially a large representation",
+        "start": 390.125,
+        "duration": 1.994
+    },
+    {
+        "text": "of what each of these objects could look like.",
+        "start": 392.119,
+        "duration": 2.431
+    },
+    {
+        "text": "Files are images or other binary objects that you generate",
+        "start": 394.55,
+        "duration": 3.96
+    },
+    {
+        "text": "as part of your enrichment pipeline So the knowledge store allows",
+        "start": 398.51,
+        "duration": 3.75
+    },
+    {
+        "text": "you to take each of these different constructs",
+        "start": 402.26,
+        "duration": 2.4
+    },
+    {
+        "text": "and be able to project your data out in each",
+        "start": 404.66,
+        "duration": 2.13
+    },
+    {
+        "text": "of these constructs depending on what is",
+        "start": 406.79,
+        "duration": 1.98
+    },
+    {
+        "text": "the specific need that you want to solve for.",
+        "start": 408.77,
+        "duration": 2.67
+    },
+    {
+        "text": "So for example, we",
+        "start": 411.44,
+        "duration": 2.13
+    },
+    {
+        "text": "talked about a couple of different scenarios like for example,",
+        "start": 413.57,
+        "duration": 2.43
+    },
+    {
+        "text": "the app scenario or Power BI.",
+        "start": 416.0,
+        "duration": 1.635
+    },
+    {
+        "text": "So you would choose what exactly you want",
+        "start": 417.635,
+        "duration": 2.115
+    },
+    {
+        "text": "to do and project this data out",
+        "start": 419.75,
+        "duration": 2.055
+    },
+    {
+        "text": "into the knowledge store based on any of",
+        "start": 421.805,
+        "duration": 2.085
+    },
+    {
+        "text": "those scenarios and how you plan to use that data.",
+        "start": 423.89,
+        "duration": 2.45
+    },
+    {
+        "text": ">> That makes sense. So as I'm looking at this,",
+        "start": 426.34,
+        "duration": 2.395
+    },
+    {
+        "text": "it's basically a way for getting additional information out of",
+        "start": 428.735,
+        "duration": 4.185
+    },
+    {
+        "text": "your unstructured data and structuring it in",
+        "start": 432.92,
+        "duration": 3.15
+    },
+    {
+        "text": "a data source like a table, for example.",
+        "start": 436.07,
+        "duration": 3.45
+    },
+    {
+        "text": "But is it smart enough to know like relationships between things?",
+        "start": 439.52,
+        "duration": 5.255
+    },
+    {
+        "text": ">> Yeah, that's a great question. So the one thing that it",
+        "start": 444.775,
+        "duration": 4.195
+    },
+    {
+        "text": "can do is not just relate your data within a table.",
+        "start": 448.97,
+        "duration": 3.81
+    },
+    {
+        "text": "So for example, when you go create a knowledge store and then",
+        "start": 452.78,
+        "duration": 5.145
+    },
+    {
+        "text": "you use projections to project your data and you",
+        "start": 457.925,
+        "duration": 2.685
+    },
+    {
+        "text": "choose tables as the projection that you want to work with,",
+        "start": 460.61,
+        "duration": 3.03
+    },
+    {
+        "text": "we will obviously layer out the data in",
+        "start": 463.64,
+        "duration": 3.99
+    },
+    {
+        "text": "a way that preserves",
+        "start": 467.63,
+        "duration": 1.23
+    },
+    {
+        "text": "the relationships within the object that you are representing.",
+        "start": 468.86,
+        "duration": 2.7
+    },
+    {
+        "text": "But we also give you the ability",
+        "start": 471.56,
+        "duration": 1.56
+    },
+    {
+        "text": "to define what those relationships",
+        "start": 473.12,
+        "duration": 1.59
+    },
+    {
+        "text": "are when you're working across different projection types.",
+        "start": 474.71,
+        "duration": 3.36
+    },
+    {
+        "text": "So for example, you might start with, hey,",
+        "start": 478.07,
+        "duration": 2.43
+    },
+    {
+        "text": "I've got a PowerPoint file that I want to",
+        "start": 480.5,
+        "duration": 2.49
+    },
+    {
+        "text": "be able to project out in a way that I save",
+        "start": 482.99,
+        "duration": 2.565
+    },
+    {
+        "text": "all the images that",
+        "start": 485.555,
+        "duration": 2.345
+    },
+    {
+        "text": "I've extracted out of the PowerPoint file as files.",
+        "start": 487.9,
+        "duration": 3.22
+    },
+    {
+        "text": "I want to store some of",
+        "start": 491.12,
+        "duration": 1.44
+    },
+    {
+        "text": "the larger pieces of information, for example,",
+        "start": 492.56,
+        "duration": 2.58
+    },
+    {
+        "text": "if I did OCR on those images is",
+        "start": 495.14,
+        "duration": 1.77
+    },
+    {
+        "text": "a hugely out text element that comes out of it.",
+        "start": 496.91,
+        "duration": 2.295
+    },
+    {
+        "text": "I want to store that in the objects,",
+        "start": 499.205,
+        "duration": 1.755
+    },
+    {
+        "text": "and then I want to store all the structured insights",
+        "start": 500.96,
+        "duration": 2.52
+    },
+    {
+        "text": "that I captured out of these images in tables.",
+        "start": 503.48,
+        "duration": 2.715
+    },
+    {
+        "text": "So now, you can not just structure",
+        "start": 506.195,
+        "duration": 2.865
+    },
+    {
+        "text": "this information or project this information",
+        "start": 509.06,
+        "duration": 2.19
+    },
+    {
+        "text": "in a way that allows you to do each of these things,",
+        "start": 511.25,
+        "duration": 2.355
+    },
+    {
+        "text": "but it also builds the relationships",
+        "start": 513.605,
+        "duration": 1.785
+    },
+    {
+        "text": "across these different projection types.",
+        "start": 515.39,
+        "duration": 1.74
+    },
+    {
+        "text": "So now, you can start from a particular file and say, \"Oh,",
+        "start": 517.13,
+        "duration": 2.94
+    },
+    {
+        "text": "what are the different pieces",
+        "start": 520.07,
+        "duration": 2.43
+    },
+    {
+        "text": "that I could identify out of this from",
+        "start": 522.5,
+        "duration": 1.8
+    },
+    {
+        "text": "a layout perspective and go find",
+        "start": 524.3,
+        "duration": 2.1
+    },
+    {
+        "text": "the particular object that represents the layout text?\"",
+        "start": 526.4,
+        "duration": 2.79
+    },
+    {
+        "text": "Then you could also say, \"Oh,",
+        "start": 529.19,
+        "duration": 1.47
+    },
+    {
+        "text": "what are the different structured insights that I capture out of",
+        "start": 530.66,
+        "duration": 2.19
+    },
+    {
+        "text": "this and then go find the particular roles within",
+        "start": 532.85,
+        "duration": 2.22
+    },
+    {
+        "text": "table storage that represent",
+        "start": 535.07,
+        "duration": 1.695
+    },
+    {
+        "text": "that particular structured insight that that could be",
+        "start": 536.765,
+        "duration": 2.625
+    },
+    {
+        "text": "captured out of that file object that you are looking at?\"",
+        "start": 539.39,
+        "duration": 2.58
+    },
+    {
+        "text": ">> This is pretty amazing because I knew that there",
+        "start": 541.97,
+        "duration": 1.83
+    },
+    {
+        "text": "was relationships within the tables.",
+        "start": 543.8,
+        "duration": 2.039
+    },
+    {
+        "text": "I didn't know there was relationships across all",
+        "start": 545.839,
+        "duration": 2.101
+    },
+    {
+        "text": "three of the things, which is pretty cool.",
+        "start": 547.94,
+        "duration": 2.22
+    },
+    {
+        "text": "Now, here's another question,",
+        "start": 550.16,
+        "duration": 1.32
+    },
+    {
+        "text": "can you give us an example of where this",
+        "start": 551.48,
+        "duration": 1.83
+    },
+    {
+        "text": "is being used to great effect?",
+        "start": 553.31,
+        "duration": 2.625
+    },
+    {
+        "text": ">> Yeah. So a good example of one of",
+        "start": 555.935,
+        "duration": 3.345
+    },
+    {
+        "text": "the key scenarios where this is actually being used is,",
+        "start": 559.28,
+        "duration": 3.33
+    },
+    {
+        "text": "for example, we recently worked with the Metropolitan Art Museum.",
+        "start": 562.61,
+        "duration": 3.315
+    },
+    {
+        "text": "We worked with them in terms of enriching",
+        "start": 565.925,
+        "duration": 2.325
+    },
+    {
+        "text": "their entire catalog of images to then be able to",
+        "start": 568.25,
+        "duration": 3.78
+    },
+    {
+        "text": "use the knowledge store to be able to represent",
+        "start": 572.03,
+        "duration": 4.77
+    },
+    {
+        "text": "that structured information that could be",
+        "start": 576.8,
+        "duration": 2.13
+    },
+    {
+        "text": "then used in a Power BI experience.",
+        "start": 578.93,
+        "duration": 4.66
+    },
+    {
+        "text": "I'll switch to an actual live demo actually because I think",
+        "start": 584.23,
+        "duration": 3.985
+    },
+    {
+        "text": "that might be the best way to talk through this.",
+        "start": 588.215,
+        "duration": 4.335
+    },
+    {
+        "text": "So this is a demo that we built based on",
+        "start": 592.55,
+        "duration": 3.06
+    },
+    {
+        "text": "the Met's catalog of images",
+        "start": 595.61,
+        "duration": 2.28
+    },
+    {
+        "text": "and what you're seeing here is, for example,",
+        "start": 597.89,
+        "duration": 2.505
+    },
+    {
+        "text": "each of these different images represents,",
+        "start": 600.395,
+        "duration": 4.035
+    },
+    {
+        "text": "in this case, it's buttons that were extracted from their catalog.",
+        "start": 604.43,
+        "duration": 5.055
+    },
+    {
+        "text": "So I can use the key phrase tool to now say I'm probably looking,",
+        "start": 609.485,
+        "duration": 5.085
+    },
+    {
+        "text": "for example, for furniture and now,",
+        "start": 614.57,
+        "duration": 2.46
+    },
+    {
+        "text": "I can start seeing how each of these elements",
+        "start": 617.03,
+        "duration": 2.28
+    },
+    {
+        "text": "now respond because it's using",
+        "start": 619.31,
+        "duration": 3.61
+    },
+    {
+        "text": "the structure or relationships within the data to now go",
+        "start": 622.92,
+        "duration": 2.9
+    },
+    {
+        "text": "find all the different artwork",
+        "start": 625.82,
+        "duration": 1.59
+    },
+    {
+        "text": "that are tagged with the word furniture,",
+        "start": 627.41,
+        "duration": 1.71
+    },
+    {
+        "text": "and is also able to plot them on the map because it",
+        "start": 629.12,
+        "duration": 2.73
+    },
+    {
+        "text": "now knows that these particular pieces of art",
+        "start": 631.85,
+        "duration": 2.88
+    },
+    {
+        "text": "were taken from a collection that belong",
+        "start": 634.73,
+        "duration": 2.79
+    },
+    {
+        "text": "to appear of time in one",
+        "start": 637.52,
+        "duration": 1.89
+    },
+    {
+        "text": "of these particular locations in the world.",
+        "start": 639.41,
+        "duration": 2.235
+    },
+    {
+        "text": "So you're now able to not",
+        "start": 641.645,
+        "duration": 2.655
+    },
+    {
+        "text": "just explore this data through a search index,",
+        "start": 644.3,
+        "duration": 2.55
+    },
+    {
+        "text": "but also expand this and look",
+        "start": 646.85,
+        "duration": 1.98
+    },
+    {
+        "text": "at it linearly over time or locate it",
+        "start": 648.83,
+        "duration": 1.92
+    },
+    {
+        "text": "across the geography of distribution of your data to now then say,",
+        "start": 650.75,
+        "duration": 4.515
+    },
+    {
+        "text": "what are the interesting insights that I can catch out of this",
+        "start": 655.265,
+        "duration": 3.585
+    },
+    {
+        "text": "based on the enrichments that I was",
+        "start": 658.85,
+        "duration": 1.89
+    },
+    {
+        "text": "able to run on this particular data set.",
+        "start": 660.74,
+        "duration": 2.57
+    },
+    {
+        "text": ">> Well, Vinod, this is pretty amazing stuff.",
+        "start": 663.31,
+        "duration": 3.11
+    },
+    {
+        "text": "Not only are you able to use Azure Cognitive Search through",
+        "start": 666.42,
+        "duration": 2.57
+    },
+    {
+        "text": "the regular searching stuff that you're",
+        "start": 668.99,
+        "duration": 1.38
+    },
+    {
+        "text": "saying, with the knowledge store,",
+        "start": 670.37,
+        "duration": 1.38
+    },
+    {
+        "text": "you're able to even build",
+        "start": 671.75,
+        "duration": 1.305
+    },
+    {
+        "text": "more advanced applications by redirecting",
+        "start": 673.055,
+        "duration": 2.805
+    },
+    {
+        "text": "the intelligence that's gathered during",
+        "start": 675.86,
+        "duration": 1.83
+    },
+    {
+        "text": "indexing into a different location. Is that about sum it up?",
+        "start": 677.69,
+        "duration": 4.33
+    },
+    {
+        "text": ">> That sums it up, Seth.",
+        "start": 682.02,
+        "duration": 1.71
+    },
+    {
+        "text": "Thank you so much. That is absolutely correct.",
+        "start": 683.73,
+        "duration": 2.45
+    },
+    {
+        "text": "Not only are we seeing",
+        "start": 686.18,
+        "duration": 1.725
+    },
+    {
+        "text": "incredibly interesting ways in which customers are using this,",
+        "start": 687.905,
+        "duration": 4.44
+    },
+    {
+        "text": "but we're also starting to see more of",
+        "start": 692.345,
+        "duration": 2.235
+    },
+    {
+        "text": "a active learning pattern that's being",
+        "start": 694.58,
+        "duration": 1.98
+    },
+    {
+        "text": "built out based on being able to",
+        "start": 696.56,
+        "duration": 2.04
+    },
+    {
+        "text": "project your data out into",
+        "start": 698.6,
+        "duration": 1.23
+    },
+    {
+        "text": "the knowledge store and then use that as a data",
+        "start": 699.83,
+        "duration": 2.2
+    },
+    {
+        "text": "set within Azure ML or a downstream ML application.",
+        "start": 702.03,
+        "duration": 3.995
+    },
+    {
+        "text": "But that's a more advanced topic probably",
+        "start": 706.025,
+        "duration": 2.085
+    },
+    {
+        "text": "worth an episode in itself but yeah,",
+        "start": 708.11,
+        "duration": 4.21
+    },
+    {
+        "text": "there's a lot of interest in",
+        "start": 712.32,
+        "duration": 1.34
+    },
+    {
+        "text": "knowledge store and a lot of different ways in",
+        "start": 713.66,
+        "duration": 1.77
+    },
+    {
+        "text": "which you can use your enriched data",
+        "start": 715.43,
+        "duration": 1.455
+    },
+    {
+        "text": "outside of just the search experience.",
+        "start": 716.885,
+        "duration": 1.545
+    },
+    {
+        "text": ">> Well, thank you so much for spending some time with us.",
+        "start": 718.43,
+        "duration": 2.03
+    },
+    {
+        "text": "For those that are watching, thank you",
+        "start": 720.46,
+        "duration": 1.12
+    },
+    {
+        "text": "so much for watching and learning",
+        "start": 721.58,
+        "duration": 1.14
+    },
+    {
+        "text": "about knowledge store in Azure Cognitive Search.",
+        "start": 722.72,
+        "duration": 2.595
+    },
+    {
+        "text": "Thanks again for watching and we'll see you next time. Take care.",
+        "start": 725.315,
+        "duration": 2.385
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 727.7,
+        "duration": 13.91
+    }
+]

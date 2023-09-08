@@ -1,0 +1,2582 @@
+[
+    {
+        "text": ">> You're not going to want to miss this episode of The AI Show,",
+        "start": 0.0,
+        "duration": 2.52
+    },
+    {
+        "text": "where a bonafide data science leads us through how",
+        "start": 2.52,
+        "duration": 3.81
+    },
+    {
+        "text": "data science is different and how",
+        "start": 6.33,
+        "duration": 2.07
+    },
+    {
+        "text": "we can make it reproducible. Make sure you tune in.",
+        "start": 8.4,
+        "duration": 2.22
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 10.62,
+        "duration": 8.43
+    },
+    {
+        "text": ">> Hello and welcome to this episode of The AI Show.",
+        "start": 19.05,
+        "duration": 2.22
+    },
+    {
+        "text": "We're going to talk a little about",
+        "start": 21.27,
+        "duration": 1.215
+    },
+    {
+        "text": "reproducible data science with machine learning.",
+        "start": 22.485,
+        "duration": 2.535
+    },
+    {
+        "text": "I got a special guest, Rafal Lukawiecki.",
+        "start": 25.02,
+        "duration": 2.22
+    },
+    {
+        "text": "How are you doing my friend?",
+        "start": 27.24,
+        "duration": 0.84
+    },
+    {
+        "text": "An actual real-life Data Scientist,",
+        "start": 28.08,
+        "duration": 2.775
+    },
+    {
+        "text": "tell us about yourself, my friend?",
+        "start": 30.855,
+        "duration": 2.31
+    },
+    {
+        "text": ">> Well, thank you very much for having me here.",
+        "start": 33.165,
+        "duration": 2.75
+    },
+    {
+        "text": "It's an honor to be on your show.",
+        "start": 35.915,
+        "duration": 2.46
+    },
+    {
+        "text": "I have been working as a Data Scientist",
+        "start": 38.375,
+        "duration": 3.54
+    },
+    {
+        "text": "for actually more than 12, 13 years now.",
+        "start": 41.915,
+        "duration": 4.38
+    },
+    {
+        "text": "Even though, at first, my job title was a bit different,",
+        "start": 46.295,
+        "duration": 4.065
+    },
+    {
+        "text": "I was a Data Miner in the early days and subsequently,",
+        "start": 50.36,
+        "duration": 3.72
+    },
+    {
+        "text": "my job became predictive analytics",
+        "start": 54.08,
+        "duration": 2.67
+    },
+    {
+        "text": "and eventually through machine learning,",
+        "start": 56.75,
+        "duration": 2.61
+    },
+    {
+        "text": "I arrived at data science.",
+        "start": 59.36,
+        "duration": 1.29
+    },
+    {
+        "text": ">> You did data science before it was cool,",
+        "start": 60.65,
+        "duration": 3.17
+    },
+    {
+        "text": "and so now, you're going to help us a little bit by talking",
+        "start": 63.82,
+        "duration": 2.29
+    },
+    {
+        "text": "about reproducible workflows in data science.",
+        "start": 66.11,
+        "duration": 3.81
+    },
+    {
+        "text": "What makes data science different than regular programming?",
+        "start": 69.92,
+        "duration": 5.83
+    },
+    {
+        "text": ">> This is a fascinating question and it's only recently that",
+        "start": 76.37,
+        "duration": 4.08
+    },
+    {
+        "text": "we are starting to clearly understand the differences.",
+        "start": 80.45,
+        "duration": 3.83
+    },
+    {
+        "text": "You see there is a software development aspect to data science,",
+        "start": 84.28,
+        "duration": 4.84
+    },
+    {
+        "text": "but it doesn't come until almost the very end of the process.",
+        "start": 89.12,
+        "duration": 4.425
+    },
+    {
+        "text": "The very end of the process is when you are",
+        "start": 93.545,
+        "duration": 2.355
+    },
+    {
+        "text": "ready to deploy something to production,",
+        "start": 95.9,
+        "duration": 2.19
+    },
+    {
+        "text": "at which point, there are similarities between",
+        "start": 98.09,
+        "duration": 3.18
+    },
+    {
+        "text": "software development and data science or machine learning.",
+        "start": 101.27,
+        "duration": 3.585
+    },
+    {
+        "text": "But before we get to that point,",
+        "start": 104.855,
+        "duration": 1.74
+    },
+    {
+        "text": "there is an awful lot of work and time that we spend researching,",
+        "start": 106.595,
+        "duration": 4.695
+    },
+    {
+        "text": "finding things out, and making an enormous number of mistakes.",
+        "start": 111.29,
+        "duration": 4.034
+    },
+    {
+        "text": "Those mistakes in themselves are very valuable,",
+        "start": 115.324,
+        "duration": 3.056
+    },
+    {
+        "text": "and that is where we need to",
+        "start": 118.38,
+        "duration": 1.97
+    },
+    {
+        "text": "set ourselves up a little bit differently in",
+        "start": 120.35,
+        "duration": 2.7
+    },
+    {
+        "text": "terms of the workflow to actually",
+        "start": 123.05,
+        "duration": 2.04
+    },
+    {
+        "text": "benefit from those mistakes and to make our lives easier.",
+        "start": 125.09,
+        "duration": 3.585
+    },
+    {
+        "text": ">> I want you to dive in and give us",
+        "start": 128.675,
+        "duration": 3.185
+    },
+    {
+        "text": "maybe some thoughts on how we can actually do that.",
+        "start": 131.86,
+        "duration": 4.09
+    },
+    {
+        "text": "I want to make sure that people get",
+        "start": 135.95,
+        "duration": 1.305
+    },
+    {
+        "text": "your information, projectbotticelli.com, tecflix.com.",
+        "start": 137.255,
+        "duration": 4.635
+    },
+    {
+        "text": "I'm putting your slide up here.",
+        "start": 141.89,
+        "duration": 2.595
+    },
+    {
+        "text": "Let's dive in into how something like this is accomplished.",
+        "start": 144.485,
+        "duration": 4.885
+    },
+    {
+        "text": ">> Well, thank you very much for mentioning my two companies.",
+        "start": 149.51,
+        "duration": 4.619
+    },
+    {
+        "text": "I have been teaching this as well as consulting for many,",
+        "start": 154.129,
+        "duration": 3.541
+    },
+    {
+        "text": "many years at projectbotticelli.com and anybody watching it,",
+        "start": 157.67,
+        "duration": 3.87
+    },
+    {
+        "text": "you are very welcome to join me on one of",
+        "start": 161.54,
+        "duration": 1.98
+    },
+    {
+        "text": "my AI or machine learning or Azure ML courses,",
+        "start": 163.52,
+        "duration": 3.57
+    },
+    {
+        "text": "which I'm also offering through",
+        "start": 167.09,
+        "duration": 2.19
+    },
+    {
+        "text": "tecflix.com in self-based online learning form.",
+        "start": 169.28,
+        "duration": 4.335
+    },
+    {
+        "text": "I have prepared a few slides to introduce this concept.",
+        "start": 173.615,
+        "duration": 4.575
+    },
+    {
+        "text": "Is it okay, sir, if I go through some of them?",
+        "start": 178.19,
+        "duration": 1.59
+    },
+    {
+        "text": ">> Absolutely, let's do it right now.",
+        "start": 179.78,
+        "duration": 1.37
+    },
+    {
+        "text": ">> First things first, modeling is much",
+        "start": 181.15,
+        "duration": 3.37
+    },
+    {
+        "text": "more like research rather than software development,",
+        "start": 184.52,
+        "duration": 3.675
+    },
+    {
+        "text": "as we just mentioned a few seconds ago.",
+        "start": 188.195,
+        "duration": 2.75
+    },
+    {
+        "text": "If you think about the environments that we use for",
+        "start": 190.945,
+        "duration": 3.745
+    },
+    {
+        "text": "day-to-day development of machine learning, unfortunately,",
+        "start": 194.69,
+        "duration": 4.71
+    },
+    {
+        "text": "we still tend to rely on environments which weren't designed for",
+        "start": 199.4,
+        "duration": 3.69
+    },
+    {
+        "text": "that purpose but were designed for",
+        "start": 203.09,
+        "duration": 1.68
+    },
+    {
+        "text": "more classical application or app development.",
+        "start": 204.77,
+        "duration": 3.179
+    },
+    {
+        "text": "If you think about Visual Code,",
+        "start": 207.949,
+        "duration": 2.071
+    },
+    {
+        "text": "Visual Studio or pretty much any other IDE,",
+        "start": 210.02,
+        "duration": 3.665
+    },
+    {
+        "text": "that is, integrated development environment out there.",
+        "start": 213.685,
+        "duration": 2.95
+    },
+    {
+        "text": "They have a lot of advantages.",
+        "start": 216.635,
+        "duration": 1.575
+    },
+    {
+        "text": "They come, for example, with great debuggers.",
+        "start": 218.21,
+        "duration": 2.685
+    },
+    {
+        "text": "But they really are designed to",
+        "start": 220.895,
+        "duration": 2.415
+    },
+    {
+        "text": "figure out what is that final product,",
+        "start": 223.31,
+        "duration": 2.52
+    },
+    {
+        "text": "the good stuff that you want to put into production,",
+        "start": 225.83,
+        "duration": 3.24
+    },
+    {
+        "text": "and they hide all the sweat",
+        "start": 229.07,
+        "duration": 3.0
+    },
+    {
+        "text": "and errors and the mistakes that you made along the way.",
+        "start": 232.07,
+        "duration": 3.215
+    },
+    {
+        "text": "As it happens, while you are figuring things",
+        "start": 235.285,
+        "duration": 3.135
+    },
+    {
+        "text": "out during a typical machine learning project,",
+        "start": 238.42,
+        "duration": 4.045
+    },
+    {
+        "text": "it is those trials and",
+        "start": 242.465,
+        "duration": 2.4
+    },
+    {
+        "text": "errors and mistakes that are of particular value.",
+        "start": 244.865,
+        "duration": 2.875
+    },
+    {
+        "text": "For example, you may be building a clustering model and at",
+        "start": 247.74,
+        "duration": 3.93
+    },
+    {
+        "text": "one point you arrive to number",
+        "start": 251.67,
+        "duration": 2.66
+    },
+    {
+        "text": "of clusters that seems to be modeling the problem very well,",
+        "start": 254.33,
+        "duration": 2.82
+    },
+    {
+        "text": "then you realize that this is not quite the right way forward,",
+        "start": 257.15,
+        "duration": 3.855
+    },
+    {
+        "text": "and you want to go back in time and",
+        "start": 261.005,
+        "duration": 2.035
+    },
+    {
+        "text": "you want to see your old results,",
+        "start": 263.04,
+        "duration": 2.119
+    },
+    {
+        "text": "your way of thinking,",
+        "start": 265.159,
+        "duration": 1.411
+    },
+    {
+        "text": "or maybe you are working within a group of people and maybe there",
+        "start": 266.57,
+        "duration": 4.62
+    },
+    {
+        "text": "are some more advanced and junior members of the team.",
+        "start": 271.19,
+        "duration": 4.65
+    },
+    {
+        "text": "When I get somebody else's work",
+        "start": 275.84,
+        "duration": 2.79
+    },
+    {
+        "text": "and they show me beautiful results like,",
+        "start": 278.63,
+        "duration": 2.685
+    },
+    {
+        "text": "\"Look at these rock charts here and",
+        "start": 281.315,
+        "duration": 3.225
+    },
+    {
+        "text": "the fabulous decision trees that I have built,\" I want",
+        "start": 284.54,
+        "duration": 3.42
+    },
+    {
+        "text": "to know what else did they tried that didn't",
+        "start": 287.96,
+        "duration": 3.24
+    },
+    {
+        "text": "work that made them think of that particular solution.",
+        "start": 291.2,
+        "duration": 3.95
+    },
+    {
+        "text": "If I just get the results inside Visuals Studio Code,",
+        "start": 295.15,
+        "duration": 3.675
+    },
+    {
+        "text": "I don't see that sweat,",
+        "start": 298.825,
+        "duration": 1.285
+    },
+    {
+        "text": "I don't know how they arrived at this point.",
+        "start": 300.11,
+        "duration": 3.105
+    },
+    {
+        "text": "That's exactly where the notebooks come in,",
+        "start": 303.215,
+        "duration": 2.76
+    },
+    {
+        "text": "and as an environment, they are very,",
+        "start": 305.975,
+        "duration": 2.775
+    },
+    {
+        "text": "very well suited to this research oriented part",
+        "start": 308.75,
+        "duration": 3.27
+    },
+    {
+        "text": "of machine learning and data science work that we do.",
+        "start": 312.02,
+        "duration": 3.98
+    },
+    {
+        "text": ">> That's amazing. For those who don't know about notebooks,",
+        "start": 316.0,
+        "duration": 3.28
+    },
+    {
+        "text": "could you describe them and why they're",
+        "start": 319.28,
+        "duration": 1.65
+    },
+    {
+        "text": "important for this modeling and exploration?",
+        "start": 320.93,
+        "duration": 2.945
+    },
+    {
+        "text": ">> Absolutely. A notebook is an interactive console.",
+        "start": 323.875,
+        "duration": 4.39
+    },
+    {
+        "text": "You can think of it as a console on steroids.",
+        "start": 328.265,
+        "duration": 4.47
+    },
+    {
+        "text": "An environment where you can enter simple things like",
+        "start": 332.735,
+        "duration": 3.81
+    },
+    {
+        "text": "2 plus 2 and press some buttons and you learn that is 4 or not.",
+        "start": 336.545,
+        "duration": 4.755
+    },
+    {
+        "text": "The only difference is that,",
+        "start": 341.3,
+        "duration": 2.265
+    },
+    {
+        "text": "in addition to writing your code,",
+        "start": 343.565,
+        "duration": 1.62
+    },
+    {
+        "text": "you can surround it with explanations, texts, your thinking,",
+        "start": 345.185,
+        "duration": 4.289
+    },
+    {
+        "text": "and then you can leave the code that has arrived at some results,",
+        "start": 349.474,
+        "duration": 4.756
+    },
+    {
+        "text": "perhaps the incorrect ones,",
+        "start": 354.23,
+        "duration": 1.53
+    },
+    {
+        "text": "you replicate the bit of code and you do it again in a better way,",
+        "start": 355.76,
+        "duration": 4.77
+    },
+    {
+        "text": "and then you replicate it and you do it again in yet another way.",
+        "start": 360.53,
+        "duration": 3.42
+    },
+    {
+        "text": "When you hand it over to somebody else,",
+        "start": 363.95,
+        "duration": 2.64
+    },
+    {
+        "text": "the person studying or reading it will be able to scan",
+        "start": 366.59,
+        "duration": 4.02
+    },
+    {
+        "text": "through your entire way of thinking",
+        "start": 370.61,
+        "duration": 2.055
+    },
+    {
+        "text": "rather than arrive at the final results.",
+        "start": 372.665,
+        "duration": 2.585
+    },
+    {
+        "text": "Now, a notebook can be locally hosted,",
+        "start": 375.25,
+        "duration": 2.9
+    },
+    {
+        "text": "you can put it on on your laptop,",
+        "start": 378.15,
+        "duration": 1.79
+    },
+    {
+        "text": "you can install it as part of your IDE even.",
+        "start": 379.94,
+        "duration": 4.005
+    },
+    {
+        "text": "It's also possible to install",
+        "start": 383.945,
+        "duration": 2.744
+    },
+    {
+        "text": "nothing and use a hosted version of the notebook,",
+        "start": 386.689,
+        "duration": 3.016
+    },
+    {
+        "text": "Microsoft Azure Machine Learning,",
+        "start": 389.705,
+        "duration": 1.785
+    },
+    {
+        "text": "Azure itself, they come with a variety of hosted notebooks,",
+        "start": 391.49,
+        "duration": 3.81
+    },
+    {
+        "text": "which also make poaching our work quite easy between environment.",
+        "start": 395.3,
+        "duration": 4.635
+    },
+    {
+        "text": "I can start working one environment,",
+        "start": 399.935,
+        "duration": 1.98
+    },
+    {
+        "text": "I can wrap all of my workload into a notebook,",
+        "start": 401.915,
+        "duration": 2.955
+    },
+    {
+        "text": "I can upload it maybe into my customers",
+        "start": 404.87,
+        "duration": 2.76
+    },
+    {
+        "text": "Cloud and continue working there using their data",
+        "start": 407.63,
+        "duration": 3.495
+    },
+    {
+        "text": "without having to share data or",
+        "start": 411.125,
+        "duration": 2.895
+    },
+    {
+        "text": "unnecessary security boundaries that",
+        "start": 414.02,
+        "duration": 2.67
+    },
+    {
+        "text": "perhaps would have prevented",
+        "start": 416.69,
+        "duration": 1.26
+    },
+    {
+        "text": "me in a more traditional way of working.",
+        "start": 417.95,
+        "duration": 2.295
+    },
+    {
+        "text": ">> With notebooks, because I always struggle,",
+        "start": 420.245,
+        "duration": 7.33
+    },
+    {
+        "text": "like if I'm working with other people,",
+        "start": 427.575,
+        "duration": 2.265
+    },
+    {
+        "text": "they have stuff in there and I have stuff in",
+        "start": 429.84,
+        "duration": 1.94
+    },
+    {
+        "text": "there and sometimes the output is different,",
+        "start": 431.78,
+        "duration": 1.8
+    },
+    {
+        "text": "we get merge conflicts,",
+        "start": 433.58,
+        "duration": 1.289
+    },
+    {
+        "text": "stuff happens, how do you make this all work out?",
+        "start": 434.869,
+        "duration": 4.301
+    },
+    {
+        "text": ">> That's a very good point. In general,",
+        "start": 439.38,
+        "duration": 2.755
+    },
+    {
+        "text": "a notebook tends to be more personal.",
+        "start": 442.135,
+        "duration": 2.97
+    },
+    {
+        "text": "The idea of a notebook which is",
+        "start": 445.105,
+        "duration": 2.505
+    },
+    {
+        "text": "shared within a team absolutely works too,",
+        "start": 447.61,
+        "duration": 2.715
+    },
+    {
+        "text": "but you have to componentize.",
+        "start": 450.325,
+        "duration": 2.19
+    },
+    {
+        "text": "There are sections of the notebook",
+        "start": 452.515,
+        "duration": 1.995
+    },
+    {
+        "text": "that are managed by individuals,",
+        "start": 454.51,
+        "duration": 1.995
+    },
+    {
+        "text": "and perhaps you'll pull your results together",
+        "start": 456.505,
+        "duration": 2.955
+    },
+    {
+        "text": "into a notebook that represents the results of the whole team.",
+        "start": 459.46,
+        "duration": 3.39
+    },
+    {
+        "text": "However, what I find is that",
+        "start": 462.85,
+        "duration": 2.46
+    },
+    {
+        "text": "the simplest approach tends to work better,",
+        "start": 465.31,
+        "duration": 2.265
+    },
+    {
+        "text": "whereas everybody carries their own notebook",
+        "start": 467.575,
+        "duration": 2.955
+    },
+    {
+        "text": "and it's perhaps some named after the individual,",
+        "start": 470.53,
+        "duration": 3.15
+    },
+    {
+        "text": "and is of course, part of the project that we man it using Git.",
+        "start": 473.68,
+        "duration": 3.09
+    },
+    {
+        "text": "When it comes to the point that we",
+        "start": 476.77,
+        "duration": 2.16
+    },
+    {
+        "text": "are ready to deploy something into production,",
+        "start": 478.93,
+        "duration": 2.22
+    },
+    {
+        "text": "that's when we actually throw the notebooks away.",
+        "start": 481.15,
+        "duration": 2.655
+    },
+    {
+        "text": "At that point, we take those final versions,",
+        "start": 483.805,
+        "duration": 2.925
+    },
+    {
+        "text": "we take the parameters we arrived at and",
+        "start": 486.73,
+        "duration": 2.49
+    },
+    {
+        "text": "whatever data preparation steps we had agreed upon.",
+        "start": 489.22,
+        "duration": 3.255
+    },
+    {
+        "text": "We tend to use a more classical,",
+        "start": 492.475,
+        "duration": 2.415
+    },
+    {
+        "text": "perhaps even IDE-based development approach,",
+        "start": 494.89,
+        "duration": 3.48
+    },
+    {
+        "text": "which is most suited towards those final stages of a project,",
+        "start": 498.37,
+        "duration": 3.645
+    },
+    {
+        "text": "and it's definitely much more suited to",
+        "start": 502.015,
+        "duration": 2.82
+    },
+    {
+        "text": "maintaining the project when it's already in production,",
+        "start": 504.835,
+        "duration": 3.345
+    },
+    {
+        "text": "and perhaps it means debugging,",
+        "start": 508.18,
+        "duration": 2.219
+    },
+    {
+        "text": "updating, and so on.",
+        "start": 510.399,
+        "duration": 1.546
+    },
+    {
+        "text": "There's really two mentalities over here.",
+        "start": 511.945,
+        "duration": 2.355
+    },
+    {
+        "text": "The research part, where we tend to be lords of our own,",
+        "start": 514.3,
+        "duration": 4.11
+    },
+    {
+        "text": "and there is no issue with Git mergers, because, well,",
+        "start": 518.41,
+        "duration": 3.03
+    },
+    {
+        "text": "at worse, they are my own matters,",
+        "start": 521.44,
+        "duration": 1.845
+    },
+    {
+        "text": "and that switch over to the production mentality later on.",
+        "start": 523.285,
+        "duration": 3.525
+    },
+    {
+        "text": ">> That's an interesting way of looking.",
+        "start": 526.81,
+        "duration": 2.22
+    },
+    {
+        "text": "This is the part I've struggled with.",
+        "start": 529.03,
+        "duration": 1.71
+    },
+    {
+        "text": "You're creating a separation in",
+        "start": 530.74,
+        "duration": 2.67
+    },
+    {
+        "text": "phases between when you're",
+        "start": 533.41,
+        "duration": 1.32
+    },
+    {
+        "text": "modeling and researching, and when you're like,",
+        "start": 534.73,
+        "duration": 2.19
+    },
+    {
+        "text": "okay, it's time to move on,",
+        "start": 536.92,
+        "duration": 1.74
+    },
+    {
+        "text": "then you get into the pure software engineering.",
+        "start": 538.66,
+        "duration": 3.555
+    },
+    {
+        "text": "I'm I getting this right?",
+        "start": 542.215,
+        "duration": 2.04
+    },
+    {
+        "text": ">> Absolutely 100 percent.",
+        "start": 544.255,
+        "duration": 2.445
+    },
+    {
+        "text": "In larger companies, some of the larger customers of mine,",
+        "start": 546.7,
+        "duration": 4.335
+    },
+    {
+        "text": "there would be a separate team that will be looking",
+        "start": 551.035,
+        "duration": 2.955
+    },
+    {
+        "text": "after the deployability and the deployment of the model.",
+        "start": 553.99,
+        "duration": 3.39
+    },
+    {
+        "text": "This natural division of how we work actually slows very nicely",
+        "start": 557.38,
+        "duration": 4.65
+    },
+    {
+        "text": "into the entire operations lifecycle of whatever it is,",
+        "start": 562.03,
+        "duration": 4.44
+    },
+    {
+        "text": "we do using machine learning, or data science.",
+        "start": 566.47,
+        "duration": 2.775
+    },
+    {
+        "text": ">> Let's talk about what the actual, do you have,",
+        "start": 569.245,
+        "duration": 3.75
+    },
+    {
+        "text": "like a reproducible workflow,",
+        "start": 572.995,
+        "duration": 1.905
+    },
+    {
+        "text": "or a set of steps that you suggests we should follow?",
+        "start": 574.9,
+        "duration": 3.87
+    },
+    {
+        "text": ">> Assuming that you are working in",
+        "start": 578.77,
+        "duration": 2.22
+    },
+    {
+        "text": "an environment like the RStudio,",
+        "start": 580.99,
+        "duration": 2.145
+    },
+    {
+        "text": "R MarkDown notebook, or JupyterLab for Python,",
+        "start": 583.135,
+        "duration": 4.559
+    },
+    {
+        "text": "the process is very similar.",
+        "start": 587.694,
+        "duration": 2.786
+    },
+    {
+        "text": "There is one important difference around step number 3,",
+        "start": 590.79,
+        "duration": 3.91
+    },
+    {
+        "text": "I'll explain it in a moment, but in general,",
+        "start": 594.7,
+        "duration": 2.13
+    },
+    {
+        "text": "you start creating a project which will hold all the source code,",
+        "start": 596.83,
+        "duration": 4.875
+    },
+    {
+        "text": "including the notebook source,",
+        "start": 601.705,
+        "duration": 2.055
+    },
+    {
+        "text": "any in-memory data that you wish to save in-between the runs,",
+        "start": 603.76,
+        "duration": 4.515
+    },
+    {
+        "text": "and the entire history of everything that you have done.",
+        "start": 608.275,
+        "duration": 3.705
+    },
+    {
+        "text": "There are different attitudes to",
+        "start": 611.98,
+        "duration": 2.64
+    },
+    {
+        "text": "whether you want to preserve that in-memory data,",
+        "start": 614.62,
+        "duration": 2.565
+    },
+    {
+        "text": "or whether it's better to always erase it and start a fresh.",
+        "start": 617.185,
+        "duration": 3.705
+    },
+    {
+        "text": "But we're not going to get into",
+        "start": 620.89,
+        "duration": 1.56
+    },
+    {
+        "text": "details of that quite at this stage,",
+        "start": 622.45,
+        "duration": 1.83
+    },
+    {
+        "text": "that's something you can decide on later.",
+        "start": 624.28,
+        "duration": 2.265
+    },
+    {
+        "text": "Of course, you have to set up Git,",
+        "start": 626.545,
+        "duration": 1.725
+    },
+    {
+        "text": "there is no question love it, or otherwise,",
+        "start": 628.27,
+        "duration": 2.835
+    },
+    {
+        "text": "this is the environment and a tool of",
+        "start": 631.105,
+        "duration": 2.775
+    },
+    {
+        "text": "choice for versioning and source code control.",
+        "start": 633.88,
+        "duration": 2.94
+    },
+    {
+        "text": "It works exceedingly well with RStudio, R Markdown notebooks.",
+        "start": 636.82,
+        "duration": 6.21
+    },
+    {
+        "text": "This is actually one place where it has",
+        "start": 643.03,
+        "duration": 2.22
+    },
+    {
+        "text": "an advantage over Jupyter and JupyterLab.",
+        "start": 645.25,
+        "duration": 2.955
+    },
+    {
+        "text": "In Jupyter, you have",
+        "start": 648.205,
+        "duration": 2.925
+    },
+    {
+        "text": "this invisible layer that is",
+        "start": 651.13,
+        "duration": 1.86
+    },
+    {
+        "text": "separating what you do from the source,",
+        "start": 652.99,
+        "duration": 2.745
+    },
+    {
+        "text": "which happens to be JSON files.",
+        "start": 655.735,
+        "duration": 2.34
+    },
+    {
+        "text": "When you work in RStudio and use an R Markdown notebook,",
+        "start": 658.075,
+        "duration": 4.35
+    },
+    {
+        "text": "everything's text, just like in C-Sharp,",
+        "start": 662.425,
+        "duration": 3.045
+    },
+    {
+        "text": "or in Python or Java,",
+        "start": 665.47,
+        "duration": 2.49
+    },
+    {
+        "text": "or any programming language,",
+        "start": 667.96,
+        "duration": 1.905
+    },
+    {
+        "text": "text is the notebook,",
+        "start": 669.865,
+        "duration": 2.385
+    },
+    {
+        "text": "and the notebook simply provide you",
+        "start": 672.25,
+        "duration": 1.53
+    },
+    {
+        "text": "a preview of the things that you do.",
+        "start": 673.78,
+        "duration": 1.965
+    },
+    {
+        "text": "In some ways, using Git in conjunction with R Markdown",
+        "start": 675.745,
+        "duration": 3.855
+    },
+    {
+        "text": "and RStudio is easier than working with Jupyter and JupyterLab,",
+        "start": 679.6,
+        "duration": 4.47
+    },
+    {
+        "text": "but those things can be solved for Jupyter too.",
+        "start": 684.07,
+        "duration": 3.045
+    },
+    {
+        "text": "Step number 3 is the very interesting one,",
+        "start": 687.115,
+        "duration": 3.195
+    },
+    {
+        "text": "and one where Microsoft definitely has",
+        "start": 690.31,
+        "duration": 2.64
+    },
+    {
+        "text": "helped us along way in the R Ecosystem.",
+        "start": 692.95,
+        "duration": 3.195
+    },
+    {
+        "text": "In the R Ecosystem,",
+        "start": 696.145,
+        "duration": 1.695
+    },
+    {
+        "text": "we have a concept of a snapshot and of time machine.",
+        "start": 697.84,
+        "duration": 5.655
+    },
+    {
+        "text": "The time machine is provided courtesy of the MRAN,",
+        "start": 703.495,
+        "duration": 4.8
+    },
+    {
+        "text": "which was Microsoft daily snapshot of CRAN.",
+        "start": 708.295,
+        "duration": 4.065
+    },
+    {
+        "text": "CRAN is the repository archive of",
+        "start": 712.36,
+        "duration": 3.045
+    },
+    {
+        "text": "all the packages and sources of the entire R Ecosystem,",
+        "start": 715.405,
+        "duration": 5.845
+    },
+    {
+        "text": "16,500 packages at this point in time.",
+        "start": 721.53,
+        "duration": 5.275
+    },
+    {
+        "text": "When we start a project,",
+        "start": 726.805,
+        "duration": 2.744
+    },
+    {
+        "text": "we usually snapshot the state of the world to a particular date.",
+        "start": 729.549,
+        "duration": 5.771
+    },
+    {
+        "text": "That date very often would be the date when the project commences,",
+        "start": 735.32,
+        "duration": 4.48
+    },
+    {
+        "text": "but sometimes, we choose a slightly older date.",
+        "start": 739.8,
+        "duration": 2.93
+    },
+    {
+        "text": "There are sometimes better days to",
+        "start": 742.73,
+        "duration": 1.94
+    },
+    {
+        "text": "choose when things were a little bit more stable than",
+        "start": 744.67,
+        "duration": 2.1
+    },
+    {
+        "text": "perhaps just after a major release of an update of",
+        "start": 746.77,
+        "duration": 2.94
+    },
+    {
+        "text": "some major part of RStudio or the R Ecosystem.",
+        "start": 749.71,
+        "duration": 4.845
+    },
+    {
+        "text": "Anyway, now that you've got to that snapshot and you",
+        "start": 754.555,
+        "duration": 4.13
+    },
+    {
+        "text": "have frozen in time the evolution of the R System,",
+        "start": 758.685,
+        "duration": 4.155
+    },
+    {
+        "text": "you start working in that notebook.",
+        "start": 762.84,
+        "duration": 2.55
+    },
+    {
+        "text": "That means that from this point on,",
+        "start": 765.39,
+        "duration": 2.295
+    },
+    {
+        "text": "even if the world around us changes,",
+        "start": 767.685,
+        "duration": 2.73
+    },
+    {
+        "text": "at least we are not influenced",
+        "start": 770.415,
+        "duration": 2.055
+    },
+    {
+        "text": "anymore by the changes of our dependencies.",
+        "start": 772.47,
+        "duration": 3.345
+    },
+    {
+        "text": "In Python, of course we saw that using virtual environments,",
+        "start": 775.815,
+        "duration": 3.745
+    },
+    {
+        "text": "and the myriad of tools available to deal with that,",
+        "start": 779.56,
+        "duration": 4.02
+    },
+    {
+        "text": "or perhaps Anaconda, again,",
+        "start": 783.58,
+        "duration": 2.535
+    },
+    {
+        "text": "with its own additional tools and complexity.",
+        "start": 786.115,
+        "duration": 3.795
+    },
+    {
+        "text": "I think the R world does it in a simpler way,",
+        "start": 789.91,
+        "duration": 3.285
+    },
+    {
+        "text": "but it's probably unfair comparison,",
+        "start": 793.195,
+        "duration": 2.775
+    },
+    {
+        "text": "because in some ways",
+        "start": 795.97,
+        "duration": 1.11
+    },
+    {
+        "text": "the dependencies of the world of Python are more complex.",
+        "start": 797.08,
+        "duration": 4.395
+    },
+    {
+        "text": "Now that you've been doing your work",
+        "start": 801.475,
+        "duration": 1.935
+    },
+    {
+        "text": "for a little while in the notebook,",
+        "start": 803.41,
+        "duration": 1.53
+    },
+    {
+        "text": "you are ready to share and export your findings.",
+        "start": 804.94,
+        "duration": 2.505
+    },
+    {
+        "text": "This could be as easy as just exporting some lovely PDFs,",
+        "start": 807.445,
+        "duration": 4.395
+    },
+    {
+        "text": "or HTML, so later,",
+        "start": 811.84,
+        "duration": 2.28
+    },
+    {
+        "text": "if you want to publish things in an academic journal.",
+        "start": 814.12,
+        "duration": 3.69
+    },
+    {
+        "text": "Finally, as we already mentioned earlier,",
+        "start": 817.81,
+        "duration": 2.13
+    },
+    {
+        "text": "when you reach those final stages that things are good and tested,",
+        "start": 819.94,
+        "duration": 4.77
+    },
+    {
+        "text": "and you want to put them to production,",
+        "start": 824.71,
+        "duration": 1.709
+    },
+    {
+        "text": "we swiftly abandon the notebook environment,",
+        "start": 826.419,
+        "duration": 2.745
+    },
+    {
+        "text": "archiving it for future purposes of course,",
+        "start": 829.164,
+        "duration": 2.566
+    },
+    {
+        "text": "and we switch to using an IDE.",
+        "start": 831.73,
+        "duration": 2.325
+    },
+    {
+        "text": "A huge advantage of this is that,",
+        "start": 834.055,
+        "duration": 2.4
+    },
+    {
+        "text": "if say three months down the line, or six months,",
+        "start": 836.455,
+        "duration": 3.165
+    },
+    {
+        "text": "or a couple of years down the line,",
+        "start": 839.62,
+        "duration": 1.965
+    },
+    {
+        "text": "somebody comes to one of my customers and it says,",
+        "start": 841.585,
+        "duration": 2.385
+    },
+    {
+        "text": "\"Can you explain how you arrived at this conclusion,",
+        "start": 843.97,
+        "duration": 2.94
+    },
+    {
+        "text": "when you were building this system?\"",
+        "start": 846.91,
+        "duration": 1.53
+    },
+    {
+        "text": "I'm not looking at some source code,",
+        "start": 848.44,
+        "duration": 3.975
+    },
+    {
+        "text": "but I'm going back to the notebook,",
+        "start": 852.415,
+        "duration": 2.115
+    },
+    {
+        "text": "and I'm showing the whole way of thinking that reached this point,",
+        "start": 854.53,
+        "duration": 3.585
+    },
+    {
+        "text": "and this is the reproducibility element of this whole thing.",
+        "start": 858.115,
+        "duration": 4.185
+    },
+    {
+        "text": "Because if someone says, \"I think you made a mistake,",
+        "start": 862.3,
+        "duration": 2.775
+    },
+    {
+        "text": "and I want you to retrace your steps and prove to me that",
+        "start": 865.075,
+        "duration": 3.525
+    },
+    {
+        "text": "you haven't messed around with the data and light with statistics,",
+        "start": 868.6,
+        "duration": 3.509
+    },
+    {
+        "text": "or whatever it is people shouldn't be doing,",
+        "start": 872.109,
+        "duration": 2.161
+    },
+    {
+        "text": "but they unfortunately sometimes do.\"",
+        "start": 874.27,
+        "duration": 2.295
+    },
+    {
+        "text": "It's as easy as replaying part of the notebook.",
+        "start": 876.565,
+        "duration": 3.66
+    },
+    {
+        "text": "If notebook contains also your data preparation,",
+        "start": 880.225,
+        "duration": 3.775
+    },
+    {
+        "text": "as in my opinion it should,",
+        "start": 884.0,
+        "duration": 1.965
+    },
+    {
+        "text": "we can go right from the starting point,",
+        "start": 885.965,
+        "duration": 3.915
+    },
+    {
+        "text": "right from the early formal data all the way to my conclusions.",
+        "start": 889.88,
+        "duration": 3.99
+    },
+    {
+        "text": "I take off all my responsibility, my auditability, explainability,",
+        "start": 893.87,
+        "duration": 6.885
+    },
+    {
+        "text": "and if I fall under the bus,",
+        "start": 900.755,
+        "duration": 2.625
+    },
+    {
+        "text": "and somebody else has to pick up my work,",
+        "start": 903.38,
+        "duration": 2.49
+    },
+    {
+        "text": "they pick up again using the notebook from",
+        "start": 905.87,
+        "duration": 2.355
+    },
+    {
+        "text": "wherever I left off my thought process.",
+        "start": 908.225,
+        "duration": 2.625
+    },
+    {
+        "text": "I and my customers have found it to be",
+        "start": 910.85,
+        "duration": 2.055
+    },
+    {
+        "text": "absolutely extra ordinarily helpful way of working.",
+        "start": 912.905,
+        "duration": 3.525
+    },
+    {
+        "text": "It's the little things that helped you along the way,",
+        "start": 916.43,
+        "duration": 2.895
+    },
+    {
+        "text": "for example, the snapshot.",
+        "start": 919.325,
+        "duration": 1.185
+    },
+    {
+        "text": ">> This is really cool. I feel I want to",
+        "start": 920.51,
+        "duration": 1.53
+    },
+    {
+        "text": "see some of this in action,",
+        "start": 922.04,
+        "duration": 2.04
+    },
+    {
+        "text": "do you have something you can show us?",
+        "start": 924.08,
+        "duration": 1.87
+    },
+    {
+        "text": ">> Absolutely. I prepared a couple of short examples.",
+        "start": 925.95,
+        "duration": 3.715
+    },
+    {
+        "text": "To start off, I'm showing here how I would be doing things",
+        "start": 929.665,
+        "duration": 4.485
+    },
+    {
+        "text": "in a fully locally installed R ecosystem.",
+        "start": 934.15,
+        "duration": 4.65
+    },
+    {
+        "text": "This happens to be running together with",
+        "start": 938.8,
+        "duration": 2.61
+    },
+    {
+        "text": "Microsoft SQL Server ML Services,",
+        "start": 941.41,
+        "duration": 3.195
+    },
+    {
+        "text": "which are used extensively for",
+        "start": 944.605,
+        "duration": 1.425
+    },
+    {
+        "text": "production purposes because of its performance advantages,",
+        "start": 946.03,
+        "duration": 3.57
+    },
+    {
+        "text": "but also because it's easy for me to",
+        "start": 949.6,
+        "duration": 1.95
+    },
+    {
+        "text": "analyze things as close to the data.",
+        "start": 951.55,
+        "duration": 2.775
+    },
+    {
+        "text": "Since things live, in the real world,",
+        "start": 954.325,
+        "duration": 2.835
+    },
+    {
+        "text": "very often in traditional relational databases",
+        "start": 957.16,
+        "duration": 2.58
+    },
+    {
+        "text": "and a lot of our customers use SQL Server,",
+        "start": 959.74,
+        "duration": 2.685
+    },
+    {
+        "text": "that's a match made in heaven.",
+        "start": 962.425,
+        "duration": 1.785
+    },
+    {
+        "text": "But if you look carefully,",
+        "start": 964.21,
+        "duration": 1.65
+    },
+    {
+        "text": "here around line 14,",
+        "start": 965.86,
+        "duration": 2.91
+    },
+    {
+        "text": "I am issuing this checkpoint call saying, lock me,",
+        "start": 968.77,
+        "duration": 5.64
+    },
+    {
+        "text": "freeze me to the way the R world",
+        "start": 974.41,
+        "duration": 2.79
+    },
+    {
+        "text": "was around the 10th of March 2019.",
+        "start": 977.2,
+        "duration": 4.17
+    },
+    {
+        "text": "That means that when this was created in its original version,",
+        "start": 981.37,
+        "duration": 4.275
+    },
+    {
+        "text": "even if any part of the R ecosystem has changed since then,",
+        "start": 985.645,
+        "duration": 4.215
+    },
+    {
+        "text": "I am not influenced by that.",
+        "start": 989.86,
+        "duration": 1.455
+    },
+    {
+        "text": "I have reproducibility as long as my data has",
+        "start": 991.315,
+        "duration": 3.765
+    },
+    {
+        "text": "been frozen in time and as long",
+        "start": 995.08,
+        "duration": 1.92
+    },
+    {
+        "text": "as the environment has been frozen in time.",
+        "start": 997.0,
+        "duration": 2.115
+    },
+    {
+        "text": "That second part has been solved by the snapshotting system,",
+        "start": 999.115,
+        "duration": 4.5
+    },
+    {
+        "text": "which is part of the Microsoft R ecosystem.",
+        "start": 1003.615,
+        "duration": 4.8
+    },
+    {
+        "text": "If you do it, by the way,",
+        "start": 1008.415,
+        "duration": 1.485
+    },
+    {
+        "text": "in the Azure world,",
+        "start": 1009.9,
+        "duration": 1.35
+    },
+    {
+        "text": "you have to do it a little bit differently,",
+        "start": 1011.25,
+        "duration": 1.62
+    },
+    {
+        "text": "but it's literally a one extra line that you have to add.",
+        "start": 1012.87,
+        "duration": 3.375
+    },
+    {
+        "text": "Where I'm scrolling to right now is,",
+        "start": 1016.245,
+        "duration": 2.22
+    },
+    {
+        "text": "I'm scrolling past the initial analysis of the data,",
+        "start": 1018.465,
+        "duration": 3.464
+    },
+    {
+        "text": "some early descriptive statistics that perhaps I would have done,",
+        "start": 1021.929,
+        "duration": 5.386
+    },
+    {
+        "text": "and I'm getting to the part when I am",
+        "start": 1027.315,
+        "duration": 2.745
+    },
+    {
+        "text": "going to do a little bit of clustering of this data.",
+        "start": 1030.06,
+        "duration": 3.585
+    },
+    {
+        "text": "Using, in this case,",
+        "start": 1033.645,
+        "duration": 2.55
+    },
+    {
+        "text": "the same very data set that's sitting in SQL Server,",
+        "start": 1036.195,
+        "duration": 4.23
+    },
+    {
+        "text": "I am going to train a bog standard",
+        "start": 1040.425,
+        "duration": 3.885
+    },
+    {
+        "text": "k-means clustering model using the R engine,",
+        "start": 1044.31,
+        "duration": 4.83
+    },
+    {
+        "text": "and I am visualizing the quality of my clusters.",
+        "start": 1049.14,
+        "duration": 3.345
+    },
+    {
+        "text": "To anybody who has ever worked with any form of clustering,",
+        "start": 1052.485,
+        "duration": 3.495
+    },
+    {
+        "text": "their immediate response is, \"Oh, dear.",
+        "start": 1055.98,
+        "duration": 2.82
+    },
+    {
+        "text": "Those clusters are so on top of each other,",
+        "start": 1058.8,
+        "duration": 2.94
+    },
+    {
+        "text": "they are so dirty, the overlap is not even unacceptable.",
+        "start": 1061.74,
+        "duration": 6.21
+    },
+    {
+        "text": "There is no point doing clustering this way any further.\"",
+        "start": 1067.95,
+        "duration": 2.83
+    },
+    {
+        "text": "But I am not going to start changing",
+        "start": 1070.78,
+        "duration": 2.65
+    },
+    {
+        "text": "this code here and there, instead,",
+        "start": 1073.43,
+        "duration": 2.985
+    },
+    {
+        "text": "I want anybody reading it to see the bad results",
+        "start": 1076.415,
+        "duration": 3.495
+    },
+    {
+        "text": "that I've got here and how I have improved this later.",
+        "start": 1079.91,
+        "duration": 3.81
+    },
+    {
+        "text": "Well, in this case,",
+        "start": 1083.72,
+        "duration": 1.48
+    },
+    {
+        "text": "the results were bad because all of",
+        "start": 1085.2,
+        "duration": 2.4
+    },
+    {
+        "text": "my good data happens to be categorical in nature.",
+        "start": 1087.6,
+        "duration": 3.84
+    },
+    {
+        "text": "In other words, those are not nice numbers than",
+        "start": 1091.44,
+        "duration": 3.03
+    },
+    {
+        "text": "the k-means algorithm requires or prefers,",
+        "start": 1094.47,
+        "duration": 3.93
+    },
+    {
+        "text": "so in my next step,",
+        "start": 1098.4,
+        "duration": 2.01
+    },
+    {
+        "text": "I simply convert the categorical data",
+        "start": 1100.41,
+        "duration": 3.12
+    },
+    {
+        "text": "to data that the k-means algorithm will like more.",
+        "start": 1103.53,
+        "duration": 4.005
+    },
+    {
+        "text": "In this case, I'm using a particular function of",
+        "start": 1107.535,
+        "duration": 4.065
+    },
+    {
+        "text": "the R ecosystem that creates indicator columns.",
+        "start": 1111.6,
+        "duration": 4.56
+    },
+    {
+        "text": "It's so similar to something that in",
+        "start": 1116.16,
+        "duration": 2.205
+    },
+    {
+        "text": "other environments is called one-hot coding and so on.",
+        "start": 1118.365,
+        "duration": 3.795
+    },
+    {
+        "text": "As soon as I run my better version of clustering,",
+        "start": 1122.16,
+        "duration": 5.145
+    },
+    {
+        "text": "you may be able to see that",
+        "start": 1127.305,
+        "duration": 1.635
+    },
+    {
+        "text": "something is starting to happen over there.",
+        "start": 1128.94,
+        "duration": 2.4
+    },
+    {
+        "text": "Still there is way too much overlap between the clusters,",
+        "start": 1131.34,
+        "duration": 3.72
+    },
+    {
+        "text": "but the shape of the data,",
+        "start": 1135.06,
+        "duration": 2.25
+    },
+    {
+        "text": "represented by the green dots,",
+        "start": 1137.31,
+        "duration": 1.8
+    },
+    {
+        "text": "is starting to, well, look more interesting.",
+        "start": 1139.11,
+        "duration": 3.375
+    },
+    {
+        "text": "There's clearly some shape over there,",
+        "start": 1142.485,
+        "duration": 2.145
+    },
+    {
+        "text": "it's not just one mess of dots on top of each other.",
+        "start": 1144.63,
+        "duration": 4.575
+    },
+    {
+        "text": "In the final part of my thinking in this particular application,",
+        "start": 1149.205,
+        "duration": 5.22
+    },
+    {
+        "text": "I want to see if I could optimize the way those clusters look",
+        "start": 1154.425,
+        "duration": 5.07
+    },
+    {
+        "text": "by using a little bit of",
+        "start": 1159.495,
+        "duration": 2.175
+    },
+    {
+        "text": "clever automation when it comes to clustering,",
+        "start": 1161.67,
+        "duration": 3.42
+    },
+    {
+        "text": "a technique which I can invoke by calling k-means runs.",
+        "start": 1165.09,
+        "duration": 4.845
+    },
+    {
+        "text": "This is very helpful function in the R ecosystem",
+        "start": 1169.935,
+        "duration": 3.225
+    },
+    {
+        "text": "that comes from yet another package",
+        "start": 1173.16,
+        "duration": 2.19
+    },
+    {
+        "text": "that specializes in clustering.",
+        "start": 1175.35,
+        "duration": 1.98
+    },
+    {
+        "text": "If I run that,",
+        "start": 1177.33,
+        "duration": 1.545
+    },
+    {
+        "text": "you will be able to see that my clusters will",
+        "start": 1178.875,
+        "duration": 3.54
+    },
+    {
+        "text": "acquire at least some separation.",
+        "start": 1182.415,
+        "duration": 3.96
+    },
+    {
+        "text": "At this point, we are looking at the same data.",
+        "start": 1186.375,
+        "duration": 2.805
+    },
+    {
+        "text": "The green dots are still in the same place as they were before.",
+        "start": 1189.18,
+        "duration": 3.57
+    },
+    {
+        "text": "We still have some overlap between the clusters, but their shape,",
+        "start": 1192.75,
+        "duration": 4.965
+    },
+    {
+        "text": "represented by the so-called principal components,",
+        "start": 1197.715,
+        "duration": 3.96
+    },
+    {
+        "text": "is indicating that we're starting to see",
+        "start": 1201.675,
+        "duration": 3.585
+    },
+    {
+        "text": "some significant variability in terms of their definition.",
+        "start": 1205.26,
+        "duration": 4.56
+    },
+    {
+        "text": "Without going into any details of exactly",
+        "start": 1209.82,
+        "duration": 2.505
+    },
+    {
+        "text": "what is the purpose of this analysis and so on,",
+        "start": 1212.325,
+        "duration": 2.805
+    },
+    {
+        "text": "which is not the purpose of our show,",
+        "start": 1215.13,
+        "duration": 4.19
+    },
+    {
+        "text": "I suppose today, this gives anybody who will",
+        "start": 1219.32,
+        "duration": 3.34
+    },
+    {
+        "text": "be reading it at a later point a record of my thinking.",
+        "start": 1222.66,
+        "duration": 3.75
+    },
+    {
+        "text": "I can save those results,",
+        "start": 1226.41,
+        "duration": 1.8
+    },
+    {
+        "text": "I can preview them using HTML or",
+        "start": 1228.21,
+        "duration": 4.44
+    },
+    {
+        "text": "whatever environment my boss or my client wishes me",
+        "start": 1232.65,
+        "duration": 3.87
+    },
+    {
+        "text": "to use to prove to them that I guess I've done my job well.",
+        "start": 1236.52,
+        "duration": 4.095
+    },
+    {
+        "text": "But the other advantage of this approach is",
+        "start": 1240.615,
+        "duration": 3.315
+    },
+    {
+        "text": "that once I have done my hard work maybe locally,",
+        "start": 1243.93,
+        "duration": 3.72
+    },
+    {
+        "text": "I can transfer it almost verbatim",
+        "start": 1247.65,
+        "duration": 3.345
+    },
+    {
+        "text": "into any other environments that understands Notebooks.",
+        "start": 1250.995,
+        "duration": 3.57
+    },
+    {
+        "text": "That means, I will be also including the data,",
+        "start": 1254.565,
+        "duration": 2.67
+    },
+    {
+        "text": "I'll be also including my way of thinking.",
+        "start": 1257.235,
+        "duration": 3.255
+    },
+    {
+        "text": "To show you that thought,",
+        "start": 1260.49,
+        "duration": 2.85
+    },
+    {
+        "text": "I will open my Azure Machine Learning Studio workspace in",
+        "start": 1263.34,
+        "duration": 5.04
+    },
+    {
+        "text": "which one of the features",
+        "start": 1268.38,
+        "duration": 2.505
+    },
+    {
+        "text": "introduced by Microsoft earlier this year,",
+        "start": 1270.885,
+        "duration": 3.33
+    },
+    {
+        "text": "reasonably recently, is this concept of compute instances,",
+        "start": 1274.215,
+        "duration": 5.505
+    },
+    {
+        "text": "which I find very helpful.",
+        "start": 1279.72,
+        "duration": 1.95
+    },
+    {
+        "text": "Compute instance is basically like your virtual machine,",
+        "start": 1281.67,
+        "duration": 4.44
+    },
+    {
+        "text": "except it has pre-installed JupyterLab,",
+        "start": 1286.11,
+        "duration": 3.329
+    },
+    {
+        "text": "Jupyter, and of course,",
+        "start": 1289.439,
+        "duration": 1.456
+    },
+    {
+        "text": "in my case, very important, RStudio.",
+        "start": 1290.895,
+        "duration": 2.97
+    },
+    {
+        "text": "That pre-installed version of RStudio",
+        "start": 1293.865,
+        "duration": 2.715
+    },
+    {
+        "text": "does pretty much everything I can do locally,",
+        "start": 1296.58,
+        "duration": 3.72
+    },
+    {
+        "text": "subject to the packages,",
+        "start": 1300.3,
+        "duration": 2.16
+    },
+    {
+        "text": "and libraries, etc that I have installed.",
+        "start": 1302.46,
+        "duration": 3.66
+    },
+    {
+        "text": "Small difference, before I can checkpoint",
+        "start": 1306.12,
+        "duration": 2.984
+    },
+    {
+        "text": "my notebook to a particular point in time,",
+        "start": 1309.104,
+        "duration": 3.706
+    },
+    {
+        "text": "since I am not using SQL Server's ML Services this time,",
+        "start": 1312.81,
+        "duration": 3.9
+    },
+    {
+        "text": "I have to pre-install the checkpoint package,",
+        "start": 1316.71,
+        "duration": 2.52
+    },
+    {
+        "text": "but that's just one extra line.",
+        "start": 1319.23,
+        "duration": 1.935
+    },
+    {
+        "text": "Other than that, this is more or less the same setup.",
+        "start": 1321.165,
+        "duration": 3.63
+    },
+    {
+        "text": "Without going to any more detail of how I got this,",
+        "start": 1324.795,
+        "duration": 4.095
+    },
+    {
+        "text": "since you've already seen me do it earlier,",
+        "start": 1328.89,
+        "duration": 2.025
+    },
+    {
+        "text": "there's the results, except this time,",
+        "start": 1330.915,
+        "duration": 2.805
+    },
+    {
+        "text": "this is all happening through the browser",
+        "start": 1333.72,
+        "duration": 3.06
+    },
+    {
+        "text": "on that compute instance in RStudio.",
+        "start": 1336.78,
+        "duration": 4.02
+    },
+    {
+        "text": "One interesting advantage of doing this",
+        "start": 1340.8,
+        "duration": 3.06
+    },
+    {
+        "text": "here in Azure Machine Learning is",
+        "start": 1343.86,
+        "duration": 3.27
+    },
+    {
+        "text": "that I can share not only access to my notebooks,",
+        "start": 1347.13,
+        "duration": 6.3
+    },
+    {
+        "text": "in this case, this is the notebook that I was showing you,",
+        "start": 1353.43,
+        "duration": 3.33
+    },
+    {
+        "text": "but I can also share access to",
+        "start": 1356.76,
+        "duration": 2.31
+    },
+    {
+        "text": "the underlying data that Azure ML handles for me.",
+        "start": 1359.07,
+        "duration": 4.86
+    },
+    {
+        "text": "Most interesting of them all,",
+        "start": 1363.93,
+        "duration": 2.49
+    },
+    {
+        "text": "if at some point what I am doing needs to",
+        "start": 1366.42,
+        "duration": 2.97
+    },
+    {
+        "text": "grow up to larger, perhaps,",
+        "start": 1369.39,
+        "duration": 2.94
+    },
+    {
+        "text": "some compute requirements and maybe I need",
+        "start": 1372.33,
+        "duration": 3.615
+    },
+    {
+        "text": "to do some heavy parallelization of machine learning,",
+        "start": 1375.945,
+        "duration": 4.515
+    },
+    {
+        "text": "by having R and RStudio run in the notebook,",
+        "start": 1380.46,
+        "duration": 3.225
+    },
+    {
+        "text": "I can fire off my machine learning jobs",
+        "start": 1383.685,
+        "duration": 3.195
+    },
+    {
+        "text": "within a proper big compute cluster,",
+        "start": 1386.88,
+        "duration": 3.779
+    },
+    {
+        "text": "maybe even R Spark cluster running inside",
+        "start": 1390.659,
+        "duration": 4.036
+    },
+    {
+        "text": "Azure ML without having to do any setup.",
+        "start": 1394.695,
+        "duration": 4.53
+    },
+    {
+        "text": "That's the best part. If I wanted to set all of this up locally,",
+        "start": 1399.225,
+        "duration": 4.965
+    },
+    {
+        "text": "setting up that IDE,",
+        "start": 1404.19,
+        "duration": 1.86
+    },
+    {
+        "text": "setting up all the Docker configurations,",
+        "start": 1406.05,
+        "duration": 3.33
+    },
+    {
+        "text": "this is not for the faint hearted.",
+        "start": 1409.38,
+        "duration": 1.545
+    },
+    {
+        "text": "Certainly, as Data Scientists,",
+        "start": 1410.925,
+        "duration": 2.009
+    },
+    {
+        "text": "we'd rather focus on data science than",
+        "start": 1412.934,
+        "duration": 2.356
+    },
+    {
+        "text": "Kubernetes and worrying about all of that.",
+        "start": 1415.29,
+        "duration": 2.67
+    },
+    {
+        "text": "So when I saw that Microsoft gave me RStudio together",
+        "start": 1417.96,
+        "duration": 3.839
+    },
+    {
+        "text": "with Azure Machine Learning and it's",
+        "start": 1421.799,
+        "duration": 2.281
+    },
+    {
+        "text": "all pre-installed and just a matter of clicking that button,",
+        "start": 1424.08,
+        "duration": 2.52
+    },
+    {
+        "text": "then I was pretty much sold on the idea.",
+        "start": 1426.6,
+        "duration": 2.775
+    },
+    {
+        "text": "I wish it was a little cheaper.",
+        "start": 1429.375,
+        "duration": 3.615
+    },
+    {
+        "text": ">> I will talk to the people. But this",
+        "start": 1432.99,
+        "duration": 2.73
+    },
+    {
+        "text": "has been impressive because to me, I",
+        "start": 1435.72,
+        "duration": 1.86
+    },
+    {
+        "text": "think the key takeaway that I'm finding is that first of all,",
+        "start": 1437.58,
+        "duration": 4.92
+    },
+    {
+        "text": "there is a sciency part of",
+        "start": 1442.5,
+        "duration": 2.7
+    },
+    {
+        "text": "data science and we shouldn't discard that.",
+        "start": 1445.2,
+        "duration": 2.955
+    },
+    {
+        "text": "We should think about it in terms of science,",
+        "start": 1448.155,
+        "duration": 2.265
+    },
+    {
+        "text": "and it's okay to leave a record of things that we did",
+        "start": 1450.42,
+        "duration": 2.73
+    },
+    {
+        "text": "wrong so that then moving forward,",
+        "start": 1453.15,
+        "duration": 2.79
+    },
+    {
+        "text": "we know what's going on,",
+        "start": 1455.94,
+        "duration": 1.05
+    },
+    {
+        "text": "and then when it's time to move forward,",
+        "start": 1456.99,
+        "duration": 1.74
+    },
+    {
+        "text": "then we can go into the software engineering.",
+        "start": 1458.73,
+        "duration": 1.59
+    },
+    {
+        "text": "I love that. I also love seeing RStudio locally.",
+        "start": 1460.32,
+        "duration": 3.105
+    },
+    {
+        "text": "It looks like it's RStudio,",
+        "start": 1463.425,
+        "duration": 1.995
+    },
+    {
+        "text": "but in the Cloud basically, is that right?",
+        "start": 1465.42,
+        "duration": 3.39
+    },
+    {
+        "text": ">> That is exactly right,",
+        "start": 1468.81,
+        "duration": 1.965
+    },
+    {
+        "text": "it is RStudio in the Cloud.",
+        "start": 1470.775,
+        "duration": 2.175
+    },
+    {
+        "text": "It works exactly the same way,",
+        "start": 1472.95,
+        "duration": 2.415
+    },
+    {
+        "text": "the only difference is the libraries and",
+        "start": 1475.365,
+        "duration": 2.295
+    },
+    {
+        "text": "packages that you have access to in the two environments.",
+        "start": 1477.66,
+        "duration": 3.18
+    },
+    {
+        "text": "But certainly, when it comes to the open source packages,",
+        "start": 1480.84,
+        "duration": 3.72
+    },
+    {
+        "text": "as long as you're not using anything very proprietary,",
+        "start": 1484.56,
+        "duration": 3.24
+    },
+    {
+        "text": "the setup and what you can do is exactly the same.",
+        "start": 1487.8,
+        "duration": 3.06
+    },
+    {
+        "text": "When you want to do the proprietary stuff,",
+        "start": 1490.86,
+        "duration": 2.31
+    },
+    {
+        "text": "Microsoft has some very fast machine learning available",
+        "start": 1493.17,
+        "duration": 4.74
+    },
+    {
+        "text": "in SQL Server on",
+        "start": 1497.91,
+        "duration": 1.335
+    },
+    {
+        "text": "the Microsoft ML package and the RevoScaleR package.",
+        "start": 1499.245,
+        "duration": 3.48
+    },
+    {
+        "text": "Unfortunately, it's a little bit more tricky",
+        "start": 1502.725,
+        "duration": 1.905
+    },
+    {
+        "text": "to do it in the Cloud at the moment,",
+        "start": 1504.63,
+        "duration": 1.8
+    },
+    {
+        "text": "but with the exception of",
+        "start": 1506.43,
+        "duration": 1.32
+    },
+    {
+        "text": "the more proprietary Microsoft techniques,",
+        "start": 1507.75,
+        "duration": 1.89
+    },
+    {
+        "text": "it's exactly the same.",
+        "start": 1509.64,
+        "duration": 1.065
+    },
+    {
+        "text": ">> Well, this has been super informative for me.",
+        "start": 1510.705,
+        "duration": 2.325
+    },
+    {
+        "text": "I feel edified by this.",
+        "start": 1513.03,
+        "duration": 1.935
+    },
+    {
+        "text": "It's okay to do science,",
+        "start": 1514.965,
+        "duration": 1.98
+    },
+    {
+        "text": "we need to acknowledge it and do it, I love that part.",
+        "start": 1516.945,
+        "duration": 2.415
+    },
+    {
+        "text": "Where can people go to find out more about you and your work?",
+        "start": 1519.36,
+        "duration": 3.37
+    },
+    {
+        "text": ">> Well, thank you for asking.",
+        "start": 1522.88,
+        "duration": 2.35
+    },
+    {
+        "text": "If anybody is interested in joining me on a live course,",
+        "start": 1525.23,
+        "duration": 5.76
+    },
+    {
+        "text": "I have fairly intense hands-on five-day classes,",
+        "start": 1530.99,
+        "duration": 3.629
+    },
+    {
+        "text": "and projectbotticelli.com is where you can learn about it.",
+        "start": 1534.619,
+        "duration": 5.356
+    },
+    {
+        "text": "If you want to follow learning using self-based video approach,",
+        "start": 1539.975,
+        "duration": 5.895
+    },
+    {
+        "text": "then I just launched a new business",
+        "start": 1545.87,
+        "duration": 2.1
+    },
+    {
+        "text": "a few weeks ago, it's called tecflix.com,",
+        "start": 1547.97,
+        "duration": 2.76
+    },
+    {
+        "text": "and hopefully it will be appropriate",
+        "start": 1550.73,
+        "duration": 2.729
+    },
+    {
+        "text": "and useful for this new era that we are all in now.",
+        "start": 1553.459,
+        "duration": 3.121
+    },
+    {
+        "text": ">> Awesome. Well, Rafal,",
+        "start": 1556.58,
+        "duration": 1.465
+    },
+    {
+        "text": "thank you so much for spending some time with us.",
+        "start": 1558.045,
+        "duration": 2.25
+    },
+    {
+        "text": "Again, those that are watching,",
+        "start": 1560.295,
+        "duration": 1.125
+    },
+    {
+        "text": "thank you so much for watching.",
+        "start": 1561.42,
+        "duration": 1.275
+    },
+    {
+        "text": "We've been learning all about reproducible data science",
+        "start": 1562.695,
+        "duration": 2.79
+    },
+    {
+        "text": "with machine learning.",
+        "start": 1565.485,
+        "duration": 1.395
+    },
+    {
+        "text": "Rafal, you've been awesome, thanks for being with us.",
+        "start": 1566.88,
+        "duration": 2.61
+    },
+    {
+        "text": ">> Thank you.",
+        "start": 1569.49,
+        "duration": 1.26
+    },
+    {
+        "text": ">> Thank you for watching, and hopefully",
+        "start": 1570.75,
+        "duration": 1.38
+    },
+    {
+        "text": "we'll see you next time. Take care.",
+        "start": 1572.13,
+        "duration": 1.23
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 1573.36,
+        "duration": 9.64
+    }
+]

@@ -1,0 +1,2312 @@
+[
+    {
+        "text": ">> You're not going to want to miss this episode of the AI Show,",
+        "start": 0.0,
+        "duration": 2.7
+    },
+    {
+        "text": "where we look at Custom Skills in Azure Cognitive Search.",
+        "start": 2.7,
+        "duration": 2.64
+    },
+    {
+        "text": "Imagine being able to tell the indexer what",
+        "start": 5.34,
+        "duration": 2.1
+    },
+    {
+        "text": "to do and to store it the way you want to.",
+        "start": 7.44,
+        "duration": 2.19
+    },
+    {
+        "text": "You're not going to want to miss it; make sure you tune in.",
+        "start": 9.63,
+        "duration": 1.61
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 11.24,
+        "duration": 8.32
+    },
+    {
+        "text": "Hello, and welcome to this episode of the AI Show.",
+        "start": 19.56,
+        "duration": 1.86
+    },
+    {
+        "text": "We're going to talk about Custom Skills in Azure Cognitive Search.",
+        "start": 21.42,
+        "duration": 3.24
+    },
+    {
+        "text": "Luis, it's good to see you again, my friend.",
+        "start": 24.66,
+        "duration": 1.905
+    },
+    {
+        "text": ">> It's good to see you, Seth.",
+        "start": 26.565,
+        "duration": 1.095
+    },
+    {
+        "text": "It's always a pleasure to meet with you.",
+        "start": 27.66,
+        "duration": 1.53
+    },
+    {
+        "text": ">> So tell us who you are and what you do.",
+        "start": 29.19,
+        "duration": 1.8
+    },
+    {
+        "text": "Well, we already know who you are, what do you do?",
+        "start": 30.99,
+        "duration": 1.755
+    },
+    {
+        "text": ">> So I am a Program Manager in the Azure Cognitive Search team.",
+        "start": 32.745,
+        "duration": 3.945
+    },
+    {
+        "text": "As part of that, today we'll be talking about how",
+        "start": 36.69,
+        "duration": 3.44
+    },
+    {
+        "text": "you can create custom skills inside Azure Cognitive Search.",
+        "start": 40.13,
+        "duration": 3.165
+    },
+    {
+        "text": ">> Amazing. So 10-second elevator speech",
+        "start": 43.295,
+        "duration": 2.805
+    },
+    {
+        "text": "for what Azure Cognitive Search is.",
+        "start": 46.1,
+        "duration": 1.835
+    },
+    {
+        "text": ">> So Azure Cognitive Search is really a Platform as",
+        "start": 47.935,
+        "duration": 3.215
+    },
+    {
+        "text": "a Service component that allows",
+        "start": 51.15,
+        "duration": 2.81
+    },
+    {
+        "text": "you to have great search experiences to your applications.",
+        "start": 53.96,
+        "duration": 3.12
+    },
+    {
+        "text": "That's really what it is.",
+        "start": 57.08,
+        "duration": 1.475
+    },
+    {
+        "text": "As we will be able to see today,",
+        "start": 58.555,
+        "duration": 2.4
+    },
+    {
+        "text": "it can read data from both structured and unstructured content,",
+        "start": 60.955,
+        "duration": 3.205
+    },
+    {
+        "text": "and we're going to go a little bit deeper",
+        "start": 64.16,
+        "duration": 3.3
+    },
+    {
+        "text": "on some of the things that you can do with unstructured content.",
+        "start": 67.46,
+        "duration": 3.58
+    },
+    {
+        "text": ">> Well, let's dive in, custom skills.",
+        "start": 71.04,
+        "duration": 2.125
+    },
+    {
+        "text": ">> Wonderful. So Seth,",
+        "start": 73.165,
+        "duration": 2.495
+    },
+    {
+        "text": "I wanted to provide just a little bit of framework.",
+        "start": 75.66,
+        "duration": 3.135
+    },
+    {
+        "text": "People make up some of",
+        "start": 78.795,
+        "duration": 1.655
+    },
+    {
+        "text": "the earlier presentations that we have done in the past.",
+        "start": 80.45,
+        "duration": 3.45
+    },
+    {
+        "text": "As you can see on my screen,",
+        "start": 83.9,
+        "duration": 2.4
+    },
+    {
+        "text": "I am showing a diagram that shows like each of these stages that",
+        "start": 86.3,
+        "duration": 4.14
+    },
+    {
+        "text": "we go through in order to understand unstructured content.",
+        "start": 90.44,
+        "duration": 4.665
+    },
+    {
+        "text": "In other words, we need to be able to",
+        "start": 95.105,
+        "duration": 1.905
+    },
+    {
+        "text": "connect to different data sources,",
+        "start": 97.01,
+        "duration": 1.86
+    },
+    {
+        "text": "we need to be able to crack open",
+        "start": 98.87,
+        "duration": 2.91
+    },
+    {
+        "text": "these different types of files and formats.",
+        "start": 101.78,
+        "duration": 3.25
+    },
+    {
+        "text": "Let's say that you have images or more documents and so forth.",
+        "start": 105.03,
+        "duration": 4.1
+    },
+    {
+        "text": "We need to understand each of those file formats",
+        "start": 109.13,
+        "duration": 2.28
+    },
+    {
+        "text": "in order to extract the text out of them,",
+        "start": 111.41,
+        "duration": 1.89
+    },
+    {
+        "text": "the images, any metadata they have.",
+        "start": 113.3,
+        "duration": 2.81
+    },
+    {
+        "text": "Then one thing that",
+        "start": 116.11,
+        "duration": 2.17
+    },
+    {
+        "text": "our customers want to do is they want to enrich this information.",
+        "start": 118.28,
+        "duration": 3.225
+    },
+    {
+        "text": "They want to apply what we call",
+        "start": 121.505,
+        "duration": 1.845
+    },
+    {
+        "text": "cognitive skills to this information in order",
+        "start": 123.35,
+        "duration": 2.76
+    },
+    {
+        "text": "to think of it as adding",
+        "start": 126.11,
+        "duration": 2.61
+    },
+    {
+        "text": "additional metadata or enriching the information in their content.",
+        "start": 128.72,
+        "duration": 3.885
+    },
+    {
+        "text": "Sometimes this is required in",
+        "start": 132.605,
+        "duration": 2.445
+    },
+    {
+        "text": "order to extract structure from the content.",
+        "start": 135.05,
+        "duration": 2.585
+    },
+    {
+        "text": "Then once we have this structure or this enriched document,",
+        "start": 137.635,
+        "duration": 3.145
+    },
+    {
+        "text": "we project it into a searchable index.",
+        "start": 140.78,
+        "duration": 4.225
+    },
+    {
+        "text": "So as part of this cognitive skills,",
+        "start": 145.005,
+        "duration": 2.915
+    },
+    {
+        "text": "we have many, many built-in skills,",
+        "start": 147.92,
+        "duration": 1.8
+    },
+    {
+        "text": "more than I show on the screen right here.",
+        "start": 149.72,
+        "duration": 2.475
+    },
+    {
+        "text": "But these are just examples",
+        "start": 152.195,
+        "duration": 2.145
+    },
+    {
+        "text": "of the types of built-in skills that we have.",
+        "start": 154.34,
+        "duration": 2.16
+    },
+    {
+        "text": "Key phrase extraction, translation.",
+        "start": 156.5,
+        "duration": 4.08
+    },
+    {
+        "text": "Maybe you want to identify",
+        "start": 160.58,
+        "duration": 1.83
+    },
+    {
+        "text": "celebrities in an image, sentiment analysis,",
+        "start": 162.41,
+        "duration": 3.02
+    },
+    {
+        "text": "all kinds of different and really",
+        "start": 165.43,
+        "duration": 3.23
+    },
+    {
+        "text": "cool machine learning based skills.",
+        "start": 168.66,
+        "duration": 3.54
+    },
+    {
+        "text": "But one of the things that our customers tell us many times is,",
+        "start": 172.2,
+        "duration": 5.01
+    },
+    {
+        "text": "this is all wonderful,",
+        "start": 177.21,
+        "duration": 1.26
+    },
+    {
+        "text": "but I have a very, very specific problem.",
+        "start": 178.47,
+        "duration": 2.075
+    },
+    {
+        "text": "I need to add my own secret sauce or my own customization.",
+        "start": 180.545,
+        "duration": 5.6
+    },
+    {
+        "text": "I want to apply my own code as part of this enrichment process.",
+        "start": 186.145,
+        "duration": 5.44
+    },
+    {
+        "text": "Azure Cognitive Search supports this extensible skill set.",
+        "start": 191.585,
+        "duration": 4.515
+    },
+    {
+        "text": "It's extensible because you can plug in your own custom skills.",
+        "start": 196.1,
+        "duration": 5.09
+    },
+    {
+        "text": "As part of these custom skills,",
+        "start": 201.19,
+        "duration": 2.83
+    },
+    {
+        "text": "you can do anything that you need to do,",
+        "start": 204.02,
+        "duration": 2.235
+    },
+    {
+        "text": "your own custom code goes there.",
+        "start": 206.255,
+        "duration": 2.715
+    },
+    {
+        "text": "These are essentially web API endpoints that just",
+        "start": 208.97,
+        "duration": 3.84
+    },
+    {
+        "text": "need to follow an input-output interface,",
+        "start": 212.81,
+        "duration": 3.215
+    },
+    {
+        "text": "and as long as you follow the interface,",
+        "start": 216.025,
+        "duration": 1.825
+    },
+    {
+        "text": "you can plug it in as part of the pipe.",
+        "start": 217.85,
+        "duration": 1.74
+    },
+    {
+        "text": ">> Let's pause right here just so I",
+        "start": 219.59,
+        "duration": 1.5
+    },
+    {
+        "text": "can understand what's going on.",
+        "start": 221.09,
+        "duration": 2.07
+    },
+    {
+        "text": "If we go back one slide,",
+        "start": 223.16,
+        "duration": 2.115
+    },
+    {
+        "text": "basically, what you're saying is that when we're",
+        "start": 225.275,
+        "duration": 2.085
+    },
+    {
+        "text": "doing the ingest, enrich,",
+        "start": 227.36,
+        "duration": 1.995
+    },
+    {
+        "text": "explore, there's already a rich set of",
+        "start": 229.355,
+        "duration": 2.565
+    },
+    {
+        "text": "things that you can do to enrich your content.",
+        "start": 231.92,
+        "duration": 3.33
+    },
+    {
+        "text": "But you may want to do very specific things for the organization,",
+        "start": 235.25,
+        "duration": 3.54
+    },
+    {
+        "text": "and that's what it means to have a custom skill.",
+        "start": 238.79,
+        "duration": 2.495
+    },
+    {
+        "text": ">> That's exactly right, Seth.",
+        "start": 241.285,
+        "duration": 3.465
+    },
+    {
+        "text": "You create your own custom code, your own enrichment.",
+        "start": 245.21,
+        "duration": 4.38
+    },
+    {
+        "text": "Sometimes you may want to connect to, let's say,",
+        "start": 249.59,
+        "duration": 1.44
+    },
+    {
+        "text": "your own database to extract particular types of",
+        "start": 251.03,
+        "duration": 4.22
+    },
+    {
+        "text": "entities or maybe you have",
+        "start": 255.25,
+        "duration": 1.72
+    },
+    {
+        "text": "your own models that you have created in the past.",
+        "start": 256.97,
+        "duration": 2.745
+    },
+    {
+        "text": "These are all examples of custom skills.",
+        "start": 259.715,
+        "duration": 2.685
+    },
+    {
+        "text": ">> Awesome.",
+        "start": 262.4,
+        "duration": 1.095
+    },
+    {
+        "text": ">> So then the question is,",
+        "start": 263.495,
+        "duration": 2.97
+    },
+    {
+        "text": "how do I create one and how",
+        "start": 266.465,
+        "duration": 1.995
+    },
+    {
+        "text": "do I connect it to the rest of the pipeline.",
+        "start": 268.46,
+        "duration": 2.13
+    },
+    {
+        "text": "So let's say that you are",
+        "start": 270.59,
+        "duration": 1.77
+    },
+    {
+        "text": "creating some kind of medical application,",
+        "start": 272.36,
+        "duration": 2.159
+    },
+    {
+        "text": "then let's say, you have a disease extractor,",
+        "start": 274.519,
+        "duration": 2.281
+    },
+    {
+        "text": "you may want to apply it somewhere in the pipeline.",
+        "start": 276.8,
+        "duration": 3.31
+    },
+    {
+        "text": "So we're going to learn how to do that today.",
+        "start": 280.11,
+        "duration": 2.77
+    },
+    {
+        "text": "Because of the time that we have,",
+        "start": 282.88,
+        "duration": 2.155
+    },
+    {
+        "text": "its going to be like a cooking show.",
+        "start": 285.035,
+        "duration": 1.995
+    },
+    {
+        "text": "So we're going to show you some of",
+        "start": 287.03,
+        "duration": 1.65
+    },
+    {
+        "text": "the pieces that we have built so that you can do it,",
+        "start": 288.68,
+        "duration": 2.475
+    },
+    {
+        "text": "but we're not going to write it in front of you.",
+        "start": 291.155,
+        "duration": 3.0
+    },
+    {
+        "text": "So the first thing that I want to explain to you",
+        "start": 294.155,
+        "duration": 2.985
+    },
+    {
+        "text": "is what does this input-output interface look like?",
+        "start": 297.14,
+        "duration": 3.225
+    },
+    {
+        "text": "It's very, very simple.",
+        "start": 300.365,
+        "duration": 1.215
+    },
+    {
+        "text": "Think of an HTTPS call that you make to your own skill.",
+        "start": 301.58,
+        "duration": 3.615
+    },
+    {
+        "text": "So it's a web API endpoint, essentially,",
+        "start": 305.195,
+        "duration": 2.57
+    },
+    {
+        "text": "and where you can pass,",
+        "start": 307.765,
+        "duration": 2.835
+    },
+    {
+        "text": "think of it as a property bag",
+        "start": 310.6,
+        "duration": 3.19
+    },
+    {
+        "text": "for each record that you want to enrich.",
+        "start": 313.79,
+        "duration": 2.37
+    },
+    {
+        "text": "In this case, the property bag is called data.",
+        "start": 316.16,
+        "duration": 3.635
+    },
+    {
+        "text": "You'll see in this case,",
+        "start": 319.795,
+        "duration": 1.715
+    },
+    {
+        "text": "I just put only one input filename.",
+        "start": 321.51,
+        "duration": 3.929
+    },
+    {
+        "text": "Of course, you could have many inputs mapped,",
+        "start": 325.439,
+        "duration": 3.641
+    },
+    {
+        "text": "but for the sake of simplicity,",
+        "start": 329.08,
+        "duration": 1.8
+    },
+    {
+        "text": "we have a single input here and a single output here.",
+        "start": 330.88,
+        "duration": 4.26
+    },
+    {
+        "text": "In this case, the file name is the input",
+        "start": 335.14,
+        "duration": 2.55
+    },
+    {
+        "text": "and the file type is the output.",
+        "start": 337.69,
+        "duration": 2.02
+    },
+    {
+        "text": ">> So basically, if I can interrupt, I'm sorry to interrupt you.",
+        "start": 339.71,
+        "duration": 3.02
+    },
+    {
+        "text": ">> Of course, no, please.",
+        "start": 342.73,
+        "duration": 0.46
+    },
+    {
+        "text": ">> Basically, the indexer as it's going through,",
+        "start": 343.19,
+        "duration": 2.695
+    },
+    {
+        "text": "we'll say, here custom skill,",
+        "start": 345.885,
+        "duration": 2.34
+    },
+    {
+        "text": "here's the thing I'm looking at.",
+        "start": 348.225,
+        "duration": 1.48
+    },
+    {
+        "text": "What do you want me to do with it?",
+        "start": 349.705,
+        "duration": 1.47
+    },
+    {
+        "text": "Then you can output stuff in the end,",
+        "start": 351.175,
+        "duration": 1.965
+    },
+    {
+        "text": "and then the indexer will do something with it after that.",
+        "start": 353.14,
+        "duration": 2.905
+    },
+    {
+        "text": ">> That's exactly right. It's just a Lego piece,",
+        "start": 356.045,
+        "duration": 2.555
+    },
+    {
+        "text": "some input, some output.",
+        "start": 358.6,
+        "duration": 1.635
+    },
+    {
+        "text": "We are completely agnostic as to what's going in as",
+        "start": 360.235,
+        "duration": 2.685
+    },
+    {
+        "text": "input and output so that you can do whatever you want.",
+        "start": 362.92,
+        "duration": 2.61
+    },
+    {
+        "text": ">> Awesome.",
+        "start": 365.53,
+        "duration": 0.375
+    },
+    {
+        "text": ">> We don't even care what code you write or",
+        "start": 365.905,
+        "duration": 2.54
+    },
+    {
+        "text": "what language you use as long as you",
+        "start": 368.445,
+        "duration": 1.505
+    },
+    {
+        "text": "follow the input-output interface.",
+        "start": 369.95,
+        "duration": 2.15
+    },
+    {
+        "text": "So we're going to write the custom skill in a second,",
+        "start": 372.1,
+        "duration": 4.345
+    },
+    {
+        "text": "but I want to show you some resources.",
+        "start": 376.445,
+        "duration": 2.205
+    },
+    {
+        "text": "So first of all,",
+        "start": 378.65,
+        "duration": 1.665
+    },
+    {
+        "text": "I want to make you aware that the documentation that",
+        "start": 380.315,
+        "duration": 2.805
+    },
+    {
+        "text": "are examples of how to do this in C# and Python,",
+        "start": 383.12,
+        "duration": 4.26
+    },
+    {
+        "text": "for instance, but just to",
+        "start": 387.38,
+        "duration": 1.74
+    },
+    {
+        "text": "show that you can use different languages.",
+        "start": 389.12,
+        "duration": 1.755
+    },
+    {
+        "text": "In this case, I am going to use C#.",
+        "start": 390.875,
+        "duration": 2.33
+    },
+    {
+        "text": "I am going to start,",
+        "start": 393.205,
+        "duration": 2.599
+    },
+    {
+        "text": "I'm going to navigate here to what we call power skills.",
+        "start": 395.804,
+        "duration": 5.986
+    },
+    {
+        "text": "To go to the power skills,",
+        "start": 401.79,
+        "duration": 1.935
+    },
+    {
+        "text": "I write these, aka.ms links, aka.ms/powerskills.",
+        "start": 403.725,
+        "duration": 5.205
+    },
+    {
+        "text": "You hit \"Enter\" on that and you will",
+        "start": 408.93,
+        "duration": 2.78
+    },
+    {
+        "text": "end up in this GitHub repository.",
+        "start": 411.71,
+        "duration": 2.69
+    },
+    {
+        "text": "This GitHub repository is very,very useful.",
+        "start": 414.4,
+        "duration": 3.31
+    },
+    {
+        "text": "It's very handy because it has many, many skilled templates,",
+        "start": 417.71,
+        "duration": 4.785
+    },
+    {
+        "text": "pre-built skills that you can use.",
+        "start": 422.495,
+        "duration": 2.94
+    },
+    {
+        "text": "It's all open-source, so you can modify",
+        "start": 425.435,
+        "duration": 2.235
+    },
+    {
+        "text": "them if you want to customize something.",
+        "start": 427.67,
+        "duration": 2.82
+    },
+    {
+        "text": "In my case, I am going to clone the repo,",
+        "start": 430.49,
+        "duration": 3.405
+    },
+    {
+        "text": "and then you're just going to take the simplest of all the skills,",
+        "start": 433.895,
+        "duration": 3.75
+    },
+    {
+        "text": "the Hello World skill,",
+        "start": 437.645,
+        "duration": 1.865
+    },
+    {
+        "text": "and I'm going to modify it,",
+        "start": 439.51,
+        "duration": 2.27
+    },
+    {
+        "text": "to add my own code to it instead of just saying, Hello World.",
+        "start": 441.78,
+        "duration": 4.385
+    },
+    {
+        "text": "So I already did that.",
+        "start": 446.165,
+        "duration": 2.565
+    },
+    {
+        "text": "So I essentially cloned the repo into this directory,",
+        "start": 448.73,
+        "duration": 4.95
+    },
+    {
+        "text": "the power skills repo,",
+        "start": 453.68,
+        "duration": 1.98
+    },
+    {
+        "text": "and I'm going to open it from Visual Studio,",
+        "start": 455.66,
+        "duration": 3.3
+    },
+    {
+        "text": "which also I have it already open.",
+        "start": 458.96,
+        "duration": 2.55
+    },
+    {
+        "text": "So there is no need for us to wait for it to open.",
+        "start": 461.51,
+        "duration": 5.59
+    },
+    {
+        "text": "So as you can see,",
+        "start": 467.1,
+        "duration": 2.58
+    },
+    {
+        "text": "we're looking at the solution at the PowerSkill solution.",
+        "start": 469.68,
+        "duration": 3.15
+    },
+    {
+        "text": "There are many, many different projects here,",
+        "start": 472.83,
+        "duration": 4.1
+    },
+    {
+        "text": "Vision projects, text-related skills and so forth.",
+        "start": 476.93,
+        "duration": 3.99
+    },
+    {
+        "text": "Once again, I just took a template that is",
+        "start": 480.92,
+        "duration": 2.02
+    },
+    {
+        "text": "the Hello World template, nothing fancy.",
+        "start": 482.94,
+        "duration": 3.005
+    },
+    {
+        "text": "It's what you're looking at right now.",
+        "start": 485.945,
+        "duration": 2.33
+    },
+    {
+        "text": "All it does is, it says, I'm going to create",
+        "start": 488.275,
+        "duration": 3.145
+    },
+    {
+        "text": "an Azure Function and the Azure Function is going",
+        "start": 491.42,
+        "duration": 3.64
+    },
+    {
+        "text": "to take a record that is an input,",
+        "start": 495.06,
+        "duration": 3.39
+    },
+    {
+        "text": "and then it does something with the record",
+        "start": 498.45,
+        "duration": 1.74
+    },
+    {
+        "text": "in these three or four lines of code.",
+        "start": 500.19,
+        "duration": 2.605
+    },
+    {
+        "text": "I'm going to make it just a little bit bigger and you will see",
+        "start": 502.795,
+        "duration": 4.025
+    },
+    {
+        "text": "that it is taking a parameter called name as a string,",
+        "start": 506.82,
+        "duration": 5.26
+    },
+    {
+        "text": "and then it's outputting",
+        "start": 512.08,
+        "duration": 2.639
+    },
+    {
+        "text": "a variable called greeting",
+        "start": 514.719,
+        "duration": 3.431
+    },
+    {
+        "text": "and it's saying \"Hello\"",
+        "start": 518.15,
+        "duration": 2.435
+    },
+    {
+        "text": "and then using domain that it took as an input.",
+        "start": 520.585,
+        "duration": 2.205
+    },
+    {
+        "text": "So as simple as it looks,",
+        "start": 522.79,
+        "duration": 2.875
+    },
+    {
+        "text": "it's really you're saying Luis comes as",
+        "start": 525.665,
+        "duration": 2.52
+    },
+    {
+        "text": "input and then Hello Luis comes as output. Very, very simple.",
+        "start": 528.185,
+        "duration": 3.38
+    },
+    {
+        "text": ">> So this is basically directly from the GitHub repo,",
+        "start": 531.565,
+        "duration": 5.995
+    },
+    {
+        "text": "everyone can get this right down.",
+        "start": 537.56,
+        "duration": 1.77
+    },
+    {
+        "text": ">> Yeah, I come in,",
+        "start": 539.33,
+        "duration": 1.33
+    },
+    {
+        "text": "written a single line of code.",
+        "start": 540.66,
+        "duration": 1.295
+    },
+    {
+        "text": ">> Got it.",
+        "start": 541.955,
+        "duration": 0.625
+    },
+    {
+        "text": ">> Starting in this second, right now,",
+        "start": 542.58,
+        "duration": 1.775
+    },
+    {
+        "text": "I'm going to show you the code that I wrote.",
+        "start": 544.355,
+        "duration": 1.59
+    },
+    {
+        "text": "Essentially, I copied this function to create my own.",
+        "start": 545.945,
+        "duration": 3.975
+    },
+    {
+        "text": "Right below it, right here,",
+        "start": 549.92,
+        "duration": 1.64
+    },
+    {
+        "text": "I was hiding it for a second,",
+        "start": 551.56,
+        "duration": 2.025
+    },
+    {
+        "text": "and I called it get-file-type.",
+        "start": 553.585,
+        "duration": 1.92
+    },
+    {
+        "text": "I just changed the function name.",
+        "start": 555.505,
+        "duration": 1.745
+    },
+    {
+        "text": "So that means that when I published that,",
+        "start": 557.25,
+        "duration": 1.72
+    },
+    {
+        "text": "there will be two functions,",
+        "start": 558.97,
+        "duration": 1.659
+    },
+    {
+        "text": "the hello-world function and the get-file-type function.",
+        "start": 560.629,
+        "duration": 2.866
+    },
+    {
+        "text": "I'm just going to use this get-file-type.",
+        "start": 563.495,
+        "duration": 2.505
+    },
+    {
+        "text": "I modify those three lines of code that",
+        "start": 566.0,
+        "duration": 2.81
+    },
+    {
+        "text": "I mentioned earlier with my own code.",
+        "start": 568.81,
+        "duration": 2.1
+    },
+    {
+        "text": "A little bit longer, about 10,",
+        "start": 570.91,
+        "duration": 2.37
+    },
+    {
+        "text": "15 lines of code, and my goal here was to make it super simple.",
+        "start": 573.28,
+        "duration": 4.17
+    },
+    {
+        "text": "So I know that there are better ways to quote this,",
+        "start": 577.45,
+        "duration": 3.0
+    },
+    {
+        "text": "but I just wanted to be instruction on.",
+        "start": 580.45,
+        "duration": 1.77
+    },
+    {
+        "text": "So I am taking",
+        "start": 582.22,
+        "duration": 2.235
+    },
+    {
+        "text": "the filename input because if you remember my slide here,",
+        "start": 584.455,
+        "duration": 4.915
+    },
+    {
+        "text": "I want an input called",
+        "start": 589.37,
+        "duration": 2.51
+    },
+    {
+        "text": "filename that is going to be something like these,",
+        "start": 591.88,
+        "duration": 2.935
+    },
+    {
+        "text": "like foo.jpeg and I want an output,",
+        "start": 594.815,
+        "duration": 2.325
+    },
+    {
+        "text": "a file type, and I want it to",
+        "start": 597.14,
+        "duration": 2.42
+    },
+    {
+        "text": "be image or a Word document or something like that.",
+        "start": 599.56,
+        "duration": 3.19
+    },
+    {
+        "text": "So I'm taking the filename input and",
+        "start": 602.75,
+        "duration": 3.16
+    },
+    {
+        "text": "then I am checking if the name contains a dot.",
+        "start": 605.91,
+        "duration": 4.3
+    },
+    {
+        "text": "Essentially, I'm just checking for the extension,",
+        "start": 610.21,
+        "duration": 2.235
+    },
+    {
+        "text": "getting the extension for the",
+        "start": 612.445,
+        "duration": 1.565
+    },
+    {
+        "text": "last of string after that dot, essentially.",
+        "start": 614.01,
+        "duration": 3.4
+    },
+    {
+        "text": "If it's any of these formats like png,",
+        "start": 617.41,
+        "duration": 2.545
+    },
+    {
+        "text": "bitmap, jpeg, and so forth,",
+        "start": 619.955,
+        "duration": 1.895
+    },
+    {
+        "text": "I'll call that an image.",
+        "start": 621.85,
+        "duration": 1.315
+    },
+    {
+        "text": "If not, I'll just use the extension like .pdf",
+        "start": 623.165,
+        "duration": 4.585
+    },
+    {
+        "text": "or something like that as the file type and then I'll return that.",
+        "start": 627.75,
+        "duration": 4.685
+    },
+    {
+        "text": "So very, very simple.",
+        "start": 632.435,
+        "duration": 1.54
+    },
+    {
+        "text": "Why would I want to do this custom skills.",
+        "start": 633.975,
+        "duration": 2.32
+    },
+    {
+        "text": "This seem super simple but it can be very, very valuable.",
+        "start": 636.295,
+        "duration": 3.53
+    },
+    {
+        "text": "Imagine that I am doing a search and I",
+        "start": 639.825,
+        "duration": 2.605
+    },
+    {
+        "text": "want to essentially search for content,",
+        "start": 642.43,
+        "duration": 2.86
+    },
+    {
+        "text": "but only in a particular type of document,",
+        "start": 645.29,
+        "duration": 2.505
+    },
+    {
+        "text": "only in the images, let's say.",
+        "start": 647.795,
+        "duration": 1.915
+    },
+    {
+        "text": "Then I can create or I can publish this skill.",
+        "start": 649.71,
+        "duration": 4.4
+    },
+    {
+        "text": "I can use the name that comes from Blob storage as an input.",
+        "start": 654.11,
+        "duration": 4.005
+    },
+    {
+        "text": "Now, I have the extension and now, I can define that extension",
+        "start": 658.115,
+        "duration": 5.674
+    },
+    {
+        "text": "or that file type as filtered or as a facet in my search engines.",
+        "start": 663.789,
+        "duration": 6.331
+    },
+    {
+        "text": "So if I do this, I can just hit go here and press",
+        "start": 670.12,
+        "duration": 4.71
+    },
+    {
+        "text": "F5 and it's going to allow me to debug this function.",
+        "start": 674.83,
+        "duration": 5.475
+    },
+    {
+        "text": "You can see it's deploying right now.",
+        "start": 680.305,
+        "duration": 2.92
+    },
+    {
+        "text": "When that's launching, I have already here shown how to test this.",
+        "start": 683.225,
+        "duration": 7.565
+    },
+    {
+        "text": "Essentially I went to Postman and to be",
+        "start": 690.79,
+        "duration": 3.66
+    },
+    {
+        "text": "the local host location that",
+        "start": 694.45,
+        "duration": 2.125
+    },
+    {
+        "text": "this is going to give me in just one second,",
+        "start": 696.575,
+        "duration": 2.55
+    },
+    {
+        "text": "and then I provided the barriers based on the, what happened?",
+        "start": 699.125,
+        "duration": 6.225
+    },
+    {
+        "text": "Whatever, let's just continue.",
+        "start": 707.15,
+        "duration": 4.01
+    },
+    {
+        "text": "I am going to take",
+        "start": 711.77,
+        "duration": 2.935
+    },
+    {
+        "text": "exactly the same format that I had in these slides,",
+        "start": 714.705,
+        "duration": 3.419
+    },
+    {
+        "text": "and I am going to pass that as an input.",
+        "start": 718.124,
+        "duration": 3.506
+    },
+    {
+        "text": "So if we go to the Azure Function deployment,",
+        "start": 721.63,
+        "duration": 3.835
+    },
+    {
+        "text": "you can see in local host right",
+        "start": 725.465,
+        "duration": 2.61
+    },
+    {
+        "text": "now is this get-file-type function.",
+        "start": 728.075,
+        "duration": 4.04
+    },
+    {
+        "text": "I'm going to actually post this.",
+        "start": 732.115,
+        "duration": 3.605
+    },
+    {
+        "text": "So I'm going to send this request and I should get,",
+        "start": 735.72,
+        "duration": 6.01
+    },
+    {
+        "text": "as you can see right now,",
+        "start": 741.73,
+        "duration": 2.215
+    },
+    {
+        "text": "it says that the file type is of type image.",
+        "start": 743.945,
+        "duration": 3.495
+    },
+    {
+        "text": "So exactly what we needed.",
+        "start": 747.44,
+        "duration": 3.115
+    },
+    {
+        "text": "So very, very simple.",
+        "start": 750.555,
+        "duration": 1.71
+    },
+    {
+        "text": "Now, I have already gone through the publish of",
+        "start": 752.265,
+        "duration": 6.9
+    },
+    {
+        "text": "this skill from Visual Studio",
+        "start": 759.165,
+        "duration": 3.565
+    },
+    {
+        "text": "essentially just right-clicking on",
+        "start": 762.73,
+        "duration": 1.62
+    },
+    {
+        "text": "the solution and clicking publish,",
+        "start": 764.35,
+        "duration": 1.97
+    },
+    {
+        "text": "so that now this is exactly the same thing,",
+        "start": 766.32,
+        "duration": 2.47
+    },
+    {
+        "text": "but it's hosted on Azure.",
+        "start": 768.79,
+        "duration": 3.055
+    },
+    {
+        "text": "So I can call it anytime not when my machine is running.",
+        "start": 771.845,
+        "duration": 3.705
+    },
+    {
+        "text": ">> Right.",
+        "start": 775.55,
+        "duration": 0.575
+    },
+    {
+        "text": ">> So okay, perfect.",
+        "start": 776.125,
+        "duration": 1.485
+    },
+    {
+        "text": "So we have done that already",
+        "start": 777.61,
+        "duration": 2.125
+    },
+    {
+        "text": "and I am going to show you now how to connect",
+        "start": 779.735,
+        "duration": 2.825
+    },
+    {
+        "text": "that to the rest of the pipeline so that we can consume.",
+        "start": 782.56,
+        "duration": 7.025
+    },
+    {
+        "text": ">> So let's pause right here so people can",
+        "start": 789.585,
+        "duration": 1.53
+    },
+    {
+        "text": "understand what's going on.",
+        "start": 791.115,
+        "duration": 1.76
+    },
+    {
+        "text": "So basically, what you did is he wrote an",
+        "start": 792.875,
+        "duration": 1.775
+    },
+    {
+        "text": "Azure Function that would take whatever the indexer would give it,",
+        "start": 794.65,
+        "duration": 4.375
+    },
+    {
+        "text": "like here's a file,",
+        "start": 799.025,
+        "duration": 1.215
+    },
+    {
+        "text": "do what you want with it.",
+        "start": 800.24,
+        "duration": 1.415
+    },
+    {
+        "text": "Then it returns something that the indexer can read.",
+        "start": 801.655,
+        "duration": 2.83
+    },
+    {
+        "text": "So basically, we took a little detour to look at",
+        "start": 804.485,
+        "duration": 2.495
+    },
+    {
+        "text": "just that bit of",
+        "start": 806.98,
+        "duration": 1.435
+    },
+    {
+        "text": "custom functionality that you wrote for your skill.",
+        "start": 808.415,
+        "duration": 3.285
+    },
+    {
+        "text": ">> Yeah, exactly. It's just one of the Lego pieces",
+        "start": 811.7,
+        "duration": 2.71
+    },
+    {
+        "text": "inside that we want to now connect to the rest of the pipeline.",
+        "start": 814.41,
+        "duration": 3.96
+    },
+    {
+        "text": "So that's why you saw it.",
+        "start": 818.37,
+        "duration": 2.225
+    },
+    {
+        "text": "Just right now, the skill",
+        "start": 820.595,
+        "duration": 2.4
+    },
+    {
+        "text": "itself is not aware of what's happening around it.",
+        "start": 822.995,
+        "duration": 2.435
+    },
+    {
+        "text": "It is not aware that it's part of",
+        "start": 825.43,
+        "duration": 1.715
+    },
+    {
+        "text": "skill set or not or that I am just testing it.",
+        "start": 827.145,
+        "duration": 2.93
+    },
+    {
+        "text": "It's just an input, output,",
+        "start": 830.075,
+        "duration": 2.37
+    },
+    {
+        "text": "very simple function right now.",
+        "start": 832.445,
+        "duration": 2.97
+    },
+    {
+        "text": "But now, when we connect it to the rest of the pipeline,",
+        "start": 835.415,
+        "duration": 2.835
+    },
+    {
+        "text": "then it becomes very useful.",
+        "start": 838.25,
+        "duration": 2.19
+    },
+    {
+        "text": ">> All right, let's connect it..",
+        "start": 840.44,
+        "duration": 1.34
+    },
+    {
+        "text": ">> All right, let's do it. So the first thing that I did,",
+        "start": 841.78,
+        "duration": 2.925
+    },
+    {
+        "text": "here I am on my Azure subscription and I had already an index.",
+        "start": 844.705,
+        "duration": 6.645
+    },
+    {
+        "text": "So what I did is I added an extra field to that index.",
+        "start": 851.35,
+        "duration": 4.29
+    },
+    {
+        "text": "You will see it right here is just I named it filetype.",
+        "start": 855.64,
+        "duration": 3.82
+    },
+    {
+        "text": "Let me make this is a little bit bigger for you.",
+        "start": 859.46,
+        "duration": 2.865
+    },
+    {
+        "text": "I name it filetype and is of type string.",
+        "start": 862.325,
+        "duration": 3.955
+    },
+    {
+        "text": "Some of these check boxes represent",
+        "start": 866.28,
+        "duration": 2.38
+    },
+    {
+        "text": "the different attributes of that field,",
+        "start": 868.66,
+        "duration": 2.47
+    },
+    {
+        "text": "and I'll show you the columns in a second.",
+        "start": 871.13,
+        "duration": 2.32
+    },
+    {
+        "text": "But essentially by marking these check boxes,",
+        "start": 873.45,
+        "duration": 2.5
+    },
+    {
+        "text": "I made it filterable and facetable,",
+        "start": 875.95,
+        "duration": 3.425
+    },
+    {
+        "text": "and unsearchable as well.",
+        "start": 879.375,
+        "duration": 1.43
+    },
+    {
+        "text": "So I can essentially perform a filter",
+        "start": 880.805,
+        "duration": 3.335
+    },
+    {
+        "text": "based on the file type or even get facets based on that.",
+        "start": 884.14,
+        "duration": 4.085
+    },
+    {
+        "text": "So I modified the index,",
+        "start": 888.225,
+        "duration": 3.545
+    },
+    {
+        "text": "then I want to modify the skill",
+        "start": 891.77,
+        "duration": 2.87
+    },
+    {
+        "text": "set or the steps that I need to do for enrichment.",
+        "start": 894.64,
+        "duration": 4.475
+    },
+    {
+        "text": "This is what I actually call my custom skills.",
+        "start": 899.115,
+        "duration": 3.055
+    },
+    {
+        "text": "So first of all,",
+        "start": 902.17,
+        "duration": 2.26
+    },
+    {
+        "text": "you can see I have this skill set right here.",
+        "start": 904.43,
+        "duration": 2.27
+    },
+    {
+        "text": "Then there is this very nice experience that allows",
+        "start": 906.7,
+        "duration": 3.36
+    },
+    {
+        "text": "me to see the skillset definition from the portal.",
+        "start": 910.06,
+        "duration": 4.74
+    },
+    {
+        "text": "I am looking at the array of skills,",
+        "start": 915.72,
+        "duration": 4.18
+    },
+    {
+        "text": "and each of them are defined.",
+        "start": 919.9,
+        "duration": 1.5
+    },
+    {
+        "text": "For instance, this is an entity recognition skill,",
+        "start": 921.4,
+        "duration": 2.685
+    },
+    {
+        "text": "and you can see parameters related to it and so forth.",
+        "start": 924.085,
+        "duration": 2.985
+    },
+    {
+        "text": "These are the built-in skills,",
+        "start": 927.07,
+        "duration": 1.425
+    },
+    {
+        "text": "but I am going to add my own custom skill,",
+        "start": 928.495,
+        "duration": 3.225
+    },
+    {
+        "text": "and this is essentially, at the end of the skills list.",
+        "start": 931.72,
+        "duration": 3.42
+    },
+    {
+        "text": "I started this definition of the custom skill.",
+        "start": 935.14,
+        "duration": 4.035
+    },
+    {
+        "text": "So sometimes people may say,",
+        "start": 939.175,
+        "duration": 2.97
+    },
+    {
+        "text": "\"How would I know to enter the odata.type,",
+        "start": 942.145,
+        "duration": 3.735
+    },
+    {
+        "text": "or what parameters to use and so forth?\"",
+        "start": 945.88,
+        "duration": 4.17
+    },
+    {
+        "text": "Well, of course, this is only in the documentation,",
+        "start": 950.05,
+        "duration": 2.88
+    },
+    {
+        "text": "but also there is this very nice template that allows you to copy,",
+        "start": 952.93,
+        "duration": 5.295
+    },
+    {
+        "text": "or rather we have",
+        "start": 958.225,
+        "duration": 3.225
+    },
+    {
+        "text": "this ability to extract the template out of each of the skills.",
+        "start": 961.45,
+        "duration": 4.23
+    },
+    {
+        "text": "So for instance, a key phrase skill or whatever,",
+        "start": 965.68,
+        "duration": 3.225
+    },
+    {
+        "text": "and then you can copy the template to",
+        "start": 968.905,
+        "duration": 2.325
+    },
+    {
+        "text": "the clipboard and then just paste it right here.",
+        "start": 971.23,
+        "duration": 5.055
+    },
+    {
+        "text": "Sorry, let me make this just a little bit smaller.",
+        "start": 976.285,
+        "duration": 2.73
+    },
+    {
+        "text": "It's a little bit harder to see.",
+        "start": 979.015,
+        "duration": 2.235
+    },
+    {
+        "text": ">> There you go.",
+        "start": 981.25,
+        "duration": 0.945
+    },
+    {
+        "text": ">> Yeah, it's better. So all right.",
+        "start": 982.195,
+        "duration": 3.405
+    },
+    {
+        "text": "So you can see for instance,",
+        "start": 985.6,
+        "duration": 0.93
+    },
+    {
+        "text": "the Key Phrase Extraction Skill template,",
+        "start": 986.53,
+        "duration": 3.224
+    },
+    {
+        "text": "but I wanted the Custom Web API skill,",
+        "start": 989.754,
+        "duration": 2.671
+    },
+    {
+        "text": "so I can just copy this and paste it on the left side,",
+        "start": 992.425,
+        "duration": 3.6
+    },
+    {
+        "text": "and then just enter each of the elements.",
+        "start": 996.025,
+        "duration": 2.195
+    },
+    {
+        "text": "So for instance, I enter what the URI for my publish skill is,",
+        "start": 998.22,
+        "duration": 3.93
+    },
+    {
+        "text": "and what the method for calling it is.",
+        "start": 1002.15,
+        "duration": 2.835
+    },
+    {
+        "text": "So I just fill each of the parameters for that,",
+        "start": 1004.985,
+        "duration": 4.49
+    },
+    {
+        "text": "and one thing that is important",
+        "start": 1009.475,
+        "duration": 3.245
+    },
+    {
+        "text": "here that may not be so obvious is what is the context?",
+        "start": 1012.72,
+        "duration": 4.439
+    },
+    {
+        "text": "The context of a custom skill is",
+        "start": 1017.159,
+        "duration": 2.221
+    },
+    {
+        "text": "essentially the level at which you enrich the information.",
+        "start": 1019.38,
+        "duration": 3.54
+    },
+    {
+        "text": "In this case, I want the file type,",
+        "start": 1022.92,
+        "duration": 3.345
+    },
+    {
+        "text": "and that's an attribute of the document itself.",
+        "start": 1026.265,
+        "duration": 4.665
+    },
+    {
+        "text": "If you have more complex skills, or skill sets,",
+        "start": 1030.93,
+        "duration": 4.515
+    },
+    {
+        "text": "where you may want to get attributes for",
+        "start": 1035.445,
+        "duration": 2.475
+    },
+    {
+        "text": "a submember of the document.",
+        "start": 1037.92,
+        "duration": 4.47
+    },
+    {
+        "text": "For instance, maybe I extracted all the images from",
+        "start": 1042.39,
+        "duration": 3.63
+    },
+    {
+        "text": "the documents and then one of the attributes for",
+        "start": 1046.02,
+        "duration": 2.31
+    },
+    {
+        "text": "each images what's inside the image,",
+        "start": 1048.33,
+        "duration": 2.55
+    },
+    {
+        "text": "then the context will not be just a document,",
+        "start": 1050.88,
+        "duration": 2.745
+    },
+    {
+        "text": "but it would be like slash documents,",
+        "start": 1053.625,
+        "duration": 2.175
+    },
+    {
+        "text": "slash images, slash star,",
+        "start": 1055.8,
+        "duration": 2.34
+    },
+    {
+        "text": "because essentially it's an attribute",
+        "start": 1058.14,
+        "duration": 2.04
+    },
+    {
+        "text": "of each of the images within the documents.",
+        "start": 1060.18,
+        "duration": 2.325
+    },
+    {
+        "text": "So the context is what is this enriching?",
+        "start": 1062.505,
+        "duration": 5.01
+    },
+    {
+        "text": "In this case, we're enriching the document itself,",
+        "start": 1067.515,
+        "duration": 2.775
+    },
+    {
+        "text": "and the file name was the input.",
+        "start": 1070.29,
+        "duration": 4.455
+    },
+    {
+        "text": "So you can see that I use exactly the same name here",
+        "start": 1074.745,
+        "duration": 5.82
+    },
+    {
+        "text": "as the name that is expected to be used when we send the code,",
+        "start": 1080.565,
+        "duration": 6.33
+    },
+    {
+        "text": "which is just file name,",
+        "start": 1086.895,
+        "duration": 1.275
+    },
+    {
+        "text": "and file type was the output.",
+        "start": 1088.17,
+        "duration": 1.92
+    },
+    {
+        "text": "For the source of the file name,",
+        "start": 1090.09,
+        "duration": 1.995
+    },
+    {
+        "text": "this is where is this file name information coming from,",
+        "start": 1092.085,
+        "duration": 3.735
+    },
+    {
+        "text": "and this is the metadata storage name.",
+        "start": 1095.82,
+        "duration": 3.78
+    },
+    {
+        "text": "This comes from the document-cracking stage.",
+        "start": 1099.6,
+        "duration": 2.58
+    },
+    {
+        "text": "We extracted the name of the file as part of that,",
+        "start": 1102.18,
+        "duration": 3.0
+    },
+    {
+        "text": "and this is all well documented",
+        "start": 1105.18,
+        "duration": 1.98
+    },
+    {
+        "text": "what values you have available to you,",
+        "start": 1107.16,
+        "duration": 2.43
+    },
+    {
+        "text": "but this is just one of them,",
+        "start": 1109.59,
+        "duration": 1.545
+    },
+    {
+        "text": "and in the case of the output,",
+        "start": 1111.135,
+        "duration": 2.745
+    },
+    {
+        "text": "I call the file type the same.",
+        "start": 1113.88,
+        "duration": 3.045
+    },
+    {
+        "text": "So from now on,",
+        "start": 1116.925,
+        "duration": 1.755
+    },
+    {
+        "text": "I can refer to the file type as a member of the document,",
+        "start": 1118.68,
+        "duration": 4.785
+    },
+    {
+        "text": "and use that in the rest of the pipe.",
+        "start": 1123.465,
+        "duration": 2.97
+    },
+    {
+        "text": ">> Cool.",
+        "start": 1126.435,
+        "duration": 0.825
+    },
+    {
+        "text": ">> So let's go to the next step.",
+        "start": 1127.26,
+        "duration": 2.325
+    },
+    {
+        "text": "We have a skill set and I will",
+        "start": 1129.585,
+        "duration": 1.575
+    },
+    {
+        "text": "plot the inputs and outputs of that skill.",
+        "start": 1131.16,
+        "duration": 2.37
+    },
+    {
+        "text": "Now, in the index set,",
+        "start": 1133.53,
+        "duration": 2.1
+    },
+    {
+        "text": "once the skill set is completed,",
+        "start": 1135.63,
+        "duration": 1.71
+    },
+    {
+        "text": "we want to map this to the index definition,",
+        "start": 1137.34,
+        "duration": 5.055
+    },
+    {
+        "text": "and that's done very easily by modifying my output field mappings.",
+        "start": 1142.395,
+        "duration": 5.79
+    },
+    {
+        "text": "Output field mappings happen after the skillset execution.",
+        "start": 1148.185,
+        "duration": 3.39
+    },
+    {
+        "text": "That's the important part here.",
+        "start": 1151.575,
+        "duration": 1.455
+    },
+    {
+        "text": "That's the reason they're called output field mappings,",
+        "start": 1153.03,
+        "duration": 2.55
+    },
+    {
+        "text": "and all I added was one entry",
+        "start": 1155.58,
+        "duration": 3.24
+    },
+    {
+        "text": "here where I said there is a property of the document.",
+        "start": 1158.82,
+        "duration": 3.375
+    },
+    {
+        "text": "Remember, that was the context called filetype,",
+        "start": 1162.195,
+        "duration": 3.315
+    },
+    {
+        "text": "and I want you to map that to the filetype member in the index.",
+        "start": 1165.51,
+        "duration": 6.825
+    },
+    {
+        "text": "Remember that we had created the string field in the index.",
+        "start": 1172.335,
+        "duration": 4.335
+    },
+    {
+        "text": "We call that actually the same file.",
+        "start": 1176.67,
+        "duration": 1.8
+    },
+    {
+        "text": ">> Correct.",
+        "start": 1178.47,
+        "duration": 0.945
+    },
+    {
+        "text": ">> So with that,",
+        "start": 1179.415,
+        "duration": 1.905
+    },
+    {
+        "text": "now I could just reset my index,",
+        "start": 1181.32,
+        "duration": 2.76
+    },
+    {
+        "text": "and run it again.",
+        "start": 1184.08,
+        "duration": 1.77
+    },
+    {
+        "text": "I'm not going to do it because I already ran it ahead of time.",
+        "start": 1185.85,
+        "duration": 3.51
+    },
+    {
+        "text": ">> Sure.",
+        "start": 1189.36,
+        "duration": 0.435
+    },
+    {
+        "text": ">> Now, the file types",
+        "start": 1189.795,
+        "duration": 3.825
+    },
+    {
+        "text": "will be extracted as part of the enrichment process.",
+        "start": 1193.62,
+        "duration": 4.275
+    },
+    {
+        "text": ">> All right. Well, let's see it in action.",
+        "start": 1197.895,
+        "duration": 2.085
+    },
+    {
+        "text": ">> Yeah. So actually, here in this other tab,",
+        "start": 1199.98,
+        "duration": 3.06
+    },
+    {
+        "text": "I have my index and I am",
+        "start": 1203.04,
+        "duration": 2.43
+    },
+    {
+        "text": "going to collate with a query where it says,",
+        "start": 1205.47,
+        "duration": 2.655
+    },
+    {
+        "text": "I want the term Satya,",
+        "start": 1208.125,
+        "duration": 1.844
+    },
+    {
+        "text": "but I want to apply a filter where the file type equals image,",
+        "start": 1209.969,
+        "duration": 4.426
+    },
+    {
+        "text": "and instead of getting all the content,",
+        "start": 1214.395,
+        "duration": 2.445
+    },
+    {
+        "text": "I'm just going to get the name of the file and the file type,",
+        "start": 1216.84,
+        "duration": 2.79
+    },
+    {
+        "text": "which are the interesting parts that we are",
+        "start": 1219.63,
+        "duration": 2.1
+    },
+    {
+        "text": "working with in this module.",
+        "start": 1221.73,
+        "duration": 2.925
+    },
+    {
+        "text": "So I'm going to hit that, and go,",
+        "start": 1224.655,
+        "duration": 2.355
+    },
+    {
+        "text": "and it looks like there is indeed one document that has Satya.",
+        "start": 1227.01,
+        "duration": 5.445
+    },
+    {
+        "text": "I did some celebrity recognition, and so forth.",
+        "start": 1232.455,
+        "duration": 3.885
+    },
+    {
+        "text": "So his name must have been",
+        "start": 1236.34,
+        "duration": 1.02
+    },
+    {
+        "text": "somewhere in the content of the document,",
+        "start": 1237.36,
+        "duration": 1.995
+    },
+    {
+        "text": "and the name of the document was",
+        "start": 1239.355,
+        "duration": 2.115
+    },
+    {
+        "text": "satyanadellalinux.jpg, so that makes sense,",
+        "start": 1241.47,
+        "duration": 3.06
+    },
+    {
+        "text": "and it's a file type image,",
+        "start": 1244.53,
+        "duration": 2.4
+    },
+    {
+        "text": "and that was extracted by our custom skill.",
+        "start": 1246.93,
+        "duration": 3.48
+    },
+    {
+        "text": ">> So that's really cool,",
+        "start": 1250.41,
+        "duration": 2.16
+    },
+    {
+        "text": "and basically, let's see if we can summarize here to finish up.",
+        "start": 1252.57,
+        "duration": 3.36
+    },
+    {
+        "text": "Basically, you made an Azure Function to do whatever.",
+        "start": 1255.93,
+        "duration": 3.12
+    },
+    {
+        "text": ">> Exactly.",
+        "start": 1259.05,
+        "duration": 0.51
+    },
+    {
+        "text": ">> You linked it up to the indexer.",
+        "start": 1259.56,
+        "duration": 1.875
+    },
+    {
+        "text": "Well, you create a field,",
+        "start": 1261.435,
+        "duration": 1.44
+    },
+    {
+        "text": "some space for it in the index.",
+        "start": 1262.875,
+        "duration": 1.695
+    },
+    {
+        "text": "You told the indexer, run the skill,",
+        "start": 1264.57,
+        "duration": 2.55
+    },
+    {
+        "text": "put it in that field in the index or",
+        "start": 1267.12,
+        "duration": 1.74
+    },
+    {
+        "text": "whatever set of fields, it might be more.",
+        "start": 1268.86,
+        "duration": 1.935
+    },
+    {
+        "text": "Can you have complex structures as well in the index?",
+        "start": 1270.795,
+        "duration": 3.585
+    },
+    {
+        "text": ">> Yes, of course,",
+        "start": 1274.38,
+        "duration": 1.5
+    },
+    {
+        "text": "you can have complex structures in the index.",
+        "start": 1275.88,
+        "duration": 3.405
+    },
+    {
+        "text": "Right now, we use just a string for simplicity,",
+        "start": 1279.285,
+        "duration": 2.895
+    },
+    {
+        "text": "but we support complex types.",
+        "start": 1282.18,
+        "duration": 1.905
+    },
+    {
+        "text": "So you can define an Edm.ComplexType,",
+        "start": 1284.085,
+        "duration": 3.675
+    },
+    {
+        "text": "and then the fields of that right under.",
+        "start": 1287.76,
+        "duration": 3.315
+    },
+    {
+        "text": ">> I see.",
+        "start": 1291.075,
+        "duration": 0.585
+    },
+    {
+        "text": ">> If you were to have a complex type,",
+        "start": 1291.66,
+        "duration": 2.07
+    },
+    {
+        "text": "the catch is this.",
+        "start": 1293.73,
+        "duration": 1.425
+    },
+    {
+        "text": "It's more powerful because you can do more things with it,",
+        "start": 1295.155,
+        "duration": 2.775
+    },
+    {
+        "text": "but you have to make sure that whatever you push into",
+        "start": 1297.93,
+        "duration": 2.58
+    },
+    {
+        "text": "that matches the exact schema of that as well.",
+        "start": 1300.51,
+        "duration": 2.745
+    },
+    {
+        "text": ">> Got it. So then once the indexer knows about the skill,",
+        "start": 1303.255,
+        "duration": 3.51
+    },
+    {
+        "text": "the indexer says, here,",
+        "start": 1306.765,
+        "duration": 1.71
+    },
+    {
+        "text": "and then the skill will tell it how to map it to the index,",
+        "start": 1308.475,
+        "duration": 3.255
+    },
+    {
+        "text": "and then you can do some amazing search. Did I get it right?",
+        "start": 1311.73,
+        "duration": 2.4
+    },
+    {
+        "text": ">> That's exactly right.",
+        "start": 1314.13,
+        "duration": 1.395
+    },
+    {
+        "text": ">> Fantastic. Well, this has been amazing, Luis.",
+        "start": 1315.525,
+        "duration": 2.025
+    },
+    {
+        "text": "Thanks so much for being with us, my friend.",
+        "start": 1317.55,
+        "duration": 1.785
+    },
+    {
+        "text": ">> Always my pleasure. Thank you so much, Seth.",
+        "start": 1319.335,
+        "duration": 2.295
+    },
+    {
+        "text": ">> Thank you so much for watching. We're learning about",
+        "start": 1321.63,
+        "duration": 1.5
+    },
+    {
+        "text": "custom skills in Azure Cognitive Search.",
+        "start": 1323.13,
+        "duration": 2.325
+    },
+    {
+        "text": "Thanks for watching, and we'll see you next time. Take care.",
+        "start": 1325.455,
+        "duration": 2.235
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 1327.69,
+        "duration": 15.31
+    }
+]

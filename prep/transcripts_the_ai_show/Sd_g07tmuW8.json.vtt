@@ -1,0 +1,2452 @@
+[
+    {
+        "text": ">> You're not going to want to miss",
+        "start": 0.0,
+        "duration": 1.05
+    },
+    {
+        "text": "this episode of The AI Show where Luis",
+        "start": 1.05,
+        "duration": 1.89
+    },
+    {
+        "text": "shows us all the new stuff in Azure Cognitive Search,",
+        "start": 2.94,
+        "duration": 3.15
+    },
+    {
+        "text": "specifically semantic search. Make sure you tune in.",
+        "start": 6.09,
+        "duration": 3.54
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 9.63,
+        "duration": 7.62
+    },
+    {
+        "text": ">> Hello and welcome to this episode of the AI Show.",
+        "start": 17.25,
+        "duration": 1.83
+    },
+    {
+        "text": "We're going to learn all about semantic search.",
+        "start": 19.08,
+        "duration": 3.765
+    },
+    {
+        "text": "Let me bring this up here so you can see.",
+        "start": 22.845,
+        "duration": 1.95
+    },
+    {
+        "text": "Finding meaningful insights using",
+        "start": 24.795,
+        "duration": 1.995
+    },
+    {
+        "text": "semantic capabilities in Azure Cognitive Search.",
+        "start": 26.79,
+        "duration": 2.085
+    },
+    {
+        "text": "I got a special guest. Luis, why",
+        "start": 28.875,
+        "duration": 1.695
+    },
+    {
+        "text": "don't you introduce yourself, my friend?",
+        "start": 30.57,
+        "duration": 1.47
+    },
+    {
+        "text": ">> Thank you, Seth. It's a pleasure to be with you.",
+        "start": 32.04,
+        "duration": 2.52
+    },
+    {
+        "text": "My name is Luis Cabrera,",
+        "start": 34.56,
+        "duration": 1.42
+    },
+    {
+        "text": "I'm the Group Program Manager for",
+        "start": 35.98,
+        "duration": 1.61
+    },
+    {
+        "text": "Azure Cognitive Search and been at Microsoft what?",
+        "start": 37.59,
+        "duration": 4.17
+    },
+    {
+        "text": "Like 17 years now.",
+        "start": 41.76,
+        "duration": 1.2
+    },
+    {
+        "text": "I went there right after college,",
+        "start": 42.96,
+        "duration": 2.04
+    },
+    {
+        "text": "and I have been having fun at Microsoft ever since.",
+        "start": 45.0,
+        "duration": 4.785
+    },
+    {
+        "text": ">> That's awesome. Let's start first for those that do not",
+        "start": 49.785,
+        "duration": 3.515
+    },
+    {
+        "text": "know about regular Azure Cognitive Search,",
+        "start": 53.3,
+        "duration": 4.5
+    },
+    {
+        "text": "why don't we start with that particular question.",
+        "start": 57.8,
+        "duration": 2.585
+    },
+    {
+        "text": ">> Yeah, that's a great question.",
+        "start": 60.385,
+        "duration": 1.73
+    },
+    {
+        "text": "Azure Cognitive Search,",
+        "start": 62.115,
+        "duration": 2.25
+    },
+    {
+        "text": "imagine that you're a developer and you want to",
+        "start": 64.365,
+        "duration": 2.855
+    },
+    {
+        "text": "create an application where you need to put",
+        "start": 67.22,
+        "duration": 2.01
+    },
+    {
+        "text": "the search bar out there to find content,",
+        "start": 69.23,
+        "duration": 3.06
+    },
+    {
+        "text": "whether it's documents or records,",
+        "start": 72.29,
+        "duration": 2.1
+    },
+    {
+        "text": "maybe you are creating something for your human resources team,",
+        "start": 74.39,
+        "duration": 5.13
+    },
+    {
+        "text": "let's say, it's a line of business application.",
+        "start": 79.52,
+        "duration": 3.59
+    },
+    {
+        "text": "It doesn't matter; whether you're creating",
+        "start": 83.11,
+        "duration": 2.32
+    },
+    {
+        "text": "a web mobile application",
+        "start": 85.43,
+        "duration": 1.77
+    },
+    {
+        "text": "or a line of business enterprise application.",
+        "start": 87.2,
+        "duration": 3.36
+    },
+    {
+        "text": "If you have a search bar there,",
+        "start": 90.56,
+        "duration": 2.115
+    },
+    {
+        "text": "we can power that search with Azure Cognitive Search.",
+        "start": 92.675,
+        "duration": 3.27
+    },
+    {
+        "text": "It's a Platform as a Service component.",
+        "start": 95.945,
+        "duration": 2.475
+    },
+    {
+        "text": "You essentially point us to",
+        "start": 98.42,
+        "duration": 1.65
+    },
+    {
+        "text": "your information or you push that information,",
+        "start": 100.07,
+        "duration": 2.46
+    },
+    {
+        "text": "we index it, then you can query it, and then,",
+        "start": 102.53,
+        "duration": 2.7
+    },
+    {
+        "text": "of course, we can give you the results fast and its filters.",
+        "start": 105.23,
+        "duration": 2.835
+    },
+    {
+        "text": "We have a bunch of bells and whistles that are interesting,",
+        "start": 108.065,
+        "duration": 2.985
+    },
+    {
+        "text": "including one that we're going to talk about today.",
+        "start": 111.05,
+        "duration": 2.52
+    },
+    {
+        "text": ">> Let's move to that. What's the difference",
+        "start": 113.57,
+        "duration": 1.98
+    },
+    {
+        "text": "between semantic search and regular search?",
+        "start": 115.55,
+        "duration": 4.44
+    },
+    {
+        "text": "I want to understand more about this feature.",
+        "start": 119.99,
+        "duration": 2.75
+    },
+    {
+        "text": ">> Now that's a great question.",
+        "start": 122.74,
+        "duration": 1.925
+    },
+    {
+        "text": "With what you call regular search",
+        "start": 124.665,
+        "duration": 2.225
+    },
+    {
+        "text": "or we may want to call it keyword search, let's say,",
+        "start": 126.89,
+        "duration": 3.27
+    },
+    {
+        "text": "you usually type some keywords,",
+        "start": 130.16,
+        "duration": 2.51
+    },
+    {
+        "text": "and then we have indexed your content so that we can quickly",
+        "start": 132.67,
+        "duration": 2.98
+    },
+    {
+        "text": "find where those keywords are in your content.",
+        "start": 135.65,
+        "duration": 3.725
+    },
+    {
+        "text": "Let's say you search for, I don't know,",
+        "start": 139.375,
+        "duration": 3.65
+    },
+    {
+        "text": "let's say a product or something like that,",
+        "start": 143.025,
+        "duration": 2.65
+    },
+    {
+        "text": "or in Channel 9, let's say in Channel 9",
+        "start": 145.675,
+        "duration": 2.78
+    },
+    {
+        "text": "you are searching for the term machine learning.",
+        "start": 148.455,
+        "duration": 2.77
+    },
+    {
+        "text": "We're going to go and find any place where",
+        "start": 151.225,
+        "duration": 2.905
+    },
+    {
+        "text": "the terms or keywords machine and learning,",
+        "start": 154.13,
+        "duration": 3.5
+    },
+    {
+        "text": "and we have language analyzer.",
+        "start": 157.63,
+        "duration": 1.76
+    },
+    {
+        "text": "So it's somewhere else it says learn, let's say,",
+        "start": 159.39,
+        "duration": 2.36
+    },
+    {
+        "text": "instead of learning, we're going to find those documents as well.",
+        "start": 161.75,
+        "duration": 5.265
+    },
+    {
+        "text": "We have this what we call an inverted index,",
+        "start": 167.015,
+        "duration": 2.445
+    },
+    {
+        "text": "so we can do this very, very quickly.",
+        "start": 169.46,
+        "duration": 2.345
+    },
+    {
+        "text": "Now, the catch is this;",
+        "start": 171.805,
+        "duration": 2.255
+    },
+    {
+        "text": "as people have been using search engines like Bing,",
+        "start": 174.06,
+        "duration": 4.805
+    },
+    {
+        "text": "they are getting used to doing very, very complex queries.",
+        "start": 178.865,
+        "duration": 4.585
+    },
+    {
+        "text": "For instance, they may ask a query,",
+        "start": 183.45,
+        "duration": 2.445
+    },
+    {
+        "text": "how do I learn machine learning,",
+        "start": 185.895,
+        "duration": 2.115
+    },
+    {
+        "text": "or how do I do these,",
+        "start": 188.01,
+        "duration": 1.98
+    },
+    {
+        "text": "or who is Seth Juarez?",
+        "start": 189.99,
+        "duration": 2.91
+    },
+    {
+        "text": "When they ask these very complex queries,",
+        "start": 192.9,
+        "duration": 2.975
+    },
+    {
+        "text": "those have meaning, it's not about just finding the terms.",
+        "start": 195.875,
+        "duration": 4.695
+    },
+    {
+        "text": "Imagine that someone is finding who is Seth Juarez,",
+        "start": 200.57,
+        "duration": 3.365
+    },
+    {
+        "text": "and there are a bunch of other documents,",
+        "start": 203.935,
+        "duration": 3.485
+    },
+    {
+        "text": "maybe the title of the document is,",
+        "start": 207.42,
+        "duration": 2.915
+    },
+    {
+        "text": "Who is Benito Juarez?",
+        "start": 210.335,
+        "duration": 1.89
+    },
+    {
+        "text": "That has a who is and Juarez,",
+        "start": 212.225,
+        "duration": 3.355
+    },
+    {
+        "text": "it has three terms that are in common with the query, let's say.",
+        "start": 215.58,
+        "duration": 3.575
+    },
+    {
+        "text": "Maybe Juarez appears all over",
+        "start": 219.155,
+        "duration": 2.055
+    },
+    {
+        "text": "the place but it's not the same meaning,",
+        "start": 221.21,
+        "duration": 2.77
+    },
+    {
+        "text": "you are not Benito Juarez you're Seth Juarez.",
+        "start": 223.98,
+        "duration": 2.03
+    },
+    {
+        "text": ">> That's right.",
+        "start": 226.01,
+        "duration": 1.54
+    },
+    {
+        "text": ">> How do we find the content that you need,",
+        "start": 227.59,
+        "duration": 4.26
+    },
+    {
+        "text": "even when maybe you're not using even the exact keywords?",
+        "start": 231.85,
+        "duration": 3.43
+    },
+    {
+        "text": "For instance, in my end,",
+        "start": 235.28,
+        "duration": 1.515
+    },
+    {
+        "text": "I do a query like maybe I'm going to a bookstore and the query is,",
+        "start": 236.795,
+        "duration": 6.265
+    },
+    {
+        "text": "learn to cook French food.",
+        "start": 243.16,
+        "duration": 3.56
+    },
+    {
+        "text": "What if the name of the book is called",
+        "start": 247.04,
+        "duration": 3.705
+    },
+    {
+        "text": "Mastering The Art of Parties Cuisine.",
+        "start": 250.745,
+        "duration": 3.75
+    },
+    {
+        "text": "So I am not using exactly the same words,",
+        "start": 254.495,
+        "duration": 3.925
+    },
+    {
+        "text": "yet I want to find that book.",
+        "start": 258.42,
+        "duration": 1.595
+    },
+    {
+        "text": "If there is another book that says,",
+        "start": 260.015,
+        "duration": 1.375
+    },
+    {
+        "text": "How to Learn French,",
+        "start": 261.39,
+        "duration": 1.625
+    },
+    {
+        "text": "even though it uses a lot of the similar terms,",
+        "start": 263.015,
+        "duration": 2.94
+    },
+    {
+        "text": "that's not the book I want,",
+        "start": 265.955,
+        "duration": 1.53
+    },
+    {
+        "text": "I want a how to cook not to learn a language, as an example.",
+        "start": 267.485,
+        "duration": 3.585
+    },
+    {
+        "text": "This is the problem we're trying to solve.",
+        "start": 271.07,
+        "duration": 1.965
+    },
+    {
+        "text": "I have a diagram that I want to show you.",
+        "start": 273.035,
+        "duration": 3.43
+    },
+    {
+        "text": ">> Let's take a look.",
+        "start": 276.465,
+        "duration": 1.43
+    },
+    {
+        "text": ">> Just so that we can get a",
+        "start": 277.895,
+        "duration": 1.485
+    },
+    {
+        "text": "little bit deeper into how these work.",
+        "start": 279.38,
+        "duration": 2.235
+    },
+    {
+        "text": "We have this lexical ranker.",
+        "start": 281.615,
+        "duration": 4.495
+    },
+    {
+        "text": "Essentially, most of the services out there that do search today,",
+        "start": 287.66,
+        "duration": 5.59
+    },
+    {
+        "text": "they are based on this type of technology, lexical rankers.",
+        "start": 293.25,
+        "duration": 4.97
+    },
+    {
+        "text": "Usually, you have a query that goes through these,",
+        "start": 298.4,
+        "duration": 3.48
+    },
+    {
+        "text": "we find the documents,",
+        "start": 301.88,
+        "duration": 1.26
+    },
+    {
+        "text": "and then we give you the results.",
+        "start": 303.14,
+        "duration": 2.19
+    },
+    {
+        "text": "Let me put the focus in the right place.",
+        "start": 305.33,
+        "duration": 3.06
+    },
+    {
+        "text": "Let's say that I have a query,",
+        "start": 308.39,
+        "duration": 2.705
+    },
+    {
+        "text": "when was Walmart started?",
+        "start": 311.095,
+        "duration": 2.09
+    },
+    {
+        "text": "I have a corpus of information.",
+        "start": 313.185,
+        "duration": 2.64
+    },
+    {
+        "text": "In this case, I am going to use a corpus",
+        "start": 315.825,
+        "duration": 2.74
+    },
+    {
+        "text": "that has 3.2 million documents.",
+        "start": 318.565,
+        "duration": 3.305
+    },
+    {
+        "text": "It's a big, complex corpus.",
+        "start": 321.87,
+        "duration": 2.01
+    },
+    {
+        "text": "It's very likely to have a bunch of documents",
+        "start": 323.88,
+        "duration": 1.96
+    },
+    {
+        "text": "that have similar terms to my query.",
+        "start": 325.84,
+        "duration": 3.775
+    },
+    {
+        "text": "By the way, the MS-MARCO corpus",
+        "start": 329.615,
+        "duration": 2.255
+    },
+    {
+        "text": "is one that you can play with yourself,",
+        "start": 331.87,
+        "duration": 1.86
+    },
+    {
+        "text": "it's a publicly available corpus.",
+        "start": 333.73,
+        "duration": 2.79
+    },
+    {
+        "text": "It's out there for data scientists",
+        "start": 336.52,
+        "duration": 2.04
+    },
+    {
+        "text": "to check how good their algorithms are for things like this.",
+        "start": 338.56,
+        "duration": 4.015
+    },
+    {
+        "text": "Then one of the new things that we added to our product recently,",
+        "start": 342.575,
+        "duration": 4.655
+    },
+    {
+        "text": "it's not part of semantic specifically,",
+        "start": 347.23,
+        "duration": 2.67
+    },
+    {
+        "text": "but I wanted to introduce it",
+        "start": 349.9,
+        "duration": 1.68
+    },
+    {
+        "text": "here because it's part of the processes,",
+        "start": 351.58,
+        "duration": 2.13
+    },
+    {
+        "text": "a new spell corrector.",
+        "start": 353.71,
+        "duration": 1.725
+    },
+    {
+        "text": "If I had mistyped the query,",
+        "start": 355.435,
+        "duration": 2.945
+    },
+    {
+        "text": "it will have corrected that before going to this lexical ranker.",
+        "start": 358.38,
+        "duration": 4.78
+    },
+    {
+        "text": "Let's actually run or give you an idea of",
+        "start": 363.16,
+        "duration": 3.1
+    },
+    {
+        "text": "what it looks like if I run this lexical ranker.",
+        "start": 366.26,
+        "duration": 2.58
+    },
+    {
+        "text": "These is the type of documents that I get.",
+        "start": 368.84,
+        "duration": 4.755
+    },
+    {
+        "text": "Let me see. When I get results like,",
+        "start": 373.595,
+        "duration": 3.975
+    },
+    {
+        "text": "when was the WNBA started?",
+        "start": 377.57,
+        "duration": 1.89
+    },
+    {
+        "text": "When was CARICOM started?",
+        "start": 379.46,
+        "duration": 1.47
+    },
+    {
+        "text": "When was the Democratic and Republican Party started?",
+        "start": 380.93,
+        "duration": 2.73
+    },
+    {
+        "text": "A bunch of documents in this corpus that have when",
+        "start": 383.66,
+        "duration": 2.55
+    },
+    {
+        "text": "was and started in the title.",
+        "start": 386.21,
+        "duration": 3.34
+    },
+    {
+        "text": "This one is interesting, when does Walmart open on Black Friday?",
+        "start": 389.55,
+        "duration": 3.5
+    },
+    {
+        "text": "That's the term Walmart.",
+        "start": 393.05,
+        "duration": 1.65
+    },
+    {
+        "text": "I'm in somewhere in there it may say things",
+        "start": 394.7,
+        "duration": 3.36
+    },
+    {
+        "text": "like Walmart starts its business hours at,",
+        "start": 398.06,
+        "duration": 4.2
+    },
+    {
+        "text": "I don't know, seven o'clock in",
+        "start": 402.26,
+        "duration": 1.38
+    },
+    {
+        "text": "the morning on Saturdays or something like that,",
+        "start": 403.64,
+        "duration": 2.495
+    },
+    {
+        "text": "but it's not what we need semantically.",
+        "start": 406.135,
+        "duration": 2.44
+    },
+    {
+        "text": "It turns out that the document that we",
+        "start": 408.575,
+        "duration": 2.655
+    },
+    {
+        "text": "want is actually in position number 10.",
+        "start": 411.23,
+        "duration": 3.835
+    },
+    {
+        "text": "It's there, I would have",
+        "start": 415.065,
+        "duration": 3.105
+    },
+    {
+        "text": "found it if I had taken some time to go through all of them,",
+        "start": 418.17,
+        "duration": 3.38
+    },
+    {
+        "text": "and maybe go to the next page in some cases,",
+        "start": 421.55,
+        "duration": 3.09
+    },
+    {
+        "text": "in some applications depending on the size of",
+        "start": 424.64,
+        "duration": 1.77
+    },
+    {
+        "text": "the real state of the search application,",
+        "start": 426.41,
+        "duration": 2.979
+    },
+    {
+        "text": "but some people don't have the patience for that.",
+        "start": 429.389,
+        "duration": 4.031
+    },
+    {
+        "text": "How do we solve that problem?",
+        "start": 433.52,
+        "duration": 2.47
+    },
+    {
+        "text": "We have partnered with Bing who has",
+        "start": 435.99,
+        "duration": 3.6
+    },
+    {
+        "text": "developed deep neural network models",
+        "start": 439.59,
+        "duration": 3.89
+    },
+    {
+        "text": "to help us solve problems like this.",
+        "start": 443.48,
+        "duration": 1.99
+    },
+    {
+        "text": "They have invested literally millions of dollars and hundreds",
+        "start": 445.47,
+        "duration": 4.16
+    },
+    {
+        "text": "of dev years trying to solve exactly these types of problems.",
+        "start": 449.63,
+        "duration": 4.665
+    },
+    {
+        "text": "We're One Microsoft and we collaborated with",
+        "start": 454.295,
+        "duration": 3.48
+    },
+    {
+        "text": "them to use some of their deep learning modes.",
+        "start": 457.775,
+        "duration": 3.61
+    },
+    {
+        "text": "The first thing that we do is we",
+        "start": 461.385,
+        "duration": 2.315
+    },
+    {
+        "text": "have a new passage extraction model.",
+        "start": 463.7,
+        "duration": 2.64
+    },
+    {
+        "text": "Think of it as,",
+        "start": 466.34,
+        "duration": 1.76
+    },
+    {
+        "text": "we take the top documents that are",
+        "start": 468.1,
+        "duration": 2.47
+    },
+    {
+        "text": "returned from our lexical ranker,",
+        "start": 470.57,
+        "duration": 3.36
+    },
+    {
+        "text": "such as the BM25 indexer that we have,",
+        "start": 473.93,
+        "duration": 5.01
+    },
+    {
+        "text": "and then we take those top documents,",
+        "start": 478.94,
+        "duration": 3.759
+    },
+    {
+        "text": "and then we try to identify what are",
+        "start": 482.699,
+        "duration": 2.121
+    },
+    {
+        "text": "passages here that are representative for this document.",
+        "start": 484.82,
+        "duration": 3.935
+    },
+    {
+        "text": "If I have a document about what artificial intelligence is,",
+        "start": 488.755,
+        "duration": 4.525
+    },
+    {
+        "text": "maybe we find the passage that says,",
+        "start": 493.28,
+        "duration": 2.19
+    },
+    {
+        "text": "\"Machine learning is this or that,",
+        "start": 495.47,
+        "duration": 3.45
+    },
+    {
+        "text": "or deep neural networks mean this or that.\"",
+        "start": 498.92,
+        "duration": 2.71
+    },
+    {
+        "text": ">> We identify a set of passages from each document.",
+        "start": 502.86,
+        "duration": 4.255
+    },
+    {
+        "text": "This is extraction.",
+        "start": 507.115,
+        "duration": 2.115
+    },
+    {
+        "text": "We're not generating these,",
+        "start": 509.23,
+        "duration": 1.32
+    },
+    {
+        "text": "we're actually extracting snippets of texts or passages.",
+        "start": 510.55,
+        "duration": 3.66
+    },
+    {
+        "text": "Then we run them through a different model,",
+        "start": 514.21,
+        "duration": 4.35
+    },
+    {
+        "text": "which is this semantic ranking.",
+        "start": 518.56,
+        "duration": 3.09
+    },
+    {
+        "text": "This model takes into consideration the query itself,",
+        "start": 521.65,
+        "duration": 4.29
+    },
+    {
+        "text": "each of the passages and essentially is scoring how likely",
+        "start": 525.94,
+        "duration": 4.905
+    },
+    {
+        "text": "is this passage to be related to the query that was just provided.",
+        "start": 530.845,
+        "duration": 5.43
+    },
+    {
+        "text": "Then we go and we sort the documents again and check this out.",
+        "start": 536.275,
+        "duration": 5.865
+    },
+    {
+        "text": "Which one is the top document?",
+        "start": 542.14,
+        "duration": 1.935
+    },
+    {
+        "text": "It is the document that was number 10 in our BM25 rank.",
+        "start": 544.075,
+        "duration": 5.895
+    },
+    {
+        "text": "[inaudible] It came all",
+        "start": 549.97,
+        "duration": 3.54
+    },
+    {
+        "text": "the way to the top because it understands meaning.",
+        "start": 553.51,
+        "duration": 3.55
+    },
+    {
+        "text": "By the way, this is a pretty big document,",
+        "start": 558.54,
+        "duration": 3.13
+    },
+    {
+        "text": "sum of 22,000 words.",
+        "start": 561.67,
+        "duration": 1.785
+    },
+    {
+        "text": "Maybe somewhere in there it says something like Walmart was",
+        "start": 563.455,
+        "duration": 2.7
+    },
+    {
+        "text": "founded on a particular year or something like that.",
+        "start": 566.155,
+        "duration": 3.315
+    },
+    {
+        "text": "So it finds that passage right, and therefore,",
+        "start": 569.47,
+        "duration": 2.7
+    },
+    {
+        "text": "this gets pulled to the top of the list.",
+        "start": 572.17,
+        "duration": 3.045
+    },
+    {
+        "text": ">> I see, so if I'm understanding this right,",
+        "start": 575.215,
+        "duration": 1.605
+    },
+    {
+        "text": "and I want to make sure that I do.",
+        "start": 576.82,
+        "duration": 2.76
+    },
+    {
+        "text": "This is a search engine,",
+        "start": 579.58,
+        "duration": 1.89
+    },
+    {
+        "text": "not for like Bing,",
+        "start": 581.47,
+        "duration": 1.77
+    },
+    {
+        "text": "but a search engine for",
+        "start": 583.24,
+        "duration": 1.05
+    },
+    {
+        "text": "my own stuff that I can sell. Is that right?",
+        "start": 584.29,
+        "duration": 2.52
+    },
+    {
+        "text": ">> Exactly. Absolutely that's the innovation right here.",
+        "start": 586.81,
+        "duration": 4.23
+    },
+    {
+        "text": "Bing already has, as I mentioned,",
+        "start": 591.04,
+        "duration": 2.73
+    },
+    {
+        "text": "invested in creating these models and they have them",
+        "start": 593.77,
+        "duration": 2.16
+    },
+    {
+        "text": "in production today when you go to Bing.com,",
+        "start": 595.93,
+        "duration": 2.595
+    },
+    {
+        "text": "you're essentially using a lot of these models already.",
+        "start": 598.525,
+        "duration": 3.24
+    },
+    {
+        "text": "The part that is new is that in the past, I mean,",
+        "start": 601.765,
+        "duration": 4.605
+    },
+    {
+        "text": "they essentially we're indexing the World Wide Web,",
+        "start": 606.37,
+        "duration": 2.91
+    },
+    {
+        "text": "and that was great if your content is in the World Wide Web.",
+        "start": 609.28,
+        "duration": 3.435
+    },
+    {
+        "text": "But what if you have",
+        "start": 612.715,
+        "duration": 2.1
+    },
+    {
+        "text": "your own human resources application",
+        "start": 614.815,
+        "duration": 3.78
+    },
+    {
+        "text": "or a support ticket database that you want to index.",
+        "start": 618.595,
+        "duration": 3.795
+    },
+    {
+        "text": "Essentially you want to find information in",
+        "start": 622.39,
+        "duration": 2.13
+    },
+    {
+        "text": "your own data or your own documents,",
+        "start": 624.52,
+        "duration": 2.355
+    },
+    {
+        "text": "technical documents, for instance.",
+        "start": 626.875,
+        "duration": 2.67
+    },
+    {
+        "text": "We want you to find the content faster.",
+        "start": 629.545,
+        "duration": 2.655
+    },
+    {
+        "text": ">> That's cool, and so basically",
+        "start": 632.2,
+        "duration": 1.755
+    },
+    {
+        "text": "that business junk drawer that we've all call of the share,",
+        "start": 633.955,
+        "duration": 4.695
+    },
+    {
+        "text": "we can send this service pointed at it.",
+        "start": 638.65,
+        "duration": 3.54
+    },
+    {
+        "text": "Then when it does, it narrows",
+        "start": 642.19,
+        "duration": 1.89
+    },
+    {
+        "text": "the search using the lexical standard,",
+        "start": 644.08,
+        "duration": 1.77
+    },
+    {
+        "text": "lexical stuff, but then it",
+        "start": 645.85,
+        "duration": 1.56
+    },
+    {
+        "text": "re-ranks them semantically. Am I getting this right?",
+        "start": 647.41,
+        "duration": 3.165
+    },
+    {
+        "text": ">> You've got it, exactly. That is",
+        "start": 650.575,
+        "duration": 3.525
+    },
+    {
+        "text": "more I want to just tell you one more thing.",
+        "start": 654.1,
+        "duration": 2.64
+    },
+    {
+        "text": ">> I do.",
+        "start": 656.74,
+        "duration": 0.675
+    },
+    {
+        "text": ">> Yes, we already solved the problem of ranking.",
+        "start": 657.415,
+        "duration": 2.79
+    },
+    {
+        "text": "But what if we could give you a little bit more?",
+        "start": 660.205,
+        "duration": 3.09
+    },
+    {
+        "text": "Imagine we are already extracted",
+        "start": 663.295,
+        "duration": 2.955
+    },
+    {
+        "text": "passages that are important for each of the documents.",
+        "start": 666.25,
+        "duration": 3.015
+    },
+    {
+        "text": "Now we have another model that can extract,",
+        "start": 669.265,
+        "duration": 4.5
+    },
+    {
+        "text": "which of these passages not only are related to the content,",
+        "start": 673.765,
+        "duration": 4.29
+    },
+    {
+        "text": "but may actually answer the question that Julius asked.",
+        "start": 678.055,
+        "duration": 4.195
+    },
+    {
+        "text": "By following these, we can actually",
+        "start": 682.44,
+        "duration": 3.7
+    },
+    {
+        "text": "extract just the passage. The passage can [inaudible]",
+        "start": 686.14,
+        "duration": 5.49
+    },
+    {
+        "text": ">> You're saying this like too nicely and too fast.",
+        "start": 691.63,
+        "duration": 2.13
+    },
+    {
+        "text": "You're saying that if I ask a question,",
+        "start": 693.76,
+        "duration": 3.075
+    },
+    {
+        "text": "there's a second part of this customized search",
+        "start": 696.835,
+        "duration": 2.85
+    },
+    {
+        "text": "that will literally find the actual answer too?",
+        "start": 699.685,
+        "duration": 3.495
+    },
+    {
+        "text": ">> Exactly. We used to give you",
+        "start": 703.18,
+        "duration": 3.69
+    },
+    {
+        "text": "a list of documents that was",
+        "start": 706.87,
+        "duration": 1.59
+    },
+    {
+        "text": "the outcome of Azure Cognitive Search.",
+        "start": 708.46,
+        "duration": 2.775
+    },
+    {
+        "text": "Now, we don't only give you the list of documents,",
+        "start": 711.235,
+        "duration": 3.495
+    },
+    {
+        "text": "we give you an answer if we find that, of course right.",
+        "start": 714.73,
+        "duration": 3.85
+    },
+    {
+        "text": "Essentially the passage that is most likely",
+        "start": 719.07,
+        "duration": 3.31
+    },
+    {
+        "text": "to answer the question that Julius asked.",
+        "start": 722.38,
+        "duration": 3.33
+    },
+    {
+        "text": "We go one step further,",
+        "start": 725.71,
+        "duration": 2.775
+    },
+    {
+        "text": "which is we actually can apply a highlighting model to that,",
+        "start": 728.485,
+        "duration": 4.98
+    },
+    {
+        "text": "so we actually highlighting, in this case,",
+        "start": 733.465,
+        "duration": 1.785
+    },
+    {
+        "text": "the 1962 right here,",
+        "start": 735.25,
+        "duration": 3.39
+    },
+    {
+        "text": "that is within the passage,",
+        "start": 738.64,
+        "duration": 2.295
+    },
+    {
+        "text": "the elements of that passage that are the",
+        "start": 740.935,
+        "duration": 2.895
+    },
+    {
+        "text": "most important to answer your questions.",
+        "start": 743.83,
+        "duration": 3.63
+    },
+    {
+        "text": "We can apply the same capability,",
+        "start": 747.46,
+        "duration": 2.88
+    },
+    {
+        "text": "just like we extracted answers.",
+        "start": 750.34,
+        "duration": 1.875
+    },
+    {
+        "text": "We can show you the most relevant passage",
+        "start": 752.215,
+        "duration": 2.445
+    },
+    {
+        "text": "for each of the documents.",
+        "start": 754.66,
+        "duration": 1.455
+    },
+    {
+        "text": "That's what we call captions.",
+        "start": 756.115,
+        "duration": 2.685
+    },
+    {
+        "text": "We're super excited, I know that you said,",
+        "start": 758.8,
+        "duration": 2.925
+    },
+    {
+        "text": "\"Hey, your service so casually.\"",
+        "start": 761.725,
+        "duration": 1.86
+    },
+    {
+        "text": "It's true, like I sell it very casually.",
+        "start": 763.585,
+        "duration": 2.115
+    },
+    {
+        "text": "But literally we are taking hundreds",
+        "start": 765.7,
+        "duration": 3.51
+    },
+    {
+        "text": "of many years I guess of development,",
+        "start": 769.21,
+        "duration": 3.96
+    },
+    {
+        "text": "or thinking a ton of",
+        "start": 773.17,
+        "duration": 1.38
+    },
+    {
+        "text": "investments that the Bing organization has done,",
+        "start": 774.55,
+        "duration": 2.94
+    },
+    {
+        "text": "but taking it and making it available to you.",
+        "start": 777.49,
+        "duration": 2.955
+    },
+    {
+        "text": "Now, any Azure developer has",
+        "start": 780.445,
+        "duration": 3.33
+    },
+    {
+        "text": "these capabilities very easily",
+        "start": 783.775,
+        "duration": 3.33
+    },
+    {
+        "text": "that we'll talk more about how to do it.",
+        "start": 787.105,
+        "duration": 2.19
+    },
+    {
+        "text": ">> I want to see it in action,",
+        "start": 789.295,
+        "duration": 1.695
+    },
+    {
+        "text": "do you have something you show us to see?",
+        "start": 790.99,
+        "duration": 1.77
+    },
+    {
+        "text": ">> Yeah. Absolutely. Let's do this.",
+        "start": 792.76,
+        "duration": 2.535
+    },
+    {
+        "text": "You were just saying that you were",
+        "start": 795.295,
+        "duration": 1.635
+    },
+    {
+        "text": "acting and union contract COVID.",
+        "start": 796.93,
+        "duration": 2.085
+    },
+    {
+        "text": "We're always worried nowadays,",
+        "start": 799.015,
+        "duration": 2.54
+    },
+    {
+        "text": "like do I have COVID?",
+        "start": 801.555,
+        "duration": 1.485
+    },
+    {
+        "text": "Do I not have COVID?",
+        "start": 803.04,
+        "duration": 1.59
+    },
+    {
+        "text": "The other day I had a problem.",
+        "start": 804.63,
+        "duration": 3.72
+    },
+    {
+        "text": "I had a sore throat essentially,",
+        "start": 808.35,
+        "duration": 3.775
+    },
+    {
+        "text": "and I was like, holy God do I have COVID?",
+        "start": 812.125,
+        "duration": 2.61
+    },
+    {
+        "text": "I remember that we had",
+        "start": 814.735,
+        "duration": 2.04
+    },
+    {
+        "text": "just index bunch of COVID data from one of our demos.",
+        "start": 816.775,
+        "duration": 4.995
+    },
+    {
+        "text": "So I figured okay,",
+        "start": 821.77,
+        "duration": 1.74
+    },
+    {
+        "text": "I'm going to ask what are the symptoms of COVID-19?",
+        "start": 823.51,
+        "duration": 5.97
+    },
+    {
+        "text": "Once again, we had just index a bunch of",
+        "start": 829.48,
+        "duration": 2.55
+    },
+    {
+        "text": "research papers and all kinds of content related to COVID.",
+        "start": 832.03,
+        "duration": 3.345
+    },
+    {
+        "text": "Is public data that is now available so that researchers can more",
+        "start": 835.375,
+        "duration": 3.615
+    },
+    {
+        "text": "quickly find answers and",
+        "start": 838.99,
+        "duration": 3.3
+    },
+    {
+        "text": "solve this problem that is affecting all of us.",
+        "start": 842.29,
+        "duration": 2.82
+    },
+    {
+        "text": "Let me ask this question.",
+        "start": 845.11,
+        "duration": 2.77
+    },
+    {
+        "text": "Right now what you see is the list of",
+        "start": 849.69,
+        "duration": 2.65
+    },
+    {
+        "text": "results that we will have returned with",
+        "start": 852.34,
+        "duration": 2.52
+    },
+    {
+        "text": "a normal BM25 index, these lexical index.",
+        "start": 854.86,
+        "duration": 4.92
+    },
+    {
+        "text": "I am going to little by little turn on each of the features.",
+        "start": 859.78,
+        "duration": 3.21
+    },
+    {
+        "text": "First I'm going to fix spelling.",
+        "start": 862.99,
+        "duration": 3.03
+    },
+    {
+        "text": "I don't think I had too many or any spelling mistakes,",
+        "start": 866.02,
+        "duration": 2.79
+    },
+    {
+        "text": "but does this have a little bit of impact?",
+        "start": 868.81,
+        "duration": 2.25
+    },
+    {
+        "text": "I will add this semantic ranking, there we go.",
+        "start": 871.06,
+        "duration": 7.44
+    },
+    {
+        "text": "Then you can see that the results got resorted based on that.",
+        "start": 878.5,
+        "duration": 9.555
+    },
+    {
+        "text": "But it's still not super clear to",
+        "start": 888.055,
+        "duration": 2.955
+    },
+    {
+        "text": "me like there some disassociation between age,",
+        "start": 891.01,
+        "duration": 2.49
+    },
+    {
+        "text": "COVID-19 symptoms, and social distancing in the United States.",
+        "start": 893.5,
+        "duration": 3.42
+    },
+    {
+        "text": "It seems to be related is when",
+        "start": 896.92,
+        "duration": 2.1
+    },
+    {
+        "text": "an often morphological update, I'm not sure.",
+        "start": 899.02,
+        "duration": 2.73
+    },
+    {
+        "text": "I'm going to add answer some captions so that we can see how",
+        "start": 901.75,
+        "duration": 3.825
+    },
+    {
+        "text": "each of these documents matter. Check this out.",
+        "start": 905.575,
+        "duration": 4.305
+    },
+    {
+        "text": "By enabling answers and captions,",
+        "start": 909.88,
+        "duration": 3.9
+    },
+    {
+        "text": "I find the answer.",
+        "start": 913.78,
+        "duration": 1.815
+    },
+    {
+        "text": "The World Health Organization identifies fever,",
+        "start": 915.595,
+        "duration": 4.755
+    },
+    {
+        "text": "tiredness, dry cough, as common symptoms of COVID-19.",
+        "start": 920.35,
+        "duration": 4.215
+    },
+    {
+        "text": "It says the list of other symptoms such",
+        "start": 924.565,
+        "duration": 1.785
+    },
+    {
+        "text": "as shortness of breath, aches and pains,",
+        "start": 926.35,
+        "duration": 2.22
+    },
+    {
+        "text": "and sore throat, that's not good. Maybe I have COVID.",
+        "start": 928.57,
+        "duration": 5.265
+    },
+    {
+        "text": "That was scary when I saw sore throat in",
+        "start": 933.835,
+        "duration": 2.595
+    },
+    {
+        "text": "the list. I have the answers.",
+        "start": 936.43,
+        "duration": 3.525
+    },
+    {
+        "text": "I have a captions and you can see how like it highlighted",
+        "start": 939.955,
+        "duration": 3.375
+    },
+    {
+        "text": "some of the areas that may be interesting to sort out.",
+        "start": 943.33,
+        "duration": 3.75
+    },
+    {
+        "text": "It helps me triage through the documents faster to see if",
+        "start": 947.08,
+        "duration": 3.87
+    },
+    {
+        "text": "I want to double-click on it. Let's see.",
+        "start": 950.95,
+        "duration": 4.26
+    },
+    {
+        "text": "The usual thing that I do if I have a sore throat myself,",
+        "start": 955.21,
+        "duration": 4.89
+    },
+    {
+        "text": "is I use take some ibuprofen and I'm good.",
+        "start": 960.1,
+        "duration": 2.46
+    },
+    {
+        "text": "Like I don't usually get that much sore throat,",
+        "start": 962.56,
+        "duration": 4.5
+    },
+    {
+        "text": "but usually some ibuprofen or sometime it'd have,",
+        "start": 967.06,
+        "duration": 2.385
+    },
+    {
+        "text": "lets me sleep at night and I'm good.",
+        "start": 969.445,
+        "duration": 2.175
+    },
+    {
+        "text": "But why is ibuprofen is bad if you have COVID?",
+        "start": 971.62,
+        "duration": 4.02
+    },
+    {
+        "text": "Let's ask another question. Let me see.",
+        "start": 975.64,
+        "duration": 5.4
+    },
+    {
+        "text": "By the way, I see that the World Health",
+        "start": 981.04,
+        "duration": 1.89
+    },
+    {
+        "text": "Organization is doing stuff.",
+        "start": 982.93,
+        "duration": 1.53
+    },
+    {
+        "text": "I'm going to say the only account for",
+        "start": 984.46,
+        "duration": 3.0
+    },
+    {
+        "text": "World Health Organization recommendation on ibuprofen,",
+        "start": 987.46,
+        "duration": 7.17
+    },
+    {
+        "text": "I'm going to misspell ibuprofen",
+        "start": 994.63,
+        "duration": 2.085
+    },
+    {
+        "text": "just because I want to show this misspell in action.",
+        "start": 996.715,
+        "duration": 3.345
+    },
+    {
+        "text": "Let's see what happens.",
+        "start": 1000.06,
+        "duration": 2.62
+    },
+    {
+        "text": "Let me see. I don't know what I'm doing wrong,",
+        "start": 1002.93,
+        "duration": 7.69
+    },
+    {
+        "text": "but should I just say ibuprofen?",
+        "start": 1010.62,
+        "duration": 4.095
+    },
+    {
+        "text": ">> Yes.",
+        "start": 1014.715,
+        "duration": 1.26
+    },
+    {
+        "text": ">> You think I should. Oh the problem is",
+        "start": 1015.975,
+        "duration": 3.345
+    },
+    {
+        "text": "maybe I should say ibuprofen for COVID-19,",
+        "start": 1019.32,
+        "duration": 3.08
+    },
+    {
+        "text": "otherwise, I don't know if its for COVID-19.",
+        "start": 1022.4,
+        "duration": 4.47
+    },
+    {
+        "text": ">> Look, it says that the Medical Center in Israel,",
+        "start": 1031.03,
+        "duration": 3.865
+    },
+    {
+        "text": "they use monitor use of ibuprofen for a week prior.",
+        "start": 1034.895,
+        "duration": 4.53
+    },
+    {
+        "text": "That may be an interesting document to look at.",
+        "start": 1039.425,
+        "duration": 4.845
+    },
+    {
+        "text": "By the way, you can see the speller worked.",
+        "start": 1044.27,
+        "duration": 4.45
+    },
+    {
+        "text": "I'm going to use who,",
+        "start": 1048.73,
+        "duration": 4.12
+    },
+    {
+        "text": "as in not WHO,",
+        "start": 1052.85,
+        "duration": 2.04
+    },
+    {
+        "text": "but who was the first doctor that reported coronavirus?",
+        "start": 1054.89,
+        "duration": 10.51
+    },
+    {
+        "text": "Different use of WHO, and check that out.",
+        "start": 1065.98,
+        "duration": 6.64
+    },
+    {
+        "text": "It understands when I do that,",
+        "start": 1072.62,
+        "duration": 2.34
+    },
+    {
+        "text": "I told you the word I chose doesn't stand for",
+        "start": 1074.96,
+        "duration": 1.35
+    },
+    {
+        "text": "the World Health Organization anymore,",
+        "start": 1076.31,
+        "duration": 2.295
+    },
+    {
+        "text": "but it tells me the answer.",
+        "start": 1078.605,
+        "duration": 1.71
+    },
+    {
+        "text": "Dr. Zhang Jixian is considered",
+        "start": 1080.315,
+        "duration": 2.565
+    },
+    {
+        "text": "the first doctor to report novel coronavirus.",
+        "start": 1082.88,
+        "duration": 4.035
+    },
+    {
+        "text": "Essentially, in a sense,",
+        "start": 1086.915,
+        "duration": 1.875
+    },
+    {
+        "text": "we're moving from just giving you results to using",
+        "start": 1088.79,
+        "duration": 3.27
+    },
+    {
+        "text": "state-of-the-art Deep Neural Networks to give you answers,",
+        "start": 1092.06,
+        "duration": 5.46
+    },
+    {
+        "text": "to help you more quickly",
+        "start": 1097.52,
+        "duration": 2.115
+    },
+    {
+        "text": "triage the records or documents that you care about.",
+        "start": 1099.635,
+        "duration": 3.45
+    },
+    {
+        "text": "Thanks to semantic search.",
+        "start": 1103.085,
+        "duration": 1.59
+    },
+    {
+        "text": ">> That's amazing. I'm guessing that you",
+        "start": 1104.675,
+        "duration": 2.235
+    },
+    {
+        "text": "probably have to set up an index or an endpoint,",
+        "start": 1106.91,
+        "duration": 2.28
+    },
+    {
+        "text": "or something. I don't want to see that.",
+        "start": 1109.19,
+        "duration": 1.47
+    },
+    {
+        "text": "What I'd like to see if possible is,",
+        "start": 1110.66,
+        "duration": 2.97
+    },
+    {
+        "text": "how do you use the service",
+        "start": 1113.63,
+        "duration": 2.34
+    },
+    {
+        "text": "once you set it up properly, can you show us that?",
+        "start": 1115.97,
+        "duration": 2.28
+    },
+    {
+        "text": ">> Yeah, that's a good question.",
+        "start": 1118.25,
+        "duration": 2.44
+    },
+    {
+        "text": "Our service is Platform as a Service.",
+        "start": 1121.66,
+        "duration": 2.59
+    },
+    {
+        "text": "Essentially you have a rest",
+        "start": 1124.25,
+        "duration": 1.32
+    },
+    {
+        "text": "API that you use to query in the service.",
+        "start": 1125.57,
+        "duration": 2.295
+    },
+    {
+        "text": "I'm going to use an extension",
+        "start": 1127.865,
+        "duration": 4.905
+    },
+    {
+        "text": "that is essentially hitting my service,",
+        "start": 1132.77,
+        "duration": 1.83
+    },
+    {
+        "text": "I just have to tell it what the request is like.",
+        "start": 1134.6,
+        "duration": 2.865
+    },
+    {
+        "text": ">> Okay.",
+        "start": 1137.465,
+        "duration": 0.48
+    },
+    {
+        "text": ">> This is our Visual by the way,",
+        "start": 1137.945,
+        "duration": 1.68
+    },
+    {
+        "text": "I want to advertise at a little bit, here's some nice tool.",
+        "start": 1139.625,
+        "duration": 2.505
+    },
+    {
+        "text": "It's this VS Code extension for Azure Cognitive Search.",
+        "start": 1142.13,
+        "duration": 4.41
+    },
+    {
+        "text": "All I do is install the extension, select my service,",
+        "start": 1146.54,
+        "duration": 4.169
+    },
+    {
+        "text": "go to a specific index,",
+        "start": 1150.709,
+        "duration": 2.61
+    },
+    {
+        "text": "and then I can essentially make queries out of it.",
+        "start": 1153.319,
+        "duration": 3.691
+    },
+    {
+        "text": "I had this document,",
+        "start": 1157.01,
+        "duration": 2.955
+    },
+    {
+        "text": "this index based on oil and gas documents right here.",
+        "start": 1159.965,
+        "duration": 3.675
+    },
+    {
+        "text": "I just want to show you this is what a simple query maybe like,",
+        "start": 1163.64,
+        "duration": 5.32
+    },
+    {
+        "text": "like a keyword search essentially.",
+        "start": 1168.96,
+        "duration": 2.42
+    },
+    {
+        "text": "I'm going to click,",
+        "start": 1171.38,
+        "duration": 1.26
+    },
+    {
+        "text": "\"Control-Alt\" and \"R\" at the same time, I'm sorry,",
+        "start": 1172.64,
+        "duration": 2.73
+    },
+    {
+        "text": "I think I have a typo in",
+        "start": 1175.37,
+        "duration": 1.77
+    },
+    {
+        "text": "my json somewhere in the right. Do you see it right away?",
+        "start": 1177.14,
+        "duration": 4.39
+    },
+    {
+        "text": "I don't know what it was, and so ignore this error here.",
+        "start": 1183.7,
+        "duration": 3.865
+    },
+    {
+        "text": "I did this query,",
+        "start": 1187.565,
+        "duration": 2.25
+    },
+    {
+        "text": "and you can see that I get some results.",
+        "start": 1189.815,
+        "duration": 3.39
+    },
+    {
+        "text": "These are some documents from the Society of Petroleum Engineers,",
+        "start": 1193.205,
+        "duration": 5.565
+    },
+    {
+        "text": "and so forth. That's great.",
+        "start": 1198.77,
+        "duration": 2.01
+    },
+    {
+        "text": "I can learn about profiles,",
+        "start": 1200.78,
+        "duration": 1.41
+    },
+    {
+        "text": "but I'm going to go one step further.",
+        "start": 1202.19,
+        "duration": 5.175
+    },
+    {
+        "text": "I am going to change other few fields.",
+        "start": 1207.365,
+        "duration": 3.72
+    },
+    {
+        "text": "Essentially you can see the fields right here,",
+        "start": 1211.085,
+        "duration": 1.965
+    },
+    {
+        "text": "let me just zoom into them.",
+        "start": 1213.05,
+        "duration": 2.35
+    },
+    {
+        "text": "I can essentially just specify the searchFields.",
+        "start": 1215.41,
+        "duration": 4.42
+    },
+    {
+        "text": "The reason the searchFields are",
+        "start": 1219.83,
+        "duration": 1.44
+    },
+    {
+        "text": "important is because those are fields",
+        "start": 1221.27,
+        "duration": 1.68
+    },
+    {
+        "text": "that will be used to extract the snippets,",
+        "start": 1222.95,
+        "duration": 4.05
+    },
+    {
+        "text": "essentially the passages so we can do the semantic ranking.",
+        "start": 1227.0,
+        "duration": 4.65
+    },
+    {
+        "text": "Provide the language because different languages",
+        "start": 1231.65,
+        "duration": 3.66
+    },
+    {
+        "text": "may have different semantic meaning given the query that I do.",
+        "start": 1235.31,
+        "duration": 3.72
+    },
+    {
+        "text": "If I want to use the speller,",
+        "start": 1239.03,
+        "duration": 1.98
+    },
+    {
+        "text": "I will specify the speller as well.",
+        "start": 1241.01,
+        "duration": 3.405
+    },
+    {
+        "text": "I can tell it if I want answers or not.",
+        "start": 1244.415,
+        "duration": 2.775
+    },
+    {
+        "text": "In this case, I want constructive answers,",
+        "start": 1247.19,
+        "duration": 2.37
+    },
+    {
+        "text": "and what fields I want to select, and so forth.",
+        "start": 1249.56,
+        "duration": 4.57
+    },
+    {
+        "text": "I'm going to do a harder query,",
+        "start": 1254.29,
+        "duration": 2.74
+    },
+    {
+        "text": "I'm going to use exactly the same.",
+        "start": 1257.03,
+        "duration": 1.74
+    },
+    {
+        "text": "But I'm going to say,",
+        "start": 1258.77,
+        "duration": 2.1
+    },
+    {
+        "text": "\"How to estimate injection profile\",",
+        "start": 1260.87,
+        "duration": 1.875
+    },
+    {
+        "text": "which is really what I wanted to know.",
+        "start": 1262.745,
+        "duration": 2.635
+    },
+    {
+        "text": "Once again, I select this and then",
+        "start": 1265.6,
+        "duration": 3.4
+    },
+    {
+        "text": "\"Control-Alt R\" and you see on the right.",
+        "start": 1269.0,
+        "duration": 3.42
+    },
+    {
+        "text": "By the way, this is the json that comes back.",
+        "start": 1272.42,
+        "duration": 4.98
+    },
+    {
+        "text": "Now we have this new component called search.answers,",
+        "start": 1277.4,
+        "duration": 3.9
+    },
+    {
+        "text": "which is what was powering",
+        "start": 1281.3,
+        "duration": 1.545
+    },
+    {
+        "text": "that answer that you are seeing on the other UI.",
+        "start": 1282.845,
+        "duration": 2.325
+    },
+    {
+        "text": ">> That's cool.",
+        "start": 1285.17,
+        "duration": 1.32
+    },
+    {
+        "text": ">> That is really nice.",
+        "start": 1286.49,
+        "duration": 2.235
+    },
+    {
+        "text": "The result injection profile was estimated,",
+        "start": 1288.725,
+        "duration": 3.105
+    },
+    {
+        "text": "and there are some complex stuff that they were doing there",
+        "start": 1291.83,
+        "duration": 2.07
+    },
+    {
+        "text": "but it's essentially it's giving me the answers.",
+        "start": 1293.9,
+        "duration": 3.64
+    },
+    {
+        "text": "If I look at the value of the results,",
+        "start": 1298.72,
+        "duration": 3.49
+    },
+    {
+        "text": "now they have this re-ranking score,",
+        "start": 1302.21,
+        "duration": 3.21
+    },
+    {
+        "text": "that this is the semantic score coming",
+        "start": 1305.42,
+        "duration": 3.42
+    },
+    {
+        "text": "back and being resorted by the semantic score and obviously,",
+        "start": 1308.84,
+        "duration": 5.07
+    },
+    {
+        "text": "I have any captions or",
+        "start": 1313.91,
+        "duration": 2.19
+    },
+    {
+        "text": "highlights that I may want for the particular document.",
+        "start": 1316.1,
+        "duration": 3.58
+    },
+    {
+        "text": "The key point here, Seth,",
+        "start": 1319.87,
+        "duration": 2.62
+    },
+    {
+        "text": "is I didn't have to re-index any content.",
+        "start": 1322.49,
+        "duration": 2.73
+    },
+    {
+        "text": "I didn't have to essentially spend",
+        "start": 1325.22,
+        "duration": 1.86
+    },
+    {
+        "text": "hours reading the documents again.",
+        "start": 1327.08,
+        "duration": 1.995
+    },
+    {
+        "text": "This is happening in real-time.",
+        "start": 1329.075,
+        "duration": 3.025
+    },
+    {
+        "text": "If you have an index already,",
+        "start": 1332.91,
+        "duration": 2.56
+    },
+    {
+        "text": "essentially you just change four lines of code,",
+        "start": 1335.47,
+        "duration": 1.95
+    },
+    {
+        "text": "five lines of code, and magic happens.",
+        "start": 1337.42,
+        "duration": 2.89
+    },
+    {
+        "text": "Right now you have semantic answers,",
+        "start": 1340.31,
+        "duration": 1.83
+    },
+    {
+        "text": "semantic captions, semantic ranking.",
+        "start": 1342.14,
+        "duration": 2.34
+    },
+    {
+        "text": ">> If someone's already using Azure Cognitive Search,",
+        "start": 1344.48,
+        "duration": 2.52
+    },
+    {
+        "text": "and they've already pointed at their documents,",
+        "start": 1347.0,
+        "duration": 1.65
+    },
+    {
+        "text": "they've got a really good indexer going,",
+        "start": 1348.65,
+        "duration": 2.39
+    },
+    {
+        "text": "there's an index that they have.",
+        "start": 1351.04,
+        "duration": 1.215
+    },
+    {
+        "text": "Literally, they can just turn these things",
+        "start": 1352.255,
+        "duration": 1.635
+    },
+    {
+        "text": "on if they want right now.",
+        "start": 1353.89,
+        "duration": 1.945
+    },
+    {
+        "text": ">> Yeah, exactly. With one caveat,",
+        "start": 1355.835,
+        "duration": 2.34
+    },
+    {
+        "text": "which is this is a preview,",
+        "start": 1358.175,
+        "duration": 2.385
+    },
+    {
+        "text": "it's a gated preview.",
+        "start": 1360.56,
+        "duration": 2.13
+    },
+    {
+        "text": "You have to fill a form to join the preview,",
+        "start": 1362.69,
+        "duration": 6.075
+    },
+    {
+        "text": "and we will approve it.",
+        "start": 1368.765,
+        "duration": 3.39
+    },
+    {
+        "text": "When approving, this is completely new so",
+        "start": 1372.155,
+        "duration": 3.045
+    },
+    {
+        "text": "we want to make sure that we have a way to connect with you.",
+        "start": 1375.2,
+        "duration": 2.985
+    },
+    {
+        "text": ">> Got it.",
+        "start": 1378.185,
+        "duration": 0.405
+    },
+    {
+        "text": ">> As you are trying this for the first time and you",
+        "start": 1378.59,
+        "duration": 1.98
+    },
+    {
+        "text": "provide us feedback at the very beginning.",
+        "start": 1380.57,
+        "duration": 2.43
+    },
+    {
+        "text": ">> This is amazing.",
+        "start": 1383.0,
+        "duration": 1.545
+    },
+    {
+        "text": "Where can people go to find out more?",
+        "start": 1384.545,
+        "duration": 2.755
+    },
+    {
+        "text": ">> There are two links. The preview is aka.ms/semanticpreview.",
+        "start": 1389.23,
+        "duration": 5.41
+    },
+    {
+        "text": ">> Okay.",
+        "start": 1394.64,
+        "duration": 0.39
+    },
+    {
+        "text": ">> That will take you to the form that I was referring to.",
+        "start": 1395.03,
+        "duration": 5.85
+    },
+    {
+        "text": "Here, let me just put that on the screen.",
+        "start": 1400.88,
+        "duration": 5.37
+    },
+    {
+        "text": ">> Yeah, let's do that.",
+        "start": 1406.25,
+        "duration": 1.05
+    },
+    {
+        "text": ">> Right. There you go.",
+        "start": 1407.3,
+        "duration": 4.8
+    },
+    {
+        "text": "aka.ms/semanticpreview, can you see those on my screen, Seth?",
+        "start": 1412.1,
+        "duration": 2.805
+    },
+    {
+        "text": ">> Sure can.",
+        "start": 1414.905,
+        "duration": 0.54
+    },
+    {
+        "text": ">> Okay, perfect.",
+        "start": 1415.445,
+        "duration": 1.68
+    },
+    {
+        "text": ">> That is the most important link.",
+        "start": 1417.125,
+        "duration": 2.82
+    },
+    {
+        "text": "I believe you also created an aka.ms/semantic.",
+        "start": 1419.945,
+        "duration": 4.065
+    },
+    {
+        "text": ">> Absolutely.",
+        "start": 1424.01,
+        "duration": 1.32
+    },
+    {
+        "text": ">> That takes you to our Azure Cognitive Search Azure page",
+        "start": 1425.33,
+        "duration": 5.625
+    },
+    {
+        "text": "where you can learn about not only semantic search",
+        "start": 1430.955,
+        "duration": 2.505
+    },
+    {
+        "text": "but all the other features that we have to offer.",
+        "start": 1433.46,
+        "duration": 3.135
+    },
+    {
+        "text": ">> That is correct.",
+        "start": 1436.595,
+        "duration": 1.335
+    },
+    {
+        "text": "Well, this has been amazing, Luis.",
+        "start": 1437.93,
+        "duration": 2.13
+    },
+    {
+        "text": "Then make sure you look at the other camera.",
+        "start": 1440.06,
+        "duration": 2.34
+    },
+    {
+        "text": ">> This is the camera.",
+        "start": 1442.4,
+        "duration": 1.455
+    },
+    {
+        "text": ">> Good. There you go.",
+        "start": 1443.855,
+        "duration": 1.005
+    },
+    {
+        "text": ">> Yeah, sorry about that.",
+        "start": 1444.86,
+        "duration": 1.545
+    },
+    {
+        "text": "I was probably looking that way most of the time,",
+        "start": 1446.405,
+        "duration": 1.995
+    },
+    {
+        "text": "but hey, please try semantic preview.",
+        "start": 1448.4,
+        "duration": 3.405
+    },
+    {
+        "text": ">> Nice.",
+        "start": 1451.805,
+        "duration": 0.57
+    },
+    {
+        "text": ">> We are excited about it.",
+        "start": 1452.375,
+        "duration": 1.71
+    },
+    {
+        "text": ">> Awesome. Well, thanks so much",
+        "start": 1454.085,
+        "duration": 1.485
+    },
+    {
+        "text": "for spending some time with us and",
+        "start": 1455.57,
+        "duration": 1.035
+    },
+    {
+        "text": "thanks so much for watching and learning all about,",
+        "start": 1456.605,
+        "duration": 3.09
+    },
+    {
+        "text": "that's right, finding meaningful insights using",
+        "start": 1459.695,
+        "duration": 2.265
+    },
+    {
+        "text": "the semantic capabilities in Azure Cognitive Search.",
+        "start": 1461.96,
+        "duration": 2.07
+    },
+    {
+        "text": "This has been another episode of The AI Show. Thank you, sir.",
+        "start": 1464.03,
+        "duration": 2.265
+    },
+    {
+        "text": "So much for watching and hopefully",
+        "start": 1466.295,
+        "duration": 1.92
+    },
+    {
+        "text": "we will see you next time. Take care.",
+        "start": 1468.215,
+        "duration": 2.445
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 1470.66,
+        "duration": 9.34
+    }
+]

@@ -1,0 +1,692 @@
+[
+    {
+        "text": "you're not going to want to miss this episode  of the ai show where we talk about managed  ",
+        "start": 0.64,
+        "duration": 3.36
+    },
+    {
+        "text": "online endpoints now generally available my good  friend sat through make sure you tune in hello  ",
+        "start": 4.0,
+        "duration": 12.32
+    },
+    {
+        "text": "and welcome to this episode of the ai show  we're talking about managed online endpoints  ",
+        "start": 16.32,
+        "duration": 4.8
+    },
+    {
+        "text": "now generally available as of microsoft build 2022  i've got my good friend set to all right my friend  ",
+        "start": 21.12,
+        "duration": 6.32
+    },
+    {
+        "text": "tell us who you are what you do hey sir my name is  seth ramon and i'm a product manager in azure ml  ",
+        "start": 27.44,
+        "duration": 6.48
+    },
+    {
+        "text": "uh driving the managed and points capability  fantastic now it's probably one of my favorite  ",
+        "start": 33.92,
+        "duration": 5.44
+    },
+    {
+        "text": "features of all of azure machine learning because  getting models into production is probably the  ",
+        "start": 39.36,
+        "duration": 3.52
+    },
+    {
+        "text": "hardest part of all of this for those that don't  know about this feature why don't you give us the  ",
+        "start": 42.88,
+        "duration": 4.4
+    },
+    {
+        "text": "elevator pitch yeah absolutely so manage endpoints  gives you a turnkey way to deploy your ml models  ",
+        "start": 47.28,
+        "duration": 6.08
+    },
+    {
+        "text": "in scale at production without you having  to worry about the underlying infrastructure  ",
+        "start": 53.36,
+        "duration": 4.48
+    },
+    {
+        "text": "in your previous sessions that we had in the ai  show we talked about how you can do interactive  ",
+        "start": 58.4,
+        "duration": 5.28
+    },
+    {
+        "text": "debugging how you can configure auto scaling and  how you can roll out a new version of the model  ",
+        "start": 63.68,
+        "duration": 5.84
+    },
+    {
+        "text": "using your cacd pipelines yeah it's been really  cool to be able to do that because not having to  ",
+        "start": 69.52,
+        "duration": 6.96
+    },
+    {
+        "text": "worry about all that stuff is is awesome so tell  us what's the new stuff as of microsoft built yeah  ",
+        "start": 76.48,
+        "duration": 7.2
+    },
+    {
+        "text": "so i have some exciting stuff to share today other  than that we are launching uh general availability  ",
+        "start": 83.68,
+        "duration": 5.2
+    },
+    {
+        "text": "in build uh firstly i want to i brought a demo  with me to show how users can scale to really  ",
+        "start": 88.88,
+        "duration": 7.28
+    },
+    {
+        "text": "really high uh requests per second in a limit  in a short amount of time with with uh you know  ",
+        "start": 96.16,
+        "duration": 5.84
+    },
+    {
+        "text": "with capability of our github friendly apis i  love it let me roll it right now in this demo  ",
+        "start": 102.0,
+        "duration": 6.0
+    },
+    {
+        "text": "i'm going to show you how users can self-serve  their way to 100 000 queries per second this  ",
+        "start": 108.0,
+        "duration": 6.24
+    },
+    {
+        "text": "will unblock large customers who are reluctant  to onboard because of scale concerns shall we",
+        "start": 114.24,
+        "duration": 6.32
+    },
+    {
+        "text": "let's look at this setup starting with the  basics we have a 32 core vm to run the road  ",
+        "start": 126.32,
+        "duration": 5.04
+    },
+    {
+        "text": "test here is the managed online endpoint and  deployment here each box represents a node  ",
+        "start": 131.36,
+        "duration": 6.72
+    },
+    {
+        "text": "also called as an instance let's take a look  at setup of one node it's a eight core machine  ",
+        "start": 138.08,
+        "duration": 6.8
+    },
+    {
+        "text": "in this example you can see only one worker  process containing the inferencing components  ",
+        "start": 145.68,
+        "duration": 4.64
+    },
+    {
+        "text": "to increase cpu utilization we can increase  the number of workers this is our test setup  ",
+        "start": 150.32,
+        "duration": 5.92
+    },
+    {
+        "text": "since it's eight core machine we configured eight  workers to increase the cpu utilization while not  ",
+        "start": 156.24,
+        "duration": 5.76
+    },
+    {
+        "text": "affecting the latency we will use scikit-learn's  diabetes model from our default example  ",
+        "start": 162.0,
+        "duration": 5.6
+    },
+    {
+        "text": "creating this deployment using our github friendly  cli is very straightforward first we configure the  ",
+        "start": 169.6,
+        "duration": 5.2
+    },
+    {
+        "text": "deployment properties in the yaml file here we  have the instance type you can see it's a 8 core  ",
+        "start": 174.8,
+        "duration": 5.84
+    },
+    {
+        "text": "f series machine and instance count currently we  just need one node and then the worker count that  ",
+        "start": 180.64,
+        "duration": 5.2
+    },
+    {
+        "text": "we saw is eight now we fire the create command  using the cli passing the yaml as the input",
+        "start": 185.84,
+        "duration": 12.0
+    },
+    {
+        "text": "now let's run the load test using a popular tool  called wrk it outputs the qps and tail latencies  ",
+        "start": 198.48,
+        "duration": 8.56
+    },
+    {
+        "text": "let's see it in a better format in our onenote  test we got a pqps of 1600 and tail latencies  ",
+        "start": 207.04,
+        "duration": 7.76
+    },
+    {
+        "text": "of p50 to p90 between 4.7 to 6.2 milliseconds  now let's increase the scale up to 50 instances  ",
+        "start": 214.8,
+        "duration": 8.72
+    },
+    {
+        "text": "under our test it is as simple as running the  update command with the instance count set as 50.",
+        "start": 223.52,
+        "duration": 6.72
+    },
+    {
+        "text": "in five and a half minutes we are open for  business typically this takes somewhere  ",
+        "start": 235.28,
+        "duration": 4.72
+    },
+    {
+        "text": "between 5 to 7 minutes though for our purposes 50  nodes are enough let's do a quick sidebar on what  ",
+        "start": 240.0,
+        "duration": 8.0
+    },
+    {
+        "text": "it takes to scale up to 150 nodes we use the same  update command now with the instance count as 150  ",
+        "start": 248.0,
+        "duration": 8.32
+    },
+    {
+        "text": "and in this case we are all  set within seven minutes  ",
+        "start": 257.68,
+        "duration": 3.2
+    },
+    {
+        "text": "i run the load tests on not only 50 instances  but also on intermediate node configurations  ",
+        "start": 262.32,
+        "duration": 5.52
+    },
+    {
+        "text": "let's compare the slide shows the output for  different test configurations starting from  ",
+        "start": 268.72,
+        "duration": 5.84
+    },
+    {
+        "text": "one node 10 node and all the way through to 50  nodes first let's compare the tail latencies for  ",
+        "start": 274.56,
+        "duration": 6.56
+    },
+    {
+        "text": "a single node configuration you can see the p50 to  p90 latencies are between 4.7 to 6.2 milliseconds  ",
+        "start": 281.12,
+        "duration": 6.64
+    },
+    {
+        "text": "for 50 node cluster you can see it is from 5.1  to 8.2 milliseconds this seems to be reasonably  ",
+        "start": 288.56,
+        "duration": 7.6
+    },
+    {
+        "text": "close given the scale you can also see the  distribution of the qps across these various nodes  ",
+        "start": 296.16,
+        "duration": 7.76
+    },
+    {
+        "text": "now let's see a plot of them here the x-axis shows  the number of the nodes and the y axis has the qps  ",
+        "start": 303.92,
+        "duration": 6.56
+    },
+    {
+        "text": "the plot shows near linear scale of qps with  respect to nodes let's get back to our original  ",
+        "start": 311.28,
+        "duration": 7.92
+    },
+    {
+        "text": "goal to achieve 100 kqps with the same cost  that is with 50 nodes can we achieve 100 kqps  ",
+        "start": 319.2,
+        "duration": 7.68
+    },
+    {
+        "text": "we can try this if we are willing to trade off  increase in tail latencies we can tune for high  ",
+        "start": 327.52,
+        "duration": 6.96
+    },
+    {
+        "text": "throughput by increasing the work account in  this case we'll push the boundary by changing  ",
+        "start": 334.48,
+        "duration": 4.64
+    },
+    {
+        "text": "the work account from 8 to 48 per node now let's  run the test with a 50 node cluster with the  ",
+        "start": 339.12,
+        "duration": 7.68
+    },
+    {
+        "text": "increased work account you can see that we have  in fact reached 100 000 qps yay let's compare",
+        "start": 346.8,
+        "duration": 7.92
+    },
+    {
+        "text": "you can see that the new configuration has better  qps but we have to trade off with the increase in  ",
+        "start": 356.88,
+        "duration": 7.52
+    },
+    {
+        "text": "tail latencies this is good enough for our use  case however we can always easily add more nodes  ",
+        "start": 364.4,
+        "duration": 6.8
+    },
+    {
+        "text": "to reduce the latencies to summarize high-skilled  customers can now self-serve their way to hundreds  ",
+        "start": 371.2,
+        "duration": 7.6
+    },
+    {
+        "text": "of thousands of qps so just to a couple of  because that first of all that was awesome  ",
+        "start": 378.8,
+        "duration": 4.72
+    },
+    {
+        "text": "100k queries per sqps means kilos per  second yes uh in under seven minutes able to  ",
+        "start": 383.52,
+        "duration": 7.28
+    },
+    {
+        "text": "to deploy that fantastic you mentioned tail  latencies and there was like i think it was  ",
+        "start": 390.8,
+        "duration": 4.96
+    },
+    {
+        "text": "p 50 p 60 p what what does that mean so when  you want to measure the uh user experience uh  ",
+        "start": 395.76,
+        "duration": 7.76
+    },
+    {
+        "text": "of the the client that's making the request you  know the response time people you know average  ",
+        "start": 403.52,
+        "duration": 5.04
+    },
+    {
+        "text": "is one way to do that but it does not capture  these stragglers tail latencies for example p90  ",
+        "start": 408.56,
+        "duration": 6.24
+    },
+    {
+        "text": "let's say six milliseconds that means that ninety  percent of your users will experience uh latency  ",
+        "start": 414.8,
+        "duration": 6.48
+    },
+    {
+        "text": "of six milliseconds or less oh i see i see so it's  basically the latency for the percentage of people  ",
+        "start": 421.28,
+        "duration": 6.32
+    },
+    {
+        "text": "the best percentage the the best latency for that  fifty percent sixty percent did i get that right  ",
+        "start": 427.6,
+        "duration": 6.16
+    },
+    {
+        "text": "that is perfect the other thing that was maybe go  ahead yeah so when you for like uh applications  ",
+        "start": 433.76,
+        "duration": 6.88
+    },
+    {
+        "text": "which have very tight sla they typically may like  measure let's say p90 p90 p95 or sometimes even  ",
+        "start": 440.64,
+        "duration": 6.4
+    },
+    {
+        "text": "p99 latencies that's what they care about i see  okay this makes a lot more sense the second thing  ",
+        "start": 447.04,
+        "duration": 5.92
+    },
+    {
+        "text": "that was not altogether clear for me was that  the increasing worker count increasing node count  ",
+        "start": 452.96,
+        "duration": 6.32
+    },
+    {
+        "text": "causing issues can you explain that a little bit  yeah absolutely so the overall goal of this this  ",
+        "start": 460.0,
+        "duration": 6.32
+    },
+    {
+        "text": "demo is to first of all showcase to users hey um  you you are able to kind of really scale up to  ",
+        "start": 466.32,
+        "duration": 7.28
+    },
+    {
+        "text": "two very high requests per second or queries per  second uh by using configuration our declarative  ",
+        "start": 473.6,
+        "duration": 6.16
+    },
+    {
+        "text": "api and on that our system is kind of open so  when we in each worker let's say in our case we  ",
+        "start": 479.76,
+        "duration": 6.16
+    },
+    {
+        "text": "have like a 8 cpu machine and we put initially we  started 8 workers or like eight processors right  ",
+        "start": 485.92,
+        "duration": 6.8
+    },
+    {
+        "text": "so these are the inference containers and eight  processes that are running that will kind of serve  ",
+        "start": 492.72,
+        "duration": 4.72
+    },
+    {
+        "text": "the request and um if we you know there is still  you know a lot of time these processes wait they  ",
+        "start": 497.44,
+        "duration": 5.92
+    },
+    {
+        "text": "are not using the cpu all the time so when they  are eight okay they are doing good uh because we  ",
+        "start": 503.36,
+        "duration": 5.44
+    },
+    {
+        "text": "match one cpu code to this indirectly but when  i want to squeeze more juice out of the cpu  ",
+        "start": 508.8,
+        "duration": 6.48
+    },
+    {
+        "text": "i can keep adding more processors but then  there's going to be the trade-off is going to be  ",
+        "start": 515.28,
+        "duration": 4.8
+    },
+    {
+        "text": "you're going to you're pro you're going to be able  to handle more requests but because of the lot  ",
+        "start": 520.08,
+        "duration": 4.8
+    },
+    {
+        "text": "of context switching that happens there is going  to be additional latency so that's the trade-off  ",
+        "start": 524.88,
+        "duration": 4.72
+    },
+    {
+        "text": "so if you have very low latency application  you don't want to you know squeeze a lot of  ",
+        "start": 529.6,
+        "duration": 3.84
+    },
+    {
+        "text": "workers but if you're willing to trade off and  you won't reduce your cost then that's that's a  ",
+        "start": 533.44,
+        "duration": 3.84
+    },
+    {
+        "text": "good way okay so i think i understand basically  each worker if you're on an eight cpu machine  ",
+        "start": 537.28,
+        "duration": 6.16
+    },
+    {
+        "text": "if there's eight workers then they're pseudo map  one to cpu but then the more workers that you  ",
+        "start": 544.24,
+        "duration": 5.84
+    },
+    {
+        "text": "have the more contention there is between context  switching etc that's right fantastic are any other  ",
+        "start": 550.08,
+        "duration": 5.84
+    },
+    {
+        "text": "cool things announcements uh from microsoft build  that you want to talk about absolutely so i have  ",
+        "start": 555.92,
+        "duration": 7.04
+    },
+    {
+        "text": "two new features that we are public reviewing as  a part of management endpoints based on you know a  ",
+        "start": 562.96,
+        "duration": 4.8
+    },
+    {
+        "text": "lot of customer asks so i'll give you like a  quick sneak peek of what what's coming here",
+        "start": 567.76,
+        "duration": 4.72
+    },
+    {
+        "text": "let's do it",
+        "start": 575.44,
+        "duration": 0.72
+    },
+    {
+        "text": "so the first one is mirror traffic seth if you  recall in your last show we talked about safe  ",
+        "start": 578.24,
+        "duration": 5.36
+    },
+    {
+        "text": "rollout in this we talked about how you can use  percentage of live traffic uh diverted to a new  ",
+        "start": 583.6,
+        "duration": 5.6
+    },
+    {
+        "text": "version of the model and then make sure that model  is working properly before we divert more traffic  ",
+        "start": 589.2,
+        "duration": 5.36
+    },
+    {
+        "text": "to that model and become 100 from blue to green  right that's i remember that yeah so one of the  ",
+        "start": 594.56,
+        "duration": 5.68
+    },
+    {
+        "text": "challenges with that issue with that capability is  when you transfer live traffic let's say even you  ",
+        "start": 600.24,
+        "duration": 5.6
+    },
+    {
+        "text": "transfer five percent of live traffic to a new  modded test what if uh the deployment is faulty  ",
+        "start": 605.84,
+        "duration": 5.52
+    },
+    {
+        "text": "there are some issues with that then your survey  is going to be affected because five percent  ",
+        "start": 611.36,
+        "duration": 3.68
+    },
+    {
+        "text": "of your request might fail now so what we are  launching right now is a capability called mirror  ",
+        "start": 615.04,
+        "duration": 5.52
+    },
+    {
+        "text": "traffic in which as you can see in the picture uh  the v1 of the model will take still can you take  ",
+        "start": 620.56,
+        "duration": 4.96
+    },
+    {
+        "text": "100 percent but now you give a percentage of that  as a mirror traffic in this case i am diverting 10  ",
+        "start": 625.52,
+        "duration": 4.96
+    },
+    {
+        "text": "tr traffic to the green but the response from  green is not requested it's not sent back to  ",
+        "start": 631.28,
+        "duration": 6.0
+    },
+    {
+        "text": "the client you know so it's like done internally  but still you can go and measure your metrics to  ",
+        "start": 637.28,
+        "duration": 6.72
+    },
+    {
+        "text": "make sure that hey i'm meeting my response time  requirements am i uh are there no errors so you  ",
+        "start": 644.0,
+        "duration": 6.0
+    },
+    {
+        "text": "can see all your metrics and make sure sla is  doing good before you dive divert real traffic to  ",
+        "start": 650.0,
+        "duration": 5.2
+    },
+    {
+        "text": "it so that's the mirror traffic capability that's  really cool like i i can imagine scenarios where  ",
+        "start": 655.2,
+        "duration": 6.96
+    },
+    {
+        "text": "you might not even want to let's just say you have  an sla of you know three nines for example and you  ",
+        "start": 662.16,
+        "duration": 5.12
+    },
+    {
+        "text": "divert five percent of your traffic to green  when it doesn't work at all and you don't know  ",
+        "start": 667.28,
+        "duration": 6.08
+    },
+    {
+        "text": "all of a sudden you're at 95 which is not good  this basically just mirrors the traffic and then  ",
+        "start": 673.36,
+        "duration": 6.8
+    },
+    {
+        "text": "you can monitor how it's handling the requests  that is right that is right that's really cool  ",
+        "start": 680.16,
+        "duration": 5.68
+    },
+    {
+        "text": "and and and to use this it's very very  straightforward and uh you know you can see in the  ",
+        "start": 686.72,
+        "duration": 5.04
+    },
+    {
+        "text": "bottom you have users who have seen this online  endpoint update api already available you just  ",
+        "start": 691.76,
+        "duration": 5.68
+    },
+    {
+        "text": "need to set this mirror traffic and you can set  it to whatever percentage that is needed amazing  ",
+        "start": 697.44,
+        "duration": 6.56
+    },
+    {
+        "text": "that's really cool any others or do you still  have any other surprises yes one more thing uh  ",
+        "start": 704.0,
+        "duration": 6.32
+    },
+    {
+        "text": "big ass from our net from our enterprise customers  this is the network isolation support we worked on  ",
+        "start": 710.32,
+        "duration": 6.0
+    },
+    {
+        "text": "this to make sure it's as declarative and simple  for people to adopt uh rather than people go and  ",
+        "start": 716.32,
+        "duration": 5.44
+    },
+    {
+        "text": "configure a lot of nsg rules in their v netting  we want to reduce the setup overhead here so here  ",
+        "start": 721.76,
+        "duration": 5.6
+    },
+    {
+        "text": "we we support both ingress network isolation for  both ingress and egress through private endpoints  ",
+        "start": 727.36,
+        "duration": 5.92
+    },
+    {
+        "text": "so the first command so it shows you how you  can secure the ingress to a private endpoint uh  ",
+        "start": 733.28,
+        "duration": 6.16
+    },
+    {
+        "text": "through to your online endpoint through a private  endpoint works workspace private endpoint so all  ",
+        "start": 739.44,
+        "duration": 6.0
+    },
+    {
+        "text": "you need to do is when you do the endpoint  create you add this flag that's highlighted  ",
+        "start": 745.44,
+        "duration": 4.8
+    },
+    {
+        "text": "like set public network access as disabled so this  means there is no public id available for endpoint  ",
+        "start": 750.24,
+        "duration": 5.68
+    },
+    {
+        "text": "and all the accesses have to go through you  from your v-net through a workspace private  ",
+        "start": 755.92,
+        "duration": 5.12
+    },
+    {
+        "text": "end point so this secures the ingress and to  secure the outbound communication on the egress  ",
+        "start": 761.04,
+        "duration": 5.2
+    },
+    {
+        "text": "from your deployment vms to the external  resources like the storage and acr  ",
+        "start": 766.96,
+        "duration": 5.92
+    },
+    {
+        "text": "you you know you can do that by just adding this  when you do a deployment create all you need to  ",
+        "start": 773.84,
+        "duration": 4.72
+    },
+    {
+        "text": "do is set the public network access as disabled  here so this way uh you know we create private  ",
+        "start": 778.56,
+        "duration": 6.4
+    },
+    {
+        "text": "and private endpoints to the from the deployment  to the uh to the acr and block store for instance  ",
+        "start": 784.96,
+        "duration": 7.6
+    },
+    {
+        "text": "and make sure that you know there is no internet  access from the containers out so this way you  ",
+        "start": 792.56,
+        "duration": 4.8
+    },
+    {
+        "text": "can secure both your ingers and egress and both  are independent in a way that you can have like  ",
+        "start": 797.36,
+        "duration": 5.12
+    },
+    {
+        "text": "a public endpoint with a private egress or like a  pro like at the end point which is kind of private  ",
+        "start": 802.48,
+        "duration": 5.12
+    },
+    {
+        "text": "and the the egress can be public so you can set  any combinations that you want oh this is so  ",
+        "start": 807.6,
+        "duration": 4.64
+    },
+    {
+        "text": "cool especially when you have sensitive uses uh  that you can do this this is great stuff set to  ",
+        "start": 812.24,
+        "duration": 7.04
+    },
+    {
+        "text": "where can people go to find out more uh so there  is a link that's that that's going to be shared  ",
+        "start": 819.28,
+        "duration": 5.68
+    },
+    {
+        "text": "in the bottom of this ai show and people can  just go there and you know there's a blog  ",
+        "start": 824.96,
+        "duration": 5.68
+    },
+    {
+        "text": "and there'll be links to uh tutorials on mirror  traffic and network isolation uh this has all been  ",
+        "start": 830.64,
+        "duration": 6.56
+    },
+    {
+        "text": "really cool satu thank you so much for spending  time with us my friend thank you so much sir all  ",
+        "start": 837.2,
+        "duration": 5.52
+    },
+    {
+        "text": "right we've been learning all about managed online  endpoint now generally available as of microsoft  ",
+        "start": 842.72,
+        "duration": 5.6
+    },
+    {
+        "text": "build 2022. thank you so much for watching and  hopefully we'll see you next time take care",
+        "start": 848.32,
+        "duration": 7.52
+    },
+    {
+        "text": "you",
+        "start": 861.28,
+        "duration": 0.5
+    }
+]

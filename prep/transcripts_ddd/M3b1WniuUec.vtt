@@ -1,0 +1,2006 @@
+WEBVTT
+
+00:00:04.969 --> 00:00:11.309
+Caption: pulse in the room I think anyone is
+
+00:00:07.048 --> 00:00:13.920
+Caption: gonna team up in Charlie I&#39;m really
+
+00:00:11.309 --> 00:00:26.000
+Caption: excited talking about service so
+
+00:00:13.920 --> 00:00:28.139
+Caption: before we get into my career
+
+00:00:26.000 --> 00:00:30.179
+Caption: architecting back in distributed systems
+
+00:00:28.139 --> 00:00:35.610
+Caption: as well so this is a special area of
+
+00:00:30.179 --> 00:00:37.739
+Caption: interest for me people to stand whose
+
+00:00:35.610 --> 00:00:43.559
+Caption: courage of service mission package
+
+00:00:37.738 --> 00:00:53.788
+Caption: before cool a few hands who&#39;s using what
+
+00:00:43.558 --> 00:00:58.078
+Caption: a reduction is to explore the motivation
+
+00:00:53.789 --> 00:01:00.329
+Caption: behind what problem does it solve
+
+00:00:58.078 --> 00:01:06.658
+Caption: particularly what category of problems
+
+00:01:00.328 --> 00:01:08.309
+Caption: will it solve you how it contrasts with
+
+00:01:06.658 --> 00:01:10.679
+Caption: previous approaches I&#39;m going to take
+
+00:01:08.309 --> 00:01:12.419
+Caption: that any stroll through how our thinking
+
+00:01:10.680 --> 00:01:14.669
+Caption: has evolved over the years so we&#39;ll look
+
+00:01:12.419 --> 00:01:16.349
+Caption: at a good gateways we&#39;ll look at I could
+
+00:01:14.669 --> 00:01:18.000
+Caption: all friendly into my service boss let&#39;s
+
+00:01:16.349 --> 00:01:19.589
+Caption: see how this there&#39;s a lot of parallels
+
+00:01:18.000 --> 00:01:21.150
+Caption: and similarities between them
+
+00:01:19.589 --> 00:01:24.449
+Caption: photography on political differences as
+
+00:01:21.150 --> 00:01:26.069
+Caption: well so absolute gains been
+
+00:01:24.449 --> 00:01:28.459
+Caption: understanding their nwandi is how I
+
+00:01:26.069 --> 00:01:28.459
+Caption: could help
+
+00:01:30.449 --> 00:02:23.039
+Caption: easier today has a story it&#39;s beautiful
+
+00:02:27.089 --> 00:02:30.179
+Caption: [Music]
+
+00:03:11.699 --> 00:03:16.119
+Caption: when you&#39;re talking in process is just
+
+00:03:14.410 --> 00:03:18.370
+Caption: simple but now we have to deal with all
+
+00:03:16.119 --> 00:03:26.048
+Caption: of these things of the unreliability of
+
+00:03:18.369 --> 00:03:27.699
+Caption: the deadline is compact this is what
+
+00:03:26.048 --> 00:03:31.750
+Caption: they call the ink fallacies industry
+
+00:03:27.699 --> 00:03:32.860
+Caption: completed and called out to warn us
+
+00:03:31.750 --> 00:03:40.690
+Caption: against some of the false assumption
+
+00:03:32.860 --> 00:03:41.440
+Caption: that we make is not reliable latency is
+
+00:03:40.690 --> 00:03:45.220
+Caption: not zero
+
+00:03:41.440 --> 00:03:47.800
+Caption: your letter does not eat them arrive and
+
+00:03:45.220 --> 00:03:49.208
+Caption: width is not unlimited again human a
+
+00:03:47.800 --> 00:03:56.708
+Caption: postal service building has known so
+
+00:03:49.208 --> 00:03:59.559
+Caption: many letters so some of these again so
+
+00:03:56.708 --> 00:04:03.488
+Caption: we mentioned this flow control service
+
+00:03:59.559 --> 00:04:05.020
+Caption: agents in as most desert you can see fit
+
+00:04:03.488 --> 00:04:07.179
+Caption: the service people want again if it
+
+00:04:05.020 --> 00:04:09.400
+Caption: overloads it does that Dana get lost
+
+00:04:07.179 --> 00:04:12.189
+Caption: have you then move down service even
+
+00:04:09.399 --> 00:04:13.958
+Caption: just problem too much data acid and this
+
+00:04:12.190 --> 00:04:15.639
+Caption: is typically what we suspected back to
+
+00:04:13.958 --> 00:04:17.979
+Caption: the fifties there were these distributed
+
+00:04:15.639 --> 00:04:22.660
+Caption: systems I gave the application tier
+
+00:04:17.979 --> 00:04:25.149
+Caption: itself to you know on all of this logic
+
+00:04:22.660 --> 00:04:26.979
+Caption: feed to add that reliability itself it
+
+00:04:25.149 --> 00:04:32.519
+Caption: didn&#39;t get a lot of help in fact the
+
+00:04:26.979 --> 00:04:35.289
+Caption: help that we just given today one thing
+
+00:04:32.519 --> 00:04:38.940
+Caption: for the highlights of point is maybe
+
+00:04:35.289 --> 00:04:38.940
+Caption: this distributed computing thing
+
+00:04:40.859 --> 00:04:44.918
+Caption: and in fact if we were finished with
+
+00:04:43.178 --> 00:04:47.859
+Caption: flow control that would be one thing but
+
+00:04:44.919 --> 00:04:50.619
+Caption: there are so many different concerns is
+
+00:04:47.859 --> 00:04:52.868
+Caption: reliability observability and traffic
+
+00:04:50.618 --> 00:04:57.968
+Caption: management and for each of them we
+
+00:04:52.868 --> 00:05:00.218
+Caption: continue to it so Watson so against it
+
+00:04:57.968 --> 00:05:03.308
+Caption: so against you don&#39;t dependency a single
+
+00:05:00.218 --> 00:05:05.139
+Caption: node but at the seconds any algorithm
+
+00:05:03.308 --> 00:05:06.518
+Caption: see you use drone profit you can own as
+
+00:05:05.139 --> 00:05:08.709
+Caption: points you could do nice to see you
+
+00:05:06.519 --> 00:05:09.848
+Caption: where know about the sink so again you
+
+00:05:08.709 --> 00:05:12.759
+Caption: know there&#39;s various levels of maturity
+
+00:05:09.848 --> 00:05:16.628
+Caption: here service discovery how do I actually
+
+00:05:12.759 --> 00:05:19.989
+Caption: know where to send by traffic and often
+
+00:05:16.628 --> 00:05:22.958
+Caption: DNS alone will not be sufficient there&#39;s
+
+00:05:19.989 --> 00:05:24.759
+Caption: access control and again this prayer
+
+00:05:22.959 --> 00:05:27.029
+Caption: request routing so we really have this
+
+00:05:24.759 --> 00:05:30.188
+Caption: advanced distributed system being able
+
+00:05:27.028 --> 00:05:32.438
+Caption: individually control each request is
+
+00:05:30.188 --> 00:05:37.208
+Caption: incredibly powerful capability as you
+
+00:05:32.438 --> 00:05:39.579
+Caption: see we move forward observability so
+
+00:05:37.209 --> 00:05:40.689
+Caption: we&#39;re interested in insight into our
+
+00:05:39.579 --> 00:05:42.569
+Caption: system running conducted themselves
+
+00:05:40.688 --> 00:05:45.609
+Caption: success rates
+
+00:05:42.569 --> 00:05:48.968
+Caption: latency logs so factor distributed
+
+00:05:45.609 --> 00:05:51.698
+Caption: systems latency you know and leg that&#39;s
+
+00:05:48.968 --> 00:05:55.259
+Caption: returning slowly it&#39;s actually more
+
+00:05:51.699 --> 00:05:59.348
+Caption: difficult to deal with the data simply
+
+00:05:55.259 --> 00:06:00.699
+Caption: complexity to it so they&#39;ll get the
+
+00:05:59.348 --> 00:06:03.218
+Caption: student in tracing so if you&#39;ve worked
+
+00:06:00.699 --> 00:06:06.399
+Caption: with city which is implementation of
+
+00:06:03.218 --> 00:06:08.438
+Caption: open tracing so again trying to fill the
+
+00:06:06.398 --> 00:06:12.908
+Caption: picture of all the requests as they flow
+
+00:06:08.438 --> 00:06:15.188
+Caption: through the system we have two projects
+
+00:06:12.908 --> 00:06:17.319
+Caption: pretty typical circuit breakers again
+
+00:06:15.188 --> 00:06:19.268
+Caption: how do we build reliability in to
+
+00:06:17.319 --> 00:06:23.859
+Caption: correlate that by the beatdown it&#39;s
+
+00:06:19.269 --> 00:06:25.509
+Caption: basically down reach my policies if I
+
+00:06:23.859 --> 00:06:28.168
+Caption: call the service and fails it is safe to
+
+00:06:25.509 --> 00:06:28.169
+Caption: call it again
+
+00:06:29.720 --> 00:06:35.839
+Caption: I think in timeouts the classic kind of
+
+00:06:34.220 --> 00:06:37.850
+Caption: concerning the student assistance but
+
+00:06:35.839 --> 00:06:39.619
+Caption: again shooting those timeouts so have
+
+00:06:37.850 --> 00:06:41.869
+Caption: them conservative enough that you&#39;re not
+
+00:06:39.619 --> 00:06:44.299
+Caption: risking resources be consumed at the
+
+00:06:41.869 --> 00:06:45.799
+Caption: same time not making sure that your
+
+00:06:44.299 --> 00:06:50.329
+Caption: prematurely causing families across your
+
+00:06:45.799 --> 00:06:56.750
+Caption: system so what we consider all of these
+
+00:06:50.329 --> 00:06:57.619
+Caption: things it&#39;s actually seen where there&#39;s
+
+00:06:56.750 --> 00:07:00.290
+Caption: a will there&#39;s a way
+
+00:06:57.619 --> 00:07:05.600
+Caption: so how did we then actually start to
+
+00:07:00.290 --> 00:07:08.540
+Caption: scale out some of these capabilities for
+
+00:07:05.600 --> 00:07:12.260
+Caption: instance it moved from the application
+
+00:07:08.540 --> 00:07:14.930
+Caption: tier to the networking tier so again no
+
+00:07:12.260 --> 00:07:16.760
+Caption: longer was a concern to the application
+
+00:07:14.929 --> 00:07:18.559
+Caption: developer instance they could just make
+
+00:07:16.760 --> 00:07:21.770
+Caption: the call and a lot of that in order to
+
+00:07:18.559 --> 00:07:25.100
+Caption: delivery retry zone that was handled at
+
+00:07:21.769 --> 00:07:26.629
+Caption: the TCP layer and this was an incredible
+
+00:07:25.100 --> 00:07:28.250
+Caption: boon for us so again instead of dealing
+
+00:07:26.630 --> 00:07:30.589
+Caption: with selling physical goods across the
+
+00:07:28.250 --> 00:07:33.290
+Caption: wire or then at layer 2 we have a mix of
+
+00:07:30.589 --> 00:07:37.010
+Caption: it data frames that are finally at the
+
+00:07:33.290 --> 00:07:40.010
+Caption: IP layer we have addressing TCP that
+
+00:07:37.010 --> 00:07:42.410
+Caption: gave us all of that power so we can just
+
+00:07:40.010 --> 00:07:44.119
+Caption: send the request across the huge one of
+
+00:07:42.410 --> 00:07:45.950
+Caption: the complexity of doing it reliably was
+
+00:07:44.119 --> 00:07:49.669
+Caption: at the London it right here it&#39;s a
+
+00:07:45.950 --> 00:07:51.800
+Caption: distracted away from us again that
+
+00:07:49.670 --> 00:07:54.320
+Caption: pattern repeats itself time and time
+
+00:07:51.799 --> 00:07:57.529
+Caption: again so it has we know build more
+
+00:07:54.320 --> 00:07:58.700
+Caption: complicated systems we applied that same
+
+00:07:57.529 --> 00:08:01.790
+Caption: logic
+
+00:07:58.700 --> 00:08:03.350
+Caption: so whereby we had to handle certain
+
+00:08:01.790 --> 00:08:04.910
+Caption: concerns like services scrubbing the
+
+00:08:03.350 --> 00:08:10.130
+Caption: application to you&#39;ll see that we want
+
+00:08:04.910 --> 00:08:12.649
+Caption: to push them down into you know
+
+00:08:10.130 --> 00:08:14.540
+Caption: a centralized location and that&#39;s what
+
+00:08:12.649 --> 00:08:16.459
+Caption: we did with enterprise service possible
+
+00:08:14.540 --> 00:08:20.199
+Caption: so then one of the ideas from there is
+
+00:08:16.459 --> 00:08:27.649
+Caption: again we had these multitude of services
+
+00:08:20.199 --> 00:08:29.660
+Caption: npp it&#39;s a proprietary scheme but they
+
+00:08:27.649 --> 00:08:31.220
+Caption: wanted interoperability between those so
+
+00:08:29.660 --> 00:08:32.510
+Caption: if you look it but a service boss we add
+
+00:08:31.220 --> 00:08:35.028
+Caption: into this essential piece of
+
+00:08:32.510 --> 00:08:36.679
+Caption: communication infrastructure which then
+
+00:08:35.028 --> 00:08:39.950
+Caption: had adapters such that you could then
+
+00:08:36.679 --> 00:08:51.140
+Caption: take maybe one form of XML and forward
+
+00:08:39.950 --> 00:08:53.150
+Caption: into another message as well these were
+
+00:08:51.140 --> 00:08:54.619
+Caption: actually incredibly popular to this
+
+00:08:53.150 --> 00:08:57.020
+Caption: solve the real problem to begin with
+
+00:08:54.619 --> 00:08:58.669
+Caption: namely how do you get dis persistence to
+
+00:08:57.020 --> 00:09:00.350
+Caption: communicate and again we can build
+
+00:08:58.669 --> 00:09:03.919
+Caption: workflows about typically this is an
+
+00:09:00.349 --> 00:09:05.359
+Caption: orchestration based look and should have
+
+00:09:03.919 --> 00:09:07.989
+Caption: actually worked on one of these are the
+
+00:09:05.359 --> 00:09:10.489
+Caption: team up in other what we introduced one
+
+00:09:07.989 --> 00:09:13.640
+Caption: yeah but the first hundred integrations
+
+00:09:10.489 --> 00:09:15.469
+Caption: were amazingly quick but then after that
+
+00:09:13.640 --> 00:09:17.660
+Caption: things start to go and services that in
+
+00:09:15.469 --> 00:09:19.219
+Caption: common incredibly complicated when we
+
+00:09:17.659 --> 00:09:21.799
+Caption: changed one integration was start to
+
+00:09:19.219 --> 00:09:23.629
+Caption: break another and then was like okay
+
+00:09:21.799 --> 00:09:25.250
+Caption: well let&#39;s see how it&#39;ll scale the team
+
+00:09:23.630 --> 00:09:28.479
+Caption: and more spread rules mythical man-month
+
+00:09:25.250 --> 00:09:32.020
+Caption: you can keep drawing people at a problem
+
+00:09:28.479 --> 00:09:34.039
+Caption: but operationally they also have
+
+00:09:32.020 --> 00:09:37.010
+Caption: typically a centralized architecture
+
+00:09:34.039 --> 00:09:39.778
+Caption: will result in a single
+
+00:09:37.010 --> 00:09:41.338
+Caption: so again with any distributed adaptive
+
+00:09:39.778 --> 00:09:46.679
+Caption: system there were to keep in fact
+
+00:09:41.338 --> 00:09:48.359
+Caption: looking to an overweight and again when
+
+00:09:46.679 --> 00:09:51.149
+Caption: you putting or consolidating all this
+
+00:09:48.359 --> 00:09:53.789
+Caption: logic at one place it becomes complex
+
+00:09:51.150 --> 00:09:56.010
+Caption: it&#39;s harder for one person to understand
+
+00:09:53.789 --> 00:09:59.338
+Caption: the mental model of the system and then
+
+00:09:56.010 --> 00:10:01.140
+Caption: that&#39;s when actually changes confidence
+
+00:09:59.338 --> 00:10:02.849
+Caption: is a huge thing when you&#39;re looking to
+
+00:10:01.140 --> 00:10:04.500
+Caption: release it if you can&#39;t understand the
+
+00:10:02.849 --> 00:10:07.019
+Caption: entire system of people get nervous with
+
+00:10:04.500 --> 00:10:08.849
+Caption: this risk that&#39;s where the speed at
+
+00:10:07.020 --> 00:10:15.838
+Caption: which is there to to point
+
+00:10:08.849 --> 00:10:17.639
+Caption: slows down include native came along and
+
+00:10:15.838 --> 00:10:20.130
+Caption: this really looks to challenge and other
+
+00:10:17.640 --> 00:10:25.109
+Caption: pervading thinking to that point there&#39;s
+
+00:10:20.130 --> 00:10:27.119
+Caption: four main pillars DevOps how do you
+
+00:10:25.109 --> 00:10:28.859
+Caption: build a culture around continuous
+
+00:10:27.119 --> 00:10:31.409
+Caption: learning how&#39;d you build what about
+
+00:10:28.859 --> 00:10:34.349
+Caption: sharing how to support that culture to
+
+00:10:31.409 --> 00:10:37.679
+Caption: automation that then empirical decisions
+
+00:10:34.349 --> 00:10:39.119
+Caption: based on metrics and data putting that
+
+00:10:37.679 --> 00:10:43.250
+Caption: into practice with continuous delivery
+
+00:10:39.119 --> 00:10:45.900
+Caption: to actually create those feedback loops
+
+00:10:43.250 --> 00:10:48.028
+Caption: micro-services to provide the same level
+
+00:10:45.900 --> 00:10:50.490
+Caption: of agility in your architecture as you
+
+00:10:48.028 --> 00:10:52.619
+Caption: have in your delivery process I finally
+
+00:10:50.489 --> 00:10:54.599
+Caption: containers as the packaging progress so
+
+00:10:52.619 --> 00:10:58.309
+Caption: hooli away from heavyweight vm&#39;s to
+
+00:10:54.599 --> 00:11:00.778
+Caption: light of containers and lightweight
+
+00:10:58.309 --> 00:11:02.760
+Caption: components awesome again you have more
+
+00:11:00.778 --> 00:11:05.088
+Caption: flexibility in the house host any move
+
+00:11:02.760 --> 00:11:05.088
+Caption: them around
+
+00:11:07.278 --> 00:11:10.729
+Caption: so remember the original sort of
+
+00:11:09.078 --> 00:11:11.898
+Caption: dialogue that service a service B so
+
+00:11:10.729 --> 00:11:13.849
+Caption: what we&#39;ve now seen in the market
+
+00:11:11.898 --> 00:11:18.729
+Caption: services world is that has exploded
+
+00:11:13.849 --> 00:11:18.729
+Caption: there are connections going everywhere
+
+00:11:23.708 --> 00:11:29.028
+Caption: again to instead of the centralized the
+
+00:11:26.508 --> 00:11:30.008
+Caption: s be there we&#39;ve actually think put all
+
+00:11:29.028 --> 00:11:33.739
+Caption: its vets
+
+00:11:30.008 --> 00:11:36.198
+Caption: into the services themselves so once a
+
+00:11:33.739 --> 00:11:39.138
+Caption: service services business logic and data
+
+00:11:36.198 --> 00:11:42.979
+Caption: with an ESB we often had all of the
+
+00:11:39.138 --> 00:11:46.068
+Caption: logic at the ESP itself going to be data
+
+00:11:42.979 --> 00:11:47.838
+Caption: entry inputs these flips a lot ahead and
+
+00:11:46.068 --> 00:11:50.299
+Caption: say we want to keep the debt work done
+
+00:11:47.838 --> 00:11:52.099
+Caption: but we want to have all of the business
+
+00:11:50.299 --> 00:11:55.008
+Caption: logic gates of the data in the intervals
+
+00:11:52.099 --> 00:11:56.508
+Caption: individual services themselves and this
+
+00:11:55.008 --> 00:11:58.638
+Caption: is sort of being paraphrasing like the
+
+00:11:56.508 --> 00:12:05.688
+Caption: guerrilla SOA movers has smart endpoints
+
+00:11:58.638 --> 00:12:07.909
+Caption: and dumb pipes so this apply that to so
+
+00:12:05.689 --> 00:12:09.829
+Caption: again with saying service discovery you
+
+00:12:07.909 --> 00:12:13.549
+Caption: know I can&#39;t find ports and DNS I need
+
+00:12:09.828 --> 00:12:15.018
+Caption: something a bit richer circuit breakers
+
+00:12:13.549 --> 00:12:17.208
+Caption: again to make sure that our component
+
+00:12:15.018 --> 00:12:19.638
+Caption: downstream services which you know might
+
+00:12:17.208 --> 00:12:22.458
+Caption: not be reliable how do I then wrap that
+
+00:12:19.638 --> 00:12:24.799
+Caption: function then I did a create failures
+
+00:12:22.458 --> 00:12:27.528
+Caption: over time and to fill the sector also at
+
+00:12:24.799 --> 00:12:28.539
+Caption: the time of the court that he couldn&#39;t
+
+00:12:27.528 --> 00:12:31.000
+Caption: keep that dosing
+
+00:12:28.539 --> 00:12:33.789
+Caption: master of government but what we&#39;re
+
+00:12:31.000 --> 00:12:35.710
+Caption: seeing in the same way that a critical
+
+00:12:33.789 --> 00:12:37.839
+Caption: baby boomer services speak to worry
+
+00:12:35.710 --> 00:12:39.220
+Caption: about full control all the best services
+
+00:12:37.840 --> 00:12:46.450
+Caption: and no having to worry about all of
+
+00:12:39.219 --> 00:12:51.789
+Caption: these complex concerns again picture
+
+00:12:46.450 --> 00:13:04.600
+Caption: benefits of micro services was for the
+
+00:12:51.789 --> 00:13:08.169
+Caption: particular problem these you know how we
+
+00:13:04.599 --> 00:13:12.039
+Caption: address back then was shift these
+
+00:13:08.169 --> 00:13:13.119
+Caption: concerns out to a side care proxy so
+
+00:13:12.039 --> 00:13:15.549
+Caption: we&#39;re gonna prop Z that will handle
+
+00:13:13.119 --> 00:13:19.419
+Caption: ingress and egress from that particular
+
+00:13:15.549 --> 00:13:22.659
+Caption: services which we can then include the
+
+00:13:19.419 --> 00:13:25.000
+Caption: circuit breakers and discovery and retry
+
+00:13:22.659 --> 00:13:28.329
+Caption: policies and all that at that particular
+
+00:13:25.000 --> 00:13:30.219
+Caption: site so there are examples such as
+
+00:13:28.330 --> 00:13:31.750
+Caption: Crowder for Netflix they came out one of
+
+00:13:30.219 --> 00:13:34.179
+Caption: the beautiful things are here is that
+
+00:13:31.750 --> 00:13:35.770
+Caption: just HTTP between it so you can have a
+
+00:13:34.179 --> 00:13:38.049
+Caption: legacy service that hasn&#39;t been written
+
+00:13:35.770 --> 00:13:41.380
+Caption: with any of these concerns in place and
+
+00:13:38.049 --> 00:13:47.979
+Caption: then encapsulate that can do shaadi your
+
+00:13:41.380 --> 00:13:49.780
+Caption: language of choice we don&#39;t have to say
+
+00:13:47.979 --> 00:13:52.299
+Caption: well I could only write this in Java but
+
+00:13:49.780 --> 00:13:55.000
+Caption: we use the deference over you know
+
+00:13:52.299 --> 00:13:58.659
+Caption: service pack and go everything has to be
+
+00:13:55.000 --> 00:14:01.119
+Caption: written than that one language so it
+
+00:13:58.659 --> 00:14:03.639
+Caption: gives from a deployment perspective we
+
+00:14:01.119 --> 00:14:05.770
+Caption: have now all of the communication in and
+
+00:14:03.640 --> 00:14:09.580
+Caption: our individual micro services happening
+
+00:14:05.770 --> 00:14:11.350
+Caption: through these side care proxies and from
+
+00:14:09.580 --> 00:14:14.880
+Caption: if I demonstrate enterprise integration
+
+00:14:11.349 --> 00:14:14.880
+Caption: patterns that is an example of
+
+00:14:18.440 --> 00:15:21.289
+Caption: this is one of the underpinning of is
+
+00:15:18.219 --> 00:15:21.288
+Caption: [Music]
+
+00:15:24.250 --> 00:15:27.419
+Caption: [Music]
+
+00:15:33.679 --> 00:15:45.239
+Caption: into this dedicated layer and the
+
+00:15:39.179 --> 00:15:48.539
+Caption: special surprise to parents so the Daisy
+
+00:15:45.239 --> 00:15:50.580
+Caption: plane we have already seen so the server
+
+00:15:48.539 --> 00:15:52.559
+Caption: fish is everything that&#39;s in the flow of
+
+00:15:50.580 --> 00:15:57.088
+Caption: the traffic you take two services so
+
+00:15:52.559 --> 00:16:01.849
+Caption: particularly the site care proxy control
+
+00:15:57.088 --> 00:16:06.750
+Caption: plane and that is how we actually get
+
+00:16:01.849 --> 00:16:09.690
+Caption: centralized management services sits
+
+00:16:06.750 --> 00:16:12.690
+Caption: outside of each of the individual
+
+00:16:09.690 --> 00:16:16.588
+Caption: microservices very beautifully and
+
+00:16:12.690 --> 00:16:18.690
+Caption: allows us to push policy to each of
+
+00:16:16.588 --> 00:16:21.539
+Caption: these service so what we can do is we
+
+00:16:18.690 --> 00:16:24.510
+Caption: can configure in the control plane and
+
+00:16:21.539 --> 00:16:26.429
+Caption: then have that push the policy out into
+
+00:16:24.510 --> 00:16:28.470
+Caption: each one of these individual terms and
+
+00:16:26.429 --> 00:16:33.599
+Caption: so you want to change how our education
+
+00:16:28.469 --> 00:16:35.729
+Caption: happens here and you can roll it out to
+
+00:16:33.599 --> 00:16:39.509
+Caption: each one of those properties and you
+
+00:16:35.729 --> 00:16:40.199
+Caption: have consistency you want to change your
+
+00:16:39.510 --> 00:16:45.510
+Caption: timeouts
+
+00:16:40.200 --> 00:16:48.869
+Caption: you can do it centrally controlled that
+
+00:16:45.510 --> 00:16:51.150
+Caption: we have the control the exact same as we
+
+00:16:48.869 --> 00:16:54.059
+Caption: had without centralized DSP with a key
+
+00:16:51.150 --> 00:16:56.910
+Caption: difference so with the ESB both the
+
+00:16:54.059 --> 00:16:59.338
+Caption: control plane and the data plane were in
+
+00:16:56.909 --> 00:17:02.699
+Caption: one unit the control plan was on the
+
+00:16:59.338 --> 00:17:05.338
+Caption: critical path as you see here if the
+
+00:17:02.700 --> 00:17:07.708
+Caption: control plane goes down that&#39;s fine the
+
+00:17:05.338 --> 00:17:09.599
+Caption: service carries on just as it was before
+
+00:17:07.708 --> 00:17:11.609
+Caption: we just can&#39;t update the policy and
+
+00:17:09.599 --> 00:17:13.828
+Caption: that&#39;s fine for us we still have
+
+00:17:11.609 --> 00:17:16.020
+Caption: deniable delivering between all of these
+
+00:17:13.828 --> 00:17:17.818
+Caption: services and if you wrote a lot platform
+
+00:17:16.020 --> 00:17:20.068
+Caption: at kubernetes akin to having deposits
+
+00:17:17.818 --> 00:17:22.500
+Caption: configure to auto scale so that&#39;s
+
+00:17:20.068 --> 00:17:25.318
+Caption: beautiful so we&#39;ve no decoupled our
+
+00:17:22.500 --> 00:17:29.660
+Caption: concerns of application traffic routing
+
+00:17:25.318 --> 00:17:29.659
+Caption: from our infrastructure scaling as well
+
+00:17:29.739 --> 00:17:33.890
+Caption: [Music]
+
+00:17:31.689 --> 00:17:43.459
+Caption: so with little insight cats and
+
+00:17:33.890 --> 00:17:45.020
+Caption: everything know your application still
+
+00:17:43.459 --> 00:17:47.689
+Caption: needs to have a certain level of
+
+00:17:45.020 --> 00:17:50.119
+Caption: maturity to warrant investment in this
+
+00:17:47.689 --> 00:17:52.309
+Caption: so again if you have a model if again
+
+00:17:50.119 --> 00:17:54.319
+Caption: and we would end up with one side carrot
+
+00:17:52.310 --> 00:17:56.780
+Caption: like don&#39;t bother there was a lot of
+
+00:17:54.319 --> 00:17:58.669
+Caption: complexity inherent with this so hasn&#39;t
+
+00:17:56.780 --> 00:18:00.650
+Caption: any new piece of technology make sure
+
+00:17:58.670 --> 00:18:02.989
+Caption: that you have the problems that he&#39;ll
+
+00:18:00.650 --> 00:18:08.239
+Caption: actually aims to solve and a little bit
+
+00:18:02.989 --> 00:18:14.030
+Caption: over to thought conceptually about what
+
+00:18:08.239 --> 00:18:16.099
+Caption: a service mesh is particularly which
+
+00:18:14.030 --> 00:18:18.080
+Caption: actually the major Mulsim so this is a
+
+00:18:16.099 --> 00:18:20.719
+Caption: service fish from Google and a number of
+
+00:18:18.079 --> 00:18:23.299
+Caption: other companies and it just is release
+
+00:18:20.719 --> 00:18:27.770
+Caption: would earlier this week so perfectly
+
+00:18:23.300 --> 00:18:29.630
+Caption: timed for this conference if I was
+
+00:18:27.770 --> 00:18:31.700
+Caption: looking why I have a little bit of a
+
+00:18:29.630 --> 00:18:37.489
+Caption: cryptic both each knee was actually
+
+00:18:31.699 --> 00:18:40.159
+Caption: Greek for sale and it&#39;s year that
+
+00:18:37.489 --> 00:18:42.469
+Caption: comprises a number of components so
+
+00:18:40.160 --> 00:18:45.979
+Caption: first of all data the data there the
+
+00:18:42.469 --> 00:18:48.559
+Caption: data plane so it uses endpoint so it&#39;s a
+
+00:18:45.979 --> 00:18:50.719
+Caption: histamine Foxy&#39;s from list as the site
+
+00:18:48.560 --> 00:18:56.390
+Caption: air proxy and it supports HTTP WonderCon
+
+00:18:50.719 --> 00:19:01.390
+Caption: traffic HTTP to traffic popc traffic or
+
+00:18:56.390 --> 00:19:05.060
+Caption: any other format over tcp itself and
+
+00:19:01.390 --> 00:19:06.650
+Caption: mutual TLS is is optional if you want
+
+00:19:05.060 --> 00:19:09.850
+Caption: all the traffic encrypted between the
+
+00:19:06.650 --> 00:19:09.849
+Caption: services absolutely
+
+00:19:10.910 --> 00:19:14.940
+Caption: and again we have the control plane this
+
+00:19:13.589 --> 00:19:19.619
+Caption: time the control plane is actually
+
+00:19:14.939 --> 00:19:22.019
+Caption: comprised of three components so first
+
+00:19:19.619 --> 00:19:25.099
+Caption: of all we have a pilot so this handles
+
+00:19:22.020 --> 00:19:30.300
+Caption: be pushing out our travel policies so
+
+00:19:25.099 --> 00:19:32.640
+Caption: what can talk and talk the walls again
+
+00:19:30.300 --> 00:19:36.869
+Caption: any of the other concerns about routing
+
+00:19:32.640 --> 00:19:39.000
+Caption: between the various services we never
+
+00:19:36.869 --> 00:19:41.219
+Caption: mix it and this is where the policy
+
+00:19:39.000 --> 00:19:43.410
+Caption: checks are enforced and also be gathered
+
+00:19:41.219 --> 00:19:45.239
+Caption: telemetry so we can we have each of
+
+00:19:43.410 --> 00:19:49.170
+Caption: these side pairs then send in which data
+
+00:19:45.239 --> 00:19:52.079
+Caption: Bakhtiar together did in hipster or for
+
+00:19:49.170 --> 00:19:55.190
+Caption: using and utilization to agra father so
+
+00:19:52.079 --> 00:19:57.929
+Caption: again we have this telemetry gathering i
+
+00:19:55.189 --> 00:20:00.869
+Caption: finally see them so again if you&#39;ve
+
+00:19:57.930 --> 00:20:03.180
+Caption: chosen to do usual TLS citadels
+
+00:20:00.869 --> 00:20:05.099
+Caption: is what will actually provide those TNS
+
+00:20:03.180 --> 00:20:06.170
+Caption: certs and then authority in the process
+
+00:20:05.099 --> 00:20:08.280
+Caption: as well
+
+00:20:06.170 --> 00:20:10.320
+Caption: there&#39;s also another component which has
+
+00:20:08.280 --> 00:20:13.460
+Caption: come up recently for galley which is
+
+00:20:10.319 --> 00:20:16.109
+Caption: intended to validate the user-defined
+
+00:20:13.459 --> 00:20:18.390
+Caption: configuration effectively provide an
+
+00:20:16.109 --> 00:20:21.119
+Caption: abstraction between SPO and the
+
+00:20:18.390 --> 00:20:23.369
+Caption: underlying platforms so it could run on
+
+00:20:21.119 --> 00:20:26.040
+Caption: another platform so know about
+
+00:20:23.369 --> 00:20:27.329
+Caption: kubernetes a number of more and that&#39;s
+
+00:20:26.040 --> 00:20:29.549
+Caption: actually what the adding provides that
+
+00:20:27.329 --> 00:20:31.648
+Caption: abstraction between
+
+00:20:29.548 --> 00:20:35.548
+Caption: enter in and how they actually can apply
+
+00:20:31.649 --> 00:20:38.159
+Caption: together like yourself what does it
+
+00:20:35.548 --> 00:20:40.678
+Caption: Nestle sisters really that&#39;s really
+
+00:20:38.159 --> 00:20:42.509
+Caption: important to me Tech is cool but how
+
+00:20:40.678 --> 00:20:43.699
+Caption: does it allow us to do things that we
+
+00:20:42.509 --> 00:20:47.399
+Caption: couldn&#39;t do before
+
+00:20:43.699 --> 00:20:49.709
+Caption: in fact Bravo fairly I think testing and
+
+00:20:47.399 --> 00:20:52.769
+Caption: production has had a bit of a bad rap
+
+00:20:49.709 --> 00:20:54.449
+Caption: over the years but I would say every
+
+00:20:52.769 --> 00:20:56.609
+Caption: single person in this room is doing it
+
+00:20:54.449 --> 00:21:00.199
+Caption: much and just realize it
+
+00:20:56.609 --> 00:21:04.278
+Caption: the trick with it is to do it safely
+
+00:21:00.199 --> 00:21:07.288
+Caption: so with these complex adaptive systems
+
+00:21:04.279 --> 00:21:09.559
+Caption: it&#39;s not actually very beneficial to
+
+00:21:07.288 --> 00:21:11.998
+Caption: prove that in one particular scenario
+
+00:21:09.558 --> 00:21:13.678
+Caption: running in your own data center at a
+
+00:21:11.999 --> 00:21:15.359
+Caption: particular point in time when people are
+
+00:21:13.678 --> 00:21:16.408
+Caption: having a dinner and not a lot of time
+
+00:21:15.359 --> 00:21:19.769
+Caption: you&#39;re going to appear like it&#39;s
+
+00:21:16.409 --> 00:21:28.230
+Caption: incredibly specific it is impossible to
+
+00:21:19.769 --> 00:21:31.350
+Caption: have will actually be reliable this is a
+
+00:21:28.229 --> 00:21:33.418
+Caption: very rarely or these micro systems you
+
+00:21:31.349 --> 00:21:35.759
+Caption: will inevitably have partial failures
+
+00:21:33.418 --> 00:21:38.099
+Caption: but it&#39;s how do you I do identify them
+
+00:21:35.759 --> 00:21:41.489
+Caption: and then how do you recover from them as
+
+00:21:38.099 --> 00:21:45.479
+Caption: P so it gets probably when you say to
+
+00:21:41.489 --> 00:21:49.009
+Caption: test and production statement or really
+
+00:21:45.479 --> 00:21:54.028
+Caption: safe is we test our code clueless and
+
+00:21:49.009 --> 00:21:56.279
+Caption: tested again in productive and this
+
+00:21:54.029 --> 00:21:58.550
+Caption: testing forgotten so like people has
+
+00:21:56.279 --> 00:22:00.650
+Caption: evolved massively
+
+00:21:58.550 --> 00:22:02.450
+Caption: couple of years and this other left we
+
+00:22:00.650 --> 00:22:05.690
+Caption: we typically have all the things we did
+
+00:22:02.449 --> 00:22:07.849
+Caption: before a lot of other techniques so
+
+00:22:05.689 --> 00:22:09.709
+Caption: again as you deploy what are certain
+
+00:22:07.849 --> 00:22:12.919
+Caption: things that we can do so integration
+
+00:22:09.709 --> 00:22:15.409
+Caption: testing you know testing and then also
+
+00:22:12.920 --> 00:22:17.270
+Caption: this really interesting one shadowing
+
+00:22:15.410 --> 00:22:19.609
+Caption: which for me is one of like it&#39;s always
+
+00:22:17.270 --> 00:22:24.260
+Caption: being this really advanced technique
+
+00:22:19.609 --> 00:22:26.059
+Caption: that I could do that but never had the
+
+00:22:24.260 --> 00:22:29.599
+Caption: infrastructure in place to actually
+
+00:22:26.060 --> 00:22:32.600
+Caption: enable it so tracking shadowing or
+
+00:22:29.599 --> 00:22:36.349
+Caption: traffic mirroring so what this allows us
+
+00:22:32.599 --> 00:22:40.130
+Caption: to do is if you have virgin-born of a
+
+00:22:36.349 --> 00:22:43.880
+Caption: service and any deployed version to what
+
+00:22:40.130 --> 00:22:45.829
+Caption: if before you have to send any real
+
+00:22:43.880 --> 00:22:48.530
+Caption: production traffic to service to you
+
+00:22:45.829 --> 00:22:51.919
+Caption: might be a lot of technical work if you
+
+00:22:48.530 --> 00:22:54.530
+Caption: could mirror or shadow a sample of the
+
+00:22:51.920 --> 00:22:57.500
+Caption: traffic from service a and duplicated
+
+00:22:54.530 --> 00:22:59.119
+Caption: through the service be completely off
+
+00:22:57.500 --> 00:23:00.709
+Caption: the critical path but then you could
+
+00:22:59.119 --> 00:23:04.430
+Caption: actually see how that service will
+
+00:23:00.709 --> 00:23:08.449
+Caption: respond in real-time to represent to the
+
+00:23:04.430 --> 00:23:09.250
+Caption: production track let&#39;s see how that
+
+00:23:08.449 --> 00:23:12.229
+Caption: would work
+
+00:23:09.250 --> 00:23:14.000
+Caption: so again service be maybe a little bit
+
+00:23:12.229 --> 00:23:16.900
+Caption: of a risky release we&#39;re not a hundred
+
+00:23:14.000 --> 00:23:16.900
+Caption: percent confident with
+
+00:23:17.359 --> 00:23:21.839
+Caption: and then we have invoice hunting the
+
+00:23:19.829 --> 00:23:25.558
+Caption: egress from this service and the ingress
+
+00:23:21.839 --> 00:23:29.699
+Caption: into service people what we can then do
+
+00:23:25.558 --> 00:23:32.640
+Caption: is shadow all the traffic duplicate the
+
+00:23:29.699 --> 00:23:34.919
+Caption: traffic the fact ed boy then we&#39;ll add a
+
+00:23:32.640 --> 00:23:37.320
+Caption: shadow&#39; prefix to the host or authority
+
+00:23:34.920 --> 00:23:39.570
+Caption: heading so that&#39;s the service beacon
+
+00:23:37.319 --> 00:23:40.949
+Caption: that identifies this is shadows traffic
+
+00:23:39.569 --> 00:23:42.359
+Caption: so if it&#39;s going to call the state you
+
+00:23:40.949 --> 00:23:44.639
+Caption: taste it on the back end this is why
+
+00:23:42.359 --> 00:23:47.099
+Caption: this is basic traffic but what we&#39;ve
+
+00:23:44.640 --> 00:23:49.558
+Caption: noted on all the user will still be
+
+00:23:47.099 --> 00:23:51.419
+Caption: going from dis blow but without a
+
+00:23:49.558 --> 00:23:53.489
+Caption: release team having a huge amount of
+
+00:23:51.420 --> 00:23:58.800
+Caption: insight into when we actually pick that
+
+00:23:53.489 --> 00:24:02.010
+Caption: switch how it will behave this is pre
+
+00:23:58.800 --> 00:24:03.720
+Caption: release this is deploy what about then
+
+00:24:02.010 --> 00:24:11.820
+Caption: when we start to actually want to put
+
+00:24:03.719 --> 00:24:13.199
+Caption: production traffic canary releases the
+
+00:24:11.819 --> 00:24:14.639
+Caption: origin of this is where there was you
+
+00:24:13.199 --> 00:24:16.619
+Caption: know back to the mining days where
+
+00:24:14.640 --> 00:24:23.400
+Caption: divided people poisonous gases down at
+
+00:24:16.619 --> 00:24:25.410
+Caption: the before the person but it&#39;s the same
+
+00:24:23.400 --> 00:24:28.280
+Caption: sort of theory from here we want to be
+
+00:24:25.410 --> 00:24:31.020
+Caption: able to have quick insight or feedback
+
+00:24:28.280 --> 00:24:35.429
+Caption: into how essential perform reformer
+
+00:24:31.020 --> 00:24:37.170
+Caption: sending all the traffic into it and
+
+00:24:35.428 --> 00:24:39.149
+Caption: again this we can configure this
+
+00:24:37.170 --> 00:24:41.309
+Caption: incredibly easily so again what we can
+
+00:24:39.150 --> 00:24:44.160
+Caption: do is through our control plane we can
+
+00:24:41.308 --> 00:24:45.130
+Caption: then update the traffic roving policy to
+
+00:24:44.160 --> 00:24:47.800
+Caption: that particular sir
+
+00:24:45.130 --> 00:24:52.359
+Caption: this case was saying let&#39;s tack with 95%
+
+00:24:47.800 --> 00:24:56.710
+Caption: Co service fee and service be v1 and 5%
+
+00:24:52.359 --> 00:24:59.679
+Caption: to v2 over time we can then increase
+
+00:24:56.709 --> 00:25:01.539
+Caption: that it&#39;s going to perfection in order
+
+00:24:59.680 --> 00:25:04.000
+Caption: to their future to have a have a policy
+
+00:25:01.540 --> 00:25:06.609
+Caption: that says Stata wouldn&#39;t it and just
+
+00:25:04.000 --> 00:25:08.859
+Caption: gradually you automatically increase it
+
+00:25:06.609 --> 00:25:11.709
+Caption: over time if you not see barriers
+
+00:25:08.859 --> 00:25:14.380
+Caption: that&#39;s why movie that the public this is
+
+00:25:11.709 --> 00:25:16.689
+Caption: really the level of automation that is
+
+00:25:14.380 --> 00:25:19.030
+Caption: for providers trying to do this manually
+
+00:25:16.689 --> 00:25:21.250
+Caption: would be an absolute nightmare this
+
+00:25:19.030 --> 00:25:28.119
+Caption: brings a whole host of capabilities that
+
+00:25:21.250 --> 00:25:29.319
+Caption: were beyond us before very attainable so
+
+00:25:28.119 --> 00:25:32.280
+Caption: as mentioned before what we now
+
+00:25:29.319 --> 00:25:34.209
+Caption: completely done is a couple
+
+00:25:32.280 --> 00:25:35.830
+Caption: infrastructure scaling so if I have a
+
+00:25:34.209 --> 00:25:39.819
+Caption: kubernetes service they&#39;re looking at
+
+00:25:35.829 --> 00:25:42.760
+Caption: people to be two deployments that&#39;s fine
+
+00:25:39.819 --> 00:25:44.109
+Caption: in theory traffic to go to go be more
+
+00:25:42.760 --> 00:25:46.089
+Caption: than seen two simultaneously but I
+
+00:25:44.109 --> 00:25:48.489
+Caption: thought no delay another traffic
+
+00:25:46.089 --> 00:25:51.309
+Caption: management policy over the top of it I
+
+00:25:48.489 --> 00:25:55.050
+Caption: don&#39;t have to change my deployments to
+
+00:25:51.310 --> 00:25:55.050
+Caption: be able to update and adapt that
+
+00:25:58.819 --> 00:26:04.019
+Caption: typically I see that being supported by
+
+00:26:01.560 --> 00:26:05.520
+Caption: a platform team it is still sufficiently
+
+00:26:04.020 --> 00:26:07.560
+Caption: complicated they provide that you have a
+
+00:26:05.520 --> 00:26:12.599
+Caption: dedicated team to ensure the smooth
+
+00:26:07.560 --> 00:26:15.900
+Caption: running of that particular service and
+
+00:26:12.599 --> 00:26:19.349
+Caption: as I mentioned before should be able to
+
+00:26:15.900 --> 00:26:21.330
+Caption: be wrapped with a sidecar across it
+
+00:26:19.349 --> 00:26:25.679
+Caption: without the application needing to
+
+00:26:21.329 --> 00:26:28.919
+Caption: change your bead you&#39;re aware of it the
+
+00:26:25.680 --> 00:26:31.470
+Caption: walkways do application service
+
+00:26:28.920 --> 00:26:51.690
+Caption: developers then need to do where if
+
+00:26:31.469 --> 00:26:52.919
+Caption: there&#39;s a mission place at all things so
+
+00:26:51.689 --> 00:26:54.449
+Caption: Jake reps which is one of the original
+
+00:26:52.920 --> 00:26:59.250
+Caption: who&#39;s one of the original architects
+
+00:26:54.449 --> 00:27:00.839
+Caption: behind Afghan and he the great term for
+
+00:26:59.250 --> 00:27:04.290
+Caption: when micro-services press came out back
+
+00:27:00.839 --> 00:27:06.329
+Caption: in 2014 and if anybody else kind of
+
+00:27:04.290 --> 00:27:08.100
+Caption: items at about ten years ago you might
+
+00:27:06.329 --> 00:27:09.719
+Caption: have come across a distributed object so
+
+00:27:08.099 --> 00:27:10.890
+Caption: they have this wonderful idea that you
+
+00:27:09.719 --> 00:27:13.949
+Caption: have an object which could actually
+
+00:27:10.890 --> 00:27:16.160
+Caption: result in a remote call but the
+
+00:27:13.949 --> 00:27:18.539
+Caption: developer doesn&#39;t need to know about it
+
+00:27:16.160 --> 00:27:20.310
+Caption: great idea until you actually start
+
+00:27:18.540 --> 00:27:21.780
+Caption: using it where suddenly the performance
+
+00:27:20.310 --> 00:27:23.100
+Caption: of the system is terrible because you&#39;re
+
+00:27:21.780 --> 00:27:24.690
+Caption: having all of these remote Falls
+
+00:27:23.099 --> 00:27:27.689
+Caption: happened but you had no idea the
+
+00:27:24.689 --> 00:27:30.149
+Caption: feedback loop around it so I think
+
+00:27:27.689 --> 00:27:31.919
+Caption: definitely what it should be aware the
+
+00:27:30.150 --> 00:27:33.900
+Caption: other property is there and how it
+
+00:27:31.920 --> 00:27:36.090
+Caption: actually been an aggregated telemetry
+
+00:27:33.900 --> 00:27:38.550
+Caption: that makes it available absolutely the
+
+00:27:36.089 --> 00:27:39.989
+Caption: policy is then again from absolutely
+
+00:27:38.550 --> 00:27:41.160
+Caption: part of the application tier but
+
+00:27:39.989 --> 00:27:43.079
+Caption: actually then the supporting
+
+00:27:41.160 --> 00:27:45.060
+Caption: infrastructure how do you actually scale
+
+00:27:43.079 --> 00:27:47.250
+Caption: out that service and make a reliable I
+
+00:27:45.060 --> 00:27:48.810
+Caption: see that has to be a specialized skill
+
+00:27:47.250 --> 00:27:52.939
+Caption: set at least initially within your
+
+00:27:48.810 --> 00:27:52.940
+Caption: organization to make sure that it seems
+
+00:27:53.329 --> 00:27:57.119
+Caption: so question then so we&#39;ve covered a
+
+00:27:56.099 --> 00:27:58.500
+Caption: little bit about Service Master
+
+00:27:57.119 --> 00:28:01.709
+Caption: Craftsmen itself and then a particular
+
+00:27:58.500 --> 00:28:03.810
+Caption: implementation to this deal how would we
+
+00:28:01.709 --> 00:28:07.109
+Caption: go about introducing one into your
+
+00:28:03.810 --> 00:28:11.880
+Caption: architecture and again a trek movie
+
+00:28:07.109 --> 00:28:15.719
+Caption: movie has some insight for us and it&#39;s
+
+00:28:11.880 --> 00:28:17.699
+Caption: typically around the hype around service
+
+00:28:15.719 --> 00:28:20.909
+Caption: missions no he actually sees that only
+
+00:28:17.699 --> 00:28:23.250
+Caption: one thing brings down service mesh it
+
+00:28:20.910 --> 00:28:26.660
+Caption: will be unrealistic expectations put
+
+00:28:23.250 --> 00:28:26.660
+Caption: around the profit circle song
+
+00:28:29.329 --> 00:28:33.589
+Caption: if you have a local services
+
+00:28:31.009 --> 00:28:35.690
+Caption: architecture all requiring the operating
+
+00:28:33.589 --> 00:28:38.538
+Caption: cost or passive ownership of your
+
+00:28:35.689 --> 00:28:41.868
+Caption: services is high or you&#39;re not having
+
+00:28:38.538 --> 00:28:43.908
+Caption: the ability to release quickly and take
+
+00:28:41.869 --> 00:28:46.629
+Caption: advantage of a number of capabilities
+
+00:28:43.909 --> 00:28:49.090
+Caption: such as canary releases such as
+
+00:28:46.629 --> 00:28:51.229
+Caption: mirroring
+
+00:28:49.089 --> 00:28:54.829
+Caption: absolutely do provide a lot of value
+
+00:28:51.229 --> 00:28:57.229
+Caption: head start with a single capability
+
+00:28:54.829 --> 00:29:00.168
+Caption: don&#39;t try to roll everything eats the
+
+00:28:57.229 --> 00:29:03.139
+Caption: fish again instrumentation is generally
+
+00:29:00.168 --> 00:29:04.548
+Caption: movements backward instrumentation is
+
+00:29:03.139 --> 00:29:06.049
+Caption: really stable States about any
+
+00:29:04.548 --> 00:29:08.028
+Caption: distributed system or in fact any
+
+00:29:06.048 --> 00:29:10.219
+Caption: product steep will stop at what provides
+
+00:29:08.029 --> 00:29:12.470
+Caption: the feedback to identity the river
+
+00:29:10.219 --> 00:29:14.808
+Caption: descended so again remember with DevOps
+
+00:29:12.469 --> 00:29:16.879
+Caption: and again having a culture of continuous
+
+00:29:14.808 --> 00:29:18.469
+Caption: learning continuous learning and
+
+00:29:16.879 --> 00:29:26.889
+Caption: improvement is only possible but you
+
+00:29:18.469 --> 00:29:30.398
+Caption: could base it on the city&#39;s office the
+
+00:29:26.889 --> 00:29:30.399
+Caption: critical path as well
+
+00:29:37.619 --> 00:29:44.520
+Caption: so what we thought a servicemen
+
+00:29:41.729 --> 00:29:49.929
+Caption: dedication in okay there to make
+
+00:29:44.520 --> 00:29:52.209
+Caption: inter-service communication reliable if
+
+00:29:49.930 --> 00:29:54.670
+Caption: you are facing phones around the
+
+00:29:52.209 --> 00:29:59.709
+Caption: operability on you micro-services fleet
+
+00:29:54.670 --> 00:30:01.480
+Caption: a service mission help and most
+
+00:29:59.709 --> 00:30:05.739
+Caption: importantly service members aboard
+
+00:30:01.479 --> 00:30:08.140
+Caption: gradual adoption take advantage on the
+
+00:30:05.739 --> 00:30:10.780
+Caption: stack with a single use case prove that
+
+00:30:08.140 --> 00:30:16.930
+Caption: it works engages think boulders so what
+
+00:30:10.780 --> 00:30:18.640
+Caption: is demonstrated value for office I&#39;ve
+
+00:30:16.930 --> 00:30:20.440
+Caption: been talking for about 35 minutes now
+
+00:30:18.640 --> 00:30:22.500
+Caption: that leaves us about 10 minutes for
+
+00:30:20.439 --> 00:30:22.500
+Caption: questions
+
+00:30:38.849 --> 00:30:49.169
+Caption: yep one-to-one communication but
+
+00:30:46.719 --> 00:31:01.049
+Caption: [Music]
+
+00:30:49.170 --> 00:31:01.050
+Caption: necessity how in messaging architectures
+
+00:31:02.219 --> 00:31:07.099
+Caption: so a lot of what I discussed today ease
+
+00:31:05.290 --> 00:31:11.150
+Caption: of optimizing
+
+00:31:07.099 --> 00:31:12.918
+Caption: or PC which is very much one parent but
+
+00:31:11.150 --> 00:31:14.440
+Caption: probably why the discussion around
+
+00:31:12.918 --> 00:31:18.319
+Caption: distributed systems
+
+00:31:14.439 --> 00:31:19.548
+Caption: so with site carriers there&#39;s a couple
+
+00:31:18.319 --> 00:31:21.199
+Caption: of initial progress that are coming up
+
+00:31:19.548 --> 00:31:24.349
+Caption: now to say well how do we actually adopt
+
+00:31:21.199 --> 00:31:25.880
+Caption: the same level of thinking to mrs.
+
+00:31:24.349 --> 00:31:28.250
+Caption: brimmer&#39;s my protection whereby you
+
+00:31:25.880 --> 00:31:30.979
+Caption: could have each one unlike baby broker
+
+00:31:28.250 --> 00:31:32.928
+Caption: route the route of egress and again each
+
+00:31:30.979 --> 00:31:35.298
+Caption: one of those consumers but there&#39;s
+
+00:31:32.928 --> 00:31:37.189
+Caption: nothing in production that I&#39;m aware all
+
+00:31:35.298 --> 00:31:39.229
+Caption: you know in the community that&#39;s
+
+00:31:37.189 --> 00:31:42.109
+Caption: actively being developed around it sort
+
+00:31:39.229 --> 00:31:45.229
+Caption: of side care service mesh approach for
+
+00:31:42.109 --> 00:31:47.658
+Caption: those async message flows so really
+
+00:31:45.229 --> 00:31:51.349
+Caption: service measures to date are about
+
+00:31:47.659 --> 00:31:53.630
+Caption: optimizing the organ see flow but at the
+
+00:31:51.349 --> 00:31:56.808
+Caption: same time just because you have one part
+
+00:31:53.630 --> 00:31:58.940
+Caption: of the assistant that works in a request
+
+00:31:56.808 --> 00:32:01.279
+Caption: response I&#39;ll ask a question I wait for
+
+00:31:58.939 --> 00:32:03.949
+Caption: the answer does not mean in any way that
+
+00:32:01.280 --> 00:32:06.020
+Caption: the entire system needs to be absolutely
+
+00:32:03.949 --> 00:32:07.939
+Caption: I could still have for instance a
+
+00:32:06.020 --> 00:32:10.308
+Caption: front-end calling that additional
+
+00:32:07.939 --> 00:32:12.589
+Caption: service they could absolutely raise just
+
+00:32:10.308 --> 00:32:14.750
+Caption: a number of topics and then that could
+
+00:32:12.589 --> 00:32:16.400
+Caption: result in a whole number of operations
+
+00:32:14.750 --> 00:32:17.839
+Caption: generated which could then be persisted
+
+00:32:16.400 --> 00:32:19.280
+Caption: in the database so there&#39;s a baby after
+
+00:32:17.839 --> 00:32:20.510
+Caption: swipe on the millisecond that service
+
+00:32:19.280 --> 00:32:23.090
+Caption: just reads the generation all the
+
+00:32:20.510 --> 00:32:25.640
+Caption: reasons so there definitely won&#39;t mean
+
+00:32:23.089 --> 00:32:28.989
+Caption: look at these systems it&#39;s a mixing and
+
+00:32:25.640 --> 00:32:28.989
+Caption: matching at the same whether I said
+
+00:32:29.069 --> 00:32:35.619
+Caption: or again if it&#39;s gonna be a so like
+
+00:32:32.829 --> 00:32:37.929
+Caption: respect as well so you could definitely
+
+00:32:35.619 --> 00:32:39.699
+Caption: consider this as ain&#39;t no the very
+
+00:32:37.930 --> 00:32:42.160
+Caption: valuable tool to have in your toolbox
+
+00:32:39.699 --> 00:32:45.389
+Caption: but not necessarily you know the one way
+
+00:32:42.160 --> 00:32:45.390
+Caption: you need to be moving forward
+
+00:32:54.359 --> 00:32:59.229
+Caption: Cheers so I&#39;ve seen I mean I think you
+
+00:32:57.880 --> 00:33:01.089
+Caption: brought up really good points about you
+
+00:32:59.229 --> 00:33:05.260
+Caption: need some expert on this stuff because
+
+00:33:01.089 --> 00:33:06.909
+Caption: it is work to maintain diversity of line
+
+00:33:05.260 --> 00:33:10.739
+Caption: I&#39;m wondering if you&#39;ve had any
+
+00:33:06.910 --> 00:33:16.800
+Caption: experience of the interaction between
+
+00:33:10.739 --> 00:33:19.119
+Caption: traffic shaping the the auto scaling and
+
+00:33:16.800 --> 00:33:21.070
+Caption: kubernetes deployments as is this
+
+00:33:19.119 --> 00:33:25.059
+Caption: traffic shaping Effingham service level
+
+00:33:21.069 --> 00:33:27.189
+Caption: is happening in the vehicle questions so
+
+00:33:25.060 --> 00:33:29.140
+Caption: that the traffic shake will happen asked
+
+00:33:27.189 --> 00:33:31.479
+Caption: the cognitive so every layer 7 within
+
+00:33:29.140 --> 00:33:34.119
+Caption: the application itself but then based on
+
+00:33:31.479 --> 00:33:36.429
+Caption: the policies that will be sent from the
+
+00:33:34.119 --> 00:33:37.890
+Caption: service itself and if I do actually have
+
+00:33:36.430 --> 00:33:48.330
+Caption: a copy difficult
+
+00:33:37.890 --> 00:33:50.959
+Caption: you can actually brought beside Paris so
+
+00:33:48.329 --> 00:33:53.089
+Caption: this is how you might actually deploy
+
+00:33:50.959 --> 00:33:56.039
+Caption: [Music]
+
+00:33:53.089 --> 00:33:57.510
+Caption: all of the sides actually within the
+
+00:33:56.040 --> 00:34:00.989
+Caption: posture themselves you can actually roll
+
+00:33:57.510 --> 00:34:03.869
+Caption: it this is what we do then is the JB
+
+00:34:00.989 --> 00:34:05.369
+Caption: Evans got like pretty heavy footprint so
+
+00:34:03.869 --> 00:34:07.859
+Caption: again to prevent you know having a
+
+00:34:05.369 --> 00:34:10.139
+Caption: couple of different problems within
+
+00:34:07.859 --> 00:34:12.810
+Caption: consume a lot of resources we then put
+
+00:34:10.139 --> 00:34:16.519
+Caption: that up to be once per host but again
+
+00:34:12.810 --> 00:34:16.520
+Caption: still controlling ingress/egress
+
+00:34:24.939 --> 00:34:28.089
+Caption: [Music]
+
+00:35:16.639 --> 00:35:28.169
+Caption: and again trying to you know reliable
+
+00:35:23.189 --> 00:35:31.109
+Caption: for as well one thing I can do is when i
+
+00:35:28.169 --> 00:35:33.919
+Caption: i&#39;ll send us i&#39;ll tweet later copper
+
+00:35:31.110 --> 00:35:33.920
+Caption: really good
+
+00:35:34.739 --> 00:37:42.090
+Caption: in the UK which is actually the key that
+
+00:37:23.489 --> 00:37:44.159
+Caption: you can get rejected wherever across
+
+00:37:42.090 --> 00:37:46.229
+Caption: this entire Police of Services is the
+
+00:37:44.159 --> 00:37:50.459
+Caption: problem and only there would be further
+
+00:37:46.229 --> 00:37:52.590
+Caption: all of these can you marry Dixon so look
+
+00:37:50.459 --> 00:37:55.010
+Caption: at your behavior and see maybe spending
+
+00:37:52.590 --> 00:37:55.010
+Caption: your time
+
+00:37:59.879 --> 00:38:07.199
+Caption: I&#39;ll set you up this week I&#39;ll be the
+
+00:38:02.370 --> 00:38:12.890
+Caption: motivator rather I think we have time
+
+00:38:07.199 --> 00:38:12.889
+Caption: for one more question in this one&#39;s just
+
+00:39:13.290 --> 00:39:19.830
+Caption: at this particular time matching this
+
+00:39:16.780 --> 00:39:19.830
+Caption: particular passion
+
+00:39:23.618 --> 00:39:28.328
+Caption: so he thought it doesn&#39;t have to be just
+
+00:39:26.079 --> 00:39:30.218
+Caption: a very good dinner policy like this you
+
+00:39:28.329 --> 00:39:36.609
+Caption: can get a Volvo creates but actually
+
+00:39:30.218 --> 00:39:38.819
+Caption: make it active that&#39;s a really good
+
+00:39:36.608 --> 00:39:38.818
+Caption: point
+
+00:39:41.618 --> 00:39:53.549
+Caption: I think that is infamy
+
+00:39:46.739 --> 00:39:53.550
+Caption: [Applause]
+
+00:39:54.139 --> 00:39:56.199
+Caption: you
+

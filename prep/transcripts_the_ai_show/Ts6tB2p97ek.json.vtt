@@ -1,0 +1,1322 @@
+[
+    {
+        "text": ">> In this special build edition of the AI show,",
+        "start": 1.55,
+        "duration": 3.07
+    },
+    {
+        "text": "join us as we hear from Mehrnoosh Sameki,",
+        "start": 4.62,
+        "duration": 2.07
+    },
+    {
+        "text": "Senior Product Manager on",
+        "start": 6.69,
+        "duration": 1.33
+    },
+    {
+        "text": "the Azure Machine Learning responsible AI team.",
+        "start": 8.02,
+        "duration": 2.79
+    },
+    {
+        "text": "She will talk about our open source machine",
+        "start": 10.81,
+        "duration": 2.22
+    },
+    {
+        "text": "learning fairness toolkit,",
+        "start": 13.03,
+        "duration": 1.17
+    },
+    {
+        "text": "and how to test models for fairness",
+        "start": 14.2,
+        "duration": 1.74
+    },
+    {
+        "text": "with Fairlearn. Make sure you tune in.",
+        "start": 15.94,
+        "duration": 2.6
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 18.54,
+        "duration": 8.94
+    },
+    {
+        "text": ">> Hi everyone. My name is Mehrnoosh Sameki,",
+        "start": 27.48,
+        "duration": 2.445
+    },
+    {
+        "text": "I'm a Senior Product Manager at Azure AI,",
+        "start": 29.925,
+        "duration": 2.59
+    },
+    {
+        "text": "driving the product efforts behind to",
+        "start": 32.515,
+        "duration": 1.875
+    },
+    {
+        "text": "our responsible AI tools Interpretml and Fairlearn.",
+        "start": 34.39,
+        "duration": 3.59
+    },
+    {
+        "text": "Today, I'm excited to share the latest developments in",
+        "start": 37.98,
+        "duration": 3.25
+    },
+    {
+        "text": "our open source machine learning",
+        "start": 41.23,
+        "duration": 1.59
+    },
+    {
+        "text": "fairness toolkit called Fairlearn,",
+        "start": 42.82,
+        "duration": 1.91
+    },
+    {
+        "text": "which takes steps toward enabling to build",
+        "start": 44.73,
+        "duration": 2.6
+    },
+    {
+        "text": "fairer and more inclusive machine learning models.",
+        "start": 47.33,
+        "duration": 4.09
+    },
+    {
+        "text": "AI has the potential to drive",
+        "start": 51.5,
+        "duration": 3.09
+    },
+    {
+        "text": "considerable changes in the way we do business.",
+        "start": 54.59,
+        "duration": 3.015
+    },
+    {
+        "text": "Thus, it will have a broad impact on society as well.",
+        "start": 57.605,
+        "duration": 4.05
+    },
+    {
+        "text": "This impact raises a host of",
+        "start": 61.655,
+        "duration": 2.115
+    },
+    {
+        "text": "complex and challenging questions about the future we want to see.",
+        "start": 63.77,
+        "duration": 4.5
+    },
+    {
+        "text": "As we look into this future,",
+        "start": 68.27,
+        "duration": 1.8
+    },
+    {
+        "text": "we should ask ourselves,",
+        "start": 70.07,
+        "duration": 1.485
+    },
+    {
+        "text": "how do we design, build,",
+        "start": 71.555,
+        "duration": 1.845
+    },
+    {
+        "text": "and use AI systems that create",
+        "start": 73.4,
+        "duration": 1.89
+    },
+    {
+        "text": "a positive impact on individuals and on society?",
+        "start": 75.29,
+        "duration": 4.32
+    },
+    {
+        "text": "At Microsoft, as a foundation to guide our thinking,",
+        "start": 79.61,
+        "duration": 4.05
+    },
+    {
+        "text": "we have defined six responsible principles",
+        "start": 83.66,
+        "duration": 2.94
+    },
+    {
+        "text": "that AI system should adhere to.",
+        "start": 86.6,
+        "duration": 2.955
+    },
+    {
+        "text": "The focus of this presentation is on the fairness principles,",
+        "start": 89.555,
+        "duration": 4.02
+    },
+    {
+        "text": "which aims to tackle the question of how can we",
+        "start": 93.575,
+        "duration": 3.045
+    },
+    {
+        "text": "ensure that AI system treat everyone fairly?",
+        "start": 96.62,
+        "duration": 3.875
+    },
+    {
+        "text": "Now, there are many ways that an AI system can behave unfairly.",
+        "start": 100.495,
+        "duration": 5.38
+    },
+    {
+        "text": "For example, AI can give rise to the harm of quality of service,",
+        "start": 105.875,
+        "duration": 4.635
+    },
+    {
+        "text": "which is whether a system works as well",
+        "start": 110.51,
+        "duration": 2.52
+    },
+    {
+        "text": "for one person as it does for another.",
+        "start": 113.03,
+        "duration": 2.67
+    },
+    {
+        "text": "An example of this particular type of harm is",
+        "start": 115.7,
+        "duration": 3.0
+    },
+    {
+        "text": "a voice recognition system that might fail to",
+        "start": 118.7,
+        "duration": 2.67
+    },
+    {
+        "text": "work as well for one sex compared to another sex.",
+        "start": 121.37,
+        "duration": 3.9
+    },
+    {
+        "text": "Another type of harm that AI can give",
+        "start": 125.27,
+        "duration": 3.27
+    },
+    {
+        "text": "rise to is the harm of allocation,",
+        "start": 128.54,
+        "duration": 2.67
+    },
+    {
+        "text": "which is the harm that can occur when",
+        "start": 131.21,
+        "duration": 2.04
+    },
+    {
+        "text": "AI systems extend or withhold opportunities,",
+        "start": 133.25,
+        "duration": 3.585
+    },
+    {
+        "text": "resources, or information to a specific groups of people.",
+        "start": 136.835,
+        "duration": 3.495
+    },
+    {
+        "text": "An example of that type of harm is",
+        "start": 140.33,
+        "duration": 2.34
+    },
+    {
+        "text": "a model for screening loan or job applications that",
+        "start": 142.67,
+        "duration": 3.06
+    },
+    {
+        "text": "might be much better at picking good candidates",
+        "start": 145.73,
+        "duration": 2.414
+    },
+    {
+        "text": "among a particular race compared to other races.",
+        "start": 148.144,
+        "duration": 3.51
+    },
+    {
+        "text": "So really the purpose of fairness in",
+        "start": 151.654,
+        "duration": 2.116
+    },
+    {
+        "text": "AI is to avoid negative outcomes",
+        "start": 153.77,
+        "duration": 2.31
+    },
+    {
+        "text": "of AI systems and",
+        "start": 156.08,
+        "duration": 1.29
+    },
+    {
+        "text": "machine learning models for different groups of people.",
+        "start": 157.37,
+        "duration": 4.03
+    },
+    {
+        "text": "Today, I'm excited to announce",
+        "start": 162.01,
+        "duration": 2.65
+    },
+    {
+        "text": "our open source machine learning",
+        "start": 164.66,
+        "duration": 1.74
+    },
+    {
+        "text": "fairness toolkit called Fairlearn,",
+        "start": 166.4,
+        "duration": 1.845
+    },
+    {
+        "text": "which is a toolkit that empowers",
+        "start": 168.245,
+        "duration": 1.815
+    },
+    {
+        "text": "developers of artificial intelligence systems",
+        "start": 170.06,
+        "duration": 2.7
+    },
+    {
+        "text": "to assess their systems' fairness and",
+        "start": 172.76,
+        "duration": 2.19
+    },
+    {
+        "text": "mitigate any observed fairness issues.",
+        "start": 174.95,
+        "duration": 2.965
+    },
+    {
+        "text": "The focus of Fairlearn is on group fairness,",
+        "start": 177.915,
+        "duration": 2.925
+    },
+    {
+        "text": "and there are really two components to it.",
+        "start": 180.84,
+        "duration": 2.6
+    },
+    {
+        "text": "The first component of the Fairlearn",
+        "start": 183.44,
+        "duration": 2.325
+    },
+    {
+        "text": "is the assessment dashboard with",
+        "start": 185.765,
+        "duration": 2.385
+    },
+    {
+        "text": "both high-level and detailed views for",
+        "start": 188.15,
+        "duration": 2.34
+    },
+    {
+        "text": "assessing which groups are negatively impacted.",
+        "start": 190.49,
+        "duration": 2.985
+    },
+    {
+        "text": "The second is a set of algorithms",
+        "start": 193.475,
+        "duration": 2.595
+    },
+    {
+        "text": "for mitigating the observed fairness issues.",
+        "start": 196.07,
+        "duration": 2.535
+    },
+    {
+        "text": "These strategies are based on variety of",
+        "start": 198.605,
+        "duration": 2.295
+    },
+    {
+        "text": "supported fairness definitions such as",
+        "start": 200.9,
+        "duration": 2.22
+    },
+    {
+        "text": "demographic parody and equalize odds for",
+        "start": 203.12,
+        "duration": 2.64
+    },
+    {
+        "text": "classification tasks and bounded group lasts for regression tasks.",
+        "start": 205.76,
+        "duration": 4.535
+    },
+    {
+        "text": "The supported unfairness mitigation techniques can easily be",
+        "start": 210.295,
+        "duration": 3.535
+    },
+    {
+        "text": "incorporated into existing machine learning pipelines,",
+        "start": 213.83,
+        "duration": 3.03
+    },
+    {
+        "text": "and thus together,",
+        "start": 216.86,
+        "duration": 1.409
+    },
+    {
+        "text": "these two components of assessment and",
+        "start": 218.269,
+        "duration": 2.041
+    },
+    {
+        "text": "mitigation enable data scientists",
+        "start": 220.31,
+        "duration": 2.235
+    },
+    {
+        "text": "and business leaders to navigate",
+        "start": 222.545,
+        "duration": 1.77
+    },
+    {
+        "text": "any trade-offs between fairness and performance,",
+        "start": 224.315,
+        "duration": 2.85
+    },
+    {
+        "text": "and to select the mitigation strategy that best fits their needs.",
+        "start": 227.165,
+        "duration": 4.675
+    },
+    {
+        "text": "Fairlearn supports a wide range of",
+        "start": 233.26,
+        "duration": 2.95
+    },
+    {
+        "text": "models to provide the most flexibility to",
+        "start": 236.21,
+        "duration": 2.31
+    },
+    {
+        "text": "its user to assess",
+        "start": 238.52,
+        "duration": 1.44
+    },
+    {
+        "text": "their black box models fairness",
+        "start": 239.96,
+        "duration": 1.62
+    },
+    {
+        "text": "and mitigate the apps their fairness issues.",
+        "start": 241.58,
+        "duration": 2.33
+    },
+    {
+        "text": "Today, I'm also excited to announce",
+        "start": 243.91,
+        "duration": 2.65
+    },
+    {
+        "text": "that Fairlearn is being integrated within",
+        "start": 246.56,
+        "duration": 2.7
+    },
+    {
+        "text": "Azure Machine Learning to enable",
+        "start": 249.26,
+        "duration": 1.92
+    },
+    {
+        "text": "an easy access of our Cloud customers to Fairlearn.",
+        "start": 251.18,
+        "duration": 3.66
+    },
+    {
+        "text": "Now, let's switch gears and take a look at",
+        "start": 254.84,
+        "duration": 2.22
+    },
+    {
+        "text": "a demo of how to use Fairlearn in action.",
+        "start": 257.06,
+        "duration": 3.315
+    },
+    {
+        "text": "What I'm going to show you is a sample notebook that I have put",
+        "start": 260.375,
+        "duration": 3.69
+    },
+    {
+        "text": "under hosted notebook VM in Azure Machine Learning.",
+        "start": 264.065,
+        "duration": 3.765
+    },
+    {
+        "text": "It is a binary classification on census data.",
+        "start": 267.83,
+        "duration": 3.51
+    },
+    {
+        "text": "The dataset is a classification problem,",
+        "start": 271.34,
+        "duration": 2.49
+    },
+    {
+        "text": "given a range of data about 32K individuals,",
+        "start": 273.83,
+        "duration": 3.075
+    },
+    {
+        "text": "it predicts whether their annual income is",
+        "start": 276.905,
+        "duration": 2.31
+    },
+    {
+        "text": "above or below $50,000 per year.",
+        "start": 279.215,
+        "duration": 3.495
+    },
+    {
+        "text": "However, for the purpose of this notebook,",
+        "start": 282.71,
+        "duration": 2.7
+    },
+    {
+        "text": "we shall treat that as a loan decision problem.",
+        "start": 285.41,
+        "duration": 3.015
+    },
+    {
+        "text": "We'll pretend that this label indicates whether or not",
+        "start": 288.425,
+        "duration": 3.27
+    },
+    {
+        "text": "each individual repaid a loan in the past or not,",
+        "start": 291.695,
+        "duration": 2.955
+    },
+    {
+        "text": "and we will investigate how this model has",
+        "start": 294.65,
+        "duration": 2.4
+    },
+    {
+        "text": "treated different demographics and different groups of people.",
+        "start": 297.05,
+        "duration": 3.94
+    },
+    {
+        "text": "After installing the package,",
+        "start": 301.01,
+        "duration": 3.165
+    },
+    {
+        "text": "what I'm going to do is I'm going to go through",
+        "start": 304.175,
+        "duration": 2.055
+    },
+    {
+        "text": "my model training the way that I used to do it.",
+        "start": 306.23,
+        "duration": 2.805
+    },
+    {
+        "text": "I probably will drop my protected attributes,",
+        "start": 309.035,
+        "duration": 3.075
+    },
+    {
+        "text": "in this case, I chose sex and race.",
+        "start": 312.11,
+        "duration": 2.79
+    },
+    {
+        "text": "I will do some transformations on top of my features,",
+        "start": 314.9,
+        "duration": 3.345
+    },
+    {
+        "text": "split the data into tests and train,",
+        "start": 318.245,
+        "duration": 3.109
+    },
+    {
+        "text": "and in this particular case,",
+        "start": 321.354,
+        "duration": 2.666
+    },
+    {
+        "text": "I train a logistic regression to basically",
+        "start": 324.02,
+        "duration": 2.64
+    },
+    {
+        "text": "predict whether someone would be qualified for a loan or not.",
+        "start": 326.66,
+        "duration": 3.86
+    },
+    {
+        "text": "The very first step with Fairlearn",
+        "start": 330.52,
+        "duration": 2.55
+    },
+    {
+        "text": "is to run this assessment dashboard to",
+        "start": 333.07,
+        "duration": 2.08
+    },
+    {
+        "text": "assess the fairness of your model on top of these two features.",
+        "start": 335.15,
+        "duration": 4.96
+    },
+    {
+        "text": "First, when I load the dashboard,",
+        "start": 340.4,
+        "duration": 2.8
+    },
+    {
+        "text": "it asked me to do some configuration.",
+        "start": 343.2,
+        "duration": 1.925
+    },
+    {
+        "text": "I need to pick my sensitive attribute,",
+        "start": 345.125,
+        "duration": 2.185
+    },
+    {
+        "text": "and also I need to pick",
+        "start": 347.31,
+        "duration": 1.1
+    },
+    {
+        "text": "the performance metric that I would like to",
+        "start": 348.41,
+        "duration": 1.86
+    },
+    {
+        "text": "use in order to measure the performance of my model.",
+        "start": 350.27,
+        "duration": 4.21
+    },
+    {
+        "text": "For the sensitive attributes,",
+        "start": 355.34,
+        "duration": 2.5
+    },
+    {
+        "text": "I move forward with sex,",
+        "start": 357.84,
+        "duration": 1.745
+    },
+    {
+        "text": "which has two values,",
+        "start": 359.585,
+        "duration": 1.275
+    },
+    {
+        "text": "male and female in this dataset.",
+        "start": 360.86,
+        "duration": 2.355
+    },
+    {
+        "text": "Then I move forward to pick",
+        "start": 363.215,
+        "duration": 1.975
+    },
+    {
+        "text": "my performance metric, and in this case,",
+        "start": 365.19,
+        "duration": 2.3
+    },
+    {
+        "text": "I choose accuracy, which is",
+        "start": 367.49,
+        "duration": 1.65
+    },
+    {
+        "text": "the fraction of data points classified correctly.",
+        "start": 369.14,
+        "duration": 3.405
+    },
+    {
+        "text": "Once I go through this configuration stage,",
+        "start": 372.545,
+        "duration": 3.03
+    },
+    {
+        "text": "I now land on the result page to get multiple different insights",
+        "start": 375.575,
+        "duration": 3.6
+    },
+    {
+        "text": "about how will my model has done the job and how fair my model is?",
+        "start": 379.175,
+        "duration": 3.795
+    },
+    {
+        "text": "Let's go through this. First, I see",
+        "start": 382.97,
+        "duration": 2.97
+    },
+    {
+        "text": "the overall accuracy rates of my model being 83 percent.",
+        "start": 385.94,
+        "duration": 4.5
+    },
+    {
+        "text": "I can see the breakdown of accuracy across the two sexes,",
+        "start": 390.44,
+        "duration": 3.825
+    },
+    {
+        "text": "79 percent for males,",
+        "start": 394.265,
+        "duration": 2.115
+    },
+    {
+        "text": "92 percent accuracy for the females.",
+        "start": 396.38,
+        "duration": 2.655
+    },
+    {
+        "text": "So we can see that there is",
+        "start": 399.035,
+        "duration": 1.575
+    },
+    {
+        "text": "a disparity in accuracy of 92 minus 79,",
+        "start": 400.61,
+        "duration": 3.09
+    },
+    {
+        "text": "which is 12.9 percent disparity in accuracy rate.",
+        "start": 403.7,
+        "duration": 4.535
+    },
+    {
+        "text": "Now, I can also see how the model has made mistakes.",
+        "start": 408.235,
+        "duration": 4.33
+    },
+    {
+        "text": "For instance, I can now compare",
+        "start": 412.565,
+        "duration": 2.145
+    },
+    {
+        "text": "the false positive rate and",
+        "start": 414.71,
+        "duration": 1.44
+    },
+    {
+        "text": "false negative rate across two different sexes.",
+        "start": 416.15,
+        "duration": 3.165
+    },
+    {
+        "text": "For the underprediction, which is",
+        "start": 419.315,
+        "duration": 2.725
+    },
+    {
+        "text": "the ground true was being one and the predicted being zero,",
+        "start": 422.04,
+        "duration": 3.245
+    },
+    {
+        "text": "there is more underprediction for the male group,",
+        "start": 425.285,
+        "duration": 2.925
+    },
+    {
+        "text": "14 percent versus 5.6 for female group.",
+        "start": 428.21,
+        "duration": 3.525
+    },
+    {
+        "text": "However, for overprediction, which is the ground true was zero,",
+        "start": 431.735,
+        "duration": 3.705
+    },
+    {
+        "text": "and the predicted was getting the loan or year 1,",
+        "start": 435.44,
+        "duration": 3.15
+    },
+    {
+        "text": "you can see that the overprediction is",
+        "start": 438.59,
+        "duration": 2.67
+    },
+    {
+        "text": "more for males compared to females.",
+        "start": 441.26,
+        "duration": 2.834
+    },
+    {
+        "text": "Another insight that I can get is by looking at",
+        "start": 444.094,
+        "duration": 2.986
+    },
+    {
+        "text": "this disparity in predictions or disparity in selection rate.",
+        "start": 447.08,
+        "duration": 3.84
+    },
+    {
+        "text": "Overall, I can see that 17.9 percent",
+        "start": 450.92,
+        "duration": 3.405
+    },
+    {
+        "text": "of the overall population have been picked to get the loan.",
+        "start": 454.325,
+        "duration": 3.525
+    },
+    {
+        "text": "When we compare it across the two sexes,",
+        "start": 457.85,
+        "duration": 2.46
+    },
+    {
+        "text": "we can see that for males,",
+        "start": 460.31,
+        "duration": 1.47
+    },
+    {
+        "text": "22 percent of the males have got approved for the loan,",
+        "start": 461.78,
+        "duration": 4.365
+    },
+    {
+        "text": "and for females, 7.55 percent have got approval on their loans.",
+        "start": 466.145,
+        "duration": 4.65
+    },
+    {
+        "text": "So there is a disparity of the difference between these two,",
+        "start": 470.795,
+        "duration": 2.865
+    },
+    {
+        "text": "which is 15.3 percent disparity in selection rate.",
+        "start": 473.66,
+        "duration": 4.125
+    },
+    {
+        "text": "I might say that in my particular context,",
+        "start": 477.785,
+        "duration": 3.24
+    },
+    {
+        "text": "I cannot tolerate this",
+        "start": 481.025,
+        "duration": 1.605
+    },
+    {
+        "text": "15.3 percent of disparity in selection rate.",
+        "start": 482.63,
+        "duration": 3.795
+    },
+    {
+        "text": "So let's move forward and see how we can",
+        "start": 486.425,
+        "duration": 2.055
+    },
+    {
+        "text": "use Fairlearn's mitigation algorithm",
+        "start": 488.48,
+        "duration": 2.55
+    },
+    {
+        "text": "GridSearch in order to mitigate",
+        "start": 491.03,
+        "duration": 2.43
+    },
+    {
+        "text": "that particular unfairness that I just observed.",
+        "start": 493.46,
+        "duration": 3.695
+    },
+    {
+        "text": "GridSearch is a state of",
+        "start": 497.155,
+        "duration": 2.425
+    },
+    {
+        "text": "the art mitigation algorithm",
+        "start": 499.58,
+        "duration": 1.62
+    },
+    {
+        "text": "from Microsoft Research, New York City,",
+        "start": 501.2,
+        "duration": 2.16
+    },
+    {
+        "text": "which acts as a wrapper on top of",
+        "start": 503.36,
+        "duration": 2.025
+    },
+    {
+        "text": "any standard machine learning algorithm and finds",
+        "start": 505.385,
+        "duration": 3.285
+    },
+    {
+        "text": "a classifier that minimizes",
+        "start": 508.67,
+        "duration": 1.65
+    },
+    {
+        "text": "classification errors subject to",
+        "start": 510.32,
+        "duration": 2.28
+    },
+    {
+        "text": "a user-defined fairness constrain.",
+        "start": 512.6,
+        "duration": 2.46
+    },
+    {
+        "text": "What GridSearch does it iteratively calls",
+        "start": 515.06,
+        "duration": 3.0
+    },
+    {
+        "text": "the black box model and runway and",
+        "start": 518.06,
+        "duration": 1.86
+    },
+    {
+        "text": "possibly relabeling the training data.",
+        "start": 519.92,
+        "duration": 2.85
+    },
+    {
+        "text": "So each time it generates a sequence of",
+        "start": 522.77,
+        "duration": 2.91
+    },
+    {
+        "text": "relabeling and runways and train a predictor for each one.",
+        "start": 525.68,
+        "duration": 3.915
+    },
+    {
+        "text": "So I am calling GridSearch now,",
+        "start": 529.595,
+        "duration": 1.915
+    },
+    {
+        "text": "I'm passing my standard black box model that had trained on top.",
+        "start": 531.51,
+        "duration": 4.64
+    },
+    {
+        "text": "I'm also defining this fairness constraint,",
+        "start": 536.15,
+        "duration": 3.18
+    },
+    {
+        "text": "which is demographic parity,",
+        "start": 539.33,
+        "duration": 1.23
+    },
+    {
+        "text": "which really talks about the loan approval decision",
+        "start": 540.56,
+        "duration": 2.64
+    },
+    {
+        "text": "should be independent of protected attribute.",
+        "start": 543.2,
+        "duration": 2.835
+    },
+    {
+        "text": "I'm specifying the grid size as well.",
+        "start": 546.035,
+        "duration": 3.29
+    },
+    {
+        "text": "After that, I would fit that again on top of",
+        "start": 549.325,
+        "duration": 3.115
+    },
+    {
+        "text": "my train data, and this time,",
+        "start": 552.44,
+        "duration": 2.475
+    },
+    {
+        "text": "I also pass the sensitive attribute,",
+        "start": 554.915,
+        "duration": 2.235
+    },
+    {
+        "text": "which I want to use for fairness considerations.",
+        "start": 557.15,
+        "duration": 3.885
+    },
+    {
+        "text": "After I'm done, I get rid of non-dominated models, and here,",
+        "start": 561.035,
+        "duration": 5.07
+    },
+    {
+        "text": "I load this dashboard again to navigate the trade-offs",
+        "start": 566.105,
+        "duration": 3.285
+    },
+    {
+        "text": "between model performance and model fairness,",
+        "start": 569.39,
+        "duration": 3.65
+    },
+    {
+        "text": "and also compare the mitigated models with the unmitigated one.",
+        "start": 573.04,
+        "duration": 4.615
+    },
+    {
+        "text": "I go forward with",
+        "start": 577.655,
+        "duration": 1.605
+    },
+    {
+        "text": "the same configuration of sex and accuracy rates.",
+        "start": 579.26,
+        "duration": 4.1
+    },
+    {
+        "text": "Now, instead of landing on the results page,",
+        "start": 583.36,
+        "duration": 4.31
+    },
+    {
+        "text": "I'm landing on this model comparison chart which really allows me",
+        "start": 587.67,
+        "duration": 3.86
+    },
+    {
+        "text": "to see the accuracy of",
+        "start": 591.53,
+        "duration": 1.65
+    },
+    {
+        "text": "different models with respect to their fairness,",
+        "start": 593.18,
+        "duration": 2.76
+    },
+    {
+        "text": "which in this case is disparity in",
+        "start": 595.94,
+        "duration": 1.5
+    },
+    {
+        "text": "prediction or disparity in selection rate.",
+        "start": 597.44,
+        "duration": 3.06
+    },
+    {
+        "text": "This is my unmitigated model.",
+        "start": 600.5,
+        "duration": 2.775
+    },
+    {
+        "text": "If you remember, it had almost an accuracy of",
+        "start": 603.275,
+        "duration": 2.4
+    },
+    {
+        "text": "84 percent and the disparity",
+        "start": 605.675,
+        "duration": 2.535
+    },
+    {
+        "text": "in selection rate of almost 15 percent.",
+        "start": 608.21,
+        "duration": 2.505
+    },
+    {
+        "text": "I can verify that here,",
+        "start": 610.715,
+        "duration": 1.725
+    },
+    {
+        "text": "the disparity in selection rate was",
+        "start": 612.44,
+        "duration": 1.59
+    },
+    {
+        "text": "15 and the accuracy was 82 percent.",
+        "start": 614.03,
+        "duration": 3.395
+    },
+    {
+        "text": "Now, what I can do with",
+        "start": 617.425,
+        "duration": 1.855
+    },
+    {
+        "text": "this comparison chart is I can look at different models,",
+        "start": 619.28,
+        "duration": 4.425
+    },
+    {
+        "text": "which are the models that might",
+        "start": 623.705,
+        "duration": 1.155
+    },
+    {
+        "text": "mitigation algorithm has generated,",
+        "start": 624.86,
+        "duration": 2.21
+    },
+    {
+        "text": "and depending on my context,",
+        "start": 627.07,
+        "duration": 2.02
+    },
+    {
+        "text": "I can choose which model is more appropriate for",
+        "start": 629.09,
+        "duration": 2.985
+    },
+    {
+        "text": "my use case and which model I",
+        "start": 632.075,
+        "duration": 1.755
+    },
+    {
+        "text": "really want to move forward and deploy.",
+        "start": 633.83,
+        "duration": 2.22
+    },
+    {
+        "text": "For instance, this is my original model, and I might say that,",
+        "start": 636.05,
+        "duration": 3.57
+    },
+    {
+        "text": "I am okay losing the accuracy by almost four percent,",
+        "start": 639.62,
+        "duration": 5.07
+    },
+    {
+        "text": "however, saving a lot on disparity in selection rates.",
+        "start": 644.69,
+        "duration": 4.5
+    },
+    {
+        "text": "So I move forward to see whether this model looks good to me.",
+        "start": 649.19,
+        "duration": 3.075
+    },
+    {
+        "text": "The overall accuracy is 82 percent,",
+        "start": 652.265,
+        "duration": 2.265
+    },
+    {
+        "text": "so I haven't lost much.",
+        "start": 654.53,
+        "duration": 1.59
+    },
+    {
+        "text": "However, the disparity in selection rate was dropped from",
+        "start": 656.12,
+        "duration": 3.19
+    },
+    {
+        "text": "15 percent to 6.55 percent.",
+        "start": 659.31,
+        "duration": 3.43
+    },
+    {
+        "text": "If I like it, I move forward to deploy it.",
+        "start": 662.74,
+        "duration": 2.74
+    },
+    {
+        "text": "If not, I can go back to the multi-model view and for instance,",
+        "start": 665.48,
+        "duration": 4.53
+    },
+    {
+        "text": "click on some other options for me and",
+        "start": 670.01,
+        "duration": 1.95
+    },
+    {
+        "text": "see how much sacrifice I can",
+        "start": 671.96,
+        "duration": 2.82
+    },
+    {
+        "text": "make on the accuracy of my model in",
+        "start": 674.78,
+        "duration": 2.25
+    },
+    {
+        "text": "order to get better disparity in selection rate.",
+        "start": 677.03,
+        "duration": 2.94
+    },
+    {
+        "text": "We put that completely in your hands to decide",
+        "start": 679.97,
+        "duration": 2.67
+    },
+    {
+        "text": "based on your context and based on the new case,",
+        "start": 682.64,
+        "duration": 2.985
+    },
+    {
+        "text": "as which of these models would be more",
+        "start": 685.625,
+        "duration": 2.295
+    },
+    {
+        "text": "appropriate for you to move forward with.",
+        "start": 687.92,
+        "duration": 3.32
+    },
+    {
+        "text": "As mentioned earlier, Fairlearn is also",
+        "start": 691.24,
+        "duration": 3.25
+    },
+    {
+        "text": "getting integrated into Azure Machine Learning,",
+        "start": 694.49,
+        "duration": 2.58
+    },
+    {
+        "text": "which provides you with the same dashboard experience",
+        "start": 697.07,
+        "duration": 2.73
+    },
+    {
+        "text": "that I just walked you through in the Jupyter Notebook,",
+        "start": 699.8,
+        "duration": 2.465
+    },
+    {
+        "text": "but inside Azure Machine Learning Studio.",
+        "start": 702.265,
+        "duration": 2.785
+    },
+    {
+        "text": "This way you can register your models,",
+        "start": 705.05,
+        "duration": 2.3
+    },
+    {
+        "text": "and by clicking on each of your registered model,",
+        "start": 707.35,
+        "duration": 2.35
+    },
+    {
+        "text": "you can go to the Fairness tab and",
+        "start": 709.7,
+        "duration": 1.95
+    },
+    {
+        "text": "see the fairness inside of your model,",
+        "start": 711.65,
+        "duration": 2.24
+    },
+    {
+        "text": "or you can log multiple different models under an experiment and",
+        "start": 713.89,
+        "duration": 4.12
+    },
+    {
+        "text": "compare the fairness insights of those models inside the Studio.",
+        "start": 718.01,
+        "duration": 4.86
+    },
+    {
+        "text": "For instance, I just go through the exact same flow of",
+        "start": 722.87,
+        "duration": 3.465
+    },
+    {
+        "text": "picking this time, race, accuracy rate,",
+        "start": 726.335,
+        "duration": 3.78
+    },
+    {
+        "text": "and landing on this multi-modal comparison,",
+        "start": 730.115,
+        "duration": 3.055
+    },
+    {
+        "text": "and by clicking on each of these,",
+        "start": 733.17,
+        "duration": 1.685
+    },
+    {
+        "text": "I can see the accuracy rate insights",
+        "start": 734.855,
+        "duration": 2.385
+    },
+    {
+        "text": "and also disparity in predictions.",
+        "start": 737.24,
+        "duration": 2.43
+    },
+    {
+        "text": "Thank you very much for watching our video.",
+        "start": 739.67,
+        "duration": 2.64
+    },
+    {
+        "text": "Please check out our open source offerings on fairlearn.org,",
+        "start": 742.31,
+        "duration": 4.065
+    },
+    {
+        "text": "and stay tuned for",
+        "start": 746.375,
+        "duration": 1.545
+    },
+    {
+        "text": "our Fairlearn integration with Azure Machine Learning.",
+        "start": 747.92,
+        "duration": 2.895
+    },
+    {
+        "text": "Please also check out",
+        "start": 750.815,
+        "duration": 1.35
+    },
+    {
+        "text": "our customer highlight with Ernst & Young. Thank you.",
+        "start": 752.165,
+        "duration": 3.965
+    }
+]

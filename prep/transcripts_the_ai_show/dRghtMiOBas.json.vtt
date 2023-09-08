@@ -1,0 +1,2262 @@
+[
+    {
+        "text": "hi I'm Ana Thomas and on this episode of",
+        "start": 0.0,
+        "duration": 3.659
+    },
+    {
+        "text": "the a show we're going to learn more",
+        "start": 2.25,
+        "duration": 3.87
+    },
+    {
+        "text": "about adding Lewis to your applications",
+        "start": 3.659,
+        "duration": 4.86
+    },
+    {
+        "text": "and some ways to make it better so be",
+        "start": 6.12,
+        "duration": 5.059
+    },
+    {
+        "text": "sure to tune in",
+        "start": 8.519,
+        "duration": 2.66
+    },
+    {
+        "text": "hi welcome to the AI show I'm Anna",
+        "start": 13.72,
+        "duration": 4.87
+    },
+    {
+        "text": "Thomas and applied data scientist on",
+        "start": 16.61,
+        "duration": 4.44
+    },
+    {
+        "text": "Microsoft's engineering team today I",
+        "start": 18.59,
+        "duration": 3.93
+    },
+    {
+        "text": "want to talk to you a little bit about",
+        "start": 21.05,
+        "duration": 3.6
+    },
+    {
+        "text": "Lewis now hopefully many of you have",
+        "start": 22.52,
+        "duration": 4.02
+    },
+    {
+        "text": "heard of Lewis before and so today I",
+        "start": 24.65,
+        "duration": 3.9
+    },
+    {
+        "text": "really just want to make sure you guys",
+        "start": 26.54,
+        "duration": 3.96
+    },
+    {
+        "text": "learn at least one new thing about Lewis",
+        "start": 28.55,
+        "duration": 4.11
+    },
+    {
+        "text": "that you didn't already know so let's go",
+        "start": 30.5,
+        "duration": 4.32
+    },
+    {
+        "text": "ahead and get started just a shameless",
+        "start": 32.66,
+        "duration": 4.53
+    },
+    {
+        "text": "plug for my team I work on the learn AI",
+        "start": 34.82,
+        "duration": 4.32
+    },
+    {
+        "text": "team and we try to make materials",
+        "start": 37.19,
+        "duration": 4.17
+    },
+    {
+        "text": "available to everyone out there so that",
+        "start": 39.14,
+        "duration": 4.739
+    },
+    {
+        "text": "we can democratize AI so you can access",
+        "start": 41.36,
+        "duration": 6.36
+    },
+    {
+        "text": "all of our courses at AKMs /l ap so",
+        "start": 43.879,
+        "duration": 6.211
+    },
+    {
+        "text": "getting back to the talk natural",
+        "start": 47.72,
+        "duration": 3.9
+    },
+    {
+        "text": "language understanding is a really",
+        "start": 50.09,
+        "duration": 2.989
+    },
+    {
+        "text": "important factor when we talk about",
+        "start": 51.62,
+        "duration": 3.959
+    },
+    {
+        "text": "conversational AI and as such",
+        "start": 53.079,
+        "duration": 4.631
+    },
+    {
+        "text": "Microsoft's come up with Lewis which is",
+        "start": 55.579,
+        "duration": 5.16
+    },
+    {
+        "text": "a really easy way to develop natural",
+        "start": 57.71,
+        "duration": 4.529
+    },
+    {
+        "text": "language understanding models for your",
+        "start": 60.739,
+        "duration": 3.421
+    },
+    {
+        "text": "applications so today I just want to",
+        "start": 62.239,
+        "duration": 3.301
+    },
+    {
+        "text": "talk a little bit more about some of the",
+        "start": 64.16,
+        "duration": 2.819
+    },
+    {
+        "text": "things that I've learned over the past",
+        "start": 65.54,
+        "duration": 3.689
+    },
+    {
+        "text": "year and a half of working with Louis",
+        "start": 66.979,
+        "duration": 3.991
+    },
+    {
+        "text": "and working with customers and learning",
+        "start": 69.229,
+        "duration": 4.14
+    },
+    {
+        "text": "about the places people get stuck and",
+        "start": 70.97,
+        "duration": 3.99
+    },
+    {
+        "text": "the things people don't tend to think",
+        "start": 73.369,
+        "duration": 4.321
+    },
+    {
+        "text": "about so let's go ahead and get started",
+        "start": 74.96,
+        "duration": 5.4
+    },
+    {
+        "text": "and if you learn anything or you don't",
+        "start": 77.69,
+        "duration": 4.38
+    },
+    {
+        "text": "hear anything that you wanted to hear",
+        "start": 80.36,
+        "duration": 3.63
+    },
+    {
+        "text": "please reach out and maybe I'll do a",
+        "start": 82.07,
+        "duration": 5.43
+    },
+    {
+        "text": "part two some time so the first note is",
+        "start": 83.99,
+        "duration": 6.12
+    },
+    {
+        "text": "to generalize as much as possible so if",
+        "start": 87.5,
+        "duration": 3.9
+    },
+    {
+        "text": "you've worked with Louis you might have",
+        "start": 90.11,
+        "duration": 3.57
+    },
+    {
+        "text": "noticed that generally when you start",
+        "start": 91.4,
+        "duration": 4.05
+    },
+    {
+        "text": "out you have a few intents you have your",
+        "start": 93.68,
+        "duration": 3.63
+    },
+    {
+        "text": "utterances you have maybe one or two",
+        "start": 95.45,
+        "duration": 3.779
+    },
+    {
+        "text": "entities and you have the none intent",
+        "start": 97.31,
+        "duration": 3.69
+    },
+    {
+        "text": "right you guys you're using the none",
+        "start": 99.229,
+        "duration": 3.481
+    },
+    {
+        "text": "intent make sure you use the none intent",
+        "start": 101.0,
+        "duration": 4.619
+    },
+    {
+        "text": "I digress but when you use this you what",
+        "start": 102.71,
+        "duration": 4.409
+    },
+    {
+        "text": "you'll find it's like generally works",
+        "start": 105.619,
+        "duration": 4.591
+    },
+    {
+        "text": "pretty well so then you know people are",
+        "start": 107.119,
+        "duration": 4.741
+    },
+    {
+        "text": "like oh well let's see can we do some",
+        "start": 110.21,
+        "duration": 3.06
+    },
+    {
+        "text": "other things can we add some more",
+        "start": 111.86,
+        "duration": 3.42
+    },
+    {
+        "text": "intense can we add more utterances and",
+        "start": 113.27,
+        "duration": 4.02
+    },
+    {
+        "text": "over time you'll notice things get",
+        "start": 115.28,
+        "duration": 4.589
+    },
+    {
+        "text": "really complicated and one day you'll",
+        "start": 117.29,
+        "duration": 4.289
+    },
+    {
+        "text": "train your model and it just won't work",
+        "start": 119.869,
+        "duration": 4.471
+    },
+    {
+        "text": "well so what do we do",
+        "start": 121.579,
+        "duration": 5.941
+    },
+    {
+        "text": "so alexei rob ski who's a senior data",
+        "start": 124.34,
+        "duration": 5.07
+    },
+    {
+        "text": "scientist at microsoft once told me it's",
+        "start": 127.52,
+        "duration": 4.14
+    },
+    {
+        "text": "all about finding a balance between the",
+        "start": 129.41,
+        "duration": 4.26
+    },
+    {
+        "text": "number of intents and the number of",
+        "start": 131.66,
+        "duration": 5.04
+    },
+    {
+        "text": "options within each intent so to try to",
+        "start": 133.67,
+        "duration": 5.42
+    },
+    {
+        "text": "explain let's take a simple example",
+        "start": 136.7,
+        "duration": 5.789
+    },
+    {
+        "text": "let's say we're asking questions about a",
+        "start": 139.09,
+        "duration": 5.38
+    },
+    {
+        "text": "company aggregation so we have one",
+        "start": 142.489,
+        "duration": 4.611
+    },
+    {
+        "text": "intent called get company information",
+        "start": 144.47,
+        "duration": 4.58
+    },
+    {
+        "text": "and the questions are simple at first",
+        "start": 147.1,
+        "duration": 4.26
+    },
+    {
+        "text": "like how many employees in contoso or",
+        "start": 149.05,
+        "duration": 4.08
+    },
+    {
+        "text": "how many buildings does adventureworks",
+        "start": 151.36,
+        "duration": 4.92
+    },
+    {
+        "text": "have or where is alpine ski house",
+        "start": 153.13,
+        "duration": 6.0
+    },
+    {
+        "text": "headquarters this works great and then",
+        "start": 156.28,
+        "duration": 5.01
+    },
+    {
+        "text": "we start adding more company names and",
+        "start": 159.13,
+        "duration": 3.81
+    },
+    {
+        "text": "more options within our two entities",
+        "start": 161.29,
+        "duration": 3.93
+    },
+    {
+        "text": "maybe we even start adding more entities",
+        "start": 162.94,
+        "duration": 5.22
+    },
+    {
+        "text": "and inevitably it gets harder for us to",
+        "start": 165.22,
+        "duration": 4.05
+    },
+    {
+        "text": "keep up with the number of utterances",
+        "start": 168.16,
+        "duration": 3.57
+    },
+    {
+        "text": "and make sure everything gets accounted",
+        "start": 169.27,
+        "duration": 4.64
+    },
+    {
+        "text": "for and we'll see a drop in performance",
+        "start": 171.73,
+        "duration": 4.95
+    },
+    {
+        "text": "so one thing I've seen people do is",
+        "start": 173.91,
+        "duration": 4.48
+    },
+    {
+        "text": "they'll actually break these massive",
+        "start": 176.68,
+        "duration": 4.32
+    },
+    {
+        "text": "intents into smaller sub intents and",
+        "start": 178.39,
+        "duration": 6.15
+    },
+    {
+        "text": "that can work really well on the flip",
+        "start": 181.0,
+        "duration": 7.29
+    },
+    {
+        "text": "side if you have too many intents that's",
+        "start": 184.54,
+        "duration": 6.6
+    },
+    {
+        "text": "going to cause issues as well so let's",
+        "start": 188.29,
+        "duration": 5.7
+    },
+    {
+        "text": "take a very simplified example where we",
+        "start": 191.14,
+        "duration": 5.94
+    },
+    {
+        "text": "have two sub intents of fine cafeteria",
+        "start": 193.99,
+        "duration": 5.79
+    },
+    {
+        "text": "and find Vinnie machine and they both",
+        "start": 197.08,
+        "duration": 4.56
+    },
+    {
+        "text": "have optional entities that we can see",
+        "start": 199.78,
+        "duration": 4.08
+    },
+    {
+        "text": "in the red and the orange of location",
+        "start": 201.64,
+        "duration": 5.49
+    },
+    {
+        "text": "and ours but what we can also see is",
+        "start": 203.86,
+        "duration": 4.94
+    },
+    {
+        "text": "there might be places where they overlap",
+        "start": 207.13,
+        "duration": 4.41
+    },
+    {
+        "text": "like I'm in location where can I get a",
+        "start": 208.8,
+        "duration": 5.68
+    },
+    {
+        "text": "snack where can I find cheap food near",
+        "start": 211.54,
+        "duration": 5.01
+    },
+    {
+        "text": "wherever I am right now or you know",
+        "start": 214.48,
+        "duration": 4.35
+    },
+    {
+        "text": "where can I find cookies now this can",
+        "start": 216.55,
+        "duration": 4.59
+    },
+    {
+        "text": "cause issues too so I'm telling you not",
+        "start": 218.83,
+        "duration": 4.05
+    },
+    {
+        "text": "to have too many intents but not to have",
+        "start": 221.14,
+        "duration": 4.53
+    },
+    {
+        "text": "you know so few intents right so what am",
+        "start": 222.88,
+        "duration": 4.95
+    },
+    {
+        "text": "I saying it's about finding a balance",
+        "start": 225.67,
+        "duration": 4.92
+    },
+    {
+        "text": "and there's no exact science but",
+        "start": 227.83,
+        "duration": 5.91
+    },
+    {
+        "text": "fortunately for us Luis has some tools",
+        "start": 230.59,
+        "duration": 5.97
+    },
+    {
+        "text": "that are baked in that helped us and",
+        "start": 233.74,
+        "duration": 4.92
+    },
+    {
+        "text": "through this process of exploring what",
+        "start": 236.56,
+        "duration": 5.37
+    },
+    {
+        "text": "the best method is the first tool that I",
+        "start": 238.66,
+        "duration": 4.83
+    },
+    {
+        "text": "find people aren't familiar with is",
+        "start": 241.93,
+        "duration": 3.66
+    },
+    {
+        "text": "versioning and so you can use versioning",
+        "start": 243.49,
+        "duration": 4.29
+    },
+    {
+        "text": "to clone your model at any point in the",
+        "start": 245.59,
+        "duration": 4.53
+    },
+    {
+        "text": "process and this can really help with",
+        "start": 247.78,
+        "duration": 4.32
+    },
+    {
+        "text": "trying out different things you can see",
+        "start": 250.12,
+        "duration": 4.14
+    },
+    {
+        "text": "I've tried using rolls using different",
+        "start": 252.1,
+        "duration": 3.78
+    },
+    {
+        "text": "patterns using different entities and",
+        "start": 254.26,
+        "duration": 4.11
+    },
+    {
+        "text": "this can really help improve your model",
+        "start": 255.88,
+        "duration": 4.41
+    },
+    {
+        "text": "and you can even publish to two",
+        "start": 258.37,
+        "duration": 3.75
+    },
+    {
+        "text": "different slots there's a staging slot",
+        "start": 260.29,
+        "duration": 4.05
+    },
+    {
+        "text": "and a publishing slot or production slot",
+        "start": 262.12,
+        "duration": 4.89
+    },
+    {
+        "text": "available so if you want to push it to",
+        "start": 264.34,
+        "duration": 4.56
+    },
+    {
+        "text": "your staging environment and make sure",
+        "start": 267.01,
+        "duration": 4.11
+    },
+    {
+        "text": "it works and you're into inflow then you",
+        "start": 268.9,
+        "duration": 3.75
+    },
+    {
+        "text": "can do that before pushing it to",
+        "start": 271.12,
+        "duration": 3.72
+    },
+    {
+        "text": "production the second tool is",
+        "start": 272.65,
+        "duration": 4.17
+    },
+    {
+        "text": "collaboration and when we are dealing",
+        "start": 274.84,
+        "duration": 3.78
+    },
+    {
+        "text": "with all these versions and we get to an",
+        "start": 276.82,
+        "duration": 3.24
+    },
+    {
+        "text": "enterprise level and we have lots of",
+        "start": 278.62,
+        "duration": 2.1
+    },
+    {
+        "text": "intense and",
+        "start": 280.06,
+        "duration": 3.3
+    },
+    {
+        "text": "other insist you know having other",
+        "start": 280.72,
+        "duration": 4.5
+    },
+    {
+        "text": "collaborators being able to work on the",
+        "start": 283.36,
+        "duration": 4.26
+    },
+    {
+        "text": "same model is really useful or the same",
+        "start": 285.22,
+        "duration": 5.13
+    },
+    {
+        "text": "application without having to you know",
+        "start": 287.62,
+        "duration": 4.41
+    },
+    {
+        "text": "the other option would be to export the",
+        "start": 290.35,
+        "duration": 3.54
+    },
+    {
+        "text": "json model then import it back into",
+        "start": 292.03,
+        "duration": 3.27
+    },
+    {
+        "text": "another app then export it and keep",
+        "start": 293.89,
+        "duration": 4.05
+    },
+    {
+        "text": "track of it so lewis can do that for you",
+        "start": 295.3,
+        "duration": 3.53
+    },
+    {
+        "text": "as well",
+        "start": 297.94,
+        "duration": 3.15
+    },
+    {
+        "text": "the last thing i wanted to mention on",
+        "start": 298.83,
+        "duration": 4.81
+    },
+    {
+        "text": "generalising is patterns and patterns",
+        "start": 301.09,
+        "duration": 5.19
+    },
+    {
+        "text": "were introduced back into lewis in mill",
+        "start": 303.64,
+        "duration": 6.63
+    },
+    {
+        "text": "at build build at build back in may 2018",
+        "start": 306.28,
+        "duration": 6.45
+    },
+    {
+        "text": "and at least in my experience are pretty",
+        "start": 310.27,
+        "duration": 4.62
+    },
+    {
+        "text": "underrated now patterns are a tool you",
+        "start": 312.73,
+        "duration": 5.45
+    },
+    {
+        "text": "can use to generalize common utterances",
+        "start": 314.89,
+        "duration": 5.67
+    },
+    {
+        "text": "wording or ordering that signals a",
+        "start": 318.18,
+        "duration": 4.57
+    },
+    {
+        "text": "particular intent so if you're familiar",
+        "start": 320.56,
+        "duration": 4.74
+    },
+    {
+        "text": "with regex patterns are kind of like",
+        "start": 322.75,
+        "duration": 4.32
+    },
+    {
+        "text": "regular expressions",
+        "start": 325.3,
+        "duration": 5.79
+    },
+    {
+        "text": "except for intent identification except",
+        "start": 327.07,
+        "duration": 7.62
+    },
+    {
+        "text": "it's smarter so louis first will",
+        "start": 331.09,
+        "duration": 5.64
+    },
+    {
+        "text": "recognize the entities and then can use",
+        "start": 334.69,
+        "duration": 4.35
+    },
+    {
+        "text": "matching to identify patterns within the",
+        "start": 336.73,
+        "duration": 4.44
+    },
+    {
+        "text": "rest of the utterance because of this",
+        "start": 339.04,
+        "duration": 3.84
+    },
+    {
+        "text": "patterns can actually help you increase",
+        "start": 341.17,
+        "duration": 3.96
+    },
+    {
+        "text": "the accuracy for an intent without",
+        "start": 342.88,
+        "duration": 4.74
+    },
+    {
+        "text": "providing a bunch of extra utterances so",
+        "start": 345.13,
+        "duration": 5.46
+    },
+    {
+        "text": "let's take an example of the intent of",
+        "start": 347.62,
+        "duration": 5.19
+    },
+    {
+        "text": "org chart manager so where one person is",
+        "start": 350.59,
+        "duration": 3.9
+    },
+    {
+        "text": "trying to figure out who's a manager",
+        "start": 352.81,
+        "duration": 4.38
+    },
+    {
+        "text": "someone is using a bot or some sort of",
+        "start": 354.49,
+        "duration": 5.64
+    },
+    {
+        "text": "agent we might find in our hits to the",
+        "start": 357.19,
+        "duration": 4.59
+    },
+    {
+        "text": "end point that many people are saying",
+        "start": 360.13,
+        "duration": 4.05
+    },
+    {
+        "text": "the wording similar to who is the boss",
+        "start": 361.78,
+        "duration": 4.8
+    },
+    {
+        "text": "of employee and sometimes they put a",
+        "start": 364.18,
+        "duration": 3.69
+    },
+    {
+        "text": "question mark and sometimes they don't",
+        "start": 366.58,
+        "duration": 3.27
+    },
+    {
+        "text": "and this quote this square bracket can",
+        "start": 367.87,
+        "duration": 4.799
+    },
+    {
+        "text": "help with the optional parameters as",
+        "start": 369.85,
+        "duration": 5.88
+    },
+    {
+        "text": "well as just an interesting thing to",
+        "start": 372.669,
+        "duration": 4.591
+    },
+    {
+        "text": "note is that Louis doesn't take into",
+        "start": 375.73,
+        "duration": 3.81
+    },
+    {
+        "text": "account case so you don't have to worry",
+        "start": 377.26,
+        "duration": 4.86
+    },
+    {
+        "text": "about putting that into a pattern and so",
+        "start": 379.54,
+        "duration": 4.44
+    },
+    {
+        "text": "Louis will first recognize this employee",
+        "start": 382.12,
+        "duration": 3.84
+    },
+    {
+        "text": "entity and then look for those patterns",
+        "start": 383.98,
+        "duration": 4.29
+    },
+    {
+        "text": "around the the entity and this",
+        "start": 385.96,
+        "duration": 4.41
+    },
+    {
+        "text": "drastically increases the resulting",
+        "start": 388.27,
+        "duration": 5.85
+    },
+    {
+        "text": "confidence for or chart manager so",
+        "start": 390.37,
+        "duration": 7.11
+    },
+    {
+        "text": "moving on to the second note the Louis",
+        "start": 394.12,
+        "duration": 5.04
+    },
+    {
+        "text": "team has also developed several",
+        "start": 397.48,
+        "duration": 3.81
+    },
+    {
+        "text": "different entity types for us to take",
+        "start": 399.16,
+        "duration": 4.5
+    },
+    {
+        "text": "advantage of but there are a lot of them",
+        "start": 401.29,
+        "duration": 5.36
+    },
+    {
+        "text": "and I often find people myself included",
+        "start": 403.66,
+        "duration": 5.52
+    },
+    {
+        "text": "getting confused regarding which one",
+        "start": 406.65,
+        "duration": 5.29
+    },
+    {
+        "text": "should be used for what and why so",
+        "start": 409.18,
+        "duration": 4.41
+    },
+    {
+        "text": "here's like a condensed little table",
+        "start": 411.94,
+        "duration": 2.849
+    },
+    {
+        "text": "that helps you",
+        "start": 413.59,
+        "duration": 3.419
+    },
+    {
+        "text": "quickly look up you know what's an exact",
+        "start": 414.789,
+        "duration": 4.53
+    },
+    {
+        "text": "match and which entities have some",
+        "start": 417.009,
+        "duration": 3.901
+    },
+    {
+        "text": "machine learning that goes into them and",
+        "start": 419.319,
+        "duration": 4.44
+    },
+    {
+        "text": "which are kind of a mix of both and from",
+        "start": 420.91,
+        "duration": 4.86
+    },
+    {
+        "text": "my experiences I just had like a few",
+        "start": 423.759,
+        "duration": 4.051
+    },
+    {
+        "text": "additional you know mini notes that I",
+        "start": 425.77,
+        "duration": 4.89
+    },
+    {
+        "text": "wanted to share that are often useful",
+        "start": 427.81,
+        "duration": 4.53
+    },
+    {
+        "text": "when you're making decisions around",
+        "start": 430.66,
+        "duration": 5.58
+    },
+    {
+        "text": "entities and which entities to use the",
+        "start": 432.34,
+        "duration": 5.97
+    },
+    {
+        "text": "first one is simple entities and this is",
+        "start": 436.24,
+        "duration": 4.95
+    },
+    {
+        "text": "like your go to default whoops your go",
+        "start": 438.31,
+        "duration": 6.57
+    },
+    {
+        "text": "to default and see and this is best when",
+        "start": 441.19,
+        "duration": 5.31
+    },
+    {
+        "text": "what you're trying to extract from the",
+        "start": 444.88,
+        "duration": 4.68
+    },
+    {
+        "text": "utterance isn't is is a single concept",
+        "start": 446.5,
+        "duration": 5.009
+    },
+    {
+        "text": "but it's not well formatted so it's not",
+        "start": 449.56,
+        "duration": 3.51
+    },
+    {
+        "text": "like a phone number where you could put",
+        "start": 451.509,
+        "duration": 3.181
+    },
+    {
+        "text": "it into a regular expression or an email",
+        "start": 453.07,
+        "duration": 4.319
+    },
+    {
+        "text": "address or it doesn't match exactly to a",
+        "start": 454.69,
+        "duration": 4.65
+    },
+    {
+        "text": "list of words like a list of company",
+        "start": 457.389,
+        "duration": 5.071
+    },
+    {
+        "text": "names so this is really great to use it",
+        "start": 459.34,
+        "duration": 4.44
+    },
+    {
+        "text": "does use machine learning and it's",
+        "start": 462.46,
+        "duration": 3.959
+    },
+    {
+        "text": "actually quite good however if you do",
+        "start": 463.78,
+        "duration": 4.35
+    },
+    {
+        "text": "have something that lets say matches",
+        "start": 466.419,
+        "duration": 3.631
+    },
+    {
+        "text": "exactly to a list of words then you",
+        "start": 468.13,
+        "duration": 4.23
+    },
+    {
+        "text": "might consider using the list entity and",
+        "start": 470.05,
+        "duration": 3.959
+    },
+    {
+        "text": "this is really good when you have a",
+        "start": 472.36,
+        "duration": 4.679
+    },
+    {
+        "text": "clear set of values so for example like",
+        "start": 474.009,
+        "duration": 5.821
+    },
+    {
+        "text": "company names can be better as list",
+        "start": 477.039,
+        "duration": 7.021
+    },
+    {
+        "text": "another example is oh yes one thing to",
+        "start": 479.83,
+        "duration": 6.03
+    },
+    {
+        "text": "keep in mind is that lists entities are",
+        "start": 484.06,
+        "duration": 3.72
+    },
+    {
+        "text": "an exact match which means there's no",
+        "start": 485.86,
+        "duration": 3.63
+    },
+    {
+        "text": "machine learning that goes into them and",
+        "start": 487.78,
+        "duration": 5.129
+    },
+    {
+        "text": "if you have a lot of different variety",
+        "start": 489.49,
+        "duration": 7.62
+    },
+    {
+        "text": "of your list items and there's some",
+        "start": 492.909,
+        "duration": 6.031
+    },
+    {
+        "text": "overlap with some of the other things in",
+        "start": 497.11,
+        "duration": 3.899
+    },
+    {
+        "text": "your application this can cause some",
+        "start": 498.94,
+        "duration": 4.71
+    },
+    {
+        "text": "unexpected results because of its exact",
+        "start": 501.009,
+        "duration": 3.991
+    },
+    {
+        "text": "match nature because it's just gonna",
+        "start": 503.65,
+        "duration": 3.509
+    },
+    {
+        "text": "pull everything it's not gonna look at",
+        "start": 505.0,
+        "duration": 4.05
+    },
+    {
+        "text": "any contact so it'll pull anything that",
+        "start": 507.159,
+        "duration": 4.29
+    },
+    {
+        "text": "matches inside your list it's just",
+        "start": 509.05,
+        "duration": 4.229
+    },
+    {
+        "text": "something to be cautious of and if it",
+        "start": 511.449,
+        "duration": 4.741
+    },
+    {
+        "text": "starts being a problem or if the variety",
+        "start": 513.279,
+        "duration": 6.331
+    },
+    {
+        "text": "becomes too unmanageable then you might",
+        "start": 516.19,
+        "duration": 5.25
+    },
+    {
+        "text": "want to look into turning it into a set",
+        "start": 519.61,
+        "duration": 3.84
+    },
+    {
+        "text": "of hierarchical entities maybe you can",
+        "start": 521.44,
+        "duration": 4.709
+    },
+    {
+        "text": "break it down and that way you are using",
+        "start": 523.45,
+        "duration": 4.41
+    },
+    {
+        "text": "machine learning which can help increase",
+        "start": 526.149,
+        "duration": 3.75
+    },
+    {
+        "text": "the the performance and the learning",
+        "start": 527.86,
+        "duration": 4.2
+    },
+    {
+        "text": "capability and you not having to get it",
+        "start": 529.899,
+        "duration": 6.0
+    },
+    {
+        "text": "exactly perfect in your app another",
+        "start": 532.06,
+        "duration": 5.49
+    },
+    {
+        "text": "thing that I've seen teams do actually",
+        "start": 535.899,
+        "duration": 3.421
+    },
+    {
+        "text": "and this was before patterns but I think",
+        "start": 537.55,
+        "duration": 3.9
+    },
+    {
+        "text": "it's still relevant is they actually",
+        "start": 539.32,
+        "duration": 5.1
+    },
+    {
+        "text": "they used Lewis to pick out the intents",
+        "start": 541.45,
+        "duration": 5.39
+    },
+    {
+        "text": "and entities and then they",
+        "start": 544.42,
+        "duration": 6.14
+    },
+    {
+        "text": "I used a simple hash lookout to post",
+        "start": 546.84,
+        "duration": 5.79
+    },
+    {
+        "text": "process and get the exact entity name",
+        "start": 550.56,
+        "duration": 4.53
+    },
+    {
+        "text": "because oftentimes when you put these",
+        "start": 552.63,
+        "duration": 4.98
+    },
+    {
+        "text": "entities into the next process so",
+        "start": 555.09,
+        "duration": 4.32
+    },
+    {
+        "text": "whatever it is that your users trying to",
+        "start": 557.61,
+        "duration": 3.9
+    },
+    {
+        "text": "do when you pull out that entity usually",
+        "start": 559.41,
+        "duration": 4.02
+    },
+    {
+        "text": "you need it in a very specific format",
+        "start": 561.51,
+        "duration": 4.56
+    },
+    {
+        "text": "and so you know a post-processing might",
+        "start": 563.43,
+        "duration": 5.25
+    },
+    {
+        "text": "be an option",
+        "start": 566.07,
+        "duration": 5.25
+    },
+    {
+        "text": "I also just wanted to clear up this one",
+        "start": 568.68,
+        "duration": 5.01
+    },
+    {
+        "text": "thing hierarchical entities and roles",
+        "start": 571.32,
+        "duration": 4.2
+    },
+    {
+        "text": "they're really similar and they're kind",
+        "start": 573.69,
+        "duration": 3.36
+    },
+    {
+        "text": "of confusing to me",
+        "start": 575.52,
+        "duration": 3.42
+    },
+    {
+        "text": "but hierarchical entities provide the",
+        "start": 577.05,
+        "duration": 4.68
+    },
+    {
+        "text": "same contextual information as roles but",
+        "start": 578.94,
+        "duration": 5.66
+    },
+    {
+        "text": "to utterances and intense so conversely",
+        "start": 581.73,
+        "duration": 4.979
+    },
+    {
+        "text": "roles provide the same contextual",
+        "start": 584.6,
+        "duration": 4.0
+    },
+    {
+        "text": "information as hierarchical entities but",
+        "start": 586.709,
+        "duration": 4.051
+    },
+    {
+        "text": "only in patterns so really the only",
+        "start": 588.6,
+        "duration": 3.87
+    },
+    {
+        "text": "difference is whether or not you're",
+        "start": 590.76,
+        "duration": 3.93
+    },
+    {
+        "text": "using patterns or not so if we take this",
+        "start": 592.47,
+        "duration": 5.1
+    },
+    {
+        "text": "example here we can see that the only",
+        "start": 594.69,
+        "duration": 4.769
+    },
+    {
+        "text": "thing that's different is the formatting",
+        "start": 597.57,
+        "duration": 3.72
+    },
+    {
+        "text": "right on the right-hand side I'm using",
+        "start": 599.459,
+        "duration": 3.511
+    },
+    {
+        "text": "patterns and on the left-hand side I'm",
+        "start": 601.29,
+        "duration": 3.09
+    },
+    {
+        "text": "using hierarchical entities but I'm",
+        "start": 602.97,
+        "duration": 4.429
+    },
+    {
+        "text": "trying to accomplish the same thing and",
+        "start": 604.38,
+        "duration": 6.63
+    },
+    {
+        "text": "the the last oh no not the last one a",
+        "start": 607.399,
+        "duration": 5.531
+    },
+    {
+        "text": "second to the last entity I want to talk",
+        "start": 611.01,
+        "duration": 3.6
+    },
+    {
+        "text": "to you guys about is the pre-built",
+        "start": 612.93,
+        "duration": 3.39
+    },
+    {
+        "text": "entities and pre-built entities are",
+        "start": 614.61,
+        "duration": 3.75
+    },
+    {
+        "text": "awesome because you know they're kind of",
+        "start": 616.32,
+        "duration": 3.69
+    },
+    {
+        "text": "like pre-baked for you and so you don't",
+        "start": 618.36,
+        "duration": 3.03
+    },
+    {
+        "text": "have to do anything they've been trained",
+        "start": 620.01,
+        "duration": 3.51
+    },
+    {
+        "text": "and tested by Microsoft so they're easy",
+        "start": 621.39,
+        "duration": 4.23
+    },
+    {
+        "text": "to just go for and the one I found",
+        "start": 623.52,
+        "duration": 4.319
+    },
+    {
+        "text": "recently was the key phrase pre-built",
+        "start": 625.62,
+        "duration": 3.87
+    },
+    {
+        "text": "entity and if you've worked with the",
+        "start": 627.839,
+        "duration": 4.771
+    },
+    {
+        "text": "text analytics API you would be familiar",
+        "start": 629.49,
+        "duration": 4.89
+    },
+    {
+        "text": "with the key phrase but what it does is",
+        "start": 632.61,
+        "duration": 4.08
+    },
+    {
+        "text": "it extracts the key phrases from your",
+        "start": 634.38,
+        "duration": 5.1
+    },
+    {
+        "text": "your conversations and this can be",
+        "start": 636.69,
+        "duration": 5.1
+    },
+    {
+        "text": "really useful in you know a variety of",
+        "start": 639.48,
+        "duration": 6.09
+    },
+    {
+        "text": "ways one might be in the none intent so",
+        "start": 641.79,
+        "duration": 6.81
+    },
+    {
+        "text": "maybe your your app isn't able to figure",
+        "start": 645.57,
+        "duration": 5.34
+    },
+    {
+        "text": "out what the user wants to do but can",
+        "start": 648.6,
+        "duration": 4.8
+    },
+    {
+        "text": "extract the key phrases from the items",
+        "start": 650.91,
+        "duration": 4.56
+    },
+    {
+        "text": "in the none intent and that can then be",
+        "start": 653.4,
+        "duration": 3.78
+    },
+    {
+        "text": "used to form some sort of follow-up",
+        "start": 655.47,
+        "duration": 5.52
+    },
+    {
+        "text": "question or can be used to run some",
+        "start": 657.18,
+        "duration": 5.61
+    },
+    {
+        "text": "analytics on to understand you know",
+        "start": 660.99,
+        "duration": 3.87
+    },
+    {
+        "text": "maybe there is something that our agent",
+        "start": 662.79,
+        "duration": 4.38
+    },
+    {
+        "text": "should be doing that it's not and just",
+        "start": 664.86,
+        "duration": 3.9
+    },
+    {
+        "text": "extracting that key phrase entity can",
+        "start": 667.17,
+        "duration": 4.169
+    },
+    {
+        "text": "make it a lot easier there's also two",
+        "start": 668.76,
+        "duration": 4.35
+    },
+    {
+        "text": "other new entity types that I wanted to",
+        "start": 671.339,
+        "duration": 3.99
+    },
+    {
+        "text": "mention the person name and geography v2",
+        "start": 673.11,
+        "duration": 3.99
+    },
+    {
+        "text": "so if you're interested in those you",
+        "start": 675.329,
+        "duration": 3.681
+    },
+    {
+        "text": "should check them out",
+        "start": 677.1,
+        "duration": 4.25
+    },
+    {
+        "text": "the last entity the actual last entity I",
+        "start": 679.01,
+        "duration": 3.93
+    },
+    {
+        "text": "want to talk about is the pattern dot",
+        "start": 681.35,
+        "duration": 3.81
+    },
+    {
+        "text": "any entity and it allows you to find",
+        "start": 682.94,
+        "duration": 5.28
+    },
+    {
+        "text": "find indices where the beginning and the",
+        "start": 685.16,
+        "duration": 5.28
+    },
+    {
+        "text": "end isn't clear and kind of the classic",
+        "start": 688.22,
+        "duration": 5.04
+    },
+    {
+        "text": "example for this is book titles because",
+        "start": 690.44,
+        "duration": 4.98
+    },
+    {
+        "text": "book titles might be you know one word",
+        "start": 693.26,
+        "duration": 4.17
+    },
+    {
+        "text": "or they could be ten words and of course",
+        "start": 695.42,
+        "duration": 4.41
+    },
+    {
+        "text": "books span you know vast different you",
+        "start": 697.43,
+        "duration": 4.98
+    },
+    {
+        "text": "know topics and concepts so really it",
+        "start": 699.83,
+        "duration": 5.04
+    },
+    {
+        "text": "would be hard for Louis to just pick up",
+        "start": 702.41,
+        "duration": 5.46
+    },
+    {
+        "text": "exactly what a book title is and so you",
+        "start": 704.87,
+        "duration": 5.25
+    },
+    {
+        "text": "can use patterns and this example is",
+        "start": 707.87,
+        "duration": 3.93
+    },
+    {
+        "text": "more of a corporate example but you can",
+        "start": 710.12,
+        "duration": 4.47
+    },
+    {
+        "text": "use a patterns to kind of pick up you",
+        "start": 711.8,
+        "duration": 4.92
+    },
+    {
+        "text": "know what are the key signals before the",
+        "start": 714.59,
+        "duration": 4.05
+    },
+    {
+        "text": "entity and after the entity so that you",
+        "start": 716.72,
+        "duration": 4.41
+    },
+    {
+        "text": "can recognize where the entity is so",
+        "start": 718.64,
+        "duration": 4.77
+    },
+    {
+        "text": "here we have the companies in orange and",
+        "start": 721.13,
+        "duration": 4.98
+    },
+    {
+        "text": "the pattern around it is in red um so",
+        "start": 723.41,
+        "duration": 5.43
+    },
+    {
+        "text": "these can be really useful and just in",
+        "start": 726.11,
+        "duration": 5.55
+    },
+    {
+        "text": "general you want to try to improve your",
+        "start": 728.84,
+        "duration": 5.46
+    },
+    {
+        "text": "entity detection and you might use you",
+        "start": 731.66,
+        "duration": 4.47
+    },
+    {
+        "text": "know the pattern got any entity you",
+        "start": 734.3,
+        "duration": 3.33
+    },
+    {
+        "text": "might use different entities you might",
+        "start": 736.13,
+        "duration": 4.38
+    },
+    {
+        "text": "also use phrase lists and but ultimately",
+        "start": 737.63,
+        "duration": 5.76
+    },
+    {
+        "text": "by improving your entity detection",
+        "start": 740.51,
+        "duration": 4.74
+    },
+    {
+        "text": "you'll improve your pattern detection",
+        "start": 743.39,
+        "duration": 4.5
+    },
+    {
+        "text": "which ultimately makes your app perform",
+        "start": 745.25,
+        "duration": 6.24
+    },
+    {
+        "text": "better so those are the entities again",
+        "start": 747.89,
+        "duration": 5.79
+    },
+    {
+        "text": "there's this chart here and there's also",
+        "start": 751.49,
+        "duration": 4.32
+    },
+    {
+        "text": "a more detailed chart which I'll send",
+        "start": 753.68,
+        "duration": 5.01
+    },
+    {
+        "text": "some references to but this is like",
+        "start": 755.81,
+        "duration": 4.17
+    },
+    {
+        "text": "really important these are really good",
+        "start": 758.69,
+        "duration": 4.7
+    },
+    {
+        "text": "tools for you to take advantage of",
+        "start": 759.98,
+        "duration": 3.41
+    },
+    {
+        "text": "the last note I wanted to talk about is",
+        "start": 763.91,
+        "duration": 4.8
+    },
+    {
+        "text": "that this is still data scientist",
+        "start": 765.98,
+        "duration": 5.07
+    },
+    {
+        "text": "science so I think it's easy for those",
+        "start": 768.71,
+        "duration": 5.13
+    },
+    {
+        "text": "of us that work with Louis and who are",
+        "start": 771.05,
+        "duration": 5.43
+    },
+    {
+        "text": "more developer architect than data",
+        "start": 773.84,
+        "duration": 5.79
+    },
+    {
+        "text": "science to forget that you know we",
+        "start": 776.48,
+        "duration": 4.53
+    },
+    {
+        "text": "should be following the team data",
+        "start": 779.63,
+        "duration": 2.79
+    },
+    {
+        "text": "science process and if you're not",
+        "start": 781.01,
+        "duration": 3.81
+    },
+    {
+        "text": "familiar with the TDS V I highly",
+        "start": 782.42,
+        "duration": 4.5
+    },
+    {
+        "text": "recommend you know looking looking this",
+        "start": 784.82,
+        "duration": 3.83
+    },
+    {
+        "text": "up because it really gives you a way to",
+        "start": 786.92,
+        "duration": 4.35
+    },
+    {
+        "text": "you know go into in through the data",
+        "start": 788.65,
+        "duration": 4.87
+    },
+    {
+        "text": "science lifecycle whatever your problem",
+        "start": 791.27,
+        "duration": 4.11
+    },
+    {
+        "text": "or whatever the challenge you're trying",
+        "start": 793.52,
+        "duration": 4.44
+    },
+    {
+        "text": "to address is and so the first step is",
+        "start": 795.38,
+        "duration": 5.13
+    },
+    {
+        "text": "the business understanding and our team",
+        "start": 797.96,
+        "duration": 4.56
+    },
+    {
+        "text": "actually has a course available for you",
+        "start": 800.51,
+        "duration": 3.99
+    },
+    {
+        "text": "where you can learn how to design an",
+        "start": 802.52,
+        "duration": 3.78
+    },
+    {
+        "text": "architect intelligent agents and we kind",
+        "start": 804.5,
+        "duration": 3.72
+    },
+    {
+        "text": "of go through this is this understanding",
+        "start": 806.3,
+        "duration": 3.74
+    },
+    {
+        "text": "understanding the business requirements",
+        "start": 808.22,
+        "duration": 4.29
+    },
+    {
+        "text": "that sort of thing so check that out but",
+        "start": 810.04,
+        "duration": 5.77
+    },
+    {
+        "text": "what I want to focus on here is the the",
+        "start": 812.51,
+        "duration": 4.38
+    },
+    {
+        "text": "data science principle that you'll",
+        "start": 815.81,
+        "duration": 4.02
+    },
+    {
+        "text": "typically have three data sets and it's",
+        "start": 816.89,
+        "duration": 4.38
+    },
+    {
+        "text": "the same when you're creating Louis",
+        "start": 819.83,
+        "duration": 3.39
+    },
+    {
+        "text": "models right so we want to start out",
+        "start": 821.27,
+        "duration": 4.74
+    },
+    {
+        "text": "with a big set of utterances and these",
+        "start": 823.22,
+        "duration": 4.47
+    },
+    {
+        "text": "would be our labeled data so we'll also",
+        "start": 826.01,
+        "duration": 6.06
+    },
+    {
+        "text": "include our entity names and the intent",
+        "start": 827.69,
+        "duration": 7.89
+    },
+    {
+        "text": "name that we're trying to extract and we",
+        "start": 832.07,
+        "duration": 5.4
+    },
+    {
+        "text": "want to have a data set for training and",
+        "start": 835.58,
+        "duration": 3.93
+    },
+    {
+        "text": "that training data set will be directly",
+        "start": 837.47,
+        "duration": 4.35
+    },
+    {
+        "text": "used to train our Louis model we also",
+        "start": 839.51,
+        "duration": 4.95
+    },
+    {
+        "text": "want to have a validation data set and",
+        "start": 841.82,
+        "duration": 5.01
+    },
+    {
+        "text": "this is used to you know pick between",
+        "start": 844.46,
+        "duration": 4.13
+    },
+    {
+        "text": "the different versions that we create",
+        "start": 846.83,
+        "duration": 4.56
+    },
+    {
+        "text": "for the best model determine which one's",
+        "start": 848.59,
+        "duration": 5.08
+    },
+    {
+        "text": "best and finally you'll want to have a",
+        "start": 851.39,
+        "duration": 4.86
+    },
+    {
+        "text": "testing data set which hasn't been used",
+        "start": 853.67,
+        "duration": 4.53
+    },
+    {
+        "text": "to pick any of the models or train any",
+        "start": 856.25,
+        "duration": 4.17
+    },
+    {
+        "text": "of the models and and this helps you",
+        "start": 858.2,
+        "duration": 4.05
+    },
+    {
+        "text": "evaluate how your model performs on an",
+        "start": 860.42,
+        "duration": 4.05
+    },
+    {
+        "text": "unseen data set so this is one thing",
+        "start": 862.25,
+        "duration": 4.56
+    },
+    {
+        "text": "that I think's overlooked a lot and you",
+        "start": 864.47,
+        "duration": 4.17
+    },
+    {
+        "text": "know can be really useful in developing",
+        "start": 866.81,
+        "duration": 4.41
+    },
+    {
+        "text": "good lose models the second thing is",
+        "start": 868.64,
+        "duration": 4.41
+    },
+    {
+        "text": "batch testing and batch testing can be",
+        "start": 871.22,
+        "duration": 4.29
+    },
+    {
+        "text": "very useful because you can actually you",
+        "start": 873.05,
+        "duration": 4.08
+    },
+    {
+        "text": "know say you want to test on your",
+        "start": 875.51,
+        "duration": 3.51
+    },
+    {
+        "text": "validation set and Louis has this really",
+        "start": 877.13,
+        "duration": 4.71
+    },
+    {
+        "text": "nice interface that gives you confusion",
+        "start": 879.02,
+        "duration": 5.73
+    },
+    {
+        "text": "matrices for every intent and you can",
+        "start": 881.84,
+        "duration": 4.62
+    },
+    {
+        "text": "kind of see you know where do we want to",
+        "start": 884.75,
+        "duration": 3.84
+    },
+    {
+        "text": "improve from here",
+        "start": 886.46,
+        "duration": 3.93
+    },
+    {
+        "text": "and so let's walk through you know kind",
+        "start": 888.59,
+        "duration": 4.41
+    },
+    {
+        "text": "of like a hypothetical example so let's",
+        "start": 890.39,
+        "duration": 4.23
+    },
+    {
+        "text": "say we've created and deployed a",
+        "start": 893.0,
+        "duration": 4.68
+    },
+    {
+        "text": "baseline model all with you know simple",
+        "start": 894.62,
+        "duration": 5.49
+    },
+    {
+        "text": "intense simple entities I'm just a few",
+        "start": 897.68,
+        "duration": 4.26
+    },
+    {
+        "text": "intent so we don't have any patterns yet",
+        "start": 900.11,
+        "duration": 4.44
+    },
+    {
+        "text": "and after a few weeks of being deployed",
+        "start": 901.94,
+        "duration": 4.589
+    },
+    {
+        "text": "we want to see how it's doing and make",
+        "start": 904.55,
+        "duration": 3.93
+    },
+    {
+        "text": "some improvements so we can use our",
+        "start": 906.529,
+        "duration": 3.931
+    },
+    {
+        "text": "validation data set to run you know a",
+        "start": 908.48,
+        "duration": 4.62
+    },
+    {
+        "text": "batch test like I spoke about and you",
+        "start": 910.46,
+        "duration": 6.24
+    },
+    {
+        "text": "know determine how to improve we might",
+        "start": 913.1,
+        "duration": 5.79
+    },
+    {
+        "text": "clone our model and notice from our",
+        "start": 916.7,
+        "duration": 3.72
+    },
+    {
+        "text": "endpoints that people are actually",
+        "start": 918.89,
+        "duration": 3.87
+    },
+    {
+        "text": "saying things in similar ways so we",
+        "start": 920.42,
+        "duration": 4.26
+    },
+    {
+        "text": "might be able to use active learning -",
+        "start": 922.76,
+        "duration": 3.6
+    },
+    {
+        "text": "you know incorporate more utterances",
+        "start": 924.68,
+        "duration": 4.349
+    },
+    {
+        "text": "maybe add some patterns maybe use some",
+        "start": 926.36,
+        "duration": 4.74
+    },
+    {
+        "text": "different versions to explore breezeless",
+        "start": 929.029,
+        "duration": 5.791
+    },
+    {
+        "text": "or other entity types and you know we'll",
+        "start": 931.1,
+        "duration": 5.4
+    },
+    {
+        "text": "retrain our model run batch testing",
+        "start": 934.82,
+        "duration": 4.86
+    },
+    {
+        "text": "again and once we're happy we'll push it",
+        "start": 936.5,
+        "duration": 5.88
+    },
+    {
+        "text": "out to our staging environment and run",
+        "start": 939.68,
+        "duration": 5.04
+    },
+    {
+        "text": "it in our intent in lifecycle and if it",
+        "start": 942.38,
+        "duration": 4.32
+    },
+    {
+        "text": "performs well then then we can push it",
+        "start": 944.72,
+        "duration": 3.48
+    },
+    {
+        "text": "to our publishing environment and",
+        "start": 946.7,
+        "duration": 3.42
+    },
+    {
+        "text": "something important to remember is that",
+        "start": 948.2,
+        "duration": 5.19
+    },
+    {
+        "text": "you know training models and working",
+        "start": 950.12,
+        "duration": 4.8
+    },
+    {
+        "text": "with models and data science is an",
+        "start": 953.39,
+        "duration": 3.36
+    },
+    {
+        "text": "iterative process it's not kind of set",
+        "start": 954.92,
+        "duration": 3.99
+    },
+    {
+        "text": "it and forget it so you'll want to come",
+        "start": 956.75,
+        "duration": 4.38
+    },
+    {
+        "text": "back and you know revisit all of these",
+        "start": 958.91,
+        "duration": 6.23
+    },
+    {
+        "text": "steps and to improve your model",
+        "start": 961.13,
+        "duration": 4.01
+    },
+    {
+        "text": "now as your model starts become more",
+        "start": 965.2,
+        "duration": 6.0
+    },
+    {
+        "text": "complicated or what more widespread I",
+        "start": 968.92,
+        "duration": 5.039
+    },
+    {
+        "text": "actually have seen times where it's been",
+        "start": 971.2,
+        "duration": 5.37
+    },
+    {
+        "text": "useful to have multiple Lewis models at",
+        "start": 973.959,
+        "duration": 5.911
+    },
+    {
+        "text": "once and you might even have you know",
+        "start": 976.57,
+        "duration": 6.17
+    },
+    {
+        "text": "one or more Q animate Q and a maker",
+        "start": 979.87,
+        "duration": 6.06
+    },
+    {
+        "text": "instances or knowledge bases that you're",
+        "start": 982.74,
+        "duration": 5.589
+    },
+    {
+        "text": "using and it can be really hard to route",
+        "start": 985.93,
+        "duration": 5.25
+    },
+    {
+        "text": "between all those sources so there's",
+        "start": 988.329,
+        "duration": 4.861
+    },
+    {
+        "text": "this tool and there's a video that the",
+        "start": 991.18,
+        "duration": 4.11
+    },
+    {
+        "text": "bot builder tools guys did and it's",
+        "start": 993.19,
+        "duration": 4.199
+    },
+    {
+        "text": "really awesome and dispatch can really",
+        "start": 995.29,
+        "duration": 3.96
+    },
+    {
+        "text": "help with not only the routing of your",
+        "start": 997.389,
+        "duration": 4.2
+    },
+    {
+        "text": "various messages but determining where",
+        "start": 999.25,
+        "duration": 4.74
+    },
+    {
+        "text": "the overlap is and you know the model",
+        "start": 1001.589,
+        "duration": 5.161
+    },
+    {
+        "text": "performance overall so that's definitely",
+        "start": 1003.99,
+        "duration": 6.39
+    },
+    {
+        "text": "something to look into and so finally I",
+        "start": 1006.75,
+        "duration": 6.389
+    },
+    {
+        "text": "have resources for you everything you",
+        "start": 1010.38,
+        "duration": 4.829
+    },
+    {
+        "text": "just watch is basically available in a",
+        "start": 1013.139,
+        "duration": 4.051
+    },
+    {
+        "text": "blog post as well except I've also",
+        "start": 1015.209,
+        "duration": 4.201
+    },
+    {
+        "text": "included all of the links to everything",
+        "start": 1017.19,
+        "duration": 3.78
+    },
+    {
+        "text": "I talked about and the links to our",
+        "start": 1019.41,
+        "duration": 4.109
+    },
+    {
+        "text": "various labs and tutorials that can help",
+        "start": 1020.97,
+        "duration": 4.589
+    },
+    {
+        "text": "you really get ramped up on Lois and",
+        "start": 1023.519,
+        "duration": 4.771
+    },
+    {
+        "text": "making really effective enterprise grade",
+        "start": 1025.559,
+        "duration": 4.831
+    },
+    {
+        "text": "level Lewis models so please check that",
+        "start": 1028.29,
+        "duration": 4.259
+    },
+    {
+        "text": "out and if you have more notes or",
+        "start": 1030.39,
+        "duration": 4.289
+    },
+    {
+        "text": "feedback or you think there's something",
+        "start": 1032.549,
+        "duration": 3.721
+    },
+    {
+        "text": "I missed then please reach out to me and",
+        "start": 1034.679,
+        "duration": 4.051
+    },
+    {
+        "text": "hopefully I can do a a v2 of this and",
+        "start": 1036.27,
+        "duration": 4.71
+    },
+    {
+        "text": "with that thanks for joining us on the",
+        "start": 1038.73,
+        "duration": 4.79
+    },
+    {
+        "text": "AI show",
+        "start": 1040.98,
+        "duration": 2.54
+    },
+    {
+        "text": "you",
+        "start": 1048.55,
+        "duration": 2.06
+    }
+]

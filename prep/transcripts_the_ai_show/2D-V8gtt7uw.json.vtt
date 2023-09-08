@@ -1,0 +1,657 @@
+[
+    {
+        "text": "you're not going to miss this episode of the  ai show where tony xing takes us through what's  ",
+        "start": 0.32,
+        "duration": 4.08
+    },
+    {
+        "text": "new to anomaly detector multivariate  capabilities make sure you tune in  ",
+        "start": 4.4,
+        "duration": 11.52
+    },
+    {
+        "text": "hello and welcome to this episode of the  ai show we're learning all about what's new  ",
+        "start": 17.52,
+        "duration": 4.16
+    },
+    {
+        "text": "in anomaly detector multivariate capabilities tony  sheen is with us how you doing my friend want to  ",
+        "start": 21.68,
+        "duration": 4.72
+    },
+    {
+        "text": "tell us who you are and what you do uh very good  how are you yes uh so um yeah i am the product pm  ",
+        "start": 26.4,
+        "duration": 7.28
+    },
+    {
+        "text": "of azure cleaning service uh so specifically  working on an army detector matrix fighter  ",
+        "start": 33.68,
+        "duration": 6.4
+    },
+    {
+        "text": "fantastic so let's start with for those  that don't know what anomaly detector  ",
+        "start": 40.72,
+        "duration": 3.28
+    },
+    {
+        "text": "is can you give us a little bit of  an overview of what the service does  ",
+        "start": 44.0,
+        "duration": 2.88
+    },
+    {
+        "text": "yes so anomaly deck there basically  is the ai service which help people to  ",
+        "start": 48.32,
+        "duration": 6.8
+    },
+    {
+        "text": "identify the anomaly in the time series data  and then so this new capability is actually  ",
+        "start": 55.84,
+        "duration": 7.2
+    },
+    {
+        "text": "advancement of the ai that we could use a group  of signal to identify a system level uh issues i  ",
+        "start": 64.16,
+        "duration": 10.0
+    },
+    {
+        "text": "see so so the new stuff so before uh the anomaly  detector what it does is it takes a signal of  ",
+        "start": 74.16,
+        "duration": 5.12
+    },
+    {
+        "text": "stuff and it tells you when things are out of the  ordinary basically is that right that is correct  ",
+        "start": 79.28,
+        "duration": 4.96
+    },
+    {
+        "text": "fantastic so the new thing multivariable anomaly  detection what does that mean yeah multivariate  ",
+        "start": 84.96,
+        "duration": 6.96
+    },
+    {
+        "text": "is basically multiple signals so previously the  existing feature basically tell you based on one  ",
+        "start": 91.92,
+        "duration": 9.92
+    },
+    {
+        "text": "single signal and tell you hey there's something  goes wrong but there's actually a broader use case  ",
+        "start": 101.84,
+        "duration": 7.92
+    },
+    {
+        "text": "that for example the equipment house you basically  you have probably more than 100 signals you need  ",
+        "start": 109.76,
+        "duration": 8.56
+    },
+    {
+        "text": "to make sense of uh and you know let me give you a  quick example for example you have a refrigerator  ",
+        "start": 118.32,
+        "duration": 6.96
+    },
+    {
+        "text": "which has three sensors temperature vibration  lights but each of those sensors won't tell you  ",
+        "start": 125.28,
+        "duration": 7.04
+    },
+    {
+        "text": "too much about whether that refrigerator  is working a healthy mode or not  ",
+        "start": 132.96,
+        "duration": 4.8
+    },
+    {
+        "text": "but holistically if you look at all those sensors  together you can pretty much say hey this one is  ",
+        "start": 137.76,
+        "duration": 7.2
+    },
+    {
+        "text": "not working or it's working correctly so that is  the basically multivariate anomaly action that's  ",
+        "start": 145.68,
+        "duration": 6.72
+    },
+    {
+        "text": "cool so before the the service would tell you  if there was a single signal that was anomalous  ",
+        "start": 152.4,
+        "duration": 5.12
+    },
+    {
+        "text": "but now if you have multiple signals together they  can tell you if they're anomalous even though one  ",
+        "start": 157.52,
+        "duration": 4.8
+    },
+    {
+        "text": "of them by themselves might not be anomalous  is that right yeah and that is perfect yeah all  ",
+        "start": 162.32,
+        "duration": 5.44
+    },
+    {
+        "text": "right so can you show us how it works sure sure  uh so let me switch to the jupiter notebook um",
+        "start": 167.76,
+        "duration": 8.48
+    },
+    {
+        "text": "so before i uh you know go to this uh  more code level things i just want to  ",
+        "start": 178.4,
+        "duration": 6.56
+    },
+    {
+        "text": "show you the visuals because i know people  love visuals and it's more easier to understand  ",
+        "start": 185.52,
+        "duration": 7.28
+    },
+    {
+        "text": "so here is a very simple use case we  have five time series and all of them  ",
+        "start": 192.8,
+        "duration": 7.12
+    },
+    {
+        "text": "are pretty much random right so uh if you look  at those five signals together so those are  ",
+        "start": 199.92,
+        "duration": 6.96
+    },
+    {
+        "text": "basically some real production signal before  taken from some real use case in sensors  ",
+        "start": 206.88,
+        "duration": 7.12
+    },
+    {
+        "text": "if you look at those pretty much you cannot really  make sense of those but with the state-of-art ai  ",
+        "start": 215.92,
+        "duration": 8.16
+    },
+    {
+        "text": "we can you know look at these things holistically  and use long history to train and to learn what  ",
+        "start": 224.08,
+        "duration": 6.64
+    },
+    {
+        "text": "the normal pattern will be like and then as a  result you can see hey you know those uh the  ",
+        "start": 230.72,
+        "duration": 7.68
+    },
+    {
+        "text": "spikes here is basically the output uh generated  from this model so those are basically the markers  ",
+        "start": 238.4,
+        "duration": 8.96
+    },
+    {
+        "text": "that we say hey at this time stand uh we see that  this group of signal has a problem meaning that  ",
+        "start": 247.36,
+        "duration": 10.64
+    },
+    {
+        "text": "from system level this equipment has a problem  and then so this is a pretty much can tell you  ",
+        "start": 258.0,
+        "duration": 10.24
+    },
+    {
+        "text": "uh you know whether a system level there's an  issue and you can actually do some fine-tuning  ",
+        "start": 268.24,
+        "duration": 6.64
+    },
+    {
+        "text": "uh with the output for example with  the you know the severity parameters  ",
+        "start": 275.52,
+        "duration": 6.8
+    },
+    {
+        "text": "you can tune the model performance and as a result  you can see more or less anomaly being marked here  ",
+        "start": 283.2,
+        "duration": 9.92
+    },
+    {
+        "text": "so let me scroll to the top and give  you uh overview about the api first  ",
+        "start": 295.12,
+        "duration": 5.84
+    },
+    {
+        "text": "got it yeah so here uh the api so we introduced  about seven new apis list models training models  ",
+        "start": 301.76,
+        "duration": 11.28
+    },
+    {
+        "text": "gather model delete model so those things but  most important things that so this is a bit  ",
+        "start": 313.04,
+        "duration": 6.48
+    },
+    {
+        "text": "two phase approach right so you first based  on the history of the data you train a model  ",
+        "start": 319.52,
+        "duration": 6.8
+    },
+    {
+        "text": "and the training is you basically unsupervised  approach uh you don't need a label specifically  ",
+        "start": 327.04,
+        "duration": 7.52
+    },
+    {
+        "text": "so what you uh you know input is a  series of time series and then uh  ",
+        "start": 335.12,
+        "duration": 7.12
+    },
+    {
+        "text": "the after the training uh you get a model id and  then you can use that model to do the inferencing  ",
+        "start": 342.8,
+        "duration": 7.68
+    },
+    {
+        "text": "and then use the output result to do  the uh you know alarm detection and  ",
+        "start": 350.48,
+        "duration": 6.32
+    },
+    {
+        "text": "the not only you get a non-detection result the  more beautiful thing is that you also get a you  ",
+        "start": 358.0,
+        "duration": 8.56
+    },
+    {
+        "text": "know the contributor ranking for example that is  very useful for example you can say hey you know  ",
+        "start": 366.56,
+        "duration": 7.76
+    },
+    {
+        "text": "we detect this anomaly and we know which sensor  is top contributor and how relevant they are  ",
+        "start": 375.04,
+        "duration": 7.44
+    },
+    {
+        "text": "in terms of contributing to these anomalies and in  this case it would be instead of a single signal  ",
+        "start": 383.12,
+        "duration": 5.92
+    },
+    {
+        "text": "it's multiple signals i'm looking at the api here  and there's a whole new you know rest api for  ",
+        "start": 389.04,
+        "duration": 5.68
+    },
+    {
+        "text": "multivariate so it's multiple signals now that can  actually together tell you if there's a problem  ",
+        "start": 394.72,
+        "duration": 5.84
+    },
+    {
+        "text": "that is correct yeah and then to use that this  reservoir api is very easy uh so you basically  ",
+        "start": 401.68,
+        "duration": 8.16
+    },
+    {
+        "text": "uh you know create a resource and get your  endpoint and get your key and you know after that  ",
+        "start": 409.84,
+        "duration": 7.92
+    },
+    {
+        "text": "so then you can start to use those  models so let me just quickly run through",
+        "start": 418.4,
+        "duration": 5.92
+    },
+    {
+        "text": "so we have trains on models so previously you  can see this run successfully and list all the  ",
+        "start": 429.28,
+        "duration": 8.64
+    },
+    {
+        "text": "models so this is a the result is a little bit  messy but uh you know here's the you know the  ",
+        "start": 437.92,
+        "duration": 5.84
+    },
+    {
+        "text": "sample response a more clean structure so you  can pretty much see hey this model is created  ",
+        "start": 443.76,
+        "duration": 6.8
+    },
+    {
+        "text": "at this time and what is model id whether it's  status and how many variable you know has been  ",
+        "start": 450.56,
+        "duration": 7.44
+    },
+    {
+        "text": "used to train this model so here is  18 variables uh and then after that uh  ",
+        "start": 458.0,
+        "duration": 7.6
+    },
+    {
+        "text": "you can actually do the training so i will not  do the training here because this takes some time  ",
+        "start": 465.6,
+        "duration": 6.4
+    },
+    {
+        "text": "um but what it does uh is that it will you know  basically taking in a zip file in that zip file  ",
+        "start": 472.72,
+        "duration": 10.88
+    },
+    {
+        "text": "you put that in azure blog and in that zip file  you have a bunch of csvs each csv file represent  ",
+        "start": 483.6,
+        "duration": 7.76
+    },
+    {
+        "text": "one variables and then so you basically you  know provide those as input of the api and then  ",
+        "start": 491.36,
+        "duration": 8.96
+    },
+    {
+        "text": "this is basically the sample request and as a  response you will get a model id you can use  ",
+        "start": 501.36,
+        "duration": 6.88
+    },
+    {
+        "text": "in the future uh you know for the you know status  quoring because the model training will take some  ",
+        "start": 508.24,
+        "duration": 7.04
+    },
+    {
+        "text": "time the result itself will you know reply uh  back uh with the you know some of the additional  ",
+        "start": 515.28,
+        "duration": 9.92
+    },
+    {
+        "text": "you can use additional api for example this one  to get a model status because the training will  ",
+        "start": 525.2,
+        "duration": 7.68
+    },
+    {
+        "text": "take some time can you go back one second i want  to i want to see i want to make sure that i'm  ",
+        "start": 532.88,
+        "duration": 4.16
+    },
+    {
+        "text": "understanding it right the part where you submit  the model training you're basically giving it a  ",
+        "start": 537.04,
+        "duration": 5.12
+    },
+    {
+        "text": "blob file is that right yes that is correct can  you scroll up to that part because i want to make  ",
+        "start": 542.16,
+        "duration": 5.84
+    },
+    {
+        "text": "sure that that everyone sees that part because  that's the part that that i was like well how  ",
+        "start": 548.0,
+        "duration": 3.84
+    },
+    {
+        "text": "do you give it all of the data because you it has  a bunch of there it is so basically when you post  ",
+        "start": 551.84,
+        "duration": 5.52
+    },
+    {
+        "text": "you're telling it exactly what data you want it to  look at and since it's multi-variable you're gonna  ",
+        "start": 557.36,
+        "duration": 6.56
+    },
+    {
+        "text": "have a bunch of series in different csv files  that have been zipped up is that is that right  ",
+        "start": 563.92,
+        "duration": 4.08
+    },
+    {
+        "text": "that is very correct okay cool okay cool cause  that was a part that was a little confusing to me  ",
+        "start": 568.64,
+        "duration": 5.36
+    },
+    {
+        "text": "initially it's like well how does it get all the  data this makes perfect sense i'm sorry keep going  ",
+        "start": 574.0,
+        "duration": 4.16
+    },
+    {
+        "text": "yeah no problem uh so when the  training happens you may want to  ",
+        "start": 580.08,
+        "duration": 6.72
+    },
+    {
+        "text": "you know get the status of the training and then  you here you use the monitor model status api  ",
+        "start": 587.76,
+        "duration": 6.56
+    },
+    {
+        "text": "and then as a result so here's this is very  important this apple id so you will return  ",
+        "start": 594.96,
+        "duration": 6.08
+    },
+    {
+        "text": "from 10 to 100. so this one will pretty much  tell you about you know uh what's the percentage  ",
+        "start": 602.4,
+        "duration": 8.56
+    },
+    {
+        "text": "uh this model training are progressing so it's a  henry epoch in total so you know use this and the  ",
+        "start": 610.96,
+        "duration": 10.96
+    },
+    {
+        "text": "latency in second you will pretty much predict  when this model changing will probably complete  ",
+        "start": 621.92,
+        "duration": 5.92
+    },
+    {
+        "text": "um so once it is complete um you can use that  for the inferencing with the you know detection  ",
+        "start": 629.2,
+        "duration": 10.56
+    },
+    {
+        "text": "api so here you are again uh you know use the  new data uh you want to inference and put that  ",
+        "start": 641.2,
+        "duration": 9.28
+    },
+    {
+        "text": "in a similar fashion at the blog file uh and  then uh you know post that to the inferencing",
+        "start": 650.48,
+        "duration": 7.52
+    },
+    {
+        "text": "so now that the model's done if you wanted  to actually do the predictions then you give  ",
+        "start": 662.64,
+        "duration": 4.64
+    },
+    {
+        "text": "it another blob file and say hey predict on this  new data is that right yeah that is correct cool",
+        "start": 667.28,
+        "duration": 6.56
+    },
+    {
+        "text": "and then so the result of  this api uh you know it is",
+        "start": 676.24,
+        "duration": 5.84
+    },
+    {
+        "text": "a result id the result id uh is the one  you will be using uh you know to get  ",
+        "start": 684.72,
+        "duration": 8.0
+    },
+    {
+        "text": "the final detection result the more detailed  detection results so this one is uh you know  ",
+        "start": 692.72,
+        "duration": 7.04
+    },
+    {
+        "text": "very useful and interesting because  the output of this prediction result  ",
+        "start": 699.76,
+        "duration": 6.08
+    },
+    {
+        "text": "there's a lot of information you can  use to do either the visualization and  ",
+        "start": 706.48,
+        "duration": 6.88
+    },
+    {
+        "text": "you know also like i mentioned earlier about the  contribution factors uh so for example you know  ",
+        "start": 714.08,
+        "duration": 6.56
+    },
+    {
+        "text": "which variables which sensors actually contribute  more to these anomalies and how you rank that  ",
+        "start": 721.76,
+        "duration": 7.04
+    },
+    {
+        "text": "um yeah so this is obviously the you  know the response of this this one  ",
+        "start": 729.44,
+        "duration": 11.12
+    },
+    {
+        "text": "and then let me see uh the what is the yeah the  uh here in this section the response part is very  ",
+        "start": 741.28,
+        "duration": 10.16
+    },
+    {
+        "text": "most useful part so whether this time stem is an  army uh and what is severity what is the raw score  ",
+        "start": 751.44,
+        "duration": 8.16
+    },
+    {
+        "text": "and then you can hear in this part the  contribution ranking score you can use to  ",
+        "start": 760.32,
+        "duration": 6.8
+    },
+    {
+        "text": "basically see you know how those variables ranked  among this group uh and you can use that as a kind  ",
+        "start": 767.12,
+        "duration": 10.32
+    },
+    {
+        "text": "of um you know root cause analysis because you  may want to understand hey this system level  ",
+        "start": 777.44,
+        "duration": 7.52
+    },
+    {
+        "text": "anomalies actually contribute more by these  you know vibration sensors that's cool  ",
+        "start": 784.96,
+        "duration": 6.8
+    },
+    {
+        "text": "yeah um yeah so everything else you basically  can you know based on all those rich information  ",
+        "start": 792.48,
+        "duration": 8.56
+    },
+    {
+        "text": "to you know do some plot and visualizations  so here is obviously we are going back to the  ",
+        "start": 801.04,
+        "duration": 8.64
+    },
+    {
+        "text": "previous visualization i show you at the start  of the show and then so here's the basically the  ",
+        "start": 809.68,
+        "duration": 6.64
+    },
+    {
+        "text": "five variables and whether that is the nominee  and you know the raw score and the severity  ",
+        "start": 816.32,
+        "duration": 6.24
+    },
+    {
+        "text": "severities yeah so so basically once you send the  data the one thing i didn't understand is once  ",
+        "start": 822.56,
+        "duration": 5.04
+    },
+    {
+        "text": "you send the data to do the inference how does  the data come back is the data stored somewhere  ",
+        "start": 827.6,
+        "duration": 5.44
+    },
+    {
+        "text": "because i saw the response type and the  response type is basically telling you  ",
+        "start": 833.04,
+        "duration": 4.0
+    },
+    {
+        "text": "where the anomalies are and that's what you're  plotting there at the bottom is that right  ",
+        "start": 837.6,
+        "duration": 3.44
+    },
+    {
+        "text": "yeah that is right i all the information are in  the response body got it this is cool so who's  ",
+        "start": 841.04,
+        "duration": 7.12
+    },
+    {
+        "text": "used is there anybody using this and how is it  working for them right it's a great information  ",
+        "start": 848.16,
+        "duration": 6.24
+    },
+    {
+        "text": "a great question so we have in our prior preview  working with some of the well-known companies like  ",
+        "start": 854.4,
+        "duration": 6.64
+    },
+    {
+        "text": "siemens airbus so they have done the early  piloting so everything looks good and they  ",
+        "start": 861.04,
+        "duration": 7.76
+    },
+    {
+        "text": "have you know very accurate result for example  siemens use that in uh medical equipment testing  ",
+        "start": 868.8,
+        "duration": 7.12
+    },
+    {
+        "text": "uh you know their scenario is pretty much you know  in pre-production they do intensive testing on  ",
+        "start": 876.48,
+        "duration": 7.6
+    },
+    {
+        "text": "their you know machines and then you can imagine  on that machine there's a lot of sensors so uh you  ",
+        "start": 884.08,
+        "duration": 7.44
+    },
+    {
+        "text": "they use that sensor data to make sense of whether  you know this equipment is uh good too good to go  ",
+        "start": 891.52,
+        "duration": 7.6
+    },
+    {
+        "text": "or not uh airbus uh you know is in a similar  uh scenarios for example there's uh you know  ",
+        "start": 899.12,
+        "duration": 7.76
+    },
+    {
+        "text": "potentially hundreds of signals from satellite or  you know the air airplanes so they are you know  ",
+        "start": 907.68,
+        "duration": 7.84
+    },
+    {
+        "text": "doing these predicted maintenance uh things  through the multivariate anoma detection  ",
+        "start": 915.52,
+        "duration": 5.76
+    },
+    {
+        "text": "well this is really cool where  can people go to find out more  ",
+        "start": 922.32,
+        "duration": 3.52
+    },
+    {
+        "text": "um yeah so there's uh we have a few links uh  you know posted here so people can read blogs  ",
+        "start": 927.44,
+        "duration": 10.72
+    },
+    {
+        "text": "and you know find out additional information  about how to write code and you know how to  ",
+        "start": 938.16,
+        "duration": 5.84
+    },
+    {
+        "text": "uh construct a more complicated solution out  of it well this has been awesome my friend uh  ",
+        "start": 944.64,
+        "duration": 7.28
+    },
+    {
+        "text": "thanks so much for spending some time with  us and thank you so much for watching we're  ",
+        "start": 951.92,
+        "duration": 3.36
+    },
+    {
+        "text": "learning about all about what's new to anomaly  detector multivariate capabilities thank you  ",
+        "start": 955.28,
+        "duration": 4.96
+    },
+    {
+        "text": "so much thank you so much for watching and  hopefully we'll see you next time take care",
+        "start": 960.24,
+        "duration": 7.6
+    },
+    {
+        "text": "you",
+        "start": 974.56,
+        "duration": 0.08
+    }
+]

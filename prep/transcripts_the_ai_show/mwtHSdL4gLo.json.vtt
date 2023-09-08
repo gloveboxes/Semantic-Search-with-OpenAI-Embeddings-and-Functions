@@ -1,0 +1,1722 @@
+[
+    {
+        "text": "[Music]",
+        "start": 0.72,
+        "duration": 12.13
+    },
+    {
+        "text": "hi my name is no Acharya and welcome to",
+        "start": 9.49,
+        "duration": 5.28
+    },
+    {
+        "text": "today's video I'm a senior program",
+        "start": 12.85,
+        "duration": 3.54
+    },
+    {
+        "text": "manager working on automate machine",
+        "start": 14.77,
+        "duration": 3.66
+    },
+    {
+        "text": "learning in this video we'll look at the",
+        "start": 16.39,
+        "duration": 3.63
+    },
+    {
+        "text": "common configuration settings for",
+        "start": 18.43,
+        "duration": 3.419
+    },
+    {
+        "text": "automating machine learning experiments",
+        "start": 20.02,
+        "duration": 4.53
+    },
+    {
+        "text": "when using the Python SDK for the latest",
+        "start": 21.849,
+        "duration": 4.41
+    },
+    {
+        "text": "settings and options please refer to our",
+        "start": 24.55,
+        "duration": 3.889
+    },
+    {
+        "text": "documentation on aka forward slash",
+        "start": 26.259,
+        "duration": 4.89
+    },
+    {
+        "text": "automated ml Docs or videos in the rest",
+        "start": 28.439,
+        "duration": 5.71
+    },
+    {
+        "text": "of this series before we begin we should",
+        "start": 31.149,
+        "duration": 4.41
+    },
+    {
+        "text": "different think about the settings and",
+        "start": 34.149,
+        "duration": 3.361
+    },
+    {
+        "text": "parameter an experiment and the several",
+        "start": 35.559,
+        "duration": 3.541
+    },
+    {
+        "text": "prerequisites needs to be declared or",
+        "start": 37.51,
+        "duration": 4.02
+    },
+    {
+        "text": "decided specifically what is the form of",
+        "start": 39.1,
+        "duration": 3.81
+    },
+    {
+        "text": "data that's being passed into the",
+        "start": 41.53,
+        "duration": 3.329
+    },
+    {
+        "text": "experiment where the training will occur",
+        "start": 42.91,
+        "duration": 3.899
+    },
+    {
+        "text": "how will you test and validate your",
+        "start": 44.859,
+        "duration": 4.59
+    },
+    {
+        "text": "training of your model and what are the",
+        "start": 46.809,
+        "duration": 4.351
+    },
+    {
+        "text": "inputs and primers for the experiment",
+        "start": 49.449,
+        "duration": 3.54
+    },
+    {
+        "text": "settings and so we'll continue to cover",
+        "start": 51.16,
+        "duration": 4.739
+    },
+    {
+        "text": "this during the course of this video one",
+        "start": 52.989,
+        "duration": 4.8
+    },
+    {
+        "text": "of the first things to consider is where",
+        "start": 55.899,
+        "duration": 3.93
+    },
+    {
+        "text": "is your training going to occur is there",
+        "start": 57.789,
+        "duration": 4.68
+    },
+    {
+        "text": "going to occur locally or remotely for",
+        "start": 59.829,
+        "duration": 4.471
+    },
+    {
+        "text": "training you should use a local machine",
+        "start": 62.469,
+        "duration": 3.411
+    },
+    {
+        "text": "such as a local desktop or laptop",
+        "start": 64.3,
+        "duration": 3.51
+    },
+    {
+        "text": "generally when you have a small amount",
+        "start": 65.88,
+        "duration": 3.4
+    },
+    {
+        "text": "of data and you're still in the",
+        "start": 67.81,
+        "duration": 4.05
+    },
+    {
+        "text": "exploration stage a remote machine in",
+        "start": 69.28,
+        "duration": 4.619
+    },
+    {
+        "text": "the cloud for example as your machine",
+        "start": 71.86,
+        "duration": 4.259
+    },
+    {
+        "text": "learning compute or as your data bricks",
+        "start": 73.899,
+        "duration": 4.441
+    },
+    {
+        "text": "is recommended when you're starting to",
+        "start": 76.119,
+        "duration": 4.621
+    },
+    {
+        "text": "have large amounts of data and you need",
+        "start": 78.34,
+        "duration": 4.86
+    },
+    {
+        "text": "to scale up or auto scale up depending",
+        "start": 80.74,
+        "duration": 4.14
+    },
+    {
+        "text": "on the size of data and your workload",
+        "start": 83.2,
+        "duration": 4.29
+    },
+    {
+        "text": "start increasing depending on where your",
+        "start": 84.88,
+        "duration": 4.68
+    },
+    {
+        "text": "training is occurring depends on how you",
+        "start": 87.49,
+        "duration": 3.93
+    },
+    {
+        "text": "submit your experiment and you'll see",
+        "start": 89.56,
+        "duration": 5.129
+    },
+    {
+        "text": "this later in the video secondly if you",
+        "start": 91.42,
+        "duration": 5.729
+    },
+    {
+        "text": "are using a remote computer you can",
+        "start": 94.689,
+        "duration": 4.981
+    },
+    {
+        "text": "define a number of experiment settings",
+        "start": 97.149,
+        "duration": 5.191
+    },
+    {
+        "text": "the first is you can define max cores",
+        "start": 99.67,
+        "duration": 5.25
+    },
+    {
+        "text": "per iteration and the second is max core",
+        "start": 102.34,
+        "duration": 5.76
+    },
+    {
+        "text": "concurrent iterations remote compute",
+        "start": 104.92,
+        "duration": 5.61
+    },
+    {
+        "text": "iterations execute asynchronously this",
+        "start": 108.1,
+        "duration": 4.409
+    },
+    {
+        "text": "allows functionality so you can cancel a",
+        "start": 110.53,
+        "duration": 3.6
+    },
+    {
+        "text": "particular iteration and watch the",
+        "start": 112.509,
+        "duration": 3.75
+    },
+    {
+        "text": "status of the execution or continue to",
+        "start": 114.13,
+        "duration": 4.11
+    },
+    {
+        "text": "work when other calls are happening in",
+        "start": 116.259,
+        "duration": 4.591
+    },
+    {
+        "text": "cells for your jupiter notebook to train",
+        "start": 118.24,
+        "duration": 4.11
+    },
+    {
+        "text": "remotely you first create a remote",
+        "start": 120.85,
+        "duration": 4.409
+    },
+    {
+        "text": "computer target such as as your d SVM",
+        "start": 122.35,
+        "duration": 5.009
+    },
+    {
+        "text": "then you configure the remote resources",
+        "start": 125.259,
+        "duration": 4.47
+    },
+    {
+        "text": "and submit your code there and you can",
+        "start": 127.359,
+        "duration": 4.771
+    },
+    {
+        "text": "see here in the example that we have for",
+        "start": 129.729,
+        "duration": 5.131
+    },
+    {
+        "text": "the maximum court iterations this",
+        "start": 132.13,
+        "duration": 4.47
+    },
+    {
+        "text": "setting allows you to define the maximum",
+        "start": 134.86,
+        "duration": 3.66
+    },
+    {
+        "text": "number of threads to use for a given",
+        "start": 136.6,
+        "duration": 4.29
+    },
+    {
+        "text": "training session and the max concurrent",
+        "start": 138.52,
+        "duration": 4.81
+    },
+    {
+        "text": "iterations allows you to define the max",
+        "start": 140.89,
+        "duration": 3.88
+    },
+    {
+        "text": "number of iterations that would be",
+        "start": 143.33,
+        "duration": 3.87
+    },
+    {
+        "text": "executed in parallel this should be no",
+        "start": 144.77,
+        "duration": 3.99
+    },
+    {
+        "text": "less than the number of cores on the",
+        "start": 147.2,
+        "duration": 3.27
+    },
+    {
+        "text": "compute target and you can see an",
+        "start": 148.76,
+        "duration": 3.99
+    },
+    {
+        "text": "example of this below so the other thing",
+        "start": 150.47,
+        "duration": 4.71
+    },
+    {
+        "text": "to think about during your experiment is",
+        "start": 152.75,
+        "duration": 4.23
+    },
+    {
+        "text": "the data format while this isn't",
+        "start": 155.18,
+        "duration": 3.96
+    },
+    {
+        "text": "necessarily a setting per se the",
+        "start": 156.98,
+        "duration": 4.71
+    },
+    {
+        "text": "recommended data format for ordinary",
+        "start": 159.14,
+        "duration": 4.14
+    },
+    {
+        "text": "machine learning relies on a labelled",
+        "start": 161.69,
+        "duration": 3.42
+    },
+    {
+        "text": "data set for the service to recommended",
+        "start": 163.28,
+        "duration": 4.17
+    },
+    {
+        "text": "model so before we can submit the",
+        "start": 165.11,
+        "duration": 3.78
+    },
+    {
+        "text": "experiment we need to define the data",
+        "start": 167.45,
+        "duration": 3.51
+    },
+    {
+        "text": "and the format there are a number of",
+        "start": 168.89,
+        "duration": 4.38
+    },
+    {
+        "text": "formats supported these include numpy",
+        "start": 170.96,
+        "duration": 5.04
+    },
+    {
+        "text": "are a panda's data frame and if you're",
+        "start": 173.27,
+        "duration": 4.89
+    },
+    {
+        "text": "using the data probe SDK we support data",
+        "start": 176.0,
+        "duration": 4.71
+    },
+    {
+        "text": "flows as well so let's take a look at",
+        "start": 178.16,
+        "duration": 4.14
+    },
+    {
+        "text": "some of the examples of how you would",
+        "start": 180.71,
+        "duration": 3.51
+    },
+    {
+        "text": "provide that data and you can see how we",
+        "start": 182.3,
+        "duration": 4.23
+    },
+    {
+        "text": "would import numpy array a panda's data",
+        "start": 184.22,
+        "duration": 5.07
+    },
+    {
+        "text": "frame or use the data prep SDK and these",
+        "start": 186.53,
+        "duration": 4.8
+    },
+    {
+        "text": "are taken from us Jupiter notebook",
+        "start": 189.29,
+        "duration": 5.07
+    },
+    {
+        "text": "examples so once you've decided on the",
+        "start": 191.33,
+        "duration": 5.82
+    },
+    {
+        "text": "data format you also need to consider if",
+        "start": 194.36,
+        "duration": 5.31
+    },
+    {
+        "text": "your data is residing what type of data",
+        "start": 197.15,
+        "duration": 3.69
+    },
+    {
+        "text": "format you choose",
+        "start": 199.67,
+        "duration": 3.27
+    },
+    {
+        "text": "when you're training on a remote compute",
+        "start": 200.84,
+        "duration": 3.869
+    },
+    {
+        "text": "you need to make sure that you're using",
+        "start": 202.94,
+        "duration": 4.5
+    },
+    {
+        "text": "the data fridge method the data fetch",
+        "start": 204.709,
+        "duration": 4.441
+    },
+    {
+        "text": "must be wrapped in the separate Python",
+        "start": 207.44,
+        "duration": 4.47
+    },
+    {
+        "text": "script get underscored data this script",
+        "start": 209.15,
+        "duration": 4.35
+    },
+    {
+        "text": "is run on the remote computer where the",
+        "start": 211.91,
+        "duration": 3.48
+    },
+    {
+        "text": "old bed machine learning experiment is",
+        "start": 213.5,
+        "duration": 5.19
+    },
+    {
+        "text": "run get underscored data eliminates the",
+        "start": 215.39,
+        "duration": 5.25
+    },
+    {
+        "text": "need to fetch the data over the wire for",
+        "start": 218.69,
+        "duration": 4.65
+    },
+    {
+        "text": "each iteration without get underscored",
+        "start": 220.64,
+        "duration": 4.62
+    },
+    {
+        "text": "data your experiment will fail when you",
+        "start": 223.34,
+        "duration": 4.17
+    },
+    {
+        "text": "run the remote computer and you can see",
+        "start": 225.26,
+        "duration": 4.05
+    },
+    {
+        "text": "an example of how this should be set up",
+        "start": 227.51,
+        "duration": 4.08
+    },
+    {
+        "text": "on the slide here as well so it's really",
+        "start": 229.31,
+        "duration": 4.05
+    },
+    {
+        "text": "efficient to make sure that you get this",
+        "start": 231.59,
+        "duration": 3.84
+    },
+    {
+        "text": "done and it allows you to make sure that",
+        "start": 233.36,
+        "duration": 3.45
+    },
+    {
+        "text": "we can train efficiently on your",
+        "start": 235.43,
+        "duration": 4.14
+    },
+    {
+        "text": "resources so the next consideration is",
+        "start": 236.81,
+        "duration": 5.459
+    },
+    {
+        "text": "validation and testing once you have",
+        "start": 239.57,
+        "duration": 4.65
+    },
+    {
+        "text": "your data source and format defined you",
+        "start": 242.269,
+        "duration": 3.571
+    },
+    {
+        "text": "need to consider how you will train the",
+        "start": 244.22,
+        "duration": 3.63
+    },
+    {
+        "text": "experiment and how your splits will",
+        "start": 245.84,
+        "duration": 4.56
+    },
+    {
+        "text": "occur for validation Odroid machine",
+        "start": 247.85,
+        "duration": 4.08
+    },
+    {
+        "text": "supports three key types",
+        "start": 250.4,
+        "duration": 4.32
+    },
+    {
+        "text": "the first is k-fold the second is one to",
+        "start": 251.93,
+        "duration": 5.25
+    },
+    {
+        "text": "color or repeated random subsampling and",
+        "start": 254.72,
+        "duration": 5.42
+    },
+    {
+        "text": "the third is manual or custom splits",
+        "start": 257.18,
+        "duration": 5.58
+    },
+    {
+        "text": "whichever data format you choose the",
+        "start": 260.14,
+        "duration": 5.17
+    },
+    {
+        "text": "following is observed in the settings X",
+        "start": 262.76,
+        "duration": 4.409
+    },
+    {
+        "text": "values represent the training features",
+        "start": 265.31,
+        "duration": 5.07
+    },
+    {
+        "text": "to use to use during the training of the",
+        "start": 267.169,
+        "duration": 5.521
+    },
+    {
+        "text": "experiment and Y values represent the",
+        "start": 270.38,
+        "duration": 5.49
+    },
+    {
+        "text": "labels of the training data set X valid",
+        "start": 272.69,
+        "duration": 4.5
+    },
+    {
+        "text": "and Y valid are",
+        "start": 275.87,
+        "duration": 3.3
+    },
+    {
+        "text": "use when you're using custom or manual",
+        "start": 277.19,
+        "duration": 4.62
+    },
+    {
+        "text": "splits ex valid represents the training",
+        "start": 279.17,
+        "duration": 4.32
+    },
+    {
+        "text": "features to use for validation of the",
+        "start": 281.81,
+        "duration": 4.17
+    },
+    {
+        "text": "model generated and why valid represents",
+        "start": 283.49,
+        "duration": 4.02
+    },
+    {
+        "text": "the labels of the training data to be",
+        "start": 285.98,
+        "duration": 3.95
+    },
+    {
+        "text": "used for validation of the tuned model",
+        "start": 287.51,
+        "duration": 5.88
+    },
+    {
+        "text": "in the next slide here you can see the",
+        "start": 289.93,
+        "duration": 6.07
+    },
+    {
+        "text": "various options for k-fold Monte Carlo",
+        "start": 293.39,
+        "duration": 6.27
+    },
+    {
+        "text": "and custom if you're using k-fold use an",
+        "start": 296.0,
+        "duration": 6.06
+    },
+    {
+        "text": "underscore cross-validation setting to",
+        "start": 299.66,
+        "duration": 5.04
+    },
+    {
+        "text": "specify the number of validations the",
+        "start": 302.06,
+        "duration": 4.77
+    },
+    {
+        "text": "training data set will be randomly split",
+        "start": 304.7,
+        "duration": 4.89
+    },
+    {
+        "text": "into n underscore cross-validation folds",
+        "start": 306.83,
+        "duration": 4.8
+    },
+    {
+        "text": "of equal size during each",
+        "start": 309.59,
+        "duration": 3.96
+    },
+    {
+        "text": "cross-validation round one of the files",
+        "start": 311.63,
+        "duration": 3.39
+    },
+    {
+        "text": "will be used for validation of the model",
+        "start": 313.55,
+        "duration": 4.32
+    },
+    {
+        "text": "trained on the remaining folds this",
+        "start": 315.02,
+        "duration": 4.59
+    },
+    {
+        "text": "process repeated for the number of",
+        "start": 317.87,
+        "duration": 4.17
+    },
+    {
+        "text": "cross-validation rounds until each fold",
+        "start": 319.61,
+        "duration": 5.31
+    },
+    {
+        "text": "is used once for validation set the",
+        "start": 322.04,
+        "duration": 5.01
+    },
+    {
+        "text": "average scores are taken across all the",
+        "start": 324.92,
+        "duration": 4.08
+    },
+    {
+        "text": "validation folds and this will be",
+        "start": 327.05,
+        "duration": 3.36
+    },
+    {
+        "text": "reported when you look at the whole",
+        "start": 329.0,
+        "duration": 5.19
+    },
+    {
+        "text": "results for Monte Carlo use the",
+        "start": 330.41,
+        "duration": 6.15
+    },
+    {
+        "text": "validation underscore size to specify",
+        "start": 334.19,
+        "duration": 4.32
+    },
+    {
+        "text": "the percentage of the training data set",
+        "start": 336.56,
+        "duration": 3.66
+    },
+    {
+        "text": "that should be used for validation and",
+        "start": 338.51,
+        "duration": 4.2
+    },
+    {
+        "text": "news n underscore cross underscore",
+        "start": 340.22,
+        "duration": 4.65
+    },
+    {
+        "text": "validations to specify the number of",
+        "start": 342.71,
+        "duration": 5.1
+    },
+    {
+        "text": "cross validations during each validation",
+        "start": 344.87,
+        "duration": 5.85
+    },
+    {
+        "text": "round a subset of size validation under",
+        "start": 347.81,
+        "duration": 4.71
+    },
+    {
+        "text": "source size will be randomly selected",
+        "start": 350.72,
+        "duration": 4.11
+    },
+    {
+        "text": "for validation of the model trained on",
+        "start": 352.52,
+        "duration": 4.53
+    },
+    {
+        "text": "the remaining data finding the average",
+        "start": 354.83,
+        "duration": 4.41
+    },
+    {
+        "text": "scores across all the validation rounds",
+        "start": 357.05,
+        "duration": 4.32
+    },
+    {
+        "text": "will be reported and the corresponding",
+        "start": 359.24,
+        "duration": 4.02
+    },
+    {
+        "text": "one model will be retained for the",
+        "start": 361.37,
+        "duration": 4.71
+    },
+    {
+        "text": "training data set if you're using custom",
+        "start": 363.26,
+        "duration": 5.54
+    },
+    {
+        "text": "or mannequin validation custom splits",
+        "start": 366.08,
+        "duration": 5.52
+    },
+    {
+        "text": "make sure that you are defining this as",
+        "start": 368.8,
+        "duration": 5.29
+    },
+    {
+        "text": "you can see in the example here if you",
+        "start": 371.6,
+        "duration": 6.0
+    },
+    {
+        "text": "have a number of periods you can use",
+        "start": 374.09,
+        "duration": 5.54
+    },
+    {
+        "text": "that if you're using a forecasting",
+        "start": 377.6,
+        "duration": 5.13
+    },
+    {
+        "text": "scenario and you'll go ahead and",
+        "start": 379.63,
+        "duration": 6.7
+    },
+    {
+        "text": "basically pass in x and y x valid and y",
+        "start": 382.73,
+        "duration": 6.3
+    },
+    {
+        "text": "valid values so the other option that",
+        "start": 386.33,
+        "duration": 6.089
+    },
+    {
+        "text": "you can consider for your experiment is",
+        "start": 389.03,
+        "duration": 6.54
+    },
+    {
+        "text": "pre-processing and when you're doing",
+        "start": 392.419,
+        "duration": 5.221
+    },
+    {
+        "text": "pre-processing with pre-processing we",
+        "start": 395.57,
+        "duration": 5.22
+    },
+    {
+        "text": "look at a number of options for making",
+        "start": 397.64,
+        "duration": 6.15
+    },
+    {
+        "text": "sure the data is cleansed as as as much",
+        "start": 400.79,
+        "duration": 5.34
+    },
+    {
+        "text": "as possible the first is dropping high",
+        "start": 403.79,
+        "duration": 5.04
+    },
+    {
+        "text": "cardinality or no variance features so",
+        "start": 406.13,
+        "duration": 4.23
+    },
+    {
+        "text": "these are features which are goods or",
+        "start": 408.83,
+        "duration": 2.1
+    },
+    {
+        "text": "hashes",
+        "start": 410.36,
+        "duration": 3.48
+    },
+    {
+        "text": "and so if we see any of these coming in",
+        "start": 410.93,
+        "duration": 4.829
+    },
+    {
+        "text": "the data set there will be can be",
+        "start": 413.84,
+        "duration": 3.81
+    },
+    {
+        "text": "dropped if pre-processing is set to true",
+        "start": 415.759,
+        "duration": 4.351
+    },
+    {
+        "text": "the other options we'll be looking at",
+        "start": 417.65,
+        "duration": 4.62
+    },
+    {
+        "text": "during pre-processing is for missing",
+        "start": 420.11,
+        "duration": 4.92
+    },
+    {
+        "text": "value and will be imputing those so for",
+        "start": 422.27,
+        "duration": 4.59
+    },
+    {
+        "text": "numerical values will be imputing the",
+        "start": 425.03,
+        "duration": 3.54
+    },
+    {
+        "text": "average number of values in the column",
+        "start": 426.86,
+        "duration": 4.02
+    },
+    {
+        "text": "for categorical features will impute",
+        "start": 428.57,
+        "duration": 4.08
+    },
+    {
+        "text": "missing values with the most frequent",
+        "start": 430.88,
+        "duration": 5.73
+    },
+    {
+        "text": "value that we see the other operation",
+        "start": 432.65,
+        "duration": 5.91
+    },
+    {
+        "text": "that occurs during pre-processing is",
+        "start": 436.61,
+        "duration": 4.5
+    },
+    {
+        "text": "generating additional features if you",
+        "start": 438.56,
+        "duration": 4.68
+    },
+    {
+        "text": "are using a task type of forecasting",
+        "start": 441.11,
+        "duration": 4.739
+    },
+    {
+        "text": "this is done by default and always",
+        "start": 443.24,
+        "duration": 5.19
+    },
+    {
+        "text": "occurs so if we do see a date/time stamp",
+        "start": 445.849,
+        "duration": 4.531
+    },
+    {
+        "text": "we'll be extracting features such as",
+        "start": 448.43,
+        "duration": 5.579
+    },
+    {
+        "text": "year month day of week quarter year week",
+        "start": 450.38,
+        "duration": 6.24
+    },
+    {
+        "text": "of year etc to make sure that we get as",
+        "start": 454.009,
+        "duration": 4.291
+    },
+    {
+        "text": "many new features into the model for",
+        "start": 456.62,
+        "duration": 3.299
+    },
+    {
+        "text": "training to make sure it is accurate as",
+        "start": 458.3,
+        "duration": 4.679
+    },
+    {
+        "text": "possible for text features turn-based",
+        "start": 459.919,
+        "duration": 5.521
+    },
+    {
+        "text": "frequency onwards and yuna grams is done",
+        "start": 462.979,
+        "duration": 4.201
+    },
+    {
+        "text": "to make sure that we can get as many",
+        "start": 465.44,
+        "duration": 3.75
+    },
+    {
+        "text": "again more feature extraction and",
+        "start": 467.18,
+        "duration": 4.62
+    },
+    {
+        "text": "accuracy of the model we also do",
+        "start": 469.19,
+        "duration": 5.039
+    },
+    {
+        "text": "transformation encoding so for numerical",
+        "start": 471.8,
+        "duration": 4.32
+    },
+    {
+        "text": "features with very few unique values",
+        "start": 474.229,
+        "duration": 3.66
+    },
+    {
+        "text": "these are transformed into categorical",
+        "start": 476.12,
+        "duration": 4.289
+    },
+    {
+        "text": "types and depending on the cardinality",
+        "start": 477.889,
+        "duration": 4.321
+    },
+    {
+        "text": "of the categorical features would",
+        "start": 480.409,
+        "duration": 3.901
+    },
+    {
+        "text": "perform unique coding or one hot",
+        "start": 482.21,
+        "duration": 5.459
+    },
+    {
+        "text": "encoding as well in addition to",
+        "start": 484.31,
+        "duration": 5.88
+    },
+    {
+        "text": "pre-processing you can also use nan",
+        "start": 487.669,
+        "duration": 4.5
+    },
+    {
+        "text": "underscore labels as an optional",
+        "start": 490.19,
+        "duration": 4.05
+    },
+    {
+        "text": "parameter when setting this to true",
+        "start": 492.169,
+        "duration": 4.051
+    },
+    {
+        "text": "removes values that do not contain label",
+        "start": 494.24,
+        "duration": 3.69
+    },
+    {
+        "text": "values and that can be used in the",
+        "start": 496.22,
+        "duration": 3.539
+    },
+    {
+        "text": "training model this increases the",
+        "start": 497.93,
+        "duration": 4.109
+    },
+    {
+        "text": "efficiency and reduces of resources",
+        "start": 499.759,
+        "duration": 5.28
+    },
+    {
+        "text": "utilized for training after deciding on",
+        "start": 502.039,
+        "duration": 5.1
+    },
+    {
+        "text": "your data setting primers next choose",
+        "start": 505.039,
+        "duration": 4.981
+    },
+    {
+        "text": "what model we need to do what models or",
+        "start": 507.139,
+        "duration": 4.77
+    },
+    {
+        "text": "algorithms should be defined for your",
+        "start": 510.02,
+        "duration": 4.68
+    },
+    {
+        "text": "selection of training here you have a",
+        "start": 511.909,
+        "duration": 5.341
+    },
+    {
+        "text": "few options one layer automated machine",
+        "start": 514.7,
+        "duration": 4.35
+    },
+    {
+        "text": "learning tune which models to train your",
+        "start": 517.25,
+        "duration": 3.779
+    },
+    {
+        "text": "data against this is the default option",
+        "start": 519.05,
+        "duration": 4.44
+    },
+    {
+        "text": "all models available for your data to be",
+        "start": 521.029,
+        "duration": 3.961
+    },
+    {
+        "text": "trained against and you don't need to",
+        "start": 523.49,
+        "duration": 3.45
+    },
+    {
+        "text": "select anything or change anything in",
+        "start": 524.99,
+        "duration": 4.469
+    },
+    {
+        "text": "the settings the second option is you",
+        "start": 526.94,
+        "duration": 4.62
+    },
+    {
+        "text": "can allow or deny or whitelist or",
+        "start": 529.459,
+        "duration": 4.981
+    },
+    {
+        "text": "blacklist specific algorithms here you",
+        "start": 531.56,
+        "duration": 4.589
+    },
+    {
+        "text": "can select which are the rooms and what",
+        "start": 534.44,
+        "duration": 3.0
+    },
+    {
+        "text": "to make there mal can choose or not",
+        "start": 536.149,
+        "duration": 3.541
+    },
+    {
+        "text": "choose when training your data for the",
+        "start": 537.44,
+        "duration": 4.32
+    },
+    {
+        "text": "recommended model a full list of",
+        "start": 539.69,
+        "duration": 4.38
+    },
+    {
+        "text": "supporting options is available in our",
+        "start": 541.76,
+        "duration": 4.98
+    },
+    {
+        "text": "tation page is useful if you know which",
+        "start": 544.07,
+        "duration": 4.83
+    },
+    {
+        "text": "model performs better or doesn't perform",
+        "start": 546.74,
+        "duration": 5.09
+    },
+    {
+        "text": "so you can put these into the settings",
+        "start": 548.9,
+        "duration": 6.24
+    },
+    {
+        "text": "the third option is auto deny or Auto",
+        "start": 551.83,
+        "duration": 5.71
+    },
+    {
+        "text": "blacklist this can be set to true or",
+        "start": 555.14,
+        "duration": 5.07
+    },
+    {
+        "text": "false sending it to true improve the",
+        "start": 557.54,
+        "duration": 4.38
+    },
+    {
+        "text": "training time by reducing or eliminating",
+        "start": 560.21,
+        "duration": 3.72
+    },
+    {
+        "text": "models which have history to perform",
+        "start": 561.92,
+        "duration": 5.4
+    },
+    {
+        "text": "badly or are not going to be giving you",
+        "start": 563.93,
+        "duration": 6.27
+    },
+    {
+        "text": "utilizing your resources correctly we do",
+        "start": 567.32,
+        "duration": 5.28
+    },
+    {
+        "text": "this by looking at the data profile by",
+        "start": 570.2,
+        "duration": 5.81
+    },
+    {
+        "text": "default this is actually switched off",
+        "start": 572.6,
+        "duration": 6.0
+    },
+    {
+        "text": "you can see examples of this in the",
+        "start": 576.01,
+        "duration": 6.07
+    },
+    {
+        "text": "Python examples on the on this slide",
+        "start": 578.6,
+        "duration": 5.88
+    },
+    {
+        "text": "here in the in the no preference there",
+        "start": 582.08,
+        "duration": 4.38
+    },
+    {
+        "text": "is nothing to define so you can just",
+        "start": 584.48,
+        "duration": 3.81
+    },
+    {
+        "text": "pass in your other parameters as normal",
+        "start": 586.46,
+        "duration": 3.81
+    },
+    {
+        "text": "and the allow and deny we're basically",
+        "start": 588.29,
+        "duration": 4.47
+    },
+    {
+        "text": "in this example blacklisting random",
+        "start": 590.27,
+        "duration": 4.56
+    },
+    {
+        "text": "forests and whitelist Inc like GM and",
+        "start": 592.76,
+        "duration": 4.65
+    },
+    {
+        "text": "the auto deny you can set that to true",
+        "start": 594.83,
+        "duration": 5.19
+    },
+    {
+        "text": "and we'll take care of the tuning there",
+        "start": 597.41,
+        "duration": 6.42
+    },
+    {
+        "text": "for you the last thing we need to decide",
+        "start": 600.02,
+        "duration": 5.01
+    },
+    {
+        "text": "or one of the last things we need to",
+        "start": 603.83,
+        "duration": 3.81
+    },
+    {
+        "text": "decide on is the primary metric the",
+        "start": 605.03,
+        "duration": 5.49
+    },
+    {
+        "text": "primary metric is this is the actual",
+        "start": 607.64,
+        "duration": 4.92
+    },
+    {
+        "text": "metric that you want optimization to",
+        "start": 610.52,
+        "duration": 4.8
+    },
+    {
+        "text": "occur for the training model selection",
+        "start": 612.56,
+        "duration": 5.1
+    },
+    {
+        "text": "and training ultimate machine learning",
+        "start": 615.32,
+        "duration": 4.41
+    },
+    {
+        "text": "collects more metrics than it can that",
+        "start": 617.66,
+        "duration": 4.44
+    },
+    {
+        "text": "you see for optimization you can review",
+        "start": 619.73,
+        "duration": 4.23
+    },
+    {
+        "text": "all the metrics for your results during",
+        "start": 622.1,
+        "duration": 4.53
+    },
+    {
+        "text": "training or after experiment is complete",
+        "start": 623.96,
+        "duration": 5.07
+    },
+    {
+        "text": "you can use the dual widgets if you're",
+        "start": 626.63,
+        "duration": 4.44
+    },
+    {
+        "text": "using a Python notebook or go to the is",
+        "start": 629.03,
+        "duration": 4.74
+    },
+    {
+        "text": "your portal to see all the results we",
+        "start": 631.07,
+        "duration": 4.8
+    },
+    {
+        "text": "support four different metrics depending",
+        "start": 633.77,
+        "duration": 3.72
+    },
+    {
+        "text": "on your task type you can see those",
+        "start": 635.87,
+        "duration": 2.73
+    },
+    {
+        "text": "listed here for classification",
+        "start": 637.49,
+        "duration": 5.79
+    },
+    {
+        "text": "regression or forecasting you can see in",
+        "start": 638.6,
+        "duration": 6.57
+    },
+    {
+        "text": "the next slide here the various options",
+        "start": 643.28,
+        "duration": 3.96
+    },
+    {
+        "text": "of how you would define the primary",
+        "start": 645.17,
+        "duration": 4.38
+    },
+    {
+        "text": "metric depending on your task type",
+        "start": 647.24,
+        "duration": 4.47
+    },
+    {
+        "text": "finally we now need to think about the",
+        "start": 649.55,
+        "duration": 4.95
+    },
+    {
+        "text": "exit criteria so to recap we have",
+        "start": 651.71,
+        "duration": 5.37
+    },
+    {
+        "text": "basically looked at how our data types",
+        "start": 654.5,
+        "duration": 5.16
+    },
+    {
+        "text": "can come into automated machine learning",
+        "start": 657.08,
+        "duration": 4.5
+    },
+    {
+        "text": "how we'd want to split and train our",
+        "start": 659.66,
+        "duration": 4.23
+    },
+    {
+        "text": "validation data what pre-processing",
+        "start": 661.58,
+        "duration": 4.2
+    },
+    {
+        "text": "should occur and what models should we",
+        "start": 663.89,
+        "duration": 3.66
+    },
+    {
+        "text": "cook what model criteria should be",
+        "start": 665.78,
+        "duration": 3.99
+    },
+    {
+        "text": "considered the final step is to define",
+        "start": 667.55,
+        "duration": 3.96
+    },
+    {
+        "text": "the constraints for the experiments to",
+        "start": 669.77,
+        "duration": 5.1
+    },
+    {
+        "text": "exit or complete for exit criteria you",
+        "start": 671.51,
+        "duration": 5.94
+    },
+    {
+        "text": "have three options the first is",
+        "start": 674.87,
+        "duration": 5.55
+    },
+    {
+        "text": "of iterations to his time for experiment",
+        "start": 677.45,
+        "duration": 5.49
+    },
+    {
+        "text": "to run and three is experiment exits",
+        "start": 680.42,
+        "duration": 4.5
+    },
+    {
+        "text": "cool now let's take a closer look at",
+        "start": 682.94,
+        "duration": 4.29
+    },
+    {
+        "text": "each of these options if you select the",
+        "start": 684.92,
+        "duration": 4.23
+    },
+    {
+        "text": "number of iterations the experiment will",
+        "start": 687.23,
+        "duration": 3.36
+    },
+    {
+        "text": "continue to run for the number of",
+        "start": 689.15,
+        "duration": 3.6
+    },
+    {
+        "text": "iterations you have selected or defined",
+        "start": 690.59,
+        "duration": 5.4
+    },
+    {
+        "text": "for example 100 the experiment will stop",
+        "start": 692.75,
+        "duration": 5.19
+    },
+    {
+        "text": "after 100 and you can review a results",
+        "start": 695.99,
+        "duration": 4.71
+    },
+    {
+        "text": "and recommended model in addition to the",
+        "start": 697.94,
+        "duration": 4.14
+    },
+    {
+        "text": "number of minutes you can optionally",
+        "start": 700.7,
+        "duration": 3.69
+    },
+    {
+        "text": "define how long each of the duration",
+        "start": 702.08,
+        "duration": 4.17
+    },
+    {
+        "text": "should continue in minutes using",
+        "start": 704.39,
+        "duration": 4.23
+    },
+    {
+        "text": "iteration underscore timeout underscore",
+        "start": 706.25,
+        "duration": 4.62
+    },
+    {
+        "text": "minutes this is in addition to the exit",
+        "start": 708.62,
+        "duration": 3.93
+    },
+    {
+        "text": "criteria which gives you control of how",
+        "start": 710.87,
+        "duration": 3.42
+    },
+    {
+        "text": "much training time you will allow for",
+        "start": 712.55,
+        "duration": 5.43
+    },
+    {
+        "text": "the experiment if you select experiment",
+        "start": 714.29,
+        "duration": 5.88
+    },
+    {
+        "text": "underscore timeout minutes ultimate",
+        "start": 717.98,
+        "duration": 3.57
+    },
+    {
+        "text": "machine learning will continue to",
+        "start": 720.17,
+        "duration": 3.51
+    },
+    {
+        "text": "iterate and train until your timer in",
+        "start": 721.55,
+        "duration": 3.51
+    },
+    {
+        "text": "minutes has been reached",
+        "start": 723.68,
+        "duration": 3.54
+    },
+    {
+        "text": "for example 60 minutes that you can see",
+        "start": 725.06,
+        "duration": 4.86
+    },
+    {
+        "text": "here in this sample if you choose to",
+        "start": 727.22,
+        "duration": 5.31
+    },
+    {
+        "text": "select experiment underscore exit score",
+        "start": 729.92,
+        "duration": 4.65
+    },
+    {
+        "text": "the experiment will continue to run",
+        "start": 732.53,
+        "duration": 3.72
+    },
+    {
+        "text": "until your primary metric has been",
+        "start": 734.57,
+        "duration": 2.22
+    },
+    {
+        "text": "reached",
+        "start": 736.25,
+        "duration": 3.0
+    },
+    {
+        "text": "please be conscious of the exit score",
+        "start": 736.79,
+        "duration": 4.14
+    },
+    {
+        "text": "that you define which is aligned to the",
+        "start": 739.25,
+        "duration": 3.75
+    },
+    {
+        "text": "primary metric that you have selected",
+        "start": 740.93,
+        "duration": 4.83
+    },
+    {
+        "text": "you can either select one or many of",
+        "start": 743.0,
+        "duration": 3.93
+    },
+    {
+        "text": "these exit scores",
+        "start": 745.76,
+        "duration": 3.33
+    },
+    {
+        "text": "whichever exit score has reached first",
+        "start": 746.93,
+        "duration": 5.73
+    },
+    {
+        "text": "it will be the first to be the stop the",
+        "start": 749.09,
+        "duration": 5.22
+    },
+    {
+        "text": "eczema experiment from running if you",
+        "start": 752.66,
+        "duration": 5.1
+    },
+    {
+        "text": "choose multiple exit scores once you",
+        "start": 754.31,
+        "duration": 6.3
+    },
+    {
+        "text": "have defined the settings that we have",
+        "start": 757.76,
+        "duration": 4.26
+    },
+    {
+        "text": "just talked about you're pretty much",
+        "start": 760.61,
+        "duration": 3.33
+    },
+    {
+        "text": "ready to go and start running on",
+        "start": 762.02,
+        "duration": 3.72
+    },
+    {
+        "text": "treadmill running settings and",
+        "start": 763.94,
+        "duration": 4.44
+    },
+    {
+        "text": "experiments you can see here now the",
+        "start": 765.74,
+        "duration": 4.23
+    },
+    {
+        "text": "next step would be to run your",
+        "start": 768.38,
+        "duration": 4.11
+    },
+    {
+        "text": "experiment if you pass in those settings",
+        "start": 769.97,
+        "duration": 4.44
+    },
+    {
+        "text": "to the experiment to be run and now",
+        "start": 772.49,
+        "duration": 3.57
+    },
+    {
+        "text": "you're ready to start using automated",
+        "start": 774.41,
+        "duration": 3.18
+    },
+    {
+        "text": "machine learning and have full control",
+        "start": 776.06,
+        "duration": 3.05
+    },
+    {
+        "text": "of the experiments that you're running",
+        "start": 777.59,
+        "duration": 3.75
+    },
+    {
+        "text": "thank you for your time and watching",
+        "start": 779.11,
+        "duration": 3.64
+    },
+    {
+        "text": "this video and I hope you enjoy using",
+        "start": 781.34,
+        "duration": 4.51
+    },
+    {
+        "text": "altered machine learning",
+        "start": 782.75,
+        "duration": 5.16
+    },
+    {
+        "text": "you",
+        "start": 785.85,
+        "duration": 2.06
+    }
+]

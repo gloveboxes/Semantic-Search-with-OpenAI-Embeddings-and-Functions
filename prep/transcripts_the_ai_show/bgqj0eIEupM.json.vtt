@@ -1,0 +1,697 @@
+[
+    {
+        "text": "you don't want to miss this  episode of the AI Show where  ",
+        "start": 0.24,
+        "duration": 2.24
+    },
+    {
+        "text": "Tracy Chen talks about batch endpoints stay tuned  ",
+        "start": 2.48,
+        "duration": 2.8
+    },
+    {
+        "text": "hi Tracy hi  Bea welcome welcome to the  ash show i'm i'm super excited to have  ",
+        "start": 13.76,
+        "duration": 5.52
+    },
+    {
+        "text": "you on the ai show as you know because i  love your features so i'm really excited  ",
+        "start": 19.28,
+        "duration": 3.28
+    },
+    {
+        "text": "about what you have to tell us today thank  you i'm so excited to be here too awesome  ",
+        "start": 22.56,
+        "duration": 5.04
+    },
+    {
+        "text": "uh well just to begin you know obviously  i know who you are and i know what you do  ",
+        "start": 28.32,
+        "duration": 3.92
+    },
+    {
+        "text": "but a lot of people out there may not  so tell us who you are and what you do  ",
+        "start": 32.24,
+        "duration": 4.48
+    },
+    {
+        "text": "sure so uh my name is tracy chen i'm the  product manager for azure machine learning badge  ",
+        "start": 36.72,
+        "duration": 5.2
+    },
+    {
+        "text": "all right so what is batch inference so yeah so  uh batch inference and the newest release feature  ",
+        "start": 43.84,
+        "duration": 6.96
+    },
+    {
+        "text": "called batch endpoint is a new experience we built  for you to deploy a model in a turnkey manner  ",
+        "start": 50.8,
+        "duration": 5.84
+    },
+    {
+        "text": "to run batch inference and basically the batch  endpoints manage the computer resources for you  ",
+        "start": 56.64,
+        "duration": 6.88
+    },
+    {
+        "text": "when you invoke the batch endpoint an offline  job will be triggered the service auto bring up a  ",
+        "start": 63.52,
+        "duration": 5.76
+    },
+    {
+        "text": "computer cluster to run batch friends workload for  you and after the job is completed the computer  ",
+        "start": 69.28,
+        "duration": 5.92
+    },
+    {
+        "text": "cluster is automatically taken down and you can  find the inferences stored in the cloud storage  ",
+        "start": 75.2,
+        "duration": 6.24
+    },
+    {
+        "text": "of your choice and the best thing out of it is you  only pay the computer resources you actually use  ",
+        "start": 81.44,
+        "duration": 5.92
+    },
+    {
+        "text": "all right so we have you talking about batch  endpoints but people here may have heard of  ",
+        "start": 89.2,
+        "duration": 4.16
+    },
+    {
+        "text": "online endpoints and i'm just wondering how  they compare yeah a great question so these  ",
+        "start": 93.36,
+        "duration": 5.76
+    },
+    {
+        "text": "are actually two different type of endpoints  targeting for slightly different use cases  ",
+        "start": 99.12,
+        "duration": 5.2
+    },
+    {
+        "text": "batch endpoint is for batch inference where the  latency to get the inference is not critical  ",
+        "start": 105.04,
+        "duration": 5.76
+    },
+    {
+        "text": "usually in minutes hours or even days while other  endpoint is for real-time inference where it's  ",
+        "start": 110.8,
+        "duration": 6.4
+    },
+    {
+        "text": "critical for you to get the influence right away  like in milliseconds or seconds both share the  ",
+        "start": 117.2,
+        "duration": 5.84
+    },
+    {
+        "text": "same concepts of endpoint and deployment but due  to the nature of the different latest expectations  ",
+        "start": 123.04,
+        "duration": 6.16
+    },
+    {
+        "text": "the invocation behavior is totally different  when you invoke a batch endpoint you pass in  ",
+        "start": 129.2,
+        "duration": 5.36
+    },
+    {
+        "text": "a data reference and it runs as asynchronous job  to process the entire data at once computers only  ",
+        "start": 134.56,
+        "duration": 7.04
+    },
+    {
+        "text": "provisioned when the job starts and the inferences  are stored in cloud while for online endpoint  ",
+        "start": 141.6,
+        "duration": 6.4
+    },
+    {
+        "text": "you pass in the data through the http request  directly and the inference is sent back through  ",
+        "start": 149.28,
+        "duration": 6.48
+    },
+    {
+        "text": "the response immediately compute used by online  endpoint is provisioned as a time of deployment  ",
+        "start": 155.76,
+        "duration": 6.48
+    },
+    {
+        "text": "and is always up and running to be ready anytime  to receive a request so another slider difference  ",
+        "start": 162.24,
+        "duration": 6.24
+    },
+    {
+        "text": "is batch endpoint only has one default deployment  while online endpoint can split traffic among  ",
+        "start": 168.48,
+        "duration": 6.8
+    },
+    {
+        "text": "several deployments okay so you're telling us that  latency is really like the main difference there's  ",
+        "start": 175.28,
+        "duration": 6.8
+    },
+    {
+        "text": "other differences but latency right is is really  the key here that with online endpoints latency is  ",
+        "start": 182.08,
+        "duration": 5.68
+    },
+    {
+        "text": "much shorter and batching points is much longer so  why why would somebody choose an endpoint that has  ",
+        "start": 187.76,
+        "duration": 7.04
+    },
+    {
+        "text": "like a longer latency yeah great question  so there are actually several aspects  ",
+        "start": 194.8,
+        "duration": 7.76
+    },
+    {
+        "text": "you can check whether batch endpoint fits your  use case the first one is like you mentioned right  ",
+        "start": 202.56,
+        "duration": 5.76
+    },
+    {
+        "text": "how soon you need the inference if your latency  requirement is relaxed go with batch endpoints  ",
+        "start": 208.32,
+        "duration": 5.84
+    },
+    {
+        "text": "and the second is how much computer power is  actually needed and if cost is a big concern  ",
+        "start": 214.16,
+        "duration": 5.84
+    },
+    {
+        "text": "you have the flexibility to use low end compute  and run a bit longer if using batch endpoints  ",
+        "start": 220.56,
+        "duration": 5.76
+    },
+    {
+        "text": "and the third is how often do you need to  influence for example you may only need to get  ",
+        "start": 226.96,
+        "duration": 4.96
+    },
+    {
+        "text": "inferences once every hour then you can accumulate  the incoming new data to a certain amount  ",
+        "start": 231.92,
+        "duration": 6.0
+    },
+    {
+        "text": "and invoke the endpoint one time when the data  is ready and on maybe sometimes on time schedule  ",
+        "start": 237.92,
+        "duration": 6.4
+    },
+    {
+        "text": "all right so there could be significant cost  savings and if people have the right scenario  ",
+        "start": 246.0,
+        "duration": 4.72
+    },
+    {
+        "text": "if they use battery points right yeah that would  be amazing everybody likes to save money i like  ",
+        "start": 250.72,
+        "duration": 4.64
+    },
+    {
+        "text": "to save money so these are in preview and  before right okay so and then before about  ",
+        "start": 255.36,
+        "duration": 6.48
+    },
+    {
+        "text": "10 points we had parallel step so some people  watching uh this interview they may already  ",
+        "start": 261.84,
+        "duration": 5.04
+    },
+    {
+        "text": "maybe they may be using parallel step today  why should they switch to batch endpoints  ",
+        "start": 267.44,
+        "duration": 4.32
+    },
+    {
+        "text": "yeah we do have a lot of users currently using  parallel run step to run batch inference and  ",
+        "start": 272.4,
+        "duration": 5.36
+    },
+    {
+        "text": "it was released last year primarily used through  the python sdk we're providing while customers are  ",
+        "start": 277.76,
+        "duration": 6.32
+    },
+    {
+        "text": "really happy about the experience the performance  and the scale paragraphs that it provides  ",
+        "start": 284.08,
+        "duration": 4.88
+    },
+    {
+        "text": "we also receive feedback that there might be a  steep learning curve to use it for the first time  ",
+        "start": 288.96,
+        "duration": 6.4
+    },
+    {
+        "text": "so basically you need to construct a pipeline  at the paragraph step prepare the environment  ",
+        "start": 295.36,
+        "duration": 5.28
+    },
+    {
+        "text": "write a scholarship create a data  set publish a pipeline to get an  ",
+        "start": 300.64,
+        "duration": 4.08
+    },
+    {
+        "text": "endpoint so it's a like quite a long journey but  comparing to paragon step right batch endpoints  ",
+        "start": 304.72,
+        "duration": 6.4
+    },
+    {
+        "text": "provide a command line interface-based experience  which is more intuitive and easier to use also  ",
+        "start": 311.12,
+        "duration": 6.24
+    },
+    {
+        "text": "there are fewer concepts you need to learn and  basically you have your model ready wrap it with  ",
+        "start": 317.36,
+        "duration": 6.24
+    },
+    {
+        "text": "computer resources and server configs in a yaml  file and run simple commands and you are all set  ",
+        "start": 323.6,
+        "duration": 5.52
+    },
+    {
+        "text": "nice that does seem a lot easier i mean having  these pipelines and button points i do agree that  ",
+        "start": 330.32,
+        "duration": 5.04
+    },
+    {
+        "text": "it's better quicker to just use button  points um so so you said that like people  ",
+        "start": 335.36,
+        "duration": 6.96
+    },
+    {
+        "text": "can use the v2 cli with batch endpoints right yeah  but they can't use the python sdk is that correct  ",
+        "start": 342.32,
+        "duration": 6.96
+    },
+    {
+        "text": "yeah no no for now no price sdk but you can use  v2 coi or rest or ui okay so they do have like  ",
+        "start": 350.0,
+        "duration": 7.92
+    },
+    {
+        "text": "three different options that they can use awesome  all right so can we see a demo sure happy to show",
+        "start": 357.92,
+        "duration": 7.92
+    },
+    {
+        "text": "uh so um so i'm gonna show you how to use a v2 coi  to uh run batch inference using batch endpoints  ",
+        "start": 369.52,
+        "duration": 9.52
+    },
+    {
+        "text": "the first step here is you need to create a  batch endpoint the most convenient way to do  ",
+        "start": 379.04,
+        "duration": 5.92
+    },
+    {
+        "text": "so is just to run this batch endpoint create  command and provide a name of your endpoint  ",
+        "start": 384.96,
+        "duration": 5.52
+    },
+    {
+        "text": "you can also write providing a simple yamo like  this one and the key property here is the name of  ",
+        "start": 391.2,
+        "duration": 5.76
+    },
+    {
+        "text": "the endpoint it is used to identify an endpoint  and but and also like a requirement for this is  ",
+        "start": 396.96,
+        "duration": 6.32
+    },
+    {
+        "text": "it needs to be unique across the entire region  because if you like as i mentioned before we can  ",
+        "start": 403.28,
+        "duration": 6.48
+    },
+    {
+        "text": "also use rest api to consume the endpoint and this  is actually the scanner url right which will will  ",
+        "start": 409.76,
+        "duration": 6.56
+    },
+    {
+        "text": "be used to trigger through the rest api and then  here you can see it's identified by the endpoint  ",
+        "start": 416.32,
+        "duration": 6.32
+    },
+    {
+        "text": "name plus the region so this endpoint name needs  to be unique across the region and now the next  ",
+        "start": 422.64,
+        "duration": 7.36
+    },
+    {
+        "text": "step is right once you have the endpoint ready the  next step is create a batch deployment under the  ",
+        "start": 430.0,
+        "duration": 7.36
+    },
+    {
+        "text": "endpoint it just created by running this command  match deployment create giving the endpoint name  ",
+        "start": 437.36,
+        "duration": 6.08
+    },
+    {
+        "text": "a yaml file defines the deployment and then you  can add this set default parameter to make this  ",
+        "start": 444.0,
+        "duration": 6.8
+    },
+    {
+        "text": "newly created deployment to the default one under  the endpoint so uh let's see let me just so i was  ",
+        "start": 450.8,
+        "duration": 6.48
+    },
+    {
+        "text": "just wanna add something here so people who  have may have been using the this feature like  ",
+        "start": 457.28,
+        "duration": 6.0
+    },
+    {
+        "text": "uh longer than two three weeks ago they were  probably used to doing these two steps in one  ",
+        "start": 463.28,
+        "duration": 5.04
+    },
+    {
+        "text": "right you could put the deploy the create the  deployment and the endpoint in one step so i just  ",
+        "start": 468.32,
+        "duration": 5.36
+    },
+    {
+        "text": "want to kind of make it clear if you've used this  before forget what you've learned do this do what  ",
+        "start": 473.68,
+        "duration": 5.6
+    },
+    {
+        "text": "tracy is showing you do it in two steps yeah yeah  okay yeah uh maybe let's quickly look at right  ",
+        "start": 479.92,
+        "duration": 8.32
+    },
+    {
+        "text": "what will be the yama definition looks like for  the deployment so this is example yama i'm used  ",
+        "start": 488.24,
+        "duration": 5.76
+    },
+    {
+        "text": "to run this command basically right you wrap the  model it can be a local model or it can also be  ",
+        "start": 494.0,
+        "duration": 6.24
+    },
+    {
+        "text": "a registered model and then this is the scoring  script it tells us like how you actually use this  ",
+        "start": 500.24,
+        "duration": 6.32
+    },
+    {
+        "text": "model through this script and then this is the  environment definition to host the model and then  ",
+        "start": 506.56,
+        "duration": 6.16
+    },
+    {
+        "text": "here is the computer resources where you want to  run the actual batch influence workload and there  ",
+        "start": 512.72,
+        "duration": 6.32
+    },
+    {
+        "text": "are also a bunch of optional advanced settings  you can tune to get the best performance out of it",
+        "start": 519.04,
+        "duration": 5.84
+    },
+    {
+        "text": "so after you run this command right and at  add set default now you will have this this  ",
+        "start": 527.04,
+        "duration": 6.56
+    },
+    {
+        "text": "deployment added to this endpoint is best friend  here okay yeah then right it's like basically till  ",
+        "start": 533.6,
+        "duration": 9.52
+    },
+    {
+        "text": "now with two command runs it's all set right  you can directly invoke the batch endpoint  ",
+        "start": 543.12,
+        "duration": 5.6
+    },
+    {
+        "text": "to trigger a job which is actually  during the batch inference workload  ",
+        "start": 549.36,
+        "duration": 4.56
+    },
+    {
+        "text": "so uh while you invoke the batch endpoint right  you need to pass in a data reference pointing  ",
+        "start": 555.52,
+        "duration": 7.2
+    },
+    {
+        "text": "to the input data for example here i'm porting  to a folder containing ms mnist data with like  ",
+        "start": 562.72,
+        "duration": 7.6
+    },
+    {
+        "text": "thousands of images and a good thing about this  invocation that you can also adjust some of the  ",
+        "start": 570.32,
+        "duration": 6.8
+    },
+    {
+        "text": "settings for example for this invocation i'm using  more uh instance counters which is measuring like  ",
+        "start": 577.12,
+        "duration": 6.8
+    },
+    {
+        "text": "how many uh computer nodes for this ex specific  job run so i increase this number so that  ",
+        "start": 583.92,
+        "duration": 6.16
+    },
+    {
+        "text": "i can speed up the entire processing for this  specific batch difference job nice now uh after  ",
+        "start": 590.08,
+        "duration": 7.6
+    },
+    {
+        "text": "the invocation right you will get a job name  with from the response which is usually a good  ",
+        "start": 597.68,
+        "duration": 6.16
+    },
+    {
+        "text": "then another very convenient command here is that  you can just run html job show giving the name and  ",
+        "start": 604.88,
+        "duration": 7.12
+    },
+    {
+        "text": "plus this magic parameter dash dash web  okay get click it will magically open up  ",
+        "start": 612.0,
+        "duration": 8.24
+    },
+    {
+        "text": "oh the portal it's a studio ui that  you can use to uh monitor the job  ",
+        "start": 621.04,
+        "duration": 5.76
+    },
+    {
+        "text": "that's cool yeah like this yeah yeah so the job  may take some time to process so i'm opening up uh  ",
+        "start": 628.08,
+        "duration": 8.56
+    },
+    {
+        "text": "already completed the job here so if you see  this box marked as completed that means the  ",
+        "start": 636.64,
+        "duration": 6.4
+    },
+    {
+        "text": "batch inference job is complete right then you can  right click this box and navigate to access data  ",
+        "start": 643.04,
+        "duration": 8.88
+    },
+    {
+        "text": "this is where as a storage location where  we store all the batch inferences results  ",
+        "start": 651.92,
+        "duration": 5.52
+    },
+    {
+        "text": "so i have a pre-opened the results here so  basically you have this one file containing  ",
+        "start": 658.24,
+        "duration": 6.64
+    },
+    {
+        "text": "all your inferences scores and you will like to  put an input identifier here something like a  ",
+        "start": 664.88,
+        "duration": 7.52
+    },
+    {
+        "text": "file name to correlate with the score you get for  that file so this is a sample result you can see  ",
+        "start": 672.4,
+        "duration": 6.16
+    },
+    {
+        "text": "nice and that file name um you have to do it  yourself right you have to write the code for  ",
+        "start": 679.52,
+        "duration": 5.28
+    },
+    {
+        "text": "that yourself in the score file right yes okay uh  this is awesome i love it uh you have another demo  ",
+        "start": 684.8,
+        "duration": 9.76
+    },
+    {
+        "text": "for us right yeah exactly so with this command  line interface it makes you very easy to set up a  ",
+        "start": 694.56,
+        "duration": 9.04
+    },
+    {
+        "text": "ci cd pipeline so my next demo is about how to set  the crcd pipeline with those simple coi commands  ",
+        "start": 703.6,
+        "duration": 7.04
+    },
+    {
+        "text": "so what i have here is an end-to-end ci cd  pipeline uh allows you to train a model first  ",
+        "start": 711.28,
+        "duration": 6.88
+    },
+    {
+        "text": "and then after the training is completed a new  model is generated they will and then it will auto  ",
+        "start": 718.16,
+        "duration": 6.0
+    },
+    {
+        "text": "kick off a new deployment on the existing batch  endpoints so you can add like different triggers  ",
+        "start": 724.16,
+        "duration": 5.6
+    },
+    {
+        "text": "here for example you can just run the workflow by  simply triggers here or maybe you can add other  ",
+        "start": 729.76,
+        "duration": 5.92
+    },
+    {
+        "text": "triggers like um submit a new pr so uh yeah  this workflow will take some time so let me  ",
+        "start": 735.68,
+        "duration": 7.2
+    },
+    {
+        "text": "quickly open the previous i run the workflow  especially for the auto deployment one  ",
+        "start": 743.92,
+        "duration": 4.48
+    },
+    {
+        "text": "so here right yeah after the training there will  be a new model produced you can like register  ",
+        "start": 749.28,
+        "duration": 5.84
+    },
+    {
+        "text": "model in your azure machine learning workspace or  you can download it to your local file and then  ",
+        "start": 755.12,
+        "duration": 5.28
+    },
+    {
+        "text": "what you would like to do here is you will want to  create a new batch deployment host the new created  ",
+        "start": 760.4,
+        "duration": 7.44
+    },
+    {
+        "text": "model but without setting the default yet imagine  you already have uh batch endpoints up and running  ",
+        "start": 767.84,
+        "duration": 7.12
+    },
+    {
+        "text": "in your production environments now you want to  replace the existing model with a new version  ",
+        "start": 774.96,
+        "duration": 6.08
+    },
+    {
+        "text": "right you want to properly test it before switch  it to the default one so yeah uh first step right  ",
+        "start": 781.04,
+        "duration": 7.44
+    },
+    {
+        "text": "create a new batch endpoint deployment under the  same batch endpoint you have without setting as a  ",
+        "start": 788.48,
+        "duration": 6.0
+    },
+    {
+        "text": "default then verify the deployment and make sure  everything works as you expected so if everything  ",
+        "start": 794.48,
+        "duration": 6.4
+    },
+    {
+        "text": "goes well then you can have the third step here  which is switch to default default deployment so  ",
+        "start": 800.88,
+        "duration": 5.92
+    },
+    {
+        "text": "as i mentioned earlier one batch endpoint can only  have one defaulted deployment and that default  ",
+        "start": 806.8,
+        "duration": 5.92
+    },
+    {
+        "text": "development will be used when you invoke the  batch endpoints so after this step this new depo  ",
+        "start": 812.72,
+        "duration": 7.52
+    },
+    {
+        "text": "the new deployment which hosting the new  model is replacing your old deployment  ",
+        "start": 820.24,
+        "duration": 4.08
+    },
+    {
+        "text": "now you can safely delete the older one and after  running these four steps you will have the same  ",
+        "start": 824.96,
+        "duration": 6.24
+    },
+    {
+        "text": "batch endpoint with the same identifier which is  an endpoint name but now running a brand new model  ",
+        "start": 831.2,
+        "duration": 6.48
+    },
+    {
+        "text": "nice i love it i love it i think people do too uh  so where can people go to find out more about this  ",
+        "start": 839.36,
+        "duration": 7.6
+    },
+    {
+        "text": "oh yeah sure so there are several useful uh  links the first one is uh this concept doc  ",
+        "start": 847.52,
+        "duration": 6.96
+    },
+    {
+        "text": "it means it talks about what is batch endpoint  what is deployment what are the major features  ",
+        "start": 854.48,
+        "duration": 4.64
+    },
+    {
+        "text": "we built for you and then the second one is the  how-to document it basically goes through the  ",
+        "start": 859.12,
+        "duration": 7.52
+    },
+    {
+        "text": "step-by-step guideline plus a working sample as  just as shown in the first demo and then uh third  ",
+        "start": 866.64,
+        "duration": 8.08
+    },
+    {
+        "text": "is a sample ci cd pipeline report that i built  and it's exactly the second demo i showed awesome  ",
+        "start": 874.72,
+        "duration": 9.44
+    },
+    {
+        "text": "this is great thank you so much tracy it  was really great to have you on the show  ",
+        "start": 884.16,
+        "duration": 3.52
+    },
+    {
+        "text": "thank you in this episode of the ai show you saw  how to create a deployment how to create a batch  ",
+        "start": 888.32,
+        "duration": 6.08
+    },
+    {
+        "text": "endpoint and how to invoke the batch endpoint  you also saw that you can use github actions to  ",
+        "start": 894.4,
+        "duration": 5.2
+    },
+    {
+        "text": "streamline your development process thank you  for watching and we'll see you next time you",
+        "start": 899.6,
+        "duration": 14.08
+    }
+]

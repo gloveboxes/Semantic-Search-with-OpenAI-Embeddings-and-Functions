@@ -1,0 +1,2816 @@
+WEBVTT
+
+00:00:07.679 --> 00:00:12.559
+Caption: guess who&#39;s speaking at diddy deeper is
+
+00:00:10.319 --> 00:00:12.559
+Caption: us
+
+00:00:13.199 --> 00:00:19.920
+Caption: cool
+
+00:00:15.519 --> 00:00:22.799
+Caption: that is good news as we&#39;re here yeah um
+
+00:00:19.920 --> 00:00:25.920
+Caption: we want to thank our amazing sponsors
+
+00:00:22.799 --> 00:00:27.759
+Caption: especially microsoft yes and i mean just
+
+00:00:25.920 --> 00:00:32.159
+Caption: kidding all of the sponsors we want to
+
+00:00:27.760 --> 00:00:32.159
+Caption: thank but especially microsoft yes
+
+00:00:33.439 --> 00:00:37.199
+Caption: we acknowledge the traditional
+
+00:00:34.880 --> 00:00:40.239
+Caption: custodians of the land the logic people
+
+00:00:37.200 --> 00:00:40.239
+Caption: of the ningar nation
+
+00:00:40.319 --> 00:00:44.398
+Caption: as machine learning become increasingly
+
+00:00:42.238 --> 00:00:46.639
+Caption: integral to decisions that affect health
+
+00:00:44.398 --> 00:00:48.959
+Caption: safety economic well-being and other
+
+00:00:46.639 --> 00:00:51.119
+Caption: aspects of our lives it&#39;s important for
+
+00:00:48.959 --> 00:00:53.680
+Caption: us to be able to understand how model
+
+00:00:51.119 --> 00:00:54.398
+Caption: makes predictions and be able to explain
+
+00:00:53.680 --> 00:00:56.799
+Caption: the
+
+00:00:54.398 --> 00:00:59.839
+Caption: decisions based on those machine
+
+00:00:56.799 --> 00:00:59.840
+Caption: learnings decisions
+
+00:01:00.639 --> 00:01:05.360
+Caption: so this is not an advanced session it&#39;s
+
+00:01:03.279 --> 00:01:08.400
+Caption: for anyone interested in exploring how
+
+00:01:05.360 --> 00:01:11.360
+Caption: we use data science and make predictions
+
+00:01:08.400 --> 00:01:13.680
+Caption: and explore what questions we can ask to
+
+00:01:11.360 --> 00:01:16.080
+Caption: validate how fair the machine learning
+
+00:01:13.680 --> 00:01:17.519
+Caption: model was in making those decisions
+
+00:01:16.080 --> 00:01:19.360
+Caption: we&#39;re going to explain the difference
+
+00:01:17.519 --> 00:01:21.438
+Caption: between global and local features
+
+00:01:19.360 --> 00:01:24.319
+Caption: importance we&#39;ll use an explainer to
+
+00:01:21.439 --> 00:01:28.159
+Caption: interpret a model and then we will
+
+00:01:24.319 --> 00:01:28.158
+Caption: visualize model explanations
+
+00:01:28.239 --> 00:01:32.478
+Caption: so there&#39;s a couple of things i always
+
+00:01:30.319 --> 00:01:35.599
+Caption: loop back to in developer conference
+
+00:01:32.478 --> 00:01:37.919
+Caption: talks quantum physics and the meaning of
+
+00:01:35.599 --> 00:01:37.919
+Caption: life
+
+00:01:39.519 --> 00:01:42.879
+Caption: and no need to worry i am going to talk
+
+00:01:41.360 --> 00:01:44.399
+Caption: about both today
+
+00:01:42.879 --> 00:01:47.599
+Caption: because it occurred to me as i was
+
+00:01:44.399 --> 00:01:50.560
+Caption: rewriting this session for the 42nd time
+
+00:01:47.599 --> 00:01:52.319
+Caption: that if there was ever a tool to uncover
+
+00:01:50.559 --> 00:01:55.919
+Caption: the meaning of life machine learning
+
+00:01:52.319 --> 00:01:57.680
+Caption: would be it humanity would use data
+
+00:01:55.919 --> 00:01:59.919
+Caption: science to take a peek into the
+
+00:01:57.680 --> 00:02:01.919
+Caption: inexplicable mysteries of the universe
+
+00:01:59.919 --> 00:02:04.078
+Caption: and find meaning in the unknown
+
+00:02:01.919 --> 00:02:06.239
+Caption: algorithms that govern the world that we
+
+00:02:04.079 --> 00:02:08.399
+Caption: live in
+
+00:02:06.239 --> 00:02:11.520
+Caption: in fact i&#39;m not the first one to think
+
+00:02:08.399 --> 00:02:14.000
+Caption: of this so douglas adams in his epic the
+
+00:02:11.520 --> 00:02:16.480
+Caption: hitchhiker&#39;s guide to the galaxy wrote
+
+00:02:14.000 --> 00:02:18.720
+Caption: about a supercomputer designed to answer
+
+00:02:16.479 --> 00:02:20.639
+Caption: the ultimate question
+
+00:02:18.720 --> 00:02:23.119
+Caption: problem was
+
+00:02:20.639 --> 00:02:25.520
+Caption: it told them it would take 7.5 million
+
+00:02:23.119 --> 00:02:27.440
+Caption: years to calculate the answer
+
+00:02:25.520 --> 00:02:29.199
+Caption: so i guess they did not have scalable
+
+00:02:27.440 --> 00:02:33.040
+Caption: cloud computing at very affordable
+
+00:02:29.199 --> 00:02:33.039
+Caption: prices back in the day no
+
+00:02:33.279 --> 00:02:37.039
+Caption: so
+
+00:02:35.039 --> 00:02:38.799
+Caption: when the machine finally spat out the
+
+00:02:37.039 --> 00:02:41.039
+Caption: answer the programmers were pretty
+
+00:02:38.800 --> 00:02:42.800
+Caption: annoyed because it made no sense without
+
+00:02:41.039 --> 00:02:45.119
+Caption: the context of the question
+
+00:02:42.800 --> 00:02:47.839
+Caption: so they asked it for that
+
+00:02:45.119 --> 00:02:50.559
+Caption: and it said it could not explain why the
+
+00:02:47.839 --> 00:02:52.639
+Caption: answer was 42 and it built another
+
+00:02:50.559 --> 00:02:54.479
+Caption: computer to calculate the question and
+
+00:02:52.639 --> 00:02:58.000
+Caption: said it would be 10 million years before
+
+00:02:54.479 --> 00:03:00.080
+Caption: it came back with the questions
+
+00:02:58.000 --> 00:03:02.238
+Caption: so the original machine learning model
+
+00:03:00.080 --> 00:03:04.479
+Caption: was a black box and then it built an
+
+00:03:02.238 --> 00:03:07.518
+Caption: explainer model to try and calculate the
+
+00:03:04.479 --> 00:03:09.919
+Caption: reasons why the answer was 42. in this
+
+00:03:07.518 --> 00:03:12.080
+Caption: case the explainer model was probably a
+
+00:03:09.919 --> 00:03:14.720
+Caption: pfi explainer model
+
+00:03:12.080 --> 00:03:17.119
+Caption: and it built a mimic and then tried all
+
+00:03:14.720 --> 00:03:20.319
+Caption: the permutations of different questions
+
+00:03:17.119 --> 00:03:20.319
+Caption: to see which ones fit
+
+00:03:20.479 --> 00:03:24.958
+Caption: and this is where it gets super meta
+
+00:03:22.800 --> 00:03:27.120
+Caption: so when i started writing this session i
+
+00:03:24.958 --> 00:03:30.479
+Caption: was thinking about human how humans are
+
+00:03:27.119 --> 00:03:30.479
+Caption: the ultimate black box
+
+00:03:31.598 --> 00:03:35.039
+Caption: we think they have reasons for doing
+
+00:03:33.279 --> 00:03:36.958
+Caption: what they do and if we ask them they can
+
+00:03:35.039 --> 00:03:39.439
+Caption: even explain them to you but are they
+
+00:03:36.958 --> 00:03:42.399
+Caption: true are they correct do they follow a
+
+00:03:39.440 --> 00:03:44.720
+Caption: logic based rule set and do they spit
+
+00:03:42.399 --> 00:03:46.720
+Caption: out a consistent answer every time
+
+00:03:44.720 --> 00:03:47.839
+Caption: or do they have a little bit of chaos
+
+00:03:46.720 --> 00:03:50.080
+Caption: thrown in
+
+00:03:47.839 --> 00:03:53.878
+Caption: is there randomness in the pattern that
+
+00:03:50.080 --> 00:03:53.878
+Caption: makes us unpredictable
+
+00:03:54.319 --> 00:03:58.559
+Caption: humans have a mental model of their
+
+00:03:56.319 --> 00:04:01.919
+Caption: environment that is updated when
+
+00:03:58.559 --> 00:04:04.080
+Caption: something unexpected happens this update
+
+00:04:01.919 --> 00:04:06.319
+Caption: is performed by finding an explanation
+
+00:04:04.080 --> 00:04:08.080
+Caption: for the unexpected event
+
+00:04:06.319 --> 00:04:09.518
+Caption: for example
+
+00:04:08.080 --> 00:04:12.798
+Caption: michelle
+
+00:04:09.518 --> 00:04:15.279
+Caption: feel unexpectedly sick and
+
+00:04:12.798 --> 00:04:17.279
+Caption: ask me why do you feel so sick she
+
+00:04:15.279 --> 00:04:19.359
+Caption: learns that she gets sick every time
+
+00:04:17.279 --> 00:04:21.839
+Caption: when she eats noodle from that place
+
+00:04:19.359 --> 00:04:24.639
+Caption: around the corner she updates her mental
+
+00:04:21.839 --> 00:04:27.040
+Caption: model and decides that that noodle place
+
+00:04:24.639 --> 00:04:30.800
+Caption: caused sickness and therefore should be
+
+00:04:27.040 --> 00:04:32.160
+Caption: avoided but those noodles are delicious
+
+00:04:30.799 --> 00:04:34.239
+Caption: well michelle
+
+00:04:32.160 --> 00:04:35.519
+Caption: if you&#39;re going to get sick you keep
+
+00:04:34.239 --> 00:04:37.119
+Caption: getting sick
+
+00:04:35.519 --> 00:04:41.559
+Caption: if you keep going back
+
+00:04:37.119 --> 00:04:41.559
+Caption: maybe not next time possibly
+
+00:04:42.320 --> 00:04:45.839
+Caption: so
+
+00:04:43.359 --> 00:04:48.638
+Caption: when black box machine learning models
+
+00:04:45.839 --> 00:04:50.959
+Caption: are used in research scientific findings
+
+00:04:48.639 --> 00:04:52.160
+Caption: remain completely hidden if the model
+
+00:04:50.959 --> 00:04:54.399
+Caption: only give
+
+00:04:52.160 --> 00:04:56.399
+Caption: predictions without explanation
+
+00:04:54.399 --> 00:04:59.119
+Caption: but as machine learning become very
+
+00:04:56.399 --> 00:05:01.279
+Caption: important to our lives as i&#39;ve mentioned
+
+00:04:59.119 --> 00:05:03.039
+Caption: earlier
+
+00:05:01.279 --> 00:05:04.639
+Caption: it&#39;s really important for us to be able
+
+00:05:03.039 --> 00:05:07.600
+Caption: to understand
+
+00:05:04.639 --> 00:05:10.240
+Caption: what&#39;s how moto makes predictions and be
+
+00:05:07.600 --> 00:05:13.520
+Caption: able to explain the rationales behind
+
+00:05:10.239 --> 00:05:13.519
+Caption: those decisions
+
+00:05:14.399 --> 00:05:19.279
+Caption: so machine learning is a paradigm shift
+
+00:05:16.720 --> 00:05:21.279
+Caption: between normal programming where all the
+
+00:05:19.279 --> 00:05:23.919
+Caption: instructions were explicitly given to
+
+00:05:21.279 --> 00:05:27.919
+Caption: the computer and indirect programming
+
+00:05:23.919 --> 00:05:27.919
+Caption: that takes place by providing data
+
+00:05:28.000 --> 00:05:31.279
+Caption: so when i was in university i did
+
+00:05:29.759 --> 00:05:33.360
+Caption: philosophy and we learned about
+
+00:05:31.279 --> 00:05:35.839
+Caption: schrodinger&#39;s cat did you know about
+
+00:05:33.359 --> 00:05:39.198
+Caption: children&#39;s cat now i know
+
+00:05:35.839 --> 00:05:42.079
+Caption: 42 times so
+
+00:05:39.199 --> 00:05:44.479
+Caption: the idea is that you have a closed box
+
+00:05:42.079 --> 00:05:48.399
+Caption: with a cat inside and there is no way to
+
+00:05:44.479 --> 00:05:50.320
+Caption: know whether the cat is dead or alive
+
+00:05:48.399 --> 00:05:52.959
+Caption: quantum physics tells us that there is a
+
+00:05:50.320 --> 00:05:55.679
+Caption: third state that the cat is both dead
+
+00:05:52.959 --> 00:05:58.399
+Caption: and alive until the box is opened and
+
+00:05:55.679 --> 00:06:00.399
+Caption: then it actualizes into one of those two
+
+00:05:58.399 --> 00:06:02.399
+Caption: initial states but we aren&#39;t going to
+
+00:06:00.399 --> 00:06:04.079
+Caption: get quantum here because i definitely do
+
+00:06:02.399 --> 00:06:06.479
+Caption: not have enough credit on my azure
+
+00:06:04.079 --> 00:06:09.519
+Caption: subscription for that
+
+00:06:06.479 --> 00:06:09.519
+Caption: i can borrow you some
+
+00:06:09.839 --> 00:06:15.839
+Caption: no it i have to say i can lend you some
+
+00:06:12.559 --> 00:06:17.039
+Caption: yes i&#39;m still learning english you see
+
+00:06:15.839 --> 00:06:18.479
+Caption: so
+
+00:06:17.039 --> 00:06:21.279
+Caption: let&#39;s treat this as binary
+
+00:06:18.479 --> 00:06:23.199
+Caption: classification the cat is either dead or
+
+00:06:21.279 --> 00:06:24.799
+Caption: the cat is alive
+
+00:06:23.199 --> 00:06:26.479
+Caption: and we could feed all the data that we
+
+00:06:24.799 --> 00:06:28.079
+Caption: have into a machine learning model to
+
+00:06:26.479 --> 00:06:31.279
+Caption: try and figure out which
+
+00:06:28.079 --> 00:06:32.879
+Caption: so is the box airtight is the cat
+
+00:06:31.279 --> 00:06:34.559
+Caption: anxious by nature
+
+00:06:32.880 --> 00:06:38.080
+Caption: is there anything in the box with the
+
+00:06:34.559 --> 00:06:39.119
+Caption: cat poison something sharp a dog
+
+00:06:38.079 --> 00:06:41.279
+Caption: um
+
+00:06:39.119 --> 00:06:43.440
+Caption: how long has the cat been in the box how
+
+00:06:41.279 --> 00:06:44.799
+Caption: big is the cat how old is the cat is the
+
+00:06:43.440 --> 00:06:47.600
+Caption: cat sick
+
+00:06:44.799 --> 00:06:50.159
+Caption: um and all of this data is what we call
+
+00:06:47.600 --> 00:06:52.720
+Caption: features or rather all of these data
+
+00:06:50.160 --> 00:06:54.800
+Caption: categories are what we call features
+
+00:06:52.720 --> 00:06:56.399
+Caption: and if we had a couple of hundred boxes
+
+00:06:54.799 --> 00:06:58.638
+Caption: all with cats in them
+
+00:06:56.399 --> 00:07:01.199
+Caption: we would have a reasonable sample size
+
+00:06:58.639 --> 00:07:04.559
+Caption: to predict whether for one specific box
+
+00:07:01.199 --> 00:07:07.360
+Caption: the cat will be dead or alive
+
+00:07:04.559 --> 00:07:09.279
+Caption: now of course you are thinking that if
+
+00:07:07.359 --> 00:07:11.679
+Caption: we had all of those details about a
+
+00:07:09.279 --> 00:07:13.679
+Caption: specific box in front of us then we
+
+00:07:11.679 --> 00:07:16.959
+Caption: could make a better prediction ourselves
+
+00:07:13.679 --> 00:07:19.519
+Caption: i mean dead it would obviously be dead
+
+00:07:16.959 --> 00:07:21.519
+Caption: but despite our original plan involving
+
+00:07:19.519 --> 00:07:24.559
+Caption: procuring hundreds of cats and hundreds
+
+00:07:21.519 --> 00:07:26.720
+Caption: of boxes i told you that wouldn&#39;t work
+
+00:07:24.559 --> 00:07:29.679
+Caption: yeah because budgets are always low in
+
+00:07:26.720 --> 00:07:33.039
+Caption: q1 that&#39;s that&#39;s not even the reason the
+
+00:07:29.679 --> 00:07:34.799
+Caption: storage space possibly
+
+00:07:33.039 --> 00:07:36.959
+Caption: my point is
+
+00:07:34.799 --> 00:07:39.039
+Caption: i suppose my point is supposed to be um
+
+00:07:36.959 --> 00:07:41.359
+Caption: data science isn&#39;t about small amounts
+
+00:07:39.039 --> 00:07:43.679
+Caption: of data it&#39;s about taking lots of data
+
+00:07:41.359 --> 00:07:46.159
+Caption: lots and lots of data and making useful
+
+00:07:43.679 --> 00:07:48.239
+Caption: predictions or judgments from it
+
+00:07:46.160 --> 00:07:49.598
+Caption: the bigger the sample size the better
+
+00:07:48.239 --> 00:07:51.759
+Caption: the data
+
+00:07:49.598 --> 00:07:54.399
+Caption: probably
+
+00:07:51.759 --> 00:07:57.679
+Caption: so during covet 19 there was a lot of
+
+00:07:54.399 --> 00:07:59.759
+Caption: data more than 600 petaflops of data and
+
+00:07:57.679 --> 00:08:02.239
+Caption: the fake new medias like to spread the
+
+00:07:59.759 --> 00:08:04.559
+Caption: rumor that vaccines could not possibly
+
+00:08:02.239 --> 00:08:06.479
+Caption: have been tested to the same level as
+
+00:08:04.559 --> 00:08:09.119
+Caption: medicine were in the past
+
+00:08:06.479 --> 00:08:12.239
+Caption: the truth is they are tested in so many
+
+00:08:09.119 --> 00:08:15.119
+Caption: more iterations and variations today
+
+00:08:12.239 --> 00:08:17.839
+Caption: than could ever be possible in the past
+
+00:08:15.119 --> 00:08:18.959
+Caption: in the past we were limited by computer
+
+00:08:17.839 --> 00:08:21.119
+Caption: hardware
+
+00:08:18.959 --> 00:08:23.119
+Caption: covet 19 high performance computing
+
+00:08:21.119 --> 00:08:26.079
+Caption: consortium brings together the federal
+
+00:08:23.119 --> 00:08:28.239
+Caption: government industry and academic leaders
+
+00:08:26.079 --> 00:08:30.159
+Caption: to provide access to the world&#39;s most
+
+00:08:28.239 --> 00:08:33.760
+Caption: powerful high-performance computing
+
+00:08:30.160 --> 00:08:36.239
+Caption: resources in support of covid19 research
+
+00:08:33.760 --> 00:08:38.000
+Caption: how could vaccine not possibly be tested
+
+00:08:36.239 --> 00:08:41.039
+Caption: to the same level
+
+00:08:38.000 --> 00:08:43.200
+Caption: moreover duke university tested designs
+
+00:08:41.039 --> 00:08:47.119
+Caption: for multi-splitting devices for
+
+00:08:43.200 --> 00:08:48.398
+Caption: ventilators using over 500 000 compute
+
+00:08:47.119 --> 00:08:50.559
+Caption: hours
+
+00:08:48.398 --> 00:08:52.398
+Caption: over one weekend
+
+00:08:50.559 --> 00:08:55.518
+Caption: in the past that would have
+
+00:08:52.398 --> 00:08:58.559
+Caption: taken years to validate that data
+
+00:08:55.518 --> 00:08:58.559
+Caption: just for a trial
+
+00:08:58.880 --> 00:09:05.119
+Caption: but by default machine learnings pick up
+
+00:09:02.479 --> 00:09:06.639
+Caption: biases from the training data just the
+
+00:09:05.119 --> 00:09:08.958
+Caption: same as we do
+
+00:09:06.640 --> 00:09:12.080
+Caption: this can turn your machine learning
+
+00:09:08.958 --> 00:09:15.359
+Caption: models into racists that discriminate
+
+00:09:12.080 --> 00:09:17.600
+Caption: against underrepresented group of people
+
+00:09:15.359 --> 00:09:20.398
+Caption: interpretability interpretability
+
+00:09:17.599 --> 00:09:22.880
+Caption: therefore is a useful debugging tool for
+
+00:09:20.398 --> 00:09:23.919
+Caption: detecting its biases in machine learning
+
+00:09:22.880 --> 00:09:25.599
+Caption: models
+
+00:09:23.919 --> 00:09:27.440
+Caption: it might happen that the machine
+
+00:09:25.599 --> 00:09:30.000
+Caption: learning model you have trained for
+
+00:09:27.440 --> 00:09:32.479
+Caption: automatic approval or rejections of
+
+00:09:30.000 --> 00:09:35.440
+Caption: created applications discriminates
+
+00:09:32.479 --> 00:09:36.880
+Caption: against a minority group of people that
+
+00:09:35.440 --> 00:09:38.080
+Caption: has been
+
+00:09:36.880 --> 00:09:40.080
+Caption: previously
+
+00:09:38.080 --> 00:09:42.239
+Caption: disenfranchised
+
+00:09:40.080 --> 00:09:43.519
+Caption: your main goal here is trying to grant
+
+00:09:42.239 --> 00:09:45.760
+Caption: loan
+
+00:09:43.518 --> 00:09:48.559
+Caption: only to the people that
+
+00:09:45.760 --> 00:09:50.640
+Caption: you they will eventually repay them the
+
+00:09:48.559 --> 00:09:52.799
+Caption: loan but the incompleteness of the
+
+00:09:50.640 --> 00:09:54.799
+Caption: problem formulation in this case like
+
+00:09:52.799 --> 00:09:56.640
+Caption: the fact that you not only want to
+
+00:09:54.799 --> 00:09:59.599
+Caption: you&#39;re not only wanting to minimize loan
+
+00:09:56.640 --> 00:10:01.920
+Caption: default but also obliged not to
+
+00:09:59.599 --> 00:10:03.359
+Caption: discriminate on the basis of certain
+
+00:10:01.919 --> 00:10:05.838
+Caption: demographics
+
+00:10:03.359 --> 00:10:08.880
+Caption: so basically you want to grant loans
+
+00:10:05.838 --> 00:10:10.078
+Caption: only to people who do not need loans
+
+00:10:08.880 --> 00:10:11.679
+Caption: because they already have the money to
+
+00:10:10.078 --> 00:10:13.199
+Caption: pay back the loans are you the rich
+
+00:10:11.679 --> 00:10:15.200
+Caption: people but you aren&#39;t allowed to
+
+00:10:13.200 --> 00:10:17.600
+Caption: discriminate against people
+
+00:10:15.200 --> 00:10:19.760
+Caption: that traditionally do not have much
+
+00:10:17.599 --> 00:10:21.359
+Caption: money i.e the poor people
+
+00:10:19.760 --> 00:10:22.640
+Caption: yeah
+
+00:10:21.359 --> 00:10:25.039
+Caption: so
+
+00:10:22.640 --> 00:10:27.519
+Caption: data can be manipulated to support any
+
+00:10:25.039 --> 00:10:30.479
+Caption: conclusion and such manipulation can
+
+00:10:27.518 --> 00:10:32.958
+Caption: sometimes happen unintentionally
+
+00:10:30.479 --> 00:10:35.039
+Caption: as humans we all have bias
+
+00:10:32.958 --> 00:10:37.599
+Caption: and it&#39;s often
+
+00:10:35.039 --> 00:10:40.479
+Caption: difficult to consciously know when we
+
+00:10:37.599 --> 00:10:42.639
+Caption: are introducing bias into the data set
+
+00:10:40.479 --> 00:10:44.799
+Caption: guaranteeing fairness and ai and machine
+
+00:10:42.640 --> 00:10:46.480
+Caption: learning remains a complex social
+
+00:10:44.799 --> 00:10:49.359
+Caption: technical challenge
+
+00:10:46.479 --> 00:10:50.320
+Caption: meaning that we can&#39;t only look at
+
+00:10:49.359 --> 00:10:54.078
+Caption: either
+
+00:10:50.320 --> 00:10:56.320
+Caption: social or technical perspective
+
+00:10:54.078 --> 00:10:58.958
+Caption: but what do we mean by unfairness
+
+00:10:56.320 --> 00:11:01.518
+Caption: well unfairness and comforters
+
+00:10:58.958 --> 00:11:04.159
+Caption: encompasses
+
+00:11:01.518 --> 00:11:06.000
+Caption: negative impacts or harms so for a group
+
+00:11:04.159 --> 00:11:08.639
+Caption: of people such as
+
+00:11:06.000 --> 00:11:10.958
+Caption: those defined in terms of race gender
+
+00:11:08.640 --> 00:11:13.119
+Caption: age disability status
+
+00:11:10.958 --> 00:11:15.440
+Caption: or something else
+
+00:11:13.119 --> 00:11:19.278
+Caption: so here&#39;s an example of fairness related
+
+00:11:15.440 --> 00:11:22.320
+Caption: harms uh allocation so for example if a
+
+00:11:19.278 --> 00:11:23.440
+Caption: gender or ethnicity is favored one over
+
+00:11:22.320 --> 00:11:25.359
+Caption: another
+
+00:11:23.440 --> 00:11:27.760
+Caption: um an example of this was an
+
+00:11:25.359 --> 00:11:30.559
+Caption: experimental hiring tool developed by a
+
+00:11:27.760 --> 00:11:33.359
+Caption: large corporation to screen candidates
+
+00:11:30.559 --> 00:11:35.760
+Caption: now they were aware that there was a
+
+00:11:33.359 --> 00:11:38.958
+Caption: large number of one gender over another
+
+00:11:35.760 --> 00:11:40.320
+Caption: in their workplace and they assumed that
+
+00:11:38.958 --> 00:11:42.239
+Caption: the
+
+00:11:40.320 --> 00:11:45.600
+Caption: the first line interviews being done by
+
+00:11:42.239 --> 00:11:46.880
+Caption: humans were introducing that bias and so
+
+00:11:45.599 --> 00:11:49.039
+Caption: it would be better to take those out of
+
+00:11:46.880 --> 00:11:52.239
+Caption: the loop and have it all all the cvs
+
+00:11:49.039 --> 00:11:54.159
+Caption: scanned by a machine and it could spit
+
+00:11:52.239 --> 00:11:56.559
+Caption: out which was the better candidate
+
+00:11:54.159 --> 00:11:58.958
+Caption: however they trained those models
+
+00:11:56.559 --> 00:12:01.278
+Caption: on the previously successful and
+
+00:11:58.958 --> 00:12:04.479
+Caption: unsuccessful cvs
+
+00:12:01.278 --> 00:12:09.518
+Caption: and the machine learning model assumed
+
+00:12:04.479 --> 00:12:12.398
+Caption: that it was particular words that were
+
+00:12:09.518 --> 00:12:14.958
+Caption: that were the success factor or the or
+
+00:12:12.398 --> 00:12:17.359
+Caption: the failure factor rather than uh
+
+00:12:14.958 --> 00:12:21.039
+Caption: judging on qualifications experience and
+
+00:12:17.359 --> 00:12:21.039
+Caption: everything else that was expected
+
+00:12:21.838 --> 00:12:27.599
+Caption: another example of the fairness related
+
+00:12:24.880 --> 00:12:30.320
+Caption: harm is quality of service if you train
+
+00:12:27.599 --> 00:12:32.479
+Caption: the data for one specific scenario but
+
+00:12:30.320 --> 00:12:35.518
+Caption: the reality is much more complex and you
+
+00:12:32.479 --> 00:12:38.159
+Caption: have not taken that into consideration
+
+00:12:35.518 --> 00:12:40.880
+Caption: it leads to poor performing service a
+
+00:12:38.159 --> 00:12:41.838
+Caption: notorious example was an automated hands
+
+00:12:40.880 --> 00:12:44.239
+Caption: of this
+
+00:12:41.838 --> 00:12:46.078
+Caption: handheld dispenser that could not seem
+
+00:12:44.239 --> 00:12:47.359
+Caption: to be able to sense people with dust
+
+00:12:46.078 --> 00:12:49.278
+Caption: skin
+
+00:12:47.359 --> 00:12:51.760
+Caption: so it&#39;s really important that you don&#39;t
+
+00:12:49.278 --> 00:12:53.599
+Caption: just use white men in your data set
+
+00:12:51.760 --> 00:12:56.160
+Caption: there are other people in the world
+
+00:12:53.599 --> 00:12:58.000
+Caption: women and children are generally smaller
+
+00:12:56.159 --> 00:13:00.479
+Caption: and lighter
+
+00:12:58.000 --> 00:13:03.359
+Caption: there is a range of skin colors accents
+
+00:13:00.479 --> 00:13:05.599
+Caption: abilities and although it&#39;s super easy
+
+00:13:03.359 --> 00:13:07.359
+Caption: to make that first test on your internal
+
+00:13:05.599 --> 00:13:09.599
+Caption: team if you aren&#39;t seeing a lot of
+
+00:13:07.359 --> 00:13:11.518
+Caption: diversity in them then that data set
+
+00:13:09.599 --> 00:13:13.679
+Caption: will not be truly representative and it
+
+00:13:11.518 --> 00:13:14.638
+Caption: might lead to bad results sometimes even
+
+00:13:13.679 --> 00:13:16.958
+Caption: deaths
+
+00:13:14.638 --> 00:13:18.638
+Caption: like with the the airbags when those
+
+00:13:16.958 --> 00:13:22.159
+Caption: were initially invented those were
+
+00:13:18.638 --> 00:13:24.000
+Caption: tested by the men that were building the
+
+00:13:22.159 --> 00:13:25.359
+Caption: cars and the airbags
+
+00:13:24.000 --> 00:13:28.078
+Caption: and
+
+00:13:25.359 --> 00:13:31.119
+Caption: when that went live into the real world
+
+00:13:28.078 --> 00:13:34.559
+Caption: a lot of children and women died in
+
+00:13:31.119 --> 00:13:37.679
+Caption: those first car crashes because the the
+
+00:13:34.559 --> 00:13:40.000
+Caption: force which the bag um
+
+00:13:37.679 --> 00:13:43.359
+Caption: explodes at was too much for their
+
+00:13:40.000 --> 00:13:43.359
+Caption: slider frames
+
+00:13:44.159 --> 00:13:49.359
+Caption: so you see bias in many data sets comes
+
+00:13:46.559 --> 00:13:52.320
+Caption: from might come from unbalanced data or
+
+00:13:49.359 --> 00:13:54.078
+Caption: lack of retraining on those features
+
+00:13:52.320 --> 00:13:56.479
+Caption: machine learning models can only be
+
+00:13:54.078 --> 00:13:57.838
+Caption: debugged and audited when they can be
+
+00:13:56.479 --> 00:14:00.479
+Caption: interpreted
+
+00:13:57.838 --> 00:14:02.398
+Caption: so even in low-risk environments such as
+
+00:14:00.479 --> 00:14:05.039
+Caption: movie recommendations
+
+00:14:02.398 --> 00:14:07.198
+Caption: the ability to interpret is valuable in
+
+00:14:05.039 --> 00:14:08.799
+Caption: research and development as well as
+
+00:14:07.198 --> 00:14:10.078
+Caption: after deployment
+
+00:14:08.799 --> 00:14:11.599
+Caption: see i always
+
+00:14:10.078 --> 00:14:14.559
+Caption: we always start laughing in that book
+
+00:14:11.599 --> 00:14:15.599
+Caption: because i know that i&#39;m furious
+
+00:14:14.559 --> 00:14:18.719
+Caption: because
+
+00:14:15.599 --> 00:14:22.319
+Caption: that should be an easy one my
+
+00:14:18.719 --> 00:14:25.359
+Caption: my movie streaming provider of choice
+
+00:14:22.320 --> 00:14:28.239
+Caption: should know never to put jeremy clarkson
+
+00:14:25.359 --> 00:14:29.198
+Caption: in my in my recommendations
+
+00:14:28.239 --> 00:14:31.440
+Caption: and
+
+00:14:29.198 --> 00:14:33.759
+Caption: i should i don&#39;t want to see any reality
+
+00:14:31.440 --> 00:14:35.580
+Caption: tv shows there was no reason for it to
+
+00:14:33.760 --> 00:14:36.880
+Caption: do that no highlight
+
+00:14:35.580 --> 00:14:38.000
+Caption: [Music]
+
+00:14:36.880 --> 00:14:40.320
+Caption: but
+
+00:14:38.000 --> 00:14:42.638
+Caption: but you see how mad i get and it&#39;s just
+
+00:14:40.320 --> 00:14:45.760
+Caption: about movies imagine it was something
+
+00:14:42.638 --> 00:14:48.719
+Caption: that had actual impact on my life like
+
+00:14:45.760 --> 00:14:50.398
+Caption: in a legal sense or a financial sense or
+
+00:14:48.719 --> 00:14:51.278
+Caption: or a health sense
+
+00:14:50.398 --> 00:14:53.599
+Caption: um
+
+00:14:51.278 --> 00:14:55.440
+Caption: so an interpretation for an erroneous
+
+00:14:53.599 --> 00:14:58.159
+Caption: prediction helps us to understand the
+
+00:14:55.440 --> 00:15:00.638
+Caption: cause of the error and it delivers us a
+
+00:14:58.159 --> 00:15:02.239
+Caption: direction to fix the system
+
+00:15:00.638 --> 00:15:05.278
+Caption: so there are a lot of domains that would
+
+00:15:02.239 --> 00:15:08.159
+Caption: benefit from these understandable models
+
+00:15:05.278 --> 00:15:11.119
+Caption: health finance law and there are even
+
+00:15:08.159 --> 00:15:13.759
+Caption: more that demand this interpretability
+
+00:15:11.119 --> 00:15:16.159
+Caption: being able to audit the model for these
+
+00:15:13.760 --> 00:15:18.239
+Caption: critical domains is very important
+
+00:15:16.159 --> 00:15:19.919
+Caption: people need to believe that computers
+
+00:15:18.239 --> 00:15:22.559
+Caption: are fair
+
+00:15:19.919 --> 00:15:24.479
+Caption: people needs to believe computer first
+
+00:15:22.559 --> 00:15:27.039
+Caption: and believe that things are fair
+
+00:15:24.479 --> 00:15:28.638
+Caption: fairer fairer than us they&#39;re the human
+
+00:15:27.039 --> 00:15:29.440
+Caption: fairer than the humans that designed
+
+00:15:28.638 --> 00:15:31.119
+Caption: them
+
+00:15:29.440 --> 00:15:34.078
+Caption: exactly
+
+00:15:31.119 --> 00:15:35.119
+Caption: yeah we are very unfair on the bots
+
+00:15:34.078 --> 00:15:36.479
+Caption: so
+
+00:15:35.119 --> 00:15:38.559
+Caption: understanding the most important
+
+00:15:36.479 --> 00:15:40.479
+Caption: features of a model gives us insights
+
+00:15:38.559 --> 00:15:43.440
+Caption: into the inner workings and gives us
+
+00:15:40.479 --> 00:15:45.518
+Caption: directions for improving the performance
+
+00:15:43.440 --> 00:15:47.039
+Caption: and removing bias
+
+00:15:45.518 --> 00:15:49.039
+Caption: why don&#39;t you show us how to create a
+
+00:15:47.039 --> 00:15:51.278
+Caption: model jia and then we&#39;ll talk about the
+
+00:15:49.039 --> 00:15:52.239
+Caption: features after that
+
+00:15:51.278 --> 00:15:55.758
+Caption: sure
+
+00:15:52.239 --> 00:15:58.398
+Caption: michelle so um before we actually go
+
+00:15:55.758 --> 00:16:00.159
+Caption: into this interpretability
+
+00:15:58.398 --> 00:16:02.239
+Caption: creation
+
+00:16:00.159 --> 00:16:05.278
+Caption: of the model we need to have
+
+00:16:02.239 --> 00:16:07.359
+Caption: the working model first so in this demo
+
+00:16:05.278 --> 00:16:08.398
+Caption: i am creating a simple binary
+
+00:16:07.359 --> 00:16:10.398
+Caption: classification
+
+00:16:08.398 --> 00:16:13.039
+Caption: classification model using logistic
+
+00:16:10.398 --> 00:16:13.838
+Caption: regressions using student hiring data
+
+00:16:13.039 --> 00:16:15.599
+Caption: set
+
+00:16:13.838 --> 00:16:17.440
+Caption: imagine that your boss telling you to
+
+00:16:15.599 --> 00:16:19.679
+Caption: create a machine learning system to
+
+00:16:17.440 --> 00:16:22.638
+Caption: screen out the student candidates based
+
+00:16:19.679 --> 00:16:23.838
+Caption: on the historical hiring data for the
+
+00:16:22.638 --> 00:16:26.559
+Caption: grad program
+
+00:16:23.838 --> 00:16:28.719
+Caption: and it includes that github contribution
+
+00:16:26.559 --> 00:16:30.958
+Caption: score that marks that uni number of
+
+00:16:28.719 --> 00:16:32.239
+Caption: hackathons and number of volunteering
+
+00:16:30.958 --> 00:16:34.479
+Caption: activities
+
+00:16:32.239 --> 00:16:38.000
+Caption: the first thing that we need to do is to
+
+00:16:34.479 --> 00:16:41.278
+Caption: install required packages including
+
+00:16:38.000 --> 00:16:42.638
+Caption: interpretability community and rai
+
+00:16:41.278 --> 00:16:45.039
+Caption: widgets
+
+00:16:42.638 --> 00:16:46.958
+Caption: you can see that i am loading that
+
+00:16:45.039 --> 00:16:49.919
+Caption: without any errors
+
+00:16:46.958 --> 00:16:53.599
+Caption: now let&#39;s move on to loading the data
+
+00:16:49.919 --> 00:16:55.758
+Caption: set so i load the data set using panda
+
+00:16:53.599 --> 00:16:58.398
+Caption: library
+
+00:16:55.758 --> 00:17:01.518
+Caption: using this library to separate features
+
+00:16:58.398 --> 00:17:03.518
+Caption: and labels and also splitting data into
+
+00:17:01.518 --> 00:17:05.359
+Caption: training set and test set
+
+00:17:03.518 --> 00:17:06.479
+Caption: i think it&#39;s 30
+
+00:17:05.359 --> 00:17:11.038
+Caption: uh
+
+00:17:06.479 --> 00:17:14.000
+Caption: 30 70 sorry 730 using train test split
+
+00:17:11.038 --> 00:17:17.918
+Caption: function from sklearn library you can
+
+00:17:14.000 --> 00:17:20.318
+Caption: see the output which is gonna come in a
+
+00:17:17.918 --> 00:17:20.318
+Caption: minute
+
+00:17:21.520 --> 00:17:26.799
+Caption: he&#39;s not looking at us so our stamping
+
+00:17:24.318 --> 00:17:28.719
+Caption: makes no difference okay i was dabbing
+
+00:17:26.798 --> 00:17:32.719
+Caption: in the background because
+
+00:17:28.719 --> 00:17:35.678
+Caption: i leave this awkward um blank moment
+
+00:17:32.719 --> 00:17:37.678
+Caption: okay so you can see the output of when i
+
+00:17:35.678 --> 00:17:38.719
+Caption: load the data set and there are four
+
+00:17:37.678 --> 00:17:40.239
+Caption: features
+
+00:17:38.719 --> 00:17:42.400
+Caption: one
+
+00:17:40.239 --> 00:17:47.038
+Caption: label column at the end
+
+00:17:42.400 --> 00:17:49.599
+Caption: and one is higher and zero is not hired
+
+00:17:47.038 --> 00:17:52.399
+Caption: next now that we load the data set we
+
+00:17:49.599 --> 00:17:54.798
+Caption: create a classification model which
+
+00:17:52.400 --> 00:17:57.679
+Caption: makes the decision whether a student
+
+00:17:54.798 --> 00:18:00.319
+Caption: candidate will be a good fit or not we
+
+00:17:57.678 --> 00:18:03.599
+Caption: use logistic progression from scikit
+
+00:18:00.319 --> 00:18:04.639
+Caption: learned and we see how the model perform
+
+00:18:03.599 --> 00:18:07.520
+Caption: by
+
+00:18:04.640 --> 00:18:10.640
+Caption: calculating different matches metrics
+
+00:18:07.520 --> 00:18:15.440
+Caption: such as accuracy area under curve
+
+00:18:10.640 --> 00:18:17.359
+Caption: positions recall and f-score now
+
+00:18:15.439 --> 00:18:20.079
+Caption: honestly the moment that you see the
+
+00:18:17.359 --> 00:18:24.798
+Caption: output it is not the best performing
+
+00:18:20.079 --> 00:18:26.558
+Caption: model because the accuracy is only 60
+
+00:18:24.798 --> 00:18:28.239
+Caption: i am still learning how to create the
+
+00:18:26.558 --> 00:18:30.000
+Caption: model and play around with their hyper
+
+00:18:28.239 --> 00:18:31.839
+Caption: parameters
+
+00:18:30.000 --> 00:18:33.359
+Caption: but we will keep pushing on we use this
+
+00:18:31.839 --> 00:18:35.439
+Caption: model for
+
+00:18:33.359 --> 00:18:37.599
+Caption: creating the interpretability for for
+
+00:18:35.439 --> 00:18:39.439
+Caption: the black box
+
+00:18:37.599 --> 00:18:41.280
+Caption: because this is what we focus on this
+
+00:18:39.439 --> 00:18:43.439
+Caption: session
+
+00:18:41.280 --> 00:18:45.039
+Caption: i mean i wouldn&#39;t worry about the 60
+
+00:18:43.439 --> 00:18:47.519
+Caption: because you know if we were really going
+
+00:18:45.038 --> 00:18:50.000
+Caption: to use this model then we would find it
+
+00:18:47.520 --> 00:18:52.080
+Caption: a lot more data and we would we would
+
+00:18:50.000 --> 00:18:54.319
+Caption: work on yeah refining the feature
+
+00:18:52.079 --> 00:18:56.159
+Caption: importance and stuff like that
+
+00:18:54.319 --> 00:18:57.439
+Caption: a lot more i mean this is good for a
+
+00:18:56.160 --> 00:18:59.039
+Caption: first run
+
+00:18:57.439 --> 00:19:00.079
+Caption: absolutely
+
+00:18:59.038 --> 00:19:03.038
+Caption: cool
+
+00:19:00.079 --> 00:19:05.119
+Caption: so i think
+
+00:19:03.038 --> 00:19:08.000
+Caption: that was it that was the demo for
+
+00:19:05.119 --> 00:19:10.400
+Caption: creating the model yeah so we didn&#39;t
+
+00:19:08.000 --> 00:19:12.319
+Caption: really introduce ourselves and here we
+
+00:19:10.400 --> 00:19:14.080
+Caption: are well into our session
+
+00:19:12.319 --> 00:19:15.839
+Caption: that&#39;s true michelle
+
+00:19:14.079 --> 00:19:18.319
+Caption: so we&#39;re going to talk about features
+
+00:19:15.839 --> 00:19:20.880
+Caption: global features and local features and
+
+00:19:18.319 --> 00:19:23.359
+Caption: feature importance
+
+00:19:20.880 --> 00:19:26.558
+Caption: i see that you put
+
+00:19:23.359 --> 00:19:28.000
+Caption: the data set of me on the slides yeah
+
+00:19:26.558 --> 00:19:29.599
+Caption: and there are some entries that are
+
+00:19:28.000 --> 00:19:32.719
+Caption: missing there
+
+00:19:29.599 --> 00:19:35.199
+Caption: ah okay the one in white would be the
+
+00:19:32.719 --> 00:19:38.479
+Caption: features normally quantify as most
+
+00:19:35.199 --> 00:19:40.959
+Caption: important in influencing the judgment or
+
+00:19:38.479 --> 00:19:43.199
+Caption: prediction in a data set we call those
+
+00:19:40.959 --> 00:19:45.760
+Caption: the global features so why don&#39;t you
+
+00:19:43.199 --> 00:19:48.000
+Caption: tell us the data for those features
+
+00:19:45.760 --> 00:19:50.239
+Caption: my name is gia gernaksu i am an
+
+00:19:48.000 --> 00:19:52.798
+Caption: associate class solution architect and i
+
+00:19:50.239 --> 00:19:54.640
+Caption: work at microsoft
+
+00:19:52.798 --> 00:19:57.199
+Caption: and why do you think those features have
+
+00:19:54.640 --> 00:19:59.760
+Caption: priority in the data set
+
+00:19:57.199 --> 00:20:01.678
+Caption: that&#39;s what people want to know when
+
+00:19:59.760 --> 00:20:04.959
+Caption: they first meet you
+
+00:20:01.678 --> 00:20:06.798
+Caption: your name what you do who you do it for
+
+00:20:04.959 --> 00:20:09.760
+Caption: people judge you based on those things
+
+00:20:06.798 --> 00:20:12.880
+Caption: first and then they might want to
+
+00:20:09.760 --> 00:20:15.280
+Caption: dive into other things like like my
+
+00:20:12.880 --> 00:20:17.440
+Caption: weight nobody wants to know that
+
+00:20:15.280 --> 00:20:18.719
+Caption: but you put but you put weight up on the
+
+00:20:17.439 --> 00:20:22.879
+Caption: slide
+
+00:20:18.719 --> 00:20:22.880
+Caption: it&#39;s an insignificant feature
+
+00:20:23.439 --> 00:20:28.479
+Caption: okay michelle what about you in your
+
+00:20:25.599 --> 00:20:31.280
+Caption: case um those things are not the most
+
+00:20:28.479 --> 00:20:33.199
+Caption: important features exactly i always
+
+00:20:31.280 --> 00:20:35.520
+Caption: thought i was a community advocate even
+
+00:20:33.199 --> 00:20:38.558
+Caption: when i was working as a service delivery
+
+00:20:35.520 --> 00:20:42.959
+Caption: manager because although sdn was the job
+
+00:20:38.558 --> 00:20:45.439
+Caption: title i had it didn&#39;t describe who i was
+
+00:20:42.959 --> 00:20:46.798
+Caption: and there is some data missing from your
+
+00:20:45.439 --> 00:20:48.879
+Caption: data set too
+
+00:20:46.798 --> 00:20:50.959
+Caption: yeah but it&#39;s not significant for
+
+00:20:48.880 --> 00:20:53.039
+Caption: anything that i want to do with my life
+
+00:20:50.959 --> 00:20:55.199
+Caption: if those features took on a higher
+
+00:20:53.038 --> 00:20:57.839
+Caption: weight it would definitely reflect bias
+
+00:20:55.199 --> 00:21:00.000
+Caption: in the data set i see so when different
+
+00:20:57.839 --> 00:21:02.158
+Caption: features have different priority in the
+
+00:21:00.000 --> 00:21:05.038
+Caption: particular instance from what is
+
+00:21:02.159 --> 00:21:07.760
+Caption: globally perceived to be important we
+
+00:21:05.038 --> 00:21:08.959
+Caption: call that local features important you
+
+00:21:07.760 --> 00:21:10.479
+Caption: got it
+
+00:21:08.959 --> 00:21:12.880
+Caption: yes
+
+00:21:10.479 --> 00:21:15.199
+Caption: so global feature importance quantifies
+
+00:21:12.880 --> 00:21:17.440
+Caption: the relative importance of each feature
+
+00:21:15.199 --> 00:21:20.000
+Caption: in the test data set as a whole
+
+00:21:17.439 --> 00:21:22.079
+Caption: and it provides a general comparison of
+
+00:21:20.000 --> 00:21:24.640
+Caption: the extent to which each feature in the
+
+00:21:22.079 --> 00:21:27.199
+Caption: data set influences prediction
+
+00:21:24.640 --> 00:21:30.000
+Caption: for example a binary classification
+
+00:21:27.199 --> 00:21:31.839
+Caption: model like the one i used just now to
+
+00:21:30.000 --> 00:21:34.640
+Caption: predict if a candidate will be a good
+
+00:21:31.839 --> 00:21:37.038
+Caption: high or not an explainer might then use
+
+00:21:34.640 --> 00:21:39.760
+Caption: a sufficiently representative of the
+
+00:21:37.038 --> 00:21:42.399
+Caption: test data set to produce global features
+
+00:21:39.760 --> 00:21:44.719
+Caption: importance values it could then show
+
+00:21:42.400 --> 00:21:47.520
+Caption: that the model was trained from features
+
+00:21:44.719 --> 00:21:50.719
+Caption: such as qualification
+
+00:21:47.520 --> 00:21:52.640
+Caption: experience previous tenure and skills to
+
+00:21:50.719 --> 00:21:55.119
+Caption: predict a label of one for candidate
+
+00:21:52.640 --> 00:21:58.400
+Caption: that are likely to be good hires and
+
+00:21:55.119 --> 00:22:00.959
+Caption: zero for candidates that have
+
+00:21:58.400 --> 00:22:03.440
+Caption: significant risk of failure in the role
+
+00:22:00.959 --> 00:22:05.279
+Caption: and therefore should not be approved or
+
+00:22:03.439 --> 00:22:08.639
+Caption: hired
+
+00:22:05.280 --> 00:22:10.960
+Caption: so when we hire gia though a completely
+
+00:22:08.640 --> 00:22:13.520
+Caption: different set of features weighed higher
+
+00:22:10.959 --> 00:22:15.520
+Caption: in the process this was because gia was
+
+00:22:13.520 --> 00:22:17.200
+Caption: hired under the graduate recruitment
+
+00:22:15.520 --> 00:22:18.320
+Caption: scheme rather than the professional
+
+00:22:17.199 --> 00:22:19.199
+Caption: pathway
+
+00:22:18.319 --> 00:22:21.918
+Caption: so
+
+00:22:19.199 --> 00:22:24.158
+Caption: we didn&#39;t expect her to be able to show
+
+00:22:21.918 --> 00:22:26.158
+Caption: a long time yet in previous roles or
+
+00:22:24.159 --> 00:22:28.159
+Caption: have experience working at microsoft
+
+00:22:26.159 --> 00:22:29.600
+Caption: partners or have a multitude of
+
+00:22:28.159 --> 00:22:32.640
+Caption: recommendations
+
+00:22:29.599 --> 00:22:34.400
+Caption: in the grad higher route the the feature
+
+00:22:32.640 --> 00:22:37.039
+Caption: with the highest importance is her
+
+00:22:34.400 --> 00:22:40.640
+Caption: degree she needs to be a graduate or she
+
+00:22:37.038 --> 00:22:43.038
+Caption: cannot qualify for that hiring rate her
+
+00:22:40.640 --> 00:22:45.599
+Caption: awards volunteering experience and
+
+00:22:43.038 --> 00:22:48.319
+Caption: github portfolio might be heavily
+
+00:22:45.599 --> 00:22:50.079
+Caption: weighted features as well
+
+00:22:48.319 --> 00:22:53.279
+Caption: and this is what we call local feature
+
+00:22:50.079 --> 00:22:55.519
+Caption: importance in the overall data set these
+
+00:22:53.280 --> 00:22:58.559
+Caption: things do not have the highest rating
+
+00:22:55.520 --> 00:23:00.400
+Caption: but in a run looking at grad hires these
+
+00:22:58.558 --> 00:23:03.038
+Caption: features are given more weight well i
+
+00:23:00.400 --> 00:23:04.719
+Caption: should say specifically in gia&#39;s case
+
+00:23:03.038 --> 00:23:07.359
+Caption: these were the features that held the
+
+00:23:04.719 --> 00:23:09.760
+Caption: most weight
+
+00:23:07.359 --> 00:23:12.000
+Caption: so you can apply the interpretability
+
+00:23:09.760 --> 00:23:14.640
+Caption: classes and methods to understand the
+
+00:23:12.000 --> 00:23:15.839
+Caption: model&#39;s global behavior or specific
+
+00:23:14.640 --> 00:23:17.599
+Caption: predictions
+
+00:23:15.839 --> 00:23:20.319
+Caption: the formula is called
+
+00:23:17.599 --> 00:23:21.678
+Caption: global explanation and the letter is
+
+00:23:20.319 --> 00:23:24.880
+Caption: called
+
+00:23:21.678 --> 00:23:27.038
+Caption: local explanation
+
+00:23:24.880 --> 00:23:29.839
+Caption: the methods can also be categorized
+
+00:23:27.038 --> 00:23:31.839
+Caption: based on whether the model is
+
+00:23:29.839 --> 00:23:34.880
+Caption: whether the method is model agnostic or
+
+00:23:31.839 --> 00:23:36.798
+Caption: model specific so some methods target
+
+00:23:34.880 --> 00:23:39.039
+Caption: certain types of models for example
+
+00:23:36.798 --> 00:23:40.798
+Caption: shap&#39;s tree explainer
+
+00:23:39.038 --> 00:23:41.678
+Caption: tree explainer
+
+00:23:40.798 --> 00:23:44.479
+Caption: and
+
+00:23:41.678 --> 00:23:47.278
+Caption: it only applies to tree-based models and
+
+00:23:44.479 --> 00:23:50.000
+Caption: some methods that
+
+00:23:47.279 --> 00:23:52.240
+Caption: treat the model as a black box such as
+
+00:23:50.000 --> 00:23:54.959
+Caption: the mimik explainer or shaps kernel
+
+00:23:52.239 --> 00:23:57.199
+Caption: explainer why don&#39;t you show them gia
+
+00:23:54.959 --> 00:23:59.839
+Caption: sure michelle bring it on
+
+00:23:57.199 --> 00:24:00.959
+Caption: all right so it&#39;s easy to
+
+00:23:59.839 --> 00:24:02.719
+Caption: create
+
+00:24:00.959 --> 00:24:06.158
+Caption: the explainer for
+
+00:24:02.719 --> 00:24:10.000
+Caption: the model we used the interpretability
+
+00:24:06.159 --> 00:24:10.000
+Caption: library that we installed earlier
+
+00:24:10.400 --> 00:24:15.919
+Caption: and if the demo is going to run it is
+
+00:24:13.038 --> 00:24:18.879
+Caption: running cool so the explainer will
+
+00:24:15.918 --> 00:24:21.759
+Caption: calculate the features importance for us
+
+00:24:18.880 --> 00:24:24.000
+Caption: which enable us to quantify the relative
+
+00:24:21.760 --> 00:24:26.159
+Caption: influence each feature has in predicting
+
+00:24:24.000 --> 00:24:29.199
+Caption: whether a student candidate will be a
+
+00:24:26.159 --> 00:24:31.679
+Caption: good fit to the role or not we will use
+
+00:24:29.199 --> 00:24:33.839
+Caption: a tableau explainer which is a black box
+
+00:24:31.678 --> 00:24:36.158
+Caption: explainer and the cool thing about this
+
+00:24:33.839 --> 00:24:39.038
+Caption: is that tableau explainer look up the
+
+00:24:36.159 --> 00:24:41.120
+Caption: type of the prediction model and it will
+
+00:24:39.038 --> 00:24:42.319
+Caption: decide for us what is the appropriate
+
+00:24:41.119 --> 00:24:44.000
+Caption: explainer
+
+00:24:42.319 --> 00:24:47.519
+Caption: now
+
+00:24:44.000 --> 00:24:50.798
+Caption: the output will come in a minute
+
+00:24:47.520 --> 00:24:50.799
+Caption: once i run this code
+
+00:24:51.119 --> 00:24:56.798
+Caption: are you capturing me
+
+00:24:53.678 --> 00:24:58.079
+Caption: okay you cannot see me dapping but i am
+
+00:24:56.798 --> 00:25:00.880
+Caption: dapping
+
+00:24:58.079 --> 00:25:03.038
+Caption: while i&#39;m waiting for my output to come
+
+00:25:00.880 --> 00:25:03.039
+Caption: up
+
+00:25:06.079 --> 00:25:13.119
+Caption: so okay the output it will show the um
+
+00:25:10.959 --> 00:25:16.319
+Caption: it will show that the tableau explainer
+
+00:25:13.119 --> 00:25:18.959
+Caption: called linear explainer there you go
+
+00:25:16.319 --> 00:25:21.918
+Caption: remember that we were using logistic
+
+00:25:18.959 --> 00:25:22.798
+Caption: regression model for our prediction
+
+00:25:21.918 --> 00:25:25.278
+Caption: and
+
+00:25:22.798 --> 00:25:27.760
+Caption: linear explainer is actually the
+
+00:25:25.279 --> 00:25:30.799
+Caption: appropriate
+
+00:25:27.760 --> 00:25:33.279
+Caption: explainer for the logistic regression
+
+00:25:30.798 --> 00:25:35.278
+Caption: now once we have initiated the explainer
+
+00:25:33.279 --> 00:25:36.640
+Caption: we want to try to explain the model by
+
+00:25:35.279 --> 00:25:38.400
+Caption: evaluating
+
+00:25:36.640 --> 00:25:41.119
+Caption: the overall features importance of what
+
+00:25:38.400 --> 00:25:42.559
+Caption: we also call global features importance
+
+00:25:41.119 --> 00:25:45.038
+Caption: this means that it look at the whole
+
+00:25:42.558 --> 00:25:48.239
+Caption: data set and we call explain underscore
+
+00:25:45.038 --> 00:25:51.278
+Caption: global method on the explainer we create
+
+00:25:48.239 --> 00:25:54.079
+Caption: it then we&#39;ll use get underscore feature
+
+00:25:51.279 --> 00:25:56.480
+Caption: underscore importance dictionary to get
+
+00:25:54.079 --> 00:25:58.798
+Caption: result from importance values
+
+00:25:56.479 --> 00:26:01.119
+Caption: and the features is ranked with the most
+
+00:25:58.798 --> 00:26:04.158
+Caption: important feature listed first now you
+
+00:26:01.119 --> 00:26:07.678
+Caption: can see the output here is that
+
+00:26:04.159 --> 00:26:09.840
+Caption: hackathon comes first and then it&#39;s the
+
+00:26:07.678 --> 00:26:12.000
+Caption: mark at the university and then the
+
+00:26:09.839 --> 00:26:13.839
+Caption: github project and then volunteering
+
+00:26:12.000 --> 00:26:15.439
+Caption: activities
+
+00:26:13.839 --> 00:26:17.760
+Caption: now
+
+00:26:15.439 --> 00:26:20.798
+Caption: once we have the overall view of the
+
+00:26:17.760 --> 00:26:23.039
+Caption: global feature goal of importance
+
+00:26:20.798 --> 00:26:26.158
+Caption: what about the explaining individual
+
+00:26:23.038 --> 00:26:28.399
+Caption: observation this is where we need local
+
+00:26:26.159 --> 00:26:31.360
+Caption: features importance it measures the
+
+00:26:28.400 --> 00:26:33.279
+Caption: influence of the feature
+
+00:26:31.359 --> 00:26:35.839
+Caption: for a specific individual prediction in
+
+00:26:33.279 --> 00:26:38.159
+Caption: other words it&#39;s only look at one single
+
+00:26:35.839 --> 00:26:40.798
+Caption: candidate so to get the local features
+
+00:26:38.159 --> 00:26:44.000
+Caption: importance we call explain and discuss
+
+00:26:40.798 --> 00:26:45.918
+Caption: local method and specifying the subset
+
+00:26:44.000 --> 00:26:48.159
+Caption: of the case that we want to explain in
+
+00:26:45.918 --> 00:26:51.359
+Caption: this case i just want to look at the
+
+00:26:48.159 --> 00:26:53.039
+Caption: first candidate and then we also call
+
+00:26:51.359 --> 00:26:55.918
+Caption: right get rank
+
+00:26:53.038 --> 00:26:58.639
+Caption: local names and then get ranked local
+
+00:26:55.918 --> 00:27:00.798
+Caption: values to get the feature names and
+
+00:26:58.640 --> 00:27:03.039
+Caption: importance values for these local
+
+00:27:00.798 --> 00:27:04.880
+Caption: features importance now let&#39;s look at
+
+00:27:03.038 --> 00:27:07.278
+Caption: the output there&#39;s a lot of things going
+
+00:27:04.880 --> 00:27:09.440
+Caption: on there since this is a binary
+
+00:27:07.279 --> 00:27:12.000
+Caption: classification model they&#39;re only two
+
+00:27:09.439 --> 00:27:14.719
+Caption: possible classes hired and not hide
+
+00:27:12.000 --> 00:27:17.279
+Caption: right each feature support for one class
+
+00:27:14.719 --> 00:27:19.199
+Caption: results in correlatively negative level
+
+00:27:17.279 --> 00:27:21.600
+Caption: of support for the other for this
+
+00:27:19.199 --> 00:27:24.398
+Caption: candidate let&#39;s say this this is gia
+
+00:27:21.599 --> 00:27:28.239
+Caption: idea overall support for class zero
+
+00:27:24.399 --> 00:27:30.720
+Caption: which is not high is minus 0.95
+
+00:27:28.239 --> 00:27:34.079
+Caption: and the support for class 1 higher is
+
+00:27:30.719 --> 00:27:36.319
+Caption: correspondingly 0.95 so support for
+
+00:27:34.079 --> 00:27:37.918
+Caption: class 1 is actually higher than support
+
+00:27:36.319 --> 00:27:40.639
+Caption: for class 0.
+
+00:27:37.918 --> 00:27:43.199
+Caption: this means that gia is a good
+
+00:27:40.640 --> 00:27:44.159
+Caption: candidate for will be good fit to the
+
+00:27:43.199 --> 00:27:46.798
+Caption: role
+
+00:27:44.159 --> 00:27:48.960
+Caption: so the most important feature is for the
+
+00:27:46.798 --> 00:27:51.278
+Caption: prediction of class one is the number of
+
+00:27:48.959 --> 00:27:54.158
+Caption: hackathons that she participated in
+
+00:27:51.279 --> 00:27:56.080
+Caption: followed by github score
+
+00:27:54.159 --> 00:27:57.919
+Caption: and remember these are quite different
+
+00:27:56.079 --> 00:27:58.880
+Caption: than the global features importance
+
+00:27:57.918 --> 00:28:00.079
+Caption: value
+
+00:27:58.880 --> 00:28:02.239
+Caption: it could
+
+00:28:00.079 --> 00:28:04.880
+Caption: in the global features importance value
+
+00:28:02.239 --> 00:28:08.079
+Caption: um it was hackathon and then followed by
+
+00:28:04.880 --> 00:28:10.319
+Caption: marx at university um but there might be
+
+00:28:08.079 --> 00:28:12.479
+Caption: multiple reasons why
+
+00:28:10.319 --> 00:28:16.239
+Caption: local features importance and global
+
+00:28:12.479 --> 00:28:17.199
+Caption: features importance value differ um it
+
+00:28:16.239 --> 00:28:20.959
+Caption: might
+
+00:28:17.199 --> 00:28:22.880
+Caption: means that dear might have a lower marks
+
+00:28:20.959 --> 00:28:25.038
+Caption: than the average compared to other
+
+00:28:22.880 --> 00:28:26.719
+Caption: students but she&#39;s a good fit because
+
+00:28:25.038 --> 00:28:28.719
+Caption: company cares about her hands-on
+
+00:28:26.719 --> 00:28:30.880
+Caption: experience with hackathons and
+
+00:28:28.719 --> 00:28:31.760
+Caption: contribution to the github project
+
+00:28:30.880 --> 00:28:34.479
+Caption: and
+
+00:28:31.760 --> 00:28:36.320
+Caption: there we have it michelle
+
+00:28:34.479 --> 00:28:38.558
+Caption: good it&#39;s easier right to create an
+
+00:28:36.319 --> 00:28:39.519
+Caption: explainer
+
+00:28:38.558 --> 00:28:41.520
+Caption: so
+
+00:28:39.520 --> 00:28:43.599
+Caption: earlier i was talking about the computer
+
+00:28:41.520 --> 00:28:46.080
+Caption: in the hitchhiker&#39;s guide to the galaxy
+
+00:28:43.599 --> 00:28:48.319
+Caption: and how it created a mimic model with a
+
+00:28:46.079 --> 00:28:50.000
+Caption: pfi explainer to interpret what the
+
+00:28:48.319 --> 00:28:52.239
+Caption: questions was
+
+00:28:50.000 --> 00:28:55.038
+Caption: this technique can be compared to a
+
+00:28:52.239 --> 00:28:56.640
+Caption: child learning to annoy their parents
+
+00:28:55.038 --> 00:28:58.639
+Caption: so the child starts with no
+
+00:28:56.640 --> 00:29:00.000
+Caption: preconceptions as to what makes their
+
+00:28:58.640 --> 00:29:01.839
+Caption: parent angry
+
+00:29:00.000 --> 00:29:04.079
+Caption: and then they can test their parents by
+
+00:29:01.839 --> 00:29:05.839
+Caption: picking a random set of actions over the
+
+00:29:04.079 --> 00:29:08.239
+Caption: course of a week and noting how their
+
+00:29:05.839 --> 00:29:11.038
+Caption: parent responds to those actions
+
+00:29:08.239 --> 00:29:13.038
+Caption: so while a parent may exhibit a
+
+00:29:11.038 --> 00:29:15.119
+Caption: non-binary response for each of these
+
+00:29:13.038 --> 00:29:18.239
+Caption: let&#39;s pretend that the child&#39;s actions
+
+00:29:15.119 --> 00:29:20.000
+Caption: are either bad or good to classes
+
+00:29:18.239 --> 00:29:21.599
+Caption: and so after the first week the child
+
+00:29:20.000 --> 00:29:23.760
+Caption: has learned quite a bit about what
+
+00:29:21.599 --> 00:29:26.000
+Caption: bothers their parents and makes an
+
+00:29:23.760 --> 00:29:27.440
+Caption: educated guess as to what they what
+
+00:29:26.000 --> 00:29:30.719
+Caption: would what else would bother their
+
+00:29:27.439 --> 00:29:34.639
+Caption: parents so in the next week their child
+
+00:29:30.719 --> 00:29:37.520
+Caption: doubles down on those actions that was
+
+00:29:34.640 --> 00:29:40.320
+Caption: that were annoying and takes even more
+
+00:29:37.520 --> 00:29:42.558
+Caption: that it thinks will um you know really
+
+00:29:40.319 --> 00:29:44.319
+Caption: push its parents over the edge testing
+
+00:29:42.558 --> 00:29:46.719
+Caption: the boundary
+
+00:29:44.319 --> 00:29:49.119
+Caption: exactly it so the child repeats this
+
+00:29:46.719 --> 00:29:51.038
+Caption: each week noting their parents responses
+
+00:29:49.119 --> 00:29:53.038
+Caption: and adjusting their understanding of
+
+00:29:51.038 --> 00:29:55.119
+Caption: what will bother their parents until
+
+00:29:53.038 --> 00:29:56.639
+Caption: they know exactly what annoys them and
+
+00:29:55.119 --> 00:29:58.959
+Caption: what doesn&#39;t
+
+00:29:56.640 --> 00:30:00.880
+Caption: the augmented data is labeled by the
+
+00:29:58.959 --> 00:30:03.439
+Caption: black box model and used to train a
+
+00:30:00.880 --> 00:30:05.678
+Caption: better substitute model so just like
+
+00:30:03.439 --> 00:30:07.759
+Caption: with the child the substitute model gets
+
+00:30:05.678 --> 00:30:10.398
+Caption: a more precise understanding as to where
+
+00:30:07.760 --> 00:30:12.399
+Caption: the black boxes models decision
+
+00:30:10.399 --> 00:30:14.799
+Caption: boundaries are and after a few
+
+00:30:12.399 --> 00:30:16.960
+Caption: iterations of this the substitute model
+
+00:30:14.798 --> 00:30:21.278
+Caption: shares almost exactly the same decision
+
+00:30:16.959 --> 00:30:21.278
+Caption: boundaries at the as the black box model
+
+00:30:21.439 --> 00:30:27.278
+Caption: so it would help if we visualize the
+
+00:30:24.079 --> 00:30:29.760
+Caption: result from our explanation
+
+00:30:27.279 --> 00:30:31.919
+Caption: remember that local features important
+
+00:30:29.760 --> 00:30:33.599
+Caption: split out a lot of things in the jupyter
+
+00:30:31.918 --> 00:30:36.000
+Caption: notebook cell
+
+00:30:33.599 --> 00:30:37.918
+Caption: reading from the result from that cell
+
+00:30:36.000 --> 00:30:39.678
+Caption: can be difficult and we can have a
+
+00:30:37.918 --> 00:30:41.599
+Caption: simpler way to
+
+00:30:39.678 --> 00:30:45.439
+Caption: visualize the explainer by using the
+
+00:30:41.599 --> 00:30:48.079
+Caption: responsible ai widgets this package will
+
+00:30:45.439 --> 00:30:50.398
+Caption: provide a collections of model and data
+
+00:30:48.079 --> 00:30:52.640
+Caption: explorations and assessment in a nice
+
+00:30:50.399 --> 00:30:55.840
+Caption: user interface way that enable a better
+
+00:30:52.640 --> 00:30:58.399
+Caption: understanding of the ai and ml systems
+
+00:30:55.839 --> 00:31:00.959
+Caption: we call the explanation dashboard on our
+
+00:30:58.399 --> 00:31:02.720
+Caption: previously defined global explainer and
+
+00:31:00.959 --> 00:31:04.959
+Caption: prediction model
+
+00:31:02.719 --> 00:31:06.719
+Caption: remember it was the logistic regression
+
+00:31:04.959 --> 00:31:08.959
+Caption: and then we will see that that&#39;s what
+
+00:31:06.719 --> 00:31:11.038
+Caption: pops up there you go the dashboard is
+
+00:31:08.959 --> 00:31:13.038
+Caption: there and um
+
+00:31:11.038 --> 00:31:15.359
+Caption: if this is too small which is too small
+
+00:31:13.038 --> 00:31:17.199
+Caption: for me i follow the generated link on my
+
+00:31:15.359 --> 00:31:19.519
+Caption: compute instance
+
+00:31:17.199 --> 00:31:21.918
+Caption: that is being hosted on azure
+
+00:31:19.519 --> 00:31:24.720
+Caption: to see a fuller dashboard
+
+00:31:21.918 --> 00:31:26.639
+Caption: now if you go to the third tab aggregate
+
+00:31:24.719 --> 00:31:29.119
+Caption: feature importance
+
+00:31:26.640 --> 00:31:31.599
+Caption: that will give you the interface for
+
+00:31:29.119 --> 00:31:34.158
+Caption: interactive visualization of the global
+
+00:31:31.599 --> 00:31:36.479
+Caption: features importance and if you go to the
+
+00:31:34.159 --> 00:31:38.159
+Caption: last tab individual features importance
+
+00:31:36.479 --> 00:31:40.319
+Caption: and what if
+
+00:31:38.159 --> 00:31:42.720
+Caption: it will give you the visualization of
+
+00:31:40.319 --> 00:31:44.558
+Caption: the local features important and click
+
+00:31:42.719 --> 00:31:45.518
+Caption: if you click on the individual data
+
+00:31:44.558 --> 00:31:48.880
+Caption: points
+
+00:31:45.519 --> 00:31:51.359
+Caption: you can see how the
+
+00:31:48.880 --> 00:31:53.279
+Caption: explainer results change
+
+00:31:51.359 --> 00:31:54.959
+Caption: you can play around with it
+
+00:31:53.279 --> 00:31:57.519
+Caption: and you can play around with these
+
+00:31:54.959 --> 00:31:59.439
+Caption: visualizations however you like the
+
+00:31:57.519 --> 00:32:00.480
+Caption: dashboard will give you so much
+
+00:31:59.439 --> 00:32:02.879
+Caption: flexibility
+
+00:32:00.479 --> 00:32:05.839
+Caption: that helps enhance the understanding of
+
+00:32:02.880 --> 00:32:09.119
+Caption: the motto and the credibility
+
+00:32:05.839 --> 00:32:11.599
+Caption: and that&#39;s it michelle visualizing the
+
+00:32:09.119 --> 00:32:11.599
+Caption: results
+
+00:32:12.239 --> 00:32:15.839
+Caption: yep once you keep going seems to be
+
+00:32:13.760 --> 00:32:17.519
+Caption: still going to yeah yeah they&#39;re still
+
+00:32:15.839 --> 00:32:20.079
+Caption: going there&#39;s so much there&#39;s so much to
+
+00:32:17.519 --> 00:32:22.640
+Caption: show right
+
+00:32:20.079 --> 00:32:24.079
+Caption: so earlier i was speaking about the
+
+00:32:22.640 --> 00:32:26.159
+Caption: computer in the hitchhiker&#39;s guide to
+
+00:32:24.079 --> 00:32:28.640
+Caption: the galaxy and now it created a mimic
+
+00:32:26.159 --> 00:32:31.279
+Caption: model with a pfi explainer to interpret
+
+00:32:28.640 --> 00:32:32.239
+Caption: what the question was wait
+
+00:32:31.279 --> 00:32:36.159
+Caption: oh
+
+00:32:32.239 --> 00:32:36.158
+Caption: sorry i&#39;ve already done that
+
+00:32:36.798 --> 00:32:43.000
+Caption: i feel like you know you have a sense of
+
+00:32:38.558 --> 00:32:43.000
+Caption: deja vu here we go
+
+00:32:43.199 --> 00:32:48.158
+Caption: so it&#39;s become quite common in these
+
+00:32:45.678 --> 00:32:50.640
+Caption: days to hear people refer to modern
+
+00:32:48.159 --> 00:32:53.039
+Caption: machine learning systems as black boxes
+
+00:32:50.640 --> 00:32:55.119
+Caption: but in many cases they are not it just
+
+00:32:53.038 --> 00:32:57.839
+Caption: seems like they are because they are
+
+00:32:55.119 --> 00:33:00.079
+Caption: like people complicated
+
+00:32:57.839 --> 00:33:02.079
+Caption: so when we ask someone why they did
+
+00:33:00.079 --> 00:33:04.079
+Caption: something we&#39;re operating on a certain
+
+00:33:02.079 --> 00:33:06.558
+Caption: set of assumptions we&#39;re typically
+
+00:33:04.079 --> 00:33:08.640
+Caption: assuming that they had some good reason
+
+00:33:06.558 --> 00:33:10.398
+Caption: for acting as they did and we are
+
+00:33:08.640 --> 00:33:12.000
+Caption: basically asking for the reasoning
+
+00:33:10.399 --> 00:33:13.519
+Caption: process that they use to make that
+
+00:33:12.000 --> 00:33:15.678
+Caption: decision
+
+00:33:13.519 --> 00:33:17.840
+Caption: however when we&#39;re asking why something
+
+00:33:15.678 --> 00:33:19.918
+Caption: went wrong we are instead asking for
+
+00:33:17.839 --> 00:33:22.319
+Caption: some kind of root cause analysis of the
+
+00:33:19.918 --> 00:33:24.798
+Caption: failure for example after a bike
+
+00:33:22.319 --> 00:33:27.119
+Caption: accident we might want an explanation of
+
+00:33:24.798 --> 00:33:31.278
+Caption: what caused the accident was gia
+
+00:33:27.119 --> 00:33:33.918
+Caption: distracted did another rider swerve into
+
+00:33:31.279 --> 00:33:37.200
+Caption: her was she drunk
+
+00:33:33.918 --> 00:33:37.199
+Caption: no i was not
+
+00:33:37.279 --> 00:33:41.440
+Caption: rather than a process of reasoning we&#39;re
+
+00:33:39.199 --> 00:33:43.760
+Caption: asking more or less for the critical
+
+00:33:41.439 --> 00:33:47.199
+Caption: stimulus that caused this particular
+
+00:33:43.760 --> 00:33:49.039
+Caption: reaction outside of normal behavior i
+
+00:33:47.199 --> 00:33:52.719
+Caption: thought that was normal there&#39;s a
+
+00:33:49.038 --> 00:33:55.199
+Caption: separate scale for you
+
+00:33:52.719 --> 00:33:57.359
+Caption: so with machine learning models you can
+
+00:33:55.199 --> 00:34:00.079
+Caption: choose to elevate certain features above
+
+00:33:57.359 --> 00:34:02.398
+Caption: others salary and existing debt in a
+
+00:34:00.079 --> 00:34:03.839
+Caption: lane approval tool for example or
+
+00:34:02.399 --> 00:34:06.799
+Caption: certain features might rise to
+
+00:34:03.839 --> 00:34:10.638
+Caption: prominence through training i&#39;ve been
+
+00:34:06.798 --> 00:34:12.078
+Caption: training the azure percept lego car to
+
+00:34:10.638 --> 00:34:14.078
+Caption: avoid cones
+
+00:34:12.079 --> 00:34:15.119
+Caption: but i haven&#39;t trained it to avoid lego
+
+00:34:14.079 --> 00:34:17.200
+Caption: people
+
+00:34:15.118 --> 00:34:18.479
+Caption: so it would definitely just mow those
+
+00:34:17.199 --> 00:34:21.118
+Caption: people down
+
+00:34:18.479 --> 00:34:24.638
+Caption: unless it mistook them for keynes
+
+00:34:21.118 --> 00:34:24.638
+Caption: but why did it mow down the people
+
+00:34:24.719 --> 00:34:29.918
+Caption: it wasn&#39;t a decision that the percept
+
+00:34:28.079 --> 00:34:32.560
+Caption: car made
+
+00:34:29.918 --> 00:34:33.760
+Caption: that you know lego people are more evil
+
+00:34:32.560 --> 00:34:35.678
+Caption: than cones
+
+00:34:33.760 --> 00:34:37.359
+Caption: because obviously they are more evil
+
+00:34:35.678 --> 00:34:40.000
+Caption: than canes
+
+00:34:37.358 --> 00:34:42.398
+Caption: it&#39;s simply that it doesn&#39;t recognize
+
+00:34:40.000 --> 00:34:44.239
+Caption: lego people as anything as anything
+
+00:34:42.398 --> 00:34:45.439
+Caption: valuable at all
+
+00:34:44.239 --> 00:34:46.239
+Caption: um
+
+00:34:45.439 --> 00:34:47.918
+Caption: so
+
+00:34:46.239 --> 00:34:49.839
+Caption: the purpose of this session was to show
+
+00:34:47.918 --> 00:34:51.598
+Caption: you that despite
+
+00:34:49.839 --> 00:34:53.440
+Caption: the fact that one at least in part
+
+00:34:51.599 --> 00:34:55.440
+Caption: created the other
+
+00:34:53.439 --> 00:34:57.598
+Caption: we&#39;re not so different machine learning
+
+00:34:55.439 --> 00:35:00.078
+Caption: models can be interpreted and there are
+
+00:34:57.599 --> 00:35:02.960
+Caption: many models and many ways to gain
+
+00:35:00.079 --> 00:35:04.720
+Caption: insight into what they&#39;re doing
+
+00:35:02.959 --> 00:35:09.358
+Caption: possibly more than we have to tackle
+
+00:35:04.719 --> 00:35:11.838
+Caption: humanity as individual decision makers
+
+00:35:09.358 --> 00:35:15.439
+Caption: so michelle what&#39;s next
+
+00:35:11.839 --> 00:35:17.520
+Caption: so we have a whole bunch of
+
+00:35:15.439 --> 00:35:20.159
+Caption: learning paths here this is the one that
+
+00:35:17.520 --> 00:35:21.439
+Caption: gia and i followed any in order to
+
+00:35:20.159 --> 00:35:23.679
+Caption: understand
+
+00:35:21.439 --> 00:35:26.159
+Caption: the black box models and explain the
+
+00:35:23.679 --> 00:35:28.800
+Caption: models so if you want to do what we have
+
+00:35:26.159 --> 00:35:32.000
+Caption: done follow this one here
+
+00:35:28.800 --> 00:35:34.640
+Caption: um there&#39;s also like a bunch of free
+
+00:35:32.000 --> 00:35:36.560
+Caption: learning resources on microsoft learn if
+
+00:35:34.639 --> 00:35:39.279
+Caption: you want to know how to be a data
+
+00:35:36.560 --> 00:35:43.040
+Caption: scientist a data engineer
+
+00:35:39.280 --> 00:35:45.839
+Caption: an ai engineer a business analyst
+
+00:35:43.040 --> 00:35:45.839
+Caption: uh
+
+00:35:46.959 --> 00:35:50.479
+Caption: i cannot
+
+00:35:48.079 --> 00:35:52.239
+Caption: cannot even remember all of many all of
+
+00:35:50.479 --> 00:35:53.598
+Caption: the learning paths that there are there
+
+00:35:52.239 --> 00:35:55.358
+Caption: there&#39;s really a lot there is something
+
+00:35:53.599 --> 00:35:58.079
+Caption: for everyone so check those out on
+
+00:35:55.358 --> 00:36:01.199
+Caption: microsoft learn those are all free and a
+
+00:35:58.079 --> 00:36:03.280
+Caption: lot of them lead to certifications which
+
+00:36:01.199 --> 00:36:05.040
+Caption: are the part you need to pay for but
+
+00:36:03.280 --> 00:36:08.000
+Caption: it&#39;s only like 100 and if you&#39;re a
+
+00:36:05.040 --> 00:36:10.800
+Caption: student it&#39;s only 15
+
+00:36:08.000 --> 00:36:13.439
+Caption: and there&#39;s also a bunch of learning
+
+00:36:10.800 --> 00:36:14.560
+Caption: that has been created by the azure cloud
+
+00:36:13.439 --> 00:36:16.479
+Caption: advocates
+
+00:36:14.560 --> 00:36:18.640
+Caption: so if you want to learn about machine
+
+00:36:16.479 --> 00:36:19.838
+Caption: learning we also followed this one for
+
+00:36:18.639 --> 00:36:23.118
+Caption: this course
+
+00:36:19.839 --> 00:36:26.560
+Caption: and there is a iot one
+
+00:36:23.118 --> 00:36:27.838
+Caption: there is a web programming one webdav
+
+00:36:26.560 --> 00:36:30.160
+Caption: for beginners
+
+00:36:27.839 --> 00:36:33.200
+Caption: which i need to i need to do that one as
+
+00:36:30.159 --> 00:36:36.239
+Caption: well because my
+
+00:36:33.199 --> 00:36:39.040
+Caption: my coding is not as good as it could be
+
+00:36:36.239 --> 00:36:40.239
+Caption: oh we can only improve on it yeah
+
+00:36:39.040 --> 00:36:42.640
+Caption: and if you would like to join the
+
+00:36:40.239 --> 00:36:45.358
+Caption: community then that would be really
+
+00:36:42.639 --> 00:36:48.399
+Caption: awesome uh you will get
+
+00:36:45.358 --> 00:36:50.959
+Caption: access to more webinars more free
+
+00:36:48.399 --> 00:36:52.239
+Caption: training uh more interesting events that
+
+00:36:50.959 --> 00:36:55.280
+Caption: you can come to
+
+00:36:52.239 --> 00:36:57.919
+Caption: and potentially free swag
+
+00:36:55.280 --> 00:36:58.959
+Caption: thanks for listening to us today
+
+00:36:57.919 --> 00:37:01.959
+Caption: thank you
+
+00:36:58.959 --> 00:37:01.959
+Caption: goodbye
+

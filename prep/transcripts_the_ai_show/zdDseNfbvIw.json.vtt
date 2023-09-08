@@ -1,0 +1,2952 @@
+[
+    {
+        "text": "hey everyone I am Cassie preview and you",
+        "start": 0.0,
+        "duration": 3.84
+    },
+    {
+        "text": "are not going to want to miss this",
+        "start": 2.52,
+        "duration": 3.12
+    },
+    {
+        "text": "episode of the AI show where we are",
+        "start": 3.84,
+        "duration": 3.539
+    },
+    {
+        "text": "going to talk to Intel about the",
+        "start": 5.64,
+        "duration": 5.1
+    },
+    {
+        "text": "openvino toolkit inside Onyx runtime",
+        "start": 7.379,
+        "duration": 6.501
+    },
+    {
+        "text": "let's take a look",
+        "start": 10.74,
+        "duration": 3.14
+    },
+    {
+        "text": "[Music]",
+        "start": 14.96,
+        "duration": 6.34
+    },
+    {
+        "text": "thanks so much for joining me today",
+        "start": 21.42,
+        "duration": 4.08
+    },
+    {
+        "text": "uh why don't you guys tell me a little",
+        "start": 23.939,
+        "duration": 3.6
+    },
+    {
+        "text": "bit about yourself",
+        "start": 25.5,
+        "duration": 4.439
+    },
+    {
+        "text": "hey Cassie my name is devong I'm",
+        "start": 27.539,
+        "duration": 4.381
+    },
+    {
+        "text": "currently a technical product manager at",
+        "start": 29.939,
+        "duration": 4.381
+    },
+    {
+        "text": "Intel part of the open Vino team and I'm",
+        "start": 31.92,
+        "duration": 4.139
+    },
+    {
+        "text": "currently managing the product open Vino",
+        "start": 34.32,
+        "duration": 4.32
+    },
+    {
+        "text": "execution provider for onyx frontpack",
+        "start": 36.059,
+        "duration": 5.18
+    },
+    {
+        "text": "awesome",
+        "start": 38.64,
+        "duration": 2.599
+    },
+    {
+        "text": "hi Casey I'm Akila I'm working as a deep",
+        "start": 41.52,
+        "duration": 5.52
+    },
+    {
+        "text": "learning engineer at Intel and I'm",
+        "start": 45.0,
+        "duration": 4.02
+    },
+    {
+        "text": "working on various framework patients",
+        "start": 47.04,
+        "duration": 4.499
+    },
+    {
+        "text": "and one of them is Onyx runtime and I am",
+        "start": 49.02,
+        "duration": 4.68
+    },
+    {
+        "text": "currently working on workflows which is",
+        "start": 51.539,
+        "duration": 5.16
+    },
+    {
+        "text": "like ml Ops uh",
+        "start": 53.7,
+        "duration": 5.82
+    },
+    {
+        "text": "awesome I just did a talk on ML apps I",
+        "start": 56.699,
+        "duration": 4.981
+    },
+    {
+        "text": "think it's such a cool topic and there's",
+        "start": 59.52,
+        "duration": 3.48
+    },
+    {
+        "text": "so much exciting things happening in",
+        "start": 61.68,
+        "duration": 3.24
+    },
+    {
+        "text": "that space But today we're going to be",
+        "start": 63.0,
+        "duration": 4.56
+    },
+    {
+        "text": "talking about execution providers and if",
+        "start": 64.92,
+        "duration": 4.559
+    },
+    {
+        "text": "you don't know what those are",
+        "start": 67.56,
+        "duration": 3.419
+    },
+    {
+        "text": "um they are part of Onyx runtime which",
+        "start": 69.479,
+        "duration": 3.781
+    },
+    {
+        "text": "allows you to accelerate your models on",
+        "start": 70.979,
+        "duration": 3.721
+    },
+    {
+        "text": "different Hardware so it allows you to",
+        "start": 73.26,
+        "duration": 3.48
+    },
+    {
+        "text": "optimize and take advantage of those",
+        "start": 74.7,
+        "duration": 3.54
+    },
+    {
+        "text": "different capabilities in different",
+        "start": 76.74,
+        "duration": 3.84
+    },
+    {
+        "text": "compute platforms this is important for",
+        "start": 78.24,
+        "duration": 4.26
+    },
+    {
+        "text": "application developers because it allows",
+        "start": 80.58,
+        "duration": 3.96
+    },
+    {
+        "text": "them to deploy their models on different",
+        "start": 82.5,
+        "duration": 3.72
+    },
+    {
+        "text": "Hardware whether it's cloud and Edge and",
+        "start": 84.54,
+        "duration": 3.719
+    },
+    {
+        "text": "still get the performance that they need",
+        "start": 86.22,
+        "duration": 4.74
+    },
+    {
+        "text": "so examples of those would be like Cuda",
+        "start": 88.259,
+        "duration": 5.281
+    },
+    {
+        "text": "direct ml or openvino like we're going",
+        "start": 90.96,
+        "duration": 5.159
+    },
+    {
+        "text": "to be talking about today so let's jump",
+        "start": 93.54,
+        "duration": 4.38
+    },
+    {
+        "text": "in how can developers creating Onyx",
+        "start": 96.119,
+        "duration": 3.841
+    },
+    {
+        "text": "models accelerate inference with Intel",
+        "start": 97.92,
+        "duration": 4.199
+    },
+    {
+        "text": "Hardware can you introduce us to the",
+        "start": 99.96,
+        "duration": 4.38
+    },
+    {
+        "text": "openvino execution provider",
+        "start": 102.119,
+        "duration": 4.921
+    },
+    {
+        "text": "sure absolutely Cassie so um in a",
+        "start": 104.34,
+        "duration": 4.44
+    },
+    {
+        "text": "nutshell open you know toolkit does all",
+        "start": 107.04,
+        "duration": 3.42
+    },
+    {
+        "text": "the magic aimed at boosting the",
+        "start": 108.78,
+        "duration": 3.299
+    },
+    {
+        "text": "performance of your deep learning models",
+        "start": 110.46,
+        "duration": 3.659
+    },
+    {
+        "text": "uh using some of the most advanced",
+        "start": 112.079,
+        "duration": 3.661
+    },
+    {
+        "text": "optimization techniques specifically",
+        "start": 114.119,
+        "duration": 3.54
+    },
+    {
+        "text": "optimized for Intel Hardware",
+        "start": 115.74,
+        "duration": 3.659
+    },
+    {
+        "text": "so now developers can actually Leverage",
+        "start": 117.659,
+        "duration": 3.541
+    },
+    {
+        "text": "The Power of openvino toolkit through",
+        "start": 119.399,
+        "duration": 4.141
+    },
+    {
+        "text": "Onyx runtime to accelerate inferencing",
+        "start": 121.2,
+        "duration": 4.019
+    },
+    {
+        "text": "of Onyx models",
+        "start": 123.54,
+        "duration": 3.539
+    },
+    {
+        "text": "so how exactly does open window",
+        "start": 125.219,
+        "duration": 3.841
+    },
+    {
+        "text": "execution provider actually work so",
+        "start": 127.079,
+        "duration": 3.721
+    },
+    {
+        "text": "users continue to actually import the",
+        "start": 129.06,
+        "duration": 3.96
+    },
+    {
+        "text": "Onyx runtime library after installing",
+        "start": 130.8,
+        "duration": 4.62
+    },
+    {
+        "text": "our package from Pi Pi uh the it's",
+        "start": 133.02,
+        "duration": 4.02
+    },
+    {
+        "text": "basically if installed on its runtime",
+        "start": 135.42,
+        "duration": 4.26
+    },
+    {
+        "text": "openvino but now with a simple",
+        "start": 137.04,
+        "duration": 4.62
+    },
+    {
+        "text": "modification to the instant session line",
+        "start": 139.68,
+        "duration": 4.02
+    },
+    {
+        "text": "of code where they have to just set the",
+        "start": 141.66,
+        "duration": 4.02
+    },
+    {
+        "text": "provider's open Vino execution provider",
+        "start": 143.7,
+        "duration": 4.08
+    },
+    {
+        "text": "they can utilize the power of openvino",
+        "start": 145.68,
+        "duration": 5.1
+    },
+    {
+        "text": "while using the Onyx runtime apis all it",
+        "start": 147.78,
+        "duration": 4.679
+    },
+    {
+        "text": "takes is really that simple modification",
+        "start": 150.78,
+        "duration": 4.02
+    },
+    {
+        "text": "to the lineup code a little bit of",
+        "start": 152.459,
+        "duration": 4.321
+    },
+    {
+        "text": "history behind this is that back in 2019",
+        "start": 154.8,
+        "duration": 3.6
+    },
+    {
+        "text": "Intel and Microsoft actually joined",
+        "start": 156.78,
+        "duration": 3.539
+    },
+    {
+        "text": "hands to create this product which",
+        "start": 158.4,
+        "duration": 3.419
+    },
+    {
+        "text": "delivers this better inferencing",
+        "start": 160.319,
+        "duration": 2.761
+    },
+    {
+        "text": "performance on the same Hardware",
+        "start": 161.819,
+        "duration": 4.021
+    },
+    {
+        "text": "compared to generic acceleration on",
+        "start": 163.08,
+        "duration": 5.58
+    },
+    {
+        "text": "Intel compute devices",
+        "start": 165.84,
+        "duration": 6.3
+    },
+    {
+        "text": "that's uh super awesome so I love to see",
+        "start": 168.66,
+        "duration": 6.6
+    },
+    {
+        "text": "how things work can you share a demo",
+        "start": 172.14,
+        "duration": 4.44
+    },
+    {
+        "text": "that shows us how this flow actually",
+        "start": 175.26,
+        "duration": 3.9
+    },
+    {
+        "text": "works with the execution provider of the",
+        "start": 176.58,
+        "duration": 4.2
+    },
+    {
+        "text": "openvino one and how that kind of works",
+        "start": 179.16,
+        "duration": 4.799
+    },
+    {
+        "text": "with Intel Hardware sure absolutely",
+        "start": 180.78,
+        "duration": 3.84
+    },
+    {
+        "text": "um",
+        "start": 183.959,
+        "duration": 3.481
+    },
+    {
+        "text": "absolutely so today I'll be showing a",
+        "start": 184.62,
+        "duration": 5.52
+    },
+    {
+        "text": "demo um that showcases a popular deep",
+        "start": 187.44,
+        "duration": 4.82
+    },
+    {
+        "text": "learning model right now called YOLO V7",
+        "start": 190.14,
+        "duration": 5.519
+    },
+    {
+        "text": "uh so uh this this demo basically the",
+        "start": 192.26,
+        "duration": 5.14
+    },
+    {
+        "text": "sample involves presenting an image to",
+        "start": 195.659,
+        "duration": 4.141
+    },
+    {
+        "text": "Onyx runtime which then uses the open",
+        "start": 197.4,
+        "duration": 3.96
+    },
+    {
+        "text": "window execution provider to run",
+        "start": 199.8,
+        "duration": 5.159
+    },
+    {
+        "text": "inferencing on the on an Intel CPU and",
+        "start": 201.36,
+        "duration": 5.159
+    },
+    {
+        "text": "you'll be able to see the accelerated",
+        "start": 204.959,
+        "duration": 4.14
+    },
+    {
+        "text": "performance for yourself so uh walking",
+        "start": 206.519,
+        "duration": 4.381
+    },
+    {
+        "text": "through this demo right now first of all",
+        "start": 209.099,
+        "duration": 3.841
+    },
+    {
+        "text": "we start off with just downloading the",
+        "start": 210.9,
+        "duration": 4.44
+    },
+    {
+        "text": "uh co-validation data set this that's",
+        "start": 212.94,
+        "duration": 3.6
+    },
+    {
+        "text": "the cocoa data set it's very popular",
+        "start": 215.34,
+        "duration": 3.899
+    },
+    {
+        "text": "data set that we that the YOLO model is",
+        "start": 216.54,
+        "duration": 4.8
+    },
+    {
+        "text": "trained on",
+        "start": 219.239,
+        "duration": 3.241
+    },
+    {
+        "text": "um all right",
+        "start": 221.34,
+        "duration": 4.38
+    },
+    {
+        "text": "um we have the export uh um capability",
+        "start": 222.48,
+        "duration": 5.039
+    },
+    {
+        "text": "where we take the uh Pi torch model",
+        "start": 225.72,
+        "duration": 3.659
+    },
+    {
+        "text": "because your low V7 was actually trained",
+        "start": 227.519,
+        "duration": 3.961
+    },
+    {
+        "text": "in pi torch uh that Pi torch model will",
+        "start": 229.379,
+        "duration": 4.681
+    },
+    {
+        "text": "be converted to Onyx format right so for",
+        "start": 231.48,
+        "duration": 5.22
+    },
+    {
+        "text": "sake of time I'm I I will I will not be",
+        "start": 234.06,
+        "duration": 5.399
+    },
+    {
+        "text": "running these uh cells but um but we've",
+        "start": 236.7,
+        "duration": 5.34
+    },
+    {
+        "text": "already run this in in the past but uh",
+        "start": 239.459,
+        "duration": 5.101
+    },
+    {
+        "text": "we we have converted the uh the pytos",
+        "start": 242.04,
+        "duration": 5.52
+    },
+    {
+        "text": "model to Onyx and we provide an input",
+        "start": 244.56,
+        "duration": 5.039
+    },
+    {
+        "text": "image we we download this this this",
+        "start": 247.56,
+        "duration": 3.78
+    },
+    {
+        "text": "input image the image that we are",
+        "start": 249.599,
+        "duration": 3.36
+    },
+    {
+        "text": "downloading right now is an image of a",
+        "start": 251.34,
+        "duration": 4.38
+    },
+    {
+        "text": "cat so that will be the image which",
+        "start": 252.959,
+        "duration": 4.861
+    },
+    {
+        "text": "we'll be inferring on",
+        "start": 255.72,
+        "duration": 5.519
+    },
+    {
+        "text": "um afterwards uh we uh do uh the PIP",
+        "start": 257.82,
+        "duration": 5.04
+    },
+    {
+        "text": "install Onyx runtime that's open we know",
+        "start": 261.239,
+        "duration": 3.061
+    },
+    {
+        "text": "which I just mentioned right which we",
+        "start": 262.86,
+        "duration": 2.88
+    },
+    {
+        "text": "are trying to get access to the open",
+        "start": 264.3,
+        "duration": 4.5
+    },
+    {
+        "text": "Windows provider so we installed the uh",
+        "start": 265.74,
+        "duration": 4.739
+    },
+    {
+        "text": "this package",
+        "start": 268.8,
+        "duration": 3.78
+    },
+    {
+        "text": "um after this we can we import all the",
+        "start": 270.479,
+        "duration": 3.901
+    },
+    {
+        "text": "required libraries as you can see over",
+        "start": 272.58,
+        "duration": 3.36
+    },
+    {
+        "text": "here it's just we continue to just",
+        "start": 274.38,
+        "duration": 3.9
+    },
+    {
+        "text": "import Onyx runtime itself",
+        "start": 275.94,
+        "duration": 4.979
+    },
+    {
+        "text": "uh so once we uh dip installation 10.",
+        "start": 278.28,
+        "duration": 4.74
+    },
+    {
+        "text": "open we know uh there's no real specific",
+        "start": 280.919,
+        "duration": 4.021
+    },
+    {
+        "text": "different package that we have to import",
+        "start": 283.02,
+        "duration": 4.86
+    },
+    {
+        "text": "it still packages at the library",
+        "start": 284.94,
+        "duration": 5.22
+    },
+    {
+        "text": "so we do all the Imports for the",
+        "start": 287.88,
+        "duration": 4.14
+    },
+    {
+        "text": "required libraries",
+        "start": 290.16,
+        "duration": 3.96
+    },
+    {
+        "text": "the next part for us is actually doing",
+        "start": 292.02,
+        "duration": 4.14
+    },
+    {
+        "text": "the pre-processing of the image so this",
+        "start": 294.12,
+        "duration": 4.019
+    },
+    {
+        "text": "is basically allowing the resize this",
+        "start": 296.16,
+        "duration": 4.2
+    },
+    {
+        "text": "image to a shape which is expected by",
+        "start": 298.139,
+        "duration": 4.5
+    },
+    {
+        "text": "the model right uh so that's essentially",
+        "start": 300.36,
+        "duration": 3.96
+    },
+    {
+        "text": "doing all the reshaping and all that",
+        "start": 302.639,
+        "duration": 3.361
+    },
+    {
+        "text": "stuff so that we can do it this is",
+        "start": 304.32,
+        "duration": 3.84
+    },
+    {
+        "text": "actually right now helper function so",
+        "start": 306.0,
+        "duration": 3.419
+    },
+    {
+        "text": "um we're going to be using this helper",
+        "start": 308.16,
+        "duration": 4.02
+    },
+    {
+        "text": "function later on in this demo to what",
+        "start": 309.419,
+        "duration": 4.201
+    },
+    {
+        "text": "we'll make making the call to do the",
+        "start": 312.18,
+        "duration": 3.12
+    },
+    {
+        "text": "pre-processing",
+        "start": 313.62,
+        "duration": 4.079
+    },
+    {
+        "text": "um afterwards what we do is uh we have",
+        "start": 315.3,
+        "duration": 4.44
+    },
+    {
+        "text": "various different labels",
+        "start": 317.699,
+        "duration": 3.601
+    },
+    {
+        "text": "um so we're actually assigning the color",
+        "start": 319.74,
+        "duration": 4.56
+    },
+    {
+        "text": "values to those labels right so um based",
+        "start": 321.3,
+        "duration": 5.28
+    },
+    {
+        "text": "on the label I mean the detection that",
+        "start": 324.3,
+        "duration": 4.14
+    },
+    {
+        "text": "we're doing based on that that will be",
+        "start": 326.58,
+        "duration": 3.36
+    },
+    {
+        "text": "the image of that box",
+        "start": 328.44,
+        "duration": 3.84
+    },
+    {
+        "text": "action so that's essentially the the",
+        "start": 329.94,
+        "duration": 5.46
+    },
+    {
+        "text": "color for the label mapping those",
+        "start": 332.28,
+        "duration": 6.66
+    },
+    {
+        "text": "um and then we have functions to do the",
+        "start": 335.4,
+        "duration": 5.28
+    },
+    {
+        "text": "reading and reprocessing of the image so",
+        "start": 338.94,
+        "duration": 4.86
+    },
+    {
+        "text": "this is where we actually read the image",
+        "start": 340.68,
+        "duration": 4.079
+    },
+    {
+        "text": "in",
+        "start": 343.8,
+        "duration": 3.179
+    },
+    {
+        "text": "um and then we actually perform the",
+        "start": 344.759,
+        "duration": 5.241
+    },
+    {
+        "text": "pre-processing on that individual",
+        "start": 346.979,
+        "duration": 6.841
+    },
+    {
+        "text": "next is when we is is when we actually",
+        "start": 350.0,
+        "duration": 6.759
+    },
+    {
+        "text": "um look at how we can set the or create",
+        "start": 353.82,
+        "duration": 5.76
+    },
+    {
+        "text": "this um inference session through Onyx",
+        "start": 356.759,
+        "duration": 5.16
+    },
+    {
+        "text": "runtime right so this function another",
+        "start": 359.58,
+        "duration": 4.5
+    },
+    {
+        "text": "helper function where we have two",
+        "start": 361.919,
+        "duration": 4.5
+    },
+    {
+        "text": "parameters one is the model path which",
+        "start": 364.08,
+        "duration": 3.899
+    },
+    {
+        "text": "is like pointing to which will be",
+        "start": 366.419,
+        "duration": 3.421
+    },
+    {
+        "text": "pointing to our honest model and then",
+        "start": 367.979,
+        "duration": 3.541
+    },
+    {
+        "text": "over here the second function parameter",
+        "start": 369.84,
+        "duration": 5.04
+    },
+    {
+        "text": "is a device argument which we can pass",
+        "start": 371.52,
+        "duration": 6.239
+    },
+    {
+        "text": "in uh so if we pass in CPU underscore",
+        "start": 374.88,
+        "duration": 5.159
+    },
+    {
+        "text": "for fp32 which is it'll it's in all the",
+        "start": 377.759,
+        "duration": 4.741
+    },
+    {
+        "text": "Caps it will run the inferencing with",
+        "start": 380.039,
+        "duration": 4.861
+    },
+    {
+        "text": "openvino execution provider on",
+        "start": 382.5,
+        "duration": 5.46
+    },
+    {
+        "text": "um on the CPU but if it's all lowercase",
+        "start": 384.9,
+        "duration": 6.419
+    },
+    {
+        "text": "CPU then it'll it'll run uh it with uh",
+        "start": 387.96,
+        "duration": 5.519
+    },
+    {
+        "text": "the native Onyx random or mlas cpux",
+        "start": 391.319,
+        "duration": 5.82
+    },
+    {
+        "text": "provider uh for this model",
+        "start": 393.479,
+        "duration": 5.881
+    },
+    {
+        "text": "um and if if no arguments are passing or",
+        "start": 397.139,
+        "duration": 5.101
+    },
+    {
+        "text": "no no it'll uh pass in then we'll just",
+        "start": 399.36,
+        "duration": 5.279
+    },
+    {
+        "text": "use the default uh CPU execution",
+        "start": 402.24,
+        "duration": 5.1
+    },
+    {
+        "text": "provider uh for inferencing",
+        "start": 404.639,
+        "duration": 4.381
+    },
+    {
+        "text": "so after we have all these helper",
+        "start": 407.34,
+        "duration": 4.02
+    },
+    {
+        "text": "functions offset uh we we go to the last",
+        "start": 409.02,
+        "duration": 3.36
+    },
+    {
+        "text": "function which is called The Run",
+        "start": 411.36,
+        "duration": 3.119
+    },
+    {
+        "text": "inference function and this essentially",
+        "start": 412.38,
+        "duration": 4.86
+    },
+    {
+        "text": "is kind of putting out all the pieces",
+        "start": 414.479,
+        "duration": 5.041
+    },
+    {
+        "text": "together which does all the tasks such",
+        "start": 417.24,
+        "duration": 4.019
+    },
+    {
+        "text": "as pre-processes in the input image",
+        "start": 419.52,
+        "duration": 3.959
+    },
+    {
+        "text": "right it uh creates the appropriate",
+        "start": 421.259,
+        "duration": 3.901
+    },
+    {
+        "text": "artist on time session as per our device",
+        "start": 423.479,
+        "duration": 4.141
+    },
+    {
+        "text": "argument it runs the inference along",
+        "start": 425.16,
+        "duration": 3.84
+    },
+    {
+        "text": "with nms",
+        "start": 427.62,
+        "duration": 3.12
+    },
+    {
+        "text": "um on the predictions that for the",
+        "start": 429.0,
+        "duration": 3.18
+    },
+    {
+        "text": "number of runs asked",
+        "start": 430.74,
+        "duration": 3.42
+    },
+    {
+        "text": "um and it adds the Bounty box so that it",
+        "start": 432.18,
+        "duration": 3.78
+    },
+    {
+        "text": "obviously saves a copy of the inferred",
+        "start": 434.16,
+        "duration": 3.9
+    },
+    {
+        "text": "image right so it's essentially calling",
+        "start": 435.96,
+        "duration": 3.48
+    },
+    {
+        "text": "all our helper functions in this",
+        "start": 438.06,
+        "duration": 3.12
+    },
+    {
+        "text": "function so that we can kind of paint",
+        "start": 439.44,
+        "duration": 4.68
+    },
+    {
+        "text": "that whole story together uh in this",
+        "start": 441.18,
+        "duration": 4.68
+    },
+    {
+        "text": "um so once this function is all complete",
+        "start": 444.12,
+        "duration": 4.44
+    },
+    {
+        "text": "and we have everything all set",
+        "start": 445.86,
+        "duration": 4.26
+    },
+    {
+        "text": "um then we can actually begin our",
+        "start": 448.56,
+        "duration": 3.66
+    },
+    {
+        "text": "inferencing right so over here we are",
+        "start": 450.12,
+        "duration": 4.019
+    },
+    {
+        "text": "passing in uh like I mentioned before",
+        "start": 452.22,
+        "duration": 4.379
+    },
+    {
+        "text": "the honest model is our this is what",
+        "start": 454.139,
+        "duration": 4.141
+    },
+    {
+        "text": "we're pointing to and the input image",
+        "start": 456.599,
+        "duration": 3.72
+    },
+    {
+        "text": "which is the image of the cat and for",
+        "start": 458.28,
+        "duration": 3.24
+    },
+    {
+        "text": "right now we're running the iterations",
+        "start": 460.319,
+        "duration": 2.761
+    },
+    {
+        "text": "the number of iterations about 100",
+        "start": 461.52,
+        "duration": 3.299
+    },
+    {
+        "text": "iterations",
+        "start": 463.08,
+        "duration": 2.82
+    },
+    {
+        "text": "um and",
+        "start": 464.819,
+        "duration": 1.741
+    },
+    {
+        "text": "um",
+        "start": 465.9,
+        "duration": 3.66
+    },
+    {
+        "text": "we can set the params accordingly and",
+        "start": 466.56,
+        "duration": 5.22
+    },
+    {
+        "text": "actually the Run inference function to",
+        "start": 469.56,
+        "duration": 6.24
+    },
+    {
+        "text": "you to uh do the actual input",
+        "start": 471.78,
+        "duration": 5.58
+    },
+    {
+        "text": "um and as you can see over here after we",
+        "start": 475.8,
+        "duration": 5.64
+    },
+    {
+        "text": "do the inferencing uh the uh the uh cat",
+        "start": 477.36,
+        "duration": 6.059
+    },
+    {
+        "text": "is detected over here um so you can see",
+        "start": 481.44,
+        "duration": 3.9
+    },
+    {
+        "text": "the cath label and",
+        "start": 483.419,
+        "duration": 3.78
+    },
+    {
+        "text": "um the accuracy is given over here at",
+        "start": 485.34,
+        "duration": 4.62
+    },
+    {
+        "text": "0.99 and the average inference time with",
+        "start": 487.199,
+        "duration": 5.101
+    },
+    {
+        "text": "on with CPU execution provider on this",
+        "start": 489.96,
+        "duration": 5.579
+    },
+    {
+        "text": "uh on this Intel CPU is about 67",
+        "start": 492.3,
+        "duration": 5.28
+    },
+    {
+        "text": "milliseconds",
+        "start": 495.539,
+        "duration": 3.6
+    },
+    {
+        "text": "um and then we can start running",
+        "start": 497.58,
+        "duration": 3.42
+    },
+    {
+        "text": "inferencing using open window execution",
+        "start": 499.139,
+        "duration": 4.801
+    },
+    {
+        "text": "provider on the same Intel CPU and we",
+        "start": 501.0,
+        "duration": 4.879
+    },
+    {
+        "text": "can see that the accuracy is the same",
+        "start": 503.94,
+        "duration": 5.4
+    },
+    {
+        "text": "0.929 uh and we're detecting the cat but",
+        "start": 505.879,
+        "duration": 4.901
+    },
+    {
+        "text": "we can see that the average time",
+        "start": 509.34,
+        "duration": 2.939
+    },
+    {
+        "text": "inference time in milliseconds the",
+        "start": 510.78,
+        "duration": 3.119
+    },
+    {
+        "text": "latency has been decreased to 32",
+        "start": 512.279,
+        "duration": 3.18
+    },
+    {
+        "text": "milliseconds which is almost like a 2X",
+        "start": 513.899,
+        "duration": 2.64
+    },
+    {
+        "text": "performance",
+        "start": 515.459,
+        "duration": 2.94
+    },
+    {
+        "text": "all right so yeah",
+        "start": 516.539,
+        "duration": 4.38
+    },
+    {
+        "text": "yeah so in a nutshell this is kind of",
+        "start": 518.399,
+        "duration": 4.621
+    },
+    {
+        "text": "like the flow that it takes to run with",
+        "start": 520.919,
+        "duration": 3.721
+    },
+    {
+        "text": "open Windows computer provider and you",
+        "start": 523.02,
+        "duration": 3.3
+    },
+    {
+        "text": "can see just like",
+        "start": 524.64,
+        "duration": 4.44
+    },
+    {
+        "text": "um it's really simple to use",
+        "start": 526.32,
+        "duration": 5.16
+    },
+    {
+        "text": "um and and really it's really easy to",
+        "start": 529.08,
+        "duration": 4.02
+    },
+    {
+        "text": "use and you can just get that 2x",
+        "start": 531.48,
+        "duration": 3.539
+    },
+    {
+        "text": "performance boost uh for some of these",
+        "start": 533.1,
+        "duration": 3.66
+    },
+    {
+        "text": "popular deep learning models yeah and",
+        "start": 535.019,
+        "duration": 3.181
+    },
+    {
+        "text": "like a lot of the code that you showed",
+        "start": 536.76,
+        "duration": 2.82
+    },
+    {
+        "text": "is things you'd be writing anyways like",
+        "start": 538.2,
+        "duration": 2.94
+    },
+    {
+        "text": "the adjustments that you had to made in",
+        "start": 539.58,
+        "duration": 4.62
+    },
+    {
+        "text": "order to actually use the um execution",
+        "start": 541.14,
+        "duration": 5.28
+    },
+    {
+        "text": "provider for that Hardware to get that",
+        "start": 544.2,
+        "duration": 3.84
+    },
+    {
+        "text": "performance increase was not really that",
+        "start": 546.42,
+        "duration": 3.359
+    },
+    {
+        "text": "much like that was a very small piece of",
+        "start": 548.04,
+        "duration": 4.26
+    },
+    {
+        "text": "the overall demo exactly exactly right",
+        "start": 549.779,
+        "duration": 4.74
+    },
+    {
+        "text": "so it's it's super easy like like I say",
+        "start": 552.3,
+        "duration": 4.68
+    },
+    {
+        "text": "right it's just a simple modification of",
+        "start": 554.519,
+        "duration": 4.081
+    },
+    {
+        "text": "of that line of code all you have to do",
+        "start": 556.98,
+        "duration": 3.299
+    },
+    {
+        "text": "is just that pip installation of Onyx on",
+        "start": 558.6,
+        "duration": 3.54
+    },
+    {
+        "text": "10 Dash open we know you continue to",
+        "start": 560.279,
+        "duration": 4.321
+    },
+    {
+        "text": "import that honest runtime library and",
+        "start": 562.14,
+        "duration": 3.66
+    },
+    {
+        "text": "then just set the provider's open",
+        "start": 564.6,
+        "duration": 2.88
+    },
+    {
+        "text": "Windows provider if you're using an",
+        "start": 565.8,
+        "duration": 3.3
+    },
+    {
+        "text": "Intel hardware and that accelerator",
+        "start": 567.48,
+        "duration": 3.359
+    },
+    {
+        "text": "performance is waiting for you",
+        "start": 569.1,
+        "duration": 3.78
+    },
+    {
+        "text": "that's awesome",
+        "start": 570.839,
+        "duration": 4.741
+    },
+    {
+        "text": "um so I'm sure people would love to see",
+        "start": 572.88,
+        "duration": 5.34
+    },
+    {
+        "text": "some insights into the architecture of",
+        "start": 575.58,
+        "duration": 5.46
+    },
+    {
+        "text": "how this works would you absolutely",
+        "start": 578.22,
+        "duration": 5.7
+    },
+    {
+        "text": "absolutely so sure I I can give like a",
+        "start": 581.04,
+        "duration": 4.26
+    },
+    {
+        "text": "quick overview of the architectures so",
+        "start": 583.92,
+        "duration": 3.3
+    },
+    {
+        "text": "how it works is that the honest model",
+        "start": 585.3,
+        "duration": 3.9
+    },
+    {
+        "text": "which is coming into the Onyx one time",
+        "start": 587.22,
+        "duration": 4.08
+    },
+    {
+        "text": "application gets converted into an",
+        "start": 589.2,
+        "duration": 4.139
+    },
+    {
+        "text": "in-memory graph representation and goes",
+        "start": 591.3,
+        "duration": 3.78
+    },
+    {
+        "text": "into uh what we call a graph",
+        "start": 593.339,
+        "duration": 3.721
+    },
+    {
+        "text": "practitioner or a get cut capability",
+        "start": 595.08,
+        "duration": 4.439
+    },
+    {
+        "text": "module so this module actually queries",
+        "start": 597.06,
+        "duration": 4.26
+    },
+    {
+        "text": "all the backends that are available and",
+        "start": 599.519,
+        "duration": 3.241
+    },
+    {
+        "text": "then asks which part of the graph it can",
+        "start": 601.32,
+        "duration": 2.16
+    },
+    {
+        "text": "support",
+        "start": 602.76,
+        "duration": 2.639
+    },
+    {
+        "text": "so the providers that we have enabled",
+        "start": 603.48,
+        "duration": 3.479
+    },
+    {
+        "text": "have to reply and say that these are the",
+        "start": 605.399,
+        "duration": 3.421
+    },
+    {
+        "text": "subjects that we support and we should",
+        "start": 606.959,
+        "duration": 3.841
+    },
+    {
+        "text": "provide handles back to Onyx runtime",
+        "start": 608.82,
+        "duration": 4.019
+    },
+    {
+        "text": "when it's time for the subgras to be",
+        "start": 610.8,
+        "duration": 3.12
+    },
+    {
+        "text": "executed",
+        "start": 612.839,
+        "duration": 2.761
+    },
+    {
+        "text": "honest runtime we'll then send that back",
+        "start": 613.92,
+        "duration": 3.359
+    },
+    {
+        "text": "to execution provider and it will do the",
+        "start": 615.6,
+        "duration": 4.08
+    },
+    {
+        "text": "inference and send the output back so in",
+        "start": 617.279,
+        "duration": 4.321
+    },
+    {
+        "text": "a nutshell that's kind of how it works",
+        "start": 619.68,
+        "duration": 3.659
+    },
+    {
+        "text": "under the hood",
+        "start": 621.6,
+        "duration": 3.359
+    },
+    {
+        "text": "cool that's super helpful to kind of",
+        "start": 623.339,
+        "duration": 3.901
+    },
+    {
+        "text": "understand how we're able to get that",
+        "start": 624.959,
+        "duration": 5.281
+    },
+    {
+        "text": "optimization keep the accuracy and not",
+        "start": 627.24,
+        "duration": 5.34
+    },
+    {
+        "text": "really have to do that much extra work I",
+        "start": 630.24,
+        "duration": 4.86
+    },
+    {
+        "text": "mean that that's so cool",
+        "start": 632.58,
+        "duration": 4.14
+    },
+    {
+        "text": "um so talking about getting better",
+        "start": 635.1,
+        "duration": 3.179
+    },
+    {
+        "text": "performance",
+        "start": 636.72,
+        "duration": 3.239
+    },
+    {
+        "text": "um obviously large models and",
+        "start": 638.279,
+        "duration": 3.481
+    },
+    {
+        "text": "Transformer models are very popular",
+        "start": 639.959,
+        "duration": 2.94
+    },
+    {
+        "text": "right now",
+        "start": 641.76,
+        "duration": 2.639
+    },
+    {
+        "text": "um I think most people have heard of",
+        "start": 642.899,
+        "duration": 3.481
+    },
+    {
+        "text": "hugging face at this point",
+        "start": 644.399,
+        "duration": 3.241
+    },
+    {
+        "text": "um and if you have it you should go look",
+        "start": 646.38,
+        "duration": 3.42
+    },
+    {
+        "text": "it up because they have amazing apis and",
+        "start": 647.64,
+        "duration": 3.54
+    },
+    {
+        "text": "they're just doing really cool stuff in",
+        "start": 649.8,
+        "duration": 2.76
+    },
+    {
+        "text": "the space",
+        "start": 651.18,
+        "duration": 4.2
+    },
+    {
+        "text": "um can you show us how we could use this",
+        "start": 652.56,
+        "duration": 5.16
+    },
+    {
+        "text": "to um further optimize a hugging face",
+        "start": 655.38,
+        "duration": 4.74
+    },
+    {
+        "text": "model using quantization",
+        "start": 657.72,
+        "duration": 4.44
+    },
+    {
+        "text": "yes absolutely we have some amazing",
+        "start": 660.12,
+        "duration": 4.32
+    },
+    {
+        "text": "tools from Intel just for optimization",
+        "start": 662.16,
+        "duration": 4.02
+    },
+    {
+        "text": "one of them is neural network",
+        "start": 664.44,
+        "duration": 4.2
+    },
+    {
+        "text": "compression framework it provides a",
+        "start": 666.18,
+        "duration": 3.659
+    },
+    {
+        "text": "similar uh",
+        "start": 668.64,
+        "duration": 3.3
+    },
+    {
+        "text": "suit of advanced methods for training",
+        "start": 669.839,
+        "duration": 3.901
+    },
+    {
+        "text": "time model optimization techniques",
+        "start": 671.94,
+        "duration": 4.32
+    },
+    {
+        "text": "within the DL framework such as pytouch",
+        "start": 673.74,
+        "duration": 5.039
+    },
+    {
+        "text": "and tensorflow it supports methods like",
+        "start": 676.26,
+        "duration": 4.5
+    },
+    {
+        "text": "quantization other training accuracy",
+        "start": 678.779,
+        "duration": 5.221
+    },
+    {
+        "text": "away training and fine-tuning and filter",
+        "start": 680.76,
+        "duration": 5.759
+    },
+    {
+        "text": "pruning among these methods quantization",
+        "start": 684.0,
+        "duration": 5.339
+    },
+    {
+        "text": "array training is pretty popular and we",
+        "start": 686.519,
+        "duration": 5.301
+    },
+    {
+        "text": "would want to show talk about this more",
+        "start": 689.339,
+        "duration": 5.341
+    },
+    {
+        "text": "going forward",
+        "start": 691.82,
+        "duration": 5.44
+    },
+    {
+        "text": "yeah not a lot of a code uh with just",
+        "start": 694.68,
+        "duration": 5.82
+    },
+    {
+        "text": "few lines of code we can leverage uh",
+        "start": 697.26,
+        "duration": 5.46
+    },
+    {
+        "text": "quantization techniques during training",
+        "start": 700.5,
+        "duration": 4.98
+    },
+    {
+        "text": "uh let me explain in detail so I'm sure",
+        "start": 702.72,
+        "duration": 4.32
+    },
+    {
+        "text": "many of them might have heard about",
+        "start": 705.48,
+        "duration": 3.2
+    },
+    {
+        "text": "hugging case Transformers Library",
+        "start": 707.04,
+        "duration": 4.68
+    },
+    {
+        "text": "Optimum is a library that provides uh",
+        "start": 708.68,
+        "duration": 5.2
+    },
+    {
+        "text": "optimization techniques to hugging paste",
+        "start": 711.72,
+        "duration": 4.679
+    },
+    {
+        "text": "Transformers strain pipeline uh we have",
+        "start": 713.88,
+        "duration": 6.18
+    },
+    {
+        "text": "nncf and open you know added uh to the",
+        "start": 716.399,
+        "duration": 5.221
+    },
+    {
+        "text": "optimum Library which is called as",
+        "start": 720.06,
+        "duration": 3.839
+    },
+    {
+        "text": "Optimum Intel",
+        "start": 721.62,
+        "duration": 4.08
+    },
+    {
+        "text": "um if the user has access to hugging",
+        "start": 723.899,
+        "duration": 3.361
+    },
+    {
+        "text": "phase training Pipeline with just few",
+        "start": 725.7,
+        "duration": 3.66
+    },
+    {
+        "text": "lines of code they can enable",
+        "start": 727.26,
+        "duration": 4.5
+    },
+    {
+        "text": "quantization every training technique so",
+        "start": 729.36,
+        "duration": 6.479
+    },
+    {
+        "text": "here is a code snippet so if you have a",
+        "start": 731.76,
+        "duration": 6.84
+    },
+    {
+        "text": "existing training pipeline you can just",
+        "start": 735.839,
+        "duration": 5.461
+    },
+    {
+        "text": "import OV config OV config as all the",
+        "start": 738.6,
+        "duration": 6.54
+    },
+    {
+        "text": "details about uh what is the size uh and",
+        "start": 741.3,
+        "duration": 5.52
+    },
+    {
+        "text": "what what is the technique that you are",
+        "start": 745.14,
+        "duration": 3.06
+    },
+    {
+        "text": "trying to use quantization array",
+        "start": 746.82,
+        "duration": 3.48
+    },
+    {
+        "text": "training and this is a second import",
+        "start": 748.2,
+        "duration": 4.379
+    },
+    {
+        "text": "statement question answering OV trainer",
+        "start": 750.3,
+        "duration": 4.56
+    },
+    {
+        "text": "instead of the default trainer and you",
+        "start": 752.579,
+        "duration": 5.041
+    },
+    {
+        "text": "initialize it and you uh call the",
+        "start": 754.86,
+        "duration": 5.12
+    },
+    {
+        "text": "trainer",
+        "start": 757.62,
+        "duration": 2.36
+    },
+    {
+        "text": "so",
+        "start": 760.92,
+        "duration": 2.78
+    },
+    {
+        "text": "um the output of the training uh would",
+        "start": 764.04,
+        "duration": 4.979
+    },
+    {
+        "text": "be an optimized int 8 pytosh model uh",
+        "start": 765.839,
+        "duration": 6.06
+    },
+    {
+        "text": "using the Optimus optimized int 8 model",
+        "start": 769.019,
+        "duration": 5.041
+    },
+    {
+        "text": "we can run the inference for better",
+        "start": 771.899,
+        "duration": 4.62
+    },
+    {
+        "text": "performance",
+        "start": 774.06,
+        "duration": 4.92
+    },
+    {
+        "text": "so that's super great uh Aquila I",
+        "start": 776.519,
+        "duration": 3.961
+    },
+    {
+        "text": "believe you've done some work to",
+        "start": 778.98,
+        "duration": 4.2
+    },
+    {
+        "text": "Showcase how users can quantize hugging",
+        "start": 780.48,
+        "duration": 5.039
+    },
+    {
+        "text": "face models and run inferencing with the",
+        "start": 783.18,
+        "duration": 4.32
+    },
+    {
+        "text": "open you know execution provider for",
+        "start": 785.519,
+        "duration": 5.101
+    },
+    {
+        "text": "Onyx runtime through a low code workflow",
+        "start": 787.5,
+        "duration": 5.459
+    },
+    {
+        "text": "can you give us a overview of that",
+        "start": 790.62,
+        "duration": 3.659
+    },
+    {
+        "text": "workflow",
+        "start": 792.959,
+        "duration": 5.581
+    },
+    {
+        "text": "yes uh so let me talk about yeah AI",
+        "start": 794.279,
+        "duration": 6.24
+    },
+    {
+        "text": "workflow is an orchestration method that",
+        "start": 798.54,
+        "duration": 4.02
+    },
+    {
+        "text": "integrates data preparation model",
+        "start": 800.519,
+        "duration": 4.44
+    },
+    {
+        "text": "training model inference model",
+        "start": 802.56,
+        "duration": 5.04
+    },
+    {
+        "text": "deployment and automation to help",
+        "start": 804.959,
+        "duration": 4.741
+    },
+    {
+        "text": "developers and customers perform diverse",
+        "start": 807.6,
+        "duration": 4.679
+    },
+    {
+        "text": "and complex activities more efficiently",
+        "start": 809.7,
+        "duration": 5.16
+    },
+    {
+        "text": "I would like to show you uh",
+        "start": 812.279,
+        "duration": 5.221
+    },
+    {
+        "text": "what we have developed uh using",
+        "start": 814.86,
+        "duration": 4.8
+    },
+    {
+        "text": "quantization away training and inference",
+        "start": 817.5,
+        "duration": 4.92
+    },
+    {
+        "text": "AI workflow So Below the model from",
+        "start": 819.66,
+        "duration": 5.94
+    },
+    {
+        "text": "hugging phase and we invoke the nncf",
+        "start": 822.42,
+        "duration": 4.58
+    },
+    {
+        "text": "optimum",
+        "start": 825.6,
+        "duration": 3.6
+    },
+    {
+        "text": "optimizations through Optimum library",
+        "start": 827.0,
+        "duration": 5.44
+    },
+    {
+        "text": "and then we get the optimized intake",
+        "start": 829.2,
+        "duration": 5.1
+    },
+    {
+        "text": "model and then we validate the",
+        "start": 832.44,
+        "duration": 4.74
+    },
+    {
+        "text": "performance and uh use it for Onyx",
+        "start": 834.3,
+        "duration": 5.099
+    },
+    {
+        "text": "runtime inference because we have it in",
+        "start": 837.18,
+        "duration": 4.7
+    },
+    {
+        "text": "the Onyx format",
+        "start": 839.399,
+        "duration": 5.101
+    },
+    {
+        "text": "cool so I can see how this kind of is",
+        "start": 841.88,
+        "duration": 4.0
+    },
+    {
+        "text": "all coming together this diagram is",
+        "start": 844.5,
+        "duration": 2.7
+    },
+    {
+        "text": "super helpful to see how we're able to",
+        "start": 845.88,
+        "duration": 2.759
+    },
+    {
+        "text": "leverage all these different Open Source",
+        "start": 847.2,
+        "duration": 4.8
+    },
+    {
+        "text": "Products to get a good um deployment uh",
+        "start": 848.639,
+        "duration": 5.82
+    },
+    {
+        "text": "workflow and then you know leverage the",
+        "start": 852.0,
+        "duration": 5.279
+    },
+    {
+        "text": "different hardware and openvino in order",
+        "start": 854.459,
+        "duration": 4.801
+    },
+    {
+        "text": "to get the performance that we need so",
+        "start": 857.279,
+        "duration": 3.481
+    },
+    {
+        "text": "that's really exciting",
+        "start": 859.26,
+        "duration": 3.78
+    },
+    {
+        "text": "um and we have some cool features on",
+        "start": 860.76,
+        "duration": 4.62
+    },
+    {
+        "text": "Azure ml that supports these kind of",
+        "start": 863.04,
+        "duration": 4.859
+    },
+    {
+        "text": "workflows uh do you have a demo that can",
+        "start": 865.38,
+        "duration": 3.899
+    },
+    {
+        "text": "kind of show us how this would work in",
+        "start": 867.899,
+        "duration": 3.481
+    },
+    {
+        "text": "Azure ml",
+        "start": 869.279,
+        "duration": 4.141
+    },
+    {
+        "text": "let me start with the training notebook",
+        "start": 871.38,
+        "duration": 3.959
+    },
+    {
+        "text": "as it takes a while to finish it I'll",
+        "start": 873.42,
+        "duration": 3.9
+    },
+    {
+        "text": "walk you through the code uh in this",
+        "start": 875.339,
+        "duration": 3.601
+    },
+    {
+        "text": "sample we are demonstrating quantization",
+        "start": 877.32,
+        "duration": 4.92
+    },
+    {
+        "text": "away training uh through Optimum Intel",
+        "start": 878.94,
+        "duration": 5.699
+    },
+    {
+        "text": "uh for this demo purpose we are using",
+        "start": 882.24,
+        "duration": 4.44
+    },
+    {
+        "text": "both model from hugging face hub for",
+        "start": 884.639,
+        "duration": 4.921
+    },
+    {
+        "text": "question answering use case uh let me",
+        "start": 886.68,
+        "duration": 4.68
+    },
+    {
+        "text": "start the training notebook as it takes",
+        "start": 889.56,
+        "duration": 4.86
+    },
+    {
+        "text": "uh a while to finish it uh I will walk",
+        "start": 891.36,
+        "duration": 4.68
+    },
+    {
+        "text": "you through the code and structure the",
+        "start": 894.42,
+        "duration": 3.3
+    },
+    {
+        "text": "notebook and how this particular",
+        "start": 896.04,
+        "duration": 3.72
+    },
+    {
+        "text": "workflow can be reused for other use",
+        "start": 897.72,
+        "duration": 3.119
+    },
+    {
+        "text": "cases",
+        "start": 899.76,
+        "duration": 3.24
+    },
+    {
+        "text": "uh this is a quantization every training",
+        "start": 900.839,
+        "duration": 4.081
+    },
+    {
+        "text": "using Azure ml",
+        "start": 903.0,
+        "duration": 3.36
+    },
+    {
+        "text": "um",
+        "start": 904.92,
+        "duration": 3.719
+    },
+    {
+        "text": "first let me start it so that I can go",
+        "start": 906.36,
+        "duration": 3.539
+    },
+    {
+        "text": "through the code",
+        "start": 908.639,
+        "duration": 3.481
+    },
+    {
+        "text": "uh as as you all know the training takes",
+        "start": 909.899,
+        "duration": 3.961
+    },
+    {
+        "text": "a lot takes up lots of resources and",
+        "start": 912.12,
+        "duration": 3.18
+    },
+    {
+        "text": "time so",
+        "start": 913.86,
+        "duration": 4.14
+    },
+    {
+        "text": "I just want to start it and these are",
+        "start": 915.3,
+        "duration": 6.0
+    },
+    {
+        "text": "the files that we have been using so we",
+        "start": 918.0,
+        "duration": 5.459
+    },
+    {
+        "text": "have a GitHub repo uh that we have",
+        "start": 921.3,
+        "duration": 4.08
+    },
+    {
+        "text": "hosted the code on so we're just getting",
+        "start": 923.459,
+        "duration": 4.081
+    },
+    {
+        "text": "those scripts",
+        "start": 925.38,
+        "duration": 4.62
+    },
+    {
+        "text": "and these notebooks are hosted on onyx",
+        "start": 927.54,
+        "duration": 5.039
+    },
+    {
+        "text": "runtime uh samples",
+        "start": 930.0,
+        "duration": 4.68
+    },
+    {
+        "text": "repo",
+        "start": 932.579,
+        "duration": 5.161
+    },
+    {
+        "text": "and you initialize the workspace uh you",
+        "start": 934.68,
+        "duration": 5.099
+    },
+    {
+        "text": "create a compute and attach a computer",
+        "start": 937.74,
+        "duration": 5.039
+    },
+    {
+        "text": "to your workspace and I'm taking the",
+        "start": 939.779,
+        "duration": 6.12
+    },
+    {
+        "text": "script names that we have uh the which",
+        "start": 942.779,
+        "duration": 5.521
+    },
+    {
+        "text": "has the training Pipeline and where we",
+        "start": 945.899,
+        "duration": 4.081
+    },
+    {
+        "text": "have made it made those two lines of",
+        "start": 948.3,
+        "duration": 3.899
+    },
+    {
+        "text": "code change",
+        "start": 949.98,
+        "duration": 4.56
+    },
+    {
+        "text": "and this is a Docker file uh we are",
+        "start": 952.199,
+        "duration": 5.341
+    },
+    {
+        "text": "taking the open window based image",
+        "start": 954.54,
+        "duration": 5.88
+    },
+    {
+        "text": "Docker image from Docker Hub and we are",
+        "start": 957.54,
+        "duration": 5.46
+    },
+    {
+        "text": "installing the optimum libraries",
+        "start": 960.42,
+        "duration": 4.44
+    },
+    {
+        "text": "and based on the docker file your",
+        "start": 963.0,
+        "duration": 4.8
+    },
+    {
+        "text": "environment is being created",
+        "start": 964.86,
+        "duration": 5.52
+    },
+    {
+        "text": "which is like a Docker container and",
+        "start": 967.8,
+        "duration": 4.8
+    },
+    {
+        "text": "then this is a",
+        "start": 970.38,
+        "duration": 3.72
+    },
+    {
+        "text": "these are the parameters that you",
+        "start": 972.6,
+        "duration": 4.799
+    },
+    {
+        "text": "provide for the training to happen uh",
+        "start": 974.1,
+        "duration": 5.28
+    },
+    {
+        "text": "because it's a training pipeline train",
+        "start": 977.399,
+        "duration": 5.581
+    },
+    {
+        "text": "script you provide the model name and uh",
+        "start": 979.38,
+        "duration": 5.699
+    },
+    {
+        "text": "you provide the sequence match strain",
+        "start": 982.98,
+        "duration": 4.02
+    },
+    {
+        "text": "samples Max eval samples for now I'm",
+        "start": 985.079,
+        "duration": 4.741
+    },
+    {
+        "text": "just doing it for 10 samples uh because",
+        "start": 987.0,
+        "duration": 4.86
+    },
+    {
+        "text": "I wanted to run it faster for the demo",
+        "start": 989.82,
+        "duration": 4.5
+    },
+    {
+        "text": "but you can increase it per bitter",
+        "start": 991.86,
+        "duration": 4.14
+    },
+    {
+        "text": "accuracy",
+        "start": 994.32,
+        "duration": 3.959
+    },
+    {
+        "text": "you can include whole whole samples and",
+        "start": 996.0,
+        "duration": 4.32
+    },
+    {
+        "text": "whole data set of the squad this is a",
+        "start": 998.279,
+        "duration": 5.041
+    },
+    {
+        "text": "data set and that we are currently so",
+        "start": 1000.32,
+        "duration": 5.639
+    },
+    {
+        "text": "and this is uh after you submit the job",
+        "start": 1003.32,
+        "duration": 5.04
+    },
+    {
+        "text": "after you have configured everything you",
+        "start": 1005.959,
+        "duration": 5.641
+    },
+    {
+        "text": "submit the job uh to the Azure ml and",
+        "start": 1008.36,
+        "duration": 6.12
+    },
+    {
+        "text": "this is a job and you can click on it uh",
+        "start": 1011.6,
+        "duration": 4.94
+    },
+    {
+        "text": "to view the logs",
+        "start": 1014.48,
+        "duration": 4.26
+    },
+    {
+        "text": "and uh",
+        "start": 1016.54,
+        "duration": 4.78
+    },
+    {
+        "text": "yeah I think the job has been submitted",
+        "start": 1018.74,
+        "duration": 5.339
+    },
+    {
+        "text": "and uh we are waiting for the train to",
+        "start": 1021.32,
+        "duration": 4.32
+    },
+    {
+        "text": "happen the output model will be",
+        "start": 1024.079,
+        "duration": 4.26
+    },
+    {
+        "text": "generated in your boxes in output folder",
+        "start": 1025.64,
+        "duration": 4.919
+    },
+    {
+        "text": "and bird find your model",
+        "start": 1028.339,
+        "duration": 4.74
+    },
+    {
+        "text": "it would take about five minutes to",
+        "start": 1030.559,
+        "duration": 5.041
+    },
+    {
+        "text": "finish the task and have a model that",
+        "start": 1033.079,
+        "duration": 4.62
+    },
+    {
+        "text": "that's already generated so let's go",
+        "start": 1035.6,
+        "duration": 3.959
+    },
+    {
+        "text": "let's",
+        "start": 1037.699,
+        "duration": 4.14
+    },
+    {
+        "text": "uh this is another notebook that I was",
+        "start": 1039.559,
+        "duration": 5.101
+    },
+    {
+        "text": "talking about uh with Azure ml uh where",
+        "start": 1041.839,
+        "duration": 6.0
+    },
+    {
+        "text": "we are using uh where we're doing uh",
+        "start": 1044.66,
+        "duration": 5.639
+    },
+    {
+        "text": "inference using Onyx runtime uh for Bird",
+        "start": 1047.839,
+        "duration": 4.561
+    },
+    {
+        "text": "model and we are using open window",
+        "start": 1050.299,
+        "duration": 4.981
+    },
+    {
+        "text": "execution provider as execution provider",
+        "start": 1052.4,
+        "duration": 4.86
+    },
+    {
+        "text": "and these are the scripts that we are",
+        "start": 1055.28,
+        "duration": 5.46
+    },
+    {
+        "text": "using but entrance Optimum ort so uh",
+        "start": 1057.26,
+        "duration": 6.48
+    },
+    {
+        "text": "similarly uh how we integrated uh",
+        "start": 1060.74,
+        "duration": 6.24
+    },
+    {
+        "text": "openvino into Optimum Onyx runtime or is",
+        "start": 1063.74,
+        "duration": 6.12
+    },
+    {
+        "text": "also integrated into Optimum Library so",
+        "start": 1066.98,
+        "duration": 5.46
+    },
+    {
+        "text": "if you using just one Library you can",
+        "start": 1069.86,
+        "duration": 4.439
+    },
+    {
+        "text": "run it through Onyx runtime with open",
+        "start": 1072.44,
+        "duration": 4.56
+    },
+    {
+        "text": "Win execution so these are the similar",
+        "start": 1074.299,
+        "duration": 4.74
+    },
+    {
+        "text": "things that we have gone through in the",
+        "start": 1077.0,
+        "duration": 3.66
+    },
+    {
+        "text": "quantization every training where you",
+        "start": 1079.039,
+        "duration": 4.801
+    },
+    {
+        "text": "attach a compute uh and you set the path",
+        "start": 1080.66,
+        "duration": 5.58
+    },
+    {
+        "text": "and you have uh environment definition",
+        "start": 1083.84,
+        "duration": 5.82
+    },
+    {
+        "text": "and you have the uh same the same image",
+        "start": 1086.24,
+        "duration": 6.0
+    },
+    {
+        "text": "that I'm uh taking Docker Hub uh which",
+        "start": 1089.66,
+        "duration": 4.44
+    },
+    {
+        "text": "is open we know base image and I'm",
+        "start": 1092.24,
+        "duration": 5.4
+    },
+    {
+        "text": "installing Optimum on Instagram Library",
+        "start": 1094.1,
+        "duration": 5.52
+    },
+    {
+        "text": "and I'm creating an environment based",
+        "start": 1097.64,
+        "duration": 4.08
+    },
+    {
+        "text": "off of the docker file which it will",
+        "start": 1099.62,
+        "duration": 4.679
+    },
+    {
+        "text": "build the docker uh and the container is",
+        "start": 1101.72,
+        "duration": 4.44
+    },
+    {
+        "text": "up and running and then you can submit",
+        "start": 1104.299,
+        "duration": 3.361
+    },
+    {
+        "text": "the job",
+        "start": 1106.16,
+        "duration": 4.22
+    },
+    {
+        "text": "so",
+        "start": 1107.66,
+        "duration": 2.72
+    },
+    {
+        "text": "this is the inference script uh where",
+        "start": 1110.539,
+        "duration": 4.14
+    },
+    {
+        "text": "you can provide the model path and the",
+        "start": 1112.82,
+        "duration": 3.78
+    },
+    {
+        "text": "provider open window execution provider",
+        "start": 1114.679,
+        "duration": 4.561
+    },
+    {
+        "text": "and the input part uh the context",
+        "start": 1116.6,
+        "duration": 5.04
+    },
+    {
+        "text": "because it's a question answering based",
+        "start": 1119.24,
+        "duration": 4.62
+    },
+    {
+        "text": "use case or you provide a context and",
+        "start": 1121.64,
+        "duration": 3.84
+    },
+    {
+        "text": "you provide an input question and you",
+        "start": 1123.86,
+        "duration": 4.26
+    },
+    {
+        "text": "get an uh answer",
+        "start": 1125.48,
+        "duration": 5.1
+    },
+    {
+        "text": "because this notebook is taking a long",
+        "start": 1128.12,
+        "duration": 4.38
+    },
+    {
+        "text": "time let me go back to the jobs which",
+        "start": 1130.58,
+        "duration": 3.66
+    },
+    {
+        "text": "have been successfully completed so that",
+        "start": 1132.5,
+        "duration": 5.94
+    },
+    {
+        "text": "we can uh look at the entrance output",
+        "start": 1134.24,
+        "duration": 6.66
+    },
+    {
+        "text": "so this is a job that I previously ran",
+        "start": 1138.44,
+        "duration": 5.64
+    },
+    {
+        "text": "uh and as you can see the inference is",
+        "start": 1140.9,
+        "duration": 4.68
+    },
+    {
+        "text": "being run on open window execution",
+        "start": 1144.08,
+        "duration": 3.719
+    },
+    {
+        "text": "provider and this is a question and this",
+        "start": 1145.58,
+        "duration": 3.36
+    },
+    {
+        "text": "is the answer",
+        "start": 1147.799,
+        "duration": 3.601
+    },
+    {
+        "text": "and the average inference time so we",
+        "start": 1148.94,
+        "duration": 4.619
+    },
+    {
+        "text": "have seen the eval metrics uh at the end",
+        "start": 1151.4,
+        "duration": 4.2
+    },
+    {
+        "text": "of the job completion",
+        "start": 1153.559,
+        "duration": 4.441
+    },
+    {
+        "text": "um we have put together the comparison",
+        "start": 1155.6,
+        "duration": 4.92
+    },
+    {
+        "text": "with respect to fp32 model and intake",
+        "start": 1158.0,
+        "duration": 5.22
+    },
+    {
+        "text": "model accuracy for bird large so this is",
+        "start": 1160.52,
+        "duration": 6.42
+    },
+    {
+        "text": "the F1 uh score uh F1 score is among the",
+        "start": 1163.22,
+        "duration": 6.24
+    },
+    {
+        "text": "sport that is usually",
+        "start": 1166.94,
+        "duration": 3.359
+    },
+    {
+        "text": "um",
+        "start": 1169.46,
+        "duration": 3.36
+    },
+    {
+        "text": "the metric that is used for NLP models",
+        "start": 1170.299,
+        "duration": 4.441
+    },
+    {
+        "text": "it is known as a harmonic mean of",
+        "start": 1172.82,
+        "duration": 3.78
+    },
+    {
+        "text": "precision and recall which are based on",
+        "start": 1174.74,
+        "duration": 4.679
+    },
+    {
+        "text": "false positive and false negative uh if",
+        "start": 1176.6,
+        "duration": 6.54
+    },
+    {
+        "text": "F1 score for fp32 original model is 93.1",
+        "start": 1179.419,
+        "duration": 5.521
+    },
+    {
+        "text": "and whereas the quantization every",
+        "start": 1183.14,
+        "duration": 5.52
+    },
+    {
+        "text": "training intake model is 92.83 so from",
+        "start": 1184.94,
+        "duration": 7.2
+    },
+    {
+        "text": "this you can observe that uh it's a very",
+        "start": 1188.66,
+        "duration": 6.42
+    },
+    {
+        "text": "minor loss during quantization every",
+        "start": 1192.14,
+        "duration": 5.22
+    },
+    {
+        "text": "training there's not much accuracy loss",
+        "start": 1195.08,
+        "duration": 4.62
+    },
+    {
+        "text": "is what I wanted to show",
+        "start": 1197.36,
+        "duration": 4.38
+    },
+    {
+        "text": "they're able to keep almost all of the",
+        "start": 1199.7,
+        "duration": 3.3
+    },
+    {
+        "text": "accuracy while getting those",
+        "start": 1201.74,
+        "duration": 3.6
+    },
+    {
+        "text": "optimizations so that's really powerful",
+        "start": 1203.0,
+        "duration": 5.52
+    },
+    {
+        "text": "so uh let me show the uh fp32 original",
+        "start": 1205.34,
+        "duration": 6.54
+    },
+    {
+        "text": "model and the int 8 optimized model uh",
+        "start": 1208.52,
+        "duration": 5.7
+    },
+    {
+        "text": "so as you can see here these are the uh",
+        "start": 1211.88,
+        "duration": 4.32
+    },
+    {
+        "text": "quantization quantized linear and the",
+        "start": 1214.22,
+        "duration": 4.74
+    },
+    {
+        "text": "quantized linear uh on its own uh that",
+        "start": 1216.2,
+        "duration": 5.339
+    },
+    {
+        "text": "have been added for optimization purpose",
+        "start": 1218.96,
+        "duration": 4.56
+    },
+    {
+        "text": "these have been uh visualized through",
+        "start": 1221.539,
+        "duration": 3.841
+    },
+    {
+        "text": "netron",
+        "start": 1223.52,
+        "duration": 3.72
+    },
+    {
+        "text": "cool I love how we were able to see the",
+        "start": 1225.38,
+        "duration": 3.419
+    },
+    {
+        "text": "full process like how we were able to",
+        "start": 1227.24,
+        "duration": 3.36
+    },
+    {
+        "text": "use the quantization of our training and",
+        "start": 1228.799,
+        "duration": 3.421
+    },
+    {
+        "text": "then how we're able to leverage compute",
+        "start": 1230.6,
+        "duration": 3.72
+    },
+    {
+        "text": "on Azure ml using all the cool tooling",
+        "start": 1232.22,
+        "duration": 4.14
+    },
+    {
+        "text": "that openvino has",
+        "start": 1234.32,
+        "duration": 3.599
+    },
+    {
+        "text": "um went over a lot really now that I'm",
+        "start": 1236.36,
+        "duration": 3.179
+    },
+    {
+        "text": "going back through all of this and we're",
+        "start": 1237.919,
+        "duration": 4.201
+    },
+    {
+        "text": "using Onyx runtime to inference and get",
+        "start": 1239.539,
+        "duration": 4.561
+    },
+    {
+        "text": "even more performance",
+        "start": 1242.12,
+        "duration": 3.419
+    },
+    {
+        "text": "um so definitely a lot of information",
+        "start": 1244.1,
+        "duration": 3.0
+    },
+    {
+        "text": "we'll make all of these links available",
+        "start": 1245.539,
+        "duration": 3.601
+    },
+    {
+        "text": "for everyone so they can go and check",
+        "start": 1247.1,
+        "duration": 3.24
+    },
+    {
+        "text": "out this code and try it out for",
+        "start": 1249.14,
+        "duration": 2.96
+    },
+    {
+        "text": "themselves as well",
+        "start": 1250.34,
+        "duration": 5.16
+    },
+    {
+        "text": "let's bring uh thing back",
+        "start": 1252.1,
+        "duration": 6.88
+    },
+    {
+        "text": "cool well thank you so much uh for this",
+        "start": 1255.5,
+        "duration": 6.299
+    },
+    {
+        "text": "amazing demo for um showing these really",
+        "start": 1258.98,
+        "duration": 4.199
+    },
+    {
+        "text": "cool features that I'm sure people are",
+        "start": 1261.799,
+        "duration": 3.601
+    },
+    {
+        "text": "really excited uh to go check out is",
+        "start": 1263.179,
+        "duration": 4.021
+    },
+    {
+        "text": "there anything else you'd like to uh",
+        "start": 1265.4,
+        "duration": 3.32
+    },
+    {
+        "text": "share",
+        "start": 1267.2,
+        "duration": 3.719
+    },
+    {
+        "text": "I just want to say thank you to you",
+        "start": 1268.72,
+        "duration": 4.66
+    },
+    {
+        "text": "Cassie and uh just for having us on the",
+        "start": 1270.919,
+        "duration": 4.081
+    },
+    {
+        "text": "show it was really really awesome to",
+        "start": 1273.38,
+        "duration": 4.14
+    },
+    {
+        "text": "have to be on here and showcase all",
+        "start": 1275.0,
+        "duration": 5.24
+    },
+    {
+        "text": "these uh all right",
+        "start": 1277.52,
+        "duration": 4.8
+    },
+    {
+        "text": "collaboration and work we've been",
+        "start": 1280.24,
+        "duration": 5.38
+    },
+    {
+        "text": "together on openly next providers",
+        "start": 1282.32,
+        "duration": 5.28
+    },
+    {
+        "text": "yes absolutely",
+        "start": 1285.62,
+        "duration": 4.38
+    },
+    {
+        "text": "um really cool forward-thinking things",
+        "start": 1287.6,
+        "duration": 3.42
+    },
+    {
+        "text": "um I love that it's built right into",
+        "start": 1290.0,
+        "duration": 3.059
+    },
+    {
+        "text": "Optimum too like Optimum is such a cool",
+        "start": 1291.02,
+        "duration": 4.56
+    },
+    {
+        "text": "thing so it's like there's all of these",
+        "start": 1293.059,
+        "duration": 4.021
+    },
+    {
+        "text": "um really powerful tools coming together",
+        "start": 1295.58,
+        "duration": 3.66
+    },
+    {
+        "text": "just to make developers lives easier",
+        "start": 1297.08,
+        "duration": 4.38
+    },
+    {
+        "text": "really when you think about it",
+        "start": 1299.24,
+        "duration": 4.38
+    },
+    {
+        "text": "um there is a blog post as well um we'll",
+        "start": 1301.46,
+        "duration": 4.92
+    },
+    {
+        "text": "share the link and uh definitely check",
+        "start": 1303.62,
+        "duration": 5.34
+    },
+    {
+        "text": "that out check out the source and let us",
+        "start": 1306.38,
+        "duration": 4.5
+    },
+    {
+        "text": "know what you think so thanks so much",
+        "start": 1308.96,
+        "duration": 3.3
+    },
+    {
+        "text": "for hanging out",
+        "start": 1310.88,
+        "duration": 4.94
+    },
+    {
+        "text": "thank you thank you",
+        "start": 1312.26,
+        "duration": 3.56
+    }
+]

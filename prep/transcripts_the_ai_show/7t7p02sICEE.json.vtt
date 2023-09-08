@@ -1,0 +1,2227 @@
+[
+    {
+        "text": ">> Hi everyone,",
+        "start": 0.0,
+        "duration": 1.425
+    },
+    {
+        "text": "you're not going want to miss this episode of The AI Show.",
+        "start": 1.425,
+        "duration": 2.735
+    },
+    {
+        "text": "Where we're going to learn how you can",
+        "start": 4.16,
+        "duration": 1.33
+    },
+    {
+        "text": "revolutionize Image Search with",
+        "start": 5.49,
+        "duration": 2.28
+    },
+    {
+        "text": "Cognitive Vector Search let's jump in [MUSIC].",
+        "start": 7.77,
+        "duration": 7.62
+    },
+    {
+        "text": "Today, we are joined by Varsha,",
+        "start": 16.58,
+        "duration": 2.6
+    },
+    {
+        "text": "welcome why don't you tell us",
+        "start": 19.18,
+        "duration": 1.465
+    },
+    {
+        "text": "a little bit about who you are and what you do?",
+        "start": 20.645,
+        "duration": 1.97
+    },
+    {
+        "text": ">> Thanks Cassie. Everyone I'm Varsha Parthasarathy,",
+        "start": 22.615,
+        "duration": 3.53
+    },
+    {
+        "text": "product manager on Azure AI,",
+        "start": 26.145,
+        "duration": 2.125
+    },
+    {
+        "text": "and I focus on Computer Vision technologies.",
+        "start": 28.27,
+        "duration": 2.56
+    },
+    {
+        "text": "I'm happy to be here, excited to share more",
+        "start": 30.83,
+        "duration": 2.22
+    },
+    {
+        "text": "about image retrieval using Vector Search.",
+        "start": 33.05,
+        "duration": 3.0
+    },
+    {
+        "text": ">> Cool so we did a show recently showing how",
+        "start": 36.05,
+        "duration": 3.99
+    },
+    {
+        "text": "to use cognitive search for vectors and",
+        "start": 40.04,
+        "duration": 3.63
+    },
+    {
+        "text": "focused on text but this time we're going to",
+        "start": 43.67,
+        "duration": 2.19
+    },
+    {
+        "text": "be looking at images so can you",
+        "start": 45.86,
+        "duration": 2.19
+    },
+    {
+        "text": "tell us a little bit more about how",
+        "start": 48.05,
+        "duration": 1.785
+    },
+    {
+        "text": "Image Search works within Cognitive Search?",
+        "start": 49.835,
+        "duration": 3.1
+    },
+    {
+        "text": ">> Yeah, Image Search or Image Retrieval systems",
+        "start": 52.935,
+        "duration": 3.935
+    },
+    {
+        "text": "have traditionally used features like tags,",
+        "start": 56.87,
+        "duration": 3.69
+    },
+    {
+        "text": "labels these are extracted from images or",
+        "start": 60.56,
+        "duration": 2.52
+    },
+    {
+        "text": "even descriptions you compare images and rank them by similarity,",
+        "start": 63.08,
+        "duration": 3.84
+    },
+    {
+        "text": "so keyword Search is the most basic form of",
+        "start": 66.92,
+        "duration": 2.85
+    },
+    {
+        "text": "this information retrieval approach where the search engine",
+        "start": 69.77,
+        "duration": 3.0
+    },
+    {
+        "text": "looks for the exact match of the keyword entered by the user,",
+        "start": 72.77,
+        "duration": 3.45
+    },
+    {
+        "text": "and returns images that contain",
+        "start": 76.22,
+        "duration": 1.74
+    },
+    {
+        "text": "the exact keywords stored as content labels or image tags.",
+        "start": 77.96,
+        "duration": 4.5
+    },
+    {
+        "text": "Keyword search as you can imagine",
+        "start": 82.46,
+        "duration": 2.31
+    },
+    {
+        "text": "relies heavily on users ability to",
+        "start": 84.77,
+        "duration": 2.04
+    },
+    {
+        "text": "input specific search terms. Let's take an example.",
+        "start": 86.81,
+        "duration": 3.87
+    },
+    {
+        "text": "I love hiking I'm in",
+        "start": 90.68,
+        "duration": 1.47
+    },
+    {
+        "text": "Pacific Northwest I'm trying to find",
+        "start": 92.15,
+        "duration": 2.34
+    },
+    {
+        "text": "images of hiking with friends in the ring.",
+        "start": 94.49,
+        "duration": 3.205
+    },
+    {
+        "text": "Again, hiking as a Word or term is not used globally,",
+        "start": 97.695,
+        "duration": 4.275
+    },
+    {
+        "text": "it could be bush walking in places",
+        "start": 101.97,
+        "duration": 2.45
+    },
+    {
+        "text": "like Australia or trekking in places like",
+        "start": 104.42,
+        "duration": 2.535
+    },
+    {
+        "text": "Asia so if if the images aren't tagged with",
+        "start": 106.955,
+        "duration": 2.865
+    },
+    {
+        "text": "hiking specifically you wouldn't be able to find those images.",
+        "start": 109.82,
+        "duration": 3.98
+    },
+    {
+        "text": "Now, contrast that with vector search,",
+        "start": 113.8,
+        "duration": 2.735
+    },
+    {
+        "text": "on the other hand where you have semantic similarities between",
+        "start": 116.535,
+        "duration": 3.455
+    },
+    {
+        "text": "the user search or the context within",
+        "start": 119.99,
+        "duration": 2.97
+    },
+    {
+        "text": "the search query and that is being",
+        "start": 122.96,
+        "duration": 1.8
+    },
+    {
+        "text": "compared with contents present in the image.",
+        "start": 124.76,
+        "duration": 2.385
+    },
+    {
+        "text": "Even if you search for something like",
+        "start": 127.145,
+        "duration": 2.13
+    },
+    {
+        "text": "trekking or hiking or bush walking all of",
+        "start": 129.275,
+        "duration": 2.985
+    },
+    {
+        "text": "those search queries would lead you to",
+        "start": 132.26,
+        "duration": 2.79
+    },
+    {
+        "text": "the same images that you're looking",
+        "start": 135.05,
+        "duration": 2.16
+    },
+    {
+        "text": "for that are relevant to the search query.",
+        "start": 137.21,
+        "duration": 2.61
+    },
+    {
+        "text": "In this case for Vector Search",
+        "start": 139.82,
+        "duration": 2.265
+    },
+    {
+        "text": "both image and text is converted into vectors and stored in",
+        "start": 142.085,
+        "duration": 3.465
+    },
+    {
+        "text": "the same high dimensional vector space and I'll show you",
+        "start": 145.55,
+        "duration": 4.71
+    },
+    {
+        "text": "a demo in a minute and how Florence",
+        "start": 150.26,
+        "duration": 2.04
+    },
+    {
+        "text": "enables the vector search within images.",
+        "start": 152.3,
+        "duration": 3.03
+    },
+    {
+        "text": "It enables both text to",
+        "start": 155.33,
+        "duration": 2.13
+    },
+    {
+        "text": "images as well as those image to any job for search.",
+        "start": 157.46,
+        "duration": 3.335
+    },
+    {
+        "text": ">> Cool, so that really tells me a lot about",
+        "start": 160.795,
+        "duration": 2.815
+    },
+    {
+        "text": "how it can enhance maybe some of",
+        "start": 163.61,
+        "duration": 3.195
+    },
+    {
+        "text": "the current features I might have to",
+        "start": 166.805,
+        "duration": 2.715
+    },
+    {
+        "text": "solve you know searching for keywords within images.",
+        "start": 169.52,
+        "duration": 2.82
+    },
+    {
+        "text": "Now, I'm going to be able to get a much",
+        "start": 172.34,
+        "duration": 1.515
+    },
+    {
+        "text": "better response because I'm going to be",
+        "start": 173.855,
+        "duration": 2.055
+    },
+    {
+        "text": "able to have a more semantically correct search using,",
+        "start": 175.91,
+        "duration": 3.795
+    },
+    {
+        "text": "you said the Florence model?",
+        "start": 179.705,
+        "duration": 1.455
+    },
+    {
+        "text": "Can you tell me more about what this Florence model is?",
+        "start": 181.16,
+        "duration": 2.12
+    },
+    {
+        "text": ">> Yes, great question. As we know by now with ChatGPT,",
+        "start": 183.28,
+        "duration": 4.88
+    },
+    {
+        "text": "DALLÂ·E, Bard,",
+        "start": 188.16,
+        "duration": 1.305
+    },
+    {
+        "text": "the industry is definitely moving towards large foundation model,",
+        "start": 189.465,
+        "duration": 3.725
+    },
+    {
+        "text": "and Microsoft has also invested in",
+        "start": 193.19,
+        "duration": 1.74
+    },
+    {
+        "text": "trained a large foundation model",
+        "start": 194.93,
+        "duration": 1.56
+    },
+    {
+        "text": "for vision and language specific task.",
+        "start": 196.49,
+        "duration": 2.4
+    },
+    {
+        "text": "The code name being project Florence.",
+        "start": 198.89,
+        "duration": 2.175
+    },
+    {
+        "text": "It's a transformer based model trained on massive amounts of",
+        "start": 201.065,
+        "duration": 2.955
+    },
+    {
+        "text": "data billions of text image base using solid supervision.",
+        "start": 204.02,
+        "duration": 4.73
+    },
+    {
+        "text": "Now, why is Florence important?",
+        "start": 208.75,
+        "duration": 2.165
+    },
+    {
+        "text": "Traditionally to train a computer vision model you'd",
+        "start": 210.915,
+        "duration": 2.945
+    },
+    {
+        "text": "collect relevant training dataset label it for a specific task,",
+        "start": 213.86,
+        "duration": 4.02
+    },
+    {
+        "text": "so if you're training for Object Detection or Classification.",
+        "start": 217.88,
+        "duration": 4.395
+    },
+    {
+        "text": "You train a model,",
+        "start": 222.275,
+        "duration": 1.485
+    },
+    {
+        "text": "label the data for that specific task and for",
+        "start": 223.76,
+        "duration": 2.745
+    },
+    {
+        "text": "each task you train an independent model,",
+        "start": 226.505,
+        "duration": 2.975
+    },
+    {
+        "text": "and for foundation model which is Florence you",
+        "start": 229.48,
+        "duration": 3.7
+    },
+    {
+        "text": "train one Bayes model using massive amounts of data,",
+        "start": 233.18,
+        "duration": 3.3
+    },
+    {
+        "text": "and in this case we're using both image and",
+        "start": 236.48,
+        "duration": 2.31
+    },
+    {
+        "text": "text so it's a multi model Bayes model,",
+        "start": 238.79,
+        "duration": 2.7
+    },
+    {
+        "text": "and then you have adaptation models that help you",
+        "start": 241.49,
+        "duration": 2.655
+    },
+    {
+        "text": "fine-tune this Bayes model for",
+        "start": 244.145,
+        "duration": 2.115
+    },
+    {
+        "text": "individual tasks like classification,",
+        "start": 246.26,
+        "duration": 2.34
+    },
+    {
+        "text": "tagging, image captioning and so on.",
+        "start": 248.6,
+        "duration": 2.25
+    },
+    {
+        "text": "It also does enable newer tasks like",
+        "start": 250.85,
+        "duration": 3.09
+    },
+    {
+        "text": "image retrieval or visual questioning",
+        "start": 253.94,
+        "duration": 2.43
+    },
+    {
+        "text": "and answering like visual chat,",
+        "start": 256.37,
+        "duration": 2.03
+    },
+    {
+        "text": "so it's a multimodal Bayes model that",
+        "start": 258.4,
+        "duration": 2.62
+    },
+    {
+        "text": "enables all of these new user experiences and scenarios.",
+        "start": 261.02,
+        "duration": 3.985
+    },
+    {
+        "text": ">> I understand now what the Florence Model is and",
+        "start": 265.005,
+        "duration": 2.465
+    },
+    {
+        "text": "the power and capabilities that it's bringing to this task.",
+        "start": 267.47,
+        "duration": 2.16
+    },
+    {
+        "text": "Where can people learn more about the Florence model?",
+        "start": 269.63,
+        "duration": 2.655
+    },
+    {
+        "text": ">> We released Florence earlier this year so there are",
+        "start": 272.285,
+        "duration": 2.745
+    },
+    {
+        "text": "research papers published and you can find out more through that,",
+        "start": 275.03,
+        "duration": 3.24
+    },
+    {
+        "text": "understand more about how the model was trained,",
+        "start": 278.27,
+        "duration": 2.28
+    },
+    {
+        "text": "how the model performance benchmarks",
+        "start": 280.55,
+        "duration": 2.64
+    },
+    {
+        "text": "so you can find out more with those published papers.",
+        "start": 283.19,
+        "duration": 2.75
+    },
+    {
+        "text": ">> Then let's see how this works,",
+        "start": 285.94,
+        "duration": 2.3
+    },
+    {
+        "text": "can you show me how this works",
+        "start": 288.24,
+        "duration": 2.1
+    },
+    {
+        "text": "within the cognitive search functionality?",
+        "start": 290.34,
+        "duration": 4.32
+    },
+    {
+        "text": ">> Let me start with Visual Studio experience this is",
+        "start": 294.66,
+        "duration": 3.335
+    },
+    {
+        "text": "a no code interactive experience where people can try",
+        "start": 297.995,
+        "duration": 2.985
+    },
+    {
+        "text": "out all division features that are available within Vision AI.",
+        "start": 300.98,
+        "duration": 3.6
+    },
+    {
+        "text": "I'm specifically going in do",
+        "start": 304.58,
+        "duration": 1.89
+    },
+    {
+        "text": "searching photos with image retrieval,",
+        "start": 306.47,
+        "duration": 2.04
+    },
+    {
+        "text": "so here you can put in a natural language sentence as",
+        "start": 308.51,
+        "duration": 3.93
+    },
+    {
+        "text": "a form of text query and find",
+        "start": 312.44,
+        "duration": 1.71
+    },
+    {
+        "text": "images that you're looking for within your dataset.",
+        "start": 314.15,
+        "duration": 2.975
+    },
+    {
+        "text": "Before I jump into the demo,",
+        "start": 317.125,
+        "duration": 3.065
+    },
+    {
+        "text": "I do want make it clear that these sample images don't have",
+        "start": 320.19,
+        "duration": 3.14
+    },
+    {
+        "text": "any metadata associated with it so no",
+        "start": 323.33,
+        "duration": 1.92
+    },
+    {
+        "text": "content label or tags associated with them,",
+        "start": 325.25,
+        "duration": 2.52
+    },
+    {
+        "text": "and we've provided a couple of",
+        "start": 327.77,
+        "duration": 1.47
+    },
+    {
+        "text": "these image datasets that people can",
+        "start": 329.24,
+        "duration": 1.86
+    },
+    {
+        "text": "try and test the Florence vector search experience with.",
+        "start": 331.1,
+        "duration": 3.895
+    },
+    {
+        "text": "Let me quickly go through maybe one or two of these examples.",
+        "start": 334.995,
+        "duration": 4.905
+    },
+    {
+        "text": "I'm picking manufacturing in this case.",
+        "start": 339.9,
+        "duration": 2.48
+    },
+    {
+        "text": "These are the images that you",
+        "start": 342.38,
+        "duration": 2.25
+    },
+    {
+        "text": "see below or the images present in the dataset,",
+        "start": 344.63,
+        "duration": 2.24
+    },
+    {
+        "text": "there're about 250 of these images.",
+        "start": 346.87,
+        "duration": 2.67
+    },
+    {
+        "text": "Now, let's go search for a query,",
+        "start": 349.54,
+        "duration": 3.155
+    },
+    {
+        "text": "so I'm picking one of the pre-curated ones so let's take",
+        "start": 352.695,
+        "duration": 3.315
+    },
+    {
+        "text": "a look at boxes on a conveyor belt for example.",
+        "start": 356.01,
+        "duration": 3.89
+    },
+    {
+        "text": "You see images that pop up again none of these images have",
+        "start": 359.9,
+        "duration": 3.06
+    },
+    {
+        "text": "any metadata associated with it so it's just pure vector search,",
+        "start": 362.96,
+        "duration": 3.51
+    },
+    {
+        "text": "and you can see more images as you go through the slider.",
+        "start": 366.47,
+        "duration": 3.13
+    },
+    {
+        "text": "This is all the images that are",
+        "start": 369.6,
+        "duration": 2.84
+    },
+    {
+        "text": "relevant to the query that I've typed in here.",
+        "start": 372.44,
+        "duration": 3.54
+    },
+    {
+        "text": "Now, let's try another one people looking at tablets together,",
+        "start": 375.98,
+        "duration": 5.22
+    },
+    {
+        "text": "again you see these images that are popping up.",
+        "start": 381.2,
+        "duration": 3.065
+    },
+    {
+        "text": "Again I can increase and see more of these relevant images pop up.",
+        "start": 384.265,
+        "duration": 4.09
+    },
+    {
+        "text": "You could also try your own custom query,",
+        "start": 388.355,
+        "duration": 2.595
+    },
+    {
+        "text": "and I can change this to people",
+        "start": 390.95,
+        "duration": 2.46
+    },
+    {
+        "text": "looking at information on a tablet together",
+        "start": 393.41,
+        "duration": 2.445
+    },
+    {
+        "text": "wearing maybe safety hats, let's try that.",
+        "start": 395.855,
+        "duration": 8.425
+    },
+    {
+        "text": "Now, you're seeing images with people wearing",
+        "start": 404.28,
+        "duration": 3.29
+    },
+    {
+        "text": "safety hats looking at the information together on their tablets.",
+        "start": 407.57,
+        "duration": 3.505
+    },
+    {
+        "text": "Now, as you can imagine these are",
+        "start": 411.075,
+        "duration": 1.475
+    },
+    {
+        "text": "complex queries that we're looking at and Florence does",
+        "start": 412.55,
+        "duration": 2.91
+    },
+    {
+        "text": "a great job of",
+        "start": 415.46,
+        "duration": 1.47
+    },
+    {
+        "text": "width factorization and finding the relevant images in this case.",
+        "start": 416.93,
+        "duration": 3.905
+    },
+    {
+        "text": ">> What's happening here is we have",
+        "start": 420.835,
+        "duration": 1.855
+    },
+    {
+        "text": "these datasets in the Florence models running",
+        "start": 422.69,
+        "duration": 2.13
+    },
+    {
+        "text": "and giving the results",
+        "start": 424.82,
+        "duration": 1.56
+    },
+    {
+        "text": "based on the text prompt that you're giving it,",
+        "start": 426.38,
+        "duration": 2.7
+    },
+    {
+        "text": "and then that's how it's able to get these, there's no metadata,",
+        "start": 429.08,
+        "duration": 2.46
+    },
+    {
+        "text": "there's no text associated with it,",
+        "start": 431.54,
+        "duration": 1.74
+    },
+    {
+        "text": "it's all with the power of Florence.",
+        "start": 433.28,
+        "duration": 2.225
+    },
+    {
+        "text": ">> Exactly, so let me go to a concept page,",
+        "start": 435.505,
+        "duration": 5.425
+    },
+    {
+        "text": "this is a publicly available page",
+        "start": 440.93,
+        "duration": 1.47
+    },
+    {
+        "text": "within Azure Cognitive Services,",
+        "start": 442.4,
+        "duration": 2.07
+    },
+    {
+        "text": "so let me just go through what's happening with the Visual Studio.",
+        "start": 444.47,
+        "duration": 3.24
+    },
+    {
+        "text": "We saw a bunch of photos within the photo dataset",
+        "start": 447.71,
+        "duration": 3.42
+    },
+    {
+        "text": "or the photo library you vectorize those images",
+        "start": 451.13,
+        "duration": 3.15
+    },
+    {
+        "text": "using vectorize image API same thing with",
+        "start": 454.28,
+        "duration": 3.03
+    },
+    {
+        "text": "vectorize text you take",
+        "start": 457.31,
+        "duration": 1.71
+    },
+    {
+        "text": "the user query which is in the text, so vectorize that.",
+        "start": 459.02,
+        "duration": 2.515
+    },
+    {
+        "text": "Now, that you are vectors in the same space,",
+        "start": 461.535,
+        "duration": 3.275
+    },
+    {
+        "text": "multidimensional space, you store it in a vector database.",
+        "start": 464.81,
+        "duration": 3.515
+    },
+    {
+        "text": "Then you perform something called a similarity function,",
+        "start": 468.325,
+        "duration": 3.745
+    },
+    {
+        "text": "and here I'm using the cosine similarity but you could essentially",
+        "start": 472.07,
+        "duration": 2.67
+    },
+    {
+        "text": "use any distance function to measure",
+        "start": 474.74,
+        "duration": 2.76
+    },
+    {
+        "text": "the similarity between the two vectors and",
+        "start": 477.5,
+        "duration": 2.715
+    },
+    {
+        "text": "find the top n or the top 10,",
+        "start": 480.215,
+        "duration": 3.115
+    },
+    {
+        "text": "5 whatever the image vectors that you're looking for,",
+        "start": 483.33,
+        "duration": 2.46
+    },
+    {
+        "text": "and map these vectors back to",
+        "start": 485.79,
+        "duration": 1.79
+    },
+    {
+        "text": "the images and provide that as results.",
+        "start": 487.58,
+        "duration": 2.315
+    },
+    {
+        "text": "That's essentially the concept of",
+        "start": 489.895,
+        "duration": 2.245
+    },
+    {
+        "text": "how the image retrieval system with vector search works.",
+        "start": 492.14,
+        "duration": 3.12
+    },
+    {
+        "text": "I do want to go back real quick on the studio aspect.",
+        "start": 495.26,
+        "duration": 3.615
+    },
+    {
+        "text": "We just saw the curated datasets in sample datasets with",
+        "start": 498.875,
+        "duration": 4.515
+    },
+    {
+        "text": "the text query you could also try with",
+        "start": 503.39,
+        "duration": 2.19
+    },
+    {
+        "text": "your own images signing into Azure Account.",
+        "start": 505.58,
+        "duration": 2.91
+    },
+    {
+        "text": "You can bring in 500 images,",
+        "start": 508.49,
+        "duration": 1.89
+    },
+    {
+        "text": "quickly create a POC and see how Florence works with your dataset.",
+        "start": 510.38,
+        "duration": 4.79
+    },
+    {
+        "text": "With that, the demo is limited to 500 images.",
+        "start": 515.17,
+        "duration": 4.955
+    },
+    {
+        "text": "If you want to create your own API dataset I would highly",
+        "start": 520.125,
+        "duration": 4.285
+    },
+    {
+        "text": "recommend to get started with cognitive search",
+        "start": 524.41,
+        "duration": 2.46
+    },
+    {
+        "text": "which makes it easy to set up a vector database,",
+        "start": 526.87,
+        "duration": 2.54
+    },
+    {
+        "text": "create a search index and have",
+        "start": 529.41,
+        "duration": 1.63
+    },
+    {
+        "text": "that end-to-end search systems set up.",
+        "start": 531.04,
+        "duration": 2.545
+    },
+    {
+        "text": ">> It's so coo.",
+        "start": 533.585,
+        "duration": 1.525
+    },
+    {
+        "text": "I think showing how it worked is really helpful",
+        "start": 535.11,
+        "duration": 2.71
+    },
+    {
+        "text": "because it seems very magical when you just see it work.",
+        "start": 537.82,
+        "duration": 3.735
+    },
+    {
+        "text": "But then when you break down step-by-steps how we're",
+        "start": 541.555,
+        "duration": 2.325
+    },
+    {
+        "text": "taking images and words and putting",
+        "start": 543.88,
+        "duration": 2.37
+    },
+    {
+        "text": "them into vector space and",
+        "start": 546.25,
+        "duration": 1.95
+    },
+    {
+        "text": "just if they're closer together they're more similar",
+        "start": 548.2,
+        "duration": 2.25
+    },
+    {
+        "text": "using the cosine similarity and",
+        "start": 550.45,
+        "duration": 1.86
+    },
+    {
+        "text": "that's how you find it I feel like every time I",
+        "start": 552.31,
+        "duration": 2.11
+    },
+    {
+        "text": "see that it still is just so",
+        "start": 554.42,
+        "duration": 2.37
+    },
+    {
+        "text": "brilliant and simple at the same time,",
+        "start": 556.79,
+        "duration": 2.595
+    },
+    {
+        "text": "and it really puts together how they're able to work so well.",
+        "start": 559.385,
+        "duration": 4.905
+    },
+    {
+        "text": ">> Exactly, so now let's jump",
+        "start": 564.29,
+        "duration": 4.095
+    },
+    {
+        "text": "into how vector search works",
+        "start": 568.385,
+        "duration": 3.015
+    },
+    {
+        "text": "with cognitive search specifically for images.",
+        "start": 571.4,
+        "duration": 3.62
+    },
+    {
+        "text": "You might have seen in the previous session that Liam shared,",
+        "start": 575.02,
+        "duration": 3.595
+    },
+    {
+        "text": "we're using the same dataset and showing the same index.",
+        "start": 578.615,
+        "duration": 2.925
+    },
+    {
+        "text": "In this case it's a recipe of",
+        "start": 581.54,
+        "duration": 3.045
+    },
+    {
+        "text": "food ingredients present in those foods so text is associated with",
+        "start": 584.585,
+        "duration": 3.945
+    },
+    {
+        "text": "it but in this particular demo I'm only using the images within",
+        "start": 588.53,
+        "duration": 4.14
+    },
+    {
+        "text": "the documents set so it's only images",
+        "start": 592.67,
+        "duration": 3.015
+    },
+    {
+        "text": "of food and recipes associated with it.",
+        "start": 595.685,
+        "duration": 3.95
+    },
+    {
+        "text": "With that, I'll get started with what I'm trying to do on",
+        "start": 599.635,
+        "duration": 3.805
+    },
+    {
+        "text": "this Python notebook so I'm",
+        "start": 603.44,
+        "duration": 3.15
+    },
+    {
+        "text": "importing the libraries that I need to set the demo up.",
+        "start": 606.59,
+        "duration": 4.35
+    },
+    {
+        "text": "I'm also importing the index from Azure Cognitive Search,",
+        "start": 610.94,
+        "duration": 4.68
+    },
+    {
+        "text": "the search index that was already set up.",
+        "start": 615.62,
+        "duration": 2.205
+    },
+    {
+        "text": "I have a JSON configuration with",
+        "start": 617.825,
+        "duration": 2.595
+    },
+    {
+        "text": "all the passwords and service endpoints.",
+        "start": 620.42,
+        "duration": 2.505
+    },
+    {
+        "text": "Here in this case you will need two accounts,",
+        "start": 622.925,
+        "duration": 2.955
+    },
+    {
+        "text": "one for Azure Cognitive Search and one for Azure Computer Vision,",
+        "start": 625.88,
+        "duration": 4.41
+    },
+    {
+        "text": "both of these accounts have been setup so I'm just creating",
+        "start": 630.29,
+        "duration": 2.85
+    },
+    {
+        "text": "those connection and endpoints and so let me run that.",
+        "start": 633.14,
+        "duration": 4.645
+    },
+    {
+        "text": ">> What is the computer vision service used with?",
+        "start": 637.785,
+        "duration": 4.17
+    },
+    {
+        "text": "Do you need to use that as part of",
+        "start": 641.955,
+        "duration": 1.545
+    },
+    {
+        "text": "the cognitive search or how are those two working together?",
+        "start": 643.5,
+        "duration": 2.45
+    },
+    {
+        "text": ">> Great question, so cognitive search",
+        "start": 645.95,
+        "duration": 2.49
+    },
+    {
+        "text": "today allows you to bring in vectors whether it's opening",
+        "start": 648.44,
+        "duration": 3.0
+    },
+    {
+        "text": "vectors through eight embeddings or",
+        "start": 651.44,
+        "duration": 1.8
+    },
+    {
+        "text": "Florence vectors for vision embeddings for all of",
+        "start": 653.24,
+        "duration": 2.52
+    },
+    {
+        "text": "these services you would have to first figure out where to",
+        "start": 655.76,
+        "duration": 2.34
+    },
+    {
+        "text": "generate these vectors before bringing it to cognitive search,",
+        "start": 658.1,
+        "duration": 2.88
+    },
+    {
+        "text": "so for images we're using",
+        "start": 660.98,
+        "duration": 1.26
+    },
+    {
+        "text": "Azure Computer Vision APIs to generate those vectors for images.",
+        "start": 662.24,
+        "duration": 3.935
+    },
+    {
+        "text": ">> It makes sense.",
+        "start": 666.175,
+        "duration": 1.46
+    },
+    {
+        "text": ">> Awesome. Here,",
+        "start": 667.635,
+        "duration": 1.595
+    },
+    {
+        "text": "I'm defining two functions that we just spoke about.",
+        "start": 669.23,
+        "duration": 2.625
+    },
+    {
+        "text": "Generating embeddings for images for the image set and here I have",
+        "start": 671.855,
+        "duration": 3.825
+    },
+    {
+        "text": "around 2,300 images of food and the recipe dataset.",
+        "start": 675.68,
+        "duration": 5.55
+    },
+    {
+        "text": "I'm using the image retrieval API in this case I apply image",
+        "start": 681.23,
+        "duration": 3.765
+    },
+    {
+        "text": "API to generate vectors for the image dataset.",
+        "start": 684.995,
+        "duration": 4.535
+    },
+    {
+        "text": "Doing the scene for text and",
+        "start": 689.53,
+        "duration": 3.07
+    },
+    {
+        "text": "the text query using the same version which is another key point.",
+        "start": 692.6,
+        "duration": 3.42
+    },
+    {
+        "text": "Different versions of the model does have",
+        "start": 696.02,
+        "duration": 1.83
+    },
+    {
+        "text": "slight variations in the way",
+        "start": 697.85,
+        "duration": 2.52
+    },
+    {
+        "text": "vectors are presented and we",
+        "start": 700.37,
+        "duration": 1.965
+    },
+    {
+        "text": "do not recommend different versions to be used together.",
+        "start": 702.335,
+        "duration": 3.255
+    },
+    {
+        "text": ">> You want to make sure that you're using that same model",
+        "start": 705.59,
+        "duration": 3.36
+    },
+    {
+        "text": "also when you create your index and vectorize your images?",
+        "start": 708.95,
+        "duration": 3.75
+    },
+    {
+        "text": ">> Exactly.",
+        "start": 712.7,
+        "duration": 1.06
+    },
+    {
+        "text": ">> A vector that is or the model that you're",
+        "start": 713.76,
+        "duration": 3.1
+    },
+    {
+        "text": "using for pricing text and pricing images need",
+        "start": 716.86,
+        "duration": 3.63
+    },
+    {
+        "text": "to be the same model in",
+        "start": 720.49,
+        "duration": 1.59
+    },
+    {
+        "text": "the same vector space which is where you can do",
+        "start": 722.08,
+        "duration": 2.19
+    },
+    {
+        "text": "direct comparison and find out",
+        "start": 724.27,
+        "duration": 1.8
+    },
+    {
+        "text": "the semantically similar images for that text query.",
+        "start": 726.07,
+        "duration": 3.735
+    },
+    {
+        "text": ">> Makes sense.",
+        "start": 729.805,
+        "duration": 1.425
+    },
+    {
+        "text": ">> Awesome, so moving on I'm just running this code to",
+        "start": 731.23,
+        "duration": 4.83
+    },
+    {
+        "text": "vectorize images and text though that runs successfully.",
+        "start": 736.06,
+        "duration": 4.8
+    },
+    {
+        "text": "Now for the fun part,",
+        "start": 740.86,
+        "duration": 1.59
+    },
+    {
+        "text": "so here I'm going to show both text to image search as well as",
+        "start": 742.45,
+        "duration": 4.485
+    },
+    {
+        "text": "image to image search so let's try something like fish tacos,",
+        "start": 746.935,
+        "duration": 4.78
+    },
+    {
+        "text": "I'm taking the top five images",
+        "start": 751.715,
+        "duration": 3.175
+    },
+    {
+        "text": "and you'll see the results at the bottom.",
+        "start": 754.89,
+        "duration": 2.84
+    },
+    {
+        "text": "You're seeing both scores from displaying",
+        "start": 757.73,
+        "duration": 3.59
+    },
+    {
+        "text": "the score here on the image ID and again image ID is",
+        "start": 761.32,
+        "duration": 3.42
+    },
+    {
+        "text": "important for us to give the image back and map",
+        "start": 764.74,
+        "duration": 3.525
+    },
+    {
+        "text": "to the relevant document this particular image is presenting.",
+        "start": 768.265,
+        "duration": 4.855
+    },
+    {
+        "text": ">> Just to go over the call that was made sorry this is",
+        "start": 773.13,
+        "duration": 3.52
+    },
+    {
+        "text": "the Python API or the SK and we're calling",
+        "start": 776.65,
+        "duration": 2.52
+    },
+    {
+        "text": "the search client so we have",
+        "start": 779.17,
+        "duration": 2.22
+    },
+    {
+        "text": "the fish taco texts and you're sending that in.",
+        "start": 781.39,
+        "duration": 3.57
+    },
+    {
+        "text": "We're generating the vector for",
+        "start": 784.96,
+        "duration": 1.68
+    },
+    {
+        "text": "that text and then we're sending it into the index",
+        "start": 786.64,
+        "duration": 2.43
+    },
+    {
+        "text": "that we've already created and then it's",
+        "start": 789.07,
+        "duration": 1.89
+    },
+    {
+        "text": "going to return the image that is most similar.",
+        "start": 790.96,
+        "duration": 2.355
+    },
+    {
+        "text": ">> Exactly, so",
+        "start": 793.315,
+        "duration": 2.745
+    },
+    {
+        "text": "fish tacos again an easy one and you can",
+        "start": 796.06,
+        "duration": 2.31
+    },
+    {
+        "text": "also see the score of the distance function",
+        "start": 798.37,
+        "duration": 2.25
+    },
+    {
+        "text": "so these are [inaudible] similarity scores that procedure so let",
+        "start": 800.62,
+        "duration": 4.44
+    },
+    {
+        "text": "me just scroll down so these are",
+        "start": 805.06,
+        "duration": 1.65
+    },
+    {
+        "text": "the images that we're seeing with fish tacos.",
+        "start": 806.71,
+        "duration": 3.075
+    },
+    {
+        "text": "They all look great so let's",
+        "start": 809.785,
+        "duration": 2.625
+    },
+    {
+        "text": "try something a little more complicated,",
+        "start": 812.41,
+        "duration": 2.925
+    },
+    {
+        "text": "so garlic shrimp with green onion.",
+        "start": 815.335,
+        "duration": 4.11
+    },
+    {
+        "text": "Let's see what that would generate.",
+        "start": 819.445,
+        "duration": 4.065
+    },
+    {
+        "text": "Let's try something else,",
+        "start": 823.51,
+        "duration": 2.955
+    },
+    {
+        "text": "maybe ramen with boiled eggs",
+        "start": 826.465,
+        "duration": 6.84
+    },
+    {
+        "text": "on the side which is my standard order,",
+        "start": 833.305,
+        "duration": 3.195
+    },
+    {
+        "text": "let's see if that works.",
+        "start": 836.5,
+        "duration": 2.38
+    },
+    {
+        "text": ">> Every time we do this dataset it makes me hungry",
+        "start": 839.34,
+        "duration": 3.07
+    },
+    {
+        "text": ", still hungry now.",
+        "start": 842.41,
+        "duration": 2.46
+    },
+    {
+        "text": "Oh that looks amazing.",
+        "start": 844.87,
+        "duration": 2.28
+    },
+    {
+        "text": ">> Clearly it's doing a great job with image search and you could",
+        "start": 847.15,
+        "duration": 5.955
+    },
+    {
+        "text": "also type in something with like I don't know it's probably bad.",
+        "start": 853.105,
+        "duration": 5.375
+    },
+    {
+        "text": "[inaudible] does a good job",
+        "start": 858.48,
+        "duration": 3.82
+    },
+    {
+        "text": "of just like figuring out what the user is asking for.",
+        "start": 862.3,
+        "duration": 3.195
+    },
+    {
+        "text": "Again the tone doesn't need to be specified doesn't",
+        "start": 865.495,
+        "duration": 2.475
+    },
+    {
+        "text": "need to be correct with",
+        "start": 867.97,
+        "duration": 2.67
+    },
+    {
+        "text": "respect to the spelling errors and as you can see it's giving me",
+        "start": 870.64,
+        "duration": 4.77
+    },
+    {
+        "text": "results for shrimp pasta or spaghetti pasta with shrimp.",
+        "start": 875.41,
+        "duration": 5.805
+    },
+    {
+        "text": ">> Whatever use cases are you seeing customers",
+        "start": 881.215,
+        "duration": 2.685
+    },
+    {
+        "text": "or people interested in using these features?",
+        "start": 883.9,
+        "duration": 3.09
+    },
+    {
+        "text": ">> Definitely a lot in digital asset management",
+        "start": 886.99,
+        "duration": 3.21
+    },
+    {
+        "text": "so there's a huge need to be able to reuse",
+        "start": 890.2,
+        "duration": 3.48
+    },
+    {
+        "text": "the assets that were created by",
+        "start": 893.68,
+        "duration": 1.68
+    },
+    {
+        "text": "their marketing agencies or by people licensing data.",
+        "start": 895.36,
+        "duration": 4.5
+    },
+    {
+        "text": "Again there's a huge costs nowadays to",
+        "start": 899.86,
+        "duration": 2.01
+    },
+    {
+        "text": "have IDA licensing done so you might be able to",
+        "start": 901.87,
+        "duration": 3.06
+    },
+    {
+        "text": "utilize whatever data that you're buying or",
+        "start": 904.93,
+        "duration": 3.18
+    },
+    {
+        "text": "licensing to the utmost capability so discovery and",
+        "start": 908.11,
+        "duration": 4.245
+    },
+    {
+        "text": "search in like aspect of being",
+        "start": 912.355,
+        "duration": 2.385
+    },
+    {
+        "text": "able to find what you're looking for as instantly",
+        "start": 914.74,
+        "duration": 2.43
+    },
+    {
+        "text": "as possible are all features that",
+        "start": 917.17,
+        "duration": 2.37
+    },
+    {
+        "text": "we're seeing where our customers are using it for.",
+        "start": 919.54,
+        "duration": 2.76
+    },
+    {
+        "text": "The other neat thing that we're also",
+        "start": 922.3,
+        "duration": 1.83
+    },
+    {
+        "text": "seeing people use it for is more like",
+        "start": 924.13,
+        "duration": 1.74
+    },
+    {
+        "text": "product recommendation or product cataloging where they're not",
+        "start": 925.87,
+        "duration": 3.69
+    },
+    {
+        "text": "only using image search as the primary PR vector search",
+        "start": 929.56,
+        "duration": 3.975
+    },
+    {
+        "text": "but also augmenting it with",
+        "start": 933.535,
+        "duration": 2.265
+    },
+    {
+        "text": "metadata around it so you can think of PCs having",
+        "start": 935.8,
+        "duration": 3.54
+    },
+    {
+        "text": "different versions of different OS's or",
+        "start": 939.34,
+        "duration": 2.79
+    },
+    {
+        "text": "laptops with specific product IDs or it could even be close with",
+        "start": 942.13,
+        "duration": 3.96
+    },
+    {
+        "text": "specific product IDs so you're augmenting",
+        "start": 946.09,
+        "duration": 2.49
+    },
+    {
+        "text": "the vector search with",
+        "start": 948.58,
+        "duration": 1.29
+    },
+    {
+        "text": "metadata search and we call that hybrid search",
+        "start": 949.87,
+        "duration": 2.46
+    },
+    {
+        "text": "within the cognitive vector search pipeline so you could do",
+        "start": 952.33,
+        "duration": 3.21
+    },
+    {
+        "text": "something like that as well where you",
+        "start": 955.54,
+        "duration": 1.47
+    },
+    {
+        "text": "could have flexibility of doing both.",
+        "start": 957.01,
+        "duration": 2.685
+    },
+    {
+        "text": ">> That's so cool. I can see it on the similarity search,",
+        "start": 959.695,
+        "duration": 4.605
+    },
+    {
+        "text": "like I want something that looks like this or",
+        "start": 964.3,
+        "duration": 2.52
+    },
+    {
+        "text": "maybe I'm on a food ordering app and taking",
+        "start": 966.82,
+        "duration": 2.64
+    },
+    {
+        "text": "pictures on my food finally makes sense because I find",
+        "start": 969.46,
+        "duration": 2.28
+    },
+    {
+        "text": "a meal that I had and I want to order something like that.",
+        "start": 971.74,
+        "duration": 3.3
+    },
+    {
+        "text": "That could be interesting to just the different ways that you can",
+        "start": 975.04,
+        "duration": 2.97
+    },
+    {
+        "text": "use images that you have in order to find something similar.",
+        "start": 978.01,
+        "duration": 3.45
+    },
+    {
+        "text": ">> Exactly, I look at a ton of",
+        "start": 981.46,
+        "duration": 2.4
+    },
+    {
+        "text": "Pinterest boards and I'm like okay where do I find this piece of",
+        "start": 983.86,
+        "duration": 2.73
+    },
+    {
+        "text": "clothing doesn't exist today but you could soon have that as",
+        "start": 986.59,
+        "duration": 3.51
+    },
+    {
+        "text": "an image input to one of these websites",
+        "start": 990.1,
+        "duration": 2.175
+    },
+    {
+        "text": "and get the product that you're looking for.",
+        "start": 992.275,
+        "duration": 2.935
+    },
+    {
+        "text": ">> That's so cool.",
+        "start": 995.21,
+        "duration": 1.44
+    },
+    {
+        "text": ">> Awesome, so we saw text vector,",
+        "start": 996.65,
+        "duration": 4.585
+    },
+    {
+        "text": "now let's checkout image to image vector search.",
+        "start": 1001.235,
+        "duration": 5.125
+    },
+    {
+        "text": "Here I'm pulling in a picture of",
+        "start": 1006.36,
+        "duration": 2.61
+    },
+    {
+        "text": "lasagna so let's try what it returns.",
+        "start": 1008.97,
+        "duration": 3.85
+    },
+    {
+        "text": ">> Now we're taking an image instead of text",
+        "start": 1012.92,
+        "duration": 2.875
+    },
+    {
+        "text": "embedding that and sending that as the query.",
+        "start": 1015.795,
+        "duration": 2.25
+    },
+    {
+        "text": ">> Exactly so we're looking",
+        "start": 1018.045,
+        "duration": 2.37
+    },
+    {
+        "text": "at this is the picture that I'm using to send it to",
+        "start": 1020.415,
+        "duration": 3.285
+    },
+    {
+        "text": "the query for our vector search and here are the results",
+        "start": 1023.7,
+        "duration": 3.75
+    },
+    {
+        "text": "that I'm getting back again with pretty high confidence.",
+        "start": 1027.45,
+        "duration": 4.325
+    },
+    {
+        "text": "Again possibilities with image to image search are endless,",
+        "start": 1031.775,
+        "duration": 4.5
+    },
+    {
+        "text": "we've seen even within chat experiences",
+        "start": 1036.275,
+        "duration": 3.705
+    },
+    {
+        "text": "or bot experiences people send products looking",
+        "start": 1039.98,
+        "duration": 3.945
+    },
+    {
+        "text": "for similar products that they're",
+        "start": 1043.925,
+        "duration": 2.025
+    },
+    {
+        "text": "looking for if something is out of stock or they",
+        "start": 1045.95,
+        "duration": 2.37
+    },
+    {
+        "text": "have a very specific snapshot that they've taken",
+        "start": 1048.32,
+        "duration": 3.33
+    },
+    {
+        "text": "don't remember where it is from or what brand is it of,",
+        "start": 1051.65,
+        "duration": 3.87
+    },
+    {
+        "text": "they could just easily such with the image and",
+        "start": 1055.52,
+        "duration": 2.22
+    },
+    {
+        "text": "find relevant links for those products.",
+        "start": 1057.74,
+        "duration": 3.2
+    },
+    {
+        "text": ">> What different languages does this support,",
+        "start": 1060.94,
+        "duration": 3.17
+    },
+    {
+        "text": "I see we've been using English",
+        "start": 1064.11,
+        "duration": 1.62
+    },
+    {
+        "text": "what other languages can we address?",
+        "start": 1065.73,
+        "duration": 3.21
+    },
+    {
+        "text": ">> Yeah it's a great question again so right now",
+        "start": 1068.94,
+        "duration": 3.0
+    },
+    {
+        "text": "we support English with the embeddings.",
+        "start": 1071.94,
+        "duration": 3.03
+    },
+    {
+        "text": "But we do have a multilingual model that supports",
+        "start": 1074.97,
+        "duration": 2.52
+    },
+    {
+        "text": "more than 100 different languages and",
+        "start": 1077.49,
+        "duration": 1.95
+    },
+    {
+        "text": "that's coming out soon so stay tuned for that.",
+        "start": 1079.44,
+        "duration": 2.88
+    },
+    {
+        "text": ">> That's not out yet but it's coming.",
+        "start": 1082.32,
+        "duration": 2.235
+    },
+    {
+        "text": ">> Yes.",
+        "start": 1084.555,
+        "duration": 0.69
+    },
+    {
+        "text": ">> Awesome and then the other question I have is I see that we're",
+        "start": 1085.245,
+        "duration": 3.225
+    },
+    {
+        "text": "using Python and we're using the cognitive search SDK?",
+        "start": 1088.47,
+        "duration": 3.45
+    },
+    {
+        "text": "What other languages are",
+        "start": 1091.92,
+        "duration": 2.1
+    },
+    {
+        "text": "supported for this, programming languages?",
+        "start": 1094.02,
+        "duration": 2.13
+    },
+    {
+        "text": ">> Yeah so currently",
+        "start": 1096.15,
+        "duration": 2.7
+    },
+    {
+        "text": "the Computer Vision API is REST endpoints that you could use.",
+        "start": 1098.85,
+        "duration": 4.29
+    },
+    {
+        "text": "SDK and Python C++ those are",
+        "start": 1103.14,
+        "duration": 3.03
+    },
+    {
+        "text": "all coming so should be available in a few months",
+        "start": 1106.17,
+        "duration": 3.855
+    },
+    {
+        "text": "as well as on cognitive search you already have SDKs",
+        "start": 1110.025,
+        "duration": 3.075
+    },
+    {
+        "text": "available in popular languages like Python and C++.",
+        "start": 1113.1,
+        "duration": 4.995
+    },
+    {
+        "text": ">> Then you're using Azure Data sources,",
+        "start": 1118.095,
+        "duration": 4.275
+    },
+    {
+        "text": "does my data need to be in Azure or what",
+        "start": 1122.37,
+        "duration": 1.95
+    },
+    {
+        "text": "different data sources are supported?",
+        "start": 1124.32,
+        "duration": 2.28
+    },
+    {
+        "text": ">> Great question again,",
+        "start": 1126.6,
+        "duration": 1.62
+    },
+    {
+        "text": "so it doesn't need to be in Azure,",
+        "start": 1128.22,
+        "duration": 2.04
+    },
+    {
+        "text": "definitely it helps within Cognitive Search to have",
+        "start": 1130.26,
+        "duration": 3.36
+    },
+    {
+        "text": "Azure data or Azure Blob Storage but you can also bring in",
+        "start": 1133.62,
+        "duration": 4.14
+    },
+    {
+        "text": "your storage whether it's local or",
+        "start": 1137.76,
+        "duration": 3.54
+    },
+    {
+        "text": "storage that is in",
+        "start": 1141.3,
+        "duration": 1.515
+    },
+    {
+        "text": "other services and plug it into Azure Cognitive search.",
+        "start": 1142.815,
+        "duration": 3.495
+    },
+    {
+        "text": ">> Great so you have the flexibility to plug",
+        "start": 1146.31,
+        "duration": 1.83
+    },
+    {
+        "text": "in your data source and have it indexed.",
+        "start": 1148.14,
+        "duration": 2.265
+    },
+    {
+        "text": ">> Exactly.",
+        "start": 1150.405,
+        "duration": 1.155
+    },
+    {
+        "text": ">> Another question I have around indexing your own data is",
+        "start": 1151.56,
+        "duration": 4.755
+    },
+    {
+        "text": "I know there is tooling within",
+        "start": 1156.315,
+        "duration": 1.905
+    },
+    {
+        "text": "it we talked about that on the last episode,",
+        "start": 1158.22,
+        "duration": 2.43
+    },
+    {
+        "text": "everyone go check that out for getting those indexes setup,",
+        "start": 1160.65,
+        "duration": 4.02
+    },
+    {
+        "text": "how frequently should someone be re-indexing their data?",
+        "start": 1164.67,
+        "duration": 6.375
+    },
+    {
+        "text": "Is that by a basis of what they're trying to do,",
+        "start": 1171.045,
+        "duration": 3.165
+    },
+    {
+        "text": "how often their data changes or how do people make that decision",
+        "start": 1174.21,
+        "duration": 2.61
+    },
+    {
+        "text": "about when they need to create",
+        "start": 1176.82,
+        "duration": 1.35
+    },
+    {
+        "text": "the new index that will overwrite the existing one?",
+        "start": 1178.17,
+        "duration": 2.49
+    },
+    {
+        "text": ">> A great question again, so again if",
+        "start": 1180.66,
+        "duration": 2.355
+    },
+    {
+        "text": "the dataset hasn't changed if you're dealing with the",
+        "start": 1183.015,
+        "duration": 2.685
+    },
+    {
+        "text": "same 5,000 images you don't need to",
+        "start": 1185.7,
+        "duration": 2.04
+    },
+    {
+        "text": "re-index ever unless you want to switch over to",
+        "start": 1187.74,
+        "duration": 2.73
+    },
+    {
+        "text": "a different model or you're trying",
+        "start": 1190.47,
+        "duration": 1.29
+    },
+    {
+        "text": "something else that is not available",
+        "start": 1191.76,
+        "duration": 1.56
+    },
+    {
+        "text": "in the current indexed model but",
+        "start": 1193.32,
+        "duration": 3.0
+    },
+    {
+        "text": "as you bring in more images or more text",
+        "start": 1196.32,
+        "duration": 2.49
+    },
+    {
+        "text": "you would have to do an update to the index so wouldn't",
+        "start": 1198.81,
+        "duration": 2.88
+    },
+    {
+        "text": "be re-indexing for all of the images but just for",
+        "start": 1201.69,
+        "duration": 3.39
+    },
+    {
+        "text": "the new images to update and there's a function called recrawl,",
+        "start": 1205.08,
+        "duration": 4.68
+    },
+    {
+        "text": "you re-crawl with all the new data",
+        "start": 1209.76,
+        "duration": 1.74
+    },
+    {
+        "text": "that has been added to the dataset",
+        "start": 1211.5,
+        "duration": 1.395
+    },
+    {
+        "text": "and may index those to add to the existing index.",
+        "start": 1212.895,
+        "duration": 3.945
+    },
+    {
+        "text": ">> That's something I could have on",
+        "start": 1216.84,
+        "duration": 1.86
+    },
+    {
+        "text": "a schedule as well so I don't have to necessarily",
+        "start": 1218.7,
+        "duration": 2.34
+    },
+    {
+        "text": "manually trigger that I can say I know my data is going to be",
+        "start": 1221.04,
+        "duration": 2.19
+    },
+    {
+        "text": "changing every day I want to",
+        "start": 1223.23,
+        "duration": 1.125
+    },
+    {
+        "text": "re-index every night or something like that.",
+        "start": 1224.355,
+        "duration": 1.86
+    },
+    {
+        "text": ">> Sure. Yeah you could use the API endpoints",
+        "start": 1226.215,
+        "duration": 2.88
+    },
+    {
+        "text": "for a specific timeline every week every day or whatever",
+        "start": 1229.095,
+        "duration": 4.365
+    },
+    {
+        "text": "the schedule is or you could also",
+        "start": 1233.46,
+        "duration": 2.28
+    },
+    {
+        "text": "set up a function that would say do",
+        "start": 1235.74,
+        "duration": 2.55
+    },
+    {
+        "text": "a crawl and if there is any new data",
+        "start": 1238.29,
+        "duration": 2.34
+    },
+    {
+        "text": "present then crawl that and update the index.",
+        "start": 1240.63,
+        "duration": 3.24
+    },
+    {
+        "text": ">> Fantastic so it sounds like there is lots of",
+        "start": 1243.87,
+        "duration": 2.7
+    },
+    {
+        "text": "functionality already for being able to",
+        "start": 1246.57,
+        "duration": 2.4
+    },
+    {
+        "text": "get the data in and being able to leverage this amazing powers.",
+        "start": 1248.97,
+        "duration": 5.53
+    },
+    {
+        "text": "We saw some really cool demos,",
+        "start": 1254.87,
+        "duration": 2.29
+    },
+    {
+        "text": "we learned a lot about how we can start",
+        "start": 1257.16,
+        "duration": 1.71
+    },
+    {
+        "text": "leveraging images in Cognitive Search,",
+        "start": 1258.87,
+        "duration": 2.43
+    },
+    {
+        "text": "where can people go to learn more?",
+        "start": 1261.3,
+        "duration": 2.325
+    },
+    {
+        "text": ">> You can get started the easiest ways to get started with",
+        "start": 1263.625,
+        "duration": 3.045
+    },
+    {
+        "text": "the Log announcement post",
+        "start": 1266.67,
+        "duration": 1.98
+    },
+    {
+        "text": "that we just saw as well as Visual Studio",
+        "start": 1268.65,
+        "duration": 2.64
+    },
+    {
+        "text": "where you can try out these experiences and create an",
+        "start": 1271.29,
+        "duration": 2.76
+    },
+    {
+        "text": "easy [inaudible] or you could go into",
+        "start": 1274.05,
+        "duration": 2.93
+    },
+    {
+        "text": "the GitHub repo that we have or you could use",
+        "start": 1276.98,
+        "duration": 4.33
+    },
+    {
+        "text": "that code to setup the image retrieval systems",
+        "start": 1281.31,
+        "duration": 2.37
+    },
+    {
+        "text": "for your search index.",
+        "start": 1283.68,
+        "duration": 2.53
+    },
+    {
+        "text": ">> Great so I'm showing those links below,",
+        "start": 1286.21,
+        "duration": 2.0
+    },
+    {
+        "text": "they are also in the description for",
+        "start": 1288.21,
+        "duration": 1.65
+    },
+    {
+        "text": "this video so you can go and check those out and you",
+        "start": 1289.86,
+        "duration": 2.67
+    },
+    {
+        "text": "can get started with",
+        "start": 1292.53,
+        "duration": 1.47
+    },
+    {
+        "text": "the image search capabilities in Azure Cognitive Search.",
+        "start": 1294.0,
+        "duration": 3.09
+    },
+    {
+        "text": "Thank you so much for hanging out with us today",
+        "start": 1297.09,
+        "duration": 3.04
+    }
+]

@@ -1,0 +1,3092 @@
+[
+    {
+        "text": ">> In this special build edition of the AI Show,",
+        "start": 1.16,
+        "duration": 2.86
+    },
+    {
+        "text": "we get to hear from Mike Carter,",
+        "start": 4.02,
+        "duration": 1.29
+    },
+    {
+        "text": "Principal Program Manager on the Azure Cognitive Search team.",
+        "start": 5.31,
+        "duration": 2.925
+    },
+    {
+        "text": "Mike will talk all about",
+        "start": 8.235,
+        "duration": 1.89
+    },
+    {
+        "text": "our latest improvements to encryption at rest, VNet integration,",
+        "start": 10.125,
+        "duration": 3.315
+    },
+    {
+        "text": "firewall with IP restrictions,",
+        "start": 13.44,
+        "duration": 1.59
+    },
+    {
+        "text": "and compliance to help you build",
+        "start": 15.03,
+        "duration": 1.71
+    },
+    {
+        "text": "a great search experience without putting",
+        "start": 16.74,
+        "duration": 1.59
+    },
+    {
+        "text": "your data at risk. Make sure you tune in.",
+        "start": 18.33,
+        "duration": 2.13
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 20.46,
+        "duration": 9.359
+    },
+    {
+        "text": ">> Hi, I'm Mike Carter. I'm a Program Manager",
+        "start": 29.819,
+        "duration": 1.891
+    },
+    {
+        "text": "on the Azure Cognitive Search team.",
+        "start": 31.71,
+        "duration": 1.65
+    },
+    {
+        "text": "I'm here today to talk to you about what's new in security.",
+        "start": 33.36,
+        "duration": 2.505
+    },
+    {
+        "text": "We've been doing a lot of work, so far this year,",
+        "start": 35.865,
+        "duration": 2.705
+    },
+    {
+        "text": "on security improvements, and I'm",
+        "start": 38.57,
+        "duration": 2.075
+    },
+    {
+        "text": "excited to talk to you about them. So let's get started.",
+        "start": 40.645,
+        "duration": 3.08
+    },
+    {
+        "text": "Security is very important.",
+        "start": 43.725,
+        "duration": 1.875
+    },
+    {
+        "text": "I don't think anybody would argue with that.",
+        "start": 45.6,
+        "duration": 1.685
+    },
+    {
+        "text": "But to some customers more than others,",
+        "start": 47.285,
+        "duration": 1.98
+    },
+    {
+        "text": "financial services, companies, enterprises,",
+        "start": 49.265,
+        "duration": 3.225
+    },
+    {
+        "text": "governments, they make their service purchasing",
+        "start": 52.49,
+        "duration": 2.91
+    },
+    {
+        "text": "decisions based on the security features that a service provides.",
+        "start": 55.4,
+        "duration": 4.33
+    },
+    {
+        "text": "We want to meet those demands as well as",
+        "start": 59.73,
+        "duration": 2.99
+    },
+    {
+        "text": "the demands of even smaller customers to make it actually",
+        "start": 62.72,
+        "duration": 2.73
+    },
+    {
+        "text": "possible for you to secure your applications and",
+        "start": 65.45,
+        "duration": 3.18
+    },
+    {
+        "text": "your customer's data without having to jump through a lot",
+        "start": 68.63,
+        "duration": 2.52
+    },
+    {
+        "text": "of hoops and make it very difficult.",
+        "start": 71.15,
+        "duration": 2.655
+    },
+    {
+        "text": "So I'll be giving you a demo of how that",
+        "start": 73.805,
+        "duration": 1.995
+    },
+    {
+        "text": "works and some of the things that we can do,",
+        "start": 75.8,
+        "duration": 2.24
+    },
+    {
+        "text": "talk to you about some of the easier options and",
+        "start": 78.04,
+        "duration": 2.08
+    },
+    {
+        "text": "then maybe some of the little more advanced options.",
+        "start": 80.12,
+        "duration": 2.54
+    },
+    {
+        "text": "So I'm going to break this topic or section up",
+        "start": 82.66,
+        "duration": 3.47
+    },
+    {
+        "text": "into three main groups",
+        "start": 86.13,
+        "duration": 2.055
+    },
+    {
+        "text": "and then talk about three different types of security.",
+        "start": 88.185,
+        "duration": 2.075
+    },
+    {
+        "text": "There's going to be a security of your data",
+        "start": 90.26,
+        "duration": 2.73
+    },
+    {
+        "text": "at rest and that would be you upload the data to us.",
+        "start": 92.99,
+        "duration": 2.91
+    },
+    {
+        "text": "How well do we store that for you securely?",
+        "start": 95.9,
+        "duration": 3.96
+    },
+    {
+        "text": "Then there's the inbound security.",
+        "start": 99.86,
+        "duration": 2.23
+    },
+    {
+        "text": "This is how do we protect",
+        "start": 102.09,
+        "duration": 1.4
+    },
+    {
+        "text": "the service endpoint like the APIs that you",
+        "start": 103.49,
+        "duration": 2.73
+    },
+    {
+        "text": "use to work with the data in",
+        "start": 106.22,
+        "duration": 1.56
+    },
+    {
+        "text": "your service, and that is inbound security.",
+        "start": 107.78,
+        "duration": 3.34
+    },
+    {
+        "text": "Then there's outbound security.",
+        "start": 111.12,
+        "duration": 1.62
+    },
+    {
+        "text": "That is the security of",
+        "start": 112.74,
+        "duration": 1.73
+    },
+    {
+        "text": "the calls that we're making to other services.",
+        "start": 114.47,
+        "duration": 2.595
+    },
+    {
+        "text": "For example, we have a component called inductions",
+        "start": 117.065,
+        "duration": 3.285
+    },
+    {
+        "text": "that will pull data from your data source.",
+        "start": 120.35,
+        "duration": 1.95
+    },
+    {
+        "text": "How do we pull that data from",
+        "start": 122.3,
+        "duration": 2.055
+    },
+    {
+        "text": "a data source without forcing you to open it up to",
+        "start": 124.355,
+        "duration": 2.835
+    },
+    {
+        "text": "the Internet and sacrificing the security",
+        "start": 127.19,
+        "duration": 2.49
+    },
+    {
+        "text": "of your data sitting in that data source.",
+        "start": 129.68,
+        "duration": 3.23
+    },
+    {
+        "text": "So let's move on and start talking about security at rest.",
+        "start": 132.91,
+        "duration": 4.42
+    },
+    {
+        "text": "For a long time, we've actually supported",
+        "start": 137.33,
+        "duration": 2.909
+    },
+    {
+        "text": "encryption at the storage layer by default.",
+        "start": 140.239,
+        "duration": 3.211
+    },
+    {
+        "text": "It's enabled today for",
+        "start": 143.45,
+        "duration": 1.65
+    },
+    {
+        "text": "every single customer that's in the service,",
+        "start": 145.1,
+        "duration": 3.51
+    },
+    {
+        "text": "using the Microsoft managed key.",
+        "start": 148.61,
+        "duration": 2.115
+    },
+    {
+        "text": "It is just something that we take",
+        "start": 150.725,
+        "duration": 1.395
+    },
+    {
+        "text": "advantage of at our infrastructure layer.",
+        "start": 152.12,
+        "duration": 1.56
+    },
+    {
+        "text": "We didn't even have to do that much work to actually support it.",
+        "start": 153.68,
+        "duration": 2.895
+    },
+    {
+        "text": "Now, we've added and this is currently generally available,",
+        "start": 156.575,
+        "duration": 3.585
+    },
+    {
+        "text": "we've added the ability to encrypt components of",
+        "start": 160.16,
+        "duration": 4.66
+    },
+    {
+        "text": "the service individually using",
+        "start": 164.82,
+        "duration": 2.905
+    },
+    {
+        "text": "a key that you provide and then store securely in key vault.",
+        "start": 167.725,
+        "duration": 3.13
+    },
+    {
+        "text": "So you get to have each individual index,",
+        "start": 170.855,
+        "duration": 3.015
+    },
+    {
+        "text": "can have its own key,",
+        "start": 173.87,
+        "duration": 1.425
+    },
+    {
+        "text": "each synonym map, and coming soon,",
+        "start": 175.295,
+        "duration": 2.76
+    },
+    {
+        "text": "each skill set can be encrypted",
+        "start": 178.055,
+        "duration": 3.255
+    },
+    {
+        "text": "using a custom managed key",
+        "start": 181.31,
+        "duration": 2.075
+    },
+    {
+        "text": "that you provide and store in key vault.",
+        "start": 183.385,
+        "duration": 2.695
+    },
+    {
+        "text": "Like I said, you can have multiple keys,",
+        "start": 186.08,
+        "duration": 2.325
+    },
+    {
+        "text": "but you could also have multiple key vault.",
+        "start": 188.405,
+        "duration": 1.625
+    },
+    {
+        "text": "You could have each one of these keys that are",
+        "start": 190.03,
+        "duration": 1.9
+    },
+    {
+        "text": "listed here or shown here,",
+        "start": 191.93,
+        "duration": 2.04
+    },
+    {
+        "text": "could actually go to",
+        "start": 193.97,
+        "duration": 1.65
+    },
+    {
+        "text": "a different key vault and it would all just work.",
+        "start": 195.62,
+        "duration": 3.19
+    },
+    {
+        "text": "So the key vault itself,",
+        "start": 198.81,
+        "duration": 1.76
+    },
+    {
+        "text": "you can authenticate using",
+        "start": 200.57,
+        "duration": 1.724
+    },
+    {
+        "text": "an AAD application or a managed identity,",
+        "start": 202.294,
+        "duration": 3.511
+    },
+    {
+        "text": "whichever you decide to choose.",
+        "start": 205.805,
+        "duration": 2.685
+    },
+    {
+        "text": "This is great because it actually has two layers of encryption.",
+        "start": 208.49,
+        "duration": 2.91
+    },
+    {
+        "text": "So we still have",
+        "start": 211.4,
+        "duration": 1.17
+    },
+    {
+        "text": "the storage layer encryption as well as a layer at the platform,",
+        "start": 212.57,
+        "duration": 6.105
+    },
+    {
+        "text": "meaning that data as it comes into the service",
+        "start": 218.675,
+        "duration": 3.075
+    },
+    {
+        "text": "is encrypted before it even reaches the disk, and then",
+        "start": 221.75,
+        "duration": 3.795
+    },
+    {
+        "text": "the disk actually encrypts it as well,",
+        "start": 225.545,
+        "duration": 1.935
+    },
+    {
+        "text": "and so we have multiple layers.",
+        "start": 227.48,
+        "duration": 2.565
+    },
+    {
+        "text": "It meets this longer term goal,",
+        "start": 230.045,
+        "duration": 3.27
+    },
+    {
+        "text": "we're calling double encryption and reversal.",
+        "start": 233.315,
+        "duration": 2.115
+    },
+    {
+        "text": "It caches all in transit and then rest on disk,",
+        "start": 235.43,
+        "duration": 5.565
+    },
+    {
+        "text": "having double encryption everywhere,",
+        "start": 240.995,
+        "duration": 1.785
+    },
+    {
+        "text": "which is a slightly longer term goal.",
+        "start": 242.78,
+        "duration": 1.86
+    },
+    {
+        "text": "We're not there yet, but that's a place that we",
+        "start": 244.64,
+        "duration": 1.62
+    },
+    {
+        "text": "want to be later this year.",
+        "start": 246.26,
+        "duration": 2.31
+    },
+    {
+        "text": "So that's encryption at rest and it pretty much covers it.",
+        "start": 248.57,
+        "duration": 2.95
+    },
+    {
+        "text": "That's exactly what we are planning to do,",
+        "start": 251.52,
+        "duration": 2.865
+    },
+    {
+        "text": "and so this is something that's generally",
+        "start": 254.385,
+        "duration": 1.565
+    },
+    {
+        "text": "available and you can use this today.",
+        "start": 255.95,
+        "duration": 2.215
+    },
+    {
+        "text": "Now, let's move on to inbound.",
+        "start": 258.165,
+        "duration": 2.15
+    },
+    {
+        "text": "The inbound security is a new area for us.",
+        "start": 260.315,
+        "duration": 4.98
+    },
+    {
+        "text": "We've always had the API key that you can use to secure your data,",
+        "start": 265.295,
+        "duration": 4.275
+    },
+    {
+        "text": "and that's what you have to provide to us,",
+        "start": 269.57,
+        "duration": 1.89
+    },
+    {
+        "text": "to be able to make calls into",
+        "start": 271.46,
+        "duration": 2.43
+    },
+    {
+        "text": "the search service.",
+        "start": 273.89,
+        "duration": 0.99
+    },
+    {
+        "text": "But we're going to harden them.",
+        "start": 274.88,
+        "duration": 1.725
+    },
+    {
+        "text": "We want to make it a little bit more difficult for",
+        "start": 276.605,
+        "duration": 3.255
+    },
+    {
+        "text": "interlopers to come and get",
+        "start": 279.86,
+        "duration": 2.37
+    },
+    {
+        "text": "data out of your index when they're not supposed to.",
+        "start": 282.23,
+        "duration": 2.37
+    },
+    {
+        "text": "So the similar option will be IP restrictions.",
+        "start": 284.6,
+        "duration": 3.945
+    },
+    {
+        "text": "This is a common concept across a lot of [inaudible] services.",
+        "start": 288.545,
+        "duration": 4.995
+    },
+    {
+        "text": "In Azure, we provide a firewall with IP restrictions,",
+        "start": 293.54,
+        "duration": 4.305
+    },
+    {
+        "text": "you give us a list of IPs or IP",
+        "start": 297.845,
+        "duration": 2.355
+    },
+    {
+        "text": "ranges and you can give us multiple, and we will",
+        "start": 300.2,
+        "duration": 3.36
+    },
+    {
+        "text": "restrict traffic only to the IPs that you",
+        "start": 303.56,
+        "duration": 2.61
+    },
+    {
+        "text": "provide, and any other traffic is blocked.",
+        "start": 306.17,
+        "duration": 3.93
+    },
+    {
+        "text": "Do your configure as provided at no additional cost.",
+        "start": 310.1,
+        "duration": 3.38
+    },
+    {
+        "text": "It's the easy option,",
+        "start": 313.48,
+        "duration": 2.095
+    },
+    {
+        "text": "meaning you don't need any other Azure components.",
+        "start": 315.575,
+        "duration": 2.445
+    },
+    {
+        "text": "There's no other pieces that you need to provision in",
+        "start": 318.02,
+        "duration": 3.51
+    },
+    {
+        "text": "your subscription in order to get this to work. It just works.",
+        "start": 321.53,
+        "duration": 3.9
+    },
+    {
+        "text": "There's concerns that you'll need to be aware of,",
+        "start": 325.43,
+        "duration": 2.49
+    },
+    {
+        "text": "any IPs that change in your application architecture",
+        "start": 327.92,
+        "duration": 4.02
+    },
+    {
+        "text": "would require you to go update the IP,",
+        "start": 331.94,
+        "duration": 2.28
+    },
+    {
+        "text": "either range or individual IPs in the service",
+        "start": 334.22,
+        "duration": 3.39
+    },
+    {
+        "text": "so that you don't lose connectivity or",
+        "start": 337.61,
+        "duration": 1.47
+    },
+    {
+        "text": "part of your application doesn't go around.",
+        "start": 339.08,
+        "duration": 2.16
+    },
+    {
+        "text": "But it's super easy.",
+        "start": 341.24,
+        "duration": 1.74
+    },
+    {
+        "text": "It's something that just takes a simple call through",
+        "start": 342.98,
+        "duration": 1.995
+    },
+    {
+        "text": "our management API to update or you can do it through the portal.",
+        "start": 344.975,
+        "duration": 3.395
+    },
+    {
+        "text": "Now, let's talk about the more interesting, more,",
+        "start": 348.37,
+        "duration": 3.97
+    },
+    {
+        "text": "let's say advanced option,",
+        "start": 352.34,
+        "duration": 2.385
+    },
+    {
+        "text": "and that's using a private like,",
+        "start": 354.725,
+        "duration": 2.475
+    },
+    {
+        "text": "so this is a big effort that we've been going through",
+        "start": 357.2,
+        "duration": 3.66
+    },
+    {
+        "text": "across all of Azure,",
+        "start": 360.86,
+        "duration": 1.245
+    },
+    {
+        "text": "where a lot of the private services,",
+        "start": 362.105,
+        "duration": 2.925
+    },
+    {
+        "text": "the services like us that some components are multi-tenant,",
+        "start": 365.03,
+        "duration": 3.99
+    },
+    {
+        "text": "some components are behind",
+        "start": 369.02,
+        "duration": 2.82
+    },
+    {
+        "text": "the scenes that we use to manage your service,",
+        "start": 371.84,
+        "duration": 2.785
+    },
+    {
+        "text": "private link and private endpoints makes it",
+        "start": 374.625,
+        "duration": 2.495
+    },
+    {
+        "text": "easier to provide a way for",
+        "start": 377.12,
+        "duration": 2.49
+    },
+    {
+        "text": "a virtual network to integrate with the service without",
+        "start": 379.61,
+        "duration": 2.94
+    },
+    {
+        "text": "having to make what looks like calls through the Internet.",
+        "start": 382.55,
+        "duration": 3.285
+    },
+    {
+        "text": "So when you make your search service private,",
+        "start": 385.835,
+        "duration": 3.19
+    },
+    {
+        "text": "which I'll give a demo of this in",
+        "start": 389.025,
+        "duration": 1.535
+    },
+    {
+        "text": "just a minute, but when you make your search service private,",
+        "start": 390.56,
+        "duration": 3.12
+    },
+    {
+        "text": "it blocks all Internet traffic,",
+        "start": 393.68,
+        "duration": 1.77
+    },
+    {
+        "text": "all traffic coming from the public Internet and will",
+        "start": 395.45,
+        "duration": 3.195
+    },
+    {
+        "text": "ultimately allow traffic coming in via a private link.",
+        "start": 398.645,
+        "duration": 4.215
+    },
+    {
+        "text": "The piece that your VNet sees is the private endpoint itself.",
+        "start": 402.86,
+        "duration": 3.81
+    },
+    {
+        "text": "It has a private IP. This is just an example.",
+        "start": 406.67,
+        "duration": 2.73
+    },
+    {
+        "text": "You can actually have it be whatever private IP that you",
+        "start": 409.4,
+        "duration": 3.0
+    },
+    {
+        "text": "decide that you want, and then let's say, in this example,",
+        "start": 412.4,
+        "duration": 3.645
+    },
+    {
+        "text": "you have a virtual network that's blocked,",
+        "start": 416.045,
+        "duration": 2.715
+    },
+    {
+        "text": "that you've actually decided to",
+        "start": 418.76,
+        "duration": 1.23
+    },
+    {
+        "text": "block all Internet traffic, and you want to",
+        "start": 419.99,
+        "duration": 1.86
+    },
+    {
+        "text": "use express route to allow only your on-premises network,",
+        "start": 421.85,
+        "duration": 4.56
+    },
+    {
+        "text": "that your company who have access to",
+        "start": 426.41,
+        "duration": 3.555
+    },
+    {
+        "text": "a VM and host your IIS server for",
+        "start": 429.965,
+        "duration": 4.305
+    },
+    {
+        "text": "your web application, and then you",
+        "start": 434.27,
+        "duration": 2.31
+    },
+    {
+        "text": "want that web application to be able to call into",
+        "start": 436.58,
+        "duration": 2.73
+    },
+    {
+        "text": "Azure cognitive search to provide",
+        "start": 439.31,
+        "duration": 2.34
+    },
+    {
+        "text": "a great search experiments, and the way you can give it now,",
+        "start": 441.65,
+        "duration": 3.375
+    },
+    {
+        "text": "the same level of protection",
+        "start": 445.025,
+        "duration": 2.46
+    },
+    {
+        "text": "that your express route peering gives,",
+        "start": 447.485,
+        "duration": 3.125
+    },
+    {
+        "text": "you can also now have with",
+        "start": 450.61,
+        "duration": 2.08
+    },
+    {
+        "text": "the connection through Azure cognitive search.",
+        "start": 452.69,
+        "duration": 2.37
+    },
+    {
+        "text": "The endpoint itself for Azure cognitive search here",
+        "start": 455.06,
+        "duration": 2.325
+    },
+    {
+        "text": "is completely private, and there's no way for you",
+        "start": 457.385,
+        "duration": 2.655
+    },
+    {
+        "text": "to actually get into",
+        "start": 460.04,
+        "duration": 2.97
+    },
+    {
+        "text": "that service unless you're using private endpoint.",
+        "start": 463.01,
+        "duration": 2.295
+    },
+    {
+        "text": "One interesting concept here though is that this IP,",
+        "start": 465.305,
+        "duration": 4.035
+    },
+    {
+        "text": "the private IP can be very stable.",
+        "start": 469.34,
+        "duration": 2.52
+    },
+    {
+        "text": "You are using a private DNS in",
+        "start": 471.86,
+        "duration": 1.92
+    },
+    {
+        "text": "this architecture, and you are able to then",
+        "start": 473.78,
+        "duration": 3.855
+    },
+    {
+        "text": "control when that IP address needs to change and even if you had",
+        "start": 477.635,
+        "duration": 3.345
+    },
+    {
+        "text": "multiple private endpoints that you needed to point to,",
+        "start": 480.98,
+        "duration": 3.595
+    },
+    {
+        "text": "you can free the new private endpoint,",
+        "start": 484.575,
+        "duration": 2.175
+    },
+    {
+        "text": "let's say, for a new Azure search,",
+        "start": 486.75,
+        "duration": 1.995
+    },
+    {
+        "text": "Azure private search service that you create and then have it use",
+        "start": 488.745,
+        "duration": 3.615
+    },
+    {
+        "text": "the same IP and then",
+        "start": 492.36,
+        "duration": 1.46
+    },
+    {
+        "text": "downstream consumers here. I don't know the difference.",
+        "start": 493.82,
+        "duration": 2.535
+    },
+    {
+        "text": "The consumers of your search service may not even have to be",
+        "start": 496.355,
+        "duration": 3.315
+    },
+    {
+        "text": "deployed because they're using",
+        "start": 499.67,
+        "duration": 2.91
+    },
+    {
+        "text": "the same IP from the private endpoint itself.",
+        "start": 502.58,
+        "duration": 2.835
+    },
+    {
+        "text": "It's a nice little side effect.",
+        "start": 505.415,
+        "duration": 2.205
+    },
+    {
+        "text": "It's not something that was set out to do, but it's",
+        "start": 507.62,
+        "duration": 3.06
+    },
+    {
+        "text": "a nice side effect of the architect. So let's do a demo.",
+        "start": 510.68,
+        "duration": 3.39
+    },
+    {
+        "text": "I'd like to talk about how to protect",
+        "start": 514.07,
+        "duration": 1.23
+    },
+    {
+        "text": "your Azure cognitive search service with the private endpoint.",
+        "start": 515.3,
+        "duration": 2.945
+    },
+    {
+        "text": "Let me switch over real quick and",
+        "start": 518.245,
+        "duration": 1.495
+    },
+    {
+        "text": "show you the application that I'm working on.",
+        "start": 519.74,
+        "duration": 1.965
+    },
+    {
+        "text": "This is actually one of our Azure samples that we can provide.",
+        "start": 521.705,
+        "duration": 4.125
+    },
+    {
+        "text": "I'll have a link to it in the deck if you're able to download it.",
+        "start": 525.83,
+        "duration": 4.485
+    },
+    {
+        "text": "All this is a job portal. You may have already seen it.",
+        "start": 530.315,
+        "duration": 3.825
+    },
+    {
+        "text": "I'll just give you a little show on this, [inaudible] analyst.",
+        "start": 534.14,
+        "duration": 4.97
+    },
+    {
+        "text": "It'll show the auto-complete.",
+        "start": 539.11,
+        "duration": 3.92
+    },
+    {
+        "text": "You click on the \"Name\", it does the search.",
+        "start": 543.03,
+        "duration": 2.63
+    },
+    {
+        "text": "Here we have the different jobs, and that's great.",
+        "start": 545.66,
+        "duration": 2.745
+    },
+    {
+        "text": "But so far, as I've been working on this,",
+        "start": 548.405,
+        "duration": 2.19
+    },
+    {
+        "text": "I've just been using test data.",
+        "start": 550.595,
+        "duration": 1.62
+    },
+    {
+        "text": "I haven't been too concerned about it.",
+        "start": 552.215,
+        "duration": 1.425
+    },
+    {
+        "text": "My security wasn't all that",
+        "start": 553.64,
+        "duration": 1.785
+    },
+    {
+        "text": "concerning, and I was completely fine with just using test data.",
+        "start": 555.425,
+        "duration": 3.805
+    },
+    {
+        "text": "But I'm getting closer to production.",
+        "start": 559.23,
+        "duration": 2.21
+    },
+    {
+        "text": "I really want this to use",
+        "start": 561.44,
+        "duration": 2.7
+    },
+    {
+        "text": "the real-world data that I know that we're going to",
+        "start": 564.14,
+        "duration": 2.28
+    },
+    {
+        "text": "want to have people testing,",
+        "start": 566.42,
+        "duration": 2.565
+    },
+    {
+        "text": "want to feel my bosses how well",
+        "start": 568.985,
+        "duration": 1.515
+    },
+    {
+        "text": "this application is working, and so I want to use real data.",
+        "start": 570.5,
+        "duration": 2.69
+    },
+    {
+        "text": "But I know that my security department is",
+        "start": 573.19,
+        "duration": 2.32
+    },
+    {
+        "text": "going to be really mad at me if I try",
+        "start": 575.51,
+        "duration": 2.4
+    },
+    {
+        "text": "to prove the real-world data in a service that is not protected.",
+        "start": 577.91,
+        "duration": 5.14
+    },
+    {
+        "text": "Back in the day we'd find out,",
+        "start": 583.05,
+        "duration": 1.155
+    },
+    {
+        "text": "I would get flagged, that I might",
+        "start": 584.205,
+        "duration": 1.155
+    },
+    {
+        "text": "even get fired, I don't want that.",
+        "start": 585.36,
+        "duration": 1.655
+    },
+    {
+        "text": "So let's look at the search service itself.",
+        "start": 587.015,
+        "duration": 2.535
+    },
+    {
+        "text": "Right now, this is just a normal Azure cognitive search service.",
+        "start": 589.55,
+        "duration": 4.61
+    },
+    {
+        "text": "I can show you that I have",
+        "start": 594.16,
+        "duration": 1.57
+    },
+    {
+        "text": "two indexes, and my see jobs has the job data.",
+        "start": 595.73,
+        "duration": 3.03
+    },
+    {
+        "text": "That's what's particularly sensitive, let's say.",
+        "start": 598.76,
+        "duration": 2.57
+    },
+    {
+        "text": "Then there's the zip codes.",
+        "start": 601.33,
+        "duration": 2.57
+    },
+    {
+        "text": "Zip codes are interesting because, let's say, that these are",
+        "start": 603.9,
+        "duration": 2.18
+    },
+    {
+        "text": "just the zip code and city and state mappings.",
+        "start": 606.08,
+        "duration": 4.365
+    },
+    {
+        "text": "It's pretty much public data.",
+        "start": 610.445,
+        "duration": 1.155
+    },
+    {
+        "text": "So a good example of something where",
+        "start": 611.6,
+        "duration": 1.635
+    },
+    {
+        "text": "you may not even have that much of a concern.",
+        "start": 613.235,
+        "duration": 2.145
+    },
+    {
+        "text": "The data is something like zip codes,",
+        "start": 615.38,
+        "duration": 1.98
+    },
+    {
+        "text": "where it's publicly accessible,",
+        "start": 617.36,
+        "duration": 1.44
+    },
+    {
+        "text": "nobody would consider that to be",
+        "start": 618.8,
+        "duration": 2.415
+    },
+    {
+        "text": "private information, but this data [inaudible] in my see jobs,",
+        "start": 621.215,
+        "duration": 3.195
+    },
+    {
+        "text": "I want to make sure that that's pretty well lockdown.",
+        "start": 624.41,
+        "duration": 2.585
+    },
+    {
+        "text": "So what I'm going to do is make my search service private.",
+        "start": 626.995,
+        "duration": 2.76
+    },
+    {
+        "text": "We have a new tab here called Networking.",
+        "start": 629.755,
+        "duration": 2.92
+    },
+    {
+        "text": "When I switch over to that tab,",
+        "start": 632.675,
+        "duration": 1.8
+    },
+    {
+        "text": "you have the ability to turn",
+        "start": 634.475,
+        "duration": 1.815
+    },
+    {
+        "text": "your endpoint connectivity to",
+        "start": 636.29,
+        "duration": 3.35
+    },
+    {
+        "text": "private, and so right before I do that,",
+        "start": 639.64,
+        "duration": 2.29
+    },
+    {
+        "text": "I want to point out the file,",
+        "start": 641.93,
+        "duration": 1.35
+    },
+    {
+        "text": "like I mentioned earlier,",
+        "start": 643.28,
+        "duration": 1.575
+    },
+    {
+        "text": "you can have an IP address range,",
+        "start": 644.855,
+        "duration": 2.325
+    },
+    {
+        "text": "use CDR format or",
+        "start": 647.18,
+        "duration": 2.025
+    },
+    {
+        "text": "just an individual IP address",
+        "start": 649.205,
+        "duration": 1.425
+    },
+    {
+        "text": "that you just configure right here on the portal,",
+        "start": 650.63,
+        "duration": 1.695
+    },
+    {
+        "text": "you set the value,",
+        "start": 652.325,
+        "duration": 1.155
+    },
+    {
+        "text": "you click \"Save\" and you're done.",
+        "start": 653.48,
+        "duration": 1.185
+    },
+    {
+        "text": "You can even add your own client IP address here.",
+        "start": 654.665,
+        "duration": 2.505
+    },
+    {
+        "text": "So it's super quick and easy, happens right away, and it's",
+        "start": 657.17,
+        "duration": 3.18
+    },
+    {
+        "text": "not something that requires an advanced degree in networking.",
+        "start": 660.35,
+        "duration": 3.825
+    },
+    {
+        "text": "So that's a great easy way to do it.",
+        "start": 664.175,
+        "duration": 3.15
+    },
+    {
+        "text": "But in this case, I know my security team",
+        "start": 667.325,
+        "duration": 1.815
+    },
+    {
+        "text": "has said that IP restrictions are not enough.",
+        "start": 669.14,
+        "duration": 2.07
+    },
+    {
+        "text": "If you're going to put any of our data on into an Azure service,",
+        "start": 671.21,
+        "duration": 3.51
+    },
+    {
+        "text": "it has to be protected by a VNet and it has to be something",
+        "start": 674.72,
+        "duration": 3.81
+    },
+    {
+        "text": "that has no public Internet access available.",
+        "start": 678.53,
+        "duration": 3.49
+    },
+    {
+        "text": "So let's do that.",
+        "start": 682.02,
+        "duration": 0.62
+    },
+    {
+        "text": "Let's click, make it private.",
+        "start": 682.64,
+        "duration": 2.075
+    },
+    {
+        "text": "Make sure that we know what's going to happen.",
+        "start": 684.715,
+        "duration": 2.465
+    },
+    {
+        "text": "This will block all consumers of this service.",
+        "start": 687.18,
+        "duration": 3.21
+    },
+    {
+        "text": "So for example, if you already",
+        "start": 690.39,
+        "duration": 1.04
+    },
+    {
+        "text": "have the whole team working on this,",
+        "start": 691.43,
+        "duration": 2.235
+    },
+    {
+        "text": "make sure that they know that this is happening before you",
+        "start": 693.665,
+        "duration": 2.085
+    },
+    {
+        "text": "do this because they will need to be",
+        "start": 695.75,
+        "duration": 2.13
+    },
+    {
+        "text": "going through the VNet with a private endpoint to",
+        "start": 697.88,
+        "duration": 3.06
+    },
+    {
+        "text": "actually be able to access the data once this happens.",
+        "start": 700.94,
+        "duration": 4.305
+    },
+    {
+        "text": "It takes a few seconds. That's something that actually will",
+        "start": 705.245,
+        "duration": 3.165
+    },
+    {
+        "text": "now be happening in the backend.",
+        "start": 708.41,
+        "duration": 2.76
+    },
+    {
+        "text": "So with the power of editing,",
+        "start": 711.17,
+        "duration": 2.91
+    },
+    {
+        "text": "I'm going to make it take no time at all.",
+        "start": 714.08,
+        "duration": 1.965
+    },
+    {
+        "text": "Now it's done. You can see",
+        "start": 716.045,
+        "duration": 1.995
+    },
+    {
+        "text": "the search service endpoint is now prohibit.",
+        "start": 718.04,
+        "duration": 2.79
+    },
+    {
+        "text": "Let's just show you what will",
+        "start": 720.83,
+        "duration": 1.83
+    },
+    {
+        "text": "happen if I try to run the application again.",
+        "start": 722.66,
+        "duration": 2.7
+    },
+    {
+        "text": "It'll be almost exactly what you'd expect if that didn't work.",
+        "start": 725.36,
+        "duration": 4.02
+    },
+    {
+        "text": "These pieces of the patient don't need the index,",
+        "start": 729.38,
+        "duration": 3.42
+    },
+    {
+        "text": "but you can see down here it's loading.",
+        "start": 732.8,
+        "duration": 1.725
+    },
+    {
+        "text": "It'll just stick to loading because it's",
+        "start": 734.525,
+        "duration": 1.785
+    },
+    {
+        "text": "not able to actually access third service,",
+        "start": 736.31,
+        "duration": 2.1
+    },
+    {
+        "text": "and eventually, second process.",
+        "start": 738.41,
+        "duration": 3.3
+    },
+    {
+        "text": "We'll find out, and error coming from [inaudible]. What happened?",
+        "start": 741.71,
+        "duration": 6.69
+    },
+    {
+        "text": "Let's give it a second because it's",
+        "start": 748.4,
+        "duration": 1.8
+    },
+    {
+        "text": "trying as hard as doing it multiple times.",
+        "start": 750.2,
+        "duration": 2.25
+    },
+    {
+        "text": "There we go.",
+        "start": 752.45,
+        "duration": 0.407
+    },
+    {
+        "text": "There we get the exception,",
+        "start": 752.857,
+        "duration": 1.483
+    },
+    {
+        "text": "and that's what we would expect.",
+        "start": 754.34,
+        "duration": 1.56
+    },
+    {
+        "text": "What we need to do now is to create a private endpoint that",
+        "start": 755.9,
+        "duration": 4.29
+    },
+    {
+        "text": "will give a VNet access to this.",
+        "start": 760.19,
+        "duration": 4.26
+    },
+    {
+        "text": "I want to give you a quick overview",
+        "start": 764.45,
+        "duration": 2.13
+    },
+    {
+        "text": "of the other components that are out there",
+        "start": 766.58,
+        "duration": 1.5
+    },
+    {
+        "text": "in the service before we move forward.",
+        "start": 768.08,
+        "duration": 4.335
+    },
+    {
+        "text": "This looks complicated, but if you've been working",
+        "start": 772.415,
+        "duration": 2.325
+    },
+    {
+        "text": "with compute and VNets up until now,",
+        "start": 774.74,
+        "duration": 3.18
+    },
+    {
+        "text": "you should see a lot of things that are familiar to you.",
+        "start": 777.92,
+        "duration": 2.04
+    },
+    {
+        "text": "We are not introducing wild concepts.",
+        "start": 779.96,
+        "duration": 2.235
+    },
+    {
+        "text": "All I did is I created",
+        "start": 782.195,
+        "duration": 1.29
+    },
+    {
+        "text": "a virtual network with pretty much the default settings.",
+        "start": 783.485,
+        "duration": 2.835
+    },
+    {
+        "text": "No real special pieces were created for that.",
+        "start": 786.32,
+        "duration": 4.56
+    },
+    {
+        "text": "Then there's the virtual machine itself that",
+        "start": 790.88,
+        "duration": 1.89
+    },
+    {
+        "text": "was created inside the VNet scene.",
+        "start": 792.77,
+        "duration": 1.92
+    },
+    {
+        "text": "I picked my SKU, but you can pick whatever SKU you want,",
+        "start": 794.69,
+        "duration": 3.045
+    },
+    {
+        "text": "and then make sure that it's inside the VNet,",
+        "start": 797.735,
+        "duration": 3.36
+    },
+    {
+        "text": "and then you're pretty much good to go.",
+        "start": 801.095,
+        "duration": 1.785
+    },
+    {
+        "text": "There's not too much that you need to do there.",
+        "start": 802.88,
+        "duration": 1.995
+    },
+    {
+        "text": "You see there's private DNS zone at the bottom?",
+        "start": 804.875,
+        "duration": 2.25
+    },
+    {
+        "text": "This is something that I'll talk about in a second,",
+        "start": 807.125,
+        "duration": 2.64
+    },
+    {
+        "text": "but I just wanted to make sure I addressed it",
+        "start": 809.765,
+        "duration": 1.755
+    },
+    {
+        "text": "before we moved on.",
+        "start": 811.52,
+        "duration": 1.08
+    },
+    {
+        "text": "This is critical.",
+        "start": 812.6,
+        "duration": 1.065
+    },
+    {
+        "text": "Make sure that you actually have",
+        "start": 813.665,
+        "duration": 1.62
+    },
+    {
+        "text": "private DNS zone with this individual name.",
+        "start": 815.285,
+        "duration": 3.06
+    },
+    {
+        "text": "But creating the private link will also add it for you.",
+        "start": 818.345,
+        "duration": 2.985
+    },
+    {
+        "text": "There's an option to add for you.",
+        "start": 821.33,
+        "duration": 1.17
+    },
+    {
+        "text": "So I'm going to move on and not be too concerned about that.",
+        "start": 822.5,
+        "duration": 5.175
+    },
+    {
+        "text": "Here when I click \"Private",
+        "start": 827.675,
+        "duration": 1.845
+    },
+    {
+        "text": "Endpoint\" to create my new Private Endpoint,",
+        "start": 829.52,
+        "duration": 2.31
+    },
+    {
+        "text": "and I'm going to call it bill2820privateendpoint5.",
+        "start": 831.83,
+        "duration": 7.24
+    },
+    {
+        "text": "Then I'm going to choose the same region as my search service,",
+        "start": 839.07,
+        "duration": 5.034
+    },
+    {
+        "text": "which is West Central US. It's down here.",
+        "start": 844.104,
+        "duration": 3.846
+    },
+    {
+        "text": "Then I'm going to choose the resource that I want to connect to.",
+        "start": 847.95,
+        "duration": 4.16
+    },
+    {
+        "text": "It's going to be a search service.",
+        "start": 852.11,
+        "duration": 3.825
+    },
+    {
+        "text": "It is this search service and there we go.",
+        "start": 855.935,
+        "duration": 5.905
+    },
+    {
+        "text": "This is the part that I was mentioning earlier,",
+        "start": 862.6,
+        "duration": 2.83
+    },
+    {
+        "text": "you could never get it right with private DNS zone.",
+        "start": 865.43,
+        "duration": 1.98
+    },
+    {
+        "text": "If one doesn't exist, it'll say New,",
+        "start": 867.41,
+        "duration": 1.95
+    },
+    {
+        "text": "and then it will create the private DNS zone for you.",
+        "start": 869.36,
+        "duration": 3.87
+    },
+    {
+        "text": "This is the default subnet that",
+        "start": 873.23,
+        "duration": 1.29
+    },
+    {
+        "text": "was created with the virtual network.",
+        "start": 874.52,
+        "duration": 1.38
+    },
+    {
+        "text": "All of these settings, as long",
+        "start": 875.9,
+        "duration": 1.29
+    },
+    {
+        "text": "as you've chosen your virtual network,",
+        "start": 877.19,
+        "duration": 1.5
+    },
+    {
+        "text": "were all just the defaults,",
+        "start": 878.69,
+        "duration": 1.44
+    },
+    {
+        "text": "and you don't have to actually worry about studying",
+        "start": 880.13,
+        "duration": 2.4
+    },
+    {
+        "text": "them specifically for this endpoint.",
+        "start": 882.53,
+        "duration": 3.39
+    },
+    {
+        "text": "Just click \"Create\".",
+        "start": 885.92,
+        "duration": 1.68
+    },
+    {
+        "text": "Once again, this will take a few seconds to",
+        "start": 887.6,
+        "duration": 2.13
+    },
+    {
+        "text": "a minute to actually finish the provisioning.",
+        "start": 889.73,
+        "duration": 2.82
+    },
+    {
+        "text": "Through the power of editing,",
+        "start": 892.55,
+        "duration": 1.89
+    },
+    {
+        "text": "once again, we will.",
+        "start": 894.44,
+        "duration": 2.085
+    },
+    {
+        "text": "So you can see the private endpoint here",
+        "start": 896.525,
+        "duration": 3.375
+    },
+    {
+        "text": "in the Azure Portal as a connection.",
+        "start": 899.9,
+        "duration": 3.465
+    },
+    {
+        "text": "This is the connection that is we're allowing inbound",
+        "start": 903.365,
+        "duration": 3.825
+    },
+    {
+        "text": "from the private endpoint to this search service.",
+        "start": 907.19,
+        "duration": 4.995
+    },
+    {
+        "text": "That actually is the piece where we're",
+        "start": 912.185,
+        "duration": 3.105
+    },
+    {
+        "text": "actually doing the allowing of the call to command.",
+        "start": 915.29,
+        "duration": 3.39
+    },
+    {
+        "text": "That's the private link part.",
+        "start": 918.68,
+        "duration": 1.605
+    },
+    {
+        "text": "This in particular was auto improved.",
+        "start": 920.285,
+        "duration": 2.445
+    },
+    {
+        "text": "That's because I had permissions to create the private endpoint,",
+        "start": 922.73,
+        "duration": 3.15
+    },
+    {
+        "text": "but I also have permissions to approve",
+        "start": 925.88,
+        "duration": 1.935
+    },
+    {
+        "text": "the connection to the search service,",
+        "start": 927.815,
+        "duration": 2.355
+    },
+    {
+        "text": "and that's why it says approved here,",
+        "start": 930.17,
+        "duration": 1.65
+    },
+    {
+        "text": "and then auto approved.",
+        "start": 931.82,
+        "duration": 1.695
+    },
+    {
+        "text": "But now that the CRM service is private,",
+        "start": 933.515,
+        "duration": 2.205
+    },
+    {
+        "text": "I wanted to call out one other thing.",
+        "start": 935.72,
+        "duration": 2.04
+    },
+    {
+        "text": "Is that if I go back to the overview tab,",
+        "start": 937.76,
+        "duration": 3.705
+    },
+    {
+        "text": "the data plane operations,",
+        "start": 941.465,
+        "duration": 2.475
+    },
+    {
+        "text": "to bring me down here in the center,",
+        "start": 943.94,
+        "duration": 1.68
+    },
+    {
+        "text": "we're all related to data that was actually in your search service.",
+        "start": 945.62,
+        "duration": 5.07
+    },
+    {
+        "text": "The portal is not allowed to get access to that.",
+        "start": 950.69,
+        "duration": 3.21
+    },
+    {
+        "text": "You can't see the indexes,",
+        "start": 953.9,
+        "duration": 1.32
+    },
+    {
+        "text": "you can't see any of the index data",
+        "start": 955.22,
+        "duration": 1.59
+    },
+    {
+        "text": "or skill sets or any of the other indexers.",
+        "start": 956.81,
+        "duration": 2.55
+    },
+    {
+        "text": "That's because the search service is private and protected.",
+        "start": 959.36,
+        "duration": 4.185
+    },
+    {
+        "text": "If you want to access the search service,",
+        "start": 963.545,
+        "duration": 3.21
+    },
+    {
+        "text": "you need to do so via the API coming in from the VNet,",
+        "start": 966.755,
+        "duration": 6.285
+    },
+    {
+        "text": "and that has access to the search service itself.",
+        "start": 973.04,
+        "duration": 5.55
+    },
+    {
+        "text": "Portal access as such is",
+        "start": 978.59,
+        "duration": 2.535
+    },
+    {
+        "text": "currently disabled because the search service is bad.",
+        "start": 981.125,
+        "duration": 3.21
+    },
+    {
+        "text": "Now let's go back to the VM that's in this VNet",
+        "start": 984.335,
+        "duration": 2.355
+    },
+    {
+        "text": "and run the application from there.",
+        "start": 986.69,
+        "duration": 2.295
+    },
+    {
+        "text": "This is exactly the same code with all of",
+        "start": 988.985,
+        "duration": 2.085
+    },
+    {
+        "text": "the same settings as when it was running on my local machine.",
+        "start": 991.07,
+        "duration": 3.585
+    },
+    {
+        "text": "But running it from the VNet now,",
+        "start": 994.655,
+        "duration": 1.725
+    },
+    {
+        "text": "I can connect to the search service using the private endpoint.",
+        "start": 996.38,
+        "duration": 3.3
+    },
+    {
+        "text": "Now we can see all of the same data that we have",
+        "start": 999.68,
+        "duration": 2.97
+    },
+    {
+        "text": "for if I run it saying this.",
+        "start": 1002.65,
+        "duration": 3.66
+    },
+    {
+        "text": "I can see all the complete and searches just run.",
+        "start": 1006.31,
+        "duration": 3.945
+    },
+    {
+        "text": "That's because this VM is in the VNet",
+        "start": 1010.255,
+        "duration": 2.385
+    },
+    {
+        "text": "and it's using the private endpoint instead",
+        "start": 1012.64,
+        "duration": 2.25
+    },
+    {
+        "text": "of the public Internet to hit the search service.",
+        "start": 1014.89,
+        "duration": 3.24
+    },
+    {
+        "text": "That's great.",
+        "start": 1018.13,
+        "duration": 1.22
+    },
+    {
+        "text": "You can access your search service with a private endpoint.",
+        "start": 1019.35,
+        "duration": 2.46
+    },
+    {
+        "text": "But what about the API key.",
+        "start": 1021.81,
+        "duration": 2.915
+    },
+    {
+        "text": "Are we planning to support AED authentication?",
+        "start": 1024.725,
+        "duration": 2.705
+    },
+    {
+        "text": "We still got questions for that.",
+        "start": 1027.43,
+        "duration": 1.35
+    },
+    {
+        "text": "Actually real quick, I wanted to mention some options,",
+        "start": 1028.78,
+        "duration": 2.595
+    },
+    {
+        "text": "and how to work with it now.",
+        "start": 1031.375,
+        "duration": 1.335
+    },
+    {
+        "text": "We're still considering there's something for the future,",
+        "start": 1032.71,
+        "duration": 2.04
+    },
+    {
+        "text": "but it's not something that we currently",
+        "start": 1034.75,
+        "duration": 1.68
+    },
+    {
+        "text": "have planned in the near term.",
+        "start": 1036.43,
+        "duration": 2.235
+    },
+    {
+        "text": "What we would suggest is that",
+        "start": 1038.665,
+        "duration": 1.575
+    },
+    {
+        "text": "you try to control access to your search service.",
+        "start": 1040.24,
+        "duration": 3.63
+    },
+    {
+        "text": "You have a virtual network that is the one that calls",
+        "start": 1043.87,
+        "duration": 3.21
+    },
+    {
+        "text": "directly into the search service itself using a private endpoint.",
+        "start": 1047.08,
+        "duration": 3.975
+    },
+    {
+        "text": "Then you have a search API on",
+        "start": 1051.055,
+        "duration": 2.7
+    },
+    {
+        "text": "either an App Service Environment or",
+        "start": 1053.755,
+        "duration": 3.735
+    },
+    {
+        "text": "something that is where you",
+        "start": 1057.49,
+        "duration": 2.025
+    },
+    {
+        "text": "do your security trimming and any other business,",
+        "start": 1059.515,
+        "duration": 2.385
+    },
+    {
+        "text": "so logically, you would need to perform and rotate the key,",
+        "start": 1061.9,
+        "duration": 3.975
+    },
+    {
+        "text": "store your API key and Key Vault,",
+        "start": 1065.875,
+        "duration": 2.91
+    },
+    {
+        "text": "rotate that key regularly",
+        "start": 1068.785,
+        "duration": 1.89
+    },
+    {
+        "text": "and tightly control who can have access to it.",
+        "start": 1070.675,
+        "duration": 2.415
+    },
+    {
+        "text": "You can even have the API key",
+        "start": 1073.09,
+        "duration": 2.925
+    },
+    {
+        "text": "stored in a Key Vault in your VNet as well.",
+        "start": 1076.015,
+        "duration": 3.33
+    },
+    {
+        "text": "That way you have a nice tight control over who can",
+        "start": 1079.345,
+        "duration": 3.045
+    },
+    {
+        "text": "actually access your search service itself.",
+        "start": 1082.39,
+        "duration": 2.985
+    },
+    {
+        "text": "Then your web and mobile application developers could be in",
+        "start": 1085.375,
+        "duration": 3.465
+    },
+    {
+        "text": "another virtual network that only have",
+        "start": 1088.84,
+        "duration": 2.1
+    },
+    {
+        "text": "access maybe to call into the searching.",
+        "start": 1090.94,
+        "duration": 2.415
+    },
+    {
+        "text": "That's the only thing that you're exposing to them.",
+        "start": 1093.355,
+        "duration": 2.79
+    },
+    {
+        "text": "In that way, you can divide up from",
+        "start": 1096.145,
+        "duration": 3.195
+    },
+    {
+        "text": "your data stewards and backend developers to",
+        "start": 1099.34,
+        "duration": 3.15
+    },
+    {
+        "text": "your front end developers and have a separation of",
+        "start": 1102.49,
+        "duration": 3.03
+    },
+    {
+        "text": "concerns when it comes to who's able to access what data.",
+        "start": 1105.52,
+        "duration": 3.795
+    },
+    {
+        "text": "It gets us a step forward is what we would say.",
+        "start": 1109.315,
+        "duration": 2.475
+    },
+    {
+        "text": "This is the big security control where we might make",
+        "start": 1111.79,
+        "duration": 4.2
+    },
+    {
+        "text": "more nuanced specific controls long-term as we look.",
+        "start": 1115.99,
+        "duration": 5.28
+    },
+    {
+        "text": "But we're always interested in hearing your feedback.",
+        "start": 1121.27,
+        "duration": 2.94
+    },
+    {
+        "text": "So with that, I'm going to now move on to talk about outbound.",
+        "start": 1124.21,
+        "duration": 4.2
+    },
+    {
+        "text": "So similarly, very similar to inbound.",
+        "start": 1128.41,
+        "duration": 3.27
+    },
+    {
+        "text": "Outbound has the firewall with IP protection side,",
+        "start": 1131.68,
+        "duration": 5.01
+    },
+    {
+        "text": "and then also the private endpoint side.",
+        "start": 1136.69,
+        "duration": 2.16
+    },
+    {
+        "text": "So let's start with IP restrictions.",
+        "start": 1138.85,
+        "duration": 2.19
+    },
+    {
+        "text": "This has existed for a while.",
+        "start": 1141.04,
+        "duration": 1.41
+    },
+    {
+        "text": "You could do this exact same protection earlier,",
+        "start": 1142.45,
+        "duration": 4.32
+    },
+    {
+        "text": "but we have two new concepts that we're adding here,",
+        "start": 1146.77,
+        "duration": 2.22
+    },
+    {
+        "text": "one is Managed identity,",
+        "start": 1148.99,
+        "duration": 1.62
+    },
+    {
+        "text": "and the other is Service tags.",
+        "start": 1150.61,
+        "duration": 2.79
+    },
+    {
+        "text": "So let's say, you have a data source that you want to reach out to,",
+        "start": 1153.4,
+        "duration": 4.53
+    },
+    {
+        "text": "and Storage is a great example.",
+        "start": 1157.93,
+        "duration": 2.01
+    },
+    {
+        "text": "They support managed identity for where",
+        "start": 1159.94,
+        "duration": 3.48
+    },
+    {
+        "text": "you say it is an Azure Cognitive Search service,",
+        "start": 1163.42,
+        "duration": 3.375
+    },
+    {
+        "text": "this service who is reaching out to you,",
+        "start": 1166.795,
+        "duration": 2.835
+    },
+    {
+        "text": "and then in your storage account,",
+        "start": 1169.63,
+        "duration": 2.22
+    },
+    {
+        "text": "you give access to the search service",
+        "start": 1171.85,
+        "duration": 2.07
+    },
+    {
+        "text": "itself so that it's the service identity that you're",
+        "start": 1173.92,
+        "duration": 2.67
+    },
+    {
+        "text": "using and not an individual",
+        "start": 1176.59,
+        "duration": 2.61
+    },
+    {
+        "text": "user or API key or something like that.",
+        "start": 1179.2,
+        "duration": 3.885
+    },
+    {
+        "text": "What storage has is if they have firewall restrictions up,",
+        "start": 1183.085,
+        "duration": 3.78
+    },
+    {
+        "text": "you check there's a box on, for example,",
+        "start": 1186.865,
+        "duration": 3.405
+    },
+    {
+        "text": "the storage portal that says, Cloud trusted services.",
+        "start": 1190.27,
+        "duration": 3.84
+    },
+    {
+        "text": "Then we are now Azure Cognitive Search as",
+        "start": 1194.11,
+        "duration": 2.91
+    },
+    {
+        "text": "a trusted service of storage.",
+        "start": 1197.02,
+        "duration": 2.835
+    },
+    {
+        "text": "So it'll allow us through the IP restrictions that you",
+        "start": 1199.855,
+        "duration": 2.835
+    },
+    {
+        "text": "held in order to end that data from your data source.",
+        "start": 1202.69,
+        "duration": 3.0
+    },
+    {
+        "text": "That's currently planned for preview coming soon.",
+        "start": 1205.69,
+        "duration": 3.45
+    },
+    {
+        "text": "In the next several months, you should",
+        "start": 1209.14,
+        "duration": 2.52
+    },
+    {
+        "text": "have a preview up for managed identity.",
+        "start": 1211.66,
+        "duration": 2.79
+    },
+    {
+        "text": "Service tags are interesting.",
+        "start": 1214.45,
+        "duration": 1.35
+    },
+    {
+        "text": "Service tags give you the ability to",
+        "start": 1215.8,
+        "duration": 2.355
+    },
+    {
+        "text": "IP whitelist parts of the service that you can't",
+        "start": 1218.155,
+        "duration": 2.895
+    },
+    {
+        "text": "necessarily see the IPs of when you try",
+        "start": 1221.05,
+        "duration": 3.51
+    },
+    {
+        "text": "to run nslookup, let's say, on the search service endpoint,",
+        "start": 1224.56,
+        "duration": 3.765
+    },
+    {
+        "text": "which is typically what we tell customers doing when they want to",
+        "start": 1228.325,
+        "duration": 2.865
+    },
+    {
+        "text": "allow us to call into their firewall.",
+        "start": 1231.19,
+        "duration": 3.06
+    },
+    {
+        "text": "They'll need the IP address of the search service endpoint,",
+        "start": 1234.25,
+        "duration": 3.105
+    },
+    {
+        "text": "but also the IP address of",
+        "start": 1237.355,
+        "duration": 2.085
+    },
+    {
+        "text": "any other internal services that we use to call the data.",
+        "start": 1239.44,
+        "duration": 4.86
+    },
+    {
+        "text": "The most common scenario where there will be a problem today is,",
+        "start": 1244.3,
+        "duration": 3.93
+    },
+    {
+        "text": "if you're just indexing without any skill sets,",
+        "start": 1248.23,
+        "duration": 2.4
+    },
+    {
+        "text": "with any cognitive enrichments, you'd be fine,",
+        "start": 1250.63,
+        "duration": 2.505
+    },
+    {
+        "text": "the calls come from",
+        "start": 1253.135,
+        "duration": 1.425
+    },
+    {
+        "text": "the same search nodes that are the IP addresses that you can see.",
+        "start": 1254.56,
+        "duration": 3.6
+    },
+    {
+        "text": "So that's what the downstream data source would see.",
+        "start": 1258.16,
+        "duration": 2.64
+    },
+    {
+        "text": "It would see the IP address that",
+        "start": 1260.8,
+        "duration": 1.44
+    },
+    {
+        "text": "you'd be able to expect in nslookup.",
+        "start": 1262.24,
+        "duration": 2.01
+    },
+    {
+        "text": "Now, the cognitive enrichments though,",
+        "start": 1264.25,
+        "duration": 2.4
+    },
+    {
+        "text": "they run from other machines,",
+        "start": 1266.65,
+        "duration": 2.25
+    },
+    {
+        "text": "other shared hardware that",
+        "start": 1268.9,
+        "duration": 1.65
+    },
+    {
+        "text": "has IP addresses that you cannot inspect.",
+        "start": 1270.55,
+        "duration": 2.37
+    },
+    {
+        "text": "So in that case, the way to solve",
+        "start": 1272.92,
+        "duration": 3.39
+    },
+    {
+        "text": "their problem is by providing",
+        "start": 1276.31,
+        "duration": 1.2
+    },
+    {
+        "text": "a Service tag and a Service tag behind",
+        "start": 1277.51,
+        "duration": 1.89
+    },
+    {
+        "text": "it has the IP addresses and ranges of all those IPs",
+        "start": 1279.4,
+        "duration": 3.06
+    },
+    {
+        "text": "that are internal to the service that you can actually inspect.",
+        "start": 1282.46,
+        "duration": 3.285
+    },
+    {
+        "text": "So when you want to unblock us",
+        "start": 1285.745,
+        "duration": 3.615
+    },
+    {
+        "text": "from accessing some data source that is protected by a firewall,",
+        "start": 1289.36,
+        "duration": 3.96
+    },
+    {
+        "text": "just give it the IP address that you can see,",
+        "start": 1293.32,
+        "duration": 2.13
+    },
+    {
+        "text": "the nslookup as well as the Service tag.",
+        "start": 1295.45,
+        "duration": 3.045
+    },
+    {
+        "text": "Then that will allow us then to call",
+        "start": 1298.495,
+        "duration": 3.015
+    },
+    {
+        "text": "into your data source and making that easy to do,",
+        "start": 1301.51,
+        "duration": 4.365
+    },
+    {
+        "text": "and this is something that's available.",
+        "start": 1305.875,
+        "duration": 1.335
+    },
+    {
+        "text": "Moving on, now let's talk about the advanced option",
+        "start": 1307.21,
+        "duration": 3.81
+    },
+    {
+        "text": "for reaching out through other services by Azure Cognitive Search,",
+        "start": 1311.02,
+        "duration": 4.23
+    },
+    {
+        "text": "like the other sources, this goes beyond data sources.",
+        "start": 1315.25,
+        "duration": 2.91
+    },
+    {
+        "text": "Right now, our current plan is to support",
+        "start": 1318.16,
+        "duration": 4.395
+    },
+    {
+        "text": "private endpoints for data sources and",
+        "start": 1322.555,
+        "duration": 3.45
+    },
+    {
+        "text": "a private endpoint for your customer managed key.",
+        "start": 1326.005,
+        "duration": 3.285
+    },
+    {
+        "text": "So you could have two different private end points",
+        "start": 1329.29,
+        "duration": 2.16
+    },
+    {
+        "text": "as a part of the point of being",
+        "start": 1331.45,
+        "duration": 1.08
+    },
+    {
+        "text": "a new component of",
+        "start": 1332.53,
+        "duration": 1.245
+    },
+    {
+        "text": "the Azure Cognitive Search service that you define,",
+        "start": 1333.775,
+        "duration": 2.685
+    },
+    {
+        "text": "create as to reach out to",
+        "start": 1336.46,
+        "duration": 3.03
+    },
+    {
+        "text": "whatever other service you need to connect to you privately.",
+        "start": 1339.49,
+        "duration": 3.465
+    },
+    {
+        "text": "So it may be a Storage account, maybe SQL,",
+        "start": 1342.955,
+        "duration": 2.58
+    },
+    {
+        "text": "maybe Cosmos DB, any service that supports private link.",
+        "start": 1345.535,
+        "duration": 2.715
+    },
+    {
+        "text": "Let's say that that's the place that we need to start,",
+        "start": 1348.25,
+        "duration": 2.16
+    },
+    {
+        "text": "including Azure Key Vault.",
+        "start": 1350.41,
+        "duration": 2.175
+    },
+    {
+        "text": "That way, you can similarly to the inbound call,",
+        "start": 1352.585,
+        "duration": 3.51
+    },
+    {
+        "text": "you can have our Virtual Network",
+        "start": 1356.095,
+        "duration": 3.475
+    },
+    {
+        "text": "connect to your Virtual Network probably",
+        "start": 1359.76,
+        "duration": 4.105
+    },
+    {
+        "text": "using private endpoint so that your data or",
+        "start": 1363.865,
+        "duration": 4.125
+    },
+    {
+        "text": "your Key Vault that does not have to be",
+        "start": 1367.99,
+        "duration": 2.34
+    },
+    {
+        "text": "exposed to the Internet, and it's the same level of protection.",
+        "start": 1370.33,
+        "duration": 2.985
+    },
+    {
+        "text": "So in this case, it's our Virtual Network has",
+        "start": 1373.315,
+        "duration": 2.91
+    },
+    {
+        "text": "a private endpoint in it with",
+        "start": 1376.225,
+        "duration": 2.055
+    },
+    {
+        "text": "a private link that approves that connection.",
+        "start": 1378.28,
+        "duration": 2.745
+    },
+    {
+        "text": "The interesting part, by the way, is",
+        "start": 1381.025,
+        "duration": 1.455
+    },
+    {
+        "text": "that we create the endpoint in our subscription.",
+        "start": 1382.48,
+        "duration": 2.13
+    },
+    {
+        "text": "Then there's an approve",
+        "start": 1384.61,
+        "duration": 2.07
+    },
+    {
+        "text": "or deny request that have been given private link requests,",
+        "start": 1386.68,
+        "duration": 2.925
+    },
+    {
+        "text": "that goes to the service owner of say,",
+        "start": 1389.605,
+        "duration": 3.045
+    },
+    {
+        "text": "Azure Key Vault storage, SQL.",
+        "start": 1392.65,
+        "duration": 1.35
+    },
+    {
+        "text": "Whoever is your admin will see",
+        "start": 1394.0,
+        "duration": 2.28
+    },
+    {
+        "text": "that request and can then approve and deny it.",
+        "start": 1396.28,
+        "duration": 2.7
+    },
+    {
+        "text": "One nice thing about this is that you could",
+        "start": 1398.98,
+        "duration": 1.92
+    },
+    {
+        "text": "have an admin who owns Search,",
+        "start": 1400.9,
+        "duration": 1.95
+    },
+    {
+        "text": "who adds the private endpoint.",
+        "start": 1402.85,
+        "duration": 1.5
+    },
+    {
+        "text": "Then you can have another admin who is the data storer, and let's",
+        "start": 1404.35,
+        "duration": 2.64
+    },
+    {
+        "text": "say, for your Storage account,",
+        "start": 1406.99,
+        "duration": 2.82
+    },
+    {
+        "text": "who then will be able to approve it independently.",
+        "start": 1409.81,
+        "duration": 2.745
+    },
+    {
+        "text": "It's not something that just happens.",
+        "start": 1412.555,
+        "duration": 2.28
+    },
+    {
+        "text": "It's something that you have governance",
+        "start": 1414.835,
+        "duration": 2.745
+    },
+    {
+        "text": "of, and you can have tight control for that.",
+        "start": 1417.58,
+        "duration": 2.385
+    },
+    {
+        "text": "It's not just something auto-approved,",
+        "start": 1419.965,
+        "duration": 2.61
+    },
+    {
+        "text": "if you don't have the permissions to.",
+        "start": 1422.575,
+        "duration": 2.4
+    },
+    {
+        "text": "But it can't be auto-approved if you are",
+        "start": 1424.975,
+        "duration": 2.895
+    },
+    {
+        "text": "a person who has the rights to",
+        "start": 1427.87,
+        "duration": 2.91
+    },
+    {
+        "text": "both the Azure Search service, as well as",
+        "start": 1430.78,
+        "duration": 3.84
+    },
+    {
+        "text": "the data source or underlying another Azure resource.",
+        "start": 1434.62,
+        "duration": 5.07
+    },
+    {
+        "text": "It makes it a little bit more convenient, so you don't have to go",
+        "start": 1439.69,
+        "duration": 2.94
+    },
+    {
+        "text": "round to round and click \"Connection\".",
+        "start": 1442.63,
+        "duration": 3.075
+    },
+    {
+        "text": "So it's great.",
+        "start": 1445.705,
+        "duration": 1.165
+    },
+    {
+        "text": "This gives us advanced security for",
+        "start": 1446.87,
+        "duration": 1.82
+    },
+    {
+        "text": "both inbound calls to the search service endpoint using",
+        "start": 1448.69,
+        "duration": 2.91
+    },
+    {
+        "text": "a private endpoint with private link, as well as",
+        "start": 1451.6,
+        "duration": 3.045
+    },
+    {
+        "text": "outbound to your data sources and Azure Key Vault.",
+        "start": 1454.645,
+        "duration": 3.615
+    },
+    {
+        "text": "We could use a private endpoint and private link to",
+        "start": 1458.26,
+        "duration": 2.4
+    },
+    {
+        "text": "reach those without you having to sacrifice the security.",
+        "start": 1460.66,
+        "duration": 2.67
+    },
+    {
+        "text": "A quick word on availability.",
+        "start": 1463.33,
+        "duration": 1.755
+    },
+    {
+        "text": "This has limited availability starting in May,",
+        "start": 1465.085,
+        "duration": 2.745
+    },
+    {
+        "text": "please reach out to us.",
+        "start": 1467.83,
+        "duration": 1.395
+    },
+    {
+        "text": "There's an e-mail address at the end of the deck.",
+        "start": 1469.225,
+        "duration": 2.7
+    },
+    {
+        "text": "Please reach out to us with any questions, or if you're interested,",
+        "start": 1471.925,
+        "duration": 3.614
+    },
+    {
+        "text": "we're going to be onboarding customers on a limited basis.",
+        "start": 1475.539,
+        "duration": 3.241
+    },
+    {
+        "text": "You'll be able to use [inaudible] to",
+        "start": 1478.78,
+        "duration": 1.35
+    },
+    {
+        "text": "the IP firewall restriction features today.",
+        "start": 1480.13,
+        "duration": 3.765
+    },
+    {
+        "text": "They're pretty much available right now with",
+        "start": 1483.895,
+        "duration": 2.835
+    },
+    {
+        "text": "preview for Managed identity,",
+        "start": 1486.73,
+        "duration": 3.12
+    },
+    {
+        "text": "service tags available today,",
+        "start": 1489.85,
+        "duration": 1.74
+    },
+    {
+        "text": "and the outbound private endpoints are available now.",
+        "start": 1491.59,
+        "duration": 6.69
+    },
+    {
+        "text": "We're just controlling who can onboard to them on a limited basis,",
+        "start": 1498.28,
+        "duration": 4.17
+    },
+    {
+        "text": "but please do reach out to us and let us know.",
+        "start": 1502.45,
+        "duration": 2.64
+    },
+    {
+        "text": "So with that, I'm going to move on",
+        "start": 1505.09,
+        "duration": 1.875
+    },
+    {
+        "text": "to talk a little bit about compliance,",
+        "start": 1506.965,
+        "duration": 2.955
+    },
+    {
+        "text": "just give you a quick compliance update.",
+        "start": 1509.92,
+        "duration": 2.58
+    },
+    {
+        "text": "We've been doing a lot of work recently on a lot of",
+        "start": 1512.5,
+        "duration": 3.72
+    },
+    {
+        "text": "the security features, and they help us get more",
+        "start": 1516.22,
+        "duration": 2.28
+    },
+    {
+        "text": "and more planned and more secure.",
+        "start": 1518.5,
+        "duration": 2.745
+    },
+    {
+        "text": "We have 59 compliance certifications in the Public Cloud,",
+        "start": 1521.245,
+        "duration": 3.495
+    },
+    {
+        "text": "28 in the Government Cloud.",
+        "start": 1524.74,
+        "duration": 2.4
+    },
+    {
+        "text": "I'm not going to read through all of these.",
+        "start": 1527.14,
+        "duration": 1.92
+    },
+    {
+        "text": "I think the main point though is that as we become more compliant.",
+        "start": 1529.06,
+        "duration": 4.74
+    },
+    {
+        "text": "We make us easier for a lot",
+        "start": 1533.8,
+        "duration": 1.83
+    },
+    {
+        "text": "of customers to use particularly if they have",
+        "start": 1535.63,
+        "duration": 1.95
+    },
+    {
+        "text": "specific needs of security and other compliance needs",
+        "start": 1537.58,
+        "duration": 4.14
+    },
+    {
+        "text": "that we need to meet in order",
+        "start": 1541.72,
+        "duration": 1.38
+    },
+    {
+        "text": "for them to be able to use us, I should say.",
+        "start": 1543.1,
+        "duration": 3.48
+    },
+    {
+        "text": "There are 59 certifications in",
+        "start": 1546.58,
+        "duration": 1.74
+    },
+    {
+        "text": "the public Cloud because of regional certification.",
+        "start": 1548.32,
+        "duration": 2.07
+    },
+    {
+        "text": "You'll have a specific government in",
+        "start": 1550.39,
+        "duration": 2.79
+    },
+    {
+        "text": "some region that will needed a particular compliance.",
+        "start": 1553.18,
+        "duration": 3.375
+    },
+    {
+        "text": "So that's why that number is pretty high.",
+        "start": 1556.555,
+        "duration": 3.015
+    },
+    {
+        "text": "It's actually a lot of regional certifications that we",
+        "start": 1559.57,
+        "duration": 3.51
+    },
+    {
+        "text": "have and 28 is",
+        "start": 1563.08,
+        "duration": 1.77
+    },
+    {
+        "text": "for the different government certifications that we have.",
+        "start": 1564.85,
+        "duration": 2.76
+    },
+    {
+        "text": "I'd point you to aka.ms/azurecompliance.",
+        "start": 1567.61,
+        "duration": 3.6
+    },
+    {
+        "text": "For more information, I definitely want you to take",
+        "start": 1571.21,
+        "duration": 3.51
+    },
+    {
+        "text": "a look at our official compliance documentation and it'll",
+        "start": 1574.72,
+        "duration": 3.33
+    },
+    {
+        "text": "give you-all the information that you need",
+        "start": 1578.05,
+        "duration": 1.68
+    },
+    {
+        "text": "about what compliance certifications that we",
+        "start": 1579.73,
+        "duration": 2.46
+    },
+    {
+        "text": "have and what you're looking for there.",
+        "start": 1582.19,
+        "duration": 4.59
+    },
+    {
+        "text": "Once again, like I said before,",
+        "start": 1586.78,
+        "duration": 1.71
+    },
+    {
+        "text": "please do reach out to us.",
+        "start": 1588.49,
+        "duration": 1.38
+    },
+    {
+        "text": "We're always curious what",
+        "start": 1589.87,
+        "duration": 1.335
+    },
+    {
+        "text": "compliance certification is interesting to you,",
+        "start": 1591.205,
+        "duration": 2.76
+    },
+    {
+        "text": "what is the one that you're looking",
+        "start": 1593.965,
+        "duration": 1.365
+    },
+    {
+        "text": "for that would unblock you from using.",
+        "start": 1595.33,
+        "duration": 2.595
+    },
+    {
+        "text": "Please do let us know, and I'll give you",
+        "start": 1597.925,
+        "duration": 3.315
+    },
+    {
+        "text": "the e-mail address for that little bit later.",
+        "start": 1601.24,
+        "duration": 3.735
+    },
+    {
+        "text": "I want to summarize what we talked about today.",
+        "start": 1604.975,
+        "duration": 2.115
+    },
+    {
+        "text": "So I've talked about securing your data at rest,",
+        "start": 1607.09,
+        "duration": 2.31
+    },
+    {
+        "text": "Customer Managed Keys, double encryption,",
+        "start": 1609.4,
+        "duration": 2.805
+    },
+    {
+        "text": "making sure that your data is stored securely in the Cloud.",
+        "start": 1612.205,
+        "duration": 2.745
+    },
+    {
+        "text": "I also talked about protecting your data",
+        "start": 1614.95,
+        "duration": 2.265
+    },
+    {
+        "text": "from callers that should",
+        "start": 1617.215,
+        "duration": 2.025
+    },
+    {
+        "text": "not be able to reach the service you're using,",
+        "start": 1619.24,
+        "duration": 1.785
+    },
+    {
+        "text": "firewall with IP whitelisting,",
+        "start": 1621.025,
+        "duration": 1.83
+    },
+    {
+        "text": "private link inbound,",
+        "start": 1622.855,
+        "duration": 2.01
+    },
+    {
+        "text": "and protecting your API keys by storing them in Key Vault.",
+        "start": 1624.865,
+        "duration": 3.81
+    },
+    {
+        "text": "Then I also talked about how can index your content",
+        "start": 1628.675,
+        "duration": 2.835
+    },
+    {
+        "text": "without having to sacrifice the security of your data sources.",
+        "start": 1631.51,
+        "duration": 2.76
+    },
+    {
+        "text": "I talked about Managed identity,",
+        "start": 1634.27,
+        "duration": 1.545
+    },
+    {
+        "text": "Service tags in private link outbound.",
+        "start": 1635.815,
+        "duration": 2.475
+    },
+    {
+        "text": "Then I gave you an update on our compliance start.",
+        "start": 1638.29,
+        "duration": 2.325
+    },
+    {
+        "text": "So I want to reiterate",
+        "start": 1640.615,
+        "duration": 2.985
+    },
+    {
+        "text": "the scope of the work that we've been doing in",
+        "start": 1643.6,
+        "duration": 3.24
+    },
+    {
+        "text": "security and just try to make sure",
+        "start": 1646.84,
+        "duration": 2.76
+    },
+    {
+        "text": "you're aware of all of",
+        "start": 1649.6,
+        "duration": 2.01
+    },
+    {
+        "text": "the various things that are available to you today.",
+        "start": 1651.61,
+        "duration": 2.25
+    },
+    {
+        "text": "Kindly reached out to us at",
+        "start": 1653.86,
+        "duration": 1.8
+    },
+    {
+        "text": "azureresearch_contact@Microsoft.com and give us your feedback.",
+        "start": 1655.66,
+        "duration": 3.21
+    },
+    {
+        "text": "We're always interested in hearing from you.",
+        "start": 1658.87,
+        "duration": 2.505
+    },
+    {
+        "text": "Especially, if you have",
+        "start": 1661.375,
+        "duration": 1.875
+    },
+    {
+        "text": "more strict and security requirements at your company",
+        "start": 1663.25,
+        "duration": 3.015
+    },
+    {
+        "text": "that would prevent you from being able to use",
+        "start": 1666.265,
+        "duration": 2.205
+    },
+    {
+        "text": "Azure Cognitive Search, please do let us know.",
+        "start": 1668.47,
+        "duration": 2.67
+    },
+    {
+        "text": "With that, we've reached the end.",
+        "start": 1671.14,
+        "duration": 1.725
+    },
+    {
+        "text": "So we thank you very much for your time",
+        "start": 1672.865,
+        "duration": 1.89
+    },
+    {
+        "text": "and enjoy the rest of build. Thank you.",
+        "start": 1674.755,
+        "duration": 3.075
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 1677.83,
+        "duration": 13.17
+    }
+]

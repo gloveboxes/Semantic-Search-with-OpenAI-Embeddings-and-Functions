@@ -1,0 +1,3371 @@
+WEBVTT
+
+00:00:03.839 --> 00:00:08.239
+Caption: um thanks for tuning in everyone um i&#39;m
+
+00:00:06.639 --> 00:00:10.000
+Caption: going to give a talk called the billion
+
+00:00:08.239 --> 00:00:13.279
+Caption: event challenge
+
+00:00:10.000 --> 00:00:15.678
+Caption: i&#39;m chris baloo i work at vgw in perth
+
+00:00:13.279 --> 00:00:17.680
+Caption: i&#39;m a score lead on the payments team so
+
+00:00:15.678 --> 00:00:19.278
+Caption: in the payments team we deal with events
+
+00:00:17.680 --> 00:00:20.720
+Caption: on a day-to-day basis because we use
+
+00:00:19.278 --> 00:00:22.559
+Caption: event sourcing
+
+00:00:20.719 --> 00:00:25.358
+Caption: so um it&#39;s kind of a personal interest
+
+00:00:22.559 --> 00:00:28.000
+Caption: of mine to see how fast we can process
+
+00:00:25.358 --> 00:00:29.278
+Caption: a large volume of events um we&#39;re not
+
+00:00:28.000 --> 00:00:31.278
+Caption: quite a billion events yet but we&#39;re
+
+00:00:29.278 --> 00:00:33.360
+Caption: rapidly getting there so this is really
+
+00:00:31.278 --> 00:00:35.119
+Caption: interesting topic to me
+
+00:00:33.360 --> 00:00:36.959
+Caption: first i just like say thanks to our
+
+00:00:35.119 --> 00:00:39.040
+Caption: sponsors they&#39;ve made this event
+
+00:00:36.959 --> 00:00:40.238
+Caption: affordable for everyone so thank you
+
+00:00:39.040 --> 00:00:42.239
+Caption: very much
+
+00:00:40.238 --> 00:00:43.919
+Caption: for that
+
+00:00:42.238 --> 00:00:46.479
+Caption: so the structure of this talk i&#39;m going
+
+00:00:43.919 --> 00:00:49.439
+Caption: to give a short background into events
+
+00:00:46.479 --> 00:00:51.439
+Caption: um and why actually we need them and why
+
+00:00:49.439 --> 00:00:52.479
+Caption: we want to process them so quickly
+
+00:00:51.439 --> 00:00:53.680
+Caption: and then i&#39;m going to spend the rest of
+
+00:00:52.479 --> 00:00:55.199
+Caption: the talk going on a journey of
+
+00:00:53.680 --> 00:00:57.599
+Caption: optimization
+
+00:00:55.199 --> 00:00:58.559
+Caption: so trying to tweak some
+
+00:00:57.599 --> 00:00:59.919
+Caption: technical
+
+00:00:58.558 --> 00:01:03.439
+Caption: things to make
+
+00:00:59.919 --> 00:01:05.198
+Caption: my processing system as fast as possible
+
+00:01:03.439 --> 00:01:08.080
+Caption: so the background
+
+00:01:05.198 --> 00:01:09.599
+Caption: is that often when i hear and see things
+
+00:01:08.080 --> 00:01:11.520
+Caption: about event processing systems and
+
+00:01:09.599 --> 00:01:13.839
+Caption: architectures their
+
+00:01:11.519 --> 00:01:15.599
+Caption: distributor systems in the cloud um
+
+00:01:13.839 --> 00:01:18.559
+Caption: often using many sort of commodity
+
+00:01:15.599 --> 00:01:20.080
+Caption: machines or ec2 instances or
+
+00:01:18.559 --> 00:01:21.360
+Caption: azure vms
+
+00:01:20.080 --> 00:01:22.400
+Caption: they&#39;re kind of connected together with
+
+00:01:21.360 --> 00:01:25.279
+Caption: cues
+
+00:01:22.400 --> 00:01:27.759
+Caption: and then have object storage um
+
+00:01:25.279 --> 00:01:28.639
+Caption: with all the um or the data stored in
+
+00:01:27.759 --> 00:01:31.439
+Caption: them
+
+00:01:28.639 --> 00:01:33.360
+Caption: um or using some of the paradigms
+
+00:01:31.439 --> 00:01:35.439
+Caption: paradigms like mapreduce
+
+00:01:33.360 --> 00:01:37.040
+Caption: um i&#39;m kind of interested to see what
+
+00:01:35.439 --> 00:01:39.119
+Caption: you can do on one machine i don&#39;t think
+
+00:01:37.040 --> 00:01:42.000
+Caption: that&#39;s covered as much
+
+00:01:39.119 --> 00:01:43.439
+Caption: i think we tend to over provision the
+
+00:01:42.000 --> 00:01:44.720
+Caption: infrastructure that we have for good
+
+00:01:43.439 --> 00:01:47.040
+Caption: reason because we don&#39;t want to run out
+
+00:01:44.720 --> 00:01:48.479
+Caption: of resources in a a production situation
+
+00:01:47.040 --> 00:01:50.000
+Caption: but um
+
+00:01:48.478 --> 00:01:51.839
+Caption: we&#39;re kind of not utilizing what we&#39;re
+
+00:01:50.000 --> 00:01:53.919
+Caption: paying for in the cloud so i&#39;m kind of
+
+00:01:51.839 --> 00:01:55.199
+Caption: interested what you can get on a single
+
+00:01:53.919 --> 00:01:57.040
+Caption: machine
+
+00:01:55.199 --> 00:01:59.839
+Caption: and because my team has
+
+00:01:57.040 --> 00:02:02.399
+Caption: an event processing system in production
+
+00:01:59.839 --> 00:02:05.039
+Caption: and we are our library of events is
+
+00:02:02.399 --> 00:02:06.479
+Caption: growing quite rapidly i want my team to
+
+00:02:05.040 --> 00:02:08.080
+Caption: be able to understand a little bit more
+
+00:02:06.478 --> 00:02:10.399
+Caption: about the sort of optimization on a
+
+00:02:08.080 --> 00:02:12.000
+Caption: single machine
+
+00:02:10.399 --> 00:02:14.080
+Caption: so i do want to give a bit of a
+
+00:02:12.000 --> 00:02:16.080
+Caption: background on on events
+
+00:02:14.080 --> 00:02:17.919
+Caption: so i&#39;ve got an example here of you can
+
+00:02:16.080 --> 00:02:19.839
+Caption: imagine a domain object that represents
+
+00:02:17.919 --> 00:02:21.279
+Caption: a hotel booking
+
+00:02:19.839 --> 00:02:22.958
+Caption: so the
+
+00:02:21.279 --> 00:02:25.199
+Caption: the state changes that happen to the
+
+00:02:22.958 --> 00:02:27.279
+Caption: hotel booking um happening over a period
+
+00:02:25.199 --> 00:02:29.520
+Caption: of time um and so there&#39;s some data
+
+00:02:27.279 --> 00:02:31.279
+Caption: associated with each of those um things
+
+00:02:29.520 --> 00:02:33.279
+Caption: that are going on and you can store
+
+00:02:31.279 --> 00:02:34.958
+Caption: those on objects at the time and they&#39;re
+
+00:02:33.279 --> 00:02:37.279
+Caption: called events so there could be an event
+
+00:02:34.958 --> 00:02:39.839
+Caption: for when the hotel booking is created
+
+00:02:37.279 --> 00:02:41.279
+Caption: another event when the occupant is added
+
+00:02:39.839 --> 00:02:42.958
+Caption: to that booking
+
+00:02:41.279 --> 00:02:45.518
+Caption: and then maybe the schedule&#39;s updated
+
+00:02:42.958 --> 00:02:47.518
+Caption: and then paid so there there a full
+
+00:02:45.518 --> 00:02:48.958
+Caption: record of what&#39;s happened to that domain
+
+00:02:47.518 --> 00:02:52.639
+Caption: object over time it tells the whole
+
+00:02:48.958 --> 00:02:53.440
+Caption: history tends to be ordered by time
+
+00:02:52.639 --> 00:02:55.598
+Caption: and
+
+00:02:53.440 --> 00:02:57.360
+Caption: they&#39;re quite useful um both storing
+
+00:02:55.598 --> 00:02:58.878
+Caption: data but you can use them to communicate
+
+00:02:57.360 --> 00:03:00.238
+Caption: as well so if you have components in
+
+00:02:58.878 --> 00:03:01.598
+Caption: your system
+
+00:03:00.238 --> 00:03:03.679
+Caption: that need to react to things that are
+
+00:03:01.598 --> 00:03:04.479
+Caption: happening in time you can pass events
+
+00:03:03.679 --> 00:03:05.919
+Caption: around
+
+00:03:04.479 --> 00:03:07.839
+Caption: and that&#39;s often called an event-driven
+
+00:03:05.919 --> 00:03:10.158
+Caption: architecture
+
+00:03:07.839 --> 00:03:12.639
+Caption: we at vgw and in the payments team
+
+00:03:10.158 --> 00:03:15.199
+Caption: actually use the events as the single
+
+00:03:12.639 --> 00:03:17.598
+Caption: primary source of truth so there is no
+
+00:03:15.199 --> 00:03:19.119
+Caption: other source of truth that is our main
+
+00:03:17.598 --> 00:03:22.800
+Caption: source of truth this is the source of
+
+00:03:19.119 --> 00:03:26.238
+Caption: truth um and any other views on our data
+
+00:03:22.800 --> 00:03:26.958
+Caption: are derived from these events
+
+00:03:26.238 --> 00:03:29.518
+Caption: so
+
+00:03:26.958 --> 00:03:31.199
+Caption: why why event sourcing and why events
+
+00:03:29.518 --> 00:03:33.039
+Caption: it&#39;s really nice with events that when
+
+00:03:31.199 --> 00:03:35.119
+Caption: something happens you&#39;re recording what
+
+00:03:33.039 --> 00:03:36.559
+Caption: happened at the time and you&#39;re not
+
+00:03:35.119 --> 00:03:37.839
+Caption: changing it you&#39;re keeping that record
+
+00:03:36.559 --> 00:03:39.919
+Caption: forever so it&#39;s really good for things
+
+00:03:37.839 --> 00:03:40.798
+Caption: like auditing if you&#39;ve got regulatory
+
+00:03:39.919 --> 00:03:42.798
+Caption: needs
+
+00:03:40.798 --> 00:03:44.399
+Caption: or if you want to go back to look at the
+
+00:03:42.798 --> 00:03:45.759
+Caption: history of something
+
+00:03:44.399 --> 00:03:46.798
+Caption: it&#39;s it&#39;s really nice to have that
+
+00:03:45.759 --> 00:03:47.759
+Caption: history
+
+00:03:46.798 --> 00:03:49.518
+Caption: um
+
+00:03:47.759 --> 00:03:51.199
+Caption: if you&#39;re not stirring things um the
+
+00:03:49.518 --> 00:03:52.639
+Caption: history of things it&#39;s it&#39;s not really
+
+00:03:51.199 --> 00:03:54.878
+Caption: possible to know
+
+00:03:52.639 --> 00:03:56.798
+Caption: what the state of something was
+
+00:03:54.878 --> 00:03:58.720
+Caption: back in time whereas with events because
+
+00:03:56.798 --> 00:04:00.479
+Caption: you&#39;ve got the whole history of time you
+
+00:03:58.720 --> 00:04:02.238
+Caption: can kind of time travel back and pretend
+
+00:04:00.479 --> 00:04:03.119
+Caption: you hadn&#39;t seen a number of recent
+
+00:04:02.238 --> 00:04:05.360
+Caption: events
+
+00:04:03.119 --> 00:04:08.000
+Caption: in order to see what the state was
+
+00:04:05.360 --> 00:04:09.680
+Caption: further back in time
+
+00:04:08.000 --> 00:04:11.518
+Caption: it&#39;s really nice as well
+
+00:04:09.679 --> 00:04:14.559
+Caption: what i said earlier about being able to
+
+00:04:11.518 --> 00:04:16.639
+Caption: derive views on your events so i really
+
+00:04:14.559 --> 00:04:18.160
+Caption: like the idea of you&#39;re storing all the
+
+00:04:16.639 --> 00:04:19.279
+Caption: data as it&#39;s happening
+
+00:04:18.160 --> 00:04:21.199
+Caption: making sure you&#39;re storing everything
+
+00:04:19.279 --> 00:04:23.600
+Caption: that&#39;s relevant and then at any point
+
+00:04:21.199 --> 00:04:25.360
+Caption: down the line even in 10 years you can
+
+00:04:23.600 --> 00:04:27.440
+Caption: you can transform that representation to
+
+00:04:25.359 --> 00:04:29.439
+Caption: something else more useful
+
+00:04:27.440 --> 00:04:31.440
+Caption: for all kinds of different purposes
+
+00:04:29.440 --> 00:04:34.479
+Caption: optimized for the read patterns that are
+
+00:04:31.440 --> 00:04:37.199
+Caption: going to be used to view that data
+
+00:04:34.479 --> 00:04:39.040
+Caption: time is the primary dimension for events
+
+00:04:37.199 --> 00:04:40.720
+Caption: which is quite nice because that kind of
+
+00:04:39.040 --> 00:04:44.000
+Caption: acts as a queue if you want to process
+
+00:04:40.720 --> 00:04:46.160
+Caption: them so if you&#39;ve got a number of events
+
+00:04:44.000 --> 00:04:47.839
+Caption: recorded in time for a domain object and
+
+00:04:46.160 --> 00:04:50.239
+Caption: you want to build up some representation
+
+00:04:47.839 --> 00:04:52.000
+Caption: of that domain object you can
+
+00:04:50.239 --> 00:04:54.399
+Caption: look at the events one by one in time
+
+00:04:52.000 --> 00:04:56.079
+Caption: building up building up state
+
+00:04:54.399 --> 00:04:57.759
+Caption: that state can be overwritten by by
+
+00:04:56.079 --> 00:04:59.839
+Caption: future events but then you&#39;re overriding
+
+00:04:57.759 --> 00:05:02.320
+Caption: it and you&#39;re accumulating um the state
+
+00:04:59.839 --> 00:05:03.279
+Caption: up to now
+
+00:05:02.320 --> 00:05:04.960
+Caption: um
+
+00:05:03.279 --> 00:05:06.959
+Caption: some examples of remodels so with that
+
+00:05:04.959 --> 00:05:09.199
+Caption: hotel booking example um you can imagine
+
+00:05:06.959 --> 00:05:11.440
+Caption: you&#39;ve got say a thousand bookings for a
+
+00:05:09.199 --> 00:05:13.919
+Caption: hotel um and there might be a need to
+
+00:05:11.440 --> 00:05:16.559
+Caption: show um in an online portal
+
+00:05:13.919 --> 00:05:18.000
+Caption: um the the customer their bookings so
+
+00:05:16.559 --> 00:05:19.919
+Caption: you might have some kind of process
+
+00:05:18.000 --> 00:05:21.919
+Caption: which is transforming events from a
+
+00:05:19.919 --> 00:05:23.759
+Caption: customer into a list of bookings for
+
+00:05:21.919 --> 00:05:25.600
+Caption: that customer and that&#39;s presented in
+
+00:05:23.759 --> 00:05:27.519
+Caption: the portal for that customer so that&#39;s a
+
+00:05:25.600 --> 00:05:29.520
+Caption: read model over those events
+
+00:05:27.519 --> 00:05:31.839
+Caption: that you could also have for the
+
+00:05:29.519 --> 00:05:33.198
+Caption: housekeeping staff of the hotel a daily
+
+00:05:31.839 --> 00:05:34.880
+Caption: schedule that&#39;s being computed from
+
+00:05:33.199 --> 00:05:36.320
+Caption: these events
+
+00:05:34.880 --> 00:05:38.160
+Caption: and then maybe less frequently an
+
+00:05:36.320 --> 00:05:40.000
+Caption: accounting report that&#39;s also best based
+
+00:05:38.160 --> 00:05:41.679
+Caption: off the same data
+
+00:05:40.000 --> 00:05:43.039
+Caption: and then maybe some 10 years down the
+
+00:05:41.679 --> 00:05:45.039
+Caption: line you have some completely different
+
+00:05:43.039 --> 00:05:46.399
+Caption: need for some remodel or representation
+
+00:05:45.039 --> 00:05:47.759
+Caption: but because you&#39;ve got all those events
+
+00:05:46.399 --> 00:05:50.160
+Caption: you&#39;ve got the flexibility to come up
+
+00:05:47.759 --> 00:05:51.839
+Caption: with that so each of these remodels are
+
+00:05:50.160 --> 00:05:53.279
+Caption: taking a subset of the information off
+
+00:05:51.839 --> 00:05:54.880
+Caption: these events
+
+00:05:53.279 --> 00:05:57.199
+Caption: but it&#39;s but they&#39;re all basically
+
+00:05:54.880 --> 00:05:59.919
+Caption: targeting this same
+
+00:05:57.199 --> 00:05:59.919
+Caption: source of truth
+
+00:06:00.079 --> 00:06:03.599
+Caption: the the system that&#39;s actually creating
+
+00:06:02.319 --> 00:06:04.799
+Caption: these remodels is often called a
+
+00:06:03.600 --> 00:06:06.240
+Caption: populator
+
+00:06:04.799 --> 00:06:07.839
+Caption: and it might look like this in a kind of
+
+00:06:06.239 --> 00:06:09.440
+Caption: simple view
+
+00:06:07.839 --> 00:06:11.440
+Caption: you&#39;ve got events and then there&#39;s a
+
+00:06:09.440 --> 00:06:12.880
+Caption: populator that&#39;s reading those events
+
+00:06:11.440 --> 00:06:14.880
+Caption: it&#39;s doing some transformation of them
+
+00:06:12.880 --> 00:06:16.479
+Caption: into a remodel and then saving them and
+
+00:06:14.880 --> 00:06:18.319
+Caption: it&#39;s basically doing that in a real-time
+
+00:06:16.479 --> 00:06:21.600
+Caption: situation we&#39;ll be doing that over and
+
+00:06:18.319 --> 00:06:23.759
+Caption: over again in an incremental fashion
+
+00:06:21.600 --> 00:06:25.600
+Caption: so i quite like this and we have lots of
+
+00:06:23.759 --> 00:06:27.360
+Caption: these at work they&#39;re quite easy to
+
+00:06:25.600 --> 00:06:29.679
+Caption: understand because they often
+
+00:06:27.359 --> 00:06:31.198
+Caption: are doing a very small piece of piece of
+
+00:06:29.679 --> 00:06:33.039
+Caption: work inside them
+
+00:06:31.199 --> 00:06:35.600
+Caption: quite nice and easy to maintain even
+
+00:06:33.039 --> 00:06:37.199
+Caption: though we&#39;ve got many of these
+
+00:06:35.600 --> 00:06:38.639
+Caption: i don&#39;t really feel like we&#39;re setting
+
+00:06:37.199 --> 00:06:40.239
+Caption: out a lot of complexity with each of
+
+00:06:38.639 --> 00:06:41.839
+Caption: these because they&#39;re kind of small
+
+00:06:40.239 --> 00:06:43.199
+Caption: simple units
+
+00:06:41.839 --> 00:06:45.279
+Caption: um the
+
+00:06:43.199 --> 00:06:47.279
+Caption: the the ones we have at work and and the
+
+00:06:45.279 --> 00:06:48.880
+Caption: kind of structures illustrated here is
+
+00:06:47.279 --> 00:06:51.039
+Caption: is sequential it&#39;s dealing with things
+
+00:06:48.880 --> 00:06:52.639
+Caption: one at a time which is nice for things
+
+00:06:51.039 --> 00:06:54.799
+Caption: to be easy to understand
+
+00:06:52.639 --> 00:06:57.440
+Caption: but it&#39;s kind of self-throttling itself
+
+00:06:54.799 --> 00:06:59.679
+Caption: it&#39;s blocking its own operation by by um
+
+00:06:57.440 --> 00:07:01.598
+Caption: by waiting to produce future remodels
+
+00:06:59.679 --> 00:07:03.359
+Caption: until the current one&#39;s been produced so
+
+00:07:01.598 --> 00:07:05.119
+Caption: it isn&#39;t the fastest i&#39;m well aware
+
+00:07:03.359 --> 00:07:06.000
+Caption: there&#39;s probably a way faster way to do
+
+00:07:05.119 --> 00:07:07.519
+Caption: this
+
+00:07:06.000 --> 00:07:09.359
+Caption: and that&#39;s kind of what i&#39;m interested
+
+00:07:07.519 --> 00:07:10.720
+Caption: in now
+
+00:07:09.359 --> 00:07:12.879
+Caption: in particular
+
+00:07:10.720 --> 00:07:14.720
+Caption: this is good for a real-time situation
+
+00:07:12.880 --> 00:07:15.759
+Caption: if you&#39;ve got events coming in in a real
+
+00:07:14.720 --> 00:07:18.079
+Caption: time
+
+00:07:15.759 --> 00:07:20.959
+Caption: at a real-time velocity um you need a
+
+00:07:18.079 --> 00:07:22.000
+Caption: certain certain amount of um processing
+
+00:07:20.959 --> 00:07:24.638
+Caption: but
+
+00:07:22.000 --> 00:07:26.000
+Caption: there&#39;s the other situation where
+
+00:07:24.639 --> 00:07:27.598
+Caption: let&#39;s say you&#39;ve got your event store
+
+00:07:26.000 --> 00:07:29.279
+Caption: and you&#39;ve got some populators that are
+
+00:07:27.598 --> 00:07:30.799
+Caption: that are say caught up in processing
+
+00:07:29.279 --> 00:07:32.239
+Caption: data in real time
+
+00:07:30.799 --> 00:07:34.079
+Caption: and then you come up with a new remodel
+
+00:07:32.239 --> 00:07:35.759
+Caption: you decide you have a new business need
+
+00:07:34.079 --> 00:07:37.439
+Caption: you have to start that from zero you
+
+00:07:35.759 --> 00:07:39.440
+Caption: have to start that from the
+
+00:07:37.440 --> 00:07:41.199
+Caption: from from the earliest part of the queue
+
+00:07:39.440 --> 00:07:43.039
+Caption: because it&#39;s going to generate remodels
+
+00:07:41.199 --> 00:07:45.598
+Caption: for all of those events so you have to
+
+00:07:43.039 --> 00:07:47.519
+Caption: start it off and it will take time it&#39;s
+
+00:07:45.598 --> 00:07:48.559
+Caption: sequential it will take time to catch up
+
+00:07:47.519 --> 00:07:49.918
+Caption: and at work
+
+00:07:48.559 --> 00:07:51.199
+Caption: we&#39;ve we&#39;ve got a we haven&#39;t got a
+
+00:07:49.919 --> 00:07:53.039
+Caption: billion events yet but we&#39;re getting
+
+00:07:51.199 --> 00:07:55.119
+Caption: there and it takes a few hours to catch
+
+00:07:53.039 --> 00:07:57.519
+Caption: up with our solutions so
+
+00:07:55.119 --> 00:07:59.519
+Caption: it does kind of slow us down when we&#39;re
+
+00:07:57.519 --> 00:08:01.039
+Caption: doing releases we we like to think of
+
+00:07:59.519 --> 00:08:03.759
+Caption: ourselves as a high performing team we
+
+00:08:01.039 --> 00:08:05.759
+Caption: do sort of 5 10 15 releases a day
+
+00:08:03.759 --> 00:08:08.239
+Caption: amongst the 10 engineers
+
+00:08:05.759 --> 00:08:09.839
+Caption: and so we really don&#39;t have much scope
+
+00:08:08.239 --> 00:08:10.878
+Caption: for waiting a few hours when we&#39;re doing
+
+00:08:09.839 --> 00:08:12.399
+Caption: a release
+
+00:08:10.878 --> 00:08:14.319
+Caption: but that does happen and we do a new
+
+00:08:12.399 --> 00:08:16.079
+Caption: remodel instead of every week so it&#39;d be
+
+00:08:14.319 --> 00:08:17.759
+Caption: really nice if we could speed that up
+
+00:08:16.079 --> 00:08:19.359
+Caption: and get that a lot lower than a few
+
+00:08:17.759 --> 00:08:21.440
+Caption: hours
+
+00:08:19.359 --> 00:08:23.598
+Caption: this is the key this is the key reason
+
+00:08:21.440 --> 00:08:26.319
+Caption: i&#39;m doing this challenge
+
+00:08:23.598 --> 00:08:29.759
+Caption: all right so um given some background of
+
+00:08:26.319 --> 00:08:31.598
+Caption: events i want to go on to the challenge
+
+00:08:29.759 --> 00:08:33.278
+Caption: so as i said before i want to be able to
+
+00:08:31.598 --> 00:08:36.000
+Caption: process a billion events as fast as
+
+00:08:33.278 --> 00:08:37.518
+Caption: possible um on a single machine
+
+00:08:36.000 --> 00:08:40.559
+Caption: the the challenge is i&#39;m going to
+
+00:08:37.518 --> 00:08:42.000
+Caption: primarily measure the time taken to
+
+00:08:40.559 --> 00:08:44.958
+Caption: load all those events from where they&#39;re
+
+00:08:42.000 --> 00:08:46.880
+Caption: stored transform them into remodels in
+
+00:08:44.958 --> 00:08:48.958
+Caption: this case i&#39;m going to have one remodel
+
+00:08:46.880 --> 00:08:50.799
+Caption: for every 10 events 10 events you could
+
+00:08:48.958 --> 00:08:53.760
+Caption: think of representing one hotel booking
+
+00:08:50.799 --> 00:08:55.440
+Caption: for example and so producing one remodel
+
+00:08:53.760 --> 00:08:57.278
+Caption: and then saving those 100 million
+
+00:08:55.440 --> 00:08:58.958
+Caption: remodel somewhere and so that&#39;s the
+
+00:08:57.278 --> 00:09:00.080
+Caption: that&#39;s the the start and end point that
+
+00:08:58.958 --> 00:09:02.799
+Caption: i&#39;m timing here and i&#39;m going to
+
+00:09:00.080 --> 00:09:04.880
+Caption: optimize throughout this challenge
+
+00:09:02.799 --> 00:09:06.479
+Caption: um i&#39;m not really focusing on
+
+00:09:04.880 --> 00:09:08.080
+Caption: architecting this to be a real-time
+
+00:09:06.479 --> 00:09:10.479
+Caption: solution in production that&#39;s sort of
+
+00:09:08.080 --> 00:09:12.559
+Caption: highly available and reliable i&#39;m really
+
+00:09:10.479 --> 00:09:14.559
+Caption: caring about how fast i can get a
+
+00:09:12.559 --> 00:09:16.880
+Caption: catch-up situation
+
+00:09:14.559 --> 00:09:18.880
+Caption: because i you could imagine creating a
+
+00:09:16.880 --> 00:09:21.518
+Caption: system as part of this challenge that is
+
+00:09:18.880 --> 00:09:23.919
+Caption: used as a once-off when a new remodel
+
+00:09:21.518 --> 00:09:25.679
+Caption: populator is deployed that has the the
+
+00:09:23.919 --> 00:09:27.359
+Caption: job of doing the catch up and then some
+
+00:09:25.679 --> 00:09:30.159
+Caption: other system that takes over for the
+
+00:09:27.359 --> 00:09:32.159
+Caption: real time potentially
+
+00:09:30.159 --> 00:09:32.958
+Caption: some things i&#39;m going to experiment with
+
+00:09:32.159 --> 00:09:34.879
+Caption: um
+
+00:09:32.958 --> 00:09:36.398
+Caption: the language that i&#39;m implementing this
+
+00:09:34.880 --> 00:09:37.838
+Caption: this system in
+
+00:09:36.398 --> 00:09:39.838
+Caption: the run time
+
+00:09:37.838 --> 00:09:41.838
+Caption: uh the the format
+
+00:09:39.838 --> 00:09:43.278
+Caption: both serialization and compression that
+
+00:09:41.838 --> 00:09:45.440
+Caption: i&#39;m going to represent these events in
+
+00:09:43.278 --> 00:09:47.359
+Caption: and then the remodels that i produce
+
+00:09:45.440 --> 00:09:50.640
+Caption: and then really most of it&#39;s going to be
+
+00:09:47.359 --> 00:09:52.079
+Caption: how i parallelize this work
+
+00:09:50.640 --> 00:09:53.440
+Caption: so my first solution i started with
+
+00:09:52.080 --> 00:09:55.519
+Caption: something and which which you use at
+
+00:09:53.440 --> 00:09:58.239
+Caption: work every day which is node.js so
+
+00:09:55.518 --> 00:10:00.000
+Caption: typescript um i i&#39;m well aware it&#39;s
+
+00:09:58.239 --> 00:10:01.760
+Caption: probably not the fastest thing to use
+
+00:10:00.000 --> 00:10:02.958
+Caption: but that&#39;s okay because we use it
+
+00:10:01.760 --> 00:10:04.720
+Caption: because
+
+00:10:02.958 --> 00:10:06.320
+Caption: lots of people know the language it&#39;s
+
+00:10:04.719 --> 00:10:08.958
+Caption: very familiar it&#39;s quite easy to get
+
+00:10:06.320 --> 00:10:11.200
+Caption: started um so it&#39;s it&#39;s kind of the
+
+00:10:08.958 --> 00:10:13.119
+Caption: thing we reach for first
+
+00:10:11.200 --> 00:10:14.559
+Caption: so i i kind of chose a node.js
+
+00:10:13.119 --> 00:10:16.719
+Caption: application
+
+00:10:14.559 --> 00:10:18.880
+Caption: i generated a billion sort of fictitious
+
+00:10:16.719 --> 00:10:21.278
+Caption: events and save them into adjacent file
+
+00:10:18.880 --> 00:10:24.880
+Caption: because that&#39;s also kind of a nice
+
+00:10:21.278 --> 00:10:26.000
+Caption: well understood um and used format
+
+00:10:24.880 --> 00:10:27.679
+Caption: and then
+
+00:10:26.000 --> 00:10:30.320
+Caption: yeah i wrote some code to process them
+
+00:10:27.679 --> 00:10:32.159
+Caption: so i had one one huge json file of
+
+00:10:30.320 --> 00:10:34.078
+Caption: events and then i was creating one use
+
+00:10:32.159 --> 00:10:36.000
+Caption: json file of remodels
+
+00:10:34.078 --> 00:10:37.599
+Caption: except i wasn&#39;t because a hunt one
+
+00:10:36.000 --> 00:10:40.479
+Caption: billion events is a hundred gigabytes of
+
+00:10:37.599 --> 00:10:42.559
+Caption: json which is a lot and it turns out no
+
+00:10:40.479 --> 00:10:44.559
+Caption: js that&#39;s too much for node.js to deal
+
+00:10:42.559 --> 00:10:46.159
+Caption: with in one go it has a single file
+
+00:10:44.559 --> 00:10:47.919
+Caption: limit when it when you&#39;re reading a file
+
+00:10:46.159 --> 00:10:48.719
+Caption: of two gigabytes
+
+00:10:47.919 --> 00:10:50.479
+Caption: and
+
+00:10:48.719 --> 00:10:52.078
+Caption: once you load that file which is which
+
+00:10:50.479 --> 00:10:55.039
+Caption: will be a string and then parsing that
+
+00:10:52.078 --> 00:10:57.039
+Caption: into json um it has a limit of 100 of
+
+00:10:55.039 --> 00:10:58.398
+Caption: one gigabyte each time
+
+00:10:57.039 --> 00:11:00.000
+Caption: so
+
+00:10:58.398 --> 00:11:01.760
+Caption: next thing i did was to split that into
+
+00:11:00.000 --> 00:11:04.078
+Caption: a number of files um in this case a
+
+00:11:01.760 --> 00:11:06.958
+Caption: thousand so each one
+
+00:11:04.078 --> 00:11:08.000
+Caption: was about 100 megabyte so um a thousand
+
+00:11:06.958 --> 00:11:10.719
+Caption: files in
+
+00:11:08.000 --> 00:11:12.799
+Caption: a thousand files out
+
+00:11:10.719 --> 00:11:14.879
+Caption: when i was doing that i had to kind of
+
+00:11:12.799 --> 00:11:16.398
+Caption: think very carefully about this because
+
+00:11:14.880 --> 00:11:17.359
+Caption: i want to be able to parallelize these
+
+00:11:16.398 --> 00:11:18.799
+Caption: events
+
+00:11:17.359 --> 00:11:20.479
+Caption: and even because i&#39;m splitting them up
+
+00:11:18.799 --> 00:11:21.838
+Caption: and doing them in parallel i need to
+
+00:11:20.479 --> 00:11:23.440
+Caption: think about the
+
+00:11:21.838 --> 00:11:25.359
+Caption: the files that these events are going to
+
+00:11:23.440 --> 00:11:27.119
+Caption: end up in so if you think of an event
+
+00:11:25.359 --> 00:11:29.919
+Caption: store that&#39;s maybe got three bookings in
+
+00:11:27.119 --> 00:11:32.000
+Caption: it booking a b and c um they they&#39;re
+
+00:11:29.919 --> 00:11:34.958
+Caption: sort of naturally ordered by time in an
+
+00:11:32.000 --> 00:11:36.559
+Caption: event store usually um so in one file
+
+00:11:34.958 --> 00:11:37.760
+Caption: they&#39;re kind of all in that one file
+
+00:11:36.559 --> 00:11:39.440
+Caption: even though they&#39;re interspersed with
+
+00:11:37.760 --> 00:11:42.078
+Caption: each other over time
+
+00:11:39.440 --> 00:11:45.039
+Caption: but if i&#39;m splitting these this file up
+
+00:11:42.078 --> 00:11:47.760
+Caption: i it&#39;s going to be really hard to create
+
+00:11:45.039 --> 00:11:49.759
+Caption: a remodel for say booking a if half of
+
+00:11:47.760 --> 00:11:51.278
+Caption: the events for booking a are in one file
+
+00:11:49.760 --> 00:11:53.518
+Caption: and half are in another
+
+00:11:51.278 --> 00:11:55.679
+Caption: so i kind of i guess cheated maybe and
+
+00:11:53.518 --> 00:11:58.000
+Caption: did a pre-step where i
+
+00:11:55.679 --> 00:12:01.679
+Caption: group all of the events for each booking
+
+00:11:58.000 --> 00:12:04.159
+Caption: into into one file so um i know if i
+
+00:12:01.679 --> 00:12:05.278
+Caption: pick up one file the bookings that i see
+
+00:12:04.159 --> 00:12:08.000
+Caption: in there are going to be entirely
+
+00:12:05.278 --> 00:12:10.078
+Caption: encapsulated so that&#39;s a step that i did
+
+00:12:08.000 --> 00:12:12.159
+Caption: which should make parallelizing easier
+
+00:12:10.078 --> 00:12:14.000
+Caption: as well
+
+00:12:12.159 --> 00:12:15.199
+Caption: so this was the timing of my first
+
+00:12:14.000 --> 00:12:17.278
+Caption: solution so
+
+00:12:15.200 --> 00:12:18.958
+Caption: um it was actually doing a thousand
+
+00:12:17.278 --> 00:12:22.000
+Caption: iterations of what you&#39;re seeing here so
+
+00:12:18.958 --> 00:12:24.078
+Caption: reading events deserializing them
+
+00:12:22.000 --> 00:12:25.919
+Caption: transforming them into remodels and then
+
+00:12:24.078 --> 00:12:27.359
+Caption: serializing and writing the result but
+
+00:12:25.919 --> 00:12:28.958
+Caption: i&#39;ve kind of aggregated the timing here
+
+00:12:27.359 --> 00:12:30.719
+Caption: so you can see the breakdown of where it
+
+00:12:28.958 --> 00:12:32.398
+Caption: spent most of the timing and quite
+
+00:12:30.719 --> 00:12:35.518
+Caption: clearly you can see
+
+00:12:32.398 --> 00:12:39.200
+Caption: of the 26 minutes in total 19 minutes of
+
+00:12:35.518 --> 00:12:41.359
+Caption: that was deserializing so reading wasn&#39;t
+
+00:12:39.200 --> 00:12:42.799
+Caption: actually a lot i was expecting reading
+
+00:12:41.359 --> 00:12:45.119
+Caption: and writing sort of interacting with
+
+00:12:42.799 --> 00:12:48.000
+Caption: this to take a lot of time relatively
+
+00:12:45.119 --> 00:12:50.159
+Caption: speaking but um it turns out that json
+
+00:12:48.000 --> 00:12:52.719
+Caption: is a fairly verbose
+
+00:12:50.159 --> 00:12:54.958
+Caption: way to encode data um and it&#39;s fairly
+
+00:12:52.719 --> 00:12:57.119
+Caption: sort of in cpu intensive to actually
+
+00:12:54.958 --> 00:12:58.239
+Caption: interpret that and it looks like the the
+
+00:12:57.119 --> 00:13:00.559
+Caption: node.js
+
+00:12:58.239 --> 00:13:02.880
+Caption: implementation of that um
+
+00:13:00.559 --> 00:13:04.320
+Caption: i i don&#39;t really have a barometer yet as
+
+00:13:02.880 --> 00:13:05.599
+Caption: to whether it&#39;s fast or not but it
+
+00:13:04.320 --> 00:13:07.200
+Caption: certainly looks like it&#39;s taking a lot
+
+00:13:05.599 --> 00:13:08.719
+Caption: of time
+
+00:13:07.200 --> 00:13:10.880
+Caption: so that&#39;s that&#39;s the first solution so
+
+00:13:08.719 --> 00:13:12.479
+Caption: at least i have kind of a yardstick for
+
+00:13:10.880 --> 00:13:14.880
+Caption: what um
+
+00:13:12.479 --> 00:13:16.239
+Caption: what uh maybe a slow performance will
+
+00:13:14.880 --> 00:13:17.518
+Caption: look like because i think all the other
+
+00:13:16.239 --> 00:13:19.278
+Caption: ideas i&#39;m going to try only going to
+
+00:13:17.518 --> 00:13:21.359
+Caption: make it faster so we&#39;re starting from a
+
+00:13:19.278 --> 00:13:23.039
+Caption: position of 26 minutes
+
+00:13:21.359 --> 00:13:24.559
+Caption: these are the ideas i have for
+
+00:13:23.039 --> 00:13:27.199
+Caption: optimizing so
+
+00:13:24.559 --> 00:13:29.599
+Caption: i&#39;ve started with jason node.js i want
+
+00:13:27.200 --> 00:13:30.958
+Caption: to try something that&#39;s not node.js
+
+00:13:29.599 --> 00:13:33.039
+Caption: i also want to try something that&#39;s not
+
+00:13:30.958 --> 00:13:36.000
+Caption: json i think that&#39;s probably not the
+
+00:13:33.039 --> 00:13:37.359
+Caption: most compact way to represent this data
+
+00:13:36.000 --> 00:13:40.320
+Caption: maybe you want to try some compression
+
+00:13:37.359 --> 00:13:43.838
+Caption: algorithms and also want to try and make
+
+00:13:40.320 --> 00:13:46.559
+Caption: it parallelized so not sequential
+
+00:13:43.838 --> 00:13:48.880
+Caption: so let&#39;s focus on not node.js so what
+
+00:13:46.559 --> 00:13:50.559
+Caption: other choices do i have obviously i have
+
+00:13:48.880 --> 00:13:52.638
+Caption: innumerable choices but i&#39;ve kind of
+
+00:13:50.559 --> 00:13:54.880
+Caption: picked four that i&#39;ve heard on the great
+
+00:13:52.638 --> 00:13:57.359
+Caption: find that are fast so
+
+00:13:54.880 --> 00:14:00.000
+Caption: java c plus plus go
+
+00:13:57.359 --> 00:14:01.518
+Caption: and russ so for me i happen to have
+
+00:14:00.000 --> 00:14:03.760
+Caption: spent more time in rust than any of the
+
+00:14:01.518 --> 00:14:05.760
+Caption: others it&#39;s something that i language
+
+00:14:03.760 --> 00:14:07.440
+Caption: that i find particularly interesting so
+
+00:14:05.760 --> 00:14:08.958
+Caption: i&#39;m kind of going to arbitrarily pick
+
+00:14:07.440 --> 00:14:11.359
+Caption: this as the one i&#39;m going to try to be
+
+00:14:08.958 --> 00:14:13.039
+Caption: faster i have heard it&#39;s a modern
+
+00:14:11.359 --> 00:14:15.518
+Caption: language and it should be fast so it
+
+00:14:13.039 --> 00:14:17.440
+Caption: should actually be quite hopeful
+
+00:14:15.518 --> 00:14:19.518
+Caption: it is a statically typed language which
+
+00:14:17.440 --> 00:14:21.198
+Caption: is an improvement hopefully on node.js
+
+00:14:19.518 --> 00:14:23.198
+Caption: or javascript which is a dynamically
+
+00:14:21.198 --> 00:14:25.039
+Caption: typed language so the compiler is able
+
+00:14:23.198 --> 00:14:27.119
+Caption: to know a lot more about what&#39;s going on
+
+00:14:25.039 --> 00:14:29.359
+Caption: with the data that it&#39;s representing so
+
+00:14:27.119 --> 00:14:30.719
+Caption: it can make a lot more optimizations
+
+00:14:29.359 --> 00:14:32.078
+Caption: it isn&#39;t the only statically typed
+
+00:14:30.719 --> 00:14:34.958
+Caption: language in this list but that should be
+
+00:14:32.078 --> 00:14:37.440
+Caption: an advantage um compared to javascript
+
+00:14:34.958 --> 00:14:40.078
+Caption: it is natively compiled so it&#39;s compiled
+
+00:14:37.440 --> 00:14:42.320
+Caption: ahead of time so a lot of optimizations
+
+00:14:40.078 --> 00:14:45.119
+Caption: can be made at the compilation step as
+
+00:14:42.320 --> 00:14:47.199
+Caption: opposed to at runtime um so that that&#39;s
+
+00:14:45.119 --> 00:14:48.880
+Caption: kind of nice there&#39;s no pausing where
+
+00:14:47.198 --> 00:14:51.919
+Caption: it&#39;s doing just in just in time
+
+00:14:48.880 --> 00:14:53.440
+Caption: compilation it&#39;s all done ahead of time
+
+00:14:51.919 --> 00:14:55.440
+Caption: and one of the really unique things
+
+00:14:53.440 --> 00:14:58.078
+Caption: about rust is its memory model so it
+
+00:14:55.440 --> 00:14:59.760
+Caption: uses a model called the ownership model
+
+00:14:58.078 --> 00:15:00.958
+Caption: where each variable you have in your
+
+00:14:59.760 --> 00:15:02.479
+Caption: code
+
+00:15:00.958 --> 00:15:04.078
+Caption: or each piece of data you have has a
+
+00:15:02.479 --> 00:15:06.078
+Caption: very clear owner
+
+00:15:04.078 --> 00:15:07.919
+Caption: and it can be one of the reasons rust is
+
+00:15:06.078 --> 00:15:09.838
+Caption: quite difficult to learn
+
+00:15:07.919 --> 00:15:12.078
+Caption: because you have to be really clear to
+
+00:15:09.838 --> 00:15:13.119
+Caption: the compiler who owns a piece of data
+
+00:15:12.078 --> 00:15:14.559
+Caption: and when you&#39;re sort of passing it
+
+00:15:13.119 --> 00:15:15.599
+Caption: around between functions or between
+
+00:15:14.559 --> 00:15:17.440
+Caption: threads
+
+00:15:15.599 --> 00:15:18.880
+Caption: the compiler really wants you to be
+
+00:15:17.440 --> 00:15:20.078
+Caption: clear about who&#39;s going to be owning
+
+00:15:18.880 --> 00:15:22.398
+Caption: that data
+
+00:15:20.078 --> 00:15:24.479
+Caption: so it can make it difficult to learn but
+
+00:15:22.398 --> 00:15:26.320
+Caption: the end result is that the compiler has
+
+00:15:24.479 --> 00:15:28.239
+Caption: a lot more information about how that
+
+00:15:26.320 --> 00:15:30.479
+Caption: data can change so it&#39;s able to make
+
+00:15:28.239 --> 00:15:32.159
+Caption: even more optimizations which is
+
+00:15:30.479 --> 00:15:33.359
+Caption: which is really
+
+00:15:32.159 --> 00:15:35.119
+Caption: i think one of the reasons why this
+
+00:15:33.359 --> 00:15:37.039
+Caption: should be faster
+
+00:15:35.119 --> 00:15:39.919
+Caption: so this is my implementation in russ
+
+00:15:37.039 --> 00:15:42.638
+Caption: compared to node.js so total time more
+
+00:15:39.919 --> 00:15:44.320
+Caption: than twice as fast so nine minutes nine
+
+00:15:42.638 --> 00:15:45.119
+Caption: and a half minutes overall
+
+00:15:44.320 --> 00:15:47.199
+Caption: um
+
+00:15:45.119 --> 00:15:50.719
+Caption: looks like the bulk of that time is is
+
+00:15:47.198 --> 00:15:52.559
+Caption: much faster deserialization process so
+
+00:15:50.719 --> 00:15:54.638
+Caption: the the reading and writing was similar
+
+00:15:52.559 --> 00:15:55.838
+Caption: you&#39;d expect it&#39;s it&#39;s json it&#39;s using
+
+00:15:54.638 --> 00:15:56.719
+Caption: the same disk
+
+00:15:55.838 --> 00:15:59.679
+Caption: um
+
+00:15:56.719 --> 00:16:01.758
+Caption: the uh transforming was also faster i i
+
+00:15:59.679 --> 00:16:03.838
+Caption: guess that you might expect that too
+
+00:16:01.758 --> 00:16:06.159
+Caption: um so that&#39;s that&#39;s a good that&#39;s a good
+
+00:16:03.838 --> 00:16:08.479
+Caption: move um
+
+00:16:06.159 --> 00:16:09.599
+Caption: so rust is i think what i&#39;m going to
+
+00:16:08.479 --> 00:16:10.880
+Caption: stick with for the rest of this i don&#39;t
+
+00:16:09.599 --> 00:16:12.000
+Caption: really want to jump around languages at
+
+00:16:10.880 --> 00:16:13.679
+Caption: this point i think there are other
+
+00:16:12.000 --> 00:16:14.638
+Caption: optimizations to make that are probably
+
+00:16:13.679 --> 00:16:16.880
+Caption: easier
+
+00:16:14.638 --> 00:16:18.000
+Caption: um so let&#39;s try and not represent here
+
+00:16:16.880 --> 00:16:19.759
+Caption: as jason
+
+00:16:18.000 --> 00:16:21.278
+Caption: and again i have innumerable choices
+
+00:16:19.758 --> 00:16:23.440
+Caption: here and i&#39;ve picked three that i&#39;ve
+
+00:16:21.278 --> 00:16:24.799
+Caption: heard are fast based upon benchmarks
+
+00:16:23.440 --> 00:16:26.479
+Caption: from the internet
+
+00:16:24.799 --> 00:16:28.000
+Caption: they&#39;re all binary representation as
+
+00:16:26.479 --> 00:16:29.758
+Caption: opposed to the string json
+
+00:16:28.000 --> 00:16:31.599
+Caption: representation which i think will make
+
+00:16:29.758 --> 00:16:33.599
+Caption: it more compact
+
+00:16:31.599 --> 00:16:35.758
+Caption: bin code and
+
+00:16:33.599 --> 00:16:37.198
+Caption: archive i&#39;ve been calling it rkyv for a
+
+00:16:35.758 --> 00:16:39.278
+Caption: year my friend recently told me it&#39;s
+
+00:16:37.198 --> 00:16:40.719
+Caption: probably pronounced archive and i think
+
+00:16:39.278 --> 00:16:42.479
+Caption: they&#39;re probably right
+
+00:16:40.719 --> 00:16:44.958
+Caption: they&#39;re both rust
+
+00:16:42.479 --> 00:16:47.758
+Caption: they appear to be only rust-based
+
+00:16:44.958 --> 00:16:49.838
+Caption: serialization formats message pack is a
+
+00:16:47.758 --> 00:16:50.958
+Caption: bit more commonplace so i&#39;m going to try
+
+00:16:49.838 --> 00:16:53.198
+Caption: those three
+
+00:16:50.958 --> 00:16:56.078
+Caption: um and i&#39;m measuring them both upon the
+
+00:16:53.198 --> 00:16:58.078
+Caption: size the the the
+
+00:16:56.078 --> 00:16:59.039
+Caption: they&#39;re represented as but also the time
+
+00:16:58.078 --> 00:17:01.198
+Caption: it takes
+
+00:16:59.039 --> 00:17:02.958
+Caption: um to do the steps in the process that
+
+00:17:01.198 --> 00:17:05.520
+Caption: are relevant to the serialization format
+
+00:17:02.958 --> 00:17:07.438
+Caption: so the reading you might imagine would
+
+00:17:05.520 --> 00:17:08.640
+Caption: be would be faster or slower based upon
+
+00:17:07.438 --> 00:17:09.760
+Caption: the size of the
+
+00:17:08.640 --> 00:17:10.958
+Caption: of the file
+
+00:17:09.760 --> 00:17:12.558
+Caption: that it&#39;s reading
+
+00:17:10.958 --> 00:17:14.400
+Caption: same with the writing
+
+00:17:12.558 --> 00:17:16.640
+Caption: and then deserializing materializing you
+
+00:17:14.400 --> 00:17:18.640
+Caption: expect that to change
+
+00:17:16.640 --> 00:17:21.119
+Caption: in in time as well so
+
+00:17:18.640 --> 00:17:24.318
+Caption: the the size of all of the alternative
+
+00:17:21.119 --> 00:17:26.719
+Caption: choices were a lot smaller than jason um
+
+00:17:24.318 --> 00:17:30.079
+Caption: but the smaller ones did actually appear
+
+00:17:26.719 --> 00:17:31.760
+Caption: to um be slower compared to each other
+
+00:17:30.079 --> 00:17:33.839
+Caption: but not compared to jason so although
+
+00:17:31.760 --> 00:17:34.880
+Caption: bing code was sort of a quarter of the
+
+00:17:33.839 --> 00:17:37.918
+Caption: size
+
+00:17:34.880 --> 00:17:39.119
+Caption: on disk um it was it was a lot faster
+
+00:17:37.918 --> 00:17:41.359
+Caption: than json
+
+00:17:39.119 --> 00:17:43.678
+Caption: in terms of its deserialization and
+
+00:17:41.359 --> 00:17:45.520
+Caption: serializing but it wasn&#39;t quite as fast
+
+00:17:43.678 --> 00:17:46.798
+Caption: as archive and message pack which
+
+00:17:45.520 --> 00:17:48.959
+Caption: managed to
+
+00:17:46.798 --> 00:17:51.839
+Caption: be faster although not represent the
+
+00:17:48.959 --> 00:17:53.918
+Caption: data quite as compactly so i think
+
+00:17:51.839 --> 00:17:55.279
+Caption: because i&#39;m optimizing for ultimate
+
+00:17:53.918 --> 00:17:57.519
+Caption: end-to-end time here i should really
+
+00:17:55.280 --> 00:17:59.840
+Caption: choose the one that gives me the the
+
+00:17:57.520 --> 00:18:02.719
+Caption: shortest time and that&#39;s archive so
+
+00:17:59.839 --> 00:18:05.038
+Caption: that&#39;s the one i&#39;m going to go through
+
+00:18:02.719 --> 00:18:07.678
+Caption: so compression what have i got choices
+
+00:18:05.038 --> 00:18:09.839
+Caption: there so again i&#39;ve chosen a small set
+
+00:18:07.678 --> 00:18:11.359
+Caption: um deflate which is commonly used in zip
+
+00:18:09.839 --> 00:18:13.279
+Caption: files and gzip
+
+00:18:11.359 --> 00:18:14.880
+Caption: snappy which is a more modern
+
+00:18:13.280 --> 00:18:16.640
+Caption: compression algorithm
+
+00:18:14.880 --> 00:18:18.880
+Caption: and then there&#39;s lz4 as well these are
+
+00:18:16.640 --> 00:18:22.160
+Caption: again ones that i just picked that in
+
+00:18:18.880 --> 00:18:24.160
+Caption: theory should be fairly um fairly fast
+
+00:18:22.160 --> 00:18:26.080
+Caption: but rather than thinking in theory again
+
+00:18:24.160 --> 00:18:27.440
+Caption: let&#39;s measure so
+
+00:18:26.079 --> 00:18:30.640
+Caption: compared to
+
+00:18:27.439 --> 00:18:32.239
+Caption: archive with no compression um we&#39;ve got
+
+00:18:30.640 --> 00:18:34.000
+Caption: the other ones here so
+
+00:18:32.239 --> 00:18:35.918
+Caption: quite impressively deflate got down to
+
+00:18:34.000 --> 00:18:38.479
+Caption: six gigabytes um which is which is
+
+00:18:35.918 --> 00:18:41.119
+Caption: pretty impressive um snappy and l4 again
+
+00:18:38.479 --> 00:18:44.479
+Caption: quite a lot smaller than um without any
+
+00:18:41.119 --> 00:18:46.400
+Caption: compression but they introduced a lot of
+
+00:18:44.479 --> 00:18:49.038
+Caption: decompression and compression time
+
+00:18:46.400 --> 00:18:50.559
+Caption: especially deflate deflate just needed a
+
+00:18:49.038 --> 00:18:52.719
+Caption: long time to compress
+
+00:18:50.558 --> 00:18:54.319
+Caption: i&#39;m not sure why i mean it&#39;s probably
+
+00:18:52.719 --> 00:18:56.239
+Caption: one of the older compression algorithms
+
+00:18:54.319 --> 00:18:59.119
+Caption: but it is
+
+00:18:56.239 --> 00:19:02.000
+Caption: still very effective at compressing so
+
+00:18:59.119 --> 00:19:04.319
+Caption: it just takes a lot of time to do it
+
+00:19:02.000 --> 00:19:07.839
+Caption: but actually none of them if you measure
+
+00:19:04.319 --> 00:19:09.678
+Caption: the end to end time the the compression
+
+00:19:07.839 --> 00:19:13.199
+Caption: that they made in terms of making the
+
+00:19:09.678 --> 00:19:15.199
+Caption: file smaller wasn&#39;t able to make up for
+
+00:19:13.199 --> 00:19:16.558
+Caption: the fact that they added more extra time
+
+00:19:15.199 --> 00:19:18.239
+Caption: in the absolute
+
+00:19:16.558 --> 00:19:19.839
+Caption: processing of this so
+
+00:19:18.239 --> 00:19:21.599
+Caption: i&#39;m actually just not going to use any
+
+00:19:19.839 --> 00:19:23.038
+Caption: compression the numbers are telling me
+
+00:19:21.599 --> 00:19:25.119
+Caption: that maybe i shouldn&#39;t so i&#39;m just going
+
+00:19:23.038 --> 00:19:27.199
+Caption: to stick with archive with no
+
+00:19:25.119 --> 00:19:28.239
+Caption: compression
+
+00:19:27.199 --> 00:19:30.319
+Caption: and this is the one that&#39;s really
+
+00:19:28.239 --> 00:19:32.079
+Caption: interesting to me parallelizing our
+
+00:19:30.319 --> 00:19:33.839
+Caption: resources so what actually can be
+
+00:19:32.079 --> 00:19:35.839
+Caption: parallelized
+
+00:19:33.839 --> 00:19:38.558
+Caption: i think that the most obvious one is cpu
+
+00:19:35.839 --> 00:19:40.400
+Caption: work because cpus tend to have lots of
+
+00:19:38.558 --> 00:19:42.000
+Caption: cores on them so you can have many
+
+00:19:40.400 --> 00:19:44.239
+Caption: threads in your program that are making
+
+00:19:42.000 --> 00:19:46.239
+Caption: use of um cpu cores
+
+00:19:44.239 --> 00:19:48.079
+Caption: um and i think the main parts of the the
+
+00:19:46.239 --> 00:19:51.520
+Caption: uh the program that are gonna benefit
+
+00:19:48.079 --> 00:19:52.719
+Caption: from that uh are the deserialization
+
+00:19:51.520 --> 00:19:54.558
+Caption: and then the transformation into
+
+00:19:52.719 --> 00:19:55.599
+Caption: remodels and then serialization at the
+
+00:19:54.558 --> 00:19:58.000
+Caption: end
+
+00:19:55.599 --> 00:20:00.798
+Caption: i wonder whether parallelizing disk
+
+00:19:58.000 --> 00:20:02.798
+Caption: access is also going to help
+
+00:20:00.798 --> 00:20:04.639
+Caption: i actually have no idea maybe reading
+
+00:20:02.798 --> 00:20:06.239
+Caption: and writing two files is faster than one
+
+00:20:04.640 --> 00:20:07.359
+Caption: if you do it in parallel i&#39;m not sure so
+
+00:20:06.239 --> 00:20:09.280
+Caption: that&#39;s something
+
+00:20:07.359 --> 00:20:11.199
+Caption: that i&#39;m definitely going to measure
+
+00:20:09.280 --> 00:20:12.559
+Caption: so i&#39;m going to start off i am going to
+
+00:20:11.199 --> 00:20:14.079
+Caption: parallelize but i&#39;m just going to start
+
+00:20:12.558 --> 00:20:15.760
+Caption: with three threads so i&#39;m going to have
+
+00:20:14.079 --> 00:20:17.279
+Caption: one thread that&#39;s doing all the reading
+
+00:20:15.760 --> 00:20:19.520
+Caption: it&#39;s just going to be reading the files
+
+00:20:17.280 --> 00:20:21.840
+Caption: as fast as possible it&#39;s going to put
+
+00:20:19.520 --> 00:20:23.119
+Caption: them the files on a queue
+
+00:20:21.839 --> 00:20:24.400
+Caption: and then there&#39;s going to be a
+
+00:20:23.119 --> 00:20:26.158
+Caption: processing thread which is going to be
+
+00:20:24.400 --> 00:20:27.359
+Caption: receiving those processing them as fast
+
+00:20:26.159 --> 00:20:29.760
+Caption: as possible
+
+00:20:27.359 --> 00:20:32.000
+Caption: and then another thread for writing the
+
+00:20:29.760 --> 00:20:33.919
+Caption: results as fast as possible so i&#39;ve
+
+00:20:32.000 --> 00:20:35.918
+Caption: tried to keep that that simple to start
+
+00:20:33.918 --> 00:20:38.399
+Caption: with i&#39;m going to do this on my machine
+
+00:20:35.918 --> 00:20:42.079
+Caption: so my machine at home which is a intel
+
+00:20:38.400 --> 00:20:43.440
+Caption: core i9 so it&#39;s got 10 cores um 20 if
+
+00:20:42.079 --> 00:20:45.918
+Caption: you include hyper threading all those
+
+00:20:43.439 --> 00:20:49.279
+Caption: sort of strictly it&#39;s only 10
+
+00:20:45.918 --> 00:20:50.319
+Caption: but because of that sort of 10 20 core
+
+00:20:49.280 --> 00:20:51.919
+Caption: um
+
+00:20:50.319 --> 00:20:54.000
+Caption: hybrid there i&#39;m interested to know how
+
+00:20:51.918 --> 00:20:55.678
+Caption: many threads is appropriate to sort of
+
+00:20:54.000 --> 00:20:57.439
+Caption: make use of those cores whether you
+
+00:20:55.678 --> 00:20:59.119
+Caption: should only really use 10 should you use
+
+00:20:57.439 --> 00:21:00.479
+Caption: 20 or should you use somewhere in
+
+00:20:59.119 --> 00:21:02.400
+Caption: between
+
+00:21:00.479 --> 00:21:04.640
+Caption: then i&#39;ve got 32 gig ram which i think
+
+00:21:02.400 --> 00:21:06.960
+Caption: should be enough um and then the disk
+
+00:21:04.640 --> 00:21:08.719
+Caption: i&#39;m using is a relatively modern ssd and
+
+00:21:06.959 --> 00:21:10.399
+Caption: i&#39;m interested to know whether there&#39;s
+
+00:21:08.719 --> 00:21:12.719
+Caption: any parallelization i can have around
+
+00:21:10.400 --> 00:21:15.679
+Caption: the access to that
+
+00:21:12.719 --> 00:21:17.038
+Caption: so what i&#39;ve got here is a visualization
+
+00:21:15.678 --> 00:21:18.479
+Caption: i&#39;ve done some measurements while the
+
+00:21:17.038 --> 00:21:20.158
+Caption: program was running i&#39;ve saved the
+
+00:21:18.479 --> 00:21:22.239
+Caption: results and i&#39;ve made a visualization
+
+00:21:20.159 --> 00:21:24.159
+Caption: here which represents what each thread
+
+00:21:22.239 --> 00:21:25.918
+Caption: is doing so i&#39;ve got three threads i&#39;ve
+
+00:21:24.159 --> 00:21:27.600
+Caption: got my read thread
+
+00:21:25.918 --> 00:21:28.880
+Caption: it&#39;s doing a bunch of work for about
+
+00:21:27.599 --> 00:21:30.959
+Caption: half the time
+
+00:21:28.880 --> 00:21:32.798
+Caption: so i&#39;m not sure if you can really see
+
+00:21:30.959 --> 00:21:35.359
+Caption: but it should be clearer in future
+
+00:21:32.798 --> 00:21:37.678
+Caption: visualizations but in this one
+
+00:21:35.359 --> 00:21:39.599
+Caption: those slivers there are individual
+
+00:21:37.678 --> 00:21:41.279
+Caption: individual partitions
+
+00:21:39.599 --> 00:21:43.199
+Caption: getting processed
+
+00:21:41.280 --> 00:21:45.359
+Caption: then you&#39;ve got the processing thread
+
+00:21:43.199 --> 00:21:47.119
+Caption: which is solid color the whole whole way
+
+00:21:45.359 --> 00:21:48.479
+Caption: which essentially means it&#39;s busy the
+
+00:21:47.119 --> 00:21:50.158
+Caption: whole time
+
+00:21:48.479 --> 00:21:51.520
+Caption: and then the right thread which is a
+
+00:21:50.159 --> 00:21:53.600
+Caption: little bit spotty so i don&#39;t think
+
+00:21:51.520 --> 00:21:55.440
+Caption: that&#39;s fully busy the whole time
+
+00:21:53.599 --> 00:21:57.359
+Caption: so the read thread&#39;s got this big gap
+
+00:21:55.439 --> 00:21:59.359
+Caption: here which is telling me that for half
+
+00:21:57.359 --> 00:22:01.280
+Caption: the time it is busy reading and then
+
+00:21:59.359 --> 00:22:02.798
+Caption: once it&#39;s finished reading it&#39;s got no
+
+00:22:01.280 --> 00:22:04.080
+Caption: more work to do it&#39;s done all its job
+
+00:22:02.798 --> 00:22:05.599
+Caption: and it&#39;s got to wait for the processing
+
+00:22:04.079 --> 00:22:06.880
+Caption: and the writing to happen before it&#39;s
+
+00:22:05.599 --> 00:22:07.599
+Caption: done
+
+00:22:06.880 --> 00:22:10.239
+Caption: so
+
+00:22:07.599 --> 00:22:11.760
+Caption: it&#39;s 2 minutes 14 seconds which is kind
+
+00:22:10.239 --> 00:22:12.959
+Caption: of comparable to what i had before when
+
+00:22:11.760 --> 00:22:15.119
+Caption: i had no
+
+00:22:12.959 --> 00:22:17.199
+Caption: parallelization so it&#39;s not really too
+
+00:22:15.119 --> 00:22:18.558
+Caption: much sticking out there but i&#39;m thinking
+
+00:22:17.199 --> 00:22:19.839
+Caption: what i should do is add more processing
+
+00:22:18.558 --> 00:22:22.158
+Caption: threads because it looks like that&#39;s the
+
+00:22:19.839 --> 00:22:24.400
+Caption: bottleneck so what if i go up to that
+
+00:22:22.159 --> 00:22:26.640
+Caption: core count a total of ten if i add eight
+
+00:22:24.400 --> 00:22:29.119
+Caption: processing threads and then keep my one
+
+00:22:26.640 --> 00:22:31.200
+Caption: reading and one writing thread
+
+00:22:29.119 --> 00:22:32.558
+Caption: so with the same visualization um this
+
+00:22:31.199 --> 00:22:34.399
+Caption: is what i&#39;m getting so you can see the
+
+00:22:32.558 --> 00:22:35.918
+Caption: processing threads here there are a lot
+
+00:22:34.400 --> 00:22:37.760
+Caption: more patchy so there are there are
+
+00:22:35.918 --> 00:22:39.839
+Caption: smatterings of color where they are each
+
+00:22:37.760 --> 00:22:42.079
+Caption: doing work but they&#39;re not they&#39;re not
+
+00:22:39.839 --> 00:22:43.839
+Caption: sort of um fully utilized there&#39;s
+
+00:22:42.079 --> 00:22:45.279
+Caption: definitely patches where it&#39;s not doing
+
+00:22:43.839 --> 00:22:47.119
+Caption: anything
+
+00:22:45.280 --> 00:22:49.440
+Caption: and the total time has dropped quite a
+
+00:22:47.119 --> 00:22:51.599
+Caption: lot so we&#39;re down to 44 seconds so we&#39;ve
+
+00:22:49.439 --> 00:22:53.678
+Caption: we&#39;ve we&#39;ve taken a huge chunk off just
+
+00:22:51.599 --> 00:22:55.439
+Caption: by parallelizing some of that processing
+
+00:22:53.678 --> 00:22:57.359
+Caption: and it looks like the processing is sped
+
+00:22:55.439 --> 00:22:59.038
+Caption: up enough that the read thread is now
+
+00:22:57.359 --> 00:23:00.719
+Caption: the bottleneck i think the read thread
+
+00:22:59.038 --> 00:23:02.479
+Caption: is more solid color
+
+00:23:00.719 --> 00:23:05.520
+Caption: than the right thread if you look at it
+
+00:23:02.479 --> 00:23:07.678
+Caption: that way so i think what i&#39;ll do
+
+00:23:05.520 --> 00:23:09.280
+Caption: is i&#39;ll add another read through see if
+
+00:23:07.678 --> 00:23:11.760
+Caption: that actually helps
+
+00:23:09.280 --> 00:23:13.599
+Caption: so let&#39;s go two instead of one
+
+00:23:11.760 --> 00:23:16.000
+Caption: interestingly the the time did drop a
+
+00:23:13.599 --> 00:23:18.158
+Caption: little bit so i think that did help um
+
+00:23:16.000 --> 00:23:20.479
+Caption: the the read threads still look quite
+
+00:23:18.159 --> 00:23:22.400
+Caption: busy though but the processing threads i
+
+00:23:20.479 --> 00:23:24.880
+Caption: did drop one processing thread
+
+00:23:22.400 --> 00:23:26.719
+Caption: um to keep the total at 10 but
+
+00:23:24.880 --> 00:23:28.319
+Caption: i it does look like they&#39;re much more
+
+00:23:26.719 --> 00:23:30.239
+Caption: better utilized now so i think that was
+
+00:23:28.319 --> 00:23:32.880
+Caption: good in terms of um feeding those
+
+00:23:30.239 --> 00:23:35.359
+Caption: processing threads a little better
+
+00:23:32.880 --> 00:23:36.719
+Caption: so i might actually try and add another
+
+00:23:35.359 --> 00:23:38.079
+Caption: read thread and see what happens see if
+
+00:23:36.719 --> 00:23:40.558
+Caption: i can keep getting
+
+00:23:38.079 --> 00:23:43.199
+Caption: incremental benefits so up to three read
+
+00:23:40.558 --> 00:23:45.359
+Caption: threads now um interestingly
+
+00:23:43.199 --> 00:23:47.599
+Caption: the the two of those read threads appear
+
+00:23:45.359 --> 00:23:48.959
+Caption: to be busy but that third one um isn&#39;t
+
+00:23:47.599 --> 00:23:50.640
+Caption: quite as busy at the end there so i
+
+00:23:48.959 --> 00:23:52.319
+Caption: wonder if maybe
+
+00:23:50.640 --> 00:23:54.239
+Caption: it&#39;s starting to sort of
+
+00:23:52.319 --> 00:23:56.319
+Caption: go as fast as it can from that disc and
+
+00:23:54.239 --> 00:23:58.959
+Caption: that third thread isn&#39;t having much
+
+00:23:56.319 --> 00:24:01.199
+Caption: effect when it&#39;s when it&#39;s saturated
+
+00:23:58.959 --> 00:24:03.038
+Caption: the six processing threads do appear to
+
+00:24:01.199 --> 00:24:04.558
+Caption: be a lot more utilized now they don&#39;t
+
+00:24:03.038 --> 00:24:06.000
+Caption: appear to be entirely the blocking
+
+00:24:04.558 --> 00:24:06.880
+Caption: factor though because there is a little
+
+00:24:06.000 --> 00:24:09.918
+Caption: bit of
+
+00:24:06.880 --> 00:24:11.520
+Caption: under utilization at the end there um so
+
+00:24:09.918 --> 00:24:13.839
+Caption: the right thread appears to be a lot
+
+00:24:11.520 --> 00:24:15.679
+Caption: more busy um and we&#39;ve lost another two
+
+00:24:13.839 --> 00:24:17.520
+Caption: seconds so we&#39;re down to 36 seconds
+
+00:24:15.678 --> 00:24:18.880
+Caption: which from the original nine minutes is
+
+00:24:17.520 --> 00:24:22.080
+Caption: going pretty well
+
+00:24:18.880 --> 00:24:24.959
+Caption: um so i think what i might do is bump up
+
+00:24:22.079 --> 00:24:26.959
+Caption: the processing threads and see if um see
+
+00:24:24.959 --> 00:24:28.399
+Caption: if that that sort of solid utilization
+
+00:24:26.959 --> 00:24:29.359
+Caption: there is actually holding it back in any
+
+00:24:28.400 --> 00:24:32.000
+Caption: way
+
+00:24:29.359 --> 00:24:34.000
+Caption: so jump up to 12 so that actually did
+
+00:24:32.000 --> 00:24:36.880
+Caption: help so we&#39;re over the sort of natural
+
+00:24:34.000 --> 00:24:38.558
+Caption: core count of the cpu now um so i think
+
+00:24:36.880 --> 00:24:40.400
+Caption: there is some benefit to that hyper
+
+00:24:38.558 --> 00:24:42.079
+Caption: threading that that beyond that natural
+
+00:24:40.400 --> 00:24:44.799
+Caption: core count the the hyper threading is
+
+00:24:42.079 --> 00:24:46.558
+Caption: able to do do some more um and it&#39;s it
+
+00:24:44.798 --> 00:24:48.079
+Caption: appears those those 12 threads i&#39;ve got
+
+00:24:46.558 --> 00:24:51.038
+Caption: now doing the processing are not fully
+
+00:24:48.079 --> 00:24:53.839
+Caption: utilized um the three read threads um
+
+00:24:51.038 --> 00:24:55.678
+Caption: appear to be the bottleneck again um so
+
+00:24:53.839 --> 00:24:57.839
+Caption: i think probably i might go and add
+
+00:24:55.678 --> 00:24:58.880
+Caption: another read thread and see what happens
+
+00:24:57.839 --> 00:25:01.199
+Caption: um
+
+00:24:58.880 --> 00:25:03.520
+Caption: didn&#39;t do a lot so we might be reaching
+
+00:25:01.199 --> 00:25:05.599
+Caption: diminishing returns on that
+
+00:25:03.520 --> 00:25:08.080
+Caption: now it looks like those read threads are
+
+00:25:05.599 --> 00:25:10.079
+Caption: busy but what that&#39;s actually telling us
+
+00:25:08.079 --> 00:25:12.239
+Caption: with those solid colors is
+
+00:25:10.079 --> 00:25:13.359
+Caption: the the units of work where it&#39;s doing
+
+00:25:12.239 --> 00:25:15.278
+Caption: reading
+
+00:25:13.359 --> 00:25:17.038
+Caption: are taking the full amount of time
+
+00:25:15.279 --> 00:25:19.679
+Caption: that&#39;s sort of saturating those threads
+
+00:25:17.038 --> 00:25:22.399
+Caption: but it doesn&#39;t necessarily mean the disc
+
+00:25:19.678 --> 00:25:24.880
+Caption: uh or it&#39;s waiting for um
+
+00:25:22.400 --> 00:25:27.359
+Caption: sort of uh if the disc is fully utilized
+
+00:25:24.880 --> 00:25:29.839
+Caption: and feeding all of those threads at the
+
+00:25:27.359 --> 00:25:32.640
+Caption: most it can there may actually be time
+
+00:25:29.839 --> 00:25:35.199
+Caption: in that in that sort of coloring that is
+
+00:25:32.640 --> 00:25:36.640
+Caption: um where the disk is is kind of fully
+
+00:25:35.199 --> 00:25:38.239
+Caption: saturated and not able to feed those
+
+00:25:36.640 --> 00:25:40.799
+Caption: threads and they&#39;re just waiting the
+
+00:25:38.239 --> 00:25:44.719
+Caption: threads are waiting for for disk
+
+00:25:40.798 --> 00:25:46.479
+Caption: um so i wonder if that might be the end
+
+00:25:44.719 --> 00:25:48.079
+Caption: or should i do another rethread let&#39;s
+
+00:25:46.479 --> 00:25:49.678
+Caption: see what happens
+
+00:25:48.079 --> 00:25:52.079
+Caption: cool five read threads i think we&#39;ve
+
+00:25:49.678 --> 00:25:53.439
+Caption: maxed it out now so we&#39;re at 32 seconds
+
+00:25:52.079 --> 00:25:54.880
+Caption: on my machine
+
+00:25:53.439 --> 00:25:56.959
+Caption: i don&#39;t think adding more processing
+
+00:25:54.880 --> 00:25:58.239
+Caption: threads will help i don&#39;t think any
+
+00:25:56.959 --> 00:25:59.760
+Caption: other read-through will help a right
+
+00:25:58.239 --> 00:26:01.839
+Caption: thread will help i think it&#39;s maybe
+
+00:25:59.760 --> 00:26:03.839
+Caption: saturated on that
+
+00:26:01.839 --> 00:26:05.760
+Caption: so why did adding more read threads help
+
+00:26:03.839 --> 00:26:08.719
+Caption: performance that seemed to be the one of
+
+00:26:05.760 --> 00:26:10.320
+Caption: the main things that was helping me here
+
+00:26:08.719 --> 00:26:12.640
+Caption: one one of the things is i&#39;m using an
+
+00:26:10.319 --> 00:26:15.119
+Caption: ssd and and the big thing about ssds is
+
+00:26:12.640 --> 00:26:17.359
+Caption: they&#39;ve got many flash chips on them so
+
+00:26:15.119 --> 00:26:18.880
+Caption: different to how um a sort of
+
+00:26:17.359 --> 00:26:20.959
+Caption: traditional spinning hard drive would
+
+00:26:18.880 --> 00:26:22.400
+Caption: work they&#39;re able to actually do reads
+
+00:26:20.959 --> 00:26:25.918
+Caption: and writes in parallel because if you&#39;ve
+
+00:26:22.400 --> 00:26:27.599
+Caption: got a file on one chip on the on the ssd
+
+00:26:25.918 --> 00:26:29.599
+Caption: that may be being read but you can get
+
+00:26:27.599 --> 00:26:30.798
+Caption: another file on a different chip
+
+00:26:29.599 --> 00:26:33.199
+Caption: um
+
+00:26:30.798 --> 00:26:35.678
+Caption: as long as the bus between the cpu and
+
+00:26:33.199 --> 00:26:36.798
+Caption: the disk is able to support that so
+
+00:26:35.678 --> 00:26:38.319
+Caption: that i think that may be what&#39;s
+
+00:26:36.798 --> 00:26:40.079
+Caption: happening here i&#39;m loading multiple
+
+00:26:38.319 --> 00:26:42.000
+Caption: files off the disk in parallel and then
+
+00:26:40.079 --> 00:26:44.158
+Caption: maybe stalling different different chips
+
+00:26:42.000 --> 00:26:45.520
+Caption: on the flash drive so i&#39;m able to get
+
+00:26:44.159 --> 00:26:46.880
+Caption: sort of really high performance by
+
+00:26:45.520 --> 00:26:48.080
+Caption: loading multiple
+
+00:26:46.880 --> 00:26:49.199
+Caption: um the
+
+00:26:48.079 --> 00:26:51.119
+Caption: nvme
+
+00:26:49.199 --> 00:26:53.839
+Caption: interface spec which my ssd card
+
+00:26:51.119 --> 00:26:55.678
+Caption: supports um some um
+
+00:26:53.839 --> 00:26:57.918
+Caption: confirmation on a website on the
+
+00:26:55.678 --> 00:26:59.519
+Caption: internet here is that uh yeah if you&#39;re
+
+00:26:57.918 --> 00:27:01.599
+Caption: able to
+
+00:26:59.520 --> 00:27:03.679
+Caption: access multiple files in parallel if
+
+00:27:01.599 --> 00:27:05.599
+Caption: they&#39;re running on a distinct core
+
+00:27:03.678 --> 00:27:07.678
+Caption: you can actually take advantage of that
+
+00:27:05.599 --> 00:27:09.918
+Caption: and just really writing a parallel with
+
+00:27:07.678 --> 00:27:13.199
+Caption: nvme
+
+00:27:09.918 --> 00:27:15.119
+Caption: so i&#39;ve done some parallelization what
+
+00:27:13.199 --> 00:27:17.918
+Caption: can i do to improve it i could go out
+
+00:27:15.119 --> 00:27:19.599
+Caption: and get some faster disks the disk i was
+
+00:27:17.918 --> 00:27:21.119
+Caption: running it on was relatively modern i
+
+00:27:19.599 --> 00:27:23.278
+Caption: only bought it a few months ago when my
+
+00:27:21.119 --> 00:27:24.479
+Caption: previous run ran out of space
+
+00:27:23.279 --> 00:27:25.919
+Caption: so i&#39;m not sure that&#39;s going to be
+
+00:27:24.479 --> 00:27:27.520
+Caption: something i&#39;m going to be able to do
+
+00:27:25.918 --> 00:27:30.079
+Caption: very easily and get a huge amount of
+
+00:27:27.520 --> 00:27:32.959
+Caption: benefit i could get more discs though
+
+00:27:30.079 --> 00:27:35.038
+Caption: um i could get more calls maybe go buy
+
+00:27:32.959 --> 00:27:35.918
+Caption: one of the the new cpus that&#39;s got more
+
+00:27:35.038 --> 00:27:38.879
+Caption: cores
+
+00:27:35.918 --> 00:27:40.639
+Caption: um faster clock speed maybe um on each
+
+00:27:38.880 --> 00:27:42.798
+Caption: individual core but i i think we&#39;ve
+
+00:27:40.640 --> 00:27:44.079
+Caption: maybe uh mostly slowed down in that
+
+00:27:42.798 --> 00:27:45.119
+Caption: regard so i don&#39;t know if that&#39;s going
+
+00:27:44.079 --> 00:27:48.119
+Caption: to be something i&#39;m going to be able to
+
+00:27:45.119 --> 00:27:48.119
+Caption: do
+
+00:27:48.319 --> 00:27:51.678
+Caption: so
+
+00:27:49.199 --> 00:27:52.558
+Caption: i did actually have a previous disc um
+
+00:27:51.678 --> 00:27:54.479
+Caption: before
+
+00:27:52.558 --> 00:27:57.359
+Caption: that one uh filled up and i bought my
+
+00:27:54.479 --> 00:27:59.678
+Caption: new one um i had another ssd so what i&#39;m
+
+00:27:57.359 --> 00:28:01.439
+Caption: gonna try is plug that one back in
+
+00:27:59.678 --> 00:28:02.880
+Caption: and try and try and distribute the data
+
+00:28:01.439 --> 00:28:04.398
+Caption: across both of those and see if i can
+
+00:28:02.880 --> 00:28:06.640
+Caption: get a speed up so i&#39;m just going to
+
+00:28:04.399 --> 00:28:08.799
+Caption: start with two
+
+00:28:06.640 --> 00:28:10.719
+Caption: two threads reading and writing one for
+
+00:28:08.798 --> 00:28:14.319
+Caption: each disk and then
+
+00:28:10.719 --> 00:28:16.000
+Caption: say 16 threads processing
+
+00:28:14.319 --> 00:28:17.519
+Caption: and the same visualization so i did get
+
+00:28:16.000 --> 00:28:18.719
+Caption: a bit of a speed up there so i dropped
+
+00:28:17.520 --> 00:28:20.880
+Caption: six seconds
+
+00:28:18.719 --> 00:28:22.239
+Caption: um and you can see the two read threads
+
+00:28:20.880 --> 00:28:24.479
+Caption: and you can see they&#39;re quite different
+
+00:28:22.239 --> 00:28:25.760
+Caption: one of them um appears to be busy the
+
+00:28:24.479 --> 00:28:28.640
+Caption: whole time and the other one appears to
+
+00:28:25.760 --> 00:28:30.880
+Caption: be busy for only uh or sort of 80 of the
+
+00:28:28.640 --> 00:28:32.399
+Caption: time and i think that&#39;s probably because
+
+00:28:30.880 --> 00:28:35.520
+Caption: one of them is a lot faster because it&#39;s
+
+00:28:32.399 --> 00:28:37.200
+Caption: a lot newer so um one of them&#39;s able to
+
+00:28:35.520 --> 00:28:38.320
+Caption: read all the files it&#39;s responsible for
+
+00:28:37.199 --> 00:28:39.839
+Caption: pretty quickly
+
+00:28:38.319 --> 00:28:40.719
+Caption: and the other one&#39;s lagging behind there
+
+00:28:39.839 --> 00:28:42.719
+Caption: so
+
+00:28:40.719 --> 00:28:44.319
+Caption: that may be a bit of a problem
+
+00:28:42.719 --> 00:28:46.319
+Caption: i&#39;m not able to sort of get too much
+
+00:28:44.319 --> 00:28:48.319
+Caption: benefit because one&#39;s kind of just
+
+00:28:46.319 --> 00:28:49.759
+Caption: slower and needs more time
+
+00:28:48.319 --> 00:28:52.079
+Caption: the processing threads aren&#39;t aren&#39;t
+
+00:28:49.760 --> 00:28:53.599
+Caption: that busy and the right thread isn&#39;t um
+
+00:28:52.079 --> 00:28:55.918
+Caption: so
+
+00:28:53.599 --> 00:28:58.000
+Caption: that&#39;s uh i could try more read threads
+
+00:28:55.918 --> 00:28:59.918
+Caption: because i did get a speed up and when i
+
+00:28:58.000 --> 00:29:01.199
+Caption: did that on one ssd so let&#39;s see what
+
+00:28:59.918 --> 00:29:03.439
+Caption: happens with that
+
+00:29:01.199 --> 00:29:06.398
+Caption: and yeah i got a speed up so three
+
+00:29:03.439 --> 00:29:08.000
+Caption: seconds less time
+
+00:29:06.399 --> 00:29:10.640
+Caption: again you can see which two threads are
+
+00:29:08.000 --> 00:29:12.798
+Caption: for the the faster ssd
+
+00:29:10.640 --> 00:29:15.599
+Caption: and the processing threads right threads
+
+00:29:12.798 --> 00:29:18.158
+Caption: not not heavily utilized so um i think i
+
+00:29:15.599 --> 00:29:20.880
+Caption: might try again giving more read threads
+
+00:29:18.159 --> 00:29:22.880
+Caption: um go up to eight instead of four
+
+00:29:20.880 --> 00:29:25.599
+Caption: dropped at one second so diminishing
+
+00:29:22.880 --> 00:29:26.959
+Caption: returns appears to be about four threads
+
+00:29:25.599 --> 00:29:27.839
+Caption: per ssd
+
+00:29:26.959 --> 00:29:29.839
+Caption: um
+
+00:29:27.839 --> 00:29:32.398
+Caption: interestingly the the right threads
+
+00:29:29.839 --> 00:29:35.599
+Caption: there um are starting to get a bit bit
+
+00:29:32.399 --> 00:29:36.880
+Caption: busy um so maybe i could bump those
+
+00:29:35.599 --> 00:29:38.880
+Caption: right threads up and see if i get the
+
+00:29:36.880 --> 00:29:42.079
+Caption: same same uh boost like i did with the
+
+00:29:38.880 --> 00:29:44.079
+Caption: read threads uh yeah i didn&#39;t really
+
+00:29:42.079 --> 00:29:46.239
+Caption: maybe i could do that more but it
+
+00:29:44.079 --> 00:29:47.918
+Caption: appears as though it&#39;s not really
+
+00:29:46.239 --> 00:29:49.199
+Caption: taking too much time there beyond what
+
+00:29:47.918 --> 00:29:51.038
+Caption: the read threads and processing threads
+
+00:29:49.199 --> 00:29:53.359
+Caption: are doing so i might be reaching
+
+00:29:51.038 --> 00:29:56.239
+Caption: diminishing returns with the two disks
+
+00:29:53.359 --> 00:29:58.479
+Caption: um so that probably is the most i could
+
+00:29:56.239 --> 00:30:00.239
+Caption: get to 34 seconds on my home machine so
+
+00:29:58.479 --> 00:30:02.079
+Caption: what do i do i could go out and buy more
+
+00:30:00.239 --> 00:30:04.319
+Caption: disks that appears to be the magic um
+
+00:30:02.079 --> 00:30:06.158
+Caption: the the cpu i don&#39;t appear to be fully
+
+00:30:04.319 --> 00:30:08.880
+Caption: utilizing that so i can go to ple and
+
+00:30:06.159 --> 00:30:10.799
+Caption: get sort of four more drives um or i
+
+00:30:08.880 --> 00:30:12.719
+Caption: could call up jeff bezos and say hey one
+
+00:30:10.798 --> 00:30:14.798
+Caption: of your machines can i can i borrow one
+
+00:30:12.719 --> 00:30:16.319
+Caption: of those um one of those big beefy ones
+
+00:30:14.798 --> 00:30:18.000
+Caption: and he said yeah i&#39;m gonna be in space i
+
+00:30:16.319 --> 00:30:21.119
+Caption: don&#39;t need these you can you can have
+
+00:30:18.000 --> 00:30:24.000
+Caption: these um so yeah go for your life
+
+00:30:21.119 --> 00:30:26.719
+Caption: so i looked up the instances and i found
+
+00:30:24.000 --> 00:30:28.640
+Caption: this quite beefy one here that&#39;s got 96
+
+00:30:26.719 --> 00:30:30.079
+Caption: vcpus
+
+00:30:28.640 --> 00:30:32.799
+Caption: quite a lot of ram
+
+00:30:30.079 --> 00:30:35.599
+Caption: but it has got four quite beefy nvme
+
+00:30:32.798 --> 00:30:37.439
+Caption: ssds so i&#39;m hoping that that&#39;s going to
+
+00:30:35.599 --> 00:30:39.918
+Caption: be a reason why i might get some faster
+
+00:30:37.439 --> 00:30:41.278
+Caption: performance on a this
+
+00:30:39.918 --> 00:30:44.000
+Caption: particular machine
+
+00:30:41.279 --> 00:30:45.679
+Caption: so i&#39;ll start i&#39;ll make those four ssds
+
+00:30:44.000 --> 00:30:46.719
+Caption: again i&#39;ll start with one thread reading
+
+00:30:45.678 --> 00:30:49.038
+Caption: from each
+
+00:30:46.719 --> 00:30:51.199
+Caption: and maybe just the two threads riding
+
+00:30:49.038 --> 00:30:53.359
+Caption: and maybe 22 threads processing let&#39;s
+
+00:30:51.199 --> 00:30:55.519
+Caption: see what we get from that
+
+00:30:53.359 --> 00:30:57.519
+Caption: so that was quite nice got another
+
+00:30:55.520 --> 00:31:00.320
+Caption: fairly substantial performance bump 11
+
+00:30:57.519 --> 00:31:02.880
+Caption: seconds down so down to 23 seconds now
+
+00:31:00.319 --> 00:31:04.959
+Caption: um the four read threads yep appear to
+
+00:31:02.880 --> 00:31:06.399
+Caption: be um appear to be the bowl neck to
+
+00:31:04.959 --> 00:31:07.278
+Caption: start off with before
+
+00:31:06.399 --> 00:31:09.279
+Caption: um
+
+00:31:07.279 --> 00:31:10.559
+Caption: so that&#39;s interesting i am starting to
+
+00:31:09.279 --> 00:31:12.399
+Caption: see something happen on the left hand
+
+00:31:10.558 --> 00:31:14.398
+Caption: side of the chart so that is actually
+
+00:31:12.399 --> 00:31:16.559
+Caption: the serializing step that big orange
+
+00:31:14.399 --> 00:31:18.080
+Caption: chunk so i&#39;m not entirely sure why but
+
+00:31:16.558 --> 00:31:20.158
+Caption: it&#39;s an interesting observation that at
+
+00:31:18.079 --> 00:31:22.398
+Caption: the start of the process those threads
+
+00:31:20.159 --> 00:31:24.080
+Caption: appear to be having having problems sort
+
+00:31:22.399 --> 00:31:25.519
+Caption: of deserializing
+
+00:31:24.079 --> 00:31:26.719
+Caption: before they&#39;re able to sort of settle
+
+00:31:25.519 --> 00:31:27.919
+Caption: down so i&#39;m not entirely sure what&#39;s
+
+00:31:26.719 --> 00:31:30.839
+Caption: happening there
+
+00:31:27.918 --> 00:31:33.038
+Caption: but that&#39;s maybe some future
+
+00:31:30.839 --> 00:31:34.479
+Caption: investigation again when i was on my
+
+00:31:33.038 --> 00:31:37.359
+Caption: local machine it helped bumping up the
+
+00:31:34.479 --> 00:31:39.199
+Caption: read thread so i&#39;m going to do that here
+
+00:31:37.359 --> 00:31:40.959
+Caption: cool that helped so eight read threads
+
+00:31:39.199 --> 00:31:43.038
+Caption: helped dropped another four seconds so
+
+00:31:40.959 --> 00:31:45.518
+Caption: 19 seconds still getting some
+
+00:31:43.038 --> 00:31:48.000
+Caption: improvements here
+
+00:31:45.519 --> 00:31:50.239
+Caption: the 22 processing threads appear to be a
+
+00:31:48.000 --> 00:31:52.798
+Caption: good number like fairly well utilized
+
+00:31:50.239 --> 00:31:54.719
+Caption: but don&#39;t appear to be the bottleneck
+
+00:31:52.798 --> 00:31:56.880
+Caption: so i think again i might bump up the
+
+00:31:54.719 --> 00:31:59.599
+Caption: read threads and see if i can get four
+
+00:31:56.880 --> 00:32:01.440
+Caption: per ssd and that had quite a big impact
+
+00:31:59.599 --> 00:32:04.558
+Caption: and actually made things slower so those
+
+00:32:01.439 --> 00:32:06.000
+Caption: read threads um are kind of busy um
+
+00:32:04.558 --> 00:32:08.798
+Caption: processing threads are kind of busy but
+
+00:32:06.000 --> 00:32:10.159
+Caption: the right threads um they look like now
+
+00:32:08.798 --> 00:32:11.678
+Caption: they&#39;re they&#39;re kind of taking time
+
+00:32:10.159 --> 00:32:13.440
+Caption: beyond the others and they weren&#39;t
+
+00:32:11.678 --> 00:32:15.678
+Caption: before so that that might actually be
+
+00:32:13.439 --> 00:32:17.518
+Caption: our bottleneck now so i&#39;m going to bump
+
+00:32:15.678 --> 00:32:19.678
+Caption: up the right threads all right and we&#39;re
+
+00:32:17.519 --> 00:32:21.200
+Caption: back to a situation where um
+
+00:32:19.678 --> 00:32:23.439
+Caption: everything&#39;s taking sort of
+
+00:32:21.199 --> 00:32:25.038
+Caption: approximately the same amount of time
+
+00:32:23.439 --> 00:32:27.439
+Caption: and we we&#39;ve dropped another 9 seconds
+
+00:32:25.038 --> 00:32:29.359
+Caption: so we&#39;re down to 18 seconds
+
+00:32:27.439 --> 00:32:32.558
+Caption: which is pretty cool so
+
+00:32:29.359 --> 00:32:34.719
+Caption: um that&#39;s that&#39;s uh that&#39;s that might be
+
+00:32:32.558 --> 00:32:37.518
+Caption: it that&#39;s i think that&#39;s all i can do
+
+00:32:34.719 --> 00:32:39.599
+Caption: with um with the ideas that i had
+
+00:32:37.519 --> 00:32:40.799
+Caption: so i do really want to get it sub 10
+
+00:32:39.599 --> 00:32:42.319
+Caption: seconds
+
+00:32:40.798 --> 00:32:44.639
+Caption: does anyone have any ideas what i should
+
+00:32:42.319 --> 00:32:46.880
+Caption: try i was maybe try some more
+
+00:32:44.640 --> 00:32:48.959
+Caption: larger ec2 instances there are ones that
+
+00:32:46.880 --> 00:32:50.239
+Caption: are expensive the one i used was about
+
+00:32:48.959 --> 00:32:52.000
+Caption: three dollars an hour but there&#39;s one
+
+00:32:50.239 --> 00:32:54.399
+Caption: that&#39;s 32 dollars an hour it&#39;s one
+
+00:32:52.000 --> 00:32:56.558
+Caption: that&#39;s 109 an hour
+
+00:32:54.399 --> 00:32:59.200
+Caption: there&#39;s the first one&#39;s got more ssds
+
+00:32:56.558 --> 00:33:01.359
+Caption: which yeah i think that&#39;ll help um the
+
+00:32:59.199 --> 00:33:04.158
+Caption: second one interestingly doesn&#39;t have
+
+00:33:01.359 --> 00:33:05.678
+Caption: any local storage um but it does have
+
+00:33:04.159 --> 00:33:07.519
+Caption: quite a lot of network associated with
+
+00:33:05.678 --> 00:33:09.760
+Caption: it i think this one&#39;s got four times 100
+
+00:33:07.519 --> 00:33:11.279
+Caption: gigabit network so maybe that&#39;s when i
+
+00:33:09.760 --> 00:33:12.798
+Caption: could start using
+
+00:33:11.279 --> 00:33:16.240
+Caption: some of the storage
+
+00:33:12.798 --> 00:33:17.760
+Caption: services in aws like s3 or ebs because i
+
+00:33:16.239 --> 00:33:19.119
+Caption: understand that you can actually get
+
+00:33:17.760 --> 00:33:20.558
+Caption: quite a lot of throughput out of those
+
+00:33:19.119 --> 00:33:22.158
+Caption: when you have
+
+00:33:20.558 --> 00:33:24.880
+Caption: them at scale so that might be an
+
+00:33:22.159 --> 00:33:26.399
+Caption: interesting thing to try and then i
+
+00:33:24.880 --> 00:33:28.558
+Caption: didn&#39;t really say that there were any
+
+00:33:26.399 --> 00:33:30.720
+Caption: rules about having to have discs
+
+00:33:28.558 --> 00:33:33.278
+Caption: so i could just stick all the events in
+
+00:33:30.719 --> 00:33:35.038
+Caption: memory in a ram disk and process those i
+
+00:33:33.279 --> 00:33:36.240
+Caption: imagine that would be a fairly
+
+00:33:35.038 --> 00:33:37.678
+Caption: a fairly good thing to do for
+
+00:33:36.239 --> 00:33:38.880
+Caption: performance
+
+00:33:37.678 --> 00:33:40.398
+Caption: and then the other thing i did when i
+
+00:33:38.880 --> 00:33:42.159
+Caption: parallelized i didn&#39;t revisit
+
+00:33:40.399 --> 00:33:43.200
+Caption: compression i was i was assessing that
+
+00:33:42.159 --> 00:33:45.039
+Caption: when it was
+
+00:33:43.199 --> 00:33:46.719
+Caption: sequential so maybe
+
+00:33:45.038 --> 00:33:49.839
+Caption: that there may be a performance boost if
+
+00:33:46.719 --> 00:33:51.760
+Caption: i do compression in parallel as well
+
+00:33:49.839 --> 00:33:54.479
+Caption: so what did i learn i basically learned
+
+00:33:51.760 --> 00:33:56.798
+Caption: what fast looks like i think i mean it
+
+00:33:54.479 --> 00:33:58.640
+Caption: was it&#39;s taking hours in some of our
+
+00:33:56.798 --> 00:34:01.599
+Caption: systems in production which is which is
+
+00:33:58.640 --> 00:34:03.279
+Caption: fine for what we need um but by
+
+00:34:01.599 --> 00:34:04.719
+Caption: running things only on a single machine
+
+00:34:03.279 --> 00:34:06.960
+Caption: i was able to drop it down to sort of
+
+00:34:04.719 --> 00:34:08.479
+Caption: nine minutes and then a few minutes and
+
+00:34:06.959 --> 00:34:11.199
+Caption: all the way down
+
+00:34:08.479 --> 00:34:14.079
+Caption: to 17 seconds on a single machine or be
+
+00:34:11.199 --> 00:34:16.000
+Caption: a fairly beefy one in aws
+
+00:34:14.079 --> 00:34:17.839
+Caption: so the main thing that i did was had a
+
+00:34:16.000 --> 00:34:20.079
+Caption: more compact format for representing the
+
+00:34:17.839 --> 00:34:21.440
+Caption: data i was parallelizing my use of the
+
+00:34:20.079 --> 00:34:23.359
+Caption: ssds
+
+00:34:21.439 --> 00:34:26.560
+Caption: and then i was the processing part i was
+
+00:34:23.358 --> 00:34:27.759
+Caption: parallelizing on the cpu as well
+
+00:34:26.560 --> 00:34:29.520
+Caption: so
+
+00:34:27.760 --> 00:34:31.040
+Caption: yep i think that
+
+00:34:29.520 --> 00:34:31.918
+Caption: um
+
+00:34:31.040 --> 00:34:33.760
+Caption: the
+
+00:34:31.918 --> 00:34:36.479
+Caption: the yeah i also learned that one billion
+
+00:34:33.760 --> 00:34:38.000
+Caption: events is a lot of json so 100 gigabytes
+
+00:34:36.479 --> 00:34:39.838
+Caption: of json is a lot
+
+00:34:38.000 --> 00:34:41.760
+Caption: i imagine almost anything apart from xml
+
+00:34:39.839 --> 00:34:43.599
+Caption: will be more compact than json so it&#39;s
+
+00:34:41.760 --> 00:34:45.599
+Caption: nice that it&#39;s machine readable and it&#39;s
+
+00:34:43.599 --> 00:34:47.119
+Caption: very compatible with a lot of things
+
+00:34:45.599 --> 00:34:48.079
+Caption: but it&#39;s probably not something you
+
+00:34:47.118 --> 00:34:50.319
+Caption: should use if you want a high
+
+00:34:48.079 --> 00:34:52.560
+Caption: performance system
+
+00:34:50.320 --> 00:34:54.399
+Caption: compression reduces size but in my case
+
+00:34:52.560 --> 00:34:56.479
+Caption: it actually added to the total time
+
+00:34:54.398 --> 00:34:58.159
+Caption: because the time taken to decompress and
+
+00:34:56.479 --> 00:35:00.320
+Caption: compress
+
+00:34:58.159 --> 00:35:02.239
+Caption: was was prohibitive in terms of
+
+00:35:00.320 --> 00:35:03.760
+Caption: improving the performance so that was a
+
+00:35:02.239 --> 00:35:05.280
+Caption: kind of unexpected thing i thought
+
+00:35:03.760 --> 00:35:07.118
+Caption: compression
+
+00:35:05.280 --> 00:35:08.719
+Caption: would help the radio riding so much that
+
+00:35:07.118 --> 00:35:11.598
+Caption: overall it would have a
+
+00:35:08.719 --> 00:35:13.679
+Caption: performance benefit
+
+00:35:11.599 --> 00:35:15.599
+Caption: yeah i found that utilizing an ssd in
+
+00:35:13.679 --> 00:35:16.719
+Caption: parallel was possible by using uh
+
+00:35:15.599 --> 00:35:18.320
+Caption: loading
+
+00:35:16.719 --> 00:35:20.399
+Caption: files on multiple threads so that was an
+
+00:35:18.320 --> 00:35:23.440
+Caption: unexpected outcome for me
+
+00:35:20.399 --> 00:35:25.358
+Caption: um and when i tried my two ssds one of
+
+00:35:23.439 --> 00:35:26.959
+Caption: them wasn&#39;t as fast as the other um and
+
+00:35:25.358 --> 00:35:28.239
+Caption: i think that really kind of
+
+00:35:26.959 --> 00:35:30.000
+Caption: um
+
+00:35:28.239 --> 00:35:32.560
+Caption: yeah that was one of the reasons why i
+
+00:35:30.000 --> 00:35:35.679
+Caption: didn&#39;t get so much um when i had two
+
+00:35:32.560 --> 00:35:37.040
+Caption: ssds running so much of a an improvement
+
+00:35:35.679 --> 00:35:38.959
+Caption: um and definitely measure everything
+
+00:35:37.040 --> 00:35:40.560
+Caption: because i had some surprises in here my
+
+00:35:38.959 --> 00:35:43.520
+Caption: theory wasn&#39;t always what i
+
+00:35:40.560 --> 00:35:45.439
+Caption: um what i got in practice
+
+00:35:43.520 --> 00:35:47.280
+Caption: so tying it back to the original
+
+00:35:45.439 --> 00:35:50.319
+Caption: solution um
+
+00:35:47.280 --> 00:35:52.719
+Caption: down to 18 seconds is in theory the
+
+00:35:50.320 --> 00:35:55.520
+Caption: fastest we could get our system um with
+
+00:35:52.719 --> 00:35:57.358
+Caption: an approach like this um is that faster
+
+00:35:55.520 --> 00:35:59.280
+Caption: than than the sort of distributed cloud
+
+00:35:57.358 --> 00:36:01.279
+Caption: solutions you hear about i&#39;m not sure
+
+00:35:59.280 --> 00:36:03.119
+Caption: because this probably would reach a
+
+00:36:01.280 --> 00:36:04.959
+Caption: point um where you couldn&#39;t scale it too
+
+00:36:03.118 --> 00:36:07.679
+Caption: much more i was already reaching
+
+00:36:04.959 --> 00:36:09.679
+Caption: diminishing returns um whereas in a
+
+00:36:07.679 --> 00:36:10.879
+Caption: cloud distributed solution it could
+
+00:36:09.679 --> 00:36:12.479
+Caption: scale
+
+00:36:10.879 --> 00:36:13.759
+Caption: much much more so
+
+00:36:12.479 --> 00:36:16.159
+Caption: ultimately i think a distributed
+
+00:36:13.760 --> 00:36:18.239
+Caption: solution could get faster but would the
+
+00:36:16.159 --> 00:36:20.239
+Caption: complexity be worth it this app was kind
+
+00:36:18.239 --> 00:36:21.598
+Caption: of simple i didn&#39;t really need much
+
+00:36:20.239 --> 00:36:23.118
+Caption: infrastructure even when i put it in the
+
+00:36:21.599 --> 00:36:24.800
+Caption: cloud
+
+00:36:23.118 --> 00:36:27.199
+Caption: but on the other hand i did kind of do
+
+00:36:24.800 --> 00:36:28.560
+Caption: that pre-processing step
+
+00:36:27.199 --> 00:36:30.320
+Caption: which even though i was running this as
+
+00:36:28.560 --> 00:36:31.920
+Caption: a kind of one once off batch job made
+
+00:36:30.320 --> 00:36:33.760
+Caption: this a bit more complex
+
+00:36:31.919 --> 00:36:35.280
+Caption: um and then if i wanted to make this a
+
+00:36:33.760 --> 00:36:37.599
+Caption: real-time system that would again be
+
+00:36:35.280 --> 00:36:40.159
+Caption: more complexity so i&#39;m not sure if it is
+
+00:36:37.599 --> 00:36:41.680
+Caption: more complex or not um i guess it
+
+00:36:40.159 --> 00:36:43.280
+Caption: depends what you&#39;re what you&#39;re
+
+00:36:41.679 --> 00:36:44.639
+Caption: optimizing for and what your situation
+
+00:36:43.280 --> 00:36:46.479
+Caption: is
+
+00:36:44.639 --> 00:36:48.239
+Caption: so thank you for listening
+
+00:36:46.479 --> 00:36:50.399
+Caption: i&#39;ll take any questions and interested
+
+00:36:48.239 --> 00:36:53.439
+Caption: in any other ideas or feedback
+
+00:36:50.399 --> 00:36:53.439
+Caption: thank you
+

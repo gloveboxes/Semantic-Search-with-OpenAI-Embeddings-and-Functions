@@ -1,0 +1,1572 @@
+[
+    {
+        "text": "[Music]",
+        "start": 0.69,
+        "duration": 2.25
+    },
+    {
+        "text": "welcome to another episode of the AI",
+        "start": 3.68,
+        "duration": 3.48
+    },
+    {
+        "text": "show we're going to talk about music",
+        "start": 5.72,
+        "duration": 3.3
+    },
+    {
+        "text": "generation with Erica tell us what you",
+        "start": 7.16,
+        "duration": 5.129
+    },
+    {
+        "text": "do my friend hi my name is Erica I am a",
+        "start": 9.02,
+        "duration": 5.039
+    },
+    {
+        "text": "software engineer on the prototyping and",
+        "start": 12.289,
+        "duration": 3.741
+    },
+    {
+        "text": "innovation team in the cloudy I platform",
+        "start": 14.059,
+        "duration": 4.621
+    },
+    {
+        "text": "as part of a group we are using deep",
+        "start": 16.03,
+        "duration": 4.72
+    },
+    {
+        "text": "learning to create these AI solutions",
+        "start": 18.68,
+        "duration": 5.009
+    },
+    {
+        "text": "one of them is music generation which I",
+        "start": 20.75,
+        "duration": 4.439
+    },
+    {
+        "text": "would like to talk about today awesome",
+        "start": 23.689,
+        "duration": 2.58
+    },
+    {
+        "text": "why don't you walk us through the",
+        "start": 25.189,
+        "duration": 1.59
+    },
+    {
+        "text": "problem",
+        "start": 26.269,
+        "duration": 4.201
+    },
+    {
+        "text": "sure so within the field of AI and music",
+        "start": 26.779,
+        "duration": 6.271
+    },
+    {
+        "text": "there are a lot of subproblems and these",
+        "start": 30.47,
+        "duration": 4.8
+    },
+    {
+        "text": "are some of them so we have you know we",
+        "start": 33.05,
+        "duration": 4.44
+    },
+    {
+        "text": "can create use use AI to create a melody",
+        "start": 35.27,
+        "duration": 4.05
+    },
+    {
+        "text": "which can be a single instrument it can",
+        "start": 37.49,
+        "duration": 4.11
+    },
+    {
+        "text": "be monophonic or polyphonic it can be",
+        "start": 39.32,
+        "duration": 3.81
+    },
+    {
+        "text": "multiple instruments it can be",
+        "start": 41.6,
+        "duration": 3.9
+    },
+    {
+        "text": "generating the accompaniment for a given",
+        "start": 43.13,
+        "duration": 4.98
+    },
+    {
+        "text": "melody it can be creating an AI do it or",
+        "start": 45.5,
+        "duration": 4.65
+    },
+    {
+        "text": "audio style transfer and there are a lot",
+        "start": 48.11,
+        "duration": 4.14
+    },
+    {
+        "text": "of tasks so this is a lot of stuff to",
+        "start": 50.15,
+        "duration": 5.52
+    },
+    {
+        "text": "make music it from AI exactly but what",
+        "start": 52.25,
+        "duration": 5.22
+    },
+    {
+        "text": "we will be focusing on is the single",
+        "start": 55.67,
+        "duration": 4.02
+    },
+    {
+        "text": "instrument the monophonic melody",
+        "start": 57.47,
+        "duration": 5.82
+    },
+    {
+        "text": "generation so I know some music right so",
+        "start": 59.69,
+        "duration": 6.09
+    },
+    {
+        "text": "I understand how music works and I",
+        "start": 63.29,
+        "duration": 3.719
+    },
+    {
+        "text": "understand how machine learning works",
+        "start": 65.78,
+        "duration": 2.94
+    },
+    {
+        "text": "that there's a couple of questions I",
+        "start": 67.009,
+        "duration": 4.531
+    },
+    {
+        "text": "have number one I'm only familiar with",
+        "start": 68.72,
+        "duration": 4.26
+    },
+    {
+        "text": "classification so you'll have to explain",
+        "start": 71.54,
+        "duration": 3.87
+    },
+    {
+        "text": "how we generate a sequence of things",
+        "start": 72.98,
+        "duration": 4.65
+    },
+    {
+        "text": "number one and number two how do you get",
+        "start": 75.41,
+        "duration": 5.55
+    },
+    {
+        "text": "from actual music into the mathematical",
+        "start": 77.63,
+        "duration": 5.07
+    },
+    {
+        "text": "vectors that the machine learning is",
+        "start": 80.96,
+        "duration": 3.54
+    },
+    {
+        "text": "going to understand okay got it",
+        "start": 82.7,
+        "duration": 3.99
+    },
+    {
+        "text": "so one is you want to understand how",
+        "start": 84.5,
+        "duration": 4.11
+    },
+    {
+        "text": "this is a classification problem and",
+        "start": 86.69,
+        "duration": 3.6
+    },
+    {
+        "text": "second you want to understand the input",
+        "start": 88.61,
+        "duration": 4.26
+    },
+    {
+        "text": "representation so when you're building a",
+        "start": 90.29,
+        "duration": 4.23
+    },
+    {
+        "text": "system like this the three most",
+        "start": 92.87,
+        "duration": 3.57
+    },
+    {
+        "text": "important factors are the input",
+        "start": 94.52,
+        "duration": 3.87
+    },
+    {
+        "text": "representation the model architecture",
+        "start": 96.44,
+        "duration": 3.51
+    },
+    {
+        "text": "and the data sets so what date are you",
+        "start": 98.39,
+        "duration": 4.65
+    },
+    {
+        "text": "using and overall the system looks",
+        "start": 99.95,
+        "duration": 4.709
+    },
+    {
+        "text": "something like this so we take in MIDI",
+        "start": 103.04,
+        "duration": 3.689
+    },
+    {
+        "text": "we convert it to a piano roll which is",
+        "start": 104.659,
+        "duration": 4.32
+    },
+    {
+        "text": "the input representation this goes into",
+        "start": 106.729,
+        "duration": 4.201
+    },
+    {
+        "text": "a sequence to sequence lsdm based",
+        "start": 108.979,
+        "duration": 3.691
+    },
+    {
+        "text": "architecture you get back your piano",
+        "start": 110.93,
+        "duration": 3.33
+    },
+    {
+        "text": "roll and you convert it back to MIDI",
+        "start": 112.67,
+        "duration": 5.01
+    },
+    {
+        "text": "which is your music okay so just a",
+        "start": 114.26,
+        "duration": 5.01
+    },
+    {
+        "text": "little background there are a lot of",
+        "start": 117.68,
+        "duration": 4.26
+    },
+    {
+        "text": "music formats out there on the left hand",
+        "start": 119.27,
+        "duration": 5.91
+    },
+    {
+        "text": "of the spectrum you have WAV mp3 which",
+        "start": 121.94,
+        "duration": 5.429
+    },
+    {
+        "text": "are more heavier formats and contain a",
+        "start": 125.18,
+        "duration": 4.859
+    },
+    {
+        "text": "lot of more raw audio sound whereas on",
+        "start": 127.369,
+        "duration": 4.38
+    },
+    {
+        "text": "the right side you have more semantic",
+        "start": 130.039,
+        "duration": 3.81
+    },
+    {
+        "text": "information like MIDI ABC and sheet",
+        "start": 131.749,
+        "duration": 2.931
+    },
+    {
+        "text": "music",
+        "start": 133.849,
+        "duration": 3.081
+    },
+    {
+        "text": "contain the sound itself so what we are",
+        "start": 134.68,
+        "duration": 4.38
+    },
+    {
+        "text": "going to be working with is MIDI which",
+        "start": 136.93,
+        "duration": 4.8
+    },
+    {
+        "text": "is semantic music information okay and I",
+        "start": 139.06,
+        "duration": 5.22
+    },
+    {
+        "text": "know you said you have a lot of music",
+        "start": 141.73,
+        "duration": 4.679
+    },
+    {
+        "text": "background but this is a quick one on",
+        "start": 144.28,
+        "duration": 4.319
+    },
+    {
+        "text": "one for people who may not have that",
+        "start": 146.409,
+        "duration": 4.021
+    },
+    {
+        "text": "background okay so it's important to",
+        "start": 148.599,
+        "duration": 3.301
+    },
+    {
+        "text": "understand what a beat is which is a",
+        "start": 150.43,
+        "duration": 4.02
+    },
+    {
+        "text": "basic unit of time a note which is the",
+        "start": 151.9,
+        "duration": 4.47
+    },
+    {
+        "text": "actual note that you're playing and then",
+        "start": 154.45,
+        "duration": 3.689
+    },
+    {
+        "text": "the tempo which is the beats per minute",
+        "start": 156.37,
+        "duration": 5.399
+    },
+    {
+        "text": "or the quarter notes per minute and this",
+        "start": 158.139,
+        "duration": 7.08
+    },
+    {
+        "text": "is what a MIDI file looks like so it's",
+        "start": 161.769,
+        "duration": 5.521
+    },
+    {
+        "text": "yes it's a lot of information you have a",
+        "start": 165.219,
+        "duration": 3.69
+    },
+    {
+        "text": "header which is the pattern then you",
+        "start": 167.29,
+        "duration": 3.809
+    },
+    {
+        "text": "have a track then you have a lot of",
+        "start": 168.909,
+        "duration": 3.901
+    },
+    {
+        "text": "these events which is basically telling",
+        "start": 171.099,
+        "duration": 3.54
+    },
+    {
+        "text": "you okay this is the tempo event these",
+        "start": 172.81,
+        "duration": 3.45
+    },
+    {
+        "text": "are a couple of note on and note of",
+        "start": 174.639,
+        "duration": 3.481
+    },
+    {
+        "text": "events and this is the end of track",
+        "start": 176.26,
+        "duration": 6.36
+    },
+    {
+        "text": "event or what is this this is Python so",
+        "start": 178.12,
+        "duration": 6.36
+    },
+    {
+        "text": "I'm using a Python library to read the",
+        "start": 182.62,
+        "duration": 4.399
+    },
+    {
+        "text": "MIDI file oh I'm using Python MIDI okay",
+        "start": 184.48,
+        "duration": 6.39
+    },
+    {
+        "text": "and so this is our input representation",
+        "start": 187.019,
+        "duration": 5.47
+    },
+    {
+        "text": "that you wanted to talk about so this is",
+        "start": 190.87,
+        "duration": 3.899
+    },
+    {
+        "text": "basically a 2d matrix of the notes",
+        "start": 192.489,
+        "duration": 5.25
+    },
+    {
+        "text": "versus the time and each black square",
+        "start": 194.769,
+        "duration": 4.771
+    },
+    {
+        "text": "there indicates that a node is being",
+        "start": 197.739,
+        "duration": 4.441
+    },
+    {
+        "text": "pressed at that moment in time I see so",
+        "start": 199.54,
+        "duration": 3.839
+    },
+    {
+        "text": "what you are feeding to the neural",
+        "start": 202.18,
+        "duration": 3.869
+    },
+    {
+        "text": "network is a set of ones and zeros of",
+        "start": 203.379,
+        "duration": 5.7
+    },
+    {
+        "text": "column vectors that represent what notes",
+        "start": 206.049,
+        "duration": 5.16
+    },
+    {
+        "text": "are being played at that moment in time",
+        "start": 209.079,
+        "duration": 3.391
+    },
+    {
+        "text": "okay does that make sense",
+        "start": 211.209,
+        "duration": 3.74
+    },
+    {
+        "text": "yeah that makes perfect sense yeah okay",
+        "start": 212.47,
+        "duration": 5.669
+    },
+    {
+        "text": "so what we do is we convert this MIDI",
+        "start": 214.949,
+        "duration": 5.47
+    },
+    {
+        "text": "file into those ones and zeros and the",
+        "start": 218.139,
+        "duration": 3.99
+    },
+    {
+        "text": "way we do that is we take information",
+        "start": 220.419,
+        "duration": 4.861
+    },
+    {
+        "text": "from the MIDI file itself so here you",
+        "start": 222.129,
+        "duration": 5.85
+    },
+    {
+        "text": "see we have a resolution of 48 ticks per",
+        "start": 225.28,
+        "duration": 5.909
+    },
+    {
+        "text": "beat we have the tempo and it's encoded",
+        "start": 227.979,
+        "duration": 5.491
+    },
+    {
+        "text": "in 8-bit words which is 120 beats per",
+        "start": 231.189,
+        "duration": 5.311
+    },
+    {
+        "text": "minute we have total ticks of 101 so if",
+        "start": 233.47,
+        "duration": 5.489
+    },
+    {
+        "text": "you in MIDI something that's really",
+        "start": 236.5,
+        "duration": 4.949
+    },
+    {
+        "text": "important is that ticks are represented",
+        "start": 238.959,
+        "duration": 4.8
+    },
+    {
+        "text": "in relative time that is each tick is",
+        "start": 241.449,
+        "duration": 5.94
+    },
+    {
+        "text": "relative to the previous work so if you",
+        "start": 243.759,
+        "duration": 5.22
+    },
+    {
+        "text": "you need to add up all these sticks",
+        "start": 247.389,
+        "duration": 3.511
+    },
+    {
+        "text": "together entire number of ticks in the",
+        "start": 248.979,
+        "duration": 4.29
+    },
+    {
+        "text": "file so you see 0 plus 0 plus 0 plus 0",
+        "start": 250.9,
+        "duration": 5.97
+    },
+    {
+        "text": "plus 100 plus 0 plus 0 plus 1 that's 101",
+        "start": 253.269,
+        "duration": 6.571
+    },
+    {
+        "text": "we make an assumption for each of those",
+        "start": 256.87,
+        "duration": 5.49
+    },
+    {
+        "text": "column vectors how much time in actual",
+        "start": 259.84,
+        "duration": 4.439
+    },
+    {
+        "text": "time does it actually represent MB you",
+        "start": 262.36,
+        "duration": 4.27
+    },
+    {
+        "text": "want to say it's 0.02 seconds",
+        "start": 264.279,
+        "duration": 5.111
+    },
+    {
+        "text": "which is basically 20 milliseconds we",
+        "start": 266.63,
+        "duration": 5.01
+    },
+    {
+        "text": "then compute the ticks per second which",
+        "start": 269.39,
+        "duration": 4.17
+    },
+    {
+        "text": "is the resolution enter the tempo that's",
+        "start": 271.64,
+        "duration": 6.66
+    },
+    {
+        "text": "480 into two bits beats per second which",
+        "start": 273.56,
+        "duration": 7.59
+    },
+    {
+        "text": "is 960 okay you take the ticks per time",
+        "start": 278.3,
+        "duration": 5.55
+    },
+    {
+        "text": "slice which is the ticks per second",
+        "start": 281.15,
+        "duration": 5.16
+    },
+    {
+        "text": "multiplied by the time per time slice so",
+        "start": 283.85,
+        "duration": 4.56
+    },
+    {
+        "text": "that's nineteen point two so what that's",
+        "start": 286.31,
+        "duration": 4.65
+    },
+    {
+        "text": "telling us is that in a MIDI file that",
+        "start": 288.41,
+        "duration": 5.31
+    },
+    {
+        "text": "has all these sticks how many ticks map",
+        "start": 290.96,
+        "duration": 5.37
+    },
+    {
+        "text": "to one column vector in you're in piano",
+        "start": 293.72,
+        "duration": 4.41
+    },
+    {
+        "text": "roll representation so it's just a lot",
+        "start": 296.33,
+        "duration": 3.75
+    },
+    {
+        "text": "of math to come up with these column",
+        "start": 298.13,
+        "duration": 5.4
+    },
+    {
+        "text": "vectors for each tick or is it second or",
+        "start": 300.08,
+        "duration": 6.0
+    },
+    {
+        "text": "take or what is it free so it MIDI talks",
+        "start": 303.53,
+        "duration": 5.34
+    },
+    {
+        "text": "in terms of ticks we talk in terms of",
+        "start": 306.08,
+        "duration": 5.37
+    },
+    {
+        "text": "seconds so we want to go from takes two",
+        "start": 308.87,
+        "duration": 4.17
+    },
+    {
+        "text": "seconds and you have to do these three",
+        "start": 311.45,
+        "duration": 3.75
+    },
+    {
+        "text": "lines of math to go from ticks to second",
+        "start": 313.04,
+        "duration": 5.97
+    },
+    {
+        "text": "column and so you compute your piano",
+        "start": 315.2,
+        "duration": 5.61
+    },
+    {
+        "text": "roll width which is the total ticks",
+        "start": 319.01,
+        "duration": 3.57
+    },
+    {
+        "text": "divided by the ticks per time slice",
+        "start": 320.81,
+        "duration": 4.29
+    },
+    {
+        "text": "which will be six so essentially what",
+        "start": 322.58,
+        "duration": 4.2
+    },
+    {
+        "text": "this is telling me is it's going to give",
+        "start": 325.1,
+        "duration": 4.62
+    },
+    {
+        "text": "you this 2d matrix which is your piano",
+        "start": 326.78,
+        "duration": 5.88
+    },
+    {
+        "text": "roll the width is six each of these",
+        "start": 329.72,
+        "duration": 5.01
+    },
+    {
+        "text": "column vectors are telling me which",
+        "start": 332.66,
+        "duration": 4.71
+    },
+    {
+        "text": "notes are on at that given point of time",
+        "start": 334.73,
+        "duration": 6.78
+    },
+    {
+        "text": "or not and so you can do a little bit",
+        "start": 337.37,
+        "duration": 6.96
+    },
+    {
+        "text": "more math and you can compute which",
+        "start": 341.51,
+        "duration": 5.13
+    },
+    {
+        "text": "takes our own and off okay at the at",
+        "start": 344.33,
+        "duration": 3.84
+    },
+    {
+        "text": "those given points in time so you take",
+        "start": 346.64,
+        "duration": 3.15
+    },
+    {
+        "text": "the tick and you divide it by the ticks",
+        "start": 348.17,
+        "duration": 3.6
+    },
+    {
+        "text": "four times less and you get the index of",
+        "start": 349.79,
+        "duration": 3.45
+    },
+    {
+        "text": "whether it should be on or not so you",
+        "start": 351.77,
+        "duration": 3.78
+    },
+    {
+        "text": "see if you look at this piano roll what",
+        "start": 353.24,
+        "duration": 5.64
+    },
+    {
+        "text": "it's saying is note C v e5 and g5 are",
+        "start": 355.55,
+        "duration": 6.87
+    },
+    {
+        "text": "all pressed from the zeroeth to the",
+        "start": 358.88,
+        "duration": 6.36
+    },
+    {
+        "text": "fourth index where each index represents",
+        "start": 362.42,
+        "duration": 5.64
+    },
+    {
+        "text": "19 seconds and it's being held and then",
+        "start": 365.24,
+        "duration": 4.77
+    },
+    {
+        "text": "at the fifth index it's being released",
+        "start": 368.06,
+        "duration": 5.09
+    },
+    {
+        "text": "okay so to see god yeah",
+        "start": 370.01,
+        "duration": 5.22
+    },
+    {
+        "text": "effectively what you're doing is you're",
+        "start": 373.15,
+        "duration": 3.19
+    },
+    {
+        "text": "taking a MIDI file and you're",
+        "start": 375.23,
+        "duration": 3.39
+    },
+    {
+        "text": "vectorizing it but the vectors are",
+        "start": 376.34,
+        "duration": 3.81
+    },
+    {
+        "text": "column vectors and each column vector",
+        "start": 378.62,
+        "duration": 4.02
+    },
+    {
+        "text": "represents a time slice exactly so this",
+        "start": 380.15,
+        "duration": 5.04
+    },
+    {
+        "text": "is this is a kind of way to represent it",
+        "start": 382.64,
+        "duration": 4.08
+    },
+    {
+        "text": "you take your music file and you create",
+        "start": 385.19,
+        "duration": 2.94
+    },
+    {
+        "text": "it into these column vectors of zeros",
+        "start": 386.72,
+        "duration": 3.48
+    },
+    {
+        "text": "and ones oh now we're going to pass this",
+        "start": 388.13,
+        "duration": 5.07
+    },
+    {
+        "text": "to the neural network so and before that",
+        "start": 390.2,
+        "duration": 4.14
+    },
+    {
+        "text": "we're going to talk a little about the",
+        "start": 393.2,
+        "duration": 3.84
+    },
+    {
+        "text": "datasets I am using the scale chords",
+        "start": 394.34,
+        "duration": 4.53
+    },
+    {
+        "text": "data set which is an open data set with",
+        "start": 397.04,
+        "duration": 3.089
+    },
+    {
+        "text": "scale code",
+        "start": 398.87,
+        "duration": 4.799
+    },
+    {
+        "text": "it has about 156 songs and all of these",
+        "start": 400.129,
+        "duration": 7.951
+    },
+    {
+        "text": "are in MIDI format cool okay back to the",
+        "start": 403.669,
+        "duration": 8.04
+    },
+    {
+        "text": "neural network so I am using an LS TM",
+        "start": 408.08,
+        "duration": 6.269
+    },
+    {
+        "text": "sequence the sequence model we pass in",
+        "start": 411.709,
+        "duration": 6.27
+    },
+    {
+        "text": "these column vectors to the encoder this",
+        "start": 414.349,
+        "duration": 5.67
+    },
+    {
+        "text": "is then an you train it with the encoder",
+        "start": 417.979,
+        "duration": 4.11
+    },
+    {
+        "text": "decoder architecture to basically",
+        "start": 420.019,
+        "duration": 6.21
+    },
+    {
+        "text": "produce column vectors which are the",
+        "start": 422.089,
+        "duration": 6.6
+    },
+    {
+        "text": "nodes predicted so in from a",
+        "start": 426.229,
+        "duration": 4.41
+    },
+    {
+        "text": "classification perspective the way to",
+        "start": 428.689,
+        "duration": 4.98
+    },
+    {
+        "text": "think of it is that the decoder is",
+        "start": 430.639,
+        "duration": 7.34
+    },
+    {
+        "text": "predicting at each time step what nodes",
+        "start": 433.669,
+        "duration": 6.24
+    },
+    {
+        "text": "should be on or off",
+        "start": 437.979,
+        "duration": 3.851
+    },
+    {
+        "text": "okay so it's a multi-label",
+        "start": 439.909,
+        "duration": 4.38
+    },
+    {
+        "text": "classification problem I see so let's",
+        "start": 441.83,
+        "duration": 4.829
+    },
+    {
+        "text": "see me back up because I'm used to like",
+        "start": 444.289,
+        "duration": 4.23
+    },
+    {
+        "text": "deep learning in the terms of like",
+        "start": 446.659,
+        "duration": 4.41
+    },
+    {
+        "text": "regular multi-layer perceptron type",
+        "start": 448.519,
+        "duration": 4.26
+    },
+    {
+        "text": "things with activation functions and",
+        "start": 451.069,
+        "duration": 3.9
+    },
+    {
+        "text": "coalitional neural networks so Alice",
+        "start": 452.779,
+        "duration": 4.14
+    },
+    {
+        "text": "schemes are a little bit different how",
+        "start": 454.969,
+        "duration": 5.19
+    },
+    {
+        "text": "are they different in within the deep",
+        "start": 456.919,
+        "duration": 4.77
+    },
+    {
+        "text": "learning space there are a lot of models",
+        "start": 460.159,
+        "duration": 3.36
+    },
+    {
+        "text": "convolutional neural networks are one",
+        "start": 461.689,
+        "duration": 4.62
+    },
+    {
+        "text": "similar to cnn's there are the RN ends",
+        "start": 463.519,
+        "duration": 4.471
+    },
+    {
+        "text": "which is the recurrent neural networks",
+        "start": 466.309,
+        "duration": 5.34
+    },
+    {
+        "text": "and the lsdm is a specialized RN n so",
+        "start": 467.99,
+        "duration": 6.269
+    },
+    {
+        "text": "the iron the advantage of using an RN n",
+        "start": 471.649,
+        "duration": 6.42
+    },
+    {
+        "text": "is it has context from layers from the",
+        "start": 474.259,
+        "duration": 6.15
+    },
+    {
+        "text": "past and it is able to capture this",
+        "start": 478.069,
+        "duration": 5.791
+    },
+    {
+        "text": "context going forward but it has but",
+        "start": 480.409,
+        "duration": 5.28
+    },
+    {
+        "text": "neural network suffer from memory loss",
+        "start": 483.86,
+        "duration": 4.529
+    },
+    {
+        "text": "so it cannot remember the context from",
+        "start": 485.689,
+        "duration": 5.79
+    },
+    {
+        "text": "way back whereas lsdm has certain",
+        "start": 488.389,
+        "duration": 4.92
+    },
+    {
+        "text": "multiplicative gates that allow it to",
+        "start": 491.479,
+        "duration": 5.04
+    },
+    {
+        "text": "capture or to retain more memory I see I",
+        "start": 493.309,
+        "duration": 5.31
+    },
+    {
+        "text": "see that is the reason why we decide to",
+        "start": 496.519,
+        "duration": 3.96
+    },
+    {
+        "text": "use an LST so effectively it's just a",
+        "start": 498.619,
+        "duration": 3.931
+    },
+    {
+        "text": "different architecture of a deep",
+        "start": 500.479,
+        "duration": 3.78
+    },
+    {
+        "text": "learning model and the way you train it",
+        "start": 502.55,
+        "duration": 5.819
+    },
+    {
+        "text": "is you pass in that big matrix and then",
+        "start": 504.259,
+        "duration": 5.4
+    },
+    {
+        "text": "the way you optimize it you probably",
+        "start": 508.369,
+        "duration": 2.94
+    },
+    {
+        "text": "some kind of back prop that tries to",
+        "start": 509.659,
+        "duration": 4.53
+    },
+    {
+        "text": "make the output map to what the info is",
+        "start": 511.309,
+        "duration": 4.95
+    },
+    {
+        "text": "right so this is the input and this is",
+        "start": 514.189,
+        "duration": 3.78
+    },
+    {
+        "text": "the output and the backdrop flows",
+        "start": 516.259,
+        "duration": 4.231
+    },
+    {
+        "text": "through this got it to learn that output",
+        "start": 517.969,
+        "duration": 4.2
+    },
+    {
+        "text": "cool that's awesome that's awesome so",
+        "start": 520.49,
+        "duration": 3.599
+    },
+    {
+        "text": "once you once you optimize all the",
+        "start": 522.169,
+        "duration": 4.261
+    },
+    {
+        "text": "weights then how do you actually use",
+        "start": 524.089,
+        "duration": 4.74
+    },
+    {
+        "text": "this network to generate music right and",
+        "start": 526.43,
+        "duration": 4.17
+    },
+    {
+        "text": "then when I want to generate music I",
+        "start": 528.829,
+        "duration": 3.401
+    },
+    {
+        "text": "pass in these",
+        "start": 530.6,
+        "duration": 3.58
+    },
+    {
+        "text": "but now it doesn't know these vectors so",
+        "start": 532.23,
+        "duration": 4.2
+    },
+    {
+        "text": "it's predicting those vectors oh I see I",
+        "start": 534.18,
+        "duration": 4.62
+    },
+    {
+        "text": "see that's the music that's awesome and",
+        "start": 536.43,
+        "duration": 4.769
+    },
+    {
+        "text": "so just to recap you passed these",
+        "start": 538.8,
+        "duration": 4.889
+    },
+    {
+        "text": "vectors in and while you're optimizing",
+        "start": 541.199,
+        "duration": 4.291
+    },
+    {
+        "text": "it's just checking to see if it's gonna",
+        "start": 543.689,
+        "duration": 2.94
+    },
+    {
+        "text": "get the right things out because",
+        "start": 545.49,
+        "duration": 2.519
+    },
+    {
+        "text": "effectively you're trying to find some",
+        "start": 546.629,
+        "duration": 3.301
+    },
+    {
+        "text": "way to encode what you already have and",
+        "start": 548.009,
+        "duration": 3.81
+    },
+    {
+        "text": "then you give it some other things and",
+        "start": 549.93,
+        "duration": 3.48
+    },
+    {
+        "text": "then you let it think what it's gonna",
+        "start": 551.819,
+        "duration": 3.12
+    },
+    {
+        "text": "actually output exactly",
+        "start": 553.41,
+        "duration": 3.539
+    },
+    {
+        "text": "Oh fantastic so what does it music what",
+        "start": 554.939,
+        "duration": 3.061
+    },
+    {
+        "text": "is the music sound like so I'm",
+        "start": 556.949,
+        "duration": 3.271
+    },
+    {
+        "text": "interested in hearing what the original",
+        "start": 558.0,
+        "duration": 4.379
+    },
+    {
+        "text": "music sounds like versus what the new",
+        "start": 560.22,
+        "duration": 4.89
+    },
+    {
+        "text": "music sound like sounds like okay I can",
+        "start": 562.379,
+        "duration": 14.46
+    },
+    {
+        "text": "show that to you so that's funny yes so",
+        "start": 565.11,
+        "duration": 13.89
+    },
+    {
+        "text": "I can explain that so this is a very",
+        "start": 576.839,
+        "duration": 4.56
+    },
+    {
+        "text": "simple model and it's taking very simple",
+        "start": 579.0,
+        "duration": 4.41
+    },
+    {
+        "text": "music so what it's trained on is it's",
+        "start": 581.399,
+        "duration": 4.021
+    },
+    {
+        "text": "taking scale chords so think of",
+        "start": 583.41,
+        "duration": 4.59
+    },
+    {
+        "text": "different scale chords and you know all",
+        "start": 585.42,
+        "duration": 4.38
+    },
+    {
+        "text": "the notes but also different kinds of",
+        "start": 588.0,
+        "duration": 3.509
+    },
+    {
+        "text": "scale chords so you have pentatonic",
+        "start": 589.8,
+        "duration": 5.07
+    },
+    {
+        "text": "major minor harmonic all the scales and",
+        "start": 591.509,
+        "duration": 5.94
+    },
+    {
+        "text": "so these are it's very simple and this",
+        "start": 594.87,
+        "duration": 3.99
+    },
+    {
+        "text": "is a very simple model so it's been",
+        "start": 597.449,
+        "duration": 4.62
+    },
+    {
+        "text": "trained just for 10 epochs and the the",
+        "start": 598.86,
+        "duration": 4.89
+    },
+    {
+        "text": "reason of showing this model or even",
+        "start": 602.069,
+        "duration": 3.481
+    },
+    {
+        "text": "through the blog post is to show how",
+        "start": 603.75,
+        "duration": 4.86
+    },
+    {
+        "text": "anyone can create their own and you know",
+        "start": 605.55,
+        "duration": 4.92
+    },
+    {
+        "text": "create a more sophisticated model use of",
+        "start": 608.61,
+        "duration": 3.599
+    },
+    {
+        "text": "better data set to create you know",
+        "start": 610.47,
+        "duration": 4.349
+    },
+    {
+        "text": "better sounding music I see so you're",
+        "start": 612.209,
+        "duration": 4.021
+    },
+    {
+        "text": "saying that if we want this to be even",
+        "start": 614.819,
+        "duration": 4.14
+    },
+    {
+        "text": "better right we would give it more more",
+        "start": 616.23,
+        "duration": 5.459
+    },
+    {
+        "text": "diverse music as scales just dude it and",
+        "start": 618.959,
+        "duration": 4.951
+    },
+    {
+        "text": "yeah that's not gonna really do very",
+        "start": 621.689,
+        "duration": 4.08
+    },
+    {
+        "text": "much start learning anything effectively",
+        "start": 623.91,
+        "duration": 6.63
+    },
+    {
+        "text": "right and you train it longer and then",
+        "start": 625.769,
+        "duration": 6.3
+    },
+    {
+        "text": "it'll do a little bit better yes",
+        "start": 630.54,
+        "duration": 4.169
+    },
+    {
+        "text": "so here's the question and these are",
+        "start": 632.069,
+        "duration": 4.74
+    },
+    {
+        "text": "these might be dumb questions but you",
+        "start": 634.709,
+        "duration": 4.891
+    },
+    {
+        "text": "tell me so when you are training the",
+        "start": 636.809,
+        "duration": 6.45
+    },
+    {
+        "text": "model like how much data are you giving",
+        "start": 639.6,
+        "duration": 5.969
+    },
+    {
+        "text": "it as far as time like what's the time",
+        "start": 643.259,
+        "duration": 4.02
+    },
+    {
+        "text": "window you give it to train it alright",
+        "start": 645.569,
+        "duration": 3.0
+    },
+    {
+        "text": "because if I'm not familiar with Auto",
+        "start": 647.279,
+        "duration": 2.85
+    },
+    {
+        "text": "Siam's but I'm assuming that for every",
+        "start": 648.569,
+        "duration": 3.12
+    },
+    {
+        "text": "time window there's gonna be some kind",
+        "start": 650.129,
+        "duration": 3.81
+    },
+    {
+        "text": "of node in the lsdm it then gets mapped",
+        "start": 651.689,
+        "duration": 4.77
+    },
+    {
+        "text": "to the output right so with air STM's",
+        "start": 653.939,
+        "duration": 4.531
+    },
+    {
+        "text": "and ordnance you have a context window",
+        "start": 656.459,
+        "duration": 5.25
+    },
+    {
+        "text": "so the input length is 200 so what that",
+        "start": 658.47,
+        "duration": 6.0
+    },
+    {
+        "text": "means is you have 200 column vectors",
+        "start": 661.709,
+        "duration": 5.191
+    },
+    {
+        "text": "and depending on how narrowly you've",
+        "start": 664.47,
+        "duration": 4.53
+    },
+    {
+        "text": "sliced your MIDI file so how many MIDI",
+        "start": 666.9,
+        "duration": 2.58
+    },
+    {
+        "text": "takes",
+        "start": 669.0,
+        "duration": 3.38
+    },
+    {
+        "text": "go into each of those column vectors",
+        "start": 669.48,
+        "duration": 5.88
+    },
+    {
+        "text": "that's up to the user all right but but",
+        "start": 672.38,
+        "duration": 5.26
+    },
+    {
+        "text": "I'm using 200 so essentially what I do",
+        "start": 675.36,
+        "duration": 4.44
+    },
+    {
+        "text": "is I'm taking two seconds of input and",
+        "start": 677.64,
+        "duration": 4.17
+    },
+    {
+        "text": "trying to produce the next two seconds I",
+        "start": 679.8,
+        "duration": 4.23
+    },
+    {
+        "text": "see and when you're training it you're",
+        "start": 681.81,
+        "duration": 5.1
+    },
+    {
+        "text": "you're putting two seconds in and using",
+        "start": 684.03,
+        "duration": 6.21
+    },
+    {
+        "text": "the optimization to actually map to the",
+        "start": 686.91,
+        "duration": 5.1
+    },
+    {
+        "text": "output to the same ones that are the",
+        "start": 690.24,
+        "duration": 2.22
+    },
+    {
+        "text": "input",
+        "start": 692.01,
+        "duration": 2.31
+    },
+    {
+        "text": "oh no I'm taking in the input two",
+        "start": 692.46,
+        "duration": 3.54
+    },
+    {
+        "text": "seconds and then I'm mapping it to the",
+        "start": 694.32,
+        "duration": 5.01
+    },
+    {
+        "text": "next two seconds yeah of course",
+        "start": 696.0,
+        "duration": 5.22
+    },
+    {
+        "text": "and so when you're when you're giving it",
+        "start": 699.33,
+        "duration": 3.6
+    },
+    {
+        "text": "notes to generate music you have to",
+        "start": 701.22,
+        "duration": 3.93
+    },
+    {
+        "text": "prime the pump so to speak right exactly",
+        "start": 702.93,
+        "duration": 4.8
+    },
+    {
+        "text": "exactly and so we use something called a",
+        "start": 705.15,
+        "duration": 4.77
+    },
+    {
+        "text": "primer and the primer is basically some",
+        "start": 707.73,
+        "duration": 4.29
+    },
+    {
+        "text": "kind of seed music that you feed into",
+        "start": 709.92,
+        "duration": 3.74
+    },
+    {
+        "text": "the encoder and then let the decoder",
+        "start": 712.02,
+        "duration": 4.08
+    },
+    {
+        "text": "generate whatever it has learned from",
+        "start": 713.66,
+        "duration": 3.97
+    },
+    {
+        "text": "the widths that it is learned",
+        "start": 716.1,
+        "duration": 2.88
+    },
+    {
+        "text": "awesome well this has been super",
+        "start": 717.63,
+        "duration": 4.14
+    },
+    {
+        "text": "informative in the next section of this",
+        "start": 718.98,
+        "duration": 4.11
+    },
+    {
+        "text": "episode we're gonna actually look at",
+        "start": 721.77,
+        "duration": 3.12
+    },
+    {
+        "text": "some of the code to see how that works",
+        "start": 723.09,
+        "duration": 4.07
+    },
+    {
+        "text": "and so I guess we'll wait until then",
+        "start": 724.89,
+        "duration": 4.29
+    },
+    {
+        "text": "we'll see you next time",
+        "start": 727.16,
+        "duration": 11.06
+    },
+    {
+        "text": "[Music]",
+        "start": 729.18,
+        "duration": 9.04
+    }
+]

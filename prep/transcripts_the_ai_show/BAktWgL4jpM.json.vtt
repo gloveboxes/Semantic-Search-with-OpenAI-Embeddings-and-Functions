@@ -1,0 +1,2062 @@
+[
+    {
+        "text": ">> You're not going want to miss this episode of",
+        "start": 0.0,
+        "duration": 1.74
+    },
+    {
+        "text": "the AI Show where we take Azure Cognitive Search to",
+        "start": 1.74,
+        "duration": 2.43
+    },
+    {
+        "text": "the next level with similarity and scoring",
+        "start": 4.17,
+        "duration": 2.79
+    },
+    {
+        "text": "that you can tweak to your heart's content. Make sure you tune in.",
+        "start": 6.96,
+        "duration": 3.15
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 10.11,
+        "duration": 8.34
+    },
+    {
+        "text": ">> Hello and welcome to this episode of the AI show.",
+        "start": 18.45,
+        "duration": 1.86
+    },
+    {
+        "text": "We're going to talk about similarity and",
+        "start": 20.31,
+        "duration": 1.35
+    },
+    {
+        "text": "scoring in Azure Cognitive Search.",
+        "start": 21.66,
+        "duration": 1.89
+    },
+    {
+        "text": "I've got a special guest with me.",
+        "start": 23.55,
+        "duration": 1.65
+    },
+    {
+        "text": "Tell us who you are and what you do, my friend.",
+        "start": 25.2,
+        "duration": 2.025
+    },
+    {
+        "text": ">> Hey Seth and everyone watching,",
+        "start": 27.225,
+        "duration": 1.785
+    },
+    {
+        "text": "my name is Raouf Merouche.",
+        "start": 29.01,
+        "duration": 1.08
+    },
+    {
+        "text": "I'm a Software Engineer in the Azure Cognitive Search team.",
+        "start": 30.09,
+        "duration": 3.585
+    },
+    {
+        "text": "I've been working in that team for a few years now,",
+        "start": 33.675,
+        "duration": 2.655
+    },
+    {
+        "text": "mostly working on the relevance part of things.",
+        "start": 36.33,
+        "duration": 3.11
+    },
+    {
+        "text": "So how we rank documents.",
+        "start": 39.44,
+        "duration": 2.45
+    },
+    {
+        "text": "That's what I'm going to be talking about today.",
+        "start": 41.89,
+        "duration": 2.41
+    },
+    {
+        "text": ">> Fantastic. Well, let's dive in my friend.",
+        "start": 44.3,
+        "duration": 2.84
+    },
+    {
+        "text": ">> So I guess first of all, Azure Search I assume",
+        "start": 47.14,
+        "duration": 2.83
+    },
+    {
+        "text": "most people that are watching this have already heard about it.",
+        "start": 49.97,
+        "duration": 2.31
+    },
+    {
+        "text": "If not, Azure Search is a search Azure service products on Azure.",
+        "start": 52.28,
+        "duration": 4.11
+    },
+    {
+        "text": "The idea is that you tell us where your document",
+        "start": 56.39,
+        "duration": 1.92
+    },
+    {
+        "text": "are or you give us your documents directly",
+        "start": 58.31,
+        "duration": 2.79
+    },
+    {
+        "text": "toward a Push API and then we're going to provide you with",
+        "start": 61.1,
+        "duration": 2.34
+    },
+    {
+        "text": "rich full-text search capabilities.",
+        "start": 63.44,
+        "duration": 3.56
+    },
+    {
+        "text": "So first of all,",
+        "start": 67.0,
+        "duration": 3.8
+    },
+    {
+        "text": "Seth, if you would allow me,",
+        "start": 70.8,
+        "duration": 1.185
+    },
+    {
+        "text": "what I'm going to do is just to give, well,",
+        "start": 71.985,
+        "duration": 2.685
+    },
+    {
+        "text": "actually, one second Seth, let me share.",
+        "start": 74.67,
+        "duration": 4.18
+    },
+    {
+        "text": ">> It's an edit point. It's going to be just fine too because I'm",
+        "start": 79.73,
+        "duration": 3.12
+    },
+    {
+        "text": "actually getting your slide. Go.",
+        "start": 82.85,
+        "duration": 2.85
+    },
+    {
+        "text": ">> Cool. So first of all, if you will allow me,",
+        "start": 85.7,
+        "duration": 3.13
+    },
+    {
+        "text": "the way this presentation I guess is setup is,",
+        "start": 88.83,
+        "duration": 2.7
+    },
+    {
+        "text": "first of all, I'm going to explain how",
+        "start": 91.53,
+        "duration": 1.19
+    },
+    {
+        "text": "Azure Search works out of the bugs.",
+        "start": 92.72,
+        "duration": 1.43
+    },
+    {
+        "text": "So what is the process without any developer?",
+        "start": 94.15,
+        "duration": 2.949
+    },
+    {
+        "text": "That's the interaction, how it works, how we score documented.",
+        "start": 97.099,
+        "duration": 2.521
+    },
+    {
+        "text": "Then later on, I'm going to explain",
+        "start": 99.62,
+        "duration": 1.74
+    },
+    {
+        "text": "how developers can go figure in,",
+        "start": 101.36,
+        "duration": 2.595
+    },
+    {
+        "text": "add their own input to the process.",
+        "start": 103.955,
+        "duration": 1.845
+    },
+    {
+        "text": "So first of all,",
+        "start": 105.8,
+        "duration": 1.545
+    },
+    {
+        "text": "the information retrieval process",
+        "start": 107.345,
+        "duration": 2.25
+    },
+    {
+        "text": "in most search engine can be divided into two parts.",
+        "start": 109.595,
+        "duration": 2.55
+    },
+    {
+        "text": "The indexing, which usually happen",
+        "start": 112.145,
+        "duration": 2.115
+    },
+    {
+        "text": "asynchronously and is how you get",
+        "start": 114.26,
+        "duration": 1.47
+    },
+    {
+        "text": "your documents in your search and mix.",
+        "start": 115.73,
+        "duration": 1.82
+    },
+    {
+        "text": "The querying, which is designed to",
+        "start": 117.55,
+        "duration": 1.78
+    },
+    {
+        "text": "efficiently find document that are relevant to a specific query.",
+        "start": 119.33,
+        "duration": 3.48
+    },
+    {
+        "text": "The whole pattern is designed around the assumption that",
+        "start": 122.81,
+        "duration": 2.46
+    },
+    {
+        "text": "querying needs to be fast since",
+        "start": 125.27,
+        "duration": 1.38
+    },
+    {
+        "text": "the user are waiting for the results,",
+        "start": 126.65,
+        "duration": 1.62
+    },
+    {
+        "text": "while indexing is usually not as time sensitive.",
+        "start": 128.27,
+        "duration": 2.535
+    },
+    {
+        "text": "To achieve this balance,",
+        "start": 130.805,
+        "duration": 1.275
+    },
+    {
+        "text": "a lot of work is offloaded to be done at indexing time.",
+        "start": 132.08,
+        "duration": 2.965
+    },
+    {
+        "text": "In the following few steps,",
+        "start": 135.045,
+        "duration": 2.225
+    },
+    {
+        "text": "I'm going to highlight some of the most",
+        "start": 137.27,
+        "duration": 1.23
+    },
+    {
+        "text": "important steps for both processes,",
+        "start": 138.5,
+        "duration": 1.64
+    },
+    {
+        "text": "notably how we process the documents",
+        "start": 140.14,
+        "duration": 2.56
+    },
+    {
+        "text": "at indexing time and how we created an inverted index.",
+        "start": 142.7,
+        "duration": 3.075
+    },
+    {
+        "text": "Then once a user emitted query,",
+        "start": 145.775,
+        "duration": 1.935
+    },
+    {
+        "text": "how we retrieve those documents and how we rank the results.",
+        "start": 147.71,
+        "duration": 3.81
+    },
+    {
+        "text": "So text processing is probably",
+        "start": 151.52,
+        "duration": 2.52
+    },
+    {
+        "text": "the most compute-intensive part of the indexing process.",
+        "start": 154.04,
+        "duration": 2.49
+    },
+    {
+        "text": "It's where we apply lexical analysis on",
+        "start": 156.53,
+        "duration": 2.25
+    },
+    {
+        "text": "the contents to extract what we call tokens from raw text.",
+        "start": 158.78,
+        "duration": 3.165
+    },
+    {
+        "text": "To achieve that, we use",
+        "start": 161.945,
+        "duration": 1.425
+    },
+    {
+        "text": "text normalization techniques such as stemming or lemmatization.",
+        "start": 163.37,
+        "duration": 3.93
+    },
+    {
+        "text": "For example, we can see the term largest here was",
+        "start": 167.3,
+        "duration": 2.58
+    },
+    {
+        "text": "broken down into both large and largest,",
+        "start": 169.88,
+        "duration": 2.655
+    },
+    {
+        "text": "which will help increase the recall of",
+        "start": 172.535,
+        "duration": 1.98
+    },
+    {
+        "text": "queries that search for those terms.",
+        "start": 174.515,
+        "duration": 2.165
+    },
+    {
+        "text": "For the viewers, recall is the metric we use to measure how good",
+        "start": 176.68,
+        "duration": 3.385
+    },
+    {
+        "text": "a search engine is at retrieving",
+        "start": 180.065,
+        "duration": 1.62
+    },
+    {
+        "text": "all the documents that are relevant to a specific query.",
+        "start": 181.685,
+        "duration": 2.82
+    },
+    {
+        "text": "The process also removes stop words such as this and has,",
+        "start": 184.505,
+        "duration": 4.515
+    },
+    {
+        "text": "and possessives such as the truly S on Seattle's.",
+        "start": 189.02,
+        "duration": 3.74
+    },
+    {
+        "text": "All of those text processing capabilities are",
+        "start": 192.76,
+        "duration": 2.35
+    },
+    {
+        "text": "enabled for over 50 languages in Azure Search.",
+        "start": 195.11,
+        "duration": 2.415
+    },
+    {
+        "text": "You can even create your own custom analyzer",
+        "start": 197.525,
+        "duration": 2.055
+    },
+    {
+        "text": "using your onset of technical rules.",
+        "start": 199.58,
+        "duration": 1.94
+    },
+    {
+        "text": "We also have APIs for you to test those analyzers or",
+        "start": 201.52,
+        "duration": 3.19
+    },
+    {
+        "text": "the built-in ones and see how",
+        "start": 204.71,
+        "duration": 1.32
+    },
+    {
+        "text": "tokenization is done for any text that you give us.",
+        "start": 206.03,
+        "duration": 3.51
+    },
+    {
+        "text": "Once we've extracted all tokens from all documents,",
+        "start": 209.54,
+        "duration": 3.39
+    },
+    {
+        "text": "we create what is called an inverted index.",
+        "start": 212.93,
+        "duration": 2.22
+    },
+    {
+        "text": "An inverted indexes that are",
+        "start": 215.15,
+        "duration": 1.44
+    },
+    {
+        "text": "structured that allow the quick identification of",
+        "start": 216.59,
+        "duration": 2.34
+    },
+    {
+        "text": "matching documents without having to scan",
+        "start": 218.93,
+        "duration": 1.77
+    },
+    {
+        "text": "through the contents for every query.",
+        "start": 220.7,
+        "duration": 2.31
+    },
+    {
+        "text": "The way this is achieved is by using the tokens we extracted in",
+        "start": 223.01,
+        "duration": 3.9
+    },
+    {
+        "text": "the lexical analysis phase to be",
+        "start": 226.91,
+        "duration": 2.07
+    },
+    {
+        "text": "keys for retrieving the list of documents.",
+        "start": 228.98,
+        "duration": 2.13
+    },
+    {
+        "text": "For example, on the left of this slide,",
+        "start": 231.11,
+        "duration": 2.1
+    },
+    {
+        "text": "we have the content of four documents and on the right side,",
+        "start": 233.21,
+        "duration": 4.04
+    },
+    {
+        "text": "we have a subset of",
+        "start": 237.25,
+        "duration": 1.06
+    },
+    {
+        "text": "the inverted index that would have been created,",
+        "start": 238.31,
+        "duration": 1.995
+    },
+    {
+        "text": "which contains some of the tokens from those documents,",
+        "start": 240.305,
+        "duration": 3.105
+    },
+    {
+        "text": "each pointing to a list of IDs or the document that contain that.",
+        "start": 243.41,
+        "duration": 3.69
+    },
+    {
+        "text": "For example, if we're looking",
+        "start": 247.1,
+        "duration": 1.5
+    },
+    {
+        "text": "for downtown and we know that document 1,",
+        "start": 248.6,
+        "duration": 1.89
+    },
+    {
+        "text": "2, and 3 contains that specific term.",
+        "start": 250.49,
+        "duration": 3.16
+    },
+    {
+        "text": "At this point, let's imagine we have processed",
+        "start": 253.75,
+        "duration": 3.145
+    },
+    {
+        "text": "all index documents and we have",
+        "start": 256.895,
+        "duration": 1.965
+    },
+    {
+        "text": "fully created an inverted index with them.",
+        "start": 258.86,
+        "duration": 2.31
+    },
+    {
+        "text": "Then we receive a search query.",
+        "start": 261.17,
+        "duration": 1.755
+    },
+    {
+        "text": "For example, in the slide,",
+        "start": 262.925,
+        "duration": 1.59
+    },
+    {
+        "text": "Downtown hotel with pool.",
+        "start": 264.515,
+        "duration": 2.34
+    },
+    {
+        "text": "So first we apply a lightweight version of",
+        "start": 266.855,
+        "duration": 2.265
+    },
+    {
+        "text": "the lexical analysis on",
+        "start": 269.12,
+        "duration": 1.52
+    },
+    {
+        "text": "the search query to extract its token such as,",
+        "start": 270.64,
+        "duration": 2.685
+    },
+    {
+        "text": "downtown, hotel, and pool.",
+        "start": 273.325,
+        "duration": 1.815
+    },
+    {
+        "text": "Then we simply travel the positions for each token as we",
+        "start": 275.14,
+        "duration": 2.68
+    },
+    {
+        "text": "discussed in the inverted index to get all the matching documents.",
+        "start": 277.82,
+        "duration": 3.32
+    },
+    {
+        "text": "At this point, we need to decide how we're going to aggregate",
+        "start": 281.14,
+        "duration": 2.92
+    },
+    {
+        "text": "the results and that's",
+        "start": 284.06,
+        "duration": 1.56
+    },
+    {
+        "text": "depends on how we're going to configure to query.",
+        "start": 285.62,
+        "duration": 1.53
+    },
+    {
+        "text": "So for example, if you want to be very restrictive,",
+        "start": 287.15,
+        "duration": 2.34
+    },
+    {
+        "text": "there is a search mode perimeter for",
+        "start": 289.49,
+        "duration": 2.25
+    },
+    {
+        "text": "each search query in Azure Search that you can set to all.",
+        "start": 291.74,
+        "duration": 2.765
+    },
+    {
+        "text": "This means that you only want to",
+        "start": 294.505,
+        "duration": 1.855
+    },
+    {
+        "text": "return document that match all terms.",
+        "start": 296.36,
+        "duration": 2.04
+    },
+    {
+        "text": "In this case, if you search for Downtown hotel pool,",
+        "start": 298.4,
+        "duration": 3.285
+    },
+    {
+        "text": "there will only be document number 1 because that's",
+        "start": 301.685,
+        "duration": 2.295
+    },
+    {
+        "text": "the only one that is in all three collection of documents,",
+        "start": 303.98,
+        "duration": 3.075
+    },
+    {
+        "text": "or if you want to be less restrictive,",
+        "start": 307.055,
+        "duration": 1.635
+    },
+    {
+        "text": "you can set it to any and say,",
+        "start": 308.69,
+        "duration": 1.29
+    },
+    {
+        "text": "\"Return any document that match any of those terms.\"",
+        "start": 309.98,
+        "duration": 3.34
+    },
+    {
+        "text": ">> So just to be clear,",
+        "start": 313.57,
+        "duration": 2.23
+    },
+    {
+        "text": "we don't have to do anything.",
+        "start": 315.8,
+        "duration": 1.815
+    },
+    {
+        "text": "This is just something that's happening directly in Azure.",
+        "start": 317.615,
+        "duration": 3.24
+    },
+    {
+        "text": ">> That's exactly right. So everything that I showed so far,",
+        "start": 320.855,
+        "duration": 3.045
+    },
+    {
+        "text": "all you need to do is tell us where the document are.",
+        "start": 323.9,
+        "duration": 2.7
+    },
+    {
+        "text": "If you want to use what we call an indexer for us to",
+        "start": 326.6,
+        "duration": 2.16
+    },
+    {
+        "text": "go crawl that data and get into our research index,",
+        "start": 328.76,
+        "duration": 2.535
+    },
+    {
+        "text": "or if you use the Push API and send us those documents,",
+        "start": 331.295,
+        "duration": 2.655
+    },
+    {
+        "text": "we're going to apply every day.",
+        "start": 333.95,
+        "duration": 1.605
+    },
+    {
+        "text": "Even this light, what we're going to do for the ranking part,",
+        "start": 335.555,
+        "duration": 3.18
+    },
+    {
+        "text": "even this is applied automatically.",
+        "start": 338.735,
+        "duration": 2.235
+    },
+    {
+        "text": ">> That's cool.",
+        "start": 340.97,
+        "duration": 1.63
+    },
+    {
+        "text": ">> Well, first of all, let's assume that we've now",
+        "start": 343.07,
+        "duration": 3.12
+    },
+    {
+        "text": "retrieved all the documents that are relevant to",
+        "start": 346.19,
+        "duration": 2.43
+    },
+    {
+        "text": "a specific query and now we decide we need to rank",
+        "start": 348.62,
+        "duration": 2.61
+    },
+    {
+        "text": "them to make sure that the most relevant one are at the top.",
+        "start": 351.23,
+        "duration": 2.82
+    },
+    {
+        "text": "So to achieve this,",
+        "start": 354.05,
+        "duration": 1.14
+    },
+    {
+        "text": "we're going to compute the similarly to score for each of them.",
+        "start": 355.19,
+        "duration": 2.865
+    },
+    {
+        "text": "That score is computed token for token,",
+        "start": 358.055,
+        "duration": 2.145
+    },
+    {
+        "text": "feel pre-filled and is aggregated at each step to generate",
+        "start": 360.2,
+        "duration": 2.67
+    },
+    {
+        "text": "the final similarity score that ties a document to specific query.",
+        "start": 362.87,
+        "duration": 3.66
+    },
+    {
+        "text": "Now, we could discuss at length about the various formula being",
+        "start": 366.53,
+        "duration": 2.79
+    },
+    {
+        "text": "used to calculate similarity scores",
+        "start": 369.32,
+        "duration": 1.735
+    },
+    {
+        "text": "but the most important thing to know is,",
+        "start": 371.055,
+        "duration": 1.65
+    },
+    {
+        "text": "at their base, most of them rely on two main variable.",
+        "start": 372.705,
+        "duration": 2.57
+    },
+    {
+        "text": "First one being the term frequency,",
+        "start": 375.275,
+        "duration": 1.725
+    },
+    {
+        "text": "which is how often a specific term appears in the text and it",
+        "start": 377.0,
+        "duration": 3.66
+    },
+    {
+        "text": "gives us an estimate of how relevant that",
+        "start": 380.66,
+        "duration": 1.71
+    },
+    {
+        "text": "specific document is to that specific term.",
+        "start": 382.37,
+        "duration": 2.385
+    },
+    {
+        "text": "Then we have the document frequency,",
+        "start": 384.755,
+        "duration": 1.815
+    },
+    {
+        "text": "which is within the index,",
+        "start": 386.57,
+        "duration": 1.5
+    },
+    {
+        "text": "how many document contain that specific term.",
+        "start": 388.07,
+        "duration": 1.95
+    },
+    {
+        "text": "That gives us an estimate of how common that term is.",
+        "start": 390.02,
+        "duration": 2.535
+    },
+    {
+        "text": "The idea being that the more common the term is,",
+        "start": 392.555,
+        "duration": 2.145
+    },
+    {
+        "text": "the less weight it should have when calculating the score.",
+        "start": 394.7,
+        "duration": 3.14
+    },
+    {
+        "text": "With just those two variable,",
+        "start": 397.84,
+        "duration": 1.99
+    },
+    {
+        "text": "you get the famous tf-idf algorithm, which said,",
+        "start": 399.83,
+        "duration": 2.82
+    },
+    {
+        "text": "I'm sure you heard of, and which is simply,",
+        "start": 402.65,
+        "duration": 2.19
+    },
+    {
+        "text": "the term frequency divided by the document frequency.",
+        "start": 404.84,
+        "duration": 2.895
+    },
+    {
+        "text": "Now in practice, production system",
+        "start": 407.735,
+        "duration": 1.725
+    },
+    {
+        "text": "use more elaborate version of this algorithm.",
+        "start": 409.46,
+        "duration": 1.86
+    },
+    {
+        "text": "So for example here,",
+        "start": 411.32,
+        "duration": 1.02
+    },
+    {
+        "text": "this is BM25, which looks very complicated, but at its core,",
+        "start": 412.34,
+        "duration": 3.9
+    },
+    {
+        "text": "what it does is it adds awareness of the document length into",
+        "start": 416.24,
+        "duration": 3.0
+    },
+    {
+        "text": "the equation and also",
+        "start": 419.24,
+        "duration": 1.59
+    },
+    {
+        "text": "apply curves to normalize the term frequency.",
+        "start": 420.83,
+        "duration": 2.535
+    },
+    {
+        "text": "There's a lot of documentation online,",
+        "start": 423.365,
+        "duration": 2.025
+    },
+    {
+        "text": "either on Wikipedia or even on",
+        "start": 425.39,
+        "duration": 1.92
+    },
+    {
+        "text": "the Azure documentation website that explains more details.",
+        "start": 427.31,
+        "duration": 2.94
+    },
+    {
+        "text": "How the score is calculated and how",
+        "start": 430.25,
+        "duration": 1.725
+    },
+    {
+        "text": "the formula works. The same extent sets?",
+        "start": 431.975,
+        "duration": 2.965
+    },
+    {
+        "text": ">> Yeah, so this is all just basically standard search,",
+        "start": 434.94,
+        "duration": 4.855
+    },
+    {
+        "text": "indexing, ranking.",
+        "start": 439.795,
+        "duration": 1.685
+    },
+    {
+        "text": "This is all just automatically for everybody.",
+        "start": 441.48,
+        "duration": 3.09
+    },
+    {
+        "text": ">> That's completely right, yes.",
+        "start": 444.57,
+        "duration": 1.37
+    },
+    {
+        "text": "So as of now, up until this point,",
+        "start": 445.94,
+        "duration": 2.34
+    },
+    {
+        "text": "we're really using search as a text-based engine.",
+        "start": 448.28,
+        "duration": 3.79
+    },
+    {
+        "text": "Every single decision that we made on either to retrieve",
+        "start": 452.07,
+        "duration": 2.96
+    },
+    {
+        "text": "a document and how to rank them is based on text values,",
+        "start": 455.03,
+        "duration": 3.105
+    },
+    {
+        "text": "which works very well as a baseline for most search engine.",
+        "start": 458.135,
+        "duration": 3.785
+    },
+    {
+        "text": "Now, some of the challenges that we're going to go through",
+        "start": 461.92,
+        "duration": 3.595
+    },
+    {
+        "text": "in the next couple slides is that each data set is different.",
+        "start": 465.515,
+        "duration": 4.035
+    },
+    {
+        "text": "It always makes sense for developers and domain expert to apply",
+        "start": 469.55,
+        "duration": 4.59
+    },
+    {
+        "text": "their own knowledge to try to tweak those process",
+        "start": 474.14,
+        "duration": 2.415
+    },
+    {
+        "text": "a bit further and that's how scoring profile works.",
+        "start": 476.555,
+        "duration": 3.625
+    },
+    {
+        "text": "The idea is really just, you know your database,",
+        "start": 481.04,
+        "duration": 3.62
+    },
+    {
+        "text": "you know what documents your customers are searching for,",
+        "start": 484.66,
+        "duration": 3.9
+    },
+    {
+        "text": "and you may want to add some input into this.",
+        "start": 488.56,
+        "duration": 2.265
+    },
+    {
+        "text": "So scoring profiles, the way that works.",
+        "start": 490.825,
+        "duration": 2.98
+    },
+    {
+        "text": "Here on the screen, this is",
+        "start": 493.805,
+        "duration": 1.835
+    },
+    {
+        "text": "just an example of an index definition.",
+        "start": 495.64,
+        "duration": 2.8
+    },
+    {
+        "text": "All the example that I gave so far where we",
+        "start": 499.43,
+        "duration": 3.325
+    },
+    {
+        "text": "treat the contents as being just one massive text.",
+        "start": 502.755,
+        "duration": 3.3
+    },
+    {
+        "text": "In reality, most document has structure and are",
+        "start": 506.055,
+        "duration": 1.995
+    },
+    {
+        "text": "comprised of various field which can be searched on.",
+        "start": 508.05,
+        "duration": 2.13
+    },
+    {
+        "text": "For example, here, we said document describing the hotel.",
+        "start": 510.18,
+        "duration": 2.45
+    },
+    {
+        "text": "It has a name,",
+        "start": 512.63,
+        "duration": 1.12
+    },
+    {
+        "text": "a description, reviews, tags,",
+        "start": 513.75,
+        "duration": 2.035
+    },
+    {
+        "text": "and also has non text-based fields,",
+        "start": 515.785,
+        "duration": 2.225
+    },
+    {
+        "text": "such as metadata, location, rating, prices.",
+        "start": 518.01,
+        "duration": 3.645
+    },
+    {
+        "text": "At its simplest forms,",
+        "start": 521.655,
+        "duration": 1.755
+    },
+    {
+        "text": "scoring profile can be used to tweak how much",
+        "start": 523.41,
+        "duration": 2.265
+    },
+    {
+        "text": "each of those text field contribute to the final score.",
+        "start": 525.675,
+        "duration": 2.625
+    },
+    {
+        "text": "A domain expert could decide that",
+        "start": 528.3,
+        "duration": 1.7
+    },
+    {
+        "text": "matching a query in the name fields",
+        "start": 530.0,
+        "duration": 2.005
+    },
+    {
+        "text": "is much more important than matching",
+        "start": 532.005,
+        "duration": 1.755
+    },
+    {
+        "text": "a term in the review section of the documents.",
+        "start": 533.76,
+        "duration": 2.375
+    },
+    {
+        "text": "So using a scoring profile,",
+        "start": 536.135,
+        "duration": 1.495
+    },
+    {
+        "text": "you can pretty easily just go",
+        "start": 537.63,
+        "duration": 1.8
+    },
+    {
+        "text": "through your various field and give them a relative weights,",
+        "start": 539.43,
+        "duration": 3.9
+    },
+    {
+        "text": "and this is how we're going to",
+        "start": 543.33,
+        "duration": 1.855
+    },
+    {
+        "text": "calculate the final score for a document.",
+        "start": 545.185,
+        "duration": 2.3
+    },
+    {
+        "text": "For example, here, we decided",
+        "start": 547.485,
+        "duration": 1.755
+    },
+    {
+        "text": "that the name is five-time as important of the review.",
+        "start": 549.24,
+        "duration": 2.565
+    },
+    {
+        "text": "So as we define this in the scoring profile,",
+        "start": 551.805,
+        "duration": 2.385
+    },
+    {
+        "text": "this will take time to consideration.",
+        "start": 554.19,
+        "duration": 1.64
+    },
+    {
+        "text": ">> I see, so this is after it does",
+        "start": 555.83,
+        "duration": 1.715
+    },
+    {
+        "text": "the normal search index theory stuff.",
+        "start": 557.545,
+        "duration": 3.26
+    },
+    {
+        "text": ">> Yes.",
+        "start": 560.805,
+        "duration": 0.195
+    },
+    {
+        "text": ">> What we can do is we can go through each field",
+        "start": 561.0,
+        "duration": 1.975
+    },
+    {
+        "text": "in our index because obviously,",
+        "start": 562.975,
+        "duration": 2.135
+    },
+    {
+        "text": "the highest number wins and it's ordered by score.",
+        "start": 565.11,
+        "duration": 3.27
+    },
+    {
+        "text": "So if you multiply the weight of the name by five,",
+        "start": 568.38,
+        "duration": 3.02
+    },
+    {
+        "text": "that name is going to be super important.",
+        "start": 571.4,
+        "duration": 2.05
+    },
+    {
+        "text": ">> That's right, that's exactly right.",
+        "start": 573.45,
+        "duration": 1.3
+    },
+    {
+        "text": "Yes. Name will be objectively five-time",
+        "start": 574.75,
+        "duration": 2.81
+    },
+    {
+        "text": "as important to review because that's how we decided to set it up.",
+        "start": 577.56,
+        "duration": 3.36
+    },
+    {
+        "text": "The way you do this, the way you make those decision in",
+        "start": 580.92,
+        "duration": 2.22
+    },
+    {
+        "text": "Azure Search is, again, pretty straightforward.",
+        "start": 583.14,
+        "duration": 2.37
+    },
+    {
+        "text": "We have the scoring profile on the left,",
+        "start": 585.51,
+        "duration": 2.955
+    },
+    {
+        "text": "you see the expected JSON profile.",
+        "start": 588.465,
+        "duration": 1.81
+    },
+    {
+        "text": "If you're using the rest API,",
+        "start": 590.275,
+        "duration": 1.43
+    },
+    {
+        "text": "you'll notice that the scoring profiles is plural and",
+        "start": 591.705,
+        "duration": 3.525
+    },
+    {
+        "text": "it's expected with our collection",
+        "start": 595.23,
+        "duration": 1.634
+    },
+    {
+        "text": "that's because you can define multiple of them.",
+        "start": 596.864,
+        "duration": 2.411
+    },
+    {
+        "text": "Then at the bottom here,",
+        "start": 599.275,
+        "duration": 1.685
+    },
+    {
+        "text": "you can see this is an example of a URI that you would use",
+        "start": 600.96,
+        "duration": 2.61
+    },
+    {
+        "text": "to do a search query where you have a scoring profile parameter.",
+        "start": 603.57,
+        "duration": 2.715
+    },
+    {
+        "text": "That's because at runtime, at query time,",
+        "start": 606.285,
+        "duration": 2.295
+    },
+    {
+        "text": "you can decide which scoring profile to",
+        "start": 608.58,
+        "duration": 1.605
+    },
+    {
+        "text": "apply to that specific query.",
+        "start": 610.185,
+        "duration": 2.25
+    },
+    {
+        "text": ">> Which is nice. Sorry to interrupt you.",
+        "start": 612.435,
+        "duration": 2.475
+    },
+    {
+        "text": "Because you can actually switch out depending on who's",
+        "start": 614.91,
+        "duration": 2.19
+    },
+    {
+        "text": "looking at it by the login property, for example.",
+        "start": 617.1,
+        "duration": 3.175
+    },
+    {
+        "text": ">> That's right, that's exactly right.",
+        "start": 620.275,
+        "duration": 2.345
+    },
+    {
+        "text": "Like you mentioned, different users",
+        "start": 622.62,
+        "duration": 4.23
+    },
+    {
+        "text": "might have different search preferences,",
+        "start": 626.85,
+        "duration": 2.415
+    },
+    {
+        "text": "but also different scenarios on your website.",
+        "start": 629.265,
+        "duration": 1.905
+    },
+    {
+        "text": "Maybe somewhere you have no search disk to product on sales.",
+        "start": 631.17,
+        "duration": 3.75
+    },
+    {
+        "text": "Maybe you have someone there who have promoted products, etc.",
+        "start": 634.92,
+        "duration": 2.61
+    },
+    {
+        "text": "So you can really define",
+        "start": 637.53,
+        "duration": 1.68
+    },
+    {
+        "text": "this and create all the scenario that you want to support.",
+        "start": 639.21,
+        "duration": 2.5
+    },
+    {
+        "text": "The way to do this, again, you",
+        "start": 641.71,
+        "duration": 1.91
+    },
+    {
+        "text": "just set the weights you want for each field.",
+        "start": 643.62,
+        "duration": 1.63
+    },
+    {
+        "text": "You can also do this through the portal.",
+        "start": 645.25,
+        "duration": 1.45
+    },
+    {
+        "text": "There is a need to access, it's available",
+        "start": 646.7,
+        "duration": 1.47
+    },
+    {
+        "text": "online on the Azure portal.",
+        "start": 648.17,
+        "duration": 1.49
+    },
+    {
+        "text": "You just select what fields you want,",
+        "start": 649.66,
+        "duration": 1.77
+    },
+    {
+        "text": "what weights you want, you save that and you're done.",
+        "start": 651.43,
+        "duration": 3.09
+    },
+    {
+        "text": "Now, the other way to",
+        "start": 654.74,
+        "duration": 2.135
+    },
+    {
+        "text": "leverage scoring profile is through functions.",
+        "start": 656.875,
+        "duration": 1.95
+    },
+    {
+        "text": "The idea is to compute a boosting value using",
+        "start": 658.825,
+        "duration": 3.36
+    },
+    {
+        "text": "certain non-searchable field from your index to be",
+        "start": 662.185,
+        "duration": 2.525
+    },
+    {
+        "text": "multiplied by the original raw similarity score,",
+        "start": 664.71,
+        "duration": 3.15
+    },
+    {
+        "text": "the one that is text-based that was produced from the text field.",
+        "start": 667.86,
+        "duration": 3.525
+    },
+    {
+        "text": "There is four types of function that we support.",
+        "start": 671.385,
+        "duration": 2.815
+    },
+    {
+        "text": "There is the magnitude function that is applied to number fields.",
+        "start": 674.2,
+        "duration": 3.51
+    },
+    {
+        "text": "For example, let's say,",
+        "start": 677.71,
+        "duration": 1.605
+    },
+    {
+        "text": "your index is a product catalog.",
+        "start": 679.315,
+        "duration": 2.715
+    },
+    {
+        "text": "You might want highly rated documents to be ranked",
+        "start": 682.03,
+        "duration": 3.62
+    },
+    {
+        "text": "higher because they're of better quality",
+        "start": 685.65,
+        "duration": 2.16
+    },
+    {
+        "text": "and that's what you want to sell on your websites.",
+        "start": 687.81,
+        "duration": 2.385
+    },
+    {
+        "text": "Again, the idea is",
+        "start": 690.195,
+        "duration": 3.065
+    },
+    {
+        "text": "not to sort your results based on the specific number,",
+        "start": 693.26,
+        "duration": 2.8
+    },
+    {
+        "text": "this is not a sorting algorithm.",
+        "start": 696.06,
+        "duration": 1.405
+    },
+    {
+        "text": "The idea is to create a boosting function that",
+        "start": 697.465,
+        "duration": 2.405
+    },
+    {
+        "text": "will slightly nudge the result in the direction that you want.",
+        "start": 699.87,
+        "duration": 3.6
+    },
+    {
+        "text": "Another way that you can see this is, let's say,",
+        "start": 703.47,
+        "duration": 2.15
+    },
+    {
+        "text": "you have your view count for each documents,",
+        "start": 705.62,
+        "duration": 2.194
+    },
+    {
+        "text": "you have a field that shows the view count for that specific page.",
+        "start": 707.814,
+        "duration": 3.051
+    },
+    {
+        "text": "Then, you might use this as",
+        "start": 710.865,
+        "duration": 2.88
+    },
+    {
+        "text": "a metric to see that certain document",
+        "start": 713.745,
+        "duration": 2.115
+    },
+    {
+        "text": "are more popular than the others,",
+        "start": 715.86,
+        "duration": 1.4
+    },
+    {
+        "text": "and you might want to make it easier",
+        "start": 717.26,
+        "duration": 2.02
+    },
+    {
+        "text": "for your customers to find those documents.",
+        "start": 719.28,
+        "duration": 2.38
+    },
+    {
+        "text": ">> So it's just a number to multiply",
+        "start": 721.66,
+        "duration": 2.24
+    },
+    {
+        "text": "by the output to make the rank a little bit higher?",
+        "start": 723.9,
+        "duration": 2.515
+    },
+    {
+        "text": ">> That's right, that's exactly right.",
+        "start": 726.415,
+        "duration": 1.715
+    },
+    {
+        "text": "We also support what we call freshness.",
+        "start": 728.13,
+        "duration": 1.99
+    },
+    {
+        "text": "The idea is that to go back to the article.",
+        "start": 730.12,
+        "duration": 2.385
+    },
+    {
+        "text": "Example, let's say you have your newest website.",
+        "start": 732.505,
+        "duration": 4.115
+    },
+    {
+        "text": "It might make sense in your scenario that",
+        "start": 736.62,
+        "duration": 3.445
+    },
+    {
+        "text": "recent document are more relevant than the older ones.",
+        "start": 740.065,
+        "duration": 3.315
+    },
+    {
+        "text": "If someone is searching for the Olympics,",
+        "start": 743.38,
+        "duration": 2.385
+    },
+    {
+        "text": "then documents about",
+        "start": 745.765,
+        "duration": 1.625
+    },
+    {
+        "text": "the recent Olympic that were published this week are",
+        "start": 747.39,
+        "duration": 1.825
+    },
+    {
+        "text": "probably more relevant than",
+        "start": 749.215,
+        "duration": 1.185
+    },
+    {
+        "text": "Olympic document that dates from couple of years back.",
+        "start": 750.4,
+        "duration": 2.855
+    },
+    {
+        "text": "We also have the support distance.",
+        "start": 753.255,
+        "duration": 2.025
+    },
+    {
+        "text": "So if your website has no restaurant or stores,",
+        "start": 755.28,
+        "duration": 3.07
+    },
+    {
+        "text": "more closer restaurant might be more appealing to your customers.",
+        "start": 758.35,
+        "duration": 3.47
+    },
+    {
+        "text": "Finally, we also support tags.",
+        "start": 761.82,
+        "duration": 2.18
+    },
+    {
+        "text": "The idea behind tags is that you have",
+        "start": 764.0,
+        "duration": 1.83
+    },
+    {
+        "text": "to manually add metadata that search",
+        "start": 765.83,
+        "duration": 2.22
+    },
+    {
+        "text": "a document and you can decide at",
+        "start": 768.05,
+        "duration": 1.44
+    },
+    {
+        "text": "query time to boost document that contain those tag.",
+        "start": 769.49,
+        "duration": 2.515
+    },
+    {
+        "text": "So for example, let's say on your website,",
+        "start": 772.005,
+        "duration": 1.83
+    },
+    {
+        "text": "you tag search documents with a promo tag,",
+        "start": 773.835,
+        "duration": 2.23
+    },
+    {
+        "text": "that that search tag you might say that, \"Hey,",
+        "start": 776.065,
+        "duration": 2.17
+    },
+    {
+        "text": "this week I want promoted products to be ranked higher.\"",
+        "start": 778.235,
+        "duration": 5.345
+    },
+    {
+        "text": "Another very popular way to do this is,",
+        "start": 784.55,
+        "duration": 2.74
+    },
+    {
+        "text": "let's say you have an Internet search",
+        "start": 787.29,
+        "duration": 1.815
+    },
+    {
+        "text": "where your whole company is on the same search engine,",
+        "start": 789.105,
+        "duration": 4.84
+    },
+    {
+        "text": "and let's say someone from the engineering team is searching for",
+        "start": 793.945,
+        "duration": 2.705
+    },
+    {
+        "text": "documents on that search website,",
+        "start": 796.65,
+        "duration": 2.905
+    },
+    {
+        "text": "then document tagged as engineering plan maybe rank higher.",
+        "start": 799.555,
+        "duration": 3.845
+    },
+    {
+        "text": "While on the other side, let's say, the legal team",
+        "start": 803.4,
+        "duration": 1.59
+    },
+    {
+        "text": "is looking for a document,",
+        "start": 804.99,
+        "duration": 1.02
+    },
+    {
+        "text": "that maybe document tagged as",
+        "start": 806.01,
+        "duration": 1.44
+    },
+    {
+        "text": "legal documents might be more relevant for them.",
+        "start": 807.45,
+        "duration": 3.075
+    },
+    {
+        "text": "So as you mentioned, Seth,",
+        "start": 810.525,
+        "duration": 2.455
+    },
+    {
+        "text": "the idea is really just to calculate",
+        "start": 812.98,
+        "duration": 1.865
+    },
+    {
+        "text": "a boosting value to be multiplied to",
+        "start": 814.845,
+        "duration": 1.695
+    },
+    {
+        "text": "the score that will be used in the final ranking.",
+        "start": 816.54,
+        "duration": 4.06
+    },
+    {
+        "text": "The way you do this is,",
+        "start": 820.6,
+        "duration": 1.575
+    },
+    {
+        "text": "for each of those function type,",
+        "start": 822.175,
+        "duration": 1.55
+    },
+    {
+        "text": "you have a different values",
+        "start": 823.725,
+        "duration": 1.305
+    },
+    {
+        "text": "that you have to set different parameters.",
+        "start": 825.03,
+        "duration": 1.4
+    },
+    {
+        "text": "So for example, for magnitude,",
+        "start": 826.43,
+        "duration": 1.265
+    },
+    {
+        "text": "you will set the range of",
+        "start": 827.695,
+        "duration": 1.025
+    },
+    {
+        "text": "the expected value for rating, it might be from 1-5,",
+        "start": 828.72,
+        "duration": 3.27
+    },
+    {
+        "text": "and then we're going to translate the value in the metadata",
+        "start": 831.99,
+        "duration": 3.81
+    },
+    {
+        "text": "for that documents using",
+        "start": 835.8,
+        "duration": 1.26
+    },
+    {
+        "text": "that range and using what we call, well, what is it?",
+        "start": 837.06,
+        "duration": 2.49
+    },
+    {
+        "text": "The interpolation function to get the final boosting score.",
+        "start": 839.55,
+        "duration": 3.565
+    },
+    {
+        "text": "That score is simply multiplied to the similarity score.",
+        "start": 843.115,
+        "duration": 3.99
+    },
+    {
+        "text": "You can see here,",
+        "start": 847.105,
+        "duration": 1.085
+    },
+    {
+        "text": "we support various different types of scoring function",
+        "start": 848.19,
+        "duration": 2.565
+    },
+    {
+        "text": "depending on what scenario you want to exercise.",
+        "start": 850.755,
+        "duration": 4.62
+    },
+    {
+        "text": "So how this work here in the example",
+        "start": 855.375,
+        "duration": 1.845
+    },
+    {
+        "text": "to go back to the hotel example.",
+        "start": 857.22,
+        "duration": 1.565
+    },
+    {
+        "text": "So maybe specific document that",
+        "start": 858.785,
+        "duration": 2.575
+    },
+    {
+        "text": "we're tackling the score for is tagged as a promo,",
+        "start": 861.36,
+        "duration": 2.64
+    },
+    {
+        "text": "so we're going to multiply the score by 1.5.",
+        "start": 864.0,
+        "duration": 2.1
+    },
+    {
+        "text": "Maybe it's within the 10 mile range",
+        "start": 866.1,
+        "duration": 2.535
+    },
+    {
+        "text": "that you established in your scoring profile,",
+        "start": 868.635,
+        "duration": 2.285
+    },
+    {
+        "text": "so we're going to use the interpolation function to get",
+        "start": 870.92,
+        "duration": 2.59
+    },
+    {
+        "text": "a specific boosting value from 1.5-2.",
+        "start": 873.51,
+        "duration": 3.39
+    },
+    {
+        "text": "Again, defined by the user.",
+        "start": 876.9,
+        "duration": 1.8
+    },
+    {
+        "text": "We aggregate all those values to get",
+        "start": 878.7,
+        "duration": 1.83
+    },
+    {
+        "text": "the final boosting score and that's",
+        "start": 880.53,
+        "duration": 3.45
+    },
+    {
+        "text": "what we're going to be using to calculate",
+        "start": 883.98,
+        "duration": 1.77
+    },
+    {
+        "text": "the similarity value for that specific documents.",
+        "start": 885.75,
+        "duration": 4.485
+    },
+    {
+        "text": "This is how you define it. Again, pretty straightforward,",
+        "start": 890.235,
+        "duration": 3.18
+    },
+    {
+        "text": "the same way as you would do for the weights.",
+        "start": 893.415,
+        "duration": 1.915
+    },
+    {
+        "text": "In this specific scoring profile,",
+        "start": 895.33,
+        "duration": 1.64
+    },
+    {
+        "text": "you can see that we support both text weights or feel the weight,",
+        "start": 896.97,
+        "duration": 2.825
+    },
+    {
+        "text": "and also we have the function that we",
+        "start": 899.795,
+        "duration": 1.4
+    },
+    {
+        "text": "defined such as distance and tag,",
+        "start": 901.195,
+        "duration": 2.13
+    },
+    {
+        "text": "or you can use the portal to define such function.",
+        "start": 903.325,
+        "duration": 3.635
+    },
+    {
+        "text": "Again, using the UX should be pretty straightforward.",
+        "start": 906.96,
+        "duration": 2.19
+    },
+    {
+        "text": ">> So as I'm looking at this, you have the option to not only",
+        "start": 909.15,
+        "duration": 2.88
+    },
+    {
+        "text": "add weights for fields,",
+        "start": 912.03,
+        "duration": 2.995
+    },
+    {
+        "text": "but you can also add functions to things that are like",
+        "start": 915.025,
+        "duration": 2.905
+    },
+    {
+        "text": "metadata of the field like tag and distance,",
+        "start": 917.93,
+        "duration": 3.635
+    },
+    {
+        "text": "and then obviously the other one waiting just",
+        "start": 921.565,
+        "duration": 1.97
+    },
+    {
+        "text": "multiplies this numbers again. This is pretty cool.",
+        "start": 923.535,
+        "duration": 3.43
+    },
+    {
+        "text": ">> It's pretty cool and we've had customers",
+        "start": 926.965,
+        "duration": 2.075
+    },
+    {
+        "text": "being very creative in the way they use this.",
+        "start": 929.04,
+        "duration": 2.505
+    },
+    {
+        "text": "We have customers running",
+        "start": 931.545,
+        "duration": 2.04
+    },
+    {
+        "text": "AB testing or they create multiple screen profile,",
+        "start": 933.585,
+        "duration": 2.275
+    },
+    {
+        "text": "and then they just test them in the wild,",
+        "start": 935.86,
+        "duration": 1.71
+    },
+    {
+        "text": "and then get various metrics to see how successful they are.",
+        "start": 937.57,
+        "duration": 3.435
+    },
+    {
+        "text": "How one behavior is it to other?",
+        "start": 941.005,
+        "duration": 4.26
+    },
+    {
+        "text": "What one gives the best click through rating, for example?",
+        "start": 945.265,
+        "duration": 3.155
+    },
+    {
+        "text": "We've had customers who go already all in and use",
+        "start": 948.42,
+        "duration": 2.125
+    },
+    {
+        "text": "machine learning techniques to try to calculate those weights,",
+        "start": 950.545,
+        "duration": 2.36
+    },
+    {
+        "text": "and see, again, which one makes",
+        "start": 952.905,
+        "duration": 2.735
+    },
+    {
+        "text": "sense based on the label data",
+        "start": 955.64,
+        "duration": 1.835
+    },
+    {
+        "text": "that they have, that they could run against.",
+        "start": 957.475,
+        "duration": 1.91
+    },
+    {
+        "text": "To be honest, Seth, if you would allow me,",
+        "start": 959.385,
+        "duration": 2.46
+    },
+    {
+        "text": "were very curious to hear how our customers are",
+        "start": 961.845,
+        "duration": 3.49
+    },
+    {
+        "text": "using or how they're taking",
+        "start": 965.335,
+        "duration": 1.665
+    },
+    {
+        "text": "care of the relevant aspects of their website.",
+        "start": 967.0,
+        "duration": 2.525
+    },
+    {
+        "text": "So if any customers out there really",
+        "start": 969.525,
+        "duration": 2.665
+    },
+    {
+        "text": "want to contact us, talk about this,",
+        "start": 972.19,
+        "duration": 2.91
+    },
+    {
+        "text": "we're super curious to see how we can improve our processes,",
+        "start": 975.1,
+        "duration": 3.195
+    },
+    {
+        "text": "what tools we can expose to",
+        "start": 978.295,
+        "duration": 1.595
+    },
+    {
+        "text": "you to try to make that whole process easier.",
+        "start": 979.89,
+        "duration": 2.53
+    },
+    {
+        "text": "So please feel free to",
+        "start": 982.42,
+        "duration": 1.37
+    },
+    {
+        "text": "send us an e-mail at azuresearchrelevance@Microsoft.com,",
+        "start": 983.79,
+        "duration": 1.26
+    },
+    {
+        "text": "we would be happy",
+        "start": 985.05,
+        "duration": 3.145
+    },
+    {
+        "text": "to get in touch with you and you'll just go from there.",
+        "start": 988.195,
+        "duration": 2.33
+    },
+    {
+        "text": ">> Well, this has been amazing. I've learned a lot.",
+        "start": 990.525,
+        "duration": 2.34
+    },
+    {
+        "text": "I thought I knew a lot about Azure Cognitive Search.",
+        "start": 992.865,
+        "duration": 2.025
+    },
+    {
+        "text": "It turns out all I knew",
+        "start": 994.89,
+        "duration": 1.675
+    },
+    {
+        "text": "was all the way up until it gets in the index,",
+        "start": 996.565,
+        "duration": 3.095
+    },
+    {
+        "text": "I had no idea you could do all this amazing stuff.",
+        "start": 999.66,
+        "duration": 2.395
+    },
+    {
+        "text": "Thank you so much for spending some time with us.",
+        "start": 1002.055,
+        "duration": 1.535
+    },
+    {
+        "text": ">> Yes, of course, Seth. Thanks for giving me your time.",
+        "start": 1003.59,
+        "duration": 1.835
+    },
+    {
+        "text": ">> Again, thank you so much for watching me learning all about",
+        "start": 1005.425,
+        "duration": 2.685
+    },
+    {
+        "text": "similarity and scoring on",
+        "start": 1008.11,
+        "duration": 1.22
+    },
+    {
+        "text": "Azure Cognitive Search here on the AI Show.",
+        "start": 1009.33,
+        "duration": 1.955
+    },
+    {
+        "text": "Make sure you tune in and we'll see you next time. Take care.",
+        "start": 1011.285,
+        "duration": 2.705
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 1013.99,
+        "duration": 14.01
+    }
+]

@@ -1,0 +1,1982 @@
+[
+    {
+        "text": ">> Everyone I'm Cassie Breviu and you're not going to",
+        "start": 0.0,
+        "duration": 2.55
+    },
+    {
+        "text": "want to miss this episode of the AI Show.",
+        "start": 2.55,
+        "duration": 2.4
+    },
+    {
+        "text": "We are going to be looking at how we can use",
+        "start": 4.95,
+        "duration": 1.89
+    },
+    {
+        "text": "LLaMA in Azure let's take a look.",
+        "start": 6.84,
+        "duration": 3.22
+    },
+    {
+        "text": "I'm joined today with Swati.",
+        "start": 15.59,
+        "duration": 3.04
+    },
+    {
+        "text": "Thank you so much for joining us.",
+        "start": 18.63,
+        "duration": 2.13
+    },
+    {
+        "text": "Why don't you tell us what you do at Microsoft.",
+        "start": 20.76,
+        "duration": 1.74
+    },
+    {
+        "text": ">> Hi Cassie. Thanks for having me.",
+        "start": 22.5,
+        "duration": 2.1
+    },
+    {
+        "text": "Hey everyone I'm Swati Gharse.",
+        "start": 24.6,
+        "duration": 1.965
+    },
+    {
+        "text": "I'm a product manager here in Azure and the Azure EIT.",
+        "start": 26.565,
+        "duration": 3.765
+    },
+    {
+        "text": "I'm really excited to talk about some of",
+        "start": 30.33,
+        "duration": 2.36
+    },
+    {
+        "text": "the new capabilities we have in Azure AI.",
+        "start": 32.69,
+        "duration": 3.34
+    },
+    {
+        "text": ">> We had some cool announcements",
+        "start": 36.23,
+        "duration": 2.37
+    },
+    {
+        "text": "last week and one of them was around",
+        "start": 38.6,
+        "duration": 2.7
+    },
+    {
+        "text": "the open sourcing of",
+        "start": 41.3,
+        "duration": 1.23
+    },
+    {
+        "text": "the LLaMA model and the ability to use it in Azure.",
+        "start": 42.53,
+        "duration": 3.725
+    },
+    {
+        "text": ">> The trait it was pretty exciting last week at",
+        "start": 46.255,
+        "duration": 3.295
+    },
+    {
+        "text": "Inspire when we announced",
+        "start": 49.55,
+        "duration": 1.635
+    },
+    {
+        "text": "a partnership between Microsoft and Meta.",
+        "start": 51.185,
+        "duration": 2.51
+    },
+    {
+        "text": "Where Microsoft is the preferred partner as Meta makes",
+        "start": 53.695,
+        "duration": 3.685
+    },
+    {
+        "text": "LLaMA 2 the next generation of LLaMA large language model",
+        "start": 57.38,
+        "duration": 4.125
+    },
+    {
+        "text": "open-source and to today we're",
+        "start": 61.505,
+        "duration": 2.055
+    },
+    {
+        "text": "super excited about showing everyone how they can use",
+        "start": 63.56,
+        "duration": 2.52
+    },
+    {
+        "text": "LLaMA 2 in Azure",
+        "start": 66.08,
+        "duration": 1.845
+    },
+    {
+        "text": "using all of the Azure native capabilities we have.",
+        "start": 67.925,
+        "duration": 3.915
+    },
+    {
+        "text": ">> If you're tuning in and you're not really sure what",
+        "start": 71.84,
+        "duration": 3.84
+    },
+    {
+        "text": "the LLaMA model is let's just go over that super-quick.",
+        "start": 75.68,
+        "duration": 3.38
+    },
+    {
+        "text": "This is one of the foundational large language models",
+        "start": 79.06,
+        "duration": 3.07
+    },
+    {
+        "text": "that Meta created.",
+        "start": 82.13,
+        "duration": 1.655
+    },
+    {
+        "text": "They introduced the second version and if we take a look there's",
+        "start": 83.785,
+        "duration": 5.095
+    },
+    {
+        "text": "three different flavors of the model we have",
+        "start": 88.88,
+        "duration": 1.8
+    },
+    {
+        "text": "the seven billion parameter 13 billion perimeter",
+        "start": 90.68,
+        "duration": 2.58
+    },
+    {
+        "text": "and the 70 billion parameter.",
+        "start": 93.26,
+        "duration": 2.54
+    },
+    {
+        "text": "Then from those models there's",
+        "start": 95.8,
+        "duration": 1.6
+    },
+    {
+        "text": "different ones that are fine tuned for",
+        "start": 97.4,
+        "duration": 2.04
+    },
+    {
+        "text": "different texts tasks one being",
+        "start": 99.44,
+        "duration": 1.8
+    },
+    {
+        "text": "completion and the other being chat.",
+        "start": 101.24,
+        "duration": 2.69
+    },
+    {
+        "text": "Obviously the larger the model the better the",
+        "start": 103.93,
+        "duration": 2.62
+    },
+    {
+        "text": "output the more accurate the output but then you have to make",
+        "start": 106.55,
+        "duration": 3.09
+    },
+    {
+        "text": "those considerations when you're making your application for size",
+        "start": 109.64,
+        "duration": 3.855
+    },
+    {
+        "text": "and accuracy something we're",
+        "start": 113.495,
+        "duration": 2.265
+    },
+    {
+        "text": "very familiar with in the machine learning world.",
+        "start": 115.76,
+        "duration": 2.6
+    },
+    {
+        "text": "Swati I think you're going to show us how we",
+        "start": 118.36,
+        "duration": 2.47
+    },
+    {
+        "text": "can actually use this in Azure.",
+        "start": 120.83,
+        "duration": 1.62
+    },
+    {
+        "text": ">> That's right we're super",
+        "start": 122.45,
+        "duration": 1.89
+    },
+    {
+        "text": "excited to bring all these cool models you know",
+        "start": 124.34,
+        "duration": 2.82
+    },
+    {
+        "text": "the latest state of",
+        "start": 127.16,
+        "duration": 1.17
+    },
+    {
+        "text": "the art knowledge language models",
+        "start": 128.33,
+        "duration": 1.545
+    },
+    {
+        "text": "available for you for easy use within Azure.",
+        "start": 129.875,
+        "duration": 3.02
+    },
+    {
+        "text": "I'm going to share my screen here and this is what",
+        "start": 132.895,
+        "duration": 3.025
+    },
+    {
+        "text": "you see when you come into the Azure AI Model catalog.",
+        "start": 135.92,
+        "duration": 3.495
+    },
+    {
+        "text": "When you start out in",
+        "start": 139.415,
+        "duration": 2.565
+    },
+    {
+        "text": "your Azure AI book space you can jump to what we call",
+        "start": 141.98,
+        "duration": 3.33
+    },
+    {
+        "text": "the model catalog and the Model catalog you can think of this",
+        "start": 145.31,
+        "duration": 3.81
+    },
+    {
+        "text": "as a hub for a starting point for all your foundation models.",
+        "start": 149.12,
+        "duration": 4.55
+    },
+    {
+        "text": "You have models from opening AI.",
+        "start": 153.67,
+        "duration": 2.105
+    },
+    {
+        "text": "You have all the latest open source models",
+        "start": 155.775,
+        "duration": 2.48
+    },
+    {
+        "text": "and the announcement we're here talking about is",
+        "start": 158.255,
+        "duration": 2.775
+    },
+    {
+        "text": "the latest LLaMA 2 models from Meta that you",
+        "start": 161.03,
+        "duration": 2.79
+    },
+    {
+        "text": "can easily get started with from within the model catalog.",
+        "start": 163.82,
+        "duration": 3.665
+    },
+    {
+        "text": "Cassie you just showed us",
+        "start": 167.485,
+        "duration": 1.555
+    },
+    {
+        "text": "those three different model variants both of them coming in",
+        "start": 169.04,
+        "duration": 3.81
+    },
+    {
+        "text": "pretrained and fine tuned versions and we have",
+        "start": 172.85,
+        "duration": 2.97
+    },
+    {
+        "text": "support for all of these models",
+        "start": 175.82,
+        "duration": 1.56
+    },
+    {
+        "text": "right here in the model and catalog.",
+        "start": 177.38,
+        "duration": 2.63
+    },
+    {
+        "text": "Let's go ahead and take a look at one of these.",
+        "start": 180.01,
+        "duration": 2.275
+    },
+    {
+        "text": "I'm going to get started with the 13 billion model.",
+        "start": 182.285,
+        "duration": 3.27
+    },
+    {
+        "text": "That is it's the LLaMA 2 which which has 13 billion parameters",
+        "start": 185.555,
+        "duration": 5.355
+    },
+    {
+        "text": "all of them are two models the pretrained versions have",
+        "start": 190.91,
+        "duration": 2.91
+    },
+    {
+        "text": "been trained with the 2 trillion tokens.",
+        "start": 193.82,
+        "duration": 4.18
+    },
+    {
+        "text": "The fine tuned versions have used over",
+        "start": 198.0,
+        "duration": 3.98
+    },
+    {
+        "text": "a million human annotations and",
+        "start": 201.98,
+        "duration": 2.1
+    },
+    {
+        "text": "all of these identify Meta using public data.",
+        "start": 204.08,
+        "duration": 2.645
+    },
+    {
+        "text": "Let's take a look at the 13 B pretrained model.",
+        "start": 206.725,
+        "duration": 3.595
+    },
+    {
+        "text": "When I jump in here this is what we call the model",
+        "start": 210.32,
+        "duration": 2.64
+    },
+    {
+        "text": "card and this is what you can read",
+        "start": 212.96,
+        "duration": 3.015
+    },
+    {
+        "text": "to get all the details about",
+        "start": 215.975,
+        "duration": 2.475
+    },
+    {
+        "text": "this model and you can find out how the model was trained,",
+        "start": 218.45,
+        "duration": 3.165
+    },
+    {
+        "text": "any evaluation metrics that will help you decide",
+        "start": 221.615,
+        "duration": 3.165
+    },
+    {
+        "text": "how good this model is going to be in your own scenario.",
+        "start": 224.78,
+        "duration": 3.83
+    },
+    {
+        "text": "If you scroll down you can see that we also have",
+        "start": 228.61,
+        "duration": 3.55
+    },
+    {
+        "text": "links to code-based samples that we",
+        "start": 232.16,
+        "duration": 2.79
+    },
+    {
+        "text": "provide in Azure for you to easily use these models",
+        "start": 234.95,
+        "duration": 2.925
+    },
+    {
+        "text": "as well as any sample input and output for using this model.",
+        "start": 237.875,
+        "duration": 4.535
+    },
+    {
+        "text": "The other things that you can see up here are the buttons that you",
+        "start": 242.41,
+        "duration": 4.42
+    },
+    {
+        "text": "see for using the models using the UI in Azure AI.",
+        "start": 246.83,
+        "duration": 4.2
+    },
+    {
+        "text": "For example if you want to decide whether this model",
+        "start": 251.03,
+        "duration": 2.865
+    },
+    {
+        "text": "is good enough to use in your scenario,",
+        "start": 253.895,
+        "duration": 2.715
+    },
+    {
+        "text": "you can click on the Evaluate button",
+        "start": 256.61,
+        "duration": 1.845
+    },
+    {
+        "text": "and then that lets you pick up",
+        "start": 258.455,
+        "duration": 1.665
+    },
+    {
+        "text": "an ER own test data and it lets you",
+        "start": 260.12,
+        "duration": 3.99
+    },
+    {
+        "text": "pass in your test data and evaluate",
+        "start": 264.11,
+        "duration": 1.86
+    },
+    {
+        "text": "this model and get metrics for how",
+        "start": 265.97,
+        "duration": 2.07
+    },
+    {
+        "text": "this model would do in your own setting.",
+        "start": 268.04,
+        "duration": 4.655
+    },
+    {
+        "text": "You could also go ahead and fine tune",
+        "start": 272.695,
+        "duration": 2.545
+    },
+    {
+        "text": "the model which is pretty cool because we heard",
+        "start": 275.24,
+        "duration": 2.535
+    },
+    {
+        "text": "customers tell us that this model is great but I need to",
+        "start": 277.775,
+        "duration": 2.685
+    },
+    {
+        "text": "customize it a little further to work better in my own setting.",
+        "start": 280.46,
+        "duration": 3.665
+    },
+    {
+        "text": "What fine-tuning lets you do is pass it your own cleaning data.",
+        "start": 284.125,
+        "duration": 5.16
+    },
+    {
+        "text": "It would then further fine tune this model to do great",
+        "start": 289.285,
+        "duration": 4.03
+    },
+    {
+        "text": "in your own setting for your for your own data.",
+        "start": 293.315,
+        "duration": 3.9
+    },
+    {
+        "text": "The really cool thing about all of this fine tuning is that",
+        "start": 297.215,
+        "duration": 3.12
+    },
+    {
+        "text": "this fine-tuning job and all the data that you",
+        "start": 300.335,
+        "duration": 2.415
+    },
+    {
+        "text": "provided here like the training data that you provide it.",
+        "start": 302.75,
+        "duration": 2.675
+    },
+    {
+        "text": "It all stays within the context of",
+        "start": 305.425,
+        "duration": 2.575
+    },
+    {
+        "text": "your Azure AI books face and hence you don't need to worry",
+        "start": 308.0,
+        "duration": 4.02
+    },
+    {
+        "text": "about this data becoming available to",
+        "start": 312.02,
+        "duration": 2.205
+    },
+    {
+        "text": "Azure or you know to anybody else outside",
+        "start": 314.225,
+        "duration": 2.28
+    },
+    {
+        "text": "of your organization getting access",
+        "start": 316.505,
+        "duration": 1.635
+    },
+    {
+        "text": "to your training data which we know is",
+        "start": 318.14,
+        "duration": 1.77
+    },
+    {
+        "text": "extremely important to speak with step",
+        "start": 319.91,
+        "duration": 1.62
+    },
+    {
+        "text": "working with these generative models.",
+        "start": 321.53,
+        "duration": 2.435
+    },
+    {
+        "text": ">> This is really cool so we're in Azure amount we have",
+        "start": 323.965,
+        "duration": 2.905
+    },
+    {
+        "text": "all these models available in this catalog we can use",
+        "start": 326.87,
+        "duration": 2.4
+    },
+    {
+        "text": "whichever flavor we want and then we",
+        "start": 329.27,
+        "duration": 2.16
+    },
+    {
+        "text": "have the tooling built-in like literally click",
+        "start": 331.43,
+        "duration": 2.37
+    },
+    {
+        "text": "button to fine tune it to",
+        "start": 333.8,
+        "duration": 1.26
+    },
+    {
+        "text": "different tasks with my data so I can make it more",
+        "start": 335.06,
+        "duration": 2.16
+    },
+    {
+        "text": "intelligent for my task",
+        "start": 337.22,
+        "duration": 1.92
+    },
+    {
+        "text": "specifically for the problems that I need to solve.",
+        "start": 339.14,
+        "duration": 2.16
+    },
+    {
+        "text": ">> That's absolutely right you've said it really well Cassie it's",
+        "start": 341.3,
+        "duration": 3.06
+    },
+    {
+        "text": "about fine tuning it and customizing it for your own task.",
+        "start": 344.36,
+        "duration": 3.88
+    },
+    {
+        "text": "Yeah. There's another cool thing I want to show",
+        "start": 348.47,
+        "duration": 2.79
+    },
+    {
+        "text": "you you might want to deploy this model and you",
+        "start": 351.26,
+        "duration": 1.86
+    },
+    {
+        "text": "could choose to deploy either the model that we",
+        "start": 353.12,
+        "duration": 2.52
+    },
+    {
+        "text": "provide in the catalog as is or you could choose",
+        "start": 355.64,
+        "duration": 2.79
+    },
+    {
+        "text": "to deploy it after fine tuning but out here I'm going to show you",
+        "start": 358.43,
+        "duration": 2.94
+    },
+    {
+        "text": "what it looks like when you choose to",
+        "start": 361.37,
+        "duration": 1.26
+    },
+    {
+        "text": "deploy the model from the catalog.",
+        "start": 362.63,
+        "duration": 1.98
+    },
+    {
+        "text": "We have two choices available here.",
+        "start": 364.61,
+        "duration": 1.965
+    },
+    {
+        "text": "You could deploy it to a real-time managed endpoint or you",
+        "start": 366.575,
+        "duration": 3.495
+    },
+    {
+        "text": "can deploy it to",
+        "start": 370.07,
+        "duration": 1.68
+    },
+    {
+        "text": "a batch endpoint where you can give it bulk queries.",
+        "start": 371.75,
+        "duration": 2.36
+    },
+    {
+        "text": "Let's take a look at the real-time endpoint here.",
+        "start": 374.11,
+        "duration": 3.815
+    },
+    {
+        "text": "Now, one thing that's really really cool about",
+        "start": 377.925,
+        "duration": 2.72
+    },
+    {
+        "text": "our support for LLaMA 2 modules is we have",
+        "start": 380.645,
+        "duration": 2.805
+    },
+    {
+        "text": "integrated Azure AI content safety by",
+        "start": 383.45,
+        "duration": 2.34
+    },
+    {
+        "text": "default on all of these deployments.",
+        "start": 385.79,
+        "duration": 3.58
+    },
+    {
+        "text": "Azure AI content safety is basically Microsoft's additional layer",
+        "start": 389.37,
+        "duration": 4.715
+    },
+    {
+        "text": "of protection to help you",
+        "start": 394.085,
+        "duration": 1.875
+    },
+    {
+        "text": "mitigate any harm that could come from the model.",
+        "start": 395.96,
+        "duration": 3.05
+    },
+    {
+        "text": "It's really cool because when people",
+        "start": 399.01,
+        "duration": 2.56
+    },
+    {
+        "text": "use generative AI models we typically see them",
+        "start": 401.57,
+        "duration": 2.64
+    },
+    {
+        "text": "use a layered approach to",
+        "start": 404.21,
+        "duration": 1.5
+    },
+    {
+        "text": "safety and you can think of this as your second layer.",
+        "start": 405.71,
+        "duration": 3.545
+    },
+    {
+        "text": "The first layer is any safety built into the model",
+        "start": 409.255,
+        "duration": 2.395
+    },
+    {
+        "text": "itself but this Azure AI content safety that you are seeing and",
+        "start": 411.65,
+        "duration": 3.78
+    },
+    {
+        "text": "that's enabled by default when you go ahead and deploy",
+        "start": 415.43,
+        "duration": 1.83
+    },
+    {
+        "text": "these models is ensuring that if",
+        "start": 417.26,
+        "duration": 2.37
+    },
+    {
+        "text": "the model were to provide any kind of harmful content like if",
+        "start": 419.63,
+        "duration": 2.685
+    },
+    {
+        "text": "either the inputs or the outputs",
+        "start": 422.315,
+        "duration": 1.455
+    },
+    {
+        "text": "would love to have any harmful content,",
+        "start": 423.77,
+        "duration": 2.55
+    },
+    {
+        "text": "it would fit those out for you and",
+        "start": 426.32,
+        "duration": 1.83
+    },
+    {
+        "text": "showing that you're deploying this model in",
+        "start": 428.15,
+        "duration": 2.31
+    },
+    {
+        "text": "an extremely responsible manner",
+        "start": 430.46,
+        "duration": 1.755
+    },
+    {
+        "text": "and you're getting all of the goodness",
+        "start": 432.215,
+        "duration": 1.755
+    },
+    {
+        "text": "that Microsoft responsibility AI has",
+        "start": 433.97,
+        "duration": 1.62
+    },
+    {
+        "text": "built in into Azure AI content safety.",
+        "start": 435.59,
+        "duration": 2.33
+    },
+    {
+        "text": "That is something really really cool.",
+        "start": 437.92,
+        "duration": 1.745
+    },
+    {
+        "text": ">> It's super important to we want to make sure",
+        "start": 439.665,
+        "duration": 2.195
+    },
+    {
+        "text": "that the models are not only",
+        "start": 441.86,
+        "duration": 2.16
+    },
+    {
+        "text": "performing well for the tasks but that we're",
+        "start": 444.02,
+        "duration": 1.98
+    },
+    {
+        "text": "deploying them ethically and with those safety valves.",
+        "start": 446.0,
+        "duration": 2.385
+    },
+    {
+        "text": "It's having that extra layer that is super",
+        "start": 448.385,
+        "duration": 3.375
+    },
+    {
+        "text": "cool and hard to do as well so it's just basically built-in.",
+        "start": 451.76,
+        "duration": 3.47
+    },
+    {
+        "text": ">> That's right. I could go ahead I",
+        "start": 455.23,
+        "duration": 1.9
+    },
+    {
+        "text": "could proceed I could say yes I do want to use",
+        "start": 457.13,
+        "duration": 1.74
+    },
+    {
+        "text": "this Azure AI content safety I mean why",
+        "start": 458.87,
+        "duration": 1.65
+    },
+    {
+        "text": "not I would definitely want to use any prediction",
+        "start": 460.52,
+        "duration": 2.37
+    },
+    {
+        "text": "Microsoft can offer and then this would end up pulling up like",
+        "start": 462.89,
+        "duration": 3.81
+    },
+    {
+        "text": "a notebook that gives you",
+        "start": 466.7,
+        "duration": 3.645
+    },
+    {
+        "text": "a code-based approach deploying",
+        "start": 470.345,
+        "duration": 1.905
+    },
+    {
+        "text": "this with Azure AI eye-contact safety built in.",
+        "start": 472.25,
+        "duration": 3.25
+    },
+    {
+        "text": ">> This notebook goes through step-by-step in",
+        "start": 475.67,
+        "duration": 4.11
+    },
+    {
+        "text": "Python code to deploy the endpoint can we look",
+        "start": 479.78,
+        "duration": 3.96
+    },
+    {
+        "text": "through it a little bit and just see what",
+        "start": 483.74,
+        "duration": 1.59
+    },
+    {
+        "text": "those steps look like are they pretty standard for",
+        "start": 485.33,
+        "duration": 2.52
+    },
+    {
+        "text": "any Azure ML endpoint deployment or is there",
+        "start": 487.85,
+        "duration": 2.76
+    },
+    {
+        "text": "anything special that's happening that people should be aware of?",
+        "start": 490.61,
+        "duration": 3.86
+    },
+    {
+        "text": ">> This is a pretty standard notebook that uses",
+        "start": 494.47,
+        "duration": 4.105
+    },
+    {
+        "text": "standard Azure ML capabilities",
+        "start": 498.575,
+        "duration": 2.355
+    },
+    {
+        "text": "and you can take a look at the steps",
+        "start": 500.93,
+        "duration": 1.35
+    },
+    {
+        "text": "that fairly self-explanatory you are setting up",
+        "start": 502.28,
+        "duration": 3.09
+    },
+    {
+        "text": "all the requirements before you can deploy this endpoint",
+        "start": 505.37,
+        "duration": 3.66
+    },
+    {
+        "text": "you're configuring your workspace",
+        "start": 509.03,
+        "duration": 1.77
+    },
+    {
+        "text": "and then further down you can see where",
+        "start": 510.8,
+        "duration": 2.34
+    },
+    {
+        "text": "you're configuring the settings of Azure content safety.",
+        "start": 513.14,
+        "duration": 5.015
+    },
+    {
+        "text": "There's four categories of",
+        "start": 518.155,
+        "duration": 3.775
+    },
+    {
+        "text": "safety that the Azure AI content safety looks for.",
+        "start": 521.93,
+        "duration": 4.005
+    },
+    {
+        "text": "You can configure the level of moderation you want.",
+        "start": 525.935,
+        "duration": 3.335
+    },
+    {
+        "text": "All of that is being configured in here.",
+        "start": 529.27,
+        "duration": 3.25
+    },
+    {
+        "text": "Then this is where you're actually creating",
+        "start": 532.52,
+        "duration": 2.07
+    },
+    {
+        "text": "the Azure AI content if the endpoint.",
+        "start": 534.59,
+        "duration": 2.705
+    },
+    {
+        "text": "Let's take a look at an endpoint of already deployed.",
+        "start": 537.295,
+        "duration": 3.31
+    },
+    {
+        "text": "I can get into my endpoints this one here is",
+        "start": 540.605,
+        "duration": 3.045
+    },
+    {
+        "text": "an endpoint I had deployed using",
+        "start": 543.65,
+        "duration": 1.44
+    },
+    {
+        "text": "the 13 billion parameter chat modeling.",
+        "start": 545.09,
+        "duration": 2.565
+    },
+    {
+        "text": "If I get into the test interfacial this lets me pass",
+        "start": 547.655,
+        "duration": 4.245
+    },
+    {
+        "text": "in a sample input and see how the model would respond.",
+        "start": 551.9,
+        "duration": 4.23
+    },
+    {
+        "text": "I'm going to go in here and give it some test input.",
+        "start": 556.13,
+        "duration": 3.15
+    },
+    {
+        "text": "Since this a a chat model it has a little bit of",
+        "start": 559.28,
+        "duration": 3.12
+    },
+    {
+        "text": "back and forth in the input data I'm telling it that",
+        "start": 562.4,
+        "duration": 2.76
+    },
+    {
+        "text": "as a user I am going to Paris and I'm asking",
+        "start": 565.16,
+        "duration": 2.76
+    },
+    {
+        "text": "my chat assistant what should I see in there?",
+        "start": 567.92,
+        "duration": 2.82
+    },
+    {
+        "text": "I'm also giving it some standard content",
+        "start": 570.74,
+        "duration": 3.425
+    },
+    {
+        "text": "that the model would get back and I'm",
+        "start": 574.165,
+        "duration": 3.175
+    },
+    {
+        "text": "asking it what is so great about Number 1.",
+        "start": 577.34,
+        "duration": 2.46
+    },
+    {
+        "text": "You can see a little bit about how this is really",
+        "start": 579.8,
+        "duration": 2.52
+    },
+    {
+        "text": "conversational in a sense that there's",
+        "start": 582.32,
+        "duration": 2.82
+    },
+    {
+        "text": "this chat going back and forth where it's",
+        "start": 585.14,
+        "duration": 2.49
+    },
+    {
+        "text": "telling me Paris is the capital of France",
+        "start": 587.63,
+        "duration": 2.79
+    },
+    {
+        "text": "and there's the Eiffel Tower and the Louvre",
+        "start": 590.42,
+        "duration": 2.76
+    },
+    {
+        "text": "and the Notre-Dame and I'm really",
+        "start": 593.18,
+        "duration": 1.29
+    },
+    {
+        "text": "asking it what so great about Number 1.",
+        "start": 594.47,
+        "duration": 1.835
+    },
+    {
+        "text": "Let's see how the model does when I give it that.",
+        "start": 596.305,
+        "duration": 3.395
+    },
+    {
+        "text": ">> Excellent. Right here you can see",
+        "start": 601.02,
+        "duration": 2.89
+    },
+    {
+        "text": "the model has given us an excellent answer.",
+        "start": 603.91,
+        "duration": 2.34
+    },
+    {
+        "text": "It understood that I was asking about the first suggestion.",
+        "start": 606.25,
+        "duration": 3.315
+    },
+    {
+        "text": "It starts telling me about all the things that are unique",
+        "start": 609.565,
+        "duration": 2.61
+    },
+    {
+        "text": "about the Eiffel Tower and",
+        "start": 612.175,
+        "duration": 1.845
+    },
+    {
+        "text": "why as a visitor I should care and go with.",
+        "start": 614.02,
+        "duration": 2.415
+    },
+    {
+        "text": ">> I have a question on that. I see you",
+        "start": 616.435,
+        "duration": 1.635
+    },
+    {
+        "text": "have two different content blocks.",
+        "start": 618.07,
+        "duration": 1.44
+    },
+    {
+        "text": "That's basically the information",
+        "start": 619.51,
+        "duration": 2.13
+    },
+    {
+        "text": "with that you're sending it in about Paris.",
+        "start": 621.64,
+        "duration": 2.505
+    },
+    {
+        "text": "Would that be something that they would have",
+        "start": 624.145,
+        "duration": 2.175
+    },
+    {
+        "text": "got from the model when asking and",
+        "start": 626.32,
+        "duration": 2.04
+    },
+    {
+        "text": "then we're sending in that additional information",
+        "start": 628.36,
+        "duration": 2.19
+    },
+    {
+        "text": "to get more information on that?",
+        "start": 630.55,
+        "duration": 1.725
+    },
+    {
+        "text": "Or is that you giving the model information to ground as answers?",
+        "start": 632.275,
+        "duration": 6.42
+    },
+    {
+        "text": ">> Yes it's like me giving the model",
+        "start": 638.695,
+        "duration": 2.295
+    },
+    {
+        "text": "some context about my question.",
+        "start": 640.99,
+        "duration": 2.7
+    },
+    {
+        "text": "Getting the model to give me a response because",
+        "start": 643.69,
+        "duration": 2.64
+    },
+    {
+        "text": "most chat is not like one of questions and answers.",
+        "start": 646.33,
+        "duration": 2.925
+    },
+    {
+        "text": "There's context and there's back and forth,",
+        "start": 649.255,
+        "duration": 1.545
+    },
+    {
+        "text": "so you can see everything I've given in",
+        "start": 650.8,
+        "duration": 2.28
+    },
+    {
+        "text": "the input is what me as a user is chatting",
+        "start": 653.08,
+        "duration": 2.79
+    },
+    {
+        "text": "with the model and giving it context about",
+        "start": 655.87,
+        "duration": 1.5
+    },
+    {
+        "text": "my question and then the result is",
+        "start": 657.37,
+        "duration": 1.95
+    },
+    {
+        "text": "what the model gave me based on",
+        "start": 659.32,
+        "duration": 1.41
+    },
+    {
+        "text": "my question and the context that I provided it.",
+        "start": 660.73,
+        "duration": 2.49
+    },
+    {
+        "text": "Then out here are the additional parameters I can",
+        "start": 663.22,
+        "duration": 2.55
+    },
+    {
+        "text": "configure to click the answers it gives me.",
+        "start": 665.77,
+        "duration": 3.075
+    },
+    {
+        "text": ">> Then the limitation you would just be the amount of tokens.",
+        "start": 668.845,
+        "duration": 2.94
+    },
+    {
+        "text": "I could have as many input outputs sections in there for",
+        "start": 671.785,
+        "duration": 4.125
+    },
+    {
+        "text": "additional contexts in conversational going",
+        "start": 675.91,
+        "duration": 2.415
+    },
+    {
+        "text": "until I hit that max token limit.",
+        "start": 678.325,
+        "duration": 2.04
+    },
+    {
+        "text": ">> That's right.",
+        "start": 680.365,
+        "duration": 0.93
+    },
+    {
+        "text": ">> Cool. We saw how we are able to",
+        "start": 681.295,
+        "duration": 3.0
+    },
+    {
+        "text": "grab the model from the model catalog.",
+        "start": 684.295,
+        "duration": 3.66
+    },
+    {
+        "text": "It's already there we have this deployment the code's there",
+        "start": 687.955,
+        "duration": 3.255
+    },
+    {
+        "text": "for us we set it up we get an endpoint in Azure ML.",
+        "start": 691.21,
+        "duration": 3.69
+    },
+    {
+        "text": "Now the endpoint is what we can then use in",
+        "start": 694.9,
+        "duration": 3.15
+    },
+    {
+        "text": "our applications or in",
+        "start": 698.05,
+        "duration": 1.23
+    },
+    {
+        "text": "prompt flow like we're going to take a look at.",
+        "start": 699.28,
+        "duration": 2.685
+    },
+    {
+        "text": "I'm going to share my screen now and",
+        "start": 701.965,
+        "duration": 2.505
+    },
+    {
+        "text": "we are going to take a look at how we",
+        "start": 704.47,
+        "duration": 1.74
+    },
+    {
+        "text": "can leverage the endpoint that we created in prompt flow.",
+        "start": 706.21,
+        "duration": 4.02
+    },
+    {
+        "text": "Here is the prompt flow that I've already",
+        "start": 710.23,
+        "duration": 2.07
+    },
+    {
+        "text": "created and I'm going to walk through what's",
+        "start": 712.3,
+        "duration": 1.98
+    },
+    {
+        "text": "happening here and how it all comes",
+        "start": 714.28,
+        "duration": 2.07
+    },
+    {
+        "text": "together in Azure ML with the prompt flow tool.",
+        "start": 716.35,
+        "duration": 3.21
+    },
+    {
+        "text": "Obviously we need inputs so we're going to ask it a question and",
+        "start": 719.56,
+        "duration": 3.51
+    },
+    {
+        "text": "this particular scenario is around an HLP manufacturing.",
+        "start": 723.07,
+        "duration": 5.235
+    },
+    {
+        "text": "Unlike retail scenario where",
+        "start": 728.305,
+        "duration": 2.685
+    },
+    {
+        "text": "they're going to ask questions about the product.",
+        "start": 730.99,
+        "duration": 2.64
+    },
+    {
+        "text": "What we want to do is we want to be",
+        "start": 733.63,
+        "duration": 1.68
+    },
+    {
+        "text": "able to add grounded truth about the products.",
+        "start": 735.31,
+        "duration": 2.04
+    },
+    {
+        "text": "We want to retrieve documentation from",
+        "start": 737.35,
+        "duration": 2.865
+    },
+    {
+        "text": "our cognitive search database",
+        "start": 740.215,
+        "duration": 3.27
+    },
+    {
+        "text": "that is going to be able to add in",
+        "start": 743.485,
+        "duration": 1.995
+    },
+    {
+        "text": "that breath in information into our prompt.",
+        "start": 745.48,
+        "duration": 2.13
+    },
+    {
+        "text": "Then we also want to have customer specific information,",
+        "start": 747.61,
+        "duration": 3.33
+    },
+    {
+        "text": "so we're going to use our Cosmos database",
+        "start": 750.94,
+        "duration": 1.8
+    },
+    {
+        "text": "and we're going to be able to call that.",
+        "start": 752.74,
+        "duration": 1.695
+    },
+    {
+        "text": "If you see in the first part here we have our Customer ID.",
+        "start": 754.435,
+        "duration": 3.09
+    },
+    {
+        "text": "We're able to make that call out to get",
+        "start": 757.525,
+        "duration": 1.755
+    },
+    {
+        "text": "that information and then we just have a default question.",
+        "start": 759.28,
+        "duration": 3.075
+    },
+    {
+        "text": "The first thing we're going to do is the question embedding",
+        "start": 762.355,
+        "duration": 3.21
+    },
+    {
+        "text": "and this is to get our text input.",
+        "start": 765.565,
+        "duration": 3.36
+    },
+    {
+        "text": "Then we're going to create the",
+        "start": 768.925,
+        "duration": 1.365
+    },
+    {
+        "text": "embedding output which we're going to",
+        "start": 770.29,
+        "duration": 1.2
+    },
+    {
+        "text": "send it to our cognitive search database.",
+        "start": 771.49,
+        "duration": 3.63
+    },
+    {
+        "text": "The other thing that we're doing here is",
+        "start": 775.12,
+        "duration": 2.655
+    },
+    {
+        "text": "we are going to be doing the customer lookup.",
+        "start": 777.775,
+        "duration": 1.875
+    },
+    {
+        "text": "Like I said we have a Cosmos database that we",
+        "start": 779.65,
+        "duration": 1.8
+    },
+    {
+        "text": "want to look up customer information.",
+        "start": 781.45,
+        "duration": 2.31
+    },
+    {
+        "text": "If you take a look at how these work you",
+        "start": 783.76,
+        "duration": 2.16
+    },
+    {
+        "text": "can see that we're sending in that customer ID.",
+        "start": 785.92,
+        "duration": 2.055
+    },
+    {
+        "text": "We have this connection here so this is the connection that",
+        "start": 787.975,
+        "duration": 2.595
+    },
+    {
+        "text": "we've set up to call it database.",
+        "start": 790.57,
+        "duration": 2.73
+    },
+    {
+        "text": "Then you can even take a look at the output and",
+        "start": 793.3,
+        "duration": 2.13
+    },
+    {
+        "text": "see what we're getting back based on this customer ID.",
+        "start": 795.43,
+        "duration": 3.78
+    },
+    {
+        "text": "We're able to see the different orders",
+        "start": 799.21,
+        "duration": 1.65
+    },
+    {
+        "text": "and information that we want to add.",
+        "start": 800.86,
+        "duration": 1.59
+    },
+    {
+        "text": "Now how you get these different connections into prompt flow let",
+        "start": 802.45,
+        "duration": 3.18
+    },
+    {
+        "text": "me show you that quickly and open up a new tab here.",
+        "start": 805.63,
+        "duration": 4.06
+    },
+    {
+        "text": "Within prompt flow we have these connections and these are",
+        "start": 810.66,
+        "duration": 3.19
+    },
+    {
+        "text": "really basic key-value pairs that you",
+        "start": 813.85,
+        "duration": 2.46
+    },
+    {
+        "text": "can connect different assets that you want to use within the flow.",
+        "start": 816.31,
+        "duration": 3.105
+    },
+    {
+        "text": "For example, we had the Llama-completion one,",
+        "start": 819.415,
+        "duration": 3.075
+    },
+    {
+        "text": "this is the endpoint that we created earlier.",
+        "start": 822.49,
+        "duration": 4.02
+    },
+    {
+        "text": "Then we're adding that as connections so we",
+        "start": 826.51,
+        "duration": 1.86
+    },
+    {
+        "text": "can call it from our workflow we're using",
+        "start": 828.37,
+        "duration": 1.68
+    },
+    {
+        "text": "the Cosmos connection here this one is calling out to that.",
+        "start": 830.05,
+        "duration": 4.605
+    },
+    {
+        "text": "These are how we create",
+        "start": 834.655,
+        "duration": 1.395
+    },
+    {
+        "text": "the different connections that we need in order to call",
+        "start": 836.05,
+        "duration": 2.13
+    },
+    {
+        "text": "out for different data or different endpoints",
+        "start": 838.18,
+        "duration": 1.935
+    },
+    {
+        "text": "within the workflow itself.",
+        "start": 840.115,
+        "duration": 1.83
+    },
+    {
+        "text": "Just put it in that context of where these connections are",
+        "start": 841.945,
+        "duration": 3.735
+    },
+    {
+        "text": "coming from and how we get that all connected within prompt flow.",
+        "start": 845.68,
+        "duration": 4.035
+    },
+    {
+        "text": "We look up our customer",
+        "start": 849.715,
+        "duration": 1.5
+    },
+    {
+        "text": "we are then calling out to our Cosmos database.",
+        "start": 851.215,
+        "duration": 3.645
+    },
+    {
+        "text": "We got our question embedding and then we are going",
+        "start": 854.86,
+        "duration": 3.21
+    },
+    {
+        "text": "to be using our search endpoint",
+        "start": 858.07,
+        "duration": 1.59
+    },
+    {
+        "text": "again another connection that we created.",
+        "start": 859.66,
+        "duration": 2.68
+    },
+    {
+        "text": "One thing that I think is super interesting about",
+        "start": 862.71,
+        "duration": 3.25
+    },
+    {
+        "text": "the question embedding is you'll look and",
+        "start": 865.96,
+        "duration": 2.22
+    },
+    {
+        "text": "we are using an open AI endpoint.",
+        "start": 868.18,
+        "duration": 2.85
+    },
+    {
+        "text": "Which is also a connection here in",
+        "start": 871.03,
+        "duration": 2.61
+    },
+    {
+        "text": "order to create that vector embedding in order for our search.",
+        "start": 873.64,
+        "duration": 2.98
+    },
+    {
+        "text": "The way that cognitive search works is when you chunk in",
+        "start": 876.62,
+        "duration": 3.1
+    },
+    {
+        "text": "your documents and your data into it.",
+        "start": 879.72,
+        "duration": 3.555
+    },
+    {
+        "text": "You choose a model that will do the embedding for you.",
+        "start": 883.275,
+        "duration": 3.39
+    },
+    {
+        "text": "We're going to be using that same embedding for our question",
+        "start": 886.665,
+        "duration": 3.235
+    },
+    {
+        "text": "that we did when we created",
+        "start": 889.9,
+        "duration": 1.26
+    },
+    {
+        "text": "our vector database with cognitive search.",
+        "start": 891.16,
+        "duration": 2.1
+    },
+    {
+        "text": "We're going to be doing a more in-depth show",
+        "start": 893.26,
+        "duration": 2.16
+    },
+    {
+        "text": "on cognitive search so if that stuff",
+        "start": 895.42,
+        "duration": 1.26
+    },
+    {
+        "text": "interests you be sure to tune",
+        "start": 896.68,
+        "duration": 1.89
+    },
+    {
+        "text": "in and I think a couple of weeks is when that one will be up.",
+        "start": 898.57,
+        "duration": 2.7
+    },
+    {
+        "text": "Then once we have that we're retrieving the documentation",
+        "start": 901.27,
+        "duration": 3.03
+    },
+    {
+        "text": "again you can see here the different outputs in",
+        "start": 904.3,
+        "duration": 2.58
+    },
+    {
+        "text": "order to add that grounding data that we",
+        "start": 906.88,
+        "duration": 1.77
+    },
+    {
+        "text": "need to add into the model to add into our prompt.",
+        "start": 908.65,
+        "duration": 3.825
+    },
+    {
+        "text": "Any additional chat history can be sent in",
+        "start": 912.475,
+        "duration": 2.685
+    },
+    {
+        "text": "and then we're creating the prompt itself.",
+        "start": 915.16,
+        "duration": 2.625
+    },
+    {
+        "text": "When you look at the prompt itself putting together the input that",
+        "start": 917.785,
+        "duration": 3.495
+    },
+    {
+        "text": "we need based on all of these things that we've ran already,",
+        "start": 921.28,
+        "duration": 3.435
+    },
+    {
+        "text": "which is going to create the prompt for",
+        "start": 924.715,
+        "duration": 1.545
+    },
+    {
+        "text": "the Llama model and",
+        "start": 926.26,
+        "duration": 2.43
+    },
+    {
+        "text": "you can see what that output looks like as well.",
+        "start": 928.69,
+        "duration": 2.715
+    },
+    {
+        "text": "Once we have that ready then we're",
+        "start": 931.405,
+        "duration": 2.835
+    },
+    {
+        "text": "going to be sending that into the Llama model itself.",
+        "start": 934.24,
+        "duration": 2.19
+    },
+    {
+        "text": "Here you can see this is just Python code",
+        "start": 936.43,
+        "duration": 2.22
+    },
+    {
+        "text": "in this tool widget in our workflow.",
+        "start": 938.65,
+        "duration": 4.365
+    },
+    {
+        "text": "We can go through here and we can see the connection again,",
+        "start": 943.015,
+        "duration": 4.5
+    },
+    {
+        "text": "I showed you we had that Llama connection where we",
+        "start": 947.515,
+        "duration": 1.845
+    },
+    {
+        "text": "created our endpoint from the model catalog.",
+        "start": 949.36,
+        "duration": 2.91
+    },
+    {
+        "text": "Now we're able to just call that and get our response,",
+        "start": 952.27,
+        "duration": 3.63
+    },
+    {
+        "text": "pass the response and print it to the output.",
+        "start": 955.9,
+        "duration": 3.975
+    },
+    {
+        "text": "That's high-level step-by-step how are",
+        "start": 959.875,
+        "duration": 2.415
+    },
+    {
+        "text": "going through and putting this all together.",
+        "start": 962.29,
+        "duration": 2.535
+    },
+    {
+        "text": "Let's take a look at how that works.",
+        "start": 964.825,
+        "duration": 2.115
+    },
+    {
+        "text": "In order to test this I'm going to click \"Chat\".",
+        "start": 966.94,
+        "duration": 4.03
+    },
+    {
+        "text": "Then I'm going to ask you a question about",
+        "start": 971.16,
+        "duration": 2.5
+    },
+    {
+        "text": "the Homekit maxcharge adapter.",
+        "start": 973.66,
+        "duration": 3.0
+    },
+    {
+        "text": "Now this is going to go through",
+        "start": 976.66,
+        "duration": 1.485
+    },
+    {
+        "text": "each of those steps that we just saw.",
+        "start": 978.145,
+        "duration": 1.53
+    },
+    {
+        "text": "It's going get my customer information,",
+        "start": 979.675,
+        "duration": 2.325
+    },
+    {
+        "text": "it's going to create that embedding,",
+        "start": 982.0,
+        "duration": 1.29
+    },
+    {
+        "text": "it's going to get the grounding information",
+        "start": 983.29,
+        "duration": 2.88
+    },
+    {
+        "text": "from our cognitive search database.",
+        "start": 986.17,
+        "duration": 2.685
+    },
+    {
+        "text": "It's going to generate that prompt.",
+        "start": 988.855,
+        "duration": 2.025
+    },
+    {
+        "text": "It's going to send the prompt into",
+        "start": 990.88,
+        "duration": 1.47
+    },
+    {
+        "text": "the Llama model the endpoint that we",
+        "start": 992.35,
+        "duration": 1.5
+    },
+    {
+        "text": "created we're going to get back",
+        "start": 993.85,
+        "duration": 1.26
+    },
+    {
+        "text": "the results and it's going to show it here.",
+        "start": 995.11,
+        "duration": 2.8
+    },
+    {
+        "text": "There you go. Then once you deploy this it",
+        "start": 1000.2,
+        "duration": 4.6
+    },
+    {
+        "text": "creates an endpoint and you can",
+        "start": 1004.8,
+        "duration": 1.53
+    },
+    {
+        "text": "then leverage that endpoint in your application.",
+        "start": 1006.33,
+        "duration": 3.94
+    },
+    {
+        "text": "We went over a lot we went over how you can",
+        "start": 1010.28,
+        "duration": 3.73
+    },
+    {
+        "text": "leverage the models in the Azure Machine Learning catalog.",
+        "start": 1014.01,
+        "duration": 3.36
+    },
+    {
+        "text": "Create those endpoints,",
+        "start": 1017.37,
+        "duration": 1.89
+    },
+    {
+        "text": "fine tune them, deploy them,",
+        "start": 1019.26,
+        "duration": 2.73
+    },
+    {
+        "text": "and then use prompt flow to create",
+        "start": 1021.99,
+        "duration": 3.3
+    },
+    {
+        "text": "your endpoint that you can use in",
+        "start": 1025.29,
+        "duration": 1.83
+    },
+    {
+        "text": "your application by leveraging these large language models.",
+        "start": 1027.12,
+        "duration": 3.48
+    },
+    {
+        "text": "Super cool, lots of potential",
+        "start": 1030.6,
+        "duration": 2.31
+    },
+    {
+        "text": "can't wait to see what people start to build with this.",
+        "start": 1032.91,
+        "duration": 2.67
+    },
+    {
+        "text": "Where can they go to learn more?",
+        "start": 1035.58,
+        "duration": 2.88
+    },
+    {
+        "text": ">> That's absolutely right. The goodness",
+        "start": 1038.46,
+        "duration": 2.82
+    },
+    {
+        "text": "of this is the cool stuff that people",
+        "start": 1041.28,
+        "duration": 1.5
+    },
+    {
+        "text": "are going to build with Llama 2 and with Azure capabilities.",
+        "start": 1042.78,
+        "duration": 3.57
+    },
+    {
+        "text": "They can read all about this in a blog post that we have.",
+        "start": 1046.35,
+        "duration": 3.66
+    },
+    {
+        "text": "We also have documentation that calls out how they can use",
+        "start": 1050.01,
+        "duration": 3.3
+    },
+    {
+        "text": "foundation models in Azure and",
+        "start": 1053.31,
+        "duration": 2.085
+    },
+    {
+        "text": "talks about everything in the model catalog.",
+        "start": 1055.395,
+        "duration": 2.55
+    },
+    {
+        "text": "There's lots of cool resources for",
+        "start": 1057.945,
+        "duration": 1.905
+    },
+    {
+        "text": "people to learn more and get started.",
+        "start": 1059.85,
+        "duration": 1.815
+    },
+    {
+        "text": "We can't wait to see what people are going",
+        "start": 1061.665,
+        "duration": 1.485
+    },
+    {
+        "text": "to build with Llama 2 and Azure.",
+        "start": 1063.15,
+        "duration": 2.16
+    },
+    {
+        "text": ">> Awesome I shared those links there,",
+        "start": 1065.31,
+        "duration": 2.34
+    },
+    {
+        "text": "they'll also be available in the description.",
+        "start": 1067.65,
+        "duration": 1.935
+    },
+    {
+        "text": "Thank you so much for hanging out with us today.",
+        "start": 1069.585,
+        "duration": 2.655
+    },
+    {
+        "text": ">> Thank you",
+        "start": 1072.24,
+        "duration": 2.29
+    }
+]

@@ -1,0 +1,4922 @@
+[
+    {
+        "text": ">> You're not going to want to miss this episode of the AI Show.",
+        "start": 0.0,
+        "duration": 2.25
+    },
+    {
+        "text": "We're talking all about Content Safety on Azure,",
+        "start": 2.25,
+        "duration": 3.18
+    },
+    {
+        "text": "creating safer online communities",
+        "start": 5.43,
+        "duration": 1.32
+    },
+    {
+        "text": "with multi-modal content-filtering AI.",
+        "start": 6.75,
+        "duration": 2.97
+    },
+    {
+        "text": "Make sure you tune in.",
+        "start": 9.72,
+        "duration": 1.95
+    },
+    {
+        "text": "[MUSIC] Hello and welcome to this episode of the AI Show.",
+        "start": 11.67,
+        "duration": 8.94
+    },
+    {
+        "text": "We're talking all about Azure Content Safety,",
+        "start": 20.61,
+        "duration": 2.34
+    },
+    {
+        "text": "creating safer online communities with",
+        "start": 22.95,
+        "duration": 1.71
+    },
+    {
+        "text": "multi-modal content-filtering AI with Sarah Bird.",
+        "start": 24.66,
+        "duration": 3.36
+    },
+    {
+        "text": "Sarah, how you doing my friend?",
+        "start": 28.02,
+        "duration": 1.44
+    },
+    {
+        "text": ">> I'm great. How are you, sir?",
+        "start": 29.46,
+        "duration": 2.355
+    },
+    {
+        "text": ">> Fantastic. Sarah and I are colleagues,",
+        "start": 31.815,
+        "duration": 3.105
+    },
+    {
+        "text": "but she's so good at this stuff that we're talking about today.",
+        "start": 34.92,
+        "duration": 3.6
+    },
+    {
+        "text": "Every time I have a question I'm like typing at her,",
+        "start": 38.52,
+        "duration": 2.1
+    },
+    {
+        "text": "hey, I don't know how to do something.",
+        "start": 40.62,
+        "duration": 1.94
+    },
+    {
+        "text": "She's like, here's the doc, go read it.",
+        "start": 42.56,
+        "duration": 4.45
+    },
+    {
+        "text": "So much good stuff that you all have written and done.",
+        "start": 47.01,
+        "duration": 2.47
+    },
+    {
+        "text": "I'm so glad you're here. Tell us",
+        "start": 49.48,
+        "duration": 1.24
+    },
+    {
+        "text": "about who you are and what you do for those who don't know.",
+        "start": 50.72,
+        "duration": 2.345
+    },
+    {
+        "text": ">> I'm Sarah, you already said that.",
+        "start": 53.065,
+        "duration": 2.54
+    },
+    {
+        "text": "I lead responsible AI engineering for Microsoft.",
+        "start": 55.605,
+        "duration": 3.93
+    },
+    {
+        "text": "My team focuses on",
+        "start": 59.535,
+        "duration": 2.58
+    },
+    {
+        "text": "taking the new foundational AI technology we're developing,",
+        "start": 62.115,
+        "duration": 3.8
+    },
+    {
+        "text": "ensuring that we're developing it responsibly,",
+        "start": 65.915,
+        "duration": 2.475
+    },
+    {
+        "text": "whether that's working with OpenAI or working on our own models,",
+        "start": 68.39,
+        "duration": 2.91
+    },
+    {
+        "text": "and then working with our application inside of Microsoft and",
+        "start": 71.3,
+        "duration": 3.72
+    },
+    {
+        "text": "customers to figure out how do we make",
+        "start": 75.02,
+        "duration": 1.86
+    },
+    {
+        "text": "a complete application that's responsible.",
+        "start": 76.88,
+        "duration": 2.13
+    },
+    {
+        "text": "We take what we learn from that and we turn it into",
+        "start": 79.01,
+        "duration": 2.1
+    },
+    {
+        "text": "a platform technology that you can",
+        "start": 81.11,
+        "duration": 1.74
+    },
+    {
+        "text": "use when you're developing your own applications,",
+        "start": 82.85,
+        "duration": 2.265
+    },
+    {
+        "text": "which is what we're going to be talking about today.",
+        "start": 85.115,
+        "duration": 1.82
+    },
+    {
+        "text": ">> I love it. Are we talking specifically about?",
+        "start": 86.935,
+        "duration": 2.665
+    },
+    {
+        "text": "Because when we talk about Content Safety when it comes to AI,",
+        "start": 89.6,
+        "duration": 3.51
+    },
+    {
+        "text": "it's a very large dynamic field from small models,",
+        "start": 93.11,
+        "duration": 6.46
+    },
+    {
+        "text": "that's like scikit-learn,",
+        "start": 99.57,
+        "duration": 1.34
+    },
+    {
+        "text": "all the way to LLMs, large language models.",
+        "start": 100.91,
+        "duration": 2.55
+    },
+    {
+        "text": "Which part of the spectrum are we're going to talk about today?",
+        "start": 103.46,
+        "duration": 3.395
+    },
+    {
+        "text": ">> Well, today actually we're talking about",
+        "start": 106.855,
+        "duration": 2.425
+    },
+    {
+        "text": "a new safety system we've developed Azure AI Content Safety,",
+        "start": 109.28,
+        "duration": 3.78
+    },
+    {
+        "text": "which is designed to be an independent safety system that you",
+        "start": 113.06,
+        "duration": 4.485
+    },
+    {
+        "text": "could use to make",
+        "start": 117.545,
+        "duration": 1.245
+    },
+    {
+        "text": "your online communities safer for user-generated content,",
+        "start": 118.79,
+        "duration": 3.47
+    },
+    {
+        "text": "but you can also use as",
+        "start": 122.26,
+        "duration": 1.24
+    },
+    {
+        "text": "a responsible AI safety system",
+        "start": 123.5,
+        "duration": 2.1
+    },
+    {
+        "text": "with any of those types of models actually.",
+        "start": 125.6,
+        "duration": 2.1
+    },
+    {
+        "text": "We've built it into Azure OpenAI.",
+        "start": 127.7,
+        "duration": 2.64
+    },
+    {
+        "text": "If you're using generative AI applications,",
+        "start": 130.34,
+        "duration": 2.28
+    },
+    {
+        "text": "which I hope you are, then",
+        "start": 132.62,
+        "duration": 2.04
+    },
+    {
+        "text": "you know it's already built in and we can show that.",
+        "start": 134.66,
+        "duration": 1.83
+    },
+    {
+        "text": "But if you're making your own model that's generating content,",
+        "start": 136.49,
+        "duration": 3.36
+    },
+    {
+        "text": "you're using an open source model,",
+        "start": 139.85,
+        "duration": 1.33
+    },
+    {
+        "text": "it works for that too.",
+        "start": 141.18,
+        "duration": 1.54
+    },
+    {
+        "text": ">> This could basically be used as a service to catch any content,",
+        "start": 142.72,
+        "duration": 6.1
+    },
+    {
+        "text": "text content I'm assuming.",
+        "start": 148.82,
+        "duration": 2.31
+    },
+    {
+        "text": ">> Also images, and video,",
+        "start": 151.13,
+        "duration": 2.61
+    },
+    {
+        "text": "and audio coming soon.",
+        "start": 153.74,
+        "duration": 1.655
+    },
+    {
+        "text": ">> Oh my goodness. This is basically",
+        "start": 155.395,
+        "duration": 2.365
+    },
+    {
+        "text": "a service where you can in theory,",
+        "start": 157.76,
+        "duration": 3.195
+    },
+    {
+        "text": "I mean not in theory, in practice say any content to it",
+        "start": 160.955,
+        "duration": 3.045
+    },
+    {
+        "text": "and it can tell you what kinds of things.",
+        "start": 164.0,
+        "duration": 3.535
+    },
+    {
+        "text": "What kinds of things can it tell you like,",
+        "start": 167.535,
+        "duration": 2.085
+    },
+    {
+        "text": "don't show this or?",
+        "start": 169.62,
+        "duration": 1.92
+    },
+    {
+        "text": ">> Yeah. The version that's released today",
+        "start": 171.54,
+        "duration": 3.805
+    },
+    {
+        "text": "focuses on four content categories: violent content,",
+        "start": 175.345,
+        "duration": 4.765
+    },
+    {
+        "text": "hateful content, sexual content,",
+        "start": 180.11,
+        "duration": 2.43
+    },
+    {
+        "text": "and self-harm content across the areas of text and images.",
+        "start": 182.54,
+        "duration": 5.83
+    },
+    {
+        "text": "We have multimodal in preview,",
+        "start": 188.37,
+        "duration": 1.59
+    },
+    {
+        "text": "which we'll be looking at the combination of those.",
+        "start": 189.96,
+        "duration": 2.34
+    },
+    {
+        "text": "If you're interested in that, reach out.",
+        "start": 192.3,
+        "duration": 1.94
+    },
+    {
+        "text": "It's in a private preview.",
+        "start": 194.24,
+        "duration": 1.71
+    },
+    {
+        "text": "But it enables you to basically put in any type of content,",
+        "start": 195.95,
+        "duration": 5.19
+    },
+    {
+        "text": "whether that's like a prompter,",
+        "start": 201.14,
+        "duration": 1.26
+    },
+    {
+        "text": "a completion, or a user's post",
+        "start": 202.4,
+        "duration": 2.58
+    },
+    {
+        "text": "and score it against those four different categories.",
+        "start": 204.98,
+        "duration": 4.485
+    },
+    {
+        "text": "You'll get a score out that says, hey,",
+        "start": 209.465,
+        "duration": 2.295
+    },
+    {
+        "text": "this is hateful content at a low severity level.",
+        "start": 211.76,
+        "duration": 3.6
+    },
+    {
+        "text": "Or if it's something extremely problematic,",
+        "start": 215.36,
+        "duration": 2.28
+    },
+    {
+        "text": "then you might see that it's hateful",
+        "start": 217.64,
+        "duration": 1.92
+    },
+    {
+        "text": "and violent and both of those are high severity.",
+        "start": 219.56,
+        "duration": 2.915
+    },
+    {
+        "text": ">> I see. This makes a lot more sense.",
+        "start": 222.475,
+        "duration": 2.51
+    },
+    {
+        "text": "I thought what we would do if you're",
+        "start": 224.985,
+        "duration": 1.985
+    },
+    {
+        "text": "okay with that is I actually cut",
+        "start": 226.97,
+        "duration": 1.83
+    },
+    {
+        "text": "the piece out of the keynote from",
+        "start": 228.8,
+        "duration": 2.13
+    },
+    {
+        "text": "Scott Guthrie's keynote, was it last week?",
+        "start": 230.93,
+        "duration": 2.51
+    },
+    {
+        "text": "No, the week before.",
+        "start": 233.44,
+        "duration": 1.46
+    },
+    {
+        "text": ">> Yeah.",
+        "start": 234.9,
+        "duration": 1.26
+    },
+    {
+        "text": ">> The week before that and I thought",
+        "start": 236.16,
+        "duration": 3.35
+    },
+    {
+        "text": "we would look at it together and then tell me, hey,",
+        "start": 239.51,
+        "duration": 2.9
+    },
+    {
+        "text": "pause and I'll pause the video and you can explain further",
+        "start": 242.41,
+        "duration": 2.92
+    },
+    {
+        "text": "because I don't think people realize but they give us like,",
+        "start": 245.33,
+        "duration": 3.465
+    },
+    {
+        "text": "hey, you have three minutes to",
+        "start": 248.795,
+        "duration": 1.845
+    },
+    {
+        "text": "explain all of everything in the universe and we're like,",
+        "start": 250.64,
+        "duration": 3.45
+    },
+    {
+        "text": "was that your experience too?",
+        "start": 254.09,
+        "duration": 1.865
+    },
+    {
+        "text": ">> Yeah. I think frankly some of",
+        "start": 255.955,
+        "duration": 3.445
+    },
+    {
+        "text": "this represents the culmination of like 18 months worth of work,",
+        "start": 259.4,
+        "duration": 3.25
+    },
+    {
+        "text": "in some cases 100 people,",
+        "start": 262.65,
+        "duration": 2.0
+    },
+    {
+        "text": "and now it turns into seven minutes in the keynote.",
+        "start": 264.65,
+        "duration": 4.305
+    },
+    {
+        "text": "There's a lot more under the covers.",
+        "start": 268.955,
+        "duration": 2.175
+    },
+    {
+        "text": "But happy that even we can tell",
+        "start": 271.13,
+        "duration": 2.16
+    },
+    {
+        "text": "the high level story to that level of audience.",
+        "start": 273.29,
+        "duration": 3.08
+    },
+    {
+        "text": ">> I love it. I'm going to hit play,",
+        "start": 276.37,
+        "duration": 1.73
+    },
+    {
+        "text": "and then if there's something you want to add that you're like,",
+        "start": 278.1,
+        "duration": 3.29
+    },
+    {
+        "text": "I was thinking this during this",
+        "start": 281.39,
+        "duration": 1.905
+    },
+    {
+        "text": "or I wish I could have talked about this,",
+        "start": 283.295,
+        "duration": 1.65
+    },
+    {
+        "text": "just say stop and I'll stop the video.",
+        "start": 284.945,
+        "duration": 1.905
+    },
+    {
+        "text": ">> Sounds great.",
+        "start": 286.85,
+        "duration": 0.96
+    },
+    {
+        "text": ">> But they're going to see us",
+        "start": 287.81,
+        "duration": 1.08
+    },
+    {
+        "text": "watching the video too, are you okay with that?",
+        "start": 288.89,
+        "duration": 2.13
+    },
+    {
+        "text": ">> Sure.",
+        "start": 291.02,
+        "duration": 1.035
+    },
+    {
+        "text": ">> Here we go.",
+        "start": 292.055,
+        "duration": 1.67
+    },
+    {
+        "text": ">> Every AI system that we build at",
+        "start": 293.725,
+        "duration": 3.575
+    },
+    {
+        "text": "Microsoft is designed to uphold our AI principle.",
+        "start": 297.3,
+        "duration": 4.43
+    },
+    {
+        "text": ">> Let me pause right here. This is the stuff",
+        "start": 301.73,
+        "duration": 1.755
+    },
+    {
+        "text": "that we're talking about Content Safety.",
+        "start": 303.485,
+        "duration": 2.125
+    },
+    {
+        "text": "Scott had a whole part of it.",
+        "start": 305.61,
+        "duration": 2.51
+    },
+    {
+        "text": "This is the same thing, did I get the right cut of the video?",
+        "start": 308.12,
+        "duration": 2.42
+    },
+    {
+        "text": ">> Yeah, exactly.",
+        "start": 310.54,
+        "duration": 1.23
+    },
+    {
+        "text": ">> Actually, Satya was talking about this as well.",
+        "start": 311.77,
+        "duration": 2.88
+    },
+    {
+        "text": "The reason for that, the reason we're talking about it,",
+        "start": 314.65,
+        "duration": 2.43
+    },
+    {
+        "text": "Satya is talking about it, Scott is talking about it,",
+        "start": 317.08,
+        "duration": 2.18
+    },
+    {
+        "text": "I'm talking about it,",
+        "start": 319.26,
+        "duration": 1.32
+    },
+    {
+        "text": "is we're at the point where the world understands",
+        "start": 320.58,
+        "duration": 2.78
+    },
+    {
+        "text": "that responsible AI and safety as part of that is",
+        "start": 323.36,
+        "duration": 3.63
+    },
+    {
+        "text": "so important in AI and in",
+        "start": 326.99,
+        "duration": 2.54
+    },
+    {
+        "text": "this AI future that",
+        "start": 329.53,
+        "duration": 1.375
+    },
+    {
+        "text": "they want to know right away what are we doing.",
+        "start": 330.905,
+        "duration": 3.165
+    },
+    {
+        "text": "I've never met a customer yet who doesn't ask",
+        "start": 334.07,
+        "duration": 3.0
+    },
+    {
+        "text": "about responsible AI side by side with generative AI now.",
+        "start": 337.07,
+        "duration": 3.135
+    },
+    {
+        "text": "Really seen it change in terms of how aware people are,",
+        "start": 340.205,
+        "duration": 4.455
+    },
+    {
+        "text": "what the expectation of users are,",
+        "start": 344.66,
+        "duration": 1.86
+    },
+    {
+        "text": "what the expectation of customers are,",
+        "start": 346.52,
+        "duration": 1.65
+    },
+    {
+        "text": "and so it's one of",
+        "start": 348.17,
+        "duration": 1.71
+    },
+    {
+        "text": "the most important topics right now. Of course, [inaudible].",
+        "start": 349.88,
+        "duration": 2.385
+    },
+    {
+        "text": ">> It's true. This is what I've been saying to everyone.",
+        "start": 352.265,
+        "duration": 4.545
+    },
+    {
+        "text": "AI is awesome,",
+        "start": 356.81,
+        "duration": 1.52
+    },
+    {
+        "text": "but it's not feature",
+        "start": 358.33,
+        "duration": 2.35
+    },
+    {
+        "text": "complete until you have the safety stuff as well.",
+        "start": 360.68,
+        "duration": 2.745
+    },
+    {
+        "text": "It's like you're driving a car without wheels.",
+        "start": 363.425,
+        "duration": 3.15
+    },
+    {
+        "text": "It's awkward and makes too much noise thing. Let me hit play.",
+        "start": 366.575,
+        "duration": 4.58
+    },
+    {
+        "text": ">> We're announcing our new",
+        "start": 371.155,
+        "duration": 1.955
+    },
+    {
+        "text": "Azure AI Content Safety service to make it easier for",
+        "start": 373.11,
+        "duration": 3.59
+    },
+    {
+        "text": "you to also test and evaluate",
+        "start": 376.7,
+        "duration": 2.52
+    },
+    {
+        "text": "your AI deployments for safety as well.",
+        "start": 379.22,
+        "duration": 3.225
+    },
+    {
+        "text": "Now the Azure AI Content Safety service provides",
+        "start": 382.445,
+        "duration": 3.45
+    },
+    {
+        "text": "the same technologies that we use",
+        "start": 385.895,
+        "duration": 2.415
+    },
+    {
+        "text": "internally to build our own Microsoft Copilot experiences.",
+        "start": 388.31,
+        "duration": 3.725
+    },
+    {
+        "text": "You can also benefit from all the learnings that we've",
+        "start": 392.035,
+        "duration": 2.695
+    },
+    {
+        "text": "had in terms of making sure that our products are secure and safe.",
+        "start": 394.73,
+        "duration": 4.08
+    },
+    {
+        "text": ">> What does he mean by that?",
+        "start": 398.81,
+        "duration": 2.195
+    },
+    {
+        "text": "We're using this internally right now,",
+        "start": 401.005,
+        "duration": 3.585
+    },
+    {
+        "text": "maybe you can unpack that a little bit for us.",
+        "start": 404.59,
+        "duration": 2.66
+    },
+    {
+        "text": ">> Yeah. In fact, I'm just going to add that we're",
+        "start": 407.25,
+        "duration": 3.2
+    },
+    {
+        "text": "announcing it and we've named it now at Build.",
+        "start": 410.45,
+        "duration": 3.96
+    },
+    {
+        "text": "But actually people have been using it and getting the benefit",
+        "start": 414.41,
+        "duration": 4.32
+    },
+    {
+        "text": "of it in Azure AI for a few months now.",
+        "start": 418.73,
+        "duration": 4.5
+    },
+    {
+        "text": "We've had integrated content filtering",
+        "start": 423.23,
+        "duration": 3.27
+    },
+    {
+        "text": "basically for a long time in Azure",
+        "start": 426.5,
+        "duration": 3.055
+    },
+    {
+        "text": "since it's in preview and before the GA.",
+        "start": 429.555,
+        "duration": 2.73
+    },
+    {
+        "text": "But in February,",
+        "start": 432.285,
+        "duration": 2.435
+    },
+    {
+        "text": "we actually updated the models",
+        "start": 434.72,
+        "duration": 3.375
+    },
+    {
+        "text": "based on newer AI technology to make them work better.",
+        "start": 438.095,
+        "duration": 4.68
+    },
+    {
+        "text": "What you're seeing there and you can see since",
+        "start": 442.775,
+        "duration": 3.075
+    },
+    {
+        "text": "February is this Azure AI Content Safety in action.",
+        "start": 445.85,
+        "duration": 4.305
+    },
+    {
+        "text": "But now what we've added is",
+        "start": 450.155,
+        "duration": 1.83
+    },
+    {
+        "text": "the ability to call it directly as its own product.",
+        "start": 451.985,
+        "duration": 3.03
+    },
+    {
+        "text": "Also the ability to control it",
+        "start": 455.015,
+        "duration": 1.485
+    },
+    {
+        "text": "so that you can change the filter settings,",
+        "start": 456.5,
+        "duration": 1.545
+    },
+    {
+        "text": "and I know we'll actually look at that in the demo in a second.",
+        "start": 458.045,
+        "duration": 3.27
+    },
+    {
+        "text": "But actually showing you that there's",
+        "start": 461.315,
+        "duration": 3.345
+    },
+    {
+        "text": "the safety system here and giving users control over it.",
+        "start": 464.66,
+        "duration": 4.52
+    },
+    {
+        "text": "Actually, the way we've developed",
+        "start": 469.18,
+        "duration": 2.68
+    },
+    {
+        "text": "these upgraded new models that came in February",
+        "start": 471.86,
+        "duration": 3.45
+    },
+    {
+        "text": "was in terms of developing everything that we",
+        "start": 475.31,
+        "duration": 2.88
+    },
+    {
+        "text": "needed to release Bing Chat.",
+        "start": 478.19,
+        "duration": 3.775
+    },
+    {
+        "text": "These were already running as part of Bing Chat,",
+        "start": 481.965,
+        "duration": 3.215
+    },
+    {
+        "text": "and GitHub Copilot,",
+        "start": 485.18,
+        "duration": 1.05
+    },
+    {
+        "text": "and many of the other applications.",
+        "start": 486.23,
+        "duration": 1.935
+    },
+    {
+        "text": "That's where we really tested them and made sure they were working",
+        "start": 488.165,
+        "duration": 3.675
+    },
+    {
+        "text": "not only in our laboratory tests but",
+        "start": 491.84,
+        "duration": 2.19
+    },
+    {
+        "text": "really impact us and with users.",
+        "start": 494.03,
+        "duration": 2.475
+    },
+    {
+        "text": "Through all of that,",
+        "start": 496.505,
+        "duration": 1.89
+    },
+    {
+        "text": "which is great because it gives us",
+        "start": 498.395,
+        "duration": 1.515
+    },
+    {
+        "text": "the ability to ensure that they work at scale,",
+        "start": 499.91,
+        "duration": 1.86
+    },
+    {
+        "text": "that they work extremely low latency,",
+        "start": 501.77,
+        "duration": 2.85
+    },
+    {
+        "text": "but also that we're really getting",
+        "start": 504.62,
+        "duration": 1.32
+    },
+    {
+        "text": "the AI quality and the nuance that we understand.",
+        "start": 505.94,
+        "duration": 3.165
+    },
+    {
+        "text": "Super excited to come to",
+        "start": 509.105,
+        "duration": 1.605
+    },
+    {
+        "text": "this moment that Scott is talking about here of announcing",
+        "start": 510.71,
+        "duration": 2.91
+    },
+    {
+        "text": "this now as a thing because there's",
+        "start": 513.62,
+        "duration": 1.89
+    },
+    {
+        "text": "been so much work that's going on to it and it's",
+        "start": 515.51,
+        "duration": 2.01
+    },
+    {
+        "text": "just been a critical system for us as",
+        "start": 517.52,
+        "duration": 2.13
+    },
+    {
+        "text": "Microsoft to be able to build our own generative AI.",
+        "start": 519.65,
+        "duration": 3.41
+    },
+    {
+        "text": "Without this AI of challenging",
+        "start": 523.06,
+        "duration": 2.38
+    },
+    {
+        "text": "to have launched any of the things we launch,",
+        "start": 525.44,
+        "duration": 2.07
+    },
+    {
+        "text": "but now for customers to just be able to use it",
+        "start": 527.51,
+        "duration": 2.1
+    },
+    {
+        "text": "directly and control it I think is a great step forward.",
+        "start": 529.61,
+        "duration": 2.875
+    },
+    {
+        "text": ">> I see. This is all of",
+        "start": 532.485,
+        "duration": 2.325
+    },
+    {
+        "text": "the generative AI things that we've put out have gotten",
+        "start": 534.81,
+        "duration": 3.14
+    },
+    {
+        "text": "the benefit of this service and it's gotten battle tests",
+        "start": 537.95,
+        "duration": 2.97
+    },
+    {
+        "text": "because the amount of people that were using",
+        "start": 540.92,
+        "duration": 1.53
+    },
+    {
+        "text": "Bing Chat was astronomical,",
+        "start": 542.45,
+        "duration": 1.9
+    },
+    {
+        "text": "and so it's got a lot of field-testing already so to speak.",
+        "start": 544.35,
+        "duration": 3.23
+    },
+    {
+        "text": ">> Yeah, exactly.",
+        "start": 547.58,
+        "duration": 1.58
+    },
+    {
+        "text": "We're constantly also improving",
+        "start": 549.16,
+        "duration": 2.32
+    },
+    {
+        "text": "it and upgrading it based on what we're",
+        "start": 551.48,
+        "duration": 2.19
+    },
+    {
+        "text": "still learning from users in",
+        "start": 553.67,
+        "duration": 1.32
+    },
+    {
+        "text": "these different applications and",
+        "start": 554.99,
+        "duration": 1.62
+    },
+    {
+        "text": "also what our customers are telling us.",
+        "start": 556.61,
+        "duration": 2.13
+    },
+    {
+        "text": "I'll say it's like 10 times.",
+        "start": 558.74,
+        "duration": 1.86
+    },
+    {
+        "text": "But if it's not filtering what you want,",
+        "start": 560.6,
+        "duration": 2.88
+    },
+    {
+        "text": "if it's overfiltering, it's underfiltering,",
+        "start": 563.48,
+        "duration": 1.56
+    },
+    {
+        "text": "send us those examples because we are",
+        "start": 565.04,
+        "duration": 2.34
+    },
+    {
+        "text": "regularly improving the model to make sure it works.",
+        "start": 567.38,
+        "duration": 2.735
+    },
+    {
+        "text": ">> That's cool. I love that we're giving customers the benefit",
+        "start": 570.115,
+        "duration": 3.535
+    },
+    {
+        "text": "of learnings from Content Safety.",
+        "start": 573.65,
+        "duration": 3.795
+    },
+    {
+        "text": "It's just cool. I'm going to hit play.",
+        "start": 577.445,
+        "duration": 1.775
+    },
+    {
+        "text": ">> Safe. To share more,",
+        "start": 579.22,
+        "duration": 2.805
+    },
+    {
+        "text": "let me introduce Sarah Bird who leads",
+        "start": 582.025,
+        "duration": 1.665
+    },
+    {
+        "text": "our responsible AI effort at Microsoft to talk about.",
+        "start": 583.69,
+        "duration": 3.3
+    },
+    {
+        "text": ">> Just as an aside, walking out,",
+        "start": 586.99,
+        "duration": 3.425
+    },
+    {
+        "text": "what's that feeling like coming out on stage?",
+        "start": 590.415,
+        "duration": 3.195
+    },
+    {
+        "text": "I looked at the numbers,",
+        "start": 593.61,
+        "duration": 1.2
+    },
+    {
+        "text": "there were some like 60,000 or so people watching.",
+        "start": 594.81,
+        "duration": 3.6
+    },
+    {
+        "text": "It was a lot of people.",
+        "start": 598.41,
+        "duration": 1.54
+    },
+    {
+        "text": "What's that like walking out?",
+        "start": 599.95,
+        "duration": 1.51
+    },
+    {
+        "text": ">> It's I think surreal.",
+        "start": 601.46,
+        "duration": 1.765
+    },
+    {
+        "text": "You can't think about it because",
+        "start": 603.225,
+        "duration": 3.225
+    },
+    {
+        "text": "you had to go first at least",
+        "start": 606.45,
+        "duration": 2.46
+    },
+    {
+        "text": "before me and you didn't die so I thought,",
+        "start": 608.91,
+        "duration": 2.67
+    },
+    {
+        "text": "well, then I probably won't die.",
+        "start": 611.58,
+        "duration": 1.44
+    },
+    {
+        "text": "But you just have to like don't think about it, just do it.",
+        "start": 613.02,
+        "duration": 3.125
+    },
+    {
+        "text": ">> A little bit of me did die, Sarah.",
+        "start": 616.145,
+        "duration": 2.805
+    },
+    {
+        "text": "I'm not going to lie.",
+        "start": 618.95,
+        "duration": 1.26
+    },
+    {
+        "text": ">> I'm glad you didn't tell me till now.",
+        "start": 620.21,
+        "duration": 2.44
+    },
+    {
+        "text": ">> Thanks Scott.",
+        "start": 625.56,
+        "duration": 1.945
+    },
+    {
+        "text": ">> You tell me when to pause.",
+        "start": 627.505,
+        "duration": 0.795
+    },
+    {
+        "text": ">> The recent breakthroughs in foundation models have",
+        "start": 628.3,
+        "duration": 2.985
+    },
+    {
+        "text": "also transformed what's possible in responsible AI,",
+        "start": 631.285,
+        "duration": 3.405
+    },
+    {
+        "text": "enabling us to develop new state of the art tools and",
+        "start": 634.69,
+        "duration": 3.63
+    },
+    {
+        "text": "technologies that previously we only could have dreamed of.",
+        "start": 638.32,
+        "duration": 4.17
+    },
+    {
+        "text": "We've built on top of the.",
+        "start": 642.49,
+        "duration": 2.83
+    },
+    {
+        "text": "First of all, this is the first time I watched",
+        "start": 646.5,
+        "duration": 2.35
+    },
+    {
+        "text": "this by the way so I hope.",
+        "start": 648.85,
+        "duration": 1.515
+    },
+    {
+        "text": ">> I hate watching myself.",
+        "start": 650.365,
+        "duration": 1.29
+    },
+    {
+        "text": "I don't know if you do, I can't stand watching myself,",
+        "start": 651.655,
+        "duration": 2.505
+    },
+    {
+        "text": "but so apologies if this is the same thing for you.",
+        "start": 654.16,
+        "duration": 2.49
+    },
+    {
+        "text": "But go ahead, tell us what you think about.",
+        "start": 656.65,
+        "duration": 1.71
+    },
+    {
+        "text": ">> But this is I think the thing that has been",
+        "start": 658.36,
+        "duration": 4.035
+    },
+    {
+        "text": "game changing for me and it's not something we talk about as much.",
+        "start": 662.395,
+        "duration": 4.47
+    },
+    {
+        "text": "But these same LLMs,",
+        "start": 666.865,
+        "duration": 2.685
+    },
+    {
+        "text": "generative AI models that deep contextual understanding that they",
+        "start": 669.55,
+        "duration": 4.11
+    },
+    {
+        "text": "have of language is what has enabled these safety breakthroughs.",
+        "start": 673.66,
+        "duration": 4.29
+    },
+    {
+        "text": "Obviously, one way that we're using this is",
+        "start": 677.95,
+        "duration": 2.535
+    },
+    {
+        "text": "Azure AI content safety to build",
+        "start": 680.485,
+        "duration": 2.04
+    },
+    {
+        "text": "much better filtering or detection models.",
+        "start": 682.525,
+        "duration": 3.24
+    },
+    {
+        "text": "But also I think what we're going to show later in this,",
+        "start": 685.765,
+        "duration": 2.565
+    },
+    {
+        "text": "the metrics on how you actually",
+        "start": 688.33,
+        "duration": 3.33
+    },
+    {
+        "text": "score the generations and",
+        "start": 691.66,
+        "duration": 1.92
+    },
+    {
+        "text": "say this one is grounded or this one is safe.",
+        "start": 693.58,
+        "duration": 2.415
+    },
+    {
+        "text": "That's GPT-4 powered annotation.",
+        "start": 695.995,
+        "duration": 2.175
+    },
+    {
+        "text": "We could not do that before GPT-4.",
+        "start": 698.17,
+        "duration": 2.46
+    },
+    {
+        "text": "It was like a pipe dream to be able to measure",
+        "start": 700.63,
+        "duration": 5.22
+    },
+    {
+        "text": "these responsibly I harms programmatically for this generations.",
+        "start": 705.85,
+        "duration": 5.985
+    },
+    {
+        "text": "GPT-4 really unlocked that for us.",
+        "start": 711.835,
+        "duration": 3.3
+    },
+    {
+        "text": "Right now, responsible areas like you",
+        "start": 715.135,
+        "duration": 2.505
+    },
+    {
+        "text": "show us how you're doing it responsibly,",
+        "start": 717.64,
+        "duration": 1.77
+    },
+    {
+        "text": "which of course they should be asking,",
+        "start": 719.41,
+        "duration": 1.41
+    },
+    {
+        "text": "but not really seen",
+        "start": 720.82,
+        "duration": 1.83
+    },
+    {
+        "text": "how much innovation this technology",
+        "start": 722.65,
+        "duration": 2.295
+    },
+    {
+        "text": "is unlocking in responsible AI.",
+        "start": 724.945,
+        "duration": 1.665
+    },
+    {
+        "text": "But that's just been a game changer for my team and for this work.",
+        "start": 726.61,
+        "duration": 4.26
+    },
+    {
+        "text": ">> Help the people understand,",
+        "start": 730.87,
+        "duration": 1.5
+    },
+    {
+        "text": "because I don't think people understand or",
+        "start": 732.37,
+        "duration": 1.38
+    },
+    {
+        "text": "maybe I don't even understand,",
+        "start": 733.75,
+        "duration": 1.68
+    },
+    {
+        "text": "what does it mean that GPT-4 unlocked?",
+        "start": 735.43,
+        "duration": 4.62
+    },
+    {
+        "text": "What did it unlock and how did it unlock it?",
+        "start": 740.05,
+        "duration": 3.18
+    },
+    {
+        "text": "Maybe [inaudible].",
+        "start": 743.23,
+        "duration": 2.13
+    },
+    {
+        "text": ">> It's specifically in",
+        "start": 745.36,
+        "duration": 1.23
+    },
+    {
+        "text": "this external papers about this now as well but it's",
+        "start": 746.59,
+        "duration": 3.69
+    },
+    {
+        "text": "specifically is much better at labeling data like a human.",
+        "start": 750.28,
+        "duration": 6.6
+    },
+    {
+        "text": "Concretely, what we did is we have our guidelines",
+        "start": 756.88,
+        "duration": 5.52
+    },
+    {
+        "text": "to label hate speech or almost 20 pages long.",
+        "start": 762.4,
+        "duration": 5.49
+    },
+    {
+        "text": "Those are used by expert linguists to say,",
+        "start": 767.89,
+        "duration": 4.02
+    },
+    {
+        "text": "what level of severity is this content?",
+        "start": 771.91,
+        "duration": 3.3
+    },
+    {
+        "text": "Is it hateful or is it not?",
+        "start": 775.21,
+        "duration": 1.485
+    },
+    {
+        "text": "It's really broken down into quite technical thing.",
+        "start": 776.695,
+        "duration": 2.34
+    },
+    {
+        "text": "Does it contain an identity trade?",
+        "start": 779.035,
+        "duration": 1.935
+    },
+    {
+        "text": "Does it have this type of sentiment?",
+        "start": 780.97,
+        "duration": 2.67
+    },
+    {
+        "text": "Does it have historical contexts or not?",
+        "start": 783.64,
+        "duration": 2.325
+    },
+    {
+        "text": "There's a lot that goes into that.",
+        "start": 785.965,
+        "duration": 1.875
+    },
+    {
+        "text": "It turns into a 20 page guidelines for expert labelers.",
+        "start": 787.84,
+        "duration": 2.91
+    },
+    {
+        "text": "We took those 20 page guidelines and we",
+        "start": 790.75,
+        "duration": 2.91
+    },
+    {
+        "text": "turn them into a prompt for GPT-4 and",
+        "start": 793.66,
+        "duration": 3.045
+    },
+    {
+        "text": "asked it to label the same way our labelers did",
+        "start": 796.705,
+        "duration": 2.655
+    },
+    {
+        "text": "and took some iteration of prompt engineering,",
+        "start": 799.36,
+        "duration": 3.225
+    },
+    {
+        "text": "the thing we're all doing now to get",
+        "start": 802.585,
+        "duration": 2.565
+    },
+    {
+        "text": "reasonable agreement between our human labelers and GPT-4.",
+        "start": 805.15,
+        "duration": 4.05
+    },
+    {
+        "text": "But that'll leave with us to actually now have",
+        "start": 809.2,
+        "duration": 3.96
+    },
+    {
+        "text": "automatic measurement every time",
+        "start": 813.16,
+        "duration": 3.57
+    },
+    {
+        "text": "we do any prompt engineering change,",
+        "start": 816.73,
+        "duration": 1.845
+    },
+    {
+        "text": "then we can rerun all of",
+        "start": 818.575,
+        "duration": 1.335
+    },
+    {
+        "text": "our different safety and responsible AI metrics,",
+        "start": 819.91,
+        "duration": 3.0
+    },
+    {
+        "text": "groundedness, jailbreak, hateful, all of that,",
+        "start": 822.91,
+        "duration": 3.81
+    },
+    {
+        "text": "and actually see the score side by side with the quality metrics.",
+        "start": 826.72,
+        "duration": 3.255
+    },
+    {
+        "text": "That mean we could actually iterate in",
+        "start": 829.975,
+        "duration": 3.105
+    },
+    {
+        "text": "balancing these different metrics as we",
+        "start": 833.08,
+        "duration": 1.8
+    },
+    {
+        "text": "developed and so that's just been game changing.",
+        "start": 834.88,
+        "duration": 2.52
+    },
+    {
+        "text": ">> That's awesome. Using GPT-4 as",
+        "start": 837.4,
+        "duration": 3.06
+    },
+    {
+        "text": "a measurement of success for labeling the different kinds of,",
+        "start": 840.46,
+        "duration": 3.75
+    },
+    {
+        "text": "let's say, hate speech,",
+        "start": 844.21,
+        "duration": 1.53
+    },
+    {
+        "text": "because then you could do things much",
+        "start": 845.74,
+        "duration": 1.53
+    },
+    {
+        "text": "faster. Is that what I'm getting it?",
+        "start": 847.27,
+        "duration": 2.145
+    },
+    {
+        "text": ">> Even to build the models now powering Azure content safety,",
+        "start": 849.415,
+        "duration": 4.5
+    },
+    {
+        "text": "that enabled us to take much larger amounts of",
+        "start": 853.915,
+        "duration": 3.255
+    },
+    {
+        "text": "training data and label them because",
+        "start": 857.17,
+        "duration": 2.28
+    },
+    {
+        "text": "we didn't need humans to label everything.",
+        "start": 859.45,
+        "duration": 2.46
+    },
+    {
+        "text": "We could actually automatically label it once we had",
+        "start": 861.91,
+        "duration": 2.61
+    },
+    {
+        "text": "gotten a labeler that agreed with our humans.",
+        "start": 864.52,
+        "duration": 3.765
+    },
+    {
+        "text": ">> Sometimes I look at this stuff and we're in it,",
+        "start": 868.285,
+        "duration": 3.24
+    },
+    {
+        "text": "but it feels like we're living in the future,",
+        "start": 871.525,
+        "duration": 2.61
+    },
+    {
+        "text": "except for the flying cars which we do not have.",
+        "start": 874.135,
+        "duration": 2.955
+    },
+    {
+        "text": "I'm very upset by that.",
+        "start": 877.09,
+        "duration": 1.095
+    },
+    {
+        "text": ">> When we get this to work.",
+        "start": 878.185,
+        "duration": 2.52
+    },
+    {
+        "text": "This was one of the,",
+        "start": 880.705,
+        "duration": 2.07
+    },
+    {
+        "text": "wow, we just really never ever thought we'd be here.",
+        "start": 882.775,
+        "duration": 3.93
+    },
+    {
+        "text": "I think people were just almost giddy that it was even working.",
+        "start": 886.705,
+        "duration": 4.29
+    },
+    {
+        "text": ">> Cool. Let's keep on.",
+        "start": 890.995,
+        "duration": 1.825
+    },
+    {
+        "text": ">> Deep understanding of text,",
+        "start": 892.82,
+        "duration": 2.575
+    },
+    {
+        "text": "image and multimodal content and have developed",
+        "start": 895.395,
+        "duration": 3.645
+    },
+    {
+        "text": "a new Azure AI service to",
+        "start": 899.04,
+        "duration": 2.625
+    },
+    {
+        "text": "automatically detect undesirable content,",
+        "start": 901.665,
+        "duration": 3.155
+    },
+    {
+        "text": "making it easier to keep online communities,",
+        "start": 904.82,
+        "duration": 3.815
+    },
+    {
+        "text": "applications and the AI systems safe.",
+        "start": 908.635,
+        "duration": 3.735
+    },
+    {
+        "text": "The thing I'm saying there specifically is pointing out that",
+        "start": 912.37,
+        "duration": 4.125
+    },
+    {
+        "text": "this can be used on its own for digital safety.",
+        "start": 916.495,
+        "duration": 4.47
+    },
+    {
+        "text": "We talk about harmful content",
+        "start": 920.965,
+        "duration": 2.685
+    },
+    {
+        "text": "online so the title of this rate keeping communities safe.",
+        "start": 923.65,
+        "duration": 3.765
+    },
+    {
+        "text": "This is something that can absolutely be used as part of",
+        "start": 927.415,
+        "duration": 3.885
+    },
+    {
+        "text": "a solution for customers looking for any type of harmful content.",
+        "start": 931.3,
+        "duration": 4.74
+    },
+    {
+        "text": "But then also, as we've talked about already,",
+        "start": 936.04,
+        "duration": 2.64
+    },
+    {
+        "text": "it's a key tool for us in using it for responsible AI,",
+        "start": 938.68,
+        "duration": 3.09
+    },
+    {
+        "text": "for generative AI and so",
+        "start": 941.77,
+        "duration": 1.695
+    },
+    {
+        "text": "it's independent of where the content is coming from,",
+        "start": 943.465,
+        "duration": 5.295
+    },
+    {
+        "text": "is looking at the contents and understanding how to score it.",
+        "start": 948.76,
+        "duration": 3.615
+    },
+    {
+        "text": ">> I mean, that's awesome because",
+        "start": 952.375,
+        "duration": 3.165
+    },
+    {
+        "text": "generally we had to use regex or something.",
+        "start": 955.54,
+        "duration": 5.52
+    },
+    {
+        "text": "We had a list of words that you couldn't use,",
+        "start": 961.06,
+        "duration": 3.48
+    },
+    {
+        "text": "but this now is getting into the nuance",
+        "start": 964.54,
+        "duration": 2.55
+    },
+    {
+        "text": "of content filtering as well in a multimodal way.",
+        "start": 967.09,
+        "duration": 2.625
+    },
+    {
+        "text": "Am I understanding right?",
+        "start": 969.715,
+        "duration": 1.44
+    },
+    {
+        "text": ">> Yeah. I think it's",
+        "start": 971.155,
+        "duration": 3.825
+    },
+    {
+        "text": "always hard to give harmful content examples that,",
+        "start": 974.98,
+        "duration": 2.355
+    },
+    {
+        "text": "you share comfortable content,",
+        "start": 977.335,
+        "duration": 2.22
+    },
+    {
+        "text": "we'll actually do examples where if you made a positive statement,",
+        "start": 979.555,
+        "duration": 3.36
+    },
+    {
+        "text": "being about an identity group, it's like saying,",
+        "start": 982.915,
+        "duration": 5.19
+    },
+    {
+        "text": "black women are strong as **** and you had profanity there",
+        "start": 988.105,
+        "duration": 5.295
+    },
+    {
+        "text": "and you got an identity trade and if you had a misspelling",
+        "start": 993.4,
+        "duration": 2.49
+    },
+    {
+        "text": "or funny capitalization, that's going to get flagged.",
+        "start": 995.89,
+        "duration": 2.595
+    },
+    {
+        "text": "It's going to say that's problematic and in the past,",
+        "start": 998.485,
+        "duration": 3.405
+    },
+    {
+        "text": "because it's just like triggering",
+        "start": 1001.89,
+        "duration": 1.17
+    },
+    {
+        "text": "all the little non-contractual alarm bells,",
+        "start": 1003.06,
+        "duration": 3.24
+    },
+    {
+        "text": "but that's a positive statement in that case and so you'll see",
+        "start": 1006.3,
+        "duration": 5.1
+    },
+    {
+        "text": "that the system understands that that is different",
+        "start": 1011.4,
+        "duration": 3.0
+    },
+    {
+        "text": "than using profanity in",
+        "start": 1014.4,
+        "duration": 2.07
+    },
+    {
+        "text": "that identity group and saying something hurtful.",
+        "start": 1016.47,
+        "duration": 2.07
+    },
+    {
+        "text": "It enables us to go farther in",
+        "start": 1018.54,
+        "duration": 2.43
+    },
+    {
+        "text": "terms of detecting the right content.",
+        "start": 1020.97,
+        "duration": 2.76
+    },
+    {
+        "text": "If you need human reviewers,",
+        "start": 1023.73,
+        "duration": 1.08
+    },
+    {
+        "text": "you need fewer of them",
+        "start": 1024.81,
+        "duration": 1.05
+    },
+    {
+        "text": "or being able to take more automatic action.",
+        "start": 1025.86,
+        "duration": 3.285
+    },
+    {
+        "text": "If we're doing real-time filtering for generative AI,",
+        "start": 1029.145,
+        "duration": 2.505
+    },
+    {
+        "text": "we're taking action automatically and so it's",
+        "start": 1031.65,
+        "duration": 2.07
+    },
+    {
+        "text": "really important that those are high quality.",
+        "start": 1033.72,
+        "duration": 2.745
+    },
+    {
+        "text": ">> That's cool but not sarcasm yet.",
+        "start": 1036.465,
+        "duration": 3.445
+    },
+    {
+        "text": ">> Maybe never, it's really hard.",
+        "start": 1040.19,
+        "duration": 3.535
+    },
+    {
+        "text": ">> We don't even know, did someone",
+        "start": 1043.725,
+        "duration": 2.565
+    },
+    {
+        "text": "just tweeted me something sarcastic? You just don't know.",
+        "start": 1046.29,
+        "duration": 3.945
+    },
+    {
+        "text": ">> Exactly.",
+        "start": 1050.235,
+        "duration": 1.62
+    },
+    {
+        "text": ">> There's problems that are hard even for humans.",
+        "start": 1051.855,
+        "duration": 3.315
+    },
+    {
+        "text": "We have a lot of contexts, so",
+        "start": 1055.17,
+        "duration": 1.41
+    },
+    {
+        "text": "certainly difficult to do that with AI.",
+        "start": 1056.58,
+        "duration": 2.31
+    },
+    {
+        "text": ">> That's awesome, Sarah.",
+        "start": 1058.89,
+        "duration": 2.62
+    },
+    {
+        "text": "I'm trying to be sarcastic. [inaudible]",
+        "start": 1061.7,
+        "duration": 5.29
+    },
+    {
+        "text": ">> Our own experience is billing GitHub Copilot, being chat,",
+        "start": 1066.99,
+        "duration": 4.65
+    },
+    {
+        "text": "and Microsoft 365 Copilot that",
+        "start": 1071.64,
+        "duration": 3.51
+    },
+    {
+        "text": "safety is a key part of building any Copilot.",
+        "start": 1075.15,
+        "duration": 4.275
+    },
+    {
+        "text": "We use a defense in depth or layered approach to safety.",
+        "start": 1079.425,
+        "duration": 5.08
+    },
+    {
+        "text": "First, we've worked with OpenAI to",
+        "start": 1084.505,
+        "duration": 2.755
+    },
+    {
+        "text": "build safety directly into the model",
+        "start": 1087.26,
+        "duration": 2.325
+    },
+    {
+        "text": "so it can recognize problematic queries and respond appropriately.",
+        "start": 1089.585,
+        "duration": 5.615
+    },
+    {
+        "text": "Now let's talk about the next two layers.",
+        "start": 1095.2,
+        "duration": 3.725
+    },
+    {
+        "text": "The layers that you control,",
+        "start": 1098.925,
+        "duration": 1.95
+    },
+    {
+        "text": "the safety system and the Meta-Prompt.",
+        "start": 1100.875,
+        "duration": 3.03
+    },
+    {
+        "text": "I'll start by showing you the safety system,",
+        "start": 1103.905,
+        "duration": 2.775
+    },
+    {
+        "text": "Azure AI Content Safety.",
+        "start": 1106.68,
+        "duration": 2.25
+    },
+    {
+        "text": "Let's take a look.",
+        "start": 1108.93,
+        "duration": 2.025
+    },
+    {
+        "text": ">> Let's pause right there because I think,",
+        "start": 1110.955,
+        "duration": 2.61
+    },
+    {
+        "text": "I'll see if I can rewind this little.",
+        "start": 1113.565,
+        "duration": 2.235
+    },
+    {
+        "text": "Yes. This is an interesting diagram.",
+        "start": 1115.8,
+        "duration": 4.81
+    },
+    {
+        "text": "It's starting to get ingrained in me a little bit",
+        "start": 1121.1,
+        "duration": 4.115
+    },
+    {
+        "text": "because the computational model of these things,",
+        "start": 1125.215,
+        "duration": 4.27
+    },
+    {
+        "text": "it feels a little to use a weird term [inaudible].",
+        "start": 1129.485,
+        "duration": 3.195
+    },
+    {
+        "text": "It's like we're not programming these things.",
+        "start": 1132.68,
+        "duration": 2.655
+    },
+    {
+        "text": "Because we're not programming these things,",
+        "start": 1135.335,
+        "duration": 3.775
+    },
+    {
+        "text": "we need to have a layered approach to safety.",
+        "start": 1139.11,
+        "duration": 3.315
+    },
+    {
+        "text": "Do you want to talk a little bit more about that?",
+        "start": 1142.425,
+        "duration": 1.695
+    },
+    {
+        "text": ">> Yeah. I think in general,",
+        "start": 1144.12,
+        "duration": 1.62
+    },
+    {
+        "text": "if you look at security, you look at anything.",
+        "start": 1145.74,
+        "duration": 1.68
+    },
+    {
+        "text": "We always have a defense in-depth approach.",
+        "start": 1147.42,
+        "duration": 2.715
+    },
+    {
+        "text": "Things are good at looking at different parts of it.",
+        "start": 1150.135,
+        "duration": 6.84
+    },
+    {
+        "text": "This is the approach we're finding, works with us today.",
+        "start": 1156.975,
+        "duration": 3.675
+    },
+    {
+        "text": "I'm sure we'll have additional parts",
+        "start": 1160.65,
+        "duration": 2.07
+    },
+    {
+        "text": "as we keep innovating and figuring out.",
+        "start": 1162.72,
+        "duration": 2.445
+    },
+    {
+        "text": "But of course, the more you can do in the model, then great.",
+        "start": 1165.165,
+        "duration": 4.2
+    },
+    {
+        "text": "That's in some ways what everyone",
+        "start": 1169.365,
+        "duration": 1.455
+    },
+    {
+        "text": "wants or what everyone thinks they want.",
+        "start": 1170.82,
+        "duration": 2.97
+    },
+    {
+        "text": "But one of the things is,",
+        "start": 1173.79,
+        "duration": 1.17
+    },
+    {
+        "text": "the model is platform tech.",
+        "start": 1174.96,
+        "duration": 2.535
+    },
+    {
+        "text": "People are building medical applications on top of it,",
+        "start": 1177.495,
+        "duration": 2.745
+    },
+    {
+        "text": "people are building news applications,",
+        "start": 1180.24,
+        "duration": 2.16
+    },
+    {
+        "text": "people are building education applications.",
+        "start": 1182.4,
+        "duration": 2.7
+    },
+    {
+        "text": "Those need different types of responses.",
+        "start": 1185.1,
+        "duration": 3.09
+    },
+    {
+        "text": "If I'm using this to summaries court documents,",
+        "start": 1188.19,
+        "duration": 3.855
+    },
+    {
+        "text": "those are crimes in them and I absolutely want it to be",
+        "start": 1192.045,
+        "duration": 2.475
+    },
+    {
+        "text": "able to summarize those accurately,",
+        "start": 1194.52,
+        "duration": 3.045
+    },
+    {
+        "text": "and that may contain actually quite graphic content.",
+        "start": 1197.565,
+        "duration": 3.285
+    },
+    {
+        "text": "We have to make sure we're putting stuff in",
+        "start": 1200.85,
+        "duration": 2.94
+    },
+    {
+        "text": "the model that we're not eliminating those use cases right there.",
+        "start": 1203.79,
+        "duration": 4.31
+    },
+    {
+        "text": "We're still enabling people to build on top.",
+        "start": 1208.1,
+        "duration": 2.58
+    },
+    {
+        "text": "That's also where this defense in-depth approach comes,",
+        "start": 1210.68,
+        "duration": 2.88
+    },
+    {
+        "text": "where at the model level we want to give it",
+        "start": 1213.56,
+        "duration": 1.89
+    },
+    {
+        "text": "the information so it understands how to",
+        "start": 1215.45,
+        "duration": 2.43
+    },
+    {
+        "text": "respond to certain types of",
+        "start": 1217.88,
+        "duration": 2.28
+    },
+    {
+        "text": "situations or like stuff that it just never do,",
+        "start": 1220.16,
+        "duration": 2.88
+    },
+    {
+        "text": "never generate illegal content.",
+        "start": 1223.04,
+        "duration": 2.265
+    },
+    {
+        "text": "We put that there in the model layer.",
+        "start": 1225.305,
+        "duration": 3.59
+    },
+    {
+        "text": "But then each layer up is giving you more customization,",
+        "start": 1228.895,
+        "duration": 3.905
+    },
+    {
+        "text": "more configuration, more control so that",
+        "start": 1232.8,
+        "duration": 3.24
+    },
+    {
+        "text": "we can get to that complete application",
+        "start": 1236.04,
+        "duration": 1.86
+    },
+    {
+        "text": "that you can actually trust.",
+        "start": 1237.9,
+        "duration": 2.07
+    },
+    {
+        "text": "The safety system that we're about to show",
+        "start": 1239.97,
+        "duration": 2.88
+    },
+    {
+        "text": "is something where we've done the work to say, okay,",
+        "start": 1242.85,
+        "duration": 3.48
+    },
+    {
+        "text": "we understand what hate speeches,",
+        "start": 1246.33,
+        "duration": 1.47
+    },
+    {
+        "text": "we put that in a model,",
+        "start": 1247.8,
+        "duration": 1.215
+    },
+    {
+        "text": "now we're giving you some control over how to adjust",
+        "start": 1249.015,
+        "duration": 2.505
+    },
+    {
+        "text": "it and overtime we'll get more control and more customization.",
+        "start": 1251.52,
+        "duration": 2.535
+    },
+    {
+        "text": "But we don't want you to have to go figure out what is",
+        "start": 1254.055,
+        "duration": 1.845
+    },
+    {
+        "text": "the definition of hate speech and how do I build a model for that.",
+        "start": 1255.9,
+        "duration": 2.745
+    },
+    {
+        "text": "But like the Meta-Prompt layer,",
+        "start": 1258.645,
+        "duration": 1.455
+    },
+    {
+        "text": "that's the application layer,",
+        "start": 1260.1,
+        "duration": 1.32
+    },
+    {
+        "text": "that's where you need a lot",
+        "start": 1261.42,
+        "duration": 2.19
+    },
+    {
+        "text": "of control to really make that application work.",
+        "start": 1263.61,
+        "duration": 2.955
+    },
+    {
+        "text": "The tools are much more about",
+        "start": 1266.565,
+        "duration": 2.235
+    },
+    {
+        "text": "having you build out the right thing.",
+        "start": 1268.8,
+        "duration": 2.76
+    },
+    {
+        "text": "This is also why we need layers",
+        "start": 1271.56,
+        "duration": 3.36
+    },
+    {
+        "text": "because applications are just different.",
+        "start": 1274.92,
+        "duration": 3.465
+    },
+    {
+        "text": ">> That's interesting that you mentioned in the legal case",
+        "start": 1278.385,
+        "duration": 3.315
+    },
+    {
+        "text": "because there may be like defendant said blah,",
+        "start": 1281.7,
+        "duration": 3.87
+    },
+    {
+        "text": "blah, blah and that might be hate speech or something terrible.",
+        "start": 1285.57,
+        "duration": 4.155
+    },
+    {
+        "text": "That's actually crucial to the legal proceedings,",
+        "start": 1289.725,
+        "duration": 3.165
+    },
+    {
+        "text": "and so the content filter",
+        "start": 1292.89,
+        "duration": 1.77
+    },
+    {
+        "text": "there would be different than it would be say,",
+        "start": 1294.66,
+        "duration": 2.37
+    },
+    {
+        "text": "I don't want someone saying that on",
+        "start": 1297.03,
+        "duration": 1.32
+    },
+    {
+        "text": "my website. You know what I'm saying?",
+        "start": 1298.35,
+        "duration": 1.59
+    },
+    {
+        "text": ">> Exactly. The same with news or if you're gaming",
+        "start": 1299.94,
+        "duration": 3.63
+    },
+    {
+        "text": "regards violence being more relevant in certain games.",
+        "start": 1303.57,
+        "duration": 4.56
+    },
+    {
+        "text": "The right thing is going to depend on the application.",
+        "start": 1308.13,
+        "duration": 3.645
+    },
+    {
+        "text": ">> Interesting. Let's keep going.",
+        "start": 1311.775,
+        "duration": 2.25
+    },
+    {
+        "text": ">> Azure AI Content Safety.",
+        "start": 1314.025,
+        "duration": 2.88
+    },
+    {
+        "text": "Let's take a look.",
+        "start": 1316.905,
+        "duration": 1.86
+    },
+    {
+        "text": "Azure AI Content Safety is an API-based product that can be",
+        "start": 1318.765,
+        "duration": 4.965
+    },
+    {
+        "text": "deployed as part of any application to",
+        "start": 1323.73,
+        "duration": 2.43
+    },
+    {
+        "text": "monitor for harmful content in real time.",
+        "start": 1326.16,
+        "duration": 3.135
+    },
+    {
+        "text": "I'm in the studio so that we can",
+        "start": 1329.295,
+        "duration": 1.935
+    },
+    {
+        "text": "explore how it works interactively.",
+        "start": 1331.23,
+        "duration": 2.7
+    },
+    {
+        "text": "For the Contoso bot,",
+        "start": 1333.93,
+        "duration": 1.815
+    },
+    {
+        "text": "most people are going to be asking",
+        "start": 1335.745,
+        "duration": 2.025
+    },
+    {
+        "text": "appropriate queries about products they'd like to buy.",
+        "start": 1337.77,
+        "duration": 3.03
+    },
+    {
+        "text": "For example, here's a user query",
+        "start": 1340.8,
+        "duration": 2.61
+    },
+    {
+        "text": "looking for an ax to cut a path in the forest.",
+        "start": 1343.41,
+        "duration": 3.265
+    },
+    {
+        "text": "If we add Content Safety to score this.",
+        "start": 1346.675,
+        "duration": 3.605
+    },
+    {
+        "text": ">> Coming up with phrases that we feel comfortable,",
+        "start": 1350.68,
+        "duration": 4.3
+    },
+    {
+        "text": "showing the 60,000 people as you said that fit",
+        "start": 1354.98,
+        "duration": 3.33
+    },
+    {
+        "text": "with the Contoso outdoor bot setting that we were going for,",
+        "start": 1358.31,
+        "duration": 3.825
+    },
+    {
+        "text": "but did show what",
+        "start": 1362.135,
+        "duration": 2.775
+    },
+    {
+        "text": "the technology can do is quite an interesting experience.",
+        "start": 1364.91,
+        "duration": 3.51
+    },
+    {
+        "text": "I definitely experimented a lot of different things",
+        "start": 1368.42,
+        "duration": 2.7
+    },
+    {
+        "text": "and maybe this still feels a little contrived,",
+        "start": 1371.12,
+        "duration": 2.655
+    },
+    {
+        "text": "but I'm really trying to navigate that we weren't",
+        "start": 1373.775,
+        "duration": 2.175
+    },
+    {
+        "text": "by showing something [inaudible].",
+        "start": 1375.95,
+        "duration": 2.29
+    },
+    {
+        "text": ">> I was literally thinking like,",
+        "start": 1378.24,
+        "duration": 1.905
+    },
+    {
+        "text": "how do you make a website that's like,",
+        "start": 1380.145,
+        "duration": 2.58
+    },
+    {
+        "text": "let's show you how this filters out this harmful picture.",
+        "start": 1382.725,
+        "duration": 4.485
+    },
+    {
+        "text": "You don't want to put that on the website.",
+        "start": 1387.21,
+        "duration": 2.58
+    },
+    {
+        "text": "But I mean, it's difficult and I",
+        "start": 1389.79,
+        "duration": 2.67
+    },
+    {
+        "text": "think this is probably the funniest part of your talk right now.",
+        "start": 1392.46,
+        "duration": 4.095
+    },
+    {
+        "text": "I'm going to hit Play and we're going to have",
+        "start": 1396.555,
+        "duration": 2.985
+    },
+    {
+        "text": "some questions about this next statement, Sarah.",
+        "start": 1399.54,
+        "duration": 2.835
+    },
+    {
+        "text": ">> Yes, we can see that it recognizes it as safe.",
+        "start": 1402.375,
+        "duration": 3.615
+    },
+    {
+        "text": "However, one of the challenges with language is that",
+        "start": 1405.99,
+        "duration": 3.06
+    },
+    {
+        "text": "small changes can completely change the meaning.",
+        "start": 1409.05,
+        "duration": 2.94
+    },
+    {
+        "text": "But the power of new foundation models and",
+        "start": 1411.99,
+        "duration": 2.73
+    },
+    {
+        "text": "Azure AI Content Safety",
+        "start": 1414.72,
+        "duration": 1.815
+    },
+    {
+        "text": "is that it can understand these differences.",
+        "start": 1416.535,
+        "duration": 2.79
+    },
+    {
+        "text": "If I change even.",
+        "start": 1419.325,
+        "duration": 1.59
+    },
+    {
+        "text": ">> Wow, Sarah.",
+        "start": 1420.915,
+        "duration": 2.575
+    },
+    {
+        "text": "I've just tried to imagine, Sarah,",
+        "start": 1427.19,
+        "duration": 3.175
+    },
+    {
+        "text": "because we stayed up late a lot for like two weeks.",
+        "start": 1430.365,
+        "duration": 3.66
+    },
+    {
+        "text": "I'm just wondering how many different things",
+        "start": 1434.025,
+        "duration": 2.145
+    },
+    {
+        "text": "you like typed in before you're like,",
+        "start": 1436.17,
+        "duration": 1.875
+    },
+    {
+        "text": "this is the least offensive thing I can put",
+        "start": 1438.045,
+        "duration": 2.175
+    },
+    {
+        "text": "into it that will actually work.",
+        "start": 1440.22,
+        "duration": 3.075
+    },
+    {
+        "text": ">> Yeah. Maybe I'm",
+        "start": 1443.295,
+        "duration": 3.465
+    },
+    {
+        "text": "unfortunately getting a little bit of a knack for this.",
+        "start": 1446.76,
+        "duration": 2.595
+    },
+    {
+        "text": "This one was pretty quick,",
+        "start": 1449.355,
+        "duration": 1.605
+    },
+    {
+        "text": "but there's been years of doing",
+        "start": 1450.96,
+        "duration": 2.88
+    },
+    {
+        "text": "this to build up to the point where we're pretty comfortable.",
+        "start": 1453.84,
+        "duration": 3.27
+    },
+    {
+        "text": ">> Let's read it out loud for effect.",
+        "start": 1457.11,
+        "duration": 1.77
+    },
+    {
+        "text": "Let me add some sound effects here.",
+        "start": 1458.88,
+        "duration": 2.595
+    },
+    {
+        "text": "Let's see. Here you go.",
+        "start": 1461.475,
+        "duration": 3.69
+    },
+    {
+        "text": ">> I'm looking for an ax to cut a person in the forest,",
+        "start": 1465.165,
+        "duration": 4.35
+    },
+    {
+        "text": "which is a very rare thing to solve chatbot.",
+        "start": 1469.515,
+        "duration": 1.89
+    },
+    {
+        "text": "Can you recommend one?",
+        "start": 1471.405,
+        "duration": 1.59
+    },
+    {
+        "text": ">> Bend that background.",
+        "start": 1472.995,
+        "duration": 1.335
+    },
+    {
+        "text": "It's just made it scary.",
+        "start": 1474.33,
+        "duration": 1.65
+    },
+    {
+        "text": "Here, let's do another one.",
+        "start": 1475.98,
+        "duration": 1.635
+    },
+    {
+        "text": "I'm looking for an ax to cut a person in the forest.",
+        "start": 1477.615,
+        "duration": 9.085
+    },
+    {
+        "text": "I'm sorry. That was just my favorite part.",
+        "start": 1487.43,
+        "duration": 3.625
+    },
+    {
+        "text": "Because you're very buttoned up when you",
+        "start": 1491.055,
+        "duration": 2.565
+    },
+    {
+        "text": "put your awesome presenter and it's like,",
+        "start": 1493.62,
+        "duration": 2.19
+    },
+    {
+        "text": "let me change the prompt a little bit.",
+        "start": 1495.81,
+        "duration": 1.875
+    },
+    {
+        "text": "Let's cut up a person in the forest with it.",
+        "start": 1497.685,
+        "duration": 1.635
+    },
+    {
+        "text": "No, we want that to be flying.",
+        "start": 1499.32,
+        "duration": 1.605
+    },
+    {
+        "text": "Let's see what happens.",
+        "start": 1500.925,
+        "duration": 2.28
+    },
+    {
+        "text": ">> Word in the sentence and rerun the query,",
+        "start": 1503.205,
+        "duration": 2.535
+    },
+    {
+        "text": "you can see that Azure AI Content Safety",
+        "start": 1505.74,
+        "duration": 2.385
+    },
+    {
+        "text": "understands that this query is not",
+        "start": 1508.125,
+        "duration": 1.725
+    },
+    {
+        "text": "safe and it would reject it. Here, I'm using.",
+        "start": 1509.85,
+        "duration": 4.35
+    },
+    {
+        "text": ">> Now this example is,",
+        "start": 1514.2,
+        "duration": 1.665
+    },
+    {
+        "text": "even though it's funny,",
+        "start": 1515.865,
+        "duration": 1.545
+    },
+    {
+        "text": "it's actually not easy.",
+        "start": 1517.41,
+        "duration": 3.73
+    },
+    {
+        "text": ">> Yeah. I think because",
+        "start": 1522.08,
+        "duration": 2.59
+    },
+    {
+        "text": "in some ways the reason that side by side is",
+        "start": 1524.67,
+        "duration": 2.07
+    },
+    {
+        "text": "helpful is that you can see that it's",
+        "start": 1526.74,
+        "duration": 1.92
+    },
+    {
+        "text": "not just looking at keywords like ax.",
+        "start": 1528.66,
+        "duration": 2.475
+    },
+    {
+        "text": "Both of them are about ax cutting in something,",
+        "start": 1531.135,
+        "duration": 2.325
+    },
+    {
+        "text": "but it understands that an ax cutting",
+        "start": 1533.46,
+        "duration": 1.77
+    },
+    {
+        "text": "a person is very different than cutting a path.",
+        "start": 1535.23,
+        "duration": 2.82
+    },
+    {
+        "text": "We didn't show in the demo here,",
+        "start": 1538.05,
+        "duration": 1.29
+    },
+    {
+        "text": "but if you put bear in an animal,",
+        "start": 1539.34,
+        "duration": 2.46
+    },
+    {
+        "text": "then it comes out as low severity.",
+        "start": 1541.8,
+        "duration": 1.935
+    },
+    {
+        "text": "It understands people more significant than animals.",
+        "start": 1543.735,
+        "duration": 3.285
+    },
+    {
+        "text": "That's the kind of level",
+        "start": 1547.02,
+        "duration": 2.04
+    },
+    {
+        "text": "of more understanding what the sentence is actually staying.",
+        "start": 1549.06,
+        "duration": 4.485
+    },
+    {
+        "text": "Obviously, for videos where you're showing very short sentences,",
+        "start": 1553.545,
+        "duration": 3.06
+    },
+    {
+        "text": "but the power of this actually comes when you get",
+        "start": 1556.605,
+        "duration": 1.875
+    },
+    {
+        "text": "like full paragraphs that have a lot",
+        "start": 1558.48,
+        "duration": 1.8
+    },
+    {
+        "text": "more going on and it's",
+        "start": 1560.28,
+        "duration": 1.44
+    },
+    {
+        "text": "understanding where the meaning of the whole paragraph.",
+        "start": 1561.72,
+        "duration": 3.18
+    },
+    {
+        "text": "We see a lot of value in this in longer form content as well.",
+        "start": 1564.9,
+        "duration": 5.68
+    },
+    {
+        "text": ">> In that reason, is there like",
+        "start": 1571.13,
+        "duration": 3.52
+    },
+    {
+        "text": "a character limit of how much stuff you can put in there?",
+        "start": 1574.65,
+        "duration": 2.67
+    },
+    {
+        "text": ">> Yes.",
+        "start": 1577.32,
+        "duration": 3.915
+    },
+    {
+        "text": ">> But you have to look at our docs for that because",
+        "start": 1581.235,
+        "duration": 2.265
+    },
+    {
+        "text": "I actually don't remember what the current limit is.",
+        "start": 1583.5,
+        "duration": 2.43
+    },
+    {
+        "text": ">> That is a perfect way to bring up this link.",
+        "start": 1585.93,
+        "duration": 6.105
+    },
+    {
+        "text": "Get started in the studio,",
+        "start": 1592.035,
+        "duration": 1.605
+    },
+    {
+        "text": "or you can visit the product page to learn more about that.",
+        "start": 1593.64,
+        "duration": 3.9
+    },
+    {
+        "text": "Wow, it's like I almost thought you were supposed to.",
+        "start": 1597.54,
+        "duration": 2.07
+    },
+    {
+        "text": "You did spike it. You're like look at the docs.",
+        "start": 1599.61,
+        "duration": 3.15
+    },
+    {
+        "text": ">> Also because we're regularly",
+        "start": 1602.76,
+        "duration": 2.52
+    },
+    {
+        "text": "trying to evolve and improve these things.",
+        "start": 1605.28,
+        "duration": 2.1
+    },
+    {
+        "text": "But for any integration in Azure OpenAI,",
+        "start": 1607.38,
+        "duration": 3.9
+    },
+    {
+        "text": "this also like what we had to build,",
+        "start": 1611.28,
+        "duration": 2.88
+    },
+    {
+        "text": "forget how to co-pilot is the streaming version.",
+        "start": 1614.16,
+        "duration": 2.805
+    },
+    {
+        "text": "It's looking at windows of the content",
+        "start": 1616.965,
+        "duration": 1.905
+    },
+    {
+        "text": "as you're generating and it's classifying",
+        "start": 1618.87,
+        "duration": 1.86
+    },
+    {
+        "text": "those windows of the content and so that's another",
+        "start": 1620.73,
+        "duration": 2.4
+    },
+    {
+        "text": "way you're seeing longer form stuff come out.",
+        "start": 1623.13,
+        "duration": 2.865
+    },
+    {
+        "text": ">> That's cool. I don't",
+        "start": 1625.995,
+        "duration": 3.165
+    },
+    {
+        "text": "know if this is true, but I've heard this,",
+        "start": 1629.16,
+        "duration": 2.16
+    },
+    {
+        "text": "when people are using Azure OpenAI like vanilla version,",
+        "start": 1631.32,
+        "duration": 5.115
+    },
+    {
+        "text": "we are doing content safety with texts on",
+        "start": 1636.435,
+        "duration": 2.625
+    },
+    {
+        "text": "the way and texts on the way out. Is that true?",
+        "start": 1639.06,
+        "duration": 2.94
+    },
+    {
+        "text": ">> Yeah, and we just developed,",
+        "start": 1642.0,
+        "duration": 2.79
+    },
+    {
+        "text": "although you see that coming soon.",
+        "start": 1644.79,
+        "duration": 3.0
+    },
+    {
+        "text": "Actually looking at the prompt plus",
+        "start": 1647.79,
+        "duration": 2.34
+    },
+    {
+        "text": "the completion so that you can understand that,",
+        "start": 1650.13,
+        "duration": 3.045
+    },
+    {
+        "text": "for example, if you ask a question like,",
+        "start": 1653.175,
+        "duration": 3.015
+    },
+    {
+        "text": "what's the worst country in the world",
+        "start": 1656.19,
+        "duration": 1.8
+    },
+    {
+        "text": "or the worst group of people in the world?",
+        "start": 1657.99,
+        "duration": 2.49
+    },
+    {
+        "text": "The sentence itself is not harmful,",
+        "start": 1660.48,
+        "duration": 1.89
+    },
+    {
+        "text": "but then the fact that there's a particular response",
+        "start": 1662.37,
+        "duration": 2.85
+    },
+    {
+        "text": "and the response might not be harmful because you[re just",
+        "start": 1665.22,
+        "duration": 1.71
+    },
+    {
+        "text": "listing like a country or group of people,",
+        "start": 1666.93,
+        "duration": 1.74
+    },
+    {
+        "text": "but the combination is like,",
+        "start": 1668.67,
+        "duration": 1.59
+    },
+    {
+        "text": "oh, that's a problem.",
+        "start": 1670.26,
+        "duration": 2.44
+    },
+    {
+        "text": "The combination is the next thing that we're adding.",
+        "start": 1673.4,
+        "duration": 4.0
+    },
+    {
+        "text": ">> This is cool because as a programmer,",
+        "start": 1677.4,
+        "duration": 2.67
+    },
+    {
+        "text": "I just want to do the right thing.",
+        "start": 1680.07,
+        "duration": 1.74
+    },
+    {
+        "text": "I would have never considered like the prompt being innocuous,",
+        "start": 1681.81,
+        "duration": 6.27
+    },
+    {
+        "text": "the completion being innocuous,",
+        "start": 1688.08,
+        "duration": 1.83
+    },
+    {
+        "text": "but together it being potentially harmful,",
+        "start": 1689.91,
+        "duration": 3.555
+    },
+    {
+        "text": "I would've never thought of that.",
+        "start": 1693.465,
+        "duration": 1.95
+    },
+    {
+        "text": "Then there could have been a situation where",
+        "start": 1695.415,
+        "duration": 2.025
+    },
+    {
+        "text": "this could have been generated and I would've been like, Oh,",
+        "start": 1697.44,
+        "duration": 2.22
+    },
+    {
+        "text": "I didn't know and the I didn't knows,",
+        "start": 1699.66,
+        "duration": 2.79
+    },
+    {
+        "text": "just don't cut it anymore [inaudible]",
+        "start": 1702.45,
+        "duration": 3.36
+    },
+    {
+        "text": ">> I think another thing is you may want",
+        "start": 1705.81,
+        "duration": 3.15
+    },
+    {
+        "text": "a different level of setting here",
+        "start": 1708.96,
+        "duration": 3.75
+    },
+    {
+        "text": "for your users and then for your AI system.",
+        "start": 1712.71,
+        "duration": 4.155
+    },
+    {
+        "text": "For example, I know developers like to",
+        "start": 1716.865,
+        "duration": 3.845
+    },
+    {
+        "text": "potentially use profanity in their coding and it's perfectly fine.",
+        "start": 1720.71,
+        "duration": 5.28
+    },
+    {
+        "text": "We don't want to block a prompt coming",
+        "start": 1725.99,
+        "duration": 1.98
+    },
+    {
+        "text": "in just because there's profanity in it.",
+        "start": 1727.97,
+        "duration": 2.41
+    },
+    {
+        "text": "But it may be that we don't want our model adding that,",
+        "start": 1730.38,
+        "duration": 3.42
+    },
+    {
+        "text": "because that's just not what the organization wants to do.",
+        "start": 1733.8,
+        "duration": 5.265
+    },
+    {
+        "text": "Adding new profanity into things.",
+        "start": 1739.065,
+        "duration": 2.22
+    },
+    {
+        "text": "You can have one setting on the content coming in,",
+        "start": 1741.285,
+        "duration": 2.775
+    },
+    {
+        "text": "which is representing with the users can do and then what's",
+        "start": 1744.06,
+        "duration": 4.05
+    },
+    {
+        "text": "come out is representing",
+        "start": 1748.11,
+        "duration": 2.04
+    },
+    {
+        "text": "what the policy you want the AI to be following.",
+        "start": 1750.15,
+        "duration": 2.55
+    },
+    {
+        "text": "You can see different settings there.",
+        "start": 1752.7,
+        "duration": 2.445
+    },
+    {
+        "text": "I think you're going to show in a bit outside of the video",
+        "start": 1755.145,
+        "duration": 3.015
+    },
+    {
+        "text": "here that we can actually certainly alter those.",
+        "start": 1758.16,
+        "duration": 3.345
+    },
+    {
+        "text": ">> I do agree that there has been times where I've wanted to",
+        "start": 1761.505,
+        "duration": 2.715
+    },
+    {
+        "text": "swear at my code. Let's keep going.",
+        "start": 1764.22,
+        "duration": 4.305
+    },
+    {
+        "text": ">> In the default settings.",
+        "start": 1768.525,
+        "duration": 1.5
+    },
+    {
+        "text": "But if I want, I can adjust",
+        "start": 1770.025,
+        "duration": 1.575
+    },
+    {
+        "text": "the severity levels to meet the needs of",
+        "start": 1771.6,
+        "duration": 1.86
+    },
+    {
+        "text": "my application and deploy this through the API in production.",
+        "start": 1773.46,
+        "duration": 4.545
+    },
+    {
+        "text": "Contoso uses Azure OpenAI.",
+        "start": 1778.005,
+        "duration": 3.0
+    },
+    {
+        "text": "Azure AI contents safety is already built-in.",
+        "start": 1781.005,
+        "duration": 3.555
+    },
+    {
+        "text": "Returning to the Contoso bot,",
+        "start": 1784.56,
+        "duration": 2.205
+    },
+    {
+        "text": "I can test these same queries again.",
+        "start": 1786.765,
+        "duration": 2.55
+    },
+    {
+        "text": "Here, I'm going to start with a recommendation for cutting a path.",
+        "start": 1789.315,
+        "duration": 4.32
+    },
+    {
+        "text": "As you can see, the Contoso bot is",
+        "start": 1793.635,
+        "duration": 2.595
+    },
+    {
+        "text": "prepared to recommend products the customer can buy.",
+        "start": 1796.23,
+        "duration": 3.135
+    },
+    {
+        "text": "However, if I pretend to be a user",
+        "start": 1799.365,
+        "duration": 2.355
+    },
+    {
+        "text": "with the same harmful query as before,",
+        "start": 1801.72,
+        "duration": 2.25
+    },
+    {
+        "text": "I can see the safety systems in",
+        "start": 1803.97,
+        "duration": 1.815
+    },
+    {
+        "text": "action and my bot knows to reject it,",
+        "start": 1805.785,
+        "duration": 2.7
+    },
+    {
+        "text": "protecting Contoso and its users.",
+        "start": 1808.485,
+        "duration": 2.925
+    },
+    {
+        "text": "One of the things to say about that part right there",
+        "start": 1811.41,
+        "duration": 2.52
+    },
+    {
+        "text": "is the reason actually this is a video and we",
+        "start": 1813.93,
+        "duration": 2.46
+    },
+    {
+        "text": "didn't do it live is because the model itself",
+        "start": 1816.39,
+        "duration": 2.64
+    },
+    {
+        "text": "will respond differently as anyone who has used this tech nodes.",
+        "start": 1819.03,
+        "duration": 3.09
+    },
+    {
+        "text": "Sometimes you see the built-in safety",
+        "start": 1822.12,
+        "duration": 2.43
+    },
+    {
+        "text": "at the model level where the model is like,",
+        "start": 1824.55,
+        "duration": 1.695
+    },
+    {
+        "text": "it is wrong to hurt people.",
+        "start": 1826.245,
+        "duration": 1.77
+    },
+    {
+        "text": "It is wrong to hurt bears and the model one answer.",
+        "start": 1828.015,
+        "duration": 4.08
+    },
+    {
+        "text": "In this case, the model answered",
+        "start": 1832.095,
+        "duration": 2.67
+    },
+    {
+        "text": "and it got past",
+        "start": 1834.765,
+        "duration": 3.435
+    },
+    {
+        "text": "the model and so you saw the safety system triggering instead.",
+        "start": 1838.2,
+        "duration": 2.97
+    },
+    {
+        "text": "But that's another reason having",
+        "start": 1841.17,
+        "duration": 3.15
+    },
+    {
+        "text": "a safety system is important",
+        "start": 1844.32,
+        "duration": 1.23
+    },
+    {
+        "text": "because the model may get it right sometimes,",
+        "start": 1845.55,
+        "duration": 2.37
+    },
+    {
+        "text": "but it will also make mistakes and",
+        "start": 1847.92,
+        "duration": 1.77
+    },
+    {
+        "text": "that's why we have this extra layer around it.",
+        "start": 1849.69,
+        "duration": 2.34
+    },
+    {
+        "text": "But you saw if you try to recreate this demo,",
+        "start": 1852.03,
+        "duration": 2.52
+    },
+    {
+        "text": "you'll see different behavior where",
+        "start": 1854.55,
+        "duration": 1.86
+    },
+    {
+        "text": "either the model will",
+        "start": 1856.41,
+        "duration": 1.53
+    },
+    {
+        "text": "refuse or you'll see the the safety system trigger.",
+        "start": 1857.94,
+        "duration": 3.85
+    },
+    {
+        "text": ">> That's cool but it was in a video because you want to show,",
+        "start": 1862.34,
+        "duration": 3.4
+    },
+    {
+        "text": "but sometimes it's hard to predict what an LLM will spit out,",
+        "start": 1865.74,
+        "duration": 4.35
+    },
+    {
+        "text": "which is precisely the reason",
+        "start": 1870.09,
+        "duration": 1.74
+    },
+    {
+        "text": "why we should have a safety system, I think.",
+        "start": 1871.83,
+        "duration": 1.83
+    },
+    {
+        "text": ">> Yes, exactly.",
+        "start": 1873.66,
+        "duration": 1.56
+    },
+    {
+        "text": ">> Let's keep going. By the way, it's so awkward,",
+        "start": 1875.22,
+        "duration": 7.89
+    },
+    {
+        "text": "because like when people maybe start to",
+        "start": 1883.11,
+        "duration": 3.9
+    },
+    {
+        "text": "clap and you go into robot mode and you keep going you're like,",
+        "start": 1887.01,
+        "duration": 4.65
+    },
+    {
+        "text": "should I stop and let them clap?",
+        "start": 1891.66,
+        "duration": 3.04
+    },
+    {
+        "text": ">> Clapping. That's a good thing.",
+        "start": 1895.25,
+        "duration": 2.41
+    },
+    {
+        "text": "[inaudible] we should stop.",
+        "start": 1897.66,
+        "duration": 2.4
+    },
+    {
+        "text": ">> Nice.",
+        "start": 1900.06,
+        "duration": 1.17
+    },
+    {
+        "text": ">> If you're using an Open-Source LLM,",
+        "start": 1901.23,
+        "duration": 2.325
+    },
+    {
+        "text": "you can call Azure AI content safety directly using the API.",
+        "start": 1903.555,
+        "duration": 4.32
+    },
+    {
+        "text": "However, if you're using Azure OpenAI,",
+        "start": 1907.875,
+        "duration": 2.73
+    },
+    {
+        "text": "you're starting with the first two layers",
+        "start": 1910.605,
+        "duration": 1.995
+    },
+    {
+        "text": "of safety from the beginning.",
+        "start": 1912.6,
+        "duration": 2.01
+    },
+    {
+        "text": "Regardless of what model you're using,",
+        "start": 1914.61,
+        "duration": 2.76
+    },
+    {
+        "text": "the next area that you want to focus on is the metaprompt,",
+        "start": 1917.37,
+        "duration": 3.465
+    },
+    {
+        "text": "that system level prompt that you",
+        "start": 1920.835,
+        "duration": 1.905
+    },
+    {
+        "text": "feed into the model to control its output.",
+        "start": 1922.74,
+        "duration": 2.91
+    },
+    {
+        "text": "Here we have an example of the safety portion of",
+        "start": 1925.65,
+        "duration": 3.36
+    },
+    {
+        "text": "the metaprompt for the Contoso application that Seth showed.",
+        "start": 1929.01,
+        "duration": 3.555
+    },
+    {
+        "text": "As you can see, it's simply instructing the model in",
+        "start": 1932.565,
+        "duration": 3.825
+    },
+    {
+        "text": "natural language to control for grounding the response,",
+        "start": 1936.39,
+        "duration": 4.02
+    },
+    {
+        "text": "for controlling the tone, for safety,",
+        "start": 1940.41,
+        "duration": 3.06
+    },
+    {
+        "text": "and to prevent attempts to break the model safety systems.",
+        "start": 1943.47,
+        "duration": 4.035
+    },
+    {
+        "text": "But what I really want to show you is how you can engineer and",
+        "start": 1947.505,
+        "duration": 3.915
+    },
+    {
+        "text": "experiment with these kind of",
+        "start": 1951.42,
+        "duration": 1.86
+    },
+    {
+        "text": "metaprompts using Azure AI prompt flow.",
+        "start": 1953.28,
+        "duration": 3.36
+    },
+    {
+        "text": "Let's take a look.",
+        "start": 1956.64,
+        "duration": 2.01
+    },
+    {
+        "text": "I'm going back to the Contoso retail flow.",
+        "start": 1958.65,
+        "duration": 3.0
+    },
+    {
+        "text": "[inaudible] my mark too soon.",
+        "start": 1961.65,
+        "duration": 1.995
+    },
+    {
+        "text": ">> What's that?",
+        "start": 1963.645,
+        "duration": 0.9
+    },
+    {
+        "text": ">> I said there I left my mark to soon.",
+        "start": 1964.545,
+        "duration": 1.935
+    },
+    {
+        "text": "I was really key to race back to",
+        "start": 1966.48,
+        "duration": 1.38
+    },
+    {
+        "text": "the podium and stand there in the dark.",
+        "start": 1967.86,
+        "duration": 2.46
+    },
+    {
+        "text": ">> Oh my goodness. This is the demo that I built.",
+        "start": 1970.32,
+        "duration": 4.41
+    },
+    {
+        "text": "Is it showing content safety",
+        "start": 1974.73,
+        "duration": 1.8
+    },
+    {
+        "text": "again or is it showing something different?",
+        "start": 1976.53,
+        "duration": 2.37
+    },
+    {
+        "text": ">> This is now showing the Contoso bot which I guess we didn't,",
+        "start": 1978.9,
+        "duration": 4.47
+    },
+    {
+        "text": "what we saw that one little screen.",
+        "start": 1983.37,
+        "duration": 2.115
+    },
+    {
+        "text": "Here if you want to build a more detailed one,",
+        "start": 1985.485,
+        "duration": 3.57
+    },
+    {
+        "text": "how you're going to do that in prompt flow.",
+        "start": 1989.055,
+        "duration": 3.445
+    },
+    {
+        "text": "The point of this demo right here,",
+        "start": 1993.68,
+        "duration": 2.89
+    },
+    {
+        "text": "at least in the time we had,",
+        "start": 1996.57,
+        "duration": 1.515
+    },
+    {
+        "text": "was to show this prompt engineering part that it's",
+        "start": 1998.085,
+        "duration": 3.075
+    },
+    {
+        "text": "not enough just to rely on the model and the safety system.",
+        "start": 2001.16,
+        "duration": 3.09
+    },
+    {
+        "text": "If you want to make it work in your application in the right way,",
+        "start": 2004.25,
+        "duration": 4.02
+    },
+    {
+        "text": "in the context of your domain,",
+        "start": 2008.27,
+        "duration": 1.635
+    },
+    {
+        "text": "you've got to do the metaprompt engineering.",
+        "start": 2009.905,
+        "duration": 3.135
+    },
+    {
+        "text": "You can just copy my slide and put that in,",
+        "start": 2013.04,
+        "duration": 3.27
+    },
+    {
+        "text": "but how are you going to know it really works for",
+        "start": 2016.31,
+        "duration": 1.59
+    },
+    {
+        "text": "yours if aren't without measurement?",
+        "start": 2017.9,
+        "duration": 3.165
+    },
+    {
+        "text": "This is where just like the world",
+        "start": 2021.065,
+        "duration": 2.535
+    },
+    {
+        "text": "now even more so is asking before you ship something,",
+        "start": 2023.6,
+        "duration": 2.79
+    },
+    {
+        "text": "you have to prove that it's safe and",
+        "start": 2026.39,
+        "duration": 1.56
+    },
+    {
+        "text": "the way you do that as measurement or testing.",
+        "start": 2027.95,
+        "duration": 2.235
+    },
+    {
+        "text": "We're going to show how you can do",
+        "start": 2030.185,
+        "duration": 1.845
+    },
+    {
+        "text": "the prompts engineering here and prompt flow,",
+        "start": 2032.03,
+        "duration": 2.115
+    },
+    {
+        "text": "and then how the measurement",
+        "start": 2034.145,
+        "duration": 2.325
+    },
+    {
+        "text": "that's built-in helps you get to that right hand side.",
+        "start": 2036.47,
+        "duration": 2.67
+    },
+    {
+        "text": "We'll be adding more of these measurements in here",
+        "start": 2039.14,
+        "duration": 2.715
+    },
+    {
+        "text": "that are the GPT4 PowerDemo measurements I was talking",
+        "start": 2041.855,
+        "duration": 3.225
+    },
+    {
+        "text": "about to help you get that confidence",
+        "start": 2045.08,
+        "duration": 3.15
+    },
+    {
+        "text": "that you've actually not only",
+        "start": 2048.23,
+        "duration": 1.47
+    },
+    {
+        "text": "used all of the layers of mitigation,",
+        "start": 2049.7,
+        "duration": 1.74
+    },
+    {
+        "text": "but you've tested them and you know they work.",
+        "start": 2051.44,
+        "duration": 2.085
+    },
+    {
+        "text": ">> This is cool because this isn't using",
+        "start": 2053.525,
+        "duration": 4.365
+    },
+    {
+        "text": "content safety or can you use",
+        "start": 2057.89,
+        "duration": 2.16
+    },
+    {
+        "text": "content safety in here? Is it a different thing?",
+        "start": 2060.05,
+        "duration": 2.67
+    },
+    {
+        "text": ">> This is calling Azure OpenAI.",
+        "start": 2062.72,
+        "duration": 2.355
+    },
+    {
+        "text": "It's already got that content safety layer built-in.",
+        "start": 2065.075,
+        "duration": 2.355
+    },
+    {
+        "text": "But if you want to use an open source LLM or something,",
+        "start": 2067.43,
+        "duration": 2.625
+    },
+    {
+        "text": "there's actually this, the video so we can't click anything.",
+        "start": 2070.055,
+        "duration": 2.745
+    },
+    {
+        "text": "But if you go to the little like add, what are they called now?",
+        "start": 2072.8,
+        "duration": 5.13
+    },
+    {
+        "text": "The tools, I think.",
+        "start": 2077.93,
+        "duration": 1.575
+    },
+    {
+        "text": "If you add a tool, yes, more tools,",
+        "start": 2079.505,
+        "duration": 2.73
+    },
+    {
+        "text": "you can just see Azure AI content safety is in that more tools,",
+        "start": 2082.235,
+        "duration": 3.015
+    },
+    {
+        "text": "and so you can just add that as a node.",
+        "start": 2085.25,
+        "duration": 1.86
+    },
+    {
+        "text": "For example, if you wanted to filter your prompts and completions,",
+        "start": 2087.11,
+        "duration": 3.24
+    },
+    {
+        "text": "you can add then multiple filter hit on.",
+        "start": 2090.35,
+        "duration": 2.58
+    },
+    {
+        "text": "The incoming of the prompts and filter it on the completions.",
+        "start": 2092.93,
+        "duration": 2.77
+    },
+    {
+        "text": ">> I think I have that. I do have that.",
+        "start": 2095.7,
+        "duration": 2.845
+    },
+    {
+        "text": "Let me let me share my screen here because you're like, Hey,",
+        "start": 2098.545,
+        "duration": 2.625
+    },
+    {
+        "text": "you can't click on a video.",
+        "start": 2101.17,
+        "duration": 1.38
+    },
+    {
+        "text": "Yes, you can.",
+        "start": 2102.55,
+        "duration": 2.5
+    },
+    {
+        "text": ">> Magic.",
+        "start": 2106.83,
+        "duration": 2.15
+    },
+    {
+        "text": ">> Here's this. We'll put the video [inaudible].",
+        "start": 2109.69,
+        "duration": 3.31
+    },
+    {
+        "text": "This is the same thing and you can see that",
+        "start": 2113.0,
+        "duration": 2.535
+    },
+    {
+        "text": "this is the safety tool that we were talking about.",
+        "start": 2115.535,
+        "duration": 3.24
+    },
+    {
+        "text": "You can practice on and have it be part of your prompt flow.",
+        "start": 2118.775,
+        "duration": 3.48
+    },
+    {
+        "text": "This exactly the same prompt flow actually.",
+        "start": 2122.255,
+        "duration": 1.96
+    },
+    {
+        "text": ">> Yeah, exactly. If you put content safety there,",
+        "start": 2124.215,
+        "duration": 2.68
+    },
+    {
+        "text": "you would be adding that in, but it's already there.",
+        "start": 2126.895,
+        "duration": 4.86
+    },
+    {
+        "text": "In that case, I guess you're just doing the same thing twice,",
+        "start": 2131.755,
+        "duration": 2.895
+    },
+    {
+        "text": "so certainly don't recommend it from an efficiency point of view,",
+        "start": 2134.65,
+        "duration": 3.52
+    },
+    {
+        "text": "but that's available for you.",
+        "start": 2138.17,
+        "duration": 1.725
+    },
+    {
+        "text": ">> But in this case. The reason why it's already there is",
+        "start": 2139.895,
+        "duration": 2.475
+    },
+    {
+        "text": "because I'm using Azure,",
+        "start": 2142.37,
+        "duration": 2.37
+    },
+    {
+        "text": "OpenAI and this gtp-35-turbo already has it built-in.",
+        "start": 2144.74,
+        "duration": 3.21
+    },
+    {
+        "text": ">> Yeah, exactly. We did that integration work",
+        "start": 2147.95,
+        "duration": 2.49
+    },
+    {
+        "text": "and it has some extra bells and whistles in terms",
+        "start": 2150.44,
+        "duration": 2.25
+    },
+    {
+        "text": "of supporting streaming content and",
+        "start": 2152.69,
+        "duration": 2.115
+    },
+    {
+        "text": "those other things when it's built into Azure OpenAI.",
+        "start": 2154.805,
+        "duration": 2.55
+    },
+    {
+        "text": ">> It's cool that content safety is just everywhere.",
+        "start": 2157.355,
+        "duration": 2.55
+    },
+    {
+        "text": "It's like you put here, you can do",
+        "start": 2159.905,
+        "duration": 1.395
+    },
+    {
+        "text": "it here if you're not using it,",
+        "start": 2161.3,
+        "duration": 1.35
+    },
+    {
+        "text": "then you're using Azure OpenAI,",
+        "start": 2162.65,
+        "duration": 1.395
+    },
+    {
+        "text": "implicitly vanilla flavored one, we'll just give it to you.",
+        "start": 2164.045,
+        "duration": 2.355
+    },
+    {
+        "text": "Let's keep playing is we're running out of time.",
+        "start": 2166.4,
+        "duration": 1.845
+    },
+    {
+        "text": ">> Earlier to experiment with",
+        "start": 2168.245,
+        "duration": 2.385
+    },
+    {
+        "text": "the metaprompt and add the safety section I just showed you.",
+        "start": 2170.63,
+        "duration": 3.54
+    },
+    {
+        "text": "Rather than just push it to production,",
+        "start": 2174.17,
+        "duration": 2.61
+    },
+    {
+        "text": "I also want to test it first.",
+        "start": 2176.78,
+        "duration": 2.04
+    },
+    {
+        "text": "Built into Azure AI is a system for testing prompt variance.",
+        "start": 2178.82,
+        "duration": 4.23
+    },
+    {
+        "text": "As you can see, I'm testing two variants here.",
+        "start": 2183.05,
+        "duration": 3.015
+    },
+    {
+        "text": "Variant 0 contains the new safety section.",
+        "start": 2186.065,
+        "duration": 3.195
+    },
+    {
+        "text": "Now I'm going to use prompt flow to see how these two compare.",
+        "start": 2189.26,
+        "duration": 3.705
+    },
+    {
+        "text": "Prompt flow provides built-in metrics,",
+        "start": 2192.965,
+        "duration": 2.28
+    },
+    {
+        "text": "which makes it easy for me to evaluate.",
+        "start": 2195.245,
+        "duration": 2.415
+    },
+    {
+        "text": "Let's look at the results.",
+        "start": 2197.66,
+        "duration": 1.785
+    },
+    {
+        "text": "First, I'm going to look at the outputs of the system to",
+        "start": 2199.445,
+        "duration": 3.0
+    },
+    {
+        "text": "understand how these two prompts stack-up qualitatively.",
+        "start": 2202.445,
+        "duration": 3.285
+    },
+    {
+        "text": "I can see immediately that there",
+        "start": 2205.73,
+        "duration": 1.77
+    },
+    {
+        "text": "are differences in how they behave.",
+        "start": 2207.5,
+        "duration": 1.995
+    },
+    {
+        "text": "If I go to Example 3,",
+        "start": 2209.495,
+        "duration": 2.07
+    },
+    {
+        "text": "which is the example of a user trying to jailbreak the system.",
+        "start": 2211.565,
+        "duration": 3.435
+    },
+    {
+        "text": "I can see that Variant 0 outperforms Variant 1,",
+        "start": 2215.0,
+        "duration": 3.615
+    },
+    {
+        "text": "because Variant 0 refuses to give information about its prompt,",
+        "start": 2218.615,
+        "duration": 4.065
+    },
+    {
+        "text": "while Variant 1 is successfully jail-broken.",
+        "start": 2222.68,
+        "duration": 3.285
+    },
+    {
+        "text": "Now that I've looked at the examples,",
+        "start": 2225.965,
+        "duration": 2.355
+    },
+    {
+        "text": "I want to understand how these two compare",
+        "start": 2228.32,
+        "duration": 2.025
+    },
+    {
+        "text": "overall by looking at metrics,",
+        "start": 2230.345,
+        "duration": 2.52
+    },
+    {
+        "text": "I can see that Variant 0 is outperforming Variant 1",
+        "start": 2232.865,
+        "duration": 3.495
+    },
+    {
+        "text": "across the board with higher scores in groundedness,",
+        "start": 2236.36,
+        "duration": 3.255
+    },
+    {
+        "text": "relevance, and coherence,",
+        "start": 2239.615,
+        "duration": 1.95
+    },
+    {
+        "text": "which means it's the clear winner for me.",
+        "start": 2241.565,
+        "duration": 2.715
+    },
+    {
+        "text": "Now I can confidently deploy to production and",
+        "start": 2244.28,
+        "duration": 3.84
+    },
+    {
+        "text": "bring the power of AI to Contoso shopping experiences.",
+        "start": 2248.12,
+        "duration": 3.765
+    },
+    {
+        "text": "Can we go back to the measurement?",
+        "start": 2251.885,
+        "duration": 5.595
+    },
+    {
+        "text": ">> Yeah, let's do that.",
+        "start": 2257.48,
+        "duration": 1.81
+    },
+    {
+        "text": ">> I forgot. I was just watching",
+        "start": 2259.33,
+        "duration": 2.725
+    },
+    {
+        "text": "and I forgot to tell people about it.",
+        "start": 2262.055,
+        "duration": 2.745
+    },
+    {
+        "text": "One thing I'll just say is responsible AI here is,",
+        "start": 2264.8,
+        "duration": 3.975
+    },
+    {
+        "text": "if you look carefully the top one,",
+        "start": 2268.775,
+        "duration": 2.775
+    },
+    {
+        "text": "the safety pump, it's passing everything 100 percent.",
+        "start": 2271.55,
+        "duration": 3.75
+    },
+    {
+        "text": "That's a sign that test aren't good enough,",
+        "start": 2275.3,
+        "duration": 2.22
+    },
+    {
+        "text": "and so we've actually gone in and fixed it.",
+        "start": 2277.52,
+        "duration": 2.355
+    },
+    {
+        "text": "If you're not failing at all,",
+        "start": 2279.875,
+        "duration": 1.665
+    },
+    {
+        "text": "yeah, you're not testing hard enough.",
+        "start": 2281.54,
+        "duration": 1.95
+    },
+    {
+        "text": "You want to see something more like it's passing",
+        "start": 2283.49,
+        "duration": 2.88
+    },
+    {
+        "text": "whatever 90 percent of the test because these are",
+        "start": 2286.37,
+        "duration": 2.025
+    },
+    {
+        "text": "adversarial test by design.",
+        "start": 2288.395,
+        "duration": 2.535
+    },
+    {
+        "text": "We went back and",
+        "start": 2290.93,
+        "duration": 3.9
+    },
+    {
+        "text": "fixed it so that you're getting not 100 percent pass rate.",
+        "start": 2294.83,
+        "duration": 4.53
+    },
+    {
+        "text": ">> For the data scientists out there,",
+        "start": 2299.36,
+        "duration": 1.92
+    },
+    {
+        "text": "if you ever make something and you're like,",
+        "start": 2301.28,
+        "duration": 3.33
+    },
+    {
+        "text": "wow, this is 100 percent accurate.",
+        "start": 2304.61,
+        "duration": 2.175
+    },
+    {
+        "text": "All of a sudden it's like something's wrong,",
+        "start": 2306.785,
+        "duration": 3.975
+    },
+    {
+        "text": "and so that's why if things that are 100 percent perfect,",
+        "start": 2310.76,
+        "duration": 3.54
+    },
+    {
+        "text": "something's really wrong for us.",
+        "start": 2314.3,
+        "duration": 2.595
+    },
+    {
+        "text": ">> Then in the response way angle, again,",
+        "start": 2316.895,
+        "duration": 2.655
+    },
+    {
+        "text": "they're supposed to be adversarial tests so you are not",
+        "start": 2319.55,
+        "duration": 3.42
+    },
+    {
+        "text": "hitting your system hard enough if you can not get through at all,",
+        "start": 2322.97,
+        "duration": 3.66
+    },
+    {
+        "text": "that's just not where it is today.",
+        "start": 2326.63,
+        "duration": 2.505
+    },
+    {
+        "text": "Do great, this is keynote magic,",
+        "start": 2329.135,
+        "duration": 2.385
+    },
+    {
+        "text": "but it shouldn't be 100 percent.",
+        "start": 2331.52,
+        "duration": 1.605
+    },
+    {
+        "text": ">> I love it. Thanks very much.",
+        "start": 2333.125,
+        "duration": 1.995
+    },
+    {
+        "text": "It's actually cool. I was looking, I was, wow,",
+        "start": 2335.12,
+        "duration": 1.68
+    },
+    {
+        "text": "those numbers are really good.",
+        "start": 2336.8,
+        "duration": 1.575
+    },
+    {
+        "text": ">> They're amazing. This is the mythical system you",
+        "start": 2338.375,
+        "duration": 2.565
+    },
+    {
+        "text": "should check or it's a horrible testing system,",
+        "start": 2340.94,
+        "duration": 2.52
+    },
+    {
+        "text": "but actually the testing system is good.",
+        "start": 2343.46,
+        "duration": 2.01
+    },
+    {
+        "text": ">> Yeah, of course it is.",
+        "start": 2345.47,
+        "duration": 3.255
+    },
+    {
+        "text": ">> Now I can confidently deploy to production and",
+        "start": 2348.725,
+        "duration": 3.195
+    },
+    {
+        "text": "bring the power of AI to Contoso shopping experiences.",
+        "start": 2351.92,
+        "duration": 4.29
+    },
+    {
+        "text": ">> Here you've seen the combined power of",
+        "start": 2356.21,
+        "duration": 3.3
+    },
+    {
+        "text": "Azure AI Content Safety integrated in",
+        "start": 2359.51,
+        "duration": 3.03
+    },
+    {
+        "text": "Azure OpenAI and Meta-Prompt evaluation",
+        "start": 2362.54,
+        "duration": 3.54
+    },
+    {
+        "text": "in prompt flow to build safety into copilot.",
+        "start": 2366.08,
+        "duration": 3.57
+    },
+    {
+        "text": "This is just a glimpse of some of",
+        "start": 2369.65,
+        "duration": 2.19
+    },
+    {
+        "text": "the new responsible AI capabilities we have in Azure AI.",
+        "start": 2371.84,
+        "duration": 3.6
+    },
+    {
+        "text": "We're making it easier to",
+        "start": 2375.44,
+        "duration": 1.62
+    },
+    {
+        "text": "build real-world, mission-critical, safe,",
+        "start": 2377.06,
+        "duration": 3.315
+    },
+    {
+        "text": "and secure AI solutions that you",
+        "start": 2380.375,
+        "duration": 2.625
+    },
+    {
+        "text": "can trust and use in your business.",
+        "start": 2383.0,
+        "duration": 2.805
+    },
+    {
+        "text": "Scott, back to you.",
+        "start": 2385.805,
+        "duration": 2.17
+    },
+    {
+        "text": ">> There you go. Scott says a thing or two afterwards,",
+        "start": 2387.975,
+        "duration": 2.875
+    },
+    {
+        "text": "I thought because we don't hear anything after that.",
+        "start": 2390.85,
+        "duration": 4.59
+    },
+    {
+        "text": ">> After that, I think I just blacked out.",
+        "start": 2395.44,
+        "duration": 2.325
+    },
+    {
+        "text": ">> There's a little table and we just hide under it.",
+        "start": 2397.765,
+        "duration": 3.335
+    },
+    {
+        "text": "At least I did.",
+        "start": 2401.1,
+        "duration": 1.58
+    },
+    {
+        "text": "I know you did it, because you're awesome.",
+        "start": 2402.68,
+        "duration": 2.44
+    },
+    {
+        "text": ">> This new era of AI, as I said earlier,",
+        "start": 2405.85,
+        "duration": 3.655
+    },
+    {
+        "text": "safety is not an optional feature, is a requirement.",
+        "start": 2409.505,
+        "duration": 3.84
+    },
+    {
+        "text": "It can't be an afterthought,",
+        "start": 2413.345,
+        "duration": 1.62
+    },
+    {
+        "text": "you need to design with safety in mind from the very beginning,",
+        "start": 2414.965,
+        "duration": 3.285
+    },
+    {
+        "text": "and with services like",
+        "start": 2418.25,
+        "duration": 2.055
+    },
+    {
+        "text": "Azure AI Content Safety service that we're providing you",
+        "start": 2420.305,
+        "duration": 3.035
+    },
+    {
+        "text": "with powerful capabilities that are built into Azure AI,",
+        "start": 2423.34,
+        "duration": 3.18
+    },
+    {
+        "text": "automatically integrated into Azure AI already for you.",
+        "start": 2426.52,
+        "duration": 3.57
+    },
+    {
+        "text": "That will help you be safe and",
+        "start": 2430.09,
+        "duration": 1.59
+    },
+    {
+        "text": "secure as you build your AI solutions.",
+        "start": 2431.68,
+        "duration": 3.28
+    },
+    {
+        "text": ">> That's an important statement.",
+        "start": 2435.07,
+        "duration": 2.875
+    },
+    {
+        "text": ">> Yeah. I was also reflecting just that.",
+        "start": 2437.945,
+        "duration": 3.315
+    },
+    {
+        "text": "I think it's basically",
+        "start": 2441.26,
+        "duration": 0.99
+    },
+    {
+        "text": "the coolest thing about working at Microsoft,",
+        "start": 2442.25,
+        "duration": 1.38
+    },
+    {
+        "text": "because I didn't tell Scott to say that.",
+        "start": 2443.63,
+        "duration": 1.77
+    },
+    {
+        "text": "Scott wants to say that. He gets it.",
+        "start": 2445.4,
+        "duration": 3.09
+    },
+    {
+        "text": "Satya gets it. They've experience",
+        "start": 2448.49,
+        "duration": 2.07
+    },
+    {
+        "text": "a billion keynote is that every day they are,",
+        "start": 2450.56,
+        "duration": 2.01
+    },
+    {
+        "text": "we need to put more responsible AI.",
+        "start": 2452.57,
+        "duration": 1.8
+    },
+    {
+        "text": "We want to show more of these.",
+        "start": 2454.37,
+        "duration": 1.5
+    },
+    {
+        "text": "Especially now that we have TAC,",
+        "start": 2455.87,
+        "duration": 1.83
+    },
+    {
+        "text": "it's one thing to say go do this.",
+        "start": 2457.7,
+        "duration": 2.04
+    },
+    {
+        "text": "It's much easier to where we say,",
+        "start": 2459.74,
+        "duration": 1.395
+    },
+    {
+        "text": "and we have things to help you.",
+        "start": 2461.135,
+        "duration": 2.1
+    },
+    {
+        "text": "Having leaders that just get it,",
+        "start": 2463.235,
+        "duration": 2.565
+    },
+    {
+        "text": "I think is part of the magic of Microsoft.",
+        "start": 2465.8,
+        "duration": 2.565
+    },
+    {
+        "text": ">> That's cool. The last thing I wanted to do is,",
+        "start": 2468.365,
+        "duration": 3.385
+    },
+    {
+        "text": "this is the same one that we use for one of the demos I did.",
+        "start": 2472.0,
+        "duration": 4.84
+    },
+    {
+        "text": "I'm going to click on this thing.",
+        "start": 2476.84,
+        "duration": 1.47
+    },
+    {
+        "text": "Could you tell me a little bit more about.",
+        "start": 2478.31,
+        "duration": 2.625
+    },
+    {
+        "text": ">> What are we looking at Seth?",
+        "start": 2480.935,
+        "duration": 1.185
+    },
+    {
+        "text": "This is Azure OpenAI Studio?",
+        "start": 2482.12,
+        "duration": 4.98
+    },
+    {
+        "text": ">> Azure OpenAI Studio you can see here,",
+        "start": 2487.1,
+        "duration": 2.445
+    },
+    {
+        "text": "actually Azure AI Studio.",
+        "start": 2489.545,
+        "duration": 2.145
+    },
+    {
+        "text": "Yeah, it's important. It's our new thing.",
+        "start": 2491.69,
+        "duration": 4.41
+    },
+    {
+        "text": "On the left-hand side is some of the newer stuff.",
+        "start": 2496.1,
+        "duration": 3.54
+    },
+    {
+        "text": ">> Yeah, I think content filters preview",
+        "start": 2499.64,
+        "duration": 2.1
+    },
+    {
+        "text": "is live today, I believe,",
+        "start": 2501.74,
+        "duration": 1.74
+    },
+    {
+        "text": "so you can go to this now I think and go create a councilor.",
+        "start": 2503.48,
+        "duration": 5.52
+    },
+    {
+        "text": "This is what we were just talking about,",
+        "start": 2509.0,
+        "duration": 1.77
+    },
+    {
+        "text": "which is by default,",
+        "start": 2510.77,
+        "duration": 1.425
+    },
+    {
+        "text": "the system is already set to filter at medium.",
+        "start": 2512.195,
+        "duration": 2.355
+    },
+    {
+        "text": "This is of course our estimate of most applications.",
+        "start": 2514.55,
+        "duration": 3.885
+    },
+    {
+        "text": "This is a good starting point,",
+        "start": 2518.435,
+        "duration": 2.025
+    },
+    {
+        "text": "but you're going to want to customize for your application.",
+        "start": 2520.46,
+        "duration": 2.76
+    },
+    {
+        "text": "As we already said in this,",
+        "start": 2523.22,
+        "duration": 1.26
+    },
+    {
+        "text": "you want to customize the prompt and the",
+        "start": 2524.48,
+        "duration": 2.34
+    },
+    {
+        "text": "completion filtering potentially different,",
+        "start": 2526.82,
+        "duration": 2.385
+    },
+    {
+        "text": "and so this is that same settings we're looking at before.",
+        "start": 2529.205,
+        "duration": 2.415
+    },
+    {
+        "text": "But now you can actually go and do it yourself here and",
+        "start": 2531.62,
+        "duration": 3.135
+    },
+    {
+        "text": "attach it to a deployment and that will",
+        "start": 2534.755,
+        "duration": 1.575
+    },
+    {
+        "text": "change the filter savings right away for you.",
+        "start": 2536.33,
+        "duration": 1.875
+    },
+    {
+        "text": ">> It looks like it's not letting me",
+        "start": 2538.205,
+        "duration": 1.515
+    },
+    {
+        "text": "turn stuff off though. Why is that?",
+        "start": 2539.72,
+        "duration": 2.19
+    },
+    {
+        "text": ">> Yes. We want to ensure that",
+        "start": 2541.91,
+        "duration": 4.245
+    },
+    {
+        "text": "everybody who's using Azure OpenAI",
+        "start": 2546.155,
+        "duration": 2.04
+    },
+    {
+        "text": "is following our code of conduct,",
+        "start": 2548.195,
+        "duration": 2.325
+    },
+    {
+        "text": "which includes a content policy.",
+        "start": 2550.52,
+        "duration": 1.32
+    },
+    {
+        "text": "You will not generate this certain type of content.",
+        "start": 2551.84,
+        "duration": 3.045
+    },
+    {
+        "text": "To enforce that, we set the filters at medium,",
+        "start": 2554.885,
+        "duration": 3.915
+    },
+    {
+        "text": "users or customers are allowed to make them stricter by default.",
+        "start": 2558.8,
+        "duration": 3.81
+    },
+    {
+        "text": "But if you want to make them less strict,",
+        "start": 2562.61,
+        "duration": 2.19
+    },
+    {
+        "text": "so you wanted to set it to only filter",
+        "start": 2564.8,
+        "duration": 1.635
+    },
+    {
+        "text": "high or you want to turn it off completely,",
+        "start": 2566.435,
+        "duration": 2.49
+    },
+    {
+        "text": "then you have to go and apply and show us that",
+        "start": 2568.925,
+        "duration": 3.39
+    },
+    {
+        "text": "you are trusted customer with a low risk use case,",
+        "start": 2572.315,
+        "duration": 3.72
+    },
+    {
+        "text": "and then that gives you control of the content filters.",
+        "start": 2576.035,
+        "duration": 4.05
+    },
+    {
+        "text": "It's a two-step approach to show that we",
+        "start": 2580.085,
+        "duration": 3.435
+    },
+    {
+        "text": "want this to be protecting against everybody,",
+        "start": 2583.52,
+        "duration": 2.88
+    },
+    {
+        "text": "but then we know that each application needs something different.",
+        "start": 2586.4,
+        "duration": 3.315
+    },
+    {
+        "text": "It's really about having a conversation with us to",
+        "start": 2589.715,
+        "duration": 2.67
+    },
+    {
+        "text": "adjust those filter settings in a way that's less restrictive.",
+        "start": 2592.385,
+        "duration": 3.06
+    },
+    {
+        "text": ">> That's cool. When I create a content filtering configuration,",
+        "start": 2595.445,
+        "duration": 4.725
+    },
+    {
+        "text": "can I have multiple of them?",
+        "start": 2600.17,
+        "duration": 1.65
+    },
+    {
+        "text": "I don't understand. When I create one what happens?",
+        "start": 2601.82,
+        "duration": 3.33
+    },
+    {
+        "text": ">> Yeah. When you create it,",
+        "start": 2605.15,
+        "duration": 1.53
+    },
+    {
+        "text": "you can save it and you can have",
+        "start": 2606.68,
+        "duration": 1.29
+    },
+    {
+        "text": "many different ones because you might be",
+        "start": 2607.97,
+        "duration": 1.98
+    },
+    {
+        "text": "serving multiple applications from your subscription,",
+        "start": 2609.95,
+        "duration": 3.555
+    },
+    {
+        "text": "and so then you go and attach them to",
+        "start": 2613.505,
+        "duration": 1.965
+    },
+    {
+        "text": "a particular deployment so that way you can do",
+        "start": 2615.47,
+        "duration": 1.74
+    },
+    {
+        "text": "different settings for different applications.",
+        "start": 2617.21,
+        "duration": 2.1
+    },
+    {
+        "text": ">> I see. What you're doing is you're creating a configuration?",
+        "start": 2619.31,
+        "duration": 5.01
+    },
+    {
+        "text": ">> Go to Deployments there.",
+        "start": 2624.32,
+        "duration": 1.395
+    },
+    {
+        "text": ">> Okay.",
+        "start": 2625.715,
+        "duration": 1.065
+    },
+    {
+        "text": ">> Then you have a deployment.",
+        "start": 2626.78,
+        "duration": 2.19
+    },
+    {
+        "text": "If you click on the summary. Yeah, click there.",
+        "start": 2628.97,
+        "duration": 3.765
+    },
+    {
+        "text": ">> Okay.",
+        "start": 2632.735,
+        "duration": 1.495
+    },
+    {
+        "text": ">> Well, maybe not here.",
+        "start": 2635.29,
+        "duration": 2.41
+    },
+    {
+        "text": "Go to one you can go to edit deployment I think.",
+        "start": 2637.7,
+        "duration": 2.7
+    },
+    {
+        "text": ">> Okay. Edit deployment.",
+        "start": 2640.4,
+        "duration": 1.815
+    },
+    {
+        "text": "Oh, by the way I can't edit this one.",
+        "start": 2642.215,
+        "duration": 1.485
+    },
+    {
+        "text": ">> Edit it up right there.",
+        "start": 2643.7,
+        "duration": 1.62
+    },
+    {
+        "text": ">> Oh, here we go.",
+        "start": 2645.32,
+        "duration": 1.545
+    },
+    {
+        "text": ">> Yeah, see. Filter there.",
+        "start": 2646.865,
+        "duration": 3.39
+    },
+    {
+        "text": ">> You don't have any content.",
+        "start": 2650.255,
+        "duration": 1.245
+    },
+    {
+        "text": ">> You have a demo version.",
+        "start": 2651.5,
+        "duration": 2.985
+    },
+    {
+        "text": "That's not perfectly and that's where you",
+        "start": 2654.485,
+        "duration": 1.455
+    },
+    {
+        "text": "could attach that content, filter then.",
+        "start": 2655.94,
+        "duration": 2.04
+    },
+    {
+        "text": ">> Oh, I see.",
+        "start": 2657.98,
+        "duration": 1.8
+    },
+    {
+        "text": "In theory, you could have",
+        "start": 2659.78,
+        "duration": 1.32
+    },
+    {
+        "text": "multiple deployments of models",
+        "start": 2661.1,
+        "duration": 1.845
+    },
+    {
+        "text": "for the ones that you can multiply,",
+        "start": 2662.945,
+        "duration": 1.23
+    },
+    {
+        "text": "and then you can have different content filters for each model,",
+        "start": 2664.175,
+        "duration": 3.495
+    },
+    {
+        "text": "which effectively gives you",
+        "start": 2667.67,
+        "duration": 1.14
+    },
+    {
+        "text": "a different end point to call that model.",
+        "start": 2668.81,
+        "duration": 3.345
+    },
+    {
+        "text": ">> Yeah, it's putting different live filter settings",
+        "start": 2672.155,
+        "duration": 3.705
+    },
+    {
+        "text": "around it so you'll see the impact of that filtering in line.",
+        "start": 2675.86,
+        "duration": 3.645
+    },
+    {
+        "text": ">> Well, this has been amazing and we're running",
+        "start": 2679.505,
+        "duration": 1.905
+    },
+    {
+        "text": "out of time as always, Sarah's been awesome.",
+        "start": 2681.41,
+        "duration": 1.995
+    },
+    {
+        "text": "If you want to get started, this is the content safety studio,",
+        "start": 2683.405,
+        "duration": 3.57
+    },
+    {
+        "text": "you can go there if you want to learn more about the product.",
+        "start": 2686.975,
+        "duration": 3.21
+    },
+    {
+        "text": "This is this here and there's an eBook.",
+        "start": 2690.185,
+        "duration": 1.845
+    },
+    {
+        "text": "Tell us about the eBook that I'm putting up here.",
+        "start": 2692.03,
+        "duration": 3.945
+    },
+    {
+        "text": ">> We've got an eBook that talks more basic than how you can",
+        "start": 2695.975,
+        "duration": 4.185
+    },
+    {
+        "text": "use this both for digital safety",
+        "start": 2700.16,
+        "duration": 2.28
+    },
+    {
+        "text": "and responsible AI, so it's great.",
+        "start": 2702.44,
+        "duration": 2.37
+    },
+    {
+        "text": "I definitely recommend checking it out,",
+        "start": 2704.81,
+        "duration": 1.83
+    },
+    {
+        "text": "it talks in more depth about some of the things we were",
+        "start": 2706.64,
+        "duration": 2.34
+    },
+    {
+        "text": "talking about here and why this is so important.",
+        "start": 2708.98,
+        "duration": 2.73
+    },
+    {
+        "text": ">> Amazing. Well, we've been talking all about today,",
+        "start": 2711.71,
+        "duration": 3.765
+    },
+    {
+        "text": "Azure content safety creating,",
+        "start": 2715.475,
+        "duration": 1.695
+    },
+    {
+        "text": "safer online community with",
+        "start": 2717.17,
+        "duration": 1.02
+    },
+    {
+        "text": "multi-modal content filtering and AI with the amazing Sarah Bird.",
+        "start": 2718.19,
+        "duration": 3.84
+    },
+    {
+        "text": "Thank you so much for",
+        "start": 2722.03,
+        "duration": 1.05
+    },
+    {
+        "text": "watching and hopefully we'll see you next time. Take care",
+        "start": 2723.08,
+        "duration": 3.49
+    }
+]

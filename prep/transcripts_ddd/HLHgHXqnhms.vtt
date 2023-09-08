@@ -1,0 +1,3344 @@
+WEBVTT
+
+00:00:00.718 --> 00:00:05.940
+Caption: good morning everyone thanks so much for
+
+00:00:03.299 --> 00:00:08.279
+Caption: coming it&#39;s my absolute pleasure to
+
+00:00:05.940 --> 00:00:12.360
+Caption: introduce Macklin uh Hartley to you
+
+00:00:08.279 --> 00:00:15.178
+Caption: today he is a full stack engineer who&#39;s
+
+00:00:12.359 --> 00:00:18.239
+Caption: been in the industry for nearly 10 years
+
+00:00:15.178 --> 00:00:21.118
+Caption: so a fair bit of experience there and he
+
+00:00:18.239 --> 00:00:24.358
+Caption: speaks about a range of topics including
+
+00:00:21.118 --> 00:00:27.420
+Caption: accessibility queuing Theory continuous
+
+00:00:24.358 --> 00:00:29.819
+Caption: delivery and feature toggling and this
+
+00:00:27.420 --> 00:00:31.679
+Caption: is his third speaking engagement at DDD
+
+00:00:29.819 --> 00:00:35.279
+Caption: and he&#39;s going to be talking to you
+
+00:00:31.679 --> 00:00:37.770
+Caption: about how fast is your website really so
+
+00:00:35.279 --> 00:00:42.238
+Caption: please Round of Applause for Macklin
+
+00:00:37.770 --> 00:00:44.340
+Caption: [Applause]
+
+00:00:42.238 --> 00:00:45.959
+Caption: thank you
+
+00:00:44.340 --> 00:00:48.180
+Caption: is this working
+
+00:00:45.959 --> 00:00:49.799
+Caption: yep all right so
+
+00:00:48.180 --> 00:00:51.659
+Caption: how fast is your website really that&#39;s
+
+00:00:49.799 --> 00:00:55.078
+Caption: the question I&#39;m going to ask today how
+
+00:00:51.659 --> 00:00:57.659
+Caption: many people build fast websites
+
+00:00:55.078 --> 00:00:58.919
+Caption: so you all build slow websites that&#39;s
+
+00:00:57.659 --> 00:01:01.379
+Caption: probably why you&#39;re here I guess right
+
+00:00:58.919 --> 00:01:03.238
+Caption: cool
+
+00:01:01.379 --> 00:01:05.519
+Caption: um how do you know if your website&#39;s
+
+00:01:03.238 --> 00:01:06.720
+Caption: fast though I kind of was built built
+
+00:01:05.518 --> 00:01:08.039
+Caption: this slide under the assumption that
+
+00:01:06.720 --> 00:01:09.119
+Caption: everyone will put their hands up but
+
+00:01:08.040 --> 00:01:11.279
+Caption: that&#39;s okay
+
+00:01:09.119 --> 00:01:12.900
+Caption: um how do we even know that&#39;s probably
+
+00:01:11.279 --> 00:01:13.919
+Caption: the question that we need to ask at the
+
+00:01:12.900 --> 00:01:16.200
+Caption: moment
+
+00:01:13.919 --> 00:01:18.839
+Caption: so spoiler alert this is how you know
+
+00:01:16.199 --> 00:01:21.298
+Caption: this is this is the answer you need to
+
+00:01:18.839 --> 00:01:22.978
+Caption: have user-centric performance metrics
+
+00:01:21.299 --> 00:01:25.200
+Caption: you need to capture those metrics from
+
+00:01:22.978 --> 00:01:27.000
+Caption: real devices and you need to have
+
+00:01:25.199 --> 00:01:29.099
+Caption: continuous observability over those
+
+00:01:27.000 --> 00:01:30.540
+Caption: metrics so that&#39;s that&#39;s the whole talk
+
+00:01:29.099 --> 00:01:32.279
+Caption: right
+
+00:01:30.540 --> 00:01:33.479
+Caption: um no that&#39;s that&#39;s the that&#39;s the end
+
+00:01:32.279 --> 00:01:34.739
+Caption: of the talk I&#39;m going to get to that
+
+00:01:33.478 --> 00:01:37.199
+Caption: point but we&#39;ve got to figure out how to
+
+00:01:34.739 --> 00:01:39.360
+Caption: get there right
+
+00:01:37.199 --> 00:01:41.158
+Caption: um just before I continue on one thing
+
+00:01:39.360 --> 00:01:43.439
+Caption: that this talk is not going to be is how
+
+00:01:41.158 --> 00:01:46.139
+Caption: to actually tune for better performance
+
+00:01:43.439 --> 00:01:47.880
+Caption: how to do web Performance Tuning that&#39;s
+
+00:01:46.139 --> 00:01:50.099
+Caption: probably a whole other talk in itself
+
+00:01:47.879 --> 00:01:52.019
+Caption: and actually there&#39;s tons of tips like
+
+00:01:50.099 --> 00:01:54.059
+Caption: Google will give you heaps of tips on
+
+00:01:52.019 --> 00:01:55.919
+Caption: how to do that so we&#39;ll separate that
+
+00:01:54.059 --> 00:01:57.118
+Caption: out of this talk we&#39;re just going to
+
+00:01:55.919 --> 00:01:57.898
+Caption: figure out how to actually measure it
+
+00:01:57.119 --> 00:02:01.500
+Caption: first
+
+00:01:57.899 --> 00:02:03.840
+Caption: uh and then we&#39;ll go from there
+
+00:02:01.500 --> 00:02:05.579
+Caption: so let&#39;s start by forgetting everything
+
+00:02:03.839 --> 00:02:08.160
+Caption: we actually know about web performance
+
+00:02:05.579 --> 00:02:09.839
+Caption: monitoring we&#39;ll start from scratch I
+
+00:02:08.160 --> 00:02:11.940
+Caption: like the idea of starting somewhere
+
+00:02:09.839 --> 00:02:14.098
+Caption: really naive and then kind of building
+
+00:02:11.940 --> 00:02:16.139
+Caption: up building up from there so what we&#39;re
+
+00:02:14.098 --> 00:02:17.940
+Caption: going to do is do the simplest thing
+
+00:02:16.139 --> 00:02:21.119
+Caption: that I can probably think of which is
+
+00:02:17.940 --> 00:02:22.619
+Caption: just on on that page load event this is
+
+00:02:21.119 --> 00:02:24.539
+Caption: an event that&#39;s available to you in the
+
+00:02:22.619 --> 00:02:26.458
+Caption: browser we&#39;re just going to track our
+
+00:02:24.539 --> 00:02:28.679
+Caption: performance there so this would be code
+
+00:02:26.458 --> 00:02:31.919
+Caption: that you can actually run and we can see
+
+00:02:28.679 --> 00:02:34.859
+Caption: our page took 729 milliseconds to load
+
+00:02:31.919 --> 00:02:36.598
+Caption: so that&#39;s nice except that kind of falls
+
+00:02:34.860 --> 00:02:38.580
+Caption: apart because the moment we look in the
+
+00:02:36.598 --> 00:02:40.619
+Caption: performance inspector which is a tool
+
+00:02:38.580 --> 00:02:43.018
+Caption: that&#39;s available inside Chrome you can
+
+00:02:40.619 --> 00:02:44.339
+Caption: see the the red L there that&#39;s your page
+
+00:02:43.018 --> 00:02:45.958
+Caption: load event and you can actually see that
+
+00:02:44.339 --> 00:02:47.339
+Caption: stuff&#39;s happening on either side of that
+
+00:02:45.958 --> 00:02:49.500
+Caption: event and actually most of it&#39;s
+
+00:02:47.339 --> 00:02:51.779
+Caption: happening on the wrong side so that&#39;s
+
+00:02:49.500 --> 00:02:53.279
+Caption: not telling us anything useful basically
+
+00:02:51.779 --> 00:02:54.500
+Caption: more of the stuff is happening after
+
+00:02:53.279 --> 00:02:58.819
+Caption: that event
+
+00:02:54.500 --> 00:02:58.819
+Caption: so we&#39;ve got to try and fix that
+
+00:02:59.279 --> 00:03:04.259
+Caption: one thing we could do is we could use
+
+00:03:01.199 --> 00:03:05.580
+Caption: the new navigation timing API so it&#39;s a
+
+00:03:04.259 --> 00:03:07.639
+Caption: bit more modern than just sort of
+
+00:03:05.580 --> 00:03:10.619
+Caption: running a page load event
+
+00:03:07.639 --> 00:03:12.360
+Caption: that is okay but really that&#39;s just
+
+00:03:10.619 --> 00:03:13.979
+Caption: giving us a whole lot of numbers that
+
+00:03:12.360 --> 00:03:15.598
+Caption: are about as meaningless as the page
+
+00:03:13.979 --> 00:03:18.958
+Caption: load event now it&#39;s not telling us
+
+00:03:15.598 --> 00:03:21.658
+Caption: anything useful when I get Dom content
+
+00:03:18.958 --> 00:03:23.639
+Caption: loaded event end what does that mean
+
+00:03:21.658 --> 00:03:26.238
+Caption: what does that mean for the user what
+
+00:03:23.639 --> 00:03:26.238
+Caption: does that look like
+
+00:03:27.539 --> 00:03:32.399
+Caption: so a bunch of smart big brain people
+
+00:03:29.458 --> 00:03:33.958
+Caption: have gotten together and actually uh
+
+00:03:32.399 --> 00:03:36.779
+Caption: all realize that we all have the same
+
+00:03:33.958 --> 00:03:39.000
+Caption: problem and they put together the w3c
+
+00:03:36.779 --> 00:03:40.440
+Caption: web performance working group
+
+00:03:39.000 --> 00:03:42.238
+Caption: and this group
+
+00:03:40.440 --> 00:03:44.400
+Caption: came together and came up with a the
+
+00:03:42.238 --> 00:03:46.619
+Caption: Kinder term called user-centric
+
+00:03:44.399 --> 00:03:47.699
+Caption: performance or user-centric performance
+
+00:03:46.619 --> 00:03:49.378
+Caption: metrics
+
+00:03:47.699 --> 00:03:50.940
+Caption: so what are those
+
+00:03:49.378 --> 00:03:52.279
+Caption: they&#39;re centered around a couple of
+
+00:03:50.940 --> 00:03:55.500
+Caption: different things
+
+00:03:52.279 --> 00:03:57.958
+Caption: you&#39;ve got perceived load speed it&#39;s as
+
+00:03:55.500 --> 00:03:59.878
+Caption: perceived as in as best as we can
+
+00:03:57.958 --> 00:04:01.259
+Caption: represent the load speed perceived by
+
+00:03:59.878 --> 00:04:04.018
+Caption: the user
+
+00:04:01.259 --> 00:04:07.080
+Caption: load responsiveness which is just how
+
+00:04:04.018 --> 00:04:09.119
+Caption: fast that that process goes for
+
+00:04:07.080 --> 00:04:12.000
+Caption: runtime responsiveness which is after
+
+00:04:09.119 --> 00:04:13.438
+Caption: it&#39;s loaded how fast is your website and
+
+00:04:12.000 --> 00:04:15.539
+Caption: then two other things visual stability
+
+00:04:13.438 --> 00:04:18.660
+Caption: and smoothness which are less about
+
+00:04:15.539 --> 00:04:21.839
+Caption: performance but still really important
+
+00:04:18.660 --> 00:04:24.959
+Caption: and out of that who&#39;s seen these before
+
+00:04:21.839 --> 00:04:27.660
+Caption: these metrics yeah web vitals a number
+
+00:04:24.959 --> 00:04:29.000
+Caption: of metrics with abbreviations that are
+
+00:04:27.660 --> 00:04:31.619
+Caption: sometimes hard to remember
+
+00:04:29.000 --> 00:04:34.019
+Caption: that are the key metrics for measuring
+
+00:04:31.619 --> 00:04:35.459
+Caption: web performance really handy
+
+00:04:34.019 --> 00:04:37.198
+Caption: I&#39;m going to go through all of these
+
+00:04:35.459 --> 00:04:38.699
+Caption: really quickly I know a lot of you
+
+00:04:37.199 --> 00:04:40.559
+Caption: people put your hands up saying that
+
+00:04:38.699 --> 00:04:42.059
+Caption: they&#39;ve seen these before so I won&#39;t
+
+00:04:40.559 --> 00:04:43.440
+Caption: spend too long on them but we&#39;re going
+
+00:04:42.059 --> 00:04:45.779
+Caption: to go through what each one of these
+
+00:04:43.440 --> 00:04:47.639
+Caption: means just quickly so time to First Bite
+
+00:04:45.779 --> 00:04:49.019
+Caption: is the time between when the browser
+
+00:04:47.639 --> 00:04:51.240
+Caption: requests the page and when it receives
+
+00:04:49.019 --> 00:04:52.859
+Caption: the first byte of information back and
+
+00:04:51.239 --> 00:04:56.339
+Caption: it&#39;s kind of just all of the stuff
+
+00:04:52.859 --> 00:04:57.839
+Caption: that&#39;s happening before your page loads
+
+00:04:56.339 --> 00:05:00.299
+Caption: um there&#39;s actually quite a lot of it
+
+00:04:57.839 --> 00:05:03.000
+Caption: usually a lot of this happens very very
+
+00:05:00.299 --> 00:05:04.918
+Caption: quickly so it&#39;s almost imperceptible but
+
+00:05:03.000 --> 00:05:06.899
+Caption: a number of things can actually affect
+
+00:05:04.919 --> 00:05:10.940
+Caption: how long this process takes
+
+00:05:06.899 --> 00:05:10.940
+Caption: so it&#39;s really important to measure that
+
+00:05:11.339 --> 00:05:15.899
+Caption: Google
+
+00:05:12.440 --> 00:05:18.179
+Caption: who I guess are big and heavily involved
+
+00:05:15.899 --> 00:05:20.699
+Caption: in the w3c working web performance
+
+00:05:18.179 --> 00:05:23.039
+Caption: working group suggest that time to First
+
+00:05:20.699 --> 00:05:24.720
+Caption: Bite should be under 800 milliseconds
+
+00:05:23.039 --> 00:05:27.059
+Caption: that&#39;s a good score but anything over
+
+00:05:24.720 --> 00:05:29.100
+Caption: 1.8 seconds is poor and needs
+
+00:05:27.059 --> 00:05:31.859
+Caption: Improvement
+
+00:05:29.100 --> 00:05:33.899
+Caption: next up we have first content for paint
+
+00:05:31.859 --> 00:05:36.239
+Caption: this is the time from when the page
+
+00:05:33.899 --> 00:05:37.859
+Caption: starts loading to any any part of the
+
+00:05:36.239 --> 00:05:40.079
+Caption: page is rendered on the screen so this
+
+00:05:37.859 --> 00:05:41.879
+Caption: is going from a white box in your
+
+00:05:40.079 --> 00:05:44.519
+Caption: browser to the first time anything
+
+00:05:41.880 --> 00:05:46.380
+Caption: appears on the screen
+
+00:05:44.519 --> 00:05:49.500
+Caption: it looks a bit like this
+
+00:05:46.380 --> 00:05:51.059
+Caption: so we can see we captured FCP when that
+
+00:05:49.500 --> 00:05:51.720
+Caption: first part of the result comes up on the
+
+00:05:51.059 --> 00:05:52.919
+Caption: top
+
+00:05:51.720 --> 00:05:54.059
+Caption: um Google&#39;s really convenient for
+
+00:05:52.919 --> 00:05:56.399
+Caption: testing this stuff because they stream
+
+00:05:54.059 --> 00:05:57.479
+Caption: these results back to you so you slow it
+
+00:05:56.399 --> 00:05:58.619
+Caption: down slightly and you can actually
+
+00:05:57.479 --> 00:06:00.600
+Caption: capture this
+
+00:05:58.619 --> 00:06:03.559
+Caption: now we can see at the top there fcp&#39;s
+
+00:06:00.600 --> 00:06:03.559
+Caption: 0.5 seconds
+
+00:06:03.779 --> 00:06:08.519
+Caption: SCP should be anywhere between uh should
+
+00:06:06.660 --> 00:06:11.160
+Caption: be below 1.8 seconds if you can help it
+
+00:06:08.519 --> 00:06:13.500
+Caption: anything above three seconds is too long
+
+00:06:11.160 --> 00:06:15.600
+Caption: and it needs Improvement
+
+00:06:13.500 --> 00:06:16.679
+Caption: next up you have LCP or largest content
+
+00:06:15.600 --> 00:06:18.959
+Caption: for paint
+
+00:06:16.679 --> 00:06:21.359
+Caption: this is tracking how many seconds it
+
+00:06:18.959 --> 00:06:24.559
+Caption: takes for the largest item or the
+
+00:06:21.359 --> 00:06:27.359
+Caption: largest data most most data intensive
+
+00:06:24.559 --> 00:06:29.660
+Caption: element above the fault element takes to
+
+00:06:27.359 --> 00:06:29.659
+Caption: load
+
+00:06:29.759 --> 00:06:34.799
+Caption: so it looks like this we can actually
+
+00:06:31.559 --> 00:06:38.039
+Caption: see it shifts as this page loads and
+
+00:06:34.799 --> 00:06:40.379
+Caption: we&#39;re looking at the the largest uh
+
+00:06:38.039 --> 00:06:42.360
+Caption: we&#39;re we&#39;re stretching oops we&#39;re
+
+00:06:40.380 --> 00:06:45.239
+Caption: tracking the largest element on the page
+
+00:06:42.359 --> 00:06:47.638
+Caption: at a given time
+
+00:06:45.239 --> 00:06:49.579
+Caption: pick that up
+
+00:06:47.639 --> 00:06:51.839
+Caption: so you can see
+
+00:06:49.579 --> 00:06:53.579
+Caption: LCP shifts from from sort of the top of
+
+00:06:51.839 --> 00:06:56.339
+Caption: the bottom of the page is actually the
+
+00:06:53.579 --> 00:06:58.019
+Caption: FCP at the very beginning but then as
+
+00:06:56.339 --> 00:07:00.179
+Caption: the the largest as we kind of uncover
+
+00:06:58.019 --> 00:07:01.440
+Caption: the largest element as we go that FCP
+
+00:07:00.179 --> 00:07:04.759
+Caption: score changes and at the end we
+
+00:07:01.440 --> 00:07:04.759
+Caption: calculate it at 1.6 seconds
+
+00:07:04.979 --> 00:07:08.880
+Caption: largest content for paint should be
+
+00:07:06.479 --> 00:07:12.559
+Caption: under 2.5 seconds if you can help it and
+
+00:07:08.880 --> 00:07:12.559
+Caption: anything over four seconds is too long
+
+00:07:13.859 --> 00:07:18.299
+Caption: then you have some other metrics as well
+
+00:07:15.899 --> 00:07:20.220
+Caption: less associated with load times but
+
+00:07:18.299 --> 00:07:22.259
+Caption: still really important this one&#39;s called
+
+00:07:20.220 --> 00:07:23.880
+Caption: first input delay it&#39;s the time for the
+
+00:07:22.259 --> 00:07:25.019
+Caption: first interaction on the page and the
+
+00:07:23.880 --> 00:07:27.660
+Caption: first time your user clicks anything
+
+00:07:25.019 --> 00:07:29.819
+Caption: Google targeted the first time the user
+
+00:07:27.660 --> 00:07:31.380
+Caption: clicks anything because quite often
+
+00:07:29.819 --> 00:07:33.479
+Caption: while your page is loading it&#39;s quite a
+
+00:07:31.380 --> 00:07:36.179
+Caption: data intensive CPU intensive exercise
+
+00:07:33.479 --> 00:07:38.220
+Caption: and if your user clicks anything while
+
+00:07:36.179 --> 00:07:40.259
+Caption: that&#39;s happening you are likely to see
+
+00:07:38.220 --> 00:07:43.739
+Caption: some sort of delay or incur some sort of
+
+00:07:40.259 --> 00:07:46.440
+Caption: sort of uh less than ideal experience so
+
+00:07:43.739 --> 00:07:48.119
+Caption: they focused on that first input
+
+00:07:46.440 --> 00:07:50.279
+Caption: it looks a little bit like this um
+
+00:07:48.119 --> 00:07:52.259
+Caption: usually it&#39;s quite imperceptible that
+
+00:07:50.279 --> 00:07:54.839
+Caption: the target scores are very low so this
+
+00:07:52.259 --> 00:07:55.979
+Caption: is a bit more of a contrived example but
+
+00:07:54.839 --> 00:07:57.598
+Caption: you can click that button and then
+
+00:07:55.979 --> 00:08:00.019
+Caption: there&#39;s an input delay there and we
+
+00:07:57.598 --> 00:08:00.019
+Caption: track that
+
+00:08:00.119 --> 00:08:05.519
+Caption: like I was saying quite quite low Target
+
+00:08:03.059 --> 00:08:07.819
+Caption: scores there usually imperceptible like
+
+00:08:05.519 --> 00:08:10.440
+Caption: 100 milliseconds is quite imperceptible
+
+00:08:07.819 --> 00:08:13.619
+Caption: a good score is 100 milliseconds
+
+00:08:10.440 --> 00:08:15.419
+Caption: anything over 300 is too long
+
+00:08:13.619 --> 00:08:16.919
+Caption: next up this is a fairly new metric
+
+00:08:15.419 --> 00:08:18.479
+Caption: called interaction to next paint and the
+
+00:08:16.919 --> 00:08:20.759
+Caption: way to think about this one is its first
+
+00:08:18.479 --> 00:08:22.559
+Caption: input delay calculated slightly
+
+00:08:20.759 --> 00:08:24.479
+Caption: differently but over the course of the
+
+00:08:22.559 --> 00:08:26.339
+Caption: entire interaction with the page so not
+
+00:08:24.479 --> 00:08:27.779
+Caption: just the first interaction but every
+
+00:08:26.339 --> 00:08:30.959
+Caption: interaction on the page every button you
+
+00:08:27.779 --> 00:08:33.440
+Caption: click every Carousel you scroll and
+
+00:08:30.959 --> 00:08:33.440
+Caption: stuff like that
+
+00:08:33.658 --> 00:08:37.080
+Caption: interactions the next plane should be
+
+00:08:35.338 --> 00:08:37.940
+Caption: under 200 milliseconds if you can help
+
+00:08:37.080 --> 00:08:41.398
+Caption: it
+
+00:08:37.940 --> 00:08:43.739
+Caption: anything of a every anything over half a
+
+00:08:41.398 --> 00:08:45.479
+Caption: second is too long
+
+00:08:43.739 --> 00:08:47.458
+Caption: now there&#39;s a slide missing there but
+
+00:08:45.479 --> 00:08:50.278
+Caption: that&#39;s all right cumulative layout shift
+
+00:08:47.458 --> 00:08:51.599
+Caption: is the last one uh this one is a little
+
+00:08:50.278 --> 00:08:52.679
+Caption: bit a little bit different but I think
+
+00:08:51.599 --> 00:08:54.179
+Caption: it&#39;s still a really important metric
+
+00:08:52.679 --> 00:08:57.419
+Caption: it&#39;s not so much about web performance
+
+00:08:54.179 --> 00:08:59.278
+Caption: as as much as as much it is about sort
+
+00:08:57.419 --> 00:09:02.219
+Caption: of visual stability
+
+00:08:59.278 --> 00:09:04.799
+Caption: um the way we can perceive
+
+00:09:02.219 --> 00:09:05.398
+Caption: cumulative layout shift this is why I
+
+00:09:04.799 --> 00:09:07.200
+Caption: think it&#39;s really important because
+
+00:09:05.398 --> 00:09:10.159
+Caption: these are really annoying and they suck
+
+00:09:07.200 --> 00:09:13.380
+Caption: and no user likes this when this happens
+
+00:09:10.159 --> 00:09:14.518
+Caption: this is maybe a less disastrous example
+
+00:09:13.380 --> 00:09:16.859
+Caption: but
+
+00:09:14.518 --> 00:09:17.639
+Caption: no missing a slide there too cool
+
+00:09:16.859 --> 00:09:19.380
+Caption: um
+
+00:09:17.640 --> 00:09:21.838
+Caption: there was a I think there was a famous
+
+00:09:19.380 --> 00:09:25.080
+Caption: example where there was a layout shift
+
+00:09:21.838 --> 00:09:26.820
+Caption: on a on a page with a nuclear missile
+
+00:09:25.080 --> 00:09:28.500
+Caption: alert test system and they clicked the
+
+00:09:26.820 --> 00:09:30.778
+Caption: wrong one that&#39;s that&#39;s the picture I
+
+00:09:28.500 --> 00:09:32.940
+Caption: had but it&#39;s gone so
+
+00:09:30.778 --> 00:09:34.859
+Caption: this is a score between zero and one so
+
+00:09:32.940 --> 00:09:36.119
+Caption: sort of a calculated score I think of it
+
+00:09:34.859 --> 00:09:37.500
+Caption: more of like a percentage I don&#39;t know
+
+00:09:36.119 --> 00:09:40.260
+Caption: if that&#39;s actually what it&#39;s meant to
+
+00:09:37.500 --> 00:09:45.239
+Caption: represent but anything below 0.1 or 10
+
+00:09:40.260 --> 00:09:47.220
+Caption: is good uh anything over 25 or 0.25
+
+00:09:45.239 --> 00:09:48.539
+Caption: probably needs some work it&#39;s probably
+
+00:09:47.219 --> 00:09:50.278
+Caption: got too many of those shifting
+
+00:09:48.539 --> 00:09:53.059
+Caption: components that are getting in the way
+
+00:09:50.278 --> 00:09:53.059
+Caption: annoying your users
+
+00:09:53.338 --> 00:09:58.619
+Caption: so a number of these metrics not all of
+
+00:09:56.159 --> 00:09:59.879
+Caption: them make up what Google called The Core
+
+00:09:58.619 --> 00:10:02.278
+Caption: web vitals
+
+00:09:59.880 --> 00:10:03.898
+Caption: you can see here largest contentful
+
+00:10:02.278 --> 00:10:06.659
+Caption: paint and first input delay and
+
+00:10:03.898 --> 00:10:09.778
+Caption: cumulative layout shift they make up
+
+00:10:06.659 --> 00:10:12.479
+Caption: actually what Google uses to decide
+
+00:10:09.778 --> 00:10:16.440
+Caption: whether where your search engine ranking
+
+00:10:12.479 --> 00:10:18.898
+Caption: is if you have uh if you&#39;re somewhere on
+
+00:10:16.440 --> 00:10:21.059
+Caption: a search engine page typically you can
+
+00:10:18.898 --> 00:10:23.880
+Caption: move up that search engine page and
+
+00:10:21.059 --> 00:10:26.278
+Caption: result if you have a faster website so
+
+00:10:23.880 --> 00:10:29.039
+Caption: there&#39;s actually material benefit here a
+
+00:10:26.278 --> 00:10:30.778
+Caption: commercial benefit in that if you
+
+00:10:29.039 --> 00:10:33.059
+Caption: improve the performance of your site you
+
+00:10:30.778 --> 00:10:35.159
+Caption: actually get get improved performance
+
+00:10:33.059 --> 00:10:36.958
+Caption: sort of in your externalities for
+
+00:10:35.159 --> 00:10:38.639
+Caption: example
+
+00:10:36.958 --> 00:10:41.518
+Caption: um I want to talk about largest tent for
+
+00:10:38.640 --> 00:10:43.380
+Caption: pain why did they choose that one
+
+00:10:41.518 --> 00:10:45.898
+Caption: it&#39;s because these metrics aren&#39;t they
+
+00:10:43.380 --> 00:10:47.099
+Caption: don&#39;t have atomicity so you might have
+
+00:10:45.898 --> 00:10:48.778
+Caption: noticed when we went through our
+
+00:10:47.099 --> 00:10:50.819
+Caption: examples before
+
+00:10:48.778 --> 00:10:52.739
+Caption: um time to first by time to first by the
+
+00:10:50.820 --> 00:10:54.778
+Caption: way it&#39;s calculated usually means um
+
+00:10:52.739 --> 00:10:56.578
+Caption: you&#39;ll get a score that is below first
+
+00:10:54.778 --> 00:10:57.958
+Caption: content for pain and a score that is
+
+00:10:56.578 --> 00:10:59.940
+Caption: below your largest contentful pain
+
+00:10:57.958 --> 00:11:01.260
+Caption: sometimes the first contentful and
+
+00:10:59.940 --> 00:11:02.898
+Caption: largest contentful paint will be the
+
+00:11:01.260 --> 00:11:05.820
+Caption: same that&#39;s probably a good thing
+
+00:11:02.898 --> 00:11:08.119
+Caption: but what this means is tracking all of
+
+00:11:05.820 --> 00:11:10.320
+Caption: these three together
+
+00:11:08.119 --> 00:11:12.000
+Caption: we can actually sort of look at the
+
+00:11:10.320 --> 00:11:14.100
+Caption: differences between them and identify
+
+00:11:12.000 --> 00:11:16.679
+Caption: which one is having the most impact on
+
+00:11:14.099 --> 00:11:19.199
+Caption: your web performance so for example if
+
+00:11:16.679 --> 00:11:20.640
+Caption: you have a high very high number for
+
+00:11:19.200 --> 00:11:23.518
+Caption: time to First buy that&#39;s usually an
+
+00:11:20.640 --> 00:11:25.200
+Caption: indicator that your user is very far
+
+00:11:23.518 --> 00:11:27.179
+Caption: away from where your web page is being
+
+00:11:25.200 --> 00:11:28.859
+Caption: served from you can improve that by
+
+00:11:27.179 --> 00:11:31.679
+Caption: bringing them closer together
+
+00:11:28.859 --> 00:11:33.539
+Caption: now whereas if for example if your time
+
+00:11:31.679 --> 00:11:35.219
+Caption: to First byte is really good
+
+00:11:33.539 --> 00:11:37.139
+Caption: um but you&#39;ve got a kind of a larger Gap
+
+00:11:35.219 --> 00:11:38.939
+Caption: to First contentful paint sort of in
+
+00:11:37.140 --> 00:11:40.859
+Caption: this case here and then a very large gap
+
+00:11:38.940 --> 00:11:43.619
+Caption: to largest condent for paint
+
+00:11:40.859 --> 00:11:45.838
+Caption: um we&#39;re able to transfer the JavaScript
+
+00:11:43.619 --> 00:11:47.760
+Caption: and the HTML onto the page very very
+
+00:11:45.838 --> 00:11:49.619
+Caption: quickly but it takes a long time to
+
+00:11:47.760 --> 00:11:51.179
+Caption: process that past the JavaScript and
+
+00:11:49.619 --> 00:11:54.320
+Caption: render it so that&#39;s where you&#39;d probably
+
+00:11:51.179 --> 00:11:54.320
+Caption: want to set your focus
+
+00:11:55.200 --> 00:12:00.660
+Caption: and setting a focus on stuff like this
+
+00:11:58.200 --> 00:12:02.760
+Caption: is really good like we have case studies
+
+00:12:00.659 --> 00:12:04.518
+Caption: that actually prove that there is
+
+00:12:02.760 --> 00:12:06.380
+Caption: commercial benefit to doing this
+
+00:12:04.518 --> 00:12:08.458
+Caption: vodafone&#39;s a really good example
+
+00:12:06.380 --> 00:12:10.859
+Caption: vodafone&#39;s huge so eight percent of
+
+00:12:08.458 --> 00:12:12.958
+Caption: sales is an astronomically High number
+
+00:12:10.859 --> 00:12:15.000
+Caption: but eight percent more sales when they
+
+00:12:12.958 --> 00:12:17.659
+Caption: increase their performance on largest
+
+00:12:15.000 --> 00:12:17.659
+Caption: contentful pain
+
+00:12:18.778 --> 00:12:22.559
+Caption: so I think we know how to get
+
+00:12:20.820 --> 00:12:24.660
+Caption: user-centric performance metrics now we
+
+00:12:22.559 --> 00:12:26.278
+Caption: know what they are at least so we can
+
+00:12:24.659 --> 00:12:27.898
+Caption: tick that box
+
+00:12:26.278 --> 00:12:30.898
+Caption: let&#39;s figure out now how to actually
+
+00:12:27.898 --> 00:12:32.338
+Caption: capture these metrics
+
+00:12:30.898 --> 00:12:34.619
+Caption: so there&#39;s a couple of different ways
+
+00:12:32.338 --> 00:12:37.200
+Caption: that we can capture them you&#39;ve got ad
+
+00:12:34.619 --> 00:12:39.059
+Caption: hoc testing synthetic monitoring and
+
+00:12:37.200 --> 00:12:41.820
+Caption: then real user monitoring so I&#39;m going
+
+00:12:39.059 --> 00:12:44.338
+Caption: to go into each one of those
+
+00:12:41.820 --> 00:12:46.138
+Caption: ad hoc testing who&#39;s used Lighthouse for
+
+00:12:44.338 --> 00:12:48.898
+Caption: Google Chrome before
+
+00:12:46.138 --> 00:12:51.380
+Caption: nice this this side of the room
+
+00:12:48.898 --> 00:12:54.479
+Caption: I&#39;ll Focus my attention this way then
+
+00:12:51.380 --> 00:12:56.720
+Caption: so Lighthouse for Google Chrome is a
+
+00:12:54.479 --> 00:12:59.518
+Caption: tool built-in built into Google Chrome
+
+00:12:56.719 --> 00:13:01.739
+Caption: that allows you to test any web page
+
+00:12:59.518 --> 00:13:04.200
+Caption: probably more likely your own the one
+
+00:13:01.739 --> 00:13:06.778
+Caption: that you manage and it will give you
+
+00:13:04.200 --> 00:13:08.458
+Caption: back those those web vital scores you
+
+00:13:06.778 --> 00:13:10.859
+Caption: can see them it&#39;s probably kind of small
+
+00:13:08.458 --> 00:13:12.059
+Caption: but those numbers in the bottom right
+
+00:13:10.859 --> 00:13:14.760
+Caption: corner
+
+00:13:12.059 --> 00:13:16.380
+Caption: it&#39;s tracked first contentful paint
+
+00:13:14.760 --> 00:13:18.600
+Caption: largest kind of content will paint all
+
+00:13:16.380 --> 00:13:21.239
+Caption: of those other metrics
+
+00:13:18.599 --> 00:13:22.559
+Caption: um this is really handy it&#39;s obviously a
+
+00:13:21.239 --> 00:13:24.599
+Caption: free tool
+
+00:13:22.559 --> 00:13:26.219
+Caption: um that you obviously a free tool that
+
+00:13:24.599 --> 00:13:27.958
+Caption: you can like everyone already has so
+
+00:13:26.219 --> 00:13:30.119
+Caption: really good to start using that
+
+00:13:27.958 --> 00:13:32.820
+Caption: um but perhaps a better example is this
+
+00:13:30.119 --> 00:13:33.719
+Caption: tool here also provided by Google this
+
+00:13:32.820 --> 00:13:37.518
+Caption: will run
+
+00:13:33.719 --> 00:13:41.159
+Caption: uh lighthouse on your behalf on a device
+
+00:13:37.518 --> 00:13:43.200
+Caption: that is not a desktop computer so this
+
+00:13:41.159 --> 00:13:45.000
+Caption: makes a huge difference because the
+
+00:13:43.200 --> 00:13:46.880
+Caption: performance profile of the mobile device
+
+00:13:45.000 --> 00:13:50.219
+Caption: which is what this will run on
+
+00:13:46.880 --> 00:13:51.778
+Caption: it makes a significant difference to the
+
+00:13:50.219 --> 00:13:54.179
+Caption: score and it&#39;s actually probably more
+
+00:13:51.778 --> 00:13:55.979
+Caption: realistic and representative of real
+
+00:13:54.179 --> 00:13:57.898
+Caption: world traffic most of your users are
+
+00:13:55.979 --> 00:13:59.479
+Caption: going to come from mobile devices the
+
+00:13:57.898 --> 00:14:01.859
+Caption: other interesting thing about this is
+
+00:13:59.479 --> 00:14:03.719
+Caption: this will run in a data center in the
+
+00:14:01.859 --> 00:14:06.539
+Caption: United States so if the majority of your
+
+00:14:03.719 --> 00:14:07.979
+Caption: customers are there and not here this is
+
+00:14:06.539 --> 00:14:10.159
+Caption: going to be more representative of that
+
+00:14:07.979 --> 00:14:10.159
+Caption: too
+
+00:14:10.440 --> 00:14:15.359
+Caption: so this ad hoc testing this is really
+
+00:14:12.778 --> 00:14:17.518
+Caption: great it&#39;s free anyone can do this and I
+
+00:14:15.359 --> 00:14:19.679
+Caption: suggest and recommend that people do
+
+00:14:17.518 --> 00:14:21.179
+Caption: this when you&#39;ve got if you&#39;ve got a
+
+00:14:19.679 --> 00:14:22.559
+Caption: website you should be kind of testing
+
+00:14:21.179 --> 00:14:24.778
+Caption: the performance and tracking all of this
+
+00:14:22.559 --> 00:14:26.638
+Caption: stuff there&#39;s no setup required everyone
+
+00:14:24.778 --> 00:14:30.059
+Caption: has Google Chrome even if you don&#39;t use
+
+00:14:26.638 --> 00:14:32.338
+Caption: it you&#39;ve probably got it uh but these
+
+00:14:30.059 --> 00:14:34.078
+Caption: are only good for once off manual tests
+
+00:14:32.338 --> 00:14:36.599
+Caption: it&#39;s it&#39;s clicking around testing stuff
+
+00:14:34.078 --> 00:14:39.599
+Caption: we don&#39;t have any automation here and
+
+00:14:36.599 --> 00:14:42.778
+Caption: they&#39;re also even though uh the the web
+
+00:14:39.599 --> 00:14:46.078
+Caption: performance uh the the web.dev measure
+
+00:14:42.778 --> 00:14:47.698
+Caption: that Tool uh runs in a US data center on
+
+00:14:46.078 --> 00:14:49.859
+Caption: a mobile device they still don&#39;t really
+
+00:14:47.698 --> 00:14:52.619
+Caption: represent real world traffic
+
+00:14:49.859 --> 00:14:54.719
+Caption: I&#39;ll get back to that in a minute
+
+00:14:52.619 --> 00:14:56.278
+Caption: one of our other options is synthetic
+
+00:14:54.719 --> 00:14:58.619
+Caption: monitoring so this is an example of one
+
+00:14:56.278 --> 00:15:00.198
+Caption: tool um these are really cool people to
+
+00:14:58.619 --> 00:15:02.099
+Caption: build this they&#39;re based in Australia
+
+00:15:00.198 --> 00:15:04.619
+Caption: caliber and what we&#39;re actually looking
+
+00:15:02.099 --> 00:15:07.319
+Caption: at here is a pull request a comment on a
+
+00:15:04.619 --> 00:15:09.359
+Caption: pull request so the way this tool is set
+
+00:15:07.320 --> 00:15:13.138
+Caption: up is every time you create a pull
+
+00:15:09.359 --> 00:15:15.559
+Caption: request you can set it up to uh
+
+00:15:13.138 --> 00:15:18.778
+Caption: on a deployed version of of this change
+
+00:15:15.559 --> 00:15:20.880
+Caption: uh run run a web web vitals test I think
+
+00:15:18.778 --> 00:15:22.979
+Caption: it runs it just runs Lighthouse but on
+
+00:15:20.880 --> 00:15:24.419
+Caption: your behalf it will run on multiple
+
+00:15:22.979 --> 00:15:27.539
+Caption: different devices so we&#39;ll run on
+
+00:15:24.419 --> 00:15:29.638
+Caption: desktops but multiple different Android
+
+00:15:27.539 --> 00:15:31.559
+Caption: and iOS devices for you as well we&#39;ll
+
+00:15:29.638 --> 00:15:33.059
+Caption: check that and it can you can choose all
+
+00:15:31.559 --> 00:15:34.500
+Caption: the locations and stuff like that that
+
+00:15:33.059 --> 00:15:36.299
+Caption: you run on so it&#39;s a bit more
+
+00:15:34.500 --> 00:15:38.778
+Caption: representative of your real world
+
+00:15:36.299 --> 00:15:38.778
+Caption: traffic again
+
+00:15:39.179 --> 00:15:41.698
+Caption: so this is this is probably a better
+
+00:15:40.739 --> 00:15:43.500
+Caption: tool
+
+00:15:41.698 --> 00:15:45.719
+Caption: um if you want to sort of take the next
+
+00:15:43.500 --> 00:15:47.338
+Caption: step you&#39;ve got your continuous
+
+00:15:45.719 --> 00:15:49.078
+Caption: integration continuous delivery
+
+00:15:47.338 --> 00:15:50.458
+Caption: automation through those pull request
+
+00:15:49.078 --> 00:15:52.979
+Caption: checks
+
+00:15:50.458 --> 00:15:54.599
+Caption: so that allows you if you&#39;re doing your
+
+00:15:52.979 --> 00:15:55.979
+Caption: regular pull request to monitor change
+
+00:15:54.599 --> 00:15:57.778
+Caption: over time
+
+00:15:55.979 --> 00:16:00.599
+Caption: unfortunately this Tool&#39;s not free you&#39;d
+
+00:15:57.778 --> 00:16:02.458
+Caption: have to pay a little bit to use it and
+
+00:16:00.599 --> 00:16:04.500
+Caption: it&#39;s still not representative of real
+
+00:16:02.458 --> 00:16:05.638
+Caption: world traffic so we&#39;ve got more devices
+
+00:16:04.500 --> 00:16:06.778
+Caption: now
+
+00:16:05.638 --> 00:16:08.278
+Caption: um but at the end of the day those
+
+00:16:06.778 --> 00:16:10.559
+Caption: devices are still running in data
+
+00:16:08.278 --> 00:16:12.179
+Caption: centers and we&#39;re kind of
+
+00:16:10.559 --> 00:16:13.500
+Caption: assuming that&#39;s how it&#39;s going to behave
+
+00:16:12.179 --> 00:16:17.239
+Caption: on the real world but it&#39;s still not the
+
+00:16:13.500 --> 00:16:17.239
+Caption: real world like I think we can do better
+
+00:16:18.838 --> 00:16:24.119
+Caption: why do I think this is important so
+
+00:16:21.599 --> 00:16:25.799
+Caption: if we look at browser engines we might
+
+00:16:24.119 --> 00:16:27.778
+Caption: be mistaken into thinking that there&#39;s
+
+00:16:25.799 --> 00:16:30.659
+Caption: not a whole lot of diversity there so
+
+00:16:27.778 --> 00:16:33.719
+Caption: you&#39;ve got a webkit-based devices this
+
+00:16:30.659 --> 00:16:36.000
+Caption: is uh traffic from a website that I I
+
+00:16:33.719 --> 00:16:38.398
+Caption: currently kind of maintain so don&#39;t know
+
+00:16:36.000 --> 00:16:41.578
+Caption: this is 100 accurate to like Global
+
+00:16:38.398 --> 00:16:43.198
+Caption: statistics but if we look at browser
+
+00:16:41.578 --> 00:16:46.198
+Caption: engines you&#39;ve got you&#39;ve got web kits
+
+00:16:43.198 --> 00:16:49.619
+Caption: so every single iOS device as well as
+
+00:16:46.198 --> 00:16:52.380
+Caption: some Mac OS desktop devices will be
+
+00:16:49.619 --> 00:16:54.479
+Caption: running webkit I say every single iOS
+
+00:16:52.380 --> 00:16:56.759
+Caption: device if you&#39;ve got Google Chrome on
+
+00:16:54.479 --> 00:16:59.039
+Caption: your iPhone it&#39;s actually webkit it&#39;s
+
+00:16:56.758 --> 00:17:01.919
+Caption: not Google Chrome and then the rest of
+
+00:16:59.039 --> 00:17:03.898
+Caption: it is Blink so same same browser engine
+
+00:17:01.919 --> 00:17:05.938
+Caption: as Google Chrome if you&#39;re running
+
+00:17:03.898 --> 00:17:09.178
+Caption: Microsoft Edge you&#39;ve got that so not a
+
+00:17:05.938 --> 00:17:11.279
+Caption: whole lot of diversity there
+
+00:17:09.178 --> 00:17:13.198
+Caption: same with form factor we&#39;re down to sort
+
+00:17:11.280 --> 00:17:15.838
+Caption: of a two-speed World you&#39;ve got desktop
+
+00:17:13.198 --> 00:17:18.119
+Caption: devices and mobile devices you&#39;ve got a
+
+00:17:15.838 --> 00:17:20.958
+Caption: small sliver there for TVs or something
+
+00:17:18.119 --> 00:17:20.958
+Caption: tablets right
+
+00:17:21.359 --> 00:17:24.958
+Caption: but I think this is probably a naive way
+
+00:17:23.040 --> 00:17:27.059
+Caption: to look at it so you might look at these
+
+00:17:24.958 --> 00:17:30.000
+Caption: and go I really only need to test on an
+
+00:17:27.058 --> 00:17:32.520
+Caption: iPhone and maybe one Android device and
+
+00:17:30.000 --> 00:17:35.880
+Caption: a Windows desktop maybe that should be
+
+00:17:32.520 --> 00:17:39.119
+Caption: enough I don&#39;t think that&#39;s good enough
+
+00:17:35.880 --> 00:17:41.880
+Caption: let&#39;s have a look at this is a a graph
+
+00:17:39.119 --> 00:17:45.178
+Caption: showing the the single core scores of
+
+00:17:41.880 --> 00:17:47.039
+Caption: devices a wide range of devices mobile
+
+00:17:45.178 --> 00:17:50.760
+Caption: devices
+
+00:17:47.038 --> 00:17:52.500
+Caption: um it goes up to 2020 so I think there&#39;s
+
+00:17:50.760 --> 00:17:54.719
+Caption: been some shifts as well but the really
+
+00:17:52.500 --> 00:17:57.298
+Caption: interesting thing this is telling us is
+
+00:17:54.719 --> 00:17:59.699
+Caption: there&#39;s a huge like massive difference
+
+00:17:57.298 --> 00:18:01.979
+Caption: in performance between top-end devices
+
+00:17:59.699 --> 00:18:04.380
+Caption: and low end devices and the problem here
+
+00:18:01.979 --> 00:18:06.239
+Caption: is the majority of your users aren&#39;t
+
+00:18:04.380 --> 00:18:08.579
+Caption: running those top end devices this is
+
+00:18:06.239 --> 00:18:11.160
+Caption: like if you&#39;re um who here has an iPhone
+
+00:18:08.579 --> 00:18:13.260
+Caption: and is running tests on it regularly
+
+00:18:11.160 --> 00:18:14.400
+Caption: caught one person
+
+00:18:13.260 --> 00:18:16.260
+Caption: um
+
+00:18:14.400 --> 00:18:18.000
+Caption: this one person I can tell you that baby
+
+00:18:16.260 --> 00:18:20.039
+Caption: what you&#39;re doing is not representative
+
+00:18:18.000 --> 00:18:22.939
+Caption: of what the majority of your users are
+
+00:18:20.038 --> 00:18:22.939
+Caption: experiencing so
+
+00:18:23.280 --> 00:18:27.359
+Caption: to put it another way and this is
+
+00:18:25.859 --> 00:18:28.678
+Caption: obviously with old data we&#39;ve got a new
+
+00:18:27.359 --> 00:18:30.900
+Caption: iPhone that&#39;s just come out so this is
+
+00:18:28.678 --> 00:18:33.119
+Caption: going to change again the difference in
+
+00:18:30.900 --> 00:18:36.960
+Caption: performance between those two devices is
+
+00:18:33.119 --> 00:18:39.119
+Caption: so significant that uh like this we&#39;ve
+
+00:18:36.959 --> 00:18:40.260
+Caption: got a coin we&#39;ve got a term that&#39;s been
+
+00:18:39.119 --> 00:18:42.538
+Caption: coined for this it&#39;s called the
+
+00:18:40.260 --> 00:18:43.558
+Caption: performance inequality Gap
+
+00:18:42.538 --> 00:18:45.599
+Caption: um
+
+00:18:43.558 --> 00:18:46.739
+Caption: yeah that that&#39;s a that&#39;s a big
+
+00:18:45.599 --> 00:18:48.298
+Caption: difference there
+
+00:18:46.739 --> 00:18:49.619
+Caption: um that was actually coined by by this
+
+00:18:48.298 --> 00:18:50.880
+Caption: guy he&#39;s uh he does some really
+
+00:18:49.619 --> 00:18:52.678
+Caption: interesting talks on that I&#39;ve got some
+
+00:18:50.880 --> 00:18:54.178
+Caption: links at the end to the talks that this
+
+00:18:52.678 --> 00:18:54.899
+Caption: guy&#39;s done before
+
+00:18:54.178 --> 00:18:57.538
+Caption: um
+
+00:18:54.900 --> 00:19:00.179
+Caption: he he has a really interesting part on
+
+00:18:57.538 --> 00:19:02.099
+Caption: his talk where uh he&#39;s running these
+
+00:19:00.178 --> 00:19:04.500
+Caption: performance but uh performance
+
+00:19:02.099 --> 00:19:07.619
+Caption: benchmarks on these devices
+
+00:19:04.500 --> 00:19:11.699
+Caption: um and just to sort of add to this as
+
+00:19:07.619 --> 00:19:13.079
+Caption: well um he&#39;s got a Nexus 5x he&#39;s tested
+
+00:19:11.699 --> 00:19:14.159
+Caption: it once and then he puts it on top of a
+
+00:19:13.079 --> 00:19:16.380
+Caption: block of ice
+
+00:19:14.160 --> 00:19:17.700
+Caption: um and that that device now performs 15
+
+00:19:16.380 --> 00:19:19.260
+Caption: faster
+
+00:19:17.699 --> 00:19:21.359
+Caption: so that&#39;s really interesting this now
+
+00:19:19.260 --> 00:19:23.640
+Caption: means that environment the environment
+
+00:19:21.359 --> 00:19:25.918
+Caption: in which you run your your website and
+
+00:19:23.640 --> 00:19:27.900
+Caption: and these benchmarks are working in also
+
+00:19:25.918 --> 00:19:29.639
+Caption: changes performance so that that score
+
+00:19:27.900 --> 00:19:32.640
+Caption: that you had before that could be 15
+
+00:19:29.640 --> 00:19:34.140
+Caption: higher or 15 percent lower
+
+00:19:32.640 --> 00:19:35.280
+Caption: um and this isn&#39;t this isn&#39;t just sort
+
+00:19:34.140 --> 00:19:37.140
+Caption: of like no one&#39;s actually running their
+
+00:19:35.280 --> 00:19:39.900
+Caption: devices on a block of ice but if you&#39;re
+
+00:19:37.140 --> 00:19:41.579
+Caption: outside on a 40 degree day in Perth you
+
+00:19:39.900 --> 00:19:44.460
+Caption: could actually have users that are
+
+00:19:41.579 --> 00:19:45.659
+Caption: experiencing your your site with 15 less
+
+00:19:44.459 --> 00:19:47.219
+Caption: performance
+
+00:19:45.660 --> 00:19:48.599
+Caption: um so this is this is a real thing that
+
+00:19:47.219 --> 00:19:50.520
+Caption: um does come up when we&#39;re talking about
+
+00:19:48.599 --> 00:19:52.918
+Caption: uh real world sort of metrics and real
+
+00:19:50.520 --> 00:19:54.479
+Caption: world tracking
+
+00:19:52.918 --> 00:19:57.119
+Caption: another thing that&#39;s really important is
+
+00:19:54.479 --> 00:20:00.599
+Caption: I think a lot of us uh work under the
+
+00:19:57.119 --> 00:20:02.400
+Caption: assumption that um networks are widely
+
+00:20:00.599 --> 00:20:04.619
+Caption: widely a lot faster and a lot more
+
+00:20:02.400 --> 00:20:07.320
+Caption: capable than they&#39;ve ever been um 4G
+
+00:20:04.619 --> 00:20:09.119
+Caption: itself is very widely available that&#39;s
+
+00:20:07.319 --> 00:20:12.119
+Caption: great that&#39;s a bit of a miracle actually
+
+00:20:09.119 --> 00:20:13.558
+Caption: because it&#39;s pulling us forward we have
+
+00:20:12.119 --> 00:20:16.439
+Caption: a significant
+
+00:20:13.558 --> 00:20:18.239
+Caption: um uh reduction in in the use of like
+
+00:20:16.439 --> 00:20:20.099
+Caption: our sort of four second budget four
+
+00:20:18.239 --> 00:20:22.859
+Caption: seconds is for LCP
+
+00:20:20.099 --> 00:20:25.619
+Caption: um we&#39;ve got we&#39;ve made huge strides and
+
+00:20:22.859 --> 00:20:28.020
+Caption: and all sites are generally a lot better
+
+00:20:25.619 --> 00:20:29.819
+Caption: performing for this but that only works
+
+00:20:28.020 --> 00:20:32.459
+Caption: under the assumption that 4G networks
+
+00:20:29.819 --> 00:20:34.619
+Caption: are evenly distributed which they&#39;re not
+
+00:20:32.459 --> 00:20:38.219
+Caption: if we look at the sort of variance
+
+00:20:34.619 --> 00:20:40.199
+Caption: within wa in 4G network speeds at the
+
+00:20:38.219 --> 00:20:42.058
+Caption: low end you&#39;ve got about 18 megabytes
+
+00:20:40.199 --> 00:20:45.959
+Caption: per second and at the high end you&#39;re
+
+00:20:42.058 --> 00:20:48.178
+Caption: talking almost 10 times higher than that
+
+00:20:45.959 --> 00:20:50.699
+Caption: same goes for latency
+
+00:20:48.178 --> 00:20:53.399
+Caption: latency can differ very significantly
+
+00:20:50.699 --> 00:20:55.918
+Caption: particularly on 4G networks 4G by the
+
+00:20:53.400 --> 00:20:58.200
+Caption: way networks the majority of devices are
+
+00:20:55.918 --> 00:21:00.298
+Caption: browsing on as well so
+
+00:20:58.199 --> 00:21:01.739
+Caption: um that that is where you&#39;re going to
+
+00:21:00.298 --> 00:21:03.479
+Caption: see the majority of your devices and the
+
+00:21:01.739 --> 00:21:05.038
+Caption: majority of of your users with their
+
+00:21:03.479 --> 00:21:08.959
+Caption: devices are going to be experiencing
+
+00:21:05.038 --> 00:21:08.959
+Caption: this sort of variance in performance
+
+00:21:09.058 --> 00:21:12.178
+Caption: so hopefully that tells you that we
+
+00:21:10.979 --> 00:21:14.760
+Caption: probably need to actually start
+
+00:21:12.178 --> 00:21:17.099
+Caption: monitoring on real devices so that we
+
+00:21:14.760 --> 00:21:19.260
+Caption: can account for environmental factors
+
+00:21:17.099 --> 00:21:21.719
+Caption: different 4G networks and different
+
+00:21:19.260 --> 00:21:25.520
+Caption: temperatures as it turns out as well as
+
+00:21:21.719 --> 00:21:25.520
+Caption: different CPU performance on devices
+
+00:21:26.099 --> 00:21:29.819
+Caption: so what is real user monitoring
+
+00:21:28.020 --> 00:21:31.500
+Caption: real user monitoring is capturing
+
+00:21:29.819 --> 00:21:33.178
+Caption: performance metrics directly from
+
+00:21:31.500 --> 00:21:35.939
+Caption: devices so that we can observe
+
+00:21:33.178 --> 00:21:38.959
+Caption: differences in functionality reliability
+
+00:21:35.939 --> 00:21:38.959
+Caption: and responsiveness
+
+00:21:39.058 --> 00:21:44.640
+Caption: so an example of how to do
+
+00:21:41.880 --> 00:21:47.819
+Caption: real user monitoring might be the Chrome
+
+00:21:44.640 --> 00:21:50.219
+Caption: user experience reform so I think we all
+
+00:21:47.819 --> 00:21:51.599
+Caption: know that Chrome while you&#39;re browsing
+
+00:21:50.219 --> 00:21:53.699
+Caption: the internet is doing all sorts of
+
+00:21:51.599 --> 00:21:55.319
+Caption: tracking um some of it&#39;s good some of
+
+00:21:53.699 --> 00:21:56.339
+Caption: it&#39;s not so good this is maybe one of
+
+00:21:55.319 --> 00:21:58.739
+Caption: the
+
+00:21:56.339 --> 00:21:59.520
+Caption: the gooder ones I&#39;d say
+
+00:21:58.739 --> 00:22:01.859
+Caption: um
+
+00:21:59.520 --> 00:22:04.020
+Caption: every single website you visit Google is
+
+00:22:01.859 --> 00:22:05.699
+Caption: sending uh it&#39;s it&#39;s anonymizing and
+
+00:22:04.020 --> 00:22:09.058
+Caption: then sending um
+
+00:22:05.699 --> 00:22:11.760
+Caption: web vitals metrics to itself it collates
+
+00:22:09.058 --> 00:22:14.399
+Caption: all of those metrics and makes this data
+
+00:22:11.760 --> 00:22:15.959
+Caption: set completely free and available to you
+
+00:22:14.400 --> 00:22:18.059
+Caption: so you can pull down this data set now
+
+00:22:15.959 --> 00:22:19.859
+Caption: for a site that you manage and you can
+
+00:22:18.058 --> 00:22:23.719
+Caption: see how it&#39;s performing on real world
+
+00:22:19.859 --> 00:22:23.719
+Caption: devices across the internet
+
+00:22:25.199 --> 00:22:29.939
+Caption: the Chrome user experience report is
+
+00:22:27.119 --> 00:22:31.918
+Caption: great because it&#39;s free you can see I
+
+00:22:29.939 --> 00:22:33.719
+Caption: can go and see the Chrome user
+
+00:22:31.918 --> 00:22:36.359
+Caption: experience report for google.com or
+
+00:22:33.719 --> 00:22:38.939
+Caption: facebook.com it&#39;s widely available
+
+00:22:36.359 --> 00:22:40.558
+Caption: it does do real user monitoring so cool
+
+00:22:38.939 --> 00:22:43.319
+Caption: ticks that box
+
+00:22:40.558 --> 00:22:44.939
+Caption: the one downside is that it doesn&#39;t give
+
+00:22:43.319 --> 00:22:47.819
+Caption: you these metrics in real time so you
+
+00:22:44.939 --> 00:22:49.678
+Caption: can pull this report once a month
+
+00:22:47.819 --> 00:22:51.599
+Caption: um that&#39;s that&#39;s a bit unfortunate
+
+00:22:49.678 --> 00:22:53.038
+Caption: because if we wanted to if we made a
+
+00:22:51.599 --> 00:22:55.678
+Caption: change and we were worried about the
+
+00:22:53.038 --> 00:22:56.399
+Caption: performance that feedback loop is too
+
+00:22:55.678 --> 00:22:58.859
+Caption: long
+
+00:22:56.400 --> 00:23:00.479
+Caption: uh what happens there is uh you might
+
+00:22:58.859 --> 00:23:03.359
+Caption: make a sort of a performance regression
+
+00:23:00.479 --> 00:23:04.859
+Caption: you incur the cost of that performance
+
+00:23:03.359 --> 00:23:06.658
+Caption: regression for an entire month before
+
+00:23:04.859 --> 00:23:07.979
+Caption: knowing that you&#39;ve done that and then
+
+00:23:06.659 --> 00:23:10.320
+Caption: then you have to go and try and figure
+
+00:23:07.979 --> 00:23:12.298
+Caption: out what caused that a month later so
+
+00:23:10.319 --> 00:23:14.038
+Caption: that&#39;s not ideal the other thing is this
+
+00:23:12.298 --> 00:23:16.199
+Caption: only profiles Google Chrome devices so
+
+00:23:14.038 --> 00:23:18.058
+Caption: you don&#39;t get realistic real user
+
+00:23:16.199 --> 00:23:19.439
+Caption: monitoring for iOS devices based on
+
+00:23:18.058 --> 00:23:22.020
+Caption: webkit and actually not even all Chrome
+
+00:23:19.439 --> 00:23:24.239
+Caption: devices just Google Chrome so not like
+
+00:23:22.020 --> 00:23:25.979
+Caption: blink Microsoft Edge or anything like
+
+00:23:24.239 --> 00:23:27.719
+Caption: that they&#39;re not sending data to Google
+
+00:23:25.979 --> 00:23:31.219
+Caption: for you
+
+00:23:27.719 --> 00:23:31.219
+Caption: um so it&#39;s not representing everyone
+
+00:23:31.260 --> 00:23:37.320
+Caption: here&#39;s another tool um this kind of
+
+00:23:33.959 --> 00:23:38.399
+Caption: fixes the uh with the Google Chrome user
+
+00:23:37.319 --> 00:23:39.839
+Caption: experience report
+
+00:23:38.400 --> 00:23:40.799
+Caption: um there&#39;s a couple of Hoops you have to
+
+00:23:39.839 --> 00:23:42.359
+Caption: jump through you have to get a Google
+
+00:23:40.798 --> 00:23:43.380
+Caption: account and then use this data Studio
+
+00:23:42.359 --> 00:23:45.000
+Caption: thing
+
+00:23:43.380 --> 00:23:46.140
+Caption: um set it up this kind of just makes
+
+00:23:45.000 --> 00:23:47.400
+Caption: this a whole lot easier you don&#39;t have
+
+00:23:46.140 --> 00:23:49.320
+Caption: to create an account or anything like
+
+00:23:47.400 --> 00:23:51.479
+Caption: that you can just plug in a site right
+
+00:23:49.319 --> 00:23:53.158
+Caption: now anyone here could just do this in
+
+00:23:51.479 --> 00:23:55.199
+Caption: about two seconds it&#39;s made by the
+
+00:23:53.159 --> 00:23:57.179
+Caption: caliber people too
+
+00:23:55.199 --> 00:23:59.038
+Caption: and
+
+00:23:57.178 --> 00:24:00.599
+Caption: I&#39;ve been told to put the sponsor slide
+
+00:23:59.038 --> 00:24:02.279
+Caption: either at the beginning or the end so
+
+00:24:00.599 --> 00:24:03.538
+Caption: the DDD people are probably panicking
+
+00:24:02.280 --> 00:24:05.159
+Caption: now because I&#39;m about halfway through
+
+00:24:03.538 --> 00:24:07.139
+Caption: and I&#39;ve got the slide here like an easy
+
+00:24:05.159 --> 00:24:09.120
+Caption: finish now
+
+00:24:07.140 --> 00:24:10.440
+Caption: um I&#39;ve decided to do something probably
+
+00:24:09.119 --> 00:24:12.538
+Caption: that might get me a little bit in
+
+00:24:10.439 --> 00:24:13.678
+Caption: trouble but I&#39;m going to do a sponsor
+
+00:24:12.538 --> 00:24:15.959
+Caption: leaderboard so I&#39;m going to go through
+
+00:24:13.678 --> 00:24:18.859
+Caption: all of the sponsors to tell you how fast
+
+00:24:15.959 --> 00:24:18.859
+Caption: your sites are going to perform
+
+00:24:21.319 --> 00:24:26.279
+Caption: yeah yeah all right so um just some
+
+00:24:24.900 --> 00:24:27.239
+Caption: ground rules when we start um this is
+
+00:24:26.280 --> 00:24:28.619
+Caption: how I&#39;m going to run the tour I&#39;m going
+
+00:24:27.239 --> 00:24:30.119
+Caption: to run it across the whole domain you
+
+00:24:28.619 --> 00:24:31.439
+Caption: tend to get better results um it&#39;s more
+
+00:24:30.119 --> 00:24:32.579
+Caption: representative of everything that&#39;s
+
+00:24:31.439 --> 00:24:35.879
+Caption: going on
+
+00:24:32.579 --> 00:24:37.079
+Caption: um as well as uh there are some sites
+
+00:24:35.880 --> 00:24:39.359
+Caption: that aren&#39;t going to have enough traffic
+
+00:24:37.079 --> 00:24:42.239
+Caption: so you need I think at least a thousand
+
+00:24:39.359 --> 00:24:43.199
+Caption: visits on Google Chrome per month um so
+
+00:24:42.239 --> 00:24:44.760
+Caption: some of them are going to get missed out
+
+00:24:43.199 --> 00:24:47.699
+Caption: there and the other thing is I&#39;m going
+
+00:24:44.760 --> 00:24:50.579
+Caption: to order this dashboard in descending
+
+00:24:47.699 --> 00:24:52.319
+Caption: order from uh at the LCP metric because
+
+00:24:50.579 --> 00:24:54.899
+Caption: I think that one&#39;s most important we
+
+00:24:52.319 --> 00:24:57.298
+Caption: touched on that before the case study
+
+00:24:54.900 --> 00:24:59.580
+Caption: for Vodafone that tends to be the one
+
+00:24:57.298 --> 00:25:02.099
+Caption: that&#39;s tied to commercial benefit so
+
+00:24:59.579 --> 00:25:03.899
+Caption: we&#39;re going to go that one
+
+00:25:02.099 --> 00:25:07.439
+Caption: so a couple of people got off the hook
+
+00:25:03.900 --> 00:25:09.539
+Caption: didn&#39;t get enough traffic so
+
+00:25:07.439 --> 00:25:12.379
+Caption: good for them
+
+00:25:09.538 --> 00:25:12.379
+Caption: maybe next year
+
+00:25:12.900 --> 00:25:16.859
+Caption: and this one&#39;s a little bit embarrassing
+
+00:25:14.520 --> 00:25:19.080
+Caption: so I I work for one of these companies
+
+00:25:16.859 --> 00:25:21.119
+Caption: it&#39;s the one on number 20 there so what
+
+00:25:19.079 --> 00:25:23.038
+Caption: happened there um I can I can explain
+
+00:25:21.119 --> 00:25:25.319
+Caption: that and I think I will
+
+00:25:23.038 --> 00:25:27.658
+Caption: um that website there is more more so a
+
+00:25:25.319 --> 00:25:29.939
+Caption: recruitment tool than it is the website
+
+00:25:27.659 --> 00:25:33.659
+Caption: that we derived commercial benefit from
+
+00:25:29.939 --> 00:25:35.219
+Caption: so that&#39;s why that&#39;s like that also I
+
+00:25:33.659 --> 00:25:38.039
+Caption: have nothing to do with that one so
+
+00:25:35.219 --> 00:25:39.599
+Caption: that&#39;s probably why it&#39;s like that
+
+00:25:38.038 --> 00:25:41.819
+Caption: um some other interesting scores here we
+
+00:25:39.599 --> 00:25:44.278
+Caption: have the lower score obviously for FCP
+
+00:25:41.819 --> 00:25:46.079
+Caption: and LCP on this on this dashboard really
+
+00:25:44.279 --> 00:25:47.159
+Caption: interesting though that for insight not
+
+00:25:46.079 --> 00:25:48.000
+Caption: sure what happened
+
+00:25:47.159 --> 00:25:50.820
+Caption: um
+
+00:25:48.000 --> 00:25:51.959
+Caption: the FCP is larger than the LCP so a bit
+
+00:25:50.819 --> 00:25:54.239
+Caption: confusing I don&#39;t think that&#39;s actually
+
+00:25:51.959 --> 00:25:56.699
+Caption: possible maybe that&#39;s a dud result scrub
+
+00:25:54.239 --> 00:25:58.558
+Caption: that off now we&#39;re last great there&#39;s
+
+00:25:56.699 --> 00:26:00.359
+Caption: also a zero score for cumulative layout
+
+00:25:58.558 --> 00:26:01.979
+Caption: shift here so good good on family zone
+
+00:26:00.359 --> 00:26:03.839
+Caption: for doing that
+
+00:26:01.979 --> 00:26:06.058
+Caption: let&#39;s move up the board here
+
+00:26:03.839 --> 00:26:07.380
+Caption: some more interesting results uh what
+
+00:26:06.058 --> 00:26:09.599
+Caption: have we got
+
+00:26:07.380 --> 00:26:12.119
+Caption: um Planet testing has a interesting
+
+00:26:09.599 --> 00:26:14.579
+Caption: score for cumulative layout shift of one
+
+00:26:12.119 --> 00:26:16.619
+Caption: I&#39;m not sure what to make of that that&#39;s
+
+00:26:14.579 --> 00:26:18.298
+Caption: a bit odd to me maybe that&#39;s just a bad
+
+00:26:16.619 --> 00:26:19.558
+Caption: result as well
+
+00:26:18.298 --> 00:26:22.260
+Caption: um we&#39;ve got Bunnings along the middle
+
+00:26:19.558 --> 00:26:24.418
+Caption: there um I should say that uh when I&#39;m
+
+00:26:22.260 --> 00:26:27.479
+Caption: identifying this stuff obviously this is
+
+00:26:24.418 --> 00:26:28.739
+Caption: this could be taken or construed as a
+
+00:26:27.479 --> 00:26:30.359
+Caption: bit of a roast
+
+00:26:28.739 --> 00:26:32.099
+Caption: um but I also say this is an opportunity
+
+00:26:30.359 --> 00:26:33.058
+Caption: for improvement until you see something
+
+00:26:32.099 --> 00:26:35.699
+Caption: like this
+
+00:26:33.058 --> 00:26:38.038
+Caption: um anyone work for Bunnings
+
+00:26:35.699 --> 00:26:39.418
+Caption: cool add the back this is a really uh
+
+00:26:38.038 --> 00:26:40.979
+Caption: there&#39;s probably something really simple
+
+00:26:39.418 --> 00:26:42.239
+Caption: that&#39;s that&#39;s causing something like
+
+00:26:40.979 --> 00:26:44.400
+Caption: this especially if it&#39;s right across the
+
+00:26:42.239 --> 00:26:47.099
+Caption: board so there might be opportunity for
+
+00:26:44.400 --> 00:26:48.839
+Caption: improvement uh here have a quick look at
+
+00:26:47.099 --> 00:26:52.319
+Caption: it uh it might sort of highlight
+
+00:26:48.839 --> 00:26:55.020
+Caption: something that you hadn&#39;t seen before
+
+00:26:52.319 --> 00:26:56.639
+Caption: uh We&#39;ve also got the best score for
+
+00:26:55.020 --> 00:26:59.400
+Caption: first input Delay from Telstra purple
+
+00:26:56.640 --> 00:27:00.839
+Caption: here so good for them and I I&#39;ve got an
+
+00:26:59.400 --> 00:27:03.239
+Caption: interesting result here as well so
+
+00:27:00.839 --> 00:27:04.918
+Caption: Bankwest best score for time to First
+
+00:27:03.239 --> 00:27:08.880
+Caption: buy awesome
+
+00:27:04.918 --> 00:27:12.479
+Caption: better than AWS so global
+
+00:27:08.880 --> 00:27:15.058
+Caption: globally redundant uh massive Network
+
+00:27:12.479 --> 00:27:18.000
+Caption: probably the largest single Network in
+
+00:27:15.058 --> 00:27:19.678
+Caption: in history ever made and Bankwest dingy
+
+00:27:18.000 --> 00:27:21.239
+Caption: little Bank from Perth better time to
+
+00:27:19.678 --> 00:27:22.439
+Caption: First buy it so whatever whatever the
+
+00:27:21.239 --> 00:27:25.038
+Caption: Bankwest people are doing is probably
+
+00:27:22.439 --> 00:27:25.038
+Caption: pretty good
+
+00:27:25.319 --> 00:27:29.038
+Caption: yeah yeah so actually that is a good
+
+00:27:27.178 --> 00:27:30.778
+Caption: point um Data Center and customers
+
+00:27:29.038 --> 00:27:32.099
+Caption: majority in Perth so
+
+00:27:30.779 --> 00:27:34.320
+Caption: um that&#39;s probably where that&#39;s coming
+
+00:27:32.099 --> 00:27:36.119
+Caption: from obviously AWS much more distributed
+
+00:27:34.319 --> 00:27:38.759
+Caption: so
+
+00:27:36.119 --> 00:27:40.678
+Caption: now and here&#39;s the final result so
+
+00:27:38.760 --> 00:27:42.298
+Caption: who saw that one coming uh TD Perth
+
+00:27:40.678 --> 00:27:43.619
+Caption: number two there&#39;s obviously some really
+
+00:27:42.298 --> 00:27:45.899
+Caption: smart people putting that one together
+
+00:27:43.619 --> 00:27:48.359
+Caption: the only green across the board score
+
+00:27:45.900 --> 00:27:50.880
+Caption: was Versant so good job to them and then
+
+00:27:48.359 --> 00:27:52.260
+Caption: number one score is GitHub
+
+00:27:50.880 --> 00:27:54.839
+Caption: um anyone have any theories about like
+
+00:27:52.260 --> 00:27:58.520
+Caption: github&#39;s number one aside from massive
+
+00:27:54.839 --> 00:27:58.520
+Caption: investment in web performance
+
+00:27:58.739 --> 00:28:01.278
+Caption: race
+
+00:28:04.260 --> 00:28:08.099
+Caption: yep
+
+00:28:06.058 --> 00:28:09.899
+Caption: so for anyone who didn&#39;t hear yeah
+
+00:28:08.099 --> 00:28:11.880
+Caption: Reese&#39;s mum doesn&#39;t use GitHub as it
+
+00:28:09.900 --> 00:28:13.260
+Caption: turns out I kind of I kind of assumed
+
+00:28:11.880 --> 00:28:14.039
+Caption: she did but
+
+00:28:13.260 --> 00:28:17.339
+Caption: um
+
+00:28:14.038 --> 00:28:19.798
+Caption: also yeah uh desktop devices majority of
+
+00:28:17.339 --> 00:28:21.538
+Caption: people with like high-powered devices uh
+
+00:28:19.798 --> 00:28:23.099
+Caption: largely text based pretty much all
+
+00:28:21.538 --> 00:28:25.379
+Caption: textbooks as well that tends to help so
+
+00:28:23.099 --> 00:28:27.119
+Caption: largest contentful pain if you&#39;ve got
+
+00:28:25.380 --> 00:28:28.739
+Caption: images on the page you&#39;ll be impacted by
+
+00:28:27.119 --> 00:28:31.140
+Caption: that so some some of these scores as
+
+00:28:28.739 --> 00:28:32.520
+Caption: well should be mentioned that um take
+
+00:28:31.140 --> 00:28:34.020
+Caption: them with a bit of a grain of salt it&#39;s
+
+00:28:32.520 --> 00:28:35.880
+Caption: like it&#39;s not that GitHub is doing
+
+00:28:34.020 --> 00:28:37.979
+Caption: something particularly special sometimes
+
+00:28:35.880 --> 00:28:39.479
+Caption: it&#39;s actually more more the user base
+
+00:28:37.979 --> 00:28:41.099
+Caption: themselves
+
+00:28:39.479 --> 00:28:42.359
+Caption: um but again yeah plenty of opportunity
+
+00:28:41.099 --> 00:28:43.918
+Caption: for improvement here as well
+
+00:28:42.359 --> 00:28:45.298
+Caption: particularly if you&#39;ve got some of the
+
+00:28:43.918 --> 00:28:46.859
+Caption: results on this sort of part of the
+
+00:28:45.298 --> 00:28:48.058
+Caption: board as well there might be something
+
+00:28:46.859 --> 00:28:49.439
+Caption: really simple
+
+00:28:48.058 --> 00:28:50.699
+Caption: I&#39;m not going to talk about that in this
+
+00:28:49.439 --> 00:28:53.158
+Caption: talk though that that&#39;s probably the
+
+00:28:50.699 --> 00:28:54.599
+Caption: next one see you next year
+
+00:28:53.159 --> 00:28:56.220
+Caption: all right so we figured out how to
+
+00:28:54.599 --> 00:28:57.839
+Caption: capture metrics from end user devices
+
+00:28:56.219 --> 00:28:59.459
+Caption: there&#39;s a number of really easy ways to
+
+00:28:57.839 --> 00:29:01.140
+Caption: do it
+
+00:28:59.459 --> 00:29:03.119
+Caption: but we&#39;re still missing continuous
+
+00:29:01.140 --> 00:29:04.979
+Caption: observability so we&#39;ve got our Chrome
+
+00:29:03.119 --> 00:29:07.798
+Caption: user experience report we can get these
+
+00:29:04.979 --> 00:29:08.939
+Caption: we can get this data but we can get it
+
+00:29:07.798 --> 00:29:10.019
+Caption: once a month so that&#39;s not really good
+
+00:29:08.939 --> 00:29:13.038
+Caption: enough we need to be able to see this
+
+00:29:10.020 --> 00:29:13.039
+Caption: data at real time
+
+00:29:14.038 --> 00:29:18.418
+Caption: uh here&#39;s a bit of a our progress as we
+
+00:29:16.558 --> 00:29:20.219
+Caption: go here so you can see
+
+00:29:18.418 --> 00:29:21.599
+Caption: um we we&#39;re improving along the way
+
+00:29:20.219 --> 00:29:23.219
+Caption: there but we don&#39;t currently have that
+
+00:29:21.599 --> 00:29:26.239
+Caption: solution that gives us all three we
+
+00:29:23.219 --> 00:29:26.239
+Caption: haven&#39;t quite worked that out yet
+
+00:29:27.178 --> 00:29:31.859
+Caption: so if we if we can&#39;t find an off shelf
+
+00:29:29.699 --> 00:29:34.139
+Caption: that&#39;s off the shelf tool
+
+00:29:31.859 --> 00:29:35.880
+Caption: um why don&#39;t we just ask ourselves is it
+
+00:29:34.140 --> 00:29:37.799
+Caption: really that hard to build yourself an
+
+00:29:35.880 --> 00:29:39.479
+Caption: analytic service can we build it
+
+00:29:37.798 --> 00:29:41.278
+Caption: ourselves we might as well have a try
+
+00:29:39.479 --> 00:29:42.959
+Caption: we&#39;ve been through all the tools nothing
+
+00:29:41.279 --> 00:29:44.039
+Caption: seems to be quite hitting the mark on
+
+00:29:42.959 --> 00:29:45.719
+Caption: all three
+
+00:29:44.038 --> 00:29:46.979
+Caption: uh actually does that it&#39;s really easy
+
+00:29:45.719 --> 00:29:48.898
+Caption: so
+
+00:29:46.979 --> 00:29:51.418
+Caption: um you can grab this Library this is the
+
+00:29:48.899 --> 00:29:53.220
+Caption: web vitals Library it&#39;s the same library
+
+00:29:51.418 --> 00:29:54.719
+Caption: that I guess they built into Google
+
+00:29:53.219 --> 00:29:56.760
+Caption: Chrome it can give you the same scores
+
+00:29:54.719 --> 00:29:59.339
+Caption: but you can run JavaScript you can pull
+
+00:29:56.760 --> 00:30:01.979
+Caption: that down and um it looks a bit a little
+
+00:29:59.339 --> 00:30:04.558
+Caption: bit like this you can just import a
+
+00:30:01.979 --> 00:30:06.839
+Caption: bunch of functions you can add callbacks
+
+00:30:04.558 --> 00:30:09.000
+Caption: to them that&#39;s send to analytics
+
+00:30:06.839 --> 00:30:10.500
+Caption: function I&#39;ll get to that in a sec but
+
+00:30:09.000 --> 00:30:11.640
+Caption: um we can also while we&#39;re here if we&#39;re
+
+00:30:10.500 --> 00:30:13.319
+Caption: going to send something to our little
+
+00:30:11.640 --> 00:30:15.659
+Caption: analytics service we can capture some
+
+00:30:13.319 --> 00:30:18.479
+Caption: other stuff as well so JavaScript errors
+
+00:30:15.659 --> 00:30:20.760
+Caption: content security policy violations we
+
+00:30:18.479 --> 00:30:22.739
+Caption: can send all of that stuff down there
+
+00:30:20.760 --> 00:30:25.558
+Caption: that Center analytics function looks
+
+00:30:22.739 --> 00:30:27.119
+Caption: like this it maybe looks a little I&#39;ve
+
+00:30:25.558 --> 00:30:29.099
+Caption: got I&#39;ve got prettier run over this so
+
+00:30:27.119 --> 00:30:31.979
+Caption: maybe looks a little bit hard to read
+
+00:30:29.099 --> 00:30:33.839
+Caption: um it just sends a sends a request down
+
+00:30:31.979 --> 00:30:36.538
+Caption: to a server so we can start reporting
+
+00:30:33.839 --> 00:30:38.278
+Caption: these metrics that navigator.send Beacon
+
+00:30:36.538 --> 00:30:40.979
+Caption: way is it better to better way to send
+
+00:30:38.279 --> 00:30:44.220
+Caption: metrics like this because it can finish
+
+00:30:40.979 --> 00:30:46.500
+Caption: the request after your or somewhat after
+
+00:30:44.219 --> 00:30:47.939
+Caption: your page unloads and goes to the next
+
+00:30:46.500 --> 00:30:49.260
+Caption: page so if your user clicks on on
+
+00:30:47.939 --> 00:30:51.000
+Caption: something and you really want to quickly
+
+00:30:49.260 --> 00:30:52.260
+Caption: report a metric there or an error or
+
+00:30:51.000 --> 00:30:53.819
+Caption: something like that that&#39;s more likely
+
+00:30:52.260 --> 00:30:56.579
+Caption: to capture it but let&#39;s fall back to
+
+00:30:53.819 --> 00:30:59.519
+Caption: fetch just in case
+
+00:30:56.579 --> 00:31:01.439
+Caption: and of doing a bit of like I&#39;m doing a
+
+00:30:59.520 --> 00:31:03.179
+Caption: bit of code golf here so I&#39;ve tried to
+
+00:31:01.439 --> 00:31:05.099
+Caption: compress it all into one page but this
+
+00:31:03.178 --> 00:31:06.658
+Caption: is the entire server this is the whole
+
+00:31:05.099 --> 00:31:09.479
+Caption: thing
+
+00:31:06.659 --> 00:31:11.220
+Caption: um so really 24 lines of code is all it
+
+00:31:09.479 --> 00:31:13.199
+Caption: took we can see here that we&#39;re
+
+00:31:11.219 --> 00:31:14.939
+Caption: importing this prom client Library which
+
+00:31:13.199 --> 00:31:16.678
+Caption: is the Prometheus Library we&#39;ll get to
+
+00:31:14.939 --> 00:31:19.379
+Caption: that in a minute we can set up our
+
+00:31:16.678 --> 00:31:21.599
+Caption: metrics like this we&#39;re using summary
+
+00:31:19.380 --> 00:31:23.399
+Caption: metrics so that allows us to observe uh
+
+00:31:21.599 --> 00:31:24.898
+Caption: time distributions
+
+00:31:23.399 --> 00:31:26.880
+Caption: and then that&#39;s the service just an
+
+00:31:24.899 --> 00:31:29.460
+Caption: Express web server depending on which
+
+00:31:26.880 --> 00:31:32.000
+Caption: metric we get back we&#39;ll just observe
+
+00:31:29.459 --> 00:31:32.000
+Caption: each one of those
+
+00:31:32.279 --> 00:31:36.720
+Caption: so then moving on from there we&#39;ve got
+
+00:31:34.079 --> 00:31:39.538
+Caption: our analytics server in the middle and
+
+00:31:36.719 --> 00:31:41.699
+Caption: then because it&#39;s just a really simple
+
+00:31:39.538 --> 00:31:43.918
+Caption: web server we don&#39;t have
+
+00:31:41.699 --> 00:31:45.418
+Caption: um it&#39;s not sort of paired with the
+
+00:31:43.918 --> 00:31:46.619
+Caption: database there&#39;s no persistence or
+
+00:31:45.418 --> 00:31:48.959
+Caption: anything like that we can keep our
+
+00:31:46.619 --> 00:31:51.178
+Caption: metrics in memory um the way of doing
+
+00:31:48.959 --> 00:31:53.880
+Caption: this with Prometheus is it&#39;s pull based
+
+00:31:51.178 --> 00:31:55.558
+Caption: so that&#39;s polling on a continuous basis
+
+00:31:53.880 --> 00:31:57.298
+Caption: our analytics service for the latest
+
+00:31:55.558 --> 00:31:59.520
+Caption: version of the metrics keeping track of
+
+00:31:57.298 --> 00:32:01.079
+Caption: that and then we&#39;ve got grafana slapped
+
+00:31:59.520 --> 00:32:02.399
+Caption: on top of that because grafana has
+
+00:32:01.079 --> 00:32:04.140
+Caption: really nice pretty graphs which we&#39;ll
+
+00:32:02.399 --> 00:32:05.760
+Caption: show in a minute
+
+00:32:04.140 --> 00:32:08.339
+Caption: um but this is dead simple and because
+
+00:32:05.760 --> 00:32:10.079
+Caption: we&#39;ve rolled our own analytics service
+
+00:32:08.339 --> 00:32:11.640
+Caption: I&#39;m not going to tell you all to use
+
+00:32:10.079 --> 00:32:13.019
+Caption: Prometheus and grafana that&#39;s what I use
+
+00:32:11.640 --> 00:32:15.659
+Caption: but there&#39;s nothing stopping you from
+
+00:32:13.020 --> 00:32:17.219
+Caption: hooking this up to Honeycomb or sending
+
+00:32:15.659 --> 00:32:18.899
+Caption: this data to New Relic if you wanted to
+
+00:32:17.219 --> 00:32:20.760
+Caption: there&#39;s about a million different
+
+00:32:18.899 --> 00:32:21.840
+Caption: options for for this and you can send it
+
+00:32:20.760 --> 00:32:23.880
+Caption: wherever you want and because you&#39;ve
+
+00:32:21.839 --> 00:32:26.658
+Caption: written your own code for this that is
+
+00:32:23.880 --> 00:32:26.659
+Caption: completely up to you
+
+00:32:27.178 --> 00:32:31.500
+Caption: so here&#39;s another example where we might
+
+00:32:29.038 --> 00:32:32.819
+Caption: want to store a metrics for more
+
+00:32:31.500 --> 00:32:35.279
+Caption: long-term use
+
+00:32:32.819 --> 00:32:38.038
+Caption: so you&#39;ve got Amazon Kinesis firehose
+
+00:32:35.279 --> 00:32:40.200
+Caption: and S3 and then you can use snowflake to
+
+00:32:38.038 --> 00:32:42.959
+Caption: run queries over that data
+
+00:32:40.199 --> 00:32:44.278
+Caption: um dead simple also there&#39;s probably 15
+
+00:32:42.959 --> 00:32:46.979
+Caption: 000 different ways to do this as well
+
+00:32:44.279 --> 00:32:49.619
+Caption: this is just one example I don&#39;t I don&#39;t
+
+00:32:46.979 --> 00:32:50.819
+Caption: we don&#39;t do this yet but um yeah I can I
+
+00:32:49.619 --> 00:32:52.619
+Caption: can see there being value and sort of
+
+00:32:50.819 --> 00:32:54.058
+Caption: having a long long term trends for those
+
+00:32:52.619 --> 00:32:56.339
+Caption: metrics rather than something that lives
+
+00:32:54.058 --> 00:32:58.319
+Caption: in memory so as soon as those uh
+
+00:32:56.339 --> 00:33:00.619
+Caption: containers are dead then you have to
+
+00:32:58.319 --> 00:33:00.619
+Caption: start again
+
+00:33:01.260 --> 00:33:06.719
+Caption: and this is what we end up with so this
+
+00:33:03.178 --> 00:33:08.640
+Caption: is grafana a quick video from grafana
+
+00:33:06.719 --> 00:33:11.699
+Caption: we&#39;re tracking all of those metrics
+
+00:33:08.640 --> 00:33:13.919
+Caption: we&#39;ve got an instant instantaneous score
+
+00:33:11.699 --> 00:33:15.839
+Caption: so that&#39;s really helpful for
+
+00:33:13.918 --> 00:33:16.979
+Caption: um if we&#39;ve made a quick change we can
+
+00:33:15.839 --> 00:33:18.719
+Caption: just look at that and see if that
+
+00:33:16.979 --> 00:33:20.760
+Caption: number&#39;s gone up we can observe Trends
+
+00:33:18.719 --> 00:33:24.719
+Caption: over time I&#39;ve got heat Maps there so
+
+00:33:20.760 --> 00:33:26.399
+Caption: I&#39;ve got a um a histogram type metric as
+
+00:33:24.719 --> 00:33:28.918
+Caption: well and that allows us to sort of see
+
+00:33:26.399 --> 00:33:30.600
+Caption: that distribution over time and we can
+
+00:33:28.918 --> 00:33:32.219
+Caption: kind of observe any of those Trends
+
+00:33:30.599 --> 00:33:34.439
+Caption: there so that&#39;s really useful I really
+
+00:33:32.219 --> 00:33:36.538
+Caption: like the one in the the bottom right as
+
+00:33:34.439 --> 00:33:38.459
+Caption: well those are tied to the actual
+
+00:33:36.538 --> 00:33:41.278
+Caption: performance scores
+
+00:33:38.459 --> 00:33:43.439
+Caption: um that I showed you before so green is
+
+00:33:41.279 --> 00:33:45.539
+Caption: in that good space and then anything
+
+00:33:43.439 --> 00:33:46.918
+Caption: above that is red
+
+00:33:45.538 --> 00:33:48.719
+Caption: um we can see how often we&#39;re going into
+
+00:33:46.918 --> 00:33:51.119
+Caption: that red there so that&#39;s really really
+
+00:33:48.719 --> 00:33:53.880
+Caption: helpful too
+
+00:33:51.119 --> 00:33:56.399
+Caption: if you remember we also sent some other
+
+00:33:53.880 --> 00:33:57.959
+Caption: stuff to our analytics service so now
+
+00:33:56.399 --> 00:33:59.159
+Caption: that we&#39;ve got this this server we can
+
+00:33:57.959 --> 00:34:01.260
+Caption: kind of start reporting on everything
+
+00:33:59.159 --> 00:34:03.779
+Caption: that&#39;s going on as well so I&#39;ve got some
+
+00:34:01.260 --> 00:34:06.058
+Caption: geolocation stuff in there which devices
+
+00:34:03.779 --> 00:34:07.860
+Caption: uh people are using because we have our
+
+00:34:06.058 --> 00:34:09.838
+Caption: own analytics server it&#39;s really easy to
+
+00:34:07.859 --> 00:34:12.239
+Caption: just keep adding more to it
+
+00:34:09.839 --> 00:34:15.060
+Caption: this is where I got the device data from
+
+00:34:12.239 --> 00:34:18.479
+Caption: as well from the previous slides
+
+00:34:15.060 --> 00:34:20.339
+Caption: so yeah to recap
+
+00:34:18.479 --> 00:34:22.320
+Caption: best way to do web performance
+
+00:34:20.339 --> 00:34:24.000
+Caption: monitoring is to do three things you
+
+00:34:22.320 --> 00:34:26.040
+Caption: need user-centric performance metrics
+
+00:34:24.000 --> 00:34:28.439
+Caption: you need to capture those performance
+
+00:34:26.040 --> 00:34:30.479
+Caption: metrics from Real World devices
+
+00:34:28.439 --> 00:34:31.918
+Caption: and you need to be able to continuously
+
+00:34:30.479 --> 00:34:34.020
+Caption: observe those so we need to be able to
+
+00:34:31.918 --> 00:34:37.739
+Caption: see the advantage of being able to
+
+00:34:34.020 --> 00:34:39.719
+Caption: continuously observe is we can capture a
+
+00:34:37.739 --> 00:34:41.580
+Caption: quick regression we can have a PR that
+
+00:34:39.719 --> 00:34:43.560
+Caption: gets merged everything starts running oh
+
+00:34:41.580 --> 00:34:45.359
+Caption: look it&#39;s something&#39;s gone wrong the the
+
+00:34:43.560 --> 00:34:47.099
+Caption: performance profile has changed in the
+
+00:34:45.358 --> 00:34:48.539
+Caption: wrong way we can roll that back very
+
+00:34:47.099 --> 00:34:49.980
+Caption: quickly
+
+00:34:48.540 --> 00:34:52.139
+Caption: um yeah that&#39;s that&#39;s all of it that&#39;s
+
+00:34:49.979 --> 00:34:53.040
+Caption: that&#39;s the three the three goals we did
+
+00:34:52.138 --> 00:34:55.699
+Caption: it
+
+00:34:53.040 --> 00:34:55.699
+Caption: thanks everyone
+
+00:35:01.320 --> 00:35:05.339
+Caption: that&#39;s me if you want to if you want to
+
+00:35:03.419 --> 00:35:07.739
+Caption: like attack me on Twitter for uh
+
+00:35:05.339 --> 00:35:09.119
+Caption: roasting the the place where you work so
+
+00:35:07.739 --> 00:35:10.320
+Caption: uh that&#39;s that&#39;s how you do that if you
+
+00:35:09.118 --> 00:35:13.019
+Caption: want to know
+
+00:35:10.320 --> 00:35:14.940
+Caption: um I&#39;ve also got all the resources here
+
+00:35:13.020 --> 00:35:16.979
+Caption: um you can find my slides
+
+00:35:14.939 --> 00:35:19.319
+Caption: um using using any of those links there
+
+00:35:16.979 --> 00:35:20.838
+Caption: I&#39;ll share them out so all the resources
+
+00:35:19.320 --> 00:35:24.060
+Caption: everything I talked about is there
+
+00:35:20.839 --> 00:35:26.640
+Caption: here&#39;s how to learn about all of those
+
+00:35:24.060 --> 00:35:29.459
+Caption: metrics as well more than just the 10
+
+00:35:26.639 --> 00:35:30.899
+Caption: seconds I gave them on stage here&#39;s some
+
+00:35:29.459 --> 00:35:34.260
+Caption: really useful tools so all the tools I
+
+00:35:30.899 --> 00:35:36.838
+Caption: covered versus some other stuff as well
+
+00:35:34.260 --> 00:35:38.760
+Caption: has anyone got any questions
+
+00:35:36.839 --> 00:35:41.099
+Caption: race
+
+00:35:38.760 --> 00:35:43.500
+Caption: making me nervous man
+
+00:35:41.099 --> 00:35:44.760
+Caption: um no I just wanted to get your opinion
+
+00:35:43.500 --> 00:35:47.839
+Caption: so those
+
+00:35:44.760 --> 00:35:50.399
+Caption: um Google had those kind of green to Red
+
+00:35:47.839 --> 00:35:52.500
+Caption: not so good good
+
+00:35:50.399 --> 00:35:54.479
+Caption: um I was kind of surprised that the
+
+00:35:52.500 --> 00:35:56.820
+Caption: numbers nowadays are still quite High I
+
+00:35:54.479 --> 00:35:58.919
+Caption: think you said 1.8 seconds her first
+
+00:35:56.820 --> 00:36:01.739
+Caption: contentful paint
+
+00:35:58.919 --> 00:36:04.020
+Caption: like I shut it 1.8 seconds oh my God
+
+00:36:01.739 --> 00:36:05.040
+Caption: what are we doing like you know what are
+
+00:36:04.020 --> 00:36:07.439
+Caption: your feelings on that am I being
+
+00:36:05.040 --> 00:36:09.359
+Caption: ridiculous or is what&#39;s good for Macklin
+
+00:36:07.439 --> 00:36:10.379
+Caption: what do you think is good what are you
+
+00:36:09.358 --> 00:36:12.299
+Caption: aiming for
+
+00:36:10.379 --> 00:36:13.679
+Caption: I think you might be surprised um like
+
+00:36:12.300 --> 00:36:14.760
+Caption: if we go back to I&#39;m not going to go
+
+00:36:13.679 --> 00:36:16.139
+Caption: back to the leaderboards you guys don&#39;t
+
+00:36:14.760 --> 00:36:18.300
+Caption: need to see that again but if you go
+
+00:36:16.139 --> 00:36:19.858
+Caption: back to the leaderboards um quite a lot
+
+00:36:18.300 --> 00:36:21.660
+Caption: of first content for pain I don&#39;t think
+
+00:36:19.858 --> 00:36:23.819
+Caption: anyone got less than a second
+
+00:36:21.659 --> 00:36:25.078
+Caption: um less than a second uh sounds really
+
+00:36:23.820 --> 00:36:25.920
+Caption: good that sounds like what you&#39;d want
+
+00:36:25.079 --> 00:36:27.780
+Caption: but
+
+00:36:25.919 --> 00:36:29.520
+Caption: um it is actually pretty hard to get to
+
+00:36:27.780 --> 00:36:31.320
+Caption: that to that score
+
+00:36:29.520 --> 00:36:33.500
+Caption: um and I think Google has said it in
+
+00:36:31.320 --> 00:36:36.839
+Caption: such a way that I think it accounts for
+
+00:36:33.500 --> 00:36:38.699
+Caption: uh accounts for that variability so not
+
+00:36:36.839 --> 00:36:40.980
+Caption: everyone has a device that&#39;s going to
+
+00:36:38.699 --> 00:36:43.260
+Caption: ensure that we can get it in 1.8 seconds
+
+00:36:40.979 --> 00:36:45.540
+Caption: the majority of people have devices that
+
+00:36:43.260 --> 00:36:48.000
+Caption: are significantly slower than the device
+
+00:36:45.540 --> 00:36:50.400
+Caption: you and I probably use it&#39;s accounting
+
+00:36:48.000 --> 00:36:51.540
+Caption: for that&#39;s accounting for people in in
+
+00:36:50.399 --> 00:36:54.000
+Caption: uh
+
+00:36:51.540 --> 00:36:56.599
+Caption: jurisdictions like geolocations like
+
+00:36:54.000 --> 00:36:59.099
+Caption: rural Australia or
+
+00:36:56.599 --> 00:37:00.480
+Caption: parts of India and stuff like that where
+
+00:36:59.099 --> 00:37:02.040
+Caption: they are going to not actually be able
+
+00:37:00.479 --> 00:37:04.219
+Caption: to attain that level of performance as
+
+00:37:02.040 --> 00:37:04.219
+Caption: well
+
+00:37:12.540 --> 00:37:16.979
+Caption: um one of the 4G providers was 10 times
+
+00:37:15.239 --> 00:37:19.098
+Caption: faster than the others do you know who
+
+00:37:16.979 --> 00:37:21.719
+Caption: that was so I can switch my mobile plan
+
+00:37:19.099 --> 00:37:23.760
+Caption: so the question was one of the one of
+
+00:37:21.719 --> 00:37:26.338
+Caption: the 4G providers was really fast it was
+
+00:37:23.760 --> 00:37:28.560
+Caption: actually based on location so
+
+00:37:26.339 --> 00:37:31.800
+Caption: um and and it wasn&#39;t Perth either so
+
+00:37:28.560 --> 00:37:33.540
+Caption: that that that that that shot that slide
+
+00:37:31.800 --> 00:37:35.520
+Caption: was um
+
+00:37:33.540 --> 00:37:36.839
+Caption: uh across wa
+
+00:37:35.520 --> 00:37:40.679
+Caption: um you actually tend to find you get
+
+00:37:36.839 --> 00:37:42.359
+Caption: better performance in some rural but not
+
+00:37:40.679 --> 00:37:44.459
+Caption: very rural town so I think that might
+
+00:37:42.358 --> 00:37:46.399
+Caption: have been something like kalbari
+
+00:37:44.459 --> 00:37:49.739
+Caption: um they&#39;ve got a tower there it serves
+
+00:37:46.399 --> 00:37:51.419
+Caption: uh comparatively less people than it
+
+00:37:49.739 --> 00:37:52.739
+Caption: does in Perth so some Perth suburbs
+
+00:37:51.419 --> 00:37:54.838
+Caption: mostly sort of sit around the middle
+
+00:37:52.739 --> 00:37:57.739
+Caption: there and then very rural places will
+
+00:37:54.839 --> 00:37:57.739
+Caption: have those lower scores
+
+00:38:01.020 --> 00:38:05.640
+Caption: awesome talk man I love the uh sponsor
+
+00:38:03.899 --> 00:38:06.199
+Caption: comparison
+
+00:38:05.639 --> 00:38:09.358
+Caption: um
+
+00:38:06.199 --> 00:38:12.179
+Caption: we also at my company were using the
+
+00:38:09.358 --> 00:38:14.519
+Caption: Google library to send the analytics to
+
+00:38:12.179 --> 00:38:17.040
+Caption: in our case New Relic
+
+00:38:14.520 --> 00:38:18.959
+Caption: um and New Relic also monitor that
+
+00:38:17.040 --> 00:38:20.520
+Caption: through their own mechanism and we found
+
+00:38:18.959 --> 00:38:22.560
+Caption: that the numbers were different
+
+00:38:20.520 --> 00:38:25.739
+Caption: and I just wondered if you&#39;d come across
+
+00:38:22.560 --> 00:38:28.439
+Caption: different values for the core web vitals
+
+00:38:25.739 --> 00:38:30.000
+Caption: with different tooling
+
+00:38:28.439 --> 00:38:31.078
+Caption: that&#39;s really interesting
+
+00:38:30.000 --> 00:38:34.679
+Caption: um
+
+00:38:31.079 --> 00:38:37.140
+Caption: yeah I I they vary a lot and like um uh
+
+00:38:34.679 --> 00:38:39.179
+Caption: if you just run two Google Lighthouse
+
+00:38:37.139 --> 00:38:41.000
+Caption: scores back to back you&#39;re not going to
+
+00:38:39.179 --> 00:38:43.139
+Caption: get the same results as well
+
+00:38:41.000 --> 00:38:45.179
+Caption: but yeah even if we&#39;re kind of looking
+
+00:38:43.139 --> 00:38:46.799
+Caption: at exactly the same data I&#39;m not sure
+
+00:38:45.179 --> 00:38:49.078
+Caption: the difference there the one thing I
+
+00:38:46.800 --> 00:38:52.140
+Caption: could probably say is maybe that web
+
+00:38:49.079 --> 00:38:53.880
+Caption: vitals Library it has to run sort of in
+
+00:38:52.139 --> 00:38:56.279
+Caption: JavaScript space JavaScript runtime
+
+00:38:53.879 --> 00:38:57.838
+Caption: whereas um the one that&#39;s built into
+
+00:38:56.280 --> 00:38:59.280
+Caption: Google Chrome as much as they try and
+
+00:38:57.839 --> 00:39:00.839
+Caption: keep that the same maybe they can kind
+
+00:38:59.280 --> 00:39:02.159
+Caption: of detect different things in in the
+
+00:39:00.839 --> 00:39:04.020
+Caption: browser and they come up with different
+
+00:39:02.159 --> 00:39:05.819
+Caption: scores I&#39;d imagine they keep it as close
+
+00:39:04.020 --> 00:39:07.500
+Caption: as they possibly can
+
+00:39:05.820 --> 00:39:09.420
+Caption: um but yeah that&#39;s some sort of
+
+00:39:07.500 --> 00:39:12.419
+Caption: variability in there how how much
+
+00:39:09.419 --> 00:39:15.358
+Caption: different was it out for you
+
+00:39:12.419 --> 00:39:18.179
+Caption: it was uh mostly around the CLS scores
+
+00:39:15.358 --> 00:39:21.000
+Caption: so like the New Relic one was very
+
+00:39:18.179 --> 00:39:23.040
+Caption: positive but the Google one was a bit it
+
+00:39:21.000 --> 00:39:25.139
+Caption: felt more realistic so we sort of
+
+00:39:23.040 --> 00:39:27.540
+Caption: trusted the Google JavaScript library
+
+00:39:25.139 --> 00:39:29.639
+Caption: more than new relics at the time
+
+00:39:27.540 --> 00:39:31.859
+Caption: yeah that&#39;s interesting um
+
+00:39:29.639 --> 00:39:33.299
+Caption: I I don&#39;t know how nearly can put that
+
+00:39:31.858 --> 00:39:36.539
+Caption: together as well I imagine there&#39;s a
+
+00:39:33.300 --> 00:39:38.280
+Caption: guide for how to put it together maybe
+
+00:39:36.540 --> 00:39:40.919
+Caption: um I know that that web vitals library
+
+00:39:38.280 --> 00:39:42.659
+Caption: is largely something that supports
+
+00:39:40.919 --> 00:39:44.639
+Caption: Chrome more than other browsers maybe
+
+00:39:42.659 --> 00:39:46.618
+Caption: New Relic went and rewrote it themselves
+
+00:39:44.639 --> 00:39:49.858
+Caption: and figured out how to get it to work in
+
+00:39:46.618 --> 00:39:51.598
+Caption: webkit and and Firefox I can&#39;t speculate
+
+00:39:49.858 --> 00:39:55.039
+Caption: on that but there could actually be
+
+00:39:51.599 --> 00:39:55.040
+Caption: different codes sort of detecting that
+
+00:39:55.339 --> 00:39:59.339
+Caption: thank you so much Macklin if everyone
+
+00:39:57.780 --> 00:40:03.260
+Caption: could just give him another round for
+
+00:39:59.339 --> 00:40:03.260
+Caption: pros for that amazing talk
+
+00:40:03.949 --> 00:40:07.149
+Caption: [Applause]
+

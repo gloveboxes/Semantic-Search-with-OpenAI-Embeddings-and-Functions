@@ -1,0 +1,1012 @@
+[
+    {
+        "text": "you're not going to want to miss this  episode of the ai show where setu  ",
+        "start": 0.56,
+        "duration": 2.96
+    },
+    {
+        "text": "ramon shows us all the wonders of man managed  online endpoints in azure ml make sure you tune in",
+        "start": 3.52,
+        "duration": 12.4
+    },
+    {
+        "text": "hello and welcome to this episode of the  ai show where sethu ramen is going to tell  ",
+        "start": 16.88,
+        "duration": 3.04
+    },
+    {
+        "text": "us some exciting updates from managed online  endpoints in azure ml setu how are you doing  ",
+        "start": 19.92,
+        "duration": 4.08
+    },
+    {
+        "text": "my friend why don't you introduce yourself hey  sir uh doing great happy to be back on the show  ",
+        "start": 24.0,
+        "duration": 5.36
+    },
+    {
+        "text": "um so my name is seth ramon i'm the pm product  manager for the manager on london points in azure  ",
+        "start": 29.36,
+        "duration": 6.08
+    },
+    {
+        "text": "ml fantastic so last time we talked a little  bit about this feature can you get us caught up  ",
+        "start": 35.44,
+        "duration": 6.32
+    },
+    {
+        "text": "on what the feature is and maybe what's happened  since absolutely so quick recap on the feature  ",
+        "start": 42.72,
+        "duration": 5.6
+    },
+    {
+        "text": "on the capability for your viewers so managed  endpoints uh give users the ability to bring  ",
+        "start": 48.32,
+        "duration": 6.72
+    },
+    {
+        "text": "their ml models and deploy it in scale across cpu  and gpu machines in a turnkey way so that they  ",
+        "start": 55.04,
+        "duration": 6.4
+    },
+    {
+        "text": "don't need to worry about the infrastructure the  the system takes care of serving scaling securing  ",
+        "start": 61.44,
+        "duration": 5.84
+    },
+    {
+        "text": "and monitoring your ml deployment so that's  that's what the whole feature is about  ",
+        "start": 67.28,
+        "duration": 4.8
+    },
+    {
+        "text": "and so today we are excited to um like so  last week we launched a bunch of new features  ",
+        "start": 72.08,
+        "duration": 6.32
+    },
+    {
+        "text": "and uh i want to share that today in the show uh  first one is auto scaling so users now have the  ",
+        "start": 78.4,
+        "duration": 6.8
+    },
+    {
+        "text": "ability to you know like right size their  deployments and reduce cost by using both  ",
+        "start": 85.2,
+        "duration": 6.08
+    },
+    {
+        "text": "schedule based and metrics based scaling so  this has been one of the most asked features  ",
+        "start": 91.28,
+        "duration": 5.2
+    },
+    {
+        "text": "from our customers so that that's something that  we have released and we also have released ml  ",
+        "start": 96.48,
+        "duration": 5.36
+    },
+    {
+        "text": "flow dip model format deployment so if you have  a model for ml model format you can deploy it  ",
+        "start": 101.84,
+        "duration": 4.4
+    },
+    {
+        "text": "uh like without any code we call no code  deployment so that is supported we also support  ",
+        "start": 106.24,
+        "duration": 4.88
+    },
+    {
+        "text": "now deploying auto ml models in a no code way in  our management point so this is supported as well  ",
+        "start": 111.12,
+        "duration": 5.92
+    },
+    {
+        "text": "and other than these we are also like  lighting up two new features one is for  ",
+        "start": 118.16,
+        "duration": 6.0
+    },
+    {
+        "text": "uh interactive debugging of models before you  deploy it in production okay and then the second  ",
+        "start": 124.72,
+        "duration": 6.0
+    },
+    {
+        "text": "part is like automated cicd safe rollout uh  you know uh capability i mean this is a there's  ",
+        "start": 130.72,
+        "duration": 8.88
+    },
+    {
+        "text": "a ton of things like some of them were super  interesting to me well all of them are but one  ",
+        "start": 139.6,
+        "duration": 4.96
+    },
+    {
+        "text": "that was most interesting to me was this notion  of debugging so i i'm really interested in seeing  ",
+        "start": 144.56,
+        "duration": 5.92
+    },
+    {
+        "text": "how this works can you can you show us a little  bit about how one might go ahead and use some  ",
+        "start": 150.48,
+        "duration": 5.76
+    },
+    {
+        "text": "of these features in an end-to-end solution uh  absolutely seth so let me bring up my screen here  ",
+        "start": 156.24,
+        "duration": 5.76
+    },
+    {
+        "text": "um all right so in this the user's the  the user story that i want to show here is  ",
+        "start": 162.8,
+        "duration": 4.8
+    },
+    {
+        "text": "somebody wants to deploy a new model into  production without disrupting the the current  ",
+        "start": 168.16,
+        "duration": 7.44
+    },
+    {
+        "text": "model deployment that is already running so so  that's the user story of course the step one we  ",
+        "start": 175.6,
+        "duration": 5.36
+    },
+    {
+        "text": "need to develop the when we talk about a new model  it can be changed to the model itself or it can be  ",
+        "start": 180.96,
+        "duration": 4.88
+    },
+    {
+        "text": "changed to the the code that you might have for  feature engineering right your scoring code or  ",
+        "start": 185.84,
+        "duration": 4.56
+    },
+    {
+        "text": "the environment so in this case i'm going to start  with an example of changing the the feature code  ",
+        "start": 190.4,
+        "duration": 4.88
+    },
+    {
+        "text": "and then how we launch a new model so let's start  with the first part of it so here i'm going to so  ",
+        "start": 195.28,
+        "duration": 4.96
+    },
+    {
+        "text": "i'm going to execute a cli command here you  can see i'm saying hey azml online deployment  ",
+        "start": 200.24,
+        "duration": 5.36
+    },
+    {
+        "text": "and create you've seen this before from the  previous show and here we are specifying the  ",
+        "start": 205.6,
+        "duration": 4.56
+    },
+    {
+        "text": "deployment configuration file that has pointers to  the that has information on your where's your code  ",
+        "start": 210.16,
+        "duration": 5.2
+    },
+    {
+        "text": "what's your model and the environment details and  then the endpoint name so this is pretty standard  ",
+        "start": 215.36,
+        "duration": 5.44
+    },
+    {
+        "text": "on how you create in the cloud now you have these  two flags that we are passing when we say dash  ",
+        "start": 220.8,
+        "duration": 4.88
+    },
+    {
+        "text": "dash local and dash dash vs4 debug what's going to  happen is uh the whole setup in terms of the the  ",
+        "start": 225.68,
+        "duration": 7.04
+    },
+    {
+        "text": "whole image is going to be downloaded your model  is going to be downloaded to be debugged locally  ",
+        "start": 232.72,
+        "duration": 3.92
+    },
+    {
+        "text": "so let me just show what happens now so when i  click this it's going to create the environment  ",
+        "start": 237.6,
+        "duration": 5.2
+    },
+    {
+        "text": "locally within it with the docker container  here and it's going to launch vs code uh  ",
+        "start": 242.8,
+        "duration": 5.04
+    },
+    {
+        "text": "that has access to all your code and all your  dependencies so that's what's happening right  ",
+        "start": 248.56,
+        "duration": 4.4
+    },
+    {
+        "text": "now so just a quick question what what kind  of things are in the deployment.yaml file  ",
+        "start": 252.96,
+        "duration": 6.24
+    },
+    {
+        "text": "so three things primarily i would say like it  has your code you know where where your code  ",
+        "start": 259.92,
+        "duration": 5.68
+    },
+    {
+        "text": "is what your code is it has your um configuration  of the deployment itself like how many nodes what  ",
+        "start": 265.6,
+        "duration": 6.08
+    },
+    {
+        "text": "is this queue you want how many nodes you want  and then it has information on your model you  ",
+        "start": 271.68,
+        "duration": 4.72
+    },
+    {
+        "text": "know which model you want to deploy what's the  version and what's the environment details so  ",
+        "start": 276.4,
+        "duration": 4.08
+    },
+    {
+        "text": "these are the things that are abstracted in  the ammo so basically it's a description of  ",
+        "start": 280.48,
+        "duration": 4.48
+    },
+    {
+        "text": "how this model needs to be run exactly okay okay  cool and so when when you're building when you're  ",
+        "start": 284.96,
+        "duration": 6.64
+    },
+    {
+        "text": "building these these models you mentioned that  you don't there's this codeless way to do it  ",
+        "start": 291.6,
+        "duration": 6.16
+    },
+    {
+        "text": "what are what kind of code do you have to bring if  you're right if you're making your own model and  ",
+        "start": 299.04,
+        "duration": 4.8
+    },
+    {
+        "text": "then when we talk about the the the um the uh ml  flow models why is it that those ones are special  ",
+        "start": 303.84,
+        "duration": 7.68
+    },
+    {
+        "text": "yeah awesome awesome so so let's take the the  question first where what kind of if you want  ",
+        "start": 312.24,
+        "duration": 5.36
+    },
+    {
+        "text": "to write code what kind of code you need to write  so this is a sample code right so here you see we  ",
+        "start": 317.6,
+        "duration": 5.12
+    },
+    {
+        "text": "have a score dot pi we expect two two functions  one is the init function the other one is the  ",
+        "start": 322.72,
+        "duration": 4.72
+    },
+    {
+        "text": "run function the init function is run once when  the model is loaded when your in container starts  ",
+        "start": 327.44,
+        "duration": 6.24
+    },
+    {
+        "text": "and then the run function is run every time you do  a scoring operation so here for typically people  ",
+        "start": 333.68,
+        "duration": 4.08
+    },
+    {
+        "text": "do cache their model into memory and stuff like  that and here when the request comes in you will  ",
+        "start": 337.76,
+        "duration": 4.32
+    },
+    {
+        "text": "apply feature engineering and undo stuff and  return your response right so this is you hit  ",
+        "start": 342.08,
+        "duration": 4.64
+    },
+    {
+        "text": "control plus on this so people can so they can  be a little bit bigger there you go so okay now  ",
+        "start": 346.72,
+        "duration": 6.16
+    },
+    {
+        "text": "i'm seeing it so the first function basically  loads up the model because it's always just a  ",
+        "start": 352.88,
+        "duration": 5.2
+    },
+    {
+        "text": "file and that only happens once at the beginning  and then the run is every time there needs to be  ",
+        "start": 358.08,
+        "duration": 6.08
+    },
+    {
+        "text": "inference that's that's what's happening you got  it set yes and you've got a bunch of dependencies  ",
+        "start": 364.16,
+        "duration": 4.72
+    },
+    {
+        "text": "in this simple example i have a score.thai but a  lot of our users can have like tens or 50 whatever  ",
+        "start": 368.88,
+        "duration": 4.24
+    },
+    {
+        "text": "hundreds of files dependencies here so that's all  perfect so this is a way of doing things with code  ",
+        "start": 373.12,
+        "duration": 6.4
+    },
+    {
+        "text": "right then you you have an option where you don't  need to do code what we call no code deployment so  ",
+        "start": 379.52,
+        "duration": 5.28
+    },
+    {
+        "text": "if you bring if you have ml flow uh a case you you  can you the ml pro supports different flavors so  ",
+        "start": 384.8,
+        "duration": 6.48
+    },
+    {
+        "text": "you can you can bring in like scikit learn pytar  tensorflow all of these models you can bring this  ",
+        "start": 391.28,
+        "duration": 5.6
+    },
+    {
+        "text": "in and it's packaged as an ml4 format and when  you deploy this we we take care of uh the scoring  ",
+        "start": 396.88,
+        "duration": 6.8
+    },
+    {
+        "text": "logic so that the user need not write any any code  there similar for our auto ml case as well you  ",
+        "start": 404.4,
+        "duration": 5.92
+    },
+    {
+        "text": "just have a model and when you register the model  uh you you set the model format as ml flow and  ",
+        "start": 410.32,
+        "duration": 5.84
+    },
+    {
+        "text": "then when you deploy it everything is just taken  care because ml flow and auto ml have a notion  ",
+        "start": 416.16,
+        "duration": 6.08
+    },
+    {
+        "text": "of like how the model was built and so they have  notions on how the models can be executed but if  ",
+        "start": 422.24,
+        "duration": 4.72
+    },
+    {
+        "text": "you want to build your own model you would write a  script like this run script that we're looking at  ",
+        "start": 426.96,
+        "duration": 3.92
+    },
+    {
+        "text": "right here all right so so what are we looking at  right now so here we are looking at uh so what we  ",
+        "start": 430.88,
+        "duration": 4.96
+    },
+    {
+        "text": "want to do as i was saying we want to i'm changing  some some of the code and i want to release a new  ",
+        "start": 435.84,
+        "duration": 4.4
+    },
+    {
+        "text": "version of the deployment without disrupting the  current version to make sure everything is good  ",
+        "start": 440.24,
+        "duration": 3.84
+    },
+    {
+        "text": "right so here let's assume that i have done  some feature engineering code changes and let's  ",
+        "start": 444.08,
+        "duration": 5.68
+    },
+    {
+        "text": "add something here to debug this so i i want to  debug this and see if everything is okay so here  ",
+        "start": 449.76,
+        "duration": 5.92
+    },
+    {
+        "text": "i'm just adding one extra statement here to say  that hey model is loaded correctly model loaded  ",
+        "start": 455.68,
+        "duration": 5.44
+    },
+    {
+        "text": "right and all i need to do is uh i just need to  start the debugging here so everything is loaded  ",
+        "start": 462.48,
+        "duration": 7.44
+    },
+    {
+        "text": "all when you executed the command like the html  deployment create you just added a flag for local  ",
+        "start": 469.92,
+        "duration": 5.6
+    },
+    {
+        "text": "vs code debug and that's all we did now it's  automatically launched the vs code and i have  ",
+        "start": 475.52,
+        "duration": 4.88
+    },
+    {
+        "text": "a breakpoint set and i started the debugger  and you can see that the breakpoint is right  ",
+        "start": 480.4,
+        "duration": 5.44
+    },
+    {
+        "text": "now here i can interactively debug this  so uh so here i can see it's executed this  ",
+        "start": 485.84,
+        "duration": 6.48
+    },
+    {
+        "text": "and i'm going to do this then you  can actually see the model is loaded  ",
+        "start": 492.32,
+        "duration": 3.76
+    },
+    {
+        "text": "uh so each and every line you can track the the  logs here and you can put uh break points in any  ",
+        "start": 496.08,
+        "duration": 5.84
+    },
+    {
+        "text": "of your nested code and you can just interactively  deepen so that's interesting one of the problems  ",
+        "start": 501.92,
+        "duration": 5.44
+    },
+    {
+        "text": "i always have is as i i always get these  things to run locally but then it fails to run  ",
+        "start": 507.36,
+        "duration": 5.2
+    },
+    {
+        "text": "in the cloud because i might be missing something  how is this helping me with moving it to the cloud  ",
+        "start": 513.44,
+        "duration": 6.4
+    },
+    {
+        "text": "yeah awesome question because i know you you know  like in the initial testing phases you've been  ",
+        "start": 520.56,
+        "duration": 4.24
+    },
+    {
+        "text": "working with us very closely so the whole idea is  that's why you have this concept of local endpoint  ",
+        "start": 524.8,
+        "duration": 5.28
+    },
+    {
+        "text": "it's downloading the the whole doc the whole  environment is packaged as a docker so you you  ",
+        "start": 530.08,
+        "duration": 5.12
+    },
+    {
+        "text": "when you test it locally you have the confidence  that everything is working and uh and update it  ",
+        "start": 535.2,
+        "duration": 4.96
+    },
+    {
+        "text": "and then test it again once everything is done  then you deploy it in the remote remotely you  ",
+        "start": 540.72,
+        "duration": 4.96
+    },
+    {
+        "text": "can expect that everything will work so you save  that time that few minutes every time to deploy it  ",
+        "start": 545.68,
+        "duration": 4.96
+    },
+    {
+        "text": "remotely and wait so this right here that you're  debugging is running as if it were in the cloud  ",
+        "start": 550.64,
+        "duration": 7.04
+    },
+    {
+        "text": "in the same environment the same docker container  is that is that what this is doing right now yes  ",
+        "start": 557.68,
+        "duration": 5.36
+    },
+    {
+        "text": "oh my goodness oh so i and see this is the  thing where because it all started up so fast  ",
+        "start": 564.88,
+        "duration": 4.64
+    },
+    {
+        "text": "and i was blathering with you and then we ran  it i thought because i run stuff on my local  ",
+        "start": 569.52,
+        "duration": 4.48
+    },
+    {
+        "text": "machine all the time but this is running inside  of a container exactly the same way it would run  ",
+        "start": 574.0,
+        "duration": 5.28
+    },
+    {
+        "text": "in in the cloud correctly is that correct exactly  said and in fact in your deployment that the ammo  ",
+        "start": 579.28,
+        "duration": 6.4
+    },
+    {
+        "text": "if you mentioned like hey this is my model  and this is my environment all of those are  ",
+        "start": 585.68,
+        "duration": 4.72
+    },
+    {
+        "text": "packaged and available for you to run here so  yes oh my goodness so now i can with confidence  ",
+        "start": 590.4,
+        "duration": 5.52
+    },
+    {
+        "text": "know that it's running number one and number  two know that it will run correctly if there's  ",
+        "start": 596.8,
+        "duration": 4.64
+    },
+    {
+        "text": "any errors i can suss them out before they get up  into the cloud is that right absolutely absolutely  ",
+        "start": 601.44,
+        "duration": 3.84
+    },
+    {
+        "text": "even even even after we do this though i there  might be some weirdness when i deploy to the  ",
+        "start": 606.0,
+        "duration": 5.76
+    },
+    {
+        "text": "cloud the one thing that i think is important  is how does someone do this safely like i and  ",
+        "start": 611.76,
+        "duration": 7.28
+    },
+    {
+        "text": "that's another challenge i think is we don't want  to just replace whatever endpoint there is can you  ",
+        "start": 619.04,
+        "duration": 4.08
+    },
+    {
+        "text": "talk a little bit about that yeah absolutely so if  you recall the last time we discussed we have the  ",
+        "start": 623.12,
+        "duration": 5.68
+    },
+    {
+        "text": "concept of like endpoint and deployments multiple  deployments can be underneath an endpoint uh and  ",
+        "start": 628.8,
+        "duration": 5.12
+    },
+    {
+        "text": "then i'm just going to show that what happens  here so let's uh why don't we go to the next  ",
+        "start": 633.92,
+        "duration": 3.68
+    },
+    {
+        "text": "steps and i show and should have i talk so here  we're done with this debugging everything is good  ",
+        "start": 637.6,
+        "duration": 5.2
+    },
+    {
+        "text": "now let's uh let's kind of push this in and see  what happens so we we just need to commit this uh  ",
+        "start": 642.8,
+        "duration": 6.64
+    },
+    {
+        "text": "let's push it to our gate i created a new feature  branch to do this now i can just do git push",
+        "start": 649.44,
+        "duration": 4.96
+    },
+    {
+        "text": "and now let's open the repo and merge this  code and see how the whole thing is going to  ",
+        "start": 656.72,
+        "duration": 5.04
+    },
+    {
+        "text": "work so let's see if this is done okay all our  changes are pushed let's create a pull request  ",
+        "start": 661.76,
+        "duration": 6.16
+    },
+    {
+        "text": "and merge this code",
+        "start": 669.12,
+        "duration": 1.04
+    },
+    {
+        "text": "oops i don't watch it uh we can do it  again go down and reopen the reopen  ",
+        "start": 673.28,
+        "duration": 7.12
+    },
+    {
+        "text": "the pull request on in uh there you go  reopen pull request and then the logic",
+        "start": 680.4,
+        "duration": 5.2
+    },
+    {
+        "text": "so now what's going to happen is uh this  has triggered because we must remain  ",
+        "start": 687.76,
+        "duration": 3.68
+    },
+    {
+        "text": "uh this this will trigger uh a run here so you  can see this is github actions this is a ci cd  ",
+        "start": 691.44,
+        "duration": 7.36
+    },
+    {
+        "text": "uh engine very similar to what if  you use azure devops or any other  ",
+        "start": 698.8,
+        "duration": 3.44
+    },
+    {
+        "text": "git lab or any other cac engine it's very similar  to that and now you see that since we've merged it  ",
+        "start": 702.96,
+        "duration": 4.56
+    },
+    {
+        "text": "a github action has been kicked off  so this is going to do a safe roll out  ",
+        "start": 708.08,
+        "duration": 4.24
+    },
+    {
+        "text": "and you can see just started this to a  step-by-step rollout i'm going to show you since  ",
+        "start": 712.32,
+        "duration": 5.36
+    },
+    {
+        "text": "it's going to take a little bit of a time i wanted  to show you something that is already run recently",
+        "start": 717.68,
+        "duration": 4.32
+    },
+    {
+        "text": "okay so what has happened is it is going to  create a new deployment under the endpoint so  ",
+        "start": 725.36,
+        "duration": 5.76
+    },
+    {
+        "text": "an endpoint is already running in production  with one deployment that is taking traffic  ",
+        "start": 731.12,
+        "duration": 3.76
+    },
+    {
+        "text": "now we are creating a new deployment here that's  what this step of the the github action of the ci  ",
+        "start": 734.88,
+        "duration": 4.32
+    },
+    {
+        "text": "cd workflow does and next step you can see that  we do after we roll out we do sanity checking  ",
+        "start": 739.2,
+        "duration": 6.64
+    },
+    {
+        "text": "without even opening live traffic you can actually  hit the deployment directly to see if things are  ",
+        "start": 745.84,
+        "duration": 4.56
+    },
+    {
+        "text": "working and you can test this and now if we open  uh 10 percent of the traffic light traffic that  ",
+        "start": 750.4,
+        "duration": 7.84
+    },
+    {
+        "text": "is coming in to to this deployment and after some  time we can validate so you can open this and you  ",
+        "start": 758.24,
+        "duration": 6.48
+    },
+    {
+        "text": "can you can stay take this for five minutes ten  minutes some some of our like users wait for a  ",
+        "start": 764.72,
+        "duration": 4.64
+    },
+    {
+        "text": "day before they do kind of a roll out to make  sure all this are good what do you mean by all  ",
+        "start": 769.36,
+        "duration": 4.08
+    },
+    {
+        "text": "this in this specific example i have two cases i'm  checking i'm checking whether there are no errors  ",
+        "start": 773.44,
+        "duration": 4.56
+    },
+    {
+        "text": "uh when i open the traffic there's no error to the  deployment that that means there is no two three x  ",
+        "start": 778.56,
+        "duration": 4.48
+    },
+    {
+        "text": "axis or four x http codes or x s right it's only  two x axis there and similarly we make sure the  ",
+        "start": 783.04,
+        "duration": 5.92
+    },
+    {
+        "text": "latency is within x millisecond whatever your  threshold is if these two are true assume these  ",
+        "start": 788.96,
+        "duration": 4.8
+    },
+    {
+        "text": "are like your validation gates release gates then  it goes to the next step it opens 50 traffic and  ",
+        "start": 793.76,
+        "duration": 4.88
+    },
+    {
+        "text": "it can wait for arbitrary number of time arbitrary  amount of time and then this is opened up  ",
+        "start": 798.64,
+        "duration": 4.48
+    },
+    {
+        "text": "and similarly we check where do the validation  and then we open 100 traffic and wait for whatever  ",
+        "start": 803.68,
+        "duration": 5.52
+    },
+    {
+        "text": "time that needs to be done and then finally when  we are super confident everything is good we can  ",
+        "start": 809.2,
+        "duration": 4.4
+    },
+    {
+        "text": "delete the old deployment so that's kind of the  the flow that a a safe roll out looks like and how  ",
+        "start": 813.6,
+        "duration": 6.4
+    },
+    {
+        "text": "this is made possible is by integrating with our  metrics so when i say latencies within the next  ",
+        "start": 820.0,
+        "duration": 4.88
+    },
+    {
+        "text": "milliseconds i we validate here there is a github  action here that people can reuse that goes and  ",
+        "start": 824.88,
+        "duration": 5.52
+    },
+    {
+        "text": "checks that for this uh the metrics that we that  are published are within in the azure monitor are  ",
+        "start": 830.4,
+        "duration": 4.96
+    },
+    {
+        "text": "within x milliseconds so that's how we we might  validate all of this uh set i mean this is really  ",
+        "start": 835.36,
+        "duration": 6.16
+    },
+    {
+        "text": "cool it basically what you're doing is when you're  checking code is it re-running the entire training  ",
+        "start": 841.52,
+        "duration": 7.2
+    },
+    {
+        "text": "process and then producing a model is it did i  see that right so it can be configured in many  ",
+        "start": 848.72,
+        "duration": 6.24
+    },
+    {
+        "text": "ways uh so why don't i show you the um yeah why  don't we show you the some of the uh if we go here",
+        "start": 854.96,
+        "duration": 8.24
+    },
+    {
+        "text": "so it shows the flow very yeah if is it okay if  i do a quick recap of what we're trying to what  ",
+        "start": 866.0,
+        "duration": 6.4
+    },
+    {
+        "text": "we all saw yeah absolutely because i think i think  like the the process showing it actually running  ",
+        "start": 872.4,
+        "duration": 5.28
+    },
+    {
+        "text": "was really cool but i want to make sure it's  crystal clear what is actually happening yeah  ",
+        "start": 877.68,
+        "duration": 4.48
+    },
+    {
+        "text": "absolutely sir so this is the concept of endpoint  and deployment right so you end point you have an  ",
+        "start": 882.16,
+        "duration": 5.76
+    },
+    {
+        "text": "end point and endpoint is a abstraction where  the authenticate the security is there ssl is  ",
+        "start": 887.92,
+        "duration": 5.44
+    },
+    {
+        "text": "terminated and you have a stable uri for clients  to reference and then you have you can have more  ",
+        "start": 893.36,
+        "duration": 5.2
+    },
+    {
+        "text": "than one deployment underneath an end point so in  this example you have like two and one is running  ",
+        "start": 898.56,
+        "duration": 4.4
+    },
+    {
+        "text": "cpu another running three gpu skews and you can  have arbitrary amount of traffic between these two  ",
+        "start": 902.96,
+        "duration": 5.2
+    },
+    {
+        "text": "but like if you go below let's look at how the  whole safe road concept works so we we have like  ",
+        "start": 908.72,
+        "duration": 5.36
+    },
+    {
+        "text": "version n of a deployment currently running in  production that's taking hundred percent of the  ",
+        "start": 914.08,
+        "duration": 4.16
+    },
+    {
+        "text": "traffic and slowly and then we launch like v n  plus one the new deployment in our case which  ",
+        "start": 918.24,
+        "duration": 5.36
+    },
+    {
+        "text": "we just launched in the with when i changed the  code it created a new version of the deployment  ",
+        "start": 923.6,
+        "duration": 4.72
+    },
+    {
+        "text": "and i'm testing with zero percent traffic then  we open more traffic more and more traffic  ",
+        "start": 928.32,
+        "duration": 4.48
+    },
+    {
+        "text": "um and also there is documentation on how we do  this like using tags to actually specify to track  ",
+        "start": 933.44,
+        "duration": 7.12
+    },
+    {
+        "text": "which version of the which deployment is broad  and which is like a release candidate so you  ",
+        "start": 940.56,
+        "duration": 5.68
+    },
+    {
+        "text": "there's docs on this i would encourage people to  go through but if you look at the safe route to  ",
+        "start": 946.24,
+        "duration": 5.12
+    },
+    {
+        "text": "answer your question said you know how how we have  kind of laid out the the pipelines in this repo  ",
+        "start": 951.36,
+        "duration": 6.48
+    },
+    {
+        "text": "um this is the key pipeline right this  is a safe rollout pipeline and it can be  ",
+        "start": 957.84,
+        "duration": 5.68
+    },
+    {
+        "text": "triggered it can be triggered in multiple ways  so one way is a training pipeline runs and the  ",
+        "start": 963.52,
+        "duration": 5.6
+    },
+    {
+        "text": "training pipeline itself can be triggered when a  schedule based or a data set is updated and so on  ",
+        "start": 969.12,
+        "duration": 4.88
+    },
+    {
+        "text": "and then the training pipeline can register  a model that can kick a safe rollout or you  ",
+        "start": 974.72,
+        "duration": 5.12
+    },
+    {
+        "text": "register or you directly merge to main so in the  in our case if you notice i did not change the  ",
+        "start": 979.84,
+        "duration": 5.28
+    },
+    {
+        "text": "model at all i just changed the code maybe some  feature engineering code is changing some code  ",
+        "start": 985.12,
+        "duration": 3.6
+    },
+    {
+        "text": "optimization is done even this can be a new new  deployment right so this is what the the example  ",
+        "start": 988.72,
+        "duration": 5.2
+    },
+    {
+        "text": "we saw but in this repo we have examples where  you can kick this off and you can see this as well  ",
+        "start": 993.92,
+        "duration": 4.0
+    },
+    {
+        "text": "and the safe rollout itself you can see the steps  that we saw we first create a deployment and  ",
+        "start": 999.12,
+        "duration": 4.56
+    },
+    {
+        "text": "sanity test it then we roll out 10 traffic to it  and more and more traffic right but the key thing  ",
+        "start": 1003.68,
+        "duration": 6.16
+    },
+    {
+        "text": "is you can see this approval gate at every step  uh we have an automated approval in this case but  ",
+        "start": 1009.84,
+        "duration": 6.16
+    },
+    {
+        "text": "easily you can add a manual approval as well if  you wish so uh yeah that's the story this is this  ",
+        "start": 1016.0,
+        "duration": 7.12
+    },
+    {
+        "text": "is really cool because like ignorantly i was like  oh you changed some code and we got to redo the  ",
+        "start": 1023.12,
+        "duration": 4.48
+    },
+    {
+        "text": "model but the reality is that in some cases you're  changing the inference code there's no need for  ",
+        "start": 1027.6,
+        "duration": 5.2
+    },
+    {
+        "text": "for model changes so this kind of pipeline these  kinds of pipelines enable you to rapidly iterate  ",
+        "start": 1032.8,
+        "duration": 5.52
+    },
+    {
+        "text": "that way as well am i getting this a little bit  better perfect yeah that's perfect understanding  ",
+        "start": 1038.32,
+        "duration": 4.72
+    },
+    {
+        "text": "well this is this has been awesome where can  people go to find out more about these cool things  ",
+        "start": 1043.04,
+        "duration": 4.48
+    },
+    {
+        "text": "so we have like uh three i think three click uh  three call to action links that are going to be  ",
+        "start": 1048.24,
+        "duration": 5.2
+    },
+    {
+        "text": "shared uh as a part of this so one of them is  this um this repo the link to the repo people  ",
+        "start": 1053.44,
+        "duration": 6.8
+    },
+    {
+        "text": "share people can actually go and for this  they don't need to even download the code or  ",
+        "start": 1060.24,
+        "duration": 4.4
+    },
+    {
+        "text": "create a python environment anything locally  they just need to fork this repo and fill up  ",
+        "start": 1064.64,
+        "duration": 5.6
+    },
+    {
+        "text": "use some environment variables to you you know  to um to point to their workspace and stuff and  ",
+        "start": 1070.24,
+        "duration": 5.36
+    },
+    {
+        "text": "they can get going and then there's one more  blog that we're sharing as a part of this  ",
+        "start": 1075.6,
+        "duration": 5.28
+    },
+    {
+        "text": "ai show where people can go and read about all the  new features that i talked about like auto scaling  ",
+        "start": 1082.0,
+        "duration": 5.12
+    },
+    {
+        "text": "mlfo integration and all of that autoimmune  integration there are tutorials that people can  ",
+        "start": 1087.12,
+        "duration": 4.4
+    },
+    {
+        "text": "go through for each of these capabilities awesome  well i put them up below and then if you want to  ",
+        "start": 1091.52,
+        "duration": 4.64
+    },
+    {
+        "text": "get started there's a link right down below online  endpoints get started set to this has been amazing  ",
+        "start": 1096.16,
+        "duration": 6.16
+    },
+    {
+        "text": "uh thank you so much for being with us my friend  oh thanks for having me said always glad awesome  ",
+        "start": 1102.32,
+        "duration": 6.08
+    },
+    {
+        "text": "well we've been learning all about managed  online endpoints some of the new goodness  ",
+        "start": 1108.4,
+        "duration": 4.0
+    },
+    {
+        "text": "thank you so much thank you so much for watching  and hopefully we'll see you next time take care",
+        "start": 1112.4,
+        "duration": 9.44
+    },
+    {
+        "text": "you",
+        "start": 1125.36,
+        "duration": 0.08
+    }
+]

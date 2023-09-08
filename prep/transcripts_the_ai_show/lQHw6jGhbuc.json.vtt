@@ -1,0 +1,847 @@
+[
+    {
+        "text": ">> Reproducibility in machine learning is super important.",
+        "start": 1.22,
+        "duration": 4.165
+    },
+    {
+        "text": "In this special build edition of the AI Show,",
+        "start": 5.385,
+        "duration": 2.025
+    },
+    {
+        "text": "we will hear from Dennis Eikelenboom,",
+        "start": 7.41,
+        "duration": 1.35
+    },
+    {
+        "text": "Program Manager on the Azure Machine Learning team.",
+        "start": 8.76,
+        "duration": 3.84
+    },
+    {
+        "text": "He's going to talk all about tracking in",
+        "start": 12.6,
+        "duration": 2.43
+    },
+    {
+        "text": "Azure Machine Learning through",
+        "start": 15.03,
+        "duration": 1.455
+    },
+    {
+        "text": "a very interesting demo. Make sure you tune in.",
+        "start": 16.485,
+        "duration": 2.685
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 19.17,
+        "duration": 10.98
+    },
+    {
+        "text": ">> Hello, and welcome to",
+        "start": 30.15,
+        "duration": 1.11
+    },
+    {
+        "text": "this session on Data to Machine Learning Tracking.",
+        "start": 31.26,
+        "duration": 2.16
+    },
+    {
+        "text": "My name is Dennis, and I'm",
+        "start": 33.42,
+        "duration": 1.26
+    },
+    {
+        "text": "a Program Manager on the Azure Machine Learning team.",
+        "start": 34.68,
+        "duration": 2.515
+    },
+    {
+        "text": "Maintaining a digital audit trail for",
+        "start": 37.195,
+        "duration": 1.865
+    },
+    {
+        "text": "your machine learning activities matters.",
+        "start": 39.06,
+        "duration": 1.59
+    },
+    {
+        "text": "It enables experiment reproducibility and",
+        "start": 40.65,
+        "duration": 2.06
+    },
+    {
+        "text": "improves the operability of your machine learning solutions.",
+        "start": 42.71,
+        "duration": 3.06
+    },
+    {
+        "text": "Legislative reasons might also be",
+        "start": 45.77,
+        "duration": 2.4
+    },
+    {
+        "text": "an important driver to keep track of your assets.",
+        "start": 48.17,
+        "duration": 2.745
+    },
+    {
+        "text": "For this demo, we'll take a look at the analytics company,",
+        "start": 50.915,
+        "duration": 3.015
+    },
+    {
+        "text": "Contoso, that provide services to",
+        "start": 53.93,
+        "duration": 1.77
+    },
+    {
+        "text": "renters on the Amsterdam housing market.",
+        "start": 55.7,
+        "duration": 2.145
+    },
+    {
+        "text": "Since the market is saturated and changing rapidly,",
+        "start": 57.845,
+        "duration": 2.94
+    },
+    {
+        "text": "the company helps renters to find",
+        "start": 60.785,
+        "duration": 1.575
+    },
+    {
+        "text": "the optimal price for their properties.",
+        "start": 62.36,
+        "duration": 2.255
+    },
+    {
+        "text": "In their analysis, they make use of both static reference data,",
+        "start": 64.615,
+        "duration": 3.465
+    },
+    {
+        "text": "as well as data that is coming in live from housing reviews.",
+        "start": 68.08,
+        "duration": 3.64
+    },
+    {
+        "text": "There are two main drivers for Contoso why tracking is important.",
+        "start": 71.72,
+        "duration": 3.795
+    },
+    {
+        "text": "First, because prices fluctuate,",
+        "start": 75.515,
+        "duration": 2.605
+    },
+    {
+        "text": "they want to include the latest data in their models,",
+        "start": 78.12,
+        "duration": 2.36
+    },
+    {
+        "text": "and hence retrain and redeploy often.",
+        "start": 80.48,
+        "duration": 2.4
+    },
+    {
+        "text": "Each time they make a pricing recommendation,",
+        "start": 82.88,
+        "duration": 2.295
+    },
+    {
+        "text": "they would like to understand what model version was used,",
+        "start": 85.175,
+        "duration": 2.625
+    },
+    {
+        "text": "and which data was included.",
+        "start": 87.8,
+        "duration": 2.175
+    },
+    {
+        "text": "Secondly, when customers sign up for the services of Contoso,",
+        "start": 89.975,
+        "duration": 4.545
+    },
+    {
+        "text": "they agree that their data might be used for analytical purposes.",
+        "start": 94.52,
+        "duration": 4.47
+    },
+    {
+        "text": "From a legal perspective,",
+        "start": 98.99,
+        "duration": 1.995
+    },
+    {
+        "text": "they might sometimes receive a request to delete",
+        "start": 100.985,
+        "duration": 2.505
+    },
+    {
+        "text": "the data that was used due to European law.",
+        "start": 103.49,
+        "duration": 2.985
+    },
+    {
+        "text": "I'll now show you how",
+        "start": 106.475,
+        "duration": 1.515
+    },
+    {
+        "text": "Azure Machine Learning enables Contoso to keep",
+        "start": 107.99,
+        "duration": 2.25
+    },
+    {
+        "text": "track of the various assets that go",
+        "start": 110.24,
+        "duration": 1.8
+    },
+    {
+        "text": "in and out of the experimentation process,",
+        "start": 112.04,
+        "duration": 2.1
+    },
+    {
+        "text": "like code, data, and models, as a result.",
+        "start": 114.14,
+        "duration": 3.255
+    },
+    {
+        "text": "Nowadays, those are used",
+        "start": 117.395,
+        "duration": 1.935
+    },
+    {
+        "text": "more downstream in the various stages",
+        "start": 119.33,
+        "duration": 2.25
+    },
+    {
+        "text": "of the machine learning lifecycle.",
+        "start": 121.58,
+        "duration": 2.32
+    },
+    {
+        "text": "The data engineering and data science teams work closely together.",
+        "start": 124.21,
+        "duration": 4.375
+    },
+    {
+        "text": "Contoso's data engineers collect",
+        "start": 128.585,
+        "duration": 2.205
+    },
+    {
+        "text": "live data from random reviews that people post online,",
+        "start": 130.79,
+        "duration": 2.865
+    },
+    {
+        "text": "and then the data science team use to data as",
+        "start": 133.655,
+        "duration": 2.145
+    },
+    {
+        "text": "input to several of their machine learning experiments.",
+        "start": 135.8,
+        "duration": 2.534
+    },
+    {
+        "text": "Let's have a closer look at one of their pipelines.",
+        "start": 138.334,
+        "duration": 3.466
+    },
+    {
+        "text": "Data is captured via an Azure event hub,",
+        "start": 141.8,
+        "duration": 2.85
+    },
+    {
+        "text": "and the team uses Spark structured streaming to add",
+        "start": 144.65,
+        "duration": 2.28
+    },
+    {
+        "text": "static the reference data as the reviews stream in.",
+        "start": 146.93,
+        "duration": 3.155
+    },
+    {
+        "text": "Since data comes in JSON format,",
+        "start": 150.085,
+        "duration": 2.595
+    },
+    {
+        "text": "the team applies pre-processing logic",
+        "start": 152.68,
+        "duration": 1.75
+    },
+    {
+        "text": "to set the scheme of the columns,",
+        "start": 154.43,
+        "duration": 1.35
+    },
+    {
+        "text": "and then connect the results in a table",
+        "start": 155.78,
+        "duration": 1.5
+    },
+    {
+        "text": "for easier and downstream processing.",
+        "start": 157.28,
+        "duration": 2.59
+    },
+    {
+        "text": "You can see that rental reviews are posted continuously.",
+        "start": 160.15,
+        "duration": 4.11
+    },
+    {
+        "text": "Browsing over them, we can see that reviews",
+        "start": 164.26,
+        "duration": 2.5
+    },
+    {
+        "text": "contain information regarding the neighborhood,",
+        "start": 166.76,
+        "duration": 3.02
+    },
+    {
+        "text": "specifications of the apartment,",
+        "start": 169.78,
+        "duration": 2.63
+    },
+    {
+        "text": "its rental price, and the",
+        "start": 172.41,
+        "duration": 1.85
+    },
+    {
+        "text": "satisfaction scores that people gave regarding their stays.",
+        "start": 174.26,
+        "duration": 3.61
+    },
+    {
+        "text": "Contoso's data science team has",
+        "start": 178.19,
+        "duration": 2.61
+    },
+    {
+        "text": "issued a survey with local guides in",
+        "start": 180.8,
+        "duration": 1.83
+    },
+    {
+        "text": "the perceived sentiment of renting a place in",
+        "start": 182.63,
+        "duration": 1.77
+    },
+    {
+        "text": "each of the different Amsterdam neighborhoods.",
+        "start": 184.4,
+        "duration": 2.205
+    },
+    {
+        "text": "One of the metrics that the survey yields is",
+        "start": 186.605,
+        "duration": 3.195
+    },
+    {
+        "text": "a score for the relative closeness",
+        "start": 189.8,
+        "duration": 1.5
+    },
+    {
+        "text": "of the neighborhoods to the airports.",
+        "start": 191.3,
+        "duration": 1.905
+    },
+    {
+        "text": "The team captured the survey results in a table.",
+        "start": 193.205,
+        "duration": 3.805
+    },
+    {
+        "text": "The data engineering team uses the reference table with",
+        "start": 197.38,
+        "duration": 3.94
+    },
+    {
+        "text": "the survey results to enrich each of the reviews that come in,",
+        "start": 201.32,
+        "duration": 3.225
+    },
+    {
+        "text": "and then register into storage for later analysis.",
+        "start": 204.545,
+        "duration": 3.865
+    },
+    {
+        "text": "The data science team builds in Azure Machine Learning to",
+        "start": 210.95,
+        "duration": 3.16
+    },
+    {
+        "text": "run the machine learning experimentation and deployment.",
+        "start": 214.11,
+        "duration": 2.725
+    },
+    {
+        "text": "Whenever the team makes a change to",
+        "start": 216.835,
+        "duration": 2.035
+    },
+    {
+        "text": "the data that is used as input to their experiments,",
+        "start": 218.87,
+        "duration": 2.37
+    },
+    {
+        "text": "they would define a new datasets version.",
+        "start": 221.24,
+        "duration": 2.48
+    },
+    {
+        "text": "Using Azure Machine Learning datasets,",
+        "start": 223.72,
+        "duration": 2.195
+    },
+    {
+        "text": "they define a reference to the data on storage,",
+        "start": 225.915,
+        "duration": 2.705
+    },
+    {
+        "text": "allowing them to use it as",
+        "start": 228.62,
+        "duration": 1.68
+    },
+    {
+        "text": "a version input to their machine learning pipeline.",
+        "start": 230.3,
+        "duration": 2.925
+    },
+    {
+        "text": "In this notebook, the team defines",
+        "start": 233.225,
+        "duration": 3.135
+    },
+    {
+        "text": "a new dataset version to include",
+        "start": 236.36,
+        "duration": 1.92
+    },
+    {
+        "text": "the most recently collected data points.",
+        "start": 238.28,
+        "duration": 3.05
+    },
+    {
+        "text": "Note that when creating a dataset with Azure Machine Learning,",
+        "start": 241.33,
+        "duration": 4.3
+    },
+    {
+        "text": "we define the data reference, whereas,",
+        "start": 245.63,
+        "duration": 1.71
+    },
+    {
+        "text": "the actual data remains in the source.",
+        "start": 247.34,
+        "duration": 2.96
+    },
+    {
+        "text": "When registering the datasets,",
+        "start": 250.3,
+        "duration": 3.19
+    },
+    {
+        "text": "we make it available for others to use.",
+        "start": 253.49,
+        "duration": 3.37
+    },
+    {
+        "text": "One of the experiments that a data science team carries out",
+        "start": 261.76,
+        "duration": 4.09
+    },
+    {
+        "text": "is the determination and advice for rental price of an apartment,",
+        "start": 265.85,
+        "duration": 3.525
+    },
+    {
+        "text": "given its characteristics, ratings, and time of the year.",
+        "start": 269.375,
+        "duration": 3.24
+    },
+    {
+        "text": "The team learnt that, to prevent the model from drifting quickly,",
+        "start": 272.615,
+        "duration": 3.285
+    },
+    {
+        "text": "they would need to incorporate new data relatively frequent.",
+        "start": 275.9,
+        "duration": 3.42
+    },
+    {
+        "text": "Hence, they would make",
+        "start": 279.32,
+        "duration": 1.38
+    },
+    {
+        "text": "a new dataset version in the same way as we saw before,",
+        "start": 280.7,
+        "duration": 3.18
+    },
+    {
+        "text": "and reference that dataset version for training.",
+        "start": 283.88,
+        "duration": 3.06
+    },
+    {
+        "text": "In order to do so, they would simply make",
+        "start": 286.94,
+        "duration": 1.86
+    },
+    {
+        "text": "a reference to the datasets in the training script,",
+        "start": 288.8,
+        "duration": 2.685
+    },
+    {
+        "text": "using Azure Machine Learning SDK,",
+        "start": 291.485,
+        "duration": 2.39
+    },
+    {
+        "text": "provide a version, and then pass the dataset along for training,",
+        "start": 293.875,
+        "duration": 6.365
+    },
+    {
+        "text": "in this case, using an [inaudible].",
+        "start": 300.24,
+        "duration": 6.93
+    },
+    {
+        "text": "As we add the random versions,",
+        "start": 307.17,
+        "duration": 1.7
+    },
+    {
+        "text": "it is easy to lose track of which dataset version",
+        "start": 308.87,
+        "duration": 2.4
+    },
+    {
+        "text": "was used as an input to what experiment run.",
+        "start": 311.27,
+        "duration": 2.865
+    },
+    {
+        "text": "Therefore, when we submit a run using Azure Machine Learning,",
+        "start": 314.135,
+        "duration": 3.55
+    },
+    {
+        "text": "several metadatas track for us.",
+        "start": 317.685,
+        "duration": 2.285
+    },
+    {
+        "text": "This includes the datasets",
+        "start": 319.97,
+        "duration": 2.385
+    },
+    {
+        "text": "that we passed along through our experiment,",
+        "start": 322.355,
+        "duration": 2.655
+    },
+    {
+        "text": "get tracking information,",
+        "start": 325.01,
+        "duration": 3.17
+    },
+    {
+        "text": "our particular experiment configuration in terms of parameters,",
+        "start": 329.59,
+        "duration": 5.629
+    },
+    {
+        "text": "as well as any metrics that we",
+        "start": 336.8,
+        "duration": 2.28
+    },
+    {
+        "text": "might have collected during training.",
+        "start": 339.08,
+        "duration": 2.5
+    },
+    {
+        "text": "Next to the inputs to our experiment run,",
+        "start": 343.52,
+        "duration": 3.21
+    },
+    {
+        "text": "Azure Machine Learning also helps keep track of outputs.",
+        "start": 346.73,
+        "duration": 3.18
+    },
+    {
+        "text": "For this particular run,",
+        "start": 349.91,
+        "duration": 1.395
+    },
+    {
+        "text": "you can see that one model was registered,",
+        "start": 351.305,
+        "duration": 2.025
+    },
+    {
+        "text": "for example, when we finalized the run.",
+        "start": 353.33,
+        "duration": 3.28
+    },
+    {
+        "text": "In Azure Machine Learning, we can register a model as",
+        "start": 359.48,
+        "duration": 3.36
+    },
+    {
+        "text": "an asset that can be versioned and tracked for its users.",
+        "start": 362.84,
+        "duration": 3.24
+    },
+    {
+        "text": "Similar to the tracking details that we",
+        "start": 366.08,
+        "duration": 2.01
+    },
+    {
+        "text": "saw for the experiment run basis,",
+        "start": 368.09,
+        "duration": 1.89
+    },
+    {
+        "text": "the model registry catches",
+        "start": 369.98,
+        "duration": 1.56
+    },
+    {
+        "text": "all the metadata associated with your model,",
+        "start": 371.54,
+        "duration": 2.4
+    },
+    {
+        "text": "including the experiment that was used for model training,",
+        "start": 373.94,
+        "duration": 4.445
+    },
+    {
+        "text": "tags that we might add to the model,",
+        "start": 378.385,
+        "duration": 4.175
+    },
+    {
+        "text": "as well, we can find",
+        "start": 382.56,
+        "duration": 1.67
+    },
+    {
+        "text": "an overview of the endpoints",
+        "start": 384.23,
+        "duration": 2.4
+    },
+    {
+        "text": "where a model is deployed for scoring.",
+        "start": 386.63,
+        "duration": 2.68
+    },
+    {
+        "text": "To sum everything up,",
+        "start": 391.07,
+        "duration": 2.335
+    },
+    {
+        "text": "from the inferencing endpoint displayed here,",
+        "start": 393.405,
+        "duration": 2.235
+    },
+    {
+        "text": "Contoso is able to track",
+        "start": 395.64,
+        "duration": 1.24
+    },
+    {
+        "text": "what model version was used for rental advice.",
+        "start": 396.88,
+        "duration": 2.475
+    },
+    {
+        "text": "They can trace this version back to a particular experiment,",
+        "start": 399.355,
+        "duration": 2.864
+    },
+    {
+        "text": "as well as through a particular version of their input datasets.",
+        "start": 402.219,
+        "duration": 3.551
+    },
+    {
+        "text": "Then from the dataset definition,",
+        "start": 405.77,
+        "duration": 2.515
+    },
+    {
+        "text": "they can linear us back the raw files that define the version.",
+        "start": 408.285,
+        "duration": 3.97
+    },
+    {
+        "text": "In this session, we looked at",
+        "start": 412.255,
+        "duration": 2.085
+    },
+    {
+        "text": "the tracking capabilities in Azure Machine Learning.",
+        "start": 414.34,
+        "duration": 2.43
+    },
+    {
+        "text": "To recap, keeping well track of",
+        "start": 416.77,
+        "duration": 2.31
+    },
+    {
+        "text": "your assets is important for a variety of reasons.",
+        "start": 419.08,
+        "duration": 2.64
+    },
+    {
+        "text": "For most, the ability to reproduce",
+        "start": 421.72,
+        "duration": 2.28
+    },
+    {
+        "text": "the same outcome during experimentation matters.",
+        "start": 424.0,
+        "duration": 2.515
+    },
+    {
+        "text": "It enables us to replicate",
+        "start": 426.515,
+        "duration": 1.565
+    },
+    {
+        "text": "specific results we obtained at the past,",
+        "start": 428.08,
+        "duration": 2.295
+    },
+    {
+        "text": "as well, it allows others to build forward on existing work.",
+        "start": 430.375,
+        "duration": 3.74
+    },
+    {
+        "text": "There might also be legal constraints",
+        "start": 434.115,
+        "duration": 2.285
+    },
+    {
+        "text": "that your team needs to comply with.",
+        "start": 436.4,
+        "duration": 1.515
+    },
+    {
+        "text": "Audits or legislative requirements, like GDPR,",
+        "start": 437.915,
+        "duration": 3.075
+    },
+    {
+        "text": "have increased the importance with",
+        "start": 440.99,
+        "duration": 1.29
+    },
+    {
+        "text": "teams to keep well track of their assets.",
+        "start": 442.28,
+        "duration": 2.48
+    },
+    {
+        "text": "From an operational standpoint,",
+        "start": 444.76,
+        "duration": 1.885
+    },
+    {
+        "text": "tracking helps you identify the impact of issues as the",
+        "start": 446.645,
+        "duration": 2.505
+    },
+    {
+        "text": "might arise with data or models in production.",
+        "start": 449.15,
+        "duration": 2.985
+    },
+    {
+        "text": "For example, you might find out that",
+        "start": 452.135,
+        "duration": 1.635
+    },
+    {
+        "text": "the data quality issue caused",
+        "start": 453.77,
+        "duration": 1.98
+    },
+    {
+        "text": "the model version to start producing correct outcomes.",
+        "start": 455.75,
+        "duration": 2.625
+    },
+    {
+        "text": "Thanks to tracking, you might identify that, in practice,",
+        "start": 458.375,
+        "duration": 2.865
+    },
+    {
+        "text": "multiple model versions were",
+        "start": 461.24,
+        "duration": 1.35
+    },
+    {
+        "text": "impacted by the same corrupt datasets.",
+        "start": 462.59,
+        "duration": 2.42
+    },
+    {
+        "text": "Whatever your motivation is to track,",
+        "start": 465.01,
+        "duration": 3.47
+    },
+    {
+        "text": "keep in mind that Azure Machine Learning can help you to",
+        "start": 468.48,
+        "duration": 2.075
+    },
+    {
+        "text": "simplify this job with its tracking capabilities.",
+        "start": 470.555,
+        "duration": 3.015
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 473.57,
+        "duration": 13.19
+    }
+]

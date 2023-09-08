@@ -1,0 +1,3626 @@
+WEBVTT
+
+00:00:00.239 --> 00:00:07.559
+Caption: all right good morning everyone welcome
+
+00:00:02.940 --> 00:00:09.678
+Caption: to Chuck on the goal the galar room and
+
+00:00:07.559 --> 00:00:11.638
+Caption: I&#39;m very pleased this morning to welcome
+
+00:00:09.678 --> 00:00:14.039
+Caption: Aaron Zimmer
+
+00:00:11.638 --> 00:00:16.979
+Caption: uh who&#39;s going to come and talk to us
+
+00:00:14.039 --> 00:00:19.079
+Caption: about refactoring components and already
+
+00:00:16.979 --> 00:00:20.159
+Caption: I love the talk with the refactor
+
+00:00:19.079 --> 00:00:22.198
+Caption: tractor
+
+00:00:20.159 --> 00:00:24.239
+Caption: Aaron is a Google developer expert with
+
+00:00:22.198 --> 00:00:27.659
+Caption: over 15 years experience in a variety of
+
+00:00:24.239 --> 00:00:29.098
+Caption: languages from JavaScript to model 204
+
+00:00:27.659 --> 00:00:31.018
+Caption: which
+
+00:00:29.099 --> 00:00:32.120
+Caption: apparently nobody else has ever heard of
+
+00:00:31.018 --> 00:00:34.259
+Caption: anyway
+
+00:00:32.119 --> 00:00:36.180
+Caption: she&#39;s currently a senior web developer
+
+00:00:34.259 --> 00:00:39.119
+Caption: at Cash app an active community of the
+
+00:00:36.180 --> 00:00:41.579
+Caption: Melbourne Dev community and has spoken
+
+00:00:39.119 --> 00:00:42.718
+Caption: at conferences around the world if you
+
+00:00:41.578 --> 00:00:46.319
+Caption: see her at a conference she&#39;ll probably
+
+00:00:42.719 --> 00:00:48.120
+Caption: have knitting needles in hand so um
+
+00:00:46.319 --> 00:00:50.459
+Caption: I&#39;m sure we can find out a bit more
+
+00:00:48.119 --> 00:00:52.979
+Caption: about that but uh everyone please give a
+
+00:00:50.459 --> 00:00:55.459
+Caption: warm welcome to Aaron and refactoring
+
+00:00:52.979 --> 00:00:55.459
+Caption: components
+
+00:00:58.379 --> 00:01:03.840
+Caption: uh hi yeah so I originally called this
+
+00:01:01.578 --> 00:01:05.459
+Caption: refactoring components and then one of
+
+00:01:03.840 --> 00:01:07.559
+Caption: my co-workers pointed out that that was
+
+00:01:05.459 --> 00:01:09.658
+Caption: pretty boring and I was missing out an
+
+00:01:07.559 --> 00:01:12.658
+Caption: opportunity to go getting on the
+
+00:01:09.658 --> 00:01:14.459
+Caption: refactor tractor so that&#39;s what we&#39;re
+
+00:01:12.658 --> 00:01:15.259
+Caption: going with
+
+00:01:14.459 --> 00:01:18.839
+Caption: um
+
+00:01:15.260 --> 00:01:21.479
+Caption: my name is Erin I work for the company
+
+00:01:18.839 --> 00:01:23.519
+Caption: formerly known as Square which is now
+
+00:01:21.478 --> 00:01:25.319
+Caption: known as block and I specifically worked
+
+00:01:23.519 --> 00:01:27.059
+Caption: building a product called Cash app which
+
+00:01:25.319 --> 00:01:29.459
+Caption: you may not have heard of because it&#39;s
+
+00:01:27.059 --> 00:01:32.040
+Caption: not currently available in Australia but
+
+00:01:29.459 --> 00:01:33.959
+Caption: our aim is basically to fix the truly
+
+00:01:32.040 --> 00:01:35.819
+Caption: atrocious situation that is the banking
+
+00:01:33.959 --> 00:01:38.298
+Caption: sector in the US you think we&#39;ve got
+
+00:01:35.819 --> 00:01:38.298
+Caption: about here
+
+00:01:38.459 --> 00:01:41.339
+Caption: um but we do have Offices here in
+
+00:01:39.839 --> 00:01:43.139
+Caption: Australia and we are very remote
+
+00:01:41.339 --> 00:01:45.539
+Caption: friendly so if you&#39;re looking for a
+
+00:01:43.139 --> 00:01:47.579
+Caption: change maybe come have a chat
+
+00:01:45.540 --> 00:01:49.559
+Caption: um like I said I will have my knitting
+
+00:01:47.579 --> 00:01:51.119
+Caption: needles around I I&#39;ll be knitting socks
+
+00:01:49.559 --> 00:01:52.860
+Caption: because
+
+00:01:51.119 --> 00:01:55.020
+Caption: I decided for some reason I was going to
+
+00:01:52.860 --> 00:01:56.220
+Caption: knit everyone&#39;s socks for Christmas
+
+00:01:55.019 --> 00:01:57.719
+Caption: um so now I&#39;m going to knit like 10
+
+00:01:56.220 --> 00:01:59.819
+Caption: pairs of socks by the end of the year
+
+00:01:57.720 --> 00:02:03.299
+Caption: and there&#39;s no like once no going back
+
+00:01:59.819 --> 00:02:04.500
+Caption: from that yet right I&#39;m stuck
+
+00:02:03.299 --> 00:02:08.179
+Caption: um and if you would like to follow along
+
+00:02:04.500 --> 00:02:10.020
+Caption: uh at home these slides are available at
+
+00:02:08.179 --> 00:02:11.639
+Caption: refactortractor.ez.codes and they really
+
+00:02:10.020 --> 00:02:13.860
+Caption: are there this time not like at the last
+
+00:02:11.639 --> 00:02:15.059
+Caption: talk I gave
+
+00:02:13.860 --> 00:02:16.440
+Caption: all right so today we&#39;re going to talk
+
+00:02:15.059 --> 00:02:18.958
+Caption: about refactoring we&#39;re going to start
+
+00:02:16.440 --> 00:02:20.339
+Caption: with factoring is and when we might want
+
+00:02:18.958 --> 00:02:22.399
+Caption: to do it
+
+00:02:20.339 --> 00:02:22.399
+Caption: um
+
+00:02:25.738 --> 00:02:30.479
+Caption: that our refactoring happens safely
+
+00:02:29.160 --> 00:02:31.919
+Caption: we&#39;re going to look at some additional
+
+00:02:30.479 --> 00:02:33.300
+Caption: tools we&#39;ve got available for working
+
+00:02:31.919 --> 00:02:35.580
+Caption: with jsx
+
+00:02:33.300 --> 00:02:37.800
+Caption: and we&#39;re going to do lots of live
+
+00:02:35.580 --> 00:02:40.619
+Caption: examples because I like Living
+
+00:02:37.800 --> 00:02:42.800
+Caption: Dangerously
+
+00:02:40.619 --> 00:02:44.458
+Caption: all right so what is refactoring
+
+00:02:42.800 --> 00:02:46.559
+Caption: refactoring is when we change the
+
+00:02:44.458 --> 00:02:48.000
+Caption: implementation without changing the
+
+00:02:46.559 --> 00:02:49.080
+Caption: functionality right so we&#39;re changing
+
+00:02:48.000 --> 00:02:50.339
+Caption: the code but we&#39;re not changing what
+
+00:02:49.080 --> 00:02:51.958
+Caption: what it does
+
+00:02:50.339 --> 00:02:53.518
+Caption: there&#39;s a few reasons we might do that
+
+00:02:51.958 --> 00:02:55.679
+Caption: and we might want to make the code
+
+00:02:53.518 --> 00:02:58.319
+Caption: easier to understand we might want to
+
+00:02:55.679 --> 00:02:59.759
+Caption: wait want to make it easier to test or
+
+00:02:58.319 --> 00:03:02.119
+Caption: mostly we want to make it easier to
+
+00:02:59.759 --> 00:03:02.119
+Caption: change
+
+00:03:02.940 --> 00:03:05.940
+Caption: um so
+
+00:03:04.080 --> 00:03:07.378
+Caption: some things that we might do while we&#39;re
+
+00:03:05.940 --> 00:03:08.819
+Caption: refactoring are things like renaming
+
+00:03:07.378 --> 00:03:10.018
+Caption: variables right maybe the variable names
+
+00:03:08.819 --> 00:03:12.000
+Caption: we&#39;ve got out of sync with what&#39;s
+
+00:03:10.018 --> 00:03:13.800
+Caption: actually going on and the cut the code
+
+00:03:12.000 --> 00:03:15.000
+Caption: is hard to understand rename the
+
+00:03:13.800 --> 00:03:16.139
+Caption: variables make it a bit easier to
+
+00:03:15.000 --> 00:03:18.300
+Caption: understand
+
+00:03:16.139 --> 00:03:19.738
+Caption: we might take long functions and split
+
+00:03:18.300 --> 00:03:21.180
+Caption: them up into smaller functions which
+
+00:03:19.738 --> 00:03:22.679
+Caption: also makes the code easier to understand
+
+00:03:21.179 --> 00:03:23.939
+Caption: because it&#39;s easier to reason about the
+
+00:03:22.679 --> 00:03:25.738
+Caption: smaller pieces
+
+00:03:23.940 --> 00:03:27.839
+Caption: as well as making it easier to test
+
+00:03:25.738 --> 00:03:29.639
+Caption: because we can test the parts
+
+00:03:27.839 --> 00:03:31.199
+Caption: independently
+
+00:03:29.639 --> 00:03:33.419
+Caption: and we might do things like we&#39;ve got
+
+00:03:31.199 --> 00:03:34.860
+Caption: some repeated code we might Factor it
+
+00:03:33.419 --> 00:03:36.360
+Caption: out so it&#39;s just in one place which
+
+00:03:34.860 --> 00:03:37.440
+Caption: makes it easier to change right it&#39;s
+
+00:03:36.360 --> 00:03:39.979
+Caption: going to we don&#39;t have to change it in
+
+00:03:37.440 --> 00:03:39.979
+Caption: one place later
+
+00:03:40.018 --> 00:03:44.039
+Caption: if you&#39;re interested in this kind of
+
+00:03:42.000 --> 00:03:45.899
+Caption: nitty-gritty details of refactoring I
+
+00:03:44.039 --> 00:03:48.539
+Caption: highly recommend that you check out
+
+00:03:45.899 --> 00:03:50.279
+Caption: Martin Fowler&#39;s book refactoring um he&#39;s
+
+00:03:48.539 --> 00:03:51.719
+Caption: got like a whole taxonomy there like the
+
+00:03:50.279 --> 00:03:53.518
+Caption: different almost like the different
+
+00:03:51.720 --> 00:03:55.500
+Caption: moves that you can make in refactoring
+
+00:03:53.518 --> 00:03:56.399
+Caption: and like how to do them and all like
+
+00:03:55.500 --> 00:03:57.658
+Caption: when you might want to do these
+
+00:03:56.399 --> 00:03:59.098
+Caption: different things but we&#39;re not going to
+
+00:03:57.658 --> 00:04:01.018
+Caption: get into quite that nitty-gritty detail
+
+00:03:59.098 --> 00:04:02.759
+Caption: today
+
+00:04:01.018 --> 00:04:04.619
+Caption: okay so now we know what refactoring is
+
+00:04:02.759 --> 00:04:07.439
+Caption: when should we do it
+
+00:04:04.619 --> 00:04:09.658
+Caption: um and my sort of cop-out answer is when
+
+00:04:07.440 --> 00:04:12.059
+Caption: do benefits outweigh the costs
+
+00:04:09.658 --> 00:04:14.759
+Caption: um I say that&#39;s a common answer because
+
+00:04:12.059 --> 00:04:16.679
+Caption: that&#39;s when you do anything right when
+
+00:04:14.759 --> 00:04:18.540
+Caption: the benefits
+
+00:04:16.679 --> 00:04:20.100
+Caption: so what are the benefits and the costs
+
+00:04:18.540 --> 00:04:22.619
+Caption: of refactoring
+
+00:04:20.100 --> 00:04:24.419
+Caption: the benefits of refactoring uh most
+
+00:04:22.619 --> 00:04:26.220
+Caption: importantly the biggest benefit you&#39;re
+
+00:04:24.419 --> 00:04:28.860
+Caption: going to get from it is faster future
+
+00:04:26.220 --> 00:04:30.720
+Caption: development right if you spend some time
+
+00:04:28.859 --> 00:04:32.159
+Caption: refactoring your cards it&#39;s easier to
+
+00:04:30.720 --> 00:04:34.380
+Caption: build change to build things change
+
+00:04:32.160 --> 00:04:36.540
+Caption: things fix bugs later on that&#39;s a huge
+
+00:04:34.380 --> 00:04:38.399
+Caption: benefit of refactoring
+
+00:04:36.540 --> 00:04:41.460
+Caption: refactoring also often leads to less
+
+00:04:38.399 --> 00:04:43.139
+Caption: bugs if we&#39;re making code that&#39;s easier
+
+00:04:41.459 --> 00:04:45.000
+Caption: to test then it&#39;s easier to find the
+
+00:04:43.139 --> 00:04:46.259
+Caption: bugs that we do put in there but also
+
+00:04:45.000 --> 00:04:47.699
+Caption: for making a code easy to understand
+
+00:04:46.259 --> 00:04:49.799
+Caption: we&#39;re less likely to put the bugs in
+
+00:04:47.699 --> 00:04:53.179
+Caption: there in the first place
+
+00:04:49.799 --> 00:04:57.000
+Caption: and finally refactor
+
+00:04:53.179 --> 00:04:59.039
+Caption: but I get a real thrill out of um taking
+
+00:04:57.000 --> 00:05:01.559
+Caption: some code that&#39;s a huge
+
+00:04:59.040 --> 00:05:04.680
+Caption: a huge and cleaning it all up
+
+00:05:01.559 --> 00:05:06.959
+Caption: um maybe that&#39;s just me I don&#39;t know
+
+00:05:04.679 --> 00:05:09.779
+Caption: uh there are some costs though the
+
+00:05:06.959 --> 00:05:12.119
+Caption: biggest cost of refactoring is time if
+
+00:05:09.779 --> 00:05:13.320
+Caption: we spent a day refactoring our code and
+
+00:05:12.119 --> 00:05:15.540
+Caption: that&#39;s a day that we&#39;re not spending
+
+00:05:13.320 --> 00:05:17.279
+Caption: building new features or fixing existing
+
+00:05:15.540 --> 00:05:18.600
+Caption: bugs right so we need to take that into
+
+00:05:17.279 --> 00:05:21.059
+Caption: account we need to make sure that that
+
+00:05:18.600 --> 00:05:23.820
+Caption: trade-off exists
+
+00:05:21.059 --> 00:05:26.220
+Caption: and there&#39;s also some risks refactoring
+
+00:05:23.820 --> 00:05:26.880
+Caption: so I found this delight Supply crew on
+
+00:05:26.220 --> 00:05:28.440
+Caption: Twitter
+
+00:05:26.880 --> 00:05:30.119
+Caption: by another person named Aaron I was
+
+00:05:28.440 --> 00:05:33.000
+Caption: pretty happy to see
+
+00:05:30.119 --> 00:05:37.019
+Caption: um and she says this code used to work
+
+00:05:33.000 --> 00:05:37.979
+Caption: hey I should refactor it now it does not
+
+00:05:37.019 --> 00:05:40.979
+Caption: work
+
+00:05:37.979 --> 00:05:42.959
+Caption: which I found very relatable
+
+00:05:40.979 --> 00:05:44.220
+Caption: um no she was a woman on Twitter so
+
+00:05:42.959 --> 00:05:46.138
+Caption: obviously what she got was a bunch of
+
+00:05:44.220 --> 00:05:48.899
+Caption: men telling her that uh she should just
+
+00:05:46.139 --> 00:05:51.479
+Caption: have written about her tests
+
+00:05:48.899 --> 00:05:53.220
+Caption: um which is easy to say but it can be
+
+00:05:51.479 --> 00:05:56.339
+Caption: quite difficult right it&#39;s it&#39;s hard to
+
+00:05:53.220 --> 00:05:57.779
+Caption: write tests for code when you don&#39;t know
+
+00:05:56.339 --> 00:05:59.160
+Caption: what it was intending to do in the first
+
+00:05:57.779 --> 00:06:01.139
+Caption: place right it&#39;s quite tricky to write
+
+00:05:59.160 --> 00:06:02.580
+Caption: those tests and also when you are
+
+00:06:01.139 --> 00:06:04.800
+Caption: writing those tests often you&#39;ll pick up
+
+00:06:02.579 --> 00:06:07.079
+Caption: existing bugs in the code and sort of
+
+00:06:04.799 --> 00:06:10.259
+Caption: you can&#39;t just go around fixing them
+
+00:06:07.079 --> 00:06:11.339
+Caption: because often like if you&#39;ve got bugs in
+
+00:06:10.259 --> 00:06:12.600
+Caption: your code your users might have
+
+00:06:11.339 --> 00:06:14.459
+Caption: workarounds that they&#39;ve built to deal
+
+00:06:12.600 --> 00:06:16.679
+Caption: with those bugs when you fix the bugs
+
+00:06:14.459 --> 00:06:18.359
+Caption: you&#39;re going to break those workarounds
+
+00:06:16.679 --> 00:06:20.880
+Caption: um the best sort of example I can think
+
+00:06:18.359 --> 00:06:22.619
+Caption: of with really regards to that is
+
+00:06:20.880 --> 00:06:26.399
+Caption: Internet Explorer which was basically
+
+00:06:22.619 --> 00:06:28.559
+Caption: one big bug but
+
+00:06:26.399 --> 00:06:30.419
+Caption: the way that it was written is Microsoft
+
+00:06:28.559 --> 00:06:31.799
+Caption: had gone in and fixed all of the bugs in
+
+00:06:30.419 --> 00:06:33.600
+Caption: Internet Explorer it would have broken
+
+00:06:31.799 --> 00:06:34.918
+Caption: millions of websites around the world
+
+00:06:33.600 --> 00:06:37.619
+Caption: right so
+
+00:06:34.919 --> 00:06:39.839
+Caption: I.E had its issues but they their hands
+
+00:06:37.619 --> 00:06:41.639
+Caption: were tied to some degree about the buggy
+
+00:06:39.839 --> 00:06:43.440
+Caption: Behavior
+
+00:06:41.639 --> 00:06:46.759
+Caption: okay
+
+00:06:43.440 --> 00:06:46.759
+Caption: the code that I did not
+
+00:06:46.859 --> 00:06:50.159
+Caption: comes from a code base that I was
+
+00:06:48.299 --> 00:06:51.539
+Caption: working on last year it was in this
+
+00:06:50.160 --> 00:06:53.699
+Caption: component it was like a huge component
+
+00:06:51.539 --> 00:06:54.619
+Caption: like a thousand lines long there&#39;s a
+
+00:06:53.699 --> 00:06:57.179
+Caption: favorite
+
+00:06:54.619 --> 00:06:58.380
+Caption: and I was working in a different part of
+
+00:06:57.179 --> 00:07:01.799
+Caption: that Improvement that this particular
+
+00:06:58.380 --> 00:07:03.479
+Caption: function now I hate this function this
+
+00:07:01.799 --> 00:07:05.339
+Caption: said to me immensely this should be like
+
+00:07:03.479 --> 00:07:06.360
+Caption: three lines of code there is no need for
+
+00:07:05.339 --> 00:07:09.239
+Caption: any of this
+
+00:07:06.359 --> 00:07:11.638
+Caption: but it also was refactoring it like I
+
+00:07:09.239 --> 00:07:16.339
+Caption: wasn&#39;t do you have a bit of code but
+
+00:07:11.639 --> 00:07:16.339
+Caption: also works it&#39;s easy to understand
+
+00:07:16.919 --> 00:07:20.160
+Caption: apart from the way that it annoys me
+
+00:07:18.779 --> 00:07:22.319
+Caption: there&#39;s not really anything wrong with
+
+00:07:20.160 --> 00:07:24.300
+Caption: it so I never didn&#39;t didn&#39;t touch it
+
+00:07:22.319 --> 00:07:26.279
+Caption: resisted the urge as far as I know it&#39;s
+
+00:07:24.299 --> 00:07:28.198
+Caption: still in the code base but I don&#39;t have
+
+00:07:26.279 --> 00:07:30.359
+Caption: to look at it anymore
+
+00:07:28.199 --> 00:07:31.559
+Caption: okay so as general I only reflect the
+
+00:07:30.359 --> 00:07:33.659
+Caption: code if
+
+00:07:31.559 --> 00:07:35.399
+Caption: I&#39;m doing some change some other change
+
+00:07:33.660 --> 00:07:37.739
+Caption: at the same time or someone else in my
+
+00:07:35.399 --> 00:07:40.139
+Caption: team is doing some other change so that
+
+00:07:37.739 --> 00:07:42.119
+Caption: has the advantage that first of all I
+
+00:07:40.139 --> 00:07:44.039
+Caption: know that the refactor is going to be
+
+00:07:42.119 --> 00:07:46.199
+Caption: worthwhile because it is going to speed
+
+00:07:44.039 --> 00:07:47.399
+Caption: up the feature work that I&#39;m doing but
+
+00:07:46.199 --> 00:07:48.839
+Caption: also means that there&#39;s a bunch of
+
+00:07:47.399 --> 00:07:50.459
+Caption: people with their eyes on this code at
+
+00:07:48.839 --> 00:07:52.380
+Caption: the moment right the other people in my
+
+00:07:50.459 --> 00:07:54.059
+Caption: team our product managers our designers
+
+00:07:52.380 --> 00:07:55.500
+Caption: everyone&#39;s looking at
+
+00:07:54.059 --> 00:07:57.419
+Caption: what&#39;s going on in this part of the code
+
+00:07:55.500 --> 00:07:59.098
+Caption: base our users are expecting a change
+
+00:07:57.419 --> 00:08:00.300
+Caption: anyway there&#39;s a better chance that if I
+
+00:07:59.098 --> 00:08:02.098
+Caption: do accidentally break something or
+
+00:08:00.299 --> 00:08:03.478
+Caption: accidentally fix something that
+
+00:08:02.098 --> 00:08:04.799
+Caption: somebody&#39;s good somebody&#39;s going to
+
+00:08:03.479 --> 00:08:07.279
+Caption: notice and we can deal with it
+
+00:08:04.799 --> 00:08:07.279
+Caption: appropriately
+
+00:08:09.419 --> 00:08:11.940
+Caption: we&#39;ve sat down we&#39;ve made our decision
+
+00:08:10.799 --> 00:08:13.918
+Caption: and we&#39;ve decided we&#39;re going to
+
+00:08:11.940 --> 00:08:16.080
+Caption: refactor some code
+
+00:08:13.919 --> 00:08:17.699
+Caption: the particularly Factor the specific
+
+00:08:16.079 --> 00:08:19.918
+Caption: refactor we&#39;re going to do is our code
+
+00:08:17.699 --> 00:08:21.839
+Caption: base is using moment.js for handling
+
+00:08:19.919 --> 00:08:23.878
+Caption: date times
+
+00:08:21.839 --> 00:08:26.339
+Caption: um moment.js was an absolutely fantastic
+
+00:08:23.878 --> 00:08:28.319
+Caption: library for managing dates and times in
+
+00:08:26.339 --> 00:08:31.259
+Caption: JavaScript when it was invented
+
+00:08:28.319 --> 00:08:33.419
+Caption: 10 years ago but these days it&#39;s a
+
+00:08:31.259 --> 00:08:34.859
+Caption: little bit heavyweight it&#39;s got it uses
+
+00:08:33.419 --> 00:08:37.320
+Caption: mutable dates which sort of result in
+
+00:08:34.859 --> 00:08:38.760
+Caption: bugs and the managers at the moment also
+
+00:08:37.320 --> 00:08:40.140
+Caption: suggest that perhaps moment is not the
+
+00:08:38.760 --> 00:08:42.119
+Caption: library to be using for you so we&#39;ve
+
+00:08:40.140 --> 00:08:45.720
+Caption: decided that we&#39;re going to switch to
+
+00:08:42.119 --> 00:08:48.179
+Caption: date functions date FNS
+
+00:08:45.719 --> 00:08:50.819
+Caption: um the specificative code is this
+
+00:08:48.179 --> 00:08:52.919
+Caption: function here so it&#39;s a function which
+
+00:08:50.820 --> 00:08:55.220
+Caption: formats a date takes a date if the date
+
+00:08:52.919 --> 00:08:58.320
+Caption: is falsy it returns an empty string
+
+00:08:55.219 --> 00:09:03.419
+Caption: otherwise it uses moment to convert the
+
+00:08:58.320 --> 00:09:04.859
+Caption: date into a string in the format YY mm-d
+
+00:09:03.419 --> 00:09:07.018
+Caption: all right so how are we going to
+
+00:09:04.859 --> 00:09:09.179
+Caption: approach this I like to take sort of
+
+00:09:07.018 --> 00:09:10.919
+Caption: three steps when I&#39;m refactoring code so
+
+00:09:09.179 --> 00:09:12.838
+Caption: the first is we&#39;re going to use tests to
+
+00:09:10.919 --> 00:09:14.219
+Caption: determine what the current behavior is
+
+00:09:12.838 --> 00:09:16.018
+Caption: then we&#39;re going to refactor the code
+
+00:09:14.219 --> 00:09:17.338
+Caption: and then we&#39;re going to write our
+
+00:09:16.018 --> 00:09:18.838
+Caption: feature and we&#39;re not going to do step
+
+00:09:17.338 --> 00:09:20.880
+Caption: three today because I&#39;m assuming you
+
+00:09:18.838 --> 00:09:22.500
+Caption: were all already really great at writing
+
+00:09:20.880 --> 00:09:25.700
+Caption: new features and we&#39;re just going to
+
+00:09:22.500 --> 00:09:25.700
+Caption: concentrate on the first two steps
+
+00:09:25.739 --> 00:09:29.278
+Caption: so the way that we&#39;re going to determine
+
+00:09:27.419 --> 00:09:31.500
+Caption: the current behavior is using something
+
+00:09:29.278 --> 00:09:33.539
+Caption: called characterization tests so
+
+00:09:31.500 --> 00:09:35.640
+Caption: characterization tests come from a book
+
+00:09:33.539 --> 00:09:39.299
+Caption: called working effectively with Legacy
+
+00:09:35.640 --> 00:09:41.220
+Caption: code by Michael feathers if you do work
+
+00:09:39.299 --> 00:09:43.260
+Caption: with Legacy code and you would like to
+
+00:09:41.219 --> 00:09:44.699
+Caption: do it effectively this could be the book
+
+00:09:43.260 --> 00:09:45.958
+Caption: for you
+
+00:09:44.700 --> 00:09:47.880
+Caption: today we&#39;re just going to talk about
+
+00:09:45.958 --> 00:09:50.398
+Caption: characterization tests
+
+00:09:47.880 --> 00:09:51.720
+Caption: so characterization tests work a little
+
+00:09:50.398 --> 00:09:52.619
+Caption: bit differently to the tests that you
+
+00:09:51.719 --> 00:09:54.059
+Caption: would normally write when you&#39;re
+
+00:09:52.619 --> 00:09:55.320
+Caption: building a feature so when you&#39;re
+
+00:09:54.059 --> 00:09:57.359
+Caption: normally building a feature what you
+
+00:09:55.320 --> 00:09:59.518
+Caption: would do is you would write a test with
+
+00:09:57.359 --> 00:10:01.140
+Caption: some expectations
+
+00:09:59.518 --> 00:10:02.278
+Caption: and then you write the code to make the
+
+00:10:01.140 --> 00:10:04.080
+Caption: chest pass
+
+00:10:02.278 --> 00:10:05.458
+Caption: assuming you&#39;re doing tdd I don&#39;t know
+
+00:10:04.080 --> 00:10:06.778
+Caption: if you don&#39;t do tdd I guess you write
+
+00:10:05.458 --> 00:10:07.799
+Caption: the test you write the code then you
+
+00:10:06.778 --> 00:10:09.179
+Caption: write the test and you realize the
+
+00:10:07.799 --> 00:10:11.039
+Caption: code&#39;s wrong you go back change the code
+
+00:10:09.179 --> 00:10:13.080
+Caption: want to wait in just write the test
+
+00:10:11.039 --> 00:10:15.000
+Caption: first I don&#39;t know
+
+00:10:13.080 --> 00:10:17.398
+Caption: uh the characterization test though is
+
+00:10:15.000 --> 00:10:19.919
+Caption: the other sort of way around I guess we
+
+00:10:17.398 --> 00:10:22.380
+Caption: write a test with no expectations
+
+00:10:19.919 --> 00:10:24.119
+Caption: and then we change the test until the
+
+00:10:22.380 --> 00:10:25.619
+Caption: expect we change the expectations until
+
+00:10:24.119 --> 00:10:28.080
+Caption: the test passes
+
+00:10:25.619 --> 00:10:29.700
+Caption: so with feature tests the code changes
+
+00:10:28.080 --> 00:10:31.380
+Caption: but the test stays the same with
+
+00:10:29.700 --> 00:10:33.540
+Caption: characterization tests the test change
+
+00:10:31.380 --> 00:10:34.979
+Caption: but the code stays the same the most
+
+00:10:33.539 --> 00:10:36.778
+Caption: important thing is that we&#39;re only ever
+
+00:10:34.979 --> 00:10:38.159
+Caption: changing one or the other right the
+
+00:10:36.778 --> 00:10:40.799
+Caption: chasing the code or you&#39;re changing the
+
+00:10:38.159 --> 00:10:43.379
+Caption: test never both at once
+
+00:10:40.799 --> 00:10:46.398
+Caption: so what does that look like
+
+00:10:43.380 --> 00:10:46.398
+Caption: Oh wrong way
+
+00:10:46.619 --> 00:10:50.039
+Caption: uh here we have can everybody see that
+
+00:10:48.778 --> 00:10:52.018
+Caption: because
+
+00:10:50.039 --> 00:10:54.000
+Caption: yeah cool because I can&#39;t make it any
+
+00:10:52.018 --> 00:10:55.260
+Caption: bigger than that I don&#39;t think so that&#39;s
+
+00:10:54.000 --> 00:10:56.640
+Caption: lucky
+
+00:10:55.260 --> 00:10:57.898
+Caption: um so we have our function here and
+
+00:10:56.640 --> 00:10:59.640
+Caption: we&#39;re ready to write some tests for it
+
+00:10:57.898 --> 00:11:02.239
+Caption: so we&#39;re going to describe our format
+
+00:10:59.640 --> 00:11:02.239
+Caption: date function
+
+00:11:02.760 --> 00:11:08.278
+Caption: now uh when I&#39;m writing tests I like to
+
+00:11:06.119 --> 00:11:12.119
+Caption: start with the very simplest case
+
+00:11:08.278 --> 00:11:14.338
+Caption: so when we pass in nothing
+
+00:11:12.119 --> 00:11:16.440
+Caption: and what&#39;s going to happen then
+
+00:11:14.338 --> 00:11:18.179
+Caption: it&#39;s this is a characterization test
+
+00:11:16.440 --> 00:11:19.320
+Caption: right so we don&#39;t know what it&#39;s going
+
+00:11:18.179 --> 00:11:22.919
+Caption: to do I guess it&#39;s going to return
+
+00:11:19.320 --> 00:11:25.380
+Caption: something it returns we don&#39;t know
+
+00:11:22.919 --> 00:11:27.898
+Caption: and then we can write the actual test is
+
+00:11:25.380 --> 00:11:31.500
+Caption: going to be expect
+
+00:11:27.898 --> 00:11:33.179
+Caption: format date passed in nothing
+
+00:11:31.500 --> 00:11:35.099
+Caption: 2B
+
+00:11:33.179 --> 00:11:36.958
+Caption: and again we don&#39;t know
+
+00:11:35.099 --> 00:11:39.119
+Caption: so what happens when we run the test we
+
+00:11:36.958 --> 00:11:40.739
+Caption: can see that it fails because I guess
+
+00:11:39.119 --> 00:11:43.078
+Caption: unsurprisingly
+
+00:11:40.739 --> 00:11:44.398
+Caption: our date function doesn&#39;t return two
+
+00:11:43.078 --> 00:11:45.599
+Caption: question marks
+
+00:11:44.398 --> 00:11:47.458
+Caption: and we can see that what it does return
+
+00:11:45.599 --> 00:11:49.799
+Caption: is an empty string so now we can update
+
+00:11:47.458 --> 00:11:51.059
+Caption: our test and say it returns an empty
+
+00:11:49.799 --> 00:11:53.700
+Caption: string
+
+00:11:51.059 --> 00:11:55.140
+Caption: and write the test and now the test
+
+00:11:53.700 --> 00:11:57.838
+Caption: passes
+
+00:11:55.140 --> 00:12:00.179
+Caption: okay so then we can do that for our
+
+00:11:57.838 --> 00:12:02.099
+Caption: other scenarios
+
+00:12:00.179 --> 00:12:04.859
+Caption: so the next one is going to be when we
+
+00:12:02.099 --> 00:12:06.359
+Caption: pass in uh date so the things that we
+
+00:12:04.859 --> 00:12:08.820
+Caption: can pass into this function are sort of
+
+00:12:06.359 --> 00:12:10.559
+Caption: determined by what you can pass into the
+
+00:12:08.820 --> 00:12:13.799
+Caption: date Constructor so it&#39;s going to be a
+
+00:12:10.559 --> 00:12:16.500
+Caption: date a string or a number
+
+00:12:13.799 --> 00:12:19.200
+Caption: so we can pass in a date again we don&#39;t
+
+00:12:16.500 --> 00:12:21.000
+Caption: know what it&#39;s going to return
+
+00:12:19.200 --> 00:12:22.559
+Caption: um we&#39;ll pass a new date when I&#39;m doing
+
+00:12:21.000 --> 00:12:24.659
+Caption: this kind of thing I like to use dates
+
+00:12:22.559 --> 00:12:26.458
+Caption: that are like have all the numbers below
+
+00:12:24.659 --> 00:12:28.979
+Caption: 10 so that we can see where the padding
+
+00:12:26.458 --> 00:12:32.039
+Caption: is going to end up
+
+00:12:28.979 --> 00:12:35.599
+Caption: and we can see that it fails because it
+
+00:12:32.039 --> 00:12:35.599
+Caption: returns its formatted string
+
+00:12:36.599 --> 00:12:41.880
+Caption: so we can say it returns a formatted
+
+00:12:39.179 --> 00:12:44.638
+Caption: date I guess
+
+00:12:41.880 --> 00:12:47.760
+Caption: um cool so that&#39;s our date scenario and
+
+00:12:44.638 --> 00:12:50.759
+Caption: then we have the strings so when we pass
+
+00:12:47.760 --> 00:12:53.338
+Caption: in a so with strings there&#39;s kind of
+
+00:12:50.760 --> 00:12:54.720
+Caption: three scenarios that we can have here
+
+00:12:53.338 --> 00:12:56.099
+Caption: the first is that we can have a valid
+
+00:12:54.719 --> 00:12:58.379
+Caption: date string
+
+00:12:56.099 --> 00:13:00.539
+Caption: which is just going to look like
+
+00:12:58.380 --> 00:13:02.039
+Caption: on date and I&#39;m just going to like go
+
+00:13:00.539 --> 00:13:03.299
+Caption: out in a Wildland here and say that this
+
+00:13:02.039 --> 00:13:05.940
+Caption: Returns the same thing as the previous
+
+00:13:03.299 --> 00:13:09.599
+Caption: one which it does
+
+00:13:05.940 --> 00:13:13.138
+Caption: uh we can also pass in a string that
+
+00:13:09.599 --> 00:13:16.440
+Caption: looks like a date but isn&#39;t
+
+00:13:13.138 --> 00:13:17.940
+Caption: so an invalid pass in an invalidate
+
+00:13:16.440 --> 00:13:19.440
+Caption: string so that&#39;s going to be something
+
+00:13:17.940 --> 00:13:22.799
+Caption: like
+
+00:13:19.440 --> 00:13:24.179
+Caption: the 31st of February
+
+00:13:22.799 --> 00:13:26.099
+Caption: right so we don&#39;t know what that&#39;s going
+
+00:13:24.179 --> 00:13:28.440
+Caption: to return
+
+00:13:26.099 --> 00:13:30.299
+Caption: oops
+
+00:13:28.440 --> 00:13:32.099
+Caption: and it turns out that it actually
+
+00:13:30.299 --> 00:13:33.898
+Caption: formats the name for us and turns it
+
+00:13:32.099 --> 00:13:36.419
+Caption: into a validate so again it returns a
+
+00:13:33.898 --> 00:13:38.578
+Caption: formatted date
+
+00:13:36.419 --> 00:13:42.260
+Caption: um apparently the 31st of February is
+
+00:13:38.578 --> 00:13:42.260
+Caption: just the 3rd of March
+
+00:13:43.440 --> 00:13:46.518
+Caption: makes sense I guess
+
+00:13:46.799 --> 00:13:50.880
+Caption: um the other thing that we can pass in
+
+00:13:48.239 --> 00:13:52.799
+Caption: is a string that just isn&#39;t a date at
+
+00:13:50.880 --> 00:13:55.320
+Caption: all so
+
+00:13:52.799 --> 00:13:57.778
+Caption: um it returns we don&#39;t know
+
+00:13:55.320 --> 00:14:00.000
+Caption: um and a thing that isn&#39;t a date would
+
+00:13:57.778 --> 00:14:01.919
+Caption: be like say a banana that&#39;s a completely
+
+00:14:00.000 --> 00:14:04.859
+Caption: different kind of fruit
+
+00:14:01.919 --> 00:14:07.200
+Caption: and what&#39;s that going to return
+
+00:14:04.859 --> 00:14:09.380
+Caption: it is going to return the string invalid
+
+00:14:07.200 --> 00:14:09.380
+Caption: date
+
+00:14:10.078 --> 00:14:14.299
+Caption: so we can stick that in
+
+00:14:15.119 --> 00:14:18.838
+Caption: expect it to be in by the date
+
+00:14:17.278 --> 00:14:21.299
+Caption: excellent so that just leaves one more
+
+00:14:18.838 --> 00:14:23.880
+Caption: scenario which is the case where we pass
+
+00:14:21.299 --> 00:14:27.539
+Caption: in a number so again there&#39;s sort of
+
+00:14:23.880 --> 00:14:30.239
+Caption: three number scenarios to consider
+
+00:14:27.539 --> 00:14:32.159
+Caption: so when we pass in a
+
+00:14:30.239 --> 00:14:33.838
+Caption: number so when we pass a number to the
+
+00:14:32.159 --> 00:14:35.338
+Caption: date Constructor what we&#39;re passing in
+
+00:14:33.838 --> 00:14:37.320
+Caption: is the number of milliseconds that have
+
+00:14:35.338 --> 00:14:39.000
+Caption: passed since midnight on the first of
+
+00:14:37.320 --> 00:14:42.179
+Caption: January 1970.
+
+00:14:39.000 --> 00:14:43.739
+Caption: because of course it is
+
+00:14:42.179 --> 00:14:46.559
+Caption: um
+
+00:14:43.739 --> 00:14:49.500
+Caption: so we can get that value just by pulling
+
+00:14:46.559 --> 00:14:52.320
+Caption: get time on an on a valid date
+
+00:14:49.500 --> 00:14:55.679
+Caption: oh no it didn&#39;t work
+
+00:14:52.320 --> 00:14:57.479
+Caption: because you have to put
+
+00:14:55.679 --> 00:14:59.338
+Caption: oh it has to be a new date you have to
+
+00:14:57.479 --> 00:15:00.599
+Caption: put all of the things in right you have
+
+00:14:59.338 --> 00:15:02.219
+Caption: to actually make it a date you can&#39;t
+
+00:15:00.599 --> 00:15:04.638
+Caption: just call get time on a string it
+
+00:15:02.219 --> 00:15:04.638
+Caption: doesn&#39;t work
+
+00:15:07.619 --> 00:15:10.440
+Caption: all right have all the brackets lined up
+
+00:15:09.359 --> 00:15:13.260
+Caption: yes
+
+00:15:10.440 --> 00:15:15.000
+Caption: okay so then the other two cases well
+
+00:15:13.260 --> 00:15:16.739
+Caption: the first of the other two cases for a
+
+00:15:15.000 --> 00:15:18.000
+Caption: number is if we pass in a negative
+
+00:15:16.739 --> 00:15:19.799
+Caption: number
+
+00:15:18.000 --> 00:15:21.778
+Caption: so in this case a negative number is
+
+00:15:19.799 --> 00:15:23.638
+Caption: going to be one that was before the
+
+00:15:21.778 --> 00:15:25.198
+Caption: first of January 1970.
+
+00:15:23.638 --> 00:15:29.000
+Caption: I don&#39;t know if anybody can imagine a
+
+00:15:25.198 --> 00:15:29.000
+Caption: date that long ago but
+
+00:15:30.599 --> 00:15:34.979
+Caption: so that&#39;s just going to format that&#39;s
+
+00:15:32.458 --> 00:15:37.559
+Caption: the way that you would expect
+
+00:15:34.979 --> 00:15:39.179
+Caption: this um this kind of testing really gets
+
+00:15:37.559 --> 00:15:40.979
+Caption: you to exercise those copy and paste
+
+00:15:39.179 --> 00:15:44.099
+Caption: skills
+
+00:15:40.979 --> 00:15:46.018
+Caption: exactly what we&#39;ve been training for
+
+00:15:44.099 --> 00:15:48.000
+Caption: um cool and then the last case that I
+
+00:15:46.018 --> 00:15:52.278
+Caption: always used to like to test with numbers
+
+00:15:48.000 --> 00:15:53.559
+Caption: is the number zero so when we pass in
+
+00:15:52.278 --> 00:15:54.059
+Caption: zero
+
+00:15:53.559 --> 00:15:55.018
+Caption: [Music]
+
+00:15:54.059 --> 00:15:57.059
+Caption: um
+
+00:15:55.018 --> 00:15:59.219
+Caption: it&#39;s going to return I don&#39;t know it
+
+00:15:57.059 --> 00:16:02.659
+Caption: could be anything
+
+00:15:59.219 --> 00:16:02.659
+Caption: um let&#39;s just pass in zero here
+
+00:16:05.760 --> 00:16:08.880
+Caption: is this suspense really getting to
+
+00:16:07.380 --> 00:16:11.820
+Caption: everyone
+
+00:16:08.880 --> 00:16:13.859
+Caption: okay so this has failed and uh what it&#39;s
+
+00:16:11.820 --> 00:16:16.138
+Caption: actually returned is an empty string all
+
+00:16:13.859 --> 00:16:18.539
+Caption: right so this is a bug in our code
+
+00:16:16.138 --> 00:16:20.099
+Caption: and the reason that this bug is there is
+
+00:16:18.539 --> 00:16:21.599
+Caption: because we&#39;ve got this test right at the
+
+00:16:20.099 --> 00:16:23.759
+Caption: start that says if the date is full C
+
+00:16:21.599 --> 00:16:26.398
+Caption: return empty string and zero is of
+
+00:16:23.760 --> 00:16:27.720
+Caption: course a faulty value
+
+00:16:26.398 --> 00:16:29.638
+Caption: um now we could go ahead and fix this
+
+00:16:27.719 --> 00:16:31.739
+Caption: but like I said we try not to do that
+
+00:16:29.638 --> 00:16:33.659
+Caption: when we&#39;re refactoring so instead we&#39;re
+
+00:16:31.739 --> 00:16:37.159
+Caption: just going to document the fact that it
+
+00:16:33.659 --> 00:16:37.159
+Caption: has this odd behavior
+
+00:16:37.320 --> 00:16:41.759
+Caption: um in our test here now the reason that
+
+00:16:39.419 --> 00:16:43.679
+Caption: I wouldn&#39;t fix this even though it would
+
+00:16:41.758 --> 00:16:45.179
+Caption: be low risk um it&#39;s unlikely to break
+
+00:16:43.679 --> 00:16:46.500
+Caption: anything if I fix it but there could be
+
+00:16:45.179 --> 00:16:48.719
+Caption: people in our code base who are using
+
+00:16:46.500 --> 00:16:50.278
+Caption: this function and who have written some
+
+00:16:48.719 --> 00:16:51.958
+Caption: work around code and their workaround
+
+00:16:50.278 --> 00:16:54.359
+Caption: code isn&#39;t going to make any sense once
+
+00:16:51.958 --> 00:16:56.278
+Caption: we fix the bug so it would sort of just
+
+00:16:54.359 --> 00:16:58.440
+Caption: be you know saving a bit of tech debt if
+
+00:16:56.278 --> 00:17:00.778
+Caption: before we fix this bug we go and check
+
+00:16:58.440 --> 00:17:02.159
+Caption: who else is using it so we&#39;ll write up a
+
+00:17:00.778 --> 00:17:05.000
+Caption: jira card stick it on the board someone
+
+00:17:02.159 --> 00:17:05.000
+Caption: else&#39;s problem for later
+
+00:17:05.520 --> 00:17:09.419
+Caption: all right so that&#39;s all of the tests
+
+00:17:07.558 --> 00:17:10.859
+Caption: that I would write for this
+
+00:17:09.418 --> 00:17:12.659
+Caption: um we could keep going right it&#39;s
+
+00:17:10.859 --> 00:17:13.918
+Caption: JavaScript so we could write a test but
+
+00:17:12.660 --> 00:17:15.780
+Caption: what happens if you pass in a Boolean
+
+00:17:13.918 --> 00:17:17.219
+Caption: and the result of that would actually be
+
+00:17:15.780 --> 00:17:18.958
+Caption: kind of interesting because if we passed
+
+00:17:17.219 --> 00:17:20.338
+Caption: in false we&#39;d get into empty string but
+
+00:17:18.958 --> 00:17:21.660
+Caption: if we passed in true we&#39;d get invalid
+
+00:17:20.338 --> 00:17:23.099
+Caption: date
+
+00:17:21.660 --> 00:17:24.299
+Caption: um but I&#39;m not going to do that for two
+
+00:17:23.099 --> 00:17:27.979
+Caption: reasons first of all if this was
+
+00:17:24.298 --> 00:17:27.979
+Caption: production code I just used typescript
+
+00:17:28.020 --> 00:17:30.900
+Caption: the only reason I&#39;m not using typescript
+
+00:17:29.520 --> 00:17:32.700
+Caption: here is because it&#39;s real long and it
+
+00:17:30.900 --> 00:17:34.200
+Caption: takes up too much space but yeah just
+
+00:17:32.699 --> 00:17:36.298
+Caption: use typescript and the other reason is
+
+00:17:34.199 --> 00:17:38.099
+Caption: that if if you&#39;re in your code base
+
+00:17:36.298 --> 00:17:40.380
+Caption: you&#39;ve got to the point where people are
+
+00:17:38.099 --> 00:17:43.798
+Caption: passing booleans into date formatting
+
+00:17:40.380 --> 00:17:46.558
+Caption: functions you&#39;ve got bigger problems
+
+00:17:43.798 --> 00:17:48.719
+Caption: um maybe deal with those
+
+00:17:46.558 --> 00:17:51.000
+Caption: okay so now finally we are ready to do
+
+00:17:48.719 --> 00:17:52.558
+Caption: our refactor
+
+00:17:51.000 --> 00:17:55.678
+Caption: um so like I said we&#39;re going to use the
+
+00:17:52.558 --> 00:17:57.779
+Caption: date FNS I feel like it&#39;s pronounced
+
+00:17:55.678 --> 00:17:59.880
+Caption: date functions so
+
+00:17:57.780 --> 00:18:05.299
+Caption: date Simmons
+
+00:17:59.880 --> 00:18:05.298
+Caption: um format from date fins
+
+00:18:05.760 --> 00:18:09.058
+Caption: um we&#39;re going to replace moment with
+
+00:18:07.260 --> 00:18:11.039
+Caption: that so date functions the format
+
+00:18:09.058 --> 00:18:12.959
+Caption: function is going to take a date
+
+00:18:11.038 --> 00:18:14.639
+Caption: um just like moment did and it&#39;s going
+
+00:18:12.959 --> 00:18:16.558
+Caption: to take a formatting string as a second
+
+00:18:14.640 --> 00:18:18.660
+Caption: argument but it&#39;s a slightly different
+
+00:18:16.558 --> 00:18:20.279
+Caption: Library so obviously it needs to use a
+
+00:18:18.660 --> 00:18:21.359
+Caption: slightly different render formatting
+
+00:18:20.280 --> 00:18:23.039
+Caption: string
+
+00:18:21.359 --> 00:18:24.538
+Caption: because it wouldn&#39;t be JavaScript if we
+
+00:18:23.038 --> 00:18:26.038
+Caption: didn&#39;t
+
+00:18:24.538 --> 00:18:27.959
+Caption: and we can see that all of our tests
+
+00:18:26.038 --> 00:18:30.918
+Caption: have passed except for one and the one
+
+00:18:27.959 --> 00:18:33.719
+Caption: that&#39;s failed is the invalid string
+
+00:18:30.918 --> 00:18:35.939
+Caption: you can see that there it is actually
+
+00:18:33.719 --> 00:18:37.798
+Caption: throwing an error rather than returning
+
+00:18:35.939 --> 00:18:40.379
+Caption: a string this is I would argue that this
+
+00:18:37.798 --> 00:18:41.880
+Caption: is actually better Behavior but
+
+00:18:40.380 --> 00:18:43.440
+Caption: like I said we&#39;re not trying to change
+
+00:18:41.880 --> 00:18:45.298
+Caption: anything here we&#39;re just trying to keep
+
+00:18:43.439 --> 00:18:48.139
+Caption: it all the same so we can just wrap this
+
+00:18:45.298 --> 00:18:48.139
+Caption: in a try catch
+
+00:18:54.418 --> 00:18:57.918
+Caption: and instead return
+
+00:18:59.058 --> 00:19:02.880
+Caption: invalidate
+
+00:19:00.599 --> 00:19:05.660
+Caption: is it capital letter
+
+00:19:02.880 --> 00:19:05.660
+Caption: we&#39;ll find out
+
+00:19:06.178 --> 00:19:09.839
+Caption: okay so that&#39;s our refactor done now you
+
+00:19:08.880 --> 00:19:12.000
+Caption: might ask
+
+00:19:09.839 --> 00:19:13.798
+Caption: was this really worth the effort right
+
+00:19:12.000 --> 00:19:17.160
+Caption: this is like eight tests or something
+
+00:19:13.798 --> 00:19:18.659
+Caption: for four lines of code and the answer to
+
+00:19:17.160 --> 00:19:19.739
+Caption: that is
+
+00:19:18.660 --> 00:19:22.200
+Caption: um just like with everything else in
+
+00:19:19.739 --> 00:19:24.479
+Caption: software development it depends
+
+00:19:22.199 --> 00:19:25.979
+Caption: uh if this function was used by like one
+
+00:19:24.479 --> 00:19:27.538
+Caption: component and we always knew what was
+
+00:19:25.979 --> 00:19:29.099
+Caption: going to go into it no of course I
+
+00:19:27.538 --> 00:19:31.379
+Caption: wouldn&#39;t write all these tests so just
+
+00:19:29.099 --> 00:19:34.079
+Caption: maybe write one Maybe cover it by the
+
+00:19:31.380 --> 00:19:35.400
+Caption: component tests but if this was like the
+
+00:19:34.079 --> 00:19:37.319
+Caption: formatting function that&#39;s used across
+
+00:19:35.400 --> 00:19:38.940
+Caption: our entire code base
+
+00:19:37.319 --> 00:19:40.859
+Caption: um so I made a change like this in a
+
+00:19:38.939 --> 00:19:42.359
+Caption: real live code base recently and the the
+
+00:19:40.859 --> 00:19:44.400
+Caption: functioning question was used in over
+
+00:19:42.359 --> 00:19:46.918
+Caption: 300 places
+
+00:19:44.400 --> 00:19:49.979
+Caption: um so to me seven eight tests for 300
+
+00:19:46.918 --> 00:19:51.119
+Caption: usages that seems like pretty fair
+
+00:19:49.979 --> 00:19:52.619
+Caption: um so yeah you&#39;re always gonna have to
+
+00:19:51.119 --> 00:19:53.699
+Caption: make that that call for yourself and
+
+00:19:52.619 --> 00:19:56.780
+Caption: work out
+
+00:19:53.699 --> 00:19:59.038
+Caption: um just how many tests you need
+
+00:19:56.780 --> 00:20:01.820
+Caption: okay so that&#39;s our characterization
+
+00:19:59.038 --> 00:20:01.819
+Caption: tests work
+
+00:20:01.859 --> 00:20:07.439
+Caption: um but the next question here is how do
+
+00:20:04.260 --> 00:20:08.579
+Caption: we do this with jsx right jsx Works a
+
+00:20:07.439 --> 00:20:10.199
+Caption: bit differently
+
+00:20:08.579 --> 00:20:11.760
+Caption: um how is that going to work
+
+00:20:10.199 --> 00:20:14.159
+Caption: so imagine we have this component here
+
+00:20:11.760 --> 00:20:16.558
+Caption: it&#39;s a user info component it&#39;s going to
+
+00:20:14.160 --> 00:20:18.780
+Caption: take in some user details and it&#39;s going
+
+00:20:16.558 --> 00:20:21.959
+Caption: to print out the username was born on
+
+00:20:18.780 --> 00:20:23.700
+Caption: and then the date formatted using our
+
+00:20:21.959 --> 00:20:25.979
+Caption: format date function we just refactored
+
+00:20:23.699 --> 00:20:28.139
+Caption: and also the day of the week right so
+
+00:20:25.979 --> 00:20:33.380
+Caption: Bob was born on the 1st of first January
+
+00:20:28.140 --> 00:20:33.380
+Caption: 19th 1990 which was a Monday
+
+00:20:34.558 --> 00:20:39.178
+Caption: okay so how does that work so we have
+
+00:20:37.380 --> 00:20:45.260
+Caption: our function here
+
+00:20:39.178 --> 00:20:45.260
+Caption: we can describe use a info component
+
+00:20:45.959 --> 00:20:51.979
+Caption: I&#39;m going to say it
+
+00:20:48.000 --> 00:20:51.979
+Caption: does something we don&#39;t know what
+
+00:20:52.798 --> 00:20:58.619
+Caption: um so we can render the components
+
+00:20:54.959 --> 00:21:02.760
+Caption: oh you&#39;ve got to put all the brackets in
+
+00:20:58.619 --> 00:21:06.178
+Caption: and the user is going to have a name
+
+00:21:02.760 --> 00:21:08.760
+Caption: and a birthday
+
+00:21:06.178 --> 00:21:11.659
+Caption: which we can see is the first of January
+
+00:21:08.760 --> 00:21:11.660
+Caption: 1990.
+
+00:21:12.780 --> 00:21:17.039
+Caption: um okay so how can we test this well the
+
+00:21:15.058 --> 00:21:21.918
+Caption: first thing that we can do is we can
+
+00:21:17.038 --> 00:21:21.918
+Caption: grab a reference to the container
+
+00:21:22.739 --> 00:21:27.479
+Caption: so the when we render a component with a
+
+00:21:25.859 --> 00:21:32.099
+Caption: test Library it gets rendered inside a
+
+00:21:27.479 --> 00:21:34.319
+Caption: div and this container just points div
+
+00:21:32.099 --> 00:21:36.178
+Caption: and then we can expect the text content
+
+00:21:34.319 --> 00:21:39.899
+Caption: of that container to be something so we
+
+00:21:36.178 --> 00:21:42.119
+Caption: can expect container
+
+00:21:39.900 --> 00:21:43.380
+Caption: to have text content
+
+00:21:42.119 --> 00:21:45.959
+Caption: and we don&#39;t know what it&#39;s going to be
+
+00:21:43.380 --> 00:21:48.298
+Caption: so we can run our test and just like
+
+00:21:45.959 --> 00:21:49.979
+Caption: with our standard JavaScript and the
+
+00:21:48.298 --> 00:21:52.158
+Caption: test will fail but it tells us what to
+
+00:21:49.979 --> 00:21:52.158
+Caption: expect
+
+00:21:53.219 --> 00:21:59.219
+Caption: so we can pop that in there
+
+00:21:55.979 --> 00:22:01.880
+Caption: and we can say that it renders the user
+
+00:21:59.219 --> 00:22:01.880
+Caption: details
+
+00:22:01.979 --> 00:22:06.538
+Caption: okay so that works great
+
+00:22:04.079 --> 00:22:08.219
+Caption: um so it works well in cases where you
+
+00:22:06.538 --> 00:22:10.558
+Caption: can just expect the text content to be a
+
+00:22:08.219 --> 00:22:12.359
+Caption: specific thing if you&#39;ve got large
+
+00:22:10.558 --> 00:22:14.038
+Caption: complicated components it can get a bit
+
+00:22:12.359 --> 00:22:16.619
+Caption: messy or if you&#39;re expecting different
+
+00:22:14.038 --> 00:22:19.798
+Caption: kinds of behavior this perhaps isn&#39;t
+
+00:22:16.619 --> 00:22:21.298
+Caption: going to be an easy way to do things
+
+00:22:19.798 --> 00:22:23.760
+Caption: um so the good news is we do have
+
+00:22:21.298 --> 00:22:26.038
+Caption: another tool available to us and that
+
+00:22:23.760 --> 00:22:28.020
+Caption: tool is Snapshot tests
+
+00:22:26.038 --> 00:22:29.699
+Caption: so snapshot tests if you&#39;re not familiar
+
+00:22:28.020 --> 00:22:33.058
+Caption: with them and I&#39;m guessing you are
+
+00:22:29.699 --> 00:22:34.439
+Caption: because you seemed very happy about them
+
+00:22:33.058 --> 00:22:36.000
+Caption: if you&#39;re not familiar with snapshot
+
+00:22:34.439 --> 00:22:38.279
+Caption: test the way that they work is that when
+
+00:22:36.000 --> 00:22:40.199
+Caption: you first run your test uh it generates
+
+00:22:38.280 --> 00:22:42.599
+Caption: a snapshot and a snapshot is just a text
+
+00:22:40.199 --> 00:22:43.739
+Caption: representation of your component and
+
+00:22:42.599 --> 00:22:45.959
+Caption: then you go ahead and you make your
+
+00:22:43.739 --> 00:22:47.579
+Caption: changes do whatever you need to do and
+
+00:22:45.959 --> 00:22:49.020
+Caption: then when you run the test again it&#39;s
+
+00:22:47.579 --> 00:22:50.819
+Caption: going to generate another snapshot and
+
+00:22:49.020 --> 00:22:51.959
+Caption: it&#39;s going to compare the original one
+
+00:22:50.819 --> 00:22:53.279
+Caption: with the new one and it&#39;s going to tell
+
+00:22:51.959 --> 00:22:54.658
+Caption: you if they match or if they&#39;re
+
+00:22:53.280 --> 00:22:57.059
+Caption: different
+
+00:22:54.659 --> 00:23:00.360
+Caption: so let&#39;s try that
+
+00:22:57.058 --> 00:23:03.380
+Caption: so here we can grab
+
+00:23:00.359 --> 00:23:05.699
+Caption: the same test again
+
+00:23:03.380 --> 00:23:06.900
+Caption: and the test that we&#39;re doing now is
+
+00:23:05.699 --> 00:23:08.058
+Caption: we&#39;re just going to say that it matches
+
+00:23:06.900 --> 00:23:11.039
+Caption: the snapshot
+
+00:23:08.058 --> 00:23:13.140
+Caption: matches the snapshot
+
+00:23:11.038 --> 00:23:15.298
+Caption: and then instead of testing whether it
+
+00:23:13.140 --> 00:23:17.459
+Caption: has text content we can just say we can
+
+00:23:15.298 --> 00:23:19.139
+Caption: expect it to match
+
+00:23:17.459 --> 00:23:21.119
+Caption: snapshot
+
+00:23:19.140 --> 00:23:22.558
+Caption: cool and now when we run this you see
+
+00:23:21.119 --> 00:23:25.079
+Caption: the test passes you can see down the
+
+00:23:22.558 --> 00:23:26.699
+Caption: bottom here one snapshot written and we
+
+00:23:25.079 --> 00:23:28.500
+Caption: can see we&#39;ve got this new folder here
+
+00:23:26.699 --> 00:23:31.019
+Caption: called underscore underscore snapshots
+
+00:23:28.500 --> 00:23:33.900
+Caption: underscore underscore
+
+00:23:31.020 --> 00:23:35.820
+Caption: um and a file that has the same name as
+
+00:23:33.900 --> 00:23:37.260
+Caption: our test file with DOT snap on the end
+
+00:23:35.819 --> 00:23:39.119
+Caption: and then here you can see this is the
+
+00:23:37.260 --> 00:23:41.280
+Caption: text representation of our component
+
+00:23:39.119 --> 00:23:44.158
+Caption: that&#39;s been generated
+
+00:23:41.280 --> 00:23:46.140
+Caption: back into our test and change something
+
+00:23:44.159 --> 00:23:48.000
+Caption: so we say actually it turns out Bob was
+
+00:23:46.140 --> 00:23:50.820
+Caption: born on the 2nd of January
+
+00:23:48.000 --> 00:23:53.280
+Caption: we rerun the tests this time it fails it
+
+00:23:50.819 --> 00:23:55.259
+Caption: says that the snapshot failed
+
+00:23:53.280 --> 00:23:57.179
+Caption: and it shows us what the difference is
+
+00:23:55.260 --> 00:23:58.440
+Caption: right it was rendering the first now
+
+00:23:57.178 --> 00:24:00.000
+Caption: it&#39;s rendering the second it was around
+
+00:23:58.439 --> 00:24:02.699
+Caption: during Monday now it&#39;s rendering Tuesday
+
+00:24:00.000 --> 00:24:04.619
+Caption: now we know that that&#39;s actually correct
+
+00:24:02.699 --> 00:24:07.319
+Caption: because we just changed value so we can
+
+00:24:04.619 --> 00:24:08.579
+Caption: just hit U and update the snapshot and
+
+00:24:07.319 --> 00:24:10.500
+Caption: now if we look at our snapshot you can
+
+00:24:08.579 --> 00:24:12.000
+Caption: see it says Tuesday everything&#39;s happy
+
+00:24:10.500 --> 00:24:14.400
+Caption: our test is great we know we haven&#39;t
+
+00:24:12.000 --> 00:24:17.099
+Caption: broken anything
+
+00:24:14.400 --> 00:24:18.839
+Caption: all right cool so snapshot tests are
+
+00:24:17.099 --> 00:24:21.119
+Caption: very handy for this kind of thing but
+
+00:24:18.839 --> 00:24:23.279
+Caption: they do have some limitations
+
+00:24:21.119 --> 00:24:24.538
+Caption: so the first is that you lose a lot of
+
+00:24:23.280 --> 00:24:26.760
+Caption: clarity when you&#39;re using a snapshot
+
+00:24:24.538 --> 00:24:28.439
+Caption: test so imagine that we have this
+
+00:24:26.760 --> 00:24:30.000
+Caption: component called increment that we&#39;re
+
+00:24:28.439 --> 00:24:31.739
+Caption: testing we&#39;ve got a snapshot test on the
+
+00:24:30.000 --> 00:24:33.000
+Caption: left
+
+00:24:31.739 --> 00:24:35.400
+Caption: um and all we do is we render the
+
+00:24:33.000 --> 00:24:37.979
+Caption: component and then we expect it to match
+
+00:24:35.400 --> 00:24:39.780
+Caption: the snapshot then we click a button and
+
+00:24:37.979 --> 00:24:40.739
+Caption: we expect it to match the snapshot but
+
+00:24:39.780 --> 00:24:42.780
+Caption: there&#39;s not really information there
+
+00:24:40.739 --> 00:24:44.158
+Caption: about what&#39;s going on whereas if we
+
+00:24:42.780 --> 00:24:47.159
+Caption: wrote a more traditional kind of test
+
+00:24:44.159 --> 00:24:48.720
+Caption: what we get is we render the components
+
+00:24:47.159 --> 00:24:50.460
+Caption: and then we expect it to have the number
+
+00:24:48.719 --> 00:24:52.020
+Caption: four which just so happens to be that
+
+00:24:50.459 --> 00:24:53.640
+Caption: same as that initial number that we
+
+00:24:52.020 --> 00:24:55.140
+Caption: passed in so that&#39;s probably a good hint
+
+00:24:53.640 --> 00:24:57.539
+Caption: that it&#39;s rendering out the number we
+
+00:24:55.140 --> 00:25:00.739
+Caption: passed in then we click the button and
+
+00:24:57.538 --> 00:25:00.739
+Caption: we expect it to have five
+
+00:25:03.359 --> 00:25:07.199
+Caption: that we passed in
+
+00:25:05.159 --> 00:25:08.640
+Caption: um so there&#39;s just a lot more sort of
+
+00:25:07.199 --> 00:25:10.319
+Caption: details for the next person who&#39;s
+
+00:25:08.640 --> 00:25:12.000
+Caption: looking at this component um in a more
+
+00:25:10.319 --> 00:25:15.359
+Caption: traditional test
+
+00:25:12.000 --> 00:25:17.699
+Caption: which can you know have pros and cons
+
+00:25:15.359 --> 00:25:19.260
+Caption: um also snapshots don&#39;t render all of
+
+00:25:17.699 --> 00:25:21.260
+Caption: the information about the component that
+
+00:25:19.260 --> 00:25:23.400
+Caption: you might expect them to
+
+00:25:21.260 --> 00:25:24.839
+Caption: imagine this component this is called
+
+00:25:23.400 --> 00:25:27.779
+Caption: clicking a jig
+
+00:25:24.839 --> 00:25:29.459
+Caption: click Imaging renders a text box onto
+
+00:25:27.779 --> 00:25:31.380
+Caption: the screen when you click the text block
+
+00:25:29.459 --> 00:25:33.418
+Caption: the checkbox it waits two seconds and
+
+00:25:31.380 --> 00:25:35.400
+Caption: then it unchecks the checkbox I can&#39;t
+
+00:25:33.418 --> 00:25:36.899
+Caption: imagine any situation where this would
+
+00:25:35.400 --> 00:25:40.260
+Caption: be useful
+
+00:25:36.900 --> 00:25:42.960
+Caption: but I wrote a test for it anyway
+
+00:25:40.260 --> 00:25:44.520
+Caption: so this test is using snapshots it&#39;s
+
+00:25:42.959 --> 00:25:45.839
+Caption: going to use effect timers because we
+
+00:25:44.520 --> 00:25:47.520
+Caption: need to handle that two second delay
+
+00:25:45.839 --> 00:25:49.500
+Caption: it&#39;s going to render our components
+
+00:25:47.520 --> 00:25:50.940
+Caption: we&#39;re going to check the checkbox
+
+00:25:49.500 --> 00:25:52.619
+Caption: we&#39;re going to check that it matches the
+
+00:25:50.939 --> 00:25:54.058
+Caption: snapshot then we&#39;re going to wait two
+
+00:25:52.619 --> 00:25:55.798
+Caption: seconds and then we&#39;re going to check
+
+00:25:54.058 --> 00:25:57.359
+Caption: that it matches the snapshot again and
+
+00:25:55.798 --> 00:25:59.158
+Caption: this test will pass
+
+00:25:57.359 --> 00:26:01.319
+Caption: and this test will pass even if we take
+
+00:25:59.159 --> 00:26:02.880
+Caption: out the weight for two seconds this test
+
+00:26:01.319 --> 00:26:04.319
+Caption: will pass even if we break the component
+
+00:26:02.880 --> 00:26:05.940
+Caption: so that it does do anything other than
+
+00:26:04.319 --> 00:26:07.918
+Caption: render a checkbox
+
+00:26:05.939 --> 00:26:10.019
+Caption: and the reason for that is that the
+
+00:26:07.918 --> 00:26:11.038
+Caption: snapshot that gets rendered looks like
+
+00:26:10.020 --> 00:26:13.500
+Caption: this
+
+00:26:11.038 --> 00:26:15.658
+Caption: right it just says that there&#39;s an input
+
+00:26:13.500 --> 00:26:17.159
+Caption: with a checkbox we&#39;ve got no information
+
+00:26:15.659 --> 00:26:19.020
+Caption: about the state of the checkbox in there
+
+00:26:17.159 --> 00:26:20.640
+Caption: so it&#39;s just something to be careful of
+
+00:26:19.020 --> 00:26:22.140
+Caption: I&#39;ve run into similar issues with
+
+00:26:20.640 --> 00:26:23.279
+Caption: snapshot tests where people had written
+
+00:26:22.140 --> 00:26:25.020
+Caption: the snapshot
+
+00:26:23.279 --> 00:26:27.779
+Caption: but the component loaded everything
+
+00:26:25.020 --> 00:26:29.880
+Caption: asynchronously so there were all these
+
+00:26:27.779 --> 00:26:32.279
+Caption: tests that all they were was like this
+
+00:26:29.880 --> 00:26:34.619
+Caption: empty component and they weren&#39;t really
+
+00:26:32.279 --> 00:26:35.880
+Caption: testing anything so just make sure that
+
+00:26:34.619 --> 00:26:38.158
+Caption: your snapshots do contain the
+
+00:26:35.880 --> 00:26:40.739
+Caption: information that you need them to
+
+00:26:38.159 --> 00:26:43.500
+Caption: uh and the third limitation of snapshot
+
+00:26:40.739 --> 00:26:45.178
+Caption: test is that you can&#39;t do tdd with them
+
+00:26:43.500 --> 00:26:47.699
+Caption: um you might say I don&#39;t care I hate tdd
+
+00:26:45.178 --> 00:26:49.500
+Caption: and that&#39;s fair enough
+
+00:26:47.699 --> 00:26:51.719
+Caption: um or why do we care about tdd we&#39;re
+
+00:26:49.500 --> 00:26:53.459
+Caption: refactoring at the moment and yes that&#39;s
+
+00:26:51.719 --> 00:26:55.979
+Caption: true but we&#39;re refactoring remember
+
+00:26:53.459 --> 00:26:57.658
+Caption: because we&#39;re intending to make change
+
+00:26:55.979 --> 00:26:59.099
+Caption: and when we go to make that change the
+
+00:26:57.659 --> 00:27:00.779
+Caption: snapshot tests aren&#39;t going to provide
+
+00:26:59.099 --> 00:27:01.678
+Caption: us a good basis for those new feature
+
+00:27:00.779 --> 00:27:03.600
+Caption: tests that we&#39;re going to write because
+
+00:27:01.678 --> 00:27:04.619
+Caption: they do like that Clarity
+
+00:27:03.599 --> 00:27:05.699
+Caption: um that&#39;s not to say that they don&#39;t
+
+00:27:04.619 --> 00:27:07.140
+Caption: have a place
+
+00:27:05.699 --> 00:27:08.819
+Caption: but it&#39;s probably worth considering
+
+00:27:07.140 --> 00:27:10.739
+Caption: whether you need other kinds of tests as
+
+00:27:08.819 --> 00:27:13.019
+Caption: well
+
+00:27:10.739 --> 00:27:15.538
+Caption: okay snapshot tests are really excellent
+
+00:27:13.020 --> 00:27:17.520
+Caption: in two situations though and the first
+
+00:27:15.538 --> 00:27:19.319
+Caption: is when you have those big thousand line
+
+00:27:17.520 --> 00:27:21.119
+Caption: components and you don&#39;t want to test
+
+00:27:19.319 --> 00:27:23.339
+Caption: every single thing that&#39;s going on in
+
+00:27:21.119 --> 00:27:24.538
+Caption: there Snapchat tests are excellent for
+
+00:27:23.339 --> 00:27:25.678
+Caption: that
+
+00:27:24.538 --> 00:27:27.058
+Caption: um and the other things I quite like
+
+00:27:25.678 --> 00:27:28.500
+Caption: them is things that have got a lot of
+
+00:27:27.058 --> 00:27:30.058
+Caption: presentation logic I don&#39;t know if
+
+00:27:28.500 --> 00:27:33.659
+Caption: you&#39;ve ever tried to write tests for a
+
+00:27:30.058 --> 00:27:36.538
+Caption: table but they&#39;re a mess they&#39;re brittle
+
+00:27:33.659 --> 00:27:37.980
+Caption: um and they don&#39;t really have that good
+
+00:27:36.538 --> 00:27:39.599
+Caption: information in them right so this is a
+
+00:27:37.979 --> 00:27:42.479
+Caption: good use to just use a snapshot test
+
+00:27:39.599 --> 00:27:46.020
+Caption: instead it&#39;s simpler
+
+00:27:42.479 --> 00:27:48.119
+Caption: okay so that brings us to the example
+
+00:27:46.020 --> 00:27:50.459
+Caption: part of the whole thing so we&#39;re going
+
+00:27:48.119 --> 00:27:53.339
+Caption: to look at an app called The Old Farm
+
+00:27:50.459 --> 00:27:54.839
+Caption: Shop the older Farm Shopper the
+
+00:27:53.339 --> 00:27:57.178
+Caption: important thing to remember here is that
+
+00:27:54.839 --> 00:28:00.479
+Caption: letter at the start isn&#39;t a why
+
+00:27:57.178 --> 00:28:01.619
+Caption: it&#39;s a thorn and it&#39;s pronounced so in
+
+00:28:00.479 --> 00:28:04.140
+Caption: English we used to have this letter
+
+00:28:01.619 --> 00:28:05.400
+Caption: Thorn then the Dutch or wherever it was
+
+00:28:04.140 --> 00:28:06.419
+Caption: came along with their printing press and
+
+00:28:05.400 --> 00:28:08.400
+Caption: they were like we don&#39;t have that letter
+
+00:28:06.418 --> 00:28:09.599
+Caption: you don&#39;t get to have it anymore get rid
+
+00:28:08.400 --> 00:28:10.979
+Caption: of it
+
+00:28:09.599 --> 00:28:12.479
+Caption: um and this sort of looks like a lot of
+
+00:28:10.979 --> 00:28:14.219
+Caption: why so people started using the letter Y
+
+00:28:12.479 --> 00:28:18.020
+Caption: and then we ended up with this situation
+
+00:28:14.219 --> 00:28:18.020
+Caption: but it is legitimately pronounced
+
+00:28:19.619 --> 00:28:22.979
+Caption: it&#39;s important okay what does that look
+
+00:28:21.900 --> 00:28:24.839
+Caption: like
+
+00:28:22.979 --> 00:28:27.959
+Caption: this is our app we&#39;re selling farm
+
+00:28:24.839 --> 00:28:31.798
+Caption: produce so you can buy plants uh you can
+
+00:28:27.959 --> 00:28:33.599
+Caption: buy seed packets or seedlings and you
+
+00:28:31.798 --> 00:28:35.579
+Caption: can pick different numbers don&#39;t buy
+
+00:28:33.599 --> 00:28:37.979
+Caption: zero that would be weird
+
+00:28:35.579 --> 00:28:40.859
+Caption: um and you&#39;re going to get sort of the
+
+00:28:37.979 --> 00:28:43.260
+Caption: unit price in this little label here
+
+00:28:40.859 --> 00:28:44.278
+Caption: um a subturtle a postage cost and a
+
+00:28:43.260 --> 00:28:46.079
+Caption: total
+
+00:28:44.279 --> 00:28:48.360
+Caption: and we&#39;re all all good with that it&#39;s
+
+00:28:46.079 --> 00:28:50.699
+Caption: not too complicated cool
+
+00:28:48.359 --> 00:28:53.400
+Caption: we&#39;ve got some new requirements so we
+
+00:28:50.699 --> 00:28:55.439
+Caption: want to add a third product type so we
+
+00:28:53.400 --> 00:28:57.779
+Caption: want to add a new radio button that says
+
+00:28:55.439 --> 00:28:59.158
+Caption: plants and we&#39;re going to show the unit
+
+00:28:57.779 --> 00:29:00.419
+Caption: price and the total price for a plant
+
+00:28:59.159 --> 00:29:02.700
+Caption: and we&#39;re going to calculate the postage
+
+00:29:00.418 --> 00:29:05.038
+Caption: for a plant
+
+00:29:02.699 --> 00:29:07.678
+Caption: um so it&#39;ll start looking like this now
+
+00:29:05.038 --> 00:29:09.000
+Caption: we could in theory Implement these
+
+00:29:07.678 --> 00:29:10.798
+Caption: requirements in the order that they were
+
+00:29:09.000 --> 00:29:12.298
+Caption: given but we&#39;re not going to do that and
+
+00:29:10.798 --> 00:29:14.579
+Caption: the reason for that is that if we
+
+00:29:12.298 --> 00:29:16.260
+Caption: Implement that radio button first
+
+00:29:14.579 --> 00:29:18.479
+Caption: then we&#39;ve got to do the whole thing in
+
+00:29:16.260 --> 00:29:20.820
+Caption: one go right we can&#39;t we can&#39;t stop
+
+00:29:18.479 --> 00:29:22.678
+Caption: halfway whereas if we start with the
+
+00:29:20.819 --> 00:29:24.178
+Caption: label we can just implement the change
+
+00:29:22.678 --> 00:29:25.380
+Caption: we need for the label we could merge
+
+00:29:24.178 --> 00:29:28.439
+Caption: that in it can go to production without
+
+00:29:25.380 --> 00:29:30.058
+Caption: the rest of it and it&#39;ll be fine
+
+00:29:28.439 --> 00:29:32.759
+Caption: um so it&#39;s sort of like a a cheating
+
+00:29:30.058 --> 00:29:34.678
+Caption: feature flag I guess
+
+00:29:32.760 --> 00:29:36.000
+Caption: um you could argue that this is a very
+
+00:29:34.678 --> 00:29:37.319
+Caption: small change and you could just do it
+
+00:29:36.000 --> 00:29:39.058
+Caption: all in one go and you&#39;re absolutely
+
+00:29:37.319 --> 00:29:40.918
+Caption: right but like we&#39;ve got time limits on
+
+00:29:39.058 --> 00:29:42.239
+Caption: this talk and I&#39;m not confident that I&#39;m
+
+00:29:40.918 --> 00:29:45.678
+Caption: going to get through the whole thing so
+
+00:29:42.239 --> 00:29:45.678
+Caption: we&#39;re just going to start with the label
+
+00:29:46.619 --> 00:29:49.798
+Caption: all right
+
+00:29:47.819 --> 00:29:52.319
+Caption: now
+
+00:29:49.798 --> 00:29:53.658
+Caption: here is the component
+
+00:29:52.319 --> 00:29:55.739
+Caption: that
+
+00:29:53.659 --> 00:29:59.100
+Caption: renders this page
+
+00:29:55.739 --> 00:30:01.380
+Caption: it&#39;s not an amazing bit of work
+
+00:29:59.099 --> 00:30:03.119
+Caption: but it&#39;s what we&#39;re working with so the
+
+00:30:01.380 --> 00:30:05.039
+Caption: bit that we care about is this label
+
+00:30:03.119 --> 00:30:06.899
+Caption: here except actually it&#39;s these two
+
+00:30:05.038 --> 00:30:08.158
+Caption: labels here because we&#39;ve just repeated
+
+00:30:06.899 --> 00:30:09.659
+Caption: all this code
+
+00:30:08.159 --> 00:30:11.399
+Caption: for both this is actually some
+
+00:30:09.659 --> 00:30:14.159
+Caption: production code that&#39;s had its identity
+
+00:30:11.399 --> 00:30:17.159
+Caption: changed to protect the innocent but this
+
+00:30:14.159 --> 00:30:19.200
+Caption: this is real code in production
+
+00:30:17.159 --> 00:30:21.360
+Caption: um so we don&#39;t want to write another
+
+00:30:19.199 --> 00:30:22.500
+Caption: block like this right
+
+00:30:21.359 --> 00:30:23.880
+Caption: um because we don&#39;t want to have more
+
+00:30:22.500 --> 00:30:26.279
+Caption: repetitive code in there but also
+
+00:30:23.880 --> 00:30:28.500
+Caption: because we can&#39;t write a test for
+
+00:30:26.279 --> 00:30:29.880
+Caption: changing the label with the code all
+
+00:30:28.500 --> 00:30:31.979
+Caption: gone down to one component like this
+
+00:30:29.880 --> 00:30:33.779
+Caption: right we need to separate it out so
+
+00:30:31.979 --> 00:30:35.278
+Caption: we&#39;re going to start by creating a new
+
+00:30:33.779 --> 00:30:36.299
+Caption: label component that is separate to
+
+00:30:35.279 --> 00:30:38.340
+Caption: everything else
+
+00:30:36.298 --> 00:30:39.898
+Caption: before we do that though we&#39;re going to
+
+00:30:38.339 --> 00:30:42.798
+Caption: write some component tests some
+
+00:30:39.899 --> 00:30:42.799
+Caption: characterization tests
+
+00:30:43.319 --> 00:30:47.639
+Caption: product
+
+00:30:44.459 --> 00:30:49.619
+Caption: test dot GSX
+
+00:30:47.640 --> 00:30:50.700
+Caption: ultimately write TSX because yes code
+
+00:30:49.619 --> 00:30:53.038
+Caption: will be like oh it&#39;s a typescript
+
+00:30:50.699 --> 00:30:56.959
+Caption: project I&#39;m like actually it&#39;s not
+
+00:30:53.038 --> 00:30:56.959
+Caption: um and it&#39;ll light lead to sadness
+
+00:30:57.418 --> 00:31:00.959
+Caption: okay so we&#39;re going to test our product
+
+00:30:58.979 --> 00:31:02.579
+Caption: component now we&#39;ve got four scenarios
+
+00:31:00.959 --> 00:31:04.619
+Caption: that we need to test not seven or eight
+
+00:31:02.579 --> 00:31:06.418
+Caption: like the last one this is four so that&#39;s
+
+00:31:04.619 --> 00:31:08.279
+Caption: going to be when we&#39;ve got seed packets
+
+00:31:06.418 --> 00:31:09.658
+Caption: selected and we&#39;ve got no amount entered
+
+00:31:08.279 --> 00:31:11.340
+Caption: when we&#39;ve got seed packets and an
+
+00:31:09.659 --> 00:31:13.380
+Caption: amount when we&#39;ve got seedlings and no
+
+00:31:11.339 --> 00:31:14.579
+Caption: amount and seedlings and an amount it&#39;s
+
+00:31:13.380 --> 00:31:16.440
+Caption: going to be a lot of copying and pasting
+
+00:31:14.579 --> 00:31:19.380
+Caption: I promise
+
+00:31:16.439 --> 00:31:23.699
+Caption: so when seed
+
+00:31:19.380 --> 00:31:26.719
+Caption: pockets is selected and no amount
+
+00:31:23.699 --> 00:31:26.719
+Caption: is entered
+
+00:31:27.178 --> 00:31:30.778
+Caption: it now this we&#39;ve got a great big
+
+00:31:29.219 --> 00:31:32.278
+Caption: component we only compare about care
+
+00:31:30.779 --> 00:31:34.619
+Caption: about a small part of it this is an
+
+00:31:32.279 --> 00:31:37.820
+Caption: excellent use for snapshot tests so it
+
+00:31:34.619 --> 00:31:37.819
+Caption: matches the snapshot
+
+00:31:39.719 --> 00:31:45.140
+Caption: all right so we need to grab a reference
+
+00:31:42.178 --> 00:31:45.140
+Caption: to our container
+
+00:31:47.099 --> 00:31:51.558
+Caption: no not screen we want to render the
+
+00:31:49.020 --> 00:31:51.558
+Caption: component first
+
+00:31:51.739 --> 00:31:57.778
+Caption: product
+
+00:31:53.579 --> 00:32:00.418
+Caption: get that product which takes a prop code
+
+00:31:57.779 --> 00:32:02.600
+Caption: product we&#39;re going to do because why
+
+00:32:00.418 --> 00:32:02.599
+Caption: not
+
+00:32:03.178 --> 00:32:07.739
+Caption: um we need to import that
+
+00:32:05.819 --> 00:32:10.739
+Caption: import it
+
+00:32:07.739 --> 00:32:12.918
+Caption: yeah all right
+
+00:32:10.739 --> 00:32:12.918
+Caption: okay
+
+00:32:16.319 --> 00:32:23.158
+Caption: no not that one
+
+00:32:18.538 --> 00:32:24.959
+Caption: okay we got there no thanks to UBS code
+
+00:32:23.159 --> 00:32:26.880
+Caption: and we want to grab a reference to that
+
+00:32:24.959 --> 00:32:28.319
+Caption: radar button so that&#39;s going to be seed
+
+00:32:26.880 --> 00:32:29.640
+Caption: packets
+
+00:32:28.319 --> 00:32:30.778
+Caption: screened again
+
+00:32:29.640 --> 00:32:32.940
+Caption: roll
+
+00:32:30.779 --> 00:32:34.799
+Caption: and the role of a radio button is Radio
+
+00:32:32.939 --> 00:32:36.298
+Caption: nice and easy but there&#39;s a couple of
+
+00:32:34.798 --> 00:32:39.979
+Caption: radio buttons on the screen so let&#39;s
+
+00:32:36.298 --> 00:32:39.979
+Caption: pass it in a name as well
+
+00:32:41.459 --> 00:32:43.579
+Caption: um
+
+00:32:45.239 --> 00:32:51.119
+Caption: that radio button
+
+00:32:48.058 --> 00:32:53.418
+Caption: all right we need to import screen as
+
+00:32:51.119 --> 00:32:53.418
+Caption: well
+
+00:32:53.520 --> 00:32:57.779
+Caption: and that&#39;s it then we can expect our
+
+00:32:56.038 --> 00:33:01.639
+Caption: container
+
+00:32:57.779 --> 00:33:01.640
+Caption: to match the snapshot
+
+00:33:02.399 --> 00:33:06.239
+Caption: and we do that we get a snapshot
+
+00:33:04.079 --> 00:33:07.859
+Caption: generated and everything is great
+
+00:33:06.239 --> 00:33:09.658
+Caption: okay so then we&#39;ve got our second
+
+00:33:07.859 --> 00:33:12.439
+Caption: scenario
+
+00:33:09.659 --> 00:33:15.840
+Caption: which looks a lot like the first one
+
+00:33:12.439 --> 00:33:17.879
+Caption: except an amount is entered
+
+00:33:15.839 --> 00:33:19.918
+Caption: so we&#39;re going to grab a reference to
+
+00:33:17.880 --> 00:33:22.140
+Caption: the well I think it&#39;s called number or
+
+00:33:19.918 --> 00:33:25.079
+Caption: count or something I can&#39;t remember
+
+00:33:22.140 --> 00:33:28.200
+Caption: and you screen dot get by roll now this
+
+00:33:25.079 --> 00:33:30.479
+Caption: time the it&#39;s an input of type number so
+
+00:33:28.199 --> 00:33:32.099
+Caption: as everybody knows the Aria role for
+
+00:33:30.479 --> 00:33:35.418
+Caption: that is
+
+00:33:32.099 --> 00:33:35.418
+Caption: yes spin button
+
+00:33:36.719 --> 00:33:41.239
+Caption: there&#39;s only one on the screen so I
+
+00:33:38.519 --> 00:33:41.239
+Caption: won&#39;t worry about a name
+
+00:33:41.640 --> 00:33:46.320
+Caption: and we&#39;re going to pass in four say
+
+00:33:44.640 --> 00:33:48.839
+Caption: all right now the snapshot written
+
+00:33:46.319 --> 00:33:50.759
+Caption: excellent then we just need to do the
+
+00:33:48.839 --> 00:33:53.178
+Caption: same thing all over again but with the
+
+00:33:50.760 --> 00:33:53.178
+Caption: seedlings
+
+00:33:53.699 --> 00:33:58.859
+Caption: so if we when
+
+00:33:56.279 --> 00:34:00.720
+Caption: see links is selected and no amounts
+
+00:33:58.859 --> 00:34:03.178
+Caption: then grab
+
+00:34:00.719 --> 00:34:05.359
+Caption: seedlings I guess we should rename this
+
+00:34:03.178 --> 00:34:05.359
+Caption: too
+
+00:34:07.260 --> 00:34:09.439
+Caption: foreign
+
+00:34:12.678 --> 00:34:18.678
+Caption: this is going to be seedlings
+
+00:34:16.020 --> 00:34:18.678
+Caption: and kings
+
+00:34:19.618 --> 00:34:23.819
+Caption: and seedlings
+
+00:34:22.618 --> 00:34:28.638
+Caption: all right we&#39;re gonna run into the
+
+00:34:23.820 --> 00:34:28.639
+Caption: snapshots oh something failed okay
+
+00:34:29.820 --> 00:34:32.719
+Caption: the name
+
+00:34:35.099 --> 00:34:40.280
+Caption: that this one ah well spotted especially
+
+00:34:38.580 --> 00:34:42.179
+Caption: when it wasn&#39;t on the screen
+
+00:34:40.280 --> 00:34:44.158
+Caption: all right so we got all the last
+
+00:34:42.178 --> 00:34:45.959
+Caption: snapshots written everything looks great
+
+00:34:44.158 --> 00:34:48.479
+Caption: except actually we have this warning
+
+00:34:45.959 --> 00:34:49.918
+Caption: that&#39;s being thrown and if you&#39;ve spent
+
+00:34:48.479 --> 00:34:51.898
+Caption: much time writing says react you&#39;ve
+
+00:34:49.918 --> 00:34:54.000
+Caption: probably seen this morning before this
+
+00:34:51.898 --> 00:34:55.739
+Caption: warning is a lie
+
+00:34:54.000 --> 00:34:58.500
+Caption: um it has nothing to do with anything
+
+00:34:55.739 --> 00:35:00.479
+Caption: being wrapped in the act and it&#39;s very
+
+00:34:58.500 --> 00:35:02.520
+Caption: misleading but important
+
+00:35:00.479 --> 00:35:04.739
+Caption: so what&#39;s good what what causes this
+
+00:35:02.520 --> 00:35:07.260
+Caption: warning is when the component state is
+
+00:35:04.739 --> 00:35:10.439
+Caption: or the component state is updated after
+
+00:35:07.260 --> 00:35:12.540
+Caption: the test has finished so in our case
+
+00:35:10.439 --> 00:35:15.719
+Caption: we change the number
+
+00:35:12.540 --> 00:35:18.359
+Caption: of things which changes uh
+
+00:35:15.719 --> 00:35:19.979
+Caption: which calls this state which calls this
+
+00:35:18.358 --> 00:35:21.539
+Caption: use effect which calls this calculate
+
+00:35:19.979 --> 00:35:25.618
+Caption: postage function
+
+00:35:21.540 --> 00:35:27.959
+Caption: and when it&#39;s seed Lings and it&#39;s not
+
+00:35:25.618 --> 00:35:29.699
+Caption: zero it gets down to this postage
+
+00:35:27.959 --> 00:35:31.739
+Caption: calculation which causes asynchronous
+
+00:35:29.699 --> 00:35:33.118
+Caption: function so we call this asynchronous
+
+00:35:31.739 --> 00:35:35.040
+Caption: function it goes off and does its
+
+00:35:33.118 --> 00:35:38.219
+Caption: asynchronous thing then our test
+
+00:35:35.040 --> 00:35:40.500
+Caption: finishes then the asynchronous function
+
+00:35:38.219 --> 00:35:42.540
+Caption: returns then the state is updated and
+
+00:35:40.500 --> 00:35:44.699
+Caption: then react is like oh my God I tell you
+
+00:35:42.540 --> 00:35:46.079
+Caption: lies about Act
+
+00:35:44.699 --> 00:35:48.000
+Caption: um so that&#39;s what&#39;s causing the warning
+
+00:35:46.079 --> 00:35:49.260
+Caption: like it&#39;s a little a legitimate warning
+
+00:35:48.000 --> 00:35:52.020
+Caption: it&#39;s just that it&#39;s not very hopefully
+
+00:35:49.260 --> 00:35:53.880
+Caption: word worded
+
+00:35:52.020 --> 00:35:57.239
+Caption: um so the way that we can deal with that
+
+00:35:53.879 --> 00:35:59.639
+Caption: is we can just kind of wait for
+
+00:35:57.239 --> 00:36:01.260
+Caption: um it not to be zero
+
+00:35:59.639 --> 00:36:03.479
+Caption: so we look at the snapshot for instance
+
+00:36:01.260 --> 00:36:06.320
+Caption: we can see
+
+00:36:03.479 --> 00:36:06.320
+Caption: uh
+
+00:36:07.939 --> 00:36:12.858
+Caption: postage total no the next one
+
+00:36:13.020 --> 00:36:16.679
+Caption: we can see that the c c no not seed
+
+00:36:15.300 --> 00:36:18.540
+Caption: packets oh my God
+
+00:36:16.679 --> 00:36:20.098
+Caption: when ceilings are selected on an amount
+
+00:36:18.540 --> 00:36:22.140
+Caption: that&#39;s the one
+
+00:36:20.099 --> 00:36:26.460
+Caption: okay we can see the number is eight but
+
+00:36:22.139 --> 00:36:29.399
+Caption: the postage is zero so we can say
+
+00:36:26.459 --> 00:36:33.719
+Caption: the postage equals
+
+00:36:29.399 --> 00:36:35.578
+Caption: Green Dot get by text
+
+00:36:33.719 --> 00:36:38.939
+Caption: um let&#39;s just do a quick regex because
+
+00:36:35.579 --> 00:36:42.660
+Caption: nothing ever goes wrong when you do that
+
+00:36:38.939 --> 00:36:45.439
+Caption: and then we can uh await
+
+00:36:42.659 --> 00:36:45.439
+Caption: I wait for
+
+00:36:45.959 --> 00:36:48.838
+Caption: um
+
+00:36:46.800 --> 00:36:51.800
+Caption: and then expect
+
+00:36:48.839 --> 00:36:51.800
+Caption: postage
+
+00:36:53.699 --> 00:36:59.219
+Caption: but to have text content and I whatever
+
+00:36:57.899 --> 00:37:01.699
+Caption: it&#39;s going to be we can just run the
+
+00:36:59.219 --> 00:37:01.699
+Caption: test and see
+
+00:37:03.479 --> 00:37:09.320
+Caption: oh you have to make it an async function
+
+00:37:06.179 --> 00:37:09.319
+Caption: all the time
+
+00:37:10.618 --> 00:37:14.879
+Caption: okay so we can see the postage is
+
+00:37:12.179 --> 00:37:16.858
+Caption: actually 32 dollars
+
+00:37:14.879 --> 00:37:18.299
+Caption: so we can change that
+
+00:37:16.858 --> 00:37:20.219
+Caption: and this is a slightly hacky way of
+
+00:37:18.300 --> 00:37:22.140
+Caption: doing this but you get get the idea so
+
+00:37:20.219 --> 00:37:23.939
+Caption: now snapshots failed because instead of
+
+00:37:22.139 --> 00:37:26.459
+Caption: zero dollars it&#39;s thirty two dollars
+
+00:37:23.939 --> 00:37:27.719
+Caption: instead of 32 the total is now 64.
+
+00:37:26.459 --> 00:37:29.699
+Caption: that&#39;s what we&#39;re expecting so let&#39;s
+
+00:37:27.719 --> 00:37:31.679
+Caption: update snapshot
+
+00:37:29.699 --> 00:37:34.500
+Caption: okay so now we&#39;ve got our
+
+00:37:31.679 --> 00:37:35.819
+Caption: characterization tests we can do our
+
+00:37:34.500 --> 00:37:37.260
+Caption: refactor
+
+00:37:35.820 --> 00:37:39.719
+Caption: now I&#39;m just going to write the new
+
+00:37:37.260 --> 00:37:41.459
+Caption: component sort of inside here because
+
+00:37:39.719 --> 00:37:43.760
+Caption: it&#39;s going to make it easier to copy and
+
+00:37:41.459 --> 00:37:43.760
+Caption: paste
+
+00:37:44.939 --> 00:37:48.300
+Caption: um but in the real world you&#39;d probably
+
+00:37:46.618 --> 00:37:50.639
+Caption: put it in its own file and it could have
+
+00:37:48.300 --> 00:37:52.079
+Caption: its own like independent life and be
+
+00:37:50.639 --> 00:37:53.338
+Caption: happy
+
+00:37:52.079 --> 00:37:55.560
+Caption: so we&#39;re just going to return the same
+
+00:37:53.339 --> 00:37:57.000
+Caption: value we have here now in this case you
+
+00:37:55.560 --> 00:37:58.619
+Caption: can see we&#39;ve got two bits of text that
+
+00:37:57.000 --> 00:38:00.599
+Caption: are essentially the same thing so rather
+
+00:37:58.618 --> 00:38:04.019
+Caption: than having it all repeated
+
+00:38:00.599 --> 00:38:06.240
+Caption: let&#39;s kind of parameterize it so we can
+
+00:38:04.020 --> 00:38:08.820
+Caption: pull out those names and we can say seed
+
+00:38:06.239 --> 00:38:11.339
+Caption: packets is going to be
+
+00:38:08.820 --> 00:38:14.280
+Caption: seed packets
+
+00:38:11.339 --> 00:38:17.460
+Caption: and seedlings
+
+00:38:14.280 --> 00:38:19.439
+Caption: is going to be seedlings
+
+00:38:17.459 --> 00:38:23.578
+Caption: then we can get rid of all of
+
+00:38:19.439 --> 00:38:25.858
+Caption: that and we can just say number of
+
+00:38:23.579 --> 00:38:28.579
+Caption: names
+
+00:38:25.858 --> 00:38:28.578
+Caption: product type
+
+00:38:30.599 --> 00:38:35.420
+Caption: oh don&#39;t put a dollar sign there you&#39;re
+
+00:38:32.939 --> 00:38:35.419
+Caption: out of control
+
+00:38:36.358 --> 00:38:39.899
+Caption: um and again here instead of this being
+
+00:38:37.800 --> 00:38:42.179
+Caption: seed packets it can just be
+
+00:38:39.899 --> 00:38:46.459
+Caption: product type
+
+00:38:42.179 --> 00:38:46.459
+Caption: oh then we need to pass in product type
+
+00:38:47.099 --> 00:38:51.780
+Caption: I&#39;m going to use passing count
+
+00:38:49.500 --> 00:38:55.079
+Caption: because we&#39;re using that here
+
+00:38:51.780 --> 00:38:57.739
+Caption: and then we just change this one more
+
+00:38:55.079 --> 00:38:57.739
+Caption: product type
+
+00:38:58.139 --> 00:39:03.059
+Caption: and then we get rid of all of that we
+
+00:39:00.959 --> 00:39:04.739
+Caption: put one more closing bracket we wish
+
+00:39:03.060 --> 00:39:07.699
+Caption: we&#39;d set up prettier so that it
+
+00:39:04.739 --> 00:39:07.699
+Caption: reformatted everything
+
+00:39:08.159 --> 00:39:14.760
+Caption: um oh and it doesn&#39;t do it
+
+00:39:11.040 --> 00:39:17.160
+Caption: okay so now we can replace all of this
+
+00:39:14.760 --> 00:39:20.479
+Caption: with our new label component
+
+00:39:17.159 --> 00:39:20.479
+Caption: which takes a product type
+
+00:39:21.959 --> 00:39:24.800
+Caption: and account
+
+00:39:27.300 --> 00:39:31.619
+Caption: and we run our snapshot test again they
+
+00:39:29.879 --> 00:39:34.259
+Caption: all fail but the only reason they fail
+
+00:39:31.618 --> 00:39:35.939
+Caption: is that the the white space has changed
+
+00:39:34.260 --> 00:39:37.199
+Caption: because we&#39;ve added in all of those
+
+00:39:35.939 --> 00:39:39.899
+Caption: interpolations
+
+00:39:37.199 --> 00:39:41.280
+Caption: so we can just update that and it&#39;s fine
+
+00:39:39.899 --> 00:39:42.659
+Caption: cool so this is looking pretty good
+
+00:39:41.280 --> 00:39:44.820
+Caption: except there is one more little
+
+00:39:42.659 --> 00:39:48.479
+Caption: dependency in here that&#39;s not super
+
+00:39:44.820 --> 00:39:52.140
+Caption: obvious but this ID on this input needs
+
+00:39:48.479 --> 00:39:53.399
+Caption: to match the html4 on this label
+
+00:39:52.139 --> 00:39:54.959
+Caption: um and we like we need those two things
+
+00:39:53.399 --> 00:39:56.819
+Caption: to be the same there&#39;s a couple of ways
+
+00:39:54.959 --> 00:39:59.939
+Caption: we could deal with that we could just
+
+00:39:56.820 --> 00:40:03.119
+Caption: hope that no one changes it
+
+00:39:59.939 --> 00:40:04.919
+Caption: we could pass the ID into the label
+
+00:40:03.118 --> 00:40:06.479
+Caption: um which could work but what I would
+
+00:40:04.919 --> 00:40:08.699
+Caption: suggest that we do is we kind of accept
+
+00:40:06.479 --> 00:40:10.919
+Caption: that these two this label and this input
+
+00:40:08.699 --> 00:40:12.300
+Caption: are very tightly coupled and probably
+
+00:40:10.919 --> 00:40:15.299
+Caption: the best thing to do is just to put them
+
+00:40:12.300 --> 00:40:17.520
+Caption: all into the component together
+
+00:40:15.300 --> 00:40:18.719
+Caption: so now instead of this being a label
+
+00:40:17.520 --> 00:40:20.640
+Caption: component it&#39;s going to be a number
+
+00:40:18.719 --> 00:40:24.320
+Caption: input component
+
+00:40:20.639 --> 00:40:24.319
+Caption: and we&#39;re going to wrap it in div
+
+00:40:25.919 --> 00:40:30.540
+Caption: get rid of that bracket
+
+00:40:27.719 --> 00:40:34.020
+Caption: and paste all of that in
+
+00:40:30.540 --> 00:40:36.800
+Caption: and a closing div oh don&#39;t you wish I&#39;d
+
+00:40:34.020 --> 00:40:36.800
+Caption: installed prettier
+
+00:40:38.639 --> 00:40:42.439
+Caption: okay so this is now just missing this
+
+00:40:40.919 --> 00:40:44.639
+Caption: handle count change
+
+00:40:42.439 --> 00:40:46.319
+Caption: handle count changer is kind of a weird
+
+00:40:44.639 --> 00:40:48.618
+Caption: name for a prop so let&#39;s just put it on
+
+00:40:46.320 --> 00:40:48.619
+Caption: change
+
+00:40:49.320 --> 00:40:53.820
+Caption: all right so now that&#39;s all good we can
+
+00:40:51.959 --> 00:40:56.639
+Caption: go back up here we can change this to
+
+00:40:53.820 --> 00:40:59.000
+Caption: our number input we can pass it the on
+
+00:40:56.639 --> 00:40:59.000
+Caption: change
+
+00:41:03.300 --> 00:41:07.679
+Caption: um and then we can get rid of all of
+
+00:41:04.979 --> 00:41:09.959
+Caption: this this is my more favorite thing than
+
+00:41:07.679 --> 00:41:11.879
+Caption: refactoring is the leading code so thank
+
+00:41:09.959 --> 00:41:13.320
+Caption: you rejoy
+
+00:41:11.879 --> 00:41:14.879
+Caption: um and our Snapchat test will pass so
+
+00:41:13.320 --> 00:41:16.440
+Caption: that&#39;s all good everything
+
+00:41:14.879 --> 00:41:18.479
+Caption: is great
+
+00:41:16.439 --> 00:41:20.098
+Caption: um and now we&#39;re actually ready to write
+
+00:41:18.479 --> 00:41:22.260
+Caption: our feature
+
+00:41:20.099 --> 00:41:23.880
+Caption: um except one small thing before I did
+
+00:41:22.260 --> 00:41:25.739
+Caption: that like I said I don&#39;t like having
+
+00:41:23.879 --> 00:41:28.139
+Caption: snapshot tests as the basis for my
+
+00:41:25.739 --> 00:41:29.760
+Caption: feature tests we could go with that but
+
+00:41:28.139 --> 00:41:31.078
+Caption: what we have here is sort of snapshot
+
+00:41:29.760 --> 00:41:33.060
+Caption: test to cover the whole product
+
+00:41:31.079 --> 00:41:35.760
+Caption: component we don&#39;t have any tests that
+
+00:41:33.060 --> 00:41:37.680
+Caption: are specific to our new number input
+
+00:41:35.760 --> 00:41:40.320
+Caption: component so I would start by actually
+
+00:41:37.679 --> 00:41:42.419
+Caption: replicating our snapshot tests into like
+
+00:41:40.320 --> 00:41:44.940
+Caption: a specific set of tests for the number
+
+00:41:42.419 --> 00:41:48.059
+Caption: the number input I&#39;m not going to make
+
+00:41:44.939 --> 00:41:51.239
+Caption: you watch me do that though
+
+00:41:48.060 --> 00:41:52.260
+Caption: um I have a set of tests here already
+
+00:41:51.239 --> 00:41:54.659
+Caption: um you can see they&#39;re the same
+
+00:41:52.260 --> 00:41:55.919
+Caption: scenarios that we wrote before for the
+
+00:41:54.659 --> 00:41:58.260
+Caption: two different types and the amount and
+
+00:41:55.919 --> 00:42:00.959
+Caption: no amount and then one additional test
+
+00:41:58.260 --> 00:42:02.159
+Caption: which checks that the on change Handler
+
+00:42:00.959 --> 00:42:03.659
+Caption: because now that these two things are
+
+00:42:02.159 --> 00:42:06.618
+Caption: separated up we just need to test that
+
+00:42:03.659 --> 00:42:06.618
+Caption: integration is working
+
+00:42:07.439 --> 00:42:11.040
+Caption: um now you might argue that this is a
+
+00:42:09.479 --> 00:42:12.959
+Caption: waste of time we already had these tests
+
+00:42:11.040 --> 00:42:14.219
+Caption: I don&#39;t need to do all this and I look I
+
+00:42:12.959 --> 00:42:16.578
+Caption: don&#39;t know how busy you are but I did
+
+00:42:14.219 --> 00:42:16.578
+Caption: time myself
+
+00:42:19.560 --> 00:42:25.800
+Caption: those copy and paste fingers going fast
+
+00:42:23.520 --> 00:42:27.300
+Caption: okay so now we&#39;ve got these tests here
+
+00:42:25.800 --> 00:42:28.679
+Caption: we&#39;re ready to write the test for our
+
+00:42:27.300 --> 00:42:30.479
+Caption: new feature
+
+00:42:28.679 --> 00:42:32.639
+Caption: which honestly is going to look just
+
+00:42:30.479 --> 00:42:34.739
+Caption: like the existing ones except we&#39;re
+
+00:42:32.639 --> 00:42:36.659
+Caption: going to replace
+
+00:42:34.739 --> 00:42:39.479
+Caption: um everything with plants so when the
+
+00:42:36.659 --> 00:42:41.520
+Caption: product type is plants
+
+00:42:39.479 --> 00:42:44.159
+Caption: um it&#39;s going to be plants
+
+00:42:41.520 --> 00:42:47.040
+Caption: it&#39;s going to show the number of
+
+00:42:44.159 --> 00:42:51.118
+Caption: plants and plants as I&#39;m sure you all
+
+00:42:47.040 --> 00:42:53.820
+Caption: remember from the spec cost 15 each
+
+00:42:51.118 --> 00:42:55.500
+Caption: and again we&#39;re going to make the plants
+
+00:42:53.820 --> 00:42:58.560
+Caption: we&#39;re going to have 12 of them we&#39;re
+
+00:42:55.500 --> 00:43:00.540
+Caption: going to make plants and 15 times 12 is
+
+00:42:58.560 --> 00:43:04.140
+Caption: of course
+
+00:43:00.540 --> 00:43:06.660
+Caption: anyone no 180 yeah
+
+00:43:04.139 --> 00:43:08.279
+Caption: we run these tests they fail because we
+
+00:43:06.659 --> 00:43:10.318
+Caption: haven&#39;t written that code
+
+00:43:08.280 --> 00:43:13.560
+Caption: but now when we actually go to write our
+
+00:43:10.319 --> 00:43:16.380
+Caption: feature it&#39;s going to be so easy okay
+
+00:43:13.560 --> 00:43:19.319
+Caption: all we need to do is add plants
+
+00:43:16.379 --> 00:43:21.659
+Caption: to our little names here
+
+00:43:19.319 --> 00:43:24.180
+Caption: and then there&#39;s a little config file
+
+00:43:21.659 --> 00:43:26.098
+Caption: here that has the prices in it and we
+
+00:43:24.179 --> 00:43:28.559
+Caption: can add the plants here
+
+00:43:26.099 --> 00:43:30.119
+Caption: and that&#39;s also a pass so how fast was
+
+00:43:28.560 --> 00:43:31.680
+Caption: that after we did that refactoring so
+
+00:43:30.118 --> 00:43:33.779
+Caption: this component is now super easy to
+
+00:43:31.679 --> 00:43:36.540
+Caption: change it&#39;s super easy to work with
+
+00:43:33.780 --> 00:43:38.339
+Caption: okay so what did we learn today some
+
+00:43:36.540 --> 00:43:39.719
+Caption: important things we learned to think
+
+00:43:38.339 --> 00:43:41.520
+Caption: about when we should refactor because
+
+00:43:39.719 --> 00:43:43.439
+Caption: even though it&#39;s fun sometimes we maybe
+
+00:43:41.520 --> 00:43:45.060
+Caption: shouldn&#39;t do it we&#39;ve learned how to
+
+00:43:43.439 --> 00:43:46.739
+Caption: write characterization tests to ensure
+
+00:43:45.060 --> 00:43:48.540
+Caption: our refactors are safe
+
+00:43:46.739 --> 00:43:49.739
+Caption: we&#39;ve learned about substantial tests
+
+00:43:48.540 --> 00:43:51.780
+Caption: and how we can use those to write
+
+00:43:49.739 --> 00:43:53.520
+Caption: refactoring tests and most importantly
+
+00:43:51.780 --> 00:43:55.439
+Caption: of all we learned that this thing that
+
+00:43:53.520 --> 00:43:57.000
+Caption: looks like these actually pronounced the
+
+00:43:55.439 --> 00:43:58.260
+Caption: and that&#39;s what a thorn sort of looks
+
+00:43:57.000 --> 00:44:00.839
+Caption: like normally
+
+00:43:58.260 --> 00:44:02.699
+Caption: all right I&#39;ve been Aaron Zimmer if you
+
+00:44:00.839 --> 00:44:04.500
+Caption: would like to see the code other slides
+
+00:44:02.699 --> 00:44:05.159
+Caption: are available here
+
+00:44:04.500 --> 00:44:07.079
+Caption: um
+
+00:44:05.159 --> 00:44:10.379
+Caption: don&#39;t know why Firefox hates rendering
+
+00:44:07.079 --> 00:44:12.300
+Caption: the peas in this font but some reason uh
+
+00:44:10.379 --> 00:44:14.159
+Caption: the examples are a funky tub with a
+
+00:44:12.300 --> 00:44:17.179
+Caption: completed example as well
+
+00:44:14.159 --> 00:44:17.179
+Caption: um and thank you all very much
+
+00:44:17.810 --> 00:44:19.380
+Caption: [Applause]
+
+00:44:19.149 --> 00:44:23.339
+Caption: [Music]
+
+00:44:19.379 --> 00:44:23.339
+Caption: [Applause]
+

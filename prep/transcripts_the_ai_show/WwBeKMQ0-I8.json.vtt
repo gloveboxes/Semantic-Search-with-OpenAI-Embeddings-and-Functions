@@ -1,0 +1,2782 @@
+[
+    {
+        "text": ">> Today on this special Build edition of the AI Show,",
+        "start": 0.74,
+        "duration": 3.925
+    },
+    {
+        "text": "we will be diving into responsible ML.",
+        "start": 4.665,
+        "duration": 2.745
+    },
+    {
+        "text": "On today's show, Mehrnoosh Sameki,",
+        "start": 7.41,
+        "duration": 1.62
+    },
+    {
+        "text": "Senior Program Manager on the Azure Machine Learning responsible",
+        "start": 9.03,
+        "duration": 3.135
+    },
+    {
+        "text": "AI team will talk with Samuel Jenkins and Harsha Nori,",
+        "start": 12.165,
+        "duration": 3.585
+    },
+    {
+        "text": "both data scientists from Cosine Data on the machine learning",
+        "start": 15.75,
+        "duration": 3.585
+    },
+    {
+        "text": "interpretability toolkit or InterpretML.",
+        "start": 19.335,
+        "duration": 2.715
+    },
+    {
+        "text": "Make sure you tune in.",
+        "start": 22.05,
+        "duration": 1.08
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 23.13,
+        "duration": 9.359
+    },
+    {
+        "text": ">> Hi everybody, I'm Harsha Nori,",
+        "start": 32.489,
+        "duration": 1.791
+    },
+    {
+        "text": "a data scientist at Microsoft who works on",
+        "start": 34.28,
+        "duration": 2.16
+    },
+    {
+        "text": "responsible AI and applied machine learning.",
+        "start": 36.44,
+        "duration": 2.385
+    },
+    {
+        "text": "I'm also one of the co-founders of InterpretML,",
+        "start": 38.825,
+        "duration": 2.85
+    },
+    {
+        "text": "which is a set of open source,",
+        "start": 41.675,
+        "duration": 1.635
+    },
+    {
+        "text": "tools and packages that makes it easy",
+        "start": 43.31,
+        "duration": 2.25
+    },
+    {
+        "text": "to add interpretability to your machine learning workflows.",
+        "start": 45.56,
+        "duration": 2.685
+    },
+    {
+        "text": "I'm joined here today by two of my colleagues,",
+        "start": 48.245,
+        "duration": 2.34
+    },
+    {
+        "text": "Sam and Mehrs, who will also introduce themselves.",
+        "start": 50.585,
+        "duration": 2.69
+    },
+    {
+        "text": "Together we'll give you a walk-through of",
+        "start": 53.275,
+        "duration": 2.165
+    },
+    {
+        "text": "InterpretML and the field of AI explainability.",
+        "start": 55.44,
+        "duration": 3.225
+    },
+    {
+        "text": ">> Hey guys, I'm Sam Jenkins.",
+        "start": 58.665,
+        "duration": 2.13
+    },
+    {
+        "text": "I'm one of the co-founders of InterpretML,",
+        "start": 60.795,
+        "duration": 2.28
+    },
+    {
+        "text": "and I work on the machine learning.",
+        "start": 63.075,
+        "duration": 2.79
+    },
+    {
+        "text": ">> My name is Mehrnoosh Sameki.",
+        "start": 65.865,
+        "duration": 1.81
+    },
+    {
+        "text": "I'm a Senior Product Manager at Azure AI,",
+        "start": 67.675,
+        "duration": 2.665
+    },
+    {
+        "text": "driving the product efforts behind some of",
+        "start": 70.34,
+        "duration": 2.31
+    },
+    {
+        "text": "our responsible AI offerings like InterpretML and Fairlearn.",
+        "start": 72.65,
+        "duration": 4.51
+    },
+    {
+        "text": ">> Let's get started.",
+        "start": 78.17,
+        "duration": 1.87
+    },
+    {
+        "text": "So you've probably seen this slide a few times by now,",
+        "start": 80.04,
+        "duration": 3.95
+    },
+    {
+        "text": "but for those of you who haven't,",
+        "start": 83.99,
+        "duration": 2.085
+    },
+    {
+        "text": "these are Microsoft's six responsible AI principles.",
+        "start": 86.075,
+        "duration": 3.89
+    },
+    {
+        "text": "This talk is really going to focus on the transparency principle.",
+        "start": 89.965,
+        "duration": 4.47
+    },
+    {
+        "text": "Before diving into the details,",
+        "start": 94.435,
+        "duration": 2.485
+    },
+    {
+        "text": "we wanted to motivate why you should care about interpretability.",
+        "start": 96.92,
+        "duration": 3.39
+    },
+    {
+        "text": "On the top of our list is debugging models,",
+        "start": 100.31,
+        "duration": 3.225
+    },
+    {
+        "text": "which is something every ML practitioner has to do.",
+        "start": 103.535,
+        "duration": 3.23
+    },
+    {
+        "text": "With interpretability, you can not",
+        "start": 106.765,
+        "duration": 2.045
+    },
+    {
+        "text": "only look at a model's mispredictions,",
+        "start": 108.81,
+        "duration": 1.975
+    },
+    {
+        "text": "but you can understand why it made",
+        "start": 110.785,
+        "duration": 1.645
+    },
+    {
+        "text": "those mistakes and fix the underlying source of the problem.",
+        "start": 112.43,
+        "duration": 3.69
+    },
+    {
+        "text": "To give you some examples,",
+        "start": 116.12,
+        "duration": 1.47
+    },
+    {
+        "text": "I've used interpretability to detect signs of overfitting,",
+        "start": 117.59,
+        "duration": 3.12
+    },
+    {
+        "text": "identify leaky features, and fix bugs in my preprocessing.",
+        "start": 120.71,
+        "duration": 4.08
+    },
+    {
+        "text": "On top of debugging,",
+        "start": 124.79,
+        "duration": 1.755
+    },
+    {
+        "text": "interpretability can also help detect bias in your models,",
+        "start": 126.545,
+        "duration": 3.255
+    },
+    {
+        "text": "inspire trust between models and humans,",
+        "start": 129.8,
+        "duration": 2.79
+    },
+    {
+        "text": "and satisfy legal requirements.",
+        "start": 132.59,
+        "duration": 2.175
+    },
+    {
+        "text": "One other case to call out is if",
+        "start": 134.765,
+        "duration": 1.905
+    },
+    {
+        "text": "your models are ever making high-risk decisions,",
+        "start": 136.67,
+        "duration": 2.445
+    },
+    {
+        "text": "like in the medical or financial sectors,",
+        "start": 139.115,
+        "duration": 2.67
+    },
+    {
+        "text": "interpretability can be a really nice sanity check",
+        "start": 141.785,
+        "duration": 3.285
+    },
+    {
+        "text": "before blindly trusting what a model says.",
+        "start": 145.07,
+        "duration": 2.88
+    },
+    {
+        "text": "All that being said,",
+        "start": 147.95,
+        "duration": 1.755
+    },
+    {
+        "text": "these motivators will become way",
+        "start": 149.705,
+        "duration": 1.575
+    },
+    {
+        "text": "more clear over the course of the talk.",
+        "start": 151.28,
+        "duration": 1.695
+    },
+    {
+        "text": "Let's talk about InterpretML.",
+        "start": 152.975,
+        "duration": 1.905
+    },
+    {
+        "text": "So as we've mentioned before,",
+        "start": 154.88,
+        "duration": 1.89
+    },
+    {
+        "text": "InterpretML is really a collection of tools and packages,",
+        "start": 156.77,
+        "duration": 3.45
+    },
+    {
+        "text": "and at its heart is Interpret,",
+        "start": 160.22,
+        "duration": 1.995
+    },
+    {
+        "text": "which houses a lot of",
+        "start": 162.215,
+        "duration": 1.755
+    },
+    {
+        "text": "the key explainability techniques",
+        "start": 163.97,
+        "duration": 1.83
+    },
+    {
+        "text": "and defines what the API looks like.",
+        "start": 165.8,
+        "duration": 2.745
+    },
+    {
+        "text": "Interpret text is an extension of",
+        "start": 168.545,
+        "duration": 2.025
+    },
+    {
+        "text": "Interpret that focuses on text and language data,",
+        "start": 170.57,
+        "duration": 2.595
+    },
+    {
+        "text": "and the Azure ML Interpret package",
+        "start": 173.165,
+        "duration": 2.055
+    },
+    {
+        "text": "is a wrapper that enables you to run",
+        "start": 175.22,
+        "duration": 2.13
+    },
+    {
+        "text": "all these great capabilities in",
+        "start": 177.35,
+        "duration": 1.89
+    },
+    {
+        "text": "the Cloud as part of the Azure ML framework.",
+        "start": 179.24,
+        "duration": 2.595
+    },
+    {
+        "text": "Outside of the Interpret ecosystem,",
+        "start": 181.835,
+        "duration": 2.49
+    },
+    {
+        "text": "we also have active collaborations with SHAP and LIME,",
+        "start": 184.325,
+        "duration": 3.96
+    },
+    {
+        "text": "two major packages in the explainability space.",
+        "start": 188.285,
+        "duration": 3.09
+    },
+    {
+        "text": "Both of the primary authors of these packages, Scott and Marco,",
+        "start": 191.375,
+        "duration": 4.17
+    },
+    {
+        "text": "are members of Microsoft research",
+        "start": 195.545,
+        "duration": 2.07
+    },
+    {
+        "text": "and they're both giving talks as part of this session.",
+        "start": 197.615,
+        "duration": 2.31
+    },
+    {
+        "text": "I'd really encourage you to check those out after this one.",
+        "start": 199.925,
+        "duration": 3.12
+    },
+    {
+        "text": "But for this talk, we're really going to focus",
+        "start": 203.045,
+        "duration": 1.935
+    },
+    {
+        "text": "in on the core package,",
+        "start": 204.98,
+        "duration": 1.74
+    },
+    {
+        "text": "Interpret and walk you through how to use it.",
+        "start": 206.72,
+        "duration": 2.98
+    },
+    {
+        "text": "Within Interpret,",
+        "start": 210.82,
+        "duration": 2.035
+    },
+    {
+        "text": "the explainability algorithms are",
+        "start": 212.855,
+        "duration": 1.395
+    },
+    {
+        "text": "organized into two major sections,",
+        "start": 214.25,
+        "duration": 2.059
+    },
+    {
+        "text": "glassbox models and blackbox explanations.",
+        "start": 216.309,
+        "duration": 3.311
+    },
+    {
+        "text": "I'll walk you through what we mean by each of",
+        "start": 219.62,
+        "duration": 2.01
+    },
+    {
+        "text": "these terms and provide some light code examples along the way.",
+        "start": 221.63,
+        "duration": 3.51
+    },
+    {
+        "text": "Let's start with the glassbox section.",
+        "start": 225.14,
+        "duration": 2.735
+    },
+    {
+        "text": "By glassbox models,",
+        "start": 227.875,
+        "duration": 1.99
+    },
+    {
+        "text": "we mean learning algorithms that are designed to be interpretable,",
+        "start": 229.865,
+        "duration": 4.5
+    },
+    {
+        "text": "like simple decision trees,",
+        "start": 234.365,
+        "duration": 1.815
+    },
+    {
+        "text": "rule lists, and linear models.",
+        "start": 236.18,
+        "duration": 2.7
+    },
+    {
+        "text": "Glassbox models typically provide",
+        "start": 238.88,
+        "duration": 2.01
+    },
+    {
+        "text": "exact or lossless explainability.",
+        "start": 240.89,
+        "duration": 2.865
+    },
+    {
+        "text": "That is, you can trace and reason about",
+        "start": 243.755,
+        "duration": 2.745
+    },
+    {
+        "text": "how any glassbox model makes its decisions.",
+        "start": 246.5,
+        "duration": 3.14
+    },
+    {
+        "text": "The flagship glassbox model inside InterpretML is",
+        "start": 249.64,
+        "duration": 3.77
+    },
+    {
+        "text": "a technique called the Explainable Boosting Machine or EBM,",
+        "start": 253.41,
+        "duration": 3.835
+    },
+    {
+        "text": "which was developed at Microsoft research.",
+        "start": 257.245,
+        "duration": 2.605
+    },
+    {
+        "text": "To give you a little intuition about how this algorithm works,",
+        "start": 259.85,
+        "duration": 3.495
+    },
+    {
+        "text": "let's start by looking at a linear model,",
+        "start": 263.345,
+        "duration": 2.115
+    },
+    {
+        "text": "which is widely considered to be",
+        "start": 265.46,
+        "duration": 1.38
+    },
+    {
+        "text": "the gold standard of interpretability.",
+        "start": 266.84,
+        "duration": 2.46
+    },
+    {
+        "text": "In the bottom right is a visualization for how",
+        "start": 269.3,
+        "duration": 2.94
+    },
+    {
+        "text": "a linear model operates on a single feature.",
+        "start": 272.24,
+        "duration": 2.835
+    },
+    {
+        "text": "While linear models are highly interpretable,",
+        "start": 275.075,
+        "duration": 2.76
+    },
+    {
+        "text": "they often fail to match the accuracy of more complicated models.",
+        "start": 277.835,
+        "duration": 3.765
+    },
+    {
+        "text": "To combat this, statisticians",
+        "start": 281.6,
+        "duration": 2.43
+    },
+    {
+        "text": "pioneered generalized additive models,",
+        "start": 284.03,
+        "duration": 2.475
+    },
+    {
+        "text": "which keep the additive structure,",
+        "start": 286.505,
+        "duration": 2.145
+    },
+    {
+        "text": "and therefore the interpretability of the linear",
+        "start": 288.65,
+        "duration": 2.01
+    },
+    {
+        "text": "model, that make them more flexible and accurate.",
+        "start": 290.66,
+        "duration": 3.475
+    },
+    {
+        "text": "At MSR, we've taken this one step further,",
+        "start": 294.135,
+        "duration": 3.47
+    },
+    {
+        "text": "by further amplifying GAMs with",
+        "start": 297.605,
+        "duration": 2.055
+    },
+    {
+        "text": "modern machine learning techniques",
+        "start": 299.66,
+        "duration": 1.71
+    },
+    {
+        "text": "like gradient boosting and bagging.",
+        "start": 301.37,
+        "duration": 2.345
+    },
+    {
+        "text": "We also automatically include",
+        "start": 303.715,
+        "duration": 2.125
+    },
+    {
+        "text": "pairwise interaction terms which",
+        "start": 305.84,
+        "duration": 2.16
+    },
+    {
+        "text": "boosts their accuracy even further.",
+        "start": 308.0,
+        "duration": 2.205
+    },
+    {
+        "text": "After all these improvements,",
+        "start": 310.205,
+        "duration": 1.995
+    },
+    {
+        "text": "EBM still preserve the interpretability of a linear model,",
+        "start": 312.2,
+        "duration": 4.065
+    },
+    {
+        "text": "but often match the accuracy of",
+        "start": 316.265,
+        "duration": 2.115
+    },
+    {
+        "text": "powerful blackbox models like random forest and boosted trees.",
+        "start": 318.38,
+        "duration": 3.92
+    },
+    {
+        "text": "As an added bonus,",
+        "start": 322.3,
+        "duration": 1.615
+    },
+    {
+        "text": "they're also incredibly light and efficient for deployments.",
+        "start": 323.915,
+        "duration": 3.525
+    },
+    {
+        "text": "For a deep dive into EBMs,",
+        "start": 327.44,
+        "duration": 2.01
+    },
+    {
+        "text": "please see Richard's talk later in the session.",
+        "start": 329.45,
+        "duration": 3.31
+    },
+    {
+        "text": "Here's all the code you need to train an EBM.",
+        "start": 333.77,
+        "duration": 3.375
+    },
+    {
+        "text": "With just two lines you can train the model.",
+        "start": 337.145,
+        "duration": 2.895
+    },
+    {
+        "text": "If you've ever used scikit-learn,",
+        "start": 340.04,
+        "duration": 1.725
+    },
+    {
+        "text": "you'll notice that we matched the API exactly.",
+        "start": 341.765,
+        "duration": 2.945
+    },
+    {
+        "text": "With another two lines,",
+        "start": 344.71,
+        "duration": 1.7
+    },
+    {
+        "text": "you can understand the model's behavior.",
+        "start": 346.41,
+        "duration": 1.97
+    },
+    {
+        "text": "In this case we're calling the explain global function,",
+        "start": 348.38,
+        "duration": 2.85
+    },
+    {
+        "text": "which will give us a high level",
+        "start": 351.23,
+        "duration": 1.53
+    },
+    {
+        "text": "overall or global understanding of how the model works.",
+        "start": 352.76,
+        "duration": 4.505
+    },
+    {
+        "text": "The other half of InterpretML",
+        "start": 357.265,
+        "duration": 2.825
+    },
+    {
+        "text": "are blackbox explainability techniques.",
+        "start": 360.09,
+        "duration": 2.555
+    },
+    {
+        "text": "Unlike glassbox models,",
+        "start": 362.645,
+        "duration": 2.01
+    },
+    {
+        "text": "which are trained directly on raw data,",
+        "start": 364.655,
+        "duration": 2.67
+    },
+    {
+        "text": "these techniques that on top of existing models are pipelines.",
+        "start": 367.325,
+        "duration": 3.795
+    },
+    {
+        "text": "They generally work by treating the model like a blackbox,",
+        "start": 371.12,
+        "duration": 3.84
+    },
+    {
+        "text": "and assume that they only have access to",
+        "start": 374.96,
+        "duration": 2.04
+    },
+    {
+        "text": "the inputs and the outputs of the model.",
+        "start": 377.0,
+        "duration": 2.565
+    },
+    {
+        "text": "By repeatedly perturbing the input,",
+        "start": 379.565,
+        "duration": 2.865
+    },
+    {
+        "text": "passing them through the model,",
+        "start": 382.43,
+        "duration": 1.65
+    },
+    {
+        "text": "and analyzing the changes in the output's,",
+        "start": 384.08,
+        "duration": 2.105
+    },
+    {
+        "text": "a blackbox explainability technique can",
+        "start": 386.185,
+        "duration": 2.575
+    },
+    {
+        "text": "glean some understanding of what a model considers important.",
+        "start": 388.76,
+        "duration": 3.45
+    },
+    {
+        "text": "One huge advantage of these algorithms are that they can work on",
+        "start": 392.21,
+        "duration": 3.66
+    },
+    {
+        "text": "any model like deep neural nets or even complex pipelines.",
+        "start": 395.87,
+        "duration": 3.765
+    },
+    {
+        "text": "However, it's really important to note that",
+        "start": 399.635,
+        "duration": 2.715
+    },
+    {
+        "text": "these techniques only provide approximate explainability.",
+        "start": 402.35,
+        "duration": 3.405
+    },
+    {
+        "text": "Sometimes blackbox explanations can be",
+        "start": 405.755,
+        "duration": 2.535
+    },
+    {
+        "text": "incorrect and not faithful to the original model.",
+        "start": 408.29,
+        "duration": 3.33
+    },
+    {
+        "text": "Popular examples of blackbox explainers are SHAP, LIME, PDP,",
+        "start": 411.62,
+        "duration": 4.209
+    },
+    {
+        "text": "and SA, and for a deeper dive into blackbox techniques,",
+        "start": 415.829,
+        "duration": 3.291
+    },
+    {
+        "text": "please stay tuned for Scott and Marco's talks.",
+        "start": 419.12,
+        "duration": 3.09
+    },
+    {
+        "text": "In this code example,",
+        "start": 422.21,
+        "duration": 2.054
+    },
+    {
+        "text": "we're using a simple neural net to represent a blackbox and",
+        "start": 424.264,
+        "duration": 3.106
+    },
+    {
+        "text": "explaining it what the Kernel SHAP explainability technique.",
+        "start": 427.37,
+        "duration": 3.45
+    },
+    {
+        "text": "In this case, we're using the explain local call",
+        "start": 430.82,
+        "duration": 2.805
+    },
+    {
+        "text": "because we want explanations on individual data points.",
+        "start": 433.625,
+        "duration": 3.275
+    },
+    {
+        "text": "At this point, I'm going to hand things over to Sam,",
+        "start": 436.9,
+        "duration": 2.71
+    },
+    {
+        "text": "who has a Jupyter Notebook demo of",
+        "start": 439.61,
+        "duration": 1.89
+    },
+    {
+        "text": "the algorithms and visualizations produced by Interpret.",
+        "start": 441.5,
+        "duration": 3.79
+    },
+    {
+        "text": ">> I'm going to walk you through an income classification problem,",
+        "start": 445.82,
+        "duration": 3.825
+    },
+    {
+        "text": "where we are trying to predict if an individual is",
+        "start": 449.645,
+        "duration": 3.405
+    },
+    {
+        "text": "earning more than $50,000 per year or not.",
+        "start": 453.05,
+        "duration": 3.86
+    },
+    {
+        "text": "We'll be using a dataset known as adult income,",
+        "start": 456.91,
+        "duration": 3.1
+    },
+    {
+        "text": "which is derived from the US Census in around the '90s.",
+        "start": 460.01,
+        "duration": 3.93
+    },
+    {
+        "text": "It gives us basic features such as age,",
+        "start": 463.94,
+        "duration": 3.045
+    },
+    {
+        "text": "education, capital gains, etc.",
+        "start": 466.985,
+        "duration": 3.15
+    },
+    {
+        "text": "Now, when you want to train",
+        "start": 470.135,
+        "duration": 2.07
+    },
+    {
+        "text": "a glassbox models such as an Explainable Boosting Machine,",
+        "start": 472.205,
+        "duration": 3.12
+    },
+    {
+        "text": "it conforms to the same circuit",
+        "start": 475.325,
+        "duration": 2.17
+    },
+    {
+        "text": "API you may already be familiar with,",
+        "start": 477.495,
+        "duration": 1.83
+    },
+    {
+        "text": "calling fit in the same in terms of you've got default parameters.",
+        "start": 479.325,
+        "duration": 5.96
+    },
+    {
+        "text": "Now when you go into get explanations,",
+        "start": 485.285,
+        "duration": 3.105
+    },
+    {
+        "text": "you're going to call the explain underscore methods.",
+        "start": 488.39,
+        "duration": 3.03
+    },
+    {
+        "text": "In this case, we are going for explained global,",
+        "start": 491.42,
+        "duration": 2.03
+    },
+    {
+        "text": "and just to reiterate,",
+        "start": 493.45,
+        "duration": 1.195
+    },
+    {
+        "text": "that's going to give you",
+        "start": 494.645,
+        "duration": 1.47
+    },
+    {
+        "text": "general model behavior across the population.",
+        "start": 496.115,
+        "duration": 3.545
+    },
+    {
+        "text": "The first graph we see with this is the summary plot.",
+        "start": 499.66,
+        "duration": 5.18
+    },
+    {
+        "text": "It states that age is",
+        "start": 504.84,
+        "duration": 3.845
+    },
+    {
+        "text": "the most critical feature in determining if",
+        "start": 508.685,
+        "duration": 2.985
+    },
+    {
+        "text": "someone is more than 50k per year or high-income,",
+        "start": 511.67,
+        "duration": 3.24
+    },
+    {
+        "text": "we'll define in this case,",
+        "start": 514.91,
+        "duration": 1.515
+    },
+    {
+        "text": "followed by marital status,",
+        "start": 516.425,
+        "duration": 2.175
+    },
+    {
+        "text": "capital gains, and so forth.",
+        "start": 518.6,
+        "duration": 2.075
+    },
+    {
+        "text": "Now this should already be very familiar.",
+        "start": 520.675,
+        "duration": 2.975
+    },
+    {
+        "text": "A lot of machine learning models already provide",
+        "start": 523.65,
+        "duration": 2.03
+    },
+    {
+        "text": "these variable importance plots.",
+        "start": 525.68,
+        "duration": 3.45
+    },
+    {
+        "text": "But what about the further question of, well,",
+        "start": 529.13,
+        "duration": 4.14
+    },
+    {
+        "text": "I want to witness how,",
+        "start": 533.27,
+        "duration": 2.099
+    },
+    {
+        "text": "if I'm at age 20,",
+        "start": 535.369,
+        "duration": 1.651
+    },
+    {
+        "text": "how does that differ to if I was say,",
+        "start": 537.02,
+        "duration": 1.49
+    },
+    {
+        "text": "60 years of age across the population?",
+        "start": 538.51,
+        "duration": 2.97
+    },
+    {
+        "text": "Do I get a higher income as they get older or not?",
+        "start": 541.48,
+        "duration": 3.265
+    },
+    {
+        "text": "We can look deeper into that when we",
+        "start": 544.745,
+        "duration": 2.385
+    },
+    {
+        "text": "click on the feature plots, the EBMs.",
+        "start": 547.13,
+        "duration": 3.28
+    },
+    {
+        "text": "Now, how do you read this?",
+        "start": 550.43,
+        "duration": 2.17
+    },
+    {
+        "text": "Well, the score technically,",
+        "start": 552.6,
+        "duration": 1.845
+    },
+    {
+        "text": "in this case, is legit since",
+        "start": 554.445,
+        "duration": 1.395
+    },
+    {
+        "text": "we're dealing with the classification problem.",
+        "start": 555.84,
+        "duration": 1.815
+    },
+    {
+        "text": "The way to read it is this: The higher you are in the y-axis,",
+        "start": 557.655,
+        "duration": 4.005
+    },
+    {
+        "text": "the higher the odds that you are a high-income earner.",
+        "start": 561.66,
+        "duration": 4.07
+    },
+    {
+        "text": "Now, what's noticeable is when you're under 25 years of age,",
+        "start": 565.73,
+        "duration": 4.43
+    },
+    {
+        "text": "you've got a pretty low chance of earning a decent amount,",
+        "start": 570.16,
+        "duration": 4.26
+    },
+    {
+        "text": "and that's most likely due to the fact that you might be studying,",
+        "start": 574.42,
+        "duration": 4.155
+    },
+    {
+        "text": "you may not be a full-time worker by then.",
+        "start": 578.575,
+        "duration": 2.445
+    },
+    {
+        "text": "That starts to change as you get older and you just pretty",
+        "start": 581.02,
+        "duration": 4.59
+    },
+    {
+        "text": "much get a monotonic increase in how much you might earn.",
+        "start": 585.61,
+        "duration": 5.085
+    },
+    {
+        "text": "It's fairly logical, as you get all the chances,",
+        "start": 590.695,
+        "duration": 3.03
+    },
+    {
+        "text": "you've got more chance of promotions,",
+        "start": 593.725,
+        "duration": 1.335
+    },
+    {
+        "text": "you've got more experience,",
+        "start": 595.06,
+        "duration": 1.635
+    },
+    {
+        "text": "and you see an opposing effect once you hit retirement",
+        "start": 596.695,
+        "duration": 3.09
+    },
+    {
+        "text": "and somewhat chaotic decline as you get older.",
+        "start": 599.785,
+        "duration": 3.915
+    },
+    {
+        "text": "Now, what I find very interesting about this is when you look at,",
+        "start": 603.7,
+        "duration": 5.01
+    },
+    {
+        "text": "say, just the variable importance plot,",
+        "start": 608.71,
+        "duration": 1.68
+    },
+    {
+        "text": "as I showed earlier, you get to know what features are important,",
+        "start": 610.39,
+        "duration": 3.39
+    },
+    {
+        "text": "but you don't get to know how",
+        "start": 613.78,
+        "duration": 2.13
+    },
+    {
+        "text": "the segments within that feature relate.",
+        "start": 615.91,
+        "duration": 2.1
+    },
+    {
+        "text": "For instance, in this case, of age,",
+        "start": 618.01,
+        "duration": 1.77
+    },
+    {
+        "text": "when you're super young, you're",
+        "start": 619.78,
+        "duration": 2.28
+    },
+    {
+        "text": "not going to have a high chance of earning much.",
+        "start": 622.06,
+        "duration": 2.205
+    },
+    {
+        "text": "If you're somewhat middle-aged,",
+        "start": 624.265,
+        "duration": 2.28
+    },
+    {
+        "text": "you're going to be doing pretty well,",
+        "start": 626.545,
+        "duration": 1.995
+    },
+    {
+        "text": "and then once you hit your retirement,",
+        "start": 628.54,
+        "duration": 1.11
+    },
+    {
+        "text": "it starts to go down again.",
+        "start": 629.65,
+        "duration": 1.65
+    },
+    {
+        "text": "These are very interesting relationships to look into,",
+        "start": 631.3,
+        "duration": 3.135
+    },
+    {
+        "text": "especially at the model debugging stage,",
+        "start": 634.435,
+        "duration": 1.815
+    },
+    {
+        "text": "where you are actively looking for problems such as",
+        "start": 636.25,
+        "duration": 3.15
+    },
+    {
+        "text": "overfitting or possible sampling bias from the dataset itself.",
+        "start": 639.4,
+        "duration": 5.115
+    },
+    {
+        "text": "So that's what I wanted to talk about for",
+        "start": 644.515,
+        "duration": 2.025
+    },
+    {
+        "text": "the global behavior of the EBM.",
+        "start": 646.54,
+        "duration": 3.18
+    },
+    {
+        "text": "Let's have a look at the individual predictions.",
+        "start": 649.72,
+        "duration": 2.94
+    },
+    {
+        "text": "So in order to look at a single individual and say,",
+        "start": 652.66,
+        "duration": 5.175
+    },
+    {
+        "text": "\"Why did this model make that decision,",
+        "start": 657.835,
+        "duration": 3.315
+    },
+    {
+        "text": "why did it say that someone is earning high or not.\"",
+        "start": 661.15,
+        "duration": 2.805
+    },
+    {
+        "text": "You will call explain local,",
+        "start": 663.955,
+        "duration": 1.98
+    },
+    {
+        "text": "and it's going to try to explain",
+        "start": 665.935,
+        "duration": 2.415
+    },
+    {
+        "text": "the first 10 instances of the test set here.",
+        "start": 668.35,
+        "duration": 2.595
+    },
+    {
+        "text": "Now, I've clicked on \"Instance 6\",",
+        "start": 670.945,
+        "duration": 3.42
+    },
+    {
+        "text": "this is somebody the EBM has predicted is earning more than 50k,",
+        "start": 674.365,
+        "duration": 4.635
+    },
+    {
+        "text": "and surprise he is.",
+        "start": 679.0,
+        "duration": 2.955
+    },
+    {
+        "text": "Now, what's interesting in this particular plot,",
+        "start": 681.955,
+        "duration": 2.775
+    },
+    {
+        "text": "bear in mind positive means high chance of earning more,",
+        "start": 684.73,
+        "duration": 3.78
+    },
+    {
+        "text": "is that capital gains is completely dominating.",
+        "start": 688.51,
+        "duration": 3.72
+    },
+    {
+        "text": "He's earning $15,000 in capital gains,",
+        "start": 692.23,
+        "duration": 3.975
+    },
+    {
+        "text": "and this is completely overriding the decision.",
+        "start": 696.205,
+        "duration": 3.569
+    },
+    {
+        "text": "Like other features, they do matter,",
+        "start": 699.774,
+        "duration": 1.486
+    },
+    {
+        "text": "but nowhere near as much as this one feature for this man,",
+        "start": 701.26,
+        "duration": 4.005
+    },
+    {
+        "text": "and so that's how the EBM has predicted him as being high-income.",
+        "start": 705.265,
+        "duration": 4.155
+    },
+    {
+        "text": "Of course, there is a balancing act like there are things such as,",
+        "start": 709.42,
+        "duration": 3.15
+    },
+    {
+        "text": "he's a high school graduate,",
+        "start": 712.57,
+        "duration": 1.575
+    },
+    {
+        "text": "which suggests a low odds of him earning that much,",
+        "start": 714.145,
+        "duration": 4.065
+    },
+    {
+        "text": "but then there's just so many characteristics",
+        "start": 718.21,
+        "duration": 3.375
+    },
+    {
+        "text": "which are balancing out in suggesting otherwise.",
+        "start": 721.585,
+        "duration": 3.205
+    },
+    {
+        "text": "Now, let's go on to the blackbox side of things for Interpret.",
+        "start": 726.03,
+        "duration": 4.21
+    },
+    {
+        "text": "The [inaudible] a little different to",
+        "start": 730.24,
+        "duration": 1.98
+    },
+    {
+        "text": "the glassbox, but we'll walk through it.",
+        "start": 732.22,
+        "duration": 1.815
+    },
+    {
+        "text": "So we're going to train a very stock,",
+        "start": 734.035,
+        "duration": 2.97
+    },
+    {
+        "text": "simple blackbox pipeline.",
+        "start": 737.005,
+        "duration": 1.905
+    },
+    {
+        "text": "Principal component, analysis component,",
+        "start": 738.91,
+        "duration": 1.83
+    },
+    {
+        "text": "random forest, that's it.",
+        "start": 740.74,
+        "duration": 1.98
+    },
+    {
+        "text": "What we're going to do is we're going to run",
+        "start": 742.72,
+        "duration": 2.73
+    },
+    {
+        "text": "partial dependence on top of",
+        "start": 745.45,
+        "duration": 2.22
+    },
+    {
+        "text": "this pipeline to try to tease out how it's making decisions,",
+        "start": 747.67,
+        "duration": 3.285
+    },
+    {
+        "text": "in this case, the overall behavior.",
+        "start": 750.955,
+        "duration": 1.65
+    },
+    {
+        "text": "Like how does the model overall",
+        "start": 752.605,
+        "duration": 2.145
+    },
+    {
+        "text": "see which features are important and not, and which regions.",
+        "start": 754.75,
+        "duration": 3.82
+    },
+    {
+        "text": "So we can look at specific feature plots in",
+        "start": 758.7,
+        "duration": 3.31
+    },
+    {
+        "text": "the case of partial dependence and witness with",
+        "start": 762.01,
+        "duration": 2.49
+    },
+    {
+        "text": "this dark blue line that the relationship is very similar in",
+        "start": 764.5,
+        "duration": 3.39
+    },
+    {
+        "text": "terms of age to high-income as EBM.",
+        "start": 767.89,
+        "duration": 3.855
+    },
+    {
+        "text": "When you're young, you don't",
+        "start": 771.745,
+        "duration": 1.515
+    },
+    {
+        "text": "have that higher chance of earning much,",
+        "start": 773.26,
+        "duration": 1.77
+    },
+    {
+        "text": "but it starts to increase as you get older and then",
+        "start": 775.03,
+        "duration": 3.6
+    },
+    {
+        "text": "back down again as you get closer to retirement and onwards.",
+        "start": 778.63,
+        "duration": 4.63
+    },
+    {
+        "text": "I'd like to state, again,",
+        "start": 783.6,
+        "duration": 2.11
+    },
+    {
+        "text": "that with blackbox explainers be a little careful,",
+        "start": 785.71,
+        "duration": 3.45
+    },
+    {
+        "text": "they are approximations, they try to give",
+        "start": 789.16,
+        "duration": 2.85
+    },
+    {
+        "text": "an educated guess and stating how the model works,",
+        "start": 792.01,
+        "duration": 2.88
+    },
+    {
+        "text": "but it's not telling you exactly",
+        "start": 794.89,
+        "duration": 1.41
+    },
+    {
+        "text": "how the model is making its choice.",
+        "start": 796.3,
+        "duration": 1.92
+    },
+    {
+        "text": "So always keep that in the back of your head when",
+        "start": 798.22,
+        "duration": 1.77
+    },
+    {
+        "text": "you look at these graphs,",
+        "start": 799.99,
+        "duration": 1.95
+    },
+    {
+        "text": "specific to blackbox,",
+        "start": 801.94,
+        "duration": 1.44
+    },
+    {
+        "text": "glassbox is a different story.",
+        "start": 803.38,
+        "duration": 1.41
+    },
+    {
+        "text": "That's always exact.",
+        "start": 804.79,
+        "duration": 1.44
+    },
+    {
+        "text": "It is what you see. That sums up how you",
+        "start": 806.23,
+        "duration": 3.78
+    },
+    {
+        "text": "utilize blackbox and glassbox",
+        "start": 810.01,
+        "duration": 1.98
+    },
+    {
+        "text": "methods within Interpret package. Enjoy.",
+        "start": 811.99,
+        "duration": 3.67
+    },
+    {
+        "text": ">> Great. So let's see how SHAP enables you",
+        "start": 815.85,
+        "duration": 3.55
+    },
+    {
+        "text": "to understand your model predictions better.",
+        "start": 819.4,
+        "duration": 2.94
+    },
+    {
+        "text": "What SHAP calculates is how much each feature has contributed to",
+        "start": 822.34,
+        "duration": 4.29
+    },
+    {
+        "text": "the prediction of a particular data point",
+        "start": 826.63,
+        "duration": 2.385
+    },
+    {
+        "text": "compared to the average prediction.",
+        "start": 829.015,
+        "duration": 2.49
+    },
+    {
+        "text": "For instance, imagine that we want to understand",
+        "start": 831.505,
+        "duration": 2.955
+    },
+    {
+        "text": "a model that predicts housing prices.",
+        "start": 834.46,
+        "duration": 3.165
+    },
+    {
+        "text": "We have these particular data points,",
+        "start": 837.625,
+        "duration": 2.325
+    },
+    {
+        "text": "which is a house that has a park around it,",
+        "start": 839.95,
+        "duration": 2.97
+    },
+    {
+        "text": "cats are banned, it's in a very safe neighborhood,",
+        "start": 842.92,
+        "duration": 3.015
+    },
+    {
+        "text": "and wall painting is required.",
+        "start": 845.935,
+        "duration": 2.684
+    },
+    {
+        "text": "This particular house has been predicted to have",
+        "start": 848.619,
+        "duration": 3.241
+    },
+    {
+        "text": "the price of $300k,",
+        "start": 851.86,
+        "duration": 2.985
+    },
+    {
+        "text": "which brings it to be 10k less than",
+        "start": 854.845,
+        "duration": 3.315
+    },
+    {
+        "text": "the average house price prediction",
+        "start": 858.16,
+        "duration": 1.815
+    },
+    {
+        "text": "for all the apartments in that dataset.",
+        "start": 859.975,
+        "duration": 3.015
+    },
+    {
+        "text": "Now, SHAP enables you to see how much",
+        "start": 862.99,
+        "duration": 3.495
+    },
+    {
+        "text": "each of these features have contributed to",
+        "start": 866.485,
+        "duration": 3.045
+    },
+    {
+        "text": "make this particular house prediction to be",
+        "start": 869.53,
+        "duration": 2.625
+    },
+    {
+        "text": "10k less than the average prediction of the houses.",
+        "start": 872.155,
+        "duration": 3.795
+    },
+    {
+        "text": "The result can be something like,",
+        "start": 875.95,
+        "duration": 2.205
+    },
+    {
+        "text": "the fact that wall painting is needed contributed minus $10k,",
+        "start": 878.155,
+        "duration": 3.96
+    },
+    {
+        "text": "the fact that there is a park around it contributed plus $10k,",
+        "start": 882.115,
+        "duration": 4.5
+    },
+    {
+        "text": "the fact that there is a secure neighborhood",
+        "start": 886.615,
+        "duration": 2.43
+    },
+    {
+        "text": "around this house contributed plus 10k,",
+        "start": 889.045,
+        "duration": 2.745
+    },
+    {
+        "text": "and the fact that cats are banned contributed minus 20k.",
+        "start": 891.79,
+        "duration": 4.365
+    },
+    {
+        "text": "Now let's switch gears going to an example of",
+        "start": 896.155,
+        "duration": 4.395
+    },
+    {
+        "text": "using SHAP in action to explain a Blackbox model.",
+        "start": 900.55,
+        "duration": 4.425
+    },
+    {
+        "text": "Here you can see a sample notebook that I have put under",
+        "start": 904.975,
+        "duration": 3.585
+    },
+    {
+        "text": "hosted Notebook VM within Azure Machine Learning.",
+        "start": 908.56,
+        "duration": 3.675
+    },
+    {
+        "text": "What I would like to do is to showcase how SHAP",
+        "start": 912.235,
+        "duration": 3.105
+    },
+    {
+        "text": "can be used to explain the results",
+        "start": 915.34,
+        "duration": 2.85
+    },
+    {
+        "text": "and predictions of a binary classification model that",
+        "start": 918.19,
+        "duration": 2.73
+    },
+    {
+        "text": "has been trained on top of employee attrition dataset.",
+        "start": 920.92,
+        "duration": 3.33
+    },
+    {
+        "text": "First, I install the package that I",
+        "start": 924.25,
+        "duration": 2.7
+    },
+    {
+        "text": "need in order to run this interpretability technique,",
+        "start": 926.95,
+        "duration": 2.61
+    },
+    {
+        "text": "and I go through my model training phase.",
+        "start": 929.56,
+        "duration": 2.235
+    },
+    {
+        "text": "I get the dataset,",
+        "start": 931.795,
+        "duration": 1.53
+    },
+    {
+        "text": "as I said, it's an employee attrition dataset,",
+        "start": 933.325,
+        "duration": 2.7
+    },
+    {
+        "text": "so binary classification of labels is beings yes or no,",
+        "start": 936.025,
+        "duration": 4.185
+    },
+    {
+        "text": "meaning leaving or staying.",
+        "start": 940.21,
+        "duration": 2.13
+    },
+    {
+        "text": "I get rid of some of the features,",
+        "start": 942.34,
+        "duration": 2.325
+    },
+    {
+        "text": "I split the dataset into train and test,",
+        "start": 944.665,
+        "duration": 3.24
+    },
+    {
+        "text": "and I apply some feature transformation on top",
+        "start": 947.905,
+        "duration": 2.805
+    },
+    {
+        "text": "of my numeric features and categorical features.",
+        "start": 950.71,
+        "duration": 3.12
+    },
+    {
+        "text": "Then I train an SVM classifier that is",
+        "start": 953.83,
+        "duration": 3.72
+    },
+    {
+        "text": "basically predicting whether someone",
+        "start": 957.55,
+        "duration": 2.04
+    },
+    {
+        "text": "would stay or would leave the company.",
+        "start": 959.59,
+        "duration": 2.625
+    },
+    {
+        "text": "After I fit the model,",
+        "start": 962.215,
+        "duration": 2.16
+    },
+    {
+        "text": "that's where interpretability comes into the scenario.",
+        "start": 964.375,
+        "duration": 3.105
+    },
+    {
+        "text": "Tabular explainer is based on SHAP and basically uses",
+        "start": 967.48,
+        "duration": 3.6
+    },
+    {
+        "text": "a very light logic to look at",
+        "start": 971.08,
+        "duration": 2.22
+    },
+    {
+        "text": "the type of your model and accordingly,",
+        "start": 973.3,
+        "duration": 2.865
+    },
+    {
+        "text": "call one of the appropriate SHAP explainers.",
+        "start": 976.165,
+        "duration": 3.21
+    },
+    {
+        "text": "In this particular case,",
+        "start": 979.375,
+        "duration": 1.71
+    },
+    {
+        "text": "Kernel explainer of SHAP has been called.",
+        "start": 981.085,
+        "duration": 3.03
+    },
+    {
+        "text": "What you need to parse to it is the model",
+        "start": 984.115,
+        "duration": 2.94
+    },
+    {
+        "text": "and the background data, and optionally,",
+        "start": 987.055,
+        "duration": 2.774
+    },
+    {
+        "text": "you can parse the feature names,",
+        "start": 989.829,
+        "duration": 1.906
+    },
+    {
+        "text": "class names or labels,",
+        "start": 991.735,
+        "duration": 2.64
+    },
+    {
+        "text": "and the feature transformations.",
+        "start": 994.375,
+        "duration": 2.49
+    },
+    {
+        "text": "Parsing the feature transformations that you have",
+        "start": 996.865,
+        "duration": 2.445
+    },
+    {
+        "text": "defined on top of your numeric and categorical features will",
+        "start": 999.31,
+        "duration": 3.15
+    },
+    {
+        "text": "allow this SHAP tabular explainer to",
+        "start": 1002.46,
+        "duration": 2.34
+    },
+    {
+        "text": "reverse the feature engineering pipeline for you",
+        "start": 1004.8,
+        "duration": 3.12
+    },
+    {
+        "text": "and return the feature importances that are in",
+        "start": 1007.92,
+        "duration": 2.91
+    },
+    {
+        "text": "terms of raw features rather than engineered features,",
+        "start": 1010.83,
+        "duration": 3.405
+    },
+    {
+        "text": "obviously, that promotes understandability",
+        "start": 1014.235,
+        "duration": 3.135
+    },
+    {
+        "text": "of your model explanations.",
+        "start": 1017.37,
+        "duration": 2.865
+    },
+    {
+        "text": "Once you create this explainer object,",
+        "start": 1020.235,
+        "duration": 2.91
+    },
+    {
+        "text": "you can call two different functions on top of it,",
+        "start": 1023.145,
+        "duration": 2.46
+    },
+    {
+        "text": "explain global, which overall",
+        "start": 1025.605,
+        "duration": 2.715
+    },
+    {
+        "text": "explains how your model has made these predictions.",
+        "start": 1028.32,
+        "duration": 3.45
+    },
+    {
+        "text": "For instance, here I can see a dictionary",
+        "start": 1031.77,
+        "duration": 2.535
+    },
+    {
+        "text": "of top K important factors for me over time,",
+        "start": 1034.305,
+        "duration": 4.755
+    },
+    {
+        "text": "number of companies worked,",
+        "start": 1039.06,
+        "duration": 1.515
+    },
+    {
+        "text": "environment satisfaction, and I can call explain local and",
+        "start": 1040.575,
+        "duration": 4.335
+    },
+    {
+        "text": "pass a particular data points to it",
+        "start": 1044.91,
+        "duration": 2.22
+    },
+    {
+        "text": "and see for that particular person,",
+        "start": 1047.13,
+        "duration": 2.52
+    },
+    {
+        "text": "what are the features of him or her",
+        "start": 1049.65,
+        "duration": 2.265
+    },
+    {
+        "text": "and what are the feature importances for him or her.",
+        "start": 1051.915,
+        "duration": 3.18
+    },
+    {
+        "text": "Alternatively, you can use our visualization dashboard inside",
+        "start": 1055.095,
+        "duration": 4.155
+    },
+    {
+        "text": "the Jupyter notebook or in a new tab to",
+        "start": 1059.25,
+        "duration": 2.7
+    },
+    {
+        "text": "take a look at the model performance,",
+        "start": 1061.95,
+        "duration": 3.0
+    },
+    {
+        "text": "explore your dataset, and understand your model explanations,",
+        "start": 1064.95,
+        "duration": 4.185
+    },
+    {
+        "text": "either global explanations or the local explanations.",
+        "start": 1069.135,
+        "duration": 3.345
+    },
+    {
+        "text": "So let's go through what",
+        "start": 1072.48,
+        "duration": 1.41
+    },
+    {
+        "text": "this visualization dashboard does for you.",
+        "start": 1073.89,
+        "duration": 2.415
+    },
+    {
+        "text": "Before doing a deep dive on what these four tabs are,",
+        "start": 1076.305,
+        "duration": 4.11
+    },
+    {
+        "text": "let's focus on this header for now.",
+        "start": 1080.415,
+        "duration": 2.46
+    },
+    {
+        "text": "When you load this visualization dashboard,",
+        "start": 1082.875,
+        "duration": 2.67
+    },
+    {
+        "text": "you can see only one cohort,",
+        "start": 1085.545,
+        "duration": 1.799
+    },
+    {
+        "text": "which contains all your dataset.",
+        "start": 1087.344,
+        "duration": 2.401
+    },
+    {
+        "text": "Alternatively, you can add cohorts",
+        "start": 1089.745,
+        "duration": 2.865
+    },
+    {
+        "text": "like what I did for age less than or equal",
+        "start": 1092.61,
+        "duration": 2.34
+    },
+    {
+        "text": "35 and age greater than 35",
+        "start": 1094.95,
+        "duration": 2.28
+    },
+    {
+        "text": "in order to compare the model performance,",
+        "start": 1097.23,
+        "duration": 2.685
+    },
+    {
+        "text": "dataset insights, and global and local feature importances,",
+        "start": 1099.915,
+        "duration": 4.05
+    },
+    {
+        "text": "across different sub-cohorts in your data.",
+        "start": 1103.965,
+        "duration": 3.57
+    },
+    {
+        "text": "Now that I have created these two cohorts,",
+        "start": 1107.535,
+        "duration": 3.765
+    },
+    {
+        "text": "I can compare the performance of the model across them,",
+        "start": 1111.3,
+        "duration": 3.465
+    },
+    {
+        "text": "and I can also look at the distribution of",
+        "start": 1114.765,
+        "duration": 2.625
+    },
+    {
+        "text": "my prediction values across all these three cohorts.",
+        "start": 1117.39,
+        "duration": 3.72
+    },
+    {
+        "text": "The very first thing that I'm observing is the accuracy of",
+        "start": 1121.11,
+        "duration": 3.24
+    },
+    {
+        "text": "my model is overall 87 percent for all data,",
+        "start": 1124.35,
+        "duration": 3.315
+    },
+    {
+        "text": "and when I break it down to different age groups,",
+        "start": 1127.665,
+        "duration": 3.015
+    },
+    {
+        "text": "it is 81 percent for the age less than or equal",
+        "start": 1130.68,
+        "duration": 3.48
+    },
+    {
+        "text": "35 and 94 percent for each group greater than 35.",
+        "start": 1134.16,
+        "duration": 4.455
+    },
+    {
+        "text": "So there is almost at 13 percent accuracy gap",
+        "start": 1138.615,
+        "duration": 3.78
+    },
+    {
+        "text": "between the two age groups.",
+        "start": 1142.395,
+        "duration": 2.16
+    },
+    {
+        "text": "This accuracy gap makes me a bit suspicious that there might be",
+        "start": 1144.555,
+        "duration": 3.915
+    },
+    {
+        "text": "an imbalance in the ground trues labels",
+        "start": 1148.47,
+        "duration": 2.01
+    },
+    {
+        "text": "of age group greater than 35.",
+        "start": 1150.48,
+        "duration": 2.13
+    },
+    {
+        "text": "For instance, we might have had less people in",
+        "start": 1152.61,
+        "duration": 3.24
+    },
+    {
+        "text": "that age group that has",
+        "start": 1155.85,
+        "duration": 1.44
+    },
+    {
+        "text": "the actual ground trues of leaving the company.",
+        "start": 1157.29,
+        "duration": 2.445
+    },
+    {
+        "text": "Let's see whether that hypothesis is true.",
+        "start": 1159.735,
+        "duration": 2.835
+    },
+    {
+        "text": "I come to the Dataset Explorer,",
+        "start": 1162.57,
+        "duration": 2.325
+    },
+    {
+        "text": "I switch to age group less than or equal 35,",
+        "start": 1164.895,
+        "duration": 3.27
+    },
+    {
+        "text": "and now I can see the actual ground trues classes or labels",
+        "start": 1168.165,
+        "duration": 4.574
+    },
+    {
+        "text": "for different sexes existing",
+        "start": 1172.739,
+        "duration": 2.93
+    },
+    {
+        "text": "in the age group less than or equal 35.",
+        "start": 1175.669,
+        "duration": 2.761
+    },
+    {
+        "text": "The orange is the people with ground",
+        "start": 1178.43,
+        "duration": 2.46
+    },
+    {
+        "text": "true staying and the blue is people with ground trues leaving.",
+        "start": 1180.89,
+        "duration": 3.485
+    },
+    {
+        "text": "Now, I switch to age greater than 35,",
+        "start": 1184.375,
+        "duration": 3.68
+    },
+    {
+        "text": "and I can see that this label almost became half in size.",
+        "start": 1188.055,
+        "duration": 4.68
+    },
+    {
+        "text": "So the age group greater than 35 had",
+        "start": 1192.735,
+        "duration": 3.615
+    },
+    {
+        "text": "almost half of the people in age group less than or equal 35,",
+        "start": 1196.35,
+        "duration": 4.77
+    },
+    {
+        "text": "who had the actual ground trues of leaving the company.",
+        "start": 1201.12,
+        "duration": 3.06
+    },
+    {
+        "text": "Another insight I can get is comparing",
+        "start": 1204.18,
+        "duration": 2.97
+    },
+    {
+        "text": "the reality on the ground trues values with the prediction values.",
+        "start": 1207.15,
+        "duration": 3.57
+    },
+    {
+        "text": "For instance, for the age group greater than 35,",
+        "start": 1210.72,
+        "duration": 2.55
+    },
+    {
+        "text": "now I see how many of females and males have",
+        "start": 1213.27,
+        "duration": 2.88
+    },
+    {
+        "text": "got the actual ground trues labels of leaving and staying,",
+        "start": 1216.15,
+        "duration": 3.345
+    },
+    {
+        "text": "and I can switch to predicted classes and see that,",
+        "start": 1219.495,
+        "duration": 6.375
+    },
+    {
+        "text": "for instance, for females of age group greater than 35,",
+        "start": 1225.87,
+        "duration": 3.255
+    },
+    {
+        "text": "there was no prediction of class leaving.",
+        "start": 1229.125,
+        "duration": 3.105
+    },
+    {
+        "text": "Although in the ground trues,",
+        "start": 1232.23,
+        "duration": 1.62
+    },
+    {
+        "text": "it's clearly suggest that there were some people",
+        "start": 1233.85,
+        "duration": 2.64
+    },
+    {
+        "text": "greater than age 35 who left the company.",
+        "start": 1236.49,
+        "duration": 3.27
+    },
+    {
+        "text": "Now, let's discuss the last two tabs which are more",
+        "start": 1239.76,
+        "duration": 3.72
+    },
+    {
+        "text": "about understanding your model explanations.",
+        "start": 1243.48,
+        "duration": 3.21
+    },
+    {
+        "text": "The very first one is aggregate feature importance,",
+        "start": 1246.69,
+        "duration": 2.58
+    },
+    {
+        "text": "which allows you to explore",
+        "start": 1249.27,
+        "duration": 1.41
+    },
+    {
+        "text": "the top K important factors that",
+        "start": 1250.68,
+        "duration": 1.65
+    },
+    {
+        "text": "impacted your overall model prediction.",
+        "start": 1252.33,
+        "duration": 2.67
+    },
+    {
+        "text": "First, I only activate my first cohort,",
+        "start": 1255.0,
+        "duration": 2.79
+    },
+    {
+        "text": "which is all data.",
+        "start": 1257.79,
+        "duration": 1.245
+    },
+    {
+        "text": "I can take a look at what top K important",
+        "start": 1259.035,
+        "duration": 3.345
+    },
+    {
+        "text": "factors are: overtime, environment satisfaction,",
+        "start": 1262.38,
+        "duration": 3.99
+    },
+    {
+        "text": "number of companies worked, job satisfaction,",
+        "start": 1266.37,
+        "duration": 2.37
+    },
+    {
+        "text": "are the top four important factors",
+        "start": 1268.74,
+        "duration": 2.895
+    },
+    {
+        "text": "influencing the predictions of this model.",
+        "start": 1271.635,
+        "duration": 3.255
+    },
+    {
+        "text": "I can then bring particular age groups into the scenario,",
+        "start": 1274.89,
+        "duration": 4.98
+    },
+    {
+        "text": "and change the sorting to see for each age group,",
+        "start": 1279.87,
+        "duration": 3.0
+    },
+    {
+        "text": "what are the top K factors?",
+        "start": 1282.87,
+        "duration": 1.47
+    },
+    {
+        "text": "For instance, for age group less than or equal 35,",
+        "start": 1284.34,
+        "duration": 3.3
+    },
+    {
+        "text": "the top K factors are overtime,",
+        "start": 1287.64,
+        "duration": 1.905
+    },
+    {
+        "text": "environmental satisfaction,",
+        "start": 1289.545,
+        "duration": 1.71
+    },
+    {
+        "text": "number of companies worked, and job satisfaction.",
+        "start": 1291.255,
+        "duration": 3.345
+    },
+    {
+        "text": "For each group greater than 35,",
+        "start": 1294.6,
+        "duration": 2.4
+    },
+    {
+        "text": "the top K important factors are overtime,",
+        "start": 1297.0,
+        "duration": 2.625
+    },
+    {
+        "text": "environment satisfaction, number of companies worked,",
+        "start": 1299.625,
+        "duration": 3.015
+    },
+    {
+        "text": "year since last promotion.",
+        "start": 1302.64,
+        "duration": 2.205
+    },
+    {
+        "text": "It is interesting to see that for age group less than or equal 35,",
+        "start": 1304.845,
+        "duration": 4.5
+    },
+    {
+        "text": "overtime is a lot more important in affecting and influencing",
+        "start": 1309.345,
+        "duration": 4.155
+    },
+    {
+        "text": "the prediction compares to",
+        "start": 1313.5,
+        "duration": 2.085
+    },
+    {
+        "text": "the same factors influence for age group greater than 35.",
+        "start": 1315.585,
+        "duration": 4.495
+    },
+    {
+        "text": "Now, going back to the default,",
+        "start": 1320.6,
+        "duration": 3.145
+    },
+    {
+        "text": "I'm interested in investigating how",
+        "start": 1323.745,
+        "duration": 2.955
+    },
+    {
+        "text": "overtime is impacting my model predictions.",
+        "start": 1326.7,
+        "duration": 2.759
+    },
+    {
+        "text": "So I click on it,",
+        "start": 1329.459,
+        "duration": 1.246
+    },
+    {
+        "text": "and now I can see this dependence plot",
+        "start": 1330.705,
+        "duration": 2.895
+    },
+    {
+        "text": "that suggests that people who worked overtime,",
+        "start": 1333.6,
+        "duration": 3.555
+    },
+    {
+        "text": "for them, the factor is",
+        "start": 1337.155,
+        "duration": 2.175
+    },
+    {
+        "text": "a positive indicator of prediction leaving.",
+        "start": 1339.33,
+        "duration": 3.36
+    },
+    {
+        "text": "Alternatively, clicking on \"Job Satisfaction\" suggests that,",
+        "start": 1342.69,
+        "duration": 4.155
+    },
+    {
+        "text": "as people had more job satisfaction,",
+        "start": 1346.845,
+        "duration": 2.925
+    },
+    {
+        "text": "for them, the factor of job satisfaction",
+        "start": 1349.77,
+        "duration": 2.415
+    },
+    {
+        "text": "becomes a negative indicators towards leaving,",
+        "start": 1352.185,
+        "duration": 2.715
+    },
+    {
+        "text": "which is positive towards staying.",
+        "start": 1354.9,
+        "duration": 2.445
+    },
+    {
+        "text": "In other words, as people were happier,",
+        "start": 1357.345,
+        "duration": 3.45
+    },
+    {
+        "text": "that happiness made the model",
+        "start": 1360.795,
+        "duration": 2.475
+    },
+    {
+        "text": "to predict they're going to stay with the company.",
+        "start": 1363.27,
+        "duration": 2.955
+    },
+    {
+        "text": "Eventually, I come to",
+        "start": 1366.225,
+        "duration": 2.085
+    },
+    {
+        "text": "the individual feature importance and",
+        "start": 1368.31,
+        "duration": 1.56
+    },
+    {
+        "text": "What-If Analysis tab in order",
+        "start": 1369.87,
+        "duration": 2.01
+    },
+    {
+        "text": "to gain a better understanding of the factors",
+        "start": 1371.88,
+        "duration": 2.519
+    },
+    {
+        "text": "behind the prediction of my individual data points,",
+        "start": 1374.399,
+        "duration": 3.046
+    },
+    {
+        "text": "and run some what-if analysis scenarios",
+        "start": 1377.445,
+        "duration": 2.475
+    },
+    {
+        "text": "by perturbing my data points features,",
+        "start": 1379.92,
+        "duration": 2.295
+    },
+    {
+        "text": "to gain an understanding of my model,",
+        "start": 1382.215,
+        "duration": 2.37
+    },
+    {
+        "text": "and debugging it further.",
+        "start": 1384.585,
+        "duration": 2.25
+    },
+    {
+        "text": "I choose to click on this particular person.",
+        "start": 1386.835,
+        "duration": 3.42
+    },
+    {
+        "text": "This person has been predicted to",
+        "start": 1390.255,
+        "duration": 2.085
+    },
+    {
+        "text": "leave the company with 87 percent.",
+        "start": 1392.34,
+        "duration": 2.385
+    },
+    {
+        "text": "I can see some of this person's features here,",
+        "start": 1394.725,
+        "duration": 3.225
+    },
+    {
+        "text": "the age 29, the person is a male,",
+        "start": 1397.95,
+        "duration": 4.125
+    },
+    {
+        "text": "belongs to education field,",
+        "start": 1402.075,
+        "duration": 1.485
+    },
+    {
+        "text": "Life Sciences, travels frequently,",
+        "start": 1403.56,
+        "duration": 3.075
+    },
+    {
+        "text": "but also what I can see is,",
+        "start": 1406.635,
+        "duration": 2.115
+    },
+    {
+        "text": "what are the top K important factors",
+        "start": 1408.75,
+        "duration": 2.13
+    },
+    {
+        "text": "contributing to this prediction of leaving?",
+        "start": 1410.88,
+        "duration": 2.58
+    },
+    {
+        "text": "For instance, the factor over time,",
+        "start": 1413.46,
+        "duration": 2.13
+    },
+    {
+        "text": "business travel, distance from home,",
+        "start": 1415.59,
+        "duration": 1.92
+    },
+    {
+        "text": "and stock option level are the top four factors of this person",
+        "start": 1417.51,
+        "duration": 3.885
+    },
+    {
+        "text": "who are contributing to",
+        "start": 1421.395,
+        "duration": 1.425
+    },
+    {
+        "text": "this prediction of leaving with 87 percent.",
+        "start": 1422.82,
+        "duration": 3.55
+    },
+    {
+        "text": "In the opposite side,",
+        "start": 1426.68,
+        "duration": 2.35
+    },
+    {
+        "text": "there are some factors of him,",
+        "start": 1429.03,
+        "duration": 1.62
+    },
+    {
+        "text": "job satisfaction, environment satisfaction,",
+        "start": 1430.65,
+        "duration": 2.28
+    },
+    {
+        "text": "number of companies worked, education field,",
+        "start": 1432.93,
+        "duration": 2.07
+    },
+    {
+        "text": "that are impacting this prediction of leaving negatively,",
+        "start": 1435.0,
+        "duration": 3.225
+    },
+    {
+        "text": "but perhaps the other factors could affect it more strongly,",
+        "start": 1438.225,
+        "duration": 3.945
+    },
+    {
+        "text": "so the prediction ended up being leaving.",
+        "start": 1442.17,
+        "duration": 2.745
+    },
+    {
+        "text": "What I'm going to do is,",
+        "start": 1444.915,
+        "duration": 2.01
+    },
+    {
+        "text": "I'm going to perturb some features of this data point.",
+        "start": 1446.925,
+        "duration": 2.94
+    },
+    {
+        "text": "I'm going to change his traveling situation to non-travel,",
+        "start": 1449.865,
+        "duration": 3.6
+    },
+    {
+        "text": "that drops the prediction from leaving with",
+        "start": 1453.465,
+        "duration": 2.82
+    },
+    {
+        "text": "87 percent to leaving with 75 percent.",
+        "start": 1456.285,
+        "duration": 4.245
+    },
+    {
+        "text": "Moreover, I'm going to change",
+        "start": 1460.53,
+        "duration": 2.34
+    },
+    {
+        "text": "the fact that he is working overtime,",
+        "start": 1462.87,
+        "duration": 3.075
+    },
+    {
+        "text": "and reduce his work assignments.",
+        "start": 1465.945,
+        "duration": 3.655
+    },
+    {
+        "text": "It is interesting to see by these two changes of not having him",
+        "start": 1469.64,
+        "duration": 4.9
+    },
+    {
+        "text": "work overtime and changing it to",
+        "start": 1474.54,
+        "duration": 2.01
+    },
+    {
+        "text": "non-travel from traveling frequently,",
+        "start": 1476.55,
+        "duration": 2.355
+    },
+    {
+        "text": "the class actually change from prediction of leaving",
+        "start": 1478.905,
+        "duration": 2.745
+    },
+    {
+        "text": "to prediction of staying with 65 percent.",
+        "start": 1481.65,
+        "duration": 3.015
+    },
+    {
+        "text": "So I can get a lot of understanding just doing",
+        "start": 1484.665,
+        "duration": 4.125
+    },
+    {
+        "text": "this perturbations by seeing whether my model is making sense,",
+        "start": 1488.79,
+        "duration": 4.425
+    },
+    {
+        "text": "whether my model is making",
+        "start": 1493.215,
+        "duration": 2.025
+    },
+    {
+        "text": "this prediction based on the factors that are intuitive.",
+        "start": 1495.24,
+        "duration": 3.735
+    },
+    {
+        "text": "The other thing that I can do is I can look at",
+        "start": 1498.975,
+        "duration": 2.775
+    },
+    {
+        "text": "individual conditional expectation plot.",
+        "start": 1501.75,
+        "duration": 2.64
+    },
+    {
+        "text": "For instance, for this particular person,",
+        "start": 1504.39,
+        "duration": 2.145
+    },
+    {
+        "text": "I can see that perturbing",
+        "start": 1506.535,
+        "duration": 2.175
+    },
+    {
+        "text": "the age feature of this particular person,",
+        "start": 1508.71,
+        "duration": 2.205
+    },
+    {
+        "text": "given that all other features of him or constant,",
+        "start": 1510.915,
+        "duration": 3.015
+    },
+    {
+        "text": "change the probability of leaving from 90 percent to 64 percent.",
+        "start": 1513.93,
+        "duration": 5.685
+    },
+    {
+        "text": "So I can continue comparing",
+        "start": 1519.615,
+        "duration": 2.385
+    },
+    {
+        "text": "the eye spots and",
+        "start": 1522.0,
+        "duration": 1.56
+    },
+    {
+        "text": "feature importance of multiple people and see how,",
+        "start": 1523.56,
+        "duration": 3.18
+    },
+    {
+        "text": "for instance, this person and this person compare when it comes",
+        "start": 1526.74,
+        "duration": 3.63
+    },
+    {
+        "text": "to the top K important factors",
+        "start": 1530.37,
+        "duration": 1.8
+    },
+    {
+        "text": "that have affected their predictions.",
+        "start": 1532.17,
+        "duration": 2.385
+    },
+    {
+        "text": "Eventually, what I'm excited to announce today",
+        "start": 1534.555,
+        "duration": 3.33
+    },
+    {
+        "text": "is all of the capability is that you just sign our demo,",
+        "start": 1537.885,
+        "duration": 3.36
+    },
+    {
+        "text": "are going to be integrated within",
+        "start": 1541.245,
+        "duration": 2.325
+    },
+    {
+        "text": "Azure Machine Learning Studio under the Explanation tab.",
+        "start": 1543.57,
+        "duration": 3.6
+    },
+    {
+        "text": "So by going to a particular model that",
+        "start": 1547.17,
+        "duration": 2.25
+    },
+    {
+        "text": "you've registered or an experiment that you have run,",
+        "start": 1549.42,
+        "duration": 2.49
+    },
+    {
+        "text": "you can run the same visualization dashboard within Studio,",
+        "start": 1551.91,
+        "duration": 3.96
+    },
+    {
+        "text": "share it with other stakeholders,",
+        "start": 1555.87,
+        "duration": 1.965
+    },
+    {
+        "text": "and have a very easy way of accessing",
+        "start": 1557.835,
+        "duration": 2.97
+    },
+    {
+        "text": "the explanation of the models that you had previously generated.",
+        "start": 1560.805,
+        "duration": 4.364
+    },
+    {
+        "text": "Thank you so much for joining us today.",
+        "start": 1565.169,
+        "duration": 2.581
+    },
+    {
+        "text": "Please feel free to check out",
+        "start": 1567.75,
+        "duration": 1.26
+    },
+    {
+        "text": "our open source offerings under interpret.ml,",
+        "start": 1569.01,
+        "duration": 3.6
+    },
+    {
+        "text": "and its integration with",
+        "start": 1572.61,
+        "duration": 1.53
+    },
+    {
+        "text": "Azure Machine Learning under Azure ML docs.",
+        "start": 1574.14,
+        "duration": 2.7
+    },
+    {
+        "text": "Please also check out our customer highlight",
+        "start": 1576.84,
+        "duration": 2.22
+    },
+    {
+        "text": "with Scandinavian Airline.",
+        "start": 1579.06,
+        "duration": 1.71
+    },
+    {
+        "text": "Thank you so much and have a great day.",
+        "start": 1580.77,
+        "duration": 1.77
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 1582.54,
+        "duration": 12.46
+    }
+]

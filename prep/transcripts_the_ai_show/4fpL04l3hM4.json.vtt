@@ -1,0 +1,942 @@
+[
+    {
+        "text": ">> Hello and welcome.",
+        "start": 0.0,
+        "duration": 0.66
+    },
+    {
+        "text": "But you're not going",
+        "start": 0.66,
+        "duration": 3.99
+    },
+    {
+        "text": "to miss this episode of the AI show where we look",
+        "start": 4.65,
+        "duration": 2.34
+    },
+    {
+        "text": "at Event Grid and special",
+        "start": 6.99,
+        "duration": 2.7
+    },
+    {
+        "text": "Machine Learning Events coming directly from",
+        "start": 9.69,
+        "duration": 1.785
+    },
+    {
+        "text": "Azure Machine Learning Service, make sure you tune in.",
+        "start": 11.475,
+        "duration": 2.175
+    },
+    {
+        "text": "[MUSIC].",
+        "start": 13.65,
+        "duration": 5.46
+    },
+    {
+        "text": ">> Hello, welcome to this episode of the AI show,",
+        "start": 19.11,
+        "duration": 1.89
+    },
+    {
+        "text": "Part two of three.",
+        "start": 21.0,
+        "duration": 1.41
+    },
+    {
+        "text": "We've been talking about ML Ops with",
+        "start": 22.41,
+        "duration": 1.29
+    },
+    {
+        "text": "Shivani. How are you doing my friend,.",
+        "start": 23.7,
+        "duration": 1.575
+    },
+    {
+        "text": ">> I'm good, how are you?",
+        "start": 25.275,
+        "duration": 1.2
+    },
+    {
+        "text": ">> Fantastic, tell us who you are and what you do.",
+        "start": 26.475,
+        "duration": 2.265
+    },
+    {
+        "text": ">> All right. So I'm Shivani, I work on",
+        "start": 28.74,
+        "duration": 2.31
+    },
+    {
+        "text": "the Azure Machine Learning Platform team.",
+        "start": 31.05,
+        "duration": 1.92
+    },
+    {
+        "text": "I'm a program manager and I specifically work on MLOps.",
+        "start": 32.97,
+        "duration": 3.84
+    },
+    {
+        "text": ">> Fantastic. So what are we talking about for this episode?",
+        "start": 36.81,
+        "duration": 3.075
+    },
+    {
+        "text": ">> So today I'm going to talk about Event Grid",
+        "start": 39.885,
+        "duration": 2.465
+    },
+    {
+        "text": "and how you can create event-driven workflows,",
+        "start": 42.35,
+        "duration": 2.655
+    },
+    {
+        "text": "and a little bit about we know why it's",
+        "start": 45.005,
+        "duration": 1.395
+    },
+    {
+        "text": "important, what you can do with it.",
+        "start": 46.4,
+        "duration": 1.38
+    },
+    {
+        "text": ">> All right. So let's start with what Event Grid actually is.",
+        "start": 47.78,
+        "duration": 3.5
+    },
+    {
+        "text": ">> Definitely. So Event Grid is basically",
+        "start": 51.28,
+        "duration": 2.11
+    },
+    {
+        "text": "a message routing service that enables you subscribe to events",
+        "start": 53.39,
+        "duration": 3.885
+    },
+    {
+        "text": "from different events sources and consume and trigger",
+        "start": 57.275,
+        "duration": 3.225
+    },
+    {
+        "text": "them in a bunch of different event handlers.",
+        "start": 60.5,
+        "duration": 3.32
+    },
+    {
+        "text": ">> I see. So it's basically like",
+        "start": 63.82,
+        "duration": 1.9
+    },
+    {
+        "text": "an eventing system for all of Azure stuff.",
+        "start": 65.72,
+        "duration": 3.09
+    },
+    {
+        "text": ">> Exactly.",
+        "start": 68.81,
+        "duration": 1.47
+    },
+    {
+        "text": ">> Fantastic. So what can you do",
+        "start": 70.28,
+        "duration": 2.16
+    },
+    {
+        "text": "with Machine Learning and Event Grid?",
+        "start": 72.44,
+        "duration": 2.51
+    },
+    {
+        "text": ">> Great question. So basically",
+        "start": 74.95,
+        "duration": 2.51
+    },
+    {
+        "text": "Azure Machine Learning Service is Event Source now.",
+        "start": 77.46,
+        "duration": 4.35
+    },
+    {
+        "text": "So what you can do is use Event Grid to subscribe to a variety of",
+        "start": 81.81,
+        "duration": 3.59
+    },
+    {
+        "text": "different Machine Learning events going on in your AML workspace.",
+        "start": 85.4,
+        "duration": 4.145
+    },
+    {
+        "text": ">> Why would this be something that you'd like to do?",
+        "start": 89.545,
+        "duration": 2.905
+    },
+    {
+        "text": ">> For sure. So why is it useful?",
+        "start": 92.45,
+        "duration": 3.285
+    },
+    {
+        "text": "So because in an end-to-end Machine Learning workflow,",
+        "start": 95.735,
+        "duration": 3.645
+    },
+    {
+        "text": "there basically isn't a single pipeline that's",
+        "start": 99.38,
+        "duration": 1.92
+    },
+    {
+        "text": "going to enable you to do this end-to-end.",
+        "start": 101.3,
+        "duration": 2.225
+    },
+    {
+        "text": "There's a variety of different tools,",
+        "start": 103.525,
+        "duration": 1.795
+    },
+    {
+        "text": "a variety of different activities that you have to support.",
+        "start": 105.32,
+        "duration": 2.475
+    },
+    {
+        "text": "So by using something like Event Grid,",
+        "start": 107.795,
+        "duration": 2.655
+    },
+    {
+        "text": "you can integrate a bunch of different workflows end-to-end,",
+        "start": 110.45,
+        "duration": 2.82
+    },
+    {
+        "text": "and then have a full view of what's",
+        "start": 113.27,
+        "duration": 1.62
+    },
+    {
+        "text": "going on in your Machine Learning workflow.",
+        "start": 114.89,
+        "duration": 2.115
+    },
+    {
+        "text": "So this could be scenarios like retraining your model",
+        "start": 117.005,
+        "duration": 3.315
+    },
+    {
+        "text": "when you have new data or your model is degrading over time.",
+        "start": 120.32,
+        "duration": 4.17
+    },
+    {
+        "text": "Another common scenario is,",
+        "start": 124.49,
+        "duration": 1.845
+    },
+    {
+        "text": "just let me know what's going on in my train pipeline.",
+        "start": 126.335,
+        "duration": 2.565
+    },
+    {
+        "text": "If my run is failing or if it's been queued for too long,",
+        "start": 128.9,
+        "duration": 3.09
+    },
+    {
+        "text": "just send me an e-mail so I can go in and",
+        "start": 131.99,
+        "duration": 2.25
+    },
+    {
+        "text": "fix what's going on there, and then lastly,",
+        "start": 134.24,
+        "duration": 2.25
+    },
+    {
+        "text": "you can also just get a full view on",
+        "start": 136.49,
+        "duration": 1.77
+    },
+    {
+        "text": "what's going on by streaming events,",
+        "start": 138.26,
+        "duration": 1.98
+    },
+    {
+        "text": "all events happening in",
+        "start": 140.24,
+        "duration": 1.47
+    },
+    {
+        "text": "your training pipeline or",
+        "start": 141.71,
+        "duration": 1.38
+    },
+    {
+        "text": "your deployment pipeline into an Event Hub.",
+        "start": 143.09,
+        "duration": 2.465
+    },
+    {
+        "text": ">> Sounds really cool, but I feel",
+        "start": 145.555,
+        "duration": 1.525
+    },
+    {
+        "text": "like I want to look at something now.",
+        "start": 147.08,
+        "duration": 1.715
+    },
+    {
+        "text": ">> For sure. So let's try this out.",
+        "start": 148.795,
+        "duration": 3.415
+    },
+    {
+        "text": "I'm going to go over to the Azure portal right here.",
+        "start": 152.21,
+        "duration": 3.885
+    },
+    {
+        "text": "So what you initially want to do is",
+        "start": 156.095,
+        "duration": 2.565
+    },
+    {
+        "text": "go into your Machine Learning workspace,",
+        "start": 158.66,
+        "duration": 2.565
+    },
+    {
+        "text": "click on ''Events'' and ''Event Subscriptions'', and right here,",
+        "start": 161.225,
+        "duration": 4.785
+    },
+    {
+        "text": "you can basically select",
+        "start": 166.01,
+        "duration": 1.95
+    },
+    {
+        "text": "what event types you want to subscribe to.",
+        "start": 167.96,
+        "duration": 3.405
+    },
+    {
+        "text": ">> I see. So can you describe what those five events are?",
+        "start": 171.365,
+        "duration": 3.845
+    },
+    {
+        "text": ">> For sure. So right here,",
+        "start": 175.21,
+        "duration": 2.045
+    },
+    {
+        "text": "the events are moderation multi-deployment",
+        "start": 177.255,
+        "duration": 3.495
+    },
+    {
+        "text": "and run completion dataset drift detected.",
+        "start": 180.75,
+        "duration": 2.37
+    },
+    {
+        "text": "So what these events basically are,",
+        "start": 183.12,
+        "duration": 2.03
+    },
+    {
+        "text": "is that when this action happens successfully,",
+        "start": 185.15,
+        "duration": 3.63
+    },
+    {
+        "text": "for example, for run is completed successfully,",
+        "start": 188.78,
+        "duration": 2.46
+    },
+    {
+        "text": "you'll get an alert.",
+        "start": 191.24,
+        "duration": 1.445
+    },
+    {
+        "text": "The only one that's a little bit different is run status change.",
+        "start": 192.685,
+        "duration": 3.43
+    },
+    {
+        "text": "So let's say you're doing a training run and it gets queued,",
+        "start": 196.115,
+        "duration": 3.795
+    },
+    {
+        "text": "its finalizing or it's failing,",
+        "start": 199.91,
+        "duration": 2.835
+    },
+    {
+        "text": "those type of events will get streamed or",
+        "start": 202.745,
+        "duration": 2.205
+    },
+    {
+        "text": "triggered through a run status changed event.",
+        "start": 204.95,
+        "duration": 2.54
+    },
+    {
+        "text": ">> I see. So like,",
+        "start": 207.49,
+        "duration": 2.34
+    },
+    {
+        "text": "do you create a set of events for",
+        "start": 209.83,
+        "duration": 2.98
+    },
+    {
+        "text": "different things or is there a way to filter on this topic?",
+        "start": 212.81,
+        "duration": 3.89
+    },
+    {
+        "text": "I feel like I wanted to know a little bit more about this.",
+        "start": 216.7,
+        "duration": 2.46
+    },
+    {
+        "text": ">> For sure. I need to stop saying for sure.",
+        "start": 219.16,
+        "duration": 3.365
+    },
+    {
+        "text": "Basically you'll go into your filters here. I don't need filter.",
+        "start": 222.525,
+        "duration": 4.875
+    },
+    {
+        "text": "Let's say, I only want to get runs for a pipeline runs.",
+        "start": 227.4,
+        "duration": 3.19
+    },
+    {
+        "text": "What I'll do is say for datatype,",
+        "start": 230.59,
+        "duration": 3.145
+    },
+    {
+        "text": "run type, I will go ahead and say, you know,",
+        "start": 233.735,
+        "duration": 3.765
+    },
+    {
+        "text": "when the string or is equal to or is in",
+        "start": 237.5,
+        "duration": 3.645
+    },
+    {
+        "text": "a Azure Machine Learning pipeline.",
+        "start": 241.145,
+        "duration": 5.15
+    },
+    {
+        "text": "So right here, as I showed you,",
+        "start": 246.295,
+        "duration": 2.605
+    },
+    {
+        "text": "what will happen is for",
+        "start": 248.9,
+        "duration": 1.905
+    },
+    {
+        "text": "this event that I'm triggering or setting up subscription for,",
+        "start": 250.805,
+        "duration": 3.525
+    },
+    {
+        "text": "only pipeline runs will trigger the event.",
+        "start": 254.33,
+        "duration": 3.54
+    },
+    {
+        "text": ">> I see.",
+        "start": 257.87,
+        "duration": 0.935
+    },
+    {
+        "text": ">> Yes.",
+        "start": 258.805,
+        "duration": 0.68
+    },
+    {
+        "text": ">> So in Event Grid, you can create",
+        "start": 259.485,
+        "duration": 1.73
+    },
+    {
+        "text": "any number of events for any number of things,",
+        "start": 261.215,
+        "duration": 3.06
+    },
+    {
+        "text": "any combination of those five events,",
+        "start": 264.275,
+        "duration": 2.675
+    },
+    {
+        "text": "and then filter them in any way to send out information anywhere?",
+        "start": 266.95,
+        "duration": 3.45
+    },
+    {
+        "text": ">> Definitely. So the data that's collected for each",
+        "start": 270.4,
+        "duration": 3.67
+    },
+    {
+        "text": "of these events is things like model ID,",
+        "start": 274.07,
+        "duration": 3.81
+    },
+    {
+        "text": "model version, tags, description.",
+        "start": 277.88,
+        "duration": 2.219
+    },
+    {
+        "text": "So there's a lot of venues to customize and filter your events.",
+        "start": 280.099,
+        "duration": 5.286
+    },
+    {
+        "text": ">> That's cool. So can we see this in action?",
+        "start": 285.385,
+        "duration": 3.515
+    },
+    {
+        "text": ">> For sure. So I'll talk about what you can do with these events.",
+        "start": 288.9,
+        "duration": 4.61
+    },
+    {
+        "text": "So you want to send these events to a particular endpoint.",
+        "start": 293.51,
+        "duration": 3.345
+    },
+    {
+        "text": "For this example, I'll talk about Logic Apps.",
+        "start": 296.855,
+        "duration": 3.485
+    },
+    {
+        "text": ">> Can we go back one second.",
+        "start": 300.34,
+        "duration": 1.34
+    },
+    {
+        "text": "Because I want to see the, let's go back and let's look at",
+        "start": 301.68,
+        "duration": 2.51
+    },
+    {
+        "text": "the event endpoint types. I see.",
+        "start": 304.19,
+        "duration": 3.1
+    },
+    {
+        "text": "So anytime these things are fired off,",
+        "start": 307.29,
+        "duration": 2.855
+    },
+    {
+        "text": "basically if it matches the filter,",
+        "start": 310.145,
+        "duration": 1.755
+    },
+    {
+        "text": "if it matches the event for that particular event subscription,",
+        "start": 311.9,
+        "duration": 4.02
+    },
+    {
+        "text": "you can send it to any one of these things to do anything.",
+        "start": 315.92,
+        "duration": 2.865
+    },
+    {
+        "text": ">> Definitely.",
+        "start": 318.785,
+        "duration": 1.125
+    },
+    {
+        "text": ">> Awesome, okay.",
+        "start": 319.91,
+        "duration": 1.19
+    },
+    {
+        "text": ">> Yeah. So the type that I'm looking at today,",
+        "start": 321.1,
+        "duration": 2.77
+    },
+    {
+        "text": "which actually shows up as web hook in the UI",
+        "start": 323.87,
+        "duration": 2.655
+    },
+    {
+        "text": "is a Logic App right here.",
+        "start": 326.525,
+        "duration": 3.41
+    },
+    {
+        "text": "So what I'll first do is setup a listener into Event Grid.",
+        "start": 329.935,
+        "duration": 5.665
+    },
+    {
+        "text": "So right here I'm saying, all right,",
+        "start": 335.6,
+        "duration": 1.53
+    },
+    {
+        "text": "so every time a run is completed,",
+        "start": 337.13,
+        "duration": 2.31
+    },
+    {
+        "text": "send me an e-mail.",
+        "start": 339.44,
+        "duration": 1.845
+    },
+    {
+        "text": "So specify the workspace and information here,",
+        "start": 341.285,
+        "duration": 2.85
+    },
+    {
+        "text": "and now I'm going to send myself",
+        "start": 344.135,
+        "duration": 1.335
+    },
+    {
+        "text": "an e-mail every time this happens.",
+        "start": 345.47,
+        "duration": 2.07
+    },
+    {
+        "text": "What's really great is that you can create a bunch of",
+        "start": 347.54,
+        "duration": 3.27
+    },
+    {
+        "text": "different workflows with this so it doesn't need to be",
+        "start": 350.81,
+        "duration": 1.74
+    },
+    {
+        "text": "a single action that can be taken based on an event.",
+        "start": 352.55,
+        "duration": 2.82
+    },
+    {
+        "text": "So along with sending an e-mail,",
+        "start": 355.37,
+        "duration": 1.95
+    },
+    {
+        "text": "I could even create",
+        "start": 357.32,
+        "duration": 2.115
+    },
+    {
+        "text": "a work item in my Azure DevOps project and say,",
+        "start": 359.435,
+        "duration": 3.6
+    },
+    {
+        "text": "here's a bug, the run failed.",
+        "start": 363.035,
+        "duration": 2.37
+    },
+    {
+        "text": "Go and investigate it and assign it to a specific person.",
+        "start": 365.405,
+        "duration": 3.435
+    },
+    {
+        "text": "So it's really, really powerful in creating infinite workflows.",
+        "start": 368.84,
+        "duration": 4.25
+    },
+    {
+        "text": ">> I see. So if you're trying to do the actual ML Apps,",
+        "start": 373.09,
+        "duration": 3.85
+    },
+    {
+        "text": "there's a number of different business requirements depending on",
+        "start": 376.94,
+        "duration": 2.79
+    },
+    {
+        "text": "what's happening for the events that",
+        "start": 379.73,
+        "duration": 1.47
+    },
+    {
+        "text": "you could wire up and glue together.",
+        "start": 381.2,
+        "duration": 1.47
+    },
+    {
+        "text": "We need the Logic Apps. It's like you've got",
+        "start": 382.67,
+        "duration": 1.47
+    },
+    {
+        "text": "Azure Functions and even just basic plain old Web Apps.",
+        "start": 384.14,
+        "duration": 3.53
+    },
+    {
+        "text": ">> Definitely. So one really interesting events scenario",
+        "start": 387.67,
+        "duration": 4.72
+    },
+    {
+        "text": "that I talked about earlier is retraining.",
+        "start": 392.39,
+        "duration": 2.235
+    },
+    {
+        "text": "So we have on Azure Machine Learning dataset,",
+        "start": 394.625,
+        "duration": 3.555
+    },
+    {
+        "text": "drift detection, and you can set",
+        "start": 398.18,
+        "duration": 1.83
+    },
+    {
+        "text": "that up in your Azure Machine Learning workspace.",
+        "start": 400.01,
+        "duration": 2.04
+    },
+    {
+        "text": "Right here, I just have a dataset monitor that is going",
+        "start": 402.05,
+        "duration": 2.85
+    },
+    {
+        "text": "to look at the input dataset coming into",
+        "start": 404.9,
+        "duration": 3.15
+    },
+    {
+        "text": "my deployed model and compare it to",
+        "start": 408.05,
+        "duration": 2.43
+    },
+    {
+        "text": "this baseline dataset to make sure the difference isn't too much.",
+        "start": 410.48,
+        "duration": 3.78
+    },
+    {
+        "text": "So I've set a threshold that say,",
+        "start": 414.26,
+        "duration": 1.725
+    },
+    {
+        "text": "if the difference between the two days that says a",
+        "start": 415.985,
+        "duration": 1.965
+    },
+    {
+        "text": "lot, send me an alert.",
+        "start": 417.95,
+        "duration": 2.26
+    },
+    {
+        "text": "So I'll use Event Grid for that.",
+        "start": 420.21,
+        "duration": 1.46
+    },
+    {
+        "text": "Now, I don't only want to get an alert.",
+        "start": 421.67,
+        "duration": 2.475
+    },
+    {
+        "text": "Let's say I want to do retraining.",
+        "start": 424.145,
+        "duration": 1.83
+    },
+    {
+        "text": "So I will set up in Azure Data Factory away to copy",
+        "start": 425.975,
+        "duration": 5.025
+    },
+    {
+        "text": "new data over and trigger",
+        "start": 431.0,
+        "duration": 2.28
+    },
+    {
+        "text": "my Machine Learning training pipeline",
+        "start": 433.28,
+        "duration": 2.28
+    },
+    {
+        "text": "to retrain and output a new model.",
+        "start": 435.56,
+        "duration": 2.4
+    },
+    {
+        "text": "So once I've set these individual components up,",
+        "start": 437.96,
+        "duration": 2.475
+    },
+    {
+        "text": "I'll go back to my Logic App and tile these together.",
+        "start": 440.435,
+        "duration": 4.485
+    },
+    {
+        "text": "What I'll do here is set a listener in my workspace.",
+        "start": 444.92,
+        "duration": 4.455
+    },
+    {
+        "text": "If the dataset drift is detected,",
+        "start": 449.375,
+        "duration": 2.415
+    },
+    {
+        "text": "that event gets created and then it",
+        "start": 451.79,
+        "duration": 2.37
+    },
+    {
+        "text": "triggers my Azure Data Factory pipeline right here,",
+        "start": 454.16,
+        "duration": 3.53
+    },
+    {
+        "text": "and then within the Data Factory,",
+        "start": 457.69,
+        "duration": 1.48
+    },
+    {
+        "text": "as you saw, I am triggering my training pipeline.",
+        "start": 459.17,
+        "duration": 3.285
+    },
+    {
+        "text": "So every time that happens,",
+        "start": 462.455,
+        "duration": 1.53
+    },
+    {
+        "text": "this workflow will just continuously repeat.",
+        "start": 463.985,
+        "duration": 2.72
+    },
+    {
+        "text": ">> So what you're saying then is that",
+        "start": 466.705,
+        "duration": 1.685
+    },
+    {
+        "text": "whenever there is a dataset drift detection,",
+        "start": 468.39,
+        "duration": 2.39
+    },
+    {
+        "text": "which means that the data has changed,",
+        "start": 470.78,
+        "duration": 1.665
+    },
+    {
+        "text": "this will automatically send an event from",
+        "start": 472.445,
+        "duration": 2.355
+    },
+    {
+        "text": "Event Grid to this Logic App which will tell Data Factory,",
+        "start": 474.8,
+        "duration": 3.395
+    },
+    {
+        "text": "copy some data over and",
+        "start": 478.195,
+        "duration": 1.555
+    },
+    {
+        "text": "retrain the Machine Learning Pipeline. Is that right?",
+        "start": 479.75,
+        "duration": 2.495
+    },
+    {
+        "text": ">> Yes, exactly.",
+        "start": 482.245,
+        "duration": 1.55
+    },
+    {
+        "text": ">> Fantastic. Well, thank you so",
+        "start": 483.795,
+        "duration": 1.325
+    },
+    {
+        "text": "much for spending some time with us.",
+        "start": 485.12,
+        "duration": 1.59
+    },
+    {
+        "text": "Again, thank you so much for watching this is Part two of three,",
+        "start": 486.71,
+        "duration": 2.94
+    },
+    {
+        "text": "learning all about MLOps.",
+        "start": 489.65,
+        "duration": 1.5
+    },
+    {
+        "text": "We learned about Event Grid in this one.",
+        "start": 491.15,
+        "duration": 1.53
+    },
+    {
+        "text": "Thank you so much for watching.",
+        "start": 492.68,
+        "duration": 0.9
+    },
+    {
+        "text": "We'll see you next time, take care.",
+        "start": 493.58,
+        "duration": 0.96
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 494.54,
+        "duration": 14.63
+    }
+]

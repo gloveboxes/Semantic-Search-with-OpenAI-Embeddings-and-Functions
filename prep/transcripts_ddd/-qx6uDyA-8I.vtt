@@ -1,0 +1,1508 @@
+WEBVTT
+
+00:00:00.079 --> 00:00:03.519
+Caption: hey everybody i&#39;m ben
+
+00:00:06.399 --> 00:00:09.678
+Caption: all right so depending on whether you
+
+00:00:07.919 --> 00:00:12.079
+Caption: read the agenda on the little lanyard
+
+00:00:09.678 --> 00:00:13.519
+Caption: you&#39;ve got or uh read the abstract that
+
+00:00:12.079 --> 00:00:15.519
+Caption: was posted on the website you may have
+
+00:00:13.519 --> 00:00:18.319
+Caption: come into this talk thinking that i&#39;m
+
+00:00:15.519 --> 00:00:20.239
+Caption: going to say should stop testing
+
+00:00:18.319 --> 00:00:22.239
+Caption: first one i&#39;m going to call out is that
+
+00:00:20.239 --> 00:00:23.118
+Caption: that&#39;s not the case
+
+00:00:22.239 --> 00:00:24.559
+Caption: what
+
+00:00:23.118 --> 00:00:26.719
+Caption: you can&#39;t really convey in text is that
+
+00:00:24.559 --> 00:00:28.719
+Caption: the emphasis is on the word writing stop
+
+00:00:26.719 --> 00:00:31.038
+Caption: writing tests so what i&#39;m going to talk
+
+00:00:28.719 --> 00:00:32.799
+Caption: to you about today is a way that you can
+
+00:00:31.038 --> 00:00:35.840
+Caption: rather than writing tests by hand you
+
+00:00:32.799 --> 00:00:37.279
+Caption: can start generating tests
+
+00:00:35.840 --> 00:00:39.520
+Caption: before i get into it
+
+00:00:37.279 --> 00:00:43.119
+Caption: all these sponsors come in to make today
+
+00:00:39.520 --> 00:00:44.719
+Caption: happen uh post report one of them and
+
+00:00:43.119 --> 00:00:46.558
+Caption: all the sponsors that&#39;s right responses
+
+00:00:44.719 --> 00:00:48.160
+Caption: and volunteers speakers you guys
+
+00:00:46.558 --> 00:00:49.519
+Caption: everyone&#39;s showing up without all of
+
+00:00:48.159 --> 00:00:51.520
+Caption: those happening and today doesn&#39;t happen
+
+00:00:49.520 --> 00:00:53.119
+Caption: so it&#39;s really good to have everybody in
+
+00:00:51.520 --> 00:00:55.599
+Caption: the room
+
+00:00:53.119 --> 00:00:57.119
+Caption: there&#39;s my much much larger life size
+
+00:00:55.599 --> 00:00:58.319
+Caption: head i haven&#39;t done this on a screen
+
+00:00:57.119 --> 00:01:00.078
+Caption: that&#39;s big before so normally i say
+
+00:00:58.319 --> 00:01:01.359
+Caption: slightly larger
+
+00:01:00.078 --> 00:01:03.358
+Caption: uh you can reach me on twitter or
+
+00:01:01.359 --> 00:01:06.400
+Caption: something if you want afterwards and yes
+
+00:01:03.359 --> 00:01:08.239
+Caption: i am a consultant telstra purple
+
+00:01:06.400 --> 00:01:10.400
+Caption: so what&#39;s relevant for today is that i
+
+00:01:08.239 --> 00:01:13.680
+Caption: started my life in software seven years
+
+00:01:10.400 --> 00:01:15.520
+Caption: ago or so as a software tester
+
+00:01:13.680 --> 00:01:18.319
+Caption: and then a few years later became a
+
+00:01:15.519 --> 00:01:19.839
+Caption: developer and i found that the tests
+
+00:01:18.319 --> 00:01:21.439
+Caption: that i wrote which were pretty good when
+
+00:01:19.839 --> 00:01:23.758
+Caption: i was a tester all of a sudden were not
+
+00:01:21.439 --> 00:01:25.040
+Caption: very good when i was a developer so
+
+00:01:23.759 --> 00:01:26.880
+Caption: going through some of the reasons that
+
+00:01:25.040 --> 00:01:28.879
+Caption: changed and recently i&#39;ve been
+
+00:01:26.879 --> 00:01:32.078
+Caption: reflecting on how i could make that
+
+00:01:28.879 --> 00:01:34.078
+Caption: better and sort of buck that trend
+
+00:01:32.079 --> 00:01:35.360
+Caption: so the trouble with testing
+
+00:01:34.079 --> 00:01:37.360
+Caption: probably somebody in the room have seen
+
+00:01:35.360 --> 00:01:40.079
+Caption: some of these problems uh it can be hard
+
+00:01:37.360 --> 00:01:41.360
+Caption: to find time to write good tests
+
+00:01:40.079 --> 00:01:42.479
+Caption: for example you&#39;ve got lots of other
+
+00:01:41.360 --> 00:01:43.840
+Caption: things you need to do you need to write
+
+00:01:42.478 --> 00:01:46.398
+Caption: documentation you&#39;ve got to actually
+
+00:01:43.839 --> 00:01:47.679
+Caption: build the features you want to
+
+00:01:46.399 --> 00:01:49.040
+Caption: go to sprint review meetings and all
+
+00:01:47.680 --> 00:01:50.479
+Caption: those kind of things
+
+00:01:49.040 --> 00:01:53.279
+Caption: so i hope that i&#39;ll help out with that
+
+00:01:50.478 --> 00:01:55.199
+Caption: today should be quicker to write them
+
+00:01:53.279 --> 00:01:56.239
+Caption: you also avoid main writing tests
+
+00:01:55.199 --> 00:01:57.680
+Caption: because you don&#39;t want to have to
+
+00:01:56.239 --> 00:01:59.118
+Caption: maintain them
+
+00:01:57.680 --> 00:02:01.279
+Caption: especially when you&#39;re in early stages
+
+00:01:59.119 --> 00:02:02.560
+Caption: of a product that changes a lot
+
+00:02:01.279 --> 00:02:04.399
+Caption: and if you have to rewrite your tests
+
+00:02:02.559 --> 00:02:06.478
+Caption: every time you change something then
+
+00:02:04.399 --> 00:02:08.559
+Caption: either not really that useful test but
+
+00:02:06.478 --> 00:02:10.639
+Caption: it also just contributes to people not
+
+00:02:08.559 --> 00:02:12.319
+Caption: wanting to write them
+
+00:02:10.639 --> 00:02:14.559
+Caption: so help with that
+
+00:02:12.319 --> 00:02:16.160
+Caption: you might not know what to test again
+
+00:02:14.559 --> 00:02:17.919
+Caption: will help
+
+00:02:16.160 --> 00:02:20.319
+Caption: it can be hard to find edge cases and
+
+00:02:17.919 --> 00:02:22.319
+Caption: and find bugs
+
+00:02:20.319 --> 00:02:23.919
+Caption: well again i&#39;m going to help with that
+
+00:02:22.319 --> 00:02:25.520
+Caption: the last one is that you still end up
+
+00:02:23.919 --> 00:02:27.119
+Caption: with bugs no matter how many tests you
+
+00:02:25.520 --> 00:02:28.400
+Caption: write
+
+00:02:27.119 --> 00:02:29.519
+Caption: i don&#39;t know if i&#39;ll be able to
+
+00:02:28.399 --> 00:02:31.759
+Caption: necessarily help you with that but at
+
+00:02:29.520 --> 00:02:32.878
+Caption: least give you some ideas and
+
+00:02:31.759 --> 00:02:36.559
+Caption: at least you won&#39;t have to write the
+
+00:02:32.878 --> 00:02:37.679
+Caption: test yourself so no wasted time there
+
+00:02:36.559 --> 00:02:39.598
+Caption: so the technique i&#39;m going to talk to
+
+00:02:37.679 --> 00:02:41.439
+Caption: you today about is called model based
+
+00:02:39.598 --> 00:02:43.518
+Caption: testing
+
+00:02:41.440 --> 00:02:44.878
+Caption: anyone in the room done it before i know
+
+00:02:43.518 --> 00:02:46.720
+Caption: at least one
+
+00:02:44.878 --> 00:02:49.518
+Caption: and only one okay cool
+
+00:02:46.720 --> 00:02:51.040
+Caption: so it&#39;s new for most of you
+
+00:02:49.518 --> 00:02:52.800
+Caption: basically model-based testing allows you
+
+00:02:51.039 --> 00:02:54.559
+Caption: to describe a system in a way the
+
+00:02:52.800 --> 00:02:57.360
+Caption: computer will understand so that a
+
+00:02:54.559 --> 00:02:58.720
+Caption: computer can test it for you
+
+00:02:57.360 --> 00:03:01.360
+Caption: like all good things it starts with
+
+00:02:58.720 --> 00:03:03.598
+Caption: three steps and the first step step one
+
+00:03:01.360 --> 00:03:06.958
+Caption: is to create an abstract model that is
+
+00:03:03.598 --> 00:03:09.440
+Caption: the model for the model based test
+
+00:03:06.958 --> 00:03:10.958
+Caption: abstract model is a bit of a weird way
+
+00:03:09.440 --> 00:03:12.800
+Caption: to phrase it
+
+00:03:10.958 --> 00:03:14.958
+Caption: so we&#39;ll start by making the abstract
+
+00:03:12.800 --> 00:03:17.440
+Caption: concrete with an example
+
+00:03:14.958 --> 00:03:19.199
+Caption: we&#39;ll talk about a stopwatch imagine the
+
+00:03:17.440 --> 00:03:20.400
+Caption: old-school stopwatch where the time that
+
+00:03:19.199 --> 00:03:22.319
+Caption: goes around
+
+00:03:20.399 --> 00:03:23.839
+Caption: start button the stop button but
+
+00:03:22.319 --> 00:03:25.440
+Caption: probably the same button and then a
+
+00:03:23.839 --> 00:03:27.360
+Caption: reset button
+
+00:03:25.440 --> 00:03:28.958
+Caption: and we think about what states this
+
+00:03:27.360 --> 00:03:30.878
+Caption: stopwatch could be in
+
+00:03:28.958 --> 00:03:33.119
+Caption: so for me i&#39;ve decided to model this
+
+00:03:30.878 --> 00:03:34.399
+Caption: with a zero state which is when it&#39;s
+
+00:03:33.119 --> 00:03:36.399
+Caption: sitting at zero
+
+00:03:34.399 --> 00:03:39.439
+Caption: a running state when it&#39;s turning around
+
+00:03:36.399 --> 00:03:42.000
+Caption: and a stopped state when it&#39;s not
+
+00:03:39.440 --> 00:03:43.760
+Caption: and then you think about what you can do
+
+00:03:42.000 --> 00:03:45.360
+Caption: to move between these different states
+
+00:03:43.759 --> 00:03:47.119
+Caption: so in our case we&#39;ve got two buttons on
+
+00:03:45.360 --> 00:03:49.199
+Caption: the stopwatch a main button and a second
+
+00:03:47.119 --> 00:03:50.958
+Caption: button
+
+00:03:49.199 --> 00:03:52.639
+Caption: now we&#39;ve got these states
+
+00:03:50.958 --> 00:03:54.559
+Caption: we essentially turn it into a diagram
+
+00:03:52.639 --> 00:03:55.759
+Caption: and draw some arrows for how it works
+
+00:03:54.559 --> 00:03:57.438
+Caption: together
+
+00:03:55.759 --> 00:03:59.119
+Caption: so you can see here we&#39;ve got a zero
+
+00:03:57.438 --> 00:04:01.759
+Caption: state press the main button and we end
+
+00:03:59.119 --> 00:04:03.839
+Caption: up in a running state
+
+00:04:01.759 --> 00:04:05.438
+Caption: the great thing about this diagram is
+
+00:04:03.839 --> 00:04:07.360
+Caption: you can show this to other people and
+
+00:04:05.438 --> 00:04:09.279
+Caption: figure out really early if your
+
+00:04:07.360 --> 00:04:11.119
+Caption: assumptions are wrong
+
+00:04:09.279 --> 00:04:14.438
+Caption: if you model the system correctly or how
+
+00:04:11.119 --> 00:04:14.438
+Caption: it should behave
+
+00:04:15.598 --> 00:04:19.679
+Caption: so a picture is great because you can
+
+00:04:17.519 --> 00:04:22.479
+Caption: show that to anyone your neighbors your
+
+00:04:19.679 --> 00:04:24.639
+Caption: uncles your nieces and nephews uh your
+
+00:04:22.479 --> 00:04:27.519
+Caption: product owners business
+
+00:04:24.639 --> 00:04:29.759
+Caption: analysts sorry i can remember that word
+
+00:04:27.519 --> 00:04:31.679
+Caption: and testers anyone on your team can have
+
+00:04:29.759 --> 00:04:33.360
+Caption: an opinion on this
+
+00:04:31.679 --> 00:04:35.759
+Caption: a picture is worth a thousand words or
+
+00:04:33.359 --> 00:04:37.519
+Caption: in this case it&#39;s worth a thousand tests
+
+00:04:35.759 --> 00:04:39.119
+Caption: we talk about how we want to bring
+
+00:04:37.519 --> 00:04:40.319
+Caption: testing
+
+00:04:39.119 --> 00:04:42.190
+Caption: bring testing
+
+00:04:40.320 --> 00:04:44.559
+Caption: forward and shift it left
+
+00:04:42.190 --> 00:04:45.279
+Caption: [Music]
+
+00:04:44.559 --> 00:04:47.119
+Caption: and
+
+00:04:45.279 --> 00:04:48.639
+Caption: if testing is really about giving us
+
+00:04:47.119 --> 00:04:50.160
+Caption: confidence in the products then doing it
+
+00:04:48.639 --> 00:04:52.559
+Caption: as early as possible is the best thing
+
+00:04:50.160 --> 00:04:52.559
+Caption: we can do
+
+00:04:52.959 --> 00:04:57.039
+Caption: so back to our example
+
+00:04:54.880 --> 00:04:59.119
+Caption: how does this help us write tests or not
+
+00:04:57.040 --> 00:05:01.279
+Caption: write tests
+
+00:04:59.119 --> 00:05:02.799
+Caption: well if we look at one in isolation you
+
+00:05:01.279 --> 00:05:04.799
+Caption: can see we&#39;ve got a zero
+
+00:05:02.799 --> 00:05:06.399
+Caption: state which is our initial state
+
+00:05:04.799 --> 00:05:07.440
+Caption: you press a main button which is an
+
+00:05:06.399 --> 00:05:08.720
+Caption: action
+
+00:05:07.440 --> 00:05:11.440
+Caption: and then a running state which is the
+
+00:05:08.720 --> 00:05:12.559
+Caption: final state if you&#39;re familiar with like
+
+00:05:11.440 --> 00:05:15.199
+Caption: bdd
+
+00:05:12.559 --> 00:05:18.000
+Caption: tests or a given acceptance criteria
+
+00:05:15.199 --> 00:05:20.160
+Caption: this is your given when then
+
+00:05:18.000 --> 00:05:22.399
+Caption: all this diagram is is those acceptance
+
+00:05:20.160 --> 00:05:25.039
+Caption: criteria drawn together
+
+00:05:22.399 --> 00:05:27.119
+Caption: joined up
+
+00:05:25.039 --> 00:05:29.199
+Caption: you can model pretty much anything as a
+
+00:05:27.119 --> 00:05:31.600
+Caption: finite state machine it&#39;s really useful
+
+00:05:29.199 --> 00:05:33.360
+Caption: for user interfaces because they are
+
+00:05:31.600 --> 00:05:34.320
+Caption: state machines
+
+00:05:33.359 --> 00:05:36.079
+Caption: they
+
+00:05:34.320 --> 00:05:38.160
+Caption: have a state that they&#39;re in they don&#39;t
+
+00:05:36.079 --> 00:05:40.239
+Caption: do anything until you make some action
+
+00:05:38.160 --> 00:05:41.839
+Caption: and then they end up somewhere else
+
+00:05:40.239 --> 00:05:44.479
+Caption: but it&#39;s not just user interfaces you
+
+00:05:41.839 --> 00:05:45.919
+Caption: can also model your business logic and
+
+00:05:44.479 --> 00:05:47.919
+Caption: those kind of things like if you&#39;ve got
+
+00:05:45.919 --> 00:05:50.160
+Caption: cqrs
+
+00:05:47.919 --> 00:05:52.559
+Caption: you can fire commands and do queries to
+
+00:05:50.160 --> 00:05:53.839
+Caption: check the results
+
+00:05:52.559 --> 00:05:57.519
+Caption: like i said you can model your business
+
+00:05:53.839 --> 00:06:00.479
+Caption: rules this is an order for example
+
+00:05:57.519 --> 00:06:01.440
+Caption: you don&#39;t want these to be too complex
+
+00:06:00.479 --> 00:06:02.559
+Caption: so
+
+00:06:01.440 --> 00:06:04.399
+Caption: if you looked into this ready for
+
+00:06:02.559 --> 00:06:05.919
+Caption: shipping state that&#39;s on the screen
+
+00:06:04.399 --> 00:06:07.600
+Caption: you might think there&#39;s actually a lot
+
+00:06:05.919 --> 00:06:09.119
+Caption: of stuff that happens in the background
+
+00:06:07.600 --> 00:06:11.119
+Caption: but we&#39;re trying to write these tests
+
+00:06:09.119 --> 00:06:12.799
+Caption: from the user&#39;s perspective
+
+00:06:11.119 --> 00:06:15.519
+Caption: so ready for shipping is probably enough
+
+00:06:12.799 --> 00:06:17.599
+Caption: for their point of view
+
+00:06:15.519 --> 00:06:20.479
+Caption: you can model anything user interfaces
+
+00:06:17.600 --> 00:06:22.399
+Caption: business rules or dogs
+
+00:06:20.479 --> 00:06:24.959
+Caption: this is my dog
+
+00:06:22.399 --> 00:06:27.839
+Caption: my dog does four things my dog sleeps my
+
+00:06:24.959 --> 00:06:29.759
+Caption: dog is idle it eats and it&#39;s got this
+
+00:06:27.839 --> 00:06:31.919
+Caption: thing called zoomies if anyone has a dog
+
+00:06:29.759 --> 00:06:34.399
+Caption: they know what that is probably if you
+
+00:06:31.919 --> 00:06:37.440
+Caption: don&#39;t it looks a bit like this
+
+00:06:34.399 --> 00:06:39.279
+Caption: just running around randomly in circles
+
+00:06:37.440 --> 00:06:41.199
+Caption: i don&#39;t know what causes the dog from to
+
+00:06:39.279 --> 00:06:43.119
+Caption: go from idle to zoomies that&#39;s why i put
+
+00:06:41.199 --> 00:06:44.880
+Caption: question marks there but i know that
+
+00:06:43.119 --> 00:06:48.359
+Caption: once it&#39;s been in zoomies it goes
+
+00:06:44.880 --> 00:06:48.360
+Caption: straight to bed
+
+00:06:49.199 --> 00:06:52.880
+Caption: so one nice thing about graphs in
+
+00:06:51.279 --> 00:06:55.119
+Caption: general is we can represent them in ways
+
+00:06:52.880 --> 00:06:56.559
+Caption: that a computer can understand uh this
+
+00:06:55.119 --> 00:06:58.799
+Caption: on the left
+
+00:06:56.559 --> 00:07:01.598
+Caption: generated that on the right so it&#39;s
+
+00:06:58.799 --> 00:07:03.759
+Caption: really weird reversing that
+
+00:07:01.598 --> 00:07:05.919
+Caption: so this mark down on the left is a
+
+00:07:03.759 --> 00:07:07.839
+Caption: language called mermaid if you use git
+
+00:07:05.919 --> 00:07:09.919
+Caption: lab it&#39;s kind of built into their
+
+00:07:07.839 --> 00:07:11.598
+Caption: brain markdown previews
+
+00:07:09.919 --> 00:07:14.080
+Caption: if you use vs code you can get a plugin
+
+00:07:11.598 --> 00:07:16.559
+Caption: to do it but that means you can put this
+
+00:07:14.079 --> 00:07:18.079
+Caption: documentation in with your code
+
+00:07:16.559 --> 00:07:20.160
+Caption: so it all stays together it&#39;s easier to
+
+00:07:18.079 --> 00:07:21.918
+Caption: keep it in sync
+
+00:07:20.160 --> 00:07:24.239
+Caption: another example is using a library
+
+00:07:21.919 --> 00:07:26.399
+Caption: called xstate
+
+00:07:24.239 --> 00:07:27.679
+Caption: i&#39;ve never done on a screen this big
+
+00:07:26.399 --> 00:07:30.160
+Caption: that&#39;s probably big enough for you to
+
+00:07:27.679 --> 00:07:31.519
+Caption: read but if it wasn&#39;t the important bits
+
+00:07:30.160 --> 00:07:33.199
+Caption: are here
+
+00:07:31.519 --> 00:07:35.198
+Caption: so you start with
+
+00:07:33.199 --> 00:07:37.520
+Caption: well you list out your states you say
+
+00:07:35.199 --> 00:07:40.000
+Caption: in the sleeping state on the wake up
+
+00:07:37.519 --> 00:07:42.479
+Caption: event i go to idle
+
+00:07:40.000 --> 00:07:44.160
+Caption: and one nice thing about xstate is that
+
+00:07:42.479 --> 00:07:45.839
+Caption: it&#39;s got a little visualizer tool where
+
+00:07:44.160 --> 00:07:48.878
+Caption: you can click around and actually do
+
+00:07:45.839 --> 00:07:50.639
+Caption: things which is kind of nice
+
+00:07:48.878 --> 00:07:51.919
+Caption: that&#39;s really good to visualize and
+
+00:07:50.639 --> 00:07:53.119
+Caption: share that
+
+00:07:51.919 --> 00:07:54.878
+Caption: and you can just play around with it so
+
+00:07:53.119 --> 00:07:56.160
+Caption: you can build this json object basically
+
+00:07:54.878 --> 00:07:59.519
+Caption: and test your system make sure it works
+
+00:07:56.160 --> 00:08:01.119
+Caption: the way you expect
+
+00:07:59.519 --> 00:08:02.319
+Caption: so i mentioned xstate there are a couple
+
+00:08:01.119 --> 00:08:04.319
+Caption: of other tools you can use for
+
+00:08:02.319 --> 00:08:06.000
+Caption: model-based testing some of the more
+
+00:08:04.319 --> 00:08:08.239
+Caption: modern ones that are kept up to date are
+
+00:08:06.000 --> 00:08:10.720
+Caption: graphwalker which is a java library but
+
+00:08:08.239 --> 00:08:12.878
+Caption: it&#39;s also got a visual graph like a
+
+00:08:10.720 --> 00:08:14.959
+Caption: visual tool to edit those graphs
+
+00:08:12.878 --> 00:08:17.039
+Caption: alt walker has a wrapper around that for
+
+00:08:14.959 --> 00:08:19.039
+Caption: net and for python
+
+00:08:17.039 --> 00:08:21.360
+Caption: simulator i haven&#39;t used but i know it&#39;s
+
+00:08:19.039 --> 00:08:22.799
+Caption: a thing and x8 is probably the one i&#39;ve
+
+00:08:21.359 --> 00:08:24.319
+Caption: used the most so
+
+00:08:22.799 --> 00:08:25.839
+Caption: my examples
+
+00:08:24.319 --> 00:08:27.759
+Caption: use xtape but we&#39;re not really going to
+
+00:08:25.839 --> 00:08:28.878
+Caption: talk too much about the tools today
+
+00:08:27.759 --> 00:08:30.559
+Caption: there are a whole bunch of other ones
+
+00:08:28.878 --> 00:08:32.559
+Caption: that are like enterprise tools or
+
+00:08:30.559 --> 00:08:33.838
+Caption: stopped being maintained 15 years ago
+
+00:08:32.559 --> 00:08:36.320
+Caption: kind of thing so
+
+00:08:33.838 --> 00:08:37.919
+Caption: it&#39;s not a new concept
+
+00:08:36.320 --> 00:08:39.039
+Caption: so step one was to create an abstract
+
+00:08:37.919 --> 00:08:41.359
+Caption: model
+
+00:08:39.039 --> 00:08:42.640
+Caption: step two is to help the computer out
+
+00:08:41.359 --> 00:08:44.398
+Caption: computers are really smart but they
+
+00:08:42.640 --> 00:08:46.000
+Caption: don&#39;t know
+
+00:08:44.398 --> 00:08:48.000
+Caption: everything that we are trying to do they
+
+00:08:46.000 --> 00:08:49.359
+Caption: don&#39;t know how to test the system but
+
+00:08:48.000 --> 00:08:51.119
+Caption: once you tell them how they can do it
+
+00:08:49.359 --> 00:08:52.398
+Caption: for you so we&#39;ve got to tell the system
+
+00:08:51.119 --> 00:08:53.919
+Caption: how to test it
+
+00:08:52.398 --> 00:08:56.640
+Caption: in this case we need to fill in the
+
+00:08:53.919 --> 00:08:58.398
+Caption: actions and the assertions
+
+00:08:56.640 --> 00:09:00.559
+Caption: so you may already have a test that
+
+00:08:58.398 --> 00:09:02.000
+Caption: looks like this where you submit a click
+
+00:09:00.559 --> 00:09:04.320
+Caption: a submit button and then look for a
+
+00:09:02.000 --> 00:09:06.719
+Caption: success message to appear
+
+00:09:04.320 --> 00:09:08.080
+Caption: these are the important bits for us
+
+00:09:06.719 --> 00:09:09.278
+Caption: you might have more in your setup i
+
+00:09:08.080 --> 00:09:10.640
+Caption: guess but
+
+00:09:09.278 --> 00:09:12.080
+Caption: but for us we just have the actions and
+
+00:09:10.640 --> 00:09:14.239
+Caption: the insertions
+
+00:09:12.080 --> 00:09:15.920
+Caption: plug them into a model
+
+00:09:14.239 --> 00:09:17.679
+Caption: and we go from there
+
+00:09:15.919 --> 00:09:19.440
+Caption: but it&#39;s not just clicking buttons in
+
+00:09:17.679 --> 00:09:21.359
+Caption: the user interface that you can do
+
+00:09:19.440 --> 00:09:23.039
+Caption: this example using curl would you call
+
+00:09:21.359 --> 00:09:25.359
+Caption: an api and check
+
+00:09:23.039 --> 00:09:27.838
+Caption: the results so you might
+
+00:09:25.359 --> 00:09:30.159
+Caption: you can you can test your apis as well
+
+00:09:27.838 --> 00:09:31.518
+Caption: as your uis
+
+00:09:30.159 --> 00:09:33.679
+Caption: or if you want to apply your test to the
+
+00:09:31.518 --> 00:09:35.200
+Caption: unit level then you can use your domain
+
+00:09:33.679 --> 00:09:37.838
+Caption: models if you&#39;re doing d2d and those
+
+00:09:35.200 --> 00:09:37.838
+Caption: kind of things
+
+00:09:38.239 --> 00:09:42.640
+Caption: so back to our example
+
+00:09:40.719 --> 00:09:44.639
+Caption: when we&#39;re at zero we want to make sure
+
+00:09:42.640 --> 00:09:46.160
+Caption: that the thing is pointing straight up
+
+00:09:44.640 --> 00:09:47.679
+Caption: we press the main button by actually
+
+00:09:46.159 --> 00:09:49.919
+Caption: pressing the main button
+
+00:09:47.679 --> 00:09:51.278
+Caption: and check that thing&#39;s moving around
+
+00:09:49.919 --> 00:09:53.119
+Caption: then at some point press the main button
+
+00:09:51.278 --> 00:09:54.799
+Caption: again it should stop
+
+00:09:53.119 --> 00:09:57.518
+Caption: if we press the second button make sure
+
+00:09:54.799 --> 00:09:57.518
+Caption: it&#39;s back at zero
+
+00:09:57.919 --> 00:10:01.440
+Caption: step two is pretty easy step three is
+
+00:09:59.919 --> 00:10:04.159
+Caption: where the fun stuff happens that&#39;s how
+
+00:10:01.440 --> 00:10:05.518
+Caption: we generate the tests
+
+00:10:04.159 --> 00:10:07.518
+Caption: so how do you generate tests from a
+
+00:10:05.518 --> 00:10:09.760
+Caption: picture well you follow the arrows and
+
+00:10:07.518 --> 00:10:11.679
+Caption: you decide when you want to stop
+
+00:10:09.760 --> 00:10:13.359
+Caption: following the arrows is just that we&#39;ve
+
+00:10:11.679 --> 00:10:14.640
+Caption: got that picture and we&#39;ll walk through
+
+00:10:13.359 --> 00:10:16.000
+Caption: one in a sec
+
+00:10:14.640 --> 00:10:17.519
+Caption: but how do you decide when you want to
+
+00:10:16.000 --> 00:10:18.880
+Caption: stop you know we could just do that
+
+00:10:17.518 --> 00:10:20.159
+Caption: forever
+
+00:10:18.880 --> 00:10:22.078
+Caption: realistically you&#39;ll probably want to
+
+00:10:20.159 --> 00:10:25.599
+Caption: stop either when you&#39;ve hit every state
+
+00:10:22.078 --> 00:10:27.599
+Caption: or when you&#39;ve visited every transition
+
+00:10:25.599 --> 00:10:29.518
+Caption: but it&#39;s really up to you you can do
+
+00:10:27.599 --> 00:10:31.679
+Caption: model based testing that runs
+
+00:10:29.518 --> 00:10:35.039
+Caption: essentially in a random order and it
+
+00:10:31.679 --> 00:10:37.518
+Caption: would never stop until you tell it to
+
+00:10:35.039 --> 00:10:39.679
+Caption: so in our example we start at the top
+
+00:10:37.518 --> 00:10:41.440
+Caption: we go to the zero state and we check
+
+00:10:39.679 --> 00:10:43.359
+Caption: that we are at zero
+
+00:10:41.440 --> 00:10:44.479
+Caption: then we press the main button check the
+
+00:10:43.359 --> 00:10:45.838
+Caption: word running
+
+00:10:44.479 --> 00:10:47.440
+Caption: press the main button again check the
+
+00:10:45.838 --> 00:10:48.958
+Caption: where it stopped
+
+00:10:47.440 --> 00:10:50.239
+Caption: at this point we&#39;ve got two options we
+
+00:10:48.958 --> 00:10:51.599
+Caption: could either press the main button again
+
+00:10:50.239 --> 00:10:52.880
+Caption: and go back to running
+
+00:10:51.599 --> 00:10:55.199
+Caption: in which case we end up in one of those
+
+00:10:52.880 --> 00:10:56.720
+Caption: loops you could just stand forever
+
+00:10:55.200 --> 00:11:00.000
+Caption: or we can press the second button and
+
+00:10:56.719 --> 00:11:02.719
+Caption: check that we&#39;re back at zero
+
+00:11:00.000 --> 00:11:05.200
+Caption: so i plugged that model into the x state
+
+00:11:02.719 --> 00:11:07.199
+Caption: and it generated 10 tests for me without
+
+00:11:05.200 --> 00:11:09.040
+Caption: me doing anything essentially just a bit
+
+00:11:07.200 --> 00:11:11.200
+Caption: of code that i copy pasted
+
+00:11:09.039 --> 00:11:12.320
+Caption: from a blog post and then you get 10
+
+00:11:11.200 --> 00:11:15.838
+Caption: tests
+
+00:11:12.320 --> 00:11:15.838
+Caption: but basically nothing
+
+00:11:16.559 --> 00:11:19.359
+Caption: i wouldn&#39;t have written 10 tests for
+
+00:11:17.760 --> 00:11:21.440
+Caption: this probably so i got better than i was
+
+00:11:19.359 --> 00:11:23.679
+Caption: going to get
+
+00:11:21.440 --> 00:11:25.679
+Caption: but i mentioned earlier that maintaining
+
+00:11:23.679 --> 00:11:27.200
+Caption: tests is a bit of a burden and
+
+00:11:25.679 --> 00:11:30.398
+Caption: change is inevitable so how do you
+
+00:11:27.200 --> 00:11:33.440
+Caption: update these tests when things change
+
+00:11:30.398 --> 00:11:35.599
+Caption: well if we go back to our example
+
+00:11:33.440 --> 00:11:36.640
+Caption: some people in the room may know what i
+
+00:11:35.599 --> 00:11:38.479
+Caption: missed
+
+00:11:36.640 --> 00:11:40.079
+Caption: and what else have a think about it and
+
+00:11:38.479 --> 00:11:41.119
+Caption: i&#39;m going to go through
+
+00:11:40.078 --> 00:11:42.880
+Caption: how
+
+00:11:41.119 --> 00:11:44.479
+Caption: or one way that you could uncover the
+
+00:11:42.880 --> 00:11:46.640
+Caption: gap
+
+00:11:44.479 --> 00:11:48.880
+Caption: so if we move these from
+
+00:11:46.640 --> 00:11:50.480
+Caption: a diagram into a table where the initial
+
+00:11:48.880 --> 00:11:52.160
+Caption: states are on the left the actions are
+
+00:11:50.479 --> 00:11:54.159
+Caption: along the top
+
+00:11:52.159 --> 00:11:56.239
+Caption: then you fill in the cell with basically
+
+00:11:54.159 --> 00:11:58.239
+Caption: what it should end up at so fill in the
+
+00:11:56.239 --> 00:12:00.000
+Caption: ones we know from zero press the main
+
+00:11:58.239 --> 00:12:01.599
+Caption: button and you end up in the running
+
+00:12:00.000 --> 00:12:03.838
+Caption: state or from running pressing the main
+
+00:12:01.599 --> 00:12:05.679
+Caption: button you end up unstopped
+
+00:12:03.838 --> 00:12:07.119
+Caption: you can see we&#39;ve got two gaps on this
+
+00:12:05.679 --> 00:12:08.880
+Caption: table
+
+00:12:07.119 --> 00:12:11.359
+Caption: gaps funnily enough are where the
+
+00:12:08.880 --> 00:12:12.479
+Caption: assumptions are and where the bugs are
+
+00:12:11.359 --> 00:12:14.320
+Caption: so
+
+00:12:12.479 --> 00:12:16.239
+Caption: going through this process is really
+
+00:12:14.320 --> 00:12:17.760
+Caption: useful to actually find those edge cases
+
+00:12:16.239 --> 00:12:18.880
+Caption: and to define what the behavior should
+
+00:12:17.760 --> 00:12:20.799
+Caption: be
+
+00:12:18.880 --> 00:12:22.239
+Caption: in our case when we&#39;re at zero and we
+
+00:12:20.799 --> 00:12:24.880
+Caption: press the second button which you could
+
+00:12:22.239 --> 00:12:26.398
+Caption: also call a reset button we stay at zero
+
+00:12:24.880 --> 00:12:27.919
+Caption: that&#39;s easy enough
+
+00:12:26.398 --> 00:12:29.518
+Caption: but this other gap
+
+00:12:27.919 --> 00:12:30.638
+Caption: is less obvious
+
+00:12:29.518 --> 00:12:33.039
+Caption: if you&#39;re running and you press that
+
+00:12:30.638 --> 00:12:33.838
+Caption: second button what should happen
+
+00:12:33.039 --> 00:12:35.518
+Caption: uh
+
+00:12:33.838 --> 00:12:37.599
+Caption: maybe some people have thought about
+
+00:12:35.518 --> 00:12:39.200
+Caption: that more basically stopwatches have a
+
+00:12:37.599 --> 00:12:41.359
+Caption: lap state where it stops actually
+
+00:12:39.200 --> 00:12:42.880
+Caption: turning around that keeps timing
+
+00:12:41.359 --> 00:12:44.638
+Caption: the idea is you can stop the stopwatch
+
+00:12:42.880 --> 00:12:47.440
+Caption: right down a lap time
+
+00:12:44.638 --> 00:12:50.159
+Caption: and then resume
+
+00:12:47.440 --> 00:12:51.679
+Caption: so now our table is kind of full except
+
+00:12:50.159 --> 00:12:53.359
+Caption: that it&#39;s not really because we&#39;ve found
+
+00:12:51.679 --> 00:12:55.119
+Caption: that&#39;s actually another state
+
+00:12:53.359 --> 00:12:56.880
+Caption: so we put that at the bottom and go
+
+00:12:55.119 --> 00:12:59.039
+Caption: through the process again
+
+00:12:56.880 --> 00:13:01.119
+Caption: if we&#39;re in lap and we press the second
+
+00:12:59.039 --> 00:13:03.119
+Caption: button that&#39;s the resume function so it
+
+00:13:01.119 --> 00:13:04.479
+Caption: goes back to the running state
+
+00:13:03.119 --> 00:13:06.000
+Caption: but what about if we press the main
+
+00:13:04.479 --> 00:13:07.199
+Caption: button
+
+00:13:06.000 --> 00:13:09.200
+Caption: i&#39;m going to assume for the sake of this
+
+00:13:07.200 --> 00:13:10.559
+Caption: exercise that it does nothing and just
+
+00:13:09.200 --> 00:13:12.398
+Caption: stays in lap
+
+00:13:10.559 --> 00:13:14.719
+Caption: but it&#39;s also possible that it would go
+
+00:13:12.398 --> 00:13:16.398
+Caption: back to stopped and go to the right time
+
+00:13:14.719 --> 00:13:17.919
+Caption: i&#39;m not really sure
+
+00:13:16.398 --> 00:13:20.479
+Caption: so what do we do with our diagram now
+
+00:13:17.919 --> 00:13:23.518
+Caption: well we have to make some room and then
+
+00:13:20.479 --> 00:13:25.039
+Caption: we have to add the lap function
+
+00:13:23.518 --> 00:13:26.958
+Caption: now our diagrams change it means we need
+
+00:13:25.039 --> 00:13:28.239
+Caption: to regenerate our tests
+
+00:13:26.958 --> 00:13:29.679
+Caption: uh that&#39;s just following the arrows
+
+00:13:28.239 --> 00:13:32.398
+Caption: again i&#39;m not going to walk through that
+
+00:13:29.679 --> 00:13:33.518
+Caption: but plugged into x8 and now i have 37
+
+00:13:32.398 --> 00:13:35.200
+Caption: tests
+
+00:13:33.518 --> 00:13:37.440
+Caption: in this case you can see at the bottom
+
+00:13:35.200 --> 00:13:39.278
+Caption: it says resume count two and unlap count
+
+00:13:37.440 --> 00:13:41.119
+Caption: two that&#39;s because i&#39;ve let it do
+
+00:13:39.278 --> 00:13:42.559
+Caption: two of each of those loops i think
+
+00:13:41.119 --> 00:13:43.838
+Caption: realistically that&#39;s probably overkill
+
+00:13:42.559 --> 00:13:45.518
+Caption: for testing the stopwatch you could have
+
+00:13:43.838 --> 00:13:46.719
+Caption: just said one
+
+00:13:45.518 --> 00:13:50.000
+Caption: and i think if i did that it came out
+
+00:13:46.719 --> 00:13:51.838
+Caption: with 17 tests not 37 so maybe a bit more
+
+00:13:50.000 --> 00:13:54.398
+Caption: manageable if you want to run that with
+
+00:13:51.838 --> 00:13:54.398
+Caption: every build
+
+00:13:55.599 --> 00:13:59.599
+Caption: and that&#39;s it we&#39;ve got three steps
+
+00:13:57.838 --> 00:14:02.320
+Caption: create an abstract model fill in the
+
+00:13:59.599 --> 00:14:05.679
+Caption: assertions generate the tests question
+
+00:14:02.320 --> 00:14:08.638
+Caption: mark question mark question mark profit
+
+00:14:05.679 --> 00:14:08.638
+Caption: that&#39;s what we&#39;re here for right
+
+00:14:08.880 --> 00:14:11.599
+Caption: so model-based testing comes with some
+
+00:14:10.559 --> 00:14:13.838
+Caption: challenges
+
+00:14:11.599 --> 00:14:15.679
+Caption: uh there&#39;s a learning curve that&#39;s a new
+
+00:14:13.838 --> 00:14:18.239
+Caption: approach for almost everyone in the room
+
+00:14:15.679 --> 00:14:19.760
+Caption: except for me and one guy at the back
+
+00:14:18.239 --> 00:14:21.919
+Caption: there aren&#39;t that many tools around and
+
+00:14:19.760 --> 00:14:23.518
+Caption: some of the ones that are a bit old um
+
+00:14:21.919 --> 00:14:26.159
+Caption: so i went over some options that are
+
+00:14:23.518 --> 00:14:27.440
+Caption: reasonably new and maintained
+
+00:14:26.159 --> 00:14:28.479
+Caption: and it can be hard to get the model
+
+00:14:27.440 --> 00:14:30.239
+Caption: right
+
+00:14:28.479 --> 00:14:32.958
+Caption: as you saw i modeled the stopwatch and
+
+00:14:30.239 --> 00:14:35.198
+Caption: still missed something so
+
+00:14:32.958 --> 00:14:37.198
+Caption: i guess you got to keep that in mind my
+
+00:14:35.198 --> 00:14:38.559
+Caption: suggestion would be to make your model
+
+00:14:37.198 --> 00:14:39.919
+Caption: simple because they&#39;re easier to get
+
+00:14:38.559 --> 00:14:43.919
+Caption: right you&#39;re not going to try and test
+
+00:14:39.919 --> 00:14:45.599
+Caption: your whole application just parts of it
+
+00:14:43.919 --> 00:14:48.719
+Caption: there&#39;s no such thing as a perfect model
+
+00:14:45.599 --> 00:14:48.719
+Caption: there&#39;s only a useful one
+
+00:14:49.359 --> 00:14:53.440
+Caption: but with these challenges you get a
+
+00:14:50.799 --> 00:14:55.518
+Caption: whole bunch of benefits
+
+00:14:53.440 --> 00:14:57.440
+Caption: i think the chief benefit among those is
+
+00:14:55.518 --> 00:14:59.039
+Caption: that you get a better understanding of
+
+00:14:57.440 --> 00:15:00.958
+Caption: your app and a shared understanding
+
+00:14:59.039 --> 00:15:03.759
+Caption: because you&#39;ve got this artifact in the
+
+00:15:00.958 --> 00:15:05.518
+Caption: diagram that you can show to anyone to
+
+00:15:03.760 --> 00:15:07.518
+Caption: build understanding
+
+00:15:05.518 --> 00:15:10.078
+Caption: find those gaps early and prevent them
+
+00:15:07.518 --> 00:15:11.359
+Caption: from ever getting into the product
+
+00:15:10.078 --> 00:15:14.078
+Caption: the next one is that you get better
+
+00:15:11.359 --> 00:15:15.838
+Caption: coverage and finding edge cases
+
+00:15:14.078 --> 00:15:18.000
+Caption: in this sense it&#39;s not coverages and
+
+00:15:15.838 --> 00:15:19.760
+Caption: code coverage a model based test doesn&#39;t
+
+00:15:18.000 --> 00:15:20.958
+Caption: care how many if statements you&#39;ve got
+
+00:15:19.760 --> 00:15:23.199
+Caption: you&#39;ve modeled it from the user&#39;s
+
+00:15:20.958 --> 00:15:25.599
+Caption: perspective so you&#39;re getting the user&#39;s
+
+00:15:23.198 --> 00:15:27.359
+Caption: perspective in terms of your coverage
+
+00:15:25.599 --> 00:15:29.599
+Caption: and also helps you find edge cases like
+
+00:15:27.359 --> 00:15:31.119
+Caption: we just went through
+
+00:15:29.599 --> 00:15:33.518
+Caption: quicker to write tests because you
+
+00:15:31.119 --> 00:15:36.078
+Caption: didn&#39;t have to write the tests
+
+00:15:33.518 --> 00:15:37.599
+Caption: and it&#39;s really easy to make changes
+
+00:15:36.078 --> 00:15:40.958
+Caption: you know you just update the diagram and
+
+00:15:37.599 --> 00:15:42.958
+Caption: it all works again
+
+00:15:40.958 --> 00:15:44.638
+Caption: so in my view model-based testing is the
+
+00:15:42.958 --> 00:15:46.159
+Caption: logical progression from automated
+
+00:15:44.638 --> 00:15:47.758
+Caption: testing
+
+00:15:46.159 --> 00:15:48.719
+Caption: we started in a world
+
+00:15:47.758 --> 00:15:50.559
+Caption: where
+
+00:15:48.719 --> 00:15:53.198
+Caption: we had manual testing a person would
+
+00:15:50.559 --> 00:15:54.799
+Caption: write out a script and then manually go
+
+00:15:53.198 --> 00:15:56.398
+Caption: through those steps
+
+00:15:54.799 --> 00:15:58.320
+Caption: then we thought actually computers are
+
+00:15:56.398 --> 00:15:58.958
+Caption: kind of better at that they&#39;re faster at
+
+00:15:58.320 --> 00:16:00.720
+Caption: it
+
+00:15:58.958 --> 00:16:02.320
+Caption: so we&#39;ll still ride the test but now
+
+00:16:00.719 --> 00:16:04.958
+Caption: we&#39;ll let a computer go through and
+
+00:16:02.320 --> 00:16:07.199
+Caption: execute them
+
+00:16:04.958 --> 00:16:08.799
+Caption: whereas with model based testing we let
+
+00:16:07.198 --> 00:16:11.039
+Caption: the computer even do that step so the
+
+00:16:08.799 --> 00:16:13.838
+Caption: computer will generate them
+
+00:16:11.039 --> 00:16:16.078
+Caption: and then it will execute them
+
+00:16:13.838 --> 00:16:18.719
+Caption: basically stop writing tests because
+
+00:16:16.078 --> 00:16:21.880
+Caption: computers do it better than you can
+
+00:16:18.719 --> 00:16:21.879
+Caption: thank you
+
+00:16:27.278 --> 00:16:30.799
+Caption: i&#39;ve also got to get repo if
+

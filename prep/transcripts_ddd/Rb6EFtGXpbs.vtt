@@ -1,0 +1,3092 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:02.839
+Caption: welcome everyone
+
+00:00:05.460 --> 00:00:09.319
+Caption: please take a seat make yourself
+
+00:00:06.839 --> 00:00:09.319
+Caption: comfortable
+
+00:00:09.720 --> 00:00:15.059
+Caption: excellent our next speaker is Dylan
+
+00:00:12.479 --> 00:00:18.599
+Caption: Watson he&#39;s going to talk to us today
+
+00:00:15.059 --> 00:00:20.819
+Caption: about releasing your inner Dev Ops Dylan
+
+00:00:18.600 --> 00:00:23.520
+Caption: is a fan of cheap wine and fast
+
+00:00:20.819 --> 00:00:26.100
+Caption: deployments he has spent the last five
+
+00:00:23.520 --> 00:00:28.979
+Caption: years improving the pace of development
+
+00:00:26.100 --> 00:00:30.840
+Caption: at Bankwest and has recently started
+
+00:00:28.979 --> 00:00:32.819
+Caption: with atlassian building out their
+
+00:00:30.840 --> 00:00:35.040
+Caption: internal continuous deployment platform
+
+00:00:32.819 --> 00:00:37.860
+Caption: when he&#39;s not building out the latest
+
+00:00:35.040 --> 00:00:39.779
+Caption: hair brain app idea he is playing on the
+
+00:00:37.860 --> 00:00:42.620
+Caption: trampoline with his two kids welcome
+
+00:00:39.779 --> 00:00:42.619
+Caption: Dylan
+
+00:00:44.578 --> 00:00:47.238
+Caption: foreign
+
+00:00:49.340 --> 00:00:55.919
+Caption: welcome guys uh so
+
+00:00:53.459 --> 00:00:58.099
+Caption: basically today I want to talk about how
+
+00:00:55.919 --> 00:01:02.538
+Caption: to build a culture of getting your code
+
+00:00:58.099 --> 00:01:05.639
+Caption: uh into production quickly safely uh and
+
+00:01:02.539 --> 00:01:09.360
+Caption: uh reliably
+
+00:01:05.639 --> 00:01:12.599
+Caption: hey thanks heaps uh all our sponsors
+
+00:01:09.360 --> 00:01:15.299
+Caption: um they&#39;ve yeah without this without
+
+00:01:12.599 --> 00:01:18.118
+Caption: them today you know wouldn&#39;t be possible
+
+00:01:15.299 --> 00:01:20.280
+Caption: okay so first I want to start off with a
+
+00:01:18.119 --> 00:01:21.900
+Caption: bit of audience participation everyone
+
+00:01:20.279 --> 00:01:26.658
+Caption: loves the middle audience participation
+
+00:01:21.900 --> 00:01:26.659
+Caption: I&#39;m sure uh so oh no
+
+00:01:28.500 --> 00:01:35.400
+Caption: okay try not to touch okay so
+
+00:01:33.059 --> 00:01:37.199
+Caption: if everyone could put up their hand if
+
+00:01:35.400 --> 00:01:38.700
+Caption: your team has deployed something to
+
+00:01:37.199 --> 00:01:42.978
+Caption: production this year
+
+00:01:38.699 --> 00:01:42.978
+Caption: we&#39;ll start ideally a low bar
+
+00:01:43.339 --> 00:01:50.219
+Caption: so keep your hand up so keep your hand
+
+00:01:47.819 --> 00:01:51.839
+Caption: up if you your team deploys more often
+
+00:01:50.220 --> 00:01:56.220
+Caption: than every six months
+
+00:01:51.839 --> 00:01:58.438
+Caption: cool all right uh what about every month
+
+00:01:56.220 --> 00:02:00.959
+Caption: okay a few few hands down but still
+
+00:01:58.439 --> 00:02:02.880
+Caption: pretty good okay every week do you does
+
+00:02:00.959 --> 00:02:06.779
+Caption: your team deploy every week
+
+00:02:02.879 --> 00:02:09.720
+Caption: yep few less hands what about every day
+
+00:02:06.779 --> 00:02:13.520
+Caption: yep much much less hands
+
+00:02:09.720 --> 00:02:13.520
+Caption: and what about every commit
+
+00:02:13.919 --> 00:02:19.259
+Caption: okay cool there&#39;s there&#39;s a few people
+
+00:02:16.160 --> 00:02:22.620
+Caption: uh awesome uh for the rest of you
+
+00:02:19.259 --> 00:02:24.000
+Caption: it&#39;s definitely possible right uh and
+
+00:02:22.619 --> 00:02:26.759
+Caption: today I&#39;m going to show you a few
+
+00:02:24.000 --> 00:02:28.440
+Caption: techniques that you can use uh maybe not
+
+00:02:26.759 --> 00:02:32.000
+Caption: necessarily to get there but to improve
+
+00:02:28.440 --> 00:02:32.000
+Caption: your deployment process okay
+
+00:02:32.160 --> 00:02:37.080
+Caption: uh
+
+00:02:34.080 --> 00:02:39.479
+Caption: I&#39;m Dylan Watson I love building useful
+
+00:02:37.080 --> 00:02:42.720
+Caption: software and thinking about better ways
+
+00:02:39.479 --> 00:02:44.458
+Caption: to get it into the hands of our users
+
+00:02:42.720 --> 00:02:46.860
+Caption: so first of all I&#39;m going to start off
+
+00:02:44.458 --> 00:02:49.979
+Caption: with some guiding principles things to
+
+00:02:46.860 --> 00:02:53.639
+Caption: think about in improving your uh
+
+00:02:49.979 --> 00:02:56.159
+Caption: path to prod a little case study recent
+
+00:02:53.639 --> 00:02:59.000
+Caption: project I&#39;ve been working on and some
+
+00:02:56.160 --> 00:03:02.040
+Caption: practical techniques that you can use to
+
+00:02:59.000 --> 00:03:04.199
+Caption: move your code into users hands quickly
+
+00:03:02.039 --> 00:03:06.899
+Caption: and safely
+
+00:03:04.199 --> 00:03:08.580
+Caption: uh hopefully there&#39;s time for questions
+
+00:03:06.899 --> 00:03:10.378
+Caption: at the end so
+
+00:03:08.580 --> 00:03:12.119
+Caption: um I am definitely Keen to get into some
+
+00:03:10.378 --> 00:03:15.679
+Caption: discussion if you guys
+
+00:03:12.119 --> 00:03:15.679
+Caption: um have got uh thoughts
+
+00:03:16.199 --> 00:03:19.800
+Caption: there&#39;s going to be some controversial
+
+00:03:17.639 --> 00:03:22.679
+Caption: stuff ahead uh you won&#39;t agree with
+
+00:03:19.800 --> 00:03:25.199
+Caption: everything I&#39;m sure but that&#39;s cool uh
+
+00:03:22.679 --> 00:03:28.799
+Caption: as I said we can have a chat afterwards
+
+00:03:25.199 --> 00:03:32.220
+Caption: um I will be Keen to have a discussion
+
+00:03:28.800 --> 00:03:35.040
+Caption: so first off deploying safe uh deploying
+
+00:03:32.220 --> 00:03:37.080
+Caption: software safely uh it can be hard
+
+00:03:35.039 --> 00:03:38.639
+Caption: hopefully that isn&#39;t the controversial
+
+00:03:37.080 --> 00:03:41.759
+Caption: wit
+
+00:03:38.639 --> 00:03:43.259
+Caption: I&#39;m sure we&#39;ve all experienced pain in
+
+00:03:41.759 --> 00:03:46.199
+Caption: deploying software
+
+00:03:43.259 --> 00:03:48.319
+Caption: uh but it doesn&#39;t have to be that way
+
+00:03:46.199 --> 00:03:51.179
+Caption: so
+
+00:03:48.319 --> 00:03:53.819
+Caption: I&#39;m sure that we&#39;ve all got a time when
+
+00:03:51.179 --> 00:03:56.158
+Caption: uh we&#39;ve had a painful deployment to
+
+00:03:53.819 --> 00:03:57.720
+Caption: Pride maybe a late night or something so
+
+00:03:56.158 --> 00:03:59.580
+Caption: I want you to think about what makes
+
+00:03:57.720 --> 00:04:01.319
+Caption: deployments hard
+
+00:03:59.580 --> 00:04:03.419
+Caption: um
+
+00:04:01.319 --> 00:04:05.098
+Caption: does does anyone have anything that they
+
+00:04:03.419 --> 00:04:07.860
+Caption: think like what what makes a deployment
+
+00:04:05.098 --> 00:04:10.619
+Caption: hard anyone have any ideas
+
+00:04:07.860 --> 00:04:14.298
+Caption: feel free to shout out
+
+00:04:10.619 --> 00:04:18.298
+Caption: oh yes late night deployments
+
+00:04:14.298 --> 00:04:20.160
+Caption: gotta love them anything else
+
+00:04:18.299 --> 00:04:24.180
+Caption: oh testing
+
+00:04:20.160 --> 00:04:26.580
+Caption: yes so manual testing uh is a huge one
+
+00:04:24.179 --> 00:04:29.660
+Caption: for sure yep
+
+00:04:26.579 --> 00:04:29.659
+Caption: um any anything else
+
+00:04:29.880 --> 00:04:35.520
+Caption: cabs yes okay so approvals and stuff
+
+00:04:32.040 --> 00:04:38.220
+Caption: like that that&#39;s a huge one so things I
+
+00:04:35.519 --> 00:04:41.339
+Caption: think about uh might be coordination
+
+00:04:38.220 --> 00:04:43.979
+Caption: between multiple teams okay getting
+
+00:04:41.339 --> 00:04:46.100
+Caption: getting people to align is always really
+
+00:04:43.979 --> 00:04:48.720
+Caption: difficult scheduling out of hours
+
+00:04:46.100 --> 00:04:50.100
+Caption: deployments I&#39;d rather be at home with
+
+00:04:48.720 --> 00:04:52.259
+Caption: my family
+
+00:04:50.100 --> 00:04:54.779
+Caption: um batching weeks and weeks of changes
+
+00:04:52.259 --> 00:04:56.959
+Caption: is super scary you have no idea what
+
+00:04:54.779 --> 00:04:59.820
+Caption: you&#39;re sending into production okay
+
+00:04:56.959 --> 00:05:01.579
+Caption: manual deployment so any any manual
+
+00:04:59.820 --> 00:05:05.100
+Caption: steps in your process to production
+
+00:05:01.579 --> 00:05:07.978
+Caption: really uh that can make things really
+
+00:05:05.100 --> 00:05:09.479
+Caption: scary they&#39;re likely to go wrong
+
+00:05:07.979 --> 00:05:11.519
+Caption: um you&#39;re going to mess something up no
+
+00:05:09.479 --> 00:05:14.160
+Caption: matter how many times you&#39;ve done it
+
+00:05:11.519 --> 00:05:14.819
+Caption: and manual testing
+
+00:05:14.160 --> 00:05:16.739
+Caption: um
+
+00:05:14.820 --> 00:05:18.240
+Caption: discuss this as well it&#39;s it&#39;s Error
+
+00:05:16.739 --> 00:05:19.739
+Caption: prone okay you want everything to be
+
+00:05:18.239 --> 00:05:21.299
+Caption: automated in your pipeline as much as
+
+00:05:19.739 --> 00:05:23.220
+Caption: possible
+
+00:05:21.299 --> 00:05:25.019
+Caption: and once you actually get the thing into
+
+00:05:23.220 --> 00:05:26.399
+Caption: production if something goes wrong and
+
+00:05:25.019 --> 00:05:29.279
+Caption: you can&#39;t roll back to a safe State
+
+00:05:26.399 --> 00:05:31.739
+Caption: easily that&#39;s also really scary right so
+
+00:05:29.279 --> 00:05:33.899
+Caption: all these things build up this fear in
+
+00:05:31.739 --> 00:05:36.660
+Caption: our deployment process
+
+00:05:33.899 --> 00:05:38.880
+Caption: hey on the other side of the coin what
+
+00:05:36.660 --> 00:05:42.320
+Caption: makes deployments easy
+
+00:05:38.880 --> 00:05:42.320
+Caption: does anyone have any ideas
+
+00:05:44.940 --> 00:05:49.199
+Caption: sorry
+
+00:05:46.320 --> 00:05:51.059
+Caption: yes yeah so let&#39;s uh less changes going
+
+00:05:49.199 --> 00:05:53.220
+Caption: into production right
+
+00:05:51.059 --> 00:05:55.199
+Caption: um things like having your code always
+
+00:05:53.220 --> 00:05:57.839
+Caption: ready to deploy
+
+00:05:55.199 --> 00:05:59.639
+Caption: um so you&#39;ve actually made all the you
+
+00:05:57.839 --> 00:06:01.979
+Caption: know automated checks before you get to
+
+00:05:59.639 --> 00:06:07.020
+Caption: production before you even merged your
+
+00:06:01.979 --> 00:06:07.919
+Caption: code uh no approvals no coordination
+
+00:06:07.019 --> 00:06:12.359
+Caption: um
+
+00:06:07.919 --> 00:06:13.559
+Caption: yes uh automated everything basically is
+
+00:06:12.359 --> 00:06:14.638
+Caption: probably going to be the pattern of this
+
+00:06:13.559 --> 00:06:18.259
+Caption: talk
+
+00:06:14.639 --> 00:06:22.020
+Caption: um but yeah manual steps testing or
+
+00:06:18.259 --> 00:06:23.639
+Caption: approvals for sure and you want to get
+
+00:06:22.019 --> 00:06:24.899
+Caption: to a point where your deployments rarely
+
+00:06:23.639 --> 00:06:28.559
+Caption: fail
+
+00:06:24.899 --> 00:06:31.739
+Caption: um but most of that is about uh is about
+
+00:06:28.559 --> 00:06:34.139
+Caption: practice and automation
+
+00:06:31.739 --> 00:06:36.059
+Caption: uh
+
+00:06:34.139 --> 00:06:38.819
+Caption: so how do we do it
+
+00:06:36.059 --> 00:06:41.819
+Caption: okay these are the things that I I think
+
+00:06:38.819 --> 00:06:43.380
+Caption: are a key uh when we&#39;re improving our
+
+00:06:41.819 --> 00:06:45.419
+Caption: deployment process
+
+00:06:43.380 --> 00:06:48.660
+Caption: so
+
+00:06:45.419 --> 00:06:51.720
+Caption: first of all uh we&#39;ll start off with
+
+00:06:48.660 --> 00:06:55.380
+Caption: uh I mean my talks releasing the devops
+
+00:06:51.720 --> 00:06:58.079
+Caption: right so devops is really a mindset a
+
+00:06:55.380 --> 00:07:00.839
+Caption: mindset about automating or removing the
+
+00:06:58.079 --> 00:07:03.899
+Caption: steps in your process of deploying prod
+
+00:07:00.839 --> 00:07:05.759
+Caption: to production and
+
+00:07:03.899 --> 00:07:07.220
+Caption: being prepared to fail right so you&#39;re
+
+00:07:05.759 --> 00:07:10.500
+Caption: trying things out
+
+00:07:07.220 --> 00:07:12.419
+Caption: and uh experimenting with your
+
+00:07:10.500 --> 00:07:15.199
+Caption: deployment process and trying to just
+
+00:07:12.419 --> 00:07:15.199
+Caption: improve it
+
+00:07:15.319 --> 00:07:20.160
+Caption: uh back to fundamentals basically what
+
+00:07:18.000 --> 00:07:21.660
+Caption: we&#39;re trying to do is write code deploy
+
+00:07:20.160 --> 00:07:23.459
+Caption: it to production get it in into the
+
+00:07:21.660 --> 00:07:26.039
+Caption: hands of our users right that&#39;s that&#39;s
+
+00:07:23.459 --> 00:07:28.319
+Caption: ultimately what we&#39;re doing here
+
+00:07:26.039 --> 00:07:30.959
+Caption: so
+
+00:07:28.319 --> 00:07:32.039
+Caption: we discussed before a small number of
+
+00:07:30.959 --> 00:07:34.319
+Caption: changes
+
+00:07:32.039 --> 00:07:37.860
+Caption: less risk right so smaller change you
+
+00:07:34.319 --> 00:07:40.440
+Caption: make uh you might have uh less risk of
+
+00:07:37.859 --> 00:07:43.019
+Caption: that failing but also when it does fail
+
+00:07:40.440 --> 00:07:45.179
+Caption: when uh
+
+00:07:43.019 --> 00:07:46.500
+Caption: you know exactly what broke right you
+
+00:07:45.179 --> 00:07:48.660
+Caption: know that one little change you made
+
+00:07:46.500 --> 00:07:52.259
+Caption: that was the issue you can roll it back
+
+00:07:48.660 --> 00:07:55.139
+Caption: fix it okay it&#39;s it&#39;s isolated
+
+00:07:52.259 --> 00:07:56.519
+Caption: uh you should only merge when it&#39;s safe
+
+00:07:55.139 --> 00:08:01.380
+Caption: for production
+
+00:07:56.519 --> 00:08:04.379
+Caption: so uh this is more of a yeah again this
+
+00:08:01.380 --> 00:08:06.179
+Caption: is like a mindset thing uh and in order
+
+00:08:04.380 --> 00:08:08.459
+Caption: to check that we&#39;ll we&#39;ll go through the
+
+00:08:06.179 --> 00:08:10.979
+Caption: techniques and stuff but we want to
+
+00:08:08.459 --> 00:08:15.239
+Caption: merge and have all the automated safety
+
+00:08:10.979 --> 00:08:16.380
+Caption: uh and know that um it this thing is as
+
+00:08:15.239 --> 00:08:19.440
+Caption: safe as possible to go to production
+
+00:08:16.380 --> 00:08:21.720
+Caption: before you even merge that code
+
+00:08:19.440 --> 00:08:23.639
+Caption: uh testing is built into the pipeline
+
+00:08:21.720 --> 00:08:25.559
+Caption: okay that&#39;s absolutely critical so
+
+00:08:23.639 --> 00:08:27.960
+Caption: automated testing
+
+00:08:25.559 --> 00:08:29.220
+Caption: um and there&#39;s you know I could do a
+
+00:08:27.959 --> 00:08:31.199
+Caption: whole another talk about the types of
+
+00:08:29.220 --> 00:08:34.500
+Caption: testing but testing has to be built into
+
+00:08:31.199 --> 00:08:38.700
+Caption: the pipeline uh same with security okay
+
+00:08:34.500 --> 00:08:41.218
+Caption: so uh it&#39;s that&#39;s just another aspect
+
+00:08:38.700 --> 00:08:43.380
+Caption: that we have to consider when we&#39;re
+
+00:08:41.218 --> 00:08:45.719
+Caption: um so so this is like your you know code
+
+00:08:43.380 --> 00:08:47.580
+Caption: code scanning or vulnerability checking
+
+00:08:45.719 --> 00:08:49.259
+Caption: all this sort of stuff needs to be
+
+00:08:47.580 --> 00:08:53.000
+Caption: automated and will stop you from going
+
+00:08:49.260 --> 00:08:53.000
+Caption: to production if these things break
+
+00:08:53.760 --> 00:08:57.600
+Caption: um and lastly once you actually get your
+
+00:08:55.679 --> 00:08:59.039
+Caption: code into production you need to observe
+
+00:08:57.599 --> 00:09:01.679
+Caption: what&#39;s happening right you need to know
+
+00:08:59.039 --> 00:09:03.719
+Caption: so this is like you&#39;re logging so
+
+00:09:01.679 --> 00:09:05.880
+Caption: um logging or
+
+00:09:03.719 --> 00:09:07.619
+Caption: uh metrics and all this sort of stuff
+
+00:09:05.880 --> 00:09:09.059
+Caption: you need to know exactly what&#39;s going on
+
+00:09:07.619 --> 00:09:11.458
+Caption: in production so that when things do
+
+00:09:09.059 --> 00:09:12.419
+Caption: break you can easily track down the
+
+00:09:11.458 --> 00:09:14.278
+Caption: issue
+
+00:09:12.419 --> 00:09:16.919
+Caption: and that you know that something is
+
+00:09:14.278 --> 00:09:18.719
+Caption: broken in the first place
+
+00:09:16.919 --> 00:09:20.039
+Caption: okay so
+
+00:09:18.719 --> 00:09:22.500
+Caption: um I just want to chat a little bit
+
+00:09:20.039 --> 00:09:28.500
+Caption: about recent project I&#39;ve been working
+
+00:09:22.500 --> 00:09:30.919
+Caption: on uh at Bankwest uh so this is a home
+
+00:09:28.500 --> 00:09:32.940
+Caption: loan system with
+
+00:09:30.919 --> 00:09:36.619
+Caption: depending how you cut the numbers about
+
+00:09:32.940 --> 00:09:40.320
+Caption: 20 different components so apis and apps
+
+00:09:36.619 --> 00:09:41.940
+Caption: and around about four teams
+
+00:09:40.320 --> 00:09:45.359
+Caption: so
+
+00:09:41.940 --> 00:09:47.580
+Caption: when we sort of started our devops
+
+00:09:45.359 --> 00:09:51.599
+Caption: journey uh we&#39;re making about five
+
+00:09:47.580 --> 00:09:53.640
+Caption: deployments per month okay uh which is
+
+00:09:51.599 --> 00:09:56.639
+Caption: is still not terrible but there&#39;s
+
+00:09:53.640 --> 00:10:00.660
+Caption: there&#39;s also a few teams involved there
+
+00:09:56.640 --> 00:10:02.760
+Caption: um and we increased to 55 deployments
+
+00:10:00.659 --> 00:10:04.559
+Caption: about that around about
+
+00:10:02.760 --> 00:10:05.278
+Caption: so
+
+00:10:04.559 --> 00:10:07.979
+Caption: um
+
+00:10:05.278 --> 00:10:09.898
+Caption: on a global scale that&#39;s that&#39;s not a
+
+00:10:07.979 --> 00:10:11.458
+Caption: huge amount but it but it made a big
+
+00:10:09.898 --> 00:10:12.599
+Caption: difference to us right
+
+00:10:11.458 --> 00:10:13.919
+Caption: um that&#39;s the order of magnitude
+
+00:10:12.599 --> 00:10:15.719
+Caption: difference
+
+00:10:13.919 --> 00:10:18.599
+Caption: um so how
+
+00:10:15.719 --> 00:10:21.958
+Caption: how do we do that right
+
+00:10:18.599 --> 00:10:24.059
+Caption: we were prepared to fail often okay try
+
+00:10:21.958 --> 00:10:27.000
+Caption: things out uh we would have the
+
+00:10:24.059 --> 00:10:31.260
+Caption: engineers in control of deployments and
+
+00:10:27.000 --> 00:10:34.559
+Caption: our definition of done was in production
+
+00:10:31.260 --> 00:10:37.320
+Caption: so yeah so experimenting and failing
+
+00:10:34.559 --> 00:10:39.299
+Caption: often we made failure okay and even
+
+00:10:37.320 --> 00:10:40.440
+Caption: expected often when we&#39;re trying things
+
+00:10:39.299 --> 00:10:42.659
+Caption: out
+
+00:10:40.440 --> 00:10:45.898
+Caption: um and because of this we tried lots of
+
+00:10:42.659 --> 00:10:47.398
+Caption: things failure was cheap okay but we
+
+00:10:45.898 --> 00:10:49.320
+Caption: also had the backing from our managers
+
+00:10:47.398 --> 00:10:51.260
+Caption: to push and improve and make these
+
+00:10:49.320 --> 00:10:53.940
+Caption: changes and
+
+00:10:51.260 --> 00:10:55.919
+Caption: the expectation is that most of these
+
+00:10:53.940 --> 00:10:57.179
+Caption: experiments experiments failed but the
+
+00:10:55.919 --> 00:11:00.320
+Caption: ones that worked
+
+00:10:57.179 --> 00:11:00.320
+Caption: they had a big impact
+
+00:11:00.599 --> 00:11:04.259
+Caption: okay
+
+00:11:02.099 --> 00:11:05.940
+Caption: um another so I think probably the
+
+00:11:04.260 --> 00:11:08.640
+Caption: biggest one for me is that the engineers
+
+00:11:05.940 --> 00:11:11.820
+Caption: uh were in control of the deployments so
+
+00:11:08.640 --> 00:11:15.239
+Caption: uh when we started uh the people doing
+
+00:11:11.820 --> 00:11:16.260
+Caption: deployments uh the Ops were a totally
+
+00:11:15.239 --> 00:11:18.958
+Caption: different team
+
+00:11:16.260 --> 00:11:20.940
+Caption: right they um they sat over there and
+
+00:11:18.958 --> 00:11:22.078
+Caption: you would say oh I want I want a
+
+00:11:20.940 --> 00:11:25.078
+Caption: deployment please and you&#39;d have to
+
+00:11:22.078 --> 00:11:27.599
+Caption: schedule it in and uh in order to
+
+00:11:25.078 --> 00:11:31.078
+Caption: alleviate a lot of the pressure
+
+00:11:27.599 --> 00:11:33.000
+Caption: um we we brought that person in so we
+
+00:11:31.078 --> 00:11:35.039
+Caption: brought one of those Ops people into our
+
+00:11:33.000 --> 00:11:36.479
+Caption: team okay and that made a huge
+
+00:11:35.039 --> 00:11:39.000
+Caption: difference for us
+
+00:11:36.479 --> 00:11:41.099
+Caption: um because it meant that uh all the
+
+00:11:39.000 --> 00:11:43.200
+Caption: people in the team we had all the all
+
+00:11:41.099 --> 00:11:45.659
+Caption: the skills in the team to deploy our
+
+00:11:43.200 --> 00:11:48.600
+Caption: code to production
+
+00:11:45.659 --> 00:11:50.518
+Caption: um from there that person trained the
+
+00:11:48.599 --> 00:11:53.338
+Caption: rest of the team and we were able to
+
+00:11:50.518 --> 00:11:57.539
+Caption: work together Engineers uh that like Dev
+
+00:11:53.338 --> 00:11:59.940
+Caption: anops to essentially automate our
+
+00:11:57.539 --> 00:12:01.440
+Caption: pipeline to production
+
+00:11:59.940 --> 00:12:04.440
+Caption: uh
+
+00:12:01.440 --> 00:12:09.018
+Caption: so uh to a point where anyone in the
+
+00:12:04.440 --> 00:12:09.018
+Caption: team could you know just click a button
+
+00:12:09.359 --> 00:12:13.500
+Caption: so
+
+00:12:11.039 --> 00:12:15.659
+Caption: um yeah essentially the what&#39;s pretty
+
+00:12:13.500 --> 00:12:18.500
+Caption: common now the the Builder you build it
+
+00:12:15.659 --> 00:12:18.500
+Caption: you run it concept
+
+00:12:19.320 --> 00:12:24.059
+Caption: and
+
+00:12:21.000 --> 00:12:25.320
+Caption: lastly I think the fact that our
+
+00:12:24.059 --> 00:12:27.179
+Caption: definition of done is in production
+
+00:12:25.320 --> 00:12:29.220
+Caption: right so you you can&#39;t close the ticket
+
+00:12:27.179 --> 00:12:32.099
+Caption: that you&#39;re working on until that thing
+
+00:12:29.219 --> 00:12:33.179
+Caption: is in the hands of your users and I
+
+00:12:32.099 --> 00:12:35.398
+Caption: think
+
+00:12:33.179 --> 00:12:38.458
+Caption: um maybe it&#39;s a maybe it&#39;s a guilt thing
+
+00:12:35.398 --> 00:12:40.140
+Caption: but I think that&#39;s a it&#39;s a or even just
+
+00:12:38.458 --> 00:12:42.419
+Caption: a visibility thing
+
+00:12:40.140 --> 00:12:44.940
+Caption: um if if you don&#39;t close that particular
+
+00:12:42.419 --> 00:12:47.278
+Caption: task until it&#39;s in production it doesn&#39;t
+
+00:12:44.940 --> 00:12:49.559
+Caption: get forgotten about and you know that
+
+00:12:47.278 --> 00:12:52.859
+Caption: when things start when Cards start to
+
+00:12:49.559 --> 00:12:54.539
+Caption: you know pile up uh there&#39;s sort of a
+
+00:12:52.859 --> 00:12:55.679
+Caption: you can feel it here that like you need
+
+00:12:54.539 --> 00:12:57.000
+Caption: to get that into production that&#39;s
+
+00:12:55.679 --> 00:13:00.078
+Caption: that&#39;s a whole bunch of features that
+
+00:12:57.000 --> 00:13:00.078
+Caption: your users are missing out on
+
+00:13:00.260 --> 00:13:07.200
+Caption: okay so now I want to share some
+
+00:13:04.138 --> 00:13:10.440
+Caption: techniques oh uh I now want to share
+
+00:13:07.200 --> 00:13:12.898
+Caption: some techniques uh that help to deploy
+
+00:13:10.440 --> 00:13:15.619
+Caption: regularly and safely
+
+00:13:12.898 --> 00:13:15.619
+Caption: so
+
+00:13:16.380 --> 00:13:22.138
+Caption: first of all uh we want to separate our
+
+00:13:19.619 --> 00:13:25.138
+Caption: deployments and our releases
+
+00:13:22.138 --> 00:13:28.440
+Caption: uh we want to use feature toggles
+
+00:13:25.138 --> 00:13:30.479
+Caption: and a little thing called expand roll
+
+00:13:28.440 --> 00:13:32.398
+Caption: out contract
+
+00:13:30.479 --> 00:13:33.958
+Caption: um which is a really great technique
+
+00:13:32.398 --> 00:13:36.119
+Caption: some of you probably have used it
+
+00:13:33.958 --> 00:13:37.260
+Caption: without knowing the name uh but
+
+00:13:36.119 --> 00:13:40.380
+Caption: basically all these things are about
+
+00:13:37.260 --> 00:13:43.639
+Caption: taking a considered measured approach
+
+00:13:40.380 --> 00:13:43.638
+Caption: okay to our deployments
+
+00:13:44.398 --> 00:13:49.500
+Caption: so yeah deployments and releases so
+
+00:13:48.119 --> 00:13:52.200
+Caption: first of all
+
+00:13:49.500 --> 00:13:55.500
+Caption: uh more audience participation
+
+00:13:52.200 --> 00:13:58.859
+Caption: uh who who dreads deployments
+
+00:13:55.500 --> 00:14:01.679
+Caption: I I suspect anyone that deploys more of
+
+00:13:58.859 --> 00:14:03.719
+Caption: less less often than a month probably is
+
+00:14:01.679 --> 00:14:04.380
+Caption: having these thoughts
+
+00:14:03.719 --> 00:14:06.479
+Caption: um
+
+00:14:04.380 --> 00:14:08.338
+Caption: okay and what about who who dreads
+
+00:14:06.479 --> 00:14:13.320
+Caption: releases
+
+00:14:08.338 --> 00:14:16.278
+Caption: who have a little think now who thinks I
+
+00:14:13.320 --> 00:14:16.278
+Caption: asked the same question twice
+
+00:14:16.919 --> 00:14:23.398
+Caption: that&#39;s that&#39;s valid okay
+
+00:14:19.500 --> 00:14:25.078
+Caption: um but uh basically I I&#39;m here to
+
+00:14:23.398 --> 00:14:27.359
+Caption: basically separate those two concepts
+
+00:14:25.078 --> 00:14:30.299
+Caption: okay so first of all we&#39;ll start with
+
+00:14:27.359 --> 00:14:31.739
+Caption: some some definitions so deployments are
+
+00:14:30.299 --> 00:14:32.338
+Caption: basically
+
+00:14:31.739 --> 00:14:34.739
+Caption: um
+
+00:14:32.338 --> 00:14:36.719
+Caption: in my eyes moving your code into a
+
+00:14:34.739 --> 00:14:39.479
+Caption: production environment
+
+00:14:36.719 --> 00:14:40.739
+Caption: okay ideally there&#39;s zero downtime so
+
+00:14:39.479 --> 00:14:42.539
+Caption: you&#39;re using some sort of deployment
+
+00:14:40.739 --> 00:14:44.159
+Caption: strategy like
+
+00:14:42.539 --> 00:14:47.219
+Caption: um green blue deploy or something like
+
+00:14:44.159 --> 00:14:49.159
+Caption: that but ultimately there is no there is
+
+00:14:47.219 --> 00:14:52.679
+Caption: no downtime in your system
+
+00:14:49.159 --> 00:14:54.359
+Caption: and it should be a low risk to the
+
+00:14:52.679 --> 00:14:58.078
+Caption: business it&#39;s a technical exercise we&#39;re
+
+00:14:54.359 --> 00:14:59.638
+Caption: just moving some code into a production
+
+00:14:58.078 --> 00:15:00.619
+Caption: environment
+
+00:14:59.638 --> 00:15:03.359
+Caption: okay
+
+00:15:00.619 --> 00:15:06.479
+Caption: and with automation it should happen
+
+00:15:03.359 --> 00:15:09.479
+Caption: with minimal human interaction
+
+00:15:06.479 --> 00:15:12.320
+Caption: um uh it also shouldn&#39;t be affecting our
+
+00:15:09.479 --> 00:15:15.359
+Caption: users is a pretty cool pretty cool
+
+00:15:12.320 --> 00:15:16.859
+Caption: pretty critical one there&#39;s zero time
+
+00:15:15.359 --> 00:15:19.320
+Caption: downtime but there shouldn&#39;t really be
+
+00:15:16.859 --> 00:15:21.659
+Caption: any impact to our users
+
+00:15:19.320 --> 00:15:22.380
+Caption: on a release on the other hand
+
+00:15:21.659 --> 00:15:26.940
+Caption: um
+
+00:15:22.380 --> 00:15:29.099
+Caption: now obviously we had some people that uh
+
+00:15:26.940 --> 00:15:30.720
+Caption: uh you know thought I was asking the
+
+00:15:29.099 --> 00:15:32.698
+Caption: same question really deployments and
+
+00:15:30.719 --> 00:15:34.198
+Caption: releases that&#39;s like they&#39;re pretty
+
+00:15:32.698 --> 00:15:36.119
+Caption: ambiguous terms I think I think release
+
+00:15:34.198 --> 00:15:37.799
+Caption: is a pretty ambiguous term um it&#39;s used
+
+00:15:36.119 --> 00:15:38.458
+Caption: for all sorts of things
+
+00:15:37.799 --> 00:15:40.260
+Caption: um
+
+00:15:38.458 --> 00:15:41.898
+Caption: generally I&#39;ll probably use the word
+
+00:15:40.260 --> 00:15:45.720
+Caption: launch right
+
+00:15:41.898 --> 00:15:47.338
+Caption: so I&#39;ll go I&#39;ll go through in a sec but
+
+00:15:45.719 --> 00:15:49.379
+Caption: uh
+
+00:15:47.338 --> 00:15:53.059
+Caption: a release or a launch is basically about
+
+00:15:49.380 --> 00:15:53.059
+Caption: launching new functionality to a user
+
+00:15:53.159 --> 00:15:58.679
+Caption: um and maybe maybe you&#39;re only launching
+
+00:15:55.799 --> 00:16:00.599
+Caption: to some set of users right you&#39;re only
+
+00:15:58.679 --> 00:16:02.099
+Caption: activating the code for for certain
+
+00:16:00.599 --> 00:16:04.578
+Caption: users
+
+00:16:02.099 --> 00:16:07.198
+Caption: um and the fact that we&#39;re separating
+
+00:16:04.578 --> 00:16:10.500
+Caption: deployments and releases allows us to
+
+00:16:07.198 --> 00:16:12.239
+Caption: prepare prepare time for comms or train
+
+00:16:10.500 --> 00:16:13.739
+Caption: our users or let them know that
+
+00:16:12.239 --> 00:16:16.398
+Caption: something is something new is coming
+
+00:16:13.739 --> 00:16:18.838
+Caption: okay it&#39;s not going to be like a
+
+00:16:16.398 --> 00:16:21.599
+Caption: new Facebook release and everyone goes
+
+00:16:18.838 --> 00:16:22.500
+Caption: oh it&#39;s totally changed okay
+
+00:16:21.599 --> 00:16:24.179
+Caption: um we don&#39;t want to end up in that
+
+00:16:22.500 --> 00:16:25.739
+Caption: situation
+
+00:16:24.179 --> 00:16:27.239
+Caption: um okay so who cares
+
+00:16:25.739 --> 00:16:28.919
+Caption: deployments
+
+00:16:27.239 --> 00:16:30.778
+Caption: the team should care right the team
+
+00:16:28.919 --> 00:16:33.239
+Caption: doing the work is sending that code into
+
+00:16:30.778 --> 00:16:34.260
+Caption: production and and they care when things
+
+00:16:33.239 --> 00:16:35.638
+Caption: break
+
+00:16:34.260 --> 00:16:37.440
+Caption: okay releases
+
+00:16:35.638 --> 00:16:38.758
+Caption: we&#39;re trying to
+
+00:16:37.440 --> 00:16:40.380
+Caption: um we&#39;re trying to give the user new
+
+00:16:38.758 --> 00:16:42.000
+Caption: functionality so the user should care
+
+00:16:40.380 --> 00:16:43.979
+Caption: okay
+
+00:16:42.000 --> 00:16:45.239
+Caption: um and I think that
+
+00:16:43.979 --> 00:16:46.679
+Caption: that&#39;s what we should be thinking about
+
+00:16:45.239 --> 00:16:48.539
+Caption: when we&#39;re separating things okay so
+
+00:16:46.679 --> 00:16:49.559
+Caption: anyway how do we separate these two
+
+00:16:48.539 --> 00:16:52.380
+Caption: things
+
+00:16:49.559 --> 00:16:53.940
+Caption: basically we&#39;re trying to deploy a bunch
+
+00:16:52.380 --> 00:16:55.099
+Caption: of times
+
+00:16:53.940 --> 00:17:00.179
+Caption: um
+
+00:16:55.099 --> 00:17:01.979
+Caption: uh and eventually release
+
+00:17:00.179 --> 00:17:04.859
+Caption: so
+
+00:17:01.979 --> 00:17:06.599
+Caption: okay uh basically
+
+00:17:04.859 --> 00:17:08.640
+Caption: uh
+
+00:17:06.599 --> 00:17:10.260
+Caption: uh the there&#39;s a bunch of different ways
+
+00:17:08.640 --> 00:17:11.938
+Caption: you can do it but the biggest one
+
+00:17:10.260 --> 00:17:14.160
+Caption: um I&#39;m sure a bunch of you will know
+
+00:17:11.938 --> 00:17:16.640
+Caption: feature toggles are the way to do this
+
+00:17:14.160 --> 00:17:16.640
+Caption: okay
+
+00:17:16.678 --> 00:17:20.938
+Caption: so
+
+00:17:18.900 --> 00:17:22.619
+Caption: for those unsure this is a feature
+
+00:17:20.938 --> 00:17:25.078
+Caption: toggle okay it&#39;s essentially just
+
+00:17:22.619 --> 00:17:28.318
+Caption: something wrapping our code
+
+00:17:25.078 --> 00:17:30.239
+Caption: um a you know an if block that says if
+
+00:17:28.318 --> 00:17:32.219
+Caption: this new new feature is on for some
+
+00:17:30.239 --> 00:17:34.079
+Caption: specific user
+
+00:17:32.219 --> 00:17:36.418
+Caption: um and you know this thing could be
+
+00:17:34.079 --> 00:17:39.719
+Caption: tight entirely broken underneath
+
+00:17:36.418 --> 00:17:41.819
+Caption: ideally it&#39;s not but um the the block
+
+00:17:39.719 --> 00:17:43.380
+Caption: allows us to test
+
+00:17:41.819 --> 00:17:45.298
+Caption: um test this out test out this new
+
+00:17:43.380 --> 00:17:48.979
+Caption: feature
+
+00:17:45.298 --> 00:17:48.979
+Caption: without affecting other users
+
+00:17:49.079 --> 00:17:54.418
+Caption: so with feed toggles we can deploy our
+
+00:17:53.099 --> 00:17:57.000
+Caption: changes
+
+00:17:54.418 --> 00:17:59.339
+Caption: um and they will be inactive okay so
+
+00:17:57.000 --> 00:18:01.380
+Caption: they won&#39;t affect our users
+
+00:17:59.339 --> 00:18:05.640
+Caption: they can be slowly rolled out to certain
+
+00:18:01.380 --> 00:18:08.699
+Caption: users and basically they allow features
+
+00:18:05.640 --> 00:18:11.099
+Caption: to be merged and you know built out
+
+00:18:08.699 --> 00:18:13.019
+Caption: without affecting other teams as well so
+
+00:18:11.099 --> 00:18:14.418
+Caption: other teams working in the same on the
+
+00:18:13.020 --> 00:18:19.739
+Caption: same component in the same area
+
+00:18:14.418 --> 00:18:23.058
+Caption: unaffected by your your work okay your
+
+00:18:19.739 --> 00:18:26.280
+Caption: potentially broken new feature
+
+00:18:23.058 --> 00:18:27.719
+Caption: uh the other dark side of this to
+
+00:18:26.280 --> 00:18:28.739
+Caption: toggles
+
+00:18:27.719 --> 00:18:33.359
+Caption: um some of you might have heard about
+
+00:18:28.739 --> 00:18:36.058
+Caption: the uh night Capital recently
+
+00:18:33.359 --> 00:18:40.558
+Caption: um that basically didn&#39;t forgot to clean
+
+00:18:36.058 --> 00:18:42.779
+Caption: up a particular toggle and they reused
+
+00:18:40.558 --> 00:18:44.819
+Caption: the same toggle name and it causes
+
+00:18:42.780 --> 00:18:48.059
+Caption: caused them to lose millions of dollars
+
+00:18:44.819 --> 00:18:49.798
+Caption: so the critical part of using feature
+
+00:18:48.058 --> 00:18:54.779
+Caption: toggles is to clean them up afterwards
+
+00:18:49.798 --> 00:18:58.558
+Caption: okay so my rule of thumb is uh basically
+
+00:18:54.780 --> 00:19:01.380
+Caption: once it&#39;s on and you&#39;ve proven that it&#39;s
+
+00:18:58.558 --> 00:19:03.719
+Caption: uh that it&#39;s not going to break uh you
+
+00:19:01.380 --> 00:19:05.579
+Caption: then remove it right it sounds obvious
+
+00:19:03.719 --> 00:19:08.520
+Caption: but it&#39;s it&#39;s something that it&#39;s often
+
+00:19:05.579 --> 00:19:11.699
+Caption: gets forgotten about but once you turn
+
+00:19:08.520 --> 00:19:13.739
+Caption: it on you remove it okay maybe a week or
+
+00:19:11.699 --> 00:19:16.019
+Caption: whatever but you remove it almost
+
+00:19:13.739 --> 00:19:19.260
+Caption: straight away
+
+00:19:16.020 --> 00:19:22.320
+Caption: um so in terms of the process we might
+
+00:19:19.260 --> 00:19:24.780
+Caption: introduce a new feature with you know if
+
+00:19:22.319 --> 00:19:27.779
+Caption: this new feature is on for some internal
+
+00:19:24.780 --> 00:19:29.039
+Caption: user so we turn it on for internal users
+
+00:19:27.780 --> 00:19:30.719
+Caption: to begin with
+
+00:19:29.038 --> 00:19:32.279
+Caption: and
+
+00:19:30.719 --> 00:19:34.558
+Caption: um we can start building out this
+
+00:19:32.280 --> 00:19:37.859
+Caption: feature so we add some more new shiny
+
+00:19:34.558 --> 00:19:40.678
+Caption: feature maybe a bug fix okay because our
+
+00:19:37.859 --> 00:19:41.660
+Caption: users have been using it our internal
+
+00:19:40.678 --> 00:19:44.038
+Caption: users
+
+00:19:41.660 --> 00:19:46.559
+Caption: we&#39;ve been you know dog fooding this
+
+00:19:44.038 --> 00:19:50.219
+Caption: this particular feature and uh we fix
+
+00:19:46.558 --> 00:19:52.500
+Caption: some bugs okay after that we start
+
+00:19:50.219 --> 00:19:54.900
+Caption: turning it on for some specific set of
+
+00:19:52.500 --> 00:19:57.839
+Caption: customers okay
+
+00:19:54.900 --> 00:19:59.700
+Caption: and you know maybe we make a a few more
+
+00:19:57.839 --> 00:20:01.739
+Caption: bug fixes but we&#39;re only affecting a
+
+00:19:59.699 --> 00:20:03.058
+Caption: small subset of users
+
+00:20:01.739 --> 00:20:04.020
+Caption: and then finally we turn it on for
+
+00:20:03.058 --> 00:20:06.719
+Caption: everyone
+
+00:20:04.020 --> 00:20:08.959
+Caption: okay as soon as that happens
+
+00:20:06.719 --> 00:20:12.780
+Caption: we remove the code remove the Feature
+
+00:20:08.959 --> 00:20:15.798
+Caption: Feature toggle and everyone has the
+
+00:20:12.780 --> 00:20:15.799
+Caption: shiny new feature
+
+00:20:17.520 --> 00:20:20.520
+Caption: so
+
+00:20:18.839 --> 00:20:22.199
+Caption: um okay so that&#39;s about introducing new
+
+00:20:20.520 --> 00:20:24.558
+Caption: functionality
+
+00:20:22.199 --> 00:20:28.678
+Caption: when we want to introduce
+
+00:20:24.558 --> 00:20:31.199
+Caption: say a new
+
+00:20:28.678 --> 00:20:33.659
+Caption: um a new field or a new endpoint for our
+
+00:20:31.199 --> 00:20:36.599
+Caption: for our API we use a technique called
+
+00:20:33.660 --> 00:20:37.979
+Caption: expand rollout contract okay this allows
+
+00:20:36.599 --> 00:20:39.199
+Caption: us to make
+
+00:20:37.979 --> 00:20:41.119
+Caption: um
+
+00:20:39.199 --> 00:20:44.399
+Caption: uh
+
+00:20:41.119 --> 00:20:47.178
+Caption: basically breaking changes in a um in a
+
+00:20:44.400 --> 00:20:47.179
+Caption: considered manner
+
+00:20:47.400 --> 00:20:52.739
+Caption: so um expand roll out contract I&#39;ll go
+
+00:20:50.640 --> 00:20:53.579
+Caption: through it in a sec so
+
+00:20:52.739 --> 00:20:57.178
+Caption: um
+
+00:20:53.579 --> 00:21:00.058
+Caption: some more code hopefully it&#39;s simple
+
+00:20:57.178 --> 00:21:04.079
+Caption: enough uh but basically we&#39;ve got a user
+
+00:21:00.058 --> 00:21:06.479
+Caption: they&#39;ve got a name field a surname field
+
+00:21:04.079 --> 00:21:09.979
+Caption: and some usage of that field
+
+00:21:06.479 --> 00:21:13.319
+Caption: so we think well actually the name field
+
+00:21:09.979 --> 00:21:14.579
+Caption: really should be first name okay we want
+
+00:21:13.319 --> 00:21:18.298
+Caption: to rename this field
+
+00:21:14.579 --> 00:21:21.359
+Caption: so the first thing to do is we expand
+
+00:21:18.298 --> 00:21:23.279
+Caption: okay so we add our first name field
+
+00:21:21.359 --> 00:21:25.380
+Caption: uh
+
+00:21:23.280 --> 00:21:26.219
+Caption: no one really uses it we&#39;ve added the
+
+00:21:25.380 --> 00:21:29.660
+Caption: field
+
+00:21:26.219 --> 00:21:29.659
+Caption: we deploy that to prod
+
+00:21:29.699 --> 00:21:34.739
+Caption: and then we want to start we&#39;ve got this
+
+00:21:32.579 --> 00:21:36.479
+Caption: new field we want to start using it so
+
+00:21:34.739 --> 00:21:37.918
+Caption: we make a change
+
+00:21:36.479 --> 00:21:42.058
+Caption: we start everyone starts to use this
+
+00:21:37.918 --> 00:21:43.558
+Caption: field okay there might be if it&#39;s an API
+
+00:21:42.058 --> 00:21:45.239
+Caption: there might be multiple other apis
+
+00:21:43.558 --> 00:21:48.359
+Caption: consuming this particular field okay
+
+00:21:45.239 --> 00:21:51.119
+Caption: everyone updates to use this new field
+
+00:21:48.359 --> 00:21:53.640
+Caption: we deploy the prod
+
+00:21:51.119 --> 00:21:55.798
+Caption: after that uh
+
+00:21:53.640 --> 00:21:57.780
+Caption: so that&#39;s so that&#39;s rolling out your
+
+00:21:55.798 --> 00:22:02.038
+Caption: change right after that you want to
+
+00:21:57.780 --> 00:22:04.080
+Caption: start to contract so once you&#39;ve proven
+
+00:22:02.038 --> 00:22:06.178
+Caption: proven that everyone has stopped using
+
+00:22:04.079 --> 00:22:08.760
+Caption: that particular field
+
+00:22:06.178 --> 00:22:12.719
+Caption: you then contract and you remove the now
+
+00:22:08.760 --> 00:22:14.820
+Caption: defunct unused field okay so this is a
+
+00:22:12.719 --> 00:22:16.918
+Caption: measured form of deprecating a
+
+00:22:14.819 --> 00:22:19.380
+Caption: particular field
+
+00:22:16.918 --> 00:22:24.178
+Caption: so we remove our name field that&#39;s no
+
+00:22:19.380 --> 00:22:27.479
+Caption: longer used and we go about our lives
+
+00:22:24.178 --> 00:22:30.479
+Caption: after deploying right
+
+00:22:27.479 --> 00:22:33.538
+Caption: so yeah expand roll out contract so this
+
+00:22:30.479 --> 00:22:35.939
+Caption: technique is really useful for API
+
+00:22:33.538 --> 00:22:38.459
+Caption: changes okay it might be Fields might be
+
+00:22:35.939 --> 00:22:40.199
+Caption: endpoints but it&#39;s also really useful
+
+00:22:38.459 --> 00:22:42.658
+Caption: for database changes you can do the same
+
+00:22:40.199 --> 00:22:46.139
+Caption: thing and
+
+00:22:42.659 --> 00:22:48.659
+Caption: uh like Library changes Library changes
+
+00:22:46.140 --> 00:22:51.419
+Caption: potentially uh
+
+00:22:48.659 --> 00:22:54.539
+Caption: a bit harder to track down usages but
+
+00:22:51.418 --> 00:22:56.279
+Caption: um uh yeah if if you can if you can
+
+00:22:54.538 --> 00:22:59.279
+Caption: understand your users of your library
+
+00:22:56.280 --> 00:23:00.419
+Caption: then this works just perfectly
+
+00:22:59.280 --> 00:23:02.460
+Caption: um
+
+00:23:00.418 --> 00:23:04.319
+Caption: okay obviously
+
+00:23:02.459 --> 00:23:06.538
+Caption: always deploy the problem
+
+00:23:04.319 --> 00:23:09.599
+Caption: so
+
+00:23:06.538 --> 00:23:13.339
+Caption: what given everything now uh what is an
+
+00:23:09.599 --> 00:23:13.339
+Caption: ideal deploy process look like
+
+00:23:13.558 --> 00:23:16.619
+Caption: um
+
+00:23:14.459 --> 00:23:20.599
+Caption: so we&#39;ve got
+
+00:23:16.619 --> 00:23:20.599
+Caption: automated tests and security scanning
+
+00:23:21.959 --> 00:23:28.140
+Caption: we&#39;ve got an automated deployment
+
+00:23:24.239 --> 00:23:29.219
+Caption: process okay and it&#39;s really quick to
+
+00:23:28.140 --> 00:23:31.260
+Caption: roll back
+
+00:23:29.219 --> 00:23:34.219
+Caption: and really quick to get you back into a
+
+00:23:31.260 --> 00:23:37.678
+Caption: safe State when things go wrong
+
+00:23:34.219 --> 00:23:40.199
+Caption: uh our changes are toggled so when we
+
+00:23:37.678 --> 00:23:42.119
+Caption: deploy them they have no user impact
+
+00:23:40.199 --> 00:23:44.099
+Caption: initially until we&#39;re ready okay until
+
+00:23:42.119 --> 00:23:46.380
+Caption: our users are ready until we&#39;ve tested
+
+00:23:44.099 --> 00:23:48.599
+Caption: that feature and we&#39;re happy
+
+00:23:46.380 --> 00:23:51.000
+Caption: and that means that we minimize the
+
+00:23:48.599 --> 00:23:53.579
+Caption: number of approvals required after
+
+00:23:51.000 --> 00:23:55.079
+Caption: you&#39;ve merged your code you can have as
+
+00:23:53.579 --> 00:23:57.298
+Caption: much process as you want before you
+
+00:23:55.079 --> 00:23:59.819
+Caption: merge your code as much as you need but
+
+00:23:57.298 --> 00:24:01.699
+Caption: ideally after you&#39;ve merged that code it
+
+00:23:59.819 --> 00:24:03.619
+Caption: should be ready to go to production
+
+00:24:01.699 --> 00:24:06.479
+Caption: and uh
+
+00:24:03.619 --> 00:24:08.339
+Caption: it&#39;s all automated and our changes are
+
+00:24:06.479 --> 00:24:11.298
+Caption: backwards compatible okay we&#39;re using
+
+00:24:08.339 --> 00:24:15.058
+Caption: expand expand rollout contract
+
+00:24:11.298 --> 00:24:16.979
+Caption: or some features toggling mechanism and
+
+00:24:15.058 --> 00:24:18.599
+Caption: so we minimize the coordination that we
+
+00:24:16.979 --> 00:24:20.339
+Caption: need between teams
+
+00:24:18.599 --> 00:24:21.780
+Caption: uh because we&#39;re not breaking other
+
+00:24:20.339 --> 00:24:24.359
+Caption: people
+
+00:24:21.780 --> 00:24:27.359
+Caption: and we&#39;re doing this all the time so
+
+00:24:24.359 --> 00:24:30.239
+Caption: it&#39;s proven and our deployments uh
+
+00:24:27.359 --> 00:24:33.359
+Caption: deployment failures are rare
+
+00:24:30.239 --> 00:24:35.099
+Caption: um they they happen but we have we have
+
+00:24:33.359 --> 00:24:37.020
+Caption: a rollback procedure and everything
+
+00:24:35.099 --> 00:24:40.739
+Caption: works smoothly
+
+00:24:37.020 --> 00:24:43.200
+Caption: okay so deploying at speed is not a leap
+
+00:24:40.739 --> 00:24:44.760
+Caption: of faith okay you don&#39;t just throw stuff
+
+00:24:43.199 --> 00:24:46.819
+Caption: into production and just cross your
+
+00:24:44.760 --> 00:24:50.880
+Caption: fingers and hope right
+
+00:24:46.819 --> 00:24:54.359
+Caption: it&#39;s having that safety removes the fear
+
+00:24:50.880 --> 00:24:57.199
+Caption: okay and that safety allows us to deploy
+
+00:24:54.359 --> 00:24:57.199
+Caption: at speed
+
+00:24:57.599 --> 00:25:06.359
+Caption: that&#39;s it thank you
+
+00:25:00.189 --> 00:25:08.339
+Caption: [Applause]
+
+00:25:06.359 --> 00:25:10.979
+Caption: um so I think I assume we&#39;ve got heaps
+
+00:25:08.339 --> 00:25:12.298
+Caption: of time for questions yeah so yeah thank
+
+00:25:10.979 --> 00:25:13.619
+Caption: you very much still
+
+00:25:12.298 --> 00:25:15.479
+Caption: um now I&#39;ve got
+
+00:25:13.619 --> 00:25:18.739
+Caption: to owe for a q a session uh has anyone
+
+00:25:15.479 --> 00:25:18.739
+Caption: got any questions for them
+
+00:25:28.020 --> 00:25:34.919
+Caption: um I guess being sort of still new to
+
+00:25:32.159 --> 00:25:36.960
+Caption: developing or whatever so wondering what
+
+00:25:34.918 --> 00:25:38.699
+Caption: these type of manual deployment
+
+00:25:36.959 --> 00:25:41.880
+Caption: processes kind of look like if they&#39;re
+
+00:25:38.699 --> 00:25:43.219
+Caption: like that much of a pain
+
+00:25:41.880 --> 00:25:45.719
+Caption: um
+
+00:25:43.219 --> 00:25:46.678
+Caption: what do manual deployment processes look
+
+00:25:45.719 --> 00:25:49.619
+Caption: like
+
+00:25:46.678 --> 00:25:51.719
+Caption: um I guess
+
+00:25:49.619 --> 00:25:55.500
+Caption: I don&#39;t know it could it&#39;s different in
+
+00:25:51.719 --> 00:25:58.739
+Caption: every company uh so if
+
+00:25:55.500 --> 00:26:01.380
+Caption: I I guess I&#39;m thinking about uh you know
+
+00:25:58.739 --> 00:26:03.839
+Caption: maybe the old days where you&#39;re ftping
+
+00:26:01.380 --> 00:26:05.219
+Caption: your files onto a PHP server or
+
+00:26:03.839 --> 00:26:08.339
+Caption: something and then
+
+00:26:05.219 --> 00:26:11.880
+Caption: um or like manually copying your you
+
+00:26:08.339 --> 00:26:14.459
+Caption: know Wi-Fi onto a server that&#39;s like a
+
+00:26:11.880 --> 00:26:17.039
+Caption: pet server that you keep alive
+
+00:26:14.459 --> 00:26:19.500
+Caption: um you know specifically and you don&#39;t
+
+00:26:17.038 --> 00:26:22.859
+Caption: you know create new ones all the time
+
+00:26:19.500 --> 00:26:25.619
+Caption: you know like it&#39;s not basically
+
+00:26:22.859 --> 00:26:27.599
+Caption: um because that machine is uh you know
+
+00:26:25.619 --> 00:26:29.279
+Caption: set up by some person
+
+00:26:27.599 --> 00:26:31.619
+Caption: um somewhere five years ago that has
+
+00:26:29.279 --> 00:26:35.159
+Caption: since left the company so you you&#39;re
+
+00:26:31.619 --> 00:26:38.939
+Caption: you&#39;re looking at you know setting up
+
+00:26:35.159 --> 00:26:41.279
+Caption: um VMS via code and basically all the
+
+00:26:38.939 --> 00:26:43.918
+Caption: pieces of infrastructure that you need
+
+00:26:41.279 --> 00:26:46.679
+Caption: are set up by a code that&#39;s that&#39;s the
+
+00:26:43.918 --> 00:26:48.899
+Caption: automated like way I know that&#39;s sort of
+
+00:26:46.678 --> 00:26:50.459
+Caption: very vague but it is totally different
+
+00:26:48.900 --> 00:26:53.359
+Caption: in every it depends what you&#39;re
+
+00:26:50.459 --> 00:26:53.359
+Caption: deploying foreign
+
+00:26:54.839 --> 00:26:57.798
+Caption: next question
+
+00:27:03.119 --> 00:27:09.359
+Caption: um I guess this depends a lot on talking
+
+00:27:05.520 --> 00:27:10.859
+Caption: about client-side or um how do you prove
+
+00:27:09.359 --> 00:27:12.538
+Caption: that
+
+00:27:10.859 --> 00:27:14.400
+Caption: you know you need to expand the contract
+
+00:27:12.538 --> 00:27:16.319
+Caption: for example how do you prove
+
+00:27:14.400 --> 00:27:18.419
+Caption: the say a property
+
+00:27:16.319 --> 00:27:21.778
+Caption: of an external
+
+00:27:18.418 --> 00:27:23.579
+Caption: API yeah yes yeah so I guess you&#39;re so
+
+00:27:21.779 --> 00:27:26.700
+Caption: sorry internal I mean within an
+
+00:27:23.579 --> 00:27:31.079
+Caption: organization but so within within an
+
+00:27:26.699 --> 00:27:34.918
+Caption: organization it&#39;s uh ideally much easier
+
+00:27:31.079 --> 00:27:36.418
+Caption: um uh so like there&#39;s there&#39;s plenty of
+
+00:27:34.918 --> 00:27:39.000
+Caption: tools out there like
+
+00:27:36.418 --> 00:27:40.979
+Caption: um ideally organization&#39;s got some sort
+
+00:27:39.000 --> 00:27:44.579
+Caption: of co-depository and everyone can see
+
+00:27:40.979 --> 00:27:45.599
+Caption: that the usage of that code you know uh
+
+00:27:44.579 --> 00:27:49.140
+Caption: you should be able to know the
+
+00:27:45.599 --> 00:27:49.678
+Caption: dependencies of each of the systems so
+
+00:27:49.140 --> 00:27:51.959
+Caption: um
+
+00:27:49.678 --> 00:27:55.500
+Caption: I guess I&#39;m thinking about
+
+00:27:51.959 --> 00:27:58.619
+Caption: um like Library like client libraries so
+
+00:27:55.500 --> 00:28:01.319
+Caption: um so if you&#39;re talking between apis an
+
+00:27:58.619 --> 00:28:02.939
+Caption: API might output some sort of client
+
+00:28:01.319 --> 00:28:04.139
+Caption: library and so you know that know the
+
+00:28:02.939 --> 00:28:06.298
+Caption: people that depend on that client
+
+00:28:04.140 --> 00:28:09.140
+Caption: Library so you can check
+
+00:28:06.298 --> 00:28:09.139
+Caption: those usages
+
+00:28:09.199 --> 00:28:15.119
+Caption: external is much harder is a much harder
+
+00:28:12.839 --> 00:28:17.520
+Caption: thing it&#39;s essentially a library right
+
+00:28:15.119 --> 00:28:20.579
+Caption: so you have to you have to deprecate
+
+00:28:17.520 --> 00:28:23.760
+Caption: fields and give comms to that and
+
+00:28:20.579 --> 00:28:25.380
+Caption: um wait a lot more time that that
+
+00:28:23.760 --> 00:28:26.640
+Caption: becomes a much harder deal but
+
+00:28:25.380 --> 00:28:30.900
+Caption: internally
+
+00:28:26.640 --> 00:28:31.979
+Caption: this stuff is it shouldn&#39;t be hard it is
+
+00:28:30.900 --> 00:28:33.599
+Caption: for all sorts of reasons but it
+
+00:28:31.979 --> 00:28:36.418
+Caption: shouldn&#39;t be hard and you can you can
+
+00:28:33.599 --> 00:28:39.538
+Caption: make great strides internally at least
+
+00:28:36.418 --> 00:28:41.759
+Caption: um I think I don&#39;t know I feel like that
+
+00:28:39.538 --> 00:28:44.658
+Caption: was super vague but yeah there&#39;s
+
+00:28:41.760 --> 00:28:44.659
+Caption: definitely tools out there
+
+00:28:51.079 --> 00:28:56.719
+Caption: thank you
+
+00:28:53.298 --> 00:28:56.719
+Caption: hey Dylan
+
+00:28:56.760 --> 00:29:01.380
+Caption: you hear me no
+
+00:28:59.400 --> 00:29:03.239
+Caption: he&#39;s turned off there yeah there we go
+
+00:29:01.380 --> 00:29:05.940
+Caption: I&#39;m just going to expand on that
+
+00:29:03.239 --> 00:29:08.158
+Caption: question so a few years ago I had a bit
+
+00:29:05.939 --> 00:29:11.298
+Caption: of experience working with you
+
+00:29:08.159 --> 00:29:14.460
+Caption: um and here we go
+
+00:29:11.298 --> 00:29:16.439
+Caption: it was an awesome experience but um I
+
+00:29:14.459 --> 00:29:18.898
+Caption: love the expand roll out contract but
+
+00:29:16.439 --> 00:29:21.599
+Caption: adding to that question we experimented
+
+00:29:18.899 --> 00:29:23.760
+Caption: with like consumer driven
+
+00:29:21.599 --> 00:29:26.099
+Caption: um contract testing yeah but it never
+
+00:29:23.760 --> 00:29:27.659
+Caption: really seemed to take hold it never
+
+00:29:26.099 --> 00:29:29.579
+Caption: really seemed to
+
+00:29:27.659 --> 00:29:32.460
+Caption: um like work and I was just wondering
+
+00:29:29.579 --> 00:29:35.398
+Caption: where did it land like um did you get it
+
+00:29:32.459 --> 00:29:37.798
+Caption: working or did you find other ways uh so
+
+00:29:35.399 --> 00:29:39.059
+Caption: so I have seen other implementations
+
+00:29:37.798 --> 00:29:41.579
+Caption: that worked
+
+00:29:39.058 --> 00:29:43.500
+Caption: um but we ended up ripping it out
+
+00:29:41.579 --> 00:29:46.739
+Caption: um and going for as I was sort of
+
+00:29:43.500 --> 00:29:47.399
+Caption: talking about before having a a client
+
+00:29:46.739 --> 00:29:50.038
+Caption: um
+
+00:29:47.399 --> 00:29:54.059
+Caption: so each API would spit out a client
+
+00:29:50.038 --> 00:29:57.239
+Caption: library and for either like back-end
+
+00:29:54.058 --> 00:29:58.219
+Caption: services so like Java or front end as
+
+00:29:57.239 --> 00:30:02.339
+Caption: well
+
+00:29:58.219 --> 00:30:04.079
+Caption: and the key to that is also that
+
+00:30:02.339 --> 00:30:06.058
+Caption: um so we would
+
+00:30:04.079 --> 00:30:08.158
+Caption: um so we had a lot of issues early days
+
+00:30:06.058 --> 00:30:10.140
+Caption: where we would make backwards
+
+00:30:08.159 --> 00:30:12.360
+Caption: incompatible changes so we would just
+
+00:30:10.140 --> 00:30:13.500
+Caption: sort of forget about consumers and break
+
+00:30:12.359 --> 00:30:15.298
+Caption: them
+
+00:30:13.500 --> 00:30:16.520
+Caption: um thinking that contract testing was
+
+00:30:15.298 --> 00:30:19.918
+Caption: going to help us
+
+00:30:16.520 --> 00:30:22.140
+Caption: so we ended up writing
+
+00:30:19.918 --> 00:30:23.339
+Caption: um and there&#39;s again there&#39;s plenty of
+
+00:30:22.140 --> 00:30:25.320
+Caption: tools out there that sort of check your
+
+00:30:23.339 --> 00:30:27.199
+Caption: Swagger and fail your build when you
+
+00:30:25.319 --> 00:30:29.639
+Caption: make backwards incompatible changes
+
+00:30:27.199 --> 00:30:31.260
+Caption: that&#39;s not to say that you that you
+
+00:30:29.640 --> 00:30:33.119
+Caption: can&#39;t make them but you have to do it in
+
+00:30:31.260 --> 00:30:35.880
+Caption: a measured way so you don&#39;t make them
+
+00:30:33.119 --> 00:30:39.418
+Caption: unless you have sort of proven and sort
+
+00:30:35.880 --> 00:30:42.359
+Caption: of gone through all your you know git
+
+00:30:39.418 --> 00:30:44.459
+Caption: repos and checked that the other
+
+00:30:42.359 --> 00:30:47.520
+Caption: consumers are not using that field or
+
+00:30:44.459 --> 00:30:49.918
+Caption: that endpoint anymore and
+
+00:30:47.520 --> 00:30:52.020
+Caption: and that&#39;s usually just a case of a
+
+00:30:49.918 --> 00:30:54.418
+Caption: search
+
+00:30:52.020 --> 00:30:56.940
+Caption: but but yeah first of all you don&#39;t make
+
+00:30:54.418 --> 00:30:59.339
+Caption: those backwards incompatible changes by
+
+00:30:56.939 --> 00:31:02.178
+Caption: default at least
+
+00:30:59.339 --> 00:31:02.178
+Caption: cool thank you
+
+00:31:06.000 --> 00:31:11.219
+Caption: uh yeah about feature toggling so I&#39;ve
+
+00:31:08.699 --> 00:31:13.439
+Caption: seen feature toggling uh fail terribly
+
+00:31:11.219 --> 00:31:16.558
+Caption: uh thankfully not because of me but of
+
+00:31:13.439 --> 00:31:19.259
+Caption: some people and I was a very fortunate
+
+00:31:16.558 --> 00:31:21.178
+Caption: spectator about it so so I&#39;ve seen it
+
+00:31:19.260 --> 00:31:23.459
+Caption: fail many times even though I were I was
+
+00:31:21.178 --> 00:31:25.558
+Caption: perfectly capable of doing so also my
+
+00:31:23.459 --> 00:31:27.178
+Caption: project my question is that um do you
+
+00:31:25.558 --> 00:31:30.719
+Caption: think feature toggling is more of an
+
+00:31:27.178 --> 00:31:33.719
+Caption: engineering thing than a devops thingy
+
+00:31:30.719 --> 00:31:36.178
+Caption: um so so I have devops in my the talk
+
+00:31:33.719 --> 00:31:39.418
+Caption: title but I think
+
+00:31:36.178 --> 00:31:40.500
+Caption: I think the concept of having it so
+
+00:31:39.418 --> 00:31:43.439
+Caption: first of all I think the concept of
+
+00:31:40.500 --> 00:31:45.418
+Caption: having devops as a as a role or
+
+00:31:43.439 --> 00:31:47.398
+Caption: something feels like it&#39;s defeating the
+
+00:31:45.418 --> 00:31:50.639
+Caption: purpose of devops
+
+00:31:47.399 --> 00:31:53.480
+Caption: um but uh I guess
+
+00:31:50.640 --> 00:31:53.479
+Caption: uh
+
+00:31:53.760 --> 00:31:57.058
+Caption: I think I&#39;ve lost track of what I was
+
+00:31:55.439 --> 00:31:59.298
+Caption: thinking what ask your question again
+
+00:31:57.058 --> 00:31:59.298
+Caption: sorry
+
+00:32:00.479 --> 00:32:05.819
+Caption: yeah okay so so that&#39;s I guess my
+
+00:32:02.819 --> 00:32:07.619
+Caption: thought is it should there&#39;s there&#39;s no
+
+00:32:05.819 --> 00:32:10.918
+Caption: distinction for me
+
+00:32:07.619 --> 00:32:12.719
+Caption: um engineering Engineers are the like
+
+00:32:10.918 --> 00:32:14.158
+Caption: the whole point of devops is that you&#39;ve
+
+00:32:12.719 --> 00:32:19.739
+Caption: just got
+
+00:32:14.159 --> 00:32:19.740
+Caption: smart people doing like work right
+
+00:32:23.659 --> 00:32:29.520
+Caption: ideally right so so so the the point of
+
+00:32:27.899 --> 00:32:31.980
+Caption: devops is like that you&#39;re you&#39;re
+
+00:32:29.520 --> 00:32:34.260
+Caption: bringing in all these um people and
+
+00:32:31.979 --> 00:32:37.140
+Caption: working together so I mean maybe it&#39;s
+
+00:32:34.260 --> 00:32:40.380
+Caption: not one person maybe it&#39;s one team but
+
+00:32:37.140 --> 00:32:41.880
+Caption: um but distinguishing between like
+
+00:32:40.380 --> 00:32:43.859
+Caption: actually
+
+00:32:41.880 --> 00:32:46.140
+Caption: uh having a specific role for devops
+
+00:32:43.859 --> 00:32:48.418
+Caption: doesn&#39;t make sense to me because you&#39;re
+
+00:32:46.140 --> 00:32:50.399
+Caption: just a team of people working towards
+
+00:32:48.418 --> 00:32:54.239
+Caption: improving
+
+00:32:50.399 --> 00:32:54.239
+Caption: yeah yeah
+
+00:32:56.819 --> 00:33:00.380
+Caption: Yeah well yeah
+
+00:33:01.918 --> 00:33:06.479
+Caption: yeah I had to learn um yeah my question
+
+00:33:04.439 --> 00:33:09.119
+Caption: is also about feature toggling so I&#39;ve
+
+00:33:06.479 --> 00:33:10.979
+Caption: seen you know teams losing track of the
+
+00:33:09.119 --> 00:33:14.579
+Caption: toggles not keeping up
+
+00:33:10.979 --> 00:33:17.640
+Caption: um did you have any kind of tooling
+
+00:33:14.579 --> 00:33:19.918
+Caption: um in place or also you kind of present
+
+00:33:17.640 --> 00:33:22.558
+Caption: it to maybe the business and look that&#39;s
+
+00:33:19.918 --> 00:33:24.719
+Caption: that&#39;s in production now we we turn it
+
+00:33:22.558 --> 00:33:27.418
+Caption: on and then we clean it up kind because
+
+00:33:24.719 --> 00:33:29.398
+Caption: let&#39;s say 14 30 components yeah you
+
+00:33:27.418 --> 00:33:32.158
+Caption: might lose them yeah yeah so so that was
+
+00:33:29.399 --> 00:33:36.600
+Caption: a that&#39;s a big thing for us so
+
+00:33:32.159 --> 00:33:40.080
+Caption: um so Bankwest we&#39;re using um sort of uh
+
+00:33:36.599 --> 00:33:42.239
+Caption: uh I would say like internal tools for
+
+00:33:40.079 --> 00:33:44.579
+Caption: for the feature toggles and also
+
+00:33:42.239 --> 00:33:46.859
+Caption: managing them uh but we
+
+00:33:44.579 --> 00:33:48.778
+Caption: we definitely had visibility of what
+
+00:33:46.859 --> 00:33:50.398
+Caption: toggles each team owned
+
+00:33:48.779 --> 00:33:52.799
+Caption: um how long they&#39;d been
+
+00:33:50.399 --> 00:33:54.840
+Caption: um turned on uh the state of them in
+
+00:33:52.798 --> 00:33:56.639
+Caption: each of our environments
+
+00:33:54.839 --> 00:33:57.538
+Caption: um so we had full visibility and you
+
+00:33:56.640 --> 00:33:58.979
+Caption: know
+
+00:33:57.538 --> 00:34:00.599
+Caption: I don&#39;t know it seemed silly but like if
+
+00:33:58.979 --> 00:34:02.640
+Caption: they got too old they would go they
+
+00:34:00.599 --> 00:34:04.798
+Caption: would go red right we would know that
+
+00:34:02.640 --> 00:34:07.200
+Caption: this thing is getting old um there was
+
+00:34:04.798 --> 00:34:09.300
+Caption: like a it has to be a conscious decision
+
+00:34:07.199 --> 00:34:10.979
+Caption: to keep that thing around because it&#39;s
+
+00:34:09.300 --> 00:34:15.060
+Caption: like in your face
+
+00:34:10.979 --> 00:34:17.638
+Caption: um and like uh you know that was all
+
+00:34:15.060 --> 00:34:20.280
+Caption: custom stuff but like tools like launch
+
+00:34:17.638 --> 00:34:23.219
+Caption: Darkly and stuff um which are the you
+
+00:34:20.280 --> 00:34:25.918
+Caption: know popular popular ones in the um you
+
+00:34:23.219 --> 00:34:27.540
+Caption: know outside world uh they they have all
+
+00:34:25.918 --> 00:34:30.300
+Caption: this stuff like you can see how old
+
+00:34:27.540 --> 00:34:32.339
+Caption: toggles are and um you know we we
+
+00:34:30.300 --> 00:34:34.619
+Caption: basically wouldn&#39;t start work
+
+00:34:32.339 --> 00:34:36.839
+Caption: um or wouldn&#39;t be able to deliver our
+
+00:34:34.618 --> 00:34:38.338
+Caption: new feature until we&#39;d gotten rid of the
+
+00:34:36.839 --> 00:34:41.159
+Caption: old feature toggles
+
+00:34:38.339 --> 00:34:43.859
+Caption: um so like yeah I mean that&#39;s a bit of
+
+00:34:41.158 --> 00:34:46.439
+Caption: process but like you have to have that
+
+00:34:43.858 --> 00:34:49.079
+Caption: ability to you know something to audit
+
+00:34:46.439 --> 00:34:52.098
+Caption: like removing stuff otherwise I just
+
+00:34:49.080 --> 00:34:52.099
+Caption: forget it&#39;s forgotten about
+
+00:34:54.780 --> 00:34:58.439
+Caption: um
+
+00:34:55.618 --> 00:35:01.858
+Caption: appointment but as a consumer of the
+
+00:34:58.439 --> 00:35:04.560
+Caption: database and I did a lot of analytic
+
+00:35:01.858 --> 00:35:07.679
+Caption: um machine learning and in your example
+
+00:35:04.560 --> 00:35:09.320
+Caption: you change the field name that will
+
+00:35:07.679 --> 00:35:12.780
+Caption: break my code
+
+00:35:09.320 --> 00:35:16.199
+Caption: how you um make my life easy as well
+
+00:35:12.780 --> 00:35:18.479
+Caption: yeah right so so
+
+00:35:16.199 --> 00:35:21.300
+Caption: um I guess that&#39;s why that&#39;s why you&#39;re
+
+00:35:18.479 --> 00:35:23.639
+Caption: taking the measured approach of not
+
+00:35:21.300 --> 00:35:25.500
+Caption: renaming it&#39;s so there&#39;s no such thing
+
+00:35:23.639 --> 00:35:27.959
+Caption: as a rename basically
+
+00:35:25.500 --> 00:35:30.239
+Caption: um there&#39;s there&#39;s a an ad and a remove
+
+00:35:27.959 --> 00:35:32.280
+Caption: but it&#39;s a considered step so
+
+00:35:30.239 --> 00:35:34.379
+Caption: um in the case of say a database you
+
+00:35:32.280 --> 00:35:36.780
+Caption: would be adding a column and populating
+
+00:35:34.379 --> 00:35:39.299
+Caption: both columns okay and no one&#39;s using
+
+00:35:36.780 --> 00:35:41.339
+Caption: that other column you would migrate the
+
+00:35:39.300 --> 00:35:45.179
+Caption: data into that other column maybe as a
+
+00:35:41.339 --> 00:35:47.460
+Caption: second step only once both columns are
+
+00:35:45.179 --> 00:35:48.838
+Caption: sort of working in tandem then you can
+
+00:35:47.459 --> 00:35:51.540
+Caption: switch over to actually using that new
+
+00:35:48.839 --> 00:35:52.920
+Caption: column so then that would be at the
+
+00:35:51.540 --> 00:35:55.140
+Caption: point that you would start to use that
+
+00:35:52.919 --> 00:35:57.838
+Caption: new column and once we&#39;ve proven that
+
+00:35:55.139 --> 00:35:59.879
+Caption: your using it and so is everyone else
+
+00:35:57.839 --> 00:36:02.400
+Caption: then we can drop that that other column
+
+00:35:59.879 --> 00:36:04.759
+Caption: that would be the approach
+
+00:36:02.399 --> 00:36:04.760
+Caption: thank you
+
+00:36:09.780 --> 00:36:14.599
+Caption: hello
+
+00:36:11.459 --> 00:36:18.479
+Caption: um I have for testing
+
+00:36:14.599 --> 00:36:21.599
+Caption: when do you use a load balancer and to
+
+00:36:18.479 --> 00:36:24.000
+Caption: divert some of your traffic to the new
+
+00:36:21.599 --> 00:36:27.020
+Caption: feature and roll it out slowly rather
+
+00:36:24.000 --> 00:36:27.020
+Caption: than use feature request
+
+00:36:28.858 --> 00:36:31.739
+Caption: um
+
+00:36:29.579 --> 00:36:34.739
+Caption: so that&#39;s to be honest not something
+
+00:36:31.739 --> 00:36:36.679
+Caption: I&#39;ve really ever tried
+
+00:36:34.739 --> 00:36:39.719
+Caption: um it&#39;s
+
+00:36:36.679 --> 00:36:42.780
+Caption: uh I&#39;m sure it&#39;s a valid approach but
+
+00:36:39.719 --> 00:36:44.338
+Caption: most of the stuff that I have done is
+
+00:36:42.780 --> 00:36:47.040
+Caption: more about
+
+00:36:44.339 --> 00:36:50.820
+Caption: um you would deploy
+
+00:36:47.040 --> 00:36:54.179
+Caption: um so I guess that&#39;s more about like uh
+
+00:36:50.820 --> 00:36:56.760
+Caption: uh what&#39;s called like
+
+00:36:54.179 --> 00:36:59.159
+Caption: like basically shadowing requests to
+
+00:36:56.760 --> 00:37:04.260
+Caption: some sort of um to some sort of system
+
+00:36:59.159 --> 00:37:04.260
+Caption: before you take it and make it live but
+
+00:37:04.618 --> 00:37:08.699
+Caption: yeah I I don&#39;t have experience
+
+00:37:06.479 --> 00:37:10.560
+Caption: personally most of it most of the things
+
+00:37:08.699 --> 00:37:11.760
+Caption: I do is like you actually deploy the
+
+00:37:10.560 --> 00:37:14.040
+Caption: thing into production
+
+00:37:11.760 --> 00:37:16.739
+Caption: um and the code is inactive so so you
+
+00:37:14.040 --> 00:37:18.660
+Caption: actually you&#39;re not really having two
+
+00:37:16.739 --> 00:37:21.479
+Caption: versions running at once you&#39;re just
+
+00:37:18.659 --> 00:37:24.719
+Caption: switching over and then you can uh
+
+00:37:21.479 --> 00:37:27.358
+Caption: control uh turn on some toggle or some
+
+00:37:24.719 --> 00:37:28.679
+Caption: toggle for specific users yeah it&#39;s more
+
+00:37:27.358 --> 00:37:31.159
+Caption: about that that&#39;s easier to reason about
+
+00:37:28.679 --> 00:37:31.159
+Caption: in my head
+
+00:37:35.159 --> 00:37:39.838
+Caption: um so I guess it&#39;s pretty much down to
+
+00:37:37.858 --> 00:37:41.399
+Caption: the concept that we&#39;re deploying with a
+
+00:37:39.839 --> 00:37:44.520
+Caption: high level of frequency
+
+00:37:41.399 --> 00:37:47.179
+Caption: which implies to me that
+
+00:37:44.520 --> 00:37:49.619
+Caption: we&#39;re more prone to
+
+00:37:47.179 --> 00:37:50.879
+Caption: put bugs into the production environment
+
+00:37:49.618 --> 00:37:53.159
+Caption: although I understand that&#39;s probably
+
+00:37:50.879 --> 00:37:55.618
+Caption: with a smaller user base yeah
+
+00:37:53.159 --> 00:37:58.559
+Caption: how do you
+
+00:37:55.618 --> 00:38:00.598
+Caption: Rush rationalize that like is is it just
+
+00:37:58.560 --> 00:38:02.820
+Caption: subjective do you go oh well these users
+
+00:38:00.599 --> 00:38:04.859
+Caption: are prepared to cop it so it&#39;s okay or
+
+00:38:02.820 --> 00:38:06.959
+Caption: what&#39;s going on there yeah yeah okay so
+
+00:38:04.858 --> 00:38:10.259
+Caption: I totally get that so we&#39;re so releasing
+
+00:38:06.959 --> 00:38:13.139
+Caption: more often uh more likely that code is
+
+00:38:10.260 --> 00:38:15.118
+Caption: less ready and getting into the hands of
+
+00:38:13.139 --> 00:38:19.919
+Caption: our users right so so the key thing is
+
+00:38:15.118 --> 00:38:21.419
+Caption: that ideally where ex so with feature
+
+00:38:19.919 --> 00:38:22.618
+Caption: toggles you&#39;re exposing less of your
+
+00:38:21.419 --> 00:38:25.260
+Caption: users
+
+00:38:22.618 --> 00:38:27.959
+Caption: um so you&#39;re maybe only exposing your
+
+00:38:25.260 --> 00:38:30.139
+Caption: team initially right and I know that&#39;s
+
+00:38:27.959 --> 00:38:32.879
+Caption: hard for depending on your system
+
+00:38:30.139 --> 00:38:35.098
+Caption: because some depending on your system
+
+00:38:32.879 --> 00:38:35.879
+Caption: your your users are
+
+00:38:35.099 --> 00:38:38.280
+Caption: um
+
+00:38:35.879 --> 00:38:40.319
+Caption: like your team is not really able to dog
+
+00:38:38.280 --> 00:38:41.699
+Caption: food you&#39;re you&#39;re out right
+
+00:38:40.320 --> 00:38:42.780
+Caption: um particularly in the case of Bankwest
+
+00:38:41.699 --> 00:38:45.239
+Caption: where
+
+00:38:42.780 --> 00:38:47.339
+Caption: um like our my team wasn&#39;t applying for
+
+00:38:45.239 --> 00:38:49.079
+Caption: a home loan every week
+
+00:38:47.339 --> 00:38:50.579
+Caption: um so so but we&#39;ve got other
+
+00:38:49.079 --> 00:38:52.500
+Caption: environments where we do that right
+
+00:38:50.579 --> 00:38:54.540
+Caption: where we might turn on in that
+
+00:38:52.500 --> 00:38:57.060
+Caption: particular environment we might turn on
+
+00:38:54.540 --> 00:38:58.619
+Caption: just for my team until until we&#39;re
+
+00:38:57.060 --> 00:39:00.719
+Caption: really happy so we&#39;re not even affecting
+
+00:38:58.618 --> 00:39:02.039
+Caption: other teams we&#39;re just affecting my team
+
+00:39:00.719 --> 00:39:04.320
+Caption: okay the team that&#39;s actually building
+
+00:39:02.040 --> 00:39:08.280
+Caption: out that functionality
+
+00:39:04.320 --> 00:39:10.859
+Caption: um it&#39;s it&#39;s definitely a risk
+
+00:39:08.280 --> 00:39:13.560
+Caption: um but I would trade it off with
+
+00:39:10.858 --> 00:39:15.059
+Caption: um the fact that if you&#39;re bulking up
+
+00:39:13.560 --> 00:39:16.859
+Caption: you know two months of changes and
+
+00:39:15.060 --> 00:39:18.300
+Caption: sending that into production and that
+
+00:39:16.858 --> 00:39:20.639
+Caption: breaks like
+
+00:39:18.300 --> 00:39:22.500
+Caption: well what went wrong
+
+00:39:20.639 --> 00:39:23.519
+Caption: two months of work like I have to sift
+
+00:39:22.500 --> 00:39:25.199
+Caption: through two months of work to figure out
+
+00:39:23.520 --> 00:39:28.979
+Caption: what the hell went wrong that&#39;s going to
+
+00:39:25.199 --> 00:39:30.899
+Caption: take me much longer than say that one
+
+00:39:28.979 --> 00:39:33.838
+Caption: thing that I send it right I guess just
+
+00:39:30.899 --> 00:39:35.639
+Caption: to add to that so it is it seems like it
+
+00:39:33.839 --> 00:39:37.800
+Caption: is kind of subjective we haven&#39;t
+
+00:39:35.639 --> 00:39:40.500
+Caption: necessarily been able to quantify doing
+
+00:39:37.800 --> 00:39:43.439
+Caption: this way has less impact than doing the
+
+00:39:40.500 --> 00:39:45.300
+Caption: other way it just like seems that way
+
+00:39:43.439 --> 00:39:47.280
+Caption: because we&#39;re not as stressed in the
+
+00:39:45.300 --> 00:39:49.260
+Caption: yeah it&#39;s a large releases of
+
+00:39:47.280 --> 00:39:52.739
+Caption: deployments yeah
+
+00:39:49.260 --> 00:39:54.540
+Caption: um but yeah I I don&#39;t I don&#39;t have no
+
+00:39:52.739 --> 00:39:55.919
+Caption: for sure I don&#39;t I don&#39;t have I don&#39;t
+
+00:39:54.540 --> 00:39:59.719
+Caption: have numbers
+
+00:39:55.919 --> 00:40:02.219
+Caption: um but I uh I guess
+
+00:39:59.719 --> 00:40:03.719
+Caption: uh I guess I&#39;ve definitely seen the
+
+00:40:02.219 --> 00:40:05.939
+Caption: alternative
+
+00:40:03.719 --> 00:40:08.760
+Caption: um so from my experience
+
+00:40:05.939 --> 00:40:12.719
+Caption: um I&#39;ve seen deployments go wrong and go
+
+00:40:08.760 --> 00:40:15.659
+Caption: go wrong catastrophically way more
+
+00:40:12.719 --> 00:40:17.820
+Caption: um uh when you&#39;re deploying you know
+
+00:40:15.659 --> 00:40:20.639
+Caption: monthly or whatever yes it seems like
+
+00:40:17.820 --> 00:40:22.079
+Caption: the impact will be less with a higher
+
+00:40:20.639 --> 00:40:23.819
+Caption: frequency of deployment even if there
+
+00:40:22.079 --> 00:40:25.739
+Caption: are more bugs they&#39;re not less damaging
+
+00:40:23.820 --> 00:40:27.719
+Caption: so maybe that&#39;s okay and it&#39;s and it&#39;s
+
+00:40:25.739 --> 00:40:30.959
+Caption: way less stress as a developer which
+
+00:40:27.719 --> 00:40:32.820
+Caption: ideally uh also in turn makes for Less
+
+00:40:30.959 --> 00:40:35.899
+Caption: bugs but for sure I don&#39;t have numbers
+
+00:40:32.820 --> 00:40:35.900
+Caption: no thanks
+
+00:40:39.239 --> 00:40:44.399
+Caption: oh great
+
+00:40:40.739 --> 00:40:47.159
+Caption: um so I also I work at a bank I work for
+
+00:40:44.399 --> 00:40:49.379
+Caption: up which is now owned by Bendigo so we
+
+00:40:47.159 --> 00:40:53.039
+Caption: we ship six to ten times a day but
+
+00:40:49.379 --> 00:40:55.858
+Caption: Bendigo might ship once every few months
+
+00:40:53.040 --> 00:40:58.079
+Caption: um were there any things you had to do
+
+00:40:55.858 --> 00:41:01.259
+Caption: to bring the other teams within the bank
+
+00:40:58.079 --> 00:41:03.540
+Caption: along this journey to allow you to
+
+00:41:01.260 --> 00:41:06.540
+Caption: ship multiple times a day and release
+
+00:41:03.540 --> 00:41:09.959
+Caption: more frequently thinking like Risk teams
+
+00:41:06.540 --> 00:41:10.859
+Caption: and those yeah yeah so that&#39;s definitely
+
+00:41:09.959 --> 00:41:12.260
+Caption: um
+
+00:41:10.858 --> 00:41:15.479
+Caption: uh
+
+00:41:12.260 --> 00:41:19.618
+Caption: that&#39;s definitely a hard one right
+
+00:41:15.479 --> 00:41:24.419
+Caption: um and I think uh what made it possible
+
+00:41:19.618 --> 00:41:26.279
+Caption: at least at Bankwest was uh the setup of
+
+00:41:24.419 --> 00:41:29.520
+Caption: the team so so again when when these
+
+00:41:26.280 --> 00:41:31.679
+Caption: things arise say for deployments we we
+
+00:41:29.520 --> 00:41:32.419
+Caption: brought in our system Engineers into the
+
+00:41:31.679 --> 00:41:34.679
+Caption: team
+
+00:41:32.419 --> 00:41:37.799
+Caption: so actually having
+
+00:41:34.679 --> 00:41:40.379
+Caption: like bringing the critical people
+
+00:41:37.800 --> 00:41:42.839
+Caption: um on the par like critical expertise
+
+00:41:40.379 --> 00:41:46.078
+Caption: bring them actually into our our teams
+
+00:41:42.839 --> 00:41:47.880
+Caption: even or our you know our project sphere
+
+00:41:46.079 --> 00:41:49.380
+Caption: or whatever you want to call it
+
+00:41:47.879 --> 00:41:51.659
+Caption: um but actually bringing them in so so
+
+00:41:49.379 --> 00:41:53.639
+Caption: their goals are your goals
+
+00:41:51.659 --> 00:41:54.719
+Caption: um it&#39;s like it&#39;s not an easy problem
+
+00:41:53.639 --> 00:41:55.439
+Caption: for sure
+
+00:41:54.719 --> 00:41:57.598
+Caption: um there&#39;s a lot of different
+
+00:41:55.439 --> 00:41:59.760
+Caption: disciplines that need to be involved but
+
+00:41:57.599 --> 00:42:01.920
+Caption: ideally where you can bring them in and
+
+00:41:59.760 --> 00:42:03.179
+Caption: so you&#39;re both heading in that same
+
+00:42:01.919 --> 00:42:03.780
+Caption: direction
+
+00:42:03.179 --> 00:42:06.179
+Caption: um
+
+00:42:03.780 --> 00:42:08.040
+Caption: yeah is that something to do with your
+
+00:42:06.179 --> 00:42:10.618
+Caption: methodology as well like being truly at
+
+00:42:08.040 --> 00:42:12.859
+Caption: jar as well and having that framework
+
+00:42:10.618 --> 00:42:14.419
+Caption: across the organization to accept
+
+00:42:12.858 --> 00:42:17.639
+Caption: continuous
+
+00:42:14.419 --> 00:42:20.280
+Caption: development yeah I think that&#39;s
+
+00:42:17.639 --> 00:42:20.939
+Caption: like all this stuff is a is a constant
+
+00:42:20.280 --> 00:42:22.679
+Caption: um
+
+00:42:20.939 --> 00:42:24.300
+Caption: well you constantly hit up against these
+
+00:42:22.679 --> 00:42:26.338
+Caption: sort of problems but also you&#39;re
+
+00:42:24.300 --> 00:42:28.679
+Caption: constantly trying to improve
+
+00:42:26.339 --> 00:42:30.619
+Caption: um and you know any organization is not
+
+00:42:28.679 --> 00:42:33.300
+Caption: going to be
+
+00:42:30.618 --> 00:42:34.379
+Caption: homogenous right it&#39;s that all different
+
+00:42:33.300 --> 00:42:37.199
+Caption: areas are going to be totally different
+
+00:42:34.379 --> 00:42:39.659
+Caption: and working totally different ways but
+
+00:42:37.199 --> 00:42:42.358
+Caption: um yeah I think if you can somehow align
+
+00:42:39.659 --> 00:42:42.959
+Caption: on like what you&#39;re trying to achieve
+
+00:42:42.358 --> 00:42:46.639
+Caption: um
+
+00:42:42.959 --> 00:42:46.639
+Caption: that&#39;s that&#39;s how you get that done
+
+00:42:47.159 --> 00:42:49.250
+Caption: thank you very much cool it was a great
+
+00:42:48.659 --> 00:42:56.760
+Caption: presentation
+
+00:42:49.250 --> 00:42:56.760
+Caption: [Applause]
+

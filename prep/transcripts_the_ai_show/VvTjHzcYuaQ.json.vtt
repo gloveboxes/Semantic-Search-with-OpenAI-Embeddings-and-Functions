@@ -1,0 +1,767 @@
+[
+    {
+        "text": "you're not going to want to miss this episode of  the ai show where we talk about how to automate  ",
+        "start": 0.48,
+        "duration": 4.16
+    },
+    {
+        "text": "custom vision model creation with  automl for images make sure you tune in  ",
+        "start": 4.64,
+        "duration": 4.8
+    },
+    {
+        "text": "hello and welcome to this episode of the ai show  we're going to talk about how to automate custom  ",
+        "start": 15.76,
+        "duration": 4.08
+    },
+    {
+        "text": "bidding vision model creation with auto ml for  images with sarah stairs how you doing my friend  ",
+        "start": 19.84,
+        "duration": 5.52
+    },
+    {
+        "text": "hello seth how are you fantastic so  tell us who you are and what you do bud  ",
+        "start": 26.0,
+        "duration": 4.0
+    },
+    {
+        "text": "hello so i am based in uh in paris in france i  am serge rodkovsky working for microsoft since  ",
+        "start": 30.64,
+        "duration": 6.56
+    },
+    {
+        "text": "three years now and i am mainly working  on ai projects including computer vision  ",
+        "start": 37.2,
+        "duration": 6.64
+    },
+    {
+        "text": "that's fantastic but you you can actually work  on real world problems not like the stuff that  ",
+        "start": 45.44,
+        "duration": 4.8
+    },
+    {
+        "text": "i kind of make up right yes but that's correct  so currently many companies and organizations  ",
+        "start": 50.24,
+        "duration": 7.92
+    },
+    {
+        "text": "are using computer vision for multiple kind of  projects like predictive maintenance healthcare  ",
+        "start": 58.16,
+        "duration": 6.32
+    },
+    {
+        "text": "security retail autonomous driving and so on so  the good thing is for computer vision is that it's  ",
+        "start": 65.36,
+        "duration": 7.76
+    },
+    {
+        "text": "very easy with automl for images available with  azure machine learning to build and train some  ",
+        "start": 73.12,
+        "duration": 6.88
+    },
+    {
+        "text": "new models to deliver to deploy this model into  azure and then to quickly uh do some predictions  ",
+        "start": 80.0,
+        "duration": 9.28
+    },
+    {
+        "text": "based on images because computer vision is not  only is not analyzing content from database  ",
+        "start": 89.28,
+        "duration": 7.28
+    },
+    {
+        "text": "or database management system you will analyze  images and images is just a collection of pixels  ",
+        "start": 96.56,
+        "duration": 7.12
+    },
+    {
+        "text": "and it's very easy to build and trend some deep  neural network in order to help companies and  ",
+        "start": 103.68,
+        "duration": 6.0
+    },
+    {
+        "text": "organizations to take advantages of images  or videos i mean that's fantastic so you're  ",
+        "start": 109.68,
+        "duration": 6.48
+    },
+    {
+        "text": "going to show it you're going to talk about three  world cent world uh real world scenarios can you  ",
+        "start": 116.16,
+        "duration": 5.6
+    },
+    {
+        "text": "describe them for us yes for sure so let's take  some examples so the first examples i would like  ",
+        "start": 121.76,
+        "duration": 6.32
+    },
+    {
+        "text": "to share with you is how to use computer vision  model for quality control so quality control  ",
+        "start": 128.08,
+        "duration": 7.12
+    },
+    {
+        "text": "is key many companies and organizations are  doing predictive maintenance package inspection  ",
+        "start": 135.2,
+        "duration": 6.56
+    },
+    {
+        "text": "product and component and supply defect reduction  improving worker safety and many additional things  ",
+        "start": 141.76,
+        "duration": 6.88
+    },
+    {
+        "text": "so in this case the first example will be about  quality control how to build and train a model an  ",
+        "start": 149.28,
+        "duration": 7.52
+    },
+    {
+        "text": "object detection model with azure machine learning  and using automl for images so i will quickly  ",
+        "start": 156.8,
+        "duration": 7.04
+    },
+    {
+        "text": "show you some examples i have another example in  the retail industry in order to count product from  ",
+        "start": 163.84,
+        "duration": 7.12
+    },
+    {
+        "text": "shelves and the last example will be about how  to detect fire from images and fire from a webcam  ",
+        "start": 170.96,
+        "duration": 8.08
+    },
+    {
+        "text": "from example awesome well can we take a look  yes so let's start with the first one so as  ",
+        "start": 179.04,
+        "duration": 6.48
+    },
+    {
+        "text": "you can see this is a python notebook i have  previously built a custom vision model to detect  ",
+        "start": 185.52,
+        "duration": 7.6
+    },
+    {
+        "text": "quality control so as you can see sometimes  there are quality control issues in this example  ",
+        "start": 193.12,
+        "duration": 7.12
+    },
+    {
+        "text": "this is not correct and on the right part this is  correct the beauty of photoml for images is that  ",
+        "start": 200.88,
+        "duration": 6.56
+    },
+    {
+        "text": "it will automatically choose for you the  best custom vision model and the the best  ",
+        "start": 207.44,
+        "duration": 7.84
+    },
+    {
+        "text": "repair parameter tuning parameters directly  using automl for images so first i tried to  ",
+        "start": 215.28,
+        "duration": 8.88
+    },
+    {
+        "text": "to analyze a collection of images i was able to  run automl for images to build and trend my model  ",
+        "start": 225.12,
+        "duration": 7.44
+    },
+    {
+        "text": "and then to deploy my model and when new model is  deployed it's very easy to use it so let's take a  ",
+        "start": 232.56,
+        "duration": 7.6
+    },
+    {
+        "text": "quick example okay as you can see this is  just an image of a product and as you can  ",
+        "start": 240.16,
+        "duration": 6.64
+    },
+    {
+        "text": "see there is a gap here between these two blue  pieces so this is not correct according to this  ",
+        "start": 246.8,
+        "duration": 7.6
+    },
+    {
+        "text": "image let's have a look if our model is able  to detect this so i'm going to run live all the  ",
+        "start": 254.4,
+        "duration": 8.16
+    },
+    {
+        "text": "all the steps and as you can see yes this  is the first result there is a an issue with  ",
+        "start": 264.08,
+        "duration": 6.0
+    },
+    {
+        "text": "a package inspection it says not correct with a  confidence close to 80 percent which is very good  ",
+        "start": 270.08,
+        "duration": 6.56
+    },
+    {
+        "text": "and by the way this is the location of the region  where the computer vision model is analyzing  ",
+        "start": 276.64,
+        "duration": 7.52
+    },
+    {
+        "text": "the content so what do you think that's cool i  mean like looking at it um did you have to do  ",
+        "start": 285.04,
+        "duration": 6.48
+    },
+    {
+        "text": "much to get this to work or like i see that the  inference is happening but how did you how did  ",
+        "start": 291.52,
+        "duration": 4.88
+    },
+    {
+        "text": "you build the model like we talked about ottawa  from images a couple of weeks ago is it just a  ",
+        "start": 296.4,
+        "duration": 4.0
+    },
+    {
+        "text": "question of giving it the images and letting  it go yes so there was a dedicated ai show  ",
+        "start": 300.4,
+        "duration": 4.8
+    },
+    {
+        "text": "about automl for images and the good thing is that  with automl for images you can do object detection  ",
+        "start": 305.2,
+        "duration": 6.96
+    },
+    {
+        "text": "program you can do image classification problem  instant segmentation as well so what i previously  ",
+        "start": 312.16,
+        "duration": 6.48
+    },
+    {
+        "text": "did was to collect my images to tag my images and  then with just a couple of lines like that one i  ",
+        "start": 319.68,
+        "duration": 10.16
+    },
+    {
+        "text": "can do an object detection using automl for images  using in this case i am using yellow version five  ",
+        "start": 329.84,
+        "duration": 7.92
+    },
+    {
+        "text": "which is very good for objection can you do me  a favor press control plus a couple times just  ",
+        "start": 337.76,
+        "duration": 5.04
+    },
+    {
+        "text": "to make the code a little bit bigger uh control  plus there you go and then if you scroll down  ",
+        "start": 342.8,
+        "duration": 5.76
+    },
+    {
+        "text": "i see okay i see so basically and we i know we  did a show on this but seeing a real world case  ",
+        "start": 349.12,
+        "duration": 6.72
+    },
+    {
+        "text": "scenario is actually kind of cool you basically  tell it object detection you're using yellow v5  ",
+        "start": 355.84,
+        "duration": 5.12
+    },
+    {
+        "text": "and you say go yes i said just say go of course  it's always possible to add additional information  ",
+        "start": 360.96,
+        "duration": 7.52
+    },
+    {
+        "text": "options parameters but just with a couple of lines  just say okay i want image in object detection  ",
+        "start": 368.48,
+        "duration": 8.24
+    },
+    {
+        "text": "and i can pick up a framework like euro v5 and  that's it yeah that's that's really and how long  ",
+        "start": 376.72,
+        "duration": 7.44
+    },
+    {
+        "text": "did it take to train the the right model is it  like oh in this model it was a question of 10  ",
+        "start": 384.16,
+        "duration": 6.32
+    },
+    {
+        "text": "or 15 minutes okay based on 100 images not  so much okay but it's a good starting point  ",
+        "start": 390.48,
+        "duration": 7.04
+    },
+    {
+        "text": "and the quality of the model was quite very  good uh based on my validation data set and  ",
+        "start": 397.52,
+        "duration": 6.08
+    },
+    {
+        "text": "and that's cool because going from from an idea  to a prototype of machine learning in 15 minutes  ",
+        "start": 403.6,
+        "duration": 5.12
+    },
+    {
+        "text": "i think is quite cool if you ask me all right  what's the next example yes it is quite cool so as  ",
+        "start": 409.44,
+        "duration": 5.28
+    },
+    {
+        "text": "you can see this is a result and what you can do  it's always good to combine for example a speech  ",
+        "start": 414.72,
+        "duration": 6.56
+    },
+    {
+        "text": "to text if you want the quality control prediction  is not correct with a competence of 79 percent  ",
+        "start": 421.28,
+        "duration": 5.92
+    },
+    {
+        "text": "so this is just the use of of our speech  to text capabilities so you can play this  ",
+        "start": 428.4,
+        "duration": 5.68
+    },
+    {
+        "text": "audio file directly from the interface or  you can send a message to a team's channel  ",
+        "start": 434.08,
+        "duration": 5.6
+    },
+    {
+        "text": "so of course you can integrate teams with azure  machine learning and you can send a message to a  ",
+        "start": 440.24,
+        "duration": 6.48
+    },
+    {
+        "text": "team channel let's have a look you will see there  that the quality control prediction is not correct  ",
+        "start": 446.72,
+        "duration": 5.36
+    },
+    {
+        "text": "so now you're combining a bunch of cool ai things  to to alert people if there's something wrong  ",
+        "start": 452.08,
+        "duration": 5.76
+    },
+    {
+        "text": "because there might be there might be a situation  where it's imperative that someone get a message  ",
+        "start": 457.84,
+        "duration": 4.4
+    },
+    {
+        "text": "about whatever it is that's going on with the  picture and there's a question all right that's  ",
+        "start": 462.24,
+        "duration": 4.16
+    },
+    {
+        "text": "correct so the goal is in real time to send some  alerts so you can send emails if you want to or  ",
+        "start": 466.4,
+        "duration": 7.04
+    },
+    {
+        "text": "just use a team's notification because  with just a couple of lines you can do it  ",
+        "start": 473.44,
+        "duration": 5.28
+    },
+    {
+        "text": "only when there is something wrong  in this case when this is not correct  ",
+        "start": 478.72,
+        "duration": 3.6
+    },
+    {
+        "text": "that's cool all right what are the other examples  i know i jumped the gun but this is really cool so  ",
+        "start": 483.04,
+        "duration": 4.32
+    },
+    {
+        "text": "far next example it's about retail okay so we know  that all the retailers have some issues with uh  ",
+        "start": 487.36,
+        "duration": 9.28
+    },
+    {
+        "text": "with their products on the shelves and they want  to be able to uh to detect if products are missing  ",
+        "start": 497.44,
+        "duration": 6.16
+    },
+    {
+        "text": "for example for the resupply and this is another  example so it's still about an object detection  ",
+        "start": 503.6,
+        "duration": 6.56
+    },
+    {
+        "text": "custom vision model for that but in this  case as you can see i will be able to  ",
+        "start": 511.76,
+        "duration": 5.2
+    },
+    {
+        "text": "count the number of drinks and i can't say okay  there is uh no more water or there is too much  ",
+        "start": 516.96,
+        "duration": 6.96
+    },
+    {
+        "text": "sodas or whatever and it's very easy to  do let's go to the key part so this is  ",
+        "start": 524.8,
+        "duration": 6.16
+    },
+    {
+        "text": "another new image okay that you can take from a  camera or a webcam for example and let's run the  ",
+        "start": 531.6,
+        "duration": 8.96
+    },
+    {
+        "text": "model and the model they will say okay there is 18  drinks coca and fizzy water and 7 up and whatever  ",
+        "start": 540.56,
+        "duration": 8.56
+    },
+    {
+        "text": "okay and same thing you can automatically uh  count the number of products and in this case  ",
+        "start": 549.76,
+        "duration": 7.2
+    },
+    {
+        "text": "it will say i need to resupply six drinks because  some drinks are left and same thing i can send a  ",
+        "start": 556.96,
+        "duration": 7.2
+    },
+    {
+        "text": "message on my team's channel and i know that i i  can resupply some products oh my goodness this is  ",
+        "start": 564.16,
+        "duration": 8.16
+    },
+    {
+        "text": "i mean this is really cool because you can imagine  a scenario where you literally have a camera  ",
+        "start": 572.32,
+        "duration": 4.48
+    },
+    {
+        "text": "pointed at the stock and then every you know i  don't know every night it just checks and it's  ",
+        "start": 576.8,
+        "duration": 5.44
+    },
+    {
+        "text": "like hey you know you need to put another another  seven up in there or something that's it that's  ",
+        "start": 582.24,
+        "duration": 5.52
+    },
+    {
+        "text": "pretty cool okay there is uh not so much things to  do except building a custom vision model to detect  ",
+        "start": 587.76,
+        "duration": 7.2
+    },
+    {
+        "text": "the brands and then it's very easy with automl for  images and all the great options there to create  ",
+        "start": 595.52,
+        "duration": 7.36
+    },
+    {
+        "text": "to build and train and to deploy your model and  one thing you can deploy your model on the edge  ",
+        "start": 602.88,
+        "duration": 5.2
+    },
+    {
+        "text": "not only on the cloud but you can deploy it  on the edge directly into a webcam for example  ",
+        "start": 608.64,
+        "duration": 6.48
+    },
+    {
+        "text": "or cctv interesting so the model that you build in  auto ml for images you can download and put it on  ",
+        "start": 615.12,
+        "duration": 6.56
+    },
+    {
+        "text": "any device that could run a model like that okay  that's cool all right what else you got for us bud  ",
+        "start": 621.68,
+        "duration": 5.52
+    },
+    {
+        "text": "okay so next example is how to create and deploy  your model on the edge let's say you have a cctv  ",
+        "start": 628.56,
+        "duration": 10.16
+    },
+    {
+        "text": "and you want to be able to detect any new fire for  fire detection so same thing i am using an image  ",
+        "start": 638.72,
+        "duration": 8.08
+    },
+    {
+        "text": "classification i have built and trainer model  using thousands of images of fire and non-fire  ",
+        "start": 646.8,
+        "duration": 6.56
+    },
+    {
+        "text": "i was using as well auto ml for images from  azure machine learning and then i deployed  ",
+        "start": 654.08,
+        "duration": 5.68
+    },
+    {
+        "text": "the model and what we can do first is just  to play a little bit with a model just to  ",
+        "start": 659.76,
+        "duration": 6.0
+    },
+    {
+        "text": "see if we can detect a fire so this is a an image  from a fire it was in paris a couple of weeks ago  ",
+        "start": 665.76,
+        "duration": 8.08
+    },
+    {
+        "text": "the good thing is that nobody was hurt so  that's that's great thank you and uh this is  ",
+        "start": 674.56,
+        "duration": 6.48
+    },
+    {
+        "text": "uh we can see a fire obviously and let's call the  model just to check and the mother says yes there  ",
+        "start": 681.04,
+        "duration": 5.92
+    },
+    {
+        "text": "is a fire with 81 percent okay wow so imagine that  you build an trainer model on the cctv on a webcam  ",
+        "start": 686.96,
+        "duration": 9.12
+    },
+    {
+        "text": "and in real time it will be able to detect a new  fire okay yeah and what you can do as well using  ",
+        "start": 696.08,
+        "duration": 8.24
+    },
+    {
+        "text": "integration with uh additional services is that  let's say you have a fire department address okay  ",
+        "start": 704.32,
+        "duration": 8.08
+    },
+    {
+        "text": "so you can retrieve the latitude and longitude  so it's an address in paris as you can see and  ",
+        "start": 712.4,
+        "duration": 6.08
+    },
+    {
+        "text": "this is the webcam location the fire was in place  de opera in paris so you can retrieve as well  ",
+        "start": 718.48,
+        "duration": 6.8
+    },
+    {
+        "text": "latitude and longitude and you can use bing to to  collect information like uh the uh the the time  ",
+        "start": 725.28,
+        "duration": 10.32
+    },
+    {
+        "text": "for the fire department to go to the  fireplace and in this case it will say okay  ",
+        "start": 735.6,
+        "duration": 6.4
+    },
+    {
+        "text": "usually it takes 14 minutes but at the  moment we have a lot of traffic jams and  ",
+        "start": 742.88,
+        "duration": 5.28
+    },
+    {
+        "text": "the additional travel time due to traffic will  be 99 minutes and the good thing is that you can  ",
+        "start": 748.72,
+        "duration": 6.64
+    },
+    {
+        "text": "you can send a message to the fire department this  is the map so you can take this through it and  ",
+        "start": 756.88,
+        "duration": 6.96
+    },
+    {
+        "text": "then go to boulevard valid and so on and you can  use a big integration in order to display in a map  ",
+        "start": 763.84,
+        "duration": 8.0
+    },
+    {
+        "text": "the location between the fireplace okay so we have  a lot of traffic in place developer at the moment  ",
+        "start": 772.48,
+        "duration": 7.2
+    },
+    {
+        "text": "and this is the the shortest destination in order  for the fire department to go to the fireplace  ",
+        "start": 779.68,
+        "duration": 6.72
+    },
+    {
+        "text": "so another example what you can do of course is  to analyze in real time videos okay let's have a  ",
+        "start": 788.0,
+        "duration": 7.12
+    },
+    {
+        "text": "look in this case so let's play okay so as you can  see at the beginning of the video there is no fire  ",
+        "start": 795.12,
+        "duration": 10.32
+    },
+    {
+        "text": "detected okay and then after a couple of seconds  you can see a car who is currently burning okay  ",
+        "start": 805.44,
+        "duration": 7.68
+    },
+    {
+        "text": "so let's try to analyze this video using  our custom vision model and i can i can  ",
+        "start": 813.12,
+        "duration": 7.28
+    },
+    {
+        "text": "run the process it will analyze some frames  at the beginning no fire was detected  ",
+        "start": 821.76,
+        "duration": 6.08
+    },
+    {
+        "text": "and now after this frame there is an alert  and same thing i can have a notification  ",
+        "start": 828.88,
+        "duration": 8.4
+    },
+    {
+        "text": "on my team's channel as you can see wow fire  detected at frame 240 270 and so on so i have  ",
+        "start": 837.28,
+        "duration": 11.04
+    },
+    {
+        "text": "uh real-time alerts and as you can see yes  at the beginning from my cctv there was no  ",
+        "start": 848.32,
+        "duration": 7.84
+    },
+    {
+        "text": "fire with 78 percent of confidence and after  a certain period of time 100 percent of fire  ",
+        "start": 856.16,
+        "duration": 7.76
+    },
+    {
+        "text": "yes because obviously the model was not wrong at  this time and that's it so another nice example  ",
+        "start": 864.56,
+        "duration": 6.96
+    },
+    {
+        "text": "about how to use a computer vision model in order  to detect some specific events it can be a car  ",
+        "start": 871.52,
+        "duration": 7.92
+    },
+    {
+        "text": "accident it can be smoke detection it can be fire  detection and you can run your model directly on  ",
+        "start": 879.44,
+        "duration": 6.56
+    },
+    {
+        "text": "the edge directly on the video camera so what do  you think i the thing i like about this the most  ",
+        "start": 886.0,
+        "duration": 6.48
+    },
+    {
+        "text": "is that i mean i i make ai models all the time but  i look at it from a clinical perspective like is  ",
+        "start": 893.68,
+        "duration": 5.6
+    },
+    {
+        "text": "this model working is is everything doing the  right thing i like the way especially with the  ",
+        "start": 899.28,
+        "duration": 4.88
+    },
+    {
+        "text": "fire one and obviously if fires are really sad  and if anyone had to go through it super sad  ",
+        "start": 904.16,
+        "duration": 5.44
+    },
+    {
+        "text": "but imagine a scenario where fire departments  can be alerted immediately that there's a fire  ",
+        "start": 909.6,
+        "duration": 5.84
+    },
+    {
+        "text": "somewhere and it tells them how to get there  the fastest in the same instant i think i think  ",
+        "start": 915.44,
+        "duration": 5.6
+    },
+    {
+        "text": "putting that all together is actually really cool  how did you come up with these scenarios search  ",
+        "start": 921.04,
+        "duration": 4.8
+    },
+    {
+        "text": "it was just a a curiosity what is good  with ai is that of course you can spend  ",
+        "start": 927.52,
+        "duration": 6.24
+    },
+    {
+        "text": "some time to build a model but think about a full  integration with any solution like a cctv or like  ",
+        "start": 933.76,
+        "duration": 8.56
+    },
+    {
+        "text": "any specific equipment what you want is not only  to predict something like the fire or or to do uh  ",
+        "start": 943.92,
+        "duration": 7.6
+    },
+    {
+        "text": "any kind of question maybe you want a little  bit more you want real time notification  ",
+        "start": 951.52,
+        "duration": 5.28
+    },
+    {
+        "text": "okay and if you need to go from a place to  another one if you can have the shortest uh",
+        "start": 956.8,
+        "duration": 7.2
+    },
+    {
+        "text": "how to say uh path or what that's nice and the  shortest will depend on the time of the day  ",
+        "start": 966.72,
+        "duration": 7.76
+    },
+    {
+        "text": "it will depend on the traffic jam  and using integration with bing  ",
+        "start": 974.48,
+        "duration": 4.32
+    },
+    {
+        "text": "you can have everything included the forecast for  example so at the moment there is no rain most  ",
+        "start": 978.8,
+        "duration": 7.68
+    },
+    {
+        "text": "recently and you can have additional information  so you can create a end-to-end solution  ",
+        "start": 986.48,
+        "duration": 6.48
+    },
+    {
+        "text": "with a combination of multiple azure services and  of course including uh our custom vision model  ",
+        "start": 992.96,
+        "duration": 7.04
+    },
+    {
+        "text": "which is key in this kind of application to detect  the fire or any specific event i love it so where  ",
+        "start": 1000.0,
+        "duration": 6.8
+    },
+    {
+        "text": "can people go to find out more my friend sorry  where can people go to find out more about how  ",
+        "start": 1006.8,
+        "duration": 6.32
+    },
+    {
+        "text": "to do this so if you want to learn a little bit  more of course there is the official documentation  ",
+        "start": 1013.12,
+        "duration": 6.96
+    },
+    {
+        "text": "from automl for images and i made a dedicated  github repo where you can find more than 40  ",
+        "start": 1020.08,
+        "duration": 7.68
+    },
+    {
+        "text": "python notebooks all of them are available for  for free i mean so if you want to evaluate to ml  ",
+        "start": 1028.64,
+        "duration": 6.96
+    },
+    {
+        "text": "for images you are not you can use or leverage  my uh demos notebook if you want to uh to to  ",
+        "start": 1035.6,
+        "duration": 9.12
+    },
+    {
+        "text": "start uh evaluating or to ml for images awesome  well sarge thank you so much everyone go check  ",
+        "start": 1044.72,
+        "duration": 6.08
+    },
+    {
+        "text": "out those notebooks they're really cool thank you  so much for spending some time with us my friend  ",
+        "start": 1050.8,
+        "duration": 4.16
+    },
+    {
+        "text": "you've been learning all about how to automate  custom vision model creation with automl for  ",
+        "start": 1056.64,
+        "duration": 4.64
+    },
+    {
+        "text": "images with search thank you so much for watching  and hopefully we'll see you next time take care",
+        "start": 1061.28,
+        "duration": 4.56
+    }
+]

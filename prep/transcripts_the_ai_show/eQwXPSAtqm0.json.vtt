@@ -1,0 +1,1207 @@
+[
+    {
+        "text": ">> You're not going to want to miss this episode of",
+        "start": 0.0,
+        "duration": 1.65
+    },
+    {
+        "text": "the AI show where Rajesh tells me",
+        "start": 1.65,
+        "duration": 2.21
+    },
+    {
+        "text": "all the secrets that Bing ads",
+        "start": 3.86,
+        "duration": 2.72
+    },
+    {
+        "text": "uses to make your ads make even more money.",
+        "start": 6.58,
+        "duration": 3.635
+    },
+    {
+        "text": "It has to do with AI. Make sure you tune in.",
+        "start": 10.215,
+        "duration": 3.165
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 13.38,
+        "duration": 9.21
+    },
+    {
+        "text": ">> Hello and welcome to another exciting episode of",
+        "start": 22.59,
+        "duration": 1.89
+    },
+    {
+        "text": "the AI show that",
+        "start": 24.48,
+        "duration": 1.215
+    },
+    {
+        "text": "my friend here Rajesh. How are you doing, my friend?",
+        "start": 25.695,
+        "duration": 2.01
+    },
+    {
+        "text": ">> Awesome. How are you?",
+        "start": 27.705,
+        "duration": 1.035
+    },
+    {
+        "text": ">> Good. Tell us what you do.",
+        "start": 28.74,
+        "duration": 1.32
+    },
+    {
+        "text": ">> I'm on Senior Product Manager in Azure ML.",
+        "start": 30.06,
+        "duration": 3.57
+    },
+    {
+        "text": "I help my customers get",
+        "start": 33.63,
+        "duration": 1.845
+    },
+    {
+        "text": "their data science problems solve through Azure ML.",
+        "start": 35.475,
+        "duration": 4.535
+    },
+    {
+        "text": ">> This is a very problem-specific episode.",
+        "start": 40.01,
+        "duration": 2.37
+    },
+    {
+        "text": "We're going to go through like a very",
+        "start": 42.38,
+        "duration": 1.2
+    },
+    {
+        "text": "specific problem and how to solve it,",
+        "start": 43.58,
+        "duration": 1.8
+    },
+    {
+        "text": "the data science where in how AML help.",
+        "start": 45.38,
+        "duration": 1.62
+    },
+    {
+        "text": "So let's start with the actual problem.",
+        "start": 47.0,
+        "duration": 2.22
+    },
+    {
+        "text": "What are we trying to solve today?",
+        "start": 49.22,
+        "duration": 1.25
+    },
+    {
+        "text": ">> So we are working with closely with our Bing ads team,",
+        "start": 50.47,
+        "duration": 4.27
+    },
+    {
+        "text": "and we're trying to help them to get a recommender system,",
+        "start": 54.74,
+        "duration": 4.12
+    },
+    {
+        "text": "a recommendation report out through",
+        "start": 58.86,
+        "duration": 2.7
+    },
+    {
+        "text": "their advertisers to make the advertisers",
+        "start": 61.56,
+        "duration": 1.88
+    },
+    {
+        "text": "successful in their digital marketing.",
+        "start": 63.44,
+        "duration": 2.255
+    },
+    {
+        "text": ">> So let's see if I understand this right.",
+        "start": 65.695,
+        "duration": 1.565
+    },
+    {
+        "text": "It's like we're trying to make",
+        "start": 67.26,
+        "duration": 1.19
+    },
+    {
+        "text": "a recommendation system for",
+        "start": 68.45,
+        "duration": 1.35
+    },
+    {
+        "text": "people that are putting ads on Bing and we're",
+        "start": 69.8,
+        "duration": 2.16
+    },
+    {
+        "text": "recommending to the people putting ads on",
+        "start": 71.96,
+        "duration": 2.655
+    },
+    {
+        "text": "how to do their ads so they can make more money basically?",
+        "start": 74.615,
+        "duration": 3.21
+    },
+    {
+        "text": ">> Correct.",
+        "start": 77.825,
+        "duration": 0.285
+    },
+    {
+        "text": ">> Because when I heard recommender system in ads,",
+        "start": 78.11,
+        "duration": 1.83
+    },
+    {
+        "text": "I thought like where are we going to put ads on the Bing page?",
+        "start": 79.94,
+        "duration": 3.06
+    },
+    {
+        "text": "Now this is for actual advertisers.",
+        "start": 83.0,
+        "duration": 2.085
+    },
+    {
+        "text": ">> Correct.",
+        "start": 85.085,
+        "duration": 0.435
+    },
+    {
+        "text": ">> Okay. That's a little different.",
+        "start": 85.52,
+        "duration": 1.035
+    },
+    {
+        "text": ">> Yes.",
+        "start": 86.555,
+        "duration": 0.33
+    },
+    {
+        "text": ">> So why is it kind of a challenging problem?",
+        "start": 86.885,
+        "duration": 2.865
+    },
+    {
+        "text": ">> It's challenging because first of all as a customer,",
+        "start": 89.75,
+        "duration": 4.62
+    },
+    {
+        "text": "as advertiser, everybody is",
+        "start": 94.37,
+        "duration": 1.98
+    },
+    {
+        "text": "trying to maximize their digital marketing budget.",
+        "start": 96.35,
+        "duration": 2.745
+    },
+    {
+        "text": "They kind of come up with a list of",
+        "start": 99.095,
+        "duration": 2.715
+    },
+    {
+        "text": "keywords or list of ads that they wanted to actually bid on.",
+        "start": 101.81,
+        "duration": 2.97
+    },
+    {
+        "text": "But they really don't know what's going to",
+        "start": 104.78,
+        "duration": 1.68
+    },
+    {
+        "text": "work and what's not going to work.",
+        "start": 106.46,
+        "duration": 1.58
+    },
+    {
+        "text": ">> Right.",
+        "start": 108.04,
+        "duration": 1.07
+    },
+    {
+        "text": ">> They don't end up necessarily",
+        "start": 109.11,
+        "duration": 1.49
+    },
+    {
+        "text": "maximizing their digital marketing budget.",
+        "start": 110.6,
+        "duration": 2.49
+    },
+    {
+        "text": ">> So let's talk about",
+        "start": 113.09,
+        "duration": 1.14
+    },
+    {
+        "text": "the data science problem because I imagine like",
+        "start": 114.23,
+        "duration": 2.43
+    },
+    {
+        "text": "if we're recommending stuff to the advertisers,",
+        "start": 116.66,
+        "duration": 3.745
+    },
+    {
+        "text": "there's going to be some ginormous corpus.",
+        "start": 120.405,
+        "duration": 2.895
+    },
+    {
+        "text": "Let's talk about the scale of",
+        "start": 123.3,
+        "duration": 1.44
+    },
+    {
+        "text": "stuff and let's get into the data science problem.",
+        "start": 124.74,
+        "duration": 1.82
+    },
+    {
+        "text": ">> Absolutely. Roughly we have about this specific problem",
+        "start": 126.56,
+        "duration": 6.54
+    },
+    {
+        "text": "is telling the advertisers which keywords to",
+        "start": 133.1,
+        "duration": 3.24
+    },
+    {
+        "text": "use to boost their ads and to boost clicks on their ads.",
+        "start": 136.34,
+        "duration": 5.37
+    },
+    {
+        "text": "We basically use live GBM,",
+        "start": 141.71,
+        "duration": 3.93
+    },
+    {
+        "text": "we use some clustering and come up with",
+        "start": 145.64,
+        "duration": 2.88
+    },
+    {
+        "text": "what other advertisers are doing for similar products,",
+        "start": 148.52,
+        "duration": 3.66
+    },
+    {
+        "text": "which ones are getting more clicks,",
+        "start": 152.18,
+        "duration": 1.53
+    },
+    {
+        "text": "which ones are getting less,",
+        "start": 153.71,
+        "duration": 1.295
+    },
+    {
+        "text": "which one are being seen more often and so on and so forth,",
+        "start": 155.005,
+        "duration": 3.01
+    },
+    {
+        "text": "and then we come back with",
+        "start": 158.015,
+        "duration": 1.74
+    },
+    {
+        "text": "what is the recommendation for this advertiser.",
+        "start": 159.755,
+        "duration": 2.135
+    },
+    {
+        "text": "If they use these keywords,",
+        "start": 161.89,
+        "duration": 1.38
+    },
+    {
+        "text": "if they place their ads in this particular way",
+        "start": 163.27,
+        "duration": 2.055
+    },
+    {
+        "text": "and use certain texts recommendations,",
+        "start": 165.325,
+        "duration": 2.755
+    },
+    {
+        "text": "then they basically get a boost in their clicks and views.",
+        "start": 168.08,
+        "duration": 4.59
+    },
+    {
+        "text": ">> Is this what we're looking at on the screen then?",
+        "start": 172.67,
+        "duration": 2.17
+    },
+    {
+        "text": "Is this an example of this kind of this report?",
+        "start": 174.84,
+        "duration": 3.89
+    },
+    {
+        "text": ">> Exactly. This is what the advertiser actually sees.",
+        "start": 178.73,
+        "duration": 2.475
+    },
+    {
+        "text": "So they can actually see that",
+        "start": 181.205,
+        "duration": 1.545
+    },
+    {
+        "text": "if they can boost their adds by positioning it,",
+        "start": 182.75,
+        "duration": 3.18
+    },
+    {
+        "text": "they can increase their number of",
+        "start": 185.93,
+        "duration": 1.77
+    },
+    {
+        "text": "conversions by running it on certain days,",
+        "start": 187.7,
+        "duration": 3.21
+    },
+    {
+        "text": "and they can also get",
+        "start": 190.91,
+        "duration": 3.005
+    },
+    {
+        "text": "their ads and render more customers by adding new keywords.",
+        "start": 193.915,
+        "duration": 3.745
+    },
+    {
+        "text": "So there are different recommendations",
+        "start": 197.66,
+        "duration": 1.23
+    },
+    {
+        "text": "we have for the advertisers.",
+        "start": 198.89,
+        "duration": 1.665
+    },
+    {
+        "text": ">> That's pretty impressive. So again,",
+        "start": 200.555,
+        "duration": 2.504
+    },
+    {
+        "text": "we talked a little bit about the models.",
+        "start": 203.059,
+        "duration": 2.491
+    },
+    {
+        "text": "Like, are we talking like gigabytes, terabytes of data?",
+        "start": 205.55,
+        "duration": 3.28
+    },
+    {
+        "text": "How much data is actually being run when this is trained?",
+        "start": 208.83,
+        "duration": 2.875
+    },
+    {
+        "text": ">> Usually it's in terabytes.",
+        "start": 211.705,
+        "duration": 1.395
+    },
+    {
+        "text": ">> Okay.",
+        "start": 213.1,
+        "duration": 0.405
+    },
+    {
+        "text": ">> Yeah.",
+        "start": 213.505,
+        "duration": 0.75
+    },
+    {
+        "text": ">> So let's talk a little bit about",
+        "start": 214.255,
+        "duration": 2.655
+    },
+    {
+        "text": "how Azure Machine Learning Service helps now.",
+        "start": 216.91,
+        "duration": 2.84
+    },
+    {
+        "text": "Because obviously there's a lot of",
+        "start": 219.75,
+        "duration": 1.66
+    },
+    {
+        "text": "options when you're using Azure Machine Learning Service.",
+        "start": 221.41,
+        "duration": 2.31
+    },
+    {
+        "text": "There's a training aspect.",
+        "start": 223.72,
+        "duration": 1.35
+    },
+    {
+        "text": "There is a model management aspect.",
+        "start": 225.07,
+        "duration": 1.425
+    },
+    {
+        "text": "There's a endpoint actually serving things out.",
+        "start": 226.495,
+        "duration": 4.25
+    },
+    {
+        "text": "Which part of Azure Machine Learning Service",
+        "start": 230.745,
+        "duration": 1.665
+    },
+    {
+        "text": "do they choose to use and how did it help?",
+        "start": 232.41,
+        "duration": 1.42
+    },
+    {
+        "text": ">> So mainly about Bing ads,",
+        "start": 233.83,
+        "duration": 2.45
+    },
+    {
+        "text": "customers are using Azure ML for inferencing.",
+        "start": 236.28,
+        "duration": 3.325
+    },
+    {
+        "text": "So what they do is they do",
+        "start": 239.605,
+        "duration": 1.275
+    },
+    {
+        "text": "their offline training because there's a lots of",
+        "start": 240.88,
+        "duration": 1.95
+    },
+    {
+        "text": "data and the data is stored right now in their own datacenters.",
+        "start": 242.83,
+        "duration": 3.78
+    },
+    {
+        "text": "But they come back and they say they want to scale up.",
+        "start": 246.61,
+        "duration": 3.985
+    },
+    {
+        "text": "They want an easy way to package their model.",
+        "start": 250.595,
+        "duration": 4.59
+    },
+    {
+        "text": "They want to scale up, scale down on-demand.",
+        "start": 255.185,
+        "duration": 2.97
+    },
+    {
+        "text": "Then they want to deploy it in Kubernetes cluster,",
+        "start": 258.155,
+        "duration": 2.84
+    },
+    {
+        "text": "and that's what we helped them do.",
+        "start": 260.995,
+        "duration": 1.83
+    },
+    {
+        "text": "So that's pretty much like,",
+        "start": 262.825,
+        "duration": 2.06
+    },
+    {
+        "text": "for them, they don't have the right lines of code.",
+        "start": 264.885,
+        "duration": 2.725
+    },
+    {
+        "text": "Instead of that, they're just writing couple of",
+        "start": 267.61,
+        "duration": 1.54
+    },
+    {
+        "text": "lines of code and getting it done.",
+        "start": 269.15,
+        "duration": 2.07
+    },
+    {
+        "text": "Most of the infrastructure, monitoring, scaling up,",
+        "start": 271.22,
+        "duration": 4.14
+    },
+    {
+        "text": "scale down, model management,",
+        "start": 275.36,
+        "duration": 2.71
+    },
+    {
+        "text": "all of that is taken care by in Azure ML.",
+        "start": 278.07,
+        "duration": 1.85
+    },
+    {
+        "text": ">> So let's talk about this a little bit more",
+        "start": 279.92,
+        "duration": 1.8
+    },
+    {
+        "text": "precisely because I feel like there's",
+        "start": 281.72,
+        "duration": 1.38
+    },
+    {
+        "text": "a lot of concepts that went in there.",
+        "start": 283.1,
+        "duration": 1.65
+    },
+    {
+        "text": "Let's talk about primarily what model management is,",
+        "start": 284.75,
+        "duration": 2.82
+    },
+    {
+        "text": "and then what it actually means to make a deployment in",
+        "start": 287.57,
+        "duration": 2.61
+    },
+    {
+        "text": "Azure Machine Learning Service and",
+        "start": 290.18,
+        "duration": 1.65
+    },
+    {
+        "text": "why is it they don't have to think about all this extra steps.",
+        "start": 291.83,
+        "duration": 2.64
+    },
+    {
+        "text": "So let's talk about modeling management first.",
+        "start": 294.47,
+        "duration": 1.23
+    },
+    {
+        "text": "What does that mean in Azure Machine Learning Service?",
+        "start": 295.7,
+        "duration": 1.57
+    },
+    {
+        "text": ">> So modeling management is similar to software management.",
+        "start": 297.27,
+        "duration": 2.225
+    },
+    {
+        "text": "When you have a software component,",
+        "start": 299.495,
+        "duration": 1.455
+    },
+    {
+        "text": "you are doing versions of your software or",
+        "start": 300.95,
+        "duration": 2.13
+    },
+    {
+        "text": "your models and then you're trying to",
+        "start": 303.08,
+        "duration": 1.62
+    },
+    {
+        "text": "understand how your model is performing.",
+        "start": 304.7,
+        "duration": 2.13
+    },
+    {
+        "text": "If it's not performing well,",
+        "start": 306.83,
+        "duration": 1.32
+    },
+    {
+        "text": "what are the reasons why it's not performing.",
+        "start": 308.15,
+        "duration": 2.19
+    },
+    {
+        "text": "If you want to basically understand that sometimes it didn't work",
+        "start": 310.34,
+        "duration": 3.39
+    },
+    {
+        "text": "well and you've got some kind of",
+        "start": 313.73,
+        "duration": 1.2
+    },
+    {
+        "text": "escalations, what really went there?",
+        "start": 314.93,
+        "duration": 2.05
+    },
+    {
+        "text": "Was it data issues,",
+        "start": 316.98,
+        "duration": 1.35
+    },
+    {
+        "text": "was the training not correct,",
+        "start": 318.33,
+        "duration": 1.91
+    },
+    {
+        "text": "or did something happened",
+        "start": 320.24,
+        "duration": 1.86
+    },
+    {
+        "text": "within the model that actually went wrong?",
+        "start": 322.1,
+        "duration": 2.13
+    },
+    {
+        "text": "So you need to have the versioning,",
+        "start": 324.23,
+        "duration": 1.44
+    },
+    {
+        "text": "you need to have the capability of",
+        "start": 325.67,
+        "duration": 1.44
+    },
+    {
+        "text": "figuring out what's behind the scenes",
+        "start": 327.11,
+        "duration": 2.13
+    },
+    {
+        "text": "and quickly debug that and get something corrected out quickly.",
+        "start": 329.24,
+        "duration": 4.215
+    },
+    {
+        "text": ">> I see. Because usually,",
+        "start": 333.455,
+        "duration": 1.68
+    },
+    {
+        "text": "I'm being honest here,",
+        "start": 335.135,
+        "duration": 1.875
+    },
+    {
+        "text": "I would just make a model and then we put it out on the server.",
+        "start": 337.01,
+        "duration": 3.32
+    },
+    {
+        "text": "But now with model management Azure Machine Learning Service,",
+        "start": 340.33,
+        "duration": 2.64
+    },
+    {
+        "text": "you're able to say we're using model version 7, for example.",
+        "start": 342.97,
+        "duration": 4.905
+    },
+    {
+        "text": "If that model starts performing really bad,",
+        "start": 347.875,
+        "duration": 2.445
+    },
+    {
+        "text": "I'll be like, \"Hey, everybody.",
+        "start": 350.32,
+        "duration": 1.38
+    },
+    {
+        "text": "We got to pull the plug. Let's go to",
+        "start": 351.7,
+        "duration": 1.5
+    },
+    {
+        "text": "six while we make eight better.\"",
+        "start": 353.2,
+        "duration": 1.925
+    },
+    {
+        "text": ">> Exactly.",
+        "start": 355.125,
+        "duration": 0.66
+    },
+    {
+        "text": ">> Especially when we have like data drift, for example,",
+        "start": 355.785,
+        "duration": 2.595
+    },
+    {
+        "text": "which is really easy, or maybe you're",
+        "start": 358.38,
+        "duration": 1.65
+    },
+    {
+        "text": "having because this is going to start to happen.",
+        "start": 360.03,
+        "duration": 2.11
+    },
+    {
+        "text": "I feel like people are going to start to understand your models",
+        "start": 362.14,
+        "duration": 2.61
+    },
+    {
+        "text": "and maybe start to attack the model with the wrong data,",
+        "start": 364.75,
+        "duration": 2.88
+    },
+    {
+        "text": "which is like, \"So",
+        "start": 367.63,
+        "duration": 1.68
+    },
+    {
+        "text": "being able to version model is super important.\"",
+        "start": 369.31,
+        "duration": 1.95
+    },
+    {
+        "text": "So we're talking of models,",
+        "start": 371.26,
+        "duration": 1.26
+    },
+    {
+        "text": "now how do we go from models to",
+        "start": 372.52,
+        "duration": 1.59
+    },
+    {
+        "text": "this easy deployment that you were talking about into Kubernetes?",
+        "start": 374.11,
+        "duration": 3.475
+    },
+    {
+        "text": ">> Sure. So the Kubernetes deployment",
+        "start": 377.585,
+        "duration": 2.975
+    },
+    {
+        "text": "is pretty much like a few lines of code.",
+        "start": 380.56,
+        "duration": 3.595
+    },
+    {
+        "text": "I mean, basically they'll handed",
+        "start": 384.155,
+        "duration": 2.475
+    },
+    {
+        "text": "off to their software engineers to do.",
+        "start": 386.63,
+        "duration": 2.115
+    },
+    {
+        "text": "From there on, we basically scale it out.",
+        "start": 388.745,
+        "duration": 2.79
+    },
+    {
+        "text": "We take their model, scale it out in",
+        "start": 391.535,
+        "duration": 1.825
+    },
+    {
+        "text": "multiple clusters really to",
+        "start": 393.36,
+        "duration": 2.27
+    },
+    {
+        "text": "understand how [inaudible] will work in that case,",
+        "start": 395.63,
+        "duration": 2.955
+    },
+    {
+        "text": "and then we would make sure that it's ready for inferencing.",
+        "start": 398.585,
+        "duration": 4.11
+    },
+    {
+        "text": "For example, our current scale is we do",
+        "start": 402.695,
+        "duration": 2.385
+    },
+    {
+        "text": "about roughly 300K inferences per day.",
+        "start": 405.08,
+        "duration": 2.44
+    },
+    {
+        "text": ">> Okay.",
+        "start": 407.52,
+        "duration": 0.465
+    },
+    {
+        "text": ">> If you had to even provision for that,",
+        "start": 407.985,
+        "duration": 3.625
+    },
+    {
+        "text": "you would basically have to first hire,",
+        "start": 411.61,
+        "duration": 2.02
+    },
+    {
+        "text": "you're to get hardware in,",
+        "start": 413.63,
+        "duration": 1.26
+    },
+    {
+        "text": "you're to provision the hardware,",
+        "start": 414.89,
+        "duration": 2.34
+    },
+    {
+        "text": "you are to basically make the container packages",
+        "start": 417.23,
+        "duration": 2.13
+    },
+    {
+        "text": "correct on all the versions of the compatible softwares.",
+        "start": 419.36,
+        "duration": 3.345
+    },
+    {
+        "text": "We do all of that,",
+        "start": 422.705,
+        "duration": 1.445
+    },
+    {
+        "text": "and currently this is being",
+        "start": 424.15,
+        "duration": 2.32
+    },
+    {
+        "text": "consumed by close to half million advertisers.",
+        "start": 426.47,
+        "duration": 2.43
+    },
+    {
+        "text": ">> I see.",
+        "start": 428.9,
+        "duration": 0.555
+    },
+    {
+        "text": ">> So the scale is huge and basically it takes away",
+        "start": 429.455,
+        "duration": 4.365
+    },
+    {
+        "text": "the load of doing the infra and",
+        "start": 433.82,
+        "duration": 1.98
+    },
+    {
+        "text": "the platform part from the developers and data scientists,",
+        "start": 435.8,
+        "duration": 3.405
+    },
+    {
+        "text": "and they focused on the business results more.",
+        "start": 439.205,
+        "duration": 2.205
+    },
+    {
+        "text": "So now they can do more of such capabilities for",
+        "start": 441.41,
+        "duration": 3.39
+    },
+    {
+        "text": "their customers to make them",
+        "start": 444.8,
+        "duration": 1.41
+    },
+    {
+        "text": "successful versus focusing on the infra.",
+        "start": 446.21,
+        "duration": 2.91
+    },
+    {
+        "text": ">> Got it. So I imagined that in Azure Machine Learning Service,",
+        "start": 449.12,
+        "duration": 2.895
+    },
+    {
+        "text": "there's going to be some button that",
+        "start": 452.015,
+        "duration": 1.725
+    },
+    {
+        "text": "says this model I want to deploy it?",
+        "start": 453.74,
+        "duration": 2.67
+    },
+    {
+        "text": ">> Yes.",
+        "start": 456.41,
+        "duration": 0.875
+    },
+    {
+        "text": ">> When you do that, what do you have to tell it?",
+        "start": 457.285,
+        "duration": 3.68
+    },
+    {
+        "text": "I mean, let's just say I have",
+        "start": 460.965,
+        "duration": 2.055
+    },
+    {
+        "text": "a raw protocol file that I trained in TensorFlow,",
+        "start": 463.02,
+        "duration": 2.555
+    },
+    {
+        "text": "there's usually some code that I have to load it up.",
+        "start": 465.575,
+        "duration": 3.15
+    },
+    {
+        "text": "Let's just say I have a PyTorch,",
+        "start": 468.725,
+        "duration": 2.475
+    },
+    {
+        "text": "PTH file that I load up but I know how to exempt.",
+        "start": 471.2,
+        "duration": 2.34
+    },
+    {
+        "text": "I'm more familiar with PyTorch at this time.",
+        "start": 473.54,
+        "duration": 2.01
+    },
+    {
+        "text": "Usually, there's some code that I have to",
+        "start": 475.55,
+        "duration": 1.65
+    },
+    {
+        "text": "write to do the inferencing.",
+        "start": 477.2,
+        "duration": 2.46
+    },
+    {
+        "text": "Are you like hijacking that from me or",
+        "start": 479.66,
+        "duration": 2.7
+    },
+    {
+        "text": "where's that code coming from to do that inferencing?",
+        "start": 482.36,
+        "duration": 2.645
+    },
+    {
+        "text": ">> The code is pretty much like pre-builtin.",
+        "start": 485.005,
+        "duration": 2.435
+    },
+    {
+        "text": "So basically what their doing is you're giving us",
+        "start": 487.44,
+        "duration": 1.97
+    },
+    {
+        "text": "your model and then we are",
+        "start": 489.41,
+        "duration": 2.1
+    },
+    {
+        "text": "basically packaging it and creating",
+        "start": 491.51,
+        "duration": 1.875
+    },
+    {
+        "text": "a web service out of it and deploying it.",
+        "start": 493.385,
+        "duration": 2.385
+    },
+    {
+        "text": "So you don't have to do anything on your side.",
+        "start": 495.77,
+        "duration": 2.13
+    },
+    {
+        "text": "You're just saying, \"Hey, just deploy this model.\"",
+        "start": 497.9,
+        "duration": 2.12
+    },
+    {
+        "text": "So it's basically a few lines of code with some parameters.",
+        "start": 500.02,
+        "duration": 2.845
+    },
+    {
+        "text": "You will give a scale, how much scale do you want",
+        "start": 502.865,
+        "duration": 2.445
+    },
+    {
+        "text": "on the inflow and the resources, and you're done.",
+        "start": 505.31,
+        "duration": 2.4
+    },
+    {
+        "text": ">> That's pretty amazing. Yeah, I kind of see them up on that.",
+        "start": 507.71,
+        "duration": 3.24
+    },
+    {
+        "text": "I was like I've done this before.",
+        "start": 510.95,
+        "duration": 1.32
+    },
+    {
+        "text": "Basically, you just have to say",
+        "start": 512.27,
+        "duration": 1.65
+    },
+    {
+        "text": "what environment and how to score it,",
+        "start": 513.92,
+        "duration": 1.97
+    },
+    {
+        "text": "and that's basically it. It's pretty amazing.",
+        "start": 515.89,
+        "duration": 1.84
+    },
+    {
+        "text": "I've deployed stuff out to Kubernetes,",
+        "start": 517.73,
+        "duration": 1.31
+    },
+    {
+        "text": "and like I said Kubernetes is",
+        "start": 519.04,
+        "duration": 1.51
+    },
+    {
+        "text": "hard and it's really nice to have it managed.",
+        "start": 520.55,
+        "duration": 2.415
+    },
+    {
+        "text": "Is there anything you would like to add?",
+        "start": 522.965,
+        "duration": 1.515
+    },
+    {
+        "text": "Where can people find out more about this?",
+        "start": 524.48,
+        "duration": 1.89
+    },
+    {
+        "text": ">> Sure. I think I would say there are",
+        "start": 526.37,
+        "duration": 2.7
+    },
+    {
+        "text": "a lot of resources available on azure.com and azureml.com.",
+        "start": 529.07,
+        "duration": 3.615
+    },
+    {
+        "text": "So go to the website,",
+        "start": 532.685,
+        "duration": 1.485
+    },
+    {
+        "text": "look at tutorials, lot of code on GitHub.",
+        "start": 534.17,
+        "duration": 3.03
+    },
+    {
+        "text": "Try it out yourselves,",
+        "start": 537.2,
+        "duration": 1.559
+    },
+    {
+        "text": "give it a shot, and we're here for feedback as well.",
+        "start": 538.759,
+        "duration": 3.316
+    },
+    {
+        "text": "If you find something that is missing,",
+        "start": 542.075,
+        "duration": 1.855
+    },
+    {
+        "text": "happy to get feedback and do better on that.",
+        "start": 543.93,
+        "duration": 2.365
+    },
+    {
+        "text": ">> Fantastic. Well, thanks so much.",
+        "start": 546.295,
+        "duration": 1.825
+    },
+    {
+        "text": "Thanks so much for watching. This has been",
+        "start": 548.12,
+        "duration": 1.32
+    },
+    {
+        "text": "another episode of the AI show.",
+        "start": 549.44,
+        "duration": 1.41
+    },
+    {
+        "text": "We've learned about how to deploy",
+        "start": 550.85,
+        "duration": 1.74
+    },
+    {
+        "text": "models out using Azure Machine Learning Service.",
+        "start": 552.59,
+        "duration": 2.07
+    },
+    {
+        "text": "Thanks so much for watching",
+        "start": 554.66,
+        "duration": 1.16
+    },
+    {
+        "text": "and we'll see you next time. Take care.",
+        "start": 555.82,
+        "duration": 1.16
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 556.98,
+        "duration": 8.84
+    }
+]

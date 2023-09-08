@@ -1,0 +1,1712 @@
+[
+    {
+        "text": ">> Do you have time series data?",
+        "start": 0.0,
+        "duration": 2.28
+    },
+    {
+        "text": "Data with timestamps and",
+        "start": 2.28,
+        "duration": 1.77
+    },
+    {
+        "text": "important critical business information with that?",
+        "start": 4.05,
+        "duration": 2.9
+    },
+    {
+        "text": "Well, you're not going to want to miss",
+        "start": 6.95,
+        "duration": 1.39
+    },
+    {
+        "text": "this next episode of the AI show,",
+        "start": 8.34,
+        "duration": 1.74
+    },
+    {
+        "text": "where we talk about Anomaly Detector.",
+        "start": 10.08,
+        "duration": 2.7
+    },
+    {
+        "text": "[MUSIC].",
+        "start": 12.78,
+        "duration": 8.4
+    },
+    {
+        "text": ">> Hello. Welcome to this episode of the AI show where we're",
+        "start": 21.18,
+        "duration": 2.34
+    },
+    {
+        "text": "going to talk about the Anomaly Detector.",
+        "start": 23.52,
+        "duration": 2.4
+    },
+    {
+        "text": "I've got a special guest, how are you doing my friend?",
+        "start": 25.92,
+        "duration": 1.86
+    },
+    {
+        "text": ">> Great. Happy to assist.",
+        "start": 27.78,
+        "duration": 1.47
+    },
+    {
+        "text": ">> Good, tell us who you are and what you do.",
+        "start": 29.25,
+        "duration": 1.875
+    },
+    {
+        "text": ">> I'm Jun from China,",
+        "start": 31.125,
+        "duration": 1.785
+    },
+    {
+        "text": "I'm working at Microsoft AI platform team.",
+        "start": 32.91,
+        "duration": 2.97
+    },
+    {
+        "text": "I'm actually the PM of Anomaly Detector.",
+        "start": 35.88,
+        "duration": 3.27
+    },
+    {
+        "text": "Grid service, Azure Cognitive Service.",
+        "start": 39.15,
+        "duration": 3.435
+    },
+    {
+        "text": ">> This is a brand new thing, so why don't you give us like",
+        "start": 42.585,
+        "duration": 2.285
+    },
+    {
+        "text": "a 10-second overview of what it is, 10,000 for level.",
+        "start": 44.87,
+        "duration": 3.45
+    },
+    {
+        "text": ">> Sure, 10 second, right?",
+        "start": 48.32,
+        "duration": 1.935
+    },
+    {
+        "text": "So Anomaly Detector is basically AI service app,",
+        "start": 50.255,
+        "duration": 4.845
+    },
+    {
+        "text": "how the service, an API service that's going",
+        "start": 55.1,
+        "duration": 2.46
+    },
+    {
+        "text": "to detect anomalies from time series.",
+        "start": 57.56,
+        "duration": 2.655
+    },
+    {
+        "text": ">> I see.",
+        "start": 60.215,
+        "duration": 0.495
+    },
+    {
+        "text": ">> Yeah. So time series is basically measures",
+        "start": 60.71,
+        "duration": 3.12
+    },
+    {
+        "text": "of any metrics and with timestamp.",
+        "start": 63.83,
+        "duration": 3.6
+    },
+    {
+        "text": "So that's what the service is.",
+        "start": 67.43,
+        "duration": 2.295
+    },
+    {
+        "text": ">> So that's awesome. Can you give me a sense for what use case.",
+        "start": 69.725,
+        "duration": 3.885
+    },
+    {
+        "text": "Because I think I understand what you're saying but can",
+        "start": 73.61,
+        "duration": 2.94
+    },
+    {
+        "text": "you tell me what use cases there",
+        "start": 76.55,
+        "duration": 1.35
+    },
+    {
+        "text": "are so I get a little more concrete in my head.",
+        "start": 77.9,
+        "duration": 1.665
+    },
+    {
+        "text": ">> Yeah, make sense. Actually, I got a few here.",
+        "start": 79.565,
+        "duration": 3.985
+    },
+    {
+        "text": "So we start with business metrics",
+        "start": 84.02,
+        "duration": 3.465
+    },
+    {
+        "text": "because that's where we started from actually.",
+        "start": 87.485,
+        "duration": 2.745
+    },
+    {
+        "text": "Business metrics is basically something like hey,",
+        "start": 90.23,
+        "duration": 3.21
+    },
+    {
+        "text": "we got website and there's",
+        "start": 93.44,
+        "duration": 2.37
+    },
+    {
+        "text": "visitors coming in every day",
+        "start": 95.81,
+        "duration": 1.56
+    },
+    {
+        "text": "and there's also revenue of the website.",
+        "start": 97.37,
+        "duration": 2.1
+    },
+    {
+        "text": "That's why this website exists.",
+        "start": 99.47,
+        "duration": 2.1
+    },
+    {
+        "text": "Now, you've got those KPIs there and it has a timestamp,",
+        "start": 101.57,
+        "duration": 4.44
+    },
+    {
+        "text": "maybe daily or even hourly or even",
+        "start": 106.01,
+        "duration": 2.94
+    },
+    {
+        "text": "weekly and you want to check that metrics,",
+        "start": 108.95,
+        "duration": 3.42
+    },
+    {
+        "text": "you want to monitor that metrics,",
+        "start": 112.37,
+        "duration": 1.715
+    },
+    {
+        "text": "you want to know when there's something wrong with it.",
+        "start": 114.085,
+        "duration": 2.65
+    },
+    {
+        "text": "You want to know it in time before this big loss,",
+        "start": 116.735,
+        "duration": 4.33
+    },
+    {
+        "text": "that's a big loss to the revenue.",
+        "start": 121.065,
+        "duration": 2.04
+    },
+    {
+        "text": "So we that, where's",
+        "start": 123.105,
+        "duration": 2.595
+    },
+    {
+        "text": "the business metrics Anomaly Detector is trying to",
+        "start": 125.7,
+        "duration": 2.9
+    },
+    {
+        "text": "address the way that when",
+        "start": 128.6,
+        "duration": 2.865
+    },
+    {
+        "text": "something like Hopscotch call doesn't",
+        "start": 131.465,
+        "duration": 2.385
+    },
+    {
+        "text": "work and that's why the AI is coming to.",
+        "start": 133.85,
+        "duration": 2.745
+    },
+    {
+        "text": ">> So it's basically like if there's something happening",
+        "start": 136.595,
+        "duration": 2.815
+    },
+    {
+        "text": "in your business that's not expected,",
+        "start": 139.41,
+        "duration": 2.845
+    },
+    {
+        "text": "we want to flag that right as it's starting.",
+        "start": 142.255,
+        "duration": 3.095
+    },
+    {
+        "text": "That way we don't get into a bad situation.",
+        "start": 145.35,
+        "duration": 1.59
+    },
+    {
+        "text": ">> You don't want to know it after everything",
+        "start": 146.94,
+        "duration": 2.06
+    },
+    {
+        "text": "is at a catastrophic failure.",
+        "start": 149.0,
+        "duration": 3.305
+    },
+    {
+        "text": ">> So what other scenarios are there?",
+        "start": 152.305,
+        "duration": 2.29
+    },
+    {
+        "text": ">> So business metric is just one common data that we address.",
+        "start": 154.595,
+        "duration": 7.35
+    },
+    {
+        "text": "The other type of scenarios that we constantly face",
+        "start": 161.945,
+        "duration": 3.405
+    },
+    {
+        "text": "and our customers came to us a lot is about IoT.",
+        "start": 165.35,
+        "duration": 3.945
+    },
+    {
+        "text": "In industries like cars or oil",
+        "start": 169.295,
+        "duration": 5.565
+    },
+    {
+        "text": "and energy and even some factory floors,",
+        "start": 174.86,
+        "duration": 5.995
+    },
+    {
+        "text": "customers will deploy the sensors in the production line,",
+        "start": 180.855,
+        "duration": 4.755
+    },
+    {
+        "text": "in cars and drones,",
+        "start": 185.61,
+        "duration": 1.815
+    },
+    {
+        "text": "and those sensors will emit data,",
+        "start": 187.425,
+        "duration": 3.03
+    },
+    {
+        "text": "especially at time series data and in metrics like temperature,",
+        "start": 190.455,
+        "duration": 4.035
+    },
+    {
+        "text": "humidity or even vibration.",
+        "start": 194.49,
+        "duration": 6.145
+    },
+    {
+        "text": "So all that data is basically",
+        "start": 200.635,
+        "duration": 2.545
+    },
+    {
+        "text": "the metrics that you do want to monitor by human.",
+        "start": 203.18,
+        "duration": 5.1
+    },
+    {
+        "text": "That's where we can also help.",
+        "start": 208.28,
+        "duration": 3.03
+    },
+    {
+        "text": ">> So if a machine is getting too hot,",
+        "start": 211.31,
+        "duration": 1.83
+    },
+    {
+        "text": "you want to know right away before you burn up",
+        "start": 213.14,
+        "duration": 1.8
+    },
+    {
+        "text": "your machine or if there is a sensor",
+        "start": 214.94,
+        "duration": 2.07
+    },
+    {
+        "text": "like for example you have a fence and all of a",
+        "start": 217.01,
+        "duration": 1.8
+    },
+    {
+        "text": "sudden there's a spike in temperature,",
+        "start": 218.81,
+        "duration": 2.29
+    },
+    {
+        "text": "that would be something you want to look at as well.",
+        "start": 221.1,
+        "duration": 1.83
+    },
+    {
+        "text": ">> You want to look at or you want to check something to turn on",
+        "start": 222.93,
+        "duration": 3.06
+    },
+    {
+        "text": "it before it's going to explode or something.",
+        "start": 225.99,
+        "duration": 3.77
+    },
+    {
+        "text": ">> So as I'm understanding,",
+        "start": 229.76,
+        "duration": 1.139
+    },
+    {
+        "text": "any data that it has",
+        "start": 230.899,
+        "duration": 1.261
+    },
+    {
+        "text": "a timestamp would be a good candidate for this.",
+        "start": 232.16,
+        "duration": 3.03
+    },
+    {
+        "text": "But I imagine that this is",
+        "start": 235.19,
+        "duration": 1.485
+    },
+    {
+        "text": "a hard problem and there are some issues with it,",
+        "start": 236.675,
+        "duration": 3.405
+    },
+    {
+        "text": "and this is why we've got to sort of.",
+        "start": 240.08,
+        "duration": 1.53
+    },
+    {
+        "text": "What makes this particular problem hard?",
+        "start": 241.61,
+        "duration": 2.63
+    },
+    {
+        "text": ">> That's a great question,",
+        "start": 244.24,
+        "duration": 1.52
+    },
+    {
+        "text": "and that's why we shipped this product to help everyone.",
+        "start": 245.76,
+        "duration": 5.06
+    },
+    {
+        "text": "So because all those scenarios that I've mentioned is",
+        "start": 250.82,
+        "duration": 5.07
+    },
+    {
+        "text": "basically dealing with the challenge of",
+        "start": 255.89,
+        "duration": 3.09
+    },
+    {
+        "text": "how to detect anomalies from time series data.",
+        "start": 258.98,
+        "duration": 3.39
+    },
+    {
+        "text": "But in some sense to data by itself is just has two fields.",
+        "start": 262.37,
+        "duration": 3.36
+    },
+    {
+        "text": "One is the timestamp and the other one is a measure.",
+        "start": 265.73,
+        "duration": 2.56
+    },
+    {
+        "text": "There's nothing more about it.",
+        "start": 268.29,
+        "duration": 1.79
+    },
+    {
+        "text": "So if you want to detect anomalies from that,",
+        "start": 270.08,
+        "duration": 2.88
+    },
+    {
+        "text": "traditionally, people will set something like a threshold.",
+        "start": 272.96,
+        "duration": 3.705
+    },
+    {
+        "text": "Hard-threshold is proven not working because was a high bar.",
+        "start": 276.665,
+        "duration": 6.03
+    },
+    {
+        "text": "You will likely miss a lot of anomalies.",
+        "start": 282.695,
+        "duration": 3.54
+    },
+    {
+        "text": ">> So you're it's set at say a flat number as",
+        "start": 286.235,
+        "duration": 3.495
+    },
+    {
+        "text": "a threshold is what's been done before but as we go forward,",
+        "start": 289.73,
+        "duration": 3.675
+    },
+    {
+        "text": "that could be a problem because you",
+        "start": 293.405,
+        "duration": 1.335
+    },
+    {
+        "text": "might set the threshold too high,",
+        "start": 294.74,
+        "duration": 1.605
+    },
+    {
+        "text": "too low and then you can still cause damage.",
+        "start": 296.345,
+        "duration": 2.295
+    },
+    {
+        "text": ">> Yes, exactly.",
+        "start": 298.64,
+        "duration": 1.26
+    },
+    {
+        "text": "The one challenge with threshold is business will change.",
+        "start": 299.9,
+        "duration": 3.675
+    },
+    {
+        "text": "So one day this will work and the other day no,",
+        "start": 303.575,
+        "duration": 2.565
+    },
+    {
+        "text": "it grows or a declines.",
+        "start": 306.14,
+        "duration": 1.62
+    },
+    {
+        "text": "You need to reset everything. That's a big challenge.",
+        "start": 307.76,
+        "duration": 4.26
+    },
+    {
+        "text": "Well, we are the AI guys and now in Iowa,",
+        "start": 313.16,
+        "duration": 5.055
+    },
+    {
+        "text": "well, actually already some existing approaches.",
+        "start": 318.215,
+        "duration": 4.515
+    },
+    {
+        "text": "Maybe I would say algorithms,",
+        "start": 322.73,
+        "duration": 1.71
+    },
+    {
+        "text": "trying to adjust to this.",
+        "start": 324.44,
+        "duration": 1.29
+    },
+    {
+        "text": "So as you can see in this screen,",
+        "start": 325.73,
+        "duration": 4.015
+    },
+    {
+        "text": "we have listed, enumerate some really fancy charts.",
+        "start": 329.745,
+        "duration": 4.62
+    },
+    {
+        "text": "But these are really the challenges,",
+        "start": 334.365,
+        "duration": 2.084
+    },
+    {
+        "text": "these are the liability of real world data.",
+        "start": 336.449,
+        "duration": 3.231
+    },
+    {
+        "text": "There are Chen change,",
+        "start": 339.68,
+        "duration": 1.845
+    },
+    {
+        "text": "there are seasonality like this and there",
+        "start": 341.525,
+        "duration": 4.075
+    },
+    {
+        "text": "are normal anomalies like Spikes and Dips,",
+        "start": 345.6,
+        "duration": 4.815
+    },
+    {
+        "text": "and there are also linear pattern here.",
+        "start": 350.415,
+        "duration": 5.475
+    },
+    {
+        "text": "So with all the different patterns of data,",
+        "start": 355.89,
+        "duration": 4.26
+    },
+    {
+        "text": "the existing solutions, most of those are",
+        "start": 360.15,
+        "duration": 5.555
+    },
+    {
+        "text": "trying to find out a algorithm that",
+        "start": 365.705,
+        "duration": 2.745
+    },
+    {
+        "text": "one algorithm fits whole actually doesn't work.",
+        "start": 368.45,
+        "duration": 3.43
+    },
+    {
+        "text": ">> As I'm looking at this chart,",
+        "start": 371.88,
+        "duration": 2.145
+    },
+    {
+        "text": "what I'm looking at is the blue is",
+        "start": 374.025,
+        "duration": 2.405
+    },
+    {
+        "text": "the actual timestamp data and the red dots are where we",
+        "start": 376.43,
+        "duration": 4.29
+    },
+    {
+        "text": "know there are anomalies and each of these six scenarios",
+        "start": 380.72,
+        "duration": 3.36
+    },
+    {
+        "text": "are indications of your data",
+        "start": 384.08,
+        "duration": 1.86
+    },
+    {
+        "text": "might look like this and then it has to do this.",
+        "start": 385.94,
+        "duration": 2.25
+    },
+    {
+        "text": "So it's a huge problem in that you really can't",
+        "start": 388.19,
+        "duration": 3.51
+    },
+    {
+        "text": "tell initially where your anomaly",
+        "start": 391.7,
+        "duration": 2.43
+    },
+    {
+        "text": "would be without an in-depth study of your data.",
+        "start": 394.13,
+        "duration": 2.235
+    },
+    {
+        "text": ">> Yes, that's true.",
+        "start": 396.365,
+        "duration": 2.705
+    },
+    {
+        "text": ">> I mean, it's pretty cool to see that",
+        "start": 399.07,
+        "duration": 2.78
+    },
+    {
+        "text": "but how do we go about solving this?",
+        "start": 401.85,
+        "duration": 2.13
+    },
+    {
+        "text": "What is it that we've done",
+        "start": 403.98,
+        "duration": 1.34
+    },
+    {
+        "text": "to make this a little bit easier for customer?",
+        "start": 405.32,
+        "duration": 1.745
+    },
+    {
+        "text": ">> So that's the exciting part.",
+        "start": 407.065,
+        "duration": 3.075
+    },
+    {
+        "text": "Anomaly Detector was announced",
+        "start": 410.69,
+        "duration": 2.82
+    },
+    {
+        "text": "actually earlier this year in March.",
+        "start": 413.51,
+        "duration": 2.97
+    },
+    {
+        "text": "But this is another new service.",
+        "start": 416.48,
+        "duration": 2.46
+    },
+    {
+        "text": "We have already been hosting or running",
+        "start": 418.94,
+        "duration": 4.18
+    },
+    {
+        "text": "an AI-powered anomaly detection service",
+        "start": 423.12,
+        "duration": 2.175
+    },
+    {
+        "text": "using Microsoft for several years.",
+        "start": 425.295,
+        "duration": 2.88
+    },
+    {
+        "text": "So this means the anomaly detection",
+        "start": 428.175,
+        "duration": 3.68
+    },
+    {
+        "text": "and the algorithms under the old days is",
+        "start": 431.855,
+        "duration": 2.205
+    },
+    {
+        "text": "actually running with Microsoft and",
+        "start": 434.06,
+        "duration": 2.55
+    },
+    {
+        "text": "product data for hundreds of product teams,",
+        "start": 436.61,
+        "duration": 3.6
+    },
+    {
+        "text": "and that production data is helping",
+        "start": 440.21,
+        "duration": 2.34
+    },
+    {
+        "text": "us to improve those algorithms and improve",
+        "start": 442.55,
+        "duration": 2.4
+    },
+    {
+        "text": "the engineering efforts in the system and",
+        "start": 444.95,
+        "duration": 2.55
+    },
+    {
+        "text": "now we are bringing that capability,",
+        "start": 447.5,
+        "duration": 4.705
+    },
+    {
+        "text": "that knowledge to you, to customers,",
+        "start": 452.205,
+        "duration": 3.735
+    },
+    {
+        "text": "to our customers and as the Anomaly Detector.",
+        "start": 455.94,
+        "duration": 4.35
+    },
+    {
+        "text": ">> This is pretty cool because even though it's",
+        "start": 460.29,
+        "duration": 2.57
+    },
+    {
+        "text": "a new product as of March,",
+        "start": 462.86,
+        "duration": 2.895
+    },
+    {
+        "text": "this isn't a new thing to Microsoft.",
+        "start": 465.755,
+        "duration": 2.04
+    },
+    {
+        "text": "We have all of this stored up knowledge and data",
+        "start": 467.795,
+        "duration": 3.36
+    },
+    {
+        "text": "of what anomalies look like all of our various business processes,",
+        "start": 471.155,
+        "duration": 3.539
+    },
+    {
+        "text": "and we're using that data to actually",
+        "start": 474.694,
+        "duration": 2.236
+    },
+    {
+        "text": "help customers predict on",
+        "start": 476.93,
+        "duration": 1.44
+    },
+    {
+        "text": "anomalies in their data; is that correct?",
+        "start": 478.37,
+        "duration": 1.35
+    },
+    {
+        "text": ">> Yes. So today there a lot",
+        "start": 479.72,
+        "duration": 5.85
+    },
+    {
+        "text": "of customers coming to us with",
+        "start": 485.57,
+        "duration": 2.92
+    },
+    {
+        "text": "various scenarios and that",
+        "start": 488.49,
+        "duration": 2.1
+    },
+    {
+        "text": "has challenged us in their business problems.",
+        "start": 490.59,
+        "duration": 2.075
+    },
+    {
+        "text": "So like as you can see even with the oldest reliability of",
+        "start": 492.665,
+        "duration": 6.355
+    },
+    {
+        "text": "data like the changes in",
+        "start": 499.02,
+        "duration": 2.575
+    },
+    {
+        "text": "the existing solutions that cannot be addressed,",
+        "start": 501.595,
+        "duration": 4.155
+    },
+    {
+        "text": "we're able to address.",
+        "start": 505.75,
+        "duration": 1.345
+    },
+    {
+        "text": "So I got a few points here.",
+        "start": 507.095,
+        "duration": 4.94
+    },
+    {
+        "text": ">> Firstly, it's about the variability,",
+        "start": 512.035,
+        "duration": 4.759
+    },
+    {
+        "text": "all those that it has.",
+        "start": 516.794,
+        "duration": 1.516
+    },
+    {
+        "text": ">> Right, that's the point. Yeah.",
+        "start": 518.31,
+        "duration": 0.61
+    },
+    {
+        "text": ">> Yeah. One algorithm fits all is not working,",
+        "start": 518.92,
+        "duration": 3.35
+    },
+    {
+        "text": "so we are coming with a pool of algorithms.",
+        "start": 522.27,
+        "duration": 3.285
+    },
+    {
+        "text": "We got a lot of algorithms.",
+        "start": 525.555,
+        "duration": 1.98
+    },
+    {
+        "text": "The innovation here is,",
+        "start": 527.535,
+        "duration": 1.575
+    },
+    {
+        "text": "first we will detect your data pattern.",
+        "start": 529.11,
+        "duration": 4.16
+    },
+    {
+        "text": "We find the algorithms that best fit",
+        "start": 533.27,
+        "duration": 3.315
+    },
+    {
+        "text": "your data and to apply the algorithm to your data,",
+        "start": 536.585,
+        "duration": 4.18
+    },
+    {
+        "text": "in order to have the best accuracy.",
+        "start": 540.765,
+        "duration": 2.805
+    },
+    {
+        "text": "Also I like to mention this,",
+        "start": 543.57,
+        "duration": 2.23
+    },
+    {
+        "text": "because this is my favorite part.",
+        "start": 545.8,
+        "duration": 1.25
+    },
+    {
+        "text": ">> Right.",
+        "start": 547.05,
+        "duration": 0.165
+    },
+    {
+        "text": ">> We have this SR-CNN which stands",
+        "start": 547.215,
+        "duration": 3.995
+    },
+    {
+        "text": "for Spectral Residue and a Convolutional Neural Network.",
+        "start": 551.21,
+        "duration": 5.095
+    },
+    {
+        "text": ">> That's really cool.",
+        "start": 556.305,
+        "duration": 1.695
+    },
+    {
+        "text": ">> Well, that sounds really cool and that is cool.",
+        "start": 558.0,
+        "duration": 2.385
+    },
+    {
+        "text": "That's a Nobel algorithm and",
+        "start": 560.385,
+        "duration": 4.285
+    },
+    {
+        "text": "model that's recently developed by my team, Anomaly Detector team.",
+        "start": 564.67,
+        "duration": 4.13
+    },
+    {
+        "text": ">> Fantastic.",
+        "start": 568.8,
+        "duration": 0.815
+    },
+    {
+        "text": ">> There is a paper which is already accepted by KDD 2019.",
+        "start": 569.615,
+        "duration": 5.815
+    },
+    {
+        "text": ">> That's so cool. So I'm looking at this and it's just",
+        "start": 575.43,
+        "duration": 3.72
+    },
+    {
+        "text": "dawned on me that the problem",
+        "start": 579.15,
+        "duration": 1.5
+    },
+    {
+        "text": "Anomaly Detection is the same problem with all of AI,",
+        "start": 580.65,
+        "duration": 2.94
+    },
+    {
+        "text": "and that you have to first pick an algorithm that",
+        "start": 583.59,
+        "duration": 2.7
+    },
+    {
+        "text": "might work for your data",
+        "start": 586.29,
+        "duration": 1.505
+    },
+    {
+        "text": "and then you have to shuffle through those.",
+        "start": 587.795,
+        "duration": 1.525
+    },
+    {
+        "text": "But you're saying that the Anomaly Detection service,",
+        "start": 589.32,
+        "duration": 2.195
+    },
+    {
+        "text": "will go through and figure out",
+        "start": 591.515,
+        "duration": 1.555
+    },
+    {
+        "text": "which algorithm would be the best one to use.",
+        "start": 593.07,
+        "duration": 1.535
+    },
+    {
+        "text": ">> Yeah. And the best part of it.",
+        "start": 594.605,
+        "duration": 2.155
+    },
+    {
+        "text": "You have to know that,",
+        "start": 596.76,
+        "duration": 1.5
+    },
+    {
+        "text": "because we hide everything under the hood.",
+        "start": 598.26,
+        "duration": 3.69
+    },
+    {
+        "text": "So the beauty of the services,",
+        "start": 601.95,
+        "duration": 2.75
+    },
+    {
+        "text": "we try to address the requirements not",
+        "start": 604.7,
+        "duration": 3.31
+    },
+    {
+        "text": "only for data scientists but also for developers.",
+        "start": 608.01,
+        "duration": 3.975
+    },
+    {
+        "text": "Developers who can write code with C-sharp, Java.",
+        "start": 611.985,
+        "duration": 4.23
+    },
+    {
+        "text": "So which means we actually shape",
+        "start": 616.215,
+        "duration": 3.5
+    },
+    {
+        "text": "this as a AI service and every algorithm,",
+        "start": 619.715,
+        "duration": 4.445
+    },
+    {
+        "text": "the complexity about the parameters",
+        "start": 624.68,
+        "duration": 3.745
+    },
+    {
+        "text": "that you need to tune each algorithm,",
+        "start": 628.425,
+        "duration": 2.265
+    },
+    {
+        "text": "are all hidden under the hood.",
+        "start": 630.69,
+        "duration": 2.52
+    },
+    {
+        "text": ">> Fantastic.",
+        "start": 633.21,
+        "duration": 0.75
+    },
+    {
+        "text": ">> What's left there is",
+        "start": 633.96,
+        "duration": 1.98
+    },
+    {
+        "text": "this API and there is one parameter which we call it sensitivity.",
+        "start": 635.94,
+        "duration": 5.01
+    },
+    {
+        "text": "Leave your bit flexibility there,",
+        "start": 640.95,
+        "duration": 2.325
+    },
+    {
+        "text": "but still if you are just a developer,",
+        "start": 643.275,
+        "duration": 3.99
+    },
+    {
+        "text": "not a data scientist.",
+        "start": 647.265,
+        "duration": 3.63
+    },
+    {
+        "text": "You are able to empower",
+        "start": 650.895,
+        "duration": 2.8
+    },
+    {
+        "text": "in building this into your application, no problem.",
+        "start": 653.695,
+        "duration": 3.33
+    },
+    {
+        "text": ">> So can you show us a little demo? Maybe to get us started.",
+        "start": 657.025,
+        "duration": 2.305
+    },
+    {
+        "text": ">> Of course.",
+        "start": 659.33,
+        "duration": 0.63
+    },
+    {
+        "text": ">> Let us do that.",
+        "start": 659.96,
+        "duration": 0.61
+    },
+    {
+        "text": ">> Yeah. So actually,",
+        "start": 660.57,
+        "duration": 2.31
+    },
+    {
+        "text": "this is Azure portal.",
+        "start": 662.88,
+        "duration": 1.215
+    },
+    {
+        "text": ">> Okay.",
+        "start": 664.095,
+        "duration": 0.25
+    },
+    {
+        "text": ">> Yeah. We actually started with",
+        "start": 664.345,
+        "duration": 2.33
+    },
+    {
+        "text": "something called the resource on Azure portal,",
+        "start": 666.675,
+        "duration": 4.215
+    },
+    {
+        "text": "because it's API service.",
+        "start": 670.89,
+        "duration": 2.265
+    },
+    {
+        "text": "But what you need is Anomaly Detector Resource",
+        "start": 673.155,
+        "duration": 6.315
+    },
+    {
+        "text": "on Azure that's going to host the APIs.",
+        "start": 679.47,
+        "duration": 6.84
+    },
+    {
+        "text": "So let me show.",
+        "start": 686.31,
+        "duration": 3.735
+    },
+    {
+        "text": "This is a way that you create an Anomaly Detector Resource.",
+        "start": 690.045,
+        "duration": 3.555
+    },
+    {
+        "text": "If you see this, and that's where you are,",
+        "start": 693.6,
+        "duration": 2.295
+    },
+    {
+        "text": "and then input name, let me do this quick.",
+        "start": 695.895,
+        "duration": 4.795
+    },
+    {
+        "text": "So far we have two regions,",
+        "start": 707.42,
+        "duration": 2.995
+    },
+    {
+        "text": "West US to trans West Europe.",
+        "start": 710.415,
+        "duration": 1.565
+    },
+    {
+        "text": "As we go into GA and there will be more, a lot more actually.",
+        "start": 711.98,
+        "duration": 4.18
+    },
+    {
+        "text": ">> Got it.",
+        "start": 716.16,
+        "duration": 0.485
+    },
+    {
+        "text": ">> So pricing tier.",
+        "start": 716.645,
+        "duration": 2.695
+    },
+    {
+        "text": "If you are the first-time user,",
+        "start": 719.34,
+        "duration": 2.22
+    },
+    {
+        "text": "you will still have this option with a free tier,",
+        "start": 721.56,
+        "duration": 4.05
+    },
+    {
+        "text": "but I'm not. So I got.",
+        "start": 725.61,
+        "duration": 1.32
+    },
+    {
+        "text": ">> You are not a first-time user?",
+        "start": 726.93,
+        "duration": 1.26
+    },
+    {
+        "text": ">> No, I'm not. Otherwise I would not be talking about this.",
+        "start": 728.19,
+        "duration": 3.495
+    },
+    {
+        "text": ">> Right.",
+        "start": 731.685,
+        "duration": 0.495
+    },
+    {
+        "text": ">> Okay. Let me create, oops.",
+        "start": 732.18,
+        "duration": 3.94
+    },
+    {
+        "text": ">> So this is just as easy as creating as Azure service?",
+        "start": 737.78,
+        "duration": 3.64
+    },
+    {
+        "text": ">> Yes. Exactly. This is",
+        "start": 741.42,
+        "duration": 1.23
+    },
+    {
+        "text": "the typical Azure Portal, Azure Resource Creation.",
+        "start": 742.65,
+        "duration": 5.16
+    },
+    {
+        "text": "Once you've got this resource, there's some paths.",
+        "start": 747.81,
+        "duration": 3.99
+    },
+    {
+        "text": "Let me switch to this Nobel first.",
+        "start": 751.8,
+        "duration": 2.03
+    },
+    {
+        "text": "So what we hosted on the Azure Noble Platform,",
+        "start": 753.83,
+        "duration": 4.644
+    },
+    {
+        "text": "is basically few Jupiter Notebooks.",
+        "start": 758.474,
+        "duration": 2.956
+    },
+    {
+        "text": "The data scientists and developers both-like.",
+        "start": 761.43,
+        "duration": 3.435
+    },
+    {
+        "text": "I'm going to show you how interesting and easy it is.",
+        "start": 764.865,
+        "duration": 3.81
+    },
+    {
+        "text": "So yeah, you go to the Azure Notebooks.",
+        "start": 768.675,
+        "duration": 2.085
+    },
+    {
+        "text": "First you need to sign-in.",
+        "start": 770.76,
+        "duration": 2.01
+    },
+    {
+        "text": "Otherwise it will be read-only to you.",
+        "start": 772.77,
+        "duration": 4.725
+    },
+    {
+        "text": "If you want to play with your own Notebook,",
+        "start": 777.495,
+        "duration": 2.97
+    },
+    {
+        "text": "go to this project and clone your own instance.",
+        "start": 780.465,
+        "duration": 4.62
+    },
+    {
+        "text": ">> We'll get these links at the bottom of the show notes.",
+        "start": 785.085,
+        "duration": 1.905
+    },
+    {
+        "text": "So if you want to do this you can.",
+        "start": 786.99,
+        "duration": 1.31
+    },
+    {
+        "text": ">> Yeah. Let me make another clone here.",
+        "start": 788.3,
+        "duration": 4.38
+    },
+    {
+        "text": "You don't want to check this,",
+        "start": 798.12,
+        "duration": 3.435
+    },
+    {
+        "text": "otherwise the project will be public to anyone on the Internet.",
+        "start": 801.555,
+        "duration": 5.38
+    },
+    {
+        "text": "So while it's being created,",
+        "start": 806.935,
+        "duration": 2.165
+    },
+    {
+        "text": "while it's being cloned,",
+        "start": 809.1,
+        "duration": 1.234
+    },
+    {
+        "text": "let's go to the resource.",
+        "start": 810.334,
+        "duration": 3.296
+    },
+    {
+        "text": "Let me see, where is it?",
+        "start": 813.63,
+        "duration": 2.4
+    },
+    {
+        "text": "Yeah.",
+        "start": 816.03,
+        "duration": 3.68
+    },
+    {
+        "text": "Azure. That's it.",
+        "start": 819.71,
+        "duration": 3.17
+    },
+    {
+        "text": ".>> Looks like it was made.",
+        "start": 822.88,
+        "duration": 1.21
+    },
+    {
+        "text": ">> Yeah. It is. So as you can see,",
+        "start": 824.09,
+        "duration": 1.97
+    },
+    {
+        "text": "there is the overview and everything.",
+        "start": 826.06,
+        "duration": 3.35
+    },
+    {
+        "text": "What you need to take note down is include two things,",
+        "start": 829.41,
+        "duration": 3.81
+    },
+    {
+        "text": "one is this Endpoint, this West US too,",
+        "start": 833.22,
+        "duration": 2.7
+    },
+    {
+        "text": "I already got this, so I'm not going to copy and paste.",
+        "start": 835.92,
+        "duration": 2.77
+    },
+    {
+        "text": "But this is one thing and the other thing is the Keys,",
+        "start": 838.69,
+        "duration": 3.695
+    },
+    {
+        "text": "you click here got this API key.",
+        "start": 842.385,
+        "duration": 2.565
+    },
+    {
+        "text": "Because you are going to call the API with that.",
+        "start": 844.95,
+        "duration": 3.165
+    },
+    {
+        "text": "Once you got your Notebook project here,",
+        "start": 848.115,
+        "duration": 5.265
+    },
+    {
+        "text": "and this is clone of yours,",
+        "start": 853.38,
+        "duration": 1.45
+    },
+    {
+        "text": "you can actually run on three computers free.",
+        "start": 854.83,
+        "duration": 3.38
+    },
+    {
+        "text": "So with that, I'm just going to run it really quick.",
+        "start": 858.21,
+        "duration": 5.38
+    },
+    {
+        "text": ">> Very good.",
+        "start": 866.1,
+        "duration": 1.755
+    },
+    {
+        "text": ">> Yes, this is the Notebook.",
+        "start": 867.855,
+        "duration": 1.86
+    },
+    {
+        "text": "All you have to do is paste our key here.",
+        "start": 869.715,
+        "duration": 2.775
+    },
+    {
+        "text": "So we can do this actually, and the Endpoint,",
+        "start": 872.49,
+        "duration": 3.885
+    },
+    {
+        "text": "this is correct but if you are creating Western U",
+        "start": 876.375,
+        "duration": 2.34
+    },
+    {
+        "text": "remember to change this",
+        "start": 878.715,
+        "duration": 2.465
+    },
+    {
+        "text": "and this is the previous result.",
+        "start": 881.18,
+        "duration": 5.88
+    },
+    {
+        "text": "I can actually run and clean everything and",
+        "start": 887.06,
+        "duration": 3.7
+    },
+    {
+        "text": "run again. \"Run All. \"",
+        "start": 890.76,
+        "duration": 7.76
+    },
+    {
+        "text": ">> Fantastic. So basically,",
+        "start": 898.52,
+        "duration": 2.085
+    },
+    {
+        "text": "if you want to get started quickly",
+        "start": 900.605,
+        "duration": 2.01
+    },
+    {
+        "text": "and all you do is create the servers,",
+        "start": 902.615,
+        "duration": 2.485
+    },
+    {
+        "text": "clone these Notebooks and you just run it,",
+        "start": 905.1,
+        "duration": 2.445
+    },
+    {
+        "text": "and then you have something to look at to work on later on?",
+        "start": 907.545,
+        "duration": 2.91
+    },
+    {
+        "text": ">> Yes, they're all those requirements",
+        "start": 910.455,
+        "duration": 5.325
+    },
+    {
+        "text": "about the keys and",
+        "start": 915.78,
+        "duration": 2.83
+    },
+    {
+        "text": "the endpoint it's all from the resource that you created on Azure.",
+        "start": 918.61,
+        "duration": 3.785
+    },
+    {
+        "text": "Within this Notebook, you can play",
+        "start": 922.395,
+        "duration": 2.69
+    },
+    {
+        "text": "with the parameter that I've mentioned,",
+        "start": 925.085,
+        "duration": 3.0
+    },
+    {
+        "text": "the sensitivity, also the data.",
+        "start": 928.085,
+        "duration": 1.995
+    },
+    {
+        "text": "That's saved side-by-side with the Notebook you can change that",
+        "start": 930.08,
+        "duration": 3.37
+    },
+    {
+        "text": "and you can run on Anomaly Detection. Well, it's working out.",
+        "start": 933.45,
+        "duration": 3.42
+    },
+    {
+        "text": "So as you can see,",
+        "start": 936.87,
+        "duration": 1.61
+    },
+    {
+        "text": "these are anomalies detected from",
+        "start": 938.48,
+        "duration": 2.26
+    },
+    {
+        "text": "the data that's sitting here. These are JSON.",
+        "start": 940.74,
+        "duration": 3.375
+    },
+    {
+        "text": ">> That's really cool.",
+        "start": 944.115,
+        "duration": 1.26
+    },
+    {
+        "text": ">> Yeah.",
+        "start": 945.375,
+        "duration": 0.39
+    },
+    {
+        "text": ">> Another thing is you literally created the services,",
+        "start": 945.765,
+        "duration": 5.115
+    },
+    {
+        "text": "cloned the Notebook, and so everything that you saw",
+        "start": 950.88,
+        "duration": 2.14
+    },
+    {
+        "text": "happen literally happened right here which is pretty cool.",
+        "start": 953.02,
+        "duration": 2.965
+    },
+    {
+        "text": ">> Yeah.",
+        "start": 955.985,
+        "duration": 0.475
+    },
+    {
+        "text": ">> So where can people go to",
+        "start": 956.46,
+        "duration": 1.145
+    },
+    {
+        "text": "find out more how can they get started?",
+        "start": 957.605,
+        "duration": 1.75
+    },
+    {
+        "text": ">> Yeah, I got this slide here that",
+        "start": 959.355,
+        "duration": 4.305
+    },
+    {
+        "text": "can help you really a",
+        "start": 963.66,
+        "duration": 2.4
+    },
+    {
+        "text": "few highlighted links that have you start with.",
+        "start": 966.06,
+        "duration": 2.675
+    },
+    {
+        "text": "So first go to",
+        "start": 968.735,
+        "duration": 1.99
+    },
+    {
+        "text": "aka.msAnomalyDetector or search on",
+        "start": 970.725,
+        "duration": 2.835
+    },
+    {
+        "text": "Bing for Azure Anomaly Detector.",
+        "start": 973.56,
+        "duration": 2.555
+    },
+    {
+        "text": "You'll get to the overview.",
+        "start": 976.115,
+        "duration": 1.33
+    },
+    {
+        "text": "Then we also have this community.",
+        "start": 977.445,
+        "duration": 3.95
+    },
+    {
+        "text": "That's a Microsoft Teams group,",
+        "start": 981.395,
+        "duration": 2.985
+    },
+    {
+        "text": "that we host for both external customers and",
+        "start": 984.38,
+        "duration": 3.34
+    },
+    {
+        "text": "internal Microsoft guys and ourselves the engineering team.",
+        "start": 987.72,
+        "duration": 3.945
+    },
+    {
+        "text": "Yeah. There's a form here you can go there and apply to join.",
+        "start": 991.665,
+        "duration": 4.185
+    },
+    {
+        "text": "Finally, the Containers.",
+        "start": 995.85,
+        "duration": 1.895
+    },
+    {
+        "text": "Well, I'm going to talk about this in our next episode.",
+        "start": 997.745,
+        "duration": 4.165
+    },
+    {
+        "text": ">> Fantastic.",
+        "start": 1001.91,
+        "duration": 0.495
+    },
+    {
+        "text": ">> Yeah.",
+        "start": 1002.405,
+        "duration": 0.27
+    },
+    {
+        "text": ">> So thank you so much for spending some time with us.",
+        "start": 1002.675,
+        "duration": 2.18
+    },
+    {
+        "text": "Thank you so much [inaudible].",
+        "start": 1004.855,
+        "duration": 1.415
+    },
+    {
+        "text": "We have been learning all about Anomaly Detector",
+        "start": 1006.27,
+        "duration": 2.51
+    },
+    {
+        "text": "an amazing new service that you should check out today.",
+        "start": 1008.78,
+        "duration": 2.52
+    },
+    {
+        "text": "Thanks for watching and we'll see you next time. Take care.",
+        "start": 1011.3,
+        "duration": 1.83
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 1013.13,
+        "duration": 9.869
+    }
+]

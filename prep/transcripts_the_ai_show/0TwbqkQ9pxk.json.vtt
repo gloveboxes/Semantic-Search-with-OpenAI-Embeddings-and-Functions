@@ -1,0 +1,1397 @@
+[
+    {
+        "text": ">> Welcome to episode 3 of",
+        "start": 0.0,
+        "duration": 2.22
+    },
+    {
+        "text": "the four-part series where I gave",
+        "start": 2.22,
+        "duration": 1.32
+    },
+    {
+        "text": "a talk at the Toronto AI User Group.",
+        "start": 3.54,
+        "duration": 1.92
+    },
+    {
+        "text": "There's a ton of amazing content in there, make sure you tune in.",
+        "start": 5.46,
+        "duration": 2.49
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 7.95,
+        "duration": 4.77
+    },
+    {
+        "text": ">> Let's talk about data science and the loop of sadness.",
+        "start": 12.72,
+        "duration": 6.4
+    },
+    {
+        "text": "This is our data science loop of sadness.",
+        "start": 19.61,
+        "duration": 3.505
+    },
+    {
+        "text": "So when they ask me how do I know which one to use,",
+        "start": 23.115,
+        "duration": 3.21
+    },
+    {
+        "text": "I say, \"Try them.\"",
+        "start": 26.325,
+        "duration": 2.505
+    },
+    {
+        "text": "\"What if it doesn't work?\",",
+        "start": 28.83,
+        "duration": 2.235
+    },
+    {
+        "text": "\"Try a different one.\"",
+        "start": 31.065,
+        "duration": 1.995
+    },
+    {
+        "text": "\"How long does it take?\"",
+        "start": 33.06,
+        "duration": 2.265
+    },
+    {
+        "text": "\"Go ask your data scientists whose door is locked right now.\"",
+        "start": 35.325,
+        "duration": 3.745
+    },
+    {
+        "text": "It depends on the usage. They were nice to me.",
+        "start": 39.07,
+        "duration": 5.66
+    },
+    {
+        "text": "At Microsoft, they let me,",
+        "start": 44.73,
+        "duration": 1.26
+    },
+    {
+        "text": "this has a 2080 RTX in there,",
+        "start": 45.99,
+        "duration": 2.37
+    },
+    {
+        "text": "I know, I can run m-nest at a second per epoch.",
+        "start": 48.36,
+        "duration": 4.915
+    },
+    {
+        "text": "All of a sudden,",
+        "start": 53.275,
+        "duration": 2.825
+    },
+    {
+        "text": "I see all these hungry eyes and not for the pizza. Holy cow.",
+        "start": 56.1,
+        "duration": 4.6
+    },
+    {
+        "text": "So this is the bit that people don't understand about development,",
+        "start": 60.86,
+        "duration": 4.98
+    },
+    {
+        "text": "and if you look at data science code",
+        "start": 65.84,
+        "duration": 1.905
+    },
+    {
+        "text": "from professional data scientists,",
+        "start": 67.745,
+        "duration": 1.65
+    },
+    {
+        "text": "you can almost see where they changed their mind, in the code.",
+        "start": 69.395,
+        "duration": 4.48
+    },
+    {
+        "text": "That's why people complain about",
+        "start": 73.875,
+        "duration": 2.015
+    },
+    {
+        "text": "data scientists code, I say, \"Slow down.",
+        "start": 75.89,
+        "duration": 1.68
+    },
+    {
+        "text": "Data scientists don't write code to put into production,",
+        "start": 77.57,
+        "duration": 2.78
+    },
+    {
+        "text": "they write code to prove that a model will work, so step off.\"",
+        "start": 80.35,
+        "duration": 6.14
+    },
+    {
+        "text": "So let's talk about another thing.",
+        "start": 87.89,
+        "duration": 3.475
+    },
+    {
+        "text": "What I did though, in this case,",
+        "start": 91.365,
+        "duration": 2.34
+    },
+    {
+        "text": "is I forced the digits to all be on a single line,",
+        "start": 93.705,
+        "duration": 4.645
+    },
+    {
+        "text": "because I forced it to be a linear model, did you see that?",
+        "start": 98.35,
+        "duration": 3.7
+    },
+    {
+        "text": "But it turns out that there's some relationships",
+        "start": 102.05,
+        "duration": 2.04
+    },
+    {
+        "text": "here that are actually quite useful,",
+        "start": 104.09,
+        "duration": 3.105
+    },
+    {
+        "text": "like this way that it's losing.",
+        "start": 107.195,
+        "duration": 1.92
+    },
+    {
+        "text": "So how do we do that?",
+        "start": 109.115,
+        "duration": 1.47
+    },
+    {
+        "text": "Well, let's talk about filters and pooling.",
+        "start": 110.585,
+        "duration": 2.785
+    },
+    {
+        "text": "So a filter is actually",
+        "start": 114.68,
+        "duration": 2.3
+    },
+    {
+        "text": "a very interesting operation",
+        "start": 116.98,
+        "duration": 1.89
+    },
+    {
+        "text": "that you would think doesn't do anything.",
+        "start": 118.87,
+        "duration": 2.385
+    },
+    {
+        "text": "So for example, here is what this filter does.",
+        "start": 121.255,
+        "duration": 4.42
+    },
+    {
+        "text": "Basically, we're going to do this box right here,",
+        "start": 125.675,
+        "duration": 7.405
+    },
+    {
+        "text": "we're going to dot-product it with this box,",
+        "start": 133.08,
+        "duration": 2.34
+    },
+    {
+        "text": "and then we're going to put the answer here.",
+        "start": 135.42,
+        "duration": 2.03
+    },
+    {
+        "text": "Then we're going to do it again here,",
+        "start": 137.45,
+        "duration": 2.48
+    },
+    {
+        "text": "and then we're going to do it again here,",
+        "start": 139.93,
+        "duration": 1.38
+    },
+    {
+        "text": "and then we're going to do it again.",
+        "start": 141.31,
+        "duration": 0.87
+    },
+    {
+        "text": "I'm just explaining what this is doing,",
+        "start": 142.18,
+        "duration": 1.83
+    },
+    {
+        "text": "and I'm not telling you why.",
+        "start": 144.01,
+        "duration": 1.71
+    },
+    {
+        "text": "I'm just telling you [inaudible] I'll show you why in a second.",
+        "start": 145.72,
+        "duration": 2.265
+    },
+    {
+        "text": "So we get four numbers,",
+        "start": 147.985,
+        "duration": 1.275
+    },
+    {
+        "text": "but this is not good because it destroys the image.",
+        "start": 149.26,
+        "duration": 3.73
+    },
+    {
+        "text": "We're losing pixels around the edges.",
+        "start": 152.99,
+        "duration": 2.27
+    },
+    {
+        "text": "So you can do this thing called padding.",
+        "start": 155.26,
+        "duration": 2.35
+    },
+    {
+        "text": "It's called same padding,",
+        "start": 157.74,
+        "duration": 2.14
+    },
+    {
+        "text": "by the way, if you're using it.",
+        "start": 159.88,
+        "duration": 1.14
+    },
+    {
+        "text": "Now when we do it,",
+        "start": 161.02,
+        "duration": 1.44
+    },
+    {
+        "text": "notice that we get the exact same amount",
+        "start": 162.46,
+        "duration": 1.77
+    },
+    {
+        "text": "of pixels back that we want.",
+        "start": 164.23,
+        "duration": 2.32
+    },
+    {
+        "text": "Cool. Let's talk about pooling and stride.",
+        "start": 166.55,
+        "duration": 4.33
+    },
+    {
+        "text": "What if we want to make the thing smaller",
+        "start": 170.88,
+        "duration": 2.815
+    },
+    {
+        "text": "after we've done the little filterings?",
+        "start": 173.695,
+        "duration": 3.61
+    },
+    {
+        "text": "So basically, this is called a pooling.",
+        "start": 177.305,
+        "duration": 3.61
+    },
+    {
+        "text": "We're basically taking this box",
+        "start": 180.915,
+        "duration": 2.319
+    },
+    {
+        "text": "and we're putting the biggest number in here.",
+        "start": 183.234,
+        "duration": 3.001
+    },
+    {
+        "text": "We'll take this box and we'll put",
+        "start": 186.235,
+        "duration": 1.815
+    },
+    {
+        "text": "the biggest number in here, and then we'll do that again.",
+        "start": 188.05,
+        "duration": 2.445
+    },
+    {
+        "text": "Stride has to do with how much do you move over.",
+        "start": 190.495,
+        "duration": 3.84
+    },
+    {
+        "text": "So are you going to move over just one pixel at a time?",
+        "start": 194.335,
+        "duration": 2.715
+    },
+    {
+        "text": "Now you might be wondering what does this actually",
+        "start": 197.05,
+        "duration": 2.28
+    },
+    {
+        "text": "do? I will show you.",
+        "start": 199.33,
+        "duration": 5.39
+    },
+    {
+        "text": "So basically, I wrote a crop and resize,",
+        "start": 204.72,
+        "duration": 3.624
+    },
+    {
+        "text": "I wrote a convolution in NumPy,",
+        "start": 208.344,
+        "duration": 3.126
+    },
+    {
+        "text": "because everyone has all sorts of spare time.",
+        "start": 211.47,
+        "duration": 2.92
+    },
+    {
+        "text": "Then I also wrote a pooling that takes",
+        "start": 214.39,
+        "duration": 2.25
+    },
+    {
+        "text": "the max out of it, max pooling.",
+        "start": 216.64,
+        "duration": 1.98
+    },
+    {
+        "text": "So by the way, that filter is also called the",
+        "start": 218.62,
+        "duration": 2.1
+    },
+    {
+        "text": "convolution, I said that too fast.",
+        "start": 220.72,
+        "duration": 3.185
+    },
+    {
+        "text": "Now here is the same,",
+        "start": 223.905,
+        "duration": 1.77
+    },
+    {
+        "text": "remember how we did 1, 1, 1,",
+        "start": 225.675,
+        "duration": 1.425
+    },
+    {
+        "text": "0, 0, 0, minus 1?",
+        "start": 227.1,
+        "duration": 1.4
+    },
+    {
+        "text": "I decided to try that one out to see what happened,",
+        "start": 228.5,
+        "duration": 3.19
+    },
+    {
+        "text": "and what I did is I took",
+        "start": 231.69,
+        "duration": 1.24
+    },
+    {
+        "text": "some important pictures that mattered to me,",
+        "start": 232.93,
+        "duration": 2.16
+    },
+    {
+        "text": "and I'm going to go ahead and try to run,",
+        "start": 235.09,
+        "duration": 2.415
+    },
+    {
+        "text": "these are important pictures, you saw wedding and thought mine.",
+        "start": 237.505,
+        "duration": 2.925
+    },
+    {
+        "text": "Look what happens when I do this convolution over this image.",
+        "start": 240.43,
+        "duration": 5.2
+    },
+    {
+        "text": "How? What did it do?",
+        "start": 245.63,
+        "duration": 4.32
+    },
+    {
+        "text": "It found the edges without me doing anything.",
+        "start": 249.95,
+        "duration": 4.425
+    },
+    {
+        "text": "What happens when I pull it?",
+        "start": 254.375,
+        "duration": 2.01
+    },
+    {
+        "text": "Boom, it enhances them.",
+        "start": 256.385,
+        "duration": 3.15
+    },
+    {
+        "text": "So you know how back in the day when you'd",
+        "start": 259.535,
+        "duration": 2.595
+    },
+    {
+        "text": "watch CSI Miami and they're like,",
+        "start": 262.13,
+        "duration": 2.175
+    },
+    {
+        "text": "zoom, enhance, you're like that stupid.",
+        "start": 264.305,
+        "duration": 3.015
+    },
+    {
+        "text": "It turns out they can't do that now, right?.",
+        "start": 267.32,
+        "duration": 3.7
+    },
+    {
+        "text": "But that's this what we're doing that.",
+        "start": 271.02,
+        "duration": 1.08
+    },
+    {
+        "text": "What this is doing, is this is enhancing and aspect of VMs.",
+        "start": 272.1,
+        "duration": 3.05
+    },
+    {
+        "text": "Let's do with another picture.",
+        "start": 275.15,
+        "duration": 2.05
+    },
+    {
+        "text": "Again these are important pictures to me of the kids,",
+        "start": 277.72,
+        "duration": 4.88
+    },
+    {
+        "text": "and let me do one that actually makes sense, a fence.",
+        "start": 285.52,
+        "duration": 4.81
+    },
+    {
+        "text": "That's crazy, that that convolution is doing that,",
+        "start": 293.54,
+        "duration": 4.165
+    },
+    {
+        "text": "it's basically creating a new picture for you.",
+        "start": 297.705,
+        "duration": 3.965
+    },
+    {
+        "text": "It turns out that when you look at this operation,",
+        "start": 301.67,
+        "duration": 3.845
+    },
+    {
+        "text": "it's a different form of the dot product,",
+        "start": 305.515,
+        "duration": 2.58
+    },
+    {
+        "text": "it's just rolled out differently.",
+        "start": 308.095,
+        "duration": 2.545
+    },
+    {
+        "text": "So when you make these things,",
+        "start": 310.64,
+        "duration": 2.285
+    },
+    {
+        "text": "you can actually create these convolutions,",
+        "start": 312.925,
+        "duration": 2.445
+    },
+    {
+        "text": "which are matrices, that go over",
+        "start": 315.37,
+        "duration": 1.89
+    },
+    {
+        "text": "the image and are making a new image for you.",
+        "start": 317.26,
+        "duration": 3.54
+    },
+    {
+        "text": "They're basically making new images for you.",
+        "start": 320.8,
+        "duration": 3.72
+    },
+    {
+        "text": "Now, what images it making?",
+        "start": 324.52,
+        "duration": 2.475
+    },
+    {
+        "text": "I don't know, it's making the images",
+        "start": 326.995,
+        "duration": 2.56
+    },
+    {
+        "text": "that make the optimization work better.",
+        "start": 329.555,
+        "duration": 3.05
+    },
+    {
+        "text": "So it will choose these for",
+        "start": 332.605,
+        "duration": 1.775
+    },
+    {
+        "text": "you and so if you do this style of thing,",
+        "start": 334.38,
+        "duration": 2.78
+    },
+    {
+        "text": "you get 99 percent on m-nest, something higher.",
+        "start": 337.16,
+        "duration": 4.065
+    },
+    {
+        "text": "You're basically doing two convolutions,",
+        "start": 341.225,
+        "duration": 2.145
+    },
+    {
+        "text": "a pooling and Aurelio over them and then a softmax at the end.",
+        "start": 343.37,
+        "duration": 3.18
+    },
+    {
+        "text": "But you always unroll it,",
+        "start": 346.55,
+        "duration": 2.775
+    },
+    {
+        "text": "computer image will always unroll",
+        "start": 349.325,
+        "duration": 2.055
+    },
+    {
+        "text": "it so that it does something like this.",
+        "start": 351.38,
+        "duration": 2.52
+    },
+    {
+        "text": "So these are called convolutional neural networks,",
+        "start": 353.9,
+        "duration": 2.955
+    },
+    {
+        "text": "because these convolutions what they do, especially with images,",
+        "start": 356.855,
+        "duration": 3.225
+    },
+    {
+        "text": "is they're able to generate very complex images.",
+        "start": 360.08,
+        "duration": 3.535
+    },
+    {
+        "text": "You've seen them, where at the bottom,",
+        "start": 363.615,
+        "duration": 2.225
+    },
+    {
+        "text": "it's like it found this edge and then up in",
+        "start": 365.84,
+        "duration": 2.19
+    },
+    {
+        "text": "a layer it's like it found a nose, what?",
+        "start": 368.03,
+        "duration": 3.5
+    },
+    {
+        "text": "Because it's basically generating new images as it goes along.",
+        "start": 371.53,
+        "duration": 4.225
+    },
+    {
+        "text": "Now the problem I have with this is,",
+        "start": 375.755,
+        "duration": 2.655
+    },
+    {
+        "text": "is it seems awful magical,",
+        "start": 378.41,
+        "duration": 2.13
+    },
+    {
+        "text": "the computer is learning about noses,",
+        "start": 380.54,
+        "duration": 2.205
+    },
+    {
+        "text": "it isn't, these things are not intel-",
+        "start": 382.745,
+        "duration": 3.615
+    },
+    {
+        "text": "I had a guy argue with me this is what he told me,",
+        "start": 386.36,
+        "duration": 3.93
+    },
+    {
+        "text": "he was trying to say about AI writes and I was like,",
+        "start": 390.29,
+        "duration": 6.16
+    },
+    {
+        "text": "\"It's a computer.\"",
+        "start": 396.45,
+        "duration": 1.93
+    },
+    {
+        "text": "\"Seth you're talking like we used to talk about animals.\"",
+        "start": 398.42,
+        "duration": 4.66
+    },
+    {
+        "text": "It's a bunch of numbers in a freaking network,",
+        "start": 407.84,
+        "duration": 3.865
+    },
+    {
+        "text": "it has no feelings and no thoughts,",
+        "start": 411.705,
+        "duration": 2.475
+    },
+    {
+        "text": "like you're thinking about, \"What about the ones",
+        "start": 414.18,
+        "duration": 1.93
+    },
+    {
+        "text": "that generate art, Seth?\"",
+        "start": 416.11,
+        "duration": 2.22
+    },
+    {
+        "text": "They're just transposes of",
+        "start": 418.33,
+        "duration": 1.56
+    },
+    {
+        "text": "these things because they generate images forward,",
+        "start": 419.89,
+        "duration": 4.77
+    },
+    {
+        "text": "is called a transpose convolution, which generates a bigger.",
+        "start": 424.66,
+        "duration": 3.435
+    },
+    {
+        "text": "I didn't even know how to respond,",
+        "start": 428.095,
+        "duration": 1.965
+    },
+    {
+        "text": "I was like, \"Oh,",
+        "start": 430.06,
+        "duration": 2.555
+    },
+    {
+        "text": "do your computers have names, mind?\"",
+        "start": 432.615,
+        "duration": 5.725
+    },
+    {
+        "text": "Do I name him after Tolkien characters incidentally?",
+        "start": 438.34,
+        "duration": 3.49
+    },
+    {
+        "text": "The Cloud though, how am I doing on time?",
+        "start": 441.83,
+        "duration": 3.095
+    },
+    {
+        "text": "Oh, I'm doing pretty good.",
+        "start": 444.925,
+        "duration": 1.605
+    },
+    {
+        "text": "The Cloud though, how do we do this in the Cloud?",
+        "start": 446.53,
+        "duration": 3.57
+    },
+    {
+        "text": "Well, here's the thing,",
+        "start": 450.1,
+        "duration": 1.815
+    },
+    {
+        "text": "this is the way we do it on Azure Machine Learning,",
+        "start": 451.915,
+        "duration": 2.415
+    },
+    {
+        "text": "but look, the thing about",
+        "start": 454.33,
+        "duration": 1.78
+    },
+    {
+        "text": "Azure Machine Learning that I like is that,",
+        "start": 456.11,
+        "duration": 2.01
+    },
+    {
+        "text": "you don't have to use all or nothing.",
+        "start": 458.12,
+        "duration": 2.625
+    },
+    {
+        "text": "You can use it just to register your models in that's it.",
+        "start": 460.745,
+        "duration": 4.035
+    },
+    {
+        "text": "Do you version the models that the machine",
+        "start": 464.78,
+        "duration": 2.85
+    },
+    {
+        "text": "learning algorithms produce? You should.",
+        "start": 467.63,
+        "duration": 4.27
+    },
+    {
+        "text": "Usually as data scientists we're like,",
+        "start": 473.09,
+        "duration": 2.59
+    },
+    {
+        "text": "\"Hey, I made a new model,\" \"Where is it?\"",
+        "start": 475.68,
+        "duration": 1.86
+    },
+    {
+        "text": "\"It's on the Share,\"",
+        "start": 477.54,
+        "duration": 2.41
+    },
+    {
+        "text": "and then you have to go home and take a long shower",
+        "start": 481.16,
+        "duration": 2.58
+    },
+    {
+        "text": "because you know you put that on the Share,",
+        "start": 483.74,
+        "duration": 1.875
+    },
+    {
+        "text": "people are looking at that file that you put it",
+        "start": 485.615,
+        "duration": 1.815
+    },
+    {
+        "text": "there, and that's a problem.",
+        "start": 487.43,
+        "duration": 3.07
+    },
+    {
+        "text": "So you can use it to register and manage models,",
+        "start": 490.5,
+        "duration": 4.41
+    },
+    {
+        "text": "you can use it to have images of your things,",
+        "start": 494.91,
+        "duration": 2.1
+    },
+    {
+        "text": "you can use it to deploy,",
+        "start": 497.01,
+        "duration": 1.37
+    },
+    {
+        "text": "you can use it to prepare data,",
+        "start": 498.38,
+        "duration": 2.47
+    },
+    {
+        "text": "you can use any of these,",
+        "start": 500.85,
+        "duration": 1.625
+    },
+    {
+        "text": "whatever you want, just use what you want, you use what you like.",
+        "start": 502.475,
+        "duration": 3.12
+    },
+    {
+        "text": "If this add benefits you,",
+        "start": 505.595,
+        "duration": 1.52
+    },
+    {
+        "text": "great, if it doesn't,",
+        "start": 507.115,
+        "duration": 1.145
+    },
+    {
+        "text": "great, tell me why and I'll go tell them at the home office,",
+        "start": 508.26,
+        "duration": 3.845
+    },
+    {
+        "text": "\"Hey, this stinks because Bill at",
+        "start": 512.105,
+        "duration": 2.845
+    },
+    {
+        "text": "the Toronto AI User Group said this",
+        "start": 514.95,
+        "duration": 2.0
+    },
+    {
+        "text": "doesn't work for me because of this,\" and we want to fix it.",
+        "start": 516.95,
+        "duration": 3.4
+    },
+    {
+        "text": "Oh, I went too far. So if you take a look at this,",
+        "start": 526.52,
+        "duration": 4.155
+    },
+    {
+        "text": "this is our Azure Machine Learning Studio",
+        "start": 530.675,
+        "duration": 2.745
+    },
+    {
+        "text": "where we do a bunch of stuff.",
+        "start": 533.42,
+        "duration": 1.74
+    },
+    {
+        "text": "Now if you're a data scientist, I'll give you example,",
+        "start": 535.16,
+        "duration": 2.85
+    },
+    {
+        "text": "MSR once gave me some code, this is Microsoft Research,",
+        "start": 538.01,
+        "duration": 2.94
+    },
+    {
+        "text": "that generated novel pictures of birds from texts that you write,",
+        "start": 540.95,
+        "duration": 3.72
+    },
+    {
+        "text": "this is a bluebird and it would create an image of a bluebird,",
+        "start": 544.67,
+        "duration": 3.105
+    },
+    {
+        "text": "it did some cool gun stuff I didn't know about at the time.",
+        "start": 547.775,
+        "duration": 3.69
+    },
+    {
+        "text": "But as I looked at it,",
+        "start": 551.465,
+        "duration": 1.395
+    },
+    {
+        "text": "I realize he was using like a really weird version of",
+        "start": 552.86,
+        "duration": 2.55
+    },
+    {
+        "text": "PyTorch on Python 2.6.",
+        "start": 555.41,
+        "duration": 3.83
+    },
+    {
+        "text": "Any of you that have had any experience",
+        "start": 559.24,
+        "duration": 2.825
+    },
+    {
+        "text": "playing with Python on your machine,",
+        "start": 562.065,
+        "duration": 2.285
+    },
+    {
+        "text": "it's a dumpster fire.",
+        "start": 564.35,
+        "duration": 2.56
+    },
+    {
+        "text": "Maybe I just suck at it.",
+        "start": 567.26,
+        "duration": 2.19
+    },
+    {
+        "text": "If any of you are like, \"No Seth,",
+        "start": 569.45,
+        "duration": 1.425
+    },
+    {
+        "text": "come afterwards and educate me,\" seriously,",
+        "start": 570.875,
+        "duration": 3.345
+    },
+    {
+        "text": "because I've had a lot of problems.",
+        "start": 574.22,
+        "duration": 1.77
+    },
+    {
+        "text": "On top of that, I've had a lot of problems because I use Windows,",
+        "start": 575.99,
+        "duration": 6.02
+    },
+    {
+        "text": "just leave it there, just let it hang out",
+        "start": 585.05,
+        "duration": 2.62
+    },
+    {
+        "text": "there, it's getting better.",
+        "start": 587.67,
+        "duration": 3.59
+    },
+    {
+        "text": "So he gives me this thing and I'm like,",
+        "start": 591.26,
+        "duration": 1.77
+    },
+    {
+        "text": "\"How am I ever going to run this?\"",
+        "start": 593.03,
+        "duration": 3.22
+    },
+    {
+        "text": "I thought I'll just do the container,",
+        "start": 597.86,
+        "duration": 2.8
+    },
+    {
+        "text": "do you use containers when you do your machine learning stuff?",
+        "start": 600.66,
+        "duration": 3.145
+    },
+    {
+        "text": "It's nice. It sucks right now and I keep fighting the OS people,",
+        "start": 603.805,
+        "duration": 4.665
+    },
+    {
+        "text": "you need to give me GPU passthrough on my container.",
+        "start": 608.47,
+        "duration": 3.25
+    },
+    {
+        "text": ">> [inaudible].",
+        "start": 618.84,
+        "duration": 1.1
+    },
+    {
+        "text": ">> It's partly our fault too.",
+        "start": 619.94,
+        "duration": 1.27
+    },
+    {
+        "text": "I keep telling them that,",
+        "start": 621.21,
+        "duration": 2.04
+    },
+    {
+        "text": "they're actually working on WSL,",
+        "start": 623.25,
+        "duration": 2.28
+    },
+    {
+        "text": "Windows Subsystem for Linux, GPU passthrough.",
+        "start": 625.53,
+        "duration": 2.91
+    },
+    {
+        "text": "So they are going to work on that,",
+        "start": 628.44,
+        "duration": 1.485
+    },
+    {
+        "text": "so that would be super nice.",
+        "start": 629.925,
+        "duration": 1.455
+    },
+    {
+        "text": "But I just wanted straight Docker let me hit the GPU,",
+        "start": 631.38,
+        "duration": 3.65
+    },
+    {
+        "text": "because if you've ever run stuff without a GPU,",
+        "start": 635.03,
+        "duration": 3.865
+    },
+    {
+        "text": "you have nothing to warm your hands by in the dead",
+        "start": 638.895,
+        "duration": 2.705
+    },
+    {
+        "text": "of winter, it's running.",
+        "start": 641.6,
+        "duration": 5.89
+    },
+    {
+        "text": "So basically here's the thing,",
+        "start": 647.65,
+        "duration": 2.755
+    },
+    {
+        "text": "and the reason why I bring this up is because there are",
+        "start": 650.405,
+        "duration": 2.25
+    },
+    {
+        "text": "certain things that we should just share as data scientists,",
+        "start": 652.655,
+        "duration": 3.81
+    },
+    {
+        "text": "like what datasets are we using,",
+        "start": 656.465,
+        "duration": 2.08
+    },
+    {
+        "text": "in Azure Machine Learning you can",
+        "start": 658.545,
+        "duration": 1.205
+    },
+    {
+        "text": "create datasets and version them.",
+        "start": 659.75,
+        "duration": 2.44
+    },
+    {
+        "text": "So that means that you're like,",
+        "start": 662.54,
+        "duration": 2.95
+    },
+    {
+        "text": "\"Wow, how come your models better?\"",
+        "start": 665.49,
+        "duration": 1.26
+    },
+    {
+        "text": "\"Well, I'm using version 4 of dataset.",
+        "start": 666.75,
+        "duration": 3.76
+    },
+    {
+        "text": "You can keep track of your experiments,",
+        "start": 670.51,
+        "duration": 3.34
+    },
+    {
+        "text": "what is an experiment? It's a training run.",
+        "start": 673.85,
+        "duration": 3.04
+    },
+    {
+        "text": "Not only that, you can rerun",
+        "start": 676.91,
+        "duration": 2.53
+    },
+    {
+        "text": "it exactly the same way anybody else ran it,",
+        "start": 679.44,
+        "duration": 3.59
+    },
+    {
+        "text": "which is really cool.",
+        "start": 683.03,
+        "duration": 3.21
+    },
+    {
+        "text": "You can also create pipelines,",
+        "start": 686.24,
+        "duration": 2.58
+    },
+    {
+        "text": "for those of you who are familiar with cube flow,",
+        "start": 688.82,
+        "duration": 2.475
+    },
+    {
+        "text": "it's exactly the same but we add a layer of SDK over,",
+        "start": 691.295,
+        "duration": 5.51
+    },
+    {
+        "text": "where you don't have to do container",
+        "start": 696.805,
+        "duration": 2.245
+    },
+    {
+        "text": "ops and you'd have to know about Docker,",
+        "start": 699.05,
+        "duration": 1.21
+    },
+    {
+        "text": "you're just, \"Hey, here's my code and",
+        "start": 700.26,
+        "duration": 1.13
+    },
+    {
+        "text": "here's my environment, do it.\"",
+        "start": 701.39,
+        "duration": 2.13
+    },
+    {
+        "text": "We have this notion of models where you",
+        "start": 703.52,
+        "duration": 2.67
+    },
+    {
+        "text": "can store and version your models,",
+        "start": 706.19,
+        "duration": 2.27
+    },
+    {
+        "text": "and we have these notions of endpoints.",
+        "start": 708.46,
+        "duration": 2.245
+    },
+    {
+        "text": "There's two kinds of endpoints for us,",
+        "start": 710.705,
+        "duration": 1.945
+    },
+    {
+        "text": "there is the endpoints for inference and there's the endpoints",
+        "start": 712.65,
+        "duration": 3.17
+    },
+    {
+        "text": "for rerunning Machine Learning Pipelines,",
+        "start": 715.82,
+        "duration": 3.87
+    },
+    {
+        "text": "why would you do that?",
+        "start": 719.69,
+        "duration": 1.68
+    },
+    {
+        "text": "Well, because of data drift.",
+        "start": 721.37,
+        "duration": 2.16
+    },
+    {
+        "text": "What if you wanted to",
+        "start": 723.53,
+        "duration": 2.13
+    },
+    {
+        "text": "unstable your models every week and rerun a pipeline,",
+        "start": 725.66,
+        "duration": 2.79
+    },
+    {
+        "text": "you'd basically just call the thing.",
+        "start": 728.45,
+        "duration": 1.725
+    },
+    {
+        "text": "The cool thing about these pipelines,",
+        "start": 730.175,
+        "duration": 2.655
+    },
+    {
+        "text": "is it will retain information that it's done, use before.",
+        "start": 732.83,
+        "duration": 4.815
+    },
+    {
+        "text": "So if the parameters don't change,",
+        "start": 737.645,
+        "duration": 1.605
+    },
+    {
+        "text": "it won't rerun that section of the code.",
+        "start": 739.25,
+        "duration": 2.295
+    },
+    {
+        "text": "You know that this can be very costly,",
+        "start": 741.545,
+        "duration": 2.315
+    },
+    {
+        "text": "if you're a rerunning this step and it's",
+        "start": 743.86,
+        "duration": 3.13
+    },
+    {
+        "text": "converting two terabytes of images",
+        "start": 746.99,
+        "duration": 2.58
+    },
+    {
+        "text": "into one terabyte of GF records,",
+        "start": 749.57,
+        "duration": 2.7
+    },
+    {
+        "text": "you don't want to run that every time.",
+        "start": 752.27,
+        "duration": 1.925
+    },
+    {
+        "text": "So it's able to know if",
+        "start": 754.195,
+        "duration": 2.065
+    },
+    {
+        "text": "the parameters don't change then these things stay the same,",
+        "start": 756.26,
+        "duration": 2.22
+    },
+    {
+        "text": "it can do that, and that's what the endpoints are for.",
+        "start": 758.48,
+        "duration": 2.55
+    },
+    {
+        "text": "Now here's the other things for managing.",
+        "start": 761.03,
+        "duration": 2.51
+    },
+    {
+        "text": "We have Share compute and Share datasets.",
+        "start": 763.54,
+        "duration": 2.49
+    },
+    {
+        "text": "You're probably wondering what is the difference between",
+        "start": 766.03,
+        "duration": 1.495
+    },
+    {
+        "text": "data store in a dataset? Great question.",
+        "start": 767.525,
+        "duration": 2.475
+    },
+    {
+        "text": "It's like the difference between a hard drive and",
+        "start": 770.0,
+        "duration": 1.89
+    },
+    {
+        "text": "a folder for data science.",
+        "start": 771.89,
+        "duration": 3.1
+    },
+    {
+        "text": "In this folder is this dataset.",
+        "start": 774.99,
+        "duration": 2.1
+    },
+    {
+        "text": "The datastore for us is basically Azure Storage,",
+        "start": 777.09,
+        "duration": 2.59
+    },
+    {
+        "text": "you can just dump everything",
+        "start": 779.68,
+        "duration": 1.81
+    },
+    {
+        "text": "there and you can run",
+        "start": 781.49,
+        "duration": 1.2
+    },
+    {
+        "text": "these algorithms and it's all happening in the Cloud.",
+        "start": 782.69,
+        "duration": 1.74
+    },
+    {
+        "text": "Here's the cool thing that I didn't tell you,",
+        "start": 784.43,
+        "duration": 2.16
+    },
+    {
+        "text": "when you run the experiments,",
+        "start": 786.59,
+        "duration": 1.244
+    },
+    {
+        "text": "it will mount Azure Storage as if it was part of the hard drive,",
+        "start": 787.834,
+        "duration": 4.136
+    },
+    {
+        "text": "it's crazy, which is really cool.",
+        "start": 792.4,
+        "duration": 3.47
+    },
+    {
+        "text": "So now I'm to the part where I'm going to answer",
+        "start": 797.0,
+        "duration": 3.75
+    },
+    {
+        "text": "any questions you have about what I've told",
+        "start": 800.75,
+        "duration": 2.16
+    },
+    {
+        "text": "you so far on Azure Machine Learning or anything.",
+        "start": 802.91,
+        "duration": 2.325
+    },
+    {
+        "text": "So are there any questions?",
+        "start": 805.235,
+        "duration": 2.125
+    },
+    {
+        "text": "We good? Thanks everybody.",
+        "start": 808.37,
+        "duration": 2.71
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 811.08,
+        "duration": 13.48
+    }
+]

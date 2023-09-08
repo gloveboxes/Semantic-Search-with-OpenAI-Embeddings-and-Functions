@@ -1,0 +1,662 @@
+[
+    {
+        "text": ">> Hi, everyone. In this video,",
+        "start": 7.94,
+        "duration": 2.92
+    },
+    {
+        "text": "we are going to talk about",
+        "start": 10.86,
+        "duration": 1.275
+    },
+    {
+        "text": "time series forecasting with Azure Machine Learning.",
+        "start": 12.135,
+        "duration": 3.525
+    },
+    {
+        "text": "Machine learning is a data science technique",
+        "start": 15.66,
+        "duration": 2.79
+    },
+    {
+        "text": "that allows computers to use",
+        "start": 18.45,
+        "duration": 1.53
+    },
+    {
+        "text": "existing data to forecast future behaviors, outcomes, and trends.",
+        "start": 19.98,
+        "duration": 4.44
+    },
+    {
+        "text": "Using machine learning, computers",
+        "start": 24.42,
+        "duration": 2.04
+    },
+    {
+        "text": "learn without being explicitly programmed.",
+        "start": 26.46,
+        "duration": 2.325
+    },
+    {
+        "text": "Time series forecasting is the task of predicting",
+        "start": 28.785,
+        "duration": 2.745
+    },
+    {
+        "text": "future values in a time order sequence of observations.",
+        "start": 31.53,
+        "duration": 3.615
+    },
+    {
+        "text": "It is a common problem and has",
+        "start": 35.145,
+        "duration": 1.865
+    },
+    {
+        "text": "application in many different industries.",
+        "start": 37.01,
+        "duration": 2.28
+    },
+    {
+        "text": "This video shows how",
+        "start": 39.29,
+        "duration": 1.77
+    },
+    {
+        "text": "time series forecasting can be",
+        "start": 41.06,
+        "duration": 1.56
+    },
+    {
+        "text": "performed through applying machine learning techniques.",
+        "start": 42.62,
+        "duration": 2.81
+    },
+    {
+        "text": "Azure Machine Learning service is a Cloud service that",
+        "start": 45.43,
+        "duration": 3.19
+    },
+    {
+        "text": "you can use to develop and deploy machine learning models.",
+        "start": 48.62,
+        "duration": 3.135
+    },
+    {
+        "text": "Using the Azure Machine Learning service,",
+        "start": 51.755,
+        "duration": 2.13
+    },
+    {
+        "text": "you can prepare your data,",
+        "start": 53.885,
+        "duration": 1.425
+    },
+    {
+        "text": "track your models as you build, train,",
+        "start": 55.31,
+        "duration": 2.34
+    },
+    {
+        "text": "deployed and manage them",
+        "start": 57.65,
+        "duration": 1.95
+    },
+    {
+        "text": "all at the broad scale that the Cloud provides.",
+        "start": 59.6,
+        "duration": 3.11
+    },
+    {
+        "text": "From the main Azure Machine Learning service documentation,",
+        "start": 62.71,
+        "duration": 3.695
+    },
+    {
+        "text": "you can click on \"Quickstarts\" and",
+        "start": 66.405,
+        "duration": 2.435
+    },
+    {
+        "text": "then experiment with a Cloud notebook.",
+        "start": 68.84,
+        "duration": 2.79
+    },
+    {
+        "text": "In this tutorial, we are going to use",
+        "start": 71.63,
+        "duration": 2.01
+    },
+    {
+        "text": "Azure Notebooks to run our code.",
+        "start": 73.64,
+        "duration": 2.58
+    },
+    {
+        "text": "First of all, we need to",
+        "start": 76.22,
+        "duration": 1.695
+    },
+    {
+        "text": "create an Azure Machine Learning workspace,",
+        "start": 77.915,
+        "duration": 2.7
+    },
+    {
+        "text": "if you don't have one.",
+        "start": 80.615,
+        "duration": 1.39
+    },
+    {
+        "text": "The workspace is the top-level resource",
+        "start": 82.005,
+        "duration": 2.715
+    },
+    {
+        "text": "for Azure Machine Learning service.",
+        "start": 84.72,
+        "duration": 1.665
+    },
+    {
+        "text": "It provides a centralized place to work with",
+        "start": 86.385,
+        "duration": 2.6
+    },
+    {
+        "text": "all the artifacts that you create",
+        "start": 88.985,
+        "duration": 2.04
+    },
+    {
+        "text": "when you use Azure Machine Learning service.",
+        "start": 91.025,
+        "duration": 2.85
+    },
+    {
+        "text": "You can also open your workspace in the Azure portal.",
+        "start": 93.875,
+        "duration": 3.675
+    },
+    {
+        "text": "So let's see how this works.",
+        "start": 97.55,
+        "duration": 2.27
+    },
+    {
+        "text": "On the Azure portal,",
+        "start": 99.82,
+        "duration": 1.84
+    },
+    {
+        "text": "I have already created my machine learning service workspace.",
+        "start": 101.66,
+        "duration": 3.735
+    },
+    {
+        "text": "As you can see, one of the option is",
+        "start": 105.395,
+        "duration": 2.115
+    },
+    {
+        "text": "\"Get started in Azure notebooks\".",
+        "start": 107.51,
+        "duration": 2.25
+    },
+    {
+        "text": "So let's click on this.",
+        "start": 109.76,
+        "duration": 1.995
+    },
+    {
+        "text": "Azure Notebooks is a free hosted service to develop and",
+        "start": 111.755,
+        "duration": 3.585
+    },
+    {
+        "text": "run Jupyter Notebooks in the Cloud with no installation.",
+        "start": 115.34,
+        "duration": 3.56
+    },
+    {
+        "text": "For these specific scenarios,",
+        "start": 118.9,
+        "duration": 1.6
+    },
+    {
+        "text": "we're going to use also automated machine learning that",
+        "start": 120.5,
+        "duration": 2.67
+    },
+    {
+        "text": "is a capability within the Azure Machine Learning service,",
+        "start": 123.17,
+        "duration": 2.925
+    },
+    {
+        "text": "that identifies the best machine learning pipelines",
+        "start": 126.095,
+        "duration": 2.715
+    },
+    {
+        "text": "for your labeled data.",
+        "start": 128.81,
+        "duration": 1.2
+    },
+    {
+        "text": "This scenario focuses on",
+        "start": 130.01,
+        "duration": 2.445
+    },
+    {
+        "text": "energy demand forecasting where the goal",
+        "start": 132.455,
+        "duration": 2.355
+    },
+    {
+        "text": "is to predict the future load on an energy grid.",
+        "start": 134.81,
+        "duration": 3.095
+    },
+    {
+        "text": "The solution is strain on a public dataset from",
+        "start": 137.905,
+        "duration": 3.135
+    },
+    {
+        "text": "the New York Independent System Operator",
+        "start": 141.04,
+        "duration": 2.654
+    },
+    {
+        "text": "which operates the power grid for New York State.",
+        "start": 143.694,
+        "duration": 3.476
+    },
+    {
+        "text": "The dataset includes hourly power demand data",
+        "start": 147.17,
+        "duration": 3.15
+    },
+    {
+        "text": "for the New York City over the period of five years.",
+        "start": 150.32,
+        "duration": 3.63
+    },
+    {
+        "text": "An additional dataset containing hourly weather condition in",
+        "start": 153.95,
+        "duration": 3.57
+    },
+    {
+        "text": "the New York City over",
+        "start": 157.52,
+        "duration": 1.71
+    },
+    {
+        "text": "the same time period was taken from darksky.net.",
+        "start": 159.23,
+        "duration": 3.98
+    },
+    {
+        "text": "Let's see together how we can ingest",
+        "start": 163.21,
+        "duration": 2.71
+    },
+    {
+        "text": "our data and start building our machine learning model.",
+        "start": 165.92,
+        "duration": 4.11
+    },
+    {
+        "text": "As a part of the setup,",
+        "start": 170.03,
+        "duration": 1.62
+    },
+    {
+        "text": "you have already created a workspace.",
+        "start": 171.65,
+        "duration": 2.16
+    },
+    {
+        "text": "For AutoML, you need also to credit an \"Experiment.\"",
+        "start": 173.81,
+        "duration": 3.39
+    },
+    {
+        "text": "An \"Experiment\" is a name object in a workspace.",
+        "start": 177.2,
+        "duration": 2.79
+    },
+    {
+        "text": "So here, as you can see,",
+        "start": 179.99,
+        "duration": 1.65
+    },
+    {
+        "text": "you can retrieve your workspace and also you",
+        "start": 181.64,
+        "duration": 3.57
+    },
+    {
+        "text": "can create your \"Experiment\" and give it a name.",
+        "start": 185.21,
+        "duration": 4.13
+    },
+    {
+        "text": "After this we can ingest",
+        "start": 189.34,
+        "duration": 2.525
+    },
+    {
+        "text": "our energy demand data and have also a preview of our dataset.",
+        "start": 191.865,
+        "duration": 4.745
+    },
+    {
+        "text": "As you can see, we have a timestamp,",
+        "start": 196.61,
+        "duration": 1.814
+    },
+    {
+        "text": "demand, the precipitation, and temperature columns.",
+        "start": 198.424,
+        "duration": 2.836
+    },
+    {
+        "text": "Then we can split the data to train and test and then also",
+        "start": 201.26,
+        "duration": 4.14
+    },
+    {
+        "text": "split the train data to train and validation datasets.",
+        "start": 205.4,
+        "duration": 4.895
+    },
+    {
+        "text": "At this moment, we are ready to",
+        "start": 210.295,
+        "duration": 2.9
+    },
+    {
+        "text": "instantiate an AutoML configure object.",
+        "start": 213.195,
+        "duration": 3.18
+    },
+    {
+        "text": "This one defines the setting and",
+        "start": 216.375,
+        "duration": 1.865
+    },
+    {
+        "text": "the data used to run these experiments.",
+        "start": 218.24,
+        "duration": 2.52
+    },
+    {
+        "text": "Since we are in a forecasting scenario,",
+        "start": 220.76,
+        "duration": 2.22
+    },
+    {
+        "text": "the task that we're going to define here is forecasting.",
+        "start": 222.98,
+        "duration": 3.465
+    },
+    {
+        "text": "Then the primary math that we're going to use",
+        "start": 226.445,
+        "duration": 2.385
+    },
+    {
+        "text": "is the normalized root-mean-squared error.",
+        "start": 228.83,
+        "duration": 2.625
+    },
+    {
+        "text": "The iteration is the number of iteration that",
+        "start": 231.455,
+        "duration": 2.895
+    },
+    {
+        "text": "you want to run for this specific Experiment,",
+        "start": 234.35,
+        "duration": 3.095
+    },
+    {
+        "text": "and you can also define the time limit,",
+        "start": 237.445,
+        "duration": 2.365
+    },
+    {
+        "text": "the minutes for each iteration.",
+        "start": 239.81,
+        "duration": 2.175
+    },
+    {
+        "text": "After that, you define your x values",
+        "start": 241.985,
+        "duration": 3.165
+    },
+    {
+        "text": "and your y values meaning that they're target values.",
+        "start": 245.15,
+        "duration": 4.155
+    },
+    {
+        "text": "You can also define your x value,",
+        "start": 249.305,
+        "duration": 2.475
+    },
+    {
+        "text": "then y value so that these are the data used to",
+        "start": 251.78,
+        "duration": 2.61
+    },
+    {
+        "text": "evaluate a model in iteration,",
+        "start": 254.39,
+        "duration": 3.494
+    },
+    {
+        "text": "and then finally the path.",
+        "start": 257.884,
+        "duration": 1.786
+    },
+    {
+        "text": "This is, of course, the relative path to the project folder.",
+        "start": 259.67,
+        "duration": 3.615
+    },
+    {
+        "text": "After teaser, we can have a look at our best model.",
+        "start": 263.285,
+        "duration": 4.02
+    },
+    {
+        "text": "Here we selected the best pipeline from our iterations.",
+        "start": 267.305,
+        "duration": 3.87
+    },
+    {
+        "text": "We can retrieve explanation for our best model",
+        "start": 271.175,
+        "duration": 3.18
+    },
+    {
+        "text": "if we want and we can also monitor the different runs here.",
+        "start": 274.355,
+        "duration": 3.405
+    },
+    {
+        "text": "As you can see, we have a pipeline, iteration metric,",
+        "start": 277.76,
+        "duration": 3.255
+    },
+    {
+        "text": "best metric, status, and duration information.",
+        "start": 281.015,
+        "duration": 3.855
+    },
+    {
+        "text": "After this, we are ready to test the best of each model.",
+        "start": 284.87,
+        "duration": 3.81
+    },
+    {
+        "text": "We can use the \"Check data\" function to remove the NaN values from",
+        "start": 288.68,
+        "duration": 4.71
+    },
+    {
+        "text": "the y tests if we want to",
+        "start": 293.39,
+        "duration": 1.995
+    },
+    {
+        "text": "avoid error when we calculate our metrics,",
+        "start": 295.385,
+        "duration": 3.135
+    },
+    {
+        "text": "and we can also plot the prediction to",
+        "start": 298.52,
+        "duration": 3.3
+    },
+    {
+        "text": "compare them to the actual data.",
+        "start": 301.82,
+        "duration": 3.305
+    },
+    {
+        "text": "Finally, we can deploy our model.",
+        "start": 305.125,
+        "duration": 2.51
+    },
+    {
+        "text": "So we can register our model here, as you can see,",
+        "start": 307.635,
+        "duration": 4.62
+    },
+    {
+        "text": "and then we can create a scoring script that this will be",
+        "start": 312.255,
+        "duration": 3.735
+    },
+    {
+        "text": "used to run the model on the new data for predictions.",
+        "start": 315.99,
+        "duration": 4.205
+    },
+    {
+        "text": "Now let's see from the Azure portal if",
+        "start": 320.195,
+        "duration": 2.945
+    },
+    {
+        "text": "our model was registered and deployed successfully.",
+        "start": 323.14,
+        "duration": 4.405
+    },
+    {
+        "text": "You just need to go to Azure Portal.",
+        "start": 327.545,
+        "duration": 2.565
+    },
+    {
+        "text": "Here again there is my machine learning service workspace.",
+        "start": 330.11,
+        "duration": 4.305
+    },
+    {
+        "text": "You just need to click on \"Experiment\".",
+        "start": 334.415,
+        "duration": 2.7
+    },
+    {
+        "text": "The Experiment that I was working on right",
+        "start": 337.115,
+        "duration": 3.585
+    },
+    {
+        "text": "now is the AutoML energy-demanding forecasting,",
+        "start": 340.7,
+        "duration": 3.52
+    },
+    {
+        "text": "and here is a very nice because I can see",
+        "start": 344.22,
+        "duration": 3.23
+    },
+    {
+        "text": "all the metrics that I need to see and",
+        "start": 347.45,
+        "duration": 2.25
+    },
+    {
+        "text": "also the different pipelines, compute, models.",
+        "start": 349.7,
+        "duration": 3.135
+    },
+    {
+        "text": "So for example, this case.",
+        "start": 352.835,
+        "duration": 1.59
+    },
+    {
+        "text": "If I click on \"Model,\" you can see that",
+        "start": 354.425,
+        "duration": 2.07
+    },
+    {
+        "text": "the model that I created is here.",
+        "start": 356.495,
+        "duration": 2.96
+    },
+    {
+        "text": "If you want to learn more about",
+        "start": 359.455,
+        "duration": 2.095
+    },
+    {
+        "text": "the Azure Machine Learning service and time series forecasting,",
+        "start": 361.55,
+        "duration": 3.24
+    },
+    {
+        "text": "you can check out the link to",
+        "start": 364.79,
+        "duration": 1.89
+    },
+    {
+        "text": "Azure Machine Learning service and",
+        "start": 366.68,
+        "duration": 1.545
+    },
+    {
+        "text": "Automated Machine Learning documentation.",
+        "start": 368.225,
+        "duration": 2.265
+    },
+    {
+        "text": "If you don't have an Azure subscription,",
+        "start": 370.49,
+        "duration": 2.22
+    },
+    {
+        "text": "you can create one for free so that you",
+        "start": 372.71,
+        "duration": 2.28
+    },
+    {
+        "text": "can get started with Azure Machine Learning service.",
+        "start": 374.99,
+        "duration": 2.52
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 377.51,
+        "duration": 8.51
+    }
+]

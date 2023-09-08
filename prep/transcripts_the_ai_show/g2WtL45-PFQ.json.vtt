@@ -1,0 +1,1077 @@
+[
+    {
+        "text": ">> Today on this special build edition of the AI Show,",
+        "start": 0.29,
+        "duration": 3.64
+    },
+    {
+        "text": "we get to hear from Marco Ribeiro,",
+        "start": 3.93,
+        "duration": 1.71
+    },
+    {
+        "text": "Senior Researcher from the Microsoft Research Team.",
+        "start": 5.64,
+        "duration": 3.72
+    },
+    {
+        "text": "When you build machine learning models,",
+        "start": 9.36,
+        "duration": 1.47
+    },
+    {
+        "text": "it's important to know what they're doing.",
+        "start": 10.83,
+        "duration": 2.295
+    },
+    {
+        "text": "Marco, the creator of LIME or",
+        "start": 13.125,
+        "duration": 2.175
+    },
+    {
+        "text": "Local Interpretable Model-Agnostic Explanations,",
+        "start": 15.3,
+        "duration": 2.79
+    },
+    {
+        "text": "will talk about the research,",
+        "start": 18.09,
+        "duration": 1.86
+    },
+    {
+        "text": "how it works and why it's important. Make sure you tune in.",
+        "start": 19.95,
+        "duration": 2.55
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 22.5,
+        "duration": 14.46
+    },
+    {
+        "text": ">> My name is Marco, I'm",
+        "start": 36.96,
+        "duration": 1.02
+    },
+    {
+        "text": "a Senior Researcher at Microsoft Research.",
+        "start": 37.98,
+        "duration": 2.955
+    },
+    {
+        "text": "Focus on my research is helping humans",
+        "start": 40.935,
+        "duration": 2.675
+    },
+    {
+        "text": "interact with machine learning models meaningfully,",
+        "start": 43.61,
+        "duration": 2.88
+    },
+    {
+        "text": "that includes interpretability, for example,",
+        "start": 46.49,
+        "duration": 3.15
+    },
+    {
+        "text": "I wrote the LIME paper and a bunch of others.",
+        "start": 49.64,
+        "duration": 2.385
+    },
+    {
+        "text": "I'll talk a little bit about LIME in this video,",
+        "start": 52.025,
+        "duration": 2.445
+    },
+    {
+        "text": "but before that I thought a little history would be interesting.",
+        "start": 54.47,
+        "duration": 4.26
+    },
+    {
+        "text": "So LIME was the first paper I wrote in my PhD and at the time,",
+        "start": 58.73,
+        "duration": 5.04
+    },
+    {
+        "text": "interpretability wasn't as hot as it is now,",
+        "start": 63.77,
+        "duration": 2.955
+    },
+    {
+        "text": "there were almost no papers coming out on this subject,",
+        "start": 66.725,
+        "duration": 3.105
+    },
+    {
+        "text": "and this is how I got into it.",
+        "start": 69.83,
+        "duration": 2.185
+    },
+    {
+        "text": "I was doing an internship at",
+        "start": 72.015,
+        "duration": 1.835
+    },
+    {
+        "text": "a large tech company trying to use machine learning for a task,",
+        "start": 73.85,
+        "duration": 4.065
+    },
+    {
+        "text": "and I trained the model and it worked",
+        "start": 77.915,
+        "duration": 2.325
+    },
+    {
+        "text": "really well in cross-validation.",
+        "start": 80.24,
+        "duration": 3.09
+    },
+    {
+        "text": "But whenever we sent it to user testing,",
+        "start": 83.33,
+        "duration": 2.565
+    },
+    {
+        "text": "it sucked and it took me forever to figure out what it was.",
+        "start": 85.895,
+        "duration": 4.535
+    },
+    {
+        "text": "Through a long time of debugging and trying to understand,",
+        "start": 90.43,
+        "duration": 3.489
+    },
+    {
+        "text": "I figured out that my model had",
+        "start": 93.919,
+        "duration": 2.491
+    },
+    {
+        "text": "learned to distinguish between how we had collected",
+        "start": 96.41,
+        "duration": 3.54
+    },
+    {
+        "text": "positive and negative data rather than picking up",
+        "start": 99.95,
+        "duration": 2.88
+    },
+    {
+        "text": "on what it should be picking up in the real tests.",
+        "start": 102.83,
+        "duration": 3.16
+    },
+    {
+        "text": "So it learned a shortcut,",
+        "start": 105.99,
+        "duration": 1.46
+    },
+    {
+        "text": "it detected how we collected the data",
+        "start": 107.45,
+        "duration": 2.76
+    },
+    {
+        "text": "and that didn't translate into the real-world use case.",
+        "start": 110.21,
+        "duration": 5.3
+    },
+    {
+        "text": "Now, this experience, there are",
+        "start": 115.51,
+        "duration": 1.93
+    },
+    {
+        "text": "two things that really bothered me.",
+        "start": 117.44,
+        "duration": 1.94
+    },
+    {
+        "text": "So the first one was",
+        "start": 119.38,
+        "duration": 1.18
+    },
+    {
+        "text": "that cross-validation accuracy didn't",
+        "start": 120.56,
+        "duration": 2.91
+    },
+    {
+        "text": "translate into real-world performance.",
+        "start": 123.47,
+        "duration": 3.49
+    },
+    {
+        "text": "Maybe this is obvious for people who are doing",
+        "start": 127.55,
+        "duration": 3.3
+    },
+    {
+        "text": "machine learning in the real world,",
+        "start": 130.85,
+        "duration": 2.94
+    },
+    {
+        "text": "but as a researcher,",
+        "start": 133.79,
+        "duration": 1.775
+    },
+    {
+        "text": "if you take a machine learning course,",
+        "start": 135.565,
+        "duration": 1.735
+    },
+    {
+        "text": "you learn that cross-validation is a good way to evaluate models.",
+        "start": 137.3,
+        "duration": 5.4
+    },
+    {
+        "text": "The model has not looked at",
+        "start": 142.7,
+        "duration": 1.32
+    },
+    {
+        "text": "that data and it works well, so therefore it's good.",
+        "start": 144.02,
+        "duration": 3.035
+    },
+    {
+        "text": "But models are really good at",
+        "start": 147.055,
+        "duration": 2.635
+    },
+    {
+        "text": "picking up quirks or spurious correlations and",
+        "start": 149.69,
+        "duration": 3.39
+    },
+    {
+        "text": "datasets and that can really mess up",
+        "start": 153.08,
+        "duration": 2.58
+    },
+    {
+        "text": "performance when your real data does not have those quirks.",
+        "start": 155.66,
+        "duration": 5.295
+    },
+    {
+        "text": "But the thing that bothered me most was",
+        "start": 160.955,
+        "duration": 2.625
+    },
+    {
+        "text": "that I could not figure out what my model was doing.",
+        "start": 163.58,
+        "duration": 2.9
+    },
+    {
+        "text": "So here I was, PhD student,",
+        "start": 166.48,
+        "duration": 2.96
+    },
+    {
+        "text": "supposed to be an expert and it took me",
+        "start": 169.44,
+        "duration": 2.84
+    },
+    {
+        "text": "the longest time to understand",
+        "start": 172.28,
+        "duration": 1.785
+    },
+    {
+        "text": "how my model was making predictions.",
+        "start": 174.065,
+        "duration": 2.765
+    },
+    {
+        "text": "So I came back from my internship,",
+        "start": 176.83,
+        "duration": 2.37
+    },
+    {
+        "text": "and at the time I was working on a completely different topic,",
+        "start": 179.2,
+        "duration": 3.835
+    },
+    {
+        "text": "distributed systems and machine learning,",
+        "start": 183.035,
+        "duration": 2.825
+    },
+    {
+        "text": "but I decided that this",
+        "start": 185.86,
+        "duration": 2.02
+    },
+    {
+        "text": "bothered me enough that I wanted to work on it.",
+        "start": 187.88,
+        "duration": 2.16
+    },
+    {
+        "text": "So I looked at the literature to see what people had done in terms",
+        "start": 190.04,
+        "duration": 3.27
+    },
+    {
+        "text": "of understanding how models were making predictions.",
+        "start": 193.31,
+        "duration": 3.765
+    },
+    {
+        "text": "Then I saw a bit of a gap,",
+        "start": 197.075,
+        "duration": 2.415
+    },
+    {
+        "text": "so I decided to change topics and work on that,",
+        "start": 199.49,
+        "duration": 2.84
+    },
+    {
+        "text": "and that's how I got into interpretability in general.",
+        "start": 202.33,
+        "duration": 3.86
+    },
+    {
+        "text": "So why should we bother with interpretability at all?",
+        "start": 210.44,
+        "duration": 5.315
+    },
+    {
+        "text": "Interpretability has many uses,",
+        "start": 215.755,
+        "duration": 2.875
+    },
+    {
+        "text": "sometimes they're even forced to do it due to regulation.",
+        "start": 218.63,
+        "duration": 3.645
+    },
+    {
+        "text": "But the use case that's dearest to",
+        "start": 222.275,
+        "duration": 2.235
+    },
+    {
+        "text": "my heart is the one I was just talking about.",
+        "start": 224.51,
+        "duration": 2.69
+    },
+    {
+        "text": "You're training your model and you",
+        "start": 227.2,
+        "duration": 1.99
+    },
+    {
+        "text": "want to figure out, does it work?",
+        "start": 229.19,
+        "duration": 1.97
+    },
+    {
+        "text": "Is it doing something sensible?",
+        "start": 231.16,
+        "duration": 2.019
+    },
+    {
+        "text": "How can I improve it?",
+        "start": 233.179,
+        "duration": 2.001
+    },
+    {
+        "text": "I think that understanding what the model is",
+        "start": 235.18,
+        "duration": 2.38
+    },
+    {
+        "text": "doing really helps all of that.",
+        "start": 237.56,
+        "duration": 2.28
+    },
+    {
+        "text": "It helps you avoid putting",
+        "start": 239.84,
+        "duration": 1.38
+    },
+    {
+        "text": "a really bad model into production because",
+        "start": 241.22,
+        "duration": 1.98
+    },
+    {
+        "text": "you catch things that don't make sense ahead of time.",
+        "start": 243.2,
+        "duration": 3.6
+    },
+    {
+        "text": "Machine-learning models are really good at",
+        "start": 246.8,
+        "duration": 2.07
+    },
+    {
+        "text": "a particular kind of over-fitting that I was just mentioning,",
+        "start": 248.87,
+        "duration": 4.05
+    },
+    {
+        "text": "picking up on spurious correlations,",
+        "start": 252.92,
+        "duration": 1.979
+    },
+    {
+        "text": "picking up how we get the data,",
+        "start": 254.899,
+        "duration": 1.756
+    },
+    {
+        "text": "picking up on things that will not generalize.",
+        "start": 256.655,
+        "duration": 3.04
+    },
+    {
+        "text": "If you understand it, if you can see those things happening,",
+        "start": 259.695,
+        "duration": 3.575
+    },
+    {
+        "text": "usually it's obvious when you see it,",
+        "start": 263.27,
+        "duration": 2.46
+    },
+    {
+        "text": "but even when you don't have situations like that,",
+        "start": 265.73,
+        "duration": 3.165
+    },
+    {
+        "text": "if you understand why mistakes are being made by a model,",
+        "start": 268.895,
+        "duration": 3.045
+    },
+    {
+        "text": "it's easier to figure out how to fix them.",
+        "start": 271.94,
+        "duration": 2.7
+    },
+    {
+        "text": "So it's easier to figure out if you need to get more data,",
+        "start": 274.64,
+        "duration": 2.895
+    },
+    {
+        "text": "if you need to change model architecture,",
+        "start": 277.535,
+        "duration": 2.175
+    },
+    {
+        "text": "how to change it, etc.",
+        "start": 279.71,
+        "duration": 2.67
+    },
+    {
+        "text": "We had some experiments in the LIME paper where we had people with",
+        "start": 282.38,
+        "duration": 4.11
+    },
+    {
+        "text": "no machine-learning expertise picking",
+        "start": 286.49,
+        "duration": 3.06
+    },
+    {
+        "text": "up or trying to decide between two models,",
+        "start": 289.55,
+        "duration": 2.58
+    },
+    {
+        "text": "which one is going to generalize better and even people with",
+        "start": 292.13,
+        "duration": 3.04
+    },
+    {
+        "text": "no ML expertise could do really good model selection.",
+        "start": 295.17,
+        "duration": 4.965
+    },
+    {
+        "text": "The could also do some feature engineering,",
+        "start": 300.135,
+        "duration": 1.765
+    },
+    {
+        "text": "so they could look at what the model was doing and say,",
+        "start": 301.9,
+        "duration": 2.545
+    },
+    {
+        "text": "the model should not be doing this,",
+        "start": 304.445,
+        "duration": 1.895
+    },
+    {
+        "text": "and click out on words.",
+        "start": 306.34,
+        "duration": 1.73
+    },
+    {
+        "text": "In this case, it was text,",
+        "start": 308.07,
+        "duration": 1.69
+    },
+    {
+        "text": "words that the model should not have been using.",
+        "start": 309.76,
+        "duration": 2.545
+    },
+    {
+        "text": "So even people who have",
+        "start": 312.305,
+        "duration": 1.365
+    },
+    {
+        "text": "no machine-learning expertise at all can already do something.",
+        "start": 313.67,
+        "duration": 3.6
+    },
+    {
+        "text": "How much more people who are actually",
+        "start": 317.27,
+        "duration": 1.77
+    },
+    {
+        "text": "training these models and applying them?",
+        "start": 319.04,
+        "duration": 2.76
+    },
+    {
+        "text": "So the actual developers of models,",
+        "start": 321.8,
+        "duration": 2.13
+    },
+    {
+        "text": "I think, can gain a lot.",
+        "start": 323.93,
+        "duration": 1.59
+    },
+    {
+        "text": "So understanding what's going wrong,",
+        "start": 325.52,
+        "duration": 3.615
+    },
+    {
+        "text": "it already gets you almost half of the way into fixing them,",
+        "start": 329.135,
+        "duration": 6.405
+    },
+    {
+        "text": "and I think interpretability is really useful for that,",
+        "start": 335.54,
+        "duration": 3.045
+    },
+    {
+        "text": "among many other uses.",
+        "start": 338.585,
+        "duration": 2.185
+    },
+    {
+        "text": "So I've been talking about LIME,",
+        "start": 345.02,
+        "duration": 2.37
+    },
+    {
+        "text": "but I didn't even tell you what it is.",
+        "start": 347.39,
+        "duration": 2.505
+    },
+    {
+        "text": "I'll just give you the key ideas behind",
+        "start": 349.895,
+        "duration": 3.165
+    },
+    {
+        "text": "the technique that we use in",
+        "start": 353.06,
+        "duration": 2.19
+    },
+    {
+        "text": "the paper and the key ideas are as follows.",
+        "start": 355.25,
+        "duration": 3.18
+    },
+    {
+        "text": "First idea is, we're not going to try",
+        "start": 358.43,
+        "duration": 2.37
+    },
+    {
+        "text": "to explain everything at once.",
+        "start": 360.8,
+        "duration": 2.4
+    },
+    {
+        "text": "If you have a model that's really complicated,",
+        "start": 363.2,
+        "duration": 3.165
+    },
+    {
+        "text": "it's a very hard task to explain everything it's doing.",
+        "start": 366.365,
+        "duration": 3.505
+    },
+    {
+        "text": "Let's say I'm trying to predict risk of defaulting on a loan,",
+        "start": 369.87,
+        "duration": 4.015
+    },
+    {
+        "text": "it's a complicated problem.",
+        "start": 373.885,
+        "duration": 2.165
+    },
+    {
+        "text": "So maybe you think like, oh,",
+        "start": 376.05,
+        "duration": 1.425
+    },
+    {
+        "text": "if credit score is super-high or super-low, it's easy,",
+        "start": 377.475,
+        "duration": 2.895
+    },
+    {
+        "text": "just look at credit score,",
+        "start": 380.37,
+        "duration": 1.385
+    },
+    {
+        "text": "but maybe in the middle it's complicated and then you realize,",
+        "start": 381.755,
+        "duration": 3.075
+    },
+    {
+        "text": "oh, it interacts with time.",
+        "start": 384.83,
+        "duration": 1.65
+    },
+    {
+        "text": "So if your credit score is slow because you're",
+        "start": 386.48,
+        "duration": 2.52
+    },
+    {
+        "text": "an immigrant and haven't had time to open up accounts,",
+        "start": 389.0,
+        "duration": 3.815
+    },
+    {
+        "text": "but you work at Microsoft and this is actually a problem that I",
+        "start": 392.815,
+        "duration": 3.445
+    },
+    {
+        "text": "face as an immigrant getting a credit card approved,",
+        "start": 396.26,
+        "duration": 3.66
+    },
+    {
+        "text": "but maybe that should be taken into account.",
+        "start": 399.92,
+        "duration": 1.83
+    },
+    {
+        "text": "So you don't just look at credit score.",
+        "start": 401.75,
+        "duration": 1.775
+    },
+    {
+        "text": "So if you try to explain,",
+        "start": 403.525,
+        "duration": 1.895
+    },
+    {
+        "text": "this is just a small example,",
+        "start": 405.42,
+        "duration": 1.29
+    },
+    {
+        "text": "if you try to explain all of that at once for a good model,",
+        "start": 406.71,
+        "duration": 3.08
+    },
+    {
+        "text": "you're going to get into trouble.",
+        "start": 409.79,
+        "duration": 1.845
+    },
+    {
+        "text": "You're going to hide too much or",
+        "start": 411.635,
+        "duration": 1.785
+    },
+    {
+        "text": "definitions can be super complicated.",
+        "start": 413.42,
+        "duration": 2.22
+    },
+    {
+        "text": "So what LIME is going to do is going to try to",
+        "start": 415.64,
+        "duration": 3.0
+    },
+    {
+        "text": "explain a single prediction.",
+        "start": 418.64,
+        "duration": 2.96
+    },
+    {
+        "text": "So let's say that the model thinks that I, Marco, have low-risk,",
+        "start": 421.6,
+        "duration": 5.89
+    },
+    {
+        "text": "we want to understand why that is,",
+        "start": 427.49,
+        "duration": 1.76
+    },
+    {
+        "text": "and not try to explain every single person in my dataset at once.",
+        "start": 429.25,
+        "duration": 5.55
+    },
+    {
+        "text": "Then the other idea is that we're going to treat the model",
+        "start": 434.8,
+        "duration": 3.03
+    },
+    {
+        "text": "as a black box, and there's a trade-off.",
+        "start": 437.83,
+        "duration": 2.42
+    },
+    {
+        "text": "If you treat the model as a black box,",
+        "start": 440.25,
+        "duration": 1.6
+    },
+    {
+        "text": "you cannot exploit its internals and you need to do other things.",
+        "start": 441.85,
+        "duration": 4.5
+    },
+    {
+        "text": "But there's also a gain that you can explain any model,",
+        "start": 446.35,
+        "duration": 2.95
+    },
+    {
+        "text": "and we made that decision of explaining the model as a black box.",
+        "start": 449.3,
+        "duration": 3.2
+    },
+    {
+        "text": "But if the model is a black box,",
+        "start": 452.5,
+        "duration": 1.68
+    },
+    {
+        "text": "how can you understand it?",
+        "start": 454.18,
+        "duration": 1.2
+    },
+    {
+        "text": "How can you explain?",
+        "start": 455.38,
+        "duration": 1.465
+    },
+    {
+        "text": "I think the only way you can do it is by",
+        "start": 456.845,
+        "duration": 2.615
+    },
+    {
+        "text": "perturbing the example in seeing what the black box model does.",
+        "start": 459.46,
+        "duration": 3.82
+    },
+    {
+        "text": "Now, there's a lot of ways you could perturb the example.",
+        "start": 463.28,
+        "duration": 2.48
+    },
+    {
+        "text": "There's a lot of things you could do,",
+        "start": 465.76,
+        "duration": 1.875
+    },
+    {
+        "text": "but we did a very simple thing with LIME, and this is what we did.",
+        "start": 467.635,
+        "duration": 5.325
+    },
+    {
+        "text": "Let's say we want to understand why I'm low-risk,",
+        "start": 472.96,
+        "duration": 2.22
+    },
+    {
+        "text": "what you do is change different features.",
+        "start": 475.18,
+        "duration": 2.27
+    },
+    {
+        "text": "So you change, for example,",
+        "start": 477.45,
+        "duration": 1.76
+    },
+    {
+        "text": "you say Marco doesn't work at Microsoft,",
+        "start": 479.21,
+        "duration": 2.4
+    },
+    {
+        "text": "he's unemployed and then you see,",
+        "start": 481.61,
+        "duration": 2.04
+    },
+    {
+        "text": "does the risk prediction change?",
+        "start": 483.65,
+        "duration": 1.56
+    },
+    {
+        "text": "If it changes to high risk,",
+        "start": 485.21,
+        "duration": 1.68
+    },
+    {
+        "text": "that's a good indication that",
+        "start": 486.89,
+        "duration": 1.29
+    },
+    {
+        "text": "the model is using the fact that I work at Microsoft,",
+        "start": 488.18,
+        "duration": 3.014
+    },
+    {
+        "text": "but you don't want to change only a feature at a time,",
+        "start": 491.194,
+        "duration": 3.046
+    },
+    {
+        "text": "like remember the case where maybe credit score was important,",
+        "start": 494.24,
+        "duration": 4.97
+    },
+    {
+        "text": "but you have to take into account",
+        "start": 499.21,
+        "duration": 1.33
+    },
+    {
+        "text": "whether a person is an immigrant or",
+        "start": 500.54,
+        "duration": 1.56
+    },
+    {
+        "text": "whether their accounts are new and so on.",
+        "start": 502.1,
+        "duration": 3.12
+    },
+    {
+        "text": "So maybe I change my job and my credit history a bit,",
+        "start": 505.22,
+        "duration": 3.03
+    },
+    {
+        "text": "and maybe I change a lot of other things at once and you perturb",
+        "start": 508.25,
+        "duration": 2.56
+    },
+    {
+        "text": "a bunch of different times and see what the model does.",
+        "start": 510.81,
+        "duration": 3.635
+    },
+    {
+        "text": "After many perturbations, you learn a simple explanation,",
+        "start": 514.445,
+        "duration": 4.26
+    },
+    {
+        "text": "a linear model that says something like,",
+        "start": 518.705,
+        "duration": 2.715
+    },
+    {
+        "text": "Microsoft lowers the risk by 0.2,",
+        "start": 521.42,
+        "duration": 3.84
+    },
+    {
+        "text": "being an immigrant raises it by 0.05 and etc.",
+        "start": 525.26,
+        "duration": 3.915
+    },
+    {
+        "text": "So this explanation would be describing",
+        "start": 529.175,
+        "duration": 3.014
+    },
+    {
+        "text": "the model for people who are close to me,",
+        "start": 532.189,
+        "duration": 2.671
+    },
+    {
+        "text": "people who are similar to me.",
+        "start": 534.86,
+        "duration": 1.65
+    },
+    {
+        "text": "The explanation has to be really",
+        "start": 536.51,
+        "duration": 1.5
+    },
+    {
+        "text": "faithful or really good for people who look like",
+        "start": 538.01,
+        "duration": 1.65
+    },
+    {
+        "text": "me and maybe for people who look",
+        "start": 539.66,
+        "duration": 2.1
+    },
+    {
+        "text": "like me and looking at zip code doesn't matter.",
+        "start": 541.76,
+        "duration": 2.595
+    },
+    {
+        "text": "So the explanation is not saying that",
+        "start": 544.355,
+        "duration": 1.455
+    },
+    {
+        "text": "zip code is irrelevant for the model, it's just saying,",
+        "start": 545.81,
+        "duration": 2.59
+    },
+    {
+        "text": "for people who are in the neighborhood of Marco,",
+        "start": 548.4,
+        "duration": 3.59
+    },
+    {
+        "text": "what matters is where you work,",
+        "start": 551.99,
+        "duration": 2.02
+    },
+    {
+        "text": "being an immigrant, and so on.",
+        "start": 554.01,
+        "duration": 2.28
+    },
+    {
+        "text": "Anyway, combining these two,",
+        "start": 556.29,
+        "duration": 2.09
+    },
+    {
+        "text": "the main idea is this,",
+        "start": 558.38,
+        "duration": 1.305
+    },
+    {
+        "text": "treat the models as black box,",
+        "start": 559.685,
+        "duration": 1.935
+    },
+    {
+        "text": "perturb the example you want to",
+        "start": 561.62,
+        "duration": 1.56
+    },
+    {
+        "text": "explain and then learn an explanation",
+        "start": 563.18,
+        "duration": 1.83
+    },
+    {
+        "text": "that really describes the model in that region,",
+        "start": 565.01,
+        "duration": 3.24
+    },
+    {
+        "text": "in that neighborhood, instead of trying to",
+        "start": 568.25,
+        "duration": 1.53
+    },
+    {
+        "text": "explain everything at once.",
+        "start": 569.78,
+        "duration": 2.8
+    },
+    {
+        "text": "That's a very simplified version of what LIME is and does.",
+        "start": 575.2,
+        "duration": 5.11
+    },
+    {
+        "text": "I hope I've given you a little bit of the background",
+        "start": 580.31,
+        "duration": 3.24
+    },
+    {
+        "text": "and convinced you to at least consider interpretability,",
+        "start": 583.55,
+        "duration": 4.57
+    },
+    {
+        "text": "consider, can it help me",
+        "start": 588.12,
+        "duration": 2.15
+    },
+    {
+        "text": "to understand why my model is making predictions?",
+        "start": 590.27,
+        "duration": 3.3
+    },
+    {
+        "text": "I think it can,",
+        "start": 593.57,
+        "duration": 1.665
+    },
+    {
+        "text": "and LIME can be a useful tool in",
+        "start": 595.235,
+        "duration": 2.355
+    },
+    {
+        "text": "your tool belt of interpretability.",
+        "start": 597.59,
+        "duration": 3.33
+    },
+    {
+        "text": "There's many others as well,",
+        "start": 600.92,
+        "duration": 1.82
+    },
+    {
+        "text": "but signing off. Thanks.",
+        "start": 602.74,
+        "duration": 2.21
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 604.95,
+        "duration": 12.01
+    }
+]

@@ -1,0 +1,922 @@
+[
+    {
+        "text": ">> You're not going to want to miss this special episode",
+        "start": 0.35,
+        "duration": 3.25
+    },
+    {
+        "text": "of the AI Show coming to you with Microsoft Ignite.",
+        "start": 3.6,
+        "duration": 2.1
+    },
+    {
+        "text": "Where we learn how the MET took it's images,",
+        "start": 5.7,
+        "duration": 2.76
+    },
+    {
+        "text": "augmented it with cognitive services and",
+        "start": 8.46,
+        "duration": 2.13
+    },
+    {
+        "text": "allowed all of us to find beauty,",
+        "start": 10.59,
+        "duration": 2.13
+    },
+    {
+        "text": "even when it wasn't written down. Make sure you tune in.",
+        "start": 12.72,
+        "duration": 2.94
+    },
+    {
+        "text": "[MUSIC].",
+        "start": 15.66,
+        "duration": 8.25
+    },
+    {
+        "text": ">> Hello, and welcome to this special episode of the AI Show.",
+        "start": 23.91,
+        "duration": 2.64
+    },
+    {
+        "text": "Coming to you from Microsoft Ignite, I've got a special guest.",
+        "start": 26.55,
+        "duration": 2.73
+    },
+    {
+        "text": "Christina, how are you doing my friend?",
+        "start": 29.28,
+        "duration": 1.395
+    },
+    {
+        "text": ">> Good. How are you?",
+        "start": 30.675,
+        "duration": 0.825
+    },
+    {
+        "text": ">> Good. So tell us what you do.",
+        "start": 31.5,
+        "duration": 1.335
+    },
+    {
+        "text": ">> So I'm a Program Manager on",
+        "start": 32.835,
+        "duration": 1.335
+    },
+    {
+        "text": "the Cognitive Services platform Teams,",
+        "start": 34.17,
+        "duration": 1.92
+    },
+    {
+        "text": "and I work on, among other things,",
+        "start": 36.09,
+        "duration": 2.07
+    },
+    {
+        "text": "connectors within Spark and Cognitive Services,",
+        "start": 38.16,
+        "duration": 2.19
+    },
+    {
+        "text": "and a bunch of other stuff.",
+        "start": 40.35,
+        "duration": 0.84
+    },
+    {
+        "text": ">> Very interesting.",
+        "start": 41.19,
+        "duration": 0.54
+    },
+    {
+        "text": "So we have a really interesting use case at the MET,",
+        "start": 41.73,
+        "duration": 3.74
+    },
+    {
+        "text": "and how our Cognitive Services in conjunction with Spark,",
+        "start": 45.47,
+        "duration": 2.58
+    },
+    {
+        "text": "with a bunch of other things, empower",
+        "start": 48.05,
+        "duration": 1.8
+    },
+    {
+        "text": "them to do really amazing thing. Tell us about that.",
+        "start": 49.85,
+        "duration": 2.07
+    },
+    {
+        "text": ">> Right. So the Metropolitan Museum of Arts,",
+        "start": 51.92,
+        "duration": 2.13
+    },
+    {
+        "text": "decided to the start they're open access initiative.",
+        "start": 54.05,
+        "duration": 3.59
+    },
+    {
+        "text": "What that meant, was they were going to release over",
+        "start": 57.64,
+        "duration": 2.99
+    },
+    {
+        "text": "400,000 high-resolution images of art.",
+        "start": 60.63,
+        "duration": 3.165
+    },
+    {
+        "text": "Like our pieces rarely see the light of the day,",
+        "start": 63.795,
+        "duration": 2.535
+    },
+    {
+        "text": "and tell us a bunch more about us.",
+        "start": 66.33,
+        "duration": 2.31
+    },
+    {
+        "text": "So we took all of that and then imbued it with",
+        "start": 68.64,
+        "duration": 2.75
+    },
+    {
+        "text": "more intelligent annotations using",
+        "start": 71.39,
+        "duration": 1.46
+    },
+    {
+        "text": "Cognitive Services to make it more searchable so that users,",
+        "start": 72.85,
+        "duration": 3.745
+    },
+    {
+        "text": "visitors can explore the art collection in a more fun way.",
+        "start": 76.595,
+        "duration": 3.285
+    },
+    {
+        "text": ">> That's interesting because most people don't know this,",
+        "start": 79.88,
+        "duration": 2.67
+    },
+    {
+        "text": "but in the basement of all the greatest museums there's a lot of",
+        "start": 82.55,
+        "duration": 2.82
+    },
+    {
+        "text": "amazing things that people would love to see but they can't.",
+        "start": 85.37,
+        "duration": 3.255
+    },
+    {
+        "text": "But they had pictures of them and they use",
+        "start": 88.625,
+        "duration": 2.475
+    },
+    {
+        "text": "these services in order to",
+        "start": 91.1,
+        "duration": 1.23
+    },
+    {
+        "text": "get people to be able to look at them. Is that right?",
+        "start": 92.33,
+        "duration": 1.545
+    },
+    {
+        "text": ">> Exactly.",
+        "start": 93.875,
+        "duration": 0.435
+    },
+    {
+        "text": ">> So can you show us how this is done?",
+        "start": 94.31,
+        "duration": 1.29
+    },
+    {
+        "text": ">> Yeah. So today's I'll go over",
+        "start": 95.6,
+        "duration": 2.58
+    },
+    {
+        "text": "a little bit of how we imbued it with more intelligence,",
+        "start": 98.18,
+        "duration": 3.3
+    },
+    {
+        "text": "and then we pushed all of this to Azure Cognitive Search so that",
+        "start": 101.48,
+        "duration": 3.33
+    },
+    {
+        "text": "people could actually search and look at the art pieces.",
+        "start": 104.81,
+        "duration": 3.36
+    },
+    {
+        "text": ">> All right.",
+        "start": 108.17,
+        "duration": 0.205
+    },
+    {
+        "text": ">> So first we ingested the data from Metropolitan Museum,",
+        "start": 108.375,
+        "duration": 4.265
+    },
+    {
+        "text": "and we see that there is a lot of these different metadata fields.",
+        "start": 112.64,
+        "duration": 3.325
+    },
+    {
+        "text": "However, the problem was that a lot",
+        "start": 115.965,
+        "duration": 2.045
+    },
+    {
+        "text": "of the metadata fields are pretty sparse, right?",
+        "start": 118.01,
+        "duration": 2.295
+    },
+    {
+        "text": "So if we were to take",
+        "start": 120.305,
+        "duration": 1.755
+    },
+    {
+        "text": "all the semantic information",
+        "start": 122.06,
+        "duration": 1.11
+    },
+    {
+        "text": "solely based on these metadata fields,",
+        "start": 123.17,
+        "duration": 1.8
+    },
+    {
+        "text": "then that would mean for some of our pieces,",
+        "start": 124.97,
+        "duration": 1.86
+    },
+    {
+        "text": "we don't have that much information.",
+        "start": 126.83,
+        "duration": 1.35
+    },
+    {
+        "text": ">> Right.",
+        "start": 128.18,
+        "duration": 0.3
+    },
+    {
+        "text": ">> So that's where Cognitive Services came in.",
+        "start": 128.48,
+        "duration": 2.535
+    },
+    {
+        "text": "So we ran Cognitive Services on Spark and we imbued",
+        "start": 131.015,
+        "duration": 4.305
+    },
+    {
+        "text": "this little live intelligence that we can",
+        "start": 135.32,
+        "duration": 2.01
+    },
+    {
+        "text": "glean from Computer Vision Service,",
+        "start": 137.33,
+        "duration": 2.415
+    },
+    {
+        "text": "Text Analytics, and so on and so forth.",
+        "start": 139.745,
+        "duration": 1.98
+    },
+    {
+        "text": "So we have all these high resolution images",
+        "start": 141.725,
+        "duration": 2.085
+    },
+    {
+        "text": "of all these are pieces, right?",
+        "start": 143.81,
+        "duration": 1.305
+    },
+    {
+        "text": "So we put it",
+        "start": 145.115,
+        "duration": 2.385
+    },
+    {
+        "text": "through Computer Vision Service on Spark so that we could get,",
+        "start": 147.5,
+        "duration": 2.61
+    },
+    {
+        "text": "are there people in it?",
+        "start": 150.11,
+        "duration": 1.41
+    },
+    {
+        "text": "Are there faces in it?",
+        "start": 151.52,
+        "duration": 1.35
+    },
+    {
+        "text": ">> I see.",
+        "start": 152.87,
+        "duration": 0.45
+    },
+    {
+        "text": ">> Is it, like a lot of our pieces are pretty explicit.",
+        "start": 153.32,
+        "duration": 2.82
+    },
+    {
+        "text": "Does it have explicit pieces so that we can",
+        "start": 156.14,
+        "duration": 2.22
+    },
+    {
+        "text": "filter those out for younger audiences?",
+        "start": 158.36,
+        "duration": 2.97
+    },
+    {
+        "text": ">> Sure.",
+        "start": 161.33,
+        "duration": 0.28
+    },
+    {
+        "text": ">> If some of these pieces don't have a descriptive caption,",
+        "start": 161.61,
+        "duration": 2.3
+    },
+    {
+        "text": "then we want to make this collection more",
+        "start": 163.91,
+        "duration": 1.47
+    },
+    {
+        "text": "accessible for those who are visually impaired,",
+        "start": 165.38,
+        "duration": 2.22
+    },
+    {
+        "text": "then we could do that with descriptive captioning.",
+        "start": 167.6,
+        "duration": 2.69
+    },
+    {
+        "text": ">> So let me see if I understand.",
+        "start": 170.29,
+        "duration": 1.67
+    },
+    {
+        "text": "Basically, tons of pictures,",
+        "start": 171.96,
+        "duration": 2.505
+    },
+    {
+        "text": "you ingested them using Spark,",
+        "start": 174.465,
+        "duration": 1.935
+    },
+    {
+        "text": "and as it was coming through,",
+        "start": 176.4,
+        "duration": 1.605
+    },
+    {
+        "text": "you basically enriched those pictures with",
+        "start": 178.005,
+        "duration": 2.325
+    },
+    {
+        "text": "additional information from Cognitive.",
+        "start": 180.33,
+        "duration": 3.2
+    },
+    {
+        "text": "For example, there is a tree in this picture.",
+        "start": 183.53,
+        "duration": 2.61
+    },
+    {
+        "text": ">> Yes. Exactly.",
+        "start": 186.14,
+        "duration": 1.455
+    },
+    {
+        "text": ">> If anyone has ever used Cognitive Services,",
+        "start": 187.595,
+        "duration": 1.755
+    },
+    {
+        "text": "you basically give because computer",
+        "start": 189.35,
+        "duration": 1.77
+    },
+    {
+        "text": "vision the thing and it tells you what's in it.",
+        "start": 191.12,
+        "duration": 1.79
+    },
+    {
+        "text": ">> Right.",
+        "start": 192.91,
+        "duration": 0.14
+    },
+    {
+        "text": ">> There's also scores whether it's explicit or not, mature,",
+        "start": 193.05,
+        "duration": 2.69
+    },
+    {
+        "text": "or whatever, and you're able to use",
+        "start": 195.74,
+        "duration": 1.92
+    },
+    {
+        "text": "those to later enrich the data they were using?",
+        "start": 197.66,
+        "duration": 2.485
+    },
+    {
+        "text": ">> Exactly.",
+        "start": 200.145,
+        "duration": 0.495
+    },
+    {
+        "text": ">> Got it. Okay.",
+        "start": 200.64,
+        "duration": 0.72
+    },
+    {
+        "text": ">> So we little that and then we found that there is",
+        "start": 201.36,
+        "duration": 2.76
+    },
+    {
+        "text": "some interesting categories in these genres.",
+        "start": 204.12,
+        "duration": 3.6
+    },
+    {
+        "text": ">> Were these categories generated by",
+        "start": 207.72,
+        "duration": 1.5
+    },
+    {
+        "text": "the Computer Vision? Or were they-",
+        "start": 209.22,
+        "duration": 2.1
+    },
+    {
+        "text": ">> Computer Vision, 100 percent.",
+        "start": 211.32,
+        "duration": 1.02
+    },
+    {
+        "text": ">> So they generated these categories?",
+        "start": 212.34,
+        "duration": 2.37
+    },
+    {
+        "text": ">> Right.",
+        "start": 214.71,
+        "duration": 0.27
+    },
+    {
+        "text": ">> Okay.",
+        "start": 214.98,
+        "duration": 0.3
+    },
+    {
+        "text": ">> So you could dial in to different categories from there, right?",
+        "start": 215.28,
+        "duration": 2.88
+    },
+    {
+        "text": "So if I'm interested in images that are of people,",
+        "start": 218.16,
+        "duration": 3.215
+    },
+    {
+        "text": "and then especially if I'm interested in",
+        "start": 221.375,
+        "duration": 2.985
+    },
+    {
+        "text": "art pieces that are depicting",
+        "start": 224.36,
+        "duration": 1.44
+    },
+    {
+        "text": "young people that I could go into that,",
+        "start": 225.8,
+        "duration": 2.045
+    },
+    {
+        "text": "and then I can see art pieces that are depicting young people.",
+        "start": 227.845,
+        "duration": 2.825
+    },
+    {
+        "text": "I can even see how their faces are,",
+        "start": 230.67,
+        "duration": 1.935
+    },
+    {
+        "text": "and get some information on the faces.",
+        "start": 232.605,
+        "duration": 2.445
+    },
+    {
+        "text": "Then this is just using Computer Vision,",
+        "start": 235.05,
+        "duration": 1.98
+    },
+    {
+        "text": "but we could also invite",
+        "start": 237.03,
+        "duration": 2.13
+    },
+    {
+        "text": "some more intelligence into the dataset using Text Analytics.",
+        "start": 239.16,
+        "duration": 2.645
+    },
+    {
+        "text": "A lot of these art pieces come with curated description,",
+        "start": 241.805,
+        "duration": 3.405
+    },
+    {
+        "text": "so so we could take that and then",
+        "start": 245.21,
+        "duration": 2.115
+    },
+    {
+        "text": "name them to the recognition through their entities from them,",
+        "start": 247.325,
+        "duration": 2.985
+    },
+    {
+        "text": "and then connect them to external references,",
+        "start": 250.31,
+        "duration": 1.86
+    },
+    {
+        "text": "so that if you have",
+        "start": 252.17,
+        "duration": 1.56
+    },
+    {
+        "text": "an art piece that's a picture of Ulysses S. Grant,",
+        "start": 253.73,
+        "duration": 2.16
+    },
+    {
+        "text": "he's a former president, right?",
+        "start": 255.89,
+        "duration": 1.57
+    },
+    {
+        "text": "So then who is Ulysses S. Grant?",
+        "start": 257.46,
+        "duration": 2.55
+    },
+    {
+        "text": "Then you could go to Wikipedia to learn more about him,",
+        "start": 260.01,
+        "duration": 2.75
+    },
+    {
+        "text": "and so on and so forth.",
+        "start": 262.76,
+        "duration": 1.35
+    },
+    {
+        "text": ">> That's amazing because",
+        "start": 264.11,
+        "duration": 1.875
+    },
+    {
+        "text": "you've gone through a bunch of images to some tiny description.",
+        "start": 265.985,
+        "duration": 3.215
+    },
+    {
+        "text": "So it's something where you can",
+        "start": 269.2,
+        "duration": 1.12
+    },
+    {
+        "text": "literally find exactly what you want.",
+        "start": 270.32,
+        "duration": 2.31
+    },
+    {
+        "text": "I mean, usually when you're looking",
+        "start": 272.63,
+        "duration": 1.29
+    },
+    {
+        "text": "at pictures, there's no way you'd be like,",
+        "start": 273.92,
+        "duration": 1.14
+    },
+    {
+        "text": "\"Give me all the young people from the 1800's.\"",
+        "start": 275.06,
+        "duration": 2.34
+    },
+    {
+        "text": ">> Exactly.",
+        "start": 277.4,
+        "duration": 0.54
+    },
+    {
+        "text": ">> But you could do this now with these kinds of services?",
+        "start": 277.94,
+        "duration": 2.43
+    },
+    {
+        "text": "How long did it take them to put something together like this?",
+        "start": 280.37,
+        "duration": 3.33
+    },
+    {
+        "text": ">> I believe this was a result of a three day hackathon.",
+        "start": 283.7,
+        "duration": 3.055
+    },
+    {
+        "text": ">>Three days?",
+        "start": 286.755,
+        "duration": 0.9
+    },
+    {
+        "text": ">> Yep.",
+        "start": 287.655,
+        "duration": 1.185
+    },
+    {
+        "text": ">> Three days. Did they build",
+        "start": 288.84,
+        "duration": 2.07
+    },
+    {
+        "text": "a website around this or an experience around this?",
+        "start": 290.91,
+        "duration": 2.1
+    },
+    {
+        "text": ">> Yeah. So in order to do that,",
+        "start": 293.01,
+        "duration": 1.98
+    },
+    {
+        "text": "we actually use Azure Cognitive Search.",
+        "start": 294.99,
+        "duration": 2.01
+    },
+    {
+        "text": ">> I see.",
+        "start": 297.0,
+        "duration": 0.435
+    },
+    {
+        "text": ">> So after we fit all these intelligent annotations,",
+        "start": 297.435,
+        "duration": 3.215
+    },
+    {
+        "text": "we could actually use Spark connections to Azure Search",
+        "start": 300.65,
+        "duration": 3.165
+    },
+    {
+        "text": "to take all this data",
+        "start": 303.815,
+        "duration": 2.145
+    },
+    {
+        "text": "and then just put it to Azure Cognitive Search,",
+        "start": 305.96,
+        "duration": 2.19
+    },
+    {
+        "text": "so that we can make a search engine out of it,",
+        "start": 308.15,
+        "duration": 1.62
+    },
+    {
+        "text": "and then so people can go to a website called",
+        "start": 309.77,
+        "duration": 2.17
+    },
+    {
+        "text": "Art Explorer to start searching for images here.",
+        "start": 311.94,
+        "duration": 2.72
+    },
+    {
+        "text": ">> All right. This is the actual Art Explorer?",
+        "start": 314.66,
+        "duration": 2.05
+    },
+    {
+        "text": ">> Yeah.",
+        "start": 316.71,
+        "duration": 0.185
+    },
+    {
+        "text": ">> So you can just do cats,",
+        "start": 316.895,
+        "duration": 2.005
+    },
+    {
+        "text": "and then it will give you images that are about cats.",
+        "start": 318.9,
+        "duration": 2.79
+    },
+    {
+        "text": "Some of them really have cats in the titles,",
+        "start": 321.69,
+        "duration": 2.49
+    },
+    {
+        "text": "but even for things that don't.",
+        "start": 324.18,
+        "duration": 3.21
+    },
+    {
+        "text": "So if you search outdoor,",
+        "start": 327.39,
+        "duration": 2.04
+    },
+    {
+        "text": "so obviously some of the images have the title, outdoor,",
+        "start": 329.43,
+        "duration": 2.61
+    },
+    {
+        "text": "but then you get to these photographs of outdoor scenes,",
+        "start": 332.04,
+        "duration": 4.83
+    },
+    {
+        "text": "but they don't have anything that indicates that their outdoor.",
+        "start": 336.87,
+        "duration": 2.42
+    },
+    {
+        "text": "The actual metadata that we got from the Metropolitan Museum,",
+        "start": 339.29,
+        "duration": 3.16
+    },
+    {
+        "text": "but Computer Vision could tell that these are outdoor scenes,",
+        "start": 342.45,
+        "duration": 2.585
+    },
+    {
+        "text": "Pyramid of Giza, obviously an outdoor place.",
+        "start": 345.035,
+        "duration": 2.46
+    },
+    {
+        "text": ">> Yes.",
+        "start": 347.495,
+        "duration": 0.495
+    },
+    {
+        "text": ">> So you can get that information,",
+        "start": 347.99,
+        "duration": 1.68
+    },
+    {
+        "text": "and then if you're interested in outdoor photography,",
+        "start": 349.67,
+        "duration": 1.89
+    },
+    {
+        "text": "then you can just find it.",
+        "start": 351.56,
+        "duration": 1.305
+    },
+    {
+        "text": ">> This is amazing.",
+        "start": 352.865,
+        "duration": 1.11
+    },
+    {
+        "text": "Do we have this document anywhere people can see and use it?",
+        "start": 353.975,
+        "duration": 2.94
+    },
+    {
+        "text": ">> So we actually did an AI Lab with this,",
+        "start": 356.915,
+        "duration": 2.835
+    },
+    {
+        "text": "so AI Lab information is there.",
+        "start": 359.75,
+        "duration": 2.4
+    },
+    {
+        "text": "Also, we made another civil [inaudible] called Jen Studio,",
+        "start": 362.15,
+        "duration": 2.94
+    },
+    {
+        "text": "and all of that code is on GitHub.",
+        "start": 365.09,
+        "duration": 1.8
+    },
+    {
+        "text": ">> That's amazing.",
+        "start": 366.89,
+        "duration": 1.5
+    },
+    {
+        "text": "This is really cool because it's",
+        "start": 368.39,
+        "duration": 1.96
+    },
+    {
+        "text": "hard enough that we have a ton of information,",
+        "start": 370.35,
+        "duration": 2.145
+    },
+    {
+        "text": "but to make it accessible this way is really cool.",
+        "start": 372.495,
+        "duration": 2.15
+    },
+    {
+        "text": ">> Yeah.",
+        "start": 374.645,
+        "duration": 0.245
+    },
+    {
+        "text": ">> All right. Well, thanks so much for spending some time with us.",
+        "start": 374.89,
+        "duration": 1.96
+    },
+    {
+        "text": ">> Thank you.",
+        "start": 376.85,
+        "duration": 0.6
+    },
+    {
+        "text": ">> Thank you so much for watching.",
+        "start": 377.45,
+        "duration": 1.74
+    },
+    {
+        "text": "We're learning how the MET,",
+        "start": 379.19,
+        "duration": 1.425
+    },
+    {
+        "text": "took a bunch of images and made it so that everyone could",
+        "start": 380.615,
+        "duration": 2.745
+    },
+    {
+        "text": "use it using Computer Vision,",
+        "start": 383.36,
+        "duration": 3.045
+    },
+    {
+        "text": "Cognitive Services, and Apache Spark.",
+        "start": 386.405,
+        "duration": 2.055
+    },
+    {
+        "text": "Thank you so much for watching.",
+        "start": 388.46,
+        "duration": 1.2
+    },
+    {
+        "text": "We'll see you next time. Take care.",
+        "start": 389.66,
+        "duration": 1.26
+    },
+    {
+        "text": "[MUSIC].",
+        "start": 390.92,
+        "duration": 9.02
+    }
+]

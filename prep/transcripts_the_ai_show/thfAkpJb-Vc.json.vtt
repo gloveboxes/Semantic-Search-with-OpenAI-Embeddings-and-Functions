@@ -1,0 +1,1582 @@
+[
+    {
+        "text": ">> You're not going to miss this episode of the AI Show,",
+        "start": 0.0,
+        "duration": 2.32
+    },
+    {
+        "text": "where Gary shows us how to make",
+        "start": 2.32,
+        "duration": 2.15
+    },
+    {
+        "text": "things that sometimes don't work with the above framework,",
+        "start": 4.47,
+        "duration": 2.865
+    },
+    {
+        "text": "easily work really quickly. Make sure you tune in.",
+        "start": 7.335,
+        "duration": 8.447
+    },
+    {
+        "text": ">> [MUSIC]",
+        "start": 15.782,
+        "duration": 3.328
+    },
+    {
+        "text": ">> Hello and welcome to this episode of the AI show.",
+        "start": 19.11,
+        "duration": 1.44
+    },
+    {
+        "text": "Were going to learn a little bit more about bots,",
+        "start": 20.55,
+        "duration": 2.31
+    },
+    {
+        "text": "maybe some fundamentals and some surprises.",
+        "start": 22.86,
+        "duration": 2.25
+    },
+    {
+        "text": "Gary, why don't you introduce yourself?",
+        "start": 25.11,
+        "duration": 1.44
+    },
+    {
+        "text": ">> Yes. I'm Gary Pretty. I'm a Senior Engineer",
+        "start": 26.55,
+        "duration": 1.89
+    },
+    {
+        "text": "on the Bot Framework SDK team.",
+        "start": 28.44,
+        "duration": 1.665
+    },
+    {
+        "text": ">> So let's start with bots in channels,",
+        "start": 30.105,
+        "duration": 2.775
+    },
+    {
+        "text": "I've heard that bot a lot. Why don't you describe what that is?",
+        "start": 32.88,
+        "duration": 2.145
+    },
+    {
+        "text": ">> Yes. So you build a bot,",
+        "start": 35.025,
+        "duration": 2.31
+    },
+    {
+        "text": "your bot is essentially,",
+        "start": 37.335,
+        "duration": 1.205
+    },
+    {
+        "text": "it's a web application,",
+        "start": 38.54,
+        "duration": 1.26
+    },
+    {
+        "text": "but you want to surface that in multiple places.",
+        "start": 39.8,
+        "duration": 3.105
+    },
+    {
+        "text": "So let's say, you wanted to put a bot into Facebook,",
+        "start": 42.905,
+        "duration": 3.375
+    },
+    {
+        "text": "Facebook Messenger, or Web Chat,",
+        "start": 46.28,
+        "duration": 2.415
+    },
+    {
+        "text": "or at Microsoft Teams,",
+        "start": 48.695,
+        "duration": 1.455
+    },
+    {
+        "text": "for example. They are channels.",
+        "start": 50.15,
+        "duration": 1.77
+    },
+    {
+        "text": "So you can think of channels almost",
+        "start": 51.92,
+        "duration": 1.38
+    },
+    {
+        "text": "like where you surface your bot.",
+        "start": 53.3,
+        "duration": 1.5
+    },
+    {
+        "text": "Where can I talk to my bot?",
+        "start": 54.8,
+        "duration": 1.875
+    },
+    {
+        "text": "Whether that's through voice or through text, that's a channel,",
+        "start": 56.675,
+        "duration": 3.555
+    },
+    {
+        "text": "and a channel is specific to what's called the Azure Bot Service.",
+        "start": 60.23,
+        "duration": 4.32
+    },
+    {
+        "text": "What we can see here is,",
+        "start": 64.55,
+        "duration": 2.145
+    },
+    {
+        "text": "in Azure, I've created a bot.",
+        "start": 66.695,
+        "duration": 3.285
+    },
+    {
+        "text": "It's simple as, take a look at the channels list.",
+        "start": 69.98,
+        "duration": 3.48
+    },
+    {
+        "text": "Right now, I've connected my bot to Microsoft Teams,",
+        "start": 73.46,
+        "duration": 3.02
+    },
+    {
+        "text": "and to web chat.",
+        "start": 76.48,
+        "duration": 1.565
+    },
+    {
+        "text": "But then down here, I've got a list of additional channels,",
+        "start": 78.045,
+        "duration": 3.135
+    },
+    {
+        "text": "so I could if I wanted to put it in Slack, or in Skype,",
+        "start": 81.18,
+        "duration": 3.05
+    },
+    {
+        "text": "Facebook, I could connected or to Office 365 e-mail.",
+        "start": 84.23,
+        "duration": 3.24
+    },
+    {
+        "text": "It's a pretty extensive list.",
+        "start": 87.47,
+        "duration": 1.935
+    },
+    {
+        "text": ">> It's the same back-end that",
+        "start": 89.405,
+        "duration": 2.04
+    },
+    {
+        "text": "is able to communicate with all of these things?",
+        "start": 91.445,
+        "duration": 1.755
+    },
+    {
+        "text": ">> Yeah. That's right. So there's",
+        "start": 93.2,
+        "duration": 1.47
+    },
+    {
+        "text": "something called the bot framework adapter,",
+        "start": 94.67,
+        "duration": 2.1
+    },
+    {
+        "text": "which sits within the SDK,",
+        "start": 96.77,
+        "duration": 1.89
+    },
+    {
+        "text": "and it will receive messages from the Azure Bot Service,",
+        "start": 98.66,
+        "duration": 3.16
+    },
+    {
+        "text": "and it's the responsibility of",
+        "start": 101.82,
+        "duration": 1.355
+    },
+    {
+        "text": "the Azure Bot Service to take the incoming requests from say,",
+        "start": 103.175,
+        "duration": 3.705
+    },
+    {
+        "text": "Facebook or Microsoft Teams,",
+        "start": 106.88,
+        "duration": 1.74
+    },
+    {
+        "text": "and then to translate that into",
+        "start": 108.62,
+        "duration": 1.68
+    },
+    {
+        "text": "this common format that we understand within our box.",
+        "start": 110.3,
+        "duration": 4.045
+    },
+    {
+        "text": ">> I see.",
+        "start": 114.345,
+        "duration": 0.45
+    },
+    {
+        "text": ">> Yeah.",
+        "start": 114.795,
+        "duration": 0.495
+    },
+    {
+        "text": ">> So as I'm looking at this list,",
+        "start": 115.29,
+        "duration": 2.364
+    },
+    {
+        "text": "what if there's something there that I want,",
+        "start": 117.654,
+        "duration": 4.406
+    },
+    {
+        "text": "but that's not there.",
+        "start": 122.06,
+        "duration": 1.38
+    },
+    {
+        "text": "Is there a way to make it still work?",
+        "start": 123.44,
+        "duration": 2.46
+    },
+    {
+        "text": ">> Yeah. So with the Version 4 of the SDK,",
+        "start": 125.9,
+        "duration": 2.91
+    },
+    {
+        "text": "we have something called Custom Adapters.",
+        "start": 128.81,
+        "duration": 1.755
+    },
+    {
+        "text": "So I mentioned before the bot framework adopt during the SDK,",
+        "start": 130.565,
+        "duration": 3.374
+    },
+    {
+        "text": "well, we can actually go and implement the adapter interface,",
+        "start": 133.939,
+        "duration": 3.181
+    },
+    {
+        "text": "and write our own adapter if we want to,",
+        "start": 137.12,
+        "duration": 2.38
+    },
+    {
+        "text": "and the responsibility of",
+        "start": 139.5,
+        "duration": 1.64
+    },
+    {
+        "text": "that custom adapter is really pretty simple.",
+        "start": 141.14,
+        "duration": 3.105
+    },
+    {
+        "text": "It takes a request from a platform,",
+        "start": 144.245,
+        "duration": 2.445
+    },
+    {
+        "text": "whichever platform you want to support.",
+        "start": 146.69,
+        "duration": 1.83
+    },
+    {
+        "text": "It will transform that into bot activities.",
+        "start": 148.52,
+        "duration": 2.905
+    },
+    {
+        "text": "The bot will handle them in the same way as it",
+        "start": 151.425,
+        "duration": 2.285
+    },
+    {
+        "text": "would do the same code will handle that,",
+        "start": 153.71,
+        "duration": 2.13
+    },
+    {
+        "text": "if you were running in Teams,",
+        "start": 155.84,
+        "duration": 1.8
+    },
+    {
+        "text": "and then it will send that back,",
+        "start": 157.64,
+        "duration": 1.525
+    },
+    {
+        "text": "and the adapter will then transform it back into",
+        "start": 159.165,
+        "duration": 2.075
+    },
+    {
+        "text": "a response that's appropriate for that channel.",
+        "start": 161.24,
+        "duration": 2.58
+    },
+    {
+        "text": ">> So it's basically like an intermediary between what",
+        "start": 163.82,
+        "duration": 2.7
+    },
+    {
+        "text": "the bot framework understands and then",
+        "start": 166.52,
+        "duration": 1.89
+    },
+    {
+        "text": "whatever else writing other thing,",
+        "start": 168.41,
+        "duration": 1.995
+    },
+    {
+        "text": "it could be like an IoT device,",
+        "start": 170.405,
+        "duration": 1.53
+    },
+    {
+        "text": "where they're terminal or something.",
+        "start": 171.935,
+        "duration": 1.2
+    },
+    {
+        "text": ">> Yeah. Exactly.",
+        "start": 173.135,
+        "duration": 0.855
+    },
+    {
+        "text": ">> That's cool. Well, can you show us how it work?",
+        "start": 173.99,
+        "duration": 1.365
+    },
+    {
+        "text": ">> Yeah. Sure. So I've got",
+        "start": 175.355,
+        "duration": 2.04
+    },
+    {
+        "text": "a very basic bot here running in the emulator,",
+        "start": 177.395,
+        "duration": 2.955
+    },
+    {
+        "text": "which I've had a brief conversation with.",
+        "start": 180.35,
+        "duration": 1.77
+    },
+    {
+        "text": "So it's a flight booking bot.",
+        "start": 182.12,
+        "duration": 1.905
+    },
+    {
+        "text": "It said where do you want to travel to?",
+        "start": 184.025,
+        "duration": 2.55
+    },
+    {
+        "text": "London. I'm coming from Seattle.",
+        "start": 186.575,
+        "duration": 2.145
+    },
+    {
+        "text": "So what I'm showing here is,",
+        "start": 188.72,
+        "duration": 2.455
+    },
+    {
+        "text": "we have an endpoint /API/messages,",
+        "start": 191.175,
+        "duration": 2.205
+    },
+    {
+        "text": "and that's where the emulate will actually send the messages to.",
+        "start": 193.38,
+        "duration": 4.055
+    },
+    {
+        "text": "That's going to be handled by the built-in bot framework adapter.",
+        "start": 197.435,
+        "duration": 3.615
+    },
+    {
+        "text": "The bots can process that message,",
+        "start": 201.05,
+        "duration": 2.265
+    },
+    {
+        "text": "and then send the response back via that bot framework adapter.",
+        "start": 203.315,
+        "duration": 3.54
+    },
+    {
+        "text": "So if we switch over to Visual Studio,",
+        "start": 206.855,
+        "duration": 3.165
+    },
+    {
+        "text": "what we can see here,",
+        "start": 210.02,
+        "duration": 1.155
+    },
+    {
+        "text": "is the AdaptiveWithErrorHandler, is",
+        "start": 211.175,
+        "duration": 2.055
+    },
+    {
+        "text": "our instance of the standard buffering work adapter.",
+        "start": 213.23,
+        "duration": 3.36
+    },
+    {
+        "text": "We also have a controller,",
+        "start": 216.59,
+        "duration": 1.395
+    },
+    {
+        "text": "our bot controller, and this is the api/messages endpoint.",
+        "start": 217.985,
+        "duration": 3.99
+    },
+    {
+        "text": "The responsibility of this controller is simply to say,",
+        "start": 221.975,
+        "duration": 3.375
+    },
+    {
+        "text": "\"I'm going to hand off to that bot framework adapter,",
+        "start": 225.35,
+        "duration": 2.44
+    },
+    {
+        "text": "and I'm going to say, \"Here's the request that's coming.",
+        "start": 227.79,
+        "duration": 3.015
+    },
+    {
+        "text": "Now, send that to my bot.\"\"",
+        "start": 230.805,
+        "duration": 2.22
+    },
+    {
+        "text": "Then when the request comes back,",
+        "start": 233.025,
+        "duration": 1.805
+    },
+    {
+        "text": "then it's going to post that back",
+        "start": 234.83,
+        "duration": 1.26
+    },
+    {
+        "text": "to whichever channel that I'm working with.",
+        "start": 236.09,
+        "duration": 3.18
+    },
+    {
+        "text": ">> Totally makes sense. So the couple of questions.",
+        "start": 239.27,
+        "duration": 1.8
+    },
+    {
+        "text": ">> Yeah.",
+        "start": 241.07,
+        "duration": 0.27
+    },
+    {
+        "text": ">> So the adapters job is to transform",
+        "start": 241.34,
+        "duration": 2.1
+    },
+    {
+        "text": "the messages back and forth",
+        "start": 243.44,
+        "duration": 1.32
+    },
+    {
+        "text": "so the bot framework can understand it.",
+        "start": 244.76,
+        "duration": 1.335
+    },
+    {
+        "text": "Now, like for example,",
+        "start": 246.095,
+        "duration": 1.755
+    },
+    {
+        "text": "if I want this to work with other channels,",
+        "start": 247.85,
+        "duration": 2.31
+    },
+    {
+        "text": "do I have to have multiple adapters, or how does that work?",
+        "start": 250.16,
+        "duration": 2.505
+    },
+    {
+        "text": ">> Yes. So you would have an adapter.",
+        "start": 252.665,
+        "duration": 3.435
+    },
+    {
+        "text": "Let's say there's a channel that you would like to",
+        "start": 256.1,
+        "duration": 2.46
+    },
+    {
+        "text": "use and it's not available on Azure Bot Service yet,",
+        "start": 258.56,
+        "duration": 2.56
+    },
+    {
+        "text": "or for maybe security or compliance reasons,",
+        "start": 261.12,
+        "duration": 2.19
+    },
+    {
+        "text": "there's a reason you can't use Azure Bot Service.",
+        "start": 263.31,
+        "duration": 2.14
+    },
+    {
+        "text": "We have customer adapters built into the SDK,",
+        "start": 265.45,
+        "duration": 3.595
+    },
+    {
+        "text": "and we also have adapters which have been contributed",
+        "start": 269.045,
+        "duration": 2.565
+    },
+    {
+        "text": "to our blockbuilder community project on GitHub.",
+        "start": 271.61,
+        "duration": 2.985
+    },
+    {
+        "text": "So we've got adapters for Twilio, WebEx, WeChat.",
+        "start": 274.595,
+        "duration": 4.74
+    },
+    {
+        "text": "So there are some fairly common requirements",
+        "start": 279.335,
+        "duration": 2.955
+    },
+    {
+        "text": "that people were asking us,",
+        "start": 282.29,
+        "duration": 2.025
+    },
+    {
+        "text": "can I have my bot to WeChat.",
+        "start": 284.315,
+        "duration": 2.205
+    },
+    {
+        "text": "So we've gone ahead and built",
+        "start": 286.52,
+        "duration": 1.275
+    },
+    {
+        "text": "a WeChat adapter and made that available.",
+        "start": 287.795,
+        "duration": 2.475
+    },
+    {
+        "text": "You would have, typically,",
+        "start": 290.27,
+        "duration": 2.04
+    },
+    {
+        "text": "an adapter per platform that you want",
+        "start": 292.31,
+        "duration": 2.88
+    },
+    {
+        "text": "support that's not within the Azure Bot Service.",
+        "start": 295.19,
+        "duration": 3.385
+    },
+    {
+        "text": "To implement that is very, very straightforward.",
+        "start": 298.575,
+        "duration": 2.715
+    },
+    {
+        "text": "So first thing you do,",
+        "start": 301.29,
+        "duration": 2.44
+    },
+    {
+        "text": "is you go and find the NuGet package from NuGet,",
+        "start": 303.73,
+        "duration": 3.11
+    },
+    {
+        "text": "for the adapter you want to use.",
+        "start": 306.84,
+        "duration": 1.43
+    },
+    {
+        "text": "So the top three that you can see here,",
+        "start": 308.27,
+        "duration": 1.97
+    },
+    {
+        "text": "are Alexa, Google, and Twitter,",
+        "start": 310.24,
+        "duration": 1.63
+    },
+    {
+        "text": "which are our community adapters,",
+        "start": 311.87,
+        "duration": 2.37
+    },
+    {
+        "text": "maintained by the community,",
+        "start": 314.24,
+        "duration": 1.8
+    },
+    {
+        "text": "but also supported by the SDK team as",
+        "start": 316.04,
+        "duration": 2.4
+    },
+    {
+        "text": "well in terms of we contribute to them all the time,",
+        "start": 318.44,
+        "duration": 2.73
+    },
+    {
+        "text": "and then we've got the built-in adapters, Twilio and WebEx.",
+        "start": 321.17,
+        "duration": 3.645
+    },
+    {
+        "text": "We've also got adapters for Slack and Facebook,",
+        "start": 324.815,
+        "duration": 2.76
+    },
+    {
+        "text": "which actually have a slightly larger footprint,",
+        "start": 327.575,
+        "duration": 3.405
+    },
+    {
+        "text": "and for those two particular platforms.",
+        "start": 330.98,
+        "duration": 3.33
+    },
+    {
+        "text": "Once you've installed the particular package.",
+        "start": 334.31,
+        "duration": 2.73
+    },
+    {
+        "text": "So I've installed the Alexa adapter, in this case.",
+        "start": 337.04,
+        "duration": 2.82
+    },
+    {
+        "text": "So I want to have my bot be able to power an Alexa skill.",
+        "start": 339.86,
+        "duration": 5.415
+    },
+    {
+        "text": "But the great thing is,",
+        "start": 345.275,
+        "duration": 1.515
+    },
+    {
+        "text": "because I can just add",
+        "start": 346.79,
+        "duration": 1.89
+    },
+    {
+        "text": "an additional controller, like I have done here.",
+        "start": 348.68,
+        "duration": 2.16
+    },
+    {
+        "text": "I've added an Alexa controller.",
+        "start": 350.84,
+        "duration": 1.92
+    },
+    {
+        "text": "It adds an additional endpoint.",
+        "start": 352.76,
+        "duration": 1.95
+    },
+    {
+        "text": "So I can still have the conversation from the emulator,",
+        "start": 354.71,
+        "duration": 3.53
+    },
+    {
+        "text": "or through teams, or Facebook,",
+        "start": 358.24,
+        "duration": 1.47
+    },
+    {
+        "text": "I don't lose anything.",
+        "start": 359.71,
+        "duration": 1.255
+    },
+    {
+        "text": "But I actually add this additional endpoint for,",
+        "start": 360.965,
+        "duration": 2.7
+    },
+    {
+        "text": "in this case, Alexa.",
+        "start": 363.665,
+        "duration": 1.86
+    },
+    {
+        "text": "I've got alexa adapted with error handler class,",
+        "start": 365.525,
+        "duration": 3.675
+    },
+    {
+        "text": "which is just the electrode adapter,",
+        "start": 369.2,
+        "duration": 2.13
+    },
+    {
+        "text": "and then we're adding some standard error handling in as well.",
+        "start": 371.33,
+        "duration": 3.075
+    },
+    {
+        "text": "So really quick, you can add",
+        "start": 374.405,
+        "duration": 2.385
+    },
+    {
+        "text": "this to an existing bot in just a few minutes,",
+        "start": 376.79,
+        "duration": 2.745
+    },
+    {
+        "text": "and then what will happen,",
+        "start": 379.535,
+        "duration": 1.635
+    },
+    {
+        "text": "I've got this bot running at the moment.",
+        "start": 381.17,
+        "duration": 1.44
+    },
+    {
+        "text": "So if I switch over to this,",
+        "start": 382.61,
+        "duration": 2.61
+    },
+    {
+        "text": "this is the Alexa Developer Console.",
+        "start": 385.22,
+        "duration": 2.93
+    },
+    {
+        "text": "All I had to do here is create an Alexa Skill.",
+        "start": 388.15,
+        "duration": 4.0
+    },
+    {
+        "text": "I've registered in the Alexa Skill,",
+        "start": 392.15,
+        "duration": 1.48
+    },
+    {
+        "text": "and I've pointed that Alexa Skill such that your fulfillment",
+        "start": 393.63,
+        "duration": 3.45
+    },
+    {
+        "text": "URL is the new /API/Alexa endpoint.",
+        "start": 397.08,
+        "duration": 4.935
+    },
+    {
+        "text": "So now, any request that comes from",
+        "start": 402.015,
+        "duration": 2.375
+    },
+    {
+        "text": "Alexa is going to hit that Alexa controller,",
+        "start": 404.39,
+        "duration": 2.505
+    },
+    {
+        "text": "which is going to hand it to the Alexa adapter,",
+        "start": 406.895,
+        "duration": 2.385
+    },
+    {
+        "text": "and then that will actually transform the JSON.",
+        "start": 409.28,
+        "duration": 3.15
+    },
+    {
+        "text": "In this case, it's being received from Alexa.",
+        "start": 412.43,
+        "duration": 2.34
+    },
+    {
+        "text": "Send it to my bot in a format that they understand,",
+        "start": 414.77,
+        "duration": 2.46
+    },
+    {
+        "text": "that common format that we were already familiar with,",
+        "start": 417.23,
+        "duration": 2.83
+    },
+    {
+        "text": "and then when it comes back,",
+        "start": 420.06,
+        "duration": 1.1
+    },
+    {
+        "text": "it will transform it into an electrical response,",
+        "start": 421.16,
+        "duration": 2.115
+    },
+    {
+        "text": "and send that back to the service.",
+        "start": 423.275,
+        "duration": 1.815
+    },
+    {
+        "text": "What that allows us to do,",
+        "start": 425.09,
+        "duration": 1.635
+    },
+    {
+        "text": "is this, so I can say open flight booker.",
+        "start": 426.725,
+        "duration": 4.05
+    },
+    {
+        "text": "So just as you would say,",
+        "start": 430.775,
+        "duration": 2.625
+    },
+    {
+        "text": "I can open flight booker.",
+        "start": 433.4,
+        "duration": 3.22
+    },
+    {
+        "text": "Right now, quick tip for people,",
+        "start": 436.96,
+        "duration": 5.225
+    },
+    {
+        "text": "is I've got, I'm using Endrock,",
+        "start": 442.185,
+        "duration": 1.92
+    },
+    {
+        "text": "in this case, to actually tunneled through to my local bot.",
+        "start": 444.105,
+        "duration": 3.335
+    },
+    {
+        "text": "So it's not like the debugging experience is awesome.",
+        "start": 447.44,
+        "duration": 4.155
+    },
+    {
+        "text": "Because actually, this Alexa simulator",
+        "start": 451.595,
+        "duration": 2.595
+    },
+    {
+        "text": "is actually calling through to my local bot,",
+        "start": 454.19,
+        "duration": 1.86
+    },
+    {
+        "text": "I can stay right point in and I can understand what's happening.",
+        "start": 456.05,
+        "duration": 2.25
+    },
+    {
+        "text": ">> That's cool.",
+        "start": 458.3,
+        "duration": 0.62
+    },
+    {
+        "text": ">> What you can see has happened here,",
+        "start": 458.92,
+        "duration": 1.88
+    },
+    {
+        "text": "is we've got the JSON input,",
+        "start": 460.8,
+        "duration": 2.0
+    },
+    {
+        "text": "so I can see the full requests that Alexa sent to my bot,",
+        "start": 462.8,
+        "duration": 3.24
+    },
+    {
+        "text": "and again, I could just take a break point on",
+        "start": 466.04,
+        "duration": 2.13
+    },
+    {
+        "text": "the controller and actually see that coming in.",
+        "start": 468.17,
+        "duration": 2.595
+    },
+    {
+        "text": "You can see, the response that is being output by the bot.",
+        "start": 470.765,
+        "duration": 5.91
+    },
+    {
+        "text": "So I can then carry on having",
+        "start": 476.675,
+        "duration": 1.575
+    },
+    {
+        "text": "a multi-tenant conversation with this.",
+        "start": 478.25,
+        "duration": 1.53
+    },
+    {
+        "text": "So I can say book a flight.",
+        "start": 479.78,
+        "duration": 3.245
+    },
+    {
+        "text": "That's going to send a follow-up request.",
+        "start": 483.025,
+        "duration": 2.63
+    },
+    {
+        "text": "Because the bot framework will handle things",
+        "start": 485.655,
+        "duration": 2.945
+    },
+    {
+        "text": "like state management and it",
+        "start": 488.6,
+        "duration": 1.59
+    },
+    {
+        "text": "knows where you are in the conversation,",
+        "start": 490.19,
+        "duration": 1.71
+    },
+    {
+        "text": "you don't lose any of that.",
+        "start": 491.9,
+        "duration": 1.215
+    },
+    {
+        "text": "You retain all of that goodness within the SDK.",
+        "start": 493.115,
+        "duration": 3.63
+    },
+    {
+        "text": "You can see here, that I'm actually able to have",
+        "start": 496.745,
+        "duration": 1.965
+    },
+    {
+        "text": "a multi-tenant conversation with Alexa.",
+        "start": 498.71,
+        "duration": 2.415
+    },
+    {
+        "text": "If I wanted to, I could add in Google as well.",
+        "start": 501.125,
+        "duration": 2.835
+    },
+    {
+        "text": "So almost like the Xamarin of home assistants, in that case.",
+        "start": 503.96,
+        "duration": 3.63
+    },
+    {
+        "text": ">> That's cool.",
+        "start": 507.59,
+        "duration": 1.05
+    },
+    {
+        "text": ">> Or I could just as easily be using all",
+        "start": 508.64,
+        "duration": 1.83
+    },
+    {
+        "text": "of the adapters within the SDK,",
+        "start": 510.47,
+        "duration": 1.95
+    },
+    {
+        "text": "as well, that we've made available.",
+        "start": 512.42,
+        "duration": 2.025
+    },
+    {
+        "text": "So I guess just to color in terms of where you get started,",
+        "start": 514.445,
+        "duration": 4.575
+    },
+    {
+        "text": "we've got some fantastic jogs in",
+        "start": 519.02,
+        "duration": 3.15
+    },
+    {
+        "text": "Microsoft Docs for things like WebEx, Twilio, etc.",
+        "start": 522.17,
+        "duration": 3.435
+    },
+    {
+        "text": "So these will actually just walk you through",
+        "start": 525.605,
+        "duration": 1.905
+    },
+    {
+        "text": "how you connect the adapter up.",
+        "start": 527.51,
+        "duration": 1.77
+    },
+    {
+        "text": "It's very no more complicated than what you just saw.",
+        "start": 529.28,
+        "duration": 3.39
+    },
+    {
+        "text": "Actually, the most time-consuming bit,",
+        "start": 532.67,
+        "duration": 2.195
+    },
+    {
+        "text": "is usually configuring the platform,",
+        "start": 534.865,
+        "duration": 2.41
+    },
+    {
+        "text": "rather than configuring your bot,",
+        "start": 537.275,
+        "duration": 2.265
+    },
+    {
+        "text": "and then our Bot Builder community is an active community,",
+        "start": 539.54,
+        "duration": 5.57
+    },
+    {
+        "text": "we've got repose for all of our different SDKs.",
+        "start": 545.11,
+        "duration": 3.655
+    },
+    {
+        "text": "If I just jump into the.Net community,",
+        "start": 548.765,
+        "duration": 2.745
+    },
+    {
+        "text": "we have lots of different extensions for bot framework.",
+        "start": 551.51,
+        "duration": 3.375
+    },
+    {
+        "text": "But here are the three adapters that you can see,",
+        "start": 554.885,
+        "duration": 2.095
+    },
+    {
+        "text": "and we've got very good documentation",
+        "start": 556.98,
+        "duration": 2.045
+    },
+    {
+        "text": "here as well in terms of how you can get started.",
+        "start": 559.025,
+        "duration": 2.21
+    },
+    {
+        "text": ">> So a couple of questions. So I",
+        "start": 561.235,
+        "duration": 1.585
+    },
+    {
+        "text": "understand the notion of adapter,",
+        "start": 562.82,
+        "duration": 2.31
+    },
+    {
+        "text": "I did a bot a long time ago,",
+        "start": 565.13,
+        "duration": 2.13
+    },
+    {
+        "text": "and so maybe you can help to refresh me.",
+        "start": 567.26,
+        "duration": 1.63
+    },
+    {
+        "text": "What I did, is when I created a bot,",
+        "start": 568.89,
+        "duration": 1.64
+    },
+    {
+        "text": "I just selected the channels",
+        "start": 570.53,
+        "duration": 1.26
+    },
+    {
+        "text": "that it would work in and it would just work.",
+        "start": 571.79,
+        "duration": 1.62
+    },
+    {
+        "text": ">> Yes.",
+        "start": 573.41,
+        "duration": 0.45
+    },
+    {
+        "text": ">> When it comes to these special adapters,",
+        "start": 573.86,
+        "duration": 2.31
+    },
+    {
+        "text": "it seems like I have to do some code stuff,",
+        "start": 576.17,
+        "duration": 1.92
+    },
+    {
+        "text": "which makes sense, because you've got to do transformations.",
+        "start": 578.09,
+        "duration": 2.13
+    },
+    {
+        "text": "But how does the bot know that it can,",
+        "start": 580.22,
+        "duration": 3.14
+    },
+    {
+        "text": "for example, because let's just say,",
+        "start": 583.36,
+        "duration": 1.67
+    },
+    {
+        "text": "Teams is obviously one of the ones that's in there.",
+        "start": 585.03,
+        "duration": 2.18
+    },
+    {
+        "text": "I'm not going to do any coding for Teams,",
+        "start": 587.21,
+        "duration": 2.4
+    },
+    {
+        "text": "it will just work, and then for the adapter I have to add code.",
+        "start": 589.61,
+        "duration": 2.865
+    },
+    {
+        "text": "How does it know to do both at the same time?",
+        "start": 592.475,
+        "duration": 2.985
+    },
+    {
+        "text": ">> Right. So if we jump back to Visual Studio,",
+        "start": 595.46,
+        "duration": 3.09
+    },
+    {
+        "text": "the fact that we've got these two controls,",
+        "start": 598.55,
+        "duration": 2.85
+    },
+    {
+        "text": "the controller is being setup for that particular platform.",
+        "start": 601.4,
+        "duration": 4.29
+    },
+    {
+        "text": "So if it comes in on api/messages,",
+        "start": 605.69,
+        "duration": 1.92
+    },
+    {
+        "text": "it's going to hand it to the built-in bot framework adapter,",
+        "start": 607.61,
+        "duration": 3.11
+    },
+    {
+        "text": "and if it comes in on the lecture endpoint,",
+        "start": 610.72,
+        "duration": 2.13
+    },
+    {
+        "text": "is going to hand it to the Alexa adapter.",
+        "start": 612.85,
+        "duration": 2.05
+    },
+    {
+        "text": "By the time that incoming request gets to my bot,",
+        "start": 614.9,
+        "duration": 3.915
+    },
+    {
+        "text": "where I'm actually processing that message,",
+        "start": 618.815,
+        "duration": 3.135
+    },
+    {
+        "text": "the incoming message looks exactly the same.",
+        "start": 621.95,
+        "duration": 2.85
+    },
+    {
+        "text": "So you can build this single application,",
+        "start": 624.8,
+        "duration": 3.63
+    },
+    {
+        "text": "and send and receive messages,",
+        "start": 628.43,
+        "duration": 2.495
+    },
+    {
+        "text": "the adaptive is going to handle all that complexity for you,",
+        "start": 630.925,
+        "duration": 3.025
+    },
+    {
+        "text": "of transforming those requests in and out.",
+        "start": 633.95,
+        "duration": 3.37
+    },
+    {
+        "text": ">> I see.",
+        "start": 637.32,
+        "duration": 0.3
+    },
+    {
+        "text": ">> We can then take advantage of additional platform features.",
+        "start": 637.62,
+        "duration": 4.25
+    },
+    {
+        "text": "So the homocysteine adapters for Alexa and Google, for example,",
+        "start": 641.87,
+        "duration": 4.5
+    },
+    {
+        "text": "allow you to do things like take advantage of the screens on,",
+        "start": 646.37,
+        "duration": 4.095
+    },
+    {
+        "text": "say the Echo Show or the Google Nest Hub.",
+        "start": 650.465,
+        "duration": 2.685
+    },
+    {
+        "text": "So you can show rich cards or videos,",
+        "start": 653.15,
+        "duration": 2.955
+    },
+    {
+        "text": "and all you would do in that case,",
+        "start": 656.105,
+        "duration": 2.34
+    },
+    {
+        "text": "that's exactly the same as when you're tailoring",
+        "start": 658.445,
+        "duration": 2.565
+    },
+    {
+        "text": "your conversation for other channels.",
+        "start": 661.01,
+        "duration": 2.49
+    },
+    {
+        "text": "You can say within your bot,",
+        "start": 663.5,
+        "duration": 1.92
+    },
+    {
+        "text": "if this message has come from Alexa,",
+        "start": 665.42,
+        "duration": 3.015
+    },
+    {
+        "text": "play this video via Alexa,",
+        "start": 668.435,
+        "duration": 1.965
+    },
+    {
+        "text": "or if it's come from Google,",
+        "start": 670.4,
+        "duration": 1.65
+    },
+    {
+        "text": "send a push notification to the Android device,",
+        "start": 672.05,
+        "duration": 2.595
+    },
+    {
+        "text": "or if its come from Teams,",
+        "start": 674.645,
+        "duration": 1.265
+    },
+    {
+        "text": "I want to send a notification for the user.",
+        "start": 675.91,
+        "duration": 3.565
+    },
+    {
+        "text": ">> So let me see if I understand correctly.",
+        "start": 679.475,
+        "duration": 1.455
+    },
+    {
+        "text": "Basically, because you give it a route for",
+        "start": 680.93,
+        "duration": 2.55
+    },
+    {
+        "text": "that specific adapter, it comes in,",
+        "start": 683.48,
+        "duration": 2.745
+    },
+    {
+        "text": "and on the adapter, it does a translation,",
+        "start": 686.225,
+        "duration": 1.605
+    },
+    {
+        "text": "but then it passes it off to",
+        "start": 687.83,
+        "duration": 1.56
+    },
+    {
+        "text": "your standard bot logic that you build for everything else.",
+        "start": 689.39,
+        "duration": 3.13
+    },
+    {
+        "text": ">> Exactly.",
+        "start": 692.52,
+        "duration": 0.54
+    },
+    {
+        "text": ">> Okay.",
+        "start": 693.06,
+        "duration": 0.435
+    },
+    {
+        "text": ">> Yeah.",
+        "start": 693.495,
+        "duration": 0.18
+    },
+    {
+        "text": ">> Which makes sense. It basically redirects and",
+        "start": 693.675,
+        "duration": 1.985
+    },
+    {
+        "text": "then mix the message exactly what we want.",
+        "start": 695.66,
+        "duration": 2.595
+    },
+    {
+        "text": ">> Yeah.",
+        "start": 698.255,
+        "duration": 0.225
+    },
+    {
+        "text": ">> That's the thing. That makes more sense.",
+        "start": 698.48,
+        "duration": 2.01
+    },
+    {
+        "text": "My confusion was like,",
+        "start": 700.49,
+        "duration": 1.755
+    },
+    {
+        "text": "how does this all happen?",
+        "start": 702.245,
+        "duration": 1.395
+    },
+    {
+        "text": "But now that you're doing a routing, that makes a lot more sense.",
+        "start": 703.64,
+        "duration": 1.995
+    },
+    {
+        "text": ">> Yeah. Because it routes it.",
+        "start": 705.635,
+        "duration": 1.53
+    },
+    {
+        "text": "In theory, what that means is,",
+        "start": 707.165,
+        "duration": 1.545
+    },
+    {
+        "text": "you could build a conversation that is not",
+        "start": 708.71,
+        "duration": 3.435
+    },
+    {
+        "text": "in any way tailored to any specific channel or platform,",
+        "start": 712.145,
+        "duration": 3.675
+    },
+    {
+        "text": "which just sends and receives messages,",
+        "start": 715.82,
+        "duration": 2.05
+    },
+    {
+        "text": "and you can have an identical conversation",
+        "start": 717.87,
+        "duration": 1.79
+    },
+    {
+        "text": "on all of them, like you've just seen.",
+        "start": 719.66,
+        "duration": 1.47
+    },
+    {
+        "text": "But then you could tailor on top of that, and say, \"Well,",
+        "start": 721.13,
+        "duration": 3.33
+    },
+    {
+        "text": "if I am running in this particular context",
+        "start": 724.46,
+        "duration": 2.43
+    },
+    {
+        "text": "of a Home Assistant device,",
+        "start": 726.89,
+        "duration": 1.38
+    },
+    {
+        "text": "that I'm going to do something extra.\"",
+        "start": 728.27,
+        "duration": 1.94
+    },
+    {
+        "text": ">> Got it.",
+        "start": 730.21,
+        "duration": 0.635
+    },
+    {
+        "text": ">> Yeah.",
+        "start": 730.845,
+        "duration": 0.39
+    },
+    {
+        "text": ">> Then you would know, because in",
+        "start": 731.235,
+        "duration": 1.325
+    },
+    {
+        "text": "the conversation it would be like where it came from.",
+        "start": 732.56,
+        "duration": 1.965
+    },
+    {
+        "text": ">> Yes.",
+        "start": 734.525,
+        "duration": 0.54
+    },
+    {
+        "text": ">> It could be some switch statement or some code thing.",
+        "start": 735.065,
+        "duration": 3.48
+    },
+    {
+        "text": ">> Exactly.",
+        "start": 738.545,
+        "duration": 0.675
+    },
+    {
+        "text": ">> That makes sense. Well, this was awesome. Thanks so much.",
+        "start": 739.22,
+        "duration": 1.845
+    },
+    {
+        "text": ">> Thank you.",
+        "start": 741.065,
+        "duration": 0.54
+    },
+    {
+        "text": ">> Thank you so much for watching. We've been",
+        "start": 741.605,
+        "duration": 1.185
+    },
+    {
+        "text": "learning all about adapters,",
+        "start": 742.79,
+        "duration": 1.65
+    },
+    {
+        "text": "how you can get other things,",
+        "start": 744.44,
+        "duration": 1.635
+    },
+    {
+        "text": "channels that maybe are not available to bot framework,",
+        "start": 746.075,
+        "duration": 2.165
+    },
+    {
+        "text": "to actually work just like as if they were.",
+        "start": 748.24,
+        "duration": 2.11
+    },
+    {
+        "text": "Thanks so much for watching. We'll see you next time. Take care.",
+        "start": 750.35,
+        "duration": 9.894
+    },
+    {
+        "text": ">> [MUSIC]",
+        "start": 760.244,
+        "duration": 4.286
+    }
+]

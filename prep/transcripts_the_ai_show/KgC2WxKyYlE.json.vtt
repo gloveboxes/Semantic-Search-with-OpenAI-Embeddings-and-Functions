@@ -1,0 +1,882 @@
+[
+    {
+        "text": ">> In this special build edition of the AI Show.",
+        "start": 1.37,
+        "duration": 3.15
+    },
+    {
+        "text": "Join us as we hear from Sarah Bird,",
+        "start": 4.52,
+        "duration": 1.885
+    },
+    {
+        "text": "Principal Program Manager on the ML platform team,",
+        "start": 6.405,
+        "duration": 2.625
+    },
+    {
+        "text": "and Robin [inaudible] , distinguished engineer with",
+        "start": 9.03,
+        "duration": 2.43
+    },
+    {
+        "text": "Microsoft core operating systems and Intelligent Edge team.",
+        "start": 11.46,
+        "duration": 4.02
+    },
+    {
+        "text": "Sarah will discuss differential privacy in practice with Rob,",
+        "start": 15.48,
+        "duration": 3.885
+    },
+    {
+        "text": "one of the major co-developers of",
+        "start": 19.365,
+        "duration": 1.815
+    },
+    {
+        "text": "the White Noise platform. Make sure you tune in.",
+        "start": 21.18,
+        "duration": 2.19
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 23.37,
+        "duration": 8.55
+    },
+    {
+        "text": ">> I'm here at build Robin [inaudible] who's one of the leaders of",
+        "start": 31.92,
+        "duration": 4.32
+    },
+    {
+        "text": "the team that pioneered",
+        "start": 36.24,
+        "duration": 1.86
+    },
+    {
+        "text": "the implementations of differential privacy inside of Microsoft,",
+        "start": 38.1,
+        "duration": 3.335
+    },
+    {
+        "text": "and has been one of",
+        "start": 41.435,
+        "duration": 1.305
+    },
+    {
+        "text": "the major contributors to the White Noise platform.",
+        "start": 42.74,
+        "duration": 2.67
+    },
+    {
+        "text": "Hey Rob, can you tell us a little bit about yourself?",
+        "start": 45.41,
+        "duration": 3.375
+    },
+    {
+        "text": ">> Thanks, Sarah. Sure. I lead",
+        "start": 48.785,
+        "duration": 3.225
+    },
+    {
+        "text": "the central data engineering and data science teams for",
+        "start": 52.01,
+        "duration": 3.12
+    },
+    {
+        "text": "the core operating systems",
+        "start": 55.13,
+        "duration": 1.8
+    },
+    {
+        "text": "and Intelligent Edge group at Microsoft.",
+        "start": 56.93,
+        "duration": 2.4
+    },
+    {
+        "text": "So our team focuses on using",
+        "start": 59.33,
+        "duration": 2.43
+    },
+    {
+        "text": "diagnostic and other types of data signals,",
+        "start": 61.76,
+        "duration": 2.759
+    },
+    {
+        "text": "to provide insights on the quality and",
+        "start": 64.519,
+        "duration": 2.491
+    },
+    {
+        "text": "experiences of devices running Windows.",
+        "start": 67.01,
+        "duration": 2.684
+    },
+    {
+        "text": "We build analytics, we train models,",
+        "start": 69.694,
+        "duration": 2.46
+    },
+    {
+        "text": "and we deploy predictive systems to improve",
+        "start": 72.154,
+        "duration": 2.536
+    },
+    {
+        "text": "the quality of all of those experiences.",
+        "start": 74.69,
+        "duration": 3.215
+    },
+    {
+        "text": ">> Sounds like an awesome team.",
+        "start": 77.905,
+        "duration": 2.035
+    },
+    {
+        "text": "How did you get started with differential privacy?",
+        "start": 79.94,
+        "duration": 3.224
+    },
+    {
+        "text": ">> So Windows runs on",
+        "start": 83.164,
+        "duration": 2.986
+    },
+    {
+        "text": "more than a billion devices in people's homes,",
+        "start": 86.15,
+        "duration": 2.58
+    },
+    {
+        "text": "in their businesses, and in data science and more.",
+        "start": 88.73,
+        "duration": 2.78
+    },
+    {
+        "text": "For many people, much of",
+        "start": 91.51,
+        "duration": 1.84
+    },
+    {
+        "text": "their daily lives are experienced through their PCs.",
+        "start": 93.35,
+        "duration": 3.27
+    },
+    {
+        "text": "So these are very personal devices,",
+        "start": 96.62,
+        "duration": 2.835
+    },
+    {
+        "text": "and their privacy matters and this is true now, more than ever.",
+        "start": 99.455,
+        "duration": 4.175
+    },
+    {
+        "text": "Trust is always been part of a core of what we do in Microsoft.",
+        "start": 103.63,
+        "duration": 5.08
+    },
+    {
+        "text": "One of the strengths of Windows is support",
+        "start": 108.71,
+        "duration": 3.12
+    },
+    {
+        "text": "for a highly diverse hardware, software,",
+        "start": 111.83,
+        "duration": 3.24
+    },
+    {
+        "text": "and peripherals ecosystem with",
+        "start": 115.07,
+        "duration": 2.37
+    },
+    {
+        "text": "literally hundreds of millions of",
+        "start": 117.44,
+        "duration": 1.89
+    },
+    {
+        "text": "combinations and configurations out there.",
+        "start": 119.33,
+        "duration": 2.855
+    },
+    {
+        "text": "So managing a complex ecosystem like Windows, that's challenging.",
+        "start": 122.185,
+        "duration": 5.29
+    },
+    {
+        "text": "Our users can choose to send data to help us",
+        "start": 127.475,
+        "duration": 3.075
+    },
+    {
+        "text": "keep system security up-to-date, which is great.",
+        "start": 130.55,
+        "duration": 3.23
+    },
+    {
+        "text": "Although we only collect the data for the purposes",
+        "start": 133.78,
+        "duration": 3.28
+    },
+    {
+        "text": "of keeping those devices up-to-date and secure,",
+        "start": 137.06,
+        "duration": 3.15
+    },
+    {
+        "text": "we recognize that data could be misused,",
+        "start": 140.21,
+        "duration": 3.33
+    },
+    {
+        "text": "and this is where differential privacy comes in.",
+        "start": 143.54,
+        "duration": 2.655
+    },
+    {
+        "text": "It's just one of a wide range of",
+        "start": 146.195,
+        "duration": 1.935
+    },
+    {
+        "text": "measures that we employ to protect customers data.",
+        "start": 148.13,
+        "duration": 3.14
+    },
+    {
+        "text": "On the front line, we have policy",
+        "start": 151.27,
+        "duration": 2.2
+    },
+    {
+        "text": "and security controls, encryption,",
+        "start": 153.47,
+        "duration": 1.98
+    },
+    {
+        "text": "data expiry, delete processors,",
+        "start": 155.45,
+        "duration": 2.16
+    },
+    {
+        "text": "auditing, and other controls.",
+        "start": 157.61,
+        "duration": 2.24
+    },
+    {
+        "text": "We see differential privacy as a defense in depth tight measure,",
+        "start": 159.85,
+        "duration": 4.195
+    },
+    {
+        "text": "that can help protect customers from risks",
+        "start": 164.045,
+        "duration": 3.075
+    },
+    {
+        "text": "introduced downstream through different processing,",
+        "start": 167.12,
+        "duration": 2.94
+    },
+    {
+        "text": "reporting, dashboarding, machine learning models, etc.",
+        "start": 170.06,
+        "duration": 4.79
+    },
+    {
+        "text": ">> So you mentioned that",
+        "start": 174.85,
+        "duration": 2.35
+    },
+    {
+        "text": "differential privacy can protect the downstream data products.",
+        "start": 177.2,
+        "duration": 6.09
+    },
+    {
+        "text": "Can you give an example of what you mean by that?",
+        "start": 183.29,
+        "duration": 2.93
+    },
+    {
+        "text": ">> Yeah, sure. So one of the common things we",
+        "start": 186.22,
+        "duration": 2.89
+    },
+    {
+        "text": "do with data is dashboards and reporting.",
+        "start": 189.11,
+        "duration": 4.22
+    },
+    {
+        "text": "Dashboards help the leaders and the organization",
+        "start": 193.33,
+        "duration": 2.559
+    },
+    {
+        "text": "keep track of key roll-up metrics,",
+        "start": 195.889,
+        "duration": 2.341
+    },
+    {
+        "text": "things like counts, sums, averages, descriptive statistics.",
+        "start": 198.23,
+        "duration": 4.53
+    },
+    {
+        "text": "We usually aggregate the data into large partitions.",
+        "start": 202.76,
+        "duration": 3.3
+    },
+    {
+        "text": "So any individual's data isn't revealed,",
+        "start": 206.06,
+        "duration": 3.089
+    },
+    {
+        "text": "but there are various re-identification and reconstruction attacks",
+        "start": 209.149,
+        "duration": 5.611
+    },
+    {
+        "text": "in the literature that can operate on exact aggregates like this.",
+        "start": 214.76,
+        "duration": 4.17
+    },
+    {
+        "text": "So using differential privacy",
+        "start": 218.93,
+        "duration": 2.37
+    },
+    {
+        "text": "takes the guesswork out of that protection for us.",
+        "start": 221.3,
+        "duration": 2.94
+    },
+    {
+        "text": "We can add a small amount of noise that has",
+        "start": 224.24,
+        "duration": 2.16
+    },
+    {
+        "text": "negligible impact on the overall accuracy,",
+        "start": 226.4,
+        "duration": 2.885
+    },
+    {
+        "text": "and we get protection from a lot of these attacks.",
+        "start": 229.285,
+        "duration": 3.49
+    },
+    {
+        "text": "Similarly, we use machine learning to",
+        "start": 232.775,
+        "duration": 2.565
+    },
+    {
+        "text": "build all kinds of predictive models,",
+        "start": 235.34,
+        "duration": 2.13
+    },
+    {
+        "text": "and these have similar privacy challenges.",
+        "start": 237.47,
+        "duration": 3.09
+    },
+    {
+        "text": "Machine learning models have a lot of free types of",
+        "start": 240.56,
+        "duration": 3.42
+    },
+    {
+        "text": "parameters that can sometimes be used to memorize private data,",
+        "start": 243.98,
+        "duration": 3.735
+    },
+    {
+        "text": "like metadata fingerprints from the data.",
+        "start": 247.715,
+        "duration": 2.985
+    },
+    {
+        "text": "So people sometimes don't",
+        "start": 250.7,
+        "duration": 1.86
+    },
+    {
+        "text": "realize this because machine learning models are opaque.",
+        "start": 252.56,
+        "duration": 3.0
+    },
+    {
+        "text": "But differential privacy has this nice property that",
+        "start": 255.56,
+        "duration": 2.7
+    },
+    {
+        "text": "the privacy is preserved in post-processing.",
+        "start": 258.26,
+        "duration": 2.97
+    },
+    {
+        "text": "So we can pre-process features in",
+        "start": 261.23,
+        "duration": 2.28
+    },
+    {
+        "text": "the model to be differentially private,",
+        "start": 263.51,
+        "duration": 2.37
+    },
+    {
+        "text": "and then we can use our models",
+        "start": 265.88,
+        "duration": 2.165
+    },
+    {
+        "text": "so that they're not memorized in that private data.",
+        "start": 268.045,
+        "duration": 4.04
+    },
+    {
+        "text": ">> That's amazing. So differential privacy",
+        "start": 272.085,
+        "duration": 3.245
+    },
+    {
+        "text": "was pretty earliest age research tech,",
+        "start": 275.33,
+        "duration": 2.96
+    },
+    {
+        "text": "and not a lot of people are using it in practice.",
+        "start": 278.29,
+        "duration": 2.68
+    },
+    {
+        "text": "How did your team get started in developing it?",
+        "start": 280.97,
+        "duration": 3.215
+    },
+    {
+        "text": ">> So we've been using these technologies",
+        "start": 284.185,
+        "duration": 2.815
+    },
+    {
+        "text": "for a little more than five years now.",
+        "start": 287.0,
+        "duration": 2.7
+    },
+    {
+        "text": "We're fortunate, in that",
+        "start": 289.7,
+        "duration": 1.59
+    },
+    {
+        "text": "the differential privacy research was developed",
+        "start": 291.29,
+        "duration": 2.7
+    },
+    {
+        "text": "out of Microsoft research",
+        "start": 293.99,
+        "duration": 1.695
+    },
+    {
+        "text": "along with some other privacy technologies.",
+        "start": 295.685,
+        "duration": 2.415
+    },
+    {
+        "text": "Our first deployments of",
+        "start": 298.1,
+        "duration": 1.95
+    },
+    {
+        "text": "differential privacy came in the earliest planning for Windows 10.",
+        "start": 300.05,
+        "duration": 4.175
+    },
+    {
+        "text": "We anticipated there would be a need for",
+        "start": 304.225,
+        "duration": 2.485
+    },
+    {
+        "text": "strong defense in depth for customer privacy.",
+        "start": 306.71,
+        "duration": 3.015
+    },
+    {
+        "text": "We work closely with Microsoft research",
+        "start": 309.725,
+        "duration": 2.445
+    },
+    {
+        "text": "and deployed a local model of",
+        "start": 312.17,
+        "duration": 1.59
+    },
+    {
+        "text": "differential privacy as part of",
+        "start": 313.76,
+        "duration": 2.4
+    },
+    {
+        "text": "the Windows telemetry platform in Windows 10.",
+        "start": 316.16,
+        "duration": 2.775
+    },
+    {
+        "text": ">> In your opinion, is this technology",
+        "start": 318.935,
+        "duration": 1.995
+    },
+    {
+        "text": "something that normal companies can use,",
+        "start": 320.93,
+        "duration": 2.7
+    },
+    {
+        "text": "or are you going to need to have your own MSR on staff?",
+        "start": 323.63,
+        "duration": 3.6
+    },
+    {
+        "text": "How many privacy researchers does it take for pre-deployment?",
+        "start": 327.23,
+        "duration": 3.77
+    },
+    {
+        "text": ">> That's good question.",
+        "start": 331.0,
+        "duration": 1.645
+    },
+    {
+        "text": "We've learned a lot since the first deployments for sure,",
+        "start": 332.645,
+        "duration": 3.45
+    },
+    {
+        "text": "and many teams within Microsoft are",
+        "start": 336.095,
+        "duration": 2.055
+    },
+    {
+        "text": "now using differential privacy.",
+        "start": 338.15,
+        "duration": 2.15
+    },
+    {
+        "text": "As well as other big tech companies are using it.",
+        "start": 340.3,
+        "duration": 2.845
+    },
+    {
+        "text": "So the technology itself has become more mature.",
+        "start": 343.145,
+        "duration": 3.485
+    },
+    {
+        "text": "We're starting to see tools from",
+        "start": 346.63,
+        "duration": 1.9
+    },
+    {
+        "text": "Microsoft and other companies that make it",
+        "start": 348.53,
+        "duration": 1.935
+    },
+    {
+        "text": "easier to use and implement differential privacy in your systems.",
+        "start": 350.465,
+        "duration": 4.59
+    },
+    {
+        "text": "For companies that collect data about individuals,",
+        "start": 355.055,
+        "duration": 2.85
+    },
+    {
+        "text": "it makes sense to check out differential privacy.",
+        "start": 357.905,
+        "duration": 3.23
+    },
+    {
+        "text": "At the same time,",
+        "start": 361.135,
+        "duration": 1.39
+    },
+    {
+        "text": "differential privacy is just one piece of the puzzle.",
+        "start": 362.525,
+        "duration": 3.3
+    },
+    {
+        "text": "There's no silver bullet when it comes to privacy.",
+        "start": 365.825,
+        "duration": 3.615
+    },
+    {
+        "text": "Things we think of as stable state measures,",
+        "start": 369.44,
+        "duration": 2.73
+    },
+    {
+        "text": "strong user consent, encryption, data minimization.",
+        "start": 372.17,
+        "duration": 3.72
+    },
+    {
+        "text": "They're just as important,",
+        "start": 375.89,
+        "duration": 1.38
+    },
+    {
+        "text": "if not more so than defense in",
+        "start": 377.27,
+        "duration": 1.59
+    },
+    {
+        "text": "depth measures like differential privacy.",
+        "start": 378.86,
+        "duration": 2.81
+    },
+    {
+        "text": ">> So it sounds like tools are going to be key to making",
+        "start": 381.67,
+        "duration": 3.73
+    },
+    {
+        "text": "this technology more widely usable by more people,",
+        "start": 385.4,
+        "duration": 3.75
+    },
+    {
+        "text": "what tools do you use?",
+        "start": 389.15,
+        "duration": 1.53
+    },
+    {
+        "text": "Are using publicly available tools or in-house tools?",
+        "start": 390.68,
+        "duration": 3.74
+    },
+    {
+        "text": ">> So we use a mix of internal and public tools.",
+        "start": 394.42,
+        "duration": 3.88
+    },
+    {
+        "text": "Microsoft, as I said,",
+        "start": 398.3,
+        "duration": 1.59
+    },
+    {
+        "text": "is a platform company,",
+        "start": 399.89,
+        "duration": 1.53
+    },
+    {
+        "text": "and we use our own platforms, of course.",
+        "start": 401.42,
+        "duration": 2.955
+    },
+    {
+        "text": "Initially, our differential privacy code was custom,",
+        "start": 404.375,
+        "duration": 3.075
+    },
+    {
+        "text": "one-off written in a variety of",
+        "start": 407.45,
+        "duration": 2.25
+    },
+    {
+        "text": "languages in different parts of our product.",
+        "start": 409.7,
+        "duration": 2.835
+    },
+    {
+        "text": "But differential privacy, it benefits from transparency.",
+        "start": 412.535,
+        "duration": 4.545
+    },
+    {
+        "text": "As technology and scenarios have matured,",
+        "start": 417.08,
+        "duration": 2.61
+    },
+    {
+        "text": "we wanted to shift to something that is more open-source.",
+        "start": 419.69,
+        "duration": 3.405
+    },
+    {
+        "text": "Everyone benefits from being able to evaluate",
+        "start": 423.095,
+        "duration": 2.745
+    },
+    {
+        "text": "the algorithms in the open,",
+        "start": 425.84,
+        "duration": 2.34
+    },
+    {
+        "text": "making sure there aren't any bugs.",
+        "start": 428.18,
+        "duration": 2.03
+    },
+    {
+        "text": "We want to save other organizations and companies",
+        "start": 430.21,
+        "duration": 3.13
+    },
+    {
+        "text": "some time if they're trying to implement differential privacy.",
+        "start": 433.34,
+        "duration": 3.48
+    },
+    {
+        "text": "So we've been able to replace some of",
+        "start": 436.82,
+        "duration": 2.19
+    },
+    {
+        "text": "our custom code with the White Noise core,",
+        "start": 439.01,
+        "duration": 2.44
+    },
+    {
+        "text": "and we plan to keep contributing in deploying",
+        "start": 441.45,
+        "duration": 2.4
+    },
+    {
+        "text": "this from the open-source code base.",
+        "start": 443.85,
+        "duration": 3.115
+    },
+    {
+        "text": ">> That's so cool. Thanks for sharing.",
+        "start": 446.965,
+        "duration": 2.71
+    },
+    {
+        "text": "It's amazing to see Windows doing such cool open-source work.",
+        "start": 449.675,
+        "duration": 3.915
+    },
+    {
+        "text": "What does the future look like?",
+        "start": 453.59,
+        "duration": 1.995
+    },
+    {
+        "text": "Where do you see this technology going?",
+        "start": 455.585,
+        "duration": 3.245
+    },
+    {
+        "text": ">> Well, looking ahead I think we expect",
+        "start": 458.83,
+        "duration": 2.77
+    },
+    {
+        "text": "privacy preserving technologies are",
+        "start": 461.6,
+        "duration": 2.07
+    },
+    {
+        "text": "going to be more important than ever,",
+        "start": 463.67,
+        "duration": 1.8
+    },
+    {
+        "text": "as the stakes for individuals data,",
+        "start": 465.47,
+        "duration": 2.72
+    },
+    {
+        "text": "and the associated risks around that data continue to go up.",
+        "start": 468.19,
+        "duration": 4.205
+    },
+    {
+        "text": "We're already seeing increased adoption of",
+        "start": 472.395,
+        "duration": 2.605
+    },
+    {
+        "text": "differential privacy and other methods",
+        "start": 475.0,
+        "duration": 2.1
+    },
+    {
+        "text": "across Microsoft and across the industry.",
+        "start": 477.1,
+        "duration": 2.655
+    },
+    {
+        "text": "But there's room for improvement,",
+        "start": 479.755,
+        "duration": 1.85
+    },
+    {
+        "text": "ease of application, and integration into our tools especially.",
+        "start": 481.605,
+        "duration": 3.945
+    },
+    {
+        "text": "Like I said, Microsoft is a platform company and our hope is to",
+        "start": 485.55,
+        "duration": 3.88
+    },
+    {
+        "text": "build these capabilities into more",
+        "start": 489.43,
+        "duration": 1.95
+    },
+    {
+        "text": "of our software and data platforms.",
+        "start": 491.38,
+        "duration": 2.31
+    },
+    {
+        "text": "So our customers who build solutions for others can also",
+        "start": 493.69,
+        "duration": 3.39
+    },
+    {
+        "text": "benefit and can better protect their customers privacy as well.",
+        "start": 497.08,
+        "duration": 4.065
+    },
+    {
+        "text": "I'm really proud of the progress we've made so far and",
+        "start": 501.145,
+        "duration": 3.345
+    },
+    {
+        "text": "excited to be part of this journey with all of our partners,",
+        "start": 504.49,
+        "duration": 2.859
+    },
+    {
+        "text": "inside and outside Microsoft. Thanks, Sarah.",
+        "start": 507.349,
+        "duration": 3.281
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 510.63,
+        "duration": 12.34
+    }
+]

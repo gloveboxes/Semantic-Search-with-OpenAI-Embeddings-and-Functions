@@ -1,0 +1,1637 @@
+[
+    {
+        "text": ">> Hello, everyone. In our last shows,",
+        "start": 0.14,
+        "duration": 4.27
+    },
+    {
+        "text": "we have introduced to you",
+        "start": 4.41,
+        "duration": 1.77
+    },
+    {
+        "text": "Anomaly Detector as the API service hosted on the Cloud,",
+        "start": 6.18,
+        "duration": 4.155
+    },
+    {
+        "text": "which is an AM powered anomaly detection service.",
+        "start": 10.335,
+        "duration": 4.05
+    },
+    {
+        "text": "We also introduced the containers of Anomaly Detector,",
+        "start": 14.385,
+        "duration": 3.839
+    },
+    {
+        "text": "which is bringing the same capability to your premises.",
+        "start": 18.224,
+        "duration": 4.366
+    },
+    {
+        "text": "Anomaly Detector have such last and",
+        "start": 22.59,
+        "duration": 5.61
+    },
+    {
+        "text": "a point which is basically suitable for the streaming scenarios,",
+        "start": 28.2,
+        "duration": 5.805
+    },
+    {
+        "text": "and we also introduced that.",
+        "start": 34.005,
+        "duration": 2.955
+    },
+    {
+        "text": "You need to have an application.",
+        "start": 36.96,
+        "duration": 2.8
+    },
+    {
+        "text": "Basically, an application, that's",
+        "start": 39.76,
+        "duration": 3.72
+    },
+    {
+        "text": "a color that prepared the data and call the REST API.",
+        "start": 43.48,
+        "duration": 5.275
+    },
+    {
+        "text": "In this show, I'm going to share with",
+        "start": 48.755,
+        "duration": 3.84
+    },
+    {
+        "text": "you a real life solution that's built with",
+        "start": 52.595,
+        "duration": 4.915
+    },
+    {
+        "text": "Anomaly Detector/ REST API",
+        "start": 57.51,
+        "duration": 3.205
+    },
+    {
+        "text": "as a streaming solution and the compute infrastructure",
+        "start": 60.715,
+        "duration": 3.714
+    },
+    {
+        "text": "for the application that's playing",
+        "start": 64.429,
+        "duration": 3.421
+    },
+    {
+        "text": "as a role of a cola is Azure Data bricks.",
+        "start": 67.85,
+        "duration": 4.55
+    },
+    {
+        "text": "So the business problem that this demo system tries to adjust is",
+        "start": 73.55,
+        "duration": 7.77
+    },
+    {
+        "text": "that we'd like to monitor how people frame",
+        "start": 81.32,
+        "duration": 3.08
+    },
+    {
+        "text": "the tweets with the keyword hashtag Azure.",
+        "start": 84.4,
+        "duration": 4.985
+    },
+    {
+        "text": "The KPI is denoted by the number of likes of those tweets.",
+        "start": 89.385,
+        "duration": 5.045
+    },
+    {
+        "text": "We extract the post time and the number of likes of",
+        "start": 94.43,
+        "duration": 4.275
+    },
+    {
+        "text": "each tweet as a key metric which",
+        "start": 98.705,
+        "duration": 2.895
+    },
+    {
+        "text": "form a randomly distributed time series.",
+        "start": 101.6,
+        "duration": 3.99
+    },
+    {
+        "text": "With that, after an aggregation,",
+        "start": 105.59,
+        "duration": 3.605
+    },
+    {
+        "text": "we have an evenly distributed time series to be",
+        "start": 109.195,
+        "duration": 3.325
+    },
+    {
+        "text": "monitored by Anomaly Detector in a streaming fashion.",
+        "start": 112.52,
+        "duration": 5.02
+    },
+    {
+        "text": "This is the solution architecture.",
+        "start": 118.66,
+        "duration": 4.725
+    },
+    {
+        "text": "Twitter being a data source,",
+        "start": 123.385,
+        "duration": 2.315
+    },
+    {
+        "text": "generates real life streaming data as people post new tweets.",
+        "start": 125.7,
+        "duration": 4.89
+    },
+    {
+        "text": "In this blue rectangle which represents Azure Databricks,",
+        "start": 130.69,
+        "duration": 4.96
+    },
+    {
+        "text": "there is this first Producer Notebook which basically runs",
+        "start": 135.65,
+        "duration": 5.055
+    },
+    {
+        "text": "recurring queries against the Twitter APIs to",
+        "start": 140.705,
+        "duration": 3.165
+    },
+    {
+        "text": "retrieve the tweets with hashtag Azure,",
+        "start": 143.87,
+        "duration": 3.18
+    },
+    {
+        "text": "and then extracts the number of likes and post time of each tweet,",
+        "start": 147.05,
+        "duration": 4.83
+    },
+    {
+        "text": "and the final is sends the data as events to Azure Event Hubs.",
+        "start": 151.88,
+        "duration": 4.5
+    },
+    {
+        "text": "Then the second Consumer Notebook connects to",
+        "start": 156.38,
+        "duration": 4.44
+    },
+    {
+        "text": "the Event Hubs and listens to new events.",
+        "start": 160.82,
+        "duration": 5.17
+    },
+    {
+        "text": "It runs an hourly aggregation",
+        "start": 166.21,
+        "duration": 2.97
+    },
+    {
+        "text": "to get an evenly distributed time series,",
+        "start": 169.18,
+        "duration": 2.4
+    },
+    {
+        "text": "and of course, the Anomaly Detector APIs with that data.",
+        "start": 171.58,
+        "duration": 4.435
+    },
+    {
+        "text": "Before we dive into the code and demo,",
+        "start": 176.015,
+        "duration": 2.945
+    },
+    {
+        "text": "one thing worth mentioning is that although we are",
+        "start": 178.96,
+        "duration": 2.67
+    },
+    {
+        "text": "using Azure Databricks as the compute engine,",
+        "start": 181.63,
+        "duration": 3.43
+    },
+    {
+        "text": "in real life solutions,",
+        "start": 185.06,
+        "duration": 1.81
+    },
+    {
+        "text": "you could use virtually any computer infrastructure",
+        "start": 186.87,
+        "duration": 2.77
+    },
+    {
+        "text": "for your application.",
+        "start": 189.64,
+        "duration": 1.125
+    },
+    {
+        "text": "It could be Azure Databricks,",
+        "start": 190.765,
+        "duration": 1.785
+    },
+    {
+        "text": "Azure notebooks, Jupyter notebooks,",
+        "start": 192.55,
+        "duration": 2.235
+    },
+    {
+        "text": "Azure Functions or any IaaS on-premise infrastructure.",
+        "start": 194.785,
+        "duration": 5.795
+    },
+    {
+        "text": "Power BI can also do this.",
+        "start": 200.58,
+        "duration": 2.1
+    },
+    {
+        "text": "This demo is actually following",
+        "start": 202.68,
+        "duration": 2.85
+    },
+    {
+        "text": "the tutorial on Azure documentation of Anomaly Detector.",
+        "start": 205.53,
+        "duration": 5.43
+    },
+    {
+        "text": "I've created a short URL for you, aka.ms/adtutorialADB.",
+        "start": 210.96,
+        "duration": 6.135
+    },
+    {
+        "text": "You can go there, follow the tutorials step-by-step,",
+        "start": 217.095,
+        "duration": 3.81
+    },
+    {
+        "text": "and do the same thing that I'm going to show you.",
+        "start": 220.905,
+        "duration": 3.285
+    },
+    {
+        "text": "You need to create an Azure Event Hubs,",
+        "start": 226.37,
+        "duration": 2.95
+    },
+    {
+        "text": "Namespace and Event Hub,",
+        "start": 229.32,
+        "duration": 2.01
+    },
+    {
+        "text": "and grab the connected machine from there.",
+        "start": 231.33,
+        "duration": 2.595
+    },
+    {
+        "text": "I'm not going to show how to create that,",
+        "start": 233.925,
+        "duration": 4.905
+    },
+    {
+        "text": "but there's a quick link here,",
+        "start": 238.83,
+        "duration": 2.37
+    },
+    {
+        "text": "if you don't know how to do that.",
+        "start": 241.2,
+        "duration": 2.77
+    },
+    {
+        "text": "There's also this Azure Databricks workspace.",
+        "start": 246.89,
+        "duration": 3.82
+    },
+    {
+        "text": "In this tutorial, we have",
+        "start": 250.71,
+        "duration": 2.22
+    },
+    {
+        "text": "the detailed steps with screenshots here,",
+        "start": 252.93,
+        "duration": 2.685
+    },
+    {
+        "text": "which can guide you to create Azure Databricks workspace.",
+        "start": 255.615,
+        "duration": 5.485
+    },
+    {
+        "text": "One thing that's worth mentioning is for this demo purpose,",
+        "start": 263.59,
+        "duration": 6.645
+    },
+    {
+        "text": "do not just try off for the pricing tier.",
+        "start": 270.235,
+        "duration": 3.3
+    },
+    {
+        "text": "It will now work for the code that we are going to run.",
+        "start": 273.535,
+        "duration": 4.315
+    },
+    {
+        "text": "Normally, it takes several minutes",
+        "start": 277.85,
+        "duration": 2.7
+    },
+    {
+        "text": "to create an Azure Databricks workspace,",
+        "start": 280.55,
+        "duration": 3.29
+    },
+    {
+        "text": "and with that, what you can do is then create a Spark cluster.",
+        "start": 283.84,
+        "duration": 5.755
+    },
+    {
+        "text": "I'm going to show you.",
+        "start": 289.595,
+        "duration": 1.845
+    },
+    {
+        "text": "It's pretty straightforward.",
+        "start": 291.44,
+        "duration": 1.965
+    },
+    {
+        "text": "Go to the workspace resource on Azure portal and",
+        "start": 293.405,
+        "duration": 4.635
+    },
+    {
+        "text": "click \"Launch Workspace\" and then you",
+        "start": 298.04,
+        "duration": 2.13
+    },
+    {
+        "text": "are in the Databricks workspace.",
+        "start": 300.17,
+        "duration": 3.045
+    },
+    {
+        "text": "So there you go. This is the workspace.",
+        "start": 303.215,
+        "duration": 4.73
+    },
+    {
+        "text": "There's a link here,",
+        "start": 307.945,
+        "duration": 2.0
+    },
+    {
+        "text": "\"New Cluster\", we click it.",
+        "start": 309.945,
+        "duration": 2.845
+    },
+    {
+        "text": "You can specify any name for the cluster or remember to select",
+        "start": 312.79,
+        "duration": 5.155
+    },
+    {
+        "text": "5.2 in the dropdown",
+        "start": 317.945,
+        "duration": 5.959
+    },
+    {
+        "text": "with Scala 2.11 and a Spark 2.4.0 for our demo purpose.",
+        "start": 323.904,
+        "duration": 7.121
+    },
+    {
+        "text": "Otherwise, this capability issue was the code.",
+        "start": 331.025,
+        "duration": 5.815
+    },
+    {
+        "text": "You can leave the rest as default.",
+        "start": 337.33,
+        "duration": 3.22
+    },
+    {
+        "text": "But you do want to check that this parameter terminate",
+        "start": 340.55,
+        "duration": 5.4
+    },
+    {
+        "text": "after how many minutes of inactivity is specified.",
+        "start": 345.95,
+        "duration": 6.74
+    },
+    {
+        "text": "This ensures that when you finish a demo,",
+        "start": 352.78,
+        "duration": 4.94
+    },
+    {
+        "text": "finish building this solution,",
+        "start": 357.72,
+        "duration": 2.31
+    },
+    {
+        "text": "the cluster will not cost you.",
+        "start": 360.03,
+        "duration": 2.95
+    },
+    {
+        "text": "When the cluster is being created,",
+        "start": 363.2,
+        "duration": 3.01
+    },
+    {
+        "text": "we can't go to the tutorial and check out the next step.",
+        "start": 366.21,
+        "duration": 5.05
+    },
+    {
+        "text": "Because what we're going to do is to have an application that's",
+        "start": 371.96,
+        "duration": 4.86
+    },
+    {
+        "text": "reading data from Twitter through Twitter APIs.",
+        "start": 376.82,
+        "duration": 5.085
+    },
+    {
+        "text": "So you need to have a Twitter application and",
+        "start": 381.905,
+        "duration": 2.715
+    },
+    {
+        "text": "a Twitter developer account which",
+        "start": 384.62,
+        "duration": 3.6
+    },
+    {
+        "text": "will give you the API keys and the credentials you needed.",
+        "start": 388.22,
+        "duration": 4.455
+    },
+    {
+        "text": "So that's something that I'm not going to show here,",
+        "start": 392.675,
+        "duration": 4.415
+    },
+    {
+        "text": "but there are detailed tutorials,",
+        "start": 397.09,
+        "duration": 2.42
+    },
+    {
+        "text": "detailed steps describing this tutorial.",
+        "start": 399.51,
+        "duration": 2.81
+    },
+    {
+        "text": "You can follow that and get the API key,",
+        "start": 402.32,
+        "duration": 2.82
+    },
+    {
+        "text": "get the consumer key, the consumer secret,",
+        "start": 405.14,
+        "duration": 2.775
+    },
+    {
+        "text": "and the token, which we will",
+        "start": 407.915,
+        "duration": 4.525
+    },
+    {
+        "text": "use in the notebook that's creating data from Twitter.",
+        "start": 412.44,
+        "duration": 6.03
+    },
+    {
+        "text": "So once the cluster is created,",
+        "start": 418.47,
+        "duration": 4.005
+    },
+    {
+        "text": "what you need to do next is to attach libraries to the cluster.",
+        "start": 422.475,
+        "duration": 4.595
+    },
+    {
+        "text": "Because you want to run code,",
+        "start": 427.07,
+        "duration": 1.92
+    },
+    {
+        "text": "it will use two additional libraries;",
+        "start": 428.99,
+        "duration": 3.42
+    },
+    {
+        "text": "one for reading data from Event Hubs,",
+        "start": 432.41,
+        "duration": 2.895
+    },
+    {
+        "text": "and the other for reading data from Twitter.",
+        "start": 435.305,
+        "duration": 3.23
+    },
+    {
+        "text": "Azure for Event Hub is small like read and write.",
+        "start": 438.535,
+        "duration": 3.15
+    },
+    {
+        "text": "So when writing and the other notebook will be reading from it.",
+        "start": 441.685,
+        "duration": 5.605
+    },
+    {
+        "text": "So what you're going to do is in this workspace,",
+        "start": 447.98,
+        "duration": 6.595
+    },
+    {
+        "text": "there's the dropdown here,",
+        "start": 454.575,
+        "duration": 4.545
+    },
+    {
+        "text": "and under Create, there's this library.",
+        "start": 459.12,
+        "duration": 3.63
+    },
+    {
+        "text": "Remember to select Maven and input the coordinates",
+        "start": 462.75,
+        "duration": 6.625
+    },
+    {
+        "text": "exactly as it is on",
+        "start": 469.375,
+        "duration": 2.985
+    },
+    {
+        "text": "the tutorial because all that matters is the version again.",
+        "start": 472.36,
+        "duration": 5.2
+    },
+    {
+        "text": "The latest version actually doesn't work due to a few reasons.",
+        "start": 477.86,
+        "duration": 6.5
+    },
+    {
+        "text": "So you're going to repeat the same steps with both libraries.",
+        "start": 487.34,
+        "duration": 7.165
+    },
+    {
+        "text": "Once the libraries are created,",
+        "start": 494.505,
+        "duration": 2.985
+    },
+    {
+        "text": "you want to attach the library to",
+        "start": 497.49,
+        "duration": 1.97
+    },
+    {
+        "text": "the cluster that you previously created.",
+        "start": 499.46,
+        "duration": 5.35
+    },
+    {
+        "text": "You can do it from the Azure Databricks workspace.",
+        "start": 504.88,
+        "duration": 5.97
+    },
+    {
+        "text": "Click the \"Workspace\" button here and under shared,",
+        "start": 510.89,
+        "duration": 4.24
+    },
+    {
+        "text": "there are these libraries.",
+        "start": 515.13,
+        "duration": 2.5
+    },
+    {
+        "text": "Click on each one of them.",
+        "start": 517.73,
+        "duration": 2.92
+    },
+    {
+        "text": "As you can see,",
+        "start": 520.65,
+        "duration": 2.77
+    },
+    {
+        "text": "all your clusters will be listed here,",
+        "start": 524.45,
+        "duration": 4.149
+    },
+    {
+        "text": "and when it's running,",
+        "start": 528.599,
+        "duration": 3.496
+    },
+    {
+        "text": "microstate is still starting,",
+        "start": 532.095,
+        "duration": 1.485
+    },
+    {
+        "text": "but when it's running,",
+        "start": 533.58,
+        "duration": 1.305
+    },
+    {
+        "text": "you can actually select it and install the library on the cluster.",
+        "start": 534.885,
+        "duration": 6.915
+    },
+    {
+        "text": "In the tutorial, there's",
+        "start": 543.16,
+        "duration": 2.83
+    },
+    {
+        "text": "this screenshot that this means it's properly installed,",
+        "start": 545.99,
+        "duration": 4.515
+    },
+    {
+        "text": "and you're going to repeat the same steps for the two libraries,",
+        "start": 550.505,
+        "duration": 3.695
+    },
+    {
+        "text": "Event Hub library and the Twitter library.",
+        "start": 554.2,
+        "duration": 4.215
+    },
+    {
+        "text": "Now, the next step is about getting on,",
+        "start": 558.415,
+        "duration": 4.745
+    },
+    {
+        "text": "and I'll make detector API key.",
+        "start": 563.16,
+        "duration": 3.42
+    },
+    {
+        "text": "So that's pretty straightforward if you have",
+        "start": 566.58,
+        "duration": 2.72
+    },
+    {
+        "text": "watched our previous shows.",
+        "start": 569.3,
+        "duration": 2.89
+    },
+    {
+        "text": "In this tutorial, I've got this link,",
+        "start": 574.39,
+        "duration": 3.425
+    },
+    {
+        "text": "this quick link for you where you can",
+        "start": 577.815,
+        "duration": 4.005
+    },
+    {
+        "text": "directly jump into the",
+        "start": 581.82,
+        "duration": 3.015
+    },
+    {
+        "text": "bright for creating Anomaly Detector results.",
+        "start": 584.835,
+        "duration": 4.705
+    },
+    {
+        "text": "The key here is to get the end point and the access keys.",
+        "start": 590.18,
+        "duration": 8.96
+    },
+    {
+        "text": "Once all that is set up,",
+        "start": 599.96,
+        "duration": 2.875
+    },
+    {
+        "text": "you're ready to create the notebook and play",
+        "start": 602.835,
+        "duration": 3.495
+    },
+    {
+        "text": "with the notebooks in Databricks.",
+        "start": 606.33,
+        "duration": 4.08
+    },
+    {
+        "text": "Now, all of those prerequisites are prepared,",
+        "start": 610.41,
+        "duration": 5.415
+    },
+    {
+        "text": "we are ready to play with the notebooks.",
+        "start": 615.825,
+        "duration": 3.585
+    },
+    {
+        "text": "So what you're going to do is go to",
+        "start": 619.66,
+        "duration": 2.41
+    },
+    {
+        "text": "the cluster and create two notebooks.",
+        "start": 622.07,
+        "duration": 3.18
+    },
+    {
+        "text": "I've already created them.",
+        "start": 625.99,
+        "duration": 2.815
+    },
+    {
+        "text": "Let's check them out.",
+        "start": 628.805,
+        "duration": 2.425
+    },
+    {
+        "text": "So the first notebook is basically a data producer.",
+        "start": 633.61,
+        "duration": 6.92
+    },
+    {
+        "text": "You can grab everything from this called block in the tutorial,",
+        "start": 640.69,
+        "duration": 7.72
+    },
+    {
+        "text": "copy it, and paste it in your notebook.",
+        "start": 648.41,
+        "duration": 6.37
+    },
+    {
+        "text": "Remember to replace all the placeholders with",
+        "start": 656.77,
+        "duration": 4.73
+    },
+    {
+        "text": "your keys that you got from Twitter and from Event Hubs.",
+        "start": 661.5,
+        "duration": 5.41
+    },
+    {
+        "text": "So there are two parts of placeholders that you want to replace.",
+        "start": 667.31,
+        "duration": 7.79
+    },
+    {
+        "text": "This is exactly based on the tutorial code.",
+        "start": 678.84,
+        "duration": 5.0
+    },
+    {
+        "text": "You click \"Shift+Enter,\" it runs.",
+        "start": 684.63,
+        "duration": 4.37
+    },
+    {
+        "text": "This is my previous now result.",
+        "start": 692.73,
+        "duration": 3.65
+    },
+    {
+        "text": "When this runs, it actually loads data from Twitter and send",
+        "start": 702.03,
+        "duration": 8.44
+    },
+    {
+        "text": "over the timestamp and the number of likes to Event Hubs as events.",
+        "start": 710.47,
+        "duration": 9.01
+    },
+    {
+        "text": "Let's now go to the second notebook.",
+        "start": 727.59,
+        "duration": 3.89
+    },
+    {
+        "text": "So if you go through the tutorial,",
+        "start": 734.22,
+        "duration": 4.285
+    },
+    {
+        "text": "the second notebook actually starts from here,",
+        "start": 738.505,
+        "duration": 4.405
+    },
+    {
+        "text": "and it's splitted into",
+        "start": 745.47,
+        "duration": 3.04
+    },
+    {
+        "text": "different blocks with different functionality.",
+        "start": 748.51,
+        "duration": 6.43
+    },
+    {
+        "text": "The first one is basically defining the anomaly detector object.",
+        "start": 755.31,
+        "duration": 6.37
+    },
+    {
+        "text": "It's a class with the two functions,",
+        "start": 761.68,
+        "duration": 6.76
+    },
+    {
+        "text": "detect latest point and detect batch.",
+        "start": 769.23,
+        "duration": 3.505
+    },
+    {
+        "text": "What we are using in this demo is detect latest point.",
+        "start": 772.735,
+        "duration": 5.665
+    },
+    {
+        "text": "Nextly, it's an aggregation function.",
+        "start": 779.55,
+        "duration": 6.94
+    },
+    {
+        "text": "Or basically, is a function that it will be used the",
+        "start": 786.49,
+        "duration": 4.395
+    },
+    {
+        "text": "class that will be used later to detect anomalies.",
+        "start": 790.885,
+        "duration": 5.875
+    },
+    {
+        "text": "As you can see,",
+        "start": 802.62,
+        "duration": 2.92
+    },
+    {
+        "text": "it's calling the detect latest one function defined previously,",
+        "start": 805.54,
+        "duration": 7.3
+    },
+    {
+        "text": "using as a time series data.",
+        "start": 813.57,
+        "duration": 3.68
+    },
+    {
+        "text": "Let's run it with Databricks workspace.",
+        "start": 819.54,
+        "duration": 5.24
+    },
+    {
+        "text": "You can merge them into",
+        "start": 833.85,
+        "duration": 6.04
+    },
+    {
+        "text": "one block or split them, it will work the same.",
+        "start": 839.89,
+        "duration": 6.135
+    },
+    {
+        "text": "The next block is about loading data.",
+        "start": 846.025,
+        "duration": 4.045
+    },
+    {
+        "text": "So you need to specify a connection string,",
+        "start": 850.8,
+        "duration": 4.69
+    },
+    {
+        "text": "and this connection string is the same connection string",
+        "start": 855.49,
+        "duration": 3.21
+    },
+    {
+        "text": "with the producer notebook, the same Event Hub.",
+        "start": 858.7,
+        "duration": 5.76
+    },
+    {
+        "text": "The producer sends data and write data to the Event Hub.",
+        "start": 864.46,
+        "duration": 4.305
+    },
+    {
+        "text": "This one erase data from it.",
+        "start": 868.765,
+        "duration": 4.35
+    },
+    {
+        "text": "Now, the data is being loaded,",
+        "start": 873.115,
+        "duration": 2.91
+    },
+    {
+        "text": "we switch to TableView.",
+        "start": 876.025,
+        "duration": 2.475
+    },
+    {
+        "text": "So this is the data that's being",
+        "start": 878.5,
+        "duration": 2.535
+    },
+    {
+        "text": "sent to the Event Hub by the other notebook.",
+        "start": 881.035,
+        "duration": 5.785
+    },
+    {
+        "text": "A duty of Databricks.",
+        "start": 890.82,
+        "duration": 3.19
+    },
+    {
+        "text": "Hope that's notebook, so you can switch",
+        "start": 894.01,
+        "duration": 3.435
+    },
+    {
+        "text": "between the table and different views,",
+        "start": 897.445,
+        "duration": 4.555
+    },
+    {
+        "text": "and because it's streaming.",
+        "start": 903.51,
+        "duration": 2.785
+    },
+    {
+        "text": "So you can see, the data is constantly coming in.",
+        "start": 906.295,
+        "duration": 4.975
+    },
+    {
+        "text": "The producer notebook is still running,",
+        "start": 912.03,
+        "duration": 3.205
+    },
+    {
+        "text": "and now the consumer notebook is also running in",
+        "start": 915.235,
+        "duration": 3.945
+    },
+    {
+        "text": "a streaming fashion that's constantly loading data here.",
+        "start": 919.18,
+        "duration": 4.6
+    },
+    {
+        "text": "Now, the next part is about aggregation.",
+        "start": 926.04,
+        "duration": 5.125
+    },
+    {
+        "text": "If you see into",
+        "start": 931.165,
+        "duration": 3.975
+    },
+    {
+        "text": "details about the data that's loaded for the Event Hub,",
+        "start": 935.14,
+        "duration": 4.15
+    },
+    {
+        "text": "the data is basically randomly distributed.",
+        "start": 939.69,
+        "duration": 5.08
+    },
+    {
+        "text": "It depends on when the Twitter is post it.",
+        "start": 944.77,
+        "duration": 4.38
+    },
+    {
+        "text": "You can also view that from the chart.",
+        "start": 949.15,
+        "duration": 5.53
+    },
+    {
+        "text": "This does here, and this passed here.",
+        "start": 956.82,
+        "duration": 5.75
+    },
+    {
+        "text": "In our previous AI shows, we've mentioned that,",
+        "start": 965.31,
+        "duration": 3.415
+    },
+    {
+        "text": "if you have randomly distributed data on timeline.",
+        "start": 968.725,
+        "duration": 5.685
+    },
+    {
+        "text": "You may want to aggregate or even",
+        "start": 974.41,
+        "duration": 4.755
+    },
+    {
+        "text": "sample from the randomly distributed data",
+        "start": 979.165,
+        "duration": 4.335
+    },
+    {
+        "text": "in order to form even a distributed data.",
+        "start": 983.5,
+        "duration": 3.94
+    },
+    {
+        "text": "So this is the code block that's doing the job of aggregation.",
+        "start": 988.14,
+        "duration": 8.93
+    },
+    {
+        "text": "This is still streaming.",
+        "start": 1001.64,
+        "duration": 2.545
+    },
+    {
+        "text": "As you can see, new data is coming in,",
+        "start": 1004.185,
+        "duration": 3.795
+    },
+    {
+        "text": "and the timestamp is now evenly distributed.",
+        "start": 1007.98,
+        "duration": 5.1
+    },
+    {
+        "text": "The aggregation is basically on average.",
+        "start": 1013.08,
+        "duration": 4.53
+    },
+    {
+        "text": "Although the one-hour, every one hour.",
+        "start": 1017.61,
+        "duration": 3.855
+    },
+    {
+        "text": "You can use Max or whatever the favorable, it doesn't matter.",
+        "start": 1021.465,
+        "duration": 8.445
+    },
+    {
+        "text": "It doesn't change how you're going to use API,",
+        "start": 1029.91,
+        "duration": 3.885
+    },
+    {
+        "text": "and you are getting the data that API requests,",
+        "start": 1033.795,
+        "duration": 4.26
+    },
+    {
+        "text": "evenly distributed data, hourly distributed time series like this.",
+        "start": 1038.055,
+        "duration": 6.895
+    },
+    {
+        "text": "The next part is output.",
+        "start": 1047.93,
+        "duration": 4.09
+    },
+    {
+        "text": "This aggregation result to Delta.",
+        "start": 1052.02,
+        "duration": 3.675
+    },
+    {
+        "text": "So Delta is Data Lake Storage in",
+        "start": 1055.695,
+        "duration": 3.975
+    },
+    {
+        "text": "Azure Databricks as a Table Storage.",
+        "start": 1059.67,
+        "duration": 4.81
+    },
+    {
+        "text": "If you copy the code from the tutorial,",
+        "start": 1064.55,
+        "duration": 3.685
+    },
+    {
+        "text": "there will be the placeholders for the table name,",
+        "start": 1068.235,
+        "duration": 4.305
+    },
+    {
+        "text": "and a further check file names.",
+        "start": 1072.54,
+        "duration": 2.535
+    },
+    {
+        "text": "You need to replace that with the real names. Then let's run this.",
+        "start": 1075.075,
+        "duration": 5.605
+    },
+    {
+        "text": "The next part is showing aggregation result.",
+        "start": 1082.58,
+        "duration": 5.29
+    },
+    {
+        "text": "Because the previous block",
+        "start": 1087.87,
+        "duration": 2.925
+    },
+    {
+        "text": "basically only write data into the storage,",
+        "start": 1090.795,
+        "duration": 4.544
+    },
+    {
+        "text": "and the display function here is able to show the data,",
+        "start": 1095.339,
+        "duration": 7.711
+    },
+    {
+        "text": "show the aggregated data.",
+        "start": 1103.05,
+        "duration": 3.34
+    },
+    {
+        "text": "As you can see, there are already",
+        "start": 1111.91,
+        "duration": 3.129
+    },
+    {
+        "text": "232 data points in",
+        "start": 1115.039,
+        "duration": 7.201
+    },
+    {
+        "text": "table view like this and the internal view.",
+        "start": 1122.24,
+        "duration": 4.99
+    },
+    {
+        "text": "The last part is anomaly detection.",
+        "start": 1128.68,
+        "duration": 4.37
+    },
+    {
+        "text": "As you can see, it specifies a batch size which is",
+        "start": 1134.08,
+        "duration": 6.4
+    },
+    {
+        "text": "basically when your Window",
+        "start": 1140.48,
+        "duration": 3.99
+    },
+    {
+        "text": "or side Window of the time-series data starts.",
+        "start": 1144.47,
+        "duration": 5.2
+    },
+    {
+        "text": "This part of we'll call the API was a sliding Window of data.",
+        "start": 1149.77,
+        "duration": 5.32
+    },
+    {
+        "text": "It starts from 72 hours ago and ends at now.",
+        "start": 1155.09,
+        "duration": 10.69
+    },
+    {
+        "text": "But this part that I've selected prepares",
+        "start": 1165.88,
+        "duration": 4.63
+    },
+    {
+        "text": "the data and then this line, minus 32,",
+        "start": 1170.51,
+        "duration": 5.265
+    },
+    {
+        "text": "is actually calling all the aggregation function and the cross",
+        "start": 1175.775,
+        "duration": 5.565
+    },
+    {
+        "text": "defined above this area running and calling the API,",
+        "start": 1181.34,
+        "duration": 7.185
+    },
+    {
+        "text": "with the data that we prepared here.",
+        "start": 1188.525,
+        "duration": 4.125
+    },
+    {
+        "text": "Finally, these two lines are going to show the result.",
+        "start": 1192.65,
+        "duration": 4.14
+    },
+    {
+        "text": "I'm going to just to run it.",
+        "start": 1196.79,
+        "duration": 3.16
+    },
+    {
+        "text": "So when it's running,",
+        "start": 1200.74,
+        "duration": 3.19
+    },
+    {
+        "text": "let's scroll back to the data and there you can see,",
+        "start": 1203.93,
+        "duration": 4.155
+    },
+    {
+        "text": "it could be taking 72 data points from here.",
+        "start": 1208.085,
+        "duration": 5.935
+    },
+    {
+        "text": "Actually, now it's June 14th.",
+        "start": 1215.65,
+        "duration": 5.93
+    },
+    {
+        "text": "The data that's flowing into",
+        "start": 1222.01,
+        "duration": 3.91
+    },
+    {
+        "text": "this storage has end to come to today yet.",
+        "start": 1225.92,
+        "duration": 7.05
+    },
+    {
+        "text": "So I'm expecting a false yes.",
+        "start": 1232.97,
+        "duration": 3.3
+    },
+    {
+        "text": "So basically, there's no data.",
+        "start": 1236.27,
+        "duration": 2.94
+    },
+    {
+        "text": "Let me change this.",
+        "start": 1239.21,
+        "duration": 3.16
+    },
+    {
+        "text": "For demo purpose, you can change the end value to",
+        "start": 1242.37,
+        "duration": 4.39
+    },
+    {
+        "text": "a data point where there is data.",
+        "start": 1246.76,
+        "duration": 5.05
+    },
+    {
+        "text": "So let's start with something normal.",
+        "start": 1252.57,
+        "duration": 5.675
+    },
+    {
+        "text": "Actually, let's start with something looks abnormal,",
+        "start": 1258.245,
+        "duration": 4.68
+    },
+    {
+        "text": "something extreme like this one.",
+        "start": 1262.925,
+        "duration": 4.615
+    },
+    {
+        "text": "It's June 2nd and 0:00 a.m.",
+        "start": 1273.82,
+        "duration": 10.91
+    },
+    {
+        "text": "So I'm going to write what price this was.",
+        "start": 1284.86,
+        "duration": 6.355
+    },
+    {
+        "text": "Well two and zero. Run it again.",
+        "start": 1291.215,
+        "duration": 5.545
+    },
+    {
+        "text": "Hopefully, there will be a true,",
+        "start": 1307.03,
+        "duration": 4.405
+    },
+    {
+        "text": "which means an anomaly.",
+        "start": 1311.435,
+        "duration": 2.565
+    },
+    {
+        "text": "Yes, there we go.",
+        "start": 1314.0,
+        "duration": 2.4
+    },
+    {
+        "text": "So this data point is",
+        "start": 1316.4,
+        "duration": 4.74
+    },
+    {
+        "text": "an anomalous one and let's replace",
+        "start": 1321.14,
+        "duration": 4.08
+    },
+    {
+        "text": "the value with something like this.",
+        "start": 1325.22,
+        "duration": 4.26
+    },
+    {
+        "text": "So 1600, June 3rd,",
+        "start": 1329.48,
+        "duration": 5.2
+    },
+    {
+        "text": "and run it again.",
+        "start": 1336.82,
+        "duration": 2.83
+    },
+    {
+        "text": "Hopefully, we will get a fourth,",
+        "start": 1339.65,
+        "duration": 2.1
+    },
+    {
+        "text": "because this looks to me like we're seeing",
+        "start": 1341.75,
+        "duration": 2.46
+    },
+    {
+        "text": "the normal range. There we go.",
+        "start": 1344.21,
+        "duration": 4.29
+    },
+    {
+        "text": "Perfect. So was that?",
+        "start": 1348.5,
+        "duration": 8.53
+    },
+    {
+        "text": "We are calling the API and getting the result.",
+        "start": 1357.07,
+        "duration": 6.235
+    },
+    {
+        "text": "But this is basically running once was the assignee Window,",
+        "start": 1363.305,
+        "duration": 5.61
+    },
+    {
+        "text": "and because it's calling the last API,",
+        "start": 1368.915,
+        "duration": 2.265
+    },
+    {
+        "text": "it's telling you the last data",
+        "start": 1371.18,
+        "duration": 2.99
+    },
+    {
+        "text": "point that's specified by the end time here,",
+        "start": 1374.17,
+        "duration": 4.63
+    },
+    {
+        "text": "whether it's anomalous or not.",
+        "start": 1378.8,
+        "duration": 2.46
+    },
+    {
+        "text": "In real life, you may want to define",
+        "start": 1381.26,
+        "duration": 6.465
+    },
+    {
+        "text": "some job that's calling this part in a regular cadence.",
+        "start": 1387.725,
+        "duration": 9.825
+    },
+    {
+        "text": "So that's how the side Window works.",
+        "start": 1397.92,
+        "duration": 3.74
+    },
+    {
+        "text": "The result in this block is",
+        "start": 1404.05,
+        "duration": 3.43
+    },
+    {
+        "text": "just a small table here showing you whether it's true or false.",
+        "start": 1407.48,
+        "duration": 7.06
+    },
+    {
+        "text": "In your production environment,",
+        "start": 1414.58,
+        "duration": 2.275
+    },
+    {
+        "text": "you may want to leverage",
+        "start": 1416.855,
+        "duration": 2.34
+    },
+    {
+        "text": "the result with some visualization tools like Power BI,",
+        "start": 1419.195,
+        "duration": 7.405
+    },
+    {
+        "text": "always in your all monitoring systems.",
+        "start": 1426.88,
+        "duration": 3.985
+    },
+    {
+        "text": "The other opportunities to leverage of the result.",
+        "start": 1430.865,
+        "duration": 5.43
+    },
+    {
+        "text": "When there's an anomaly,",
+        "start": 1436.295,
+        "duration": 4.015
+    },
+    {
+        "text": "you can trigger some a lot or",
+        "start": 1440.31,
+        "duration": 2.78
+    },
+    {
+        "text": "some automated actions. Okay, that's it.",
+        "start": 1443.09,
+        "duration": 3.69
+    },
+    {
+        "text": "So you have this job defined in Azure Databricks",
+        "start": 1446.78,
+        "duration": 4.095
+    },
+    {
+        "text": "that helps you detect anomalies from your favorite tweets.",
+        "start": 1450.875,
+        "duration": 5.055
+    },
+    {
+        "text": "Of course, you can run it against",
+        "start": 1455.93,
+        "duration": 2.565
+    },
+    {
+        "text": "any streaming data in your real life production environment.",
+        "start": 1458.495,
+        "duration": 5.325
+    },
+    {
+        "text": "The data could fall from Event Hubs,",
+        "start": 1463.82,
+        "duration": 3.345
+    },
+    {
+        "text": "IoT Hub or any streaming data resource.",
+        "start": 1467.165,
+        "duration": 3.855
+    },
+    {
+        "text": "Check out this tutorial,",
+        "start": 1471.02,
+        "duration": 2.535
+    },
+    {
+        "text": "that you can follow a step-by-step to create the same application",
+        "start": 1473.555,
+        "duration": 4.635
+    },
+    {
+        "text": "that I've just shown you on aka.ms/adTutorialADB,",
+        "start": 1478.19,
+        "duration": 5.43
+    },
+    {
+        "text": "and you can also go to",
+        "start": 1483.62,
+        "duration": 2.415
+    },
+    {
+        "text": "aka.ms/AnomalyDetector to check out the overview of the service,",
+        "start": 1486.035,
+        "duration": 6.165
+    },
+    {
+        "text": "or you can search on Bing for Azure Anomaly Detector.",
+        "start": 1492.2,
+        "duration": 4.41
+    },
+    {
+        "text": "We also have a Microsoft Teams channel,",
+        "start": 1496.61,
+        "duration": 3.045
+    },
+    {
+        "text": "a community of anomaly detector customers,",
+        "start": 1499.655,
+        "duration": 3.915
+    },
+    {
+        "text": "and the Microsoft Engineering Team of Anomaly Detector.",
+        "start": 1503.57,
+        "duration": 4.2
+    },
+    {
+        "text": "If you'd like to join that,",
+        "start": 1507.77,
+        "duration": 2.025
+    },
+    {
+        "text": "please go to aka.ms/adAdvisorJoin to fill out a short form.",
+        "start": 1509.795,
+        "duration": 6.705
+    },
+    {
+        "text": "If you want to check how the containers",
+        "start": 1516.5,
+        "duration": 2.565
+    },
+    {
+        "text": "run the APIs on your on-premise,",
+        "start": 1519.065,
+        "duration": 2.97
+    },
+    {
+        "text": "go to aka.ms/adContainer to",
+        "start": 1522.035,
+        "duration": 3.525
+    },
+    {
+        "text": "fill out a form to let us know your scenario,",
+        "start": 1525.56,
+        "duration": 2.624
+    },
+    {
+        "text": "and we will share with you the credentials that you can use",
+        "start": 1528.184,
+        "duration": 3.886
+    },
+    {
+        "text": "to download the image from Azure Container Registry.",
+        "start": 1532.07,
+        "duration": 5.1
+    },
+    {
+        "text": "Thank you for watching.",
+        "start": 1537.17,
+        "duration": 1.86
+    },
+    {
+        "text": "See you next time.",
+        "start": 1539.03,
+        "duration": 2.44
+    }
+]

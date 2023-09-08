@@ -1,0 +1,2117 @@
+WEBVTT
+
+00:00:00.239 --> 00:00:03.418
+Caption: uh and today I want to talk about well
+
+00:00:01.860 --> 00:00:05.219
+Caption: I&#39;m calling it secrets of the credential
+
+00:00:03.418 --> 00:00:07.340
+Caption: management apis now has anybody heard of
+
+00:00:05.219 --> 00:00:10.379
+Caption: the credential management apis before
+
+00:00:07.340 --> 00:00:12.000
+Caption: that&#39;s one two three okay so that&#39;s
+
+00:00:10.380 --> 00:00:14.280
+Caption: actually that&#39;s five is more than
+
+00:00:12.000 --> 00:00:16.079
+Caption: normally put it up for those of but for
+
+00:00:14.279 --> 00:00:18.059
+Caption: the rest of you uh I I guess it&#39;s not so
+
+00:00:16.079 --> 00:00:19.858
+Caption: much secrets of these apis but the apis
+
+00:00:18.059 --> 00:00:22.739
+Caption: have been sort of kept a secret from you
+
+00:00:19.858 --> 00:00:25.018
+Caption: uh a little bit uh and um and we&#39;ll
+
+00:00:22.739 --> 00:00:26.518
+Caption: we&#39;ll dig into a bit of that uh soon now
+
+00:00:25.018 --> 00:00:28.018
+Caption: I also realized this is a 20 minute talk
+
+00:00:26.518 --> 00:00:29.340
+Caption: I might talk a little fast because uh
+
+00:00:28.018 --> 00:00:31.379
+Caption: the last time I gave this this was about
+
+00:00:29.340 --> 00:00:33.119
+Caption: half an hour so let&#39;s crack on with it
+
+00:00:31.379 --> 00:00:34.860
+Caption: uh my name is philanash I am a developer
+
+00:00:33.119 --> 00:00:36.119
+Caption: advantages at a company called twilio if
+
+00:00:34.860 --> 00:00:38.219
+Caption: you want to learn about twilio or talk
+
+00:00:36.119 --> 00:00:39.898
+Caption: to me again later I have a booth on the
+
+00:00:38.219 --> 00:00:41.879
+Caption: other side there uh opposite the coffee
+
+00:00:39.898 --> 00:00:44.218
+Caption: stand so come say hi to me there or
+
+00:00:41.879 --> 00:00:45.659
+Caption: catch me online I am Phil Nash all over
+
+00:00:44.219 --> 00:00:47.760
+Caption: the Internet uh Twitter LinkedIn
+
+00:00:45.659 --> 00:00:49.860
+Caption: whatever or hit me up on email
+
+00:00:47.759 --> 00:00:53.459
+Caption: filmyashatoyo.com
+
+00:00:49.860 --> 00:00:55.379
+Caption: um I have a question already yeah
+
+00:00:53.459 --> 00:00:57.840
+Caption: I love it right
+
+00:00:55.379 --> 00:01:00.059
+Caption: uh I will pay anything to have my domain
+
+00:00:57.840 --> 00:01:01.799
+Caption: name like that also some film Nash has
+
+00:01:00.058 --> 00:01:04.139
+Caption: got filmnash.com and is holding on to it
+
+00:01:01.799 --> 00:01:06.298
+Caption: and doing nothing with it anymore so but
+
+00:01:04.139 --> 00:01:07.978
+Caption: this is better this is better
+
+00:01:06.299 --> 00:01:09.119
+Caption: um cool so what I want to kind of talk
+
+00:01:07.978 --> 00:01:11.938
+Caption: about is like better authentication
+
+00:01:09.119 --> 00:01:14.340
+Caption: experiences I have this concern that uh
+
+00:01:11.939 --> 00:01:15.960
+Caption: when we build applications on the web uh
+
+00:01:14.339 --> 00:01:18.478
+Caption: that uh the important and interesting
+
+00:01:15.959 --> 00:01:19.500
+Caption: things that we work on are you know
+
+00:01:18.478 --> 00:01:21.059
+Caption: um the applications are actually
+
+00:01:19.500 --> 00:01:23.040
+Caption: building that that thing beyond the
+
+00:01:21.059 --> 00:01:24.478
+Caption: login experience the thing that users
+
+00:01:23.040 --> 00:01:26.159
+Caption: actually want to get to and that login
+
+00:01:24.478 --> 00:01:28.019
+Caption: tends to be
+
+00:01:26.158 --> 00:01:30.118
+Caption: um a friction the thing that goes in the
+
+00:01:28.019 --> 00:01:33.298
+Caption: way of of people getting to do the stuff
+
+00:01:30.119 --> 00:01:36.299
+Caption: uh that they actually uh care about uh
+
+00:01:33.299 --> 00:01:38.700
+Caption: and I want to improve that because
+
+00:01:36.299 --> 00:01:42.180
+Caption: so I was looking at some data a while
+
+00:01:38.699 --> 00:01:43.319
+Caption: back and um this 24 number comes from a
+
+00:01:42.180 --> 00:01:46.139
+Caption: survey that Google did at the end of
+
+00:01:43.319 --> 00:01:48.239
+Caption: 2018 uh about kind of security uh things
+
+00:01:46.139 --> 00:01:50.099
+Caption: that users do and 24 was the number of
+
+00:01:48.239 --> 00:01:52.739
+Caption: people who use a password manager uh
+
+00:01:50.099 --> 00:01:54.000
+Caption: from that uh survey uh 24 not bad
+
+00:01:52.739 --> 00:01:55.199
+Caption: actually pretty good number but that
+
+00:01:54.000 --> 00:01:57.059
+Caption: still means three quarters of people are
+
+00:01:55.199 --> 00:02:00.059
+Caption: not using a password manager which sort
+
+00:01:57.059 --> 00:02:02.040
+Caption: of is bad because because passwords
+
+00:02:00.059 --> 00:02:03.898
+Caption: right in fact
+
+00:02:02.040 --> 00:02:05.040
+Caption: um and and I do want to kind of prefix
+
+00:02:03.899 --> 00:02:06.719
+Caption: this by the fact that you know we&#39;re
+
+00:02:05.040 --> 00:02:09.179
+Caption: probably developers or power users of
+
+00:02:06.719 --> 00:02:11.039
+Caption: computers and our laptops uh in our
+
+00:02:09.179 --> 00:02:13.080
+Caption: daily work and we probably are amongst
+
+00:02:11.039 --> 00:02:14.639
+Caption: those 24 that do use a password manager
+
+00:02:13.080 --> 00:02:17.339
+Caption: or in fact have
+
+00:02:14.639 --> 00:02:19.199
+Caption: um uh it worked on your own login
+
+00:02:17.339 --> 00:02:20.220
+Caption: experience so that you don&#39;t have to
+
+00:02:19.199 --> 00:02:21.238
+Caption: worry about that it&#39;s normally a click
+
+00:02:20.220 --> 00:02:23.040
+Caption: you don&#39;t have to know your own password
+
+00:02:21.238 --> 00:02:24.958
+Caption: but that&#39;s not the case for most people
+
+00:02:23.039 --> 00:02:26.159
+Caption: and that&#39;s my point here
+
+00:02:24.958 --> 00:02:28.800
+Caption: um
+
+00:02:26.160 --> 00:02:30.480
+Caption: this uh awkward sort of uh flow diagram
+
+00:02:28.800 --> 00:02:32.458
+Caption: kind of is is the experience of somebody
+
+00:02:30.479 --> 00:02:33.598
+Caption: logging into a website right and it
+
+00:02:32.458 --> 00:02:35.699
+Caption: starts at the top where you hit the
+
+00:02:33.598 --> 00:02:38.339
+Caption: login page right there and immediately
+
+00:02:35.699 --> 00:02:39.539
+Caption: you asked yourself do I know my username
+
+00:02:38.339 --> 00:02:40.979
+Caption: um because that&#39;s not necessarily clear
+
+00:02:39.539 --> 00:02:42.238
+Caption: now sometimes it&#39;s your email sometimes
+
+00:02:40.979 --> 00:02:43.139
+Caption: it&#39;s something else and if you don&#39;t you
+
+00:02:42.238 --> 00:02:45.839
+Caption: have to go through a nice little
+
+00:02:43.139 --> 00:02:48.300
+Caption: username reflex um uh username reset
+
+00:02:45.839 --> 00:02:50.279
+Caption: password flow uh if you&#39;ve got past the
+
+00:02:48.300 --> 00:02:52.319
+Caption: uh like username like if the answer to
+
+00:02:50.279 --> 00:02:53.458
+Caption: this is yes and or indeed maybe uh
+
+00:02:52.319 --> 00:02:55.080
+Caption: because you can never tell until you&#39;ve
+
+00:02:53.458 --> 00:02:56.699
+Caption: put it in and we get to do I know my
+
+00:02:55.080 --> 00:02:57.958
+Caption: password and again that&#39;s the same
+
+00:02:56.699 --> 00:02:59.220
+Caption: problem maybe you do maybe you don&#39;t if
+
+00:02:57.958 --> 00:03:01.319
+Caption: you&#39;ve got it in a pass Advantage you&#39;re
+
+00:02:59.220 --> 00:03:02.580
+Caption: probably fine but if you are not if
+
+00:03:01.319 --> 00:03:05.639
+Caption: you&#39;re a regular user if you&#39;re one of
+
+00:03:02.580 --> 00:03:07.378
+Caption: the 74 of 76 of people not using one do
+
+00:03:05.639 --> 00:03:09.419
+Caption: you know your password who knows maybe
+
+00:03:07.378 --> 00:03:10.738
+Caption: you have to go through a reset flow if
+
+00:03:09.419 --> 00:03:12.479
+Caption: you think you know both of those you can
+
+00:03:10.738 --> 00:03:13.679
+Caption: enter them in and hope for the best at
+
+00:03:12.479 --> 00:03:15.119
+Caption: which point you find out whether you
+
+00:03:13.679 --> 00:03:16.919
+Caption: knew your email address sorry your
+
+00:03:15.119 --> 00:03:18.360
+Caption: username and password and either go back
+
+00:03:16.919 --> 00:03:20.518
+Caption: to the start and maybe go through one of
+
+00:03:18.360 --> 00:03:21.958
+Caption: the reset flows again or you get on and
+
+00:03:20.518 --> 00:03:24.059
+Caption: maybe hit a two-fact authentication
+
+00:03:21.958 --> 00:03:25.738
+Caption: challenge because it&#39;s a secure site and
+
+00:03:24.059 --> 00:03:27.059
+Caption: uh and then a text message is sent to
+
+00:03:25.738 --> 00:03:28.679
+Caption: your phone your phone another room you
+
+00:03:27.059 --> 00:03:30.899
+Caption: give up you close the computer you throw
+
+00:03:28.679 --> 00:03:32.639
+Caption: it out the window
+
+00:03:30.899 --> 00:03:34.799
+Caption: that&#39;s that&#39;s a sort of regular user
+
+00:03:32.639 --> 00:03:35.399
+Caption: flow of logging into a website
+
+00:03:34.800 --> 00:03:36.720
+Caption: um
+
+00:03:35.399 --> 00:03:38.279
+Caption: that&#39;s the two-factor then you get your
+
+00:03:36.720 --> 00:03:41.220
+Caption: message right yeah sure the user
+
+00:03:38.279 --> 00:03:43.440
+Caption: experience of this uh ends up being
+
+00:03:41.220 --> 00:03:45.360
+Caption: um I I have a scale of like zero to poop
+
+00:03:43.440 --> 00:03:48.180
+Caption: emoji on this and it&#39;s just poop emoji
+
+00:03:45.360 --> 00:03:49.619
+Caption: that&#39;s uh this is not a scientific scale
+
+00:03:48.179 --> 00:03:50.819
+Caption: it&#39;s just how I like to think about
+
+00:03:49.619 --> 00:03:53.339
+Caption: things
+
+00:03:50.819 --> 00:03:54.899
+Caption: um it&#39;s bad user experience and we can
+
+00:03:53.339 --> 00:03:56.220
+Caption: make it better
+
+00:03:54.899 --> 00:03:57.238
+Caption: um because it&#39;s full of friction that&#39;s
+
+00:03:56.220 --> 00:03:58.798
+Caption: what I&#39;m kind of talking about it&#39;s full
+
+00:03:57.238 --> 00:04:01.319
+Caption: of that like do I know my username do I
+
+00:03:58.798 --> 00:04:03.539
+Caption: know my password am I right about either
+
+00:04:01.319 --> 00:04:04.738
+Caption: of those uh and and how long does it
+
+00:04:03.539 --> 00:04:06.298
+Caption: take to actually get to the thing we
+
+00:04:04.738 --> 00:04:08.000
+Caption: wanted to do in the first place do we
+
+00:04:06.298 --> 00:04:11.039
+Caption: want to buy the thing do we want to
+
+00:04:08.000 --> 00:04:12.119
+Caption: carry on the service whatever so I&#39;m
+
+00:04:11.039 --> 00:04:13.798
+Caption: gonna run us through how we can do
+
+00:04:12.119 --> 00:04:16.139
+Caption: usernames and passwords better real
+
+00:04:13.798 --> 00:04:17.820
+Caption: quick I&#39;m going to start with the HTML
+
+00:04:16.139 --> 00:04:19.619
+Caption: um HTML can actually help us an awful
+
+00:04:17.820 --> 00:04:21.299
+Caption: lot in this place it makes the form more
+
+00:04:19.619 --> 00:04:23.279
+Caption: accessible it makes the experience
+
+00:04:21.299 --> 00:04:25.259
+Caption: better and quicker
+
+00:04:23.279 --> 00:04:26.880
+Caption: um and so this is what a login form
+
+00:04:25.259 --> 00:04:28.619
+Caption: might look like right we&#39;ve got a fairly
+
+00:04:26.880 --> 00:04:30.479
+Caption: straightforward form it&#39;s got two inputs
+
+00:04:28.619 --> 00:04:32.459
+Caption: uh uh
+
+00:04:30.479 --> 00:04:34.559
+Caption: a text input for our username a password
+
+00:04:32.459 --> 00:04:36.479
+Caption: input from our password the labels point
+
+00:04:34.559 --> 00:04:38.100
+Caption: to the right things it&#39;s fine it&#39;s quite
+
+00:04:36.479 --> 00:04:40.979
+Caption: good but there&#39;s more we can do to it
+
+00:04:38.100 --> 00:04:43.500
+Caption: than this the input element itself is
+
+00:04:40.979 --> 00:04:46.019
+Caption: one of my favorite elements in HTML
+
+00:04:43.500 --> 00:04:48.419
+Caption: possibly my favorite because
+
+00:04:46.019 --> 00:04:50.039
+Caption: um because of how much uh scope it has
+
+00:04:48.419 --> 00:04:51.600
+Caption: the the amount of things you can do with
+
+00:04:50.040 --> 00:04:52.860
+Caption: a single attribute that changes the
+
+00:04:51.600 --> 00:04:54.119
+Caption: behavior of an input element is
+
+00:04:52.859 --> 00:04:56.638
+Caption: incredible
+
+00:04:54.119 --> 00:04:59.279
+Caption: um the attributes available to us some
+
+00:04:56.639 --> 00:05:00.479
+Caption: are less used than others and the ones I
+
+00:04:59.279 --> 00:05:02.519
+Caption: want to kind of call out here well
+
+00:05:00.479 --> 00:05:04.320
+Caption: firstly uh the type you might be able to
+
+00:05:02.519 --> 00:05:05.879
+Caption: change an input a month to a checkbox or
+
+00:05:04.320 --> 00:05:07.740
+Caption: a radio button or something but in this
+
+00:05:05.880 --> 00:05:09.179
+Caption: particular case if my form was if my
+
+00:05:07.739 --> 00:05:10.679
+Caption: username was in fact an email address as
+
+00:05:09.179 --> 00:05:13.079
+Caption: well then we probably should change that
+
+00:05:10.679 --> 00:05:14.519
+Caption: type to an email that&#39;s going to help us
+
+00:05:13.079 --> 00:05:18.179
+Caption: on a mobile device it&#39;s going to pop up
+
+00:05:14.519 --> 00:05:19.619
+Caption: uh the keyboard which has an app symbol
+
+00:05:18.179 --> 00:05:21.839
+Caption: like prominently on it which is useful
+
+00:05:19.619 --> 00:05:23.639
+Caption: and helps people out and then we&#39;ve got
+
+00:05:21.839 --> 00:05:25.019
+Caption: autocomplete autocomplete is going to
+
+00:05:23.639 --> 00:05:26.399
+Caption: feature quite a bit in this because it&#39;s
+
+00:05:25.019 --> 00:05:29.579
+Caption: the greatest attribute the input element
+
+00:05:26.399 --> 00:05:30.720
+Caption: has uh in this case uh autocomplete
+
+00:05:29.579 --> 00:05:32.698
+Caption: username and autocomplete current
+
+00:05:30.720 --> 00:05:34.380
+Caption: password allow us to give hints to the
+
+00:05:32.699 --> 00:05:36.539
+Caption: browser and indeed to any other
+
+00:05:34.380 --> 00:05:38.100
+Caption: technology like a password manager that
+
+00:05:36.539 --> 00:05:39.360
+Caption: might want to auto fill these things in
+
+00:05:38.100 --> 00:05:39.959
+Caption: for you
+
+00:05:39.359 --> 00:05:41.758
+Caption: um
+
+00:05:39.959 --> 00:05:43.319
+Caption: username is really useful there is also
+
+00:05:41.759 --> 00:05:45.360
+Caption: order complete email but that&#39;s really
+
+00:05:43.320 --> 00:05:47.460
+Caption: for when you&#39;re um dealing with
+
+00:05:45.359 --> 00:05:49.079
+Caption: somebody&#39;s actual contact details not
+
+00:05:47.459 --> 00:05:50.519
+Caption: the thing you&#39;re using to log into a
+
+00:05:49.079 --> 00:05:52.799
+Caption: thing
+
+00:05:50.519 --> 00:05:54.319
+Caption: um current password is really cool uh
+
+00:05:52.799 --> 00:05:56.638
+Caption: because there&#39;s also a new password
+
+00:05:54.320 --> 00:05:58.020
+Caption: autocomplete uh that&#39;s particularly
+
+00:05:56.639 --> 00:05:59.279
+Caption: useful for your page where you&#39;re
+
+00:05:58.019 --> 00:06:00.720
+Caption: changing your password and you have
+
+00:05:59.279 --> 00:06:02.759
+Caption: three different password inputs on the
+
+00:06:00.720 --> 00:06:05.279
+Caption: same page one&#39;s for the old password and
+
+00:06:02.759 --> 00:06:06.959
+Caption: two are for repeating the new password
+
+00:06:05.279 --> 00:06:11.220
+Caption: um but without new password and current
+
+00:06:06.959 --> 00:06:13.440
+Caption: password uh browsers or
+
+00:06:11.220 --> 00:06:14.880
+Caption: password managers will auto fill the
+
+00:06:13.440 --> 00:06:16.019
+Caption: same thing into all three but if you
+
+00:06:14.880 --> 00:06:17.699
+Caption: have new password and current password
+
+00:06:16.019 --> 00:06:19.319
+Caption: then they&#39;ll be able to offer
+
+00:06:17.699 --> 00:06:20.339
+Caption: suggestions to the new password and the
+
+00:06:19.320 --> 00:06:23.279
+Caption: existing one to the current password
+
+00:06:20.339 --> 00:06:24.839
+Caption: actually Firefox itself offers you a
+
+00:06:23.279 --> 00:06:27.239
+Caption: secure suggestion if you have
+
+00:06:24.839 --> 00:06:28.739
+Caption: autocomplete&#39;s new password on an input
+
+00:06:27.239 --> 00:06:29.638
+Caption: really useful
+
+00:06:28.739 --> 00:06:31.918
+Caption: um certificate about these order
+
+00:06:29.639 --> 00:06:33.119
+Caption: complete look it up it&#39;s amazing I have
+
+00:06:31.919 --> 00:06:34.679
+Caption: a little demo of just kind of my
+
+00:06:33.119 --> 00:06:35.819
+Caption: existing login flow I&#39;ve got a demo
+
+00:06:34.679 --> 00:06:37.619
+Caption: application that we&#39;re going to deal
+
+00:06:35.819 --> 00:06:39.419
+Caption: with for the rest of this app and all it
+
+00:06:37.619 --> 00:06:42.359
+Caption: does is Log In which is annoying really
+
+00:06:39.419 --> 00:06:43.800
+Caption: because the entire app is 100 friction
+
+00:06:42.359 --> 00:06:45.599
+Caption: um but this
+
+00:06:43.799 --> 00:06:47.879
+Caption: it&#39;s got nothing on the other side of it
+
+00:06:45.600 --> 00:06:48.959
+Caption: it&#39;s amazing it&#39;s got a log out button
+
+00:06:47.880 --> 00:06:51.600
+Caption: um but I just want to show you like this
+
+00:06:48.959 --> 00:06:52.919
+Caption: is the existing experience right we we
+
+00:06:51.600 --> 00:06:54.539
+Caption: go to log in we have to do all the
+
+00:06:52.919 --> 00:06:56.399
+Caption: typing I happen to know my username and
+
+00:06:54.539 --> 00:06:57.959
+Caption: password for this uh the password is
+
+00:06:56.399 --> 00:06:59.699
+Caption: Secret
+
+00:06:57.959 --> 00:07:01.679
+Caption: it&#39;s the most secure six character
+
+00:06:59.699 --> 00:07:03.539
+Caption: password I can think of uh and I&#39;m
+
+00:07:01.679 --> 00:07:04.739
+Caption: logged in uh in fact I&#39;ve got a two-fact
+
+00:07:03.539 --> 00:07:06.239
+Caption: authentication message and there it is
+
+00:07:04.739 --> 00:07:07.220
+Caption: over the other side
+
+00:07:06.239 --> 00:07:10.380
+Caption: um
+
+00:07:07.220 --> 00:07:12.059
+Caption: 843293 cool uh so I had to look at my
+
+00:07:10.380 --> 00:07:14.940
+Caption: phone and then I come back over here and
+
+00:07:12.059 --> 00:07:16.679
+Caption: oh my goodness it was yeah
+
+00:07:14.940 --> 00:07:17.639
+Caption: are we logged in yet yes we&#39;re logged in
+
+00:07:16.679 --> 00:07:18.839
+Caption: cool
+
+00:07:17.639 --> 00:07:20.580
+Caption: um go away
+
+00:07:18.839 --> 00:07:21.899
+Caption: I&#39;ll come back to that later
+
+00:07:20.579 --> 00:07:23.579
+Caption: um so that&#39;s that&#39;s the sort of that&#39;s
+
+00:07:21.899 --> 00:07:26.098
+Caption: our existing slow I have to type
+
+00:07:23.579 --> 00:07:27.720
+Caption: everything in version so let&#39;s see what
+
+00:07:26.098 --> 00:07:28.859
+Caption: else we can do um that had our
+
+00:07:27.720 --> 00:07:29.819
+Caption: autocomplete attributes on it but
+
+00:07:28.859 --> 00:07:31.500
+Caption: because I wasn&#39;t using any other
+
+00:07:29.819 --> 00:07:33.179
+Caption: technology to auto complete things it
+
+00:07:31.500 --> 00:07:34.559
+Caption: didn&#39;t show up to help
+
+00:07:33.179 --> 00:07:36.000
+Caption: but this is where we get to credential
+
+00:07:34.559 --> 00:07:37.799
+Caption: management and for the people who put
+
+00:07:36.000 --> 00:07:39.119
+Caption: their uh hands up they know about this
+
+00:07:37.799 --> 00:07:40.799
+Caption: is great
+
+00:07:39.119 --> 00:07:42.179
+Caption: um credential Management apis in the
+
+00:07:40.799 --> 00:07:45.059
+Caption: browsers allow us to store and then
+
+00:07:42.179 --> 00:07:47.098
+Caption: retrieve our users credentials
+
+00:07:45.059 --> 00:07:48.959
+Caption: um and so I was annoyingly clicking away
+
+00:07:47.098 --> 00:07:50.098
+Caption: the browser pop-up there to say I would
+
+00:07:48.959 --> 00:07:52.019
+Caption: like to would you like to save your
+
+00:07:50.098 --> 00:07:53.039
+Caption: username and password in this uh but
+
+00:07:52.019 --> 00:07:54.539
+Caption: that was just kind of the browser doing
+
+00:07:53.039 --> 00:07:57.179
+Caption: on its own what we can actually hook
+
+00:07:54.539 --> 00:07:59.699
+Caption: into is is triggering that and then
+
+00:07:57.179 --> 00:08:01.440
+Caption: using it later because if we as a
+
+00:07:59.699 --> 00:08:04.380
+Caption: developer as the website trigger that
+
+00:08:01.440 --> 00:08:06.479
+Caption: app um that pop-up we&#39;re actually able
+
+00:08:04.380 --> 00:08:08.520
+Caption: to retrieve the password from the
+
+00:08:06.479 --> 00:08:10.199
+Caption: username and password from it later and
+
+00:08:08.519 --> 00:08:12.000
+Caption: make a smoother login flow and I&#39;ll show
+
+00:08:10.199 --> 00:08:13.139
+Caption: you how that works
+
+00:08:12.000 --> 00:08:14.940
+Caption: um here&#39;s what the code looks like it&#39;s
+
+00:08:13.139 --> 00:08:17.039
+Caption: actually fairly simple
+
+00:08:14.940 --> 00:08:18.899
+Caption: uh we look for the password credential
+
+00:08:17.039 --> 00:08:20.339
+Caption: to be in the window object and when we
+
+00:08:18.899 --> 00:08:22.799
+Caption: have that we can create a password
+
+00:08:20.339 --> 00:08:25.500
+Caption: credential using our user ID and
+
+00:08:22.799 --> 00:08:27.179
+Caption: password so this is once we know uh that
+
+00:08:25.500 --> 00:08:29.160
+Caption: the user ID and password is correct so
+
+00:08:27.179 --> 00:08:30.899
+Caption: this could happen at registration or on
+
+00:08:29.160 --> 00:08:32.700
+Caption: a successful login
+
+00:08:30.899 --> 00:08:34.260
+Caption: and uh and once we create that
+
+00:08:32.700 --> 00:08:36.059
+Caption: credential
+
+00:08:34.260 --> 00:08:37.979
+Caption: um oh no I&#39;ve got things there there we
+
+00:08:36.059 --> 00:08:41.039
+Caption: go this line a weight Navigator
+
+00:08:37.979 --> 00:08:42.239
+Caption: credentials store credential allows you
+
+00:08:41.039 --> 00:08:44.338
+Caption: to then
+
+00:08:42.239 --> 00:08:45.479
+Caption: store in the uh in the browser&#39;s
+
+00:08:44.338 --> 00:08:48.059
+Caption: credential management the browser&#39;s
+
+00:08:45.479 --> 00:08:49.799
+Caption: password manager and the real power of
+
+00:08:48.059 --> 00:08:51.539
+Caption: this is the next page where we get to
+
+00:08:49.799 --> 00:08:53.700
+Caption: ask for it back again so when the user
+
+00:08:51.539 --> 00:08:55.259
+Caption: comes to log in we can go and retrieve
+
+00:08:53.700 --> 00:08:57.778
+Caption: those credentials we say navigator
+
+00:08:55.260 --> 00:08:59.398
+Caption: credentials get uh password is true
+
+00:08:57.778 --> 00:09:01.859
+Caption: we&#39;re asking for password in this case
+
+00:08:59.398 --> 00:09:04.018
+Caption: and that pops up another
+
+00:09:01.859 --> 00:09:05.880
+Caption: um permissions thing from the browser to
+
+00:09:04.018 --> 00:09:08.880
+Caption: say uh do you want to log in with these
+
+00:09:05.880 --> 00:09:11.760
+Caption: credentials uh and and if the user
+
+00:09:08.880 --> 00:09:14.278
+Caption: approves that then they are through you
+
+00:09:11.760 --> 00:09:15.239
+Caption: can write a function that says that pass
+
+00:09:14.278 --> 00:09:16.919
+Caption: them through
+
+00:09:15.239 --> 00:09:18.599
+Caption: you can actually do this silently as
+
+00:09:16.919 --> 00:09:20.398
+Caption: well which is which is kind of cool I&#39;m
+
+00:09:18.599 --> 00:09:23.880
+Caption: not necessarily the biggest fan of it
+
+00:09:20.398 --> 00:09:26.039
+Caption: but uh if um uh you can kind of do that
+
+00:09:23.880 --> 00:09:27.479
+Caption: without the permissions dialogue and uh
+
+00:09:26.039 --> 00:09:28.799
+Caption: and that will pass a user straight
+
+00:09:27.479 --> 00:09:30.599
+Caption: through
+
+00:09:28.799 --> 00:09:31.679
+Caption: um or you know get the credentials for
+
+00:09:30.599 --> 00:09:33.898
+Caption: them and allow you to log them straight
+
+00:09:31.679 --> 00:09:35.880
+Caption: in no friction whatsoever I think maybe
+
+00:09:33.898 --> 00:09:36.838
+Caption: a little bit of friction is useful and
+
+00:09:35.880 --> 00:09:39.239
+Caption: so but you can turn that on with
+
+00:09:36.838 --> 00:09:40.859
+Caption: unmediated as true here
+
+00:09:39.239 --> 00:09:43.260
+Caption: um but you can make sure that
+
+00:09:40.859 --> 00:09:45.479
+Caption: permissions always pop up if say a user
+
+00:09:43.260 --> 00:09:46.979
+Caption: has specifically logged out uh and so
+
+00:09:45.479 --> 00:09:50.639
+Caption: when signing out if you call a navigator
+
+00:09:46.979 --> 00:09:52.320
+Caption: credentials um prevent silent access uh
+
+00:09:50.640 --> 00:09:53.519
+Caption: that&#39;s a good thing for you know a user
+
+00:09:52.320 --> 00:09:56.220
+Caption: property sign out they don&#39;t want to be
+
+00:09:53.518 --> 00:09:57.958
+Caption: automatically signed in again
+
+00:09:56.219 --> 00:09:59.458
+Caption: um what does this look like I think it&#39;s
+
+00:09:57.958 --> 00:10:00.838
+Caption: it&#39;s important to show kind of better
+
+00:09:59.458 --> 00:10:02.398
+Caption: what this looks like so if I go and log
+
+00:10:00.838 --> 00:10:04.859
+Caption: out I&#39;m going to go back through my
+
+00:10:02.398 --> 00:10:07.380
+Caption: process well one second I need to
+
+00:10:04.859 --> 00:10:10.079
+Caption: check out the version of the code
+
+00:10:07.380 --> 00:10:11.220
+Caption: that does this
+
+00:10:10.080 --> 00:10:13.860
+Caption: credential management there you go
+
+00:10:11.219 --> 00:10:15.119
+Caption: basically just uncommented a bunch of
+
+00:10:13.859 --> 00:10:17.159
+Caption: stuff
+
+00:10:15.119 --> 00:10:18.299
+Caption: um and now if I go and log in this time
+
+00:10:17.159 --> 00:10:20.458
+Caption: around we&#39;re going to see that same
+
+00:10:18.299 --> 00:10:22.140
+Caption: browser pop up uh to say hey do you want
+
+00:10:20.458 --> 00:10:25.018
+Caption: to store your username and password but
+
+00:10:22.140 --> 00:10:28.260
+Caption: this time I&#39;m asking for that access
+
+00:10:25.018 --> 00:10:30.599
+Caption: and I will be able to use it again later
+
+00:10:28.260 --> 00:10:32.458
+Caption: so we&#39;re going to log in we know it&#39;s
+
+00:10:30.599 --> 00:10:34.199
+Caption: successful login because we we&#39;ve
+
+00:10:32.458 --> 00:10:35.338
+Caption: succeeded I&#39;m saving it I&#39;ve got to go
+
+00:10:34.200 --> 00:10:36.720
+Caption: to my two Factor authentication we&#39;ll
+
+00:10:35.338 --> 00:10:38.039
+Caption: cover making that better in a second
+
+00:10:36.719 --> 00:10:40.619
+Caption: seven
+
+00:10:38.039 --> 00:10:42.719
+Caption: no three four three four
+
+00:10:40.619 --> 00:10:43.919
+Caption: and submit that and then through now
+
+00:10:42.719 --> 00:10:46.939
+Caption: this time I&#39;m going to log out log back
+
+00:10:43.919 --> 00:10:46.940
+Caption: in again and we see it work
+
+00:10:49.679 --> 00:10:52.338
+Caption: what is it
+
+00:10:52.559 --> 00:10:56.700
+Caption: friction exactly well it doesn&#39;t help if
+
+00:10:55.018 --> 00:10:59.639
+Caption: I&#39;m logging in and out a bunch of times
+
+00:10:56.700 --> 00:11:02.239
+Caption: but uh it is that or I didn&#39;t do the
+
+00:10:59.640 --> 00:11:02.239
+Caption: right typing
+
+00:11:03.359 --> 00:11:06.320
+Caption: let&#39;s try it one more time
+
+00:11:06.838 --> 00:11:10.559
+Caption: yeah all right cool I was right I just
+
+00:11:08.458 --> 00:11:12.000
+Caption: typed it wrong so this time around I use
+
+00:11:10.559 --> 00:11:13.380
+Caption: that credential management API and as I
+
+00:11:12.000 --> 00:11:16.018
+Caption: got a successful login I stored the
+
+00:11:13.380 --> 00:11:18.299
+Caption: thing in the browser uh so if I log out
+
+00:11:16.018 --> 00:11:21.359
+Caption: again and then go to login it&#39;s going to
+
+00:11:18.299 --> 00:11:23.518
+Caption: know it&#39;s me and suggest that in uh sign
+
+00:11:21.359 --> 00:11:26.278
+Caption: in look at that do you want to sign into
+
+00:11:23.518 --> 00:11:27.958
+Caption: this film I absolutely do sign in so
+
+00:11:26.278 --> 00:11:29.640
+Caption: we&#39;ve turned in this particular case our
+
+00:11:27.958 --> 00:11:31.619
+Caption: sign-in process from having to remember
+
+00:11:29.640 --> 00:11:34.500
+Caption: your username and password uh having to
+
+00:11:31.619 --> 00:11:36.778
+Caption: type it all in into a single click a
+
+00:11:34.500 --> 00:11:39.059
+Caption: single tap and we&#39;re through and I&#39;m
+
+00:11:36.778 --> 00:11:39.898
+Caption: very excited about that sadly obviously
+
+00:11:39.059 --> 00:11:41.458
+Caption: we&#39;ve got stuck at two Vector
+
+00:11:39.898 --> 00:11:42.179
+Caption: authentication again
+
+00:11:41.458 --> 00:11:43.799
+Caption: um
+
+00:11:42.179 --> 00:11:47.099
+Caption: which hasn&#39;t even come through now oh
+
+00:11:43.799 --> 00:11:48.539
+Caption: it&#39;s 941525 there we go I have a bank
+
+00:11:47.099 --> 00:11:50.880
+Caption: that um
+
+00:11:48.539 --> 00:11:52.259
+Caption: screams at me every time they send me a
+
+00:11:50.880 --> 00:11:54.479
+Caption: text message with a code and be like
+
+00:11:52.260 --> 00:11:56.458
+Caption: never tell anyone this and like it times
+
+00:11:54.479 --> 00:11:59.659
+Caption: out in five minutes
+
+00:11:56.458 --> 00:11:59.659
+Caption: I will tell people then
+
+00:12:00.359 --> 00:12:03.479
+Caption: it&#39;s true you shouldn&#39;t obviously share
+
+00:12:02.099 --> 00:12:05.099
+Caption: these things oh my God I&#39;m gonna run out
+
+00:12:03.479 --> 00:12:06.958
+Caption: of time brilliant so we&#39;ve got logged in
+
+00:12:05.099 --> 00:12:08.398
+Caption: let&#39;s go back I&#39;m gonna run out of time
+
+00:12:06.958 --> 00:12:09.719
+Caption: if I don&#39;t get through this uh so let&#39;s
+
+00:12:08.398 --> 00:12:11.880
+Caption: talk about two facts authentication I
+
+00:12:09.719 --> 00:12:13.018
+Caption: think it&#39;s super important because we
+
+00:12:11.880 --> 00:12:15.359
+Caption: have these
+
+00:12:13.018 --> 00:12:17.219
+Caption: um these names and passwords and people
+
+00:12:15.359 --> 00:12:19.500
+Caption: who don&#39;t use password managers and
+
+00:12:17.219 --> 00:12:21.119
+Caption: people who uh repeat themselves and use
+
+00:12:19.500 --> 00:12:22.440
+Caption: the same Parcels all the time and the
+
+00:12:21.119 --> 00:12:25.078
+Caption: whole thing is friction over and over
+
+00:12:22.440 --> 00:12:26.338
+Caption: again right uh so password reuse this
+
+00:12:25.078 --> 00:12:28.380
+Caption: was in the same survey that I mentioned
+
+00:12:26.338 --> 00:12:30.479
+Caption: at the start uh the blue slice of the
+
+00:12:28.380 --> 00:12:33.419
+Caption: pie there uh is people who reuse
+
+00:12:30.479 --> 00:12:35.880
+Caption: passwords some of the time the yellow
+
+00:12:33.419 --> 00:12:37.979
+Caption: slices people who reuse passwords all of
+
+00:12:35.880 --> 00:12:39.778
+Caption: the time I love that the people
+
+00:12:37.979 --> 00:12:42.778
+Caption: answering the survey were just like how
+
+00:12:39.778 --> 00:12:44.820
+Caption: many passwords do I have just one I just
+
+00:12:42.778 --> 00:12:46.320
+Caption: use it everywhere it&#39;s the greatest
+
+00:12:44.820 --> 00:12:48.660
+Caption: password those are the people getting
+
+00:12:46.320 --> 00:12:51.660
+Caption: hacked all of the time it was 13 of
+
+00:12:48.659 --> 00:12:54.539
+Caption: people in this particular survey 52 said
+
+00:12:51.659 --> 00:12:56.338
+Caption: some of the time uh 13 said all of the
+
+00:12:54.539 --> 00:12:58.018
+Caption: time I reuse passwords and then this
+
+00:12:56.338 --> 00:13:00.299
+Caption: nice little green slice of people who
+
+00:12:58.018 --> 00:13:02.039
+Caption: say they never reuse password 35 of
+
+00:13:00.299 --> 00:13:04.619
+Caption: people in the survey said they never
+
+00:13:02.039 --> 00:13:06.599
+Caption: reuse passwords I&#39;ll remind you that 24
+
+00:13:04.619 --> 00:13:09.479
+Caption: of people said that they use a password
+
+00:13:06.599 --> 00:13:13.338
+Caption: manager so 11 of people have a
+
+00:13:09.479 --> 00:13:13.338
+Caption: photographic memory or they&#39;re lying
+
+00:13:14.880 --> 00:13:20.700
+Caption: and that&#39;s what I use this for you
+
+00:13:17.578 --> 00:13:22.739
+Caption: um it&#39;s a bad experience and so uh and
+
+00:13:20.700 --> 00:13:24.898
+Caption: and thus you know we also do um that
+
+00:13:22.739 --> 00:13:26.278
+Caption: always comes up too tiny uh we uh the
+
+00:13:24.898 --> 00:13:28.619
+Caption: problem about this is is our problem
+
+00:13:26.278 --> 00:13:30.958
+Caption: we&#39;ve put all these problematic password
+
+00:13:28.619 --> 00:13:32.039
+Caption: things in the way of people uh your
+
+00:13:30.958 --> 00:13:34.018
+Caption: password must contain at least eight
+
+00:13:32.039 --> 00:13:35.578
+Caption: letters a capital a protagonist with
+
+00:13:34.018 --> 00:13:37.619
+Caption: good character development a Twist and a
+
+00:13:35.578 --> 00:13:39.119
+Caption: happy ending
+
+00:13:37.619 --> 00:13:40.559
+Caption: if you can you&#39;ll never remember that
+
+00:13:39.119 --> 00:13:43.799
+Caption: past or maybe you&#39;ll only ever remember
+
+00:13:40.559 --> 00:13:45.299
+Caption: that password it&#39;s a great story
+
+00:13:43.799 --> 00:13:47.278
+Caption: um but what this actually you know the
+
+00:13:45.299 --> 00:13:48.898
+Caption: real the real things we do is say we
+
+00:13:47.278 --> 00:13:50.578
+Caption: must have a capital letter uh some
+
+00:13:48.898 --> 00:13:52.078
+Caption: lowercase letters a number and a special
+
+00:13:50.578 --> 00:13:54.000
+Caption: character right and this is the perfect
+
+00:13:52.078 --> 00:13:55.559
+Caption: password for that because it does
+
+00:13:54.000 --> 00:13:56.940
+Caption: everything it&#39;s got eight characters
+
+00:13:55.559 --> 00:13:59.179
+Caption: it&#39;s got ten characters in it look at
+
+00:13:56.940 --> 00:14:02.458
+Caption: that enormously long password
+
+00:13:59.179 --> 00:14:05.039
+Caption: but this gives um attackers uh an easy
+
+00:14:02.458 --> 00:14:06.299
+Caption: way to um patternize things it&#39;s a
+
+00:14:05.039 --> 00:14:07.559
+Caption: dictionary word which starts with a
+
+00:14:06.299 --> 00:14:08.820
+Caption: capital letter ends with the number one
+
+00:14:07.559 --> 00:14:10.380
+Caption: because why would you think Beyond one
+
+00:14:08.820 --> 00:14:11.638
+Caption: and uses the exclamation point because
+
+00:14:10.380 --> 00:14:13.559
+Caption: it&#39;s a special character but it uses the
+
+00:14:11.638 --> 00:14:14.820
+Caption: same key as number one you don&#39;t even
+
+00:14:13.559 --> 00:14:16.380
+Caption: have to move your finger when you&#39;re
+
+00:14:14.820 --> 00:14:17.940
+Caption: typing it in
+
+00:14:16.380 --> 00:14:19.320
+Caption: um and so when you have patterns like
+
+00:14:17.940 --> 00:14:21.419
+Caption: this it makes it easier to Brute Force
+
+00:14:19.320 --> 00:14:23.338
+Caption: attack this kind of thing and that&#39;s a
+
+00:14:21.419 --> 00:14:25.138
+Caption: bad thing and then on the other hand uh
+
+00:14:23.338 --> 00:14:26.458
+Caption: there are sites leaking our data all out
+
+00:14:25.138 --> 00:14:27.778
+Caption: over the place
+
+00:14:26.458 --> 00:14:31.138
+Caption: um and and if you don&#39;t know how I&#39;ve
+
+00:14:27.778 --> 00:14:33.359
+Caption: beenporn.com uh that&#39;s that gathers
+
+00:14:31.138 --> 00:14:35.039
+Caption: those uh leaks those breaches and shares
+
+00:14:33.359 --> 00:14:38.159
+Caption: just tell you whether your password has
+
+00:14:35.039 --> 00:14:38.880
+Caption: been part of that and yes it has
+
+00:14:38.159 --> 00:14:40.799
+Caption: um
+
+00:14:38.880 --> 00:14:43.440
+Caption: so either other people are leaking out
+
+00:14:40.799 --> 00:14:45.059
+Caption: passwords or users are using the same
+
+00:14:43.440 --> 00:14:46.919
+Caption: password or they&#39;re using an easily
+
+00:14:45.059 --> 00:14:48.359
+Caption: broken password and so that&#39;s why we
+
+00:14:46.919 --> 00:14:50.698
+Caption: have two-factor authentication so we can
+
+00:14:48.359 --> 00:14:52.320
+Caption: have one extra Factor one other reason
+
+00:14:50.698 --> 00:14:55.138
+Caption: to believe that this person is the right
+
+00:14:52.320 --> 00:14:56.160
+Caption: person signing in uh and hooray for two
+
+00:14:55.138 --> 00:14:58.619
+Caption: Factor
+
+00:14:56.159 --> 00:15:00.239
+Caption: um but the user experience remains on
+
+00:14:58.619 --> 00:15:01.760
+Caption: the poop scale of
+
+00:15:00.239 --> 00:15:04.018
+Caption: poop
+
+00:15:01.760 --> 00:15:07.018
+Caption: because it&#39;s still more friction like I
+
+00:15:04.018 --> 00:15:10.320
+Caption: said we&#39;ve watched me struggle to enter
+
+00:15:07.018 --> 00:15:12.000
+Caption: a code several times just today and so
+
+00:15:10.320 --> 00:15:13.919
+Caption: let&#39;s make it better we can actually
+
+00:15:12.000 --> 00:15:15.898
+Caption: help these get Auto completed and auto
+
+00:15:13.919 --> 00:15:17.940
+Caption: filled in again so I&#39;m going back to the
+
+00:15:15.898 --> 00:15:20.698
+Caption: HTML and go back to autocomplete because
+
+00:15:17.940 --> 00:15:23.039
+Caption: on the input when you have a code if you
+
+00:15:20.698 --> 00:15:25.679
+Caption: include autocomplete is one time code
+
+00:15:23.039 --> 00:15:28.320
+Caption: then in Safari uh when your text message
+
+00:15:25.679 --> 00:15:31.440
+Caption: comes through uh it comes up in that
+
+00:15:28.320 --> 00:15:32.699
+Caption: little autocomplete bot on the um uh
+
+00:15:31.440 --> 00:15:34.320
+Caption: keyboard auto complete on the keyboard
+
+00:15:32.698 --> 00:15:36.239
+Caption: right and it&#39;s just this one little
+
+00:15:34.320 --> 00:15:37.559
+Caption: attribute that allows that to happen and
+
+00:15:36.239 --> 00:15:39.059
+Caption: it&#39;s wonderful and if you&#39;ve not seen it
+
+00:15:37.559 --> 00:15:41.760
+Caption: before it looks like this you go to log
+
+00:15:39.059 --> 00:15:44.278
+Caption: in you get the message sent to you and
+
+00:15:41.760 --> 00:15:46.260
+Caption: uh and as you enter just go to into the
+
+00:15:44.278 --> 00:15:48.539
+Caption: code there it is Boom all right it&#39;s too
+
+00:15:46.260 --> 00:15:49.799
+Caption: quick no friction
+
+00:15:48.539 --> 00:15:51.359
+Caption: it&#39;s wonderful
+
+00:15:49.799 --> 00:15:52.440
+Caption: um and and so you only need that one
+
+00:15:51.359 --> 00:15:53.940
+Caption: little thing for it so there it is
+
+00:15:52.440 --> 00:15:54.778
+Caption: coming up in the top of the keyboard
+
+00:15:53.940 --> 00:15:56.458
+Caption: there
+
+00:15:54.778 --> 00:15:58.198
+Caption: and you just hit that it enters with
+
+00:15:56.458 --> 00:15:59.518
+Caption: through it&#39;s glorious
+
+00:15:58.198 --> 00:16:01.859
+Caption: we can do some of the things to make
+
+00:15:59.518 --> 00:16:04.260
+Caption: this nicer uh if you&#39;re a one-time code
+
+00:16:01.859 --> 00:16:05.940
+Caption: input is a text input then you&#39;re going
+
+00:16:04.260 --> 00:16:06.958
+Caption: to see the keyboard for text which is
+
+00:16:05.940 --> 00:16:09.239
+Caption: not a good thing because it&#39;s normally
+
+00:16:06.958 --> 00:16:10.739
+Caption: six digits that we&#39;re entering and so if
+
+00:16:09.239 --> 00:16:12.359
+Caption: you actually add like input mode as
+
+00:16:10.739 --> 00:16:13.380
+Caption: numeric uh it&#39;s going to make that a
+
+00:16:12.359 --> 00:16:15.018
+Caption: better experience for people who can&#39;t
+
+00:16:13.380 --> 00:16:17.458
+Caption: Auto Complete because that brings you up
+
+00:16:15.018 --> 00:16:20.940
+Caption: your number keypad much nicer number
+
+00:16:17.458 --> 00:16:22.320
+Caption: keypad uh so let&#39;s think about that and
+
+00:16:20.940 --> 00:16:24.000
+Caption: then what about the desktop I mean this
+
+00:16:22.320 --> 00:16:26.039
+Caption: is only Safari right now and that was
+
+00:16:24.000 --> 00:16:27.599
+Caption: only iOS that that showed up there but
+
+00:16:26.039 --> 00:16:31.198
+Caption: actually if you happen to be a big
+
+00:16:27.599 --> 00:16:33.419
+Caption: Safari fan and have your desktop Safari
+
+00:16:31.198 --> 00:16:35.099
+Caption: set up as well this actually works
+
+00:16:33.419 --> 00:16:38.940
+Caption: across to the desktop
+
+00:16:35.099 --> 00:16:40.799
+Caption: um and I&#39;m gonna hold up look at that
+
+00:16:38.940 --> 00:16:42.299
+Caption: um the when the message comes through to
+
+00:16:40.799 --> 00:16:44.578
+Caption: your iPhone if you&#39;ve got iMessage like
+
+00:16:42.299 --> 00:16:46.440
+Caption: set up onto your device as well it&#39;s
+
+00:16:44.578 --> 00:16:49.619
+Caption: going to do the autocomplete on your
+
+00:16:46.440 --> 00:16:51.258
+Caption: desktop as long as you&#39;re in safari
+
+00:16:49.619 --> 00:16:53.940
+Caption: right
+
+00:16:51.258 --> 00:16:56.099
+Caption: so what&#39;s the other thing web OTP is our
+
+00:16:53.940 --> 00:16:58.320
+Caption: is our final thing here uh this is the
+
+00:16:56.099 --> 00:17:01.198
+Caption: sort of Chrome Android and pushing to a
+
+00:16:58.320 --> 00:17:02.699
+Caption: um web standard solution for this uh and
+
+00:17:01.198 --> 00:17:04.558
+Caption: it allows actually a bit more Security
+
+00:17:02.698 --> 00:17:06.479
+Caption: in this like that autocomplete kind of
+
+00:17:04.558 --> 00:17:08.399
+Caption: sort of works and but it really does
+
+00:17:06.479 --> 00:17:10.020
+Caption: actually just see a text message see
+
+00:17:08.400 --> 00:17:11.938
+Caption: like six digits in it and assume
+
+00:17:10.020 --> 00:17:13.799
+Caption: everything else Works whereas web OTP is
+
+00:17:11.938 --> 00:17:16.558
+Caption: a bit more strict than that
+
+00:17:13.798 --> 00:17:18.539
+Caption: um it enforces that the message that you
+
+00:17:16.558 --> 00:17:20.298
+Caption: send uh the two-factor authentication
+
+00:17:18.540 --> 00:17:22.859
+Caption: code into have two bits at the end of it
+
+00:17:20.298 --> 00:17:23.938
+Caption: uh an at symbol followed by the domain
+
+00:17:22.859 --> 00:17:25.739
+Caption: name on which the person should be
+
+00:17:23.938 --> 00:17:27.900
+Caption: logging in and then a hash symbol and
+
+00:17:25.739 --> 00:17:29.280
+Caption: then the code now the at symbol in the
+
+00:17:27.900 --> 00:17:31.260
+Caption: domain allows the browser and the
+
+00:17:29.280 --> 00:17:33.000
+Caption: operating system to agree uh to
+
+00:17:31.260 --> 00:17:34.859
+Caption: autocomplete on this site in this site
+
+00:17:33.000 --> 00:17:36.959
+Caption: only which is a good phishing defense
+
+00:17:34.859 --> 00:17:40.020
+Caption: right if you are being fished for your
+
+00:17:36.959 --> 00:17:42.058
+Caption: two-factor authentication code uh
+
+00:17:40.020 --> 00:17:43.558
+Caption: you&#39;re on a different domain and
+
+00:17:42.058 --> 00:17:45.119
+Caption: therefore this will not offer the
+
+00:17:43.558 --> 00:17:47.099
+Caption: autocomplete for it because it doesn&#39;t
+
+00:17:45.119 --> 00:17:50.699
+Caption: match up so it&#39;s a security thing to
+
+00:17:47.099 --> 00:17:53.640
+Caption: actually use this which is very nice
+
+00:17:50.699 --> 00:17:56.099
+Caption: um so uh web OTP actually uses that very
+
+00:17:53.640 --> 00:17:57.479
+Caption: same credential management API uh looks
+
+00:17:56.099 --> 00:17:58.979
+Caption: a little like this like this and instead
+
+00:17:57.479 --> 00:18:01.678
+Caption: of asking for the password in this case
+
+00:17:58.979 --> 00:18:03.178
+Caption: we ask for the OTP transport of SMS I
+
+00:18:01.678 --> 00:18:04.739
+Caption: really like this because
+
+00:18:03.178 --> 00:18:06.619
+Caption: um that&#39;s an array which can have one
+
+00:18:04.739 --> 00:18:09.000
+Caption: element in it which is the string SMS
+
+00:18:06.619 --> 00:18:11.219
+Caption: which is which is cool
+
+00:18:09.000 --> 00:18:12.479
+Caption: um got loads of options there to go in
+
+00:18:11.219 --> 00:18:15.058
+Caption: that array
+
+00:18:12.479 --> 00:18:16.380
+Caption: um so let&#39;s see that in action uh I&#39;m
+
+00:18:15.058 --> 00:18:18.359
+Caption: going to go to the demo and this time
+
+00:18:16.380 --> 00:18:22.140
+Caption: bring up the phone I&#39;m going to do this
+
+00:18:18.359 --> 00:18:22.140
+Caption: on the phone this time uh
+
+00:18:22.260 --> 00:18:26.099
+Caption: assuming we can get a browser there we
+
+00:18:24.359 --> 00:18:28.199
+Caption: go so if I go back and refresh this
+
+00:18:26.099 --> 00:18:30.538
+Caption: login page firstly what you&#39;ll notice is
+
+00:18:28.199 --> 00:18:32.519
+Caption: uh that because I&#39;m in logged in in both
+
+00:18:30.538 --> 00:18:34.500
+Caption: my Google account uh my Chrome account
+
+00:18:32.520 --> 00:18:35.880
+Caption: on both the desktop and the phone that
+
+00:18:34.500 --> 00:18:37.558
+Caption: it&#39;s already synced my username and
+
+00:18:35.880 --> 00:18:39.359
+Caption: password across so that is already still
+
+00:18:37.558 --> 00:18:41.520
+Caption: a One Tap process to get through the
+
+00:18:39.359 --> 00:18:45.199
+Caption: username and password section and now no
+
+00:18:41.520 --> 00:18:45.200
+Caption: I didn&#39;t restart the server no
+
+00:18:45.780 --> 00:18:51.440
+Caption: I need to you know HP try that again
+
+00:18:54.119 --> 00:18:58.699
+Caption: because that wouldn&#39;t have had the code
+
+00:18:56.699 --> 00:18:59.038
+Caption: um
+
+00:18:58.699 --> 00:19:00.659
+Caption: [Music]
+
+00:18:59.038 --> 00:19:02.279
+Caption: um
+
+00:19:00.660 --> 00:19:05.299
+Caption: I&#39;m gonna go back to login and start
+
+00:19:02.280 --> 00:19:05.299
+Caption: again I don&#39;t know
+
+00:19:05.939 --> 00:19:09.418
+Caption: back to login we get off at the login
+
+00:19:07.558 --> 00:19:11.880
+Caption: this time it&#39;s going to send me the text
+
+00:19:09.418 --> 00:19:14.099
+Caption: message and offer me to auto complete
+
+00:19:11.880 --> 00:19:15.599
+Caption: that text message
+
+00:19:14.099 --> 00:19:17.219
+Caption: so it&#39;s coming as the text and there&#39;s
+
+00:19:15.599 --> 00:19:18.479
+Caption: the permissions dialog to say hey do you
+
+00:19:17.219 --> 00:19:20.038
+Caption: want to read this and enter the code and
+
+00:19:18.479 --> 00:19:23.160
+Caption: we allow it we get access to the code
+
+00:19:20.038 --> 00:19:25.678
+Caption: and we&#39;re through our login has gone
+
+00:19:23.160 --> 00:19:28.140
+Caption: from typing typing typing finding the
+
+00:19:25.678 --> 00:19:31.019
+Caption: phone and getting in there to tap to yes
+
+00:19:28.140 --> 00:19:32.579
+Caption: log me in and tap yes use that code I
+
+00:19:31.020 --> 00:19:33.359
+Caption: think that&#39;s cool
+
+00:19:32.579 --> 00:19:35.339
+Caption: um
+
+00:19:33.359 --> 00:19:36.839
+Caption: but you might be asking
+
+00:19:35.339 --> 00:19:40.020
+Caption: uh what about the desktop in this
+
+00:19:36.839 --> 00:19:41.939
+Caption: particular case and um
+
+00:19:40.020 --> 00:19:44.640
+Caption: uh the desktop actually works as well
+
+00:19:41.939 --> 00:19:47.219
+Caption: it&#39;s very cool um I hope it works so it
+
+00:19:44.640 --> 00:19:49.799
+Caption: can be a bit finicky but if you are in
+
+00:19:47.219 --> 00:19:53.038
+Caption: Chrome uh in your Android device and
+
+00:19:49.798 --> 00:19:54.319
+Caption: your browser and they all agree with
+
+00:19:53.038 --> 00:19:57.599
+Caption: each other that you&#39;re the same person
+
+00:19:54.319 --> 00:20:00.119
+Caption: then the mobile device will offer you up
+
+00:19:57.599 --> 00:20:01.739
+Caption: to copy across the code that has arrived
+
+00:20:00.119 --> 00:20:04.439
+Caption: from the text message into the browser
+
+00:20:01.739 --> 00:20:05.880
+Caption: it tends to require the the devices to
+
+00:20:04.439 --> 00:20:07.678
+Caption: be on the same network as well that has
+
+00:20:05.880 --> 00:20:09.178
+Caption: failed for me in the past and I have not
+
+00:20:07.678 --> 00:20:10.500
+Caption: yet managed to check because this is a
+
+00:20:09.178 --> 00:20:13.500
+Caption: last minute talk I haven&#39;t managed to
+
+00:20:10.500 --> 00:20:15.599
+Caption: check if this works on this network but
+
+00:20:13.500 --> 00:20:17.099
+Caption: cross your fingers for me we&#39;re gonna go
+
+00:20:15.599 --> 00:20:19.260
+Caption: and log in we&#39;re going to sign in with a
+
+00:20:17.099 --> 00:20:21.058
+Caption: one tap and what we should see is the
+
+00:20:19.260 --> 00:20:23.520
+Caption: text message coming over here on the
+
+00:20:21.058 --> 00:20:25.319
+Caption: right hand side and then an offer to
+
+00:20:23.520 --> 00:20:26.940
+Caption: copy that across
+
+00:20:25.319 --> 00:20:29.399
+Caption: or
+
+00:20:26.939 --> 00:20:31.678
+Caption: just crash the browser in the background
+
+00:20:29.400 --> 00:20:33.479
+Caption: amazing
+
+00:20:31.678 --> 00:20:34.859
+Caption: that was unexpected
+
+00:20:33.479 --> 00:20:36.359
+Caption: um
+
+00:20:34.859 --> 00:20:39.298
+Caption: let&#39;s let&#39;s
+
+00:20:36.359 --> 00:20:40.678
+Caption: give it one more attempt at that uh I&#39;m
+
+00:20:39.298 --> 00:20:42.298
+Caption: gonna log in with that it doesn&#39;t need
+
+00:20:40.678 --> 00:20:43.260
+Caption: the browser to be open this is just the
+
+00:20:42.298 --> 00:20:46.079
+Caption: the
+
+00:20:43.260 --> 00:20:47.520
+Caption: um the device doing it and so the
+
+00:20:46.079 --> 00:20:49.199
+Caption: message should arrive and then it should
+
+00:20:47.520 --> 00:20:51.539
+Caption: give you the option there we go submit
+
+00:20:49.199 --> 00:20:53.038
+Caption: this code on the other computer if I
+
+00:20:51.538 --> 00:20:54.899
+Caption: press submit there I&#39;m hands off for the
+
+00:20:53.038 --> 00:20:57.058
+Caption: other side we submit the code and it
+
+00:20:54.900 --> 00:21:00.059
+Caption: enters it and logs me in
+
+00:20:57.058 --> 00:21:01.979
+Caption: um so uh the the security there like you
+
+00:21:00.058 --> 00:21:03.839
+Caption: have to be able you have to you know say
+
+00:21:01.979 --> 00:21:05.819
+Caption: that that code is allowed to go from
+
+00:21:03.839 --> 00:21:06.659
+Caption: this device to the computer and yeah if
+
+00:21:05.819 --> 00:21:07.739
+Caption: you&#39;re not in the same network and
+
+00:21:06.660 --> 00:21:08.760
+Caption: things like that it&#39;s not going to offer
+
+00:21:07.739 --> 00:21:10.558
+Caption: that up
+
+00:21:08.760 --> 00:21:12.000
+Caption: um but now our two-factor authentication
+
+00:21:10.558 --> 00:21:13.020
+Caption: is just a
+
+00:21:12.000 --> 00:21:15.780
+Caption: um
+
+00:21:13.020 --> 00:21:17.160
+Caption: it&#39;s much less friction uh so it works
+
+00:21:15.780 --> 00:21:19.559
+Caption: across the desktop as well at least if
+
+00:21:17.160 --> 00:21:20.940
+Caption: you&#39;re in Chrome and Chrome uh just
+
+00:21:19.558 --> 00:21:23.219
+Caption: talking a little bit about the future
+
+00:21:20.939 --> 00:21:24.959
+Caption: like I I kind of
+
+00:21:23.219 --> 00:21:28.439
+Caption: um laugh at the idea that we have this
+
+00:21:24.959 --> 00:21:29.880
+Caption: uh single array uh that has one
+
+00:21:28.439 --> 00:21:31.558
+Caption: potential element to it but I like this
+
+00:21:29.880 --> 00:21:33.479
+Caption: because it&#39;s the way that Webb gets uh
+
+00:21:31.558 --> 00:21:35.399
+Caption: designed and designed well it&#39;s it&#39;s
+
+00:21:33.479 --> 00:21:36.719
+Caption: designed for extensibility and if we
+
+00:21:35.400 --> 00:21:39.960
+Caption: come up with other transports and other
+
+00:21:36.719 --> 00:21:43.199
+Caption: ways to get an OTP code from a device uh
+
+00:21:39.959 --> 00:21:44.279
+Caption: we can add to this API and so I hope uh
+
+00:21:43.199 --> 00:21:46.558
+Caption: that this is something that can be built
+
+00:21:44.280 --> 00:21:49.380
+Caption: to to deal with authenticator apps or
+
+00:21:46.558 --> 00:21:50.819
+Caption: indeed um other device based uh
+
+00:21:49.380 --> 00:21:53.159
+Caption: Authentication
+
+00:21:50.819 --> 00:21:55.259
+Caption: uh being able to web authen maybe from a
+
+00:21:53.159 --> 00:21:56.520
+Caption: from a phone to a to a desktop anything
+
+00:21:55.260 --> 00:21:59.039
+Caption: like that
+
+00:21:56.520 --> 00:22:01.500
+Caption: um this is extensible and ready but in
+
+00:21:59.038 --> 00:22:02.579
+Caption: general I think uh these little these
+
+00:22:01.500 --> 00:22:03.839
+Caption: little changes these little tweaks
+
+00:22:02.579 --> 00:22:05.158
+Caption: credential management API and the
+
+00:22:03.839 --> 00:22:07.739
+Caption: autocomplete kind of things that we have
+
+00:22:05.159 --> 00:22:09.059
+Caption: available to us allow us to uh enhance
+
+00:22:07.739 --> 00:22:10.260
+Caption: and progressively enhance because it
+
+00:22:09.058 --> 00:22:11.939
+Caption: doesn&#39;t work everywhere that
+
+00:22:10.260 --> 00:22:15.058
+Caption: progressively enhance the experience for
+
+00:22:11.939 --> 00:22:16.379
+Caption: login and uh and I&#39;d recommend that you
+
+00:22:15.058 --> 00:22:18.239
+Caption: take another look at your own login
+
+00:22:16.380 --> 00:22:19.798
+Caption: flows and see if you can reduce the
+
+00:22:18.239 --> 00:22:22.500
+Caption: friction for your users when they&#39;re
+
+00:22:19.798 --> 00:22:24.418
+Caption: getting into the into your application
+
+00:22:22.500 --> 00:22:25.979
+Caption: um that&#39;s uh that was a bit quick but
+
+00:22:24.418 --> 00:22:27.599
+Caption: hopefully that was interesting my name
+
+00:22:25.979 --> 00:22:29.099
+Caption: is I&#39;m a developer Advantage at twilio
+
+00:22:27.599 --> 00:22:31.020
+Caption: and I would love to talk and meet you
+
+00:22:29.099 --> 00:22:33.199
+Caption: over at my stand sometime later thank
+
+00:22:31.020 --> 00:22:33.200
+Caption: you
+
+00:22:35.479 --> 00:22:40.979
+Caption: foreign thank you Phil um if anyone&#39;s
+
+00:22:38.880 --> 00:22:42.780
+Caption: seen a lightning talk they&#39;re about half
+
+00:22:40.979 --> 00:22:44.939
+Caption: as slow as Phil
+
+00:22:42.780 --> 00:22:46.979
+Caption: um but for a last minute ring in and to
+
+00:22:44.939 --> 00:22:48.658
+Caption: fit into that time slot is pretty
+
+00:22:46.979 --> 00:22:53.178
+Caption: amazing so can we have one more round of
+
+00:22:48.659 --> 00:22:53.179
+Caption: applause thank you thank you
+
+00:22:53.640 --> 00:22:57.058
+Caption: we&#39;re about to kick off the next
+
+00:22:55.260 --> 00:23:00.479
+Caption: sessions in this room we have the mother
+
+00:22:57.058 --> 00:23:02.399
+Caption: of unicorns uh Ming Johansson if anyone
+
+00:23:00.479 --> 00:23:05.400
+Caption: doesn&#39;t know Ming then stick around
+
+00:23:02.400 --> 00:23:08.339
+Caption: you&#39;re in for a treat
+
+00:23:05.400 --> 00:23:11.000
+Caption: um an amazing advocate for our local
+
+00:23:08.339 --> 00:23:11.000
+Caption: Tech Community
+

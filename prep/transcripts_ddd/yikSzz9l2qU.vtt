@@ -1,0 +1,3338 @@
+WEBVTT
+
+00:00:03.950 --> 00:00:09.449
+Caption: afternoon in Rome I hope you enjoyed
+
+00:00:07.380 --> 00:00:12.809
+Caption: your lunch and refresh ready for the
+
+00:00:09.449 --> 00:00:14.788
+Caption: next session though my name is has and
+
+00:00:12.809 --> 00:00:18.750
+Caption: today I&#39;m talking about solution
+
+00:00:14.788 --> 00:00:21.319
+Caption: architecture for cloud applications the
+
+00:00:18.750 --> 00:00:23.909
+Caption: this is not neural network this is not
+
+00:00:21.319 --> 00:00:26.279
+Caption: machine learning this is not cracking
+
+00:00:23.909 --> 00:00:29.010
+Caption: math this is really more about my
+
+00:00:26.280 --> 00:00:31.680
+Caption: experience in transitioning from being
+
+00:00:29.010 --> 00:00:34.909
+Caption: the technical lead developed her into
+
+00:00:31.680 --> 00:00:34.909
+Caption: solution architect
+
+00:00:35.240 --> 00:00:39.050
+Caption: although most of the concepts that we&#39;re
+
+00:00:37.319 --> 00:00:42.029
+Caption: going to be talking about it is
+
+00:00:39.049 --> 00:00:44.220
+Caption: architecture it would it would apply not
+
+00:00:42.029 --> 00:00:47.309
+Caption: only to cloud but also to mobile
+
+00:00:44.220 --> 00:00:49.620
+Caption: applications and one firm is web they&#39;re
+
+00:00:47.310 --> 00:00:53.659
+Caption: just at the beginning any show of hands
+
+00:00:49.619 --> 00:00:53.659
+Caption: for how many architects in the room
+
+00:00:54.919 --> 00:01:01.788
+Caption: that&#39;s very technical lathe
+
+00:00:58.789 --> 00:01:02.809
+Caption: yeah cool that&#39;s good so I have nothing
+
+00:01:01.789 --> 00:01:05.779
+Caption: against architect
+
+00:01:02.808 --> 00:01:07.639
+Caption: I personally moved into the solution
+
+00:01:05.779 --> 00:01:10.868
+Caption: architecture all about hue months ago
+
+00:01:07.639 --> 00:01:12.919
+Caption: I&#39;ve been working as a consultant
+
+00:01:10.869 --> 00:01:14.979
+Caption: technical lead for the last two or three
+
+00:01:12.919 --> 00:01:17.360
+Caption: years and recently moved into this
+
+00:01:14.978 --> 00:01:19.008
+Caption: solution architect role so I&#39;ll share
+
+00:01:17.360 --> 00:01:22.729
+Caption: with you the challenges and the the
+
+00:01:19.009 --> 00:01:24.950
+Caption: things that I&#39;m I&#39;m seeing and this is
+
+00:01:22.728 --> 00:01:26.750
+Caption: all from my perspective this is just my
+
+00:01:24.949 --> 00:01:30.788
+Caption: perception of things so take it with a
+
+00:01:26.750 --> 00:01:33.709
+Caption: grain of salt so just a bit of warning
+
+00:01:30.789 --> 00:01:36.380
+Caption: architecture can be very fluffy and very
+
+00:01:33.709 --> 00:01:38.539
+Caption: abstract I promise I won&#39;t bore you with
+
+00:01:36.379 --> 00:01:40.788
+Caption: any UML diagrams or anything I&#39;ll try to
+
+00:01:38.539 --> 00:01:43.520
+Caption: make it as relevant as possible but just
+
+00:01:40.789 --> 00:01:45.289
+Caption: bear with me plus just to add to that I
+
+00:01:43.519 --> 00:01:46.639
+Caption: didn&#39;t really have enough sleep last
+
+00:01:45.289 --> 00:01:50.569
+Caption: night so I flew from Melbourne last
+
+00:01:46.639 --> 00:01:53.089
+Caption: night so just to start let&#39;s start with
+
+00:01:50.569 --> 00:01:57.708
+Caption: a contentious subject developer versus
+
+00:01:53.089 --> 00:02:00.458
+Caption: architect so again this is just my
+
+00:01:57.708 --> 00:02:02.750
+Caption: perception of things this is not
+
+00:02:00.458 --> 00:02:06.889
+Caption: research paper saying okay this is how
+
+00:02:02.750 --> 00:02:11.208
+Caption: things are so you would find that there
+
+00:02:06.889 --> 00:02:12.679
+Caption: are a lot of young developers and more
+
+00:02:11.208 --> 00:02:14.360
+Caption: and more you seeing people coming into
+
+00:02:12.679 --> 00:02:17.329
+Caption: the development space because it&#39;s very
+
+00:02:14.360 --> 00:02:20.089
+Caption: interesting it&#39;s very enjoyable thing to
+
+00:02:17.330 --> 00:02:22.069
+Caption: do but you wouldn&#39;t see architects just
+
+00:02:20.089 --> 00:02:24.199
+Caption: getting out of uni going into the
+
+00:02:22.069 --> 00:02:26.119
+Caption: architect role so you ideally you would
+
+00:02:24.199 --> 00:02:28.009
+Caption: have at least 10 15 years of experience
+
+00:02:26.119 --> 00:02:29.089
+Caption: and it depends on what sort of architect
+
+00:02:28.009 --> 00:02:33.679
+Caption: you are you&#39;re probably going to need
+
+00:02:29.089 --> 00:02:36.110
+Caption: more so naturally the the age of an
+
+00:02:33.679 --> 00:02:38.089
+Caption: architect would be slightly higher or
+
+00:02:36.110 --> 00:02:40.958
+Caption: probably a bit more or higher than then
+
+00:02:38.089 --> 00:02:43.220
+Caption: of a developer in terms of leadership
+
+00:02:40.958 --> 00:02:45.348
+Caption: leadership is not really a title that
+
+00:02:43.220 --> 00:02:46.940
+Caption: you give to somebody so some people are
+
+00:02:45.348 --> 00:02:48.589
+Caption: just natural leader so you&#39;ll see many
+
+00:02:46.940 --> 00:02:51.589
+Caption: developers are really influencers in
+
+00:02:48.589 --> 00:02:54.259
+Caption: their teams but it&#39;s not really they
+
+00:02:51.589 --> 00:02:56.569
+Caption: don&#39;t have the authority it&#39;s not really
+
+00:02:54.259 --> 00:02:58.759
+Caption: part of their job responsibilities but
+
+00:02:56.569 --> 00:03:01.360
+Caption: you see with architects it&#39;s really part
+
+00:02:58.759 --> 00:03:03.139
+Caption: of their job they are paid to do that so
+
+00:03:01.360 --> 00:03:04.309
+Caption: they need to make sure that they are
+
+00:03:03.139 --> 00:03:06.919
+Caption: steering the conversation in the right
+
+00:03:04.309 --> 00:03:10.279
+Caption: direction now with security and quality
+
+00:03:06.919 --> 00:03:11.958
+Caption: they are pretty much on all layers on
+
+00:03:10.279 --> 00:03:12.259
+Caption: all levels of software development so
+
+00:03:11.958 --> 00:03:14.809
+Caption: you
+
+00:03:12.259 --> 00:03:16.488
+Caption: everywhere and that&#39;s why architects or
+
+00:03:14.809 --> 00:03:18.919
+Caption: developers they would probably work
+
+00:03:16.488 --> 00:03:22.190
+Caption: collaboratively on that now in terms of
+
+00:03:18.919 --> 00:03:24.679
+Caption: governance and vision for most
+
+00:03:22.190 --> 00:03:26.150
+Caption: developers they don&#39;t really think that
+
+00:03:24.679 --> 00:03:27.529
+Caption: they are it&#39;s part of their jobs and
+
+00:03:26.149 --> 00:03:28.610
+Caption: it&#39;s it I think they are writing in
+
+00:03:27.529 --> 00:03:32.598
+Caption: thinking so
+
+00:03:28.610 --> 00:03:34.669
+Caption: but for architects it&#39;s really if
+
+00:03:32.598 --> 00:03:37.729
+Caption: something goes south it&#39;s going to be
+
+00:03:34.669 --> 00:03:41.029
+Caption: really you to blame because you are paid
+
+00:03:37.729 --> 00:03:41.958
+Caption: to make sure that the development is
+
+00:03:41.029 --> 00:03:45.169
+Caption: going in the direction that the
+
+00:03:41.958 --> 00:03:47.589
+Caption: organization wants stakeholder
+
+00:03:45.169 --> 00:03:49.848
+Caption: management again it&#39;s part of the
+
+00:03:47.589 --> 00:03:53.238
+Caption: architectural not really much so from
+
+00:03:49.848 --> 00:03:56.000
+Caption: the developer perspective and lastly but
+
+00:03:53.238 --> 00:03:58.309
+Caption: quite importantly the pay so when you go
+
+00:03:56.000 --> 00:04:00.708
+Caption: from a developer into an architect there
+
+00:03:58.309 --> 00:04:04.009
+Caption: is a very decent jump as well now I&#39;ll
+
+00:04:00.708 --> 00:04:06.440
+Caption: be very honest with you I thought it&#39;s
+
+00:04:04.009 --> 00:04:08.958
+Caption: more fun than it is when I&#39;m doing it
+
+00:04:06.440 --> 00:04:10.729
+Caption: now and there are days or sometimes even
+
+00:04:08.958 --> 00:04:12.048
+Caption: weeks where I wish that I just go back
+
+00:04:10.729 --> 00:04:14.059
+Caption: into development because I just want to
+
+00:04:12.048 --> 00:04:15.828
+Caption: focus on doing done rather than
+
+00:04:14.059 --> 00:04:17.869
+Caption: just talking to peoples and going into
+
+00:04:15.828 --> 00:04:20.708
+Caption: meetings and trying to explain things
+
+00:04:17.869 --> 00:04:22.989
+Caption: and just throwing them on whiteboards so
+
+00:04:20.709 --> 00:04:25.669
+Caption: the point I&#39;m trying to make here is
+
+00:04:22.989 --> 00:04:29.089
+Caption: although it might sound catchy to be an
+
+00:04:25.669 --> 00:04:31.130
+Caption: architect it might not be the best thing
+
+00:04:29.089 --> 00:04:32.779
+Caption: for you and I&#39;m still myself trying to
+
+00:04:31.130 --> 00:04:34.429
+Caption: figure out whether it&#39;s really best for
+
+00:04:32.779 --> 00:04:36.679
+Caption: me or maybe I just moved into software
+
+00:04:34.429 --> 00:04:39.169
+Caption: development sorry I mean as a developer
+
+00:04:36.679 --> 00:04:41.109
+Caption: there you need to think about whether
+
+00:04:39.169 --> 00:04:43.940
+Caption: it&#39;s it&#39;s the best thing for you or not
+
+00:04:41.109 --> 00:04:48.409
+Caption: now architects also come in different
+
+00:04:43.940 --> 00:04:50.660
+Caption: colors and shapes and forms so I thought
+
+00:04:48.410 --> 00:04:53.029
+Caption: it would be good to just take a moment
+
+00:04:50.660 --> 00:04:54.830
+Caption: and this told what the different titles
+
+00:04:53.029 --> 00:04:55.970
+Caption: are so the ones that are related to
+
+00:04:54.829 --> 00:04:57.829
+Caption: solution architecture that we&#39;re talking
+
+00:04:55.970 --> 00:04:59.959
+Caption: about here there is one which is the
+
+00:04:57.829 --> 00:05:03.409
+Caption: kind of the umbrella which is the
+
+00:04:59.959 --> 00:05:04.699
+Caption: Enterprise Architect the Enterprise
+
+00:05:03.410 --> 00:05:07.669
+Caption: Architect normally you would see it in a
+
+00:05:04.700 --> 00:05:10.370
+Caption: big enterprises where they have mostly
+
+00:05:07.669 --> 00:05:13.669
+Caption: and say in finance or in government or
+
+00:05:10.369 --> 00:05:15.199
+Caption: in health you will see that they have
+
+00:05:13.669 --> 00:05:16.690
+Caption: complex systems they have multiple
+
+00:05:15.199 --> 00:05:19.369
+Caption: components so if they would have
+
+00:05:16.690 --> 00:05:22.309
+Caption: Enterprise Architect their design would
+
+00:05:19.369 --> 00:05:23.779
+Caption: be very high-level normally they would
+
+00:05:22.309 --> 00:05:26.139
+Caption: have at least 20 plus years of
+
+00:05:23.779 --> 00:05:28.089
+Caption: experience they don&#39;t really do
+
+00:05:26.139 --> 00:05:30.669
+Caption: much technical detail and they&#39;re
+
+00:05:28.089 --> 00:05:32.619
+Caption: designed and they are spanned across the
+
+00:05:30.669 --> 00:05:34.929
+Caption: organization multiple projects multiple
+
+00:05:32.619 --> 00:05:37.089
+Caption: teams and then underneath that you will
+
+00:05:34.929 --> 00:05:40.059
+Caption: have the solution architects which is
+
+00:05:37.089 --> 00:05:41.468
+Caption: what we&#39;re talking about today where
+
+00:05:40.059 --> 00:05:42.609
+Caption: they are focused on the solutions so
+
+00:05:41.468 --> 00:05:44.619
+Caption: there would be multiple components
+
+00:05:42.609 --> 00:05:47.559
+Caption: typically they would work full multiple
+
+00:05:44.619 --> 00:05:49.839
+Caption: projects multiple teams and their design
+
+00:05:47.559 --> 00:05:51.459
+Caption: is very detailed and then you will have
+
+00:05:49.839 --> 00:05:52.899
+Caption: the application architects or the tech
+
+00:05:51.459 --> 00:05:54.128
+Caption: lead where they are focused on the
+
+00:05:52.899 --> 00:05:56.859
+Caption: particular projects that they are
+
+00:05:54.128 --> 00:05:58.389
+Caption: focused on and they are more concerned
+
+00:05:56.859 --> 00:05:59.739
+Caption: by with components reuse in the
+
+00:05:58.389 --> 00:06:02.229
+Caption: application that they are working on so
+
+00:05:59.739 --> 00:06:04.598
+Caption: maybe they don&#39;t have the full vision of
+
+00:06:02.229 --> 00:06:06.250
+Caption: the sphere of control on what&#39;s
+
+00:06:04.598 --> 00:06:08.949
+Caption: happening outside of their project so
+
+00:06:06.250 --> 00:06:12.158
+Caption: they are focused on on that narrow but
+
+00:06:08.949 --> 00:06:14.919
+Caption: then their their work would be highly
+
+00:06:12.158 --> 00:06:18.269
+Caption: detailed design and they work day to day
+
+00:06:14.919 --> 00:06:18.270
+Caption: with the developers
+
+00:06:18.850 --> 00:06:24.869
+Caption: so this one is not my take this is
+
+00:06:21.190 --> 00:06:28.390
+Caption: coming from the great source Wikipedia
+
+00:06:24.869 --> 00:06:29.799
+Caption: so I wanted to share what are the
+
+00:06:28.390 --> 00:06:34.180
+Caption: concerns that I&#39;m facing and building
+
+00:06:29.799 --> 00:06:36.849
+Caption: the our our cloud application versus
+
+00:06:34.179 --> 00:06:39.309
+Caption: offering first selecting the cloud
+
+00:06:36.850 --> 00:06:40.630
+Caption: providers now this is not really the
+
+00:06:39.309 --> 00:06:43.089
+Caption: call for the developer
+
+00:06:40.630 --> 00:06:44.260
+Caption: now everybody would have saying in this
+
+00:06:43.089 --> 00:06:46.359
+Caption: there are multiple shareholders
+
+00:06:44.260 --> 00:06:49.660
+Caption: obviously ease of development or quicken
+
+00:06:46.359 --> 00:06:50.919
+Caption: going to market people from the finance
+
+00:06:49.660 --> 00:06:53.080
+Caption: department they will have a say in this
+
+00:06:50.920 --> 00:06:54.610
+Caption: but it really comes down to the
+
+00:06:53.079 --> 00:06:56.919
+Caption: architect who&#39;s going to be putting on
+
+00:06:54.609 --> 00:06:59.049
+Caption: their architect ID and hat and saying
+
+00:06:56.920 --> 00:07:00.310
+Caption: okay based on these metrics that we have
+
+00:06:59.049 --> 00:07:02.769
+Caption: defined this is what we&#39;re going to be
+
+00:07:00.309 --> 00:07:05.320
+Caption: going with choosing the compute unit and
+
+00:07:02.769 --> 00:07:06.459
+Caption: the data storage unit how are you going
+
+00:07:05.320 --> 00:07:09.220
+Caption: to store your data how are you going to
+
+00:07:06.459 --> 00:07:13.149
+Caption: work with with this data are you going
+
+00:07:09.220 --> 00:07:14.619
+Caption: to make sure that it&#39;s secure how are
+
+00:07:13.149 --> 00:07:16.089
+Caption: you going to make sure that you have
+
+00:07:14.619 --> 00:07:18.130
+Caption: full vision of what&#39;s happening in the
+
+00:07:16.089 --> 00:07:20.609
+Caption: application at runtime if something goes
+
+00:07:18.130 --> 00:07:22.720
+Caption: wrong how are you going to diagnose it
+
+00:07:20.609 --> 00:07:24.369
+Caption: business continuity how do you make sure
+
+00:07:22.720 --> 00:07:28.149
+Caption: that the business is still going to be
+
+00:07:24.369 --> 00:07:30.970
+Caption: sustainable and resilient the apps are
+
+00:07:28.149 --> 00:07:32.229
+Caption: going to be available and governance how
+
+00:07:30.970 --> 00:07:33.880
+Caption: do you make sure that the architecture
+
+00:07:32.230 --> 00:07:37.930
+Caption: that you building today is still going
+
+00:07:33.880 --> 00:07:39.339
+Caption: to be relevant and still in action in a
+
+00:07:37.929 --> 00:07:41.709
+Caption: year and a half time or two years or
+
+00:07:39.339 --> 00:07:44.500
+Caption: five years time the first choosing cloud
+
+00:07:41.709 --> 00:07:46.239
+Caption: provider it really there are so many
+
+00:07:44.500 --> 00:07:48.549
+Caption: different factors that get involved but
+
+00:07:46.239 --> 00:07:50.919
+Caption: I just wanted to I thought of putting
+
+00:07:48.549 --> 00:07:52.899
+Caption: what has been relevant to me in the
+
+00:07:50.920 --> 00:07:55.300
+Caption: current role that I&#39;m working on so the
+
+00:07:52.899 --> 00:07:57.190
+Caption: type of load that we put in whether it&#39;s
+
+00:07:55.299 --> 00:07:58.569
+Caption: a legacy application whether it&#39;s a
+
+00:07:57.190 --> 00:08:01.239
+Caption: modern application whether there is a
+
+00:07:58.570 --> 00:08:02.920
+Caption: buzz offering that&#39;s supporting it the
+
+00:08:01.239 --> 00:08:05.459
+Caption: size of load that you&#39;re putting so for
+
+00:08:02.920 --> 00:08:08.550
+Caption: example if you&#39;re guaranteed
+
+00:08:05.459 --> 00:08:10.229
+Caption: as your pals for example by default you
+
+00:08:08.549 --> 00:08:12.149
+Caption: will get I think if you go with the
+
+00:08:10.230 --> 00:08:15.360
+Caption: standard option you will get three
+
+00:08:12.149 --> 00:08:18.570
+Caption: instances each would have one CPU I
+
+00:08:15.359 --> 00:08:21.089
+Caption: think or sorry to core and if you
+
+00:08:18.570 --> 00:08:23.130
+Caption: upgrade from that you get up to ten now
+
+00:08:21.089 --> 00:08:24.839
+Caption: that&#39;s not to say that Azure cannot give
+
+00:08:23.130 --> 00:08:26.369
+Caption: you the full load but you would need to
+
+00:08:24.839 --> 00:08:27.989
+Caption: go with a different computer option now
+
+00:08:26.369 --> 00:08:29.100
+Caption: is that going to be the the best that
+
+00:08:27.989 --> 00:08:31.049
+Caption: you want so you&#39;re going to need to
+
+00:08:29.100 --> 00:08:32.000
+Caption: weigh these options to decide what are
+
+00:08:31.049 --> 00:08:35.880
+Caption: you going to choose
+
+00:08:32.000 --> 00:08:39.359
+Caption: now SLI terms this is a very common
+
+00:08:35.880 --> 00:08:41.460
+Caption: things to overlook two years ago I was
+
+00:08:39.359 --> 00:08:44.339
+Caption: working in a start-up in in Melbourne
+
+00:08:41.460 --> 00:08:46.520
+Caption: and we developed this IOT solution we
+
+00:08:44.340 --> 00:08:50.760
+Caption: built it on based on placed on top of
+
+00:08:46.520 --> 00:08:54.420
+Caption: Azure as your IOT hub and close to the
+
+00:08:50.760 --> 00:08:56.460
+Caption: release date we realize that we made
+
+00:08:54.419 --> 00:08:58.380
+Caption: some assumptions because Microsoft talks
+
+00:08:56.460 --> 00:09:00.119
+Caption: if you read the documentation of the IOT
+
+00:08:58.380 --> 00:09:01.710
+Caption: hub they talk a lot about the throughput
+
+00:09:00.119 --> 00:09:02.849
+Caption: and the speed in which that they are
+
+00:09:01.710 --> 00:09:04.920
+Caption: going to process these messages and
+
+00:09:02.849 --> 00:09:07.440
+Caption: forward them but what we didn&#39;t take
+
+00:09:04.919 --> 00:09:09.510
+Caption: into account latency and they change
+
+00:09:07.440 --> 00:09:11.039
+Caption: something with latency and our systems
+
+00:09:09.510 --> 00:09:12.869
+Caption: start breaking down and then when we
+
+00:09:11.039 --> 00:09:15.000
+Caption: started after two weeks of interaction
+
+00:09:12.869 --> 00:09:18.450
+Caption: with Microsoft realized that there was
+
+00:09:15.000 --> 00:09:20.070
+Caption: no close in the SLA for the IOT hub that
+
+00:09:18.450 --> 00:09:21.750
+Caption: says anything about latency the might
+
+00:09:20.070 --> 00:09:22.830
+Caption: have said okay sorry well we didn&#39;t put
+
+00:09:21.750 --> 00:09:25.650
+Caption: anything there because we cannot
+
+00:09:22.830 --> 00:09:27.720
+Caption: guarantee your latency so our design was
+
+00:09:25.650 --> 00:09:29.490
+Caption: flawed and we had to go into like a
+
+00:09:27.719 --> 00:09:31.559
+Caption: month of work just to make sure that we
+
+00:09:29.489 --> 00:09:32.700
+Caption: can do something that works with with
+
+00:09:31.559 --> 00:09:34.650
+Caption: the architecture that we built our
+
+00:09:32.700 --> 00:09:36.359
+Caption: system on so it&#39;s very high it&#39;s very
+
+00:09:34.650 --> 00:09:38.520
+Caption: important to make sure that you&#39;re
+
+00:09:36.359 --> 00:09:40.559
+Caption: reading your SLA you are meeting the
+
+00:09:38.520 --> 00:09:43.200
+Caption: terms and conditions that you are
+
+00:09:40.559 --> 00:09:45.630
+Caption: required to me
+
+00:09:43.200 --> 00:09:48.100
+Caption: certifications if you are working with
+
+00:09:45.630 --> 00:09:50.950
+Caption: financial institute or health I&#39;ve
+
+00:09:48.099 --> 00:09:52.659
+Caption: worked a lot with health organizations
+
+00:09:50.950 --> 00:09:54.010
+Caption: and they would require certain
+
+00:09:52.659 --> 00:09:55.379
+Caption: certifications for the system and when
+
+00:09:54.010 --> 00:09:59.169
+Caption: you are where you are deploying it to
+
+00:09:55.380 --> 00:10:01.088
+Caption: data centers and geo regions so what are
+
+00:09:59.169 --> 00:10:02.588
+Caption: you deploying if you have this is very
+
+00:10:01.088 --> 00:10:04.989
+Caption: important when it comes into data
+
+00:10:02.588 --> 00:10:07.450
+Caption: sovereignty so if you if your clients
+
+00:10:04.989 --> 00:10:08.799
+Caption: are forcing you to have your data within
+
+00:10:07.450 --> 00:10:10.239
+Caption: their region or within their country
+
+00:10:08.799 --> 00:10:11.380
+Caption: they are going to you&#39;re going to need
+
+00:10:10.239 --> 00:10:13.708
+Caption: to make sure that there is a region
+
+00:10:11.380 --> 00:10:15.700
+Caption: where you are targeting your users and
+
+00:10:13.708 --> 00:10:18.039
+Caption: core services so if you if you&#39;re
+
+00:10:15.700 --> 00:10:20.890
+Caption: getting with the hybrid model on-premise
+
+00:10:18.039 --> 00:10:21.789
+Caption: and in the cloud then it&#39;s going to
+
+00:10:20.890 --> 00:10:24.160
+Caption: you&#39;re going to need to make sure that
+
+00:10:21.789 --> 00:10:26.079
+Caption: there is the network infrastructure the
+
+00:10:24.159 --> 00:10:29.229
+Caption: VPN what not that&#39;s going to help you
+
+00:10:26.080 --> 00:10:31.440
+Caption: achieve that application services so
+
+00:10:29.229 --> 00:10:31.440
+Caption: what&#39;s
+
+00:10:32.520 --> 00:10:37.170
+Caption: going if you&#39;re going to deploy for
+
+00:10:34.890 --> 00:10:39.720
+Caption: example an asp.net application that&#39;s
+
+00:10:37.169 --> 00:10:41.820
+Caption: targeting full dotnet framework
+
+00:10:39.719 --> 00:10:43.289
+Caption: you cannot deploy it as a path offering
+
+00:10:41.820 --> 00:10:45.179
+Caption: for example on Google Cloud you have to
+
+00:10:43.289 --> 00:10:48.839
+Caption: deploy it either as a container service
+
+00:10:45.179 --> 00:10:51.149
+Caption: or in deploy asp.net core so these are
+
+00:10:48.840 --> 00:10:52.710
+Caption: also going to be factors to impact your
+
+00:10:51.150 --> 00:10:55.000
+Caption: decision which cloud provider you&#39;re
+
+00:10:52.710 --> 00:10:56.860
+Caption: going to go with
+
+00:10:55.000 --> 00:10:59.710
+Caption: so one would ask how about price how
+
+00:10:56.859 --> 00:11:01.329
+Caption: about cost and cost is a very
+
+00:10:59.710 --> 00:11:03.880
+Caption: interesting subject but you will find
+
+00:11:01.330 --> 00:11:06.790
+Caption: that most cloud providers they provide
+
+00:11:03.880 --> 00:11:07.960
+Caption: quite a similar number quite similar
+
+00:11:06.789 --> 00:11:10.059
+Caption: numbers when you when you look at them
+
+00:11:07.960 --> 00:11:13.630
+Caption: and it&#39;s very hard to compare them as
+
+00:11:10.059 --> 00:11:15.700
+Caption: Apple to Apple because everyone they
+
+00:11:13.630 --> 00:11:18.460
+Caption: have their own obviously features and as
+
+00:11:15.700 --> 00:11:21.580
+Caption: offerings and the numbers are quite hard
+
+00:11:18.460 --> 00:11:24.790
+Caption: to match plus there was a survey I think
+
+00:11:21.580 --> 00:11:26.440
+Caption: it was last year that was 82% of
+
+00:11:24.789 --> 00:11:30.130
+Caption: enterprises that were surveyed they were
+
+00:11:26.440 --> 00:11:32.020
+Caption: saying that they wanted a multi cloud
+
+00:11:30.130 --> 00:11:33.609
+Caption: vendor strategy so they don&#39;t want to be
+
+00:11:32.020 --> 00:11:35.230
+Caption: locked in into one particular cloud
+
+00:11:33.609 --> 00:11:37.029
+Caption: vendor so you would want to make sure
+
+00:11:35.229 --> 00:11:40.989
+Caption: that the solution that you&#39;re building
+
+00:11:37.030 --> 00:11:43.360
+Caption: would be portable you could you could
+
+00:11:40.989 --> 00:11:46.570
+Caption: span across multiple than theirs if you
+
+00:11:43.359 --> 00:11:49.419
+Caption: need it to the choosing computing or
+
+00:11:46.570 --> 00:11:50.739
+Caption: computing it um many of these things we
+
+00:11:49.419 --> 00:11:52.659
+Caption: have already touched on so everybody
+
+00:11:50.739 --> 00:11:54.880
+Caption: knows about infrastructure service on
+
+00:11:52.659 --> 00:11:57.219
+Caption: the left and functional servers on the
+
+00:11:54.880 --> 00:11:58.840
+Caption: right on the left you get poor control
+
+00:11:57.219 --> 00:12:00.129
+Caption: you get full overhead obviously and
+
+00:11:58.840 --> 00:12:01.750
+Caption: there is full cost there is a lot of
+
+00:12:00.130 --> 00:12:03.640
+Caption: cost in ball but if you if you&#39;re
+
+00:12:01.750 --> 00:12:05.859
+Caption: spinning up a virtual machine say in
+
+00:12:03.640 --> 00:12:07.390
+Caption: edger you spin it probably seven or
+
+00:12:05.859 --> 00:12:09.070
+Caption: eight component so you have the the
+
+00:12:07.390 --> 00:12:11.410
+Caption: virtual machine the compute instance
+
+00:12:09.070 --> 00:12:12.910
+Caption: itself you have the hard drive you have
+
+00:12:11.409 --> 00:12:15.159
+Caption: the network interface card you have the
+
+00:12:12.909 --> 00:12:18.339
+Caption: IP address you have the network security
+
+00:12:15.159 --> 00:12:19.599
+Caption: group so you pay a lot and plus you&#39;re
+
+00:12:18.340 --> 00:12:21.360
+Caption: gonna need to manage that patch it
+
+00:12:19.599 --> 00:12:23.319
+Caption: yourself so there&#39;s a lot of overhead
+
+00:12:21.359 --> 00:12:27.099
+Caption: there is a container of the service
+
+00:12:23.320 --> 00:12:29.580
+Caption: which is better but then every cloud
+
+00:12:27.099 --> 00:12:32.880
+Caption: provider would have their own way of
+
+00:12:29.580 --> 00:12:35.110
+Caption: providing you with this service so
+
+00:12:32.880 --> 00:12:39.220
+Caption: Google for example provide you with
+
+00:12:35.109 --> 00:12:41.200
+Caption: kubernetes but then they take care of
+
+00:12:39.219 --> 00:12:42.279
+Caption: managing the master instances for you so
+
+00:12:41.200 --> 00:12:44.290
+Caption: you don&#39;t need to worry about it
+
+00:12:42.280 --> 00:12:46.210
+Caption: handling all the loads and payloads and
+
+00:12:44.289 --> 00:12:47.769
+Caption: whatnot which is good if you are trying
+
+00:12:46.210 --> 00:12:49.679
+Caption: to grow into the market quick but then
+
+00:12:47.770 --> 00:12:53.770
+Caption: you&#39;re going to need to think about the
+
+00:12:49.679 --> 00:12:55.809
+Caption: vendor lock down path offering which is
+
+00:12:53.770 --> 00:12:57.640
+Caption: my default option that I go to whenever
+
+00:12:55.809 --> 00:12:59.469
+Caption: I start a project if I can&#39;t handle it
+
+00:12:57.640 --> 00:13:02.109
+Caption: there then I&#39;ll go into investigating
+
+00:12:59.469 --> 00:13:03.838
+Caption: other options and then functional the
+
+00:13:02.109 --> 00:13:06.099
+Caption: service now there are a lot of people
+
+00:13:03.838 --> 00:13:07.270
+Caption: nowadays that think functionalized
+
+00:13:06.099 --> 00:13:08.208
+Caption: service is going to be just the next big
+
+00:13:07.270 --> 00:13:09.139
+Caption: thing and
+
+00:13:08.208 --> 00:13:12.758
+Caption: everything is just going to move into
+
+00:13:09.138 --> 00:13:16.308
+Caption: functional service I&#39;ve tend to disagree
+
+00:13:12.758 --> 00:13:18.438
+Caption: because although functional service is
+
+00:13:16.309 --> 00:13:20.209
+Caption: great its computing as utility you can
+
+00:13:18.439 --> 00:13:21.619
+Caption: you can put your load there and then
+
+00:13:20.208 --> 00:13:24.318
+Caption: it&#39;s just going to be handled for you
+
+00:13:21.619 --> 00:13:26.389
+Caption: you don&#39;t need to worry about failover
+
+00:13:24.318 --> 00:13:28.219
+Caption: and scalability and whatnot however
+
+00:13:26.388 --> 00:13:30.169
+Caption: there are there is more to it than just
+
+00:13:28.219 --> 00:13:33.698
+Caption: compute if you read the terms and
+
+00:13:30.169 --> 00:13:36.349
+Caption: conditions from Asia for example or from
+
+00:13:33.698 --> 00:13:37.998
+Caption: let&#39;s look at this example first and
+
+00:13:36.349 --> 00:13:41.028
+Caption: then I&#39;ll tell you about the terms and
+
+00:13:37.999 --> 00:13:43.100
+Caption: conditions if you look at if your code
+
+00:13:41.028 --> 00:13:45.318
+Caption: is there in the function of the service
+
+00:13:43.099 --> 00:13:47.928
+Caption: and typically you&#39;re going to have some
+
+00:13:45.318 --> 00:13:49.188
+Caption: data storage they as your SQL or some
+
+00:13:47.929 --> 00:13:51.170
+Caption: other thing and you&#39;re going to have
+
+00:13:49.189 --> 00:13:53.149
+Caption: some logging and monitoring tools that
+
+00:13:51.169 --> 00:13:56.989
+Caption: you have somewhere and in the in the
+
+00:13:53.148 --> 00:13:59.328
+Caption: most rudimental huh if you if you&#39;re
+
+00:13:56.989 --> 00:14:01.938
+Caption: scaling your function as a service and
+
+00:13:59.328 --> 00:14:04.308
+Caption: you&#39;re getting multiple instances let&#39;s
+
+00:14:01.939 --> 00:14:06.619
+Caption: say you got too much load its peak
+
+00:14:04.309 --> 00:14:08.240
+Caption: season Christmas time and you&#39;ve got too
+
+00:14:06.619 --> 00:14:10.920
+Caption: many people coming in to your website
+
+00:14:08.239 --> 00:14:12.989
+Caption: this is Panda
+
+00:14:10.919 --> 00:14:14.700
+Caption: if you got say a thousand instances
+
+00:14:12.989 --> 00:14:16.349
+Caption: running at the same time have you got
+
+00:14:14.700 --> 00:14:18.210
+Caption: thousand connections going into your
+
+00:14:16.349 --> 00:14:19.440
+Caption: database at the same time is your
+
+00:14:18.210 --> 00:14:22.650
+Caption: database is going to be able to handle
+
+00:14:19.440 --> 00:14:24.989
+Caption: that now connections is just one way but
+
+00:14:22.650 --> 00:14:26.400
+Caption: how about security for example there are
+
+00:14:24.989 --> 00:14:27.929
+Caption: a lot more aspects that you&#39;re going to
+
+00:14:26.400 --> 00:14:30.570
+Caption: need to think about it you need to think
+
+00:14:27.929 --> 00:14:32.130
+Caption: about more holistically is your
+
+00:14:30.570 --> 00:14:35.840
+Caption: monitoring environment going to be able
+
+00:14:32.130 --> 00:14:40.380
+Caption: to handle that load to scale with your
+
+00:14:35.840 --> 00:14:42.300
+Caption: computer if you read they find prints
+
+00:14:40.380 --> 00:14:45.299
+Caption: they say we will provide you with all
+
+00:14:42.299 --> 00:14:47.369
+Caption: the computational resources required for
+
+00:14:45.299 --> 00:14:49.229
+Caption: your instance for your application so
+
+00:14:47.369 --> 00:14:51.299
+Caption: that&#39;s just compute compute instance
+
+00:14:49.229 --> 00:14:54.029
+Caption: that&#39;s not really any other dependencies
+
+00:14:51.299 --> 00:14:56.849
+Caption: your application gonna have so that&#39;s
+
+00:14:54.030 --> 00:14:58.800
+Caption: just one thing to consider I found this
+
+00:14:56.849 --> 00:15:01.109
+Caption: very relevant and it&#39;s very funny um I
+
+00:14:58.799 --> 00:15:03.359
+Caption: think last year in in Queensland and
+
+00:15:01.109 --> 00:15:06.179
+Caption: they built new train lines and they
+
+00:15:03.359 --> 00:15:07.769
+Caption: built new trains and whatnot and when
+
+00:15:06.179 --> 00:15:08.969
+Caption: they came in to the release and they
+
+00:15:07.770 --> 00:15:11.820
+Caption: realized that they didn&#39;t have enough
+
+00:15:08.969 --> 00:15:12.989
+Caption: drivers so they scaled their trains and
+
+00:15:11.820 --> 00:15:14.789
+Caption: their train lines but they didn&#39;t have
+
+00:15:12.989 --> 00:15:16.529
+Caption: driver said it didn&#39;t have a were able
+
+00:15:14.789 --> 00:15:17.940
+Caption: to change their timetables and I think
+
+00:15:16.530 --> 00:15:19.680
+Caption: they are still suffering from it so if
+
+00:15:17.940 --> 00:15:21.659
+Caption: you read the time from this article it&#39;s
+
+00:15:19.679 --> 00:15:23.489
+Caption: still there irrelevant September 2017
+
+00:15:21.659 --> 00:15:25.019
+Caption: this was like last year or the year
+
+00:15:23.489 --> 00:15:26.520
+Caption: before and they are still suffering from
+
+00:15:25.020 --> 00:15:28.200
+Caption: the same problem they look at your
+
+00:15:26.520 --> 00:15:30.390
+Caption: system holistically this is this is the
+
+00:15:28.200 --> 00:15:34.100
+Caption: lesson that I have learned if you&#39;re
+
+00:15:30.390 --> 00:15:36.450
+Caption: interested in choosing a compute
+
+00:15:34.099 --> 00:15:39.059
+Caption: instance and you want to read about more
+
+00:15:36.450 --> 00:15:40.650
+Caption: there was a great talk by Rob and Matt
+
+00:15:39.059 --> 00:15:43.349
+Caption: who are both in the organizing committee
+
+00:15:40.650 --> 00:15:46.080
+Caption: for DDD Perth they did they gave this
+
+00:15:43.349 --> 00:15:49.729
+Caption: talk in NDC Sydney last month and I put
+
+00:15:46.080 --> 00:15:49.730
+Caption: the link here so if anybody interested
+
+00:15:50.059 --> 00:15:54.179
+Caption: the next thing we&#39;re gonna look at is
+
+00:15:52.169 --> 00:15:56.039
+Caption: choosing a data storage so there are so
+
+00:15:54.179 --> 00:15:57.419
+Caption: many variation of so many different
+
+00:15:56.039 --> 00:15:58.739
+Caption: offerings for data storage where where
+
+00:15:57.419 --> 00:16:01.079
+Caption: are you going to put your data how do
+
+00:15:58.739 --> 00:16:03.330
+Caption: you make this decision as an architect
+
+00:16:01.080 --> 00:16:04.710
+Caption: you&#39;re going to be hold accountable for
+
+00:16:03.330 --> 00:16:06.150
+Caption: that and it&#39;s going to it&#39;s it&#39;s
+
+00:16:04.710 --> 00:16:09.030
+Caption: possibly a decision that&#39;s going to make
+
+00:16:06.150 --> 00:16:12.280
+Caption: or break your your application so for me
+
+00:16:09.030 --> 00:16:15.280
+Caption: when I try to summarize this
+
+00:16:12.280 --> 00:16:18.790
+Caption: before before I summarize it my recipe
+
+00:16:15.280 --> 00:16:20.920
+Caption: normally when I face a tough choice like
+
+00:16:18.789 --> 00:16:23.049
+Caption: this going into a place that I haven&#39;t
+
+00:16:20.919 --> 00:16:25.119
+Caption: been before making the decision that
+
+00:16:23.049 --> 00:16:26.260
+Caption: they have been made before using a
+
+00:16:25.119 --> 00:16:28.659
+Caption: technology or frame will get too heavy
+
+00:16:26.260 --> 00:16:30.910
+Caption: news I try to give myself enough time so
+
+00:16:28.659 --> 00:16:32.619
+Caption: I&#39;ll make at least time for three or
+
+00:16:30.909 --> 00:16:34.809
+Caption: four hours of just reading with open
+
+00:16:32.619 --> 00:16:36.460
+Caption: mind critically thinking forgetting
+
+00:16:34.809 --> 00:16:38.260
+Caption: about my biases forgetting about what I
+
+00:16:36.460 --> 00:16:40.480
+Caption: want to do or what I enjoy doing but
+
+00:16:38.260 --> 00:16:42.340
+Caption: just take that time and think about it
+
+00:16:40.479 --> 00:16:45.699
+Caption: read about it learn as much as you can
+
+00:16:42.340 --> 00:16:47.410
+Caption: and then try to build as much as proof
+
+00:16:45.700 --> 00:16:50.520
+Caption: of concepts or side projects things that
+
+00:16:47.409 --> 00:16:53.409
+Caption: you would use as play with teetee to
+
+00:16:50.520 --> 00:16:55.929
+Caption: gauge whether this is going to be fit or
+
+00:16:53.409 --> 00:16:58.000
+Caption: not so the first thing in my summary was
+
+00:16:55.929 --> 00:17:00.609
+Caption: whether the data is structured or not
+
+00:16:58.000 --> 00:17:03.280
+Caption: structured the volume and the velocity
+
+00:17:00.609 --> 00:17:06.568
+Caption: or the data is coming in the data
+
+00:17:03.280 --> 00:17:08.969
+Caption: consistency they
+
+00:17:06.568 --> 00:17:12.658
+Caption: debbie is becoming a big thing or astray
+
+00:17:08.969 --> 00:17:14.338
+Caption: for example from Amazon if these vendors
+
+00:17:12.659 --> 00:17:15.630
+Caption: are giving telling you that your data is
+
+00:17:14.338 --> 00:17:18.239
+Caption: going to be replicated across multiple
+
+00:17:15.630 --> 00:17:20.099
+Caption: regions and it&#39;s great
+
+00:17:18.239 --> 00:17:22.739
+Caption: is your data going to be consistent at
+
+00:17:20.099 --> 00:17:24.328
+Caption: any point in time at at all nodes but if
+
+00:17:22.739 --> 00:17:25.889
+Caption: somebody may transfer from their bank
+
+00:17:24.328 --> 00:17:28.408
+Caption: account in London and at the same time
+
+00:17:25.889 --> 00:17:30.899
+Caption: they try to do the same transaction from
+
+00:17:28.409 --> 00:17:33.509
+Caption: their account but they try to do it from
+
+00:17:30.899 --> 00:17:35.759
+Caption: Sydney for example is your data going to
+
+00:17:33.509 --> 00:17:37.979
+Caption: be consistent in real time that&#39;s that
+
+00:17:35.759 --> 00:17:39.899
+Caption: data consistency and I found it very
+
+00:17:37.979 --> 00:17:41.908
+Caption: impressive that cosmos DB for example
+
+00:17:39.899 --> 00:17:43.259
+Caption: gives you the ability to choose what
+
+00:17:41.909 --> 00:17:45.120
+Caption: level of consistency you want whether
+
+00:17:43.259 --> 00:17:46.799
+Caption: eventual or strict constancy but
+
+00:17:45.119 --> 00:17:49.439
+Caption: obviously that comes with a cost
+
+00:17:46.798 --> 00:17:51.839
+Caption: it cost a lot of money and performance
+
+00:17:49.439 --> 00:17:53.829
+Caption: is not not I found it not great at least
+
+00:17:51.839 --> 00:17:56.199
+Caption: in my case
+
+00:17:53.829 --> 00:17:59.000
+Caption: data partitioning so that&#39;s for chasm
+
+00:17:56.199 --> 00:18:01.250
+Caption: for performance so if you have
+
+00:17:59.000 --> 00:18:04.910
+Caption: you&#39;re offering a sass offering and you
+
+00:18:01.250 --> 00:18:07.160
+Caption: have customer a and they are all all
+
+00:18:04.910 --> 00:18:08.930
+Caption: your data is holding the same storage
+
+00:18:07.160 --> 00:18:10.670
+Caption: unit you want to make sure that customer
+
+00:18:08.930 --> 00:18:11.900
+Caption: a cannot access data from customer B
+
+00:18:10.670 --> 00:18:13.549
+Caption: because they are all the same database
+
+00:18:11.900 --> 00:18:16.339
+Caption: right
+
+00:18:13.548 --> 00:18:18.589
+Caption: and data sovereignty so the the current
+
+00:18:16.339 --> 00:18:20.928
+Caption: application what I&#39;m working on it&#39;s for
+
+00:18:18.589 --> 00:18:22.699
+Caption: researchers in government and health
+
+00:18:20.928 --> 00:18:24.798
+Caption: organisations and they want to have data
+
+00:18:22.699 --> 00:18:27.668
+Caption: sovereignty if researcher is putting
+
+00:18:24.798 --> 00:18:30.849
+Caption: their data and doing their surveys and
+
+00:18:27.668 --> 00:18:34.158
+Caption: they are based in the UK for example I
+
+00:18:30.849 --> 00:18:35.959
+Caption: cannot just replicate their data across
+
+00:18:34.159 --> 00:18:37.100
+Caption: multiple regions their data has to stay
+
+00:18:35.959 --> 00:18:38.599
+Caption: within their region or if the
+
+00:18:37.099 --> 00:18:40.369
+Caption: researchers signing up from Australia
+
+00:18:38.599 --> 00:18:42.859
+Caption: their data has to stay in within
+
+00:18:40.369 --> 00:18:46.009
+Caption: Australia and that brings a lot of
+
+00:18:42.859 --> 00:18:47.389
+Caption: challenges to solve but it also helps
+
+00:18:46.009 --> 00:18:50.259
+Caption: you with making the decision for which
+
+00:18:47.389 --> 00:18:50.259
+Caption: storage unit to go to
+
+00:18:51.369 --> 00:18:53.640
+Caption: so
+
+00:18:54.269 --> 00:18:58.950
+Caption: three years ago I was working for a
+
+00:18:56.129 --> 00:19:01.379
+Caption: consulting for a retail big retail
+
+00:18:58.949 --> 00:19:03.418
+Caption: company in Malden and I found that they
+
+00:19:01.379 --> 00:19:05.729
+Caption: were using as your table storage for
+
+00:19:03.418 --> 00:19:07.498
+Caption: cashing everybody would laugh at it
+
+00:19:05.729 --> 00:19:09.958
+Caption: because as your table storage are very
+
+00:19:07.499 --> 00:19:11.729
+Caption: slow everybody who used them they would
+
+00:19:09.958 --> 00:19:14.098
+Caption: know they are slow especially if you
+
+00:19:11.729 --> 00:19:15.598
+Caption: don&#39;t use the partition key properly and
+
+00:19:14.098 --> 00:19:17.428
+Caption: then I found that the the story behind
+
+00:19:15.598 --> 00:19:20.098
+Caption: it was that they were trying to use
+
+00:19:17.428 --> 00:19:21.628
+Caption: ready sketch as you write sketch but it
+
+00:19:20.098 --> 00:19:23.428
+Caption: wasn&#39;t available to as in preview at the
+
+00:19:21.629 --> 00:19:24.659
+Caption: time and then they thought well we&#39;re
+
+00:19:23.428 --> 00:19:25.768
+Caption: just going to use at your table storage
+
+00:19:24.659 --> 00:19:27.570
+Caption: for now and then we&#39;ll switch it later
+
+00:19:25.769 --> 00:19:29.009
+Caption: but it was lowering the system down
+
+00:19:27.569 --> 00:19:33.569
+Caption: actually rather than giving them any
+
+00:19:29.009 --> 00:19:34.979
+Caption: boost because you tried to use caching
+
+00:19:33.569 --> 00:19:37.798
+Caption: to speed up your application but
+
+00:19:34.979 --> 00:19:40.619
+Caption: obviously you&#39;re getting a penalty so I
+
+00:19:37.798 --> 00:19:42.118
+Caption: have a small demo in this demo I&#39;m just
+
+00:19:40.619 --> 00:19:45.088
+Caption: going to show you so I&#39;m taking some
+
+00:19:42.119 --> 00:19:47.879
+Caption: data checking for system status taking
+
+00:19:45.088 --> 00:19:48.958
+Caption: the data putting it into Azure SQL and
+
+00:19:47.879 --> 00:19:51.299
+Caption: they&#39;re taking bad putting it into
+
+00:19:48.958 --> 00:19:55.588
+Caption: energy or cosmos DB taking it from that
+
+00:19:51.298 --> 00:19:58.798
+Caption: putting it into Amazon s3 and then
+
+00:19:55.588 --> 00:20:01.769
+Caption: putting it into Google Cloud database
+
+00:19:58.798 --> 00:20:04.109
+Caption: now there is no application that&#39;s going
+
+00:20:01.769 --> 00:20:09.419
+Caption: to do all that obviously but it&#39;s just a
+
+00:20:04.109 --> 00:20:11.808
+Caption: way of showing you the my very
+
+00:20:09.418 --> 00:20:15.148
+Caption: rudimentary proof of concept for
+
+00:20:11.808 --> 00:20:17.189
+Caption: checking the timing and whether it&#39;s
+
+00:20:15.149 --> 00:20:20.790
+Caption: going to be suitable for my user or not
+
+00:20:17.189 --> 00:20:22.769
+Caption: if I&#39;m going to start this
+
+00:20:20.790 --> 00:20:24.090
+Caption: there what&#39;s what&#39;s gonna happen while
+
+00:20:22.770 --> 00:20:28.160
+Caption: it&#39;s running I&#39;m going to show you so
+
+00:20:24.089 --> 00:20:28.159
+Caption: basically what what we have here is
+
+00:20:30.030 --> 00:20:36.510
+Caption: what we have here is I&#39;m getting the
+
+00:20:34.479 --> 00:20:39.400
+Caption: system status and I&#39;m starting at a
+
+00:20:36.510 --> 00:20:41.290
+Caption: stopwatch and starting getting to your
+
+00:20:39.400 --> 00:20:45.150
+Caption: SQL database and then taking it from
+
+00:20:41.290 --> 00:20:45.150
+Caption: that is your database
+
+00:20:45.869 --> 00:20:51.599
+Caption: okay that&#39;s alright and then inserting
+
+00:20:48.928 --> 00:20:57.269
+Caption: it into cosmos DB taking it from cosmos
+
+00:20:51.599 --> 00:21:01.459
+Caption: DB T Amazon s3 and then taking it from
+
+00:20:57.270 --> 00:21:03.619
+Caption: that into Google Cloud
+
+00:21:01.459 --> 00:21:06.649
+Caption: so although everybody would agree that
+
+00:21:03.619 --> 00:21:08.209
+Caption: this is nowhere close to a good proof of
+
+00:21:06.650 --> 00:21:09.290
+Caption: concept for timing because there are so
+
+00:21:08.209 --> 00:21:11.119
+Caption: many factors that you&#39;re going to need
+
+00:21:09.290 --> 00:21:13.130
+Caption: to take into account what&#39;s the gear
+
+00:21:11.119 --> 00:21:15.319
+Caption: that you&#39;re taking from each but even
+
+00:21:13.130 --> 00:21:17.979
+Caption: with the simplest proof of concept you
+
+00:21:15.319 --> 00:21:17.979
+Caption: can find that
+
+00:21:18.089 --> 00:21:22.229
+Caption: the timing is quite different so if I&#39;m
+
+00:21:20.249 --> 00:21:23.909
+Caption: trying to make a decision and timing was
+
+00:21:22.229 --> 00:21:26.699
+Caption: more important to me than consistency
+
+00:21:23.909 --> 00:21:30.149
+Caption: for example I&#39;ll be leaning towards for
+
+00:21:26.699 --> 00:21:33.808
+Caption: example s3 or maybe Google cloud
+
+00:21:30.149 --> 00:21:39.799
+Caption: database for reading is it easy to read
+
+00:21:33.808 --> 00:21:39.798
+Caption: sorry now okay let&#39;s try
+
+00:21:48.150 --> 00:21:57.460
+Caption: is it easier trainer yeah you will say
+
+00:21:54.280 --> 00:21:59.349
+Caption: that if if I&#39;m trying to you will see
+
+00:21:57.459 --> 00:22:03.308
+Caption: the difference here in reading it&#39;s two
+
+00:21:59.349 --> 00:22:05.530
+Caption: hundred millisecond but in other
+
+00:22:03.308 --> 00:22:07.959
+Caption: instances it&#39;s it&#39;s much longer so here
+
+00:22:05.530 --> 00:22:10.119
+Caption: for example Google cloud database taken
+
+00:22:07.959 --> 00:22:12.939
+Caption: seven hundred and even with the most
+
+00:22:10.119 --> 00:22:15.579
+Caption: fundamental the the free tier from as
+
+00:22:12.939 --> 00:22:19.119
+Caption: your SQL database is giving me less time
+
+00:22:15.579 --> 00:22:21.189
+Caption: there with with right you will find even
+
+00:22:19.119 --> 00:22:24.819
+Caption: more variation so this is like three
+
+00:22:21.189 --> 00:22:27.729
+Caption: times the the amount of time that&#39;s
+
+00:22:24.819 --> 00:22:29.589
+Caption: taking for for writing so it&#39;s very easy
+
+00:22:27.729 --> 00:22:34.239
+Caption: to just spin up this these kind of
+
+00:22:29.589 --> 00:22:36.039
+Caption: things it&#39;s very easy to spin up this
+
+00:22:34.239 --> 00:22:39.219
+Caption: kind of proof of concepts and it would
+
+00:22:36.040 --> 00:22:41.320
+Caption: help you to make the right decisions on
+
+00:22:39.219 --> 00:22:43.959
+Caption: whether this is going to be fit for you
+
+00:22:41.319 --> 00:22:45.969
+Caption: or not and obviously it&#39;s going to be
+
+00:22:43.959 --> 00:22:48.609
+Caption: dependent on your circumstances and your
+
+00:22:45.969 --> 00:22:50.229
+Caption: data that you have I&#39;m going to be
+
+00:22:48.609 --> 00:22:51.910
+Caption: sharing the code on on github after this
+
+00:22:50.229 --> 00:22:57.030
+Caption: so if anybody is interested you can you
+
+00:22:51.910 --> 00:22:57.030
+Caption: can get access to that okay
+
+00:23:03.449 --> 00:23:08.459
+Caption: you
+
+00:23:05.400 --> 00:23:11.820
+Caption: the security with security is really the
+
+00:23:08.459 --> 00:23:14.880
+Caption: objective is is always confidentiality
+
+00:23:11.819 --> 00:23:16.979
+Caption: the data is not accessed by anybody
+
+00:23:14.880 --> 00:23:19.910
+Caption: integrity the data is not tampered with
+
+00:23:16.979 --> 00:23:22.589
+Caption: or destructed by anybody availability
+
+00:23:19.910 --> 00:23:25.140
+Caption: the the system is resilient against the
+
+00:23:22.589 --> 00:23:26.459
+Caption: now distributed denial of service and
+
+00:23:25.140 --> 00:23:28.560
+Caption: accountability if something goes wrong
+
+00:23:26.459 --> 00:23:31.699
+Caption: we have traceability we have something
+
+00:23:28.560 --> 00:23:34.710
+Caption: that we can rely on to to give us that
+
+00:23:31.699 --> 00:23:37.139
+Caption: the picture of what&#39;s happening there in
+
+00:23:34.709 --> 00:23:38.880
+Caption: terms of approach they standard I&#39;m not
+
+00:23:37.140 --> 00:23:41.329
+Caption: claiming to be an expert in security but
+
+00:23:38.880 --> 00:23:44.750
+Caption: this is this is what but I I do
+
+00:23:41.329 --> 00:23:47.489
+Caption: authentication authorization is normally
+
+00:23:44.750 --> 00:23:49.290
+Caption: standard information hiding whether it&#39;s
+
+00:23:47.489 --> 00:23:51.599
+Caption: by cryptography or by naming your data
+
+00:23:49.290 --> 00:23:56.130
+Caption: differently auditing for intrusion
+
+00:23:51.599 --> 00:23:57.839
+Caption: detection and very interesting you&#39;ll
+
+00:23:56.130 --> 00:23:59.729
+Caption: find a lot of cloud providers provide
+
+00:23:57.839 --> 00:24:01.289
+Caption: you now with platform service for inter
+
+00:23:59.729 --> 00:24:04.260
+Caption: region detection for detecting any
+
+00:24:01.290 --> 00:24:07.290
+Caption: malware or any malicious attack or
+
+00:24:04.260 --> 00:24:08.790
+Caption: malicious access to your data multi
+
+00:24:07.290 --> 00:24:10.590
+Caption: security layers is thinking about your
+
+00:24:08.790 --> 00:24:13.229
+Caption: security in all the levels that you are
+
+00:24:10.589 --> 00:24:16.169
+Caption: accessing your data and using the tool
+
+00:24:13.229 --> 00:24:17.339
+Caption: so there are many tools I use sneak for
+
+00:24:16.170 --> 00:24:20.010
+Caption: example it helps you with identifying
+
+00:24:17.339 --> 00:24:24.319
+Caption: any vulnerabilities in your your data
+
+00:24:20.010 --> 00:24:24.320
+Caption: and it helps you solve them
+
+00:24:25.760 --> 00:24:30.920
+Caption: operations and monitoring I think we
+
+00:24:27.050 --> 00:24:33.290
+Caption: touched on that real-time monitoring is
+
+00:24:30.920 --> 00:24:35.900
+Caption: your monitoring platform going to be
+
+00:24:33.290 --> 00:24:38.510
+Caption: scaling with with your compute and data
+
+00:24:35.900 --> 00:24:40.760
+Caption: instances and choosing the right
+
+00:24:38.510 --> 00:24:41.589
+Caption: platform and framework for for the for
+
+00:24:40.760 --> 00:24:45.050
+Caption: the job
+
+00:24:41.589 --> 00:24:46.919
+Caption: traceability so if you have a cloud
+
+00:24:45.050 --> 00:24:48.330
+Caption: operation
+
+00:24:46.920 --> 00:24:49.739
+Caption: it&#39;s more likely that you&#39;re going to
+
+00:24:48.329 --> 00:24:51.209
+Caption: have multiple components and multiple
+
+00:24:49.739 --> 00:24:53.339
+Caption: apps that are running at the same time
+
+00:24:51.209 --> 00:24:55.109
+Caption: so you would want to make sure that you
+
+00:24:53.339 --> 00:24:57.390
+Caption: have a way of correlating the messages
+
+00:24:55.109 --> 00:24:58.589
+Caption: and the data are going from one end to
+
+00:24:57.390 --> 00:25:00.479
+Caption: the other
+
+00:24:58.589 --> 00:25:01.919
+Caption: normally you would use some correlation
+
+00:25:00.479 --> 00:25:03.599
+Caption: idea or something to track all the
+
+00:25:01.920 --> 00:25:06.420
+Caption: messages to see what&#39;s happening in real
+
+00:25:03.599 --> 00:25:09.178
+Caption: time application profiling to make sure
+
+00:25:06.420 --> 00:25:11.970
+Caption: that the verification is doing what you
+
+00:25:09.178 --> 00:25:13.659
+Caption: want it to to do what you expecting it
+
+00:25:11.969 --> 00:25:16.619
+Caption: to do
+
+00:25:13.660 --> 00:25:16.619
+Caption: the business continuity
+
+00:25:16.680 --> 00:25:20.000
+Caption: now what happens if your database was
+
+00:25:18.180 --> 00:25:22.760
+Caption: deleted
+
+00:25:20.000 --> 00:25:26.510
+Caption: they think about that for a second let
+
+00:25:22.760 --> 00:25:28.099
+Caption: that sink in like many people would not
+
+00:25:26.510 --> 00:25:29.810
+Caption: really take that into consideration but
+
+00:25:28.099 --> 00:25:32.030
+Caption: there was a long conversation on Twitter
+
+00:25:29.810 --> 00:25:35.180
+Caption: about two months ago a junior developer
+
+00:25:32.030 --> 00:25:36.260
+Caption: just started in a job and the first
+
+00:25:35.180 --> 00:25:37.970
+Caption: thing that they did they gave them a
+
+00:25:36.260 --> 00:25:39.949
+Caption: document set up your system and they
+
+00:25:37.969 --> 00:25:41.900
+Caption: just deleted the database now for that
+
+00:25:39.949 --> 00:25:43.939
+Caption: whatever reason that that was a stupid
+
+00:25:41.900 --> 00:25:45.109
+Caption: case and they were blaming the junior
+
+00:25:43.939 --> 00:25:48.759
+Caption: developer for it which I don&#39;t think
+
+00:25:45.109 --> 00:25:51.559
+Caption: he&#39;s liable for it but it happens um
+
+00:25:48.760 --> 00:25:53.599
+Caption: they&#39;re even worse what happens if
+
+00:25:51.560 --> 00:25:55.630
+Caption: you&#39;re a juror account or AWS account
+
+00:25:53.599 --> 00:25:58.890
+Caption: was deleted
+
+00:25:55.630 --> 00:26:00.729
+Caption: um and then you take that further how
+
+00:25:58.890 --> 00:26:03.880
+Caption: consistence are your build and your
+
+00:26:00.729 --> 00:26:04.989
+Caption: configurations and ultimately the
+
+00:26:03.880 --> 00:26:07.810
+Caption: question is really here that we&#39;re
+
+00:26:04.989 --> 00:26:09.400
+Caption: trying to get into you how hard is it
+
+00:26:07.810 --> 00:26:12.340
+Caption: going to be how long is it gonna take
+
+00:26:09.400 --> 00:26:14.109
+Caption: you to get back online now if you are a
+
+00:26:12.339 --> 00:26:16.179
+Caption: developer you better be in a deep
+
+00:26:14.109 --> 00:26:18.479
+Caption: but if you are and sorry for the
+
+00:26:16.180 --> 00:26:20.369
+Caption: expression but if you are an architect
+
+00:26:18.479 --> 00:26:23.109
+Caption: you&#39;re going to lose your job and
+
+00:26:20.369 --> 00:26:24.160
+Caption: probably going to be even liable because
+
+00:26:23.109 --> 00:26:26.589
+Caption: you are accountable from the
+
+00:26:24.160 --> 00:26:28.479
+Caption: organization that&#39;s entrusted in you you
+
+00:26:26.589 --> 00:26:31.239
+Caption: are liable that to make sure that the
+
+00:26:28.479 --> 00:26:33.040
+Caption: system is available and these are your
+
+00:26:31.239 --> 00:26:35.429
+Caption: decisions that&#39;s going to make the
+
+00:26:33.040 --> 00:26:35.430
+Caption: impact
+
+00:26:37.189 --> 00:26:43.339
+Caption: a couple of thing last year I was doing
+
+00:26:41.030 --> 00:26:49.489
+Caption: a contracting gig for a mining company
+
+00:26:43.339 --> 00:26:51.229
+Caption: in in Melbourne and we built this simple
+
+00:26:49.489 --> 00:26:53.689
+Caption: application we went with pass offering
+
+00:26:51.229 --> 00:26:56.209
+Caption: go and edger towards the end of the
+
+00:26:53.689 --> 00:26:58.519
+Caption: project they said we have this risk
+
+00:26:56.209 --> 00:26:59.839
+Caption: matrix that we want to meet and we want
+
+00:26:58.520 --> 00:27:01.339
+Caption: to make sure that if as your goes down
+
+00:26:59.839 --> 00:27:03.558
+Caption: we are still able to function so they
+
+00:27:01.339 --> 00:27:06.678
+Caption: wanted to have
+
+00:27:03.558 --> 00:27:08.268
+Caption: a backup on AWS and I was thinking like
+
+00:27:06.678 --> 00:27:10.699
+Caption: why do you have to complicate things
+
+00:27:08.269 --> 00:27:12.429
+Caption: Ezio gives you 99 point something so
+
+00:27:10.699 --> 00:27:15.079
+Caption: that&#39;s that&#39;s probably going to be cool
+
+00:27:12.428 --> 00:27:18.829
+Caption: the next day as your goes down for one
+
+00:27:15.079 --> 00:27:20.479
+Caption: and a half hour anyways it was really
+
+00:27:18.829 --> 00:27:21.949
+Caption: terrible I got pulled into a meeting and
+
+00:27:20.479 --> 00:27:24.558
+Caption: I had to explain to the city what
+
+00:27:21.949 --> 00:27:26.959
+Caption: decisions I have made obviously I was
+
+00:27:24.558 --> 00:27:29.268
+Caption: close to losing my job luckily I was
+
+00:27:26.959 --> 00:27:31.298
+Caption: able to survive from that but it&#39;s it&#39;s
+
+00:27:29.269 --> 00:27:33.529
+Caption: really a lesson that we need to learn um
+
+00:27:31.298 --> 00:27:34.548
+Caption: you need to think about these before
+
+00:27:33.529 --> 00:27:37.059
+Caption: they happen so that you can prepare
+
+00:27:34.548 --> 00:27:37.058
+Caption: yourself
+
+00:27:37.319 --> 00:27:40.979
+Caption: lastly governance how do we make sure
+
+00:27:39.209 --> 00:27:42.569
+Caption: that the architecture that we&#39;re putting
+
+00:27:40.979 --> 00:27:44.459
+Caption: today is still going to be relevant and
+
+00:27:42.569 --> 00:27:48.859
+Caption: we&#39;re still going to be able to use and
+
+00:27:44.459 --> 00:27:52.289
+Caption: comply with it in the time to come so
+
+00:27:48.859 --> 00:27:53.939
+Caption: this is really more about it there are
+
+00:27:52.290 --> 00:27:57.989
+Caption: there are two folds for it that I see
+
+00:27:53.939 --> 00:27:59.879
+Caption: one fold which is defining the rules and
+
+00:27:57.989 --> 00:28:02.880
+Caption: getting the buy-in from from the people
+
+00:27:59.880 --> 00:28:04.290
+Caption: in your team so defining to everybody
+
+00:28:02.880 --> 00:28:05.790
+Caption: what&#39;s the style of architecture that
+
+00:28:04.290 --> 00:28:07.859
+Caption: you using whether you&#39;re using event
+
+00:28:05.790 --> 00:28:10.470
+Caption: sourcing whether using CQRS over there
+
+00:28:07.859 --> 00:28:11.760
+Caption: using anything else that you want to
+
+00:28:10.469 --> 00:28:13.199
+Caption: make sure that everybody understands
+
+00:28:11.760 --> 00:28:14.609
+Caption: what style of architecture that you&#39;re
+
+00:28:13.199 --> 00:28:18.359
+Caption: getting to what patterns are you heading
+
+00:28:14.609 --> 00:28:21.989
+Caption: to and then the the second fold is using
+
+00:28:18.359 --> 00:28:24.890
+Caption: those really tools to enforce that there
+
+00:28:21.989 --> 00:28:24.890
+Caption: are great tools by
+
+00:28:25.699 --> 00:28:32.750
+Caption: a guy called Andrew best from Sydney is
+
+00:28:29.030 --> 00:28:34.580
+Caption: a I think a ratify consultant I really
+
+00:28:32.750 --> 00:28:38.530
+Caption: love these tools Taylor for example
+
+00:28:34.579 --> 00:28:40.699
+Caption: gives you the ability to enforce your
+
+00:28:38.530 --> 00:28:43.250
+Caption: assumptions or requirements so if your
+
+00:28:40.699 --> 00:28:45.019
+Caption: database query is taking longer than X
+
+00:28:43.250 --> 00:28:47.530
+Caption: amount of time you have tests that&#39;s
+
+00:28:45.020 --> 00:28:49.310
+Caption: going to fail in your CI CD and
+
+00:28:47.530 --> 00:28:51.580
+Caption: developers are not going to be able to
+
+00:28:49.310 --> 00:28:53.450
+Caption: continue without fixing that or
+
+00:28:51.579 --> 00:28:56.599
+Caption: conventional for example if you are
+
+00:28:53.449 --> 00:28:59.049
+Caption: following how many people use domain
+
+00:28:56.599 --> 00:28:59.049
+Caption: driven design
+
+00:28:59.290 --> 00:29:03.580
+Caption: yeah great um I think most people would
+
+00:29:02.290 --> 00:29:04.930
+Caption: agree that when you start with
+
+00:29:03.579 --> 00:29:06.849
+Caption: domain-driven design it&#39;s great
+
+00:29:04.930 --> 00:29:08.950
+Caption: everything is clean everything is tidy
+
+00:29:06.849 --> 00:29:10.209
+Caption: the more you&#39;re gonna move on the more
+
+00:29:08.949 --> 00:29:11.589
+Caption: you&#39;re gonna find that people come into
+
+00:29:10.209 --> 00:29:12.880
+Caption: the team they don&#39;t really comprehend
+
+00:29:11.589 --> 00:29:14.949
+Caption: the full concept of domain-driven design
+
+00:29:12.880 --> 00:29:16.780
+Caption: and they will start changing things
+
+00:29:14.949 --> 00:29:18.519
+Caption: they&#39;re one one basic thing about
+
+00:29:16.780 --> 00:29:20.170
+Caption: domain-driven design is that information
+
+00:29:18.520 --> 00:29:21.459
+Caption: hiding information is not available and
+
+00:29:20.170 --> 00:29:23.050
+Caption: then you put your boundaries and
+
+00:29:21.459 --> 00:29:25.239
+Caption: everything changed through methods or
+
+00:29:23.050 --> 00:29:26.980
+Caption: contracts that you do enforce somebody
+
+00:29:25.239 --> 00:29:28.900
+Caption: would come in and then gonna make all
+
+00:29:26.979 --> 00:29:31.929
+Caption: this data available so everything has a
+
+00:29:28.900 --> 00:29:33.580
+Caption: gate and set and all the concepts and
+
+00:29:31.930 --> 00:29:35.050
+Caption: all the considerations of DDD just run
+
+00:29:33.579 --> 00:29:37.089
+Caption: out of the window so you want to make
+
+00:29:35.050 --> 00:29:39.760
+Caption: sure that this is all enforced in your
+
+00:29:37.089 --> 00:29:41.169
+Caption: code and your tests and conventional is
+
+00:29:39.760 --> 00:29:42.940
+Caption: great I&#39;m going to show you a demo in a
+
+00:29:41.170 --> 00:29:44.560
+Caption: second for that so this is this is
+
+00:29:42.939 --> 00:29:47.439
+Caption: really the same in point two which is
+
+00:29:44.560 --> 00:29:50.350
+Caption: executable documents non-functional
+
+00:29:47.439 --> 00:29:54.519
+Caption: requirements are must be enforced they
+
+00:29:50.349 --> 00:29:56.859
+Caption: he you are required to have a
+
+00:29:54.520 --> 00:29:58.420
+Caption: performance time no more than five
+
+00:29:56.859 --> 00:30:02.890
+Caption: seconds then that really should be part
+
+00:29:58.420 --> 00:30:04.180
+Caption: of your test so that if if your system
+
+00:30:02.890 --> 00:30:05.229
+Caption: is taking more than five seconds then
+
+00:30:04.180 --> 00:30:06.580
+Caption: you should you should fail the bill
+
+00:30:05.229 --> 00:30:08.699
+Caption: because it&#39;s a requirement and you&#39;re
+
+00:30:06.579 --> 00:30:11.439
+Caption: going to be able to go without it
+
+00:30:08.699 --> 00:30:13.179
+Caption: traceability this is very important if
+
+00:30:11.439 --> 00:30:14.619
+Caption: you&#39;re doing anything in health when
+
+00:30:13.180 --> 00:30:17.080
+Caption: when I was working in health we were
+
+00:30:14.619 --> 00:30:18.969
+Caption: required to show a full traceability for
+
+00:30:17.079 --> 00:30:21.760
+Caption: every line of code where this is coming
+
+00:30:18.969 --> 00:30:23.619
+Caption: from that we wrote this extension for
+
+00:30:21.760 --> 00:30:25.770
+Caption: JIRA and it was taking the acceptance
+
+00:30:23.619 --> 00:30:28.510
+Caption: criteria from Chiara generating the
+
+00:30:25.770 --> 00:30:30.099
+Caption: feature files and our testers were
+
+00:30:28.510 --> 00:30:32.079
+Caption: working with the feature files just to
+
+00:30:30.099 --> 00:30:32.829
+Caption: do the automation testing so no need to
+
+00:30:32.079 --> 00:30:34.359
+Caption: worry about it
+
+00:30:32.829 --> 00:30:36.880
+Caption: manual testing it&#39;s all automated
+
+00:30:34.359 --> 00:30:38.770
+Caption: testing and then the automation testing
+
+00:30:36.880 --> 00:30:40.569
+Caption: is feeding back back basically saying
+
+00:30:38.770 --> 00:30:43.839
+Caption: okay which line of code it&#39;s pointing to
+
+00:30:40.569 --> 00:30:46.149
+Caption: or which feature it&#39;s pointing to so
+
+00:30:43.839 --> 00:30:49.000
+Caption: that was really helpful and in the end
+
+00:30:46.150 --> 00:30:50.349
+Caption: it&#39;s really getting the buy-in with all
+
+00:30:49.000 --> 00:30:52.569
+Caption: the technology if you don&#39;t have the
+
+00:30:50.349 --> 00:30:54.400
+Caption: buy-in people are not really happy to
+
+00:30:52.569 --> 00:30:56.019
+Caption: contribute to it so without explaining
+
+00:30:54.400 --> 00:31:00.130
+Caption: the why for your team you&#39;re not going
+
+00:30:56.020 --> 00:31:02.880
+Caption: to get anywhere all right so we have the
+
+00:31:00.130 --> 00:31:02.880
+Caption: second demo
+
+00:31:03.000 --> 00:31:05.060
+Caption: you
+
+00:31:05.808 --> 00:31:08.888
+Caption: can you see this
+
+00:31:09.869 --> 00:31:14.209
+Caption: now this is a standard
+
+00:31:11.660 --> 00:31:15.859
+Caption: aggregate if anybody used DDD you would
+
+00:31:14.209 --> 00:31:17.989
+Caption: you would find this relevant so you have
+
+00:31:15.859 --> 00:31:20.109
+Caption: the aggregate root here can you read
+
+00:31:17.989 --> 00:31:20.109
+Caption: this
+
+00:31:22.760 --> 00:31:30.949
+Caption: yeah okay so basically it&#39;s saying that
+
+00:31:26.869 --> 00:31:32.808
+Caption: I need to have protected default
+
+00:31:30.949 --> 00:31:34.699
+Caption: constructor for my Intel frameworks so
+
+00:31:32.808 --> 00:31:39.829
+Caption: that can use that for serializing
+
+00:31:34.699 --> 00:31:42.229
+Caption: my object it I need to have constructors
+
+00:31:39.829 --> 00:31:47.029
+Caption: for factory methods to generate those
+
+00:31:42.229 --> 00:31:48.890
+Caption: and all my properties need to be
+
+00:31:47.030 --> 00:31:51.049
+Caption: protected so I need to have only private
+
+00:31:48.890 --> 00:31:51.890
+Caption: sets so this is what we were talking
+
+00:31:51.048 --> 00:31:55.069
+Caption: about it now
+
+00:31:51.890 --> 00:31:57.260
+Caption: a year or two years later down the track
+
+00:31:55.069 --> 00:31:58.609
+Caption: you get somebody just coming and joining
+
+00:31:57.260 --> 00:32:00.589
+Caption: the team they don&#39;t really have full
+
+00:31:58.609 --> 00:32:04.040
+Caption: comprehension of the LED that they go
+
+00:32:00.589 --> 00:32:06.520
+Caption: and add a method and they say for
+
+00:32:04.040 --> 00:32:06.520
+Caption: example
+
+00:32:10.869 --> 00:32:14.069
+Caption: I&#39;m going to add
+
+00:32:16.109 --> 00:32:21.839
+Caption: now I&#39;m having a public set here this is
+
+00:32:20.099 --> 00:32:23.548
+Caption: throwing Dedede concepts out of the
+
+00:32:21.839 --> 00:32:25.859
+Caption: window because you&#39;re really not having
+
+00:32:23.548 --> 00:32:28.558
+Caption: any way of enforcing how these fields
+
+00:32:25.859 --> 00:32:33.630
+Caption: are going to change so now if I if I run
+
+00:32:28.558 --> 00:32:36.268
+Caption: my test here you&#39;re going to see that my
+
+00:32:33.630 --> 00:32:38.880
+Caption: test is going to fail and this is really
+
+00:32:36.269 --> 00:32:40.500
+Caption: great not only for enforcing the design
+
+00:32:38.880 --> 00:32:43.349
+Caption: concept that you have embodied in your
+
+00:32:40.500 --> 00:32:45.390
+Caption: in your code but it&#39;s also important for
+
+00:32:43.349 --> 00:32:46.739
+Caption: shortening that feedback loop there
+
+00:32:45.390 --> 00:32:48.869
+Caption: normally what would happen with a
+
+00:32:46.739 --> 00:32:50.609
+Caption: scenario like this is that somebody is
+
+00:32:48.869 --> 00:32:52.260
+Caption: going to add this this code we&#39;re going
+
+00:32:50.609 --> 00:32:53.788
+Caption: to push it in it&#39;s going to come to you
+
+00:32:52.260 --> 00:32:55.558
+Caption: whether you are technically there the
+
+00:32:53.788 --> 00:32:57.329
+Caption: solution architects you&#39;re going to live
+
+00:32:55.558 --> 00:32:58.739
+Caption: review it and you&#39;re going to say nope
+
+00:32:57.329 --> 00:33:01.199
+Caption: rejected you&#39;re going to need to look at
+
+00:32:58.739 --> 00:33:02.639
+Caption: this but this is taking so much time
+
+00:33:01.199 --> 00:33:04.229
+Caption: it&#39;s taking time from you as the
+
+00:33:02.639 --> 00:33:05.970
+Caption: architect or technical aid as well as
+
+00:33:04.229 --> 00:33:07.558
+Caption: the developer if you have something like
+
+00:33:05.969 --> 00:33:10.288
+Caption: this that&#39;s automating it it&#39;s going to
+
+00:33:07.558 --> 00:33:11.819
+Caption: you gonna speed things up and make
+
+00:33:10.288 --> 00:33:13.739
+Caption: things easier for yourself and for Pete
+
+00:33:11.819 --> 00:33:16.138
+Caption: for other people if we look at that the
+
+00:33:13.739 --> 00:33:19.048
+Caption: test that we have here all we&#39;re doing
+
+00:33:16.139 --> 00:33:20.580
+Caption: really is using refer arm reflection
+
+00:33:19.048 --> 00:33:22.288
+Caption: we&#39;re just loading all the aggregate
+
+00:33:20.579 --> 00:33:25.439
+Caption: fruits and we&#39;re just saying okay all
+
+00:33:22.288 --> 00:33:28.288
+Caption: rule all aggregates and must conform
+
+00:33:25.439 --> 00:33:30.209
+Caption: into this standard or this style and
+
+00:33:28.288 --> 00:33:31.888
+Caption: there are so many of these standards and
+
+00:33:30.209 --> 00:33:34.619
+Caption: styles that are available for you and
+
+00:33:31.889 --> 00:33:37.559
+Caption: they are all built using grossly so you
+
+00:33:34.619 --> 00:33:39.359
+Caption: could extend them if you want to I find
+
+00:33:37.558 --> 00:33:42.089
+Caption: it really an interesting tool and I use
+
+00:33:39.359 --> 00:33:45.408
+Caption: it a lot I hope you you find and there
+
+00:33:42.089 --> 00:33:47.489
+Caption: are other sorry there are a lot of other
+
+00:33:45.409 --> 00:33:49.889
+Caption: things as well like for example if
+
+00:33:47.489 --> 00:33:52.619
+Caption: somebody is using day time though now
+
+00:33:49.889 --> 00:33:54.179
+Caption: for example how many people use that but
+
+00:33:52.619 --> 00:33:55.889
+Caption: then it makes things really hard to test
+
+00:33:54.178 --> 00:33:57.148
+Caption: it makes it really things really hard to
+
+00:33:55.889 --> 00:33:59.159
+Caption: predict and you don&#39;t know when it&#39;s
+
+00:33:57.149 --> 00:34:00.330
+Caption: going to just blow up in runtime so you
+
+00:33:59.159 --> 00:34:03.110
+Caption: want to make sure that these kinds of
+
+00:34:00.329 --> 00:34:03.109
+Caption: things are enforced
+
+00:34:03.369 --> 00:34:06.599
+Caption: they&#39;re going back there
+
+00:34:09.040 --> 00:34:14.979
+Caption: okay so we looked at that so I hope it
+
+00:34:13.300 --> 00:34:18.360
+Caption: wasn&#39;t very fluffy I hope you find that
+
+00:34:14.979 --> 00:34:20.590
+Caption: there was something useful in there and
+
+00:34:18.360 --> 00:34:23.470
+Caption: again if there was anything that I would
+
+00:34:20.590 --> 00:34:26.350
+Caption: want you to take away from this if you
+
+00:34:23.469 --> 00:34:29.409
+Caption: reaching into something that you haven&#39;t
+
+00:34:26.350 --> 00:34:31.960
+Caption: done before give yourself enough time to
+
+00:34:29.409 --> 00:34:33.969
+Caption: think about it normally I give myself at
+
+00:34:31.959 --> 00:34:36.099
+Caption: least three hours of just reading with
+
+00:34:33.969 --> 00:34:40.270
+Caption: an open mind before I try to make any
+
+00:34:36.100 --> 00:34:42.190
+Caption: decision and if I haven&#39;t really used it
+
+00:34:40.270 --> 00:34:43.689
+Caption: at least in a side-project and proof of
+
+00:34:42.189 --> 00:34:46.089
+Caption: concept I wouldn&#39;t be able to use it for
+
+00:34:43.689 --> 00:34:48.040
+Caption: a prediction it&#39;s just I&#39;m not really
+
+00:34:46.090 --> 00:34:49.550
+Caption: qualified enough to you to go and use
+
+00:34:48.040 --> 00:34:53.900
+Caption: that
+
+00:34:49.550 --> 00:34:56.060
+Caption: and that&#39;s really all any questions I
+
+00:34:53.899 --> 00:34:59.649
+Caption: have two small things here to give away
+
+00:34:56.060 --> 00:34:59.650
+Caption: if anybody has any questions
+
+00:35:01.439 --> 00:35:04.979
+Caption: now
+
+00:35:02.919 --> 00:35:04.979
+Caption: you
+
+00:35:08.850 --> 00:35:16.190
+Caption: true I try to make sure that
+
+00:35:14.419 --> 00:35:18.229
+Caption: obviously you got to understand I&#39;ve
+
+00:35:16.189 --> 00:35:22.879
+Caption: only been a solution architect for a
+
+00:35:18.229 --> 00:35:24.169
+Caption: short time so but my way is always
+
+00:35:22.879 --> 00:35:28.250
+Caption: trying to make sure that I&#39;m working
+
+00:35:24.169 --> 00:35:30.199
+Caption: with all stakeholders so being the
+
+00:35:28.250 --> 00:35:33.069
+Caption: developers the enterprise architects or
+
+00:35:30.199 --> 00:35:37.848
+Caption: the security teams the operations team
+
+00:35:33.069 --> 00:35:41.160
+Caption: what I have seen normally the case in my
+
+00:35:37.849 --> 00:35:43.530
+Caption: consulting career is that
+
+00:35:41.159 --> 00:35:45.719
+Caption: companies tend to or teens tend to leave
+
+00:35:43.530 --> 00:35:47.250
+Caption: things until the last minute and
+
+00:35:45.719 --> 00:35:49.830
+Caption: especially when it comes into security
+
+00:35:47.250 --> 00:35:51.899
+Caption: or operations and that tend to create
+
+00:35:49.830 --> 00:35:53.280
+Caption: big gaps or create scope creeps toward
+
+00:35:51.899 --> 00:35:54.869
+Caption: the end of the project and everybody
+
+00:35:53.280 --> 00:35:57.000
+Caption: would become unhappy so I try to make
+
+00:35:54.870 --> 00:35:58.800
+Caption: sure that I engage people as as early on
+
+00:35:57.000 --> 00:36:00.610
+Caption: as possible that&#39;s that&#39;s my only
+
+00:35:58.800 --> 00:36:03.090
+Caption: approach
+
+00:36:00.610 --> 00:36:03.090
+Caption: yep
+
+00:36:07.118 --> 00:36:09.179
+Caption: you
+
+00:36:14.599 --> 00:36:23.319
+Caption: a lot so when I when I moved into this
+
+00:36:18.949 --> 00:36:25.999
+Caption: role I was interviewing for three roles
+
+00:36:23.319 --> 00:36:30.849
+Caption: - all of them they wanted the solution
+
+00:36:25.999 --> 00:36:35.659
+Caption: architect that is not really coding and
+
+00:36:30.849 --> 00:36:35.930
+Caption: I didn&#39;t want to be rude so I said yeah
+
+00:36:35.659 --> 00:36:38.328
+Caption: sure
+
+00:36:35.929 --> 00:36:41.328
+Caption: but I didn&#39;t really want to progress
+
+00:36:38.329 --> 00:36:43.489
+Caption: because I wanted to make sure that an
+
+00:36:41.329 --> 00:36:44.960
+Caption: architect is still coding if I&#39;m not
+
+00:36:43.489 --> 00:36:47.179
+Caption: coding I&#39;m not going to be able to feel
+
+00:36:44.959 --> 00:36:49.179
+Caption: the pain or get the right feedback that
+
+00:36:47.179 --> 00:36:51.348
+Caption: developers that they are giving me and
+
+00:36:49.179 --> 00:36:53.838
+Caption: that&#39;s why I went with the with the
+
+00:36:51.349 --> 00:36:57.529
+Caption: current role so normally you will find
+
+00:36:53.839 --> 00:36:59.150
+Caption: me at least doing I try to say 10 to 30%
+
+00:36:57.529 --> 00:37:01.549
+Caption: recording sometimes that doesn&#39;t happen
+
+00:36:59.149 --> 00:37:05.108
+Caption: but I try to stay as close as possible
+
+00:37:01.549 --> 00:37:05.109
+Caption: to to the development team
+
+00:37:05.739 --> 00:37:07.979
+Caption: yeah
+
+00:37:11.429 --> 00:37:13.489
+Caption: you
+
+00:37:18.989 --> 00:37:21.050
+Caption: you
+
+00:37:35.949 --> 00:37:43.149
+Caption: um so the question is how how hard it is
+
+00:37:40.540 --> 00:37:45.910
+Caption: to learn or how much time you it would
+
+00:37:43.149 --> 00:37:47.349
+Caption: take you to learn the domain of the new
+
+00:37:45.909 --> 00:37:50.319
+Caption: organization of the processes of the new
+
+00:37:47.350 --> 00:37:53.470
+Caption: organization now I think what helped me
+
+00:37:50.320 --> 00:37:55.870
+Caption: was for the last three or four years I
+
+00:37:53.469 --> 00:37:59.800
+Caption: was working as a consultant so I have
+
+00:37:55.870 --> 00:38:01.240
+Caption: had gigs that lasted a week and I was
+
+00:37:59.800 --> 00:38:03.370
+Caption: under the pump to deliver something in
+
+00:38:01.239 --> 00:38:06.280
+Caption: the end of a week and I had gigs that
+
+00:38:03.370 --> 00:38:09.820
+Caption: lasted three or four months so that
+
+00:38:06.280 --> 00:38:11.350
+Caption: helped me a lot set me up for being able
+
+00:38:09.820 --> 00:38:13.630
+Caption: to switch context and go into different
+
+00:38:11.350 --> 00:38:16.390
+Caption: organizations and get projected as quick
+
+00:38:13.629 --> 00:38:17.559
+Caption: as possible but it&#39;s also about making
+
+00:38:16.389 --> 00:38:18.969
+Caption: sure that when you&#39;re getting into the
+
+00:38:17.560 --> 00:38:19.989
+Caption: organisation&#39;s you are connecting with
+
+00:38:18.969 --> 00:38:22.469
+Caption: the right people and getting the
+
+00:38:19.989 --> 00:38:22.469
+Caption: information
+
+00:38:22.770 --> 00:38:27.060
+Caption: in many scenarios I found it really hard
+
+00:38:25.679 --> 00:38:28.319
+Caption: to get the right information the
+
+00:38:27.060 --> 00:38:31.410
+Caption: information is there but just nobody
+
+00:38:28.320 --> 00:38:33.209
+Caption: knows where it is and it&#39;s just part of
+
+00:38:31.409 --> 00:38:35.219
+Caption: the game that you just can have to dig
+
+00:38:33.209 --> 00:38:36.750
+Caption: that in and talk to the right people try
+
+00:38:35.219 --> 00:38:40.010
+Caption: to tell people and people going to lead
+
+00:38:36.750 --> 00:38:40.010
+Caption: you into other people to ask
+
+00:38:40.539 --> 00:38:42.809
+Caption: yeah
+
+00:38:47.419 --> 00:38:53.338
+Caption: yes so I talked about it making sure
+
+00:38:51.599 --> 00:38:55.020
+Caption: that I&#39;m reading enough for it that&#39;s
+
+00:38:53.339 --> 00:38:58.020
+Caption: that&#39;s a really key element for me and I
+
+00:38:55.020 --> 00:39:00.780
+Caption: found that really helped me a lot but
+
+00:38:58.020 --> 00:39:02.669
+Caption: normally if we are trying to introduce
+
+00:39:00.780 --> 00:39:05.250
+Caption: new technology we need to have an
+
+00:39:02.669 --> 00:39:06.510
+Caption: agreement and the developer that&#39;s
+
+00:39:05.250 --> 00:39:08.520
+Caption: introducing or the team that&#39;s
+
+00:39:06.510 --> 00:39:10.979
+Caption: introducing this this new technology or
+
+00:39:08.520 --> 00:39:13.290
+Caption: framework and and myself or whoever else
+
+00:39:10.979 --> 00:39:15.889
+Caption: is involved need to have that agreement
+
+00:39:13.290 --> 00:39:17.900
+Caption: now normally
+
+00:39:15.889 --> 00:39:19.338
+Caption: as technologists really we are very
+
+00:39:17.899 --> 00:39:21.768
+Caption: passionate about new technology and I
+
+00:39:19.339 --> 00:39:23.410
+Caption: myself included I love when I hear about
+
+00:39:21.769 --> 00:39:25.969
+Caption: a new framework and I just want to get
+
+00:39:23.409 --> 00:39:27.588
+Caption: started into coding and using it but
+
+00:39:25.969 --> 00:39:29.419
+Caption: then you want to make sure that you are
+
+00:39:27.589 --> 00:39:30.920
+Caption: addressing the risk because every
+
+00:39:29.419 --> 00:39:33.439
+Caption: technology that you are adding it&#39;s a
+
+00:39:30.919 --> 00:39:36.108
+Caption: risk do you have the right tools do you
+
+00:39:33.439 --> 00:39:38.088
+Caption: have the right people the skill set to
+
+00:39:36.108 --> 00:39:41.318
+Caption: be able to end productive with it so
+
+00:39:38.089 --> 00:39:41.319
+Caption: normally I try to have
+
+00:39:41.409 --> 00:39:45.219
+Caption: it&#39;s kind of like a checklist making
+
+00:39:43.209 --> 00:39:47.349
+Caption: sure that do we have something that does
+
+00:39:45.219 --> 00:39:48.969
+Caption: that and are there gaps with the one
+
+00:39:47.350 --> 00:39:50.560
+Caption: that the tool or framework that we&#39;re
+
+00:39:48.969 --> 00:39:52.510
+Caption: using is there a justification for
+
+00:39:50.560 --> 00:39:54.310
+Caption: introducing this tool if there is sure
+
+00:39:52.510 --> 00:39:56.439
+Caption: let&#39;s use it but let&#39;s understand
+
+00:39:54.310 --> 00:40:00.400
+Caption: whether there are any other tools and in
+
+00:39:56.439 --> 00:40:02.770
+Caption: many instances that I have seen there
+
+00:40:00.399 --> 00:40:04.659
+Caption: are tools that there are there um there
+
+00:40:02.770 --> 00:40:07.719
+Caption: was I give you an example I think it was
+
+00:40:04.659 --> 00:40:09.189
+Caption: last year we&#39;re using spec for and I
+
+00:40:07.719 --> 00:40:12.820
+Caption: don&#39;t know how many people use spec for
+
+00:40:09.189 --> 00:40:14.649
+Caption: it&#39;s great for Auto mocking so if you
+
+00:40:12.820 --> 00:40:16.180
+Caption: are doing testing somebody&#39;s gonna
+
+00:40:14.649 --> 00:40:19.209
+Caption: disagree with me here but if you&#39;re
+
+00:40:16.179 --> 00:40:21.159
+Caption: doing unit testing and you want to you
+
+00:40:19.209 --> 00:40:22.300
+Caption: oughta mock certain elements if you
+
+00:40:21.159 --> 00:40:23.439
+Caption: don&#39;t want to focus on this you want to
+
+00:40:22.300 --> 00:40:25.630
+Caption: focus on the piece that you are working
+
+00:40:23.439 --> 00:40:27.459
+Caption: with we&#39;re using spec 4 which was great
+
+00:40:25.629 --> 00:40:31.419
+Caption: for that a developer came to me and he
+
+00:40:27.459 --> 00:40:32.739
+Caption: said I&#39;m going to use auto fixture why
+
+00:40:31.419 --> 00:40:35.099
+Caption: do you want to use auto fixture because
+
+00:40:32.739 --> 00:40:37.290
+Caption: auto mocking doesn&#39;t do this and that
+
+00:40:35.100 --> 00:40:39.220
+Caption: okay so let&#39;s look at the documentation
+
+00:40:37.290 --> 00:40:40.390
+Caption: looking at the documentation for about
+
+00:40:39.219 --> 00:40:42.849
+Caption: them and it solved the problem that he
+
+00:40:40.389 --> 00:40:45.309
+Caption: was trying to you have by introducing
+
+00:40:42.850 --> 00:40:46.780
+Caption: this new technology and there is nothing
+
+00:40:45.310 --> 00:40:48.670
+Caption: wrong with introducing new technology
+
+00:40:46.780 --> 00:40:50.229
+Caption: but as long as we have the right reason
+
+00:40:48.669 --> 00:40:51.939
+Caption: for it great let&#39;s go for it
+
+00:40:50.229 --> 00:40:53.609
+Caption: but sometimes just asking the right
+
+00:40:51.939 --> 00:40:56.229
+Caption: questions you&#39;re gonna find whether
+
+00:40:53.610 --> 00:40:58.630
+Caption: there is a real need for it or whether
+
+00:40:56.229 --> 00:41:00.330
+Caption: there is not I hope that answered your
+
+00:40:58.629 --> 00:41:03.589
+Caption: question
+
+00:41:00.330 --> 00:41:03.590
+Caption: any other clothes yes
+
+00:41:07.709 --> 00:41:09.770
+Caption: you
+
+00:41:24.520 --> 00:41:26.550
+Caption: I
+
+00:41:27.199 --> 00:41:34.280
+Caption: now at the moment I&#39;m actually permanent
+
+00:41:31.810 --> 00:41:36.170
+Caption: it&#39;s interesting if you look at my
+
+00:41:34.280 --> 00:41:38.719
+Caption: profile I haven&#39;t stayed in a place for
+
+00:41:36.169 --> 00:41:41.829
+Caption: more than a year and a half I&#39;ve moved a
+
+00:41:38.719 --> 00:41:44.060
+Caption: lot and I think that helped me a lot in
+
+00:41:41.830 --> 00:41:45.560
+Caption: being the person I am learning a lot
+
+00:41:44.060 --> 00:41:47.550
+Caption: about other domains and learning about
+
+00:41:45.560 --> 00:41:49.580
+Caption: how other companies are doing things
+
+00:41:47.550 --> 00:41:53.010
+Caption: [Music]
+
+00:41:49.580 --> 00:41:54.750
+Caption: but in going into an interval into an
+
+00:41:53.010 --> 00:41:56.550
+Caption: architectural you&#39;re gonna you&#39;re gonna
+
+00:41:54.750 --> 00:41:59.459
+Caption: need to have some long-term engagement
+
+00:41:56.550 --> 00:42:01.530
+Caption: but I found it interesting that many
+
+00:41:59.459 --> 00:42:04.199
+Caption: companies are willing to take somebody
+
+00:42:01.530 --> 00:42:07.830
+Caption: for an architectural for six months or a
+
+00:42:04.199 --> 00:42:10.800
+Caption: year at the moment I&#39;m currently on a
+
+00:42:07.830 --> 00:42:12.540
+Caption: permanent phase but
+
+00:42:10.800 --> 00:42:13.890
+Caption: I&#39;m thinking I&#39;m still weighing my
+
+00:42:12.540 --> 00:42:15.510
+Caption: options I&#39;ll be very honest with you I
+
+00:42:13.889 --> 00:42:17.219
+Caption: haven&#39;t really made a decision I&#39;m still
+
+00:42:15.510 --> 00:42:19.439
+Caption: thinking whether I should go back into
+
+00:42:17.219 --> 00:42:21.770
+Caption: just being a developer because I think I
+
+00:42:19.439 --> 00:42:23.729
+Caption: enjoy my time more yes
+
+00:42:21.770 --> 00:42:24.870
+Caption: focusing on the technical side rather
+
+00:42:23.729 --> 00:42:28.020
+Caption: than focusing going stakeholder
+
+00:42:24.870 --> 00:42:29.700
+Caption: management I&#39;m still trying to work out
+
+00:42:28.020 --> 00:42:31.800
+Caption: my decision but I was looking and there
+
+00:42:29.699 --> 00:42:33.869
+Caption: are so many jobs even Enterprise
+
+00:42:31.800 --> 00:42:35.580
+Caption: architects which is like more strategic
+
+00:42:33.870 --> 00:42:37.890
+Caption: and more visionary kind of role in the
+
+00:42:35.580 --> 00:42:40.050
+Caption: enterprise and there are contracts for
+
+00:42:37.889 --> 00:42:41.339
+Caption: six months or one year if I wanted to do
+
+00:42:40.050 --> 00:42:43.910
+Caption: that or if somebody want to do that you
+
+00:42:41.340 --> 00:42:43.910
+Caption: can still do that
+
+00:42:44.699 --> 00:42:47.899
+Caption: right yeah
+
+00:42:51.020 --> 00:42:53.080
+Caption: you
+
+00:43:01.739 --> 00:43:03.800
+Caption: you
+
+00:43:08.350 --> 00:43:14.420
+Caption: there is there is for obviously there is
+
+00:43:13.159 --> 00:43:16.309
+Caption: probably more legacy code in the
+
+00:43:14.419 --> 00:43:18.199
+Caption: industry than Greenfield at the moment
+
+00:43:16.310 --> 00:43:19.850
+Caption: because there are so many new concepts
+
+00:43:18.199 --> 00:43:23.689
+Caption: coming up whether it&#39;s virtual reality
+
+00:43:19.850 --> 00:43:25.310
+Caption: IOT machine learning artificial
+
+00:43:23.689 --> 00:43:26.719
+Caption: intelligence so there are a lot of new
+
+00:43:25.310 --> 00:43:28.489
+Caption: development going up so there is more
+
+00:43:26.719 --> 00:43:30.560
+Caption: greenfield but there is a lot more
+
+00:43:28.489 --> 00:43:33.080
+Caption: legacy code as well
+
+00:43:30.560 --> 00:43:34.580
+Caption: I have done a lot of legacy engagements
+
+00:43:33.080 --> 00:43:36.410
+Caption: myself so the engagement that I was
+
+00:43:34.580 --> 00:43:39.770
+Caption: talking about for one week that was
+
+00:43:36.409 --> 00:43:41.299
+Caption: actually for a utility company down in
+
+00:43:39.770 --> 00:43:44.149
+Caption: Melbourne where they had a contract with
+
+00:43:41.300 --> 00:43:47.420
+Caption: the Defense Department and something
+
+00:43:44.149 --> 00:43:48.949
+Caption: wasn&#39;t working and it hit the fan that
+
+00:43:47.419 --> 00:43:50.719
+Caption: Defense Department told them okay we
+
+00:43:48.949 --> 00:43:52.760
+Caption: gonna cancel your contract so they got
+
+00:43:50.719 --> 00:43:54.109
+Caption: me in and they told me okay you&#39;re gonna
+
+00:43:52.760 --> 00:43:55.969
+Caption: need to find this it was an Android
+
+00:43:54.110 --> 00:43:57.530
+Caption: application connecting to the cloud and
+
+00:43:55.969 --> 00:44:00.560
+Caption: it was just timing out and was in
+
+00:43:57.530 --> 00:44:03.020
+Caption: logging them off so my engagement was
+
+00:44:00.560 --> 00:44:05.330
+Caption: just to make sure that what&#39;s the
+
+00:44:03.020 --> 00:44:06.890
+Caption: problem find the problem first and the
+
+00:44:05.330 --> 00:44:08.360
+Caption: first week was just really just finding
+
+00:44:06.889 --> 00:44:11.359
+Caption: the problem and I found out the problem
+
+00:44:08.360 --> 00:44:14.150
+Caption: the first three days I think and then
+
+00:44:11.360 --> 00:44:16.330
+Caption: after that we went into the second phase
+
+00:44:14.149 --> 00:44:18.919
+Caption: which took about the other name probably
+
+00:44:16.330 --> 00:44:20.570
+Caption: two or three weeks for them to go
+
+00:44:18.919 --> 00:44:22.909
+Caption: through the process and sign the
+
+00:44:20.570 --> 00:44:26.239
+Caption: purchase order with more and then we put
+
+00:44:22.909 --> 00:44:27.500
+Caption: a fix for it so I&#39;ve done legacy code as
+
+00:44:26.239 --> 00:44:28.520
+Caption: well and there is more legacy code
+
+00:44:27.500 --> 00:44:30.469
+Caption: actually especially if you go into
+
+00:44:28.520 --> 00:44:33.550
+Caption: finest Institute there is more legacy
+
+00:44:30.469 --> 00:44:33.550
+Caption: than then greenfield development
+
+00:44:39.608 --> 00:44:44.239
+Caption: it depends on the organization and the
+
+00:44:42.169 --> 00:44:48.409
+Caption: role that you want to play it is an
+
+00:44:44.239 --> 00:44:50.270
+Caption: advisory role and they I don&#39;t really
+
+00:44:48.409 --> 00:44:51.559
+Caption: like to be an advisory so I want to make
+
+00:44:50.270 --> 00:44:53.359
+Caption: sure that I get my hands dirty and
+
+00:44:51.560 --> 00:44:54.920
+Caption: that&#39;s why I&#39;m saying I went into the
+
+00:44:53.358 --> 00:44:58.098
+Caption: third role rather than the first two
+
+00:44:54.919 --> 00:44:59.719
+Caption: roles so it&#39;s really depends on you and
+
+00:44:58.099 --> 00:45:03.290
+Caption: the role the organization that you&#39;re
+
+00:44:59.719 --> 00:45:05.449
+Caption: going to like I said the first two
+
+00:45:03.290 --> 00:45:07.280
+Caption: questions the people that asked very I
+
+00:45:05.449 --> 00:45:09.260
+Caption: don&#39;t know your name said your gifts are
+
+00:45:07.280 --> 00:45:13.908
+Caption: here Thanks thanks everybody
+
+00:45:09.260 --> 00:45:13.908
+Caption: [Applause]
+

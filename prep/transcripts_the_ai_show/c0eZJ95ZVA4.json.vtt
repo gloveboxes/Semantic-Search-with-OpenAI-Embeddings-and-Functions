@@ -1,0 +1,682 @@
+[
+    {
+        "text": "you're not going to want to miss this episode  of the ai show we're going to talk about  ",
+        "start": 0.08,
+        "duration": 3.28
+    },
+    {
+        "text": "automl in azure ml specifically building nlp  models make sure you tune in hello and welcome  ",
+        "start": 3.36,
+        "duration": 13.36
+    },
+    {
+        "text": "to this episode of the ai show we're talking  all about building nlp models with azure ml  ",
+        "start": 16.72,
+        "duration": 4.4
+    },
+    {
+        "text": "auto ml i there's a lot of ah ah why don't you  do some introductions here we'll start with you  ",
+        "start": 21.92,
+        "duration": 4.96
+    },
+    {
+        "text": "wenchen wanna tell us who you are and what you do  yeah hi everyone my name is winshin and i'm a pm  ",
+        "start": 26.88,
+        "duration": 4.96
+    },
+    {
+        "text": "in azure machine learning i'm driving the ultimate  nlp feature and i'm happy to share with everyone  ",
+        "start": 31.84,
+        "duration": 5.04
+    },
+    {
+        "text": "the new nlp offerings in ottawa ml fantastic  leafing yeah my name is lee phong and i come  ",
+        "start": 36.88,
+        "duration": 5.76
+    },
+    {
+        "text": "from symphony of switching do i work as a data  scientist so i build the technical details and  ",
+        "start": 42.64,
+        "duration": 5.12
+    },
+    {
+        "text": "pick up the pipelines for these lp models  this is awesome so let's start first with  ",
+        "start": 48.48,
+        "duration": 5.12
+    },
+    {
+        "text": "setting the ground everyone can understand  from the ground floor what is automl for nlp",
+        "start": 53.6,
+        "duration": 5.84
+    },
+    {
+        "text": "um so i'm going to share some background so  for other mlp we actually provide entry and  ",
+        "start": 61.68,
+        "duration": 5.52
+    },
+    {
+        "text": "nlp training using the latest pre-trained large  models from birch and we provide three different  ",
+        "start": 67.2,
+        "duration": 6.0
+    },
+    {
+        "text": "scenarios the first one is for a multi-class test  classification where you can classify your tax  ",
+        "start": 73.2,
+        "duration": 6.48
+    },
+    {
+        "text": "data to be one category and the second one will be  the multi-label task classification where you can  ",
+        "start": 79.68,
+        "duration": 6.64
+    },
+    {
+        "text": "assign multiple labels to a specific text sample  and the third scenario we are offering is for the  ",
+        "start": 86.32,
+        "duration": 6.32
+    },
+    {
+        "text": "name entity recognition and for this task you  can actually extract domain specific entities  ",
+        "start": 92.64,
+        "duration": 6.8
+    },
+    {
+        "text": "from unstructured tests such as contracts or  financial documents and with all these three  ",
+        "start": 99.44,
+        "duration": 6.48
+    },
+    {
+        "text": "scenarios we also support multilingual and you  can benefit from over 100 languages we actually  ",
+        "start": 105.92,
+        "duration": 6.8
+    },
+    {
+        "text": "support 104 languages for all these scenarios  that's amazing uh let me stop let me just make  ",
+        "start": 112.72,
+        "duration": 6.08
+    },
+    {
+        "text": "sure i'm catching this so classification for  text labeling multi-labels on text as well as  ",
+        "start": 118.8,
+        "duration": 6.72
+    },
+    {
+        "text": "uh ner named entity recognition am i getting  those right yeah and 104 languages to boot",
+        "start": 125.52,
+        "duration": 5.52
+    },
+    {
+        "text": "that's awesome so you were  saying i'm sorry to interrupt you  ",
+        "start": 133.12,
+        "duration": 2.24
+    },
+    {
+        "text": "yeah i'm going to continue like in order for you  to accelerate your training you can also benefit  ",
+        "start": 136.72,
+        "duration": 6.24
+    },
+    {
+        "text": "from the distributed training with support you can  use multi-gpu or matinote to run the nlp models  ",
+        "start": 142.96,
+        "duration": 6.48
+    },
+    {
+        "text": "which will largely reduce the training time needed  and since this is within html you can also benefit  ",
+        "start": 149.44,
+        "duration": 7.44
+    },
+    {
+        "text": "from all the goodness of autumnal python sdk you  can do training and inferencing in the same time  ",
+        "start": 156.88,
+        "duration": 6.48
+    },
+    {
+        "text": "and there's also a seamless integration with  the adrenal data labeling service so you can  ",
+        "start": 163.36,
+        "duration": 5.44
+    },
+    {
+        "text": "either bring your own text data and do it using  the data labeling service to label your data  ",
+        "start": 168.8,
+        "duration": 5.76
+    },
+    {
+        "text": "for your training use or you can directly bring  your already labeled data and directly use  ",
+        "start": 174.56,
+        "duration": 4.96
+    },
+    {
+        "text": "nlp for training and you can also continue your  uh training and uh connected to production with  ",
+        "start": 180.08,
+        "duration": 7.04
+    },
+    {
+        "text": "the ml ops capability with html uh this is this is  all cool stuff i i love the idea of being able to  ",
+        "start": 187.12,
+        "duration": 6.88
+    },
+    {
+        "text": "do this automatically but one of the things that  i wanted to ask about is how is how is it able to  ",
+        "start": 194.0,
+        "duration": 5.2
+    },
+    {
+        "text": "do multiple languages yeah yeah i think i can come  to the details so there are many models that are  ",
+        "start": 199.2,
+        "duration": 8.64
+    },
+    {
+        "text": "portraying with different language sources like  for english for german for japanese for chinese  ",
+        "start": 207.84,
+        "duration": 5.92
+    },
+    {
+        "text": "etc so we did some experiments on different  kind of data sets and then find you know compare  ",
+        "start": 213.76,
+        "duration": 4.96
+    },
+    {
+        "text": "their speed and the final accuracy and other  metrics decide okay what are the models that are  ",
+        "start": 218.72,
+        "duration": 6.32
+    },
+    {
+        "text": "like the best for different scenarios then we like  store these models and uh make them available for  ",
+        "start": 225.04,
+        "duration": 8.0
+    },
+    {
+        "text": "downloads in our system and later when you're  using them you can just pass your language code  ",
+        "start": 233.04,
+        "duration": 5.36
+    },
+    {
+        "text": "and we will choose the right model for you  depending on the language code you're passing  ",
+        "start": 238.4,
+        "duration": 4.24
+    },
+    {
+        "text": "so we do every all the detail for you and you  only need to tell us what kind of language do  ",
+        "start": 242.64,
+        "duration": 4.72
+    },
+    {
+        "text": "you want to use and also you can specify not  only a single language you can also just tell  ",
+        "start": 247.36,
+        "duration": 5.6
+    },
+    {
+        "text": "us okay this is a multi-lingual data which means  it contains not only one single language and will  ",
+        "start": 252.96,
+        "duration": 5.2
+    },
+    {
+        "text": "also deal with that uh that's that's really cool  it sounds awesome but what's the user experience  ",
+        "start": 258.16,
+        "duration": 7.68
+    },
+    {
+        "text": "look like we'll go to you went in yeah i'm going  to show you guys a end-to-end user experience  ",
+        "start": 265.84,
+        "duration": 5.76
+    },
+    {
+        "text": "so this is an example notebook about  multi-label task classification with autumn nlp  ",
+        "start": 271.6,
+        "duration": 6.64
+    },
+    {
+        "text": "so this is using the python sdk we have within  hml so essentially you are going to create an  ",
+        "start": 278.24,
+        "duration": 6.24
+    },
+    {
+        "text": "experiment in an existing workspace so if you  are familiar with html you can directly do so  ",
+        "start": 284.48,
+        "duration": 6.4
+    },
+    {
+        "text": "by importing the required packages and make  sure you have a workspace created and experiment  ",
+        "start": 290.88,
+        "duration": 7.84
+    },
+    {
+        "text": "created then you can continue with your training  so for this example we are using a compute cluster  ",
+        "start": 298.72,
+        "duration": 9.44
+    },
+    {
+        "text": "and for html automation nlp we actually recommend  you to use gpu cluster because that will largely  ",
+        "start": 308.16,
+        "duration": 7.92
+    },
+    {
+        "text": "accelerate your training and for this example we  are using a data set from the paper system and  ",
+        "start": 316.08,
+        "duration": 7.84
+    },
+    {
+        "text": "we are using the title and abstract of the  paper to predict the category of the paper  ",
+        "start": 323.92,
+        "duration": 5.6
+    },
+    {
+        "text": "and this category can be multiple categories  so it's a multi-label text classification  ",
+        "start": 329.52,
+        "duration": 5.36
+    },
+    {
+        "text": "and here you are going to prepare your data and we  will need you to bring the pre-processed data here  ",
+        "start": 335.44,
+        "duration": 6.48
+    },
+    {
+        "text": "for training and that means you will need to have  your data labeled and pre-processed for using  ",
+        "start": 341.92,
+        "duration": 5.52
+    },
+    {
+        "text": "and you can register your if i may if we can  scroll up so just to understand the task when  ",
+        "start": 348.32,
+        "duration": 5.76
+    },
+    {
+        "text": "you mean papers you mean like like academic papers  and then you're trying to automatically categorize  ",
+        "start": 354.08,
+        "duration": 6.4
+    },
+    {
+        "text": "those papers into specific categories am i  getting this right yeah exactly and when you say  ",
+        "start": 360.48,
+        "duration": 4.08
+    },
+    {
+        "text": "pre-processed does that mean that there's going  to be the text of the paper and then the labels  ",
+        "start": 364.56,
+        "duration": 4.64
+    },
+    {
+        "text": "that you can assign to it yeah exactly so for the  pre-processing you will need to make the uh that  ",
+        "start": 369.2,
+        "duration": 6.56
+    },
+    {
+        "text": "should be like one task column and the other is  the label column and the label can be in different  ",
+        "start": 375.76,
+        "duration": 5.52
+    },
+    {
+        "text": "format we support both plain tasks and also uh  we also support this uh python list with chords  ",
+        "start": 381.28,
+        "duration": 7.28
+    },
+    {
+        "text": "that's cool that's cool so so then it's basically  the same it's kind of like a classification  ",
+        "start": 389.76,
+        "duration": 5.92
+    },
+    {
+        "text": "problem but instead you're going to have multiple  classes that are going to be assigned exactly okay",
+        "start": 395.68,
+        "duration": 4.72
+    },
+    {
+        "text": "cool and in your for automatic nlp to run you have  to prepare a training data set and the validation  ",
+        "start": 402.88,
+        "duration": 6.64
+    },
+    {
+        "text": "data set for us to compute the metrics and  later you can also adding a test data set  ",
+        "start": 409.52,
+        "duration": 6.08
+    },
+    {
+        "text": "to do inferencing and now we can start around  with the prepared compute resource and datasets  ",
+        "start": 415.6,
+        "duration": 7.12
+    },
+    {
+        "text": "so in this example we are going to show you  how you can using the distributed training  ",
+        "start": 422.72,
+        "duration": 5.52
+    },
+    {
+        "text": "so we are actually using a standard nc6 instance  with two nodes to enable parallel training  ",
+        "start": 428.24,
+        "duration": 6.24
+    },
+    {
+        "text": "and in autumnal in order for you to do this beauty  training is actually very straightforward you  ",
+        "start": 435.12,
+        "duration": 5.76
+    },
+    {
+        "text": "will just need to set these two lines of code  to enable distributed training for nlp like  ",
+        "start": 440.88,
+        "duration": 6.0
+    },
+    {
+        "text": "for domestic concurrent iteration this is  actually the number of vms available in your  ",
+        "start": 446.88,
+        "duration": 5.36
+    },
+    {
+        "text": "cluster and you can set this up before  beforehand when you set up your compute  ",
+        "start": 452.24,
+        "duration": 5.12
+    },
+    {
+        "text": "and you can enable distributed and training is  true and then we are going to automatically set  ",
+        "start": 457.36,
+        "duration": 5.44
+    },
+    {
+        "text": "all the requirement framework and everything  we are going to set automatically for you  ",
+        "start": 462.8,
+        "duration": 4.56
+    },
+    {
+        "text": "here can you can you hit control plus a  couple times that way you can make the  ",
+        "start": 469.2,
+        "duration": 2.88
+    },
+    {
+        "text": "text a little bit bigger and then while  you're doing that just control plus uh  ",
+        "start": 472.08,
+        "duration": 3.36
+    },
+    {
+        "text": "just a couple of questions so basically you're  telling automl to run a bunch of algorithms to do  ",
+        "start": 476.24,
+        "duration": 7.2
+    },
+    {
+        "text": "the text labeling but on multiple machines on the  number of vms that you want is that is that right  ",
+        "start": 484.0,
+        "duration": 6.48
+    },
+    {
+        "text": "yeah exactly okay so we actually support like both  multi-nodes and multi-gpu depending on your need  ",
+        "start": 490.48,
+        "duration": 6.8
+    },
+    {
+        "text": "i see i see and then the setting basically right  here is how many max concurrent iterations can you  ",
+        "start": 497.92,
+        "duration": 5.6
+    },
+    {
+        "text": "have now that number is important because there's  the system because i know in the other auto mls  ",
+        "start": 503.52,
+        "duration": 5.68
+    },
+    {
+        "text": "and and correctly if i'm wrong as the things  are marching along automl will automatically  ",
+        "start": 509.2,
+        "duration": 5.12
+    },
+    {
+        "text": "stop things that are just not doing as well is  is this the case here as well i think i can come  ",
+        "start": 514.32,
+        "duration": 6.72
+    },
+    {
+        "text": "with some details yeah so here things happen in  parallel because um we trained the model with  ",
+        "start": 521.04,
+        "duration": 6.64
+    },
+    {
+        "text": "like a large amount of data and now it's like  we split the data onto different machines so  ",
+        "start": 527.68,
+        "duration": 6.08
+    },
+    {
+        "text": "that they can like tell the model okay this is  how you should update yourself so you know now  ",
+        "start": 533.76,
+        "duration": 5.68
+    },
+    {
+        "text": "we have multiple nodes to give this to the model  this update information or instructions so that it  ",
+        "start": 539.44,
+        "duration": 5.36
+    },
+    {
+        "text": "accelerates things but there won't  be like things not doing well because  ",
+        "start": 545.44,
+        "duration": 4.4
+    },
+    {
+        "text": "all the machine knows all the machines they  are doing the same thing they're collaborations  ",
+        "start": 549.84,
+        "duration": 3.84
+    },
+    {
+        "text": "okay so this is like a single large model and then  there's batch updates happening on different nodes  ",
+        "start": 553.68,
+        "duration": 6.8
+    },
+    {
+        "text": "to the same model is that am i getting this right  yeah very okay that that makes a whole whole lot  ",
+        "start": 560.48,
+        "duration": 5.2
+    },
+    {
+        "text": "of sense i'm sorry winston keep going yeah yeah  so once you have your distributed training set up  ",
+        "start": 565.68,
+        "duration": 5.6
+    },
+    {
+        "text": "uh you can continue to set up your autumnal  config this is where you select the text for your  ",
+        "start": 571.28,
+        "duration": 5.12
+    },
+    {
+        "text": "training so here you see here like we have this  text type and for autumn lp we are adding three  ",
+        "start": 576.4,
+        "duration": 6.72
+    },
+    {
+        "text": "new tasks and for this example we are using text  classification multi-label and we are having two  ",
+        "start": 583.12,
+        "duration": 6.16
+    },
+    {
+        "text": "other new tasks which is text classification which  is for the single class like text classification  ",
+        "start": 589.28,
+        "duration": 6.24
+    },
+    {
+        "text": "and we also have text ner for name entity  recognition and for the other settings here  ",
+        "start": 595.52,
+        "duration": 7.04
+    },
+    {
+        "text": "this is where you have your computer target your  training and validation data set and your label  ",
+        "start": 602.56,
+        "duration": 6.16
+    },
+    {
+        "text": "column name and once you have your automatic  config set up you can submit this ultimate rest  ",
+        "start": 608.72,
+        "duration": 6.24
+    },
+    {
+        "text": "by using the experiment.submit and we are going  to uh return you with the link to address studio  ",
+        "start": 614.96,
+        "duration": 6.24
+    },
+    {
+        "text": "for you to monitor this uh ultimate runs that's  cool so just a another question here is it so  ",
+        "start": 621.2,
+        "duration": 7.6
+    },
+    {
+        "text": "is it are we running multiple different models or  are we optimizing and refining a good base model  ",
+        "start": 628.8,
+        "duration": 5.68
+    },
+    {
+        "text": "that we're building on top of for auto ml so for  automation lp we are actually only trim one model  ",
+        "start": 634.48,
+        "duration": 6.64
+    },
+    {
+        "text": "okay yeah you can see here we don't necessarily  need to set up the primary metrics which is going  ",
+        "start": 641.76,
+        "duration": 5.04
+    },
+    {
+        "text": "to be used for optimization when you have multiple  models uh in autumn lp we only train one model and  ",
+        "start": 646.8,
+        "duration": 5.92
+    },
+    {
+        "text": "we do not need to rank the trade models and this  trade models is going to be fine-tuned based on  ",
+        "start": 652.72,
+        "duration": 5.68
+    },
+    {
+        "text": "your data set got it and that makes sense because  we found that this particular model just works  ",
+        "start": 658.4,
+        "duration": 5.84
+    },
+    {
+        "text": "really well on text and we have a really good  base model so that's what and so when you're what  ",
+        "start": 664.24,
+        "duration": 4.08
+    },
+    {
+        "text": "you're what you're doing when you're paralyzing  it is you're making that model get updated faster  ",
+        "start": 668.32,
+        "duration": 4.88
+    },
+    {
+        "text": "basically cool sorry okay keep going my friend  yeah so um you can also directly download the  ",
+        "start": 673.2,
+        "duration": 7.12
+    },
+    {
+        "text": "metrics locked with the training run and this  matrix are computed with the validation data  ",
+        "start": 680.96,
+        "duration": 5.28
+    },
+    {
+        "text": "set you provided so you can see here like  we have multiple metrics uh can be used  ",
+        "start": 686.24,
+        "duration": 5.52
+    },
+    {
+        "text": "for reporting metrics and for you to compare  with a different base model or your own models  ",
+        "start": 691.76,
+        "duration": 5.6
+    },
+    {
+        "text": "and you can also get the best run id and  best model with the get output method so  ",
+        "start": 698.88,
+        "duration": 5.68
+    },
+    {
+        "text": "this is the end-to-end example of how you're  going to train your model and we also have  ",
+        "start": 704.56,
+        "duration": 5.76
+    },
+    {
+        "text": "the example of how you can actually inference  this trained model with the script run config  ",
+        "start": 710.32,
+        "duration": 5.52
+    },
+    {
+        "text": "awesome so this is this is really really cool are  people using this so what what is how long does  ",
+        "start": 716.96,
+        "duration": 7.52
+    },
+    {
+        "text": "this take to run any other additional details you  have about this yeah so during our private preview  ",
+        "start": 724.48,
+        "duration": 6.32
+    },
+    {
+        "text": "we actually have a couple of customers who already  tested with their production use cases and they  ",
+        "start": 730.8,
+        "duration": 6.24
+    },
+    {
+        "text": "are really like the multilingual support we have  since they all have their data set in language  ",
+        "start": 737.04,
+        "duration": 5.04
+    },
+    {
+        "text": "rather than english of course yeah and because we  are adding another layer of fine tuning um this  ",
+        "start": 742.08,
+        "duration": 6.8
+    },
+    {
+        "text": "model actually performs way better than the the  base model they can directly use from hugging base  ",
+        "start": 748.88,
+        "duration": 5.68
+    },
+    {
+        "text": "and that's what we are improving based on the  hacking face proof training models this is this  ",
+        "start": 754.56,
+        "duration": 6.0
+    },
+    {
+        "text": "is really cool i like the idea of like there's  not much to do other than say here's the data  ",
+        "start": 760.56,
+        "duration": 5.6
+    },
+    {
+        "text": "go uh go faster here's more machines and then you  have a model that you can do inference on your own  ",
+        "start": 767.36,
+        "duration": 5.92
+    },
+    {
+        "text": "data in a hundred and four different languages am  i getting this right yeah exactly this is awesome  ",
+        "start": 773.28,
+        "duration": 6.08
+    },
+    {
+        "text": "so where can people go to find out more leafing  uh yeah actually i think yeah here is a link  ",
+        "start": 779.36,
+        "duration": 7.04
+    },
+    {
+        "text": "and you can click that is our official doc and  that will include a lot of details like how you  ",
+        "start": 786.96,
+        "duration": 4.88
+    },
+    {
+        "text": "can set up your computer instance workspace and  also what kind of preparation you have to do for  ",
+        "start": 791.84,
+        "duration": 4.56
+    },
+    {
+        "text": "your data and also what kind of tasks you should  choose depending on your task and data yeah this  ",
+        "start": 796.4,
+        "duration": 6.4
+    },
+    {
+        "text": "is awesome so there's the link aka.ms automl-nlp  make sure you go find out more thank you so much  ",
+        "start": 802.8,
+        "duration": 6.08
+    },
+    {
+        "text": "for spending some time with us my friends yeah  thank you thank you for hosting this thank you  ",
+        "start": 808.88,
+        "duration": 4.8
+    },
+    {
+        "text": "awesome well thanks so much for watching we're  learning all about building nlp models with azure  ",
+        "start": 813.68,
+        "duration": 4.32
+    },
+    {
+        "text": "ml automl thanks so much for watching and  hopefully we'll see you next time take care",
+        "start": 818.0,
+        "duration": 9.84
+    },
+    {
+        "text": "you",
+        "start": 831.44,
+        "duration": 0.5
+    }
+]

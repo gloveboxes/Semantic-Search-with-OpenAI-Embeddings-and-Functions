@@ -1,0 +1,1387 @@
+[
+    {
+        "text": ">> You're not going to want to miss this episode of The AI Show,",
+        "start": 0.0,
+        "duration": 2.5
+    },
+    {
+        "text": "where we learn about how to make",
+        "start": 2.5,
+        "duration": 1.61
+    },
+    {
+        "text": "your own video game robots that learn on their own.",
+        "start": 4.11,
+        "duration": 3.87
+    },
+    {
+        "text": "It's pretty cool, make sure you tune in.",
+        "start": 7.98,
+        "duration": 1.77
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 9.75,
+        "duration": 8.31
+    },
+    {
+        "text": ">> Hello. Welcome to this episode of The AI Show,",
+        "start": 18.06,
+        "duration": 2.27
+    },
+    {
+        "text": "where I am pleased to welcome again,",
+        "start": 20.33,
+        "duration": 2.52
+    },
+    {
+        "text": "Dr. Katja Hofmann, Principal",
+        "start": 22.85,
+        "duration": 1.38
+    },
+    {
+        "text": "Researcher at MSR. How you doing, my friend?",
+        "start": 24.23,
+        "duration": 2.465
+    },
+    {
+        "text": ">> I'm very good. Thank you.",
+        "start": 26.695,
+        "duration": 1.715
+    },
+    {
+        "text": ">> Fantastic. Well, it's been almost years since we've chatted.",
+        "start": 28.41,
+        "duration": 3.78
+    },
+    {
+        "text": "Why don't you remind everybody what you",
+        "start": 32.19,
+        "duration": 1.52
+    },
+    {
+        "text": "work on so they can get a sense for what you do?",
+        "start": 33.71,
+        "duration": 2.45
+    },
+    {
+        "text": ">> Fantastic. Last time we",
+        "start": 36.16,
+        "duration": 2.15
+    },
+    {
+        "text": "chatted we talked about reinforcement learning.",
+        "start": 38.31,
+        "duration": 2.465
+    },
+    {
+        "text": "It's a type of AI that we're very excited about in my team.",
+        "start": 40.775,
+        "duration": 5.145
+    },
+    {
+        "text": "Myself and my team work on reinforcement learning algorithms,",
+        "start": 45.92,
+        "duration": 4.17
+    },
+    {
+        "text": "especially in the context of gaming.",
+        "start": 50.09,
+        "duration": 2.04
+    },
+    {
+        "text": "So understanding what the impact of reinforcement learning",
+        "start": 52.13,
+        "duration": 3.18
+    },
+    {
+        "text": "could be in gaming and what new player",
+        "start": 55.31,
+        "duration": 1.65
+    },
+    {
+        "text": "experiences it would enable.",
+        "start": 56.96,
+        "duration": 2.12
+    },
+    {
+        "text": ">> For those that are familiar with reinforcement learning,",
+        "start": 59.08,
+        "duration": 2.38
+    },
+    {
+        "text": "can you give us like an elevator pitch",
+        "start": 61.46,
+        "duration": 1.86
+    },
+    {
+        "text": "for what it is and why it's so cool?",
+        "start": 63.32,
+        "duration": 1.955
+    },
+    {
+        "text": ">> Absolutely. Reinforcement learning is",
+        "start": 65.275,
+        "duration": 2.875
+    },
+    {
+        "text": "a very general type of",
+        "start": 68.15,
+        "duration": 2.46
+    },
+    {
+        "text": "machine learning that formulates a problem from",
+        "start": 70.61,
+        "duration": 3.66
+    },
+    {
+        "text": "the perspective of an agent that",
+        "start": 74.27,
+        "duration": 1.8
+    },
+    {
+        "text": "interacts with the world by taking",
+        "start": 76.07,
+        "duration": 2.775
+    },
+    {
+        "text": "observations about the current state of the world",
+        "start": 78.845,
+        "duration": 2.73
+    },
+    {
+        "text": "and by taking actions that have some kind of effect in the world.",
+        "start": 81.575,
+        "duration": 3.255
+    },
+    {
+        "text": "You can imagine, of course,",
+        "start": 84.83,
+        "duration": 2.04
+    },
+    {
+        "text": "in a game that's pretty appealing because it allows you to create",
+        "start": 86.87,
+        "duration": 3.165
+    },
+    {
+        "text": "game characters that experienced",
+        "start": 90.035,
+        "duration": 2.805
+    },
+    {
+        "text": "the game from the point of view of getting some observations,",
+        "start": 92.84,
+        "duration": 2.85
+    },
+    {
+        "text": "some sensing about what's going on in",
+        "start": 95.69,
+        "duration": 2.58
+    },
+    {
+        "text": "the game at this point in time, their actions.",
+        "start": 98.27,
+        "duration": 3.255
+    },
+    {
+        "text": "Learning takes place through",
+        "start": 101.525,
+        "duration": 2.22
+    },
+    {
+        "text": "a reward signal that is created, for example,",
+        "start": 103.745,
+        "duration": 2.955
+    },
+    {
+        "text": "by the game designer or game developer to",
+        "start": 106.7,
+        "duration": 3.87
+    },
+    {
+        "text": "put some pressure on",
+        "start": 110.57,
+        "duration": 1.5
+    },
+    {
+        "text": "the agent by interacting with the environment.",
+        "start": 112.07,
+        "duration": 2.85
+    },
+    {
+        "text": "In this way, the agent observes what kinds of",
+        "start": 114.92,
+        "duration": 3.12
+    },
+    {
+        "text": "rewards are associated with its action,",
+        "start": 118.04,
+        "duration": 3.33
+    },
+    {
+        "text": "so it can learn about long-term,",
+        "start": 121.37,
+        "duration": 2.82
+    },
+    {
+        "text": "if I take this action at this point in time,",
+        "start": 124.19,
+        "duration": 2.04
+    },
+    {
+        "text": "does that lead to a good outcome or a bad outcome.",
+        "start": 126.23,
+        "duration": 2.955
+    },
+    {
+        "text": "Reinforcement learning is really a formal method for working out",
+        "start": 129.185,
+        "duration": 3.495
+    },
+    {
+        "text": "long-term consequences in taking",
+        "start": 132.68,
+        "duration": 2.94
+    },
+    {
+        "text": "sequences of actions in a complex environment.",
+        "start": 135.62,
+        "duration": 3.63
+    },
+    {
+        "text": ">> In this case, we're doing it in the context of games.",
+        "start": 139.25,
+        "duration": 2.91
+    },
+    {
+        "text": "If I remember right,",
+        "start": 142.16,
+        "duration": 1.245
+    },
+    {
+        "text": "when we chatted last,",
+        "start": 143.405,
+        "duration": 1.185
+    },
+    {
+        "text": "you were working on this project called Project Malmo.",
+        "start": 144.59,
+        "duration": 2.64
+    },
+    {
+        "text": "Why don't you describe that briefly?",
+        "start": 147.23,
+        "duration": 1.88
+    },
+    {
+        "text": ">> Absolutely. So Project Malmo was",
+        "start": 149.11,
+        "duration": 2.29
+    },
+    {
+        "text": "the first project that my team and I went public with.",
+        "start": 151.4,
+        "duration": 3.135
+    },
+    {
+        "text": "This was really mainly targeted at researchers,",
+        "start": 154.535,
+        "duration": 3.975
+    },
+    {
+        "text": "allowing them to use the game",
+        "start": 158.51,
+        "duration": 3.51
+    },
+    {
+        "text": "Minecraft as a platform for doing reinforcement learning research.",
+        "start": 162.02,
+        "duration": 3.905
+    },
+    {
+        "text": "If you remember, I was hugely",
+        "start": 165.925,
+        "duration": 2.275
+    },
+    {
+        "text": "excited about Minecraft as a platform for this,",
+        "start": 168.2,
+        "duration": 2.355
+    },
+    {
+        "text": "and I still am,",
+        "start": 170.555,
+        "duration": 1.29
+    },
+    {
+        "text": "because Minecraft is such an open-ended game.",
+        "start": 171.845,
+        "duration": 2.445
+    },
+    {
+        "text": "We're really seeing this as",
+        "start": 174.29,
+        "duration": 2.025
+    },
+    {
+        "text": "a kind of game that allows this whole trajectory,",
+        "start": 176.315,
+        "duration": 2.925
+    },
+    {
+        "text": "from relatively simple agents and relatively simple environments,",
+        "start": 179.24,
+        "duration": 4.58
+    },
+    {
+        "text": "all the way up, eventually,",
+        "start": 183.82,
+        "duration": 1.54
+    },
+    {
+        "text": "to agents that solve complex problems within the game Minecraft.",
+        "start": 185.36,
+        "duration": 3.92
+    },
+    {
+        "text": "That also tells us something about how we can create",
+        "start": 189.28,
+        "duration": 2.47
+    },
+    {
+        "text": "such agents for other real applications that",
+        "start": 191.75,
+        "duration": 3.705
+    },
+    {
+        "text": "require agents to learn about their environment and",
+        "start": 195.455,
+        "duration": 3.225
+    },
+    {
+        "text": "take complex sequences of actions in order to achieve their goals.",
+        "start": 198.68,
+        "duration": 3.995
+    },
+    {
+        "text": ">> I'm a huge fan of Minecraft,",
+        "start": 202.675,
+        "duration": 1.89
+    },
+    {
+        "text": "particularly because it's so open-ended",
+        "start": 204.565,
+        "duration": 2.125
+    },
+    {
+        "text": "and you can have any type of goals that you want,",
+        "start": 206.69,
+        "duration": 2.16
+    },
+    {
+        "text": "like not die, for example,",
+        "start": 208.85,
+        "duration": 1.68
+    },
+    {
+        "text": "otherwise to build amazing things.",
+        "start": 210.53,
+        "duration": 1.67
+    },
+    {
+        "text": "So what you're saying is that",
+        "start": 212.2,
+        "duration": 1.12
+    },
+    {
+        "text": "reinforcement learning is a technique that allows",
+        "start": 213.32,
+        "duration": 2.655
+    },
+    {
+        "text": "an agent to learn based upon what is going on around it?",
+        "start": 215.975,
+        "duration": 4.275
+    },
+    {
+        "text": "Does that work or does it really anything?",
+        "start": 220.25,
+        "duration": 2.42
+    },
+    {
+        "text": ">> That is really a good way to think about it.",
+        "start": 222.67,
+        "duration": 2.95
+    },
+    {
+        "text": "If we have a game like Minecraft,",
+        "start": 225.62,
+        "duration": 2.669
+    },
+    {
+        "text": "then a researcher or",
+        "start": 228.289,
+        "duration": 3.181
+    },
+    {
+        "text": "a game creator or someone who",
+        "start": 231.47,
+        "duration": 1.65
+    },
+    {
+        "text": "was to train an agent within the game,",
+        "start": 233.12,
+        "duration": 1.83
+    },
+    {
+        "text": "Minecraft, would still have to provide a reward signal.",
+        "start": 234.95,
+        "duration": 2.85
+    },
+    {
+        "text": "So this is really a way of expressing that goal.",
+        "start": 237.8,
+        "duration": 2.595
+    },
+    {
+        "text": "You mentioned not dying.",
+        "start": 240.395,
+        "duration": 1.935
+    },
+    {
+        "text": "You could imagine an agent that you",
+        "start": 242.33,
+        "duration": 1.92
+    },
+    {
+        "text": "let loose in the game of Minecraft and",
+        "start": 244.25,
+        "duration": 2.145
+    },
+    {
+        "text": "you just rewarded for surviving for as long as possible.",
+        "start": 246.395,
+        "duration": 4.69
+    },
+    {
+        "text": "We have an ongoing great collaboration with",
+        "start": 251.085,
+        "duration": 5.0
+    },
+    {
+        "text": "various university and other partners",
+        "start": 256.085,
+        "duration": 2.955
+    },
+    {
+        "text": "including the CMU, for example,",
+        "start": 259.04,
+        "duration": 2.235
+    },
+    {
+        "text": "where the goal is to create",
+        "start": 261.275,
+        "duration": 2.025
+    },
+    {
+        "text": "reinforcement learning agents that learn",
+        "start": 263.3,
+        "duration": 2.16
+    },
+    {
+        "text": "to mine a diamond in Minecraft using reinforcement learning,",
+        "start": 265.46,
+        "duration": 5.67
+    },
+    {
+        "text": "so interaction with that environment,",
+        "start": 271.13,
+        "duration": 1.769
+    },
+    {
+        "text": "and a very small amount of",
+        "start": 272.899,
+        "duration": 2.311
+    },
+    {
+        "text": "demonstration data from a human player showing how get a diamond.",
+        "start": 275.21,
+        "duration": 4.27
+    },
+    {
+        "text": "You can imagine, this is a really hard task by itself.",
+        "start": 279.48,
+        "duration": 4.52
+    },
+    {
+        "text": "It's a really nice way to test out",
+        "start": 284.0,
+        "duration": 2.685
+    },
+    {
+        "text": "the current state of the origin reinforcement learning",
+        "start": 286.685,
+        "duration": 1.875
+    },
+    {
+        "text": "and drive improvements there.",
+        "start": 288.56,
+        "duration": 1.21
+    },
+    {
+        "text": "But you could also imagine millions of",
+        "start": 289.77,
+        "duration": 2.375
+    },
+    {
+        "text": "other tasks that we could be training our agents to do.",
+        "start": 292.145,
+        "duration": 3.255
+    },
+    {
+        "text": ">> This is really cool, but it's been several years.",
+        "start": 295.4,
+        "duration": 3.135
+    },
+    {
+        "text": "What's new?",
+        "start": 298.535,
+        "duration": 1.895
+    },
+    {
+        "text": ">> One project that my team and I just announced in",
+        "start": 300.43,
+        "duration": 3.64
+    },
+    {
+        "text": "collaboration with several other partners",
+        "start": 304.07,
+        "duration": 2.19
+    },
+    {
+        "text": "is called Project Paidia.",
+        "start": 306.26,
+        "duration": 2.16
+    },
+    {
+        "text": "This is a research collaboration with Ninja Theory,",
+        "start": 308.42,
+        "duration": 4.395
+    },
+    {
+        "text": "which is a game studio located",
+        "start": 312.815,
+        "duration": 2.235
+    },
+    {
+        "text": "very close to us here in Cambridge in the UK.",
+        "start": 315.05,
+        "duration": 3.175
+    },
+    {
+        "text": "It just so happened that as we looked at the research",
+        "start": 318.225,
+        "duration": 4.085
+    },
+    {
+        "text": "challenges that we were addressed and identified",
+        "start": 322.31,
+        "duration": 2.28
+    },
+    {
+        "text": "that one of the key challenges that we want to tackle",
+        "start": 324.59,
+        "duration": 2.58
+    },
+    {
+        "text": "is understanding how to create",
+        "start": 327.17,
+        "duration": 2.235
+    },
+    {
+        "text": "AI agents that learn to genuinely collaborate with human players.",
+        "start": 329.405,
+        "duration": 3.855
+    },
+    {
+        "text": "It turned out that Ninja Theory just had",
+        "start": 333.26,
+        "duration": 2.13
+    },
+    {
+        "text": "the perfect game to allow us to test that out.",
+        "start": 335.39,
+        "duration": 3.41
+    },
+    {
+        "text": "Their game, Bleeding Edge,",
+        "start": 338.8,
+        "duration": 2.04
+    },
+    {
+        "text": "is a team-based game that really relies",
+        "start": 340.84,
+        "duration": 2.545
+    },
+    {
+        "text": "on tight cooperation within a team.",
+        "start": 343.385,
+        "duration": 2.805
+    },
+    {
+        "text": "It's four versus four.",
+        "start": 346.19,
+        "duration": 1.755
+    },
+    {
+        "text": "One of the challenges that we set to us",
+        "start": 347.945,
+        "duration": 2.295
+    },
+    {
+        "text": "in this research collaboration was to, one,",
+        "start": 350.24,
+        "duration": 3.21
+    },
+    {
+        "text": "understand how to get",
+        "start": 353.45,
+        "duration": 1.935
+    },
+    {
+        "text": "reinforced material into a modern video game,",
+        "start": 355.385,
+        "duration": 3.025
+    },
+    {
+        "text": "as Bleeding Edge was something that the team",
+        "start": 358.41,
+        "duration": 2.33
+    },
+    {
+        "text": "was working on right at that very moment.",
+        "start": 360.74,
+        "duration": 2.745
+    },
+    {
+        "text": "Then also, understand how we can create agents that,",
+        "start": 363.485,
+        "duration": 4.025
+    },
+    {
+        "text": "for example, can perform",
+        "start": 367.51,
+        "duration": 2.08
+    },
+    {
+        "text": "well in a team when coupled with human players.",
+        "start": 369.59,
+        "duration": 3.26
+    },
+    {
+        "text": "Agents that really have to understand,",
+        "start": 372.85,
+        "duration": 2.08
+    },
+    {
+        "text": "what is this human player trying to do?",
+        "start": 374.93,
+        "duration": 1.74
+    },
+    {
+        "text": "How do I respond to this as well as possible?",
+        "start": 376.67,
+        "duration": 2.88
+    },
+    {
+        "text": "How do I coordinate my actions so that my team is successful?",
+        "start": 379.55,
+        "duration": 3.485
+    },
+    {
+        "text": ">> It feels like the difference between",
+        "start": 383.035,
+        "duration": 2.625
+    },
+    {
+        "text": "Bleeding Edge and Minecraft is very subtle.",
+        "start": 385.66,
+        "duration": 3.22
+    },
+    {
+        "text": "Would you might diving into how it's actually different?",
+        "start": 388.88,
+        "duration": 3.71
+    },
+    {
+        "text": ">> Absolutely. Minecraft is",
+        "start": 392.59,
+        "duration": 2.995
+    },
+    {
+        "text": "usually open-ended, as we just mentioned.",
+        "start": 395.585,
+        "duration": 2.17
+    },
+    {
+        "text": "There, we could in principle create a variety",
+        "start": 397.755,
+        "duration": 2.855
+    },
+    {
+        "text": "of tasks that require collaboration between,",
+        "start": 400.61,
+        "duration": 2.82
+    },
+    {
+        "text": "let's say, a human player and AI agent.",
+        "start": 403.43,
+        "duration": 2.78
+    },
+    {
+        "text": "The nice thing about Bleeding Edge was that it allowed us to have",
+        "start": 406.21,
+        "duration": 4.135
+    },
+    {
+        "text": "a more focused proof point or",
+        "start": 410.345,
+        "duration": 2.845
+    },
+    {
+        "text": "research case study where there already is this game,",
+        "start": 413.19,
+        "duration": 4.02
+    },
+    {
+        "text": "under development, where we know that human players are able to",
+        "start": 417.21,
+        "duration": 3.23
+    },
+    {
+        "text": "effectively coordinate and are able to,",
+        "start": 420.44,
+        "duration": 3.66
+    },
+    {
+        "text": "for example, make strategic decisions",
+        "start": 424.1,
+        "duration": 2.535
+    },
+    {
+        "text": "depending on their teammates abilities.",
+        "start": 426.635,
+        "duration": 2.435
+    },
+    {
+        "text": "That provided that more focused platform, really,",
+        "start": 429.07,
+        "duration": 3.035
+    },
+    {
+        "text": "around understanding how to",
+        "start": 432.105,
+        "duration": 1.835
+    },
+    {
+        "text": "get agents to do this cooperation with human players.",
+        "start": 433.94,
+        "duration": 5.54
+    },
+    {
+        "text": ">> That's interesting because if I'm understanding it right,",
+        "start": 439.48,
+        "duration": 3.345
+    },
+    {
+        "text": "in Minecraft, in the Project Malmo,",
+        "start": 442.825,
+        "duration": 3.235
+    },
+    {
+        "text": "you had to give it a reward function.",
+        "start": 446.06,
+        "duration": 2.73
+    },
+    {
+        "text": "But here, it can actually learn",
+        "start": 448.79,
+        "duration": 2.64
+    },
+    {
+        "text": "what the rewards are based upon other players,",
+        "start": 451.43,
+        "duration": 2.77
+    },
+    {
+        "text": "is that fair to say?",
+        "start": 454.2,
+        "duration": 2.13
+    },
+    {
+        "text": ">> Yeah, ultimately in the game the reward is quite obvious.",
+        "start": 456.33,
+        "duration": 4.355
+    },
+    {
+        "text": "If your team wins, you succeed.",
+        "start": 460.685,
+        "duration": 2.24
+    },
+    {
+        "text": "There, the higher level goal is already given,",
+        "start": 462.925,
+        "duration": 3.49
+    },
+    {
+        "text": "which wouldn't necessarily be the case in Minecraft,",
+        "start": 466.415,
+        "duration": 2.755
+    },
+    {
+        "text": "there we would have to decide this on our own.",
+        "start": 469.17,
+        "duration": 2.06
+    },
+    {
+        "text": "We can still tweak the reward function that's given to the agent.",
+        "start": 471.23,
+        "duration": 3.885
+    },
+    {
+        "text": "But ultimately, the goal is clear.",
+        "start": 475.115,
+        "duration": 1.68
+    },
+    {
+        "text": "If you're able to successfully",
+        "start": 476.795,
+        "duration": 1.545
+    },
+    {
+        "text": "collaborate with your teammates, then you win the game.",
+        "start": 478.34,
+        "duration": 2.81
+    },
+    {
+        "text": ">> That's interesting. I'm thinking about the Minecraft situation.",
+        "start": 481.15,
+        "duration": 4.72
+    },
+    {
+        "text": "There really isn't someone else that you can collaborate with,",
+        "start": 485.87,
+        "duration": 3.645
+    },
+    {
+        "text": "and so it doesn't have anything.",
+        "start": 489.515,
+        "duration": 1.935
+    },
+    {
+        "text": "I mean, I guess it learns from its surroundings,",
+        "start": 491.45,
+        "duration": 2.16
+    },
+    {
+        "text": "but now, it can actually learn from a human as",
+        "start": 493.61,
+        "duration": 2.43
+    },
+    {
+        "text": "opposed to a reward function in some artificial environment?",
+        "start": 496.04,
+        "duration": 3.795
+    },
+    {
+        "text": ">> Absolutely. One of the types of",
+        "start": 499.835,
+        "duration": 2.985
+    },
+    {
+        "text": "techniques that we are exploring in the context of",
+        "start": 502.82,
+        "duration": 2.535
+    },
+    {
+        "text": "our collaboration with Ninja Theory is to understand",
+        "start": 505.355,
+        "duration": 2.715
+    },
+    {
+        "text": "how we can use demonstration data,",
+        "start": 508.07,
+        "duration": 2.805
+    },
+    {
+        "text": "so human player data,",
+        "start": 510.875,
+        "duration": 1.8
+    },
+    {
+        "text": "to start imitating off and",
+        "start": 512.675,
+        "duration": 1.98
+    },
+    {
+        "text": "essentially, interpolating between trying to imitate",
+        "start": 514.655,
+        "duration": 4.725
+    },
+    {
+        "text": "human players as much as possible",
+        "start": 519.38,
+        "duration": 1.62
+    },
+    {
+        "text": "with also using reinforcement learning",
+        "start": 521.0,
+        "duration": 2.475
+    },
+    {
+        "text": "to really learn about the consequences of",
+        "start": 523.475,
+        "duration": 1.965
+    },
+    {
+        "text": "actions and try to perform as best as possible.",
+        "start": 525.44,
+        "duration": 2.705
+    },
+    {
+        "text": ">> Well, this is really cool. Do you have anything to show us?",
+        "start": 528.145,
+        "duration": 2.765
+    },
+    {
+        "text": ">> Absolutely, I'm glad you asked.",
+        "start": 530.91,
+        "duration": 2.375
+    },
+    {
+        "text": "In the context of project Paidia,",
+        "start": 533.285,
+        "duration": 2.385
+    },
+    {
+        "text": "we just released this AI innovation page.",
+        "start": 535.67,
+        "duration": 3.655
+    },
+    {
+        "text": "Let me share this page.",
+        "start": 539.325,
+        "duration": 2.86
+    },
+    {
+        "text": "What you're seeing here is",
+        "start": 542.185,
+        "duration": 1.595
+    },
+    {
+        "text": "the AI Innovation page for Project Paidia that we just announced.",
+        "start": 543.78,
+        "duration": 4.08
+    },
+    {
+        "text": "What I want to show you here is",
+        "start": 547.86,
+        "duration": 1.73
+    },
+    {
+        "text": "this interactive experience where you can experience,",
+        "start": 549.59,
+        "duration": 3.82
+    },
+    {
+        "text": "right in your web browser,",
+        "start": 553.41,
+        "duration": 1.02
+    },
+    {
+        "text": "what it's like to interact with",
+        "start": 554.43,
+        "duration": 1.85
+    },
+    {
+        "text": "a trained reinforcement learning agent.",
+        "start": 556.28,
+        "duration": 2.73
+    },
+    {
+        "text": "For this game, we trained",
+        "start": 559.01,
+        "duration": 2.4
+    },
+    {
+        "text": "a reinforcement learning agent to collaborate",
+        "start": 561.41,
+        "duration": 3.09
+    },
+    {
+        "text": "with a human player in this escape room game.",
+        "start": 564.5,
+        "duration": 6.37
+    },
+    {
+        "text": "In this game, I am,",
+        "start": 577.43,
+        "duration": 2.71
+    },
+    {
+        "text": "or the human player, is this white robot right here,",
+        "start": 580.14,
+        "duration": 3.43
+    },
+    {
+        "text": "while the blue robot here is",
+        "start": 583.57,
+        "duration": 1.84
+    },
+    {
+        "text": "controlled by a reinforcement learning agent.",
+        "start": 585.41,
+        "duration": 3.365
+    },
+    {
+        "text": "As you can see, the reinforcement learning agent",
+        "start": 588.775,
+        "duration": 2.515
+    },
+    {
+        "text": "is trying to be headfirst.",
+        "start": 591.29,
+        "duration": 1.455
+    },
+    {
+        "text": "In this game, there are two things you need to do.",
+        "start": 592.745,
+        "duration": 2.955
+    },
+    {
+        "text": "One agent needs to be on this red switch in order to activate",
+        "start": 595.7,
+        "duration": 4.08
+    },
+    {
+        "text": "these platforms for the other agent",
+        "start": 599.78,
+        "duration": 3.005
+    },
+    {
+        "text": "to toggle and once these are toggled, I'd be able to escape.",
+        "start": 602.785,
+        "duration": 4.005
+    },
+    {
+        "text": "Now, we've already seen that",
+        "start": 606.79,
+        "duration": 1.78
+    },
+    {
+        "text": "the trained reinforcement learning agent",
+        "start": 608.57,
+        "duration": 1.62
+    },
+    {
+        "text": "is trying to be head first,",
+        "start": 610.19,
+        "duration": 1.05
+    },
+    {
+        "text": "given that I'm not moving,",
+        "start": 611.24,
+        "duration": 1.215
+    },
+    {
+        "text": "but it can also move close to it and to see if it can pick up",
+        "start": 612.455,
+        "duration": 3.825
+    },
+    {
+        "text": "that I want to change rows and stand on the switch.",
+        "start": 616.28,
+        "duration": 4.225
+    },
+    {
+        "text": "We can see that it has correctly understood what I'm trying to do,",
+        "start": 620.505,
+        "duration": 3.665
+    },
+    {
+        "text": "and now, again, it's collaborating with",
+        "start": 624.17,
+        "duration": 2.34
+    },
+    {
+        "text": "me by flipping those switches and opening the door for me.",
+        "start": 626.51,
+        "duration": 3.465
+    },
+    {
+        "text": "Thank you so much, and now, I can escape.",
+        "start": 629.975,
+        "duration": 2.88
+    },
+    {
+        "text": ">> That's really cool.",
+        "start": 632.855,
+        "duration": 1.57
+    },
+    {
+        "text": "Basically, it understood that",
+        "start": 634.425,
+        "duration": 3.18
+    },
+    {
+        "text": "you two needed to collaborate somehow,",
+        "start": 637.605,
+        "duration": 3.03
+    },
+    {
+        "text": "and it was doing what it thought was the right thing.",
+        "start": 640.635,
+        "duration": 2.435
+    },
+    {
+        "text": "But then when it saw you get close like, \"Oh, okay,",
+        "start": 643.07,
+        "duration": 2.12
+    },
+    {
+        "text": "we're switching our responsibilities here,\"",
+        "start": 645.19,
+        "duration": 2.545
+    },
+    {
+        "text": "then it went ahead and did that act.",
+        "start": 647.735,
+        "duration": 1.94
+    },
+    {
+        "text": ">> Absolutely. That's what it's been trained to do,",
+        "start": 649.675,
+        "duration": 2.205
+    },
+    {
+        "text": "and it's able to understand the human pairs behavior that way.",
+        "start": 651.88,
+        "duration": 3.175
+    },
+    {
+        "text": ">> That's really cool.",
+        "start": 655.055,
+        "duration": 2.845
+    },
+    {
+        "text": "What's your call to action?",
+        "start": 659.68,
+        "duration": 2.095
+    },
+    {
+        "text": "Where can people go to start writing or playing with",
+        "start": 661.775,
+        "duration": 2.805
+    },
+    {
+        "text": "this system or creating more reinforcement learning algorithms?",
+        "start": 664.58,
+        "duration": 4.52
+    },
+    {
+        "text": ">> There are two resources that we can",
+        "start": 669.1,
+        "duration": 2.47
+    },
+    {
+        "text": "show right here in the video.",
+        "start": 671.57,
+        "duration": 2.82
+    },
+    {
+        "text": "First, make sure they link to this AI innovation page.",
+        "start": 674.39,
+        "duration": 3.285
+    },
+    {
+        "text": "You can not only try the interactive experience,",
+        "start": 677.675,
+        "duration": 2.625
+    },
+    {
+        "text": "but you can learn a lot more about reinforcement learning",
+        "start": 680.3,
+        "duration": 2.745
+    },
+    {
+        "text": "and what it takes to make it possible in video games,",
+        "start": 683.045,
+        "duration": 3.15
+    },
+    {
+        "text": "as well as learn something about",
+        "start": 686.195,
+        "duration": 1.545
+    },
+    {
+        "text": "the latest research that we're doing in the space.",
+        "start": 687.74,
+        "duration": 2.045
+    },
+    {
+        "text": "We'll also show a link to an Azure resource where",
+        "start": 689.785,
+        "duration": 3.625
+    },
+    {
+        "text": "you can get started training",
+        "start": 693.41,
+        "duration": 1.74
+    },
+    {
+        "text": "your first reinforcement learning agents today.",
+        "start": 695.15,
+        "duration": 2.88
+    },
+    {
+        "text": ">> I'm curious, can you show us this particular one as well?",
+        "start": 698.03,
+        "duration": 3.91
+    },
+    {
+        "text": "What's the robot trying to do here,",
+        "start": 701.94,
+        "duration": 1.79
+    },
+    {
+        "text": "and how do you escape?",
+        "start": 703.73,
+        "duration": 1.32
+    },
+    {
+        "text": "Is it the same kind of game?",
+        "start": 705.05,
+        "duration": 1.52
+    },
+    {
+        "text": ">> It's the same game. The only thing that changes between",
+        "start": 706.57,
+        "duration": 3.31
+    },
+    {
+        "text": "all the instances is the position",
+        "start": 709.88,
+        "duration": 1.71
+    },
+    {
+        "text": "of the switches and those platforms.",
+        "start": 711.59,
+        "duration": 2.1
+    },
+    {
+        "text": "Here we're showing that the agent",
+        "start": 713.69,
+        "duration": 1.77
+    },
+    {
+        "text": "has learned the general behavior,",
+        "start": 715.46,
+        "duration": 1.695
+    },
+    {
+        "text": "the general meaning of what the switches and",
+        "start": 717.155,
+        "duration": 2.235
+    },
+    {
+        "text": "the platforms are and what their functionality is,",
+        "start": 719.39,
+        "duration": 3.06
+    },
+    {
+        "text": "rather than having been hard-coded to follow a particular path.",
+        "start": 722.45,
+        "duration": 3.755
+    },
+    {
+        "text": ">> Well, this has been amazing.",
+        "start": 726.205,
+        "duration": 1.945
+    },
+    {
+        "text": "Any final words, Dr. Hofmann?",
+        "start": 728.15,
+        "duration": 2.345
+    },
+    {
+        "text": ">> Well, we're just hugely excited to",
+        "start": 730.495,
+        "duration": 2.425
+    },
+    {
+        "text": "share this interactive experience as well as our learning.",
+        "start": 732.92,
+        "duration": 3.39
+    },
+    {
+        "text": "Do try those things.",
+        "start": 736.31,
+        "duration": 1.59
+    },
+    {
+        "text": "Try to train your first reinforcement learning agent,",
+        "start": 737.9,
+        "duration": 3.045
+    },
+    {
+        "text": "and think about how to use reinforcement learning,",
+        "start": 740.945,
+        "duration": 3.585
+    },
+    {
+        "text": "maybe in your own video game.",
+        "start": 744.53,
+        "duration": 1.14
+    },
+    {
+        "text": ">> Well, this has been amazing.",
+        "start": 745.67,
+        "duration": 1.665
+    },
+    {
+        "text": "Thank you so much for spending some time with us.",
+        "start": 747.335,
+        "duration": 1.9
+    },
+    {
+        "text": "Thank you so much for watching.",
+        "start": 749.235,
+        "duration": 1.565
+    },
+    {
+        "text": "You've been learning all about reinforcement",
+        "start": 750.8,
+        "duration": 2.01
+    },
+    {
+        "text": "learning from Dr. Hofmann.",
+        "start": 752.81,
+        "duration": 1.38
+    },
+    {
+        "text": "Make sure you try out those amazing links.",
+        "start": 754.19,
+        "duration": 1.74
+    },
+    {
+        "text": "Thank you for watching and we'll see you next time. Take care.",
+        "start": 755.93,
+        "duration": 1.86
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 757.79,
+        "duration": 27.5
+    }
+]

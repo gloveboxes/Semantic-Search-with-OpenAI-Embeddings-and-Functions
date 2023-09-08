@@ -1,0 +1,2282 @@
+[
+    {
+        "text": ">> You're not going to want miss",
+        "start": 0.0,
+        "duration": 0.84
+    },
+    {
+        "text": "this episode of the AI show",
+        "start": 0.84,
+        "duration": 1.2
+    },
+    {
+        "text": "where we're getting into the nitty-gritty",
+        "start": 2.04,
+        "duration": 1.32
+    },
+    {
+        "text": "of the ONNX model format",
+        "start": 3.36,
+        "duration": 2.37
+    },
+    {
+        "text": "as well as the ONNX Runtime.",
+        "start": 5.73,
+        "duration": 1.74
+    },
+    {
+        "text": "It's pretty amazing.",
+        "start": 7.47,
+        "duration": 1.08
+    },
+    {
+        "text": "And in the end, you can actually run your own AI pretty quickly.",
+        "start": 8.55,
+        "duration": 3.51
+    },
+    {
+        "text": "Make sure you tune in.",
+        "start": 12.06,
+        "duration": 1.29
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 13.35,
+        "duration": 8.699
+    },
+    {
+        "text": ">> Hello, welcome to this episode of the AI show.",
+        "start": 22.049,
+        "duration": 1.801
+    },
+    {
+        "text": "We're going to learn all about ONNX,",
+        "start": 23.85,
+        "duration": 1.56
+    },
+    {
+        "text": "the Open Neural Network Exchange.",
+        "start": 25.41,
+        "duration": 2.28
+    },
+    {
+        "text": "I'm pretty excited to be here with Venitra.",
+        "start": 27.69,
+        "duration": 1.26
+    },
+    {
+        "text": "How are you doing, my friend?",
+        "start": 28.95,
+        "duration": 0.795
+    },
+    {
+        "text": ">> I'm doing great. Thank you, Seth.",
+        "start": 29.745,
+        "duration": 1.425
+    },
+    {
+        "text": ">> Fantastic. What do you do?",
+        "start": 31.17,
+        "duration": 1.275
+    },
+    {
+        "text": ">> So I work on the ONNX engineering team as part",
+        "start": 32.445,
+        "duration": 2.835
+    },
+    {
+        "text": "of the AI Frameworks team here at Microsoft.",
+        "start": 35.28,
+        "duration": 2.7
+    },
+    {
+        "text": ">> So I've heard about ONNX and I've even converted stuff to ONNX,",
+        "start": 37.98,
+        "duration": 4.07
+    },
+    {
+        "text": "but can you explain to our audience what exactly is ONNX?",
+        "start": 42.05,
+        "duration": 4.835
+    },
+    {
+        "text": ">> Right. So ONNX actually stands for",
+        "start": 46.885,
+        "duration": 2.66
+    },
+    {
+        "text": "the Open Neural Network Exchange and it's",
+        "start": 49.545,
+        "duration": 2.555
+    },
+    {
+        "text": "specifically a format to represent deep learning models.",
+        "start": 52.1,
+        "duration": 2.69
+    },
+    {
+        "text": ">> Okay.",
+        "start": 54.79,
+        "duration": 0.92
+    },
+    {
+        "text": ">> The benefit of using ONNX is that you're able to",
+        "start": 55.71,
+        "duration": 2.21
+    },
+    {
+        "text": "translate from a variety of frameworks into ONNX,",
+        "start": 57.92,
+        "duration": 3.15
+    },
+    {
+        "text": "and it's the standard for deep-learning libraries,",
+        "start": 61.07,
+        "duration": 2.88
+    },
+    {
+        "text": "it specifies a set of operators.",
+        "start": 63.95,
+        "duration": 1.9
+    },
+    {
+        "text": ">> So I understand like,",
+        "start": 65.85,
+        "duration": 2.03
+    },
+    {
+        "text": "so basically if I like PyTorch or someone else likes TensorFlow,",
+        "start": 67.88,
+        "duration": 3.27
+    },
+    {
+        "text": "the outputs are obviously different,",
+        "start": 71.15,
+        "duration": 1.635
+    },
+    {
+        "text": "ONNX allows you to have this format where it's all common.",
+        "start": 72.785,
+        "duration": 3.435
+    },
+    {
+        "text": "So I get that part but why would someone want to do that,",
+        "start": 76.22,
+        "duration": 3.72
+    },
+    {
+        "text": "what's the benefit of doing that?",
+        "start": 79.94,
+        "duration": 1.52
+    },
+    {
+        "text": ">> So the benefit of doing that is multifold.",
+        "start": 81.46,
+        "duration": 3.745
+    },
+    {
+        "text": "One of them is that ONNX is able to",
+        "start": 85.205,
+        "duration": 2.805
+    },
+    {
+        "text": "leverage graph optimizations and you're",
+        "start": 88.01,
+        "duration": 2.76
+    },
+    {
+        "text": "able to use different runtime inference",
+        "start": 90.77,
+        "duration": 2.19
+    },
+    {
+        "text": "frameworks to take advantage of those.",
+        "start": 92.96,
+        "duration": 3.005
+    },
+    {
+        "text": ">> I see, I see. So you're saying that, okay.",
+        "start": 95.965,
+        "duration": 2.87
+    },
+    {
+        "text": "So now I'm understanding this because",
+        "start": 98.835,
+        "duration": 1.325
+    },
+    {
+        "text": "like for some reason I'm like,",
+        "start": 100.16,
+        "duration": 1.62
+    },
+    {
+        "text": "\"Okay, it's all the same format.",
+        "start": 101.78,
+        "duration": 1.5
+    },
+    {
+        "text": "I can work with other developers.\"",
+        "start": 103.28,
+        "duration": 1.665
+    },
+    {
+        "text": "But now you're saying from the inference perspective,",
+        "start": 104.945,
+        "duration": 2.58
+    },
+    {
+        "text": "if you have something in a common format",
+        "start": 107.525,
+        "duration": 1.815
+    },
+    {
+        "text": "and everyone agrees to it,",
+        "start": 109.34,
+        "duration": 1.2
+    },
+    {
+        "text": "then hardware vendors can optimize for that, number one.",
+        "start": 110.54,
+        "duration": 2.76
+    },
+    {
+        "text": "Then number two, as you're doing conversions,",
+        "start": 113.3,
+        "duration": 2.429
+    },
+    {
+        "text": "you can find errors and maybe graph things that can",
+        "start": 115.729,
+        "duration": 3.161
+    },
+    {
+        "text": "be simplified and is this",
+        "start": 118.89,
+        "duration": 1.37
+    },
+    {
+        "text": "something that you do when you're converting as well?",
+        "start": 120.26,
+        "duration": 2.145
+    },
+    {
+        "text": ">> Yeah. So there is an optimizer in",
+        "start": 122.405,
+        "duration": 2.625
+    },
+    {
+        "text": "the conversion tools but the main advantage to using",
+        "start": 125.03,
+        "duration": 3.06
+    },
+    {
+        "text": "ONNX is you're able to take",
+        "start": 128.09,
+        "duration": 2.64
+    },
+    {
+        "text": "advantage of whichever hardware optimization comes next.",
+        "start": 130.73,
+        "duration": 3.15
+    },
+    {
+        "text": "So you're able to translate between these frameworks with ease,",
+        "start": 133.88,
+        "duration": 3.15
+    },
+    {
+        "text": "and then choose whichever inference engine you would like.",
+        "start": 137.03,
+        "duration": 2.495
+    },
+    {
+        "text": ">> So let's talk about the actual converter.",
+        "start": 139.525,
+        "duration": 3.12
+    },
+    {
+        "text": "This is actually super helpful because now I understand it's not,",
+        "start": 142.645,
+        "duration": 2.965
+    },
+    {
+        "text": "so I think of it like as the PDF",
+        "start": 145.61,
+        "duration": 2.265
+    },
+    {
+        "text": "of deep learning which is kind of cool.",
+        "start": 147.875,
+        "duration": 2.625
+    },
+    {
+        "text": "But it's only cool if there's a lot of",
+        "start": 150.5,
+        "duration": 1.71
+    },
+    {
+        "text": "different PDF readers and",
+        "start": 152.21,
+        "duration": 1.44
+    },
+    {
+        "text": "you're saying that now that we have a format,",
+        "start": 153.65,
+        "duration": 1.74
+    },
+    {
+        "text": "then a lot of vendors can take advantage of that.",
+        "start": 155.39,
+        "duration": 2.16
+    },
+    {
+        "text": "Is it hard to go from what I'm already doing into ONNX,",
+        "start": 157.55,
+        "duration": 4.69
+    },
+    {
+        "text": "and that's the part that maybe I'm asking",
+        "start": 162.24,
+        "duration": 1.64
+    },
+    {
+        "text": "for help because someone might be thinking,",
+        "start": 163.88,
+        "duration": 1.76
+    },
+    {
+        "text": "\"This is going to add a little bit to my workflow.\"",
+        "start": 165.64,
+        "duration": 2.29
+    },
+    {
+        "text": "Is there something we can do to help with that?",
+        "start": 167.93,
+        "duration": 1.71
+    },
+    {
+        "text": ">> Yeah. So again,",
+        "start": 169.64,
+        "duration": 1.77
+    },
+    {
+        "text": "the advantage of ONNX is that",
+        "start": 171.41,
+        "duration": 1.95
+    },
+    {
+        "text": "it's supported by a large amount of industry partners.",
+        "start": 173.36,
+        "duration": 3.28
+    },
+    {
+        "text": "That means that a lot of these frameworks",
+        "start": 176.64,
+        "duration": 1.955
+    },
+    {
+        "text": "have built-in exporters for example,",
+        "start": 178.595,
+        "duration": 2.065
+    },
+    {
+        "text": "PyTorch and a few others,",
+        "start": 180.66,
+        "duration": 2.205
+    },
+    {
+        "text": "and some of the other ones are able to",
+        "start": 182.865,
+        "duration": 2.015
+    },
+    {
+        "text": "leverage converters in on XML tools.",
+        "start": 184.88,
+        "duration": 2.52
+    },
+    {
+        "text": "So scikit-learn, TensorFlow, Keras to ONNX,",
+        "start": 187.4,
+        "duration": 3.435
+    },
+    {
+        "text": "all of these are just simple covert commands",
+        "start": 190.835,
+        "duration": 2.43
+    },
+    {
+        "text": "that convert your model,",
+        "start": 193.265,
+        "duration": 2.26
+    },
+    {
+        "text": "that's a saved protobuf file or something you load in",
+        "start": 195.525,
+        "duration": 2.735
+    },
+    {
+        "text": "whichever framework of your choice into the ONNX model format.",
+        "start": 198.26,
+        "duration": 3.21
+    },
+    {
+        "text": ">> I see. So you're saying it's as easy",
+        "start": 201.47,
+        "duration": 1.41
+    },
+    {
+        "text": "as making an extra caller in",
+        "start": 202.88,
+        "duration": 1.56
+    },
+    {
+        "text": "your framework of choice",
+        "start": 204.44,
+        "duration": 1.47
+    },
+    {
+        "text": "or loading up some tool that does the conversion?",
+        "start": 205.91,
+        "duration": 2.495
+    },
+    {
+        "text": ">> Exactly.",
+        "start": 208.405,
+        "duration": 0.53
+    },
+    {
+        "text": ">> So there's not really a lot of",
+        "start": 208.935,
+        "duration": 1.145
+    },
+    {
+        "text": "extra work that you have to do hopefully.",
+        "start": 210.08,
+        "duration": 1.755
+    },
+    {
+        "text": ">> Yes. Not at all.",
+        "start": 211.835,
+        "duration": 0.87
+    },
+    {
+        "text": ">> So what if someone already has",
+        "start": 212.705,
+        "duration": 1.755
+    },
+    {
+        "text": "this and they want to experiment with converting to ONNX,",
+        "start": 214.46,
+        "duration": 2.29
+    },
+    {
+        "text": "is there something we could do to help even then?",
+        "start": 216.75,
+        "duration": 2.18
+    },
+    {
+        "text": ">> Right. So if someone already",
+        "start": 218.93,
+        "duration": 2.22
+    },
+    {
+        "text": "has ONNX and they want to experiment,",
+        "start": 221.15,
+        "duration": 3.44
+    },
+    {
+        "text": "we've created this ONNX ecosystem Docker file",
+        "start": 224.59,
+        "duration": 3.49
+    },
+    {
+        "text": "where you have all the ONNX converters loaded,",
+        "start": 228.08,
+        "duration": 2.475
+    },
+    {
+        "text": "you have ONNX, you have all of the different frameworks,",
+        "start": 230.555,
+        "duration": 2.325
+    },
+    {
+        "text": "and you also have ONNX runtime.",
+        "start": 232.88,
+        "duration": 2.285
+    },
+    {
+        "text": ">> It's pretty easy to do.",
+        "start": 235.165,
+        "duration": 1.385
+    },
+    {
+        "text": ">> It's pretty easy to do.",
+        "start": 236.55,
+        "duration": 0.75
+    },
+    {
+        "text": ">> Yeah, because I set up my Conda environment in",
+        "start": 237.3,
+        "duration": 2.93
+    },
+    {
+        "text": "a very special way and I don't want to install,",
+        "start": 240.23,
+        "duration": 3.675
+    },
+    {
+        "text": "I tried installing some of these stuff once and",
+        "start": 243.905,
+        "duration": 2.33
+    },
+    {
+        "text": "I was missing something or something rather happened.",
+        "start": 246.235,
+        "duration": 2.685
+    },
+    {
+        "text": "But you're saying now with a Docker file,",
+        "start": 248.92,
+        "duration": 1.51
+    },
+    {
+        "text": "you can just use it. Can you show us how to do that?",
+        "start": 250.43,
+        "duration": 2.505
+    },
+    {
+        "text": ">> Yes, of course. So let's take a quick look here.",
+        "start": 252.935,
+        "duration": 4.095
+    },
+    {
+        "text": "This Docker file has already been uploaded to",
+        "start": 257.03,
+        "duration": 2.94
+    },
+    {
+        "text": "Docker Hub and what we're going to do here is,",
+        "start": 259.97,
+        "duration": 4.0
+    },
+    {
+        "text": "right now I've already pulled this Docker file.",
+        "start": 264.08,
+        "duration": 3.51
+    },
+    {
+        "text": "This is all you have to do. You just have to have Docker,",
+        "start": 267.59,
+        "duration": 2.475
+    },
+    {
+        "text": "and then after that you can run",
+        "start": 270.065,
+        "duration": 2.025
+    },
+    {
+        "text": "this command and it launches the Jupyter Notebook server.",
+        "start": 272.09,
+        "duration": 2.22
+    },
+    {
+        "text": ">> Okay. So this is where I was confused, I'm like,",
+        "start": 274.31,
+        "duration": 2.01
+    },
+    {
+        "text": "if you run this Docker, is it going to look",
+        "start": 276.32,
+        "duration": 1.65
+    },
+    {
+        "text": "for all of your [inaudible]?",
+        "start": 277.97,
+        "duration": 1.8
+    },
+    {
+        "text": "No, it's loading a Jupyter server",
+        "start": 279.77,
+        "duration": 1.71
+    },
+    {
+        "text": "where you can actually do some work.",
+        "start": 281.48,
+        "duration": 1.27
+    },
+    {
+        "text": ">> Exactly.",
+        "start": 282.75,
+        "duration": 0.42
+    },
+    {
+        "text": ">> Awesome.",
+        "start": 283.17,
+        "duration": 0.525
+    },
+    {
+        "text": ">> So in this Jupyter server,",
+        "start": 283.695,
+        "duration": 1.565
+    },
+    {
+        "text": "you can see that there are",
+        "start": 285.26,
+        "duration": 1.83
+    },
+    {
+        "text": "some converter scripts from all of these different frameworks,",
+        "start": 287.09,
+        "duration": 2.91
+    },
+    {
+        "text": "and all of these environments have already been loaded.",
+        "start": 290.0,
+        "duration": 1.98
+    },
+    {
+        "text": "So if you have a model file,",
+        "start": 291.98,
+        "duration": 2.475
+    },
+    {
+        "text": "it's as easy as uploading it and here,",
+        "start": 294.455,
+        "duration": 2.745
+    },
+    {
+        "text": "I've recently just uploaded",
+        "start": 297.2,
+        "duration": 1.77
+    },
+    {
+        "text": "an ML model file which is an Apple Core ML.",
+        "start": 298.97,
+        "duration": 3.135
+    },
+    {
+        "text": ">> Right.",
+        "start": 302.105,
+        "duration": 0.765
+    },
+    {
+        "text": ">> Machine learning framework file,",
+        "start": 302.87,
+        "duration": 1.68
+    },
+    {
+        "text": "and all that I would have to do,",
+        "start": 304.55,
+        "duration": 1.65
+    },
+    {
+        "text": "go through the script, in this case,",
+        "start": 306.2,
+        "duration": 2.555
+    },
+    {
+        "text": "all of the imports already exist,",
+        "start": 308.755,
+        "duration": 1.85
+    },
+    {
+        "text": "change the name of the model which is",
+        "start": 310.605,
+        "duration": 1.745
+    },
+    {
+        "text": "going to be \"DocumentClassification\".",
+        "start": 312.35,
+        "duration": 2.415
+    },
+    {
+        "text": "In this case, this model just takes a set of",
+        "start": 314.765,
+        "duration": 3.215
+    },
+    {
+        "text": "articles and classifies what kind of document it is.",
+        "start": 317.98,
+        "duration": 4.42
+    },
+    {
+        "text": ">> Got it.",
+        "start": 322.4,
+        "duration": 1.83
+    },
+    {
+        "text": ">> Change our model name for the output file,",
+        "start": 324.23,
+        "duration": 2.735
+    },
+    {
+        "text": "finish that, and we have our model being saved.",
+        "start": 326.965,
+        "duration": 4.285
+    },
+    {
+        "text": "So now we open up.",
+        "start": 331.25,
+        "duration": 1.66
+    },
+    {
+        "text": "It's as easy as Pip.",
+        "start": 332.91,
+        "duration": 2.0
+    },
+    {
+        "text": ">> That's pretty cool. The thing",
+        "start": 334.91,
+        "duration": 2.6
+    },
+    {
+        "text": "I like about this the most is that,",
+        "start": 337.51,
+        "duration": 2.765
+    },
+    {
+        "text": "every time I do something in Python and",
+        "start": 340.275,
+        "duration": 2.755
+    },
+    {
+        "text": "I need a Pip install or Conda install,",
+        "start": 343.03,
+        "duration": 2.25
+    },
+    {
+        "text": "I'm like, \"I don't want to mess up what I'm doing.\"",
+        "start": 345.28,
+        "duration": 1.805
+    },
+    {
+        "text": "With this Dockerfile, you're able to pull this image down,",
+        "start": 347.085,
+        "duration": 3.98
+    },
+    {
+        "text": "run the container, and then experiment with",
+        "start": 351.065,
+        "duration": 2.1
+    },
+    {
+        "text": "the ONNX stuff yourself and download it if you want, all right?",
+        "start": 353.165,
+        "duration": 2.395
+    },
+    {
+        "text": ">> Exactly. So we can then",
+        "start": 355.56,
+        "duration": 2.65
+    },
+    {
+        "text": "confirm that the model works by running through this checker.",
+        "start": 358.21,
+        "duration": 3.82
+    },
+    {
+        "text": ">> This is also in the Dockerfile.",
+        "start": 362.03,
+        "duration": 1.565
+    },
+    {
+        "text": ">> This is all in the Dockerfile.",
+        "start": 363.595,
+        "duration": 1.295
+    },
+    {
+        "text": ">> Okay.",
+        "start": 364.89,
+        "duration": 0.16
+    },
+    {
+        "text": ">> So your entire environment",
+        "start": 365.05,
+        "duration": 1.52
+    },
+    {
+        "text": "is installed, you're welcome to use it.",
+        "start": 366.57,
+        "duration": 2.665
+    },
+    {
+        "text": "You can check that our model is checked,",
+        "start": 369.235,
+        "duration": 2.86
+    },
+    {
+        "text": "and see we're passing in the same name as our previous output.",
+        "start": 372.095,
+        "duration": 4.62
+    },
+    {
+        "text": "We can start an ONNX Runtime inference session.",
+        "start": 376.715,
+        "duration": 3.08
+    },
+    {
+        "text": ">> Okay.",
+        "start": 379.795,
+        "duration": 0.43
+    },
+    {
+        "text": ">> So this is something else I",
+        "start": 380.225,
+        "duration": 1.445
+    },
+    {
+        "text": "wanted to talk about. I'm not too sure.",
+        "start": 381.67,
+        "duration": 1.525
+    },
+    {
+        "text": ">> Yeah, I do want to talk about this because this is interesting.",
+        "start": 383.195,
+        "duration": 2.97
+    },
+    {
+        "text": "Because I actually did something a little bit ago where I",
+        "start": 386.165,
+        "duration": 3.095
+    },
+    {
+        "text": "ran an inference session in C sharp, which is kind of cool.",
+        "start": 389.26,
+        "duration": 3.45
+    },
+    {
+        "text": "Because now that we have this exchange format,",
+        "start": 392.71,
+        "duration": 1.86
+    },
+    {
+        "text": "everyone's agreed on what it looks like,",
+        "start": 394.57,
+        "duration": 1.865
+    },
+    {
+        "text": "you can run these inference sessions in",
+        "start": 396.435,
+        "duration": 1.685
+    },
+    {
+        "text": "any type of [inaudible] that you want. Is that right?",
+        "start": 398.12,
+        "duration": 2.225
+    },
+    {
+        "text": ">> Exactly. The benefit of it is,",
+        "start": 400.345,
+        "duration": 2.145
+    },
+    {
+        "text": "it actually takes advantage of",
+        "start": 402.49,
+        "duration": 1.34
+    },
+    {
+        "text": "hardware optimizations from partners like Nvidia and Intel,",
+        "start": 403.83,
+        "duration": 4.35
+    },
+    {
+        "text": "to make inference for ONNX models even faster.",
+        "start": 408.18,
+        "duration": 4.325
+    },
+    {
+        "text": ">> That's amazing. So now, I'm starting to get the full story.",
+        "start": 412.505,
+        "duration": 2.945
+    },
+    {
+        "text": "I think initially what I did,",
+        "start": 415.45,
+        "duration": 1.79
+    },
+    {
+        "text": "I was thinking of this like a,",
+        "start": 417.24,
+        "duration": 1.815
+    },
+    {
+        "text": "but now it's just a format. I said that this is good.",
+        "start": 419.055,
+        "duration": 2.935
+    },
+    {
+        "text": "Now everyone has the same format.",
+        "start": 421.99,
+        "duration": 1.465
+    },
+    {
+        "text": "But now you're saying, not only does that",
+        "start": 423.455,
+        "duration": 2.22
+    },
+    {
+        "text": "enable hardware people to do like,",
+        "start": 425.675,
+        "duration": 2.47
+    },
+    {
+        "text": "\"Oh, now that we know this is the standard,",
+        "start": 428.145,
+        "duration": 1.635
+    },
+    {
+        "text": "then we can make our hardware super-fast for that.\"",
+        "start": 429.78,
+        "duration": 2.6
+    },
+    {
+        "text": "Number one, it also allows people that make frameworks or tools",
+        "start": 432.38,
+        "duration": 3.53
+    },
+    {
+        "text": "or whatever ingest these ONNX models in a predictable way.",
+        "start": 435.91,
+        "duration": 3.59
+    },
+    {
+        "text": ">> Right.",
+        "start": 439.5,
+        "duration": 0.6
+    },
+    {
+        "text": ">> They're irrespective of length. Because I'm used to doing",
+        "start": 440.1,
+        "duration": 1.66
+    },
+    {
+        "text": "all this stuff in Python like maybe some of you are.",
+        "start": 441.76,
+        "duration": 2.31
+    },
+    {
+        "text": "But I've been able to load up models directly in C sharp,",
+        "start": 444.07,
+        "duration": 2.93
+    },
+    {
+        "text": "and it ran beautifully.",
+        "start": 447.0,
+        "duration": 1.42
+    },
+    {
+        "text": "All I had to do was look at the model,",
+        "start": 448.42,
+        "duration": 1.52
+    },
+    {
+        "text": "know what was going in and what was coming out, and it was great.",
+        "start": 449.94,
+        "duration": 3.185
+    },
+    {
+        "text": "So is the Runtime something that we provide,",
+        "start": 453.125,
+        "duration": 3.24
+    },
+    {
+        "text": "or where does Runtime come from?",
+        "start": 456.365,
+        "duration": 1.595
+    },
+    {
+        "text": "Is everyone making their own Runtime?",
+        "start": 457.96,
+        "duration": 1.435
+    },
+    {
+        "text": ">> Right. So the ONNX Runtime is actually from Microsoft itself.",
+        "start": 459.395,
+        "duration": 5.25
+    },
+    {
+        "text": "It's meant to host three main ideas.",
+        "start": 464.645,
+        "duration": 3.84
+    },
+    {
+        "text": "The ONNX Runtime is important",
+        "start": 468.485,
+        "duration": 3.12
+    },
+    {
+        "text": "because it's an open source scoring engine for ONNX models.",
+        "start": 471.605,
+        "duration": 3.12
+    },
+    {
+        "text": "The benefit to using it,",
+        "start": 474.725,
+        "duration": 1.525
+    },
+    {
+        "text": "is that it's guaranteed to run any ONNX model.",
+        "start": 476.25,
+        "duration": 3.175
+    },
+    {
+        "text": "Right now, it's compatible with the most recent release,",
+        "start": 479.425,
+        "duration": 2.5
+    },
+    {
+        "text": "which is ONNX 1.4 offset 10.",
+        "start": 481.925,
+        "duration": 3.125
+    },
+    {
+        "text": "It's high performance and that it",
+        "start": 485.05,
+        "duration": 2.95
+    },
+    {
+        "text": "often gains even more performance",
+        "start": 488.0,
+        "duration": 1.76
+    },
+    {
+        "text": "than native Runtimes that you're running on ONNX.",
+        "start": 489.76,
+        "duration": 1.88
+    },
+    {
+        "text": "So if you upload it in",
+        "start": 491.64,
+        "duration": 1.825
+    },
+    {
+        "text": "ONNX model in some other frameworks or runtimes,",
+        "start": 493.465,
+        "duration": 3.325
+    },
+    {
+        "text": "you would see a better performance",
+        "start": 496.79,
+        "duration": 1.815
+    },
+    {
+        "text": "with ONNX Runtime for the most part.",
+        "start": 498.605,
+        "duration": 1.905
+    },
+    {
+        "text": ">> I see.",
+        "start": 500.51,
+        "duration": 1.135
+    },
+    {
+        "text": ">> It's cross-platform. Meaning that,",
+        "start": 501.645,
+        "duration": 2.825
+    },
+    {
+        "text": "all you would have to do to install",
+        "start": 504.47,
+        "duration": 1.215
+    },
+    {
+        "text": "is just a simple Pip install on",
+        "start": 505.685,
+        "duration": 2.19
+    },
+    {
+        "text": "Mac or on Linux or on Windows.",
+        "start": 507.875,
+        "duration": 3.99
+    },
+    {
+        "text": ">> You'd mentioned something interesting and hopefully,",
+        "start": 511.865,
+        "duration": 1.915
+    },
+    {
+        "text": "you can get us into this.",
+        "start": 513.78,
+        "duration": 0.695
+    },
+    {
+        "text": "You talked about the version,",
+        "start": 514.475,
+        "duration": 1.625
+    },
+    {
+        "text": "but then you talked about the offset.",
+        "start": 516.1,
+        "duration": 1.69
+    },
+    {
+        "text": "What is the difference between",
+        "start": 517.79,
+        "duration": 1.305
+    },
+    {
+        "text": "the ONNX Runtime version or the ONNX offset?",
+        "start": 519.095,
+        "duration": 3.12
+    },
+    {
+        "text": "Can you describe what those differences are?",
+        "start": 522.215,
+        "duration": 1.48
+    },
+    {
+        "text": ">> Right. ONNX versions and",
+        "start": 523.695,
+        "duration": 2.765
+    },
+    {
+        "text": "operator sets are essentially similar things.",
+        "start": 526.46,
+        "duration": 3.955
+    },
+    {
+        "text": "There's continual development from Microsoft, Facebook,",
+        "start": 530.415,
+        "duration": 3.59
+    },
+    {
+        "text": "and a couple of the other large industry partners",
+        "start": 534.005,
+        "duration": 3.115
+    },
+    {
+        "text": "that continually contribute to the ONNX spec.",
+        "start": 537.12,
+        "duration": 3.49
+    },
+    {
+        "text": "Every time that gets refreshed,",
+        "start": 540.61,
+        "duration": 2.445
+    },
+    {
+        "text": "every new version that comes out,",
+        "start": 543.055,
+        "duration": 3.165
+    },
+    {
+        "text": "they update the operator set.",
+        "start": 546.22,
+        "duration": 1.985
+    },
+    {
+        "text": ">> Is it like a matrix multiply operator?",
+        "start": 548.205,
+        "duration": 2.985
+    },
+    {
+        "text": "Or like a log",
+        "start": 551.19,
+        "duration": 1.99
+    },
+    {
+        "text": "of something operator? Is that what we're talking about?",
+        "start": 553.18,
+        "duration": 2.065
+    },
+    {
+        "text": ">> Yeah, exactly. So we're talking about",
+        "start": 555.245,
+        "duration": 1.75
+    },
+    {
+        "text": "all the different operators that can be",
+        "start": 556.995,
+        "duration": 1.545
+    },
+    {
+        "text": "represented in deep-learning lessons.",
+        "start": 558.54,
+        "duration": 2.075
+    },
+    {
+        "text": "Usually, what happens is that",
+        "start": 560.615,
+        "duration": 1.955
+    },
+    {
+        "text": "the ONNX spec has to represent a set of operators.",
+        "start": 562.57,
+        "duration": 5.215
+    },
+    {
+        "text": "In those operators, you can",
+        "start": 567.785,
+        "duration": 1.955
+    },
+    {
+        "text": "represent the translations from other libraries.",
+        "start": 569.74,
+        "duration": 3.39
+    },
+    {
+        "text": ">> I see.",
+        "start": 573.13,
+        "duration": 0.415
+    },
+    {
+        "text": ">> So from Core ML, from TensorFlow, from various others,",
+        "start": 573.545,
+        "duration": 2.295
+    },
+    {
+        "text": "you can convert to ONNX,",
+        "start": 575.84,
+        "duration": 1.605
+    },
+    {
+        "text": "and then convert from ONNX back to any other library.",
+        "start": 577.445,
+        "duration": 3.705
+    },
+    {
+        "text": ">> I see. So what's happening is,",
+        "start": 581.15,
+        "duration": 1.945
+    },
+    {
+        "text": "there's a set of operations that,",
+        "start": 583.095,
+        "duration": 1.73
+    },
+    {
+        "text": "like for example, W transpose X",
+        "start": 584.825,
+        "duration": 2.365
+    },
+    {
+        "text": "plus B is your standard dense layer.",
+        "start": 587.19,
+        "duration": 2.285
+    },
+    {
+        "text": ">> Yeah.",
+        "start": 589.475,
+        "duration": 0.195
+    },
+    {
+        "text": ">> That's going to be a single operator",
+        "start": 589.67,
+        "duration": 1.95
+    },
+    {
+        "text": "inside of the ONNX definition.",
+        "start": 591.62,
+        "duration": 2.235
+    },
+    {
+        "text": "So whenever it sees a dense layer",
+        "start": 593.855,
+        "duration": 2.065
+    },
+    {
+        "text": "in either Keras or inside of PyTorch,",
+        "start": 595.92,
+        "duration": 2.14
+    },
+    {
+        "text": "is to be like this operator.",
+        "start": 598.06,
+        "duration": 1.62
+    },
+    {
+        "text": "It turns out that the offset changes with every version,",
+        "start": 599.68,
+        "duration": 3.5
+    },
+    {
+        "text": "and there's more operations that are added.",
+        "start": 603.18,
+        "duration": 1.855
+    },
+    {
+        "text": ">> Right.",
+        "start": 605.035,
+        "duration": 0.495
+    },
+    {
+        "text": ">> I got it. Okay, that makes sense.",
+        "start": 605.53,
+        "duration": 1.26
+    },
+    {
+        "text": "Because for example in sequence models,",
+        "start": 606.79,
+        "duration": 1.56
+    },
+    {
+        "text": "there might be a different operation",
+        "start": 608.35,
+        "duration": 1.849
+    },
+    {
+        "text": "as opposed to just a dense layer.",
+        "start": 610.199,
+        "duration": 1.621
+    },
+    {
+        "text": ">> Exactly.",
+        "start": 611.82,
+        "duration": 0.68
+    },
+    {
+        "text": ">> Okay. So now, I'm understanding",
+        "start": 612.5,
+        "duration": 1.4
+    },
+    {
+        "text": "and thank goodness you're doing that.",
+        "start": 613.9,
+        "duration": 1.11
+    },
+    {
+        "text": "So anything else you want to add about ONNX?",
+        "start": 615.01,
+        "duration": 3.1
+    },
+    {
+        "text": ">> It's great. There's a pretty wide industry adoption.",
+        "start": 618.11,
+        "duration": 4.135
+    },
+    {
+        "text": "We're excited to incorporate it with ONNX Runtime.",
+        "start": 622.245,
+        "duration": 3.555
+    },
+    {
+        "text": "ONNX Runtime is Microsoft's own inference engine,",
+        "start": 625.8,
+        "duration": 3.32
+    },
+    {
+        "text": "but you can deploy ONNX models on a variety of devices.",
+        "start": 629.12,
+        "duration": 3.96
+    },
+    {
+        "text": ">> My understanding is that the ONNX Runtime is",
+        "start": 633.08,
+        "duration": 2.09
+    },
+    {
+        "text": "part of the whole Windows ecosystem. Is that right?",
+        "start": 635.17,
+        "duration": 2.41
+    },
+    {
+        "text": ">> That's correct. ONNX Runtime is included",
+        "start": 637.58,
+        "duration": 3.12
+    },
+    {
+        "text": "on every single machine that is running Windows.",
+        "start": 640.7,
+        "duration": 4.25
+    },
+    {
+        "text": ">> That's cool.",
+        "start": 644.95,
+        "duration": 0.62
+    },
+    {
+        "text": ">> Yeah. Over one billion devices now currently have ONNX Runtime.",
+        "start": 645.57,
+        "duration": 3.945
+    },
+    {
+        "text": "The benefit of using it is that,",
+        "start": 649.515,
+        "duration": 1.85
+    },
+    {
+        "text": "it leverages execution providers speedups.",
+        "start": 651.365,
+        "duration": 3.285
+    },
+    {
+        "text": "Let's say you have an Intel chip that's",
+        "start": 654.65,
+        "duration": 2.36
+    },
+    {
+        "text": "running MKL-DNN or end graph,",
+        "start": 657.01,
+        "duration": 2.3
+    },
+    {
+        "text": "or an NVIDIA processor that has TensorRT or GPU capabilities.",
+        "start": 659.31,
+        "duration": 5.35
+    },
+    {
+        "text": "ONNX Runtime can be specified to leverage",
+        "start": 664.66,
+        "duration": 2.96
+    },
+    {
+        "text": "those speedups and make your model run faster.",
+        "start": 667.62,
+        "duration": 3.515
+    },
+    {
+        "text": "We've seen speedups kind of across",
+        "start": 671.135,
+        "duration": 1.805
+    },
+    {
+        "text": "the board with a lot of different frameworks.",
+        "start": 672.94,
+        "duration": 2.08
+    },
+    {
+        "text": "But also, especially in comparison to",
+        "start": 675.02,
+        "duration": 2.865
+    },
+    {
+        "text": "native Runtimes like TensorFlow, PyTorch, etc.",
+        "start": 677.885,
+        "duration": 3.065
+    },
+    {
+        "text": ">> Awesome. Now, let's hopefully get into the nitty-gritty.",
+        "start": 680.95,
+        "duration": 2.82
+    },
+    {
+        "text": "Is there an example where this is being leveraged in",
+        "start": 683.77,
+        "duration": 2.65
+    },
+    {
+        "text": "a real actual problem where you're seeing substantial benefits?",
+        "start": 686.42,
+        "duration": 4.375
+    },
+    {
+        "text": ">> Yes. I'm really excited to bring this amazing story here today.",
+        "start": 690.795,
+        "duration": 5.37
+    },
+    {
+        "text": "The Bing multimedia team is responsible for image search.",
+        "start": 696.165,
+        "duration": 5.195
+    },
+    {
+        "text": "Specifically, you can understand that there's some queries",
+        "start": 701.36,
+        "duration": 3.14
+    },
+    {
+        "text": "that are really hard to search for images.",
+        "start": 704.5,
+        "duration": 2.845
+    },
+    {
+        "text": "So for example, pencil erasers that look like tools.",
+        "start": 707.345,
+        "duration": 3.74
+    },
+    {
+        "text": "Right? How would you be able to identify",
+        "start": 711.085,
+        "duration": 2.82
+    },
+    {
+        "text": "that we're looking for",
+        "start": 713.905,
+        "duration": 1.59
+    },
+    {
+        "text": "erasers that are not tools, that are pencils,",
+        "start": 715.495,
+        "duration": 2.105
+    },
+    {
+        "text": "and that all of these images are being mapped to",
+        "start": 717.6,
+        "duration": 2.68
+    },
+    {
+        "text": "the same semantic embedding space as our Word's.",
+        "start": 720.28,
+        "duration": 5.045
+    },
+    {
+        "text": ">> So let's go to the screen so people can see.",
+        "start": 725.325,
+        "duration": 1.905
+    },
+    {
+        "text": "They're out there watching.",
+        "start": 727.23,
+        "duration": 1.32
+    },
+    {
+        "text": "So you're saying that when I'm searching for something,",
+        "start": 728.55,
+        "duration": 3.649
+    },
+    {
+        "text": "I know how to word search stuff,",
+        "start": 732.199,
+        "duration": 2.086
+    },
+    {
+        "text": "but we're searching for an image of something.",
+        "start": 734.285,
+        "duration": 2.835
+    },
+    {
+        "text": "There's certain kinds of",
+        "start": 737.12,
+        "duration": 1.36
+    },
+    {
+        "text": "image searches that are very difficult. This is an example of one.",
+        "start": 738.48,
+        "duration": 2.75
+    },
+    {
+        "text": ">> Right. It definitely is. There are a couple of others.",
+        "start": 741.23,
+        "duration": 4.16
+    },
+    {
+        "text": "For example, if you take a look at this image",
+        "start": 745.39,
+        "duration": 2.36
+    },
+    {
+        "text": "over here, how would you describe it?",
+        "start": 747.75,
+        "duration": 3.365
+    },
+    {
+        "text": ">> A big whale and a man swimming, I guess.",
+        "start": 751.115,
+        "duration": 3.03
+    },
+    {
+        "text": ">> Exactly. But you would also expect it to",
+        "start": 754.145,
+        "duration": 1.95
+    },
+    {
+        "text": "come up with a variety of others,",
+        "start": 756.095,
+        "duration": 1.89
+    },
+    {
+        "text": "for example, endangered animals,",
+        "start": 757.985,
+        "duration": 1.775
+    },
+    {
+        "text": "blue desktop backgrounds, National Geographic.",
+        "start": 759.76,
+        "duration": 2.805
+    },
+    {
+        "text": ">> Oh yeah, that's a problem.",
+        "start": 762.565,
+        "duration": 0.985
+    },
+    {
+        "text": ">> Right? So how do you express that",
+        "start": 763.55,
+        "duration": 1.98
+    },
+    {
+        "text": "this image has a man and a whale,",
+        "start": 765.53,
+        "duration": 2.87
+    },
+    {
+        "text": "a whale is an endangered animal,",
+        "start": 768.4,
+        "duration": 1.595
+    },
+    {
+        "text": "and it's also mostly blue.",
+        "start": 769.995,
+        "duration": 1.74
+    },
+    {
+        "text": "That's a lot of information to be put in one vector.",
+        "start": 771.735,
+        "duration": 2.585
+    },
+    {
+        "text": ">> Definitely.",
+        "start": 774.32,
+        "duration": 0.755
+    },
+    {
+        "text": ">> So a solution that the Bing multimedia team came up with,",
+        "start": 775.075,
+        "duration": 4.075
+    },
+    {
+        "text": "is called Semantic Precise Image Search.",
+        "start": 779.15,
+        "duration": 2.445
+    },
+    {
+        "text": ">> Okay.",
+        "start": 781.595,
+        "duration": 0.255
+    },
+    {
+        "text": ">> It's in relation to project of Dirk,",
+        "start": 781.85,
+        "duration": 2.51
+    },
+    {
+        "text": "which is a deep image ranking stack.",
+        "start": 784.36,
+        "duration": 3.595
+    },
+    {
+        "text": "This is thanks to the Bing Multimedia team,",
+        "start": 787.955,
+        "duration": 3.195
+    },
+    {
+        "text": "and Edward [inaudible] team.",
+        "start": 791.15,
+        "duration": 1.405
+    },
+    {
+        "text": "So if we take a look at this, we have a query.",
+        "start": 792.555,
+        "duration": 3.475
+    },
+    {
+        "text": "In this case, gold butterflies HD background,",
+        "start": 796.03,
+        "duration": 3.275
+    },
+    {
+        "text": "which is what the user types in.",
+        "start": 799.305,
+        "duration": 1.515
+    },
+    {
+        "text": "We have the text on the page which is,",
+        "start": 800.82,
+        "duration": 2.835
+    },
+    {
+        "text": "let's say something like HD wallpapers",
+        "start": 803.655,
+        "duration": 1.945
+    },
+    {
+        "text": "golden butterfly, something like that.",
+        "start": 805.6,
+        "duration": 1.71
+    },
+    {
+        "text": "We also have this image.",
+        "start": 807.31,
+        "duration": 2.025
+    },
+    {
+        "text": "So we want to be able to represent",
+        "start": 809.335,
+        "duration": 2.685
+    },
+    {
+        "text": "this image in the same vector space",
+        "start": 812.02,
+        "duration": 2.81
+    },
+    {
+        "text": "as the queries and have",
+        "start": 814.83,
+        "duration": 2.535
+    },
+    {
+        "text": "some semantic embedding in terms of this model.",
+        "start": 817.365,
+        "duration": 3.78
+    },
+    {
+        "text": ">> So it's just like, for those that are watching,",
+        "start": 821.145,
+        "duration": 1.785
+    },
+    {
+        "text": "is basically a way of taking the image,",
+        "start": 822.93,
+        "duration": 2.4
+    },
+    {
+        "text": "embedding it into a vector space that you can",
+        "start": 825.33,
+        "duration": 2.89
+    },
+    {
+        "text": "query against in the same vector space as the query.",
+        "start": 828.22,
+        "duration": 3.255
+    },
+    {
+        "text": ">> Yes.",
+        "start": 831.475,
+        "duration": 0.46
+    },
+    {
+        "text": ">> So basically, you're trying to put these in the same space,",
+        "start": 831.935,
+        "duration": 3.035
+    },
+    {
+        "text": "and then whichever ones closest, we pick those ones out?",
+        "start": 834.97,
+        "duration": 2.745
+    },
+    {
+        "text": ">> Exactly.",
+        "start": 837.715,
+        "duration": 0.62
+    },
+    {
+        "text": ">> Okay. Cool. Now, I imagine that then you'd have to,",
+        "start": 838.335,
+        "duration": 4.845
+    },
+    {
+        "text": "for every image that's ever uploaded into Bing,",
+        "start": 843.18,
+        "duration": 3.11
+    },
+    {
+        "text": "you'd have to put it into this latent space.",
+        "start": 846.29,
+        "duration": 2.57
+    },
+    {
+        "text": ">> Exactly. Which is a daunting concept.",
+        "start": 848.86,
+        "duration": 2.995
+    },
+    {
+        "text": ">> Yeah, there's a lot of pictures that are uploaded.",
+        "start": 851.855,
+        "duration": 1.845
+    },
+    {
+        "text": ">> Not only that, you'd have to process it in terms of the query,",
+        "start": 853.7,
+        "duration": 2.76
+    },
+    {
+        "text": "in terms of the text on the page,",
+        "start": 856.46,
+        "duration": 1.865
+    },
+    {
+        "text": "and you'd have to find which images",
+        "start": 858.325,
+        "duration": 2.595
+    },
+    {
+        "text": "make the most sense and then order them.",
+        "start": 860.92,
+        "duration": 2.575
+    },
+    {
+        "text": ">> It's a lot of stuff.",
+        "start": 863.495,
+        "duration": 1.435
+    },
+    {
+        "text": ">> Well, it's a large model, large embedding.",
+        "start": 864.93,
+        "duration": 2.87
+    },
+    {
+        "text": ">> So how does ONNX help here?",
+        "start": 867.8,
+        "duration": 2.19
+    },
+    {
+        "text": ">> ONNX Runtime helps by providing a speedup for this model.",
+        "start": 869.99,
+        "duration": 5.04
+    },
+    {
+        "text": "Ideally, what happens is that",
+        "start": 875.03,
+        "duration": 2.695
+    },
+    {
+        "text": "this specific model came to us with a cafe model.",
+        "start": 877.725,
+        "duration": 4.61
+    },
+    {
+        "text": "We converted it to the ONNX model format,",
+        "start": 882.335,
+        "duration": 2.185
+    },
+    {
+        "text": "and deployed it with ONNX Runtime for two times speedup.",
+        "start": 884.52,
+        "duration": 4.505
+    },
+    {
+        "text": "So we reduce the latency by 50 percent on",
+        "start": 889.025,
+        "duration": 3.165
+    },
+    {
+        "text": "CPUs using Intel's MKL-DNN as an execution provider.",
+        "start": 892.19,
+        "duration": 5.63
+    },
+    {
+        "text": "With a model like this,",
+        "start": 897.82,
+        "duration": 1.67
+    },
+    {
+        "text": "especially for Bing, it's already heavily optimized.",
+        "start": 899.49,
+        "duration": 3.495
+    },
+    {
+        "text": "So these kind of out-of-the-box optimizations",
+        "start": 902.985,
+        "duration": 5.095
+    },
+    {
+        "text": "that are now in production have really enabled",
+        "start": 908.08,
+        "duration": 2.335
+    },
+    {
+        "text": "Bing to be able to search in this way.",
+        "start": 910.415,
+        "duration": 3.08
+    },
+    {
+        "text": ">> Because now, there's",
+        "start": 913.495,
+        "duration": 1.465
+    },
+    {
+        "text": "two models that have to be run simultaneously.",
+        "start": 914.96,
+        "duration": 2.71
+    },
+    {
+        "text": "First, when the image is uploaded,",
+        "start": 917.67,
+        "duration": 1.44
+    },
+    {
+        "text": "so you can save it in the latent space,",
+        "start": 919.11,
+        "duration": 1.665
+    },
+    {
+        "text": "and then the model that does the comparison",
+        "start": 920.775,
+        "duration": 2.055
+    },
+    {
+        "text": "between the query and the image in the latent space.",
+        "start": 922.83,
+        "duration": 2.31
+    },
+    {
+        "text": "So you have two models that need to be running all the time.",
+        "start": 925.14,
+        "duration": 2.78
+    },
+    {
+        "text": ">> Right.",
+        "start": 927.92,
+        "duration": 0.615
+    },
+    {
+        "text": ">> So you've seen a hundred,",
+        "start": 928.535,
+        "duration": 1.66
+    },
+    {
+        "text": "like is two times speedup is what you've seen?",
+        "start": 930.195,
+        "duration": 2.275
+    },
+    {
+        "text": ">> Yeah. Two times speedup.",
+        "start": 932.47,
+        "duration": 1.165
+    },
+    {
+        "text": "Then across the board,",
+        "start": 933.635,
+        "duration": 1.25
+    },
+    {
+        "text": "we've seen a lot of other really great examples",
+        "start": 934.885,
+        "duration": 3.84
+    },
+    {
+        "text": "with even more of a speedup.",
+        "start": 938.725,
+        "duration": 2.755
+    },
+    {
+        "text": ">> I see. Okay.",
+        "start": 941.48,
+        "duration": 0.66
+    },
+    {
+        "text": ">> So ONNX Runtime is really taking",
+        "start": 942.14,
+        "duration": 1.48
+    },
+    {
+        "text": "advantage of this first-party equals",
+        "start": 943.62,
+        "duration": 2.41
+    },
+    {
+        "text": "third-party attitude that our senior leadership team",
+        "start": 946.03,
+        "duration": 2.97
+    },
+    {
+        "text": "has started to employ.",
+        "start": 949.0,
+        "duration": 2.435
+    },
+    {
+        "text": "The idea here is,",
+        "start": 951.435,
+        "duration": 1.815
+    },
+    {
+        "text": "you can use ONNX Runtime models,",
+        "start": 953.25,
+        "duration": 2.4
+    },
+    {
+        "text": "and it is being used at Microsoft across all walks of,",
+        "start": 955.65,
+        "duration": 6.185
+    },
+    {
+        "text": ">> Of just models everywhere, right?",
+        "start": 961.835,
+        "duration": 1.205
+    },
+    {
+        "text": ">> Exactly.",
+        "start": 963.04,
+        "duration": 0.69
+    },
+    {
+        "text": ">> So here's the thing.",
+        "start": 963.73,
+        "duration": 1.31
+    },
+    {
+        "text": "Where can people go to find out more about this.",
+        "start": 965.04,
+        "duration": 2.125
+    },
+    {
+        "text": "Honestly, I feel a lot better,",
+        "start": 967.165,
+        "duration": 1.565
+    },
+    {
+        "text": "that I feel like I'm rounded out a little bit more on",
+        "start": 968.73,
+        "duration": 1.96
+    },
+    {
+        "text": "the ONNX model and the Runtime.",
+        "start": 970.69,
+        "duration": 2.44
+    },
+    {
+        "text": "Where can people go to find out more",
+        "start": 973.13,
+        "duration": 1.6
+    },
+    {
+        "text": "or maybe even play with some of these things?",
+        "start": 974.73,
+        "duration": 2.15
+    },
+    {
+        "text": ">> Right. So one of the best ways",
+        "start": 976.88,
+        "duration": 2.58
+    },
+    {
+        "text": "to play with these things is by using Azure Machine Learning.",
+        "start": 979.46,
+        "duration": 3.105
+    },
+    {
+        "text": "So we can now deploy",
+        "start": 982.565,
+        "duration": 1.795
+    },
+    {
+        "text": "pre-trained ONNX models using ONNX Runtime for inference,",
+        "start": 984.36,
+        "duration": 4.62
+    },
+    {
+        "text": "using Azure Machine Learning.",
+        "start": 988.98,
+        "duration": 1.91
+    },
+    {
+        "text": "There are some great tutorials,",
+        "start": 990.89,
+        "duration": 1.64
+    },
+    {
+        "text": "and we'll include some links at the bottom below or on the screen.",
+        "start": 992.53,
+        "duration": 3.875
+    },
+    {
+        "text": ">> Hopefully, there are some on the screen right",
+        "start": 996.405,
+        "duration": 1.16
+    },
+    {
+        "text": "now that we can look at.",
+        "start": 997.565,
+        "duration": 1.64
+    },
+    {
+        "text": ">> So if you go to aka.ms/onnxRuntime,",
+        "start": 999.205,
+        "duration": 2.56
+    },
+    {
+        "text": "you'll see this great tutorial about how to deploy",
+        "start": 1001.765,
+        "duration": 2.985
+    },
+    {
+        "text": "ONNX Runtime models using Azure ML for inference.",
+        "start": 1004.75,
+        "duration": 3.72
+    },
+    {
+        "text": "You can always go to GitHub.",
+        "start": 1008.47,
+        "duration": 1.445
+    },
+    {
+        "text": "We have open-sourced.",
+        "start": 1009.915,
+        "duration": 1.475
+    },
+    {
+        "text": "Both of these, both our contributions to ONNX as",
+        "start": 1011.39,
+        "duration": 2.51
+    },
+    {
+        "text": "well as ONNX Runtime as it's growing engine.",
+        "start": 1013.9,
+        "duration": 2.685
+    },
+    {
+        "text": ">> So what if I don't have any models though?",
+        "start": 1016.585,
+        "duration": 1.695
+    },
+    {
+        "text": "Is there a place where I can get a model to play with?",
+        "start": 1018.28,
+        "duration": 2.975
+    },
+    {
+        "text": ">> Exactly. There is.",
+        "start": 1021.255,
+        "duration": 2.0
+    },
+    {
+        "text": "I'm so glad you asked.",
+        "start": 1023.255,
+        "duration": 1.765
+    },
+    {
+        "text": "If we go to ONNX website,",
+        "start": 1025.02,
+        "duration": 3.7
+    },
+    {
+        "text": "we'll see here there are a couple of links.",
+        "start": 1028.72,
+        "duration": 2.975
+    },
+    {
+        "text": "One is \"Tutorials\", which",
+        "start": 1031.695,
+        "duration": 2.41
+    },
+    {
+        "text": "allow you to look at some conversion tutorials.",
+        "start": 1034.105,
+        "duration": 2.65
+    },
+    {
+        "text": "Or you can just go to the ONNX Docker page for those.",
+        "start": 1036.755,
+        "duration": 3.625
+    },
+    {
+        "text": "If you want it pre-trained models,",
+        "start": 1040.38,
+        "duration": 2.145
+    },
+    {
+        "text": "which it seems like you're asking for,",
+        "start": 1042.525,
+        "duration": 1.185
+    },
+    {
+        "text": "you can go to the ONNX \"Model Zoo\".",
+        "start": 1043.71,
+        "duration": 2.02
+    },
+    {
+        "text": "In here, what you'll see is a set of",
+        "start": 1045.73,
+        "duration": 2.72
+    },
+    {
+        "text": "state-of-the art models all categorized in various categories,",
+        "start": 1048.45,
+        "duration": 4.725
+    },
+    {
+        "text": "and you can just pull these immediate models,",
+        "start": 1053.175,
+        "duration": 2.875
+    },
+    {
+        "text": "deploy them using ONNX Runtime",
+        "start": 1056.05,
+        "duration": 1.88
+    },
+    {
+        "text": "and hopefully on Azure Machine Learning.",
+        "start": 1057.93,
+        "duration": 3.035
+    },
+    {
+        "text": ">> This is pretty cool.",
+        "start": 1060.965,
+        "duration": 2.54
+    },
+    {
+        "text": "Basically, everyone out there watching",
+        "start": 1063.505,
+        "duration": 2.53
+    },
+    {
+        "text": "right now can go to the Model Zoo,",
+        "start": 1066.035,
+        "duration": 2.49
+    },
+    {
+        "text": "download it, download the Docker container,",
+        "start": 1068.525,
+        "duration": 2.785
+    },
+    {
+        "text": "run inference against it,",
+        "start": 1071.31,
+        "duration": 1.415
+    },
+    {
+        "text": "and have it work right away.",
+        "start": 1072.725,
+        "duration": 1.18
+    },
+    {
+        "text": ">> Yes.",
+        "start": 1073.905,
+        "duration": 0.63
+    },
+    {
+        "text": ">> Okay. This is pretty amazing.",
+        "start": 1074.535,
+        "duration": 1.44
+    },
+    {
+        "text": "I'm pretty excited about it.",
+        "start": 1075.975,
+        "duration": 1.11
+    },
+    {
+        "text": "Thanks so much. Venitra for this.",
+        "start": 1077.085,
+        "duration": 2.345
+    },
+    {
+        "text": "This has been amazing.",
+        "start": 1079.43,
+        "duration": 1.415
+    },
+    {
+        "text": "I've had a good time because I've learned",
+        "start": 1080.845,
+        "duration": 1.475
+    },
+    {
+        "text": "a ton about the ONNX model.",
+        "start": 1082.32,
+        "duration": 1.59
+    },
+    {
+        "text": "Thanks much again for your time.",
+        "start": 1083.91,
+        "duration": 1.08
+    },
+    {
+        "text": "Thanks so much for watching and we will see you next time.",
+        "start": 1084.99,
+        "duration": 2.29
+    },
+    {
+        "text": "Take care.",
+        "start": 1087.28,
+        "duration": 0.565
+    },
+    {
+        "text": ">> Thank you, sir.",
+        "start": 1087.845,
+        "duration": 1.635
+    },
+    {
+        "text": ">> [MUSIC]",
+        "start": 1096.02,
+        "duration": 1.01
+    }
+]

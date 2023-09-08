@@ -1,0 +1,1882 @@
+[
+    {
+        "text": ">> Welcome to Part 4 of what I did at the Toronto AI user group.",
+        "start": 0.0,
+        "duration": 4.875
+    },
+    {
+        "text": "The exciting conclusion awaits. Make sure you tune in.",
+        "start": 4.875,
+        "duration": 2.835
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 7.71,
+        "duration": 5.1
+    },
+    {
+        "text": ">> So now what I'm going to do is I'm actually going",
+        "start": 12.81,
+        "duration": 1.98
+    },
+    {
+        "text": "to make a model.",
+        "start": 14.79,
+        "duration": 2.415
+    },
+    {
+        "text": "By the way, I talked about all these things, they're pretty cool.",
+        "start": 17.205,
+        "duration": 3.975
+    },
+    {
+        "text": "So I'm going to do a more complex example.",
+        "start": 21.18,
+        "duration": 3.08
+    },
+    {
+        "text": "Obviously, machine-learning",
+        "start": 24.26,
+        "duration": 1.72
+    },
+    {
+        "text": "is wonderful and deep learning is awesome.",
+        "start": 25.98,
+        "duration": 2.025
+    },
+    {
+        "text": "So I'm going to apply this to a love of mine,",
+        "start": 28.005,
+        "duration": 3.66
+    },
+    {
+        "text": "which is, I'm going to make a convolutional to",
+        "start": 31.665,
+        "duration": 2.745
+    },
+    {
+        "text": "neural network to detect whether it's tacos or burritos.",
+        "start": 34.41,
+        "duration": 3.405
+    },
+    {
+        "text": "Which is an important data science problem.",
+        "start": 37.815,
+        "duration": 3.055
+    },
+    {
+        "text": "Because there is some general world",
+        "start": 42.23,
+        "duration": 2.55
+    },
+    {
+        "text": "confusion and we need to fix it.",
+        "start": 44.78,
+        "duration": 4.02
+    },
+    {
+        "text": "Okay, so I did this thing here,",
+        "start": 48.8,
+        "duration": 2.85
+    },
+    {
+        "text": "so I can stop that.",
+        "start": 51.65,
+        "duration": 1.38
+    },
+    {
+        "text": "So what I'm going to do is,",
+        "start": 53.03,
+        "duration": 2.535
+    },
+    {
+        "text": "I went to the wrong screen. This is the right one.",
+        "start": 55.565,
+        "duration": 4.715
+    },
+    {
+        "text": "Okay, so what I'm going to do is I'm going to show you",
+        "start": 60.28,
+        "duration": 3.43
+    },
+    {
+        "text": "a three-step process with TensorFlow to build this model.",
+        "start": 63.71,
+        "duration": 4.08
+    },
+    {
+        "text": "So what I'm going to do is I'm going to show",
+        "start": 67.79,
+        "duration": 1.14
+    },
+    {
+        "text": "you that it already ran.",
+        "start": 68.93,
+        "duration": 3.06
+    },
+    {
+        "text": "So let's go to the experiments",
+        "start": 71.99,
+        "duration": 1.29
+    },
+    {
+        "text": "here and I'll give it a second to load.",
+        "start": 73.28,
+        "duration": 2.4
+    },
+    {
+        "text": "Here's the latest run of my seer experiment because it",
+        "start": 75.68,
+        "duration": 3.75
+    },
+    {
+        "text": "sees Mexican food, which is really important.",
+        "start": 79.43,
+        "duration": 4.45
+    },
+    {
+        "text": "What you'll see in a second as it loads up",
+        "start": 83.88,
+        "duration": 2.525
+    },
+    {
+        "text": "is you'll see the three-step pipeline that we do.",
+        "start": 86.405,
+        "duration": 2.415
+    },
+    {
+        "text": "The pipeline is basically prepare the images,",
+        "start": 88.82,
+        "duration": 3.419
+    },
+    {
+        "text": "do the training, and then register the model. Yeah, there it is.",
+        "start": 92.239,
+        "duration": 6.451
+    },
+    {
+        "text": "So you're probably wondering, well,",
+        "start": 98.69,
+        "duration": 1.59
+    },
+    {
+        "text": "what preparation are you doing for images?",
+        "start": 100.28,
+        "duration": 2.76
+    },
+    {
+        "text": "Well, these things are fairly finicky,",
+        "start": 103.04,
+        "duration": 1.965
+    },
+    {
+        "text": "like if someone puts an Alpha channel",
+        "start": 105.005,
+        "duration": 1.665
+    },
+    {
+        "text": "and one of your pictures, boom.",
+        "start": 106.67,
+        "duration": 1.88
+    },
+    {
+        "text": "Because I planned for three RGB and sometimes in some models they",
+        "start": 108.55,
+        "duration": 7.12
+    },
+    {
+        "text": "switch the channels or they put the channel's",
+        "start": 115.67,
+        "duration": 2.19
+    },
+    {
+        "text": "first and so you have to pre-process this stuff a little bit.",
+        "start": 117.86,
+        "duration": 4.935
+    },
+    {
+        "text": "So what I've done,",
+        "start": 122.795,
+        "duration": 1.385
+    },
+    {
+        "text": "as you can see in my prep,",
+        "start": 124.18,
+        "duration": 2.815
+    },
+    {
+        "text": "I'm basically using TensorFlow.",
+        "start": 126.995,
+        "duration": 3.75
+    },
+    {
+        "text": "I'm basically looping through",
+        "start": 130.745,
+        "duration": 1.395
+    },
+    {
+        "text": "all the files and pushing out TF records.",
+        "start": 132.14,
+        "duration": 3.48
+    },
+    {
+        "text": "You can see here in the data when I do the prep,",
+        "start": 135.62,
+        "duration": 3.21
+    },
+    {
+        "text": "it's basically a bunch of TF record.",
+        "start": 138.83,
+        "duration": 2.75
+    },
+    {
+        "text": "Anyone use TF records before, by the way?",
+        "start": 141.58,
+        "duration": 2.245
+    },
+    {
+        "text": "Let me explain what TF records are then.",
+        "start": 143.825,
+        "duration": 2.085
+    },
+    {
+        "text": "TF records is just basically a way",
+        "start": 145.91,
+        "duration": 2.37
+    },
+    {
+        "text": "to store tensor data in an intelligent way.",
+        "start": 148.28,
+        "duration": 3.21
+    },
+    {
+        "text": "Do you want to add anything? Because maybe you know",
+        "start": 151.49,
+        "duration": 1.65
+    },
+    {
+        "text": "more about tensor TF records than I do.",
+        "start": 153.14,
+        "duration": 3.64
+    },
+    {
+        "text": ">> Oh, good. I'm always worried,",
+        "start": 156.78,
+        "duration": 3.46
+    },
+    {
+        "text": "I actually know a lot more people know more than me.",
+        "start": 160.24,
+        "duration": 2.8
+    },
+    {
+        "text": "So if you have something to add, please add it.",
+        "start": 163.04,
+        "duration": 2.28
+    },
+    {
+        "text": "So basically it's taking all of these images,",
+        "start": 165.32,
+        "duration": 2.355
+    },
+    {
+        "text": "resizing them to the appropriate size,",
+        "start": 167.675,
+        "duration": 1.725
+    },
+    {
+        "text": "making sure they have the right channel",
+        "start": 169.4,
+        "duration": 1.89
+    },
+    {
+        "text": "ordering and then stuffing them into this TF record.",
+        "start": 171.29,
+        "duration": 3.0
+    },
+    {
+        "text": "The reason why is because it makes it easier to train,",
+        "start": 174.29,
+        "duration": 2.85
+    },
+    {
+        "text": "and I'll show you shortly how.",
+        "start": 177.14,
+        "duration": 1.775
+    },
+    {
+        "text": "Once this data preparation step stops,",
+        "start": 178.915,
+        "duration": 2.495
+    },
+    {
+        "text": "and by the way, in Azure machine learning,",
+        "start": 181.41,
+        "duration": 1.685
+    },
+    {
+        "text": "when you do this stuff,",
+        "start": 183.095,
+        "duration": 1.575
+    },
+    {
+        "text": "we actually store that all of these steps will run.",
+        "start": 184.67,
+        "duration": 3.675
+    },
+    {
+        "text": "This data source is the parameter,",
+        "start": 188.345,
+        "duration": 1.995
+    },
+    {
+        "text": "so I can change where it's sourcing the data",
+        "start": 190.34,
+        "duration": 2.49
+    },
+    {
+        "text": "from at anytime and it will load different images.",
+        "start": 192.83,
+        "duration": 3.14
+    },
+    {
+        "text": "You can see here,",
+        "start": 195.97,
+        "duration": 1.33
+    },
+    {
+        "text": "you can look at all the details of everything that happened.",
+        "start": 197.3,
+        "duration": 2.865
+    },
+    {
+        "text": "Here's the snapshot of the code that ran.",
+        "start": 200.165,
+        "duration": 1.905
+    },
+    {
+        "text": "Here are the logs that it output.",
+        "start": 202.07,
+        "duration": 1.905
+    },
+    {
+        "text": "This is literally what it did.",
+        "start": 203.975,
+        "duration": 1.59
+    },
+    {
+        "text": "So notice that now because I'm running it in the Cloud,",
+        "start": 205.565,
+        "duration": 3.585
+    },
+    {
+        "text": "you have visibility and traceability to what actually happened.",
+        "start": 209.15,
+        "duration": 3.585
+    },
+    {
+        "text": "Because usually you just run it on your machine,",
+        "start": 212.735,
+        "duration": 3.285
+    },
+    {
+        "text": "which is nice, but it doesn't play well with others.",
+        "start": 216.02,
+        "duration": 4.79
+    },
+    {
+        "text": "Now, as you're noticing that",
+        "start": 220.81,
+        "duration": 1.99
+    },
+    {
+        "text": "data science practice is involving now bigger teams.",
+        "start": 222.8,
+        "duration": 3.315
+    },
+    {
+        "text": "How do you interact with them appropriately?",
+        "start": 226.115,
+        "duration": 2.025
+    },
+    {
+        "text": "Well, if Sally laughed because",
+        "start": 228.14,
+        "duration": 1.77
+    },
+    {
+        "text": "she's the best data scientists you have,",
+        "start": 229.91,
+        "duration": 1.83
+    },
+    {
+        "text": "and then Bill comes in.",
+        "start": 231.74,
+        "duration": 1.68
+    },
+    {
+        "text": "Bill usually starts from the first,",
+        "start": 233.42,
+        "duration": 2.07
+    },
+    {
+        "text": "as a data scientist I'd be like, \"Okay,",
+        "start": 235.49,
+        "duration": 2.1
+    },
+    {
+        "text": "let me try logistic regression, decision trees.",
+        "start": 237.59,
+        "duration": 2.46
+    },
+    {
+        "text": "If it doesn't work, then let's go with something else.\"",
+        "start": 240.05,
+        "duration": 3.67
+    },
+    {
+        "text": "But if Sally already did that,",
+        "start": 243.74,
+        "duration": 2.485
+    },
+    {
+        "text": "and you can have a record of the experiments that happened.",
+        "start": 246.225,
+        "duration": 3.365
+    },
+    {
+        "text": "Bill can start at the right spot.",
+        "start": 249.59,
+        "duration": 3.41
+    },
+    {
+        "text": "Okay, and that's what this is all about.",
+        "start": 253.0,
+        "duration": 2.57
+    },
+    {
+        "text": "When you're doing model training.",
+        "start": 255.57,
+        "duration": 1.28
+    },
+    {
+        "text": "For example, in this case, when it loads a detail,",
+        "start": 256.85,
+        "duration": 3.29
+    },
+    {
+        "text": "there's a way in that, let me get to the model",
+        "start": 260.14,
+        "duration": 1.99
+    },
+    {
+        "text": "because I didn't show you the actual training algorithm.",
+        "start": 262.13,
+        "duration": 2.265
+    },
+    {
+        "text": "So this is the prep step.",
+        "start": 264.395,
+        "duration": 2.115
+    },
+    {
+        "text": "By the way, if you're wondering like,",
+        "start": 266.51,
+        "duration": 1.755
+    },
+    {
+        "text": "I want to access to this.",
+        "start": 268.265,
+        "duration": 1.83
+    },
+    {
+        "text": "If you go to GitHub.com and then go to Cloud-scale ML.",
+        "start": 270.095,
+        "duration": 6.165
+    },
+    {
+        "text": "It's under this thing called seer.",
+        "start": 276.65,
+        "duration": 2.86
+    },
+    {
+        "text": "So everything is in here.",
+        "start": 279.51,
+        "duration": 1.34
+    },
+    {
+        "text": "You can totally do all of this stuff.",
+        "start": 280.85,
+        "duration": 3.9
+    },
+    {
+        "text": "If you want, I can run it on my machine right now.",
+        "start": 286.42,
+        "duration": 2.965
+    },
+    {
+        "text": "I can make it run on my machine.",
+        "start": 289.385,
+        "duration": 1.74
+    },
+    {
+        "text": "Let me do that so that you can see LS run,",
+        "start": 291.125,
+        "duration": 7.545
+    },
+    {
+        "text": "oh sorry, Conda activate TF run.",
+        "start": 298.67,
+        "duration": 5.23
+    },
+    {
+        "text": "That's not the one I want,",
+        "start": 304.09,
+        "duration": 3.29
+    },
+    {
+        "text": "which one is it?",
+        "start": 308.49,
+        "duration": 3.985
+    },
+    {
+        "text": "Pipeline, pipeline.command.",
+        "start": 312.475,
+        "duration": 2.095
+    },
+    {
+        "text": "It's going to delete all those folders and",
+        "start": 314.57,
+        "duration": 1.62
+    },
+    {
+        "text": "then we're going to keep our hands off.",
+        "start": 316.19,
+        "duration": 2.065
+    },
+    {
+        "text": "But here's the thing, I can run",
+        "start": 318.255,
+        "duration": 1.385
+    },
+    {
+        "text": "this all in probably under five minutes.",
+        "start": 319.64,
+        "duration": 2.07
+    },
+    {
+        "text": "There, it's building the TF records.",
+        "start": 321.71,
+        "duration": 2.375
+    },
+    {
+        "text": "Taking burritos and Tacos and making",
+        "start": 324.085,
+        "duration": 2.005
+    },
+    {
+        "text": "the TF records and this is going to",
+        "start": 326.09,
+        "duration": 1.65
+    },
+    {
+        "text": "take a while, well not too long.",
+        "start": 327.74,
+        "duration": 1.845
+    },
+    {
+        "text": "It's probably like 600 images.",
+        "start": 329.585,
+        "duration": 1.725
+    },
+    {
+        "text": "It's not that much and I'll let it do that.",
+        "start": 331.31,
+        "duration": 2.46
+    },
+    {
+        "text": "So you can see that I am running it locally.",
+        "start": 333.77,
+        "duration": 1.5
+    },
+    {
+        "text": "Right no you're not going to hear the GPU,",
+        "start": 335.27,
+        "duration": 2.25
+    },
+    {
+        "text": "but you will in a second.",
+        "start": 337.52,
+        "duration": 1.26
+    },
+    {
+        "text": "Here we go. We're getting into it.",
+        "start": 338.78,
+        "duration": 3.21
+    },
+    {
+        "text": "Oh, did you see this beauty?",
+        "start": 341.99,
+        "duration": 2.56
+    },
+    {
+        "text": "Look at this beautifulness. That's cool, right?",
+        "start": 344.55,
+        "duration": 5.21
+    },
+    {
+        "text": "So yeah, you can run it locally,",
+        "start": 349.76,
+        "duration": 2.95
+    },
+    {
+        "text": "but who's going to know I ran this locally?",
+        "start": 352.87,
+        "duration": 3.44
+    },
+    {
+        "text": "How am I going to share this work with other people on my team.",
+        "start": 358.12,
+        "duration": 4.46
+    },
+    {
+        "text": "So what I'm saying is,",
+        "start": 367.26,
+        "duration": 2.305
+    },
+    {
+        "text": "as I said before,",
+        "start": 369.565,
+        "duration": 1.335
+    },
+    {
+        "text": "since all of this stuff,",
+        "start": 370.9,
+        "duration": 1.869
+    },
+    {
+        "text": "basically when it comes to Azure,",
+        "start": 372.769,
+        "duration": 2.421
+    },
+    {
+        "text": "so you can use whatever you want.",
+        "start": 375.19,
+        "duration": 1.08
+    },
+    {
+        "text": "You can do the logging directly from here on your local machine",
+        "start": 376.27,
+        "duration": 3.795
+    },
+    {
+        "text": "and log to Azure machine learning so",
+        "start": 380.065,
+        "duration": 1.995
+    },
+    {
+        "text": "that you can have stuff that looks like this.",
+        "start": 382.06,
+        "duration": 2.59
+    },
+    {
+        "text": "I'll give it a second to load up.",
+        "start": 384.65,
+        "duration": 2.255
+    },
+    {
+        "text": "But basically, you don't have to run it.",
+        "start": 386.905,
+        "duration": 2.895
+    },
+    {
+        "text": "I don't care where you run it.",
+        "start": 389.8,
+        "duration": 1.185
+    },
+    {
+        "text": "Use just the logging mechanism of the experiments,",
+        "start": 390.985,
+        "duration": 2.58
+    },
+    {
+        "text": "and you can log all of the metrics there.",
+        "start": 393.565,
+        "duration": 2.655
+    },
+    {
+        "text": "So for example, I actually ran this one in the Cloud,",
+        "start": 396.22,
+        "duration": 3.48
+    },
+    {
+        "text": "but let's just say you ran it locally and you'd logged out.",
+        "start": 399.7,
+        "duration": 2.25
+    },
+    {
+        "text": "In this case, I don't have it logging",
+        "start": 401.95,
+        "duration": 1.904
+    },
+    {
+        "text": "because it's running in an offline mode.",
+        "start": 403.854,
+        "duration": 1.831
+    },
+    {
+        "text": "But basically now you can track anything.",
+        "start": 405.685,
+        "duration": 3.37
+    },
+    {
+        "text": "For example, accuracy, loss.",
+        "start": 409.055,
+        "duration": 3.135
+    },
+    {
+        "text": "This is what I'm actually logging",
+        "start": 412.19,
+        "duration": 2.045
+    },
+    {
+        "text": "and you can log it out as a chart or as a table.",
+        "start": 414.235,
+        "duration": 2.43
+    },
+    {
+        "text": "I don't know why things are taking so long to load up.",
+        "start": 416.665,
+        "duration": 1.92
+    },
+    {
+        "text": "But basically you have a chart of the accuracy of",
+        "start": 418.585,
+        "duration": 2.505
+    },
+    {
+        "text": "this model and the loss function.",
+        "start": 421.09,
+        "duration": 3.655
+    },
+    {
+        "text": "So just do the logging here or maybe he saved the models there.",
+        "start": 424.745,
+        "duration": 4.655
+    },
+    {
+        "text": "I don't care what you do.",
+        "start": 429.4,
+        "duration": 1.105
+    },
+    {
+        "text": "As long as I'm solving your problem, I'm happy.",
+        "start": 430.505,
+        "duration": 2.39
+    },
+    {
+        "text": "So if you have fantastically good Machines,",
+        "start": 432.895,
+        "duration": 2.28
+    },
+    {
+        "text": "yeah, the way that you log these things, hold on,",
+        "start": 435.175,
+        "duration": 2.565
+    },
+    {
+        "text": "looks like there's no data in there yet because I actually re-ran",
+        "start": 437.74,
+        "duration": 2.58
+    },
+    {
+        "text": "it unfortunately when I did the other one.",
+        "start": 440.32,
+        "duration": 3.075
+    },
+    {
+        "text": "So let me show you how this actually works for training.",
+        "start": 443.395,
+        "duration": 4.315
+    },
+    {
+        "text": "You're probably wondering how the logs",
+        "start": 447.78,
+        "duration": 2.35
+    },
+    {
+        "text": "happen and you can take this file.",
+        "start": 450.13,
+        "duration": 1.39
+    },
+    {
+        "text": "So basically in this case, when I train,",
+        "start": 451.52,
+        "duration": 3.24
+    },
+    {
+        "text": "and this is why I really like",
+        "start": 454.76,
+        "duration": 1.29
+    },
+    {
+        "text": "TF records is because now you can do something like this.",
+        "start": 456.05,
+        "duration": 3.36
+    },
+    {
+        "text": "This is the training dataset.",
+        "start": 459.41,
+        "duration": 1.995
+    },
+    {
+        "text": "What you can do is you can create",
+        "start": 461.405,
+        "duration": 3.795
+    },
+    {
+        "text": "this TF record dataset with this train array.",
+        "start": 465.2,
+        "duration": 5.08
+    },
+    {
+        "text": ">> Basically it's an array of the name",
+        "start": 471.06,
+        "duration": 2.89
+    },
+    {
+        "text": "of the files of the TF records.",
+        "start": 473.95,
+        "duration": 2.175
+    },
+    {
+        "text": "Now, you can do some crazy stuff like,",
+        "start": 476.125,
+        "duration": 2.265
+    },
+    {
+        "text": "here's the parse record to pull out the vectors and matrices,",
+        "start": 478.39,
+        "duration": 3.72
+    },
+    {
+        "text": "here's the number of parallel calls we do,",
+        "start": 482.11,
+        "duration": 1.965
+    },
+    {
+        "text": "and i t creates this pipeline",
+        "start": 484.075,
+        "duration": 2.175
+    },
+    {
+        "text": "of data that you can use when you're training.",
+        "start": 486.25,
+        "duration": 1.95
+    },
+    {
+        "text": "This is actually really cool.",
+        "start": 488.2,
+        "duration": 1.905
+    },
+    {
+        "text": "Usually, I skip over this bit because the people I",
+        "start": 490.105,
+        "duration": 2.985
+    },
+    {
+        "text": "sometimes talk to don't understand this bit, but you do.",
+        "start": 493.09,
+        "duration": 2.895
+    },
+    {
+        "text": "This is why I'm starting to like the front part of TensorFlow.",
+        "start": 495.985,
+        "duration": 3.855
+    },
+    {
+        "text": "You can see here that I am model stealing,",
+        "start": 499.84,
+        "duration": 2.985
+    },
+    {
+        "text": "otherwise known as transfer learning.",
+        "start": 502.825,
+        "duration": 2.445
+    },
+    {
+        "text": "I'm taking mobile net and I'm just putting it",
+        "start": 505.27,
+        "duration": 2.55
+    },
+    {
+        "text": "into a sequential model with an output on",
+        "start": 507.82,
+        "duration": 2.22
+    },
+    {
+        "text": "a softmax, which is cool.",
+        "start": 510.04,
+        "duration": 5.595
+    },
+    {
+        "text": "Then you can see here that I'm optimizing this stuff.",
+        "start": 515.635,
+        "duration": 3.585
+    },
+    {
+        "text": "Now, here is the bit that's interesting,",
+        "start": 519.22,
+        "duration": 2.97
+    },
+    {
+        "text": "that gets to your point, how I logged this stuff.",
+        "start": 522.19,
+        "duration": 3.0
+    },
+    {
+        "text": "Notice that I have a couple of callback things.",
+        "start": 525.19,
+        "duration": 3.81
+    },
+    {
+        "text": "One is called the model checkpoints,",
+        "start": 529.0,
+        "duration": 2.01
+    },
+    {
+        "text": "so that it just outputs models whenever it has one.",
+        "start": 531.01,
+        "duration": 2.535
+    },
+    {
+        "text": "But here's one that I created called an AML callback.",
+        "start": 533.545,
+        "duration": 3.585
+    },
+    {
+        "text": "Notice that it's called log AML.",
+        "start": 537.13,
+        "duration": 2.895
+    },
+    {
+        "text": "Notice that on the callbacks,",
+        "start": 540.025,
+        "duration": 1.605
+    },
+    {
+        "text": "when I do the fit,",
+        "start": 541.63,
+        "duration": 1.125
+    },
+    {
+        "text": "I'm passing log AML in.",
+        "start": 542.755,
+        "duration": 2.085
+    },
+    {
+        "text": "What does this do? I'm glad you asked.",
+        "start": 544.84,
+        "duration": 2.61
+    },
+    {
+        "text": "It turns out, and this is code that I've never shown us.",
+        "start": 547.45,
+        "duration": 2.4
+    },
+    {
+        "text": "I'm so happy that I get to show it",
+        "start": 549.85,
+        "duration": 1.32
+    },
+    {
+        "text": "to people with nobody looks at this.",
+        "start": 551.17,
+        "duration": 1.515
+    },
+    {
+        "text": "Basically, an AML callback is an implementation of",
+        "start": 552.685,
+        "duration": 2.985
+    },
+    {
+        "text": "a callback function in Keras that says anytime something is run,",
+        "start": 555.67,
+        "duration": 4.455
+    },
+    {
+        "text": "log it to the AML run.",
+        "start": 560.125,
+        "duration": 3.645
+    },
+    {
+        "text": "So if I put that callback into my Keras fit,",
+        "start": 563.77,
+        "duration": 4.74
+    },
+    {
+        "text": "it's basically going to shoot",
+        "start": 568.51,
+        "duration": 1.98
+    },
+    {
+        "text": "metrics up to Azure machine learning like TensorBoard.",
+        "start": 570.49,
+        "duration": 3.78
+    },
+    {
+        "text": "Yeah, you can make it so that you can",
+        "start": 574.27,
+        "duration": 1.74
+    },
+    {
+        "text": "create a new run and run it locally?",
+        "start": 576.01,
+        "duration": 1.785
+    },
+    {
+        "text": "Yeah, that's a good question. So you can shoot that up.",
+        "start": 577.795,
+        "duration": 3.9
+    },
+    {
+        "text": "If it doesn't work, let me know because they told me it does.",
+        "start": 581.695,
+        "duration": 15.555
+    },
+    {
+        "text": ">> Run it on your local machine, but log out.",
+        "start": 597.25,
+        "duration": 2.67
+    },
+    {
+        "text": "Now, TensorBoard is awesome too.",
+        "start": 599.92,
+        "duration": 2.76
+    },
+    {
+        "text": "If you're doing Tensorboard,",
+        "start": 602.68,
+        "duration": 1.2
+    },
+    {
+        "text": "you can actually save those into the output folder of",
+        "start": 603.88,
+        "duration": 2.4
+    },
+    {
+        "text": "your run on the actual Cloud-based one,",
+        "start": 606.28,
+        "duration": 2.76
+    },
+    {
+        "text": "and you can call TensorBoard on the run in the Cloud,",
+        "start": 609.04,
+        "duration": 2.88
+    },
+    {
+        "text": "or you can just do these metrics.",
+        "start": 611.92,
+        "duration": 2.535
+    },
+    {
+        "text": "Now, the thing is again, when I say I'm serious,",
+        "start": 614.455,
+        "duration": 3.465
+    },
+    {
+        "text": "this is a buffet.",
+        "start": 617.92,
+        "duration": 2.28
+    },
+    {
+        "text": "You take whatever you want.",
+        "start": 620.2,
+        "duration": 1.38
+    },
+    {
+        "text": "If you are just going to have the salad",
+        "start": 621.58,
+        "duration": 1.875
+    },
+    {
+        "text": "because that's what you want, great.",
+        "start": 623.455,
+        "duration": 3.855
+    },
+    {
+        "text": "If you already have powerful machines that do",
+        "start": 627.31,
+        "duration": 2.07
+    },
+    {
+        "text": "the thing, I'm a fan.",
+        "start": 629.38,
+        "duration": 3.66
+    },
+    {
+        "text": "But you can use other aspects of this stuff that may be helpful.",
+        "start": 633.04,
+        "duration": 3.72
+    },
+    {
+        "text": "If it's not helpful, then I want to know why.",
+        "start": 636.76,
+        "duration": 1.95
+    },
+    {
+        "text": "Great. Tell me why, and I mean that honestly.",
+        "start": 638.71,
+        "duration": 2.61
+    },
+    {
+        "text": "It's a great question. This is again, you can just take this.",
+        "start": 641.32,
+        "duration": 2.73
+    },
+    {
+        "text": "Notice that the AML callbacks are using this.",
+        "start": 644.05,
+        "duration": 3.24
+    },
+    {
+        "text": "They're just inheriting from the callback Keras function,",
+        "start": 647.29,
+        "duration": 3.375
+    },
+    {
+        "text": "and these are just the things that I overwrite,",
+        "start": 650.665,
+        "duration": 1.68
+    },
+    {
+        "text": "like when the batch ends,",
+        "start": 652.345,
+        "duration": 2.325
+    },
+    {
+        "text": "I'm going to log all the metrics.",
+        "start": 654.67,
+        "duration": 2.95
+    },
+    {
+        "text": "So I'm using whatever",
+        "start": 663.69,
+        "duration": 3.144
+    },
+    {
+        "text": "the TensorFlow dataset does with a TF record set,",
+        "start": 666.834,
+        "duration": 4.306
+    },
+    {
+        "text": "whatever it does, it does.",
+        "start": 671.14,
+        "duration": 1.29
+    },
+    {
+        "text": "I'm not doing anything more than that.",
+        "start": 672.43,
+        "duration": 1.77
+    },
+    {
+        "text": "So I don't know how it does it.",
+        "start": 674.2,
+        "duration": 1.74
+    },
+    {
+        "text": "All I know is that when I create a TensorFlow dataset,",
+        "start": 675.94,
+        "duration": 2.474
+    },
+    {
+        "text": "I'm using TF records.",
+        "start": 678.414,
+        "duration": 2.161
+    },
+    {
+        "text": "What it does with memory it?",
+        "start": 680.575,
+        "duration": 1.485
+    },
+    {
+        "text": "Well, I guess I do know a little bit.",
+        "start": 682.06,
+        "duration": 1.815
+    },
+    {
+        "text": "You can notice that, when you're looking at TF records,",
+        "start": 683.875,
+        "duration": 3.915
+    },
+    {
+        "text": "it's pretty smart about how many it's pulling out.",
+        "start": 687.79,
+        "duration": 3.285
+    },
+    {
+        "text": "So it loads it up from memory,",
+        "start": 691.075,
+        "duration": 2.205
+    },
+    {
+        "text": "and then I have this map function which parses",
+        "start": 693.28,
+        "duration": 2.31
+    },
+    {
+        "text": "the TF record into a batch output.",
+        "start": 695.59,
+        "duration": 2.64
+    },
+    {
+        "text": "Right now, I'm doing five parallel calls.",
+        "start": 698.23,
+        "duration": 2.28
+    },
+    {
+        "text": "So it's basically has",
+        "start": 700.51,
+        "duration": 1.17
+    },
+    {
+        "text": "a memory pipeline of things that it's queuing up for it to do,",
+        "start": 701.68,
+        "duration": 3.465
+    },
+    {
+        "text": "and then it shuffles it.",
+        "start": 705.145,
+        "duration": 2.325
+    },
+    {
+        "text": "If the buffer size is far as 10,000,",
+        "start": 707.47,
+        "duration": 2.805
+    },
+    {
+        "text": "that means it needs to load up 10,000 records to do that shuffle.",
+        "start": 710.275,
+        "duration": 4.425
+    },
+    {
+        "text": "Then I create the batch size,",
+        "start": 714.7,
+        "duration": 1.56
+    },
+    {
+        "text": "and then I buffer prefetched by a buffer size of five.",
+        "start": 716.26,
+        "duration": 3.45
+    },
+    {
+        "text": "So depending on how you order these,",
+        "start": 719.71,
+        "duration": 1.95
+    },
+    {
+        "text": "it will do the thing.",
+        "start": 721.66,
+        "duration": 1.215
+    },
+    {
+        "text": "If you look at the Tensor Flow documentation,",
+        "start": 722.875,
+        "duration": 2.88
+    },
+    {
+        "text": "it'll tell about this.",
+        "start": 725.755,
+        "duration": 0.675
+    },
+    {
+        "text": "I'm not doing it, I'm just letting",
+        "start": 726.43,
+        "duration": 1.79
+    },
+    {
+        "text": "the framework is now known as you're",
+        "start": 728.22,
+        "duration": 1.23
+    },
+    {
+        "text": "getting a memory management and stuff.",
+        "start": 729.45,
+        "duration": 1.395
+    },
+    {
+        "text": "So that's how it does it.",
+        "start": 730.845,
+        "duration": 2.215
+    },
+    {
+        "text": "This is how I do the thing.",
+        "start": 733.19,
+        "duration": 2.86
+    },
+    {
+        "text": "Then the last thing that I do,",
+        "start": 736.05,
+        "duration": 1.47
+    },
+    {
+        "text": "and this may be a part of your workflow is as well,",
+        "start": 737.52,
+        "duration": 3.49
+    },
+    {
+        "text": "where the model register.",
+        "start": 741.89,
+        "duration": 2.995
+    },
+    {
+        "text": "The last thing, I'm doing is I'm basically finding",
+        "start": 744.885,
+        "duration": 2.385
+    },
+    {
+        "text": "the best model that it output,",
+        "start": 747.27,
+        "duration": 2.895
+    },
+    {
+        "text": "and I'm just saving it to Azure machine learning.",
+        "start": 750.165,
+        "duration": 3.025
+    },
+    {
+        "text": "If you only want to do this bit, great.",
+        "start": 753.77,
+        "duration": 4.285
+    },
+    {
+        "text": "Now, you can version your models.",
+        "start": 758.055,
+        "duration": 2.385
+    },
+    {
+        "text": "Now, what you're pricing is a model of",
+        "start": 760.44,
+        "duration": 2.13
+    },
+    {
+        "text": "single file or is it a bunch of files?",
+        "start": 762.57,
+        "duration": 1.89
+    },
+    {
+        "text": "The answer is yes, do whatever you want.",
+        "start": 764.46,
+        "duration": 2.59
+    },
+    {
+        "text": "For example, PyTorch YOLO happens",
+        "start": 767.05,
+        "duration": 3.42
+    },
+    {
+        "text": "to be in its implementation that I've",
+        "start": 770.47,
+        "duration": 1.53
+    },
+    {
+        "text": "seen that's like four or five files.",
+        "start": 772.0,
+        "duration": 2.055
+    },
+    {
+        "text": "So you put that all in there. So the question is, well,",
+        "start": 774.055,
+        "duration": 2.795
+    },
+    {
+        "text": "how do you use this when you're actually going to run it?",
+        "start": 776.85,
+        "duration": 3.255
+    },
+    {
+        "text": "In Azure machine learning, we have",
+        "start": 780.105,
+        "duration": 1.77
+    },
+    {
+        "text": "the end points that you can create all you need for",
+        "start": 781.875,
+        "duration": 2.535
+    },
+    {
+        "text": "this is a Python file that has an in it and a run.",
+        "start": 784.41,
+        "duration": 5.675
+    },
+    {
+        "text": "Basically, the raw data comes in.",
+        "start": 790.085,
+        "duration": 3.41
+    },
+    {
+        "text": "You load up the model in the init so that it can",
+        "start": 793.495,
+        "duration": 2.715
+    },
+    {
+        "text": "store it in the global model.",
+        "start": 796.21,
+        "duration": 2.565
+    },
+    {
+        "text": "Then you just run it.",
+        "start": 798.775,
+        "duration": 1.8
+    },
+    {
+        "text": "I could just run this locally and you can see it will do it,",
+        "start": 800.575,
+        "duration": 2.805
+    },
+    {
+        "text": "but you can put this in as a service as well.",
+        "start": 803.38,
+        "duration": 3.13
+    },
+    {
+        "text": "I'm running out of time.",
+        "start": 807.24,
+        "duration": 3.08
+    },
+    {
+        "text": "So I made this work",
+        "start": 810.57,
+        "duration": 2.5
+    },
+    {
+        "text": "and you can download the code and try it yourself.",
+        "start": 813.07,
+        "duration": 1.62
+    },
+    {
+        "text": "There's a dataset as well.",
+        "start": 814.69,
+        "duration": 1.83
+    },
+    {
+        "text": "You folks know that convolutional neural networks,",
+        "start": 816.52,
+        "duration": 2.79
+    },
+    {
+        "text": "especially with mobile net,",
+        "start": 819.31,
+        "duration": 0.96
+    },
+    {
+        "text": "will do pretty good at this in a pretty short order.",
+        "start": 820.27,
+        "duration": 3.81
+    },
+    {
+        "text": "So I showed you the pipeline.",
+        "start": 824.08,
+        "duration": 1.965
+    },
+    {
+        "text": "So let's do a little review and then I",
+        "start": 826.045,
+        "duration": 1.305
+    },
+    {
+        "text": "want to answer any questions.",
+        "start": 827.35,
+        "duration": 1.95
+    },
+    {
+        "text": "I want the most hostile of questions because",
+        "start": 829.3,
+        "duration": 2.64
+    },
+    {
+        "text": "my purpose here isn't to sell you something,",
+        "start": 831.94,
+        "duration": 2.67
+    },
+    {
+        "text": "it's to solve problems,",
+        "start": 834.61,
+        "duration": 1.11
+    },
+    {
+        "text": "and insofar as our stuff doesn't solve problems,",
+        "start": 835.72,
+        "duration": 2.31
+    },
+    {
+        "text": "I'm happy to learn about this stuff.",
+        "start": 838.03,
+        "duration": 2.25
+    },
+    {
+        "text": "Because then I can write it down and be",
+        "start": 840.28,
+        "duration": 1.41
+    },
+    {
+        "text": "like, the people in the group.",
+        "start": 841.69,
+        "duration": 2.82
+    },
+    {
+        "text": "As I tell all the time, you need to fix this, this and this.",
+        "start": 844.51,
+        "duration": 2.67
+    },
+    {
+        "text": "But if I say you need to fix this and so and so from TD,",
+        "start": 847.18,
+        "duration": 5.19
+    },
+    {
+        "text": "whatever to said at",
+        "start": 852.37,
+        "duration": 1.95
+    },
+    {
+        "text": "the time that they needed to, they're like, oh.",
+        "start": 854.32,
+        "duration": 2.265
+    },
+    {
+        "text": "Whatever you say has 10 times the weight that I say.",
+        "start": 856.585,
+        "duration": 2.895
+    },
+    {
+        "text": "David? So I want to know.",
+        "start": 859.48,
+        "duration": 3.225
+    },
+    {
+        "text": "So just a little review of what we did.",
+        "start": 862.705,
+        "duration": 2.025
+    },
+    {
+        "text": "We talked about foundations of linear models and neural networks.",
+        "start": 864.73,
+        "duration": 2.97
+    },
+    {
+        "text": "We did convolutional neural networks,",
+        "start": 867.7,
+        "duration": 1.425
+    },
+    {
+        "text": "looked at Azure Machine Learning,",
+        "start": 869.125,
+        "duration": 1.305
+    },
+    {
+        "text": "we looked at machine-learning pipelines,",
+        "start": 870.43,
+        "duration": 1.95
+    },
+    {
+        "text": "and we did a little bit more.",
+        "start": 872.38,
+        "duration": 1.77
+    },
+    {
+        "text": "If you go to that link,",
+        "start": 874.15,
+        "duration": 2.65
+    },
+    {
+        "text": "it'll ask you to sign up, something you don't have to.",
+        "start": 877.26,
+        "duration": 3.04
+    },
+    {
+        "text": "You can just get some links that will show you",
+        "start": 880.3,
+        "duration": 2.16
+    },
+    {
+        "text": "a little bit of the docks of Azure machine learning,",
+        "start": 882.46,
+        "duration": 2.43
+    },
+    {
+        "text": "and then this other thing called MLOps,",
+        "start": 884.89,
+        "duration": 3.33
+    },
+    {
+        "text": "which is DevOps for machine learning.",
+        "start": 888.22,
+        "duration": 3.43
+    },
+    {
+        "text": "I forgot to add this. I don't know why I didn't have this.",
+        "start": 894.24,
+        "duration": 4.06
+    },
+    {
+        "text": "If you've ever used something",
+        "start": 898.3,
+        "duration": 2.43
+    },
+    {
+        "text": "like for continuous integration and continuous deployment,",
+        "start": 900.73,
+        "duration": 2.94
+    },
+    {
+        "text": "we have something called Azure DevOps that does this.",
+        "start": 903.67,
+        "duration": 2.895
+    },
+    {
+        "text": "Notice, that in our particular case,",
+        "start": 906.565,
+        "duration": 2.985
+    },
+    {
+        "text": "we can have pipelines that take your code.",
+        "start": 909.55,
+        "duration": 3.345
+    },
+    {
+        "text": "Let me go back , I'm too fast. No, I'm not too fast.",
+        "start": 912.895,
+        "duration": 3.06
+    },
+    {
+        "text": "We have things that when you check this code in,",
+        "start": 915.955,
+        "duration": 3.54
+    },
+    {
+        "text": "will automatically run a new Azure machine learning pipeline.",
+        "start": 919.495,
+        "duration": 3.33
+    },
+    {
+        "text": "Then we have CD things,",
+        "start": 922.825,
+        "duration": 2.295
+    },
+    {
+        "text": "which is a continuous delivery,",
+        "start": 925.12,
+        "duration": 2.115
+    },
+    {
+        "text": "that anytime a new model is checked in to",
+        "start": 927.235,
+        "duration": 3.375
+    },
+    {
+        "text": "Azure machine learning service will kick",
+        "start": 930.61,
+        "duration": 1.71
+    },
+    {
+        "text": "off an integration build for you.",
+        "start": 932.32,
+        "duration": 2.43
+    },
+    {
+        "text": "The cool thing about these is you can actually add",
+        "start": 934.75,
+        "duration": 2.64
+    },
+    {
+        "text": "steps that check if",
+        "start": 937.39,
+        "duration": 2.07
+    },
+    {
+        "text": "your model actually works or if your model is racist,",
+        "start": 939.46,
+        "duration": 4.45
+    },
+    {
+        "text": "or if your model has ethical issues,",
+        "start": 943.91,
+        "duration": 2.67
+    },
+    {
+        "text": "and you can check those before you put it out.",
+        "start": 946.58,
+        "duration": 3.77
+    },
+    {
+        "text": "There's another thing we have.",
+        "start": 950.35,
+        "duration": 1.41
+    },
+    {
+        "text": "It's called, oh, shoot,",
+        "start": 951.76,
+        "duration": 1.275
+    },
+    {
+        "text": "Marunouchi stuff. What's it called?",
+        "start": 953.035,
+        "duration": 2.965
+    },
+    {
+        "text": "Yeah, we have interpretability toolkit,",
+        "start": 958.08,
+        "duration": 5.089
+    },
+    {
+        "text": "which you can run on your models,",
+        "start": 963.169,
+        "duration": 1.381
+    },
+    {
+        "text": "which will run and say,",
+        "start": 964.55,
+        "duration": 1.57
+    },
+    {
+        "text": "if it's a black box model, it will tell you.",
+        "start": 966.12,
+        "duration": 2.495
+    },
+    {
+        "text": "If you change these inputs,",
+        "start": 968.615,
+        "duration": 1.755
+    },
+    {
+        "text": "this is what will happen.",
+        "start": 970.37,
+        "duration": 1.17
+    },
+    {
+        "text": "It will also tell you which features affect your model the most.",
+        "start": 971.54,
+        "duration": 5.87
+    },
+    {
+        "text": "Some people think, well,",
+        "start": 977.41,
+        "duration": 1.315
+    },
+    {
+        "text": "if I take out gender or race or whatever,",
+        "start": 978.725,
+        "duration": 3.36
+    },
+    {
+        "text": "then my model is ethical.",
+        "start": 982.085,
+        "duration": 1.665
+    },
+    {
+        "text": "But it turns out that there can be combinations of",
+        "start": 983.75,
+        "duration": 2.82
+    },
+    {
+        "text": "features that can produce that same effect.",
+        "start": 986.57,
+        "duration": 3.84
+    },
+    {
+        "text": "So you're able to do that, and so you'll be able to see that.",
+        "start": 991.14,
+        "duration": 3.04
+    },
+    {
+        "text": "For example, I did a video on",
+        "start": 994.18,
+        "duration": 1.81
+    },
+    {
+        "text": "this and I can get a link to you-all if you want,",
+        "start": 995.99,
+        "duration": 2.04
+    },
+    {
+        "text": "where Marunouchi shows this,",
+        "start": 998.03,
+        "duration": 1.53
+    },
+    {
+        "text": "and she showed, if you change gender,",
+        "start": 999.56,
+        "duration": 3.06
+    },
+    {
+        "text": "does it change pay scale?",
+        "start": 1002.62,
+        "duration": 2.8
+    },
+    {
+        "text": "It's interesting. Actually it was",
+        "start": 1007.1,
+        "duration": 2.36
+    },
+    {
+        "text": "job recitative is where they would leave or come back for a job.",
+        "start": 1009.46,
+        "duration": 3.255
+    },
+    {
+        "text": "So we have some stuff that will",
+        "start": 1012.715,
+        "duration": 1.575
+    },
+    {
+        "text": "automatically do that for you as well in the Cloud.",
+        "start": 1014.29,
+        "duration": 2.625
+    },
+    {
+        "text": "But again, like I said,",
+        "start": 1016.915,
+        "duration": 1.455
+    },
+    {
+        "text": "this is a buffet.",
+        "start": 1018.37,
+        "duration": 1.185
+    },
+    {
+        "text": "It's not a seven course meal",
+        "start": 1019.555,
+        "duration": 2.235
+    },
+    {
+        "text": "where you have sit and you feel awkward and you're like,",
+        "start": 1021.79,
+        "duration": 2.04
+    },
+    {
+        "text": "oh, I just got a call. No, I didn't hear it.",
+        "start": 1023.83,
+        "duration": 2.37
+    },
+    {
+        "text": "Well, I did but, it's not like that.",
+        "start": 1026.2,
+        "duration": 2.1
+    },
+    {
+        "text": "It's whatever you want to use that's helpful to you.",
+        "start": 1028.3,
+        "duration": 2.715
+    },
+    {
+        "text": "We want to be able to help you with that.",
+        "start": 1031.015,
+        "duration": 2.085
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 1033.1,
+        "duration": 12.9
+    }
+]

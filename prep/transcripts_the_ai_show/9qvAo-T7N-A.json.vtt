@@ -1,0 +1,902 @@
+[
+    {
+        "text": ">> On this special build edition of the AI Show,",
+        "start": 1.25,
+        "duration": 3.01
+    },
+    {
+        "text": "join us as we hear from Joy Qiao, AI Architect,",
+        "start": 4.26,
+        "duration": 2.85
+    },
+    {
+        "text": "and Mario Inchiosa, Principal Software Engineer at Microsoft",
+        "start": 7.11,
+        "duration": 3.36
+    },
+    {
+        "text": "plus the Data Science Team at Ernst & Young, or EY.",
+        "start": 10.47,
+        "duration": 3.915
+    },
+    {
+        "text": "Joy and Mario will chat with EY and discuss",
+        "start": 14.385,
+        "duration": 2.475
+    },
+    {
+        "text": "how they're using Fairlearn in practice.",
+        "start": 16.86,
+        "duration": 2.655
+    },
+    {
+        "text": "It's fascinating, make sure you take a look.",
+        "start": 19.515,
+        "duration": 2.385
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 21.9,
+        "duration": 9.18
+    },
+    {
+        "text": ">> Hi, my name is Mario Inchiosa,",
+        "start": 31.08,
+        "duration": 2.52
+    },
+    {
+        "text": "a Data Scientist here at Microsoft.",
+        "start": 33.6,
+        "duration": 3.01
+    },
+    {
+        "text": ">> Hi, my name is Joy Qiao.",
+        "start": 36.61,
+        "duration": 2.755
+    },
+    {
+        "text": "I'm an AI Solution Architect here at Microsoft.",
+        "start": 39.365,
+        "duration": 3.15
+    },
+    {
+        "text": "We're members of the Azure AI",
+        "start": 42.515,
+        "duration": 2.46
+    },
+    {
+        "text": "Platform Customer Engineering Team where we",
+        "start": 44.975,
+        "duration": 2.625
+    },
+    {
+        "text": "help our customers and partners to",
+        "start": 47.6,
+        "duration": 1.83
+    },
+    {
+        "text": "build AI products and services on Azure.",
+        "start": 49.43,
+        "duration": 3.61
+    },
+    {
+        "text": ">> Today we're joined by Microsoft partner, EY,",
+        "start": 53.04,
+        "duration": 3.26
+    },
+    {
+        "text": "to talk about how EY is using",
+        "start": 56.3,
+        "duration": 2.19
+    },
+    {
+        "text": "Microsoft's machine-learning fairness toolkit, Fairlearn,",
+        "start": 58.49,
+        "duration": 3.255
+    },
+    {
+        "text": "to assess the fairness of",
+        "start": 61.745,
+        "duration": 1.695
+    },
+    {
+        "text": "their credit adjudication model and mitigate any fairness issues.",
+        "start": 63.44,
+        "duration": 4.785
+    },
+    {
+        "text": "Fairlearn is an open source Python package and GitHub repo",
+        "start": 68.225,
+        "duration": 4.125
+    },
+    {
+        "text": "created by Microsoft Research and the Azure AI Platform Team.",
+        "start": 72.35,
+        "duration": 3.96
+    },
+    {
+        "text": "You can learn more about Fairlearn",
+        "start": 76.31,
+        "duration": 2.13
+    },
+    {
+        "text": "by watching [inaudible] on-demand",
+        "start": 78.44,
+        "duration": 2.19
+    },
+    {
+        "text": "build video entitled How to Test",
+        "start": 80.63,
+        "duration": 2.34
+    },
+    {
+        "text": "Models for Fairness with Fairlearn Deep Dive.",
+        "start": 82.97,
+        "duration": 3.585
+    },
+    {
+        "text": "Now we would like to welcome our EY partners to the conversation.",
+        "start": 86.555,
+        "duration": 4.32
+    },
+    {
+        "text": "Mario, Jason, William, and Alex,",
+        "start": 90.875,
+        "duration": 2.575
+    },
+    {
+        "text": "would you please introduce yourselves?",
+        "start": 93.45,
+        "duration": 2.79
+    },
+    {
+        "text": ">> Hello. My name is Mario Schlener.",
+        "start": 96.26,
+        "duration": 2.65
+    },
+    {
+        "text": "I'm a Toronto-based partner for EY and I lead",
+        "start": 98.91,
+        "duration": 2.69
+    },
+    {
+        "text": "our risk management practice for EY in Canada nationally.",
+        "start": 101.6,
+        "duration": 4.84
+    },
+    {
+        "text": ">> Hello, my name is Jason Wong working in Mario's team.",
+        "start": 106.55,
+        "duration": 3.88
+    },
+    {
+        "text": "I'm currently in EY field,",
+        "start": 110.43,
+        "duration": 1.68
+    },
+    {
+        "text": "AI use and machine use cases including model development,",
+        "start": 112.11,
+        "duration": 3.33
+    },
+    {
+        "text": "validation and a model risk governance.",
+        "start": 115.44,
+        "duration": 2.67
+    },
+    {
+        "text": ">> Hello, my name is William Chan.",
+        "start": 118.11,
+        "duration": 2.235
+    },
+    {
+        "text": "I'm a Senior in Mario's team.",
+        "start": 120.345,
+        "duration": 1.65
+    },
+    {
+        "text": "I work extensively in",
+        "start": 121.995,
+        "duration": 1.385
+    },
+    {
+        "text": "financial risk modeling and model validation,",
+        "start": 123.38,
+        "duration": 2.085
+    },
+    {
+        "text": "as well as advanced analytics machine learning modeling.",
+        "start": 125.465,
+        "duration": 3.655
+    },
+    {
+        "text": ">> Hi, my name is Alex Miles.",
+        "start": 129.77,
+        "duration": 2.35
+    },
+    {
+        "text": "I'm partner based out of Toronto and I am responsible for data,",
+        "start": 132.12,
+        "duration": 4.58
+    },
+    {
+        "text": "AI, and analytics nationally in Canada.",
+        "start": 136.7,
+        "duration": 3.125
+    },
+    {
+        "text": ">> Thank you. It's great to have you-all here.",
+        "start": 139.825,
+        "duration": 2.915
+    },
+    {
+        "text": "To start off, Mario,",
+        "start": 142.74,
+        "duration": 1.95
+    },
+    {
+        "text": "could you please tell us about EY trusted AI platform?",
+        "start": 144.69,
+        "duration": 4.66
+    },
+    {
+        "text": ">> Our trusted AI platform has three key components that",
+        "start": 152.71,
+        "duration": 6.25
+    },
+    {
+        "text": "we would like to cover as a solution offering for the industries.",
+        "start": 158.96,
+        "duration": 5.76
+    },
+    {
+        "text": "One is part of the development cycle,",
+        "start": 164.72,
+        "duration": 3.165
+    },
+    {
+        "text": "part of the audit and the assessment of",
+        "start": 167.885,
+        "duration": 2.355
+    },
+    {
+        "text": "the AI algorithms that I'm using,",
+        "start": 170.24,
+        "duration": 2.715
+    },
+    {
+        "text": "and the third component which is",
+        "start": 172.955,
+        "duration": 1.455
+    },
+    {
+        "text": "the overall AI governance component.",
+        "start": 174.41,
+        "duration": 2.52
+    },
+    {
+        "text": "All of these three components are part of",
+        "start": 176.93,
+        "duration": 1.95
+    },
+    {
+        "text": "our AI trusted life cycle and we currently as EY,",
+        "start": 178.88,
+        "duration": 4.709
+    },
+    {
+        "text": "we have invested in creating",
+        "start": 183.589,
+        "duration": 1.876
+    },
+    {
+        "text": "a platform which provides an end-to-end solution.",
+        "start": 185.465,
+        "duration": 3.795
+    },
+    {
+        "text": ">> Thanks Mario.",
+        "start": 189.26,
+        "duration": 2.205
+    },
+    {
+        "text": "Now I'll turn it over to my teammate Joy",
+        "start": 191.465,
+        "duration": 2.22
+    },
+    {
+        "text": "for the rest of the questions.",
+        "start": 193.685,
+        "duration": 2.305
+    },
+    {
+        "text": ">> Thank you for that introduction.",
+        "start": 195.99,
+        "duration": 3.93
+    },
+    {
+        "text": "Now can you describe",
+        "start": 199.92,
+        "duration": 1.669
+    },
+    {
+        "text": "the specific use case you had",
+        "start": 201.589,
+        "duration": 2.356
+    },
+    {
+        "text": "and where the considerations of fairness came in?",
+        "start": 203.945,
+        "duration": 3.505
+    },
+    {
+        "text": ">> Sure. I'll take this one.",
+        "start": 207.47,
+        "duration": 2.73
+    },
+    {
+        "text": "So through the collaboration with Microsoft Research Team,",
+        "start": 210.2,
+        "duration": 3.315
+    },
+    {
+        "text": "their use cases was slacked",
+        "start": 213.515,
+        "duration": 1.515
+    },
+    {
+        "text": "for model fairness detection and elimination",
+        "start": 215.03,
+        "duration": 3.285
+    },
+    {
+        "text": "is the retail clients adjudication model",
+        "start": 218.315,
+        "duration": 3.465
+    },
+    {
+        "text": "for a large Canadian bank.",
+        "start": 221.78,
+        "duration": 2.115
+    },
+    {
+        "text": "This is classification model.",
+        "start": 223.895,
+        "duration": 1.725
+    },
+    {
+        "text": "So the goal is actually we need to",
+        "start": 225.62,
+        "duration": 1.5
+    },
+    {
+        "text": "differentiate good con and bad con,",
+        "start": 227.12,
+        "duration": 2.295
+    },
+    {
+        "text": "depending on the likelihood of default.",
+        "start": 229.415,
+        "duration": 2.4
+    },
+    {
+        "text": "So this is the fundamental model",
+        "start": 231.815,
+        "duration": 3.645
+    },
+    {
+        "text": "utilized for the bank on-boarding adjudication strategies.",
+        "start": 235.46,
+        "duration": 4.11
+    },
+    {
+        "text": "So they need a slack the good client to extend loan or mortgage.",
+        "start": 239.57,
+        "duration": 4.395
+    },
+    {
+        "text": "So for model performance perspective, yes,",
+        "start": 243.965,
+        "duration": 2.205
+    },
+    {
+        "text": "we will leverage lots of",
+        "start": 246.17,
+        "duration": 1.47
+    },
+    {
+        "text": "advanced machine learning techniques",
+        "start": 247.64,
+        "duration": 2.55
+    },
+    {
+        "text": "to improve the model performs,",
+        "start": 250.19,
+        "duration": 1.41
+    },
+    {
+        "text": "such as AUC, as foreign score.",
+        "start": 251.6,
+        "duration": 3.225
+    },
+    {
+        "text": "In the meanwhile, Fairlearn is also very important not only",
+        "start": 254.825,
+        "duration": 3.915
+    },
+    {
+        "text": "for the assay consideration",
+        "start": 258.74,
+        "duration": 2.145
+    },
+    {
+        "text": "and also for the relative hurry consideration,",
+        "start": 260.885,
+        "duration": 2.099
+    },
+    {
+        "text": "and also banks reputational risk.",
+        "start": 262.984,
+        "duration": 2.281
+    },
+    {
+        "text": "So in particular for this use cases,",
+        "start": 265.265,
+        "duration": 2.955
+    },
+    {
+        "text": "we leverage the Microsoft Fairlearn tools to how to define",
+        "start": 268.22,
+        "duration": 4.86
+    },
+    {
+        "text": "our fairness principles and how",
+        "start": 273.08,
+        "duration": 2.76
+    },
+    {
+        "text": "to detect the unfairness issues in the model department process.",
+        "start": 275.84,
+        "duration": 4.47
+    },
+    {
+        "text": "Also in the end,",
+        "start": 280.31,
+        "duration": 2.085
+    },
+    {
+        "text": "we come up with the right approach to remediate",
+        "start": 282.395,
+        "duration": 2.714
+    },
+    {
+        "text": "the unfairness issues throughout",
+        "start": 285.109,
+        "duration": 2.731
+    },
+    {
+        "text": "model development and also post model developments,",
+        "start": 287.84,
+        "duration": 3.42
+    },
+    {
+        "text": "the whole journey of the development process.",
+        "start": 291.26,
+        "duration": 3.58
+    },
+    {
+        "text": ">> Thank you, Jason. That makes a lot of sense.",
+        "start": 295.52,
+        "duration": 4.06
+    },
+    {
+        "text": "Now, could you walk us through how you used",
+        "start": 299.58,
+        "duration": 3.41
+    },
+    {
+        "text": "Fairlearn to assess and mitigate the observed unfairness.",
+        "start": 302.99,
+        "duration": 4.99
+    },
+    {
+        "text": ">> Absolutely. I will take this question.",
+        "start": 308.15,
+        "duration": 2.83
+    },
+    {
+        "text": "So throughout modeling process,",
+        "start": 310.98,
+        "duration": 2.15
+    },
+    {
+        "text": "UI and Microsoft research team have closely",
+        "start": 313.13,
+        "duration": 2.66
+    },
+    {
+        "text": "collaborated to enhance the user experience",
+        "start": 315.79,
+        "duration": 2.13
+    },
+    {
+        "text": "of the Fairlearn package.",
+        "start": 317.92,
+        "duration": 1.395
+    },
+    {
+        "text": "So first step of solving",
+        "start": 319.315,
+        "duration": 2.535
+    },
+    {
+        "text": "the problem of fairness is actually to know the problem.",
+        "start": 321.85,
+        "duration": 2.865
+    },
+    {
+        "text": "So facilitated by dashboard function of the fair and package,",
+        "start": 324.715,
+        "duration": 3.81
+    },
+    {
+        "text": "we were able to easily evaluate and visualize",
+        "start": 328.525,
+        "duration": 2.685
+    },
+    {
+        "text": "the fairness of model output with regard to the protect feature.",
+        "start": 331.21,
+        "duration": 3.3
+    },
+    {
+        "text": "In this case is the gender in terms",
+        "start": 334.51,
+        "duration": 2.37
+    },
+    {
+        "text": "of demography parity and equalize the odds.",
+        "start": 336.88,
+        "duration": 2.805
+    },
+    {
+        "text": "So knowing that fairness is indeed an issue with the model,",
+        "start": 339.685,
+        "duration": 3.495
+    },
+    {
+        "text": "the question now becomes how we want to remediate this problem?",
+        "start": 343.18,
+        "duration": 3.18
+    },
+    {
+        "text": "So Fairlearn package provides the flexibility of remediating",
+        "start": 346.36,
+        "duration": 3.93
+    },
+    {
+        "text": "the unfairness both in training and post training.",
+        "start": 350.29,
+        "duration": 4.2
+    },
+    {
+        "text": "The user-friendly Fairlearn API allows users to quickly create",
+        "start": 354.49,
+        "duration": 5.26
+    },
+    {
+        "text": "a multiple remediated models and",
+        "start": 359.75,
+        "duration": 2.31
+    },
+    {
+        "text": "visualize the trade-off between fairness and the model accuracy,",
+        "start": 362.06,
+        "duration": 3.75
+    },
+    {
+        "text": "hence allowing a better informed business decision-making.",
+        "start": 365.81,
+        "duration": 4.03
+    },
+    {
+        "text": ">> That's great. Thank you, William.",
+        "start": 369.89,
+        "duration": 3.35
+    },
+    {
+        "text": "So now what do you see as the benefits of",
+        "start": 373.24,
+        "duration": 3.04
+    },
+    {
+        "text": "using Fairlearn in this particular use case?",
+        "start": 376.28,
+        "duration": 3.105
+    },
+    {
+        "text": "Also do you think it will help UI overall,",
+        "start": 379.385,
+        "duration": 2.565
+    },
+    {
+        "text": "trusted AI platform and solution capabilities by",
+        "start": 381.95,
+        "duration": 3.03
+    },
+    {
+        "text": "incorporating Fairlearn as part",
+        "start": 384.98,
+        "duration": 2.04
+    },
+    {
+        "text": "of the amount of validation process?",
+        "start": 387.02,
+        "duration": 2.72
+    },
+    {
+        "text": ">> Absolutely. I mean,",
+        "start": 389.74,
+        "duration": 2.185
+    },
+    {
+        "text": "the package as it currently is set up,",
+        "start": 391.925,
+        "duration": 2.49
+    },
+    {
+        "text": "it provides a readily available tool",
+        "start": 394.415,
+        "duration": 2.13
+    },
+    {
+        "text": "with a variety of technical approaches.",
+        "start": 396.545,
+        "duration": 2.445
+    },
+    {
+        "text": "They came in selected based on the use case at hand and",
+        "start": 398.99,
+        "duration": 3.09
+    },
+    {
+        "text": "the unfair outcomes observed in the available data that we see.",
+        "start": 402.08,
+        "duration": 4.38
+    },
+    {
+        "text": "This was actually one of the major focus",
+        "start": 406.46,
+        "duration": 3.015
+    },
+    {
+        "text": "for the use case described by Jason and William",
+        "start": 409.475,
+        "duration": 3.915
+    },
+    {
+        "text": "to be able to identify and visualize",
+        "start": 413.39,
+        "duration": 3.285
+    },
+    {
+        "text": "easily the outcomes and accordingly to the outcomes,",
+        "start": 416.675,
+        "duration": 3.595
+    },
+    {
+        "text": "we were able to interact with the pre-processed data or",
+        "start": 420.27,
+        "duration": 4.64
+    },
+    {
+        "text": "post-processed data in a way that we can actually",
+        "start": 424.91,
+        "duration": 2.79
+    },
+    {
+        "text": "remediate the unfairness in the overall model estimation.",
+        "start": 427.7,
+        "duration": 5.08
+    },
+    {
+        "text": ">> Thank you, Mario. So as we're integrating",
+        "start": 433.06,
+        "duration": 4.06
+    },
+    {
+        "text": "a Fairlearn as part of",
+        "start": 437.12,
+        "duration": 1.38
+    },
+    {
+        "text": "our overall Azure Machine Learning Services.",
+        "start": 438.5,
+        "duration": 2.61
+    },
+    {
+        "text": "How do you envision moving forward with this offering?",
+        "start": 441.11,
+        "duration": 3.955
+    },
+    {
+        "text": "How will the toolkit be",
+        "start": 445.065,
+        "duration": 1.74
+    },
+    {
+        "text": "incorporated in EY's machine learning life cycle?",
+        "start": 446.805,
+        "duration": 4.975
+    },
+    {
+        "text": ">> Alex, I'll take that question.",
+        "start": 453.77,
+        "duration": 3.125
+    },
+    {
+        "text": "So we see that first of all,",
+        "start": 456.895,
+        "duration": 3.535
+    },
+    {
+        "text": "being able to explain models in terms of if they're",
+        "start": 460.43,
+        "duration": 5.85
+    },
+    {
+        "text": "fair or biased or not",
+        "start": 466.28,
+        "duration": 2.85
+    },
+    {
+        "text": "biased and explainability in terms of transparency,",
+        "start": 469.13,
+        "duration": 3.945
+    },
+    {
+        "text": "here's the key differentiator in what we do.",
+        "start": 473.075,
+        "duration": 3.375
+    },
+    {
+        "text": "So in terms of our service offering,",
+        "start": 476.45,
+        "duration": 4.05
+    },
+    {
+        "text": "we see that incorporating Fairlearn is",
+        "start": 480.5,
+        "duration": 3.06
+    },
+    {
+        "text": "a call it business as",
+        "start": 483.56,
+        "duration": 3.63
+    },
+    {
+        "text": "usual aspect of how we will do modeling for any of our clients,",
+        "start": 487.19,
+        "duration": 5.1
+    },
+    {
+        "text": "whether that is in",
+        "start": 492.29,
+        "duration": 2.16
+    },
+    {
+        "text": "a regulatory environment or a non-regulatory environment.",
+        "start": 494.45,
+        "duration": 4.44
+    },
+    {
+        "text": "We see generally speaking,",
+        "start": 498.89,
+        "duration": 2.25
+    },
+    {
+        "text": "that while there is a lot of interests in",
+        "start": 501.14,
+        "duration": 3.66
+    },
+    {
+        "text": "many open-source libraries and",
+        "start": 504.8,
+        "duration": 3.81
+    },
+    {
+        "text": "the adoption of Python and the machine learning space,",
+        "start": 508.61,
+        "duration": 2.59
+    },
+    {
+        "text": "we do see a tremendous gap around the machine learning life cycle,",
+        "start": 511.2,
+        "duration": 8.065
+    },
+    {
+        "text": "the operations, the so-called machine learning DevOps,",
+        "start": 519.265,
+        "duration": 4.66
+    },
+    {
+        "text": "the model management as well as tying",
+        "start": 523.925,
+        "duration": 3.465
+    },
+    {
+        "text": "in all these aspects of fairness and bias detection.",
+        "start": 527.39,
+        "duration": 4.0
+    },
+    {
+        "text": "We see that Microsoft is uniquely positioned to lead in this area.",
+        "start": 531.39,
+        "duration": 6.465
+    },
+    {
+        "text": "Our plans for the future is to adopt this in leverages as part of",
+        "start": 537.855,
+        "duration": 6.725
+    },
+    {
+        "text": "our regular model life cycle development",
+        "start": 544.58,
+        "duration": 4.575
+    },
+    {
+        "text": "that we perform for our clients.",
+        "start": 549.155,
+        "duration": 2.875
+    },
+    {
+        "text": ">> Thank you so much. That's been very insightful.",
+        "start": 552.74,
+        "duration": 3.555
+    },
+    {
+        "text": "Thank you everyone for joining our conversation today.",
+        "start": 556.295,
+        "duration": 3.045
+    },
+    {
+        "text": "Really appreciate the close collaboration",
+        "start": 559.34,
+        "duration": 2.28
+    },
+    {
+        "text": "with EY for responsible AI.",
+        "start": 561.62,
+        "duration": 2.31
+    },
+    {
+        "text": ">> Thank you.",
+        "start": 563.93,
+        "duration": 1.9
+    },
+    {
+        "text": ">> Thank you.",
+        "start": 565.83,
+        "duration": 0.81
+    },
+    {
+        "text": ">> Thank you.",
+        "start": 566.64,
+        "duration": 0.75
+    },
+    {
+        "text": ">> Very welcome.",
+        "start": 567.39,
+        "duration": 0.555
+    },
+    {
+        "text": ">> Thank you.",
+        "start": 567.945,
+        "duration": 0.525
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 568.47,
+        "duration": 12.34
+    }
+]

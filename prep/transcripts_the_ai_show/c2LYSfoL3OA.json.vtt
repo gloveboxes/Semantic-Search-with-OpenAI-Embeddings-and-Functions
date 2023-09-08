@@ -1,0 +1,992 @@
+[
+    {
+        "text": ">> You're not going to want to miss this episode of",
+        "start": 0.0,
+        "duration": 1.47
+    },
+    {
+        "text": "the AI Show where we talk about MLOps,",
+        "start": 1.47,
+        "duration": 2.25
+    },
+    {
+        "text": "Part one of three,",
+        "start": 3.72,
+        "duration": 1.71
+    },
+    {
+        "text": "managing your assets, managing",
+        "start": 5.43,
+        "duration": 1.86
+    },
+    {
+        "text": "your experiment, managing your models.",
+        "start": 7.29,
+        "duration": 2.055
+    },
+    {
+        "text": "It's all pretty cool. Make sure you tune in.",
+        "start": 9.345,
+        "duration": 1.775
+    },
+    {
+        "text": "[MUSIC].",
+        "start": 11.12,
+        "duration": 5.8
+    },
+    {
+        "text": ">> Hello and welcome to this episode of the AI Show.",
+        "start": 16.92,
+        "duration": 1.96
+    },
+    {
+        "text": "We're going to learn a little bit about MLOp,",
+        "start": 18.88,
+        "duration": 1.745
+    },
+    {
+        "text": "I have with me Shivani Patel. How are you doing my friend?",
+        "start": 20.625,
+        "duration": 2.445
+    },
+    {
+        "text": ">> Hi, how's the going?",
+        "start": 23.07,
+        "duration": 1.305
+    },
+    {
+        "text": ">> Fantastic. Tell us who you are, and what you do?",
+        "start": 24.375,
+        "duration": 1.875
+    },
+    {
+        "text": ">> Hi, I'm Shivani. I'm a program manager",
+        "start": 26.25,
+        "duration": 2.54
+    },
+    {
+        "text": "on the Azure Machine Learning platform team.",
+        "start": 28.79,
+        "duration": 2.025
+    },
+    {
+        "text": "I specifically work on MLOps features.",
+        "start": 30.815,
+        "duration": 2.825
+    },
+    {
+        "text": ">> Fantastic. So tell us what we're talking about today.",
+        "start": 33.64,
+        "duration": 2.71
+    },
+    {
+        "text": ">> So today I'm going to talk a little bit about assets,",
+        "start": 36.35,
+        "duration": 3.585
+    },
+    {
+        "text": "artifacts, and code management",
+        "start": 39.935,
+        "duration": 1.86
+    },
+    {
+        "text": "with MLOps on Azure Machine Learning.",
+        "start": 41.795,
+        "duration": 2.22
+    },
+    {
+        "text": "I'll show you some examples of how to do that, end to end.",
+        "start": 44.015,
+        "duration": 3.35
+    },
+    {
+        "text": ">> So let's start with why is this",
+        "start": 47.365,
+        "duration": 1.885
+    },
+    {
+        "text": "something that's important and how can it be helpful.",
+        "start": 49.25,
+        "duration": 1.985
+    },
+    {
+        "text": ">> For sure. So it's really important because in",
+        "start": 51.235,
+        "duration": 3.115
+    },
+    {
+        "text": "order to reproduce what you're doing on your local machine,",
+        "start": 54.35,
+        "duration": 3.15
+    },
+    {
+        "text": "you need to be able to track all the components",
+        "start": 57.5,
+        "duration": 2.22
+    },
+    {
+        "text": "that you are creating so you can pass it onto your team,",
+        "start": 59.72,
+        "duration": 2.325
+    },
+    {
+        "text": "be able to reproduce",
+        "start": 62.045,
+        "duration": 1.635
+    },
+    {
+        "text": "that same model in the context of a different environment.",
+        "start": 63.68,
+        "duration": 2.97
+    },
+    {
+        "text": "So it gets really important when you're trying to",
+        "start": 66.65,
+        "duration": 1.83
+    },
+    {
+        "text": "scale out your MLOps workflows.",
+        "start": 68.48,
+        "duration": 2.31
+    },
+    {
+        "text": ">> Fantastic. So how can you do",
+        "start": 70.79,
+        "duration": 2.16
+    },
+    {
+        "text": "this with our tools? Why don't you tell us?",
+        "start": 72.95,
+        "duration": 1.68
+    },
+    {
+        "text": ">> For sure. So I'm going to go ahead and",
+        "start": 74.63,
+        "duration": 2.04
+    },
+    {
+        "text": "switch to my screen here to show you.",
+        "start": 76.67,
+        "duration": 3.21
+    },
+    {
+        "text": "So here we have the Azure Machine Learning Studio.",
+        "start": 79.88,
+        "duration": 3.36
+    },
+    {
+        "text": "This is basically where you can see and visualize all your runs,",
+        "start": 83.24,
+        "duration": 4.44
+    },
+    {
+        "text": "your artifacts, and so on and so forth.",
+        "start": 87.68,
+        "duration": 2.355
+    },
+    {
+        "text": "So right here we basically have",
+        "start": 90.035,
+        "duration": 1.905
+    },
+    {
+        "text": "these datasets, experiments, and models.",
+        "start": 91.94,
+        "duration": 2.59
+    },
+    {
+        "text": "So what I've done is I've ran",
+        "start": 94.53,
+        "duration": 1.91
+    },
+    {
+        "text": "a training process here in my notebook,",
+        "start": 96.44,
+        "duration": 2.504
+    },
+    {
+        "text": "and these samples are available in",
+        "start": 98.944,
+        "duration": 1.696
+    },
+    {
+        "text": "our GitHub repo for Azure Machine Learning Notebooks.",
+        "start": 100.64,
+        "duration": 2.7
+    },
+    {
+        "text": "So what I've basically done here is",
+        "start": 103.34,
+        "duration": 1.86
+    },
+    {
+        "text": "set up my development environment,",
+        "start": 105.2,
+        "duration": 1.92
+    },
+    {
+        "text": "connect to a workspace.",
+        "start": 107.12,
+        "duration": 1.765
+    },
+    {
+        "text": "Then as I'm creating my experiment,",
+        "start": 108.885,
+        "duration": 2.75
+    },
+    {
+        "text": "doing my training process,",
+        "start": 111.635,
+        "duration": 1.425
+    },
+    {
+        "text": "I'm registering everything. It's right here.",
+        "start": 113.06,
+        "duration": 2.745
+    },
+    {
+        "text": "I'm creating an experiment to track everything that I'm creating,",
+        "start": 115.805,
+        "duration": 3.375
+    },
+    {
+        "text": "all the runs that I'm going to create.",
+        "start": 119.18,
+        "duration": 2.28
+    },
+    {
+        "text": "I'm attaching some compute here",
+        "start": 121.46,
+        "duration": 2.115
+    },
+    {
+        "text": "as well as registering the datasets that I'm using.",
+        "start": 123.575,
+        "duration": 2.875
+    },
+    {
+        "text": "So this is really important so that you can track",
+        "start": 126.45,
+        "duration": 2.36
+    },
+    {
+        "text": "which datasets were used to produce a model.",
+        "start": 128.81,
+        "duration": 3.51
+    },
+    {
+        "text": "So you can go back and see if there's any bias in the dataset,",
+        "start": 132.32,
+        "duration": 3.335
+    },
+    {
+        "text": "and then I'm going here and",
+        "start": 135.655,
+        "duration": 2.425
+    },
+    {
+        "text": "running through my classic training process.",
+        "start": 138.08,
+        "duration": 2.415
+    },
+    {
+        "text": "What's really great is that you can go back and visualize",
+        "start": 140.495,
+        "duration": 3.044
+    },
+    {
+        "text": "here in your datasets and see that, okay,",
+        "start": 143.539,
+        "duration": 3.456
+    },
+    {
+        "text": "here's a dataset that I registered and",
+        "start": 146.995,
+        "duration": 3.64
+    },
+    {
+        "text": "see all the information about it and how to",
+        "start": 150.635,
+        "duration": 2.235
+    },
+    {
+        "text": "consume it if you want to use it in different model.",
+        "start": 152.87,
+        "duration": 2.595
+    },
+    {
+        "text": "Additionally, I can see right",
+        "start": 155.465,
+        "duration": 2.025
+    },
+    {
+        "text": "here if I've created any models from this particular dataset.",
+        "start": 157.49,
+        "duration": 4.905
+    },
+    {
+        "text": ">> So let's talk a little bit about why it's important under",
+        "start": 162.395,
+        "duration": 4.065
+    },
+    {
+        "text": "MLOps to have these things versioned, registered, visualized.",
+        "start": 166.46,
+        "duration": 4.89
+    },
+    {
+        "text": "You talked about datasets,",
+        "start": 171.35,
+        "duration": 1.93
+    },
+    {
+        "text": "experiments, and what else did talk about? Models.",
+        "start": 173.28,
+        "duration": 2.805
+    },
+    {
+        "text": ">> About models.",
+        "start": 176.085,
+        "duration": 1.095
+    },
+    {
+        "text": ">> So why is it important to do that?",
+        "start": 177.18,
+        "duration": 1.88
+    },
+    {
+        "text": ">> So it is really important first for",
+        "start": 179.06,
+        "duration": 3.285
+    },
+    {
+        "text": "a team of datasets to be able to share what models you've created,",
+        "start": 182.345,
+        "duration": 3.765
+    },
+    {
+        "text": "how you created them,",
+        "start": 186.11,
+        "duration": 1.02
+    },
+    {
+        "text": "what environment you used to build these models.",
+        "start": 187.13,
+        "duration": 2.4
+    },
+    {
+        "text": "You can share that information across a team, saving time,",
+        "start": 189.53,
+        "duration": 3.315
+    },
+    {
+        "text": "saving effort, and reproducing",
+        "start": 192.845,
+        "duration": 2.325
+    },
+    {
+        "text": "a similar model for a similar scenario.",
+        "start": 195.17,
+        "duration": 3.36
+    },
+    {
+        "text": "The other piece here is that teams are",
+        "start": 198.53,
+        "duration": 2.19
+    },
+    {
+        "text": "generally rotating across some large companies.",
+        "start": 200.72,
+        "duration": 2.75
+    },
+    {
+        "text": "We've talked to many customers where they",
+        "start": 203.47,
+        "duration": 2.02
+    },
+    {
+        "text": "had issues where one data scientist went ahead and",
+        "start": 205.49,
+        "duration": 2.1
+    },
+    {
+        "text": "created a really great model",
+        "start": 207.59,
+        "duration": 2.595
+    },
+    {
+        "text": "to solve a business problem just on their laptop.",
+        "start": 210.185,
+        "duration": 1.98
+    },
+    {
+        "text": "But being able to pass on that information to another team gets",
+        "start": 212.165,
+        "duration": 3.225
+    },
+    {
+        "text": "really difficult if you're not tracking each of these components.",
+        "start": 215.39,
+        "duration": 3.63
+    },
+    {
+        "text": "Additionally, on an end-to-end scale,",
+        "start": 219.02,
+        "duration": 2.94
+    },
+    {
+        "text": "if you're trying to understand and have visibility, auditability,",
+        "start": 221.96,
+        "duration": 4.425
+    },
+    {
+        "text": "and a view on what's actually happening in your pipelines,",
+        "start": 226.385,
+        "duration": 5.085
+    },
+    {
+        "text": "you need to be able to have the environment,",
+        "start": 231.47,
+        "duration": 2.49
+    },
+    {
+        "text": "the code that you're using properly vetted.",
+        "start": 233.96,
+        "duration": 3.3
+    },
+    {
+        "text": "So if you don't have each of these components registered,",
+        "start": 237.26,
+        "duration": 2.655
+    },
+    {
+        "text": "there's no way you can have",
+        "start": 239.915,
+        "duration": 1.245
+    },
+    {
+        "text": "that lineage or that validation to show that okay,",
+        "start": 241.16,
+        "duration": 3.24
+    },
+    {
+        "text": "this piece of the code was registered and validated,",
+        "start": 244.4,
+        "duration": 3.06
+    },
+    {
+        "text": "or this model was actually vetted using this dataset.",
+        "start": 247.46,
+        "duration": 4.565
+    },
+    {
+        "text": ">> So one of the things that's interesting when we talk about",
+        "start": 252.025,
+        "duration": 2.8
+    },
+    {
+        "text": "MLOps or DevOps in general is code.",
+        "start": 254.825,
+        "duration": 3.195
+    },
+    {
+        "text": "How do we keep track of code?",
+        "start": 258.02,
+        "duration": 2.06
+    },
+    {
+        "text": ">> For sure. So I actually have a little example right here.",
+        "start": 260.08,
+        "duration": 4.645
+    },
+    {
+        "text": "So if you are using",
+        "start": 264.725,
+        "duration": 2.52
+    },
+    {
+        "text": "get your running your Notebooks or",
+        "start": 267.245,
+        "duration": 1.605
+    },
+    {
+        "text": "cloning them from a Git repository,",
+        "start": 268.85,
+        "duration": 1.73
+    },
+    {
+        "text": "what you can basically do here",
+        "start": 270.58,
+        "duration": 2.095
+    },
+    {
+        "text": "is we'll go ahead and automatically log that information for you.",
+        "start": 272.675,
+        "duration": 4.89
+    },
+    {
+        "text": "So right here I finished my run and I can scroll down here,",
+        "start": 277.565,
+        "duration": 4.574
+    },
+    {
+        "text": "and when you do a Git.details,",
+        "start": 282.139,
+        "duration": 2.341
+    },
+    {
+        "text": "we're logging all the information.",
+        "start": 284.48,
+        "duration": 1.755
+    },
+    {
+        "text": "It's a little difficult to see,",
+        "start": 286.235,
+        "duration": 1.155
+    },
+    {
+        "text": "but right here we actually track which",
+        "start": 287.39,
+        "duration": 2.73
+    },
+    {
+        "text": "repository or which branch you're",
+        "start": 290.12,
+        "duration": 1.56
+    },
+    {
+        "text": "using to manage all of that code.",
+        "start": 291.68,
+        "duration": 1.965
+    },
+    {
+        "text": "So basically what you want to do is every time you're",
+        "start": 293.645,
+        "duration": 2.205
+    },
+    {
+        "text": "developing your training process and notebooks,",
+        "start": 295.85,
+        "duration": 4.019
+    },
+    {
+        "text": "you want to make sure that you're pushing those into Git.",
+        "start": 299.869,
+        "duration": 2.296
+    },
+    {
+        "text": "It's not necessarily a tedious process.",
+        "start": 302.165,
+        "duration": 2.64
+    },
+    {
+        "text": "As long as you're pushing that into master,",
+        "start": 304.805,
+        "duration": 2.835
+    },
+    {
+        "text": "we're able to track which",
+        "start": 307.64,
+        "duration": 2.46
+    },
+    {
+        "text": "notebook the run or the training scripts are being used in.",
+        "start": 310.1,
+        "duration": 3.9
+    },
+    {
+        "text": ">> That's awesome. So if someone already has",
+        "start": 314.0,
+        "duration": 2.19
+    },
+    {
+        "text": "a strategy for managing their own code,",
+        "start": 316.19,
+        "duration": 2.55
+    },
+    {
+        "text": "for example, let's say they use GitHub,",
+        "start": 318.74,
+        "duration": 1.83
+    },
+    {
+        "text": "that automatically will flow",
+        "start": 320.57,
+        "duration": 1.59
+    },
+    {
+        "text": "into what they're doing with Azure Machine Learning Services.",
+        "start": 322.16,
+        "duration": 1.965
+    },
+    {
+        "text": ">> Exactly.",
+        "start": 324.125,
+        "duration": 1.02
+    },
+    {
+        "text": ">> Okay. So we talked about managing a dataset,",
+        "start": 325.145,
+        "duration": 4.255
+    },
+    {
+        "text": "we talked about managing experiments,",
+        "start": 329.4,
+        "duration": 1.31
+    },
+    {
+        "text": "we talked about managing models,",
+        "start": 330.71,
+        "duration": 1.35
+    },
+    {
+        "text": "which are like data science assets.",
+        "start": 332.06,
+        "duration": 1.8
+    },
+    {
+        "text": "We also talked about managing code.",
+        "start": 333.86,
+        "duration": 1.73
+    },
+    {
+        "text": "What we really did, we just said",
+        "start": 335.59,
+        "duration": 1.57
+    },
+    {
+        "text": "manage the code the way you manage your code.",
+        "start": 337.16,
+        "duration": 1.815
+    },
+    {
+        "text": "The interesting thing to me is,",
+        "start": 338.975,
+        "duration": 1.335
+    },
+    {
+        "text": "if a developer is watching,",
+        "start": 340.31,
+        "duration": 2.19
+    },
+    {
+        "text": "the interesting thing that I",
+        "start": 342.5,
+        "duration": 1.74
+    },
+    {
+        "text": "think we should categorize managing datasets,",
+        "start": 344.24,
+        "duration": 2.86
+    },
+    {
+        "text": "because that's generally not something that's",
+        "start": 347.1,
+        "duration": 1.76
+    },
+    {
+        "text": "part of the regular development process.",
+        "start": 348.86,
+        "duration": 2.01
+    },
+    {
+        "text": "Why is managing datasets important,",
+        "start": 350.87,
+        "duration": 1.65
+    },
+    {
+        "text": "and what can you do in Azure machine learning",
+        "start": 352.52,
+        "duration": 1.5
+    },
+    {
+        "text": "service to manage them properly?",
+        "start": 354.02,
+        "duration": 1.79
+    },
+    {
+        "text": ">> Right. So reason managing datasets is so",
+        "start": 355.81,
+        "duration": 3.77
+    },
+    {
+        "text": "important so that you have these validated datasets.",
+        "start": 359.58,
+        "duration": 4.16
+    },
+    {
+        "text": "I've been gone through a cleansing process",
+        "start": 363.74,
+        "duration": 3.825
+    },
+    {
+        "text": "that you know that these datasets have been vetted,",
+        "start": 367.565,
+        "duration": 2.535
+    },
+    {
+        "text": "they have no bias and I can use them end-to-end for",
+        "start": 370.1,
+        "duration": 2.76
+    },
+    {
+        "text": "testing or testing when I'm",
+        "start": 372.86,
+        "duration": 2.31
+    },
+    {
+        "text": "pushing my model in a container into production.",
+        "start": 375.17,
+        "duration": 2.625
+    },
+    {
+        "text": "So the datasets are not",
+        "start": 377.795,
+        "duration": 1.895
+    },
+    {
+        "text": "only important in the model development process,",
+        "start": 379.69,
+        "duration": 2.47
+    },
+    {
+        "text": "they are also really important when you're going in and",
+        "start": 382.16,
+        "duration": 2.04
+    },
+    {
+        "text": "touching it in the context of the environment.",
+        "start": 384.2,
+        "duration": 2.555
+    },
+    {
+        "text": "You want to be able to flow in these new datasets that are being",
+        "start": 386.755,
+        "duration": 2.965
+    },
+    {
+        "text": "created so you can go ahead and re-train the model.",
+        "start": 389.72,
+        "duration": 3.09
+    },
+    {
+        "text": "So when you have different versions of the dataset,",
+        "start": 392.81,
+        "duration": 2.61
+    },
+    {
+        "text": "let's say you start with one set of dataset,",
+        "start": 395.42,
+        "duration": 2.19
+    },
+    {
+        "text": "you run the model and new production came in,",
+        "start": 397.61,
+        "duration": 2.31
+    },
+    {
+        "text": "a new version of that same dataset comes in,",
+        "start": 399.92,
+        "duration": 2.8
+    },
+    {
+        "text": "you want to be able to automatically pick up",
+        "start": 402.72,
+        "duration": 2.18
+    },
+    {
+        "text": "that information and track it right here.",
+        "start": 404.9,
+        "duration": 2.66
+    },
+    {
+        "text": "So you can basically manage your file,",
+        "start": 407.56,
+        "duration": 3.145
+    },
+    {
+        "text": "all your file datasets in a centralized place.",
+        "start": 410.705,
+        "duration": 3.015
+    },
+    {
+        "text": ">> That's cool because then",
+        "start": 413.72,
+        "duration": 1.815
+    },
+    {
+        "text": "when data scientists are working together,",
+        "start": 415.535,
+        "duration": 1.635
+    },
+    {
+        "text": "they're all working with the same code",
+        "start": 417.17,
+        "duration": 2.4
+    },
+    {
+        "text": "coming from the same Git Repository,",
+        "start": 419.57,
+        "duration": 2.1
+    },
+    {
+        "text": "for example, the same datasets,",
+        "start": 421.67,
+        "duration": 1.91
+    },
+    {
+        "text": "and they can view each other's experiments and the outputs of",
+        "start": 423.58,
+        "duration": 2.77
+    },
+    {
+        "text": "those things as well as work out with",
+        "start": 426.35,
+        "duration": 1.71
+    },
+    {
+        "text": "the artifacts and model management service.",
+        "start": 428.06,
+        "duration": 2.05
+    },
+    {
+        "text": ">> Exactly. So one fun thing is you'll go into your experiments.",
+        "start": 430.11,
+        "duration": 3.68
+    },
+    {
+        "text": "Here's an experiment that I just ran.",
+        "start": 433.79,
+        "duration": 1.68
+    },
+    {
+        "text": "You're able to see the information not only about the run,",
+        "start": 435.47,
+        "duration": 5.415
+    },
+    {
+        "text": "but actually see which dataset was used here.",
+        "start": 440.885,
+        "duration": 3.735
+    },
+    {
+        "text": "So you have the input dataset right here that gives you",
+        "start": 444.62,
+        "duration": 2.73
+    },
+    {
+        "text": "that full lineage to look back and see what's being used.",
+        "start": 447.35,
+        "duration": 3.81
+    },
+    {
+        "text": "Believe it or not, I've talk to some customers who",
+        "start": 451.16,
+        "duration": 2.28
+    },
+    {
+        "text": "actually pass on their datasets through e-mail.",
+        "start": 453.44,
+        "duration": 2.46
+    },
+    {
+        "text": "So this is significantly better way to manage datasets.",
+        "start": 455.9,
+        "duration": 3.03
+    },
+    {
+        "text": ">> I've heard of people passing over",
+        "start": 458.93,
+        "duration": 1.86
+    },
+    {
+        "text": "zip files in a share somewhere,",
+        "start": 460.79,
+        "duration": 2.37
+    },
+    {
+        "text": "which is equally frightening.",
+        "start": 463.16,
+        "duration": 1.62
+    },
+    {
+        "text": "Well, this has been amazing.",
+        "start": 464.78,
+        "duration": 1.05
+    },
+    {
+        "text": "We learned about how to do MLOps by managing your code,",
+        "start": 465.83,
+        "duration": 3.195
+    },
+    {
+        "text": "wherever you are managing, and we",
+        "start": 469.025,
+        "duration": 1.155
+    },
+    {
+        "text": "talked about managing experiments.",
+        "start": 470.18,
+        "duration": 1.65
+    },
+    {
+        "text": "We also talked about",
+        "start": 471.83,
+        "duration": 1.455
+    },
+    {
+        "text": "managing models as well as datasets. Anything I'm missing?",
+        "start": 473.285,
+        "duration": 3.935
+    },
+    {
+        "text": ">> No. That's pretty much of it.",
+        "start": 477.22,
+        "duration": 1.94
+    },
+    {
+        "text": ">> Fantastic.",
+        "start": 479.16,
+        "duration": 0.45
+    },
+    {
+        "text": "Well, thank you so much for spending some time with us.",
+        "start": 479.61,
+        "duration": 1.82
+    },
+    {
+        "text": "Thank you so much for watching.",
+        "start": 481.43,
+        "duration": 1.62
+    },
+    {
+        "text": "We've been learning all about MLops,",
+        "start": 483.05,
+        "duration": 1.77
+    },
+    {
+        "text": "the very first part.",
+        "start": 484.82,
+        "duration": 1.11
+    },
+    {
+        "text": "This is the first part in a series of three videos.",
+        "start": 485.93,
+        "duration": 3.09
+    },
+    {
+        "text": "Thank you so much for watching.",
+        "start": 489.02,
+        "duration": 1.185
+    },
+    {
+        "text": "We'll see you next time. Take care.",
+        "start": 490.205,
+        "duration": 1.155
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 491.36,
+        "duration": 15.44
+    }
+]

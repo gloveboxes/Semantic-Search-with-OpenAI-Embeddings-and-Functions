@@ -1,0 +1,1852 @@
+[
+    {
+        "text": ">> Welcome to another episode of the AI show,",
+        "start": 1.43,
+        "duration": 4.46
+    },
+    {
+        "text": "where we're going to look at how to",
+        "start": 5.89,
+        "duration": 1.155
+    },
+    {
+        "text": "actually code up what we saw",
+        "start": 7.045,
+        "duration": 1.725
+    },
+    {
+        "text": "last week with the music generation with AI.",
+        "start": 8.77,
+        "duration": 3.135
+    },
+    {
+        "text": "So why don't you tell us,",
+        "start": 11.905,
+        "duration": 1.075
+    },
+    {
+        "text": "give us a little refresher, so to speak.",
+        "start": 12.98,
+        "duration": 1.86
+    },
+    {
+        "text": ">> Sure. So the last time we",
+        "start": 14.84,
+        "duration": 1.88
+    },
+    {
+        "text": "went over this entire system,",
+        "start": 16.72,
+        "duration": 1.94
+    },
+    {
+        "text": "where we are looking at MIDI and",
+        "start": 18.66,
+        "duration": 1.69
+    },
+    {
+        "text": "then we're converting it to Piano rolls,",
+        "start": 20.35,
+        "duration": 1.86
+    },
+    {
+        "text": "we are passing it through a Seq2Seq model,",
+        "start": 22.21,
+        "duration": 2.235
+    },
+    {
+        "text": "getting it back to Piano roll and getting music.",
+        "start": 24.445,
+        "duration": 2.705
+    },
+    {
+        "text": "We looked at the model,",
+        "start": 27.15,
+        "duration": 2.38
+    },
+    {
+        "text": "which was a Seq2Seq model with an encoder and decoder.",
+        "start": 29.53,
+        "duration": 3.14
+    },
+    {
+        "text": "And today, we're going to look at",
+        "start": 32.67,
+        "duration": 2.075
+    },
+    {
+        "text": "what's the code behind this",
+        "start": 34.745,
+        "duration": 1.61
+    },
+    {
+        "text": "and how this is actually happening.",
+        "start": 36.355,
+        "duration": 1.395
+    },
+    {
+        "text": ">> Fantastic. So let's go look at that.",
+        "start": 37.75,
+        "duration": 1.99
+    },
+    {
+        "text": ">> So let's look at the code for a bit.",
+        "start": 39.74,
+        "duration": 3.665
+    },
+    {
+        "text": "So this is where all the janitorial work is happening.",
+        "start": 43.405,
+        "duration": 4.865
+    },
+    {
+        "text": ">> It feels like a lot of code.",
+        "start": 48.27,
+        "duration": 1.15
+    },
+    {
+        "text": "What was actually happening here?",
+        "start": 49.42,
+        "duration": 1.14
+    },
+    {
+        "text": ">> It is a lot of code.",
+        "start": 50.56,
+        "duration": 1.14
+    },
+    {
+        "text": "So this basically what it is",
+        "start": 51.7,
+        "duration": 1.845
+    },
+    {
+        "text": "doing is it's only taking the MIDI files",
+        "start": 53.545,
+        "duration": 2.58
+    },
+    {
+        "text": "and creating matrices that",
+        "start": 56.125,
+        "duration": 3.095
+    },
+    {
+        "text": "it can feed to the neural network.",
+        "start": 59.22,
+        "duration": 1.62
+    },
+    {
+        "text": ">> I see. So it's getting",
+        "start": 60.84,
+        "duration": 1.725
+    },
+    {
+        "text": "raw MIDI input files and converting them to like,",
+        "start": 62.565,
+        "duration": 5.505
+    },
+    {
+        "text": "I wish you had a picture for this.",
+        "start": 68.07,
+        "duration": 1.31
+    },
+    {
+        "text": ">> The 2D Matrix.",
+        "start": 69.38,
+        "duration": 0.96
+    },
+    {
+        "text": ">> Okay.",
+        "start": 70.34,
+        "duration": 0.35
+    },
+    {
+        "text": ">> So remember, we talked about these ones and zeroes?",
+        "start": 70.69,
+        "duration": 3.67
+    },
+    {
+        "text": "It is converting into these ones and zeroes.",
+        "start": 74.36,
+        "duration": 1.975
+    },
+    {
+        "text": ">> I see.",
+        "start": 76.335,
+        "duration": 0.6
+    },
+    {
+        "text": ">> But it is not the model.",
+        "start": 76.935,
+        "duration": 1.68
+    },
+    {
+        "text": "The model code is not",
+        "start": 78.615,
+        "duration": 1.185
+    },
+    {
+        "text": "in this file that that we are looking at.",
+        "start": 79.8,
+        "duration": 1.29
+    },
+    {
+        "text": ">> I see.",
+        "start": 81.09,
+        "duration": 0.735
+    },
+    {
+        "text": ">> So here is only",
+        "start": 81.825,
+        "duration": 1.445
+    },
+    {
+        "text": "the conversion of the MIDI",
+        "start": 83.27,
+        "duration": 1.1
+    },
+    {
+        "text": "files to these ones and zeroes.",
+        "start": 84.37,
+        "duration": 1.285
+    },
+    {
+        "text": ">> I see. And so how many,",
+        "start": 85.655,
+        "duration": 2.05
+    },
+    {
+        "text": "like when you're doing this,",
+        "start": 87.705,
+        "duration": 1.58
+    },
+    {
+        "text": "you're just taking a bunch of files,",
+        "start": 89.285,
+        "duration": 2.265
+    },
+    {
+        "text": "lining them up and then creating,",
+        "start": 91.55,
+        "duration": 2.44
+    },
+    {
+        "text": "like I'm trying to understand what the X and the Y is.",
+        "start": 93.99,
+        "duration": 2.62
+    },
+    {
+        "text": "I feel like there's a picture than can help me.",
+        "start": 96.61,
+        "duration": 1.73
+    },
+    {
+        "text": ">> So let me, yes, let me show you that.",
+        "start": 98.34,
+        "duration": 2.97
+    },
+    {
+        "text": "So this is basically what is happening.",
+        "start": 101.31,
+        "duration": 1.54
+    },
+    {
+        "text": ">> Okay. Okay.",
+        "start": 102.85,
+        "duration": 0.5
+    },
+    {
+        "text": ">> So we have a bunch of MIDI files,",
+        "start": 103.35,
+        "duration": 2.025
+    },
+    {
+        "text": "156 in this case.",
+        "start": 105.375,
+        "duration": 1.51
+    },
+    {
+        "text": "We convert them them to",
+        "start": 106.885,
+        "duration": 1.155
+    },
+    {
+        "text": "these Piano rolls with",
+        "start": 108.04,
+        "duration": 1.28
+    },
+    {
+        "text": "the math that we had talked about last time,",
+        "start": 109.32,
+        "duration": 1.98
+    },
+    {
+        "text": "we convert it to a 2D Matrix",
+        "start": 111.3,
+        "duration": 1.68
+    },
+    {
+        "text": "of the notes versus the time.",
+        "start": 112.98,
+        "duration": 2.035
+    },
+    {
+        "text": "Once we have that, we use a sliding window,",
+        "start": 115.015,
+        "duration": 3.315
+    },
+    {
+        "text": "where the X sequence length is",
+        "start": 118.33,
+        "duration": 2.145
+    },
+    {
+        "text": "the sliding window that is fed to the encoder,",
+        "start": 120.475,
+        "duration": 3.635
+    },
+    {
+        "text": "and the Y sequence length is",
+        "start": 124.11,
+        "duration": 1.545
+    },
+    {
+        "text": "the window that is fed to the decoder.",
+        "start": 125.655,
+        "duration": 2.12
+    },
+    {
+        "text": ">> And just as a reminder,",
+        "start": 127.775,
+        "duration": 2.025
+    },
+    {
+        "text": "just for me, we were using this because it was,",
+        "start": 129.8,
+        "duration": 3.55
+    },
+    {
+        "text": "and it was sort of ticks inside the MIDI file",
+        "start": 133.35,
+        "duration": 2.31
+    },
+    {
+        "text": "when you do some math conversion to do it with time,",
+        "start": 135.66,
+        "duration": 2.42
+    },
+    {
+        "text": "that we can create a window.",
+        "start": 138.08,
+        "duration": 1.41
+    },
+    {
+        "text": "And then what you're doing is the X",
+        "start": 139.49,
+        "duration": 2.41
+    },
+    {
+        "text": "is a sequence of notes over time,",
+        "start": 141.9,
+        "duration": 2.995
+    },
+    {
+        "text": "and the Y is a sequence of",
+        "start": 144.895,
+        "duration": 1.825
+    },
+    {
+        "text": "notes after the X sequence of notes.",
+        "start": 146.72,
+        "duration": 2.09
+    },
+    {
+        "text": ">> Exactly.",
+        "start": 148.81,
+        "duration": 0.39
+    },
+    {
+        "text": ">> Okay. Okay.",
+        "start": 149.2,
+        "duration": 0.395
+    },
+    {
+        "text": ">> Exactly.",
+        "start": 149.595,
+        "duration": 0.465
+    },
+    {
+        "text": ">> Okay. That's awesome.",
+        "start": 150.06,
+        "duration": 2.125
+    },
+    {
+        "text": "So what does that code look like?",
+        "start": 152.185,
+        "duration": 1.525
+    },
+    {
+        "text": ">> Okay. So let's look at the code.",
+        "start": 153.71,
+        "duration": 2.21
+    },
+    {
+        "text": "So we have the MIDI to Piano roll,",
+        "start": 155.92,
+        "duration": 2.025
+    },
+    {
+        "text": "which is converting the ticks to the seconds,",
+        "start": 157.945,
+        "duration": 2.715
+    },
+    {
+        "text": "then we have the create a sequence net inputs,",
+        "start": 160.66,
+        "duration": 4.045
+    },
+    {
+        "text": "which is taking these two sliding windows,",
+        "start": 164.705,
+        "duration": 1.995
+    },
+    {
+        "text": "the X sequence length and the Y sequence length,",
+        "start": 166.7,
+        "duration": 2.62
+    },
+    {
+        "text": "and basically sliding over this Piano roll to",
+        "start": 169.32,
+        "duration": 2.745
+    },
+    {
+        "text": "create your X and your Y for your LSTM.",
+        "start": 172.065,
+        "duration": 2.885
+    },
+    {
+        "text": ">> So this isn't,",
+        "start": 174.95,
+        "duration": 1.895
+    },
+    {
+        "text": "like, this isn't machine learning. This is a lot of.",
+        "start": 176.845,
+        "duration": 2.62
+    },
+    {
+        "text": ">> Correct.",
+        "start": 179.465,
+        "duration": 0.475
+    },
+    {
+        "text": ">> Busy work.",
+        "start": 179.94,
+        "duration": 0.76
+    },
+    {
+        "text": ">> Exactly.",
+        "start": 180.7,
+        "duration": 0.67
+    },
+    {
+        "text": ">> Okay. Okay.",
+        "start": 181.37,
+        "duration": 0.29
+    },
+    {
+        "text": ">> Exactly.",
+        "start": 181.66,
+        "duration": 0.48
+    },
+    {
+        "text": ">> Okay. So once you get that all out, there it is,",
+        "start": 182.14,
+        "duration": 4.53
+    },
+    {
+        "text": "if you just scroll up, I can see that there's",
+        "start": 186.67,
+        "duration": 1.52
+    },
+    {
+        "text": "like an X one and a Y one,",
+        "start": 188.19,
+        "duration": 1.64
+    },
+    {
+        "text": "and it's goin to split that out for the LSTM.",
+        "start": 189.83,
+        "duration": 1.7
+    },
+    {
+        "text": ">> Exactly.",
+        "start": 191.53,
+        "duration": 0.555
+    },
+    {
+        "text": ">> Okay. Okay.",
+        "start": 192.085,
+        "duration": 0.52
+    },
+    {
+        "text": ">> Exactly. And so we have",
+        "start": 192.605,
+        "duration": 3.045
+    },
+    {
+        "text": "a little more work for the sequence test net inputs.",
+        "start": 195.65,
+        "duration": 3.175
+    },
+    {
+        "text": "We have the net out to the Piano roll.",
+        "start": 198.825,
+        "duration": 2.44
+    },
+    {
+        "text": "So this is what we have talked about,",
+        "start": 201.265,
+        "duration": 1.55
+    },
+    {
+        "text": "where once the neural network,",
+        "start": 202.815,
+        "duration": 1.82
+    },
+    {
+        "text": "what the neural network is",
+        "start": 204.635,
+        "duration": 1.205
+    },
+    {
+        "text": "outputting is a bunch of probabilities,",
+        "start": 205.84,
+        "duration": 1.86
+    },
+    {
+        "text": "but we need to convert them into ones and zeros.",
+        "start": 207.7,
+        "duration": 2.355
+    },
+    {
+        "text": "So we set some threshold to",
+        "start": 210.055,
+        "duration": 2.265
+    },
+    {
+        "text": "determine what probability means",
+        "start": 212.32,
+        "duration": 2.18
+    },
+    {
+        "text": "on a note on or a note off.",
+        "start": 214.5,
+        "duration": 1.21
+    },
+    {
+        "text": ">> So is this for when,",
+        "start": 215.71,
+        "duration": 2.37
+    },
+    {
+        "text": "so the beginning part was let's convert",
+        "start": 218.08,
+        "duration": 2.31
+    },
+    {
+        "text": "it into what the model going to understand.",
+        "start": 220.39,
+        "duration": 2.465
+    },
+    {
+        "text": "This part is let's convert it",
+        "start": 222.855,
+        "duration": 2.215
+    },
+    {
+        "text": "into what the model puts out into a MIDI file.",
+        "start": 225.07,
+        "duration": 2.765
+    },
+    {
+        "text": ">> Exactly.",
+        "start": 227.835,
+        "duration": 0.605
+    },
+    {
+        "text": ">> Okay. Okay.",
+        "start": 228.44,
+        "duration": 0.38
+    },
+    {
+        "text": ">> Exactly.",
+        "start": 228.82,
+        "duration": 0.41
+    },
+    {
+        "text": ">> Okay.",
+        "start": 229.23,
+        "duration": 1.185
+    },
+    {
+        "text": ">> And then once you have that,",
+        "start": 230.415,
+        "duration": 2.405
+    },
+    {
+        "text": "you want to convert the Piano roll to the MIDI.",
+        "start": 232.82,
+        "duration": 2.3
+    },
+    {
+        "text": "So once you have your ones and zeroes from your model,",
+        "start": 235.12,
+        "duration": 3.385
+    },
+    {
+        "text": "basically what you're telling the model or what",
+        "start": 238.505,
+        "duration": 2.905
+    },
+    {
+        "text": "you're telling your code is that if it is a one,",
+        "start": 241.41,
+        "duration": 2.875
+    },
+    {
+        "text": "then you would write a note on event,",
+        "start": 244.285,
+        "duration": 1.715
+    },
+    {
+        "text": "and if it's a zero, then you write a note off event.",
+        "start": 246.0,
+        "duration": 2.48
+    },
+    {
+        "text": ">> Okay. So let's scroll up here,",
+        "start": 248.48,
+        "duration": 1.61
+    },
+    {
+        "text": "because I think we went over something kind",
+        "start": 250.09,
+        "duration": 1.62
+    },
+    {
+        "text": "of fast for me. Up here.",
+        "start": 251.71,
+        "duration": 2.03
+    },
+    {
+        "text": "So set net out to Piano roll threshold,",
+        "start": 253.74,
+        "duration": 3.545
+    },
+    {
+        "text": "is the LSTM outputting probabilities?",
+        "start": 257.285,
+        "duration": 3.065
+    },
+    {
+        "text": ">> Yes.",
+        "start": 260.35,
+        "duration": 0.34
+    },
+    {
+        "text": ">> Okay.",
+        "start": 260.69,
+        "duration": 0.38
+    },
+    {
+        "text": ">> Yes.",
+        "start": 261.07,
+        "duration": 0.34
+    },
+    {
+        "text": ">> Okay. And that's why you're doing that right.",
+        "start": 261.41,
+        "duration": 1.385
+    },
+    {
+        "text": ">> Right. So you have the probabilities, and you need,",
+        "start": 262.795,
+        "duration": 2.515
+    },
+    {
+        "text": "so if the probability outputted by the model is,",
+        "start": 265.31,
+        "duration": 3.48
+    },
+    {
+        "text": "say, 0.3, does that mean an on or an off?",
+        "start": 268.79,
+        "duration": 3.025
+    },
+    {
+        "text": "So you can decide that with the threshold here.",
+        "start": 271.815,
+        "duration": 2.43
+    },
+    {
+        "text": ">> I see. And sort of the higher the threshold,",
+        "start": 274.245,
+        "duration": 3.025
+    },
+    {
+        "text": "the less notes that will come out in the song, et cetera?",
+        "start": 277.27,
+        "duration": 2.62
+    },
+    {
+        "text": ">> Exactly.",
+        "start": 279.89,
+        "duration": 0.58
+    },
+    {
+        "text": ">> Okay. Cool.",
+        "start": 280.47,
+        "duration": 0.38
+    },
+    {
+        "text": ">> Exactly.",
+        "start": 280.85,
+        "duration": 0.4
+    },
+    {
+        "text": ">> Okay, that makes sense. And then this thing here",
+        "start": 281.25,
+        "duration": 2.2
+    },
+    {
+        "text": "converts the Y outputs",
+        "start": 283.45,
+        "duration": 3.49
+    },
+    {
+        "text": "into the actual MIDI once you've",
+        "start": 286.94,
+        "duration": 2.73
+    },
+    {
+        "text": "set the threshold and that snap to a one or a zero.",
+        "start": 289.67,
+        "duration": 3.29
+    },
+    {
+        "text": ">> Right.",
+        "start": 292.96,
+        "duration": 0.4
+    },
+    {
+        "text": ">> Okay.",
+        "start": 293.36,
+        "duration": 0.29
+    },
+    {
+        "text": ">> Right. And so this will actually, yes,",
+        "start": 293.65,
+        "duration": 1.745
+    },
+    {
+        "text": "and we have looked at MIDI,",
+        "start": 295.395,
+        "duration": 1.09
+    },
+    {
+        "text": "which is a sequence of events.",
+        "start": 296.485,
+        "duration": 1.92
+    },
+    {
+        "text": "These are basically writing those events to a file.",
+        "start": 298.405,
+        "duration": 3.02
+    },
+    {
+        "text": ">> I see. So this is",
+        "start": 301.425,
+        "duration": 1.815
+    },
+    {
+        "text": "like cleaning up everything",
+        "start": 303.24,
+        "duration": 2.61
+    },
+    {
+        "text": "to get ready to do machine learning.",
+        "start": 305.85,
+        "duration": 1.36
+    },
+    {
+        "text": "It's not even the machine learning part.",
+        "start": 307.21,
+        "duration": 1.19
+    },
+    {
+        "text": ">> Correct.",
+        "start": 308.4,
+        "duration": 0.285
+    },
+    {
+        "text": ">> Okay. So when we're training it,",
+        "start": 308.685,
+        "duration": 1.185
+    },
+    {
+        "text": "can we look at the model file now?",
+        "start": 309.87,
+        "duration": 1.23
+    },
+    {
+        "text": ">> Yes. So to look at the model file,",
+        "start": 311.1,
+        "duration": 3.645
+    },
+    {
+        "text": "we have the model defined here,",
+        "start": 314.745,
+        "duration": 1.605
+    },
+    {
+        "text": "I am using Keras.",
+        "start": 316.35,
+        "duration": 1.825
+    },
+    {
+        "text": "And basically what I have defined here",
+        "start": 318.175,
+        "duration": 2.29
+    },
+    {
+        "text": "is an encoder and a decoder structure.",
+        "start": 320.465,
+        "duration": 2.25
+    },
+    {
+        "text": "So we start with a sequential layer,",
+        "start": 322.715,
+        "duration": 3.045
+    },
+    {
+        "text": "you add your LSTM,",
+        "start": 325.76,
+        "duration": 1.695
+    },
+    {
+        "text": "we are doing batch normalization and dropout.",
+        "start": 327.455,
+        "duration": 2.975
+    },
+    {
+        "text": "This is then fed to the decoder,",
+        "start": 330.43,
+        "duration": 2.33
+    },
+    {
+        "text": "which is also consists of the LSTM,",
+        "start": 332.76,
+        "duration": 2.1
+    },
+    {
+        "text": "batch normalization and dropout.",
+        "start": 334.86,
+        "duration": 1.21
+    },
+    {
+        "text": ">> I see.",
+        "start": 336.07,
+        "duration": 1.2
+    },
+    {
+        "text": "And so what I understand,",
+        "start": 337.27,
+        "duration": 1.26
+    },
+    {
+        "text": "machine learning is you have this really huge function,",
+        "start": 338.53,
+        "duration": 2.665
+    },
+    {
+        "text": "you have this loss function or the cause function,",
+        "start": 341.195,
+        "duration": 3.145
+    },
+    {
+        "text": "and you're just trying to optimize with",
+        "start": 344.34,
+        "duration": 1.8
+    },
+    {
+        "text": "respect to the parameters over",
+        "start": 346.14,
+        "duration": 1.2
+    },
+    {
+        "text": "the loss function. Is that right?",
+        "start": 347.34,
+        "duration": 1.27
+    },
+    {
+        "text": ">> Correct.",
+        "start": 348.61,
+        "duration": 0.29
+    },
+    {
+        "text": ">> So what optimizer are you using?",
+        "start": 348.9,
+        "duration": 2.105
+    },
+    {
+        "text": ">> So the loss function here that I'm",
+        "start": 351.005,
+        "duration": 2.105
+    },
+    {
+        "text": "using is the categorical cross-entropy loss,.",
+        "start": 353.11,
+        "duration": 2.42
+    },
+    {
+        "text": ">> Okay.",
+        "start": 355.53,
+        "duration": 0.24
+    },
+    {
+        "text": ">> Because it is a multilevel classification program.",
+        "start": 355.77,
+        "duration": 1.99
+    },
+    {
+        "text": ">> I see. I see.",
+        "start": 357.76,
+        "duration": 1.04
+    },
+    {
+        "text": "And then are you using some kind of gradient descent or?",
+        "start": 358.8,
+        "duration": 2.24
+    },
+    {
+        "text": ">> Yes I'm using the Adam optimizer.",
+        "start": 361.04,
+        "duration": 2.08
+    },
+    {
+        "text": ">> Okay.",
+        "start": 363.12,
+        "duration": 0.26
+    },
+    {
+        "text": ">> So it's one of the optimizers that you",
+        "start": 363.38,
+        "duration": 1.505
+    },
+    {
+        "text": "get built-in within Keras.",
+        "start": 364.885,
+        "duration": 2.685
+    },
+    {
+        "text": ">> And as I'm looking at the code,",
+        "start": 367.57,
+        "duration": 1.34
+    },
+    {
+        "text": "it's like the machine",
+        "start": 368.91,
+        "duration": 1.77
+    },
+    {
+        "text": "learning part is actually not very hard, right?",
+        "start": 370.68,
+        "duration": 2.19
+    },
+    {
+        "text": ">> Yes, it's It's just 10 lines, a little more than that.",
+        "start": 372.87,
+        "duration": 4.01
+    },
+    {
+        "text": ">> That's cool.",
+        "start": 376.88,
+        "duration": 1.615
+    },
+    {
+        "text": "And so the thing I",
+        "start": 378.495,
+        "duration": 1.915
+    },
+    {
+        "text": "fear is that when people look at all the other code,",
+        "start": 380.41,
+        "duration": 1.97
+    },
+    {
+        "text": "they're like, \"Oh, I can't write that.\"",
+        "start": 382.38,
+        "duration": 1.2
+    },
+    {
+        "text": "But really, that's not hard.",
+        "start": 383.58,
+        "duration": 2.84
+    },
+    {
+        "text": ">> Right.",
+        "start": 386.42,
+        "duration": 0.325
+    },
+    {
+        "text": ">> And obviously, the machining part is harder.",
+        "start": 386.745,
+        "duration": 2.335
+    },
+    {
+        "text": "Once you understand it, you can write",
+        "start": 389.08,
+        "duration": 1.41
+    },
+    {
+        "text": "these things as well, which is super nice.",
+        "start": 390.49,
+        "duration": 2.11
+    },
+    {
+        "text": ">> Right. Right.",
+        "start": 392.6,
+        "duration": 0.33
+    },
+    {
+        "text": ">> All right. So how do we go about trading it?",
+        "start": 392.93,
+        "duration": 3.715
+    },
+    {
+        "text": ">> Okay. So for that,",
+        "start": 396.645,
+        "duration": 2.53
+    },
+    {
+        "text": "we are going use extension as part of this editor.",
+        "start": 399.175,
+        "duration": 5.545
+    },
+    {
+        "text": "So were, I'm using Visual Studio code,",
+        "start": 404.72,
+        "duration": 2.42
+    },
+    {
+        "text": "that is I can run it through the terminal here.",
+        "start": 407.14,
+        "duration": 4.005
+    },
+    {
+        "text": "So what I'm going to do is I'm going to",
+        "start": 411.145,
+        "duration": 1.785
+    },
+    {
+        "text": "open the Azure machine learning terminal.",
+        "start": 412.93,
+        "duration": 2.47
+    },
+    {
+        "text": ">> Okay.",
+        "start": 415.4,
+        "duration": 0.355
+    },
+    {
+        "text": ">> And I'm going to submit",
+        "start": 415.755,
+        "duration": 1.345
+    },
+    {
+        "text": "an experiment to train this model.",
+        "start": 417.1,
+        "duration": 1.93
+    },
+    {
+        "text": ">> Okay.",
+        "start": 419.03,
+        "duration": 0.33
+    },
+    {
+        "text": ">> So that's an az ml experiment",
+        "start": 419.36,
+        "duration": 5.765
+    },
+    {
+        "text": "submit minus c. I",
+        "start": 425.125,
+        "duration": 3.815
+    },
+    {
+        "text": "have a remote compute target, which we will talk about.",
+        "start": 428.94,
+        "duration": 4.63
+    },
+    {
+        "text": "And then it's going to start training.",
+        "start": 433.57,
+        "duration": 7.07
+    },
+    {
+        "text": ">> So it looks like you like to type things,",
+        "start": 440.64,
+        "duration": 2.18
+    },
+    {
+        "text": "but my understanding is you can",
+        "start": 442.82,
+        "duration": 1.01
+    },
+    {
+        "text": "also right click on \"My DSVM\",",
+        "start": 443.83,
+        "duration": 1.985
+    },
+    {
+        "text": "\"Set up a Job\",",
+        "start": 445.815,
+        "duration": 1.935
+    },
+    {
+        "text": "\"Setup\" and then it will do that",
+        "start": 447.75,
+        "duration": 1.13
+    },
+    {
+        "text": "as well. But you like typing stuff.",
+        "start": 448.88,
+        "duration": 1.32
+    },
+    {
+        "text": "I do like typing stuff.",
+        "start": 450.2,
+        "duration": 1.42
+    },
+    {
+        "text": "Yes you can go to \"My DSVM\" and",
+        "start": 451.62,
+        "duration": 3.015
+    },
+    {
+        "text": "\"Submit the Job\" if you have configured",
+        "start": 454.635,
+        "duration": 2.335
+    },
+    {
+        "text": "it in the \"VS Code\" section here.",
+        "start": 456.97,
+        "duration": 2.31
+    },
+    {
+        "text": ">> I see. I see. That makes perfect sense.",
+        "start": 459.28,
+        "duration": 2.07
+    },
+    {
+        "text": "And so let's talk about,",
+        "start": 461.35,
+        "duration": 1.58
+    },
+    {
+        "text": "because this is going to take a while,",
+        "start": 462.93,
+        "duration": 1.38
+    },
+    {
+        "text": "and so we have some time to talk.",
+        "start": 464.31,
+        "duration": 1.57
+    },
+    {
+        "text": "Let's talk a little bit about like what",
+        "start": 465.88,
+        "duration": 3.49
+    },
+    {
+        "text": "is this \"My DSVM\" and then what is this talking about?",
+        "start": 469.37,
+        "duration": 3.44
+    },
+    {
+        "text": ">> Right. Good points.",
+        "start": 472.81,
+        "duration": 1.715
+    },
+    {
+        "text": ">> Right.",
+        "start": 474.525,
+        "duration": 0.365
+    },
+    {
+        "text": ">> So what's happening behind the scenes is this.",
+        "start": 474.89,
+        "duration": 5.095
+    },
+    {
+        "text": "So you have your core foo.py,",
+        "start": 479.985,
+        "duration": 2.435
+    },
+    {
+        "text": "in our case, it's train.py.",
+        "start": 482.42,
+        "duration": 1.895
+    },
+    {
+        "text": "We set up a remote target.",
+        "start": 484.315,
+        "duration": 2.195
+    },
+    {
+        "text": "In this case, it's",
+        "start": 486.51,
+        "duration": 1.39
+    },
+    {
+        "text": "your DSVM and with with a Docker container.",
+        "start": 487.9,
+        "duration": 2.78
+    },
+    {
+        "text": "And I have set up my compute target",
+        "start": 490.68,
+        "duration": 2.815
+    },
+    {
+        "text": "with my credentials for my DSVM.",
+        "start": 493.495,
+        "duration": 2.615
+    },
+    {
+        "text": "I've set up my runconfig to tell",
+        "start": 496.11,
+        "duration": 2.01
+    },
+    {
+        "text": "it to run, executing Python code.",
+        "start": 498.12,
+        "duration": 2.115
+    },
+    {
+        "text": "I have all my dependencies",
+        "start": 500.235,
+        "duration": 1.975
+    },
+    {
+        "text": "in my Conda_dependencies.yml file.",
+        "start": 502.21,
+        "duration": 2.045
+    },
+    {
+        "text": "So the Python MIDI libraries or TensorFlow or Keras,",
+        "start": 504.255,
+        "duration": 3.97
+    },
+    {
+        "text": "whatever I want is you find here.",
+        "start": 508.225,
+        "duration": 2.2
+    },
+    {
+        "text": "They need to be PIP installable.",
+        "start": 510.425,
+        "duration": 1.78
+    },
+    {
+        "text": "And then what the",
+        "start": 512.205,
+        "duration": 1.895
+    },
+    {
+        "text": "Azure Machine Learning Experimentation Services",
+        "start": 514.1,
+        "duration": 1.75
+    },
+    {
+        "text": "doing is submit a job,",
+        "start": 515.85,
+        "duration": 1.5
+    },
+    {
+        "text": "which is on a remote VM through a Docker container.",
+        "start": 517.35,
+        "duration": 2.74
+    },
+    {
+        "text": ">> And that's what the My DSVM thing was.",
+        "start": 520.09,
+        "duration": 2.01
+    },
+    {
+        "text": ">> Exactly.",
+        "start": 522.1,
+        "duration": 0.69
+    },
+    {
+        "text": ">> All right.",
+        "start": 522.79,
+        "duration": 0.39
+    },
+    {
+        "text": ">> So My DSVM is the remote VM.",
+        "start": 523.18,
+        "duration": 1.48
+    },
+    {
+        "text": ">> So let's pause right here.",
+        "start": 524.66,
+        "duration": 1.9
+    },
+    {
+        "text": "For Conda dependencies, this is just saying,",
+        "start": 526.56,
+        "duration": 2.945
+    },
+    {
+        "text": "here's all the things I need.",
+        "start": 529.505,
+        "duration": 1.405
+    },
+    {
+        "text": "So effectively all the PIP install stuff.",
+        "start": 530.91,
+        "duration": 1.96
+    },
+    {
+        "text": ">> Exactly.",
+        "start": 532.87,
+        "duration": 0.745
+    },
+    {
+        "text": ">> Okay. And then the user Python that makes sense,",
+        "start": 533.615,
+        "duration": 2.875
+    },
+    {
+        "text": "my remote VM compute",
+        "start": 536.49,
+        "duration": 1.76
+    },
+    {
+        "text": "is the definition of your remote machine. Is that right?",
+        "start": 538.25,
+        "duration": 2.77
+    },
+    {
+        "text": ">> It is the definition of my remote machine,",
+        "start": 541.02,
+        "duration": 2.595
+    },
+    {
+        "text": "and it is telling",
+        "start": 543.615,
+        "duration": 1.79
+    },
+    {
+        "text": "Azure ML what is the base Docker image you'll get.",
+        "start": 545.405,
+        "duration": 3.02
+    },
+    {
+        "text": ">> I see.",
+        "start": 548.425,
+        "duration": 1.395
+    },
+    {
+        "text": ">> And it is telling it what is the,",
+        "start": 549.82,
+        "duration": 2.43
+    },
+    {
+        "text": "so what is the IP address of your DSVM?",
+        "start": 552.25,
+        "duration": 2.0
+    },
+    {
+        "text": "What are the credentials?",
+        "start": 554.25,
+        "duration": 1.405
+    },
+    {
+        "text": "And what is the type.",
+        "start": 555.655,
+        "duration": 2.585
+    },
+    {
+        "text": ">> I see. And then my remote VM config, what is that?",
+        "start": 558.24,
+        "duration": 3.99
+    },
+    {
+        "text": "That's telling you how to run it.",
+        "start": 562.23,
+        "duration": 1.105
+    },
+    {
+        "text": ">> So, yes, in the runconfig,",
+        "start": 563.335,
+        "duration": 1.595
+    },
+    {
+        "text": "you can set a bunch of things.",
+        "start": 564.93,
+        "duration": 1.825
+    },
+    {
+        "text": "One of them is like environment variables.",
+        "start": 566.755,
+        "duration": 2.325
+    },
+    {
+        "text": "So if you wanted to, you link to your-.",
+        "start": 569.08,
+        "duration": 2.095
+    },
+    {
+        "text": ">> I see.",
+        "start": 571.175,
+        "duration": 0.755
+    },
+    {
+        "text": ">> Stuff you can linked it there.",
+        "start": 571.93,
+        "duration": 2.3
+    },
+    {
+        "text": ">> So that makes sense. So you",
+        "start": 574.23,
+        "duration": 1.01
+    },
+    {
+        "text": "have the thing you're running,",
+        "start": 575.24,
+        "duration": 1.38
+    },
+    {
+        "text": "you have the environment",
+        "start": 576.62,
+        "duration": 1.54
+    },
+    {
+        "text": "where it's running and then you have",
+        "start": 578.16,
+        "duration": 1.56
+    },
+    {
+        "text": "the what do you need to",
+        "start": 579.72,
+        "duration": 1.11
+    },
+    {
+        "text": "do inside of that environment to make it run.",
+        "start": 580.83,
+        "duration": 1.995
+    },
+    {
+        "text": ">> Exactly.",
+        "start": 582.825,
+        "duration": 0.61
+    },
+    {
+        "text": ">> Okay. So I know this is going to run for a long time,",
+        "start": 583.435,
+        "duration": 2.685
+    },
+    {
+        "text": "so let's go back, and then we'll just exit out of that.",
+        "start": 586.12,
+        "duration": 2.22
+    },
+    {
+        "text": "Because I want to see a little bit about how you",
+        "start": 588.34,
+        "duration": 2.33
+    },
+    {
+        "text": "would actually run the model and how,",
+        "start": 590.67,
+        "duration": 2.765
+    },
+    {
+        "text": "like, how do you know if",
+        "start": 593.435,
+        "duration": 1.145
+    },
+    {
+        "text": "these models are working or they're good or not?",
+        "start": 594.58,
+        "duration": 1.675
+    },
+    {
+        "text": ">> Right. Okay. So once your model has run,",
+        "start": 596.255,
+        "duration": 7.315
+    },
+    {
+        "text": "so it's going to take a while, it will go and",
+        "start": 603.57,
+        "duration": 1.91
+    },
+    {
+        "text": "save itself in the Azure Blob Storage,",
+        "start": 605.48,
+        "duration": 2.155
+    },
+    {
+        "text": "which is what my code is written to do.",
+        "start": 607.635,
+        "duration": 2.185
+    },
+    {
+        "text": "Then what do we do is we go to the generate song file,",
+        "start": 609.82,
+        "duration": 3.99
+    },
+    {
+        "text": "and here what I'm doing is I'm",
+        "start": 613.81,
+        "duration": 1.9
+    },
+    {
+        "text": "loading the models from the Blob Storage.",
+        "start": 615.71,
+        "duration": 2.295
+    },
+    {
+        "text": "And once I load the models,",
+        "start": 618.005,
+        "duration": 2.395
+    },
+    {
+        "text": "I call them model.predict.",
+        "start": 620.4,
+        "duration": 2.865
+    },
+    {
+        "text": "That is, so you,",
+        "start": 623.265,
+        "duration": 5.295
+    },
+    {
+        "text": "I tell it, so I call them model.predict here.",
+        "start": 628.56,
+        "duration": 2.26
+    },
+    {
+        "text": "And then I have a generated file path where I wanted",
+        "start": 630.82,
+        "duration": 2.5
+    },
+    {
+        "text": "to see if the produced file which we looked at last time.",
+        "start": 633.32,
+        "duration": 2.665
+    },
+    {
+        "text": ">> I see. So effectively,",
+        "start": 635.985,
+        "duration": 1.245
+    },
+    {
+        "text": "what you're doing is, for the model,",
+        "start": 637.23,
+        "duration": 1.92
+    },
+    {
+        "text": "you're priming the pump a little bit,",
+        "start": 639.15,
+        "duration": 1.42
+    },
+    {
+        "text": "and then it's going to output what it",
+        "start": 640.57,
+        "duration": 1.64
+    },
+    {
+        "text": "thinks the next sequence of notes are going to be.",
+        "start": 642.21,
+        "duration": 1.77
+    },
+    {
+        "text": ">> Exactly.",
+        "start": 643.98,
+        "duration": 0.62
+    },
+    {
+        "text": ">> Okay. That's cool. So how do you feel,",
+        "start": 644.6,
+        "duration": 1.87
+    },
+    {
+        "text": "I'm sure when you were running this,",
+        "start": 646.47,
+        "duration": 1.87
+    },
+    {
+        "text": "you ran it like a lot of times.",
+        "start": 648.34,
+        "duration": 1.58
+    },
+    {
+        "text": "How do you keep track of what you changed?",
+        "start": 649.92,
+        "duration": 3.11
+    },
+    {
+        "text": ">> Right. So the Experimentation Service",
+        "start": 653.03,
+        "duration": 4.19
+    },
+    {
+        "text": "from Azure Machine Learning",
+        "start": 657.22,
+        "duration": 1.43
+    },
+    {
+        "text": "allows you to do that really nicely,",
+        "start": 658.65,
+        "duration": 1.51
+    },
+    {
+        "text": "and they have a good visualization.",
+        "start": 660.16,
+        "duration": 2.47
+    },
+    {
+        "text": "Also what do you can do is you can look",
+        "start": 662.63,
+        "duration": 3.01
+    },
+    {
+        "text": "at the list of jobs here,",
+        "start": 665.64,
+        "duration": 2.29
+    },
+    {
+        "text": "and it will show you",
+        "start": 667.93,
+        "duration": 1.335
+    },
+    {
+        "text": "what is failed and what is completed.",
+        "start": 669.265,
+        "duration": 1.88
+    },
+    {
+        "text": "So you have, there are",
+        "start": 671.145,
+        "duration": 1.13
+    },
+    {
+        "text": "some failed jobs and completed jobs,",
+        "start": 672.275,
+        "duration": 1.44
+    },
+    {
+        "text": "and you can look at all of your jobs there.",
+        "start": 673.715,
+        "duration": 1.26
+    },
+    {
+        "text": ">> Well, this is amazing.",
+        "start": 674.975,
+        "duration": 1.685
+    },
+    {
+        "text": "So what was the hardest part of this whole project?",
+        "start": 676.66,
+        "duration": 2.16
+    },
+    {
+        "text": ">> That's a tough question.",
+        "start": 678.82,
+        "duration": 2.835
+    },
+    {
+        "text": "I think the hardest part was,",
+        "start": 681.655,
+        "duration": 3.07
+    },
+    {
+        "text": "you know, fine tuning the model.",
+        "start": 684.725,
+        "duration": 1.745
+    },
+    {
+        "text": "So you have to run a lot of",
+        "start": 686.47,
+        "duration": 1.23
+    },
+    {
+        "text": "experiments before it works well.",
+        "start": 687.7,
+        "duration": 1.885
+    },
+    {
+        "text": "And I did a lot of experiments to",
+        "start": 689.585,
+        "duration": 2.255
+    },
+    {
+        "text": "understand what is a good time for the input and output,",
+        "start": 691.84,
+        "duration": 2.815
+    },
+    {
+        "text": "the X sequence length, the Y sequence length.",
+        "start": 694.655,
+        "duration": 2.01
+    },
+    {
+        "text": "And I came to something that I",
+        "start": 696.665,
+        "duration": 1.44
+    },
+    {
+        "text": "liked and it worked out for me.",
+        "start": 698.105,
+        "duration": 2.29
+    },
+    {
+        "text": ">> It feels like the majority of",
+        "start": 700.395,
+        "duration": 1.415
+    },
+    {
+        "text": "the code was a lot of like",
+        "start": 701.81,
+        "duration": 1.64
+    },
+    {
+        "text": "getting the right numbers into",
+        "start": 703.45,
+        "duration": 1.98
+    },
+    {
+        "text": "the right slots for the machine",
+        "start": 705.43,
+        "duration": 1.2
+    },
+    {
+        "text": "learning model to understand.",
+        "start": 706.63,
+        "duration": 1.075
+    },
+    {
+        "text": ">> Right.",
+        "start": 707.705,
+        "duration": 0.33
+    },
+    {
+        "text": ">> Okay.",
+        "start": 708.035,
+        "duration": 0.475
+    },
+    {
+        "text": ">> Right. And that's very important, I think,",
+        "start": 708.51,
+        "duration": 1.93
+    },
+    {
+        "text": "with any data science and",
+        "start": 710.44,
+        "duration": 1.24
+    },
+    {
+        "text": "machine learning project in general.",
+        "start": 711.68,
+        "duration": 1.49
+    },
+    {
+        "text": "Understanding your data and how it is being fed to",
+        "start": 713.17,
+        "duration": 2.32
+    },
+    {
+        "text": "the model is very important.",
+        "start": 715.49,
+        "duration": 2.87
+    },
+    {
+        "text": "Of course, the model is important itself,",
+        "start": 718.36,
+        "duration": 1.94
+    },
+    {
+        "text": "but understanding how that data is",
+        "start": 720.3,
+        "duration": 1.64
+    },
+    {
+        "text": "being fed and what does your ones and",
+        "start": 721.94,
+        "duration": 1.925
+    },
+    {
+        "text": "zeroes mean will allow",
+        "start": 723.865,
+        "duration": 1.835
+    },
+    {
+        "text": "you to interpret how good or bad it is.",
+        "start": 725.7,
+        "duration": 2.02
+    },
+    {
+        "text": ">> Fantastic. Well, thanks so",
+        "start": 727.72,
+        "duration": 1.31
+    },
+    {
+        "text": "much for spending some time with those we've been.",
+        "start": 729.03,
+        "duration": 1.66
+    },
+    {
+        "text": ">> Thanks a lot.",
+        "start": 730.69,
+        "duration": 0.495
+    },
+    {
+        "text": ">> We've been learning all about the code.",
+        "start": 731.185,
+        "duration": 1.205
+    },
+    {
+        "text": "Sorry to interrupt you.",
+        "start": 732.39,
+        "duration": 0.94
+    },
+    {
+        "text": "We've learned all about the code behind",
+        "start": 733.33,
+        "duration": 1.97
+    },
+    {
+        "text": "music generation from an AI thing.",
+        "start": 735.3,
+        "duration": 3.395
+    },
+    {
+        "text": "Pretty excited about it. Thanks for watching.",
+        "start": 738.695,
+        "duration": 1.565
+    },
+    {
+        "text": "We'll see you next time. Take care.",
+        "start": 740.26,
+        "duration": 3.715
+    },
+    {
+        "text": ">> See you.",
+        "start": 743.975,
+        "duration": 3.215
+    }
+]

@@ -1,0 +1,1617 @@
+[
+    {
+        "text": ">> Are you rolling already?",
+        "start": 0.0,
+        "duration": 1.935
+    },
+    {
+        "text": "Is this part of the show what I'm doing right now?",
+        "start": 1.935,
+        "duration": 2.325
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 4.26,
+        "duration": 6.39
+    },
+    {
+        "text": "Hello and welcome to this episode of the AI show.",
+        "start": 10.65,
+        "duration": 1.8
+    },
+    {
+        "text": "My name is Seth Juarez, and we're going to talk all",
+        "start": 12.45,
+        "duration": 1.71
+    },
+    {
+        "text": "about machine learning models,",
+        "start": 14.16,
+        "duration": 2.79
+    },
+    {
+        "text": "what they are, how to make them,",
+        "start": 16.95,
+        "duration": 2.07
+    },
+    {
+        "text": "and then what the process is to actually make them work.",
+        "start": 19.02,
+        "duration": 4.69
+    },
+    {
+        "text": "So let me start with a couple of",
+        "start": 23.71,
+        "duration": 1.97
+    },
+    {
+        "text": "basic concepts and we'll go through the super",
+        "start": 25.68,
+        "duration": 1.8
+    },
+    {
+        "text": "fast because I want you to",
+        "start": 27.48,
+        "duration": 1.245
+    },
+    {
+        "text": "understand what's going on because I had a hard time with it.",
+        "start": 28.725,
+        "duration": 2.505
+    },
+    {
+        "text": "I was a programmer and then to data science afterwards.",
+        "start": 31.23,
+        "duration": 2.355
+    },
+    {
+        "text": "So generally, as a programmer when you solve a problem,",
+        "start": 33.585,
+        "duration": 2.205
+    },
+    {
+        "text": "what you do is,",
+        "start": 35.79,
+        "duration": 1.954
+    },
+    {
+        "text": "you make a function,",
+        "start": 37.744,
+        "duration": 1.381
+    },
+    {
+        "text": "you get some input,",
+        "start": 39.125,
+        "duration": 1.395
+    },
+    {
+        "text": "and out comes some answers.",
+        "start": 40.52,
+        "duration": 1.595
+    },
+    {
+        "text": "That's basically what we do as programmers,",
+        "start": 42.115,
+        "duration": 2.575
+    },
+    {
+        "text": "but it turns out that there are certain problems that are",
+        "start": 44.69,
+        "duration": 2.37
+    },
+    {
+        "text": "really hard to solve. I'll give you an example.",
+        "start": 47.06,
+        "duration": 2.43
+    },
+    {
+        "text": "If I give you the bits of",
+        "start": 49.49,
+        "duration": 1.74
+    },
+    {
+        "text": "a picture and then I ask you what's in that picture,",
+        "start": 51.23,
+        "duration": 3.755
+    },
+    {
+        "text": "that's a hard problem to solve.",
+        "start": 54.985,
+        "duration": 1.55
+    },
+    {
+        "text": "As a programmer, you may be able to solve it.",
+        "start": 56.535,
+        "duration": 1.985
+    },
+    {
+        "text": "If you're given enough examples,",
+        "start": 58.52,
+        "duration": 1.29
+    },
+    {
+        "text": "there's enough for-loops, there's enough if statements,",
+        "start": 59.81,
+        "duration": 2.25
+    },
+    {
+        "text": "that you have to go home and take a shower afterwards when you",
+        "start": 62.06,
+        "duration": 2.43
+    },
+    {
+        "text": "write that kind of code, totally understand that.",
+        "start": 64.49,
+        "duration": 2.595
+    },
+    {
+        "text": "But in this case,",
+        "start": 67.085,
+        "duration": 1.445
+    },
+    {
+        "text": "the space of problems where it's hard to",
+        "start": 68.53,
+        "duration": 2.77
+    },
+    {
+        "text": "program but the outcome is pretty simple to understand,",
+        "start": 71.3,
+        "duration": 4.53
+    },
+    {
+        "text": "that's where machine learning does really well.",
+        "start": 75.83,
+        "duration": 2.16
+    },
+    {
+        "text": "What it actually does,",
+        "start": 77.99,
+        "duration": 1.14
+    },
+    {
+        "text": "is it flips the whole paradigm",
+        "start": 79.13,
+        "duration": 2.495
+    },
+    {
+        "text": "from instead of you writing a function,",
+        "start": 81.625,
+        "duration": 2.885
+    },
+    {
+        "text": "you give the computer answers and input,",
+        "start": 84.51,
+        "duration": 2.69
+    },
+    {
+        "text": "and it will make a function,",
+        "start": 87.2,
+        "duration": 1.97
+    },
+    {
+        "text": "which is pretty cool.",
+        "start": 89.17,
+        "duration": 1.25
+    },
+    {
+        "text": "That's what machine learning is all about.",
+        "start": 90.42,
+        "duration": 2.1
+    },
+    {
+        "text": "Specifically, machine-learning answer a set of questions.",
+        "start": 92.52,
+        "duration": 2.97
+    },
+    {
+        "text": "One we're going to answer today is called Classification.",
+        "start": 95.49,
+        "duration": 3.15
+    },
+    {
+        "text": "Basically, give it a thing and",
+        "start": 98.64,
+        "duration": 1.85
+    },
+    {
+        "text": "it will classify it into specific band.",
+        "start": 100.49,
+        "duration": 1.92
+    },
+    {
+        "text": "That's the one we're going to solve today super quickly.",
+        "start": 102.41,
+        "duration": 3.315
+    },
+    {
+        "text": "Now, the one thing though that's important is that this,",
+        "start": 105.725,
+        "duration": 3.755
+    },
+    {
+        "text": "we call it functions and input.",
+        "start": 109.48,
+        "duration": 2.165
+    },
+    {
+        "text": "Data scientists call the thing that",
+        "start": 111.645,
+        "duration": 2.345
+    },
+    {
+        "text": "goes in the answers and the input,",
+        "start": 113.99,
+        "duration": 2.235
+    },
+    {
+        "text": "data, and then the output is called a model.",
+        "start": 116.225,
+        "duration": 1.935
+    },
+    {
+        "text": "So if you've ever heard of a term called machine-learning model,",
+        "start": 118.16,
+        "duration": 4.375
+    },
+    {
+        "text": "now you know that it's basically",
+        "start": 122.535,
+        "duration": 1.685
+    },
+    {
+        "text": "a function that's written in an alternative way.",
+        "start": 124.22,
+        "duration": 3.3
+    },
+    {
+        "text": "Basically, when we write them,",
+        "start": 127.52,
+        "duration": 2.355
+    },
+    {
+        "text": "we are basically telling it",
+        "start": 129.875,
+        "duration": 1.305
+    },
+    {
+        "text": "the structure and how to",
+        "start": 131.18,
+        "duration": 1.29
+    },
+    {
+        "text": "learn it. We're going to go through that today.",
+        "start": 132.47,
+        "duration": 1.485
+    },
+    {
+        "text": "So again, a machine learning model is basically a function.",
+        "start": 133.955,
+        "duration": 4.485
+    },
+    {
+        "text": "I'm going to let that sit with you for",
+        "start": 138.44,
+        "duration": 2.94
+    },
+    {
+        "text": "awhile because sometimes we make it into more than what it is,",
+        "start": 141.38,
+        "duration": 3.36
+    },
+    {
+        "text": "but basically we're learning a function.",
+        "start": 144.74,
+        "duration": 2.1
+    },
+    {
+        "text": "Instead of you having to write",
+        "start": 146.84,
+        "duration": 1.605
+    },
+    {
+        "text": "a crazy function with a lot of if statements,",
+        "start": 148.445,
+        "duration": 1.965
+    },
+    {
+        "text": "for loops, whatever, the computer",
+        "start": 150.41,
+        "duration": 1.74
+    },
+    {
+        "text": "will figure out the function right now.",
+        "start": 152.15,
+        "duration": 2.055
+    },
+    {
+        "text": "It's pretty easy to understand what the x is.",
+        "start": 154.205,
+        "duration": 3.22
+    },
+    {
+        "text": "We're going to do a simple problem here,",
+        "start": 157.425,
+        "duration": 1.835
+    },
+    {
+        "text": "so that everyone can understand what's going on",
+        "start": 159.26,
+        "duration": 1.83
+    },
+    {
+        "text": "because it's the best way that I understand the thing.",
+        "start": 161.09,
+        "duration": 2.37
+    },
+    {
+        "text": "So the x in this case is this.",
+        "start": 163.46,
+        "duration": 1.845
+    },
+    {
+        "text": "Now, if you squint hard enough into the matrix,",
+        "start": 165.305,
+        "duration": 3.715
+    },
+    {
+        "text": "which is what this is,",
+        "start": 169.02,
+        "duration": 1.335
+    },
+    {
+        "text": "you will see a number and notice that that is the number zero.",
+        "start": 170.355,
+        "duration": 4.1
+    },
+    {
+        "text": "It's basically a grayscale image that has a 28 by 28 pixel number.",
+        "start": 174.455,
+        "duration": 5.535
+    },
+    {
+        "text": "That's the input.",
+        "start": 179.99,
+        "duration": 1.485
+    },
+    {
+        "text": "Basically, anything you do in",
+        "start": 181.475,
+        "duration": 1.575
+    },
+    {
+        "text": "machine learning and in particular for classification,",
+        "start": 183.05,
+        "duration": 2.629
+    },
+    {
+        "text": "you have to find a way to convert the things that go",
+        "start": 185.679,
+        "duration": 3.071
+    },
+    {
+        "text": "into this function that it's going to invent into numbers.",
+        "start": 188.75,
+        "duration": 3.64
+    },
+    {
+        "text": "If you have to do that with text,",
+        "start": 192.39,
+        "duration": 1.23
+    },
+    {
+        "text": "if you have to do that with pictures,",
+        "start": 193.62,
+        "duration": 0.99
+    },
+    {
+        "text": "you have to do that with sound,",
+        "start": 194.61,
+        "duration": 1.005
+    },
+    {
+        "text": "and notice that with features it's pretty easy",
+        "start": 195.615,
+        "duration": 1.685
+    },
+    {
+        "text": "because we have a color picture,",
+        "start": 197.3,
+        "duration": 2.13
+    },
+    {
+        "text": "you have red, green, blue,",
+        "start": 199.43,
+        "duration": 1.515
+    },
+    {
+        "text": "the three channels, and then height and width.",
+        "start": 200.945,
+        "duration": 2.345
+    },
+    {
+        "text": "For text is a little bit different.",
+        "start": 203.29,
+        "duration": 2.195
+    },
+    {
+        "text": "You have to do some things like, for example,",
+        "start": 205.485,
+        "duration": 1.905
+    },
+    {
+        "text": "bag-of-words models or TFIDF,",
+        "start": 207.39,
+        "duration": 2.16
+    },
+    {
+        "text": "n-gram models, or another way to convert the text into numbers.",
+        "start": 209.55,
+        "duration": 4.4
+    },
+    {
+        "text": "If you're doing something like speech,",
+        "start": 213.95,
+        "duration": 1.65
+    },
+    {
+        "text": "notice that the wave is basically a height over a period of time.",
+        "start": 215.6,
+        "duration": 3.98
+    },
+    {
+        "text": "You can do a number of things like that.",
+        "start": 219.58,
+        "duration": 1.78
+    },
+    {
+        "text": "For example, fast Fourier transforms will separate",
+        "start": 221.36,
+        "duration": 2.58
+    },
+    {
+        "text": "all the different frequencies and",
+        "start": 223.94,
+        "duration": 1.38
+    },
+    {
+        "text": "so you can learn off of those as well.",
+        "start": 225.32,
+        "duration": 1.38
+    },
+    {
+        "text": "Basically, you have to convert things over to numbers.",
+        "start": 226.7,
+        "duration": 2.67
+    },
+    {
+        "text": "Now, the input's easy.",
+        "start": 229.37,
+        "duration": 1.305
+    },
+    {
+        "text": "Once the numbers are there, the question is,",
+        "start": 230.675,
+        "duration": 2.58
+    },
+    {
+        "text": "what does the function look like?",
+        "start": 233.255,
+        "duration": 4.465
+    },
+    {
+        "text": "That's the important part.",
+        "start": 237.72,
+        "duration": 1.85
+    },
+    {
+        "text": "It turns out that with machine learning,",
+        "start": 239.57,
+        "duration": 2.4
+    },
+    {
+        "text": "it's not just going to invent a function out of whole cloth.",
+        "start": 241.97,
+        "duration": 3.285
+    },
+    {
+        "text": "You have to give it a structure in which to learn.",
+        "start": 245.255,
+        "duration": 3.45
+    },
+    {
+        "text": "For example, if you were to give it",
+        "start": 248.705,
+        "duration": 1.515
+    },
+    {
+        "text": "only if statements to work with,",
+        "start": 250.22,
+        "duration": 1.68
+    },
+    {
+        "text": "you would make a decision tree.",
+        "start": 251.9,
+        "duration": 1.71
+    },
+    {
+        "text": "If you were to give it a bunch of",
+        "start": 253.61,
+        "duration": 1.68
+    },
+    {
+        "text": "other structures and it would learn other things,",
+        "start": 255.29,
+        "duration": 3.115
+    },
+    {
+        "text": "the framework that's used like",
+        "start": 258.405,
+        "duration": 1.455
+    },
+    {
+        "text": "scikit-learn, TensorFlow, and PyTorch,",
+        "start": 259.86,
+        "duration": 1.79
+    },
+    {
+        "text": "there are a number of options for selecting the function shape.",
+        "start": 261.65,
+        "duration": 4.59
+    },
+    {
+        "text": "First, I'm calling a function shape,",
+        "start": 266.24,
+        "duration": 2.025
+    },
+    {
+        "text": "data scientists call it model.",
+        "start": 268.265,
+        "duration": 1.97
+    },
+    {
+        "text": "So let's do this in TensorFlow.",
+        "start": 270.235,
+        "duration": 2.11
+    },
+    {
+        "text": "I like TensorFlow, it's an amazing framework.",
+        "start": 272.345,
+        "duration": 2.31
+    },
+    {
+        "text": "There's others like PyTorch,",
+        "start": 274.655,
+        "duration": 1.455
+    },
+    {
+        "text": "scikit-learn like I said before,",
+        "start": 276.11,
+        "duration": 1.29
+    },
+    {
+        "text": "among a bunch of others,",
+        "start": 277.4,
+        "duration": 2.07
+    },
+    {
+        "text": "you can choose whatever you want, but",
+        "start": 279.47,
+        "duration": 1.08
+    },
+    {
+        "text": "the concept is still going to be the same.",
+        "start": 280.55,
+        "duration": 1.91
+    },
+    {
+        "text": "You're going to make a model",
+        "start": 282.46,
+        "duration": 1.255
+    },
+    {
+        "text": "and there's a specific way to make it.",
+        "start": 283.715,
+        "duration": 1.425
+    },
+    {
+        "text": "In TensorFlow 2.0, there's a couple of concepts.",
+        "start": 285.14,
+        "duration": 2.535
+    },
+    {
+        "text": "The first is, you have to craft the function shape.",
+        "start": 287.675,
+        "duration": 4.065
+    },
+    {
+        "text": "You have to do that in TensorFlow.",
+        "start": 291.74,
+        "duration": 1.8
+    },
+    {
+        "text": "You have to do that in PyTorch.",
+        "start": 293.54,
+        "duration": 1.26
+    },
+    {
+        "text": "Scikit-learn has a bunch of pre-packaged ones",
+        "start": 294.8,
+        "duration": 2.55
+    },
+    {
+        "text": "that then you can customize. That's the first thing.",
+        "start": 297.35,
+        "duration": 2.79
+    },
+    {
+        "text": "The second thing you have to do is you optimize the model",
+        "start": 300.14,
+        "duration": 3.945
+    },
+    {
+        "text": "using a cost/loss function and an optimizer.",
+        "start": 304.085,
+        "duration": 4.215
+    },
+    {
+        "text": "Now again, the model is the function that you're going to execute.",
+        "start": 308.3,
+        "duration": 3.435
+    },
+    {
+        "text": "The cost and loss function tells you how bad the model is added.",
+        "start": 311.735,
+        "duration": 5.31
+    },
+    {
+        "text": "The optimizer's job is to take that bad function and say,",
+        "start": 317.045,
+        "duration": 4.405
+    },
+    {
+        "text": "\"We want to make you as less bad as possible.\"",
+        "start": 321.45,
+        "duration": 2.72
+    },
+    {
+        "text": "It does that in conjunction with a mouse.",
+        "start": 324.17,
+        "duration": 1.47
+    },
+    {
+        "text": "So those are the three things you need.",
+        "start": 325.64,
+        "duration": 1.455
+    },
+    {
+        "text": "You need the model which is the function we're going to learn,",
+        "start": 327.095,
+        "duration": 2.685
+    },
+    {
+        "text": "a cost and a loss function which says",
+        "start": 329.78,
+        "duration": 1.89
+    },
+    {
+        "text": "how bad is the function that you learned,",
+        "start": 331.67,
+        "duration": 2.47
+    },
+    {
+        "text": "and then an optimizer which basically takes the loss function,",
+        "start": 334.14,
+        "duration": 3.11
+    },
+    {
+        "text": "which has the model function in it,",
+        "start": 337.25,
+        "duration": 1.725
+    },
+    {
+        "text": "and it optimizes that for greatest benefit.",
+        "start": 338.975,
+        "duration": 3.2
+    },
+    {
+        "text": "Now, once you have the model,",
+        "start": 342.175,
+        "duration": 1.505
+    },
+    {
+        "text": "you use the model to make predictions because again,",
+        "start": 343.68,
+        "duration": 3.18
+    },
+    {
+        "text": "it's basically a function.",
+        "start": 346.86,
+        "duration": 1.89
+    },
+    {
+        "text": "The output is just a file like a JAR file or an assembly file.",
+        "start": 348.75,
+        "duration": 3.65
+    },
+    {
+        "text": "The model is just a function that you call.",
+        "start": 352.4,
+        "duration": 3.03
+    },
+    {
+        "text": "It has a funny-looking input.",
+        "start": 355.43,
+        "duration": 1.98
+    },
+    {
+        "text": "Like we said, it has to be only numbers.",
+        "start": 357.41,
+        "duration": 1.875
+    },
+    {
+        "text": "The output can sometimes be a little funny,",
+        "start": 359.285,
+        "duration": 2.085
+    },
+    {
+        "text": "but that's basically what it is. All right.",
+        "start": 361.37,
+        "duration": 2.3
+    },
+    {
+        "text": "So let's talk about these concepts",
+        "start": 363.67,
+        "duration": 1.885
+    },
+    {
+        "text": "a little bit more so that you can get",
+        "start": 365.555,
+        "duration": 1.785
+    },
+    {
+        "text": "a sense for them. The first is the model.",
+        "start": 367.34,
+        "duration": 1.8
+    },
+    {
+        "text": "That's the h of x function that we",
+        "start": 369.14,
+        "duration": 1.95
+    },
+    {
+        "text": "want to figure out its any function.",
+        "start": 371.09,
+        "duration": 1.965
+    },
+    {
+        "text": "Remember that we wanted to see what was in",
+        "start": 373.055,
+        "duration": 2.055
+    },
+    {
+        "text": "a picture and it was hard to write that function.",
+        "start": 375.11,
+        "duration": 2.07
+    },
+    {
+        "text": "So any function like that that's hard to write,",
+        "start": 377.18,
+        "duration": 2.69
+    },
+    {
+        "text": "that's the model function that we're going to use to execute.",
+        "start": 379.87,
+        "duration": 3.175
+    },
+    {
+        "text": "The second is the cost and loss function.",
+        "start": 383.045,
+        "duration": 2.385
+    },
+    {
+        "text": "Now, here's the interesting thing and",
+        "start": 385.43,
+        "duration": 1.65
+    },
+    {
+        "text": "I hinted at that it's contained.",
+        "start": 387.08,
+        "duration": 2.65
+    },
+    {
+        "text": "But notice that the loss function uses the model function and y,",
+        "start": 389.73,
+        "duration": 4.98
+    },
+    {
+        "text": "which is the right answer.",
+        "start": 394.71,
+        "duration": 1.1
+    },
+    {
+        "text": "Remember how I told you at the beginning?",
+        "start": 395.81,
+        "duration": 1.635
+    },
+    {
+        "text": "You had to give it the answer",
+        "start": 397.445,
+        "duration": 1.935
+    },
+    {
+        "text": "and the input, and then it could learn.",
+        "start": 399.38,
+        "duration": 2.46
+    },
+    {
+        "text": "The answer is used in",
+        "start": 401.84,
+        "duration": 1.71
+    },
+    {
+        "text": "the loss function to measure how bad we are at it.",
+        "start": 403.55,
+        "duration": 2.53
+    },
+    {
+        "text": "We want the value of that function to",
+        "start": 406.08,
+        "duration": 1.7
+    },
+    {
+        "text": "be zero because that means we are zero bad.",
+        "start": 407.78,
+        "duration": 3.485
+    },
+    {
+        "text": "The higher that number,",
+        "start": 411.265,
+        "duration": 1.495
+    },
+    {
+        "text": "the more bad your model function is.",
+        "start": 412.76,
+        "duration": 2.01
+    },
+    {
+        "text": "Then the optimizer takes that loss function that you see up there,",
+        "start": 414.77,
+        "duration": 4.86
+    },
+    {
+        "text": "and it tries to minimize it using a bunch of certain techniques.",
+        "start": 419.63,
+        "duration": 4.395
+    },
+    {
+        "text": "Now, here's the thing.",
+        "start": 424.025,
+        "duration": 2.105
+    },
+    {
+        "text": "This is where the craziness ensues.",
+        "start": 426.13,
+        "duration": 3.455
+    },
+    {
+        "text": "Number one, you have to craft the function. You have to do it.",
+        "start": 429.585,
+        "duration": 7.905
+    },
+    {
+        "text": "There's a couple of",
+        "start": 437.49,
+        "duration": 2.02
+    },
+    {
+        "text": "models that have been built that are really good.",
+        "start": 439.51,
+        "duration": 1.83
+    },
+    {
+        "text": "I've talked to a world renowned experts, and they say,",
+        "start": 441.34,
+        "duration": 2.445
+    },
+    {
+        "text": "\"You basically start with the shape that people have",
+        "start": 443.785,
+        "duration": 3.165
+    },
+    {
+        "text": "already agreed upon and that seems to",
+        "start": 446.95,
+        "duration": 1.35
+    },
+    {
+        "text": "work and then you optimize from there.\"",
+        "start": 448.3,
+        "duration": 2.1
+    },
+    {
+        "text": "So you have to pick that.",
+        "start": 450.4,
+        "duration": 1.2
+    },
+    {
+        "text": "So notice that the machine",
+        "start": 451.6,
+        "duration": 1.5
+    },
+    {
+        "text": "isn't learning stuff out of whole a cloth.",
+        "start": 453.1,
+        "duration": 2.62
+    },
+    {
+        "text": "You have to give it a direction in which the learning,",
+        "start": 455.72,
+        "duration": 2.6
+    },
+    {
+        "text": "you do that through of crafting the model function.",
+        "start": 458.32,
+        "duration": 1.965
+    },
+    {
+        "text": "The second is you optimize the model",
+        "start": 460.285,
+        "duration": 2.685
+    },
+    {
+        "text": "using the cost loss function and the optimizer.",
+        "start": 462.97,
+        "duration": 2.98
+    },
+    {
+        "text": "That's how you do it. We're using TensorFlow to do that.",
+        "start": 465.95,
+        "duration": 2.39
+    },
+    {
+        "text": "Then finally, use the model to predict.",
+        "start": 468.34,
+        "duration": 1.47
+    },
+    {
+        "text": "Okay. So let's take a look at what this looks like in TensorFlow,",
+        "start": 469.81,
+        "duration": 3.51
+    },
+    {
+        "text": "if you want to see this.",
+        "start": 473.32,
+        "duration": 1.155
+    },
+    {
+        "text": "You craft the function shape.",
+        "start": 474.475,
+        "duration": 1.395
+    },
+    {
+        "text": "Notice that the model there,",
+        "start": 475.87,
+        "duration": 1.305
+    },
+    {
+        "text": "I called it model,",
+        "start": 477.175,
+        "duration": 1.62
+    },
+    {
+        "text": "has a sequential shape which basically has",
+        "start": 478.795,
+        "duration": 2.545
+    },
+    {
+        "text": "a bunch of layers that all the numbers flow through,",
+        "start": 481.34,
+        "duration": 2.9
+    },
+    {
+        "text": "and then out comes an answer.",
+        "start": 484.24,
+        "duration": 1.565
+    },
+    {
+        "text": "In this case for the number problem,",
+        "start": 485.805,
+        "duration": 2.145
+    },
+    {
+        "text": "the answer will be a vector of size 10 and in each of",
+        "start": 487.95,
+        "duration": 2.9
+    },
+    {
+        "text": "the little buckets there will be",
+        "start": 490.85,
+        "duration": 1.29
+    },
+    {
+        "text": "a probability of which one it thinks it is.",
+        "start": 492.14,
+        "duration": 2.4
+    },
+    {
+        "text": "Then, the input is 784 numbers that",
+        "start": 494.54,
+        "duration": 3.93
+    },
+    {
+        "text": "represent the intensity or the grayscale image, basically.",
+        "start": 498.47,
+        "duration": 4.09
+    },
+    {
+        "text": "That's all that's happening.",
+        "start": 502.56,
+        "duration": 1.47
+    },
+    {
+        "text": "Now, the second thing you do is you take the model",
+        "start": 504.03,
+        "duration": 2.615
+    },
+    {
+        "text": "and you optimize it using a cost function and optimizer.",
+        "start": 506.645,
+        "duration": 2.985
+    },
+    {
+        "text": "I'm repeating these things a lot because it took",
+        "start": 509.63,
+        "duration": 1.47
+    },
+    {
+        "text": "me a lot of time to get into my head.",
+        "start": 511.1,
+        "duration": 2.085
+    },
+    {
+        "text": "In this case, we're using the Adam Optimizer.",
+        "start": 513.185,
+        "duration": 2.495
+    },
+    {
+        "text": "The loss function we're using is something",
+        "start": 515.68,
+        "duration": 1.78
+    },
+    {
+        "text": "called sparse categorical crossentropy,",
+        "start": 517.46,
+        "duration": 3.45
+    },
+    {
+        "text": "and the metric we want to optimize is accuracy.",
+        "start": 520.91,
+        "duration": 2.39
+    },
+    {
+        "text": "Finally, you'll use fit.",
+        "start": 523.3,
+        "duration": 2.555
+    },
+    {
+        "text": "Fit, what it does, is it takes the model function,",
+        "start": 525.855,
+        "duration": 3.405
+    },
+    {
+        "text": "the cost function, and the optimizer,",
+        "start": 529.26,
+        "duration": 2.28
+    },
+    {
+        "text": "and then it goes through this giant for-loop of trying to",
+        "start": 531.54,
+        "duration": 2.75
+    },
+    {
+        "text": "optimize all the parameters inside of the function shape.",
+        "start": 534.29,
+        "duration": 3.695
+    },
+    {
+        "text": "Then you got use the model to predict.",
+        "start": 537.985,
+        "duration": 2.525
+    },
+    {
+        "text": "Now, here's the thing.",
+        "start": 540.51,
+        "duration": 1.83
+    },
+    {
+        "text": "These are all the optimizers that you can choose from.",
+        "start": 542.34,
+        "duration": 4.09
+    },
+    {
+        "text": "These are all the loss functions you can choose from.",
+        "start": 546.43,
+        "duration": 5.95
+    },
+    {
+        "text": "Function shapes can be anything, like here's three.",
+        "start": 552.38,
+        "duration": 5.1
+    },
+    {
+        "text": "Notice that you can make them into whatever shape you want.",
+        "start": 557.48,
+        "duration": 3.995
+    },
+    {
+        "text": "So then the question would come up,",
+        "start": 561.475,
+        "duration": 2.52
+    },
+    {
+        "text": "how do I know what function shape to choose,",
+        "start": 563.995,
+        "duration": 4.59
+    },
+    {
+        "text": "number one, what loss function to use,",
+        "start": 568.585,
+        "duration": 3.765
+    },
+    {
+        "text": "number two, and then, what optimizer?",
+        "start": 572.35,
+        "duration": 2.49
+    },
+    {
+        "text": "Well, this is why it's called data science.",
+        "start": 574.84,
+        "duration": 3.54
+    },
+    {
+        "text": "Because in order to answer the question properly,",
+        "start": 578.38,
+        "duration": 2.37
+    },
+    {
+        "text": "you have to use science,",
+        "start": 580.75,
+        "duration": 1.68
+    },
+    {
+        "text": "and science tells you that we have a question.",
+        "start": 582.43,
+        "duration": 2.925
+    },
+    {
+        "text": "We come up with an idea of the function shape, well,",
+        "start": 585.355,
+        "duration": 2.845
+    },
+    {
+        "text": "loss function and optimizer,",
+        "start": 588.2,
+        "duration": 1.739
+    },
+    {
+        "text": "we test it out,",
+        "start": 589.939,
+        "duration": 1.231
+    },
+    {
+        "text": "then we analyze the report.",
+        "start": 591.17,
+        "duration": 1.41
+    },
+    {
+        "text": "This here loop is called the Data Science loop of sadness,",
+        "start": 592.58,
+        "duration": 4.085
+    },
+    {
+        "text": "where you're going to try a bunch of things and it",
+        "start": 596.665,
+        "duration": 2.32
+    },
+    {
+        "text": "may or may not work. That's okay.",
+        "start": 598.985,
+        "duration": 3.065
+    },
+    {
+        "text": "It will [inaudible]. So if you've ever looked at data science code,",
+        "start": 602.05,
+        "duration": 2.8
+    },
+    {
+        "text": "the code is not written to be put into production.",
+        "start": 604.85,
+        "duration": 3.48
+    },
+    {
+        "text": "The code is used to prove whether a model works or not.",
+        "start": 608.33,
+        "duration": 3.75
+    },
+    {
+        "text": "So that's why the code is a little bit different.",
+        "start": 612.08,
+        "duration": 3.555
+    },
+    {
+        "text": "So I think I said a lot of stuff.",
+        "start": 615.635,
+        "duration": 2.415
+    },
+    {
+        "text": "Let's go and take a look at",
+        "start": 618.05,
+        "duration": 2.28
+    },
+    {
+        "text": "my particular implementation of the digits one you saw.",
+        "start": 620.33,
+        "duration": 3.375
+    },
+    {
+        "text": "This is a model.",
+        "start": 623.705,
+        "duration": 1.89
+    },
+    {
+        "text": "This model, if you want to look it up,",
+        "start": 625.595,
+        "duration": 2.13
+    },
+    {
+        "text": "it's called a Convolutional Neural Network,",
+        "start": 627.725,
+        "duration": 2.235
+    },
+    {
+        "text": "because it uses these things convolutions.",
+        "start": 629.96,
+        "duration": 2.535
+    },
+    {
+        "text": "In summary, it basically finds a way to",
+        "start": 632.495,
+        "duration": 2.445
+    },
+    {
+        "text": "make dumber images to learn from.",
+        "start": 634.94,
+        "duration": 3.24
+    },
+    {
+        "text": "That's the way I like to think about it.",
+        "start": 638.18,
+        "duration": 1.5
+    },
+    {
+        "text": "So here is the actual model function.",
+        "start": 639.68,
+        "duration": 3.18
+    },
+    {
+        "text": "Here is the compilation of the model to use the Adam optimizer,",
+        "start": 642.86,
+        "duration": 5.505
+    },
+    {
+        "text": "the sparse categorical crossentropy.",
+        "start": 648.365,
+        "duration": 2.49
+    },
+    {
+        "text": "Then you can see here that I call fit.",
+        "start": 650.855,
+        "duration": 3.395
+    },
+    {
+        "text": "What fit does, is it uses",
+        "start": 654.25,
+        "duration": 2.14
+    },
+    {
+        "text": "those three things to optimize. Here's the thing.",
+        "start": 656.39,
+        "duration": 2.535
+    },
+    {
+        "text": "You may get terrible accuracy,",
+        "start": 658.925,
+        "duration": 1.92
+    },
+    {
+        "text": "and that literally means that you chose",
+        "start": 660.845,
+        "duration": 1.815
+    },
+    {
+        "text": "the wrong model or you chose the wrong loss function,",
+        "start": 662.66,
+        "duration": 2.925
+    },
+    {
+        "text": "or you chose the wrong optimizer.",
+        "start": 665.585,
+        "duration": 2.52
+    },
+    {
+        "text": "So you have to go through and solve for those things.",
+        "start": 668.105,
+        "duration": 2.175
+    },
+    {
+        "text": "So let me run this and show you what",
+        "start": 670.28,
+        "duration": 1.74
+    },
+    {
+        "text": "this wonderful for loop looks like.",
+        "start": 672.02,
+        "duration": 2.34
+    },
+    {
+        "text": "So I'm just going to hit \"Enter\" here.",
+        "start": 674.36,
+        "duration": 2.175
+    },
+    {
+        "text": "Then, I'm going to warm myself by the fire of the GPU.",
+        "start": 676.535,
+        "duration": 5.045
+    },
+    {
+        "text": "Because as this run,",
+        "start": 681.58,
+        "duration": 1.83
+    },
+    {
+        "text": "it again takes a little bit of time, and that's okay.",
+        "start": 683.41,
+        "duration": 3.61
+    },
+    {
+        "text": "So you'll see it run behind me.",
+        "start": 687.02,
+        "duration": 2.175
+    },
+    {
+        "text": "It's going to take some time because basically,",
+        "start": 689.195,
+        "duration": 2.895
+    },
+    {
+        "text": "it's trying to figure out,",
+        "start": 692.09,
+        "duration": 1.965
+    },
+    {
+        "text": "given that function shape,",
+        "start": 694.055,
+        "duration": 1.88
+    },
+    {
+        "text": "given that loss function,",
+        "start": 695.935,
+        "duration": 2.09
+    },
+    {
+        "text": "and given that optimizer,",
+        "start": 698.025,
+        "duration": 1.71
+    },
+    {
+        "text": "what are the best parameters that it can learn for that model.",
+        "start": 699.735,
+        "duration": 3.835
+    },
+    {
+        "text": "Inside each of those models,",
+        "start": 703.57,
+        "duration": 1.3
+    },
+    {
+        "text": "there's hidden parameters that it uses to figure these things out.",
+        "start": 704.87,
+        "duration": 4.05
+    },
+    {
+        "text": "Basically, they're numbers in a network.",
+        "start": 708.92,
+        "duration": 2.355
+    },
+    {
+        "text": "You can see here that I'm going to do",
+        "start": 711.275,
+        "duration": 1.905
+    },
+    {
+        "text": "this go over it five times in",
+        "start": 713.18,
+        "duration": 2.1
+    },
+    {
+        "text": "my dataset and the accuracy numbers are there. It's pretty cool.",
+        "start": 715.28,
+        "duration": 5.34
+    },
+    {
+        "text": "Now, it's going to take a little bit of time to run.",
+        "start": 720.62,
+        "duration": 2.52
+    },
+    {
+        "text": "But what I'm going to do is I'm going to show you",
+        "start": 723.14,
+        "duration": 2.535
+    },
+    {
+        "text": "what a model function actually looks like.",
+        "start": 725.675,
+        "duration": 3.485
+    },
+    {
+        "text": "I think you're going to be a little surprised",
+        "start": 729.16,
+        "duration": 2.44
+    },
+    {
+        "text": "because it's not any magical thing.",
+        "start": 731.6,
+        "duration": 2.43
+    },
+    {
+        "text": "All right. So I'm going to lower this here.",
+        "start": 734.03,
+        "duration": 2.205
+    },
+    {
+        "text": "What I'm going to do is I'm going to",
+        "start": 736.235,
+        "duration": 1.875
+    },
+    {
+        "text": "open this model function right here.",
+        "start": 738.11,
+        "duration": 3.71
+    },
+    {
+        "text": "You are going to see that just like I said,",
+        "start": 741.82,
+        "duration": 4.425
+    },
+    {
+        "text": "it's basically a network.",
+        "start": 746.245,
+        "duration": 2.705
+    },
+    {
+        "text": "By the way, the program we're using here is called Netron.",
+        "start": 748.95,
+        "duration": 2.6
+    },
+    {
+        "text": "When I save the model out to Onyx",
+        "start": 751.55,
+        "duration": 1.8
+    },
+    {
+        "text": "or to an HDF5 which is a Keras file,",
+        "start": 753.35,
+        "duration": 2.85
+    },
+    {
+        "text": "basically, it'll load it up.",
+        "start": 756.2,
+        "duration": 1.47
+    },
+    {
+        "text": "If you look inside of the actual AI model,",
+        "start": 757.67,
+        "duration": 3.21
+    },
+    {
+        "text": "there's no flying unicorns or anything.",
+        "start": 760.88,
+        "duration": 3.165
+    },
+    {
+        "text": "Basically, it's just numbers.",
+        "start": 764.045,
+        "duration": 3.775
+    },
+    {
+        "text": "These numbers, as you hear my machine cranking through,",
+        "start": 767.82,
+        "duration": 4.545
+    },
+    {
+        "text": "are learned through in this iterative process.",
+        "start": 772.365,
+        "duration": 2.36
+    },
+    {
+        "text": "It may not work the first time,",
+        "start": 774.725,
+        "duration": 1.41
+    },
+    {
+        "text": "it may not work the second time,",
+        "start": 776.135,
+        "duration": 1.605
+    },
+    {
+        "text": "but the idea is that it's going to learn the right thing.",
+        "start": 777.74,
+        "duration": 3.9
+    },
+    {
+        "text": "So we are almost done with epoch number five.",
+        "start": 781.64,
+        "duration": 2.46
+    },
+    {
+        "text": "In this case, you can see that it gets 99 percent accuracy.",
+        "start": 784.1,
+        "duration": 4.485
+    },
+    {
+        "text": "It saved the file here to latest HDF5.",
+        "start": 788.585,
+        "duration": 4.59
+    },
+    {
+        "text": "That's the file my friends,",
+        "start": 793.175,
+        "duration": 1.785
+    },
+    {
+        "text": "that's the artifact of the machine learning process.",
+        "start": 794.96,
+        "duration": 5.31
+    },
+    {
+        "text": "Okay. We've spent about 13 minutes",
+        "start": 800.27,
+        "duration": 1.83
+    },
+    {
+        "text": "going over what machine learning models are.",
+        "start": 802.1,
+        "duration": 2.295
+    },
+    {
+        "text": "If you'd like to learn more, go to aka.ms/MachineLearningModels,",
+        "start": 804.395,
+        "duration": 3.685
+    },
+    {
+        "text": "and I'll have much better documentation there and things that you",
+        "start": 808.9,
+        "duration": 3.94
+    },
+    {
+        "text": "can do to optimize your own models.",
+        "start": 812.84,
+        "duration": 2.97
+    },
+    {
+        "text": "Thank you so much for watching. We'll see you next time.",
+        "start": 815.81,
+        "duration": 1.89
+    },
+    {
+        "text": "My name is Seth Juarez. This is the AI Show. Take care.",
+        "start": 817.7,
+        "duration": 2.88
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 820.58,
+        "duration": 12.41
+    }
+]

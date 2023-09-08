@@ -1,0 +1,2657 @@
+[
+    {
+        "text": ">> On today's special build edition of the AI Show,",
+        "start": 0.83,
+        "duration": 3.19
+    },
+    {
+        "text": "we get to hear from Liam Cavanagh,",
+        "start": 4.02,
+        "duration": 1.56
+    },
+    {
+        "text": "Principal Program Manager on the Azure Cognitive Search team.",
+        "start": 5.58,
+        "duration": 3.345
+    },
+    {
+        "text": "This demo is pretty amazing,",
+        "start": 8.925,
+        "duration": 2.385
+    },
+    {
+        "text": "he takes a bunch of COVID-19 research papers,",
+        "start": 11.31,
+        "duration": 3.015
+    },
+    {
+        "text": "and applies several machine learning techniques,",
+        "start": 14.325,
+        "duration": 2.085
+    },
+    {
+        "text": "which can help first responders and medical professionals",
+        "start": 16.41,
+        "duration": 2.52
+    },
+    {
+        "text": "make sense of the research they need",
+        "start": 18.93,
+        "duration": 2.19
+    },
+    {
+        "text": "all using Azure Cognitive Search. Make sure you tune in.",
+        "start": 21.12,
+        "duration": 2.61
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 23.73,
+        "duration": 9.06
+    },
+    {
+        "text": ">> Hi everyone. Thanks for joining me.",
+        "start": 32.79,
+        "duration": 1.355
+    },
+    {
+        "text": "My name is Liam Cavanagh and I'm",
+        "start": 34.145,
+        "duration": 1.365
+    },
+    {
+        "text": "a Program Manager with the Azure Cognitive Search team.",
+        "start": 35.51,
+        "duration": 2.495
+    },
+    {
+        "text": "As you can see, today what I'm going to be",
+        "start": 38.005,
+        "duration": 1.685
+    },
+    {
+        "text": "arguing about is the topic called using",
+        "start": 39.69,
+        "duration": 2.03
+    },
+    {
+        "text": "AI to mine unstructured research papers to fight COVID-19.",
+        "start": 41.72,
+        "duration": 4.41
+    },
+    {
+        "text": "So to give you little background on this and why this started.",
+        "start": 46.13,
+        "duration": 3.644
+    },
+    {
+        "text": "A while back when we started hearing there is",
+        "start": 49.774,
+        "duration": 2.896
+    },
+    {
+        "text": "a lot of challenges from researchers,",
+        "start": 52.67,
+        "duration": 2.76
+    },
+    {
+        "text": "practitioners to be able to really effectively search and",
+        "start": 55.43,
+        "duration": 3.48
+    },
+    {
+        "text": "find relevant information to help them in their COVID-19 research.",
+        "start": 58.91,
+        "duration": 4.665
+    },
+    {
+        "text": "So what we did is we thought let's try to see if",
+        "start": 63.575,
+        "duration": 2.205
+    },
+    {
+        "text": "we can use some of our AI and search",
+        "start": 65.78,
+        "duration": 2.1
+    },
+    {
+        "text": "technologies to make it easier for people to",
+        "start": 67.88,
+        "duration": 3.09
+    },
+    {
+        "text": "find the important information that they're looking for.",
+        "start": 70.97,
+        "duration": 3.51
+    },
+    {
+        "text": "Along the way we learned a number of interesting things,",
+        "start": 74.48,
+        "duration": 2.77
+    },
+    {
+        "text": "we also met a number of interesting companies that",
+        "start": 77.25,
+        "duration": 2.72
+    },
+    {
+        "text": "helped us to enhance this application even further.",
+        "start": 79.97,
+        "duration": 3.315
+    },
+    {
+        "text": "So my goal today is to really walk you",
+        "start": 83.285,
+        "duration": 2.415
+    },
+    {
+        "text": "through the background on why we did this,",
+        "start": 85.7,
+        "duration": 2.895
+    },
+    {
+        "text": "help you understand the AI capabilities that we've",
+        "start": 88.595,
+        "duration": 3.465
+    },
+    {
+        "text": "enabled in this both from Microsoft, as well as, our partners,",
+        "start": 92.06,
+        "duration": 3.565
+    },
+    {
+        "text": "and actually go into a little bit",
+        "start": 95.625,
+        "duration": 1.595
+    },
+    {
+        "text": "more depth as the technical capabilities.",
+        "start": 97.22,
+        "duration": 2.64
+    },
+    {
+        "text": "So that if you wanted to build something like this,",
+        "start": 99.86,
+        "duration": 2.46
+    },
+    {
+        "text": "or something around a similar data set,",
+        "start": 102.32,
+        "duration": 2.67
+    },
+    {
+        "text": "you can go ahead and do this.",
+        "start": 104.99,
+        "duration": 1.53
+    },
+    {
+        "text": "Now, although this session is going to be",
+        "start": 106.52,
+        "duration": 1.8
+    },
+    {
+        "text": "a little over 20 minutes,",
+        "start": 108.32,
+        "duration": 2.085
+    },
+    {
+        "text": "I won't be able to go very deep into this.",
+        "start": 110.405,
+        "duration": 2.985
+    },
+    {
+        "text": "But what we'll be doing is we'll provide",
+        "start": 113.39,
+        "duration": 1.71
+    },
+    {
+        "text": "a GitHub repository so that you can fully",
+        "start": 115.1,
+        "duration": 2.31
+    },
+    {
+        "text": "recreate any of these components",
+        "start": 117.41,
+        "duration": 2.31
+    },
+    {
+        "text": "or even subsets of them if you wish to do that.",
+        "start": 119.72,
+        "duration": 2.915
+    },
+    {
+        "text": "So let's get started. So the first reason,",
+        "start": 122.635,
+        "duration": 3.269
+    },
+    {
+        "text": "to expand on what I was saying earlier as",
+        "start": 125.904,
+        "duration": 2.036
+    },
+    {
+        "text": "to why we did this is that,",
+        "start": 127.94,
+        "duration": 1.89
+    },
+    {
+        "text": "there was just an overwhelmingly large amount of",
+        "start": 129.83,
+        "duration": 3.06
+    },
+    {
+        "text": "information coming in on this virus.",
+        "start": 132.89,
+        "duration": 3.47
+    },
+    {
+        "text": "It's really hard not only for the researchers",
+        "start": 136.36,
+        "duration": 2.89
+    },
+    {
+        "text": "and practitioners to find relevant information,",
+        "start": 139.25,
+        "duration": 2.925
+    },
+    {
+        "text": "but it's really hard for them to keep up on",
+        "start": 142.175,
+        "duration": 2.235
+    },
+    {
+        "text": "the continually growing piece of information",
+        "start": 144.41,
+        "duration": 2.59
+    },
+    {
+        "text": "as things are changing from time-to-time,",
+        "start": 147.0,
+        "duration": 2.795
+    },
+    {
+        "text": "day-to-day and so that's a big challenge.",
+        "start": 149.795,
+        "duration": 3.06
+    },
+    {
+        "text": "The other thing is around misinformation.",
+        "start": 152.855,
+        "duration": 1.95
+    },
+    {
+        "text": "Even the general public,",
+        "start": 154.805,
+        "duration": 1.275
+    },
+    {
+        "text": "there is a lot of things coming from social media,",
+        "start": 156.08,
+        "duration": 2.7
+    },
+    {
+        "text": "information news, that may or may not be completely accurate.",
+        "start": 158.78,
+        "duration": 4.2
+    },
+    {
+        "text": "So having one source where we can go to",
+        "start": 162.98,
+        "duration": 2.31
+    },
+    {
+        "text": "to get proven validated research is a critical aspect to this.",
+        "start": 165.29,
+        "duration": 5.22
+    },
+    {
+        "text": "So what we tried to do is try to see,",
+        "start": 170.51,
+        "duration": 1.605
+    },
+    {
+        "text": "can we start bringing in some of these AI capabilities to",
+        "start": 172.115,
+        "duration": 3.315
+    },
+    {
+        "text": "allow us to unlock some of",
+        "start": 175.43,
+        "duration": 1.38
+    },
+    {
+        "text": "those capabilities, and that's what we did.",
+        "start": 176.81,
+        "duration": 2.88
+    },
+    {
+        "text": "So although the primary product that we leverage",
+        "start": 179.69,
+        "duration": 3.66
+    },
+    {
+        "text": "is called Azure Cognitive Search to power that search experience,",
+        "start": 183.35,
+        "duration": 3.63
+    },
+    {
+        "text": "there's definitely a lot of technologies",
+        "start": 186.98,
+        "duration": 1.979
+    },
+    {
+        "text": "that we plugged in to enhance that.",
+        "start": 188.959,
+        "duration": 2.446
+    },
+    {
+        "text": "For example, what we first did is we took a set",
+        "start": 191.405,
+        "duration": 4.335
+    },
+    {
+        "text": "of open data sets provided by the Semantic Scholar.",
+        "start": 195.74,
+        "duration": 4.53
+    },
+    {
+        "text": "This is a part of the Allen Institute for AI,",
+        "start": 200.27,
+        "duration": 3.075
+    },
+    {
+        "text": "where they are continually providing",
+        "start": 203.345,
+        "duration": 2.31
+    },
+    {
+        "text": "up-to-date new research papers,",
+        "start": 205.655,
+        "duration": 3.765
+    },
+    {
+        "text": "so that we can then use that as a source of information.",
+        "start": 209.42,
+        "duration": 3.69
+    },
+    {
+        "text": "We wanted to not only take that text information,",
+        "start": 213.11,
+        "duration": 2.67
+    },
+    {
+        "text": "but we wanted to enrich it.",
+        "start": 215.78,
+        "duration": 1.53
+    },
+    {
+        "text": "So what we did is we take all of the text,",
+        "start": 217.31,
+        "duration": 3.105
+    },
+    {
+        "text": "all of the titles,",
+        "start": 220.415,
+        "duration": 1.095
+    },
+    {
+        "text": "the abstracts, the bodies from these papers,",
+        "start": 221.51,
+        "duration": 2.37
+    },
+    {
+        "text": "and then enriched it using",
+        "start": 223.88,
+        "duration": 1.26
+    },
+    {
+        "text": "a new private preview technology from Microsoft called TA for",
+        "start": 225.14,
+        "duration": 3.69
+    },
+    {
+        "text": "health that allows us to extract out,",
+        "start": 228.83,
+        "duration": 2.325
+    },
+    {
+        "text": "all the important medical entities like signs,",
+        "start": 231.155,
+        "duration": 3.525
+    },
+    {
+        "text": "symptoms, treatments, genes, body parts, you name it,",
+        "start": 234.68,
+        "duration": 3.87
+    },
+    {
+        "text": "all of those important entity types",
+        "start": 238.55,
+        "duration": 2.61
+    },
+    {
+        "text": "that are discussed within that content,",
+        "start": 241.16,
+        "duration": 2.64
+    },
+    {
+        "text": "and then tag it with it.",
+        "start": 243.8,
+        "duration": 1.44
+    },
+    {
+        "text": "So we're enriching it that way.",
+        "start": 245.24,
+        "duration": 1.77
+    },
+    {
+        "text": "We wanted to make it so that you can",
+        "start": 247.01,
+        "duration": 2.25
+    },
+    {
+        "text": "really find what you're looking for.",
+        "start": 249.26,
+        "duration": 2.16
+    },
+    {
+        "text": "So that even if you search for a very specific term,",
+        "start": 251.42,
+        "duration": 3.015
+    },
+    {
+        "text": "we wanted to use some AI capabilities to help them understand,",
+        "start": 254.435,
+        "duration": 3.615
+    },
+    {
+        "text": "based on what we know of that content,",
+        "start": 258.05,
+        "duration": 1.995
+    },
+    {
+        "text": "here are some other terms that you could",
+        "start": 260.045,
+        "duration": 2.025
+    },
+    {
+        "text": "consider using to find more relevant information,",
+        "start": 262.07,
+        "duration": 2.955
+    },
+    {
+        "text": "call that Semantic Search.",
+        "start": 265.025,
+        "duration": 1.84
+    },
+    {
+        "text": "We use contextual summarization,",
+        "start": 266.865,
+        "duration": 2.405
+    },
+    {
+        "text": "which was actually provided by a partner of ours called Agolo.",
+        "start": 269.27,
+        "duration": 3.635
+    },
+    {
+        "text": "What we want to do is make it easy so",
+        "start": 272.905,
+        "duration": 2.125
+    },
+    {
+        "text": "that once you find a potential document,",
+        "start": 275.03,
+        "duration": 1.995
+    },
+    {
+        "text": "you can click on it and actually see a summary of it,",
+        "start": 277.025,
+        "duration": 3.15
+    },
+    {
+        "text": "a critical snippet of it,",
+        "start": 280.175,
+        "duration": 2.145
+    },
+    {
+        "text": "so you can decide quickly,",
+        "start": 282.32,
+        "duration": 1.32
+    },
+    {
+        "text": "is this important information or not and go back to it.",
+        "start": 283.64,
+        "duration": 3.74
+    },
+    {
+        "text": "Finally, using knowledge graphs,",
+        "start": 287.38,
+        "duration": 1.94
+    },
+    {
+        "text": "so that you can visualize all the correlations",
+        "start": 289.32,
+        "duration": 3.02
+    },
+    {
+        "text": "between the various different entities",
+        "start": 292.34,
+        "duration": 2.25
+    },
+    {
+        "text": "we've created from TA for health.",
+        "start": 294.59,
+        "duration": 2.145
+    },
+    {
+        "text": "As you can see here, there's a link",
+        "start": 296.735,
+        "duration": 1.695
+    },
+    {
+        "text": "here that you can actually go if you want to give it a try.",
+        "start": 298.43,
+        "duration": 3.27
+    },
+    {
+        "text": "So although I'll be going through the demonstration quite a bit,",
+        "start": 301.7,
+        "duration": 2.85
+    },
+    {
+        "text": "and it's very likely if you look at this now,",
+        "start": 304.55,
+        "duration": 2.115
+    },
+    {
+        "text": "it may not look quite the same.",
+        "start": 306.665,
+        "duration": 1.605
+    },
+    {
+        "text": "That's because we're continually updating",
+        "start": 308.27,
+        "duration": 1.98
+    },
+    {
+        "text": "this application based on new information,",
+        "start": 310.25,
+        "duration": 2.64
+    },
+    {
+        "text": "new insights, new requirements",
+        "start": 312.89,
+        "duration": 2.43
+    },
+    {
+        "text": "that we're hearing from the community.",
+        "start": 315.32,
+        "duration": 2.25
+    },
+    {
+        "text": "So it's very possible that it may change.",
+        "start": 317.57,
+        "duration": 2.92
+    },
+    {
+        "text": "So in this demonstration,",
+        "start": 320.49,
+        "duration": 1.89
+    },
+    {
+        "text": "I'm going to go through a couple of things.",
+        "start": 322.38,
+        "duration": 1.6
+    },
+    {
+        "text": "One of the first things that I'm going to",
+        "start": 323.98,
+        "duration": 1.51
+    },
+    {
+        "text": "show is something that was",
+        "start": 325.49,
+        "duration": 1.53
+    },
+    {
+        "text": "brought up to me by a colleague of mine, Jennifer Marsman.",
+        "start": 327.02,
+        "duration": 3.495
+    },
+    {
+        "text": "So she mentioned to me that she looked at this site",
+        "start": 330.515,
+        "duration": 4.305
+    },
+    {
+        "text": "because she was seeing in the social media",
+        "start": 334.82,
+        "duration": 2.16
+    },
+    {
+        "text": "all of these discussions around ibuprofen,",
+        "start": 336.98,
+        "duration": 2.34
+    },
+    {
+        "text": "and at the time there is a big concern.",
+        "start": 339.32,
+        "duration": 2.94
+    },
+    {
+        "text": "You shouldn't take ibuprofen because it makes it",
+        "start": 342.26,
+        "duration": 2.22
+    },
+    {
+        "text": "easier for you to get COVID-19,",
+        "start": 344.48,
+        "duration": 2.76
+    },
+    {
+        "text": "it worsens the effects of it, all these other things.",
+        "start": 347.24,
+        "duration": 2.82
+    },
+    {
+        "text": "So it was unclear whether this was true or not",
+        "start": 350.06,
+        "duration": 3.24
+    },
+    {
+        "text": "so she actually looked at this website to try to understand that.",
+        "start": 353.3,
+        "duration": 3.84
+    },
+    {
+        "text": "So let's actually go to this website and see what she saw.",
+        "start": 357.14,
+        "duration": 4.985
+    },
+    {
+        "text": "So this is the search app that we built,",
+        "start": 362.125,
+        "duration": 2.095
+    },
+    {
+        "text": "and I'm definitely going into a lot more depth on",
+        "start": 364.22,
+        "duration": 2.235
+    },
+    {
+        "text": "how it was built and technologies that at Howard.",
+        "start": 366.455,
+        "duration": 3.225
+    },
+    {
+        "text": "But what you'll see here is if I actually type in \"Ibuprofen\",",
+        "start": 369.68,
+        "duration": 3.495
+    },
+    {
+        "text": "first thing you'll notice is that it actually",
+        "start": 373.175,
+        "duration": 2.235
+    },
+    {
+        "text": "is recommending some terms.",
+        "start": 375.41,
+        "duration": 2.505
+    },
+    {
+        "text": "So type and search,",
+        "start": 377.915,
+        "duration": 1.26
+    },
+    {
+        "text": "that's just Azure Cognitive Search",
+        "start": 379.175,
+        "duration": 1.71
+    },
+    {
+        "text": "suggesting important information.",
+        "start": 380.885,
+        "duration": 2.16
+    },
+    {
+        "text": "I can actually say \"Ibuprofen issues\".",
+        "start": 383.045,
+        "duration": 3.505
+    },
+    {
+        "text": "Let's try if we can do that and see what comes up,",
+        "start": 386.55,
+        "duration": 2.82
+    },
+    {
+        "text": "ibuprofen issues, and search for that, and let's take a look.",
+        "start": 389.37,
+        "duration": 3.97
+    },
+    {
+        "text": "Here we have this very first document,",
+        "start": 393.34,
+        "duration": 2.05
+    },
+    {
+        "text": "and you'll notice that through the scoring,",
+        "start": 395.39,
+        "duration": 2.67
+    },
+    {
+        "text": "one of the things that we learned from practitioners is,",
+        "start": 398.06,
+        "duration": 3.06
+    },
+    {
+        "text": "since information is changing so quickly,",
+        "start": 401.12,
+        "duration": 2.94
+    },
+    {
+        "text": "it's typically more important to get",
+        "start": 404.06,
+        "duration": 2.325
+    },
+    {
+        "text": "relevant information from the most recent articles",
+        "start": 406.385,
+        "duration": 3.525
+    },
+    {
+        "text": "because it is changing so much.",
+        "start": 409.91,
+        "duration": 2.055
+    },
+    {
+        "text": "So we gave a little bit more of boosting to",
+        "start": 411.965,
+        "duration": 2.64
+    },
+    {
+        "text": "ibuprofen related articles that are in the recent time frame.",
+        "start": 414.605,
+        "duration": 5.115
+    },
+    {
+        "text": "So if I actually click on this document,",
+        "start": 419.72,
+        "duration": 1.59
+    },
+    {
+        "text": "let's see if this is interesting.",
+        "start": 421.31,
+        "duration": 1.665
+    },
+    {
+        "text": "This is actually the document that she clicked on,",
+        "start": 422.975,
+        "duration": 2.385
+    },
+    {
+        "text": "and you'll see here, as I mentioned,",
+        "start": 425.36,
+        "duration": 2.714
+    },
+    {
+        "text": "through the thanks of Agolo,",
+        "start": 428.074,
+        "duration": 2.281
+    },
+    {
+        "text": "they came to us and they said they wanted to",
+        "start": 430.355,
+        "duration": 2.235
+    },
+    {
+        "text": "participate and help make this more enhanced.",
+        "start": 432.59,
+        "duration": 3.32
+    },
+    {
+        "text": "So what they provided is,",
+        "start": 435.91,
+        "duration": 1.48
+    },
+    {
+        "text": "although I could definitely read through",
+        "start": 437.39,
+        "duration": 2.01
+    },
+    {
+        "text": "this huge body and get a general idea,",
+        "start": 439.4,
+        "duration": 3.435
+    },
+    {
+        "text": "what they can do is through the fact that",
+        "start": 442.835,
+        "duration": 2.325
+    },
+    {
+        "text": "I searched for ibuprofen issues,",
+        "start": 445.16,
+        "duration": 2.67
+    },
+    {
+        "text": "they use that context to actually",
+        "start": 447.83,
+        "duration": 2.19
+    },
+    {
+        "text": "identify the key sentences, snippets from that.",
+        "start": 450.02,
+        "duration": 4.32
+    },
+    {
+        "text": "As you can see here,",
+        "start": 454.34,
+        "duration": 1.305
+    },
+    {
+        "text": "it's pretty quick to see that, based",
+        "start": 455.645,
+        "duration": 2.835
+    },
+    {
+        "text": "on this proven research article,",
+        "start": 458.48,
+        "duration": 3.15
+    },
+    {
+        "text": "it's turning out that, it",
+        "start": 461.63,
+        "duration": 1.95
+    },
+    {
+        "text": "looks like according to them that there is",
+        "start": 463.58,
+        "duration": 1.92
+    },
+    {
+        "text": "no significance to the issues around using ibuprofen.",
+        "start": 465.5,
+        "duration": 5.495
+    },
+    {
+        "text": "So this was allowing her to quickly see maybe",
+        "start": 470.995,
+        "duration": 3.45
+    },
+    {
+        "text": "some of the things we're seeing in",
+        "start": 474.445,
+        "duration": 1.105
+    },
+    {
+        "text": "social media may not be completely accurate,",
+        "start": 475.55,
+        "duration": 2.175
+    },
+    {
+        "text": "so going to proven articles.",
+        "start": 477.725,
+        "duration": 2.06
+    },
+    {
+        "text": "Some of the other things that you'll see here is,",
+        "start": 479.785,
+        "duration": 2.515
+    },
+    {
+        "text": "you'll notice here, this idea of semantically similar terms.",
+        "start": 482.3,
+        "duration": 3.36
+    },
+    {
+        "text": "I'm going to show you a different search query.",
+        "start": 485.66,
+        "duration": 2.28
+    },
+    {
+        "text": ">> As you can imagine, there's all kinds of",
+        "start": 487.94,
+        "duration": 2.07
+    },
+    {
+        "text": "different ways that you can refer to terms,",
+        "start": 490.01,
+        "duration": 2.04
+    },
+    {
+        "text": "and words in medical.",
+        "start": 492.05,
+        "duration": 1.89
+    },
+    {
+        "text": "This is true in virtually every industry.",
+        "start": 493.94,
+        "duration": 2.55
+    },
+    {
+        "text": "So I'm going to put it in one word called \"Hemorrhagic\",",
+        "start": 496.49,
+        "duration": 3.3
+    },
+    {
+        "text": "because hemorrhagic is actually often hard to spell.",
+        "start": 499.79,
+        "duration": 3.87
+    },
+    {
+        "text": "But its also a term that you can see here.",
+        "start": 503.66,
+        "duration": 2.88
+    },
+    {
+        "text": "If based on our learning through our AI,",
+        "start": 506.54,
+        "duration": 3.18
+    },
+    {
+        "text": "we analyze in a purely unsupervised way",
+        "start": 509.72,
+        "duration": 3.015
+    },
+    {
+        "text": "that there are a lot of semantically similar terms,",
+        "start": 512.735,
+        "duration": 2.895
+    },
+    {
+        "text": "including this one where,",
+        "start": 515.63,
+        "duration": 1.275
+    },
+    {
+        "text": "hemorrhagic is often spelled H-a-e-m.",
+        "start": 516.905,
+        "duration": 2.91
+    },
+    {
+        "text": "So even though they are a good number of articles,",
+        "start": 519.815,
+        "duration": 3.855
+    },
+    {
+        "text": "if I click on this,",
+        "start": 523.67,
+        "duration": 1.2
+    },
+    {
+        "text": "we'll see that there are actually",
+        "start": 524.87,
+        "duration": 1.56
+    },
+    {
+        "text": "significantly more relevant articles just",
+        "start": 526.43,
+        "duration": 3.21
+    },
+    {
+        "text": "by including some additional variations to this.",
+        "start": 529.64,
+        "duration": 3.33
+    },
+    {
+        "text": "In fact, you'll often see oftentimes people slightly misspell it,",
+        "start": 532.97,
+        "duration": 3.54
+    },
+    {
+        "text": "such as this one, to get even a little bit more.",
+        "start": 536.51,
+        "duration": 2.595
+    },
+    {
+        "text": "So it helps you, as",
+        "start": 539.105,
+        "duration": 2.04
+    },
+    {
+        "text": "a researcher or a person finding content to really",
+        "start": 541.145,
+        "duration": 2.955
+    },
+    {
+        "text": "get the real key aspects",
+        "start": 544.1,
+        "duration": 2.535
+    },
+    {
+        "text": "of what you're looking for and narrow down to it.",
+        "start": 546.635,
+        "duration": 3.12
+    },
+    {
+        "text": "As you can see here, we added dates",
+        "start": 549.755,
+        "duration": 1.905
+    },
+    {
+        "text": "because sometimes people want to just only",
+        "start": 551.66,
+        "duration": 1.77
+    },
+    {
+        "text": "see the most relevant information. I can actually choose.",
+        "start": 553.43,
+        "duration": 3.54
+    },
+    {
+        "text": "Let's say I'm only interested in",
+        "start": 556.97,
+        "duration": 1.32
+    },
+    {
+        "text": "information and I'd say the last month.",
+        "start": 558.29,
+        "duration": 3.165
+    },
+    {
+        "text": "If I go down, not only do we have facets",
+        "start": 561.455,
+        "duration": 3.765
+    },
+    {
+        "text": "for journals and contributors,",
+        "start": 565.22,
+        "duration": 3.3
+    },
+    {
+        "text": "which is part of the data.",
+        "start": 568.52,
+        "duration": 1.26
+    },
+    {
+        "text": "Remember I was telling you about the TA",
+        "start": 569.78,
+        "duration": 1.83
+    },
+    {
+        "text": "for health container where we",
+        "start": 571.61,
+        "duration": 1.89
+    },
+    {
+        "text": "extracted medical entities and tagged all the documents.",
+        "start": 573.5,
+        "duration": 4.02
+    },
+    {
+        "text": "You can see with body structures, diagnoses, examination names,",
+        "start": 577.52,
+        "duration": 4.77
+    },
+    {
+        "text": "genes, medication classes, treatments,",
+        "start": 582.29,
+        "duration": 2.91
+    },
+    {
+        "text": "symptoms, all these other things.",
+        "start": 585.2,
+        "duration": 1.77
+    },
+    {
+        "text": "You can actually start seeing here",
+        "start": 586.97,
+        "duration": 1.92
+    },
+    {
+        "text": "some interesting trends like for example,",
+        "start": 588.89,
+        "duration": 2.28
+    },
+    {
+        "text": "over the last month,",
+        "start": 591.17,
+        "duration": 1.95
+    },
+    {
+        "text": "since it's only April the 4th,",
+        "start": 593.12,
+        "duration": 2.925
+    },
+    {
+        "text": "we can actually see that there are treatment names.",
+        "start": 596.045,
+        "duration": 3.54
+    },
+    {
+        "text": "These are the most common ones that are discussed or",
+        "start": 599.585,
+        "duration": 3.285
+    },
+    {
+        "text": "medications that are very commonly",
+        "start": 602.87,
+        "duration": 2.16
+    },
+    {
+        "text": "discussed in relation to these topics.",
+        "start": 605.03,
+        "duration": 2.745
+    },
+    {
+        "text": "So it allows me to quickly filter down on",
+        "start": 607.775,
+        "duration": 2.385
+    },
+    {
+        "text": "the relevant information and find what I'm looking for.",
+        "start": 610.16,
+        "duration": 3.435
+    },
+    {
+        "text": "Finally, one other thing that we added is we wanted to help",
+        "start": 613.595,
+        "duration": 3.675
+    },
+    {
+        "text": "people visualize relationships, a little bit better.",
+        "start": 617.27,
+        "duration": 3.195
+    },
+    {
+        "text": "So what we added is we added",
+        "start": 620.465,
+        "duration": 1.605
+    },
+    {
+        "text": "this graph capability, where you can actually search for things",
+        "start": 622.07,
+        "duration": 4.08
+    },
+    {
+        "text": "and let me just actually search for hemorrhagic",
+        "start": 626.15,
+        "duration": 3.3
+    },
+    {
+        "text": "here and search for some results.",
+        "start": 629.45,
+        "duration": 3.99
+    },
+    {
+        "text": "We can see here all of the different contributors,",
+        "start": 633.44,
+        "duration": 3.69
+    },
+    {
+        "text": "all the people that have written",
+        "start": 637.13,
+        "duration": 2.1
+    },
+    {
+        "text": "about this topic and how they relate.",
+        "start": 639.23,
+        "duration": 2.7
+    },
+    {
+        "text": "If I choose one or the other entities,",
+        "start": 641.93,
+        "duration": 2.22
+    },
+    {
+        "text": "maybe I'm interested in",
+        "start": 644.15,
+        "duration": 1.11
+    },
+    {
+        "text": "the medication names and how they correlate,",
+        "start": 645.26,
+        "duration": 3.0
+    },
+    {
+        "text": "so we can actually see how things link together.",
+        "start": 648.26,
+        "duration": 3.54
+    },
+    {
+        "text": "It's all of the visual way to actually start",
+        "start": 651.8,
+        "duration": 3.09
+    },
+    {
+        "text": "seeing terms and aspects and how they link.",
+        "start": 654.89,
+        "duration": 4.11
+    },
+    {
+        "text": "So you can see here penicillin seems to be talked",
+        "start": 659.0,
+        "duration": 2.85
+    },
+    {
+        "text": "a lot in comparison to Ribavirin.",
+        "start": 661.85,
+        "duration": 2.97
+    },
+    {
+        "text": "So I can actually dig into",
+        "start": 664.82,
+        "duration": 1.59
+    },
+    {
+        "text": "that and go back to the content to see it.",
+        "start": 666.41,
+        "duration": 2.25
+    },
+    {
+        "text": "So hopefully that gives you",
+        "start": 668.66,
+        "duration": 1.17
+    },
+    {
+        "text": "an idea of where we're starting to build.",
+        "start": 669.83,
+        "duration": 1.77
+    },
+    {
+        "text": "All powered through a combination of AI capabilities, as well as,",
+        "start": 671.6,
+        "duration": 4.2
+    },
+    {
+        "text": "Cognitive Search to be able to",
+        "start": 675.8,
+        "duration": 1.8
+    },
+    {
+        "text": "explore and search and find that relevant information.",
+        "start": 677.6,
+        "duration": 3.18
+    },
+    {
+        "text": "So let me go back to my PowerPoint here.",
+        "start": 680.78,
+        "duration": 2.7
+    },
+    {
+        "text": "I'll just keep on going.",
+        "start": 683.48,
+        "duration": 1.905
+    },
+    {
+        "text": "So now that we've seen what it can do,",
+        "start": 685.385,
+        "duration": 3.705
+    },
+    {
+        "text": "what I want to do is jump more into",
+        "start": 689.09,
+        "duration": 1.74
+    },
+    {
+        "text": "the technical aspects as to how it was done.",
+        "start": 690.83,
+        "duration": 3.06
+    },
+    {
+        "text": "Now, like I said, I'm not going to be able to go through",
+        "start": 693.89,
+        "duration": 1.965
+    },
+    {
+        "text": "every aspect in the short period of time.",
+        "start": 695.855,
+        "duration": 2.46
+    },
+    {
+        "text": "We'll have that GitHub repository so",
+        "start": 698.315,
+        "duration": 1.995
+    },
+    {
+        "text": "you can dig into more detail if you like.",
+        "start": 700.31,
+        "duration": 2.04
+    },
+    {
+        "text": "But let me show you some of the key aspects.",
+        "start": 702.35,
+        "duration": 2.205
+    },
+    {
+        "text": "So what I'm going to do in this reference architecture is,",
+        "start": 704.555,
+        "duration": 3.135
+    },
+    {
+        "text": "I'm going to start on the data prep and ingestion.",
+        "start": 707.69,
+        "duration": 2.52
+    },
+    {
+        "text": "This is just about getting the data from Semantic Scholar,",
+        "start": 710.21,
+        "duration": 3.959
+    },
+    {
+        "text": "from that data set",
+        "start": 714.169,
+        "duration": 3.391
+    },
+    {
+        "text": "into Azure Cognitive Search so that the application can use it.",
+        "start": 717.56,
+        "duration": 3.465
+    },
+    {
+        "text": "So if I start on the right hand side here,",
+        "start": 721.025,
+        "duration": 2.145
+    },
+    {
+        "text": "what I do is on a regular basis,",
+        "start": 723.17,
+        "duration": 2.58
+    },
+    {
+        "text": "and what they do is they typically update",
+        "start": 725.75,
+        "duration": 1.92
+    },
+    {
+        "text": "it about once a week with new articles,",
+        "start": 727.67,
+        "duration": 2.295
+    },
+    {
+        "text": "what I do is I take that new content",
+        "start": 729.965,
+        "duration": 2.055
+    },
+    {
+        "text": "and I put it into Azure Blob storage.",
+        "start": 732.02,
+        "duration": 2.265
+    },
+    {
+        "text": "What I use is I use Azure Cognitive Searches capability to",
+        "start": 734.285,
+        "duration": 4.695
+    },
+    {
+        "text": "take and parse that content",
+        "start": 738.98,
+        "duration": 2.04
+    },
+    {
+        "text": "and push it into Azure Cognitive Search.",
+        "start": 741.02,
+        "duration": 2.67
+    },
+    {
+        "text": "Now in this case, what Semantic Scholar has been nice enough to",
+        "start": 743.69,
+        "duration": 2.79
+    },
+    {
+        "text": "do is they've actually formatted into a JSON structure.",
+        "start": 746.48,
+        "duration": 2.985
+    },
+    {
+        "text": "So it makes it very easy for us to just map",
+        "start": 749.465,
+        "duration": 2.205
+    },
+    {
+        "text": "that structure and bring it into Azure Cognitive Search.",
+        "start": 751.67,
+        "duration": 3.585
+    },
+    {
+        "text": "Often, you might find your content,",
+        "start": 755.255,
+        "duration": 1.695
+    },
+    {
+        "text": "say in PDF or office documents,",
+        "start": 756.95,
+        "duration": 2.67
+    },
+    {
+        "text": "or maybe in various different data sources.",
+        "start": 759.62,
+        "duration": 2.04
+    },
+    {
+        "text": "So you might need to not only say get that PDF,",
+        "start": 761.66,
+        "duration": 3.435
+    },
+    {
+        "text": "but use Cognitive Search to crack it open,",
+        "start": 765.095,
+        "duration": 2.235
+    },
+    {
+        "text": "extract the text, so they can send it in.",
+        "start": 767.33,
+        "duration": 2.565
+    },
+    {
+        "text": "But in this case it's a little bit easier because it's in JSON.",
+        "start": 769.895,
+        "duration": 3.145
+    },
+    {
+        "text": "But as I mentioned,",
+        "start": 773.04,
+        "duration": 1.825
+    },
+    {
+        "text": "just because we have the text and there is",
+        "start": 774.865,
+        "duration": 2.865
+    },
+    {
+        "text": "some metadata like authors and journals names,",
+        "start": 777.73,
+        "duration": 2.715
+    },
+    {
+        "text": "which is really useful,",
+        "start": 780.445,
+        "duration": 1.23
+    },
+    {
+        "text": "what we want to do is build out a better refinement.",
+        "start": 781.675,
+        "duration": 2.625
+    },
+    {
+        "text": "Because remember on that's the left sidebar,",
+        "start": 784.3,
+        "duration": 1.979
+    },
+    {
+        "text": "there was the idea of refinement based on no symptoms,",
+        "start": 786.279,
+        "duration": 4.091
+    },
+    {
+        "text": "treatments, genes, medication names.",
+        "start": 790.37,
+        "duration": 2.55
+    },
+    {
+        "text": "So what we did is we use what's called a custom skill.",
+        "start": 792.92,
+        "duration": 3.24
+    },
+    {
+        "text": "I will show you what this looks like in a few minutes.",
+        "start": 796.16,
+        "duration": 2.49
+    },
+    {
+        "text": "But as the data is coming in,",
+        "start": 798.65,
+        "duration": 1.845
+    },
+    {
+        "text": "what we did is we called an Azure Function that was hosting",
+        "start": 800.495,
+        "duration": 3.885
+    },
+    {
+        "text": "the text analytics for health container,",
+        "start": 804.38,
+        "duration": 4.32
+    },
+    {
+        "text": "so that it sends in that text",
+        "start": 808.7,
+        "duration": 1.755
+    },
+    {
+        "text": "from the article and what you get back",
+        "start": 810.455,
+        "duration": 2.31
+    },
+    {
+        "text": "are all the medical entities that",
+        "start": 812.765,
+        "duration": 2.025
+    },
+    {
+        "text": "I can then apply to the search index.",
+        "start": 814.79,
+        "duration": 2.145
+    },
+    {
+        "text": "We also created a couple others.",
+        "start": 816.935,
+        "duration": 1.305
+    },
+    {
+        "text": "Like for example, I didn't like",
+        "start": 818.24,
+        "duration": 2.46
+    },
+    {
+        "text": "the way that the JSON formatted the author names,",
+        "start": 820.7,
+        "duration": 2.34
+    },
+    {
+        "text": "so I combined them into just a single name.",
+        "start": 823.04,
+        "duration": 2.565
+    },
+    {
+        "text": "So I had a simple tools like that skill for that.",
+        "start": 825.605,
+        "duration": 3.81
+    },
+    {
+        "text": "Then you'll see at the bottom",
+        "start": 829.415,
+        "duration": 1.665
+    },
+    {
+        "text": "here something called the Data Science VM.",
+        "start": 831.08,
+        "duration": 2.25
+    },
+    {
+        "text": "What I wanted to do is,",
+        "start": 833.33,
+        "duration": 1.755
+    },
+    {
+        "text": "if you recall when I searched for hemorrhagic.",
+        "start": 835.085,
+        "duration": 2.7
+    },
+    {
+        "text": "It gave me a bunch of other semantically similar terms.",
+        "start": 837.785,
+        "duration": 3.36
+    },
+    {
+        "text": "So what I did is I use a Data Science VM to",
+        "start": 841.145,
+        "duration": 3.165
+    },
+    {
+        "text": "go through that large amount of content from blob storage,",
+        "start": 844.31,
+        "duration": 3.465
+    },
+    {
+        "text": "do an analysis and use a combination of things like",
+        "start": 847.775,
+        "duration": 3.15
+    },
+    {
+        "text": "fast text to actually create the term embeddings.",
+        "start": 850.925,
+        "duration": 3.675
+    },
+    {
+        "text": "What I did is I took that in and I",
+        "start": 854.6,
+        "duration": 1.905
+    },
+    {
+        "text": "hosted it into an Azure Container Instance.",
+        "start": 856.505,
+        "duration": 3.03
+    },
+    {
+        "text": "So that when I called it with",
+        "start": 859.535,
+        "duration": 3.105
+    },
+    {
+        "text": "the terms it would send back here are the terms that",
+        "start": 862.64,
+        "duration": 2.79
+    },
+    {
+        "text": "are semantically similar based on",
+        "start": 865.43,
+        "duration": 2.28
+    },
+    {
+        "text": "the AI that was purely done once again unsupervised.",
+        "start": 867.71,
+        "duration": 3.57
+    },
+    {
+        "text": "So those are all the steps that I needed to prepare the data.",
+        "start": 871.28,
+        "duration": 3.855
+    },
+    {
+        "text": "So let's actually take",
+        "start": 875.135,
+        "duration": 1.695
+    },
+    {
+        "text": "that and actually what I'm going to do is go",
+        "start": 876.83,
+        "duration": 1.8
+    },
+    {
+        "text": "in and show you some of the different technical aspects of that.",
+        "start": 878.63,
+        "duration": 4.05
+    },
+    {
+        "text": "So what I'm going to do is I'm going to start in the portal.",
+        "start": 882.68,
+        "duration": 2.95
+    },
+    {
+        "text": "This is my search service right here and here,",
+        "start": 886.03,
+        "duration": 4.165
+    },
+    {
+        "text": "as you can see, I have",
+        "start": 890.195,
+        "duration": 1.53
+    },
+    {
+        "text": "quite a few different indexes that I've created.",
+        "start": 891.725,
+        "duration": 2.565
+    },
+    {
+        "text": "You can actually see as I've learned over time,",
+        "start": 894.29,
+        "duration": 2.955
+    },
+    {
+        "text": "I've created multiple new versions of",
+        "start": 897.245,
+        "duration": 2.055
+    },
+    {
+        "text": "the search index to enhance it and make it better,",
+        "start": 899.3,
+        "duration": 3.51
+    },
+    {
+        "text": "to support the different requirements and capabilities.",
+        "start": 902.81,
+        "duration": 2.895
+    },
+    {
+        "text": "But if I click on this \"Period",
+        "start": 905.705,
+        "duration": 1.785
+    },
+    {
+        "text": "Index\" that I have live, the version 4,",
+        "start": 907.49,
+        "duration": 3.48
+    },
+    {
+        "text": "you'll notice here against the index,",
+        "start": 910.97,
+        "duration": 2.43
+    },
+    {
+        "text": "I'm just going go do a search so you can see what it looks like.",
+        "start": 913.4,
+        "duration": 3.63
+    },
+    {
+        "text": "So this is my search index that has been already set up.",
+        "start": 917.03,
+        "duration": 4.2
+    },
+    {
+        "text": "It has the title,",
+        "start": 921.23,
+        "duration": 1.17
+    },
+    {
+        "text": "the abstract and the body,",
+        "start": 922.4,
+        "duration": 1.59
+    },
+    {
+        "text": "which Semantic Scholar provided for me.",
+        "start": 923.99,
+        "duration": 2.205
+    },
+    {
+        "text": "I'm going to go down a little bit more and see if we can find.",
+        "start": 926.195,
+        "duration": 2.98
+    },
+    {
+        "text": ">> Here are all of the medical entities that our TA for",
+        "start": 929.175,
+        "duration": 5.845
+    },
+    {
+        "text": "health container had identified are being",
+        "start": 935.02,
+        "duration": 2.31
+    },
+    {
+        "text": "discussed within that document.",
+        "start": 937.33,
+        "duration": 3.42
+    },
+    {
+        "text": "So we link that, we enrich it,",
+        "start": 940.75,
+        "duration": 1.965
+    },
+    {
+        "text": "we add in the additional information so that",
+        "start": 942.715,
+        "duration": 3.285
+    },
+    {
+        "text": "the application can then filter and refine and group it as needed.",
+        "start": 946.0,
+        "duration": 4.875
+    },
+    {
+        "text": "Now, if I switch over to Postman,",
+        "start": 950.875,
+        "duration": 3.205
+    },
+    {
+        "text": "let's take a look at some of those custom skills.",
+        "start": 954.08,
+        "duration": 3.005
+    },
+    {
+        "text": "The first thing, what I did is I had a custom skill,",
+        "start": 957.085,
+        "duration": 3.09
+    },
+    {
+        "text": "and actually I think maybe it'll be useful if,",
+        "start": 960.175,
+        "duration": 2.205
+    },
+    {
+        "text": "before I actually run this,",
+        "start": 962.38,
+        "duration": 1.195
+    },
+    {
+        "text": "I'm going to show you what the original data looks like.",
+        "start": 963.575,
+        "duration": 3.695
+    },
+    {
+        "text": "As I said, I have it in blob storage,",
+        "start": 967.27,
+        "duration": 3.84
+    },
+    {
+        "text": "and here's all the data that Semantic Scholar provides.",
+        "start": 971.11,
+        "duration": 3.48
+    },
+    {
+        "text": "If I double-click in here and choose one of the folders,",
+        "start": 974.59,
+        "duration": 3.55
+    },
+    {
+        "text": "you'll notice here, there's a whole bunch of",
+        "start": 978.14,
+        "duration": 2.57
+    },
+    {
+        "text": "different JSON documents that it has.",
+        "start": 980.71,
+        "duration": 2.82
+    },
+    {
+        "text": "If I open up that one,",
+        "start": 983.53,
+        "duration": 1.575
+    },
+    {
+        "text": "this is what it looks like.",
+        "start": 985.105,
+        "duration": 1.555
+    },
+    {
+        "text": "It's got the title,",
+        "start": 986.66,
+        "duration": 1.355
+    },
+    {
+        "text": "the authors, and remember I was saying,",
+        "start": 988.015,
+        "duration": 1.95
+    },
+    {
+        "text": "I want it actually combined,",
+        "start": 989.965,
+        "duration": 2.415
+    },
+    {
+        "text": "merged into a single name.",
+        "start": 992.38,
+        "duration": 1.635
+    },
+    {
+        "text": "So let me just take all of",
+        "start": 994.015,
+        "duration": 1.365
+    },
+    {
+        "text": "these authors so you can actually see what it looks like.",
+        "start": 995.38,
+        "duration": 3.1
+    },
+    {
+        "text": "I'm just going to take that,",
+        "start": 998.48,
+        "duration": 2.175
+    },
+    {
+        "text": "and I'm going to paste this into my requests.",
+        "start": 1000.655,
+        "duration": 7.745
+    },
+    {
+        "text": "This is exactly what the custom skill is going to do.",
+        "start": 1008.4,
+        "duration": 5.52
+    },
+    {
+        "text": "So I'm going to paste this in and hit \"Send\".",
+        "start": 1013.92,
+        "duration": 3.34
+    },
+    {
+        "text": "What the custom skill does is it takes",
+        "start": 1017.69,
+        "duration": 2.77
+    },
+    {
+        "text": "this format and it sends it out,",
+        "start": 1020.46,
+        "duration": 2.31
+    },
+    {
+        "text": "and what it'll do is it'll send back the format.",
+        "start": 1022.77,
+        "duration": 3.085
+    },
+    {
+        "text": "I actually merge all the names into a single name.",
+        "start": 1025.855,
+        "duration": 3.46
+    },
+    {
+        "text": "So you can see here that it allows us to customize,",
+        "start": 1029.315,
+        "duration": 3.29
+    },
+    {
+        "text": "do different things to",
+        "start": 1032.605,
+        "duration": 1.2
+    },
+    {
+        "text": "the original data to enrich it or change it.",
+        "start": 1033.805,
+        "duration": 3.56
+    },
+    {
+        "text": "If I looked at the TA for health container,",
+        "start": 1037.365,
+        "duration": 3.295
+    },
+    {
+        "text": "here's an example where what we do is",
+        "start": 1040.66,
+        "duration": 2.47
+    },
+    {
+        "text": "we actually search and send the title,",
+        "start": 1043.13,
+        "duration": 3.97
+    },
+    {
+        "text": "the abstract, in this case, there is no abstract,",
+        "start": 1047.1,
+        "duration": 2.005
+    },
+    {
+        "text": "the body, and it just sends it in.",
+        "start": 1049.105,
+        "duration": 2.91
+    },
+    {
+        "text": "It says, \"Hey, based on that data you provided,",
+        "start": 1052.015,
+        "duration": 2.97
+    },
+    {
+        "text": "here are the treatments that are discussed,",
+        "start": 1054.985,
+        "duration": 2.375
+    },
+    {
+        "text": "here the examination names,",
+        "start": 1057.36,
+        "duration": 1.575
+    },
+    {
+        "text": "all the different medical entities that are discussed within it.\"",
+        "start": 1058.935,
+        "duration": 3.255
+    },
+    {
+        "text": "I going to say, \"Great. Thank you.\"",
+        "start": 1062.19,
+        "duration": 1.595
+    },
+    {
+        "text": "Cognitive search will then apply that to my index,",
+        "start": 1063.785,
+        "duration": 2.84
+    },
+    {
+        "text": "so then it becomes part of it,",
+        "start": 1066.625,
+        "duration": 1.625
+    },
+    {
+        "text": "as you just saw earlier.",
+        "start": 1068.25,
+        "duration": 2.13
+    },
+    {
+        "text": "The third thing I want to show you is the Semantic Server.",
+        "start": 1070.38,
+        "duration": 3.055
+    },
+    {
+        "text": "If you recall my Data Science VM,",
+        "start": 1073.435,
+        "duration": 2.525
+    },
+    {
+        "text": "what it was doing is it was",
+        "start": 1075.96,
+        "duration": 1.92
+    },
+    {
+        "text": "actually taking the search query and it was sending it in,",
+        "start": 1077.88,
+        "duration": 4.26
+    },
+    {
+        "text": "and it was trying to find semantically-similar terms.",
+        "start": 1082.14,
+        "duration": 2.365
+    },
+    {
+        "text": "So let's just take, say,",
+        "start": 1084.505,
+        "duration": 1.84
+    },
+    {
+        "text": "hemorrhagic fever, which was the search query,",
+        "start": 1086.345,
+        "duration": 2.665
+    },
+    {
+        "text": "search terms that were put in.",
+        "start": 1089.01,
+        "duration": 1.7
+    },
+    {
+        "text": "Here, what we get back here are",
+        "start": 1090.71,
+        "duration": 2.37
+    },
+    {
+        "text": "all the terms that are found to be semantically similar.",
+        "start": 1093.08,
+        "duration": 4.75
+    },
+    {
+        "text": "This is all using what's called term embeddings",
+        "start": 1097.83,
+        "duration": 3.19
+    },
+    {
+        "text": "to find what is semantically similar to it.",
+        "start": 1101.02,
+        "duration": 4.56
+    },
+    {
+        "text": "In fact, I can actually change it.",
+        "start": 1105.58,
+        "duration": 1.58
+    },
+    {
+        "text": "So let's say I don't want",
+        "start": 1107.16,
+        "duration": 1.915
+    },
+    {
+        "text": "that word because it combines those together.",
+        "start": 1109.075,
+        "duration": 2.405
+    },
+    {
+        "text": "If I send that in,",
+        "start": 1111.48,
+        "duration": 1.155
+    },
+    {
+        "text": "you'll notice that it will be slightly",
+        "start": 1112.635,
+        "duration": 2.295
+    },
+    {
+        "text": "different hemorrhagic and all the different variations,",
+        "start": 1114.93,
+        "duration": 3.595
+    },
+    {
+        "text": "so that it can help that investigator,",
+        "start": 1118.525,
+        "duration": 2.67
+    },
+    {
+        "text": "that user, find that relevant information.",
+        "start": 1121.195,
+        "duration": 2.64
+    },
+    {
+        "text": "We actually have a lot more that I don't show in the UI,",
+        "start": 1123.835,
+        "duration": 2.915
+    },
+    {
+        "text": "such as how similar it is, other aspects,",
+        "start": 1126.75,
+        "duration": 3.41
+    },
+    {
+        "text": "but it is just a really simple machine learning technique",
+        "start": 1130.16,
+        "duration": 2.44
+    },
+    {
+        "text": "that we applied into it.",
+        "start": 1132.6,
+        "duration": 1.855
+    },
+    {
+        "text": "The final thing that I'm going to show through the API is",
+        "start": 1134.455,
+        "duration": 3.46
+    },
+    {
+        "text": "what we added from our partner, Agolo.",
+        "start": 1137.915,
+        "duration": 3.44
+    },
+    {
+        "text": "As I mentioned here, we've been",
+        "start": 1141.355,
+        "duration": 1.625
+    },
+    {
+        "text": "lucky enough, as we went through this,",
+        "start": 1142.98,
+        "duration": 1.49
+    },
+    {
+        "text": "to not only be able to",
+        "start": 1144.47,
+        "duration": 1.745
+    },
+    {
+        "text": "leverage some internal Microsoft technologies,",
+        "start": 1146.215,
+        "duration": 2.255
+    },
+    {
+        "text": "but talk to various different other organizations that are",
+        "start": 1148.47,
+        "duration": 2.75
+    },
+    {
+        "text": "interested in participating in",
+        "start": 1151.22,
+        "duration": 1.775
+    },
+    {
+        "text": "and adding their capabilities into this.",
+        "start": 1152.995,
+        "duration": 2.385
+    },
+    {
+        "text": "So what they'd been nice enough to do is provide",
+        "start": 1155.38,
+        "duration": 2.715
+    },
+    {
+        "text": "an API endpoint to their tech so that I can,",
+        "start": 1158.095,
+        "duration": 2.915
+    },
+    {
+        "text": "not only send the search query that comes in,",
+        "start": 1161.01,
+        "duration": 3.31
+    },
+    {
+        "text": "but also the text,",
+        "start": 1164.32,
+        "duration": 1.81
+    },
+    {
+        "text": "so the title, the body, the abstract.",
+        "start": 1166.13,
+        "duration": 3.22
+    },
+    {
+        "text": "What comes back is based on that search query,",
+        "start": 1169.35,
+        "duration": 3.685
+    },
+    {
+        "text": "here are the sentences,",
+        "start": 1173.035,
+        "duration": 1.625
+    },
+    {
+        "text": "the top sentences that best",
+        "start": 1174.66,
+        "duration": 1.65
+    },
+    {
+        "text": "represent that query, \"COVID-19 treatment\".",
+        "start": 1176.31,
+        "duration": 3.765
+    },
+    {
+        "text": "If I want, I can actually see a ranked order.",
+        "start": 1180.075,
+        "duration": 3.195
+    },
+    {
+        "text": "So it turns out the second one,",
+        "start": 1183.27,
+        "duration": 2.28
+    },
+    {
+        "text": "is actually the most textually relevant",
+        "start": 1185.55,
+        "duration": 2.755
+    },
+    {
+        "text": "based on the context of that search query.",
+        "start": 1188.305,
+        "duration": 3.28
+    },
+    {
+        "text": "So this was a nice addition so that,",
+        "start": 1191.585,
+        "duration": 2.185
+    },
+    {
+        "text": "as you saw in the first demo, when I clicked on the document,",
+        "start": 1193.77,
+        "duration": 3.125
+    },
+    {
+        "text": "you can actually see and summarize it very quickly.",
+        "start": 1196.895,
+        "duration": 3.365
+    },
+    {
+        "text": "There's a number of other things that we're adding in through",
+        "start": 1200.26,
+        "duration": 2.66
+    },
+    {
+        "text": "different partners and groups as well,",
+        "start": 1202.92,
+        "duration": 3.0
+    },
+    {
+        "text": "that you'll see over time.",
+        "start": 1205.92,
+        "duration": 1.94
+    },
+    {
+        "text": "Hopefully, that gives you the idea of",
+        "start": 1207.86,
+        "duration": 3.185
+    },
+    {
+        "text": "ingestion and the custom skills that we use as part of it.",
+        "start": 1211.045,
+        "duration": 3.845
+    },
+    {
+        "text": "Let me go back to the PowerPoint and show you a few more things.",
+        "start": 1214.89,
+        "duration": 6.32
+    },
+    {
+        "text": "So that was the data preparation and the data ingestion,",
+        "start": 1221.21,
+        "duration": 4.985
+    },
+    {
+        "text": "which is through the cognitive search ingested on a regular basis.",
+        "start": 1226.195,
+        "duration": 4.045
+    },
+    {
+        "text": "So as we get a new data from the Semantic Scholar,",
+        "start": 1230.24,
+        "duration": 4.225
+    },
+    {
+        "text": "we can just take the incremental data and apply that in.",
+        "start": 1234.465,
+        "duration": 3.395
+    },
+    {
+        "text": "Now, let's take a look at the actual search application",
+        "start": 1237.86,
+        "duration": 2.5
+    },
+    {
+        "text": "and the components that were used for that.",
+        "start": 1240.36,
+        "duration": 1.98
+    },
+    {
+        "text": "One of the big aspects of this is the App Service,",
+        "start": 1242.34,
+        "duration": 3.06
+    },
+    {
+        "text": "Azure App Service, where we're just hosting",
+        "start": 1245.4,
+        "duration": 2.19
+    },
+    {
+        "text": "in ASP.NET MVC-based application.",
+        "start": 1247.59,
+        "duration": 3.36
+    },
+    {
+        "text": "I'm not going to dig into this very much detail,",
+        "start": 1250.95,
+        "duration": 3.325
+    },
+    {
+        "text": "but basically this is the web interface for the user that you saw,",
+        "start": 1254.275,
+        "duration": 4.58
+    },
+    {
+        "text": "they had the UI to query it.",
+        "start": 1258.855,
+        "duration": 2.185
+    },
+    {
+        "text": "As you query the web app,",
+        "start": 1261.04,
+        "duration": 4.275
+    },
+    {
+        "text": "what we do is we say we're going to take that query,",
+        "start": 1265.315,
+        "duration": 2.405
+    },
+    {
+        "text": "and we're going to send it to Azure Cognitive Search",
+        "start": 1267.72,
+        "duration": 1.77
+    },
+    {
+        "text": "and get the most relevant results,",
+        "start": 1269.49,
+        "duration": 1.47
+    },
+    {
+        "text": "which you saw in the results.",
+        "start": 1270.96,
+        "duration": 2.515
+    },
+    {
+        "text": "We can also call this container,",
+        "start": 1273.475,
+        "duration": 2.175
+    },
+    {
+        "text": "so that what we do is we take that query,",
+        "start": 1275.65,
+        "duration": 3.53
+    },
+    {
+        "text": "those terms, hemorrhagic, and we find",
+        "start": 1279.18,
+        "duration": 1.73
+    },
+    {
+        "text": "that semantically similar terms.",
+        "start": 1280.91,
+        "duration": 2.39
+    },
+    {
+        "text": "If you click on a document,",
+        "start": 1283.3,
+        "duration": 2.18
+    },
+    {
+        "text": "you can actually then or you actually",
+        "start": 1285.48,
+        "duration": 2.43
+    },
+    {
+        "text": "call the Agolo REST API, which you just saw.",
+        "start": 1287.91,
+        "duration": 3.565
+    },
+    {
+        "text": "Get the most relevant sentences,",
+        "start": 1291.475,
+        "duration": 2.195
+    },
+    {
+        "text": "and then populate that in the UI as well.",
+        "start": 1293.67,
+        "duration": 3.495
+    },
+    {
+        "text": "One of the things that you didn't see,",
+        "start": 1297.165,
+        "duration": 1.935
+    },
+    {
+        "text": "but one of the things that I find to be really",
+        "start": 1299.1,
+        "duration": 2.01
+    },
+    {
+        "text": "important in these applications,",
+        "start": 1301.11,
+        "duration": 1.935
+    },
+    {
+        "text": "is to get the User Feedback.",
+        "start": 1303.045,
+        "duration": 3.935
+    },
+    {
+        "text": "What we use is we use a technology called Azure App Insights.",
+        "start": 1306.98,
+        "duration": 3.98
+    },
+    {
+        "text": "So as a user is searching and clear querying and clicking,",
+        "start": 1310.96,
+        "duration": 4.42
+    },
+    {
+        "text": "we're actually gathering that information and learning,",
+        "start": 1315.38,
+        "duration": 2.71
+    },
+    {
+        "text": "so with that, we can get that system be smarter and smarter.",
+        "start": 1318.09,
+        "duration": 3.415
+    },
+    {
+        "text": "So that as we gather that data,",
+        "start": 1321.505,
+        "duration": 2.445
+    },
+    {
+        "text": "we can get those insights and we can",
+        "start": 1323.95,
+        "duration": 2.235
+    },
+    {
+        "text": "continue to enhance the search index.",
+        "start": 1326.185,
+        "duration": 2.745
+    },
+    {
+        "text": "We can take the feedback that,",
+        "start": 1328.93,
+        "duration": 1.655
+    },
+    {
+        "text": "based on these types of queries,",
+        "start": 1330.585,
+        "duration": 2.495
+    },
+    {
+        "text": "these types of documents are likely more or less relevant.",
+        "start": 1333.08,
+        "duration": 3.305
+    },
+    {
+        "text": "We can actually use that to help tune and rank",
+        "start": 1336.385,
+        "duration": 3.785
+    },
+    {
+        "text": "the search results in",
+        "start": 1340.17,
+        "duration": 1.23
+    },
+    {
+        "text": "a more appropriate order based on what we're learning from users.",
+        "start": 1341.4,
+        "duration": 3.795
+    },
+    {
+        "text": "So that whole feedback loop is often very important.",
+        "start": 1345.195,
+        "duration": 3.445
+    },
+    {
+        "text": "If you're looking to build something like this,",
+        "start": 1348.64,
+        "duration": 2.03
+    },
+    {
+        "text": "even if you're not going to start by optimizing the ranking,",
+        "start": 1350.67,
+        "duration": 4.705
+    },
+    {
+        "text": "it's really important to start gathering insights from users",
+        "start": 1355.375,
+        "duration": 3.635
+    },
+    {
+        "text": "so that you have that ability",
+        "start": 1359.01,
+        "duration": 1.71
+    },
+    {
+        "text": "to make it more relevant in the future.",
+        "start": 1360.72,
+        "duration": 2.8
+    },
+    {
+        "text": "If we put this all together,",
+        "start": 1363.52,
+        "duration": 2.075
+    },
+    {
+        "text": "you can see this is the Full Conceptual Reference Architecture",
+        "start": 1365.595,
+        "duration": 3.285
+    },
+    {
+        "text": "of all the pieces that are in there, as of today.",
+        "start": 1368.88,
+        "duration": 2.77
+    },
+    {
+        "text": "We continue to enhance it and based on our learnings,",
+        "start": 1371.65,
+        "duration": 3.14
+    },
+    {
+        "text": "but this gives you a good idea of how it all comes together.",
+        "start": 1374.79,
+        "duration": 3.645
+    },
+    {
+        "text": "So with that, what I wanted to leave you with is a couple",
+        "start": 1378.435,
+        "duration": 2.805
+    },
+    {
+        "text": "of links for you to look a little bit more.",
+        "start": 1381.24,
+        "duration": 2.905
+    },
+    {
+        "text": "Obviously, there's the online application, which,",
+        "start": 1384.145,
+        "duration": 2.31
+    },
+    {
+        "text": "as I said, might look slightly",
+        "start": 1386.455,
+        "duration": 1.495
+    },
+    {
+        "text": "different as we continue to enhance it.",
+        "start": 1387.95,
+        "duration": 2.355
+    },
+    {
+        "text": "There is this GitHub repo.",
+        "start": 1390.305,
+        "duration": 2.005
+    },
+    {
+        "text": "So if you want to replicate or",
+        "start": 1392.31,
+        "duration": 3.0
+    },
+    {
+        "text": "reproduce any or all of the things that you just saw today,",
+        "start": 1395.31,
+        "duration": 3.25
+    },
+    {
+        "text": "you can go here to do that.",
+        "start": 1398.56,
+        "duration": 1.86
+    },
+    {
+        "text": "If you're interested in the Text Analytics",
+        "start": 1400.42,
+        "duration": 1.845
+    },
+    {
+        "text": "for Health Private Preview,",
+        "start": 1402.265,
+        "duration": 1.455
+    },
+    {
+        "text": "here's a link where you can actually register to get",
+        "start": 1403.72,
+        "duration": 3.11
+    },
+    {
+        "text": "access to this container so that you can do make those same calls,",
+        "start": 1406.83,
+        "duration": 3.72
+    },
+    {
+        "text": "pass the text, and get the medical entities that you saw before.",
+        "start": 1410.55,
+        "duration": 3.31
+    },
+    {
+        "text": "There's the Azure Cognitive Search documentation.",
+        "start": 1413.86,
+        "duration": 2.97
+    },
+    {
+        "text": "As well, I included a link to Agolo,",
+        "start": 1416.83,
+        "duration": 2.56
+    },
+    {
+        "text": "thanks to them for their help in",
+        "start": 1419.39,
+        "duration": 1.66
+    },
+    {
+        "text": "providing the Contextual Document Summarization.",
+        "start": 1421.05,
+        "duration": 3.03
+    },
+    {
+        "text": "Finally, if you're interested",
+        "start": 1424.08,
+        "duration": 2.52
+    },
+    {
+        "text": "in learning more about Azure Cognitive Search,",
+        "start": 1426.6,
+        "duration": 1.92
+    },
+    {
+        "text": "we have a number of different sessions, as you can see here.",
+        "start": 1428.52,
+        "duration": 3.295
+    },
+    {
+        "text": "Highly recommend these ones, if you want to get",
+        "start": 1431.815,
+        "duration": 2.845
+    },
+    {
+        "text": "into more depth on the underlying technology to power of this.",
+        "start": 1434.66,
+        "duration": 4.125
+    },
+    {
+        "text": "So I really appreciate you taking the time to join me today.",
+        "start": 1438.785,
+        "duration": 3.775
+    },
+    {
+        "text": "Thank you for watching.",
+        "start": 1442.56,
+        "duration": 2.11
+    },
+    {
+        "text": "I'll hope to talk to you more, soon. Thank you.",
+        "start": 1444.67,
+        "duration": 2.36
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 1447.03,
+        "duration": 12.97
+    }
+]

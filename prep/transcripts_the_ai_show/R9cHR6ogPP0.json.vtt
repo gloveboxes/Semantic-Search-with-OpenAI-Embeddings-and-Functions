@@ -1,0 +1,1227 @@
+[
+    {
+        "text": ">> Welcome to Part 2 of my four-part series",
+        "start": 0.0,
+        "duration": 2.49
+    },
+    {
+        "text": "where I gave a talk at the Torrano AI User Groups.",
+        "start": 2.49,
+        "duration": 2.475
+    },
+    {
+        "text": "Last time, we learnt a little bit about what models are.",
+        "start": 4.965,
+        "duration": 2.61
+    },
+    {
+        "text": "This time, we're going to learn all about",
+        "start": 7.575,
+        "duration": 1.275
+    },
+    {
+        "text": "optimization and more. Make sure you tune in.",
+        "start": 8.85,
+        "duration": 2.67
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 11.52,
+        "duration": 4.77
+    },
+    {
+        "text": "This is a good question.",
+        "start": 16.29,
+        "duration": 2.38
+    },
+    {
+        "text": "This is how I explain calculus to people that don't know it.",
+        "start": 23.18,
+        "duration": 4.1
+    },
+    {
+        "text": "Because I'm like five years old,",
+        "start": 27.28,
+        "duration": 2.84
+    },
+    {
+        "text": "you're going to get why I do it this way.",
+        "start": 30.12,
+        "duration": 1.67
+    },
+    {
+        "text": "So what we want to do is we want to minimize",
+        "start": 31.79,
+        "duration": 2.1
+    },
+    {
+        "text": "the amount of mistakes we make when we choose these W's.",
+        "start": 33.89,
+        "duration": 2.385
+    },
+    {
+        "text": "You were able to choose W's in",
+        "start": 36.275,
+        "duration": 1.605
+    },
+    {
+        "text": "your head because there weren't so many.",
+        "start": 37.88,
+        "duration": 1.53
+    },
+    {
+        "text": "Now imagine there's 10,000 of them,",
+        "start": 39.41,
+        "duration": 2.155
+    },
+    {
+        "text": "and then there's 50 columns.",
+        "start": 41.565,
+        "duration": 2.79
+    },
+    {
+        "text": "So that's a bigger problem.",
+        "start": 44.355,
+        "duration": 3.525
+    },
+    {
+        "text": "So what we want to do is we want to find",
+        "start": 47.88,
+        "duration": 1.79
+    },
+    {
+        "text": "a way to measure how bad we are at this.",
+        "start": 49.67,
+        "duration": 2.97
+    },
+    {
+        "text": "I like to call this the sucky function.",
+        "start": 52.64,
+        "duration": 2.79
+    },
+    {
+        "text": "But not to my superiors,",
+        "start": 55.43,
+        "duration": 1.484
+    },
+    {
+        "text": "I call it the cost or loss function because that sounds fancier.",
+        "start": 56.914,
+        "duration": 4.561
+    },
+    {
+        "text": "But this says how sucky are we at it,",
+        "start": 61.475,
+        "duration": 2.115
+    },
+    {
+        "text": "given our choice of parameterization.",
+        "start": 63.59,
+        "duration": 2.1
+    },
+    {
+        "text": "There is our h of x.",
+        "start": 65.69,
+        "duration": 1.685
+    },
+    {
+        "text": "The answer is y,",
+        "start": 67.375,
+        "duration": 2.975
+    },
+    {
+        "text": "that's the right answer, and we subtract them.",
+        "start": 70.35,
+        "duration": 2.21
+    },
+    {
+        "text": "So if we predict the right thing,",
+        "start": 72.56,
+        "duration": 3.165
+    },
+    {
+        "text": "say we guessed the answer is one and",
+        "start": 75.725,
+        "duration": 2.565
+    },
+    {
+        "text": "then the answer is actually one, this equals zero.",
+        "start": 78.29,
+        "duration": 3.48
+    },
+    {
+        "text": "But anytime we make a mistake, it's not zero.",
+        "start": 81.77,
+        "duration": 2.835
+    },
+    {
+        "text": "Then we square it, and then we find the mean.",
+        "start": 84.605,
+        "duration": 3.69
+    },
+    {
+        "text": "This is the sucky function of",
+        "start": 88.295,
+        "duration": 1.545
+    },
+    {
+        "text": "this thing right here that we just invented.",
+        "start": 89.84,
+        "duration": 3.08
+    },
+    {
+        "text": "The thing about this is I am going to go back to this thing.",
+        "start": 92.92,
+        "duration": 8.0
+    },
+    {
+        "text": "I'm going to say that this looks like this function.",
+        "start": 100.92,
+        "duration": 4.22
+    },
+    {
+        "text": "Do you remember this function from a long time ago? The parabola?",
+        "start": 105.14,
+        "duration": 3.71
+    },
+    {
+        "text": "This is how I explain this,",
+        "start": 108.85,
+        "duration": 2.495
+    },
+    {
+        "text": "how we optimize it to people that don't know what it's doing.",
+        "start": 111.345,
+        "duration": 3.035
+    },
+    {
+        "text": "You-all know what it's doing.",
+        "start": 114.38,
+        "duration": 1.23
+    },
+    {
+        "text": "But now this is another tool because people are going",
+        "start": 115.61,
+        "duration": 2.26
+    },
+    {
+        "text": "to start asking us, \"How does this work?\"",
+        "start": 117.87,
+        "duration": 2.95
+    },
+    {
+        "text": "Because there's going to be regulations coming",
+        "start": 120.82,
+        "duration": 2.2
+    },
+    {
+        "text": "out soon about how is this even happening.",
+        "start": 123.02,
+        "duration": 2.4
+    },
+    {
+        "text": "So this is what I tell people. So imagine",
+        "start": 125.42,
+        "duration": 3.015
+    },
+    {
+        "text": "you're Mario from Super Mario Brothers,",
+        "start": 128.435,
+        "duration": 3.775
+    },
+    {
+        "text": "and you're standing on x equals 3, and you're like,",
+        "start": 132.74,
+        "duration": 4.84
+    },
+    {
+        "text": "\"Boy, I still would love to live in the valley of happiness.\"",
+        "start": 137.58,
+        "duration": 4.94
+    },
+    {
+        "text": "How would you tell him where to go,",
+        "start": 143.13,
+        "duration": 3.355
+    },
+    {
+        "text": "to go to the value of happiness if he's",
+        "start": 146.485,
+        "duration": 2.055
+    },
+    {
+        "text": "blind? What would you tell him?",
+        "start": 148.54,
+        "duration": 3.47
+    },
+    {
+        "text": "So Mario is sitting there and let's pretend you're Mario,",
+        "start": 152.01,
+        "duration": 2.79
+    },
+    {
+        "text": "what would you do to figure out which way to go?",
+        "start": 154.8,
+        "duration": 2.215
+    },
+    {
+        "text": "Well, I'd put my foot back,",
+        "start": 157.015,
+        "duration": 3.16
+    },
+    {
+        "text": "I'd put my foot forward,",
+        "start": 160.175,
+        "duration": 1.939
+    },
+    {
+        "text": "and then I would see which way is going down.",
+        "start": 162.114,
+        "duration": 4.646
+    },
+    {
+        "text": "In other words, I'd measure a little bit of the y,",
+        "start": 167.64,
+        "duration": 4.36
+    },
+    {
+        "text": "I'd measure a little bit of the x,",
+        "start": 172.0,
+        "duration": 2.52
+    },
+    {
+        "text": "and I would divide them,",
+        "start": 174.52,
+        "duration": 1.695
+    },
+    {
+        "text": "maybe dy by dx.",
+        "start": 176.215,
+        "duration": 2.445
+    },
+    {
+        "text": "Then I would find this slope that tells me which way I need to go.",
+        "start": 178.66,
+        "duration": 4.19
+    },
+    {
+        "text": "Then for all of you, smart people,",
+        "start": 182.93,
+        "duration": 2.59
+    },
+    {
+        "text": "we make this go to infinitely small and",
+        "start": 185.52,
+        "duration": 1.82
+    },
+    {
+        "text": "that's basically all the particulars.",
+        "start": 187.34,
+        "duration": 2.265
+    },
+    {
+        "text": "Well, derivative, differential calculus.",
+        "start": 189.605,
+        "duration": 2.93
+    },
+    {
+        "text": "Then we do it in multiple directions.",
+        "start": 192.535,
+        "duration": 1.915
+    },
+    {
+        "text": "So here's an example.",
+        "start": 194.45,
+        "duration": 1.32
+    },
+    {
+        "text": "Everyone knows that the derivative of x squared is 2x,",
+        "start": 195.77,
+        "duration": 3.97
+    },
+    {
+        "text": "and the way I know again it's because I'm two years old.",
+        "start": 199.74,
+        "duration": 2.285
+    },
+    {
+        "text": "Basically, when I look at polynomial differentiation,",
+        "start": 202.025,
+        "duration": 2.925
+    },
+    {
+        "text": "I look at the top number and",
+        "start": 204.95,
+        "duration": 1.71
+    },
+    {
+        "text": "I learned that they move to the front.",
+        "start": 206.66,
+        "duration": 3.095
+    },
+    {
+        "text": "The people that are left over are so sad that they lost one,",
+        "start": 209.755,
+        "duration": 4.355
+    },
+    {
+        "text": "so they lose one, and so that's how I do it.",
+        "start": 214.11,
+        "duration": 2.1
+    },
+    {
+        "text": "S the derivative of x cubed is 3x squared, etc.",
+        "start": 216.21,
+        "duration": 3.275
+    },
+    {
+        "text": "There's others you have to memorize.",
+        "start": 219.485,
+        "duration": 1.155
+    },
+    {
+        "text": "But take a look at this, and intuitive, this actually works.",
+        "start": 220.64,
+        "duration": 2.415
+    },
+    {
+        "text": "When x equals 3, the value",
+        "start": 223.055,
+        "duration": 3.205
+    },
+    {
+        "text": "of the function is nine because x squared is nine.",
+        "start": 226.26,
+        "duration": 2.25
+    },
+    {
+        "text": "The value of derivative is six,",
+        "start": 228.51,
+        "duration": 2.18
+    },
+    {
+        "text": "so it's a positive number.",
+        "start": 230.69,
+        "duration": 1.86
+    },
+    {
+        "text": "Which way do we want to walk if you're Mario?",
+        "start": 232.55,
+        "duration": 2.43
+    },
+    {
+        "text": "Well, you want to walk in the negative direction.",
+        "start": 234.98,
+        "duration": 2.505
+    },
+    {
+        "text": "So we subtract off the derivative.",
+        "start": 237.485,
+        "duration": 3.415
+    },
+    {
+        "text": "So what's 3 minus 6?",
+        "start": 241.09,
+        "duration": 3.35
+    },
+    {
+        "text": "We're at negative three.",
+        "start": 244.7,
+        "duration": 2.8
+    },
+    {
+        "text": "Let's do it again. Negative 3 squared is 9.",
+        "start": 247.5,
+        "duration": 4.87
+    },
+    {
+        "text": "The derivative of this function at x equals minus 3 is negative 6.",
+        "start": 252.37,
+        "duration": 4.57
+    },
+    {
+        "text": "So what we'll say is minus 3 minus",
+        "start": 256.94,
+        "duration": 1.875
+    },
+    {
+        "text": "6 because we got to subtract it up.",
+        "start": 258.815,
+        "duration": 2.085
+    },
+    {
+        "text": "What does that equal?",
+        "start": 260.9,
+        "duration": 2.14
+    },
+    {
+        "text": "Three. We're at x equals three, do you see the problem?",
+        "start": 263.27,
+        "duration": 6.76
+    },
+    {
+        "text": "So what we have to do is we have to take",
+        "start": 270.03,
+        "duration": 2.56
+    },
+    {
+        "text": "a scaled version of that step or we'll miss the bottom.",
+        "start": 272.59,
+        "duration": 4.34
+    },
+    {
+        "text": "We call that the learning rate.",
+        "start": 276.93,
+        "duration": 2.505
+    },
+    {
+        "text": "In this algorithm, it's called gradient descent.",
+        "start": 279.435,
+        "duration": 2.64
+    },
+    {
+        "text": "Well, now it's called",
+        "start": 282.075,
+        "duration": 2.025
+    },
+    {
+        "text": "gradient descent because we're",
+        "start": 284.1,
+        "duration": 2.74
+    },
+    {
+        "text": "basically doing it in a bunch of directions.",
+        "start": 286.84,
+        "duration": 2.145
+    },
+    {
+        "text": "So the workhorse of all of deep learning is gradient descent.",
+        "start": 288.985,
+        "duration": 4.26
+    },
+    {
+        "text": "You're like, \"Well, I use Adam.\"",
+        "start": 293.245,
+        "duration": 1.305
+    },
+    {
+        "text": "It's basically a variant of gradient descent that's a little bit",
+        "start": 294.55,
+        "duration": 2.76
+    },
+    {
+        "text": "smaller because gradient descent tends",
+        "start": 297.31,
+        "duration": 1.47
+    },
+    {
+        "text": "to swing wildly around the space.",
+        "start": 298.78,
+        "duration": 1.65
+    },
+    {
+        "text": "Then Adam does some other things that are smarter so that",
+        "start": 300.43,
+        "duration": 2.54
+    },
+    {
+        "text": "it goes to the solution faster.",
+        "start": 302.97,
+        "duration": 2.985
+    },
+    {
+        "text": "So basically, we have this huge",
+        "start": 305.955,
+        "duration": 2.105
+    },
+    {
+        "text": "for-loop that's taking all of the data and the answers,",
+        "start": 308.06,
+        "duration": 3.57
+    },
+    {
+        "text": "it is looking at the current parameterization",
+        "start": 311.63,
+        "duration": 2.31
+    },
+    {
+        "text": "and subtracting off a scaled version of",
+        "start": 313.94,
+        "duration": 2.7
+    },
+    {
+        "text": "the gradient or the derivative of",
+        "start": 316.64,
+        "duration": 2.07
+    },
+    {
+        "text": "that function so that Mario can find the value of happiness.",
+        "start": 318.71,
+        "duration": 3.95
+    },
+    {
+        "text": "This is the derivative of that thing.",
+        "start": 322.66,
+        "duration": 2.17
+    },
+    {
+        "text": "You've probably noticed that I made a mistake.",
+        "start": 324.83,
+        "duration": 1.59
+    },
+    {
+        "text": "There should be a 2 over",
+        "start": 326.42,
+        "duration": 1.41
+    },
+    {
+        "text": "n. But it doesn't matter, it's just a two.",
+        "start": 327.83,
+        "duration": 1.65
+    },
+    {
+        "text": "Nobody cares. Here's a gradient with respect to b.",
+        "start": 329.48,
+        "duration": 3.03
+    },
+    {
+        "text": "So you're doing this for the w and the b.",
+        "start": 332.51,
+        "duration": 1.815
+    },
+    {
+        "text": "I implemented this in NumPy,",
+        "start": 334.325,
+        "duration": 2.295
+    },
+    {
+        "text": "and it comes up with the right answer.",
+        "start": 336.62,
+        "duration": 1.455
+    },
+    {
+        "text": "You don't need a framework for this. It's just math.",
+        "start": 338.075,
+        "duration": 2.9
+    },
+    {
+        "text": "It turns out that all of those other frameworks are just math too,",
+        "start": 340.975,
+        "duration": 3.655
+    },
+    {
+        "text": "but they make things a little bit nicer.",
+        "start": 344.63,
+        "duration": 2.61
+    },
+    {
+        "text": "For this, if you look at this thing,",
+        "start": 347.24,
+        "duration": 2.85
+    },
+    {
+        "text": "it reminds you of something that looks like this,",
+        "start": 350.09,
+        "duration": 3.44
+    },
+    {
+        "text": "where you have the input x's,",
+        "start": 353.53,
+        "duration": 5.36
+    },
+    {
+        "text": "that get multiplied by a bunch of w's,",
+        "start": 358.89,
+        "duration": 3.23
+    },
+    {
+        "text": "and that output a number between zero and nine.",
+        "start": 362.12,
+        "duration": 3.41
+    },
+    {
+        "text": "Are you following me on this? Because this is",
+        "start": 365.53,
+        "duration": 1.96
+    },
+    {
+        "text": "the part where I lose some people.",
+        "start": 367.49,
+        "duration": 1.59
+    },
+    {
+        "text": "So basically, these are",
+        "start": 369.08,
+        "duration": 1.56
+    },
+    {
+        "text": "all the pixels and the values of the digit.",
+        "start": 370.64,
+        "duration": 3.195
+    },
+    {
+        "text": "We multiply them all by w's and",
+        "start": 373.835,
+        "duration": 2.355
+    },
+    {
+        "text": "we add them up and they turn out into these nodes.",
+        "start": 376.19,
+        "duration": 2.825
+    },
+    {
+        "text": "Each one of them, the one that has",
+        "start": 379.015,
+        "duration": 1.855
+    },
+    {
+        "text": "the highest density at the end, that's the one we guess.",
+        "start": 380.87,
+        "duration": 3.13
+    },
+    {
+        "text": "Is this deep learning? Tricky question.",
+        "start": 385.45,
+        "duration": 7.385
+    },
+    {
+        "text": "Most people will tell you,",
+        "start": 392.835,
+        "duration": 1.305
+    },
+    {
+        "text": "\"No, it's basically a linear model.\"",
+        "start": 394.14,
+        "duration": 3.015
+    },
+    {
+        "text": "But what if we stack them?",
+        "start": 397.155,
+        "duration": 3.655
+    },
+    {
+        "text": "Is this deep learning.",
+        "start": 403.37,
+        "duration": 3.14
+    },
+    {
+        "text": "No, that was a tricky question because",
+        "start": 406.88,
+        "duration": 3.75
+    },
+    {
+        "text": "a linear combination of a linear combination",
+        "start": 410.63,
+        "duration": 1.98
+    },
+    {
+        "text": "happens to still be a linear combination.",
+        "start": 412.61,
+        "duration": 2.175
+    },
+    {
+        "text": "You can prove this inductively.",
+        "start": 414.785,
+        "duration": 1.725
+    },
+    {
+        "text": "It's pretty, pretty easy to do.",
+        "start": 416.51,
+        "duration": 1.83
+    },
+    {
+        "text": "You actually have to add something in-between to add",
+        "start": 418.34,
+        "duration": 3.09
+    },
+    {
+        "text": "a non-linearity to make it do that.",
+        "start": 421.43,
+        "duration": 3.7
+    },
+    {
+        "text": "Then this is now neural networks.",
+        "start": 425.13,
+        "duration": 4.095
+    },
+    {
+        "text": "So basically, we've gone from first principles",
+        "start": 429.225,
+        "duration": 3.125
+    },
+    {
+        "text": "all the way over to something like neural networks.",
+        "start": 432.35,
+        "duration": 3.97
+    },
+    {
+        "text": "Here's the thing that frustrates me.",
+        "start": 437.03,
+        "duration": 2.665
+    },
+    {
+        "text": "People make this out to be so magical, but it's not.",
+        "start": 439.695,
+        "duration": 3.395
+    },
+    {
+        "text": "It's basically just math and optimization.",
+        "start": 443.09,
+        "duration": 2.265
+    },
+    {
+        "text": "It's basically linear algebra in calculus and optimization theory.",
+        "start": 445.355,
+        "duration": 3.825
+    },
+    {
+        "text": "So you see this,",
+        "start": 449.18,
+        "duration": 1.35
+    },
+    {
+        "text": "these neural networks are pretty powerful,",
+        "start": 450.53,
+        "duration": 2.61
+    },
+    {
+        "text": "and they do a lot of things.",
+        "start": 453.14,
+        "duration": 1.98
+    },
+    {
+        "text": "Now, here's the beauty of this thing.",
+        "start": 455.12,
+        "duration": 1.71
+    },
+    {
+        "text": "How do you find the derivative of something as clunky as this?",
+        "start": 456.83,
+        "duration": 4.1
+    },
+    {
+        "text": "Well, there is something in calculus called the chain rule,",
+        "start": 460.93,
+        "duration": 3.61
+    },
+    {
+        "text": "which says that the derivative of",
+        "start": 464.54,
+        "duration": 1.68
+    },
+    {
+        "text": "a composite function is",
+        "start": 466.22,
+        "duration": 1.8
+    },
+    {
+        "text": "the derivative the outer times the derivative of the inner.",
+        "start": 468.02,
+        "duration": 3.11
+    },
+    {
+        "text": "So when you look at this thing,",
+        "start": 471.13,
+        "duration": 2.555
+    },
+    {
+        "text": "you're basically feeding numbers to it to get an answer.",
+        "start": 473.685,
+        "duration": 3.875
+    },
+    {
+        "text": "Then what you're doing is you're finding",
+        "start": 477.56,
+        "duration": 2.4
+    },
+    {
+        "text": "the derivative of the cost function with that answer.",
+        "start": 479.96,
+        "duration": 2.55
+    },
+    {
+        "text": "The derivative of this bit is",
+        "start": 482.51,
+        "duration": 2.46
+    },
+    {
+        "text": "derivative of this times the derivative of this,",
+        "start": 484.97,
+        "duration": 2.53
+    },
+    {
+        "text": "times the derivative of this,",
+        "start": 487.5,
+        "duration": 1.455
+    },
+    {
+        "text": "times the derivative of this.",
+        "start": 488.955,
+        "duration": 1.65
+    },
+    {
+        "text": "It's almost like you're going forward to solve",
+        "start": 490.605,
+        "duration": 2.315
+    },
+    {
+        "text": "it and backwards to differentiate,",
+        "start": 492.92,
+        "duration": 4.385
+    },
+    {
+        "text": "and that's why it's called back-propagation.",
+        "start": 497.305,
+        "duration": 4.91
+    },
+    {
+        "text": "You see that? It's pretty simple now that you see.",
+        "start": 502.215,
+        "duration": 3.105
+    },
+    {
+        "text": "I always think of, \"This is going to date me.\"",
+        "start": 505.32,
+        "duration": 2.01
+    },
+    {
+        "text": "But I watched Knight Rider as a kid,",
+        "start": 507.33,
+        "duration": 1.86
+    },
+    {
+        "text": "and had that little thing in",
+        "start": 509.19,
+        "duration": 1.65
+    },
+    {
+        "text": "the front of the car be like zoom, zoom.\"",
+        "start": 510.84,
+        "duration": 1.93
+    },
+    {
+        "text": "I always think of Knight Rider. That's what it's doing.",
+        "start": 512.77,
+        "duration": 2.655
+    },
+    {
+        "text": "It's knight ridering its way through",
+        "start": 515.425,
+        "duration": 1.995
+    },
+    {
+        "text": "the valley of happiness for Mario.",
+        "start": 517.42,
+        "duration": 2.17
+    },
+    {
+        "text": "But I don't explain it that way to professionals.",
+        "start": 519.59,
+        "duration": 3.135
+    },
+    {
+        "text": "Well, except to you because",
+        "start": 522.725,
+        "duration": 1.575
+    },
+    {
+        "text": "we're all friends and we shut the door.",
+        "start": 524.3,
+        "duration": 2.41
+    },
+    {
+        "text": "This is what this now starts to look",
+        "start": 527.96,
+        "duration": 2.97
+    },
+    {
+        "text": "like when you're starting to small it down.",
+        "start": 530.93,
+        "duration": 2.1
+    },
+    {
+        "text": "This is a matrix,",
+        "start": 533.03,
+        "duration": 1.955
+    },
+    {
+        "text": "you multiply the input digits by this matrix, dot-product it out.",
+        "start": 534.985,
+        "duration": 4.075
+    },
+    {
+        "text": "You do a function over the answer, and then you do it again.",
+        "start": 539.06,
+        "duration": 3.58
+    },
+    {
+        "text": "Then you softmax, so that sums to one and then",
+        "start": 543.1,
+        "duration": 3.19
+    },
+    {
+        "text": "these things start to look like probabilities, but they're not.",
+        "start": 546.29,
+        "duration": 3.15
+    },
+    {
+        "text": "But we will tell everyone that they are because that's what we do.",
+        "start": 549.44,
+        "duration": 3.67
+    },
+    {
+        "text": "Not yet. I didn't get there yet.",
+        "start": 554.96,
+        "duration": 2.715
+    },
+    {
+        "text": "He's like \"Where are the convolutions?\"",
+        "start": 557.675,
+        "duration": 2.445
+    },
+    {
+        "text": "They're coming sir.",
+        "start": 560.12,
+        "duration": 1.395
+    },
+    {
+        "text": "I know you came for the convolutions.",
+        "start": 561.515,
+        "duration": 1.665
+    },
+    {
+        "text": "I saw it in your eye when you wired and he's like \"Convolutions.\"",
+        "start": 563.18,
+        "duration": 3.785
+    },
+    {
+        "text": "Yeah. How do you do this in TensorFlow?",
+        "start": 566.965,
+        "duration": 3.445
+    },
+    {
+        "text": "Most of you maybe use TensorFlow.",
+        "start": 570.41,
+        "duration": 2.31
+    },
+    {
+        "text": "I like to think of TensorFlow as three different things.",
+        "start": 572.72,
+        "duration": 2.51
+    },
+    {
+        "text": "You craft a function shape.",
+        "start": 575.23,
+        "duration": 1.305
+    },
+    {
+        "text": "In Scikit-learn, you basically pick one, you don't make one.",
+        "start": 576.535,
+        "duration": 2.605
+    },
+    {
+        "text": "You pick a function shape or a model.",
+        "start": 579.14,
+        "duration": 1.98
+    },
+    {
+        "text": "You optimize the function or the model using",
+        "start": 581.12,
+        "duration": 2.4
+    },
+    {
+        "text": "a cost or loss function and an optimizer.",
+        "start": 583.52,
+        "duration": 2.61
+    },
+    {
+        "text": "In my case, that thing that I showed you was mean squared error.",
+        "start": 586.13,
+        "duration": 4.17
+    },
+    {
+        "text": "It turns out that categorical cross entropy",
+        "start": 590.3,
+        "duration": 3.99
+    },
+    {
+        "text": "is better for the digits one,",
+        "start": 594.29,
+        "duration": 1.995
+    },
+    {
+        "text": "and then you pick an optimizer.",
+        "start": 596.285,
+        "duration": 2.19
+    },
+    {
+        "text": "I showed you gradient descent.",
+        "start": 598.475,
+        "duration": 3.465
+    },
+    {
+        "text": "Stochastic gradient descent is when you batch everything up,",
+        "start": 601.94,
+        "duration": 3.885
+    },
+    {
+        "text": "and then you use the model to predict.",
+        "start": 605.825,
+        "duration": 3.605
+    },
+    {
+        "text": "The model again has its function,",
+        "start": 609.77,
+        "duration": 2.25
+    },
+    {
+        "text": "the loss function is how sucky we are.",
+        "start": 612.02,
+        "duration": 2.8
+    },
+    {
+        "text": "Here's what it looks like in TensorFlow.",
+        "start": 616.42,
+        "duration": 3.73
+    },
+    {
+        "text": "It's pretty nice. Before Keras,",
+        "start": 620.15,
+        "duration": 4.26
+    },
+    {
+        "text": "this was kind of a chore.",
+        "start": 624.41,
+        "duration": 1.71
+    },
+    {
+        "text": "I think PyTorch got it right before TensorFlow did, no offense.",
+        "start": 626.12,
+        "duration": 6.665
+    },
+    {
+        "text": "I'm an equal opportunity person.",
+        "start": 632.785,
+        "duration": 2.105
+    },
+    {
+        "text": "I was in Israel once and I was",
+        "start": 634.89,
+        "duration": 1.88
+    },
+    {
+        "text": "doing a talk on TensorFlow and they were like,",
+        "start": 636.77,
+        "duration": 1.88
+    },
+    {
+        "text": "\"Seth, aren't you from Microsoft?",
+        "start": 638.65,
+        "duration": 1.93
+    },
+    {
+        "text": "That starts from Google.\" I'm like, \"Yeah,",
+        "start": 640.58,
+        "duration": 1.895
+    },
+    {
+        "text": "we don't care what you want in our Cloud, the slower the better.\"",
+        "start": 642.475,
+        "duration": 3.505
+    },
+    {
+        "text": "I have caused joke for you-all.",
+        "start": 648.18,
+        "duration": 3.575
+    },
+    {
+        "text": "Actually, TensorFlow is really nice.",
+        "start": 651.755,
+        "duration": 1.92
+    },
+    {
+        "text": "I really like a lot of",
+        "start": 653.675,
+        "duration": 1.125
+    },
+    {
+        "text": "the stuff they're doing with their datasets.",
+        "start": 654.8,
+        "duration": 1.755
+    },
+    {
+        "text": "Before, I didn't like it in TensorFlow.",
+        "start": 656.555,
+        "duration": 1.705
+    },
+    {
+        "text": "But now I was really ticked off by their datasets.",
+        "start": 658.26,
+        "duration": 2.19
+    },
+    {
+        "text": "So I brought it off and",
+        "start": 660.45,
+        "duration": 1.62
+    },
+    {
+        "text": "went to PyTorch and then now I'm coming back.",
+        "start": 662.07,
+        "duration": 2.28
+    },
+    {
+        "text": "So you can see all of this here.",
+        "start": 664.35,
+        "duration": 1.805
+    },
+    {
+        "text": "Now the thing is that these are all the optimizers,",
+        "start": 666.155,
+        "duration": 2.475
+    },
+    {
+        "text": "these are all the loss functions.",
+        "start": 668.63,
+        "duration": 2.32
+    },
+    {
+        "text": "Here's all the models you can build.",
+        "start": 672.86,
+        "duration": 2.56
+    },
+    {
+        "text": "I'll get to these a little bit later because you sir,",
+        "start": 675.42,
+        "duration": 2.645
+    },
+    {
+        "text": "very adeptly said,",
+        "start": 678.065,
+        "duration": 1.665
+    },
+    {
+        "text": "\"What about the convolutions?\" I'll get to them.",
+        "start": 679.73,
+        "duration": 2.03
+    },
+    {
+        "text": "So the question that",
+        "start": 681.76,
+        "duration": 2.33
+    },
+    {
+        "text": "always gets to people when I give this talk is like,",
+        "start": 684.09,
+        "duration": 3.03
+    },
+    {
+        "text": "\"Which one do you pick?\".",
+        "start": 687.12,
+        "duration": 2.04
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 689.16,
+        "duration": 14.56
+    }
+]

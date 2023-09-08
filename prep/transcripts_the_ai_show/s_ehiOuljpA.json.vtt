@@ -1,0 +1,1432 @@
+[
+    {
+        "text": ">> You're not going to want to miss this episode of the AI show,",
+        "start": 0.0,
+        "duration": 3.27
+    },
+    {
+        "text": "where we lift and shift anomaly detector down.",
+        "start": 3.27,
+        "duration": 4.095
+    },
+    {
+        "text": "It's going to be pretty cool. Hello. Welcome to",
+        "start": 7.365,
+        "duration": 9.825
+    },
+    {
+        "text": "this episode of the AI show,",
+        "start": 17.19,
+        "duration": 1.59
+    },
+    {
+        "text": "where we're going to talk about the anomaly detector,",
+        "start": 18.78,
+        "duration": 2.25
+    },
+    {
+        "text": "but with a special use case,",
+        "start": 21.03,
+        "duration": 2.01
+    },
+    {
+        "text": "why don't you introduce yourself my friend.",
+        "start": 23.04,
+        "duration": 1.575
+    },
+    {
+        "text": ">> I'm Chen from AI platform team,",
+        "start": 24.615,
+        "duration": 2.7
+    },
+    {
+        "text": "and the PM of Anomaly detector.",
+        "start": 27.315,
+        "duration": 2.415
+    },
+    {
+        "text": ">> Fantastic. So in a previous episode,",
+        "start": 29.73,
+        "duration": 2.22
+    },
+    {
+        "text": "we'll put a link below so you can watch it,",
+        "start": 31.95,
+        "duration": 1.68
+    },
+    {
+        "text": "we talked about the Anomaly Detector.",
+        "start": 33.63,
+        "duration": 2.505
+    },
+    {
+        "text": "But there's got to be some challenges with running",
+        "start": 36.135,
+        "duration": 2.945
+    },
+    {
+        "text": "it at a service like that. Can you talk about those?",
+        "start": 39.08,
+        "duration": 2.96
+    },
+    {
+        "text": ">> Yeah. Because Anomaly Detector as we",
+        "start": 42.04,
+        "duration": 2.47
+    },
+    {
+        "text": "introduced in a previous episode,",
+        "start": 44.51,
+        "duration": 2.49
+    },
+    {
+        "text": "it's hosted API service and other Cloud.",
+        "start": 47.0,
+        "duration": 3.09
+    },
+    {
+        "text": "The endpoint is West US tour or something right, that means,",
+        "start": 50.09,
+        "duration": 4.065
+    },
+    {
+        "text": "your data needs to send over to the Cloud,",
+        "start": 54.155,
+        "duration": 2.895
+    },
+    {
+        "text": "what she was going to send",
+        "start": 57.05,
+        "duration": 1.65
+    },
+    {
+        "text": "over is time series, It's a lot of data.",
+        "start": 58.7,
+        "duration": 3.495
+    },
+    {
+        "text": "So our customers actually has come to us with a few questions.",
+        "start": 62.195,
+        "duration": 4.785
+    },
+    {
+        "text": ">> Right.",
+        "start": 66.98,
+        "duration": 0.54
+    },
+    {
+        "text": ">> Let me go to the first one.",
+        "start": 67.52,
+        "duration": 2.16
+    },
+    {
+        "text": "So first one is basically a production line.",
+        "start": 69.68,
+        "duration": 5.04
+    },
+    {
+        "text": "A customer in the manufacturing industry came to us,",
+        "start": 74.72,
+        "duration": 3.66
+    },
+    {
+        "text": "I was like hey, \"We got this data,",
+        "start": 78.38,
+        "duration": 2.01
+    },
+    {
+        "text": "but the data is like a tons of data.",
+        "start": 80.39,
+        "duration": 2.46
+    },
+    {
+        "text": "We don't want to send that over to",
+        "start": 82.85,
+        "duration": 1.56
+    },
+    {
+        "text": "the Cloud and wait for the latency\".",
+        "start": 84.41,
+        "duration": 2.535
+    },
+    {
+        "text": "We trust their service, their service will",
+        "start": 86.945,
+        "duration": 1.935
+    },
+    {
+        "text": "run with good performance,",
+        "start": 88.88,
+        "duration": 2.07
+    },
+    {
+        "text": "but the connectivity is really a challenge you there.",
+        "start": 90.95,
+        "duration": 2.79
+    },
+    {
+        "text": "So we need something that's close to our data.",
+        "start": 93.74,
+        "duration": 3.32
+    },
+    {
+        "text": ">> I see.",
+        "start": 97.06,
+        "duration": 0.44
+    },
+    {
+        "text": ">> That's one of the challenges, that-.",
+        "start": 97.5,
+        "duration": 2.205
+    },
+    {
+        "text": ">> That's make sense, if you're wearing like an IoT device,",
+        "start": 99.705,
+        "duration": 2.77
+    },
+    {
+        "text": "it's outputting like let's just say you're",
+        "start": 102.475,
+        "duration": 1.765
+    },
+    {
+        "text": "doing a timestamp every second.",
+        "start": 104.24,
+        "duration": 2.04
+    },
+    {
+        "text": ">> Yeah.",
+        "start": 106.28,
+        "duration": 0.28
+    },
+    {
+        "text": ">> This starts to add up if you have hundreds of devices,",
+        "start": 106.56,
+        "duration": 2.62
+    },
+    {
+        "text": "and if you have to upload a gigabyte just to detect Anomaly,",
+        "start": 109.18,
+        "duration": 3.025
+    },
+    {
+        "text": "just maybe downloading that will because you to get",
+        "start": 112.205,
+        "duration": 2.985
+    },
+    {
+        "text": "into a sensitivity area",
+        "start": 115.19,
+        "duration": 1.36
+    },
+    {
+        "text": "like it's too late the anomaly already passing.",
+        "start": 116.55,
+        "duration": 1.73
+    },
+    {
+        "text": ">> Yes. Although, that we will",
+        "start": 118.28,
+        "duration": 2.025
+    },
+    {
+        "text": "recommend aggregation before you send over the data,",
+        "start": 120.305,
+        "duration": 3.645
+    },
+    {
+        "text": "but still that's a lot of data.",
+        "start": 123.95,
+        "duration": 1.65
+    },
+    {
+        "text": ">> Got it.",
+        "start": 125.6,
+        "duration": 0.64
+    },
+    {
+        "text": ">> Yeah, and then they say",
+        "start": 126.24,
+        "duration": 1.67
+    },
+    {
+        "text": "the second customer is actually coming from the financial.",
+        "start": 127.91,
+        "duration": 3.225
+    },
+    {
+        "text": "I'm not going to make up the MIM,",
+        "start": 131.135,
+        "duration": 1.525
+    },
+    {
+        "text": "but this is a real case that a customer can towns like",
+        "start": 132.66,
+        "duration": 2.72
+    },
+    {
+        "text": "we need to follow regulation,",
+        "start": 135.38,
+        "duration": 3.09
+    },
+    {
+        "text": "follow laws that we don't want to send any sensitive data.",
+        "start": 138.47,
+        "duration": 4.25
+    },
+    {
+        "text": "They can do masking, they can do anything,",
+        "start": 142.72,
+        "duration": 3.005
+    },
+    {
+        "text": "but still it's sensitive financial data,",
+        "start": 145.725,
+        "duration": 2.095
+    },
+    {
+        "text": "they don't want to send it over to the Cloud.",
+        "start": 147.82,
+        "duration": 2.185
+    },
+    {
+        "text": ">> Right.",
+        "start": 150.005,
+        "duration": 0.33
+    },
+    {
+        "text": ">> Although Microsoft and runs trusted Cloud,",
+        "start": 150.335,
+        "duration": 3.195
+    },
+    {
+        "text": "but it's the lower ice has a regulation.",
+        "start": 153.53,
+        "duration": 2.73
+    },
+    {
+        "text": ">> I had people just like in a hospital for example,",
+        "start": 156.26,
+        "duration": 2.49
+    },
+    {
+        "text": "that we have laws in their country,",
+        "start": 158.75,
+        "duration": 1.35
+    },
+    {
+        "text": "that says you cannot upload this form of",
+        "start": 160.1,
+        "duration": 1.86
+    },
+    {
+        "text": "the Cloud even if it's safe. Right?",
+        "start": 161.96,
+        "duration": 1.95
+    },
+    {
+        "text": ">> Exactly. Yeah, it's about sensitive data,",
+        "start": 163.91,
+        "duration": 3.36
+    },
+    {
+        "text": "it's about personal information.",
+        "start": 167.27,
+        "duration": 2.04
+    },
+    {
+        "text": "So you don't want to send that over to a Cloud.",
+        "start": 169.31,
+        "duration": 2.04
+    },
+    {
+        "text": ">> Right.",
+        "start": 171.35,
+        "duration": 0.42
+    },
+    {
+        "text": ">> The third challenge is coming from an oil rig,",
+        "start": 171.77,
+        "duration": 4.365
+    },
+    {
+        "text": "it's from one of our ISVs,",
+        "start": 176.135,
+        "duration": 2.2
+    },
+    {
+        "text": "Microsoft ISVs, came over to us.",
+        "start": 178.335,
+        "duration": 2.285
+    },
+    {
+        "text": "I was like hey,",
+        "start": 180.62,
+        "duration": 1.26
+    },
+    {
+        "text": "we got this application which is really cool.",
+        "start": 181.88,
+        "duration": 4.17
+    },
+    {
+        "text": "Oil rigs solution, but we",
+        "start": 186.05,
+        "duration": 2.58
+    },
+    {
+        "text": "already using your Anomaly detector APIs on the Cloud,",
+        "start": 188.63,
+        "duration": 3.675
+    },
+    {
+        "text": "and we have everything that shoe shop called ready there.",
+        "start": 192.305,
+        "duration": 3.465
+    },
+    {
+        "text": "Can we run it without connection to your Cloud endpoints?",
+        "start": 195.77,
+        "duration": 4.9
+    },
+    {
+        "text": "Can we run it in our Rick,",
+        "start": 200.67,
+        "duration": 2.415
+    },
+    {
+        "text": "can we run it close to our data?",
+        "start": 203.085,
+        "duration": 2.54
+    },
+    {
+        "text": "I was like, \"Okay.",
+        "start": 205.625,
+        "duration": 1.77
+    },
+    {
+        "text": "Yes, so let's talking about in consistency, Cloud consistency,",
+        "start": 207.395,
+        "duration": 5.845
+    },
+    {
+        "text": "because they are running the Cloud endpoint,",
+        "start": 213.24,
+        "duration": 3.27
+    },
+    {
+        "text": "and they're running Azure Stack for their on-prem solution.",
+        "start": 216.51,
+        "duration": 3.815
+    },
+    {
+        "text": "So which means they need to and they wanted",
+        "start": 220.325,
+        "duration": 2.655
+    },
+    {
+        "text": "to have consistent code running everywhere.",
+        "start": 222.98,
+        "duration": 2.72
+    },
+    {
+        "text": ">> I see.",
+        "start": 225.7,
+        "duration": 0.5
+    },
+    {
+        "text": ">> Yeah.",
+        "start": 226.2,
+        "duration": 0.18
+    },
+    {
+        "text": ">> So you talked about latency, you talked about,",
+        "start": 226.38,
+        "duration": 2.69
+    },
+    {
+        "text": "I don't know if it was security but privacy,",
+        "start": 229.07,
+        "duration": 2.52
+    },
+    {
+        "text": "and then lastly consistency.",
+        "start": 231.59,
+        "duration": 1.785
+    },
+    {
+        "text": ">> Yes.",
+        "start": 233.375,
+        "duration": 0.225
+    },
+    {
+        "text": ">> What are we doing to solve these issues?",
+        "start": 233.6,
+        "duration": 1.83
+    },
+    {
+        "text": ">> So, that's the service that",
+        "start": 235.43,
+        "duration": 3.42
+    },
+    {
+        "text": "we are shipping actually back in May.",
+        "start": 238.85,
+        "duration": 3.84
+    },
+    {
+        "text": "We announced a public review of Anomaly detector containers.",
+        "start": 242.69,
+        "duration": 3.765
+    },
+    {
+        "text": ">> I see.",
+        "start": 246.455,
+        "duration": 0.42
+    },
+    {
+        "text": ">> So as Docker containers is going to address all those changes.",
+        "start": 246.875,
+        "duration": 5.02
+    },
+    {
+        "text": "Then the thing about containers is you can run it and everywhere.",
+        "start": 251.895,
+        "duration": 3.485
+    },
+    {
+        "text": "So like Anomaly detector containers,",
+        "start": 255.38,
+        "duration": 2.93
+    },
+    {
+        "text": "is basically the same service to the same APIs,",
+        "start": 258.31,
+        "duration": 4.525
+    },
+    {
+        "text": "with the same flavor of the host the Cal service,",
+        "start": 262.835,
+        "duration": 3.675
+    },
+    {
+        "text": "there you can run in your container infrastructure.",
+        "start": 266.51,
+        "duration": 3.455
+    },
+    {
+        "text": ">> Got it.",
+        "start": 269.965,
+        "duration": 0.495
+    },
+    {
+        "text": ">> Those companies infrastructure or could be a Kubernetes.",
+        "start": 270.46,
+        "duration": 3.865
+    },
+    {
+        "text": "So you can start with Kubernetes on the Cloud, that's AKS,",
+        "start": 274.325,
+        "duration": 3.255
+    },
+    {
+        "text": "Azure Kubernetes Service, also Azure container instance,",
+        "start": 277.58,
+        "duration": 3.69
+    },
+    {
+        "text": "and also Kubernetes cluster,",
+        "start": 281.27,
+        "duration": 2.13
+    },
+    {
+        "text": "and that's running on your on-prem infrastructure like",
+        "start": 283.4,
+        "duration": 3.6
+    },
+    {
+        "text": "Azure Stack or traditional clusters.",
+        "start": 287.0,
+        "duration": 4.05
+    },
+    {
+        "text": "Also Dock of because,",
+        "start": 291.05,
+        "duration": 2.535
+    },
+    {
+        "text": "if you have a laptop like mine you can",
+        "start": 293.585,
+        "duration": 1.965
+    },
+    {
+        "text": "run the container there no problem.",
+        "start": 295.55,
+        "duration": 2.37
+    },
+    {
+        "text": "So this is why that we shipped",
+        "start": 297.92,
+        "duration": 2.07
+    },
+    {
+        "text": "the service in the same framework 3R container.",
+        "start": 299.99,
+        "duration": 2.6
+    },
+    {
+        "text": ">> That's amaizing. So it's a Docker containers,",
+        "start": 302.59,
+        "duration": 2.3
+    },
+    {
+        "text": "so anything to do a Docker container you can do with it.",
+        "start": 304.89,
+        "duration": 3.325
+    },
+    {
+        "text": "Now, can you give us a sense like,",
+        "start": 308.215,
+        "duration": 2.295
+    },
+    {
+        "text": "for example, how do I pay for this service?",
+        "start": 310.51,
+        "duration": 2.53
+    },
+    {
+        "text": ">> Yeah.",
+        "start": 313.04,
+        "duration": 0.18
+    },
+    {
+        "text": ">> How do I install it? How do I use it?",
+        "start": 313.22,
+        "duration": 2.22
+    },
+    {
+        "text": "Can you give us maybe a little demo and rundown of how this works?",
+        "start": 315.44,
+        "duration": 2.345
+    },
+    {
+        "text": ">> That's a good question.",
+        "start": 317.785,
+        "duration": 2.03
+    },
+    {
+        "text": "So when we ship containers,",
+        "start": 319.815,
+        "duration": 5.159
+    },
+    {
+        "text": "we were thinking about, \"Hey,",
+        "start": 324.974,
+        "duration": 2.236
+    },
+    {
+        "text": "there are cases when air-gapped infrastructure",
+        "start": 327.21,
+        "duration": 5.675
+    },
+    {
+        "text": "that has no connection to the Internet",
+        "start": 332.885,
+        "duration": 2.685
+    },
+    {
+        "text": "at all will want to run this container's.",
+        "start": 335.57,
+        "duration": 3.33
+    },
+    {
+        "text": "However, we started with",
+        "start": 338.9,
+        "duration": 2.055
+    },
+    {
+        "text": "this containers the version",
+        "start": 340.955,
+        "duration": 3.015
+    },
+    {
+        "text": "that actually still require a connection to the Internet.",
+        "start": 343.97,
+        "duration": 3.165
+    },
+    {
+        "text": "But this is all about the Billington in my tray,",
+        "start": 347.135,
+        "duration": 2.985
+    },
+    {
+        "text": "that's no customer data going to the Cloud anymore.",
+        "start": 350.12,
+        "duration": 4.825
+    },
+    {
+        "text": "So the way that or the experience",
+        "start": 354.945,
+        "duration": 3.094
+    },
+    {
+        "text": "that our customers will face to run to use the containers,",
+        "start": 358.039,
+        "duration": 5.431
+    },
+    {
+        "text": "the first step is always about",
+        "start": 363.47,
+        "duration": 2.385
+    },
+    {
+        "text": "creating the Anomaly detector resource on the Cloud.",
+        "start": 365.855,
+        "duration": 3.475
+    },
+    {
+        "text": ">> I see.",
+        "start": 369.33,
+        "duration": 0.69
+    },
+    {
+        "text": ">> If you watch our last episode,",
+        "start": 370.02,
+        "duration": 2.38
+    },
+    {
+        "text": "you will see that,",
+        "start": 372.4,
+        "duration": 1.45
+    },
+    {
+        "text": "if you create a resource on Azure pothole,",
+        "start": 373.85,
+        "duration": 2.64
+    },
+    {
+        "text": "there will be this API endpoint and this API key,",
+        "start": 376.49,
+        "duration": 3.51
+    },
+    {
+        "text": "which you need to use the leverage is both, actually both of them.",
+        "start": 380.0,
+        "duration": 5.76
+    },
+    {
+        "text": "API key is a key that we'll have",
+        "start": 385.76,
+        "duration": 3.97
+    },
+    {
+        "text": "your container running and have us building the usage.",
+        "start": 389.73,
+        "duration": 3.6
+    },
+    {
+        "text": ">> I see.",
+        "start": 393.33,
+        "duration": 0.705
+    },
+    {
+        "text": ">> The API endpoint is where",
+        "start": 394.035,
+        "duration": 2.255
+    },
+    {
+        "text": "your billing telemetry is going through the Cloud.",
+        "start": 396.29,
+        "duration": 3.465
+    },
+    {
+        "text": ">> So if I'm understanding it right,",
+        "start": 399.755,
+        "duration": 1.29
+    },
+    {
+        "text": "basically you're downloading the container",
+        "start": 401.045,
+        "duration": 1.785
+    },
+    {
+        "text": "and the only information that's ever coming back to",
+        "start": 402.83,
+        "duration": 1.98
+    },
+    {
+        "text": "Microsoft is the telemetry,",
+        "start": 404.81,
+        "duration": 4.31
+    },
+    {
+        "text": "so that you know how many times it's been calls.",
+        "start": 409.12,
+        "duration": 1.96
+    },
+    {
+        "text": ">> The billing telemetry.",
+        "start": 411.08,
+        "duration": 1.2
+    },
+    {
+        "text": ">> Got it.",
+        "start": 412.28,
+        "duration": 0.36
+    },
+    {
+        "text": ">> That's nothing like, hey your data or the pattern of the other.",
+        "start": 412.64,
+        "duration": 3.96
+    },
+    {
+        "text": "No, we don't check that,",
+        "start": 416.6,
+        "duration": 2.41
+    },
+    {
+        "text": "and we don't send over that to the Cloud.",
+        "start": 419.01,
+        "duration": 2.07
+    },
+    {
+        "text": ">> That's pretty cool.",
+        "start": 421.08,
+        "duration": 0.66
+    },
+    {
+        "text": ">> Yes. So with the resource and",
+        "start": 421.74,
+        "duration": 2.6
+    },
+    {
+        "text": "the second thing you want to do is to",
+        "start": 424.34,
+        "duration": 1.53
+    },
+    {
+        "text": "download the image because it's container image.",
+        "start": 425.87,
+        "duration": 2.535
+    },
+    {
+        "text": "So far as we speak,",
+        "start": 428.405,
+        "duration": 1.71
+    },
+    {
+        "text": "the container image is not on Docker hub,",
+        "start": 430.115,
+        "duration": 4.005
+    },
+    {
+        "text": "not on MCR, Microsoft Container Redeposit Registry yet.",
+        "start": 434.12,
+        "duration": 5.16
+    },
+    {
+        "text": "We actually hosted in private Azure Container Registry,",
+        "start": 439.28,
+        "duration": 4.89
+    },
+    {
+        "text": "and so you need to go to this",
+        "start": 444.17,
+        "duration": 2.37
+    },
+    {
+        "text": "URL aka.ms/adContainer to apply for the credentials to access it.",
+        "start": 446.54,
+        "duration": 6.24
+    },
+    {
+        "text": ">> I see.",
+        "start": 452.78,
+        "duration": 0.705
+    },
+    {
+        "text": ">> Once you've got that, this is not complex,",
+        "start": 453.485,
+        "duration": 3.705
+    },
+    {
+        "text": "but eventually we will release the containers. But, with that you are going to run the container locally",
+        "start": 457.19,
+        "duration": 5.67
+    },
+    {
+        "text": "with the key and the endpoint that you got from the cards.",
+        "start": 462.86,
+        "duration": 4.02
+    },
+    {
+        "text": ">> It's almost like I'm trying to envision,",
+        "start": 466.88,
+        "duration": 2.145
+    },
+    {
+        "text": "is basically like this service but running locally.",
+        "start": 469.025,
+        "duration": 2.855
+    },
+    {
+        "text": ">> Exactly.",
+        "start": 471.88,
+        "duration": 0.77
+    },
+    {
+        "text": ">> Okay.",
+        "start": 472.65,
+        "duration": 0.3
+    },
+    {
+        "text": ">> Same service.",
+        "start": 472.95,
+        "duration": 0.915
+    },
+    {
+        "text": ">> I see.",
+        "start": 473.865,
+        "duration": 0.78
+    },
+    {
+        "text": ">> I'm going to show you later,",
+        "start": 474.645,
+        "duration": 1.395
+    },
+    {
+        "text": "but this is how it works.",
+        "start": 476.04,
+        "duration": 1.26
+    },
+    {
+        "text": ">> I think this is important to recognize that,",
+        "start": 477.3,
+        "duration": 1.88
+    },
+    {
+        "text": "it's the same service,",
+        "start": 479.18,
+        "duration": 1.505
+    },
+    {
+        "text": "the same billing structure,",
+        "start": 480.685,
+        "duration": 1.53
+    },
+    {
+        "text": "you're calling it the same way that we",
+        "start": 482.215,
+        "duration": 1.825
+    },
+    {
+        "text": "did because we thought we had a notebook that we use.",
+        "start": 484.04,
+        "duration": 1.995
+    },
+    {
+        "text": "You basically change the endpoint to local host",
+        "start": 486.035,
+        "duration": 2.265
+    },
+    {
+        "text": "8080 if that is true, and that's how it works.",
+        "start": 488.3,
+        "duration": 2.34
+    },
+    {
+        "text": ">> Yes, exactly.",
+        "start": 490.64,
+        "duration": 0.99
+    },
+    {
+        "text": ">> All right. Let's see it in action.",
+        "start": 491.63,
+        "duration": 1.215
+    },
+    {
+        "text": ">> Sure, I'm going to show you a demo Container.",
+        "start": 492.845,
+        "duration": 4.385
+    },
+    {
+        "text": "So the first thing you want to do is actually go to",
+        "start": 497.6,
+        "duration": 5.98
+    },
+    {
+        "text": "the AD container form to submit your scenario,",
+        "start": 503.58,
+        "duration": 8.73
+    },
+    {
+        "text": "and we'll review and it gives",
+        "start": 512.31,
+        "duration": 1.64
+    },
+    {
+        "text": "you the credential to download the image.",
+        "start": 513.95,
+        "duration": 2.07
+    },
+    {
+        "text": "With that, what you're going to do is,",
+        "start": 516.02,
+        "duration": 4.215
+    },
+    {
+        "text": "I'm going to show my stickiness here.",
+        "start": 520.235,
+        "duration": 2.265
+    },
+    {
+        "text": "So we will give you a password and a user name.",
+        "start": 522.5,
+        "duration": 4.29
+    },
+    {
+        "text": "With that combination, you will want to use Docker login.",
+        "start": 526.79,
+        "duration": 3.225
+    },
+    {
+        "text": "We have documentation on Azure technical documentation website.",
+        "start": 530.015,
+        "duration": 6.315
+    },
+    {
+        "text": "So you can follow everything there.",
+        "start": 536.33,
+        "duration": 2.715
+    },
+    {
+        "text": "I'm doing basically exactly the same thing.",
+        "start": 539.045,
+        "duration": 3.915
+    },
+    {
+        "text": "Spin up another command window.",
+        "start": 542.96,
+        "duration": 3.4
+    },
+    {
+        "text": "So this is Docker login.",
+        "start": 546.8,
+        "duration": 2.695
+    },
+    {
+        "text": "You login to the Azure Container Registry,",
+        "start": 549.495,
+        "duration": 3.195
+    },
+    {
+        "text": "that hosts the image.",
+        "start": 552.69,
+        "duration": 2.46
+    },
+    {
+        "text": "The second step you're going to pull the image.",
+        "start": 555.15,
+        "duration": 2.39
+    },
+    {
+        "text": ">> So this is basically regular standard Docker commands.",
+        "start": 557.54,
+        "duration": 3.33
+    },
+    {
+        "text": ">> It is.",
+        "start": 560.87,
+        "duration": 0.45
+    },
+    {
+        "text": ">> It's not anything special. Yes exactly.",
+        "start": 561.32,
+        "duration": 3.06
+    },
+    {
+        "text": "If you are Docker guy,",
+        "start": 564.38,
+        "duration": 2.22
+    },
+    {
+        "text": "you will know that this is not something that's new.",
+        "start": 566.6,
+        "duration": 5.48
+    },
+    {
+        "text": "Well, there's something you hear now.",
+        "start": 572.08,
+        "duration": 2.765
+    },
+    {
+        "text": ">> Yeah.",
+        "start": 574.845,
+        "duration": 0.485
+    },
+    {
+        "text": ">> So as you can see,",
+        "start": 575.33,
+        "duration": 1.17
+    },
+    {
+        "text": "if you want to run the container images that you",
+        "start": 576.5,
+        "duration": 2.4
+    },
+    {
+        "text": "pulled with Docker pull of Anomaly detector,",
+        "start": 578.9,
+        "duration": 3.57
+    },
+    {
+        "text": "we actually need to specify three unique parameters.",
+        "start": 582.47,
+        "duration": 6.94
+    },
+    {
+        "text": "So these are the-.",
+        "start": 589.41,
+        "duration": 2.1
+    },
+    {
+        "text": "Standard.",
+        "start": 591.51,
+        "duration": 0.84
+    },
+    {
+        "text": ">> Standard Docker parameters.",
+        "start": 592.35,
+        "duration": 2.545
+    },
+    {
+        "text": "Now, you're in need accepted the user agreement,",
+        "start": 594.895,
+        "duration": 3.93
+    },
+    {
+        "text": "license agreement, this is",
+        "start": 598.825,
+        "duration": 3.175
+    },
+    {
+        "text": "the billing end point that you",
+        "start": 602.0,
+        "duration": 1.98
+    },
+    {
+        "text": "achieve from your Anomaly detector results.",
+        "start": 603.98,
+        "duration": 2.61
+    },
+    {
+        "text": "Under the key, that's the way that we bill you.",
+        "start": 606.59,
+        "duration": 3.945
+    },
+    {
+        "text": ">> Yeah.",
+        "start": 610.535,
+        "duration": 0.615
+    },
+    {
+        "text": ">> You need to specify all of these three,",
+        "start": 611.15,
+        "duration": 1.77
+    },
+    {
+        "text": "and with Docker run,",
+        "start": 612.92,
+        "duration": 2.315
+    },
+    {
+        "text": "yeah, give me a second.",
+        "start": 615.235,
+        "duration": 3.795
+    },
+    {
+        "text": "It's quite straightforward.",
+        "start": 623.39,
+        "duration": 2.395
+    },
+    {
+        "text": "Now implication started on 5,000,",
+        "start": 625.785,
+        "duration": 2.34
+    },
+    {
+        "text": "let's take a look.",
+        "start": 628.125,
+        "duration": 2.065
+    },
+    {
+        "text": "Yeah, this is the container.",
+        "start": 632.75,
+        "duration": 2.895
+    },
+    {
+        "text": "This is not any container,",
+        "start": 635.645,
+        "duration": 1.815
+    },
+    {
+        "text": "it's Azure cognitive service container,",
+        "start": 637.46,
+        "duration": 1.98
+    },
+    {
+        "text": "and that there's a slag which basically is",
+        "start": 639.44,
+        "duration": 3.93
+    },
+    {
+        "text": "the API description and the test data point.",
+        "start": 643.37,
+        "duration": 4.325
+    },
+    {
+        "text": "So here you can actually try it out.",
+        "start": 647.695,
+        "duration": 2.605
+    },
+    {
+        "text": "Yeah, I'm going to try it out here.",
+        "start": 650.3,
+        "duration": 2.115
+    },
+    {
+        "text": "As you can see, there's this input parameter which is PAM series,",
+        "start": 652.415,
+        "duration": 5.815
+    },
+    {
+        "text": "this time stamp and a measure.",
+        "start": 658.23,
+        "duration": 2.745
+    },
+    {
+        "text": "You don't have to specify the key here again,",
+        "start": 660.975,
+        "duration": 3.53
+    },
+    {
+        "text": "because this Docker image will spin up with the key.",
+        "start": 664.505,
+        "duration": 6.77
+    },
+    {
+        "text": ">> I see.",
+        "start": 671.275,
+        "duration": 1.175
+    },
+    {
+        "text": ">> Yeah, I mean, if you're call the API",
+        "start": 672.45,
+        "duration": 1.8
+    },
+    {
+        "text": "without a key you are wasting your work,",
+        "start": 674.25,
+        "duration": 2.035
+    },
+    {
+        "text": "because all transactions build with that key already,",
+        "start": 676.285,
+        "duration": 5.045
+    },
+    {
+        "text": "that's Docker under the hood.",
+        "start": 681.33,
+        "duration": 2.46
+    },
+    {
+        "text": "Then let me click the \"Execute\" button,",
+        "start": 683.79,
+        "duration": 3.975
+    },
+    {
+        "text": "and as you can see.",
+        "start": 687.765,
+        "duration": 2.455
+    },
+    {
+        "text": ">> There we go.",
+        "start": 694.88,
+        "duration": 1.42
+    },
+    {
+        "text": ">> It's loading yet.",
+        "start": 696.3,
+        "duration": 1.815
+    },
+    {
+        "text": "This is the result after the result response body here.",
+        "start": 698.115,
+        "duration": 5.865
+    },
+    {
+        "text": "There is a few things,",
+        "start": 703.98,
+        "duration": 1.965
+    },
+    {
+        "text": "maybe you want to notice,",
+        "start": 705.945,
+        "duration": 1.94
+    },
+    {
+        "text": "does the expected value margin,",
+        "start": 707.885,
+        "duration": 3.605
+    },
+    {
+        "text": "a margin lower margin and whether the last step point is Anomaly,",
+        "start": 711.49,
+        "duration": 3.64
+    },
+    {
+        "text": "because I'm running this against the slash last API.",
+        "start": 715.13,
+        "duration": 3.66
+    },
+    {
+        "text": "We will talk about it in a our later show later shows,",
+        "start": 718.79,
+        "duration": 3.97
+    },
+    {
+        "text": "but this is how it works,",
+        "start": 722.76,
+        "duration": 2.13
+    },
+    {
+        "text": "and it works exactly the same way with",
+        "start": 724.89,
+        "duration": 2.48
+    },
+    {
+        "text": "the Cloud endpoint except for this.",
+        "start": 727.37,
+        "duration": 3.745
+    },
+    {
+        "text": ">> Yeah.",
+        "start": 731.115,
+        "duration": 0.51
+    },
+    {
+        "text": ">> You're calling the local endpoint.",
+        "start": 731.625,
+        "duration": 2.28
+    },
+    {
+        "text": ">> That's awesome. Well, thank you so much for doing this,",
+        "start": 733.905,
+        "duration": 2.505
+    },
+    {
+        "text": "where do people go to find more?",
+        "start": 736.41,
+        "duration": 2.265
+    },
+    {
+        "text": ">> Sure. So always start with this AD container form.",
+        "start": 738.675,
+        "duration": 8.235
+    },
+    {
+        "text": "You will get the credentials,",
+        "start": 746.91,
+        "duration": 2.37
+    },
+    {
+        "text": "then we review pretty fast.",
+        "start": 749.28,
+        "duration": 2.525
+    },
+    {
+        "text": "So you feel the form and gather credentials, pull the image.",
+        "start": 751.805,
+        "duration": 5.01
+    },
+    {
+        "text": "Then if you need help,",
+        "start": 756.815,
+        "duration": 1.935
+    },
+    {
+        "text": "if you want to chat with the engineering team and",
+        "start": 758.75,
+        "duration": 3.6
+    },
+    {
+        "text": "the top chat with other members in the community,",
+        "start": 762.35,
+        "duration": 3.81
+    },
+    {
+        "text": "we have Microsoft Teams Group.",
+        "start": 766.16,
+        "duration": 1.8
+    },
+    {
+        "text": ">> That's cool.",
+        "start": 767.96,
+        "duration": 0.39
+    },
+    {
+        "text": ">> Yeah, you can always click in apply and join it.",
+        "start": 768.35,
+        "duration": 4.165
+    },
+    {
+        "text": "Finally, if you haven't watched the last episode and you can",
+        "start": 772.515,
+        "duration": 5.315
+    },
+    {
+        "text": "watch that or can go to aka.IMS/anomalydetect,",
+        "start": 777.83,
+        "duration": 5.665
+    },
+    {
+        "text": "or search it on Bing to get",
+        "start": 783.495,
+        "duration": 2.195
+    },
+    {
+        "text": "an overview and",
+        "start": 785.69,
+        "duration": 1.02
+    },
+    {
+        "text": "the technical documentation about Anomaly detector.",
+        "start": 786.71,
+        "duration": 2.22
+    },
+    {
+        "text": ">> Awesome. Well, thanks so much for spending",
+        "start": 788.93,
+        "duration": 1.44
+    },
+    {
+        "text": "some time with us, thanks so much for watching.",
+        "start": 790.37,
+        "duration": 1.935
+    },
+    {
+        "text": ">> We've been learning about containers",
+        "start": 792.305,
+        "duration": 1.77
+    },
+    {
+        "text": "using Anomaly detector on containers.",
+        "start": 794.075,
+        "duration": 2.28
+    },
+    {
+        "text": "We'll see you next time. Take care.",
+        "start": 796.355,
+        "duration": 2.035
+    }
+]

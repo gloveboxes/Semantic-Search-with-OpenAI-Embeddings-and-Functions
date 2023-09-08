@@ -1,0 +1,757 @@
+[
+    {
+        "text": ">> In this special build edition of the AI Show,",
+        "start": 0.41,
+        "duration": 2.98
+    },
+    {
+        "text": "we'll get to hear from Tracy Chen,",
+        "start": 3.39,
+        "duration": 1.53
+    },
+    {
+        "text": "Senior Program Manager on the Azure Machine Learning Team.",
+        "start": 4.92,
+        "duration": 3.84
+    },
+    {
+        "text": "Sometimes when we're doing batch inference,",
+        "start": 8.76,
+        "duration": 1.74
+    },
+    {
+        "text": "there's just a lot of stuff to do.",
+        "start": 10.5,
+        "duration": 2.115
+    },
+    {
+        "text": "At the same time,",
+        "start": 12.615,
+        "duration": 1.395
+    },
+    {
+        "text": "Tracy will introduce you to something called ParallelRunStep and",
+        "start": 14.01,
+        "duration": 3.6
+    },
+    {
+        "text": "how it makes it easier to do that workload. Make sure you tune in.",
+        "start": 17.61,
+        "duration": 3.51
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 21.12,
+        "duration": 9.359
+    },
+    {
+        "text": ">> Hello everyone. I'm Tracy Chen,",
+        "start": 30.479,
+        "duration": 1.726
+    },
+    {
+        "text": "Senior Program Manager with Azure Machine Learning.",
+        "start": 32.205,
+        "duration": 2.145
+    },
+    {
+        "text": "Today, I'm going to introduce to you how to run",
+        "start": 34.35,
+        "duration": 2.46
+    },
+    {
+        "text": "batch inference using Azure Machine Learning Pipeline,",
+        "start": 36.81,
+        "duration": 2.61
+    },
+    {
+        "text": "ParallelRunStep.",
+        "start": 39.42,
+        "duration": 1.335
+    },
+    {
+        "text": "First, let's talk about what is batch inference.",
+        "start": 40.755,
+        "duration": 3.16
+    },
+    {
+        "text": "Actually, batch inference is everywhere.",
+        "start": 43.915,
+        "duration": 2.21
+    },
+    {
+        "text": "Cyber security team analyze",
+        "start": 46.125,
+        "duration": 1.695
+    },
+    {
+        "text": "hundreds of thousands of e-mails for security threats every hour.",
+        "start": 47.82,
+        "duration": 3.595
+    },
+    {
+        "text": "A retailer has millions of customers and want to",
+        "start": 51.415,
+        "duration": 2.715
+    },
+    {
+        "text": "segment the customers for various marketing campaigns.",
+        "start": 54.13,
+        "duration": 2.95
+    },
+    {
+        "text": "Glossary want to forecast the sales of",
+        "start": 57.08,
+        "duration": 2.07
+    },
+    {
+        "text": "thousands or products for each store,",
+        "start": 59.15,
+        "duration": 2.265
+    },
+    {
+        "text": "banks that we saw that the ATM machines.",
+        "start": 61.415,
+        "duration": 2.355
+    },
+    {
+        "text": "I want to predict your money refill amount and frequency.",
+        "start": 63.77,
+        "duration": 2.805
+    },
+    {
+        "text": "These are all batch inference scenarios.",
+        "start": 66.575,
+        "duration": 2.325
+    },
+    {
+        "text": "They are really large workloads.",
+        "start": 68.9,
+        "duration": 2.055
+    },
+    {
+        "text": "You are dealing with terabytes of data.",
+        "start": 70.955,
+        "duration": 2.145
+    },
+    {
+        "text": "I don't expect to get instance responses.",
+        "start": 73.1,
+        "duration": 2.79
+    },
+    {
+        "text": "You can wait for hours or days to check the results.",
+        "start": 75.89,
+        "duration": 4.3
+    },
+    {
+        "text": "We know the challenge to run batch inference is",
+        "start": 80.32,
+        "duration": 4.18
+    },
+    {
+        "text": "not easy to scale up and out with such large workloads.",
+        "start": 84.5,
+        "duration": 3.65
+    },
+    {
+        "text": "You need to partition the data structure",
+        "start": 88.15,
+        "duration": 2.455
+    },
+    {
+        "text": "also unstructure terabytes of data.",
+        "start": 90.605,
+        "duration": 2.25
+    },
+    {
+        "text": "You need to distribute and",
+        "start": 92.855,
+        "duration": 1.725
+    },
+    {
+        "text": "coordinate to the workloads across a cluster of",
+        "start": 94.58,
+        "duration": 2.16
+    },
+    {
+        "text": "machines and the consolidated results returned from each machine.",
+        "start": 96.74,
+        "duration": 3.945
+    },
+    {
+        "text": "You need to manage as a machine cluster.",
+        "start": 100.685,
+        "duration": 2.085
+    },
+    {
+        "text": "You need to handle failures and errors.",
+        "start": 102.77,
+        "duration": 2.57
+    },
+    {
+        "text": "We have the solution to help you.",
+        "start": 105.34,
+        "duration": 2.825
+    },
+    {
+        "text": "It's the ParallelRunStep.",
+        "start": 108.165,
+        "duration": 2.055
+    },
+    {
+        "text": "It's fully compatible with Azure machine learning pipelines.",
+        "start": 110.22,
+        "duration": 3.09
+    },
+    {
+        "text": "It's a manageable stack with out-of-the-box parallelism.",
+        "start": 113.31,
+        "duration": 3.425
+    },
+    {
+        "text": "You don't need to worry about how to split the data,",
+        "start": 116.735,
+        "duration": 2.73
+    },
+    {
+        "text": "how to distribute workloads,",
+        "start": 119.465,
+        "duration": 1.425
+    },
+    {
+        "text": "and how to manage the cluster.",
+        "start": 120.89,
+        "duration": 1.545
+    },
+    {
+        "text": "Just tell us where is the data,",
+        "start": 122.435,
+        "duration": 1.875
+    },
+    {
+        "text": "what model you are going to use,",
+        "start": 124.31,
+        "duration": 1.26
+    },
+    {
+        "text": "how many machines you want to run the job.",
+        "start": 125.57,
+        "duration": 2.205
+    },
+    {
+        "text": "We do all the heavy lifting for you.",
+        "start": 127.775,
+        "duration": 1.965
+    },
+    {
+        "text": "If attacker failed and we would try it,",
+        "start": 129.74,
+        "duration": 1.97
+    },
+    {
+        "text": "if a machine dies,",
+        "start": 131.71,
+        "duration": 1.18
+    },
+    {
+        "text": "we retry it to another one.",
+        "start": 132.89,
+        "duration": 1.74
+    },
+    {
+        "text": "By default, we retry three times and",
+        "start": 134.63,
+        "duration": 2.24
+    },
+    {
+        "text": "you can also set the retry count.",
+        "start": 136.87,
+        "duration": 2.26
+    },
+    {
+        "text": "If the job partially failed,",
+        "start": 139.13,
+        "duration": 1.695
+    },
+    {
+        "text": "we still return the partial successful results.",
+        "start": 140.825,
+        "duration": 3.06
+    },
+    {
+        "text": "Let me show you an example of how to",
+        "start": 143.885,
+        "duration": 2.535
+    },
+    {
+        "text": "use ParallelRunStep to do batch inference.",
+        "start": 146.42,
+        "duration": 3.595
+    },
+    {
+        "text": "In this notebook, I'm using",
+        "start": 150.015,
+        "duration": 2.985
+    },
+    {
+        "text": "a pre-trend digital identification model and",
+        "start": 153.0,
+        "duration": 2.6
+    },
+    {
+        "text": "run batch inference MNIST test the dataset.",
+        "start": 155.6,
+        "duration": 3.79
+    },
+    {
+        "text": "Firstly, you need to prepare some resources.",
+        "start": 159.46,
+        "duration": 3.75
+    },
+    {
+        "text": "Connect it to any workspace,",
+        "start": 163.21,
+        "duration": 2.605
+    },
+    {
+        "text": "create a new one, or connect it to any existing one.",
+        "start": 165.815,
+        "duration": 3.81
+    },
+    {
+        "text": "You'll also need a computer cluster.",
+        "start": 169.625,
+        "duration": 2.4
+    },
+    {
+        "text": "Here, I'm using a CPU cluster.",
+        "start": 172.025,
+        "duration": 2.875
+    },
+    {
+        "text": "Then you need to configure the inputs and outputs.",
+        "start": 176.62,
+        "duration": 3.94
+    },
+    {
+        "text": "ParallelRunStep accepts Azure",
+        "start": 180.56,
+        "duration": 2.58
+    },
+    {
+        "text": "Machine Learning dataset as the inputs.",
+        "start": 183.14,
+        "duration": 2.1
+    },
+    {
+        "text": "In this demo, we're using images,",
+        "start": 185.24,
+        "duration": 2.325
+    },
+    {
+        "text": "so I'm create a FileDataset.",
+        "start": 187.565,
+        "duration": 2.435
+    },
+    {
+        "text": "We are putting the MNIST test images on a public datastore,",
+        "start": 190.0,
+        "duration": 5.659
+    },
+    {
+        "text": "so I'm creating a datastore,",
+        "start": 195.659,
+        "duration": 2.101
+    },
+    {
+        "text": "and connecting to the public blob.",
+        "start": 197.76,
+        "duration": 2.76
+    },
+    {
+        "text": "Then create a FileDataset from this datastore.",
+        "start": 200.52,
+        "duration": 6.79
+    },
+    {
+        "text": "So in order to reduce the pipeline,",
+        "start": 208.73,
+        "duration": 3.33
+    },
+    {
+        "text": "I'm creating a pipeline parameter",
+        "start": 212.06,
+        "duration": 2.97
+    },
+    {
+        "text": "for this input datasets so that when I the resubmit the pipeline,",
+        "start": 215.03,
+        "duration": 4.2
+    },
+    {
+        "text": "I can pass in a brand new dataset.",
+        "start": 219.23,
+        "duration": 2.94
+    },
+    {
+        "text": "I will show you how to use this parameter later.",
+        "start": 222.17,
+        "duration": 4.215
+    },
+    {
+        "text": "Now, you have the inputs ready,",
+        "start": 226.385,
+        "duration": 2.37
+    },
+    {
+        "text": "you need to create the output to start the inference output.",
+        "start": 228.755,
+        "duration": 4.05
+    },
+    {
+        "text": "I'm using a PipelineData for the output.",
+        "start": 232.805,
+        "duration": 3.715
+    },
+    {
+        "text": "This section is just to prepare the model,",
+        "start": 237.94,
+        "duration": 3.25
+    },
+    {
+        "text": "just the model model and then register it with your Workspace.",
+        "start": 241.19,
+        "duration": 4.72
+    },
+    {
+        "text": "Now, let's build the ParallelRunStep pipeline.",
+        "start": 246.8,
+        "duration": 5.185
+    },
+    {
+        "text": "It's important that you provide the inference group,",
+        "start": 251.985,
+        "duration": 3.9
+    },
+    {
+        "text": "we call it the interest group.",
+        "start": 255.885,
+        "duration": 2.25
+    },
+    {
+        "text": "Because you need to spread the data into multiple mini-batches.",
+        "start": 258.135,
+        "duration": 4.235
+    },
+    {
+        "text": "The inference group tells us how",
+        "start": 262.37,
+        "duration": 1.8
+    },
+    {
+        "text": "to do inference on each mini-batch.",
+        "start": 264.17,
+        "duration": 2.145
+    },
+    {
+        "text": "So there are two major functions within interest group.",
+        "start": 266.315,
+        "duration": 3.31
+    },
+    {
+        "text": "One is the init function.",
+        "start": 269.625,
+        "duration": 1.955
+    },
+    {
+        "text": "So init function is easy to do common preparation",
+        "start": 271.58,
+        "duration": 3.0
+    },
+    {
+        "text": "such as the laws of the model into a global object.",
+        "start": 274.58,
+        "duration": 3.85
+    },
+    {
+        "text": "So run function told us how to do inference on the mini-batch.",
+        "start": 278.44,
+        "duration": 6.275
+    },
+    {
+        "text": "So it's very small for loop to iterate on each of the mini-batch,",
+        "start": 284.715,
+        "duration": 5.6
+    },
+    {
+        "text": "and it gets the prediction.",
+        "start": 290.315,
+        "duration": 2.515
+    },
+    {
+        "text": "You also need to specify",
+        "start": 293.74,
+        "duration": 2.29
+    },
+    {
+        "text": "the environment by the calling environment",
+        "start": 296.03,
+        "duration": 3.12
+    },
+    {
+        "text": "to run your inferences group.",
+        "start": 299.15,
+        "duration": 2.53
+    },
+    {
+        "text": "ParallelRunConfig is a major config that you're going to use",
+        "start": 301.79,
+        "duration": 4.05
+    },
+    {
+        "text": "to wrap up all the configuration for ParallelRunStep.",
+        "start": 305.84,
+        "duration": 3.725
+    },
+    {
+        "text": "There are few very important parameters.",
+        "start": 309.565,
+        "duration": 2.934
+    },
+    {
+        "text": "Mini-batch size define the size of the mini-batch.",
+        "start": 312.499,
+        "duration": 3.421
+    },
+    {
+        "text": "It'll be passed to [inaudible] and inference group.",
+        "start": 315.92,
+        "duration": 2.805
+    },
+    {
+        "text": "It's the demo I'm using for this [inaudible].",
+        "start": 318.725,
+        "duration": 2.295
+    },
+    {
+        "text": "It means a number of files per each mini-batch.",
+        "start": 321.02,
+        "duration": 3.82
+    },
+    {
+        "text": "Error_threshold, it defines a number of",
+        "start": 325.1,
+        "duration": 2.85
+    },
+    {
+        "text": "failures the entire job can tolerant.",
+        "start": 327.95,
+        "duration": 2.25
+    },
+    {
+        "text": "[inaudible] is the number of",
+        "start": 330.2,
+        "duration": 3.04
+    },
+    {
+        "text": "file failures and for tabulate is the number of record failures.",
+        "start": 333.24,
+        "duration": 3.425
+    },
+    {
+        "text": "If the count that goes beyond this threshold,",
+        "start": 336.665,
+        "duration": 2.475
+    },
+    {
+        "text": "so the entire job will be aborted.",
+        "start": 339.14,
+        "duration": 1.785
+    },
+    {
+        "text": "You cannot have 32 minus 1 if you want treated all failures.",
+        "start": 340.925,
+        "duration": 4.37
+    },
+    {
+        "text": "Output_action define how to organize output.",
+        "start": 345.295,
+        "duration": 3.685
+    },
+    {
+        "text": "You can choose between two values,",
+        "start": 348.98,
+        "duration": 1.89
+    },
+    {
+        "text": "summary only, or like append_rows that I'm using here.",
+        "start": 350.87,
+        "duration": 4.02
+    },
+    {
+        "text": "Append_row means you will",
+        "start": 354.89,
+        "duration": 2.37
+    },
+    {
+        "text": "combine all the outputs into one output file.",
+        "start": 357.26,
+        "duration": 3.605
+    },
+    {
+        "text": "I'm also using append_row_file_name",
+        "start": 360.865,
+        "duration": 2.675
+    },
+    {
+        "text": "to customize the output of file.",
+        "start": 363.54,
+        "duration": 2.04
+    },
+    {
+        "text": "So this mnist_output.txt will",
+        "start": 365.58,
+        "duration": 2.76
+    },
+    {
+        "text": "contain all the inference results for the entire job.",
+        "start": 368.34,
+        "duration": 3.465
+    },
+    {
+        "text": "Process_count_per_node and the node_count",
+        "start": 371.805,
+        "duration": 2.94
+    },
+    {
+        "text": "can be used to find here the computer resource.",
+        "start": 374.745,
+        "duration": 3.035
+    },
+    {
+        "text": "There are also several other configurations",
+        "start": 377.78,
+        "duration": 2.97
+    },
+    {
+        "text": "like I'm not using here,",
+        "start": 380.75,
+        "duration": 1.02
+    },
+    {
+        "text": "like logging, Time auto setting,",
+        "start": 381.77,
+        "duration": 2.745
+    },
+    {
+        "text": "and the retry count.",
+        "start": 384.515,
+        "duration": 1.925
+    },
+    {
+        "text": "All these configures can be defined as",
+        "start": 386.44,
+        "duration": 3.55
+    },
+    {
+        "text": "PipelineParameter so that when you resubmit runs,",
+        "start": 389.99,
+        "duration": 4.875
+    },
+    {
+        "text": "you can find to these parameters.",
+        "start": 394.865,
+        "duration": 2.845
+    },
+    {
+        "text": "Now, you have everything you need to create a ParallelRunsStep.",
+        "start": 397.73,
+        "duration": 5.1
+    },
+    {
+        "text": "Passing the Config, the inputs and its output.",
+        "start": 402.83,
+        "duration": 4.685
+    },
+    {
+        "text": "That's it, you are all set.",
+        "start": 407.515,
+        "duration": 2.6
+    },
+    {
+        "text": "Submit to the pipeline_run now,",
+        "start": 410.115,
+        "duration": 2.625
+    },
+    {
+        "text": "check the results later.",
+        "start": 412.74,
+        "duration": 2.205
+    },
+    {
+        "text": "As I've defined the input dataset and",
+        "start": 414.945,
+        "duration": 3.215
+    },
+    {
+        "text": "set a config says pipeline parameter,",
+        "start": 418.16,
+        "duration": 2.76
+    },
+    {
+        "text": "I can now submit the pipeline_run with",
+        "start": 420.92,
+        "duration": 2.655
+    },
+    {
+        "text": "a brand new data input and also find too those parameters.",
+        "start": 423.575,
+        "duration": 5.245
+    },
+    {
+        "text": "Go to the Azure portal to check the results.",
+        "start": 429.55,
+        "duration": 4.375
+    },
+    {
+        "text": "Here are several runs I submitted earlier,",
+        "start": 433.925,
+        "duration": 4.295
+    },
+    {
+        "text": "go to the Run detail page to get the run ID,",
+        "start": 438.22,
+        "duration": 3.839
+    },
+    {
+        "text": "and go to your configured output location to get the results.",
+        "start": 442.059,
+        "duration": 4.556
+    },
+    {
+        "text": "Here are a few links for resources.",
+        "start": 446.615,
+        "duration": 3.17
+    },
+    {
+        "text": "If you have any questions regarding",
+        "start": 449.785,
+        "duration": 1.705
+    },
+    {
+        "text": "batch inference or ParallelRunStep,",
+        "start": 451.49,
+        "duration": 2.115
+    },
+    {
+        "text": "reached out to me or my team. Thank you.",
+        "start": 453.605,
+        "duration": 2.175
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 455.78,
+        "duration": 11.87
+    }
+]

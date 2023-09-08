@@ -1,0 +1,1367 @@
+[
+    {
+        "text": "you're not going to want to miss this episode of  the ai show where we talk about the responsible  ",
+        "start": 0.24,
+        "duration": 3.2
+    },
+    {
+        "text": "ai dashboard a one-stop shop for operationalizing  responsible ai in practice make sure you tune in",
+        "start": 3.44,
+        "duration": 12.64
+    },
+    {
+        "text": "and welcome to this episode of the ai show  we're talking about responsible ai dashboard  ",
+        "start": 16.08,
+        "duration": 4.8
+    },
+    {
+        "text": "the responsible ai dashboard a one-stop shop  for operationalizing responsible ai in practice  ",
+        "start": 20.88,
+        "duration": 5.6
+    },
+    {
+        "text": "and we're pleased to welcome back besmira and  manush hello my friends why don't we why don't  ",
+        "start": 26.48,
+        "duration": 4.48
+    },
+    {
+        "text": "you introduce yourselves we'll start with you  ms miro hello it's great to be here i'm bismiera  ",
+        "start": 30.96,
+        "duration": 4.96
+    },
+    {
+        "text": "i'm a researcher at microsoft research working on  responsible ai reliability robustness for machine  ",
+        "start": 35.92,
+        "duration": 5.44
+    },
+    {
+        "text": "learning and we collaborate with a fantastic team  at azure machine learning to create tools together  ",
+        "start": 41.36,
+        "duration": 5.6
+    },
+    {
+        "text": "fantastic manush first of all thanks for  having us back in this show always a pleasure  ",
+        "start": 47.52,
+        "duration": 5.44
+    },
+    {
+        "text": "my name is marnu sumeki i'm a senior technical  program manager under azure machine learning  ",
+        "start": 52.96,
+        "duration": 4.72
+    },
+    {
+        "text": "just like bessa said we always collaborate  with microsoft research to bring their latest  ",
+        "start": 57.68,
+        "duration": 4.08
+    },
+    {
+        "text": "and greatest in the space of response playi  and create tools that help operationalize the  ",
+        "start": 61.76,
+        "duration": 5.36
+    },
+    {
+        "text": "buzzword responsible ai in practice fantastic so  last time we had you on the show we talked about  ",
+        "start": 67.12,
+        "duration": 6.0
+    },
+    {
+        "text": "error analysis and i thought about it a lot  afterwards and it felt like that was a a  ",
+        "start": 73.12,
+        "duration": 5.2
+    },
+    {
+        "text": "part of a larger responsible ai thing what more  things am i missing we'll go with you miss mira  ",
+        "start": 78.32,
+        "duration": 6.72
+    },
+    {
+        "text": "right on point said um actually in the last six  months since when we talked together we started  ",
+        "start": 85.76,
+        "duration": 5.68
+    },
+    {
+        "text": "this initiative for bringing responsible ai tools  built at microsoft and in the open source together  ",
+        "start": 91.44,
+        "duration": 6.24
+    },
+    {
+        "text": "as an integration effort and um there's a question  of like why did we do this um in many studies that  ",
+        "start": 97.68,
+        "duration": 6.88
+    },
+    {
+        "text": "we have run in the past five years we have seen  that machine learning engineers data scientists  ",
+        "start": 104.56,
+        "duration": 5.84
+    },
+    {
+        "text": "um sometimes their work gets clunky and complex  just because these tools stand in different places  ",
+        "start": 110.4,
+        "duration": 6.64
+    },
+    {
+        "text": "it's hard to exchange results and insights and  visualizations among these tools and then there  ",
+        "start": 117.04,
+        "duration": 5.84
+    },
+    {
+        "text": "is an issue with discoverability and adaption if  you have to learn 10 different tools in order to  ",
+        "start": 122.88,
+        "duration": 4.96
+    },
+    {
+        "text": "operationalize responsible ai then the learning  curve is a lot higher so then we thought okay  ",
+        "start": 128.4,
+        "duration": 6.16
+    },
+    {
+        "text": "so there's all these mature tools that have been  built so far there is a very nice story about how  ",
+        "start": 134.56,
+        "duration": 6.96
+    },
+    {
+        "text": "do you use this all together in order to debug  your models to make responsible decision making  ",
+        "start": 141.52,
+        "duration": 5.6
+    },
+    {
+        "text": "and um we started this effort that sort of  integrates them into a single dashboard and flows  ",
+        "start": 147.12,
+        "duration": 6.56
+    },
+    {
+        "text": "all the insights and meros is going to show you  later in a demo so stay tuned for that on how this  ",
+        "start": 153.68,
+        "duration": 6.16
+    },
+    {
+        "text": "results can flow and how can one deep dive into  model debugging and responsible decision making  ",
+        "start": 159.84,
+        "duration": 6.56
+    },
+    {
+        "text": "um there's two areas that we tackle in this tool  one of them is model debugging and uh we talked a  ",
+        "start": 167.04,
+        "duration": 6.8
+    },
+    {
+        "text": "little bit about that in our analysis but there's  many aspects to all of the packing you know there  ",
+        "start": 173.84,
+        "duration": 5.28
+    },
+    {
+        "text": "is error identification when you start finding  your errors there's a diagnosis part that needs  ",
+        "start": 179.12,
+        "duration": 5.84
+    },
+    {
+        "text": "other types of operations that are related to data  exploration or to model interpretability there's  ",
+        "start": 184.96,
+        "duration": 5.84
+    },
+    {
+        "text": "a strong fairness aspect that is related to  model debugging to really understand the metrics  ",
+        "start": 190.8,
+        "duration": 5.6
+    },
+    {
+        "text": "and how errors are distributed counterfactual  analysis and all the sorts of things that maybe  ",
+        "start": 196.4,
+        "duration": 5.6
+    },
+    {
+        "text": "you know other practitioners will want to build in  the future and then um the very new thing that we  ",
+        "start": 202.0,
+        "duration": 6.32
+    },
+    {
+        "text": "are integrating in this dashboard is responsible  and business decision making um it's true um these  ",
+        "start": 208.32,
+        "duration": 7.36
+    },
+    {
+        "text": "days that there is a lot of data lying around we  want to take responsible decision of decisions  ",
+        "start": 215.68,
+        "duration": 5.76
+    },
+    {
+        "text": "in the real world um correlational analysis  is not sufficient for taking such decisions  ",
+        "start": 221.44,
+        "duration": 5.76
+    },
+    {
+        "text": "because we may rely on spurious correlations  things that maybe are there in the data but  ",
+        "start": 227.2,
+        "duration": 4.8
+    },
+    {
+        "text": "if you change them nothing happens in the real  world so uh based on mature tools like econ ml  ",
+        "start": 232.0,
+        "duration": 6.24
+    },
+    {
+        "text": "we we built um this dashboard that integrates and  makes it easy really to take decisions so this is  ",
+        "start": 239.04,
+        "duration": 7.36
+    },
+    {
+        "text": "awesome the way i'm hearing it is there's  like the programmer and technical component  ",
+        "start": 246.4,
+        "duration": 5.44
+    },
+    {
+        "text": "of the actual model you know debugging etc and  then there's the business aspect of like what  ",
+        "start": 252.96,
+        "duration": 5.52
+    },
+    {
+        "text": "is this actually doing am i am i dividing these  things up correctly yeah yeah yeah in terms of  ",
+        "start": 258.48,
+        "duration": 4.72
+    },
+    {
+        "text": "user audience that's exactly um so it to me it's  always hard to visualize a tool that can do both  ",
+        "start": 263.2,
+        "duration": 7.04
+    },
+    {
+        "text": "uh can you show us what this looks like absolutely  let's do this so first uh i do have a model which  ",
+        "start": 270.24,
+        "duration": 6.48
+    },
+    {
+        "text": "is uh trained on top of the kaggle apartment data  and this is a classification model that predicts  ",
+        "start": 276.72,
+        "duration": 6.96
+    },
+    {
+        "text": "whether a house would sell for more than median  or less than median and you can imagine that  ",
+        "start": 283.68,
+        "duration": 3.84
+    },
+    {
+        "text": "if you make a mistake there for instance if you  make a mistake and predict a house to be selling  ",
+        "start": 287.52,
+        "duration": 5.12
+    },
+    {
+        "text": "less than median or price it uh in an incorrect  way then that can impact the actual sale that the  ",
+        "start": 292.64,
+        "duration": 7.52
+    },
+    {
+        "text": "homeowner will take home and so kind of like cause  financial loss and also can limits the ability of  ",
+        "start": 300.16,
+        "duration": 6.64
+    },
+    {
+        "text": "that person that house owner to access finances  from a bank so it is quite important to make sure  ",
+        "start": 306.8,
+        "duration": 5.68
+    },
+    {
+        "text": "that this apartment pricing prediction model is  getting it right so i'm gonna start with my model  ",
+        "start": 312.48,
+        "duration": 6.48
+    },
+    {
+        "text": "debugging and said when you open this dashboard  the very first stage is for you to identify the  ",
+        "start": 318.96,
+        "duration": 6.0
+    },
+    {
+        "text": "model errors and so i start with the piece that  is familiar to you from the last time which is  ",
+        "start": 324.96,
+        "duration": 5.52
+    },
+    {
+        "text": "air analysis and for instance here i can see this  error tree that the air analysis has automatically  ",
+        "start": 330.48,
+        "duration": 6.08
+    },
+    {
+        "text": "trained on top of my model predictions and can  for instance see that i do have some bigger older  ",
+        "start": 336.56,
+        "duration": 6.64
+    },
+    {
+        "text": "houses for which the model is making 24 error rate  compared to the base rate of 11 and 75 percent of  ",
+        "start": 343.2,
+        "duration": 8.96
+    },
+    {
+        "text": "overall errors in the tree are happening here so  this is actually a great blind spot that i just  ",
+        "start": 352.16,
+        "duration": 5.36
+    },
+    {
+        "text": "discovered and i can save that just so i can take  it to the other stages and explore it further in  ",
+        "start": 357.52,
+        "duration": 7.6
+    },
+    {
+        "text": "contrast i do have this one which is a cohort  for bigger newer houses and as you can see the  ",
+        "start": 365.12,
+        "duration": 6.96
+    },
+    {
+        "text": "error rate is as low as six percent so just for  contrasting purposes i saved that also as my one  ",
+        "start": 372.08,
+        "duration": 6.72
+    },
+    {
+        "text": "cohort and just bear in mind that the same heat  map capabilities that air analysis was covering  ",
+        "start": 378.8,
+        "duration": 6.8
+    },
+    {
+        "text": "could also be used here so that's another way  of you identifying errors for instance you  ",
+        "start": 385.6,
+        "duration": 4.24
+    },
+    {
+        "text": "want to bring one feature here and kind of like  investigate how the errors are distributed across  ",
+        "start": 389.84,
+        "duration": 5.12
+    },
+    {
+        "text": "say say lot frontage in this case and similarly  you can click on any of these grids and save that  ",
+        "start": 394.96,
+        "duration": 5.92
+    },
+    {
+        "text": "but for simplicity i just stick with the error  tree i created two cohorts and now i would like  ",
+        "start": 400.88,
+        "duration": 6.24
+    },
+    {
+        "text": "to move forward with data exploration model stats  overview and model interpretability so let's pause  ",
+        "start": 407.12,
+        "duration": 5.84
+    },
+    {
+        "text": "right there if you could scroll up because i want  to make sure that i'm understanding this because  ",
+        "start": 412.96,
+        "duration": 3.52
+    },
+    {
+        "text": "you explained it last time but i want to make  sure i'm getting it so basically the 570 uh  ",
+        "start": 416.48,
+        "duration": 5.28
+    },
+    {
+        "text": "the 730 that's the number of examples you're  giving to the training algorithm is that right  ",
+        "start": 421.76,
+        "duration": 4.72
+    },
+    {
+        "text": "that's the test data basically exactly so  now it tells me that overall out of 170  ",
+        "start": 427.28,
+        "duration": 6.64
+    },
+    {
+        "text": "30 data points 87 of them are erroneous um and  then like suddenly that ratio becomes quite  ",
+        "start": 433.92,
+        "duration": 6.8
+    },
+    {
+        "text": "off for the bigger older houses that makes sense  so this is basically saying on the test data it's  ",
+        "start": 440.72,
+        "duration": 6.32
+    },
+    {
+        "text": "dividing up the errors by the actual features  so i can see what features are causing the most  ",
+        "start": 447.04,
+        "duration": 5.36
+    },
+    {
+        "text": "errors and i think when you highlight it over  highlight over the 66 over 271 it's telling you  ",
+        "start": 452.4,
+        "duration": 6.4
+    },
+    {
+        "text": "there it's telling you the exact feature and  where the break is in this particular model is  ",
+        "start": 458.8,
+        "duration": 5.68
+    },
+    {
+        "text": "that right exactly okay cool so now that you've  done this like as a debugger it feels like okay  ",
+        "start": 464.48,
+        "duration": 7.52
+    },
+    {
+        "text": "i've got a good sense of what's going  on but you wanted to show me the next  ",
+        "start": 472.0,
+        "duration": 3.6
+    },
+    {
+        "text": "bit which was called was it called the model  statistics if we can scroll down how was that  ",
+        "start": 475.6,
+        "duration": 4.4
+    },
+    {
+        "text": "how is that different so here's the problem here  uh first we helped you identify the error right  ",
+        "start": 480.0,
+        "duration": 7.12
+    },
+    {
+        "text": "right but now you want to diagnose it because  you can't always jump from identification to  ",
+        "start": 487.12,
+        "duration": 5.76
+    },
+    {
+        "text": "coming up with your mitigation strategies but  if you don't know why that issue is happening  ",
+        "start": 492.88,
+        "duration": 4.88
+    },
+    {
+        "text": "it's actually quite difficult for you to go  and fix it and have a targeted mitigation step  ",
+        "start": 497.76,
+        "duration": 5.44
+    },
+    {
+        "text": "and so we have implemented other things like data  exploration where for instance you can understand  ",
+        "start": 503.2,
+        "duration": 5.44
+    },
+    {
+        "text": "that certain erroneous cohort and see whether  there is some underrepresented cohort there that  ",
+        "start": 508.64,
+        "duration": 5.6
+    },
+    {
+        "text": "you need to go and enhance or for instance you can  look at model interpretability to understand why  ",
+        "start": 514.24,
+        "duration": 5.52
+    },
+    {
+        "text": "the model is making predictions for that cohort  and whether for erroneous cohort the model is  ",
+        "start": 519.76,
+        "duration": 5.12
+    },
+    {
+        "text": "depending on some other features compared to the  rest of the cohorts so now we are entering that  ",
+        "start": 524.88,
+        "duration": 6.08
+    },
+    {
+        "text": "diagnosis land where i'm gonna show you how we can  use the other capabilities of this dashboard in  ",
+        "start": 530.96,
+        "duration": 6.56
+    },
+    {
+        "text": "order to understand why things are going wrong and  help us take targeted mitigation steps let's do it  ",
+        "start": 537.52,
+        "duration": 6.96
+    },
+    {
+        "text": "great so first as you said we come to the model  statistics page and what i am seeing here is i do  ",
+        "start": 545.36,
+        "duration": 6.48
+    },
+    {
+        "text": "have um these cohorts that i saved and i brought  up transferred here and right off the bat what i'm  ",
+        "start": 551.84,
+        "duration": 6.48
+    },
+    {
+        "text": "observing is and there's also one unsaved because  i clicked on that on the demo or on the cohort but  ",
+        "start": 558.32,
+        "duration": 7.28
+    },
+    {
+        "text": "the y-axis or the x-axis here is the prediction  probability of less than median and right off  ",
+        "start": 565.6,
+        "duration": 5.44
+    },
+    {
+        "text": "the bat you can see that for the old houses  you're getting a lot more higher probability  ",
+        "start": 571.04,
+        "duration": 4.96
+    },
+    {
+        "text": "of selling less and the results are much more  accurate for newer houses compared to the older  ",
+        "start": 576.0,
+        "duration": 5.76
+    },
+    {
+        "text": "houses so that's something that i would like to  explore based on looking at the underlying ground  ",
+        "start": 581.76,
+        "duration": 5.76
+    },
+    {
+        "text": "truth data to see am i representing something  differently in old houses versus newer houses  ",
+        "start": 587.52,
+        "duration": 5.12
+    },
+    {
+        "text": "so i come here to the data explorer and this is  basically to help you do exploratory data analysis  ",
+        "start": 592.64,
+        "duration": 5.84
+    },
+    {
+        "text": "and imagine i want to show you the ground truth  value so actually in my ground truths how many  ",
+        "start": 598.48,
+        "duration": 6.32
+    },
+    {
+        "text": "houses did i have um with um like actual grand  first of selling more than median versus uh not  ",
+        "start": 604.8,
+        "duration": 6.64
+    },
+    {
+        "text": "and for newer houses as you can see said here the  actual new houses uh are more probable to sell  ",
+        "start": 611.44,
+        "duration": 7.76
+    },
+    {
+        "text": "for more than median so all of my representation  in ground trust data had actual more than median  ",
+        "start": 619.2,
+        "duration": 5.44
+    },
+    {
+        "text": "prices and so even if the model randomly says all  the new houses to be more than median probably  ",
+        "start": 624.64,
+        "duration": 5.68
+    },
+    {
+        "text": "it's going to achieve a higher accuracy versus for  my old houses i do not have enough representation  ",
+        "start": 630.32,
+        "duration": 6.08
+    },
+    {
+        "text": "of old and expensive houses so that's what i  mean by diagnosis because now i just diagnosed  ",
+        "start": 636.4,
+        "duration": 6.88
+    },
+    {
+        "text": "that you need to go and collect more expensive  all their houses and retrain your model just so  ",
+        "start": 643.28,
+        "duration": 6.88
+    },
+    {
+        "text": "the model can learn about those type of houses  as well so let's scroll up because i want to ask  ",
+        "start": 650.16,
+        "duration": 4.8
+    },
+    {
+        "text": "a bunch of dumb questions because you know it's  me so let's scroll up to the [ __ ] the box pl  ",
+        "start": 654.96,
+        "duration": 5.76
+    },
+    {
+        "text": "these plot these are called what are these  plots called box these are block spots and  ",
+        "start": 660.72,
+        "duration": 4.4
+    },
+    {
+        "text": "these are basically tell you what is the median  25th percentile 75th percentile so basically this  ",
+        "start": 665.12,
+        "duration": 6.16
+    },
+    {
+        "text": "is now showing you the distribution of prediction  probabilities and uh towards the the list price  ",
+        "start": 671.28,
+        "duration": 6.64
+    },
+    {
+        "text": "and so as you can see that the new houses they  have lower distribution towards less than median  ",
+        "start": 677.92,
+        "duration": 5.52
+    },
+    {
+        "text": "so actually they have they are pri they are  predicted to sell for more than median versus  ",
+        "start": 683.44,
+        "duration": 4.56
+    },
+    {
+        "text": "we're newer for older houses that's not the case  i see so this here is telling us because if you  ",
+        "start": 688.0,
+        "duration": 4.88
+    },
+    {
+        "text": "scroll down these are the probability well  i'm going to say quote unquote probability  ",
+        "start": 692.88,
+        "duration": 3.92
+    },
+    {
+        "text": "distributions of if it's if it's less than 0.5  we're going to guess you know this and if it's  ",
+        "start": 696.8,
+        "duration": 4.8
+    },
+    {
+        "text": "greater than 0.5 we're going to guess that and  we can see that new and old houses distributed  ",
+        "start": 701.6,
+        "duration": 4.72
+    },
+    {
+        "text": "distribution wise are predicting on the opposite  side and when you scroll down you're saying  ",
+        "start": 706.32,
+        "duration": 5.76
+    },
+    {
+        "text": "okay let's look at the data and what you've  noticed is that you had a mis an imbalance  ",
+        "start": 712.08,
+        "duration": 4.96
+    },
+    {
+        "text": "in data that has those particular features  exactly okay exactly that is absolutely correct  ",
+        "start": 717.6,
+        "duration": 6.88
+    },
+    {
+        "text": "cool cool all right what else you got i mean  because it feels like now i'm done right i  ",
+        "start": 724.48,
+        "duration": 3.92
+    },
+    {
+        "text": "know all the i know that the problem is i need to  collect more i need to collect more of the older  ",
+        "start": 728.4,
+        "duration": 5.52
+    },
+    {
+        "text": "expensive houses to get a better balance and  that's it right is there anything else i need  ",
+        "start": 733.92,
+        "duration": 4.16
+    },
+    {
+        "text": "to do you can also learn a lot more about  how the model is making its prediction and  ",
+        "start": 738.08,
+        "duration": 4.88
+    },
+    {
+        "text": "so i just get rid of this unsaved cohort and  stick to my all data old houses and new houses  ",
+        "start": 742.96,
+        "duration": 5.44
+    },
+    {
+        "text": "and so the thing that you can see here is first  the global explanation how the model is making  ",
+        "start": 748.4,
+        "duration": 5.2
+    },
+    {
+        "text": "its prediction for the whole data across these  cohorts and also individual future importance  ",
+        "start": 753.6,
+        "duration": 4.8
+    },
+    {
+        "text": "and the way that it is important here is first of  all i can see for my old data these are the top  ",
+        "start": 758.4,
+        "duration": 5.92
+    },
+    {
+        "text": "key important factors overall finish quality above  ground living area total basement square footage  ",
+        "start": 764.32,
+        "duration": 5.92
+    },
+    {
+        "text": "and i can also see like other types of things and  so for instance i can see that year built is a lot  ",
+        "start": 770.24,
+        "duration": 6.08
+    },
+    {
+        "text": "more important for new houses than old houses  so suddenly the fact that a house is newer that  ",
+        "start": 776.32,
+        "duration": 5.6
+    },
+    {
+        "text": "becomes an important factor in predicting whether  um someone or the house is going to be selling or  ",
+        "start": 781.92,
+        "duration": 5.84
+    },
+    {
+        "text": "predicted to sell more than median or not so you  can kind of like compare how the model is making  ",
+        "start": 787.76,
+        "duration": 4.88
+    },
+    {
+        "text": "predictions across these different cohorts you  can even see how that model is doing that so like  ",
+        "start": 792.64,
+        "duration": 5.6
+    },
+    {
+        "text": "how the model is using the overall finish quality  by clicking on it in order to make its prediction  ",
+        "start": 798.24,
+        "duration": 5.44
+    },
+    {
+        "text": "and so what this chart is telling you and each  of these data points is for one house but what  ",
+        "start": 803.68,
+        "duration": 4.72
+    },
+    {
+        "text": "this chart is telling you is how the overall  finish quality is impacting the prediction of  ",
+        "start": 808.4,
+        "duration": 5.6
+    },
+    {
+        "text": "less than median and so for the higher overall  finish quality houses that becomes that  ",
+        "start": 814.0,
+        "duration": 6.32
+    },
+    {
+        "text": "high overall finish quality becomes a negative  indicator towards the less price versus if the  ",
+        "start": 821.44,
+        "duration": 5.84
+    },
+    {
+        "text": "house is actually uh lower quality then that  factor becomes a positive uh indicator of that  ",
+        "start": 827.28,
+        "duration": 6.16
+    },
+    {
+        "text": "house is going to be predicted to have a lesser  place that's interesting and so basically i mean  ",
+        "start": 833.44,
+        "duration": 5.28
+    },
+    {
+        "text": "this is like becomes a human version of the model  where you're basically going in and saying oh wow  ",
+        "start": 839.52,
+        "duration": 5.44
+    },
+    {
+        "text": "i've just learned a lot about this just by making  a model i don't even have to put this in the  ",
+        "start": 844.96,
+        "duration": 4.0
+    },
+    {
+        "text": "production but maybe i've learned something that i  shouldn't put this into production or i've learned  ",
+        "start": 848.96,
+        "duration": 4.24
+    },
+    {
+        "text": "something about the actual market correct and  so imagine like if neighborhood which is highly  ",
+        "start": 853.2,
+        "duration": 4.72
+    },
+    {
+        "text": "correlated with um ethnicity was showing up as  like one of the top two figures top two features  ",
+        "start": 857.92,
+        "duration": 6.56
+    },
+    {
+        "text": "then you want to go and investigate more you  want to make sure that the model is not causing  ",
+        "start": 864.48,
+        "duration": 4.32
+    },
+    {
+        "text": "any fairness issues or harms for people uh being  represented from different neighborhoods and so  ",
+        "start": 868.8,
+        "duration": 5.44
+    },
+    {
+        "text": "that's how you can kind of like see oh is my model  making its prediction based on the factors that  ",
+        "start": 874.24,
+        "duration": 4.64
+    },
+    {
+        "text": "make sense or is that just depending on some  correlation spurious correlations that um are  ",
+        "start": 878.88,
+        "duration": 5.6
+    },
+    {
+        "text": "totally random got it got it that makes sense what  else you got in there so besides this aggregate  ",
+        "start": 884.48,
+        "duration": 6.08
+    },
+    {
+        "text": "future importance you can also investigate  individual data points so for instance uh the  ",
+        "start": 890.56,
+        "duration": 4.72
+    },
+    {
+        "text": "cohort that i had up i can first of all see how  many correct and incorrect data points i can take  ",
+        "start": 895.28,
+        "duration": 6.0
+    },
+    {
+        "text": "a look at them i can click on one or multiple  of them and uh compare the individual feature  ",
+        "start": 901.28,
+        "duration": 5.68
+    },
+    {
+        "text": "importance values as well so this is the um like  individual house of minutiae's house that has been  ",
+        "start": 906.96,
+        "duration": 6.4
+    },
+    {
+        "text": "predicted to be selling less than medium why is  that what are the top important factors so it's  ",
+        "start": 913.36,
+        "duration": 5.12
+    },
+    {
+        "text": "actually a lot more targeted debugging for say  minutiae's house that is house basmira's house  ",
+        "start": 918.48,
+        "duration": 5.68
+    },
+    {
+        "text": "and so that concludes our feature interp or model  interpretability and that takes me to another  ",
+        "start": 924.16,
+        "duration": 7.2
+    },
+    {
+        "text": "factor which is also about diagnosis which i  call counterfactual analysis and what if and  ",
+        "start": 931.36,
+        "duration": 7.04
+    },
+    {
+        "text": "the way that that one works is say i click on an  individual data point and what that shows me is  ",
+        "start": 939.12,
+        "duration": 7.12
+    },
+    {
+        "text": "uh first of all i can then create counterfactuals  then let's open the buzzword counter factual um  ",
+        "start": 946.24,
+        "duration": 5.92
+    },
+    {
+        "text": "counter factual data points are telling me what is  the bare minimum change i can apply to that house  ",
+        "start": 952.16,
+        "duration": 6.24
+    },
+    {
+        "text": "that said i just clicked on which actually has  a very high probability of getting the less  ",
+        "start": 958.4,
+        "duration": 4.96
+    },
+    {
+        "text": "than median prediction so actually that  that is predicted to have a lower price  ",
+        "start": 963.36,
+        "duration": 4.4
+    },
+    {
+        "text": "and what is the bare minimum change i can apply  to this data point to this house in order for  ",
+        "start": 967.76,
+        "duration": 5.44
+    },
+    {
+        "text": "the model to predict the opposite class which is  actually predict a higher than median and so if  ",
+        "start": 973.2,
+        "duration": 7.76
+    },
+    {
+        "text": "i now look at that it's like oh if this house had  a higher overall finish quality from six to nine  ",
+        "start": 980.96,
+        "duration": 6.72
+    },
+    {
+        "text": "keeping all other features constant then that  house would have got a prediction of the opposite  ",
+        "start": 988.56,
+        "duration": 6.32
+    },
+    {
+        "text": "which is higher than median prediction and that's  another way of first checking for some fairness  ",
+        "start": 994.88,
+        "duration": 5.92
+    },
+    {
+        "text": "issue that can creep into your model because  if imagine a loan scenario if my counterfactual  ",
+        "start": 1000.8,
+        "duration": 5.36
+    },
+    {
+        "text": "my loan has got rejected by the ai and my  counter factual is if that person had a different  ",
+        "start": 1006.72,
+        "duration": 5.04
+    },
+    {
+        "text": "ethnicity then that person would got the loan  then that's a major fairness issue oh yeah and so  ",
+        "start": 1011.76,
+        "duration": 7.04
+    },
+    {
+        "text": "that's that's uh why we say this is an important  uh debugging tool but also it's great for  ",
+        "start": 1018.8,
+        "duration": 5.36
+    },
+    {
+        "text": "customers in terms of decision making say my  loan has got rejected and i go and say or in  ",
+        "start": 1024.16,
+        "duration": 4.88
+    },
+    {
+        "text": "let's say this example my house has been  predicted to have a lower price in the market  ",
+        "start": 1029.04,
+        "duration": 4.4
+    },
+    {
+        "text": "and i want to know what to improve in my house as  a homeowner in order to get a better outcome from  ",
+        "start": 1033.44,
+        "duration": 6.08
+    },
+    {
+        "text": "that prediction model then you can say that oh if  you improve your overall house by like from six to  ",
+        "start": 1039.52,
+        "duration": 7.44
+    },
+    {
+        "text": "nine then that's when the ai is going to predict  the opposite for you and of course you can do like  ",
+        "start": 1046.96,
+        "duration": 5.6
+    },
+    {
+        "text": "free-form uh what-if analysis as well so let's  pause right there so let me see if i understand  ",
+        "start": 1052.56,
+        "duration": 5.44
+    },
+    {
+        "text": "it so this counter factual uh feature what it does  is it because i thought you were going to perturb  ",
+        "start": 1058.0,
+        "duration": 6.4
+    },
+    {
+        "text": "the things until you found it but it actually  figures out on its own what can i change to make  ",
+        "start": 1064.4,
+        "duration": 5.52
+    },
+    {
+        "text": "it predict the opposite in the least amount in the  least uh destructive way so you just change from  ",
+        "start": 1069.92,
+        "duration": 6.88
+    },
+    {
+        "text": "six to nine and then it's over and then there was  other examples is that right you got it absolutely  ",
+        "start": 1076.8,
+        "duration": 4.16
+    },
+    {
+        "text": "right and if it's a regression case then it says  like give me a different range and counterfactual  ",
+        "start": 1080.96,
+        "duration": 4.88
+    },
+    {
+        "text": "automatically shows you what to do with that data  point to land the prediction in that opposite  ",
+        "start": 1085.84,
+        "duration": 5.12
+    },
+    {
+        "text": "range so this is really cool and this all feels  like the developer model builder type of thing  ",
+        "start": 1090.96,
+        "duration": 6.4
+    },
+    {
+        "text": "but bizmir mentioned the business aspect of it too  and i think you might have hit on it a little bit  ",
+        "start": 1097.36,
+        "duration": 5.12
+    },
+    {
+        "text": "but can you dive into like how can i make  business decisions now based on these models  ",
+        "start": 1102.48,
+        "duration": 4.4
+    },
+    {
+        "text": "that's a very great point absolutely and so inside  the dashboard you do have causal inferencing  ",
+        "start": 1106.88,
+        "duration": 5.76
+    },
+    {
+        "text": "capabilities as well and there are three different  capabilities so let's unpack that there is no  ",
+        "start": 1112.64,
+        "duration": 5.28
+    },
+    {
+        "text": "model here set so it's just historic data and  i'm a business stakeholder from this company this  ",
+        "start": 1117.92,
+        "duration": 7.6
+    },
+    {
+        "text": "uh housing company and i want to provide either  house sellers house builders developers and  ",
+        "start": 1125.52,
+        "duration": 6.0
+    },
+    {
+        "text": "individual house owners with actionable insights  as what to do in order to really change the price  ",
+        "start": 1131.52,
+        "duration": 7.6
+    },
+    {
+        "text": "of their house in the market we're not talking  about the model we're talking about historic data  ",
+        "start": 1139.12,
+        "duration": 4.88
+    },
+    {
+        "text": "and whether we can do some causal analysis to  provide them with that advice and so now i'm  ",
+        "start": 1144.0,
+        "duration": 5.52
+    },
+    {
+        "text": "looking at three different capabilities here first  is aggregate causal effects and the way that that  ",
+        "start": 1149.52,
+        "duration": 6.48
+    },
+    {
+        "text": "works is i passed a couple of features to this  uh part of my dashboard as my treatments and so  ",
+        "start": 1156.0,
+        "duration": 7.52
+    },
+    {
+        "text": "i own bunch of houses and i want to know oh like  on average how increasing the number of garages or  ",
+        "start": 1163.52,
+        "duration": 6.72
+    },
+    {
+        "text": "increasing the overall finish quality by one  unit would impact the actual housing price in  ",
+        "start": 1170.24,
+        "duration": 5.28
+    },
+    {
+        "text": "the market and so this is giving me the that kind  of like view on all the data in this um in this  ",
+        "start": 1175.52,
+        "duration": 6.96
+    },
+    {
+        "text": "data set and also gives me the confidence interval  but you might be an individual house owner and  ",
+        "start": 1182.48,
+        "duration": 6.72
+    },
+    {
+        "text": "you might say but what about my own house and so  imagine i now click on seth's house and then i can  ",
+        "start": 1189.2,
+        "duration": 6.8
+    },
+    {
+        "text": "see for seth house how changing then if if he goes  and builds one more garage car or if he goes and  ",
+        "start": 1196.0,
+        "duration": 6.4
+    },
+    {
+        "text": "improve the overall finish quality by one unit  how much that would impact the actual housing  ",
+        "start": 1202.4,
+        "duration": 5.52
+    },
+    {
+        "text": "price and in this case is these are in k so  43k if you add one more garage car um and 38k  ",
+        "start": 1207.92,
+        "duration": 7.44
+    },
+    {
+        "text": "if you improve the overall finish quality by one  unit and you can even do causal what if which is  ",
+        "start": 1215.36,
+        "duration": 6.64
+    },
+    {
+        "text": "don't mix them with prediction what if prediction  what if says how changing a factor would impact  ",
+        "start": 1222.0,
+        "duration": 4.64
+    },
+    {
+        "text": "the model prediction but causal what if says oh  if i increase the overall finish quality of this  ",
+        "start": 1226.64,
+        "duration": 5.84
+    },
+    {
+        "text": "house from this to say another value how would the  actual price change in the market so from 196k to  ",
+        "start": 1232.48,
+        "duration": 8.24
+    },
+    {
+        "text": "218k so here's a question uh before before we go  on and i'm sorry because i'm learning a ton here  ",
+        "start": 1240.72,
+        "duration": 6.48
+    },
+    {
+        "text": "you're saying this is not coming from the model  is this coming from pure statistics because i'm  ",
+        "start": 1247.2,
+        "duration": 3.84
+    },
+    {
+        "text": "seeing like z-scores and p-values is it just  doing an analysis over the entire data set  ",
+        "start": 1251.04,
+        "duration": 5.6
+    },
+    {
+        "text": "and then using that probability the probability  theory to generate the numbers correct so this  ",
+        "start": 1256.64,
+        "duration": 5.6
+    },
+    {
+        "text": "is actually backed by an open source package from  microsoft research called econ ml which depends on  ",
+        "start": 1262.24,
+        "duration": 6.8
+    },
+    {
+        "text": "a technique called double machine learning  to take out this spurious correlation and  ",
+        "start": 1269.04,
+        "duration": 5.6
+    },
+    {
+        "text": "exactly give you the what you what you need which  is what is the causal effect of one factor on an  ",
+        "start": 1274.64,
+        "duration": 6.56
+    },
+    {
+        "text": "outcome and with what confidence and that's purely  based on statistics there is machine learning but  ",
+        "start": 1281.2,
+        "duration": 5.6
+    },
+    {
+        "text": "don't mix that machine learning with the model  that we just showed you and we just debugged  ",
+        "start": 1286.8,
+        "duration": 4.24
+    },
+    {
+        "text": "because that's a dif that's just specifically for  this model here's what we've learned but if you  ",
+        "start": 1291.04,
+        "duration": 5.6
+    },
+    {
+        "text": "want to learn specifically from the data side from  a business perspective here's what you can learn  ",
+        "start": 1296.64,
+        "duration": 5.28
+    },
+    {
+        "text": "let's take out the spurious correlations or the  ones that cause you know p-values to not work  ",
+        "start": 1302.48,
+        "duration": 4.08
+    },
+    {
+        "text": "or z-scores not work this is what will happen if  we make these kinds of changes am i close that is  ",
+        "start": 1306.56,
+        "duration": 6.72
+    },
+    {
+        "text": "absolutely true and and one other cool thing about  this dashboard is you can even get like imagine  ",
+        "start": 1313.28,
+        "duration": 5.68
+    },
+    {
+        "text": "you oh you're a house builder so you have a bunch  of houses and you want to know how to treat these  ",
+        "start": 1318.96,
+        "duration": 5.6
+    },
+    {
+        "text": "houses in terms of either shrinking or removing or  adding more screen porch and so it even gives you  ",
+        "start": 1324.56,
+        "duration": 6.0
+    },
+    {
+        "text": "that ideal policy that will lead to the biggest  boost in your overall data points or overall  ",
+        "start": 1330.56,
+        "duration": 6.32
+    },
+    {
+        "text": "housing market and so it tells you that oh if the  overall condition is low and the basement unit  ",
+        "start": 1336.88,
+        "duration": 5.68
+    },
+    {
+        "text": "square footage is small then shrink or remove that  screen porch versus for some other cohorts you can  ",
+        "start": 1342.56,
+        "duration": 6.4
+    },
+    {
+        "text": "you can actually expand it so this is also quite  cool because um we can go ahead and treat everyone  ",
+        "start": 1348.96,
+        "duration": 6.56
+    },
+    {
+        "text": "the same by like expanding the screen porch  but this is giving me that if i go ahead and  ",
+        "start": 1355.52,
+        "duration": 5.28
+    },
+    {
+        "text": "expand the screen porch that's how much gain  i'm gonna see on average on my housing price but  ",
+        "start": 1361.44,
+        "duration": 4.96
+    },
+    {
+        "text": "if i go with this recommended policy that's how  much gain i'm going to see and imagine how it's  ",
+        "start": 1366.4,
+        "duration": 5.6
+    },
+    {
+        "text": "helpful for marketing and sales scenarios right  like you have all these customers uh imagine for  ",
+        "start": 1372.0,
+        "duration": 5.6
+    },
+    {
+        "text": "your business and you want to improve uh your  your sales or whatever else that you want to  ",
+        "start": 1377.6,
+        "duration": 5.92
+    },
+    {
+        "text": "boost in your business and this part is giving  you customized policy treatments as oh maybe  ",
+        "start": 1383.52,
+        "duration": 6.96
+    },
+    {
+        "text": "for this cohort go and provide discount for  this cohort keep the pricing as is and so  ",
+        "start": 1390.48,
+        "duration": 5.2
+    },
+    {
+        "text": "it can give you like a lot of targeted mitigation  sorry action items as how to treat your  ",
+        "start": 1395.68,
+        "duration": 6.16
+    },
+    {
+        "text": "market that's really cool and it's not it's not  model based it's economic space because of economy  ",
+        "start": 1402.56,
+        "duration": 6.56
+    },
+    {
+        "text": "this is really cool so we we've talked a lot about  you know error analysis we've looked at the data  ",
+        "start": 1409.84,
+        "duration": 4.56
+    },
+    {
+        "text": "in aggregate we've looked at the data individually  we've looked at the data as perturbations and  ",
+        "start": 1414.4,
+        "duration": 5.36
+    },
+    {
+        "text": "counterfactuals we also looked at you know  just the data from not the ml side but from the  ",
+        "start": 1419.76,
+        "duration": 5.04
+    },
+    {
+        "text": "economic side and one of the things that's  missing is this notion of fairness um  ",
+        "start": 1424.8,
+        "duration": 5.04
+    },
+    {
+        "text": "can you tell us about that absolutely so um i  tried to mention a couple of uh fairness type of  ",
+        "start": 1430.56,
+        "duration": 6.8
+    },
+    {
+        "text": "issues that you could identify with air analysis  and interpretability for instance if you see that  ",
+        "start": 1437.36,
+        "duration": 5.92
+    },
+    {
+        "text": "in your counterfactual the thing that is causing  your counterfactual is a sensitive attribute  ",
+        "start": 1443.28,
+        "duration": 4.96
+    },
+    {
+        "text": "that's a fairness issue if you're seeing  your sensitive features or features that are  ",
+        "start": 1448.24,
+        "duration": 4.08
+    },
+    {
+        "text": "uh very um correlated with your sensitive features  are showing up among top key important factors  ",
+        "start": 1452.32,
+        "duration": 5.52
+    },
+    {
+        "text": "of interpretability that's a fairness issue if  you're seeing erroneous cohorts in air analysis  ",
+        "start": 1457.84,
+        "duration": 5.36
+    },
+    {
+        "text": "um that are based on like characterized by  sensitive attributes that's a fairness issue so  ",
+        "start": 1463.2,
+        "duration": 4.48
+    },
+    {
+        "text": "there are a lot of different clues about fairness  that you can get but this dashboard already  ",
+        "start": 1467.68,
+        "duration": 4.96
+    },
+    {
+        "text": "but we have specifically plans in a very short  term to bring fair learning capabilities which is  ",
+        "start": 1472.64,
+        "duration": 7.12
+    },
+    {
+        "text": "an open source toolkit for fairness assessment and  unfairness mitigation and have a dedicated section  ",
+        "start": 1479.76,
+        "duration": 5.04
+    },
+    {
+        "text": "where you can pass your sensitive attributes and  you can do a lot more sophisticated analysis so  ",
+        "start": 1484.8,
+        "duration": 4.24
+    },
+    {
+        "text": "definitely stay tuned for that like very targeted  analysis on fairness well this has been really  ",
+        "start": 1489.04,
+        "duration": 6.56
+    },
+    {
+        "text": "amazing bizmir do you have anything to to wrap  this up to center us or am i missing anything um  ",
+        "start": 1495.6,
+        "duration": 7.04
+    },
+    {
+        "text": "i think the um the last things we wanted to send  across is the fact that all this is open source uh  ",
+        "start": 1502.64,
+        "duration": 6.72
+    },
+    {
+        "text": "you can go on github and be able to access it to  create your own components and co-create with us  ",
+        "start": 1509.36,
+        "duration": 7.2
+    },
+    {
+        "text": "um as you saw everything is modular everything  one can remove um components from the works or  ",
+        "start": 1516.56,
+        "duration": 6.32
+    },
+    {
+        "text": "or add other components so if there is a new  component that you want to build together with  ",
+        "start": 1522.88,
+        "duration": 5.84
+    },
+    {
+        "text": "us we are open to that collaboration include it in  the workflow and see how everything works together  ",
+        "start": 1528.72,
+        "duration": 5.84
+    },
+    {
+        "text": "and this is part of a larger effort um that is  called responsible ai toolbox that will include  ",
+        "start": 1534.56,
+        "duration": 5.68
+    },
+    {
+        "text": "not only the front front-end parts that we talked  about today with the dashboard but a lot of other  ",
+        "start": 1540.24,
+        "duration": 4.8
+    },
+    {
+        "text": "back-end machine learning back-end um capabilities  that support each of these different dashboards  ",
+        "start": 1545.04,
+        "duration": 5.92
+    },
+    {
+        "text": "together enables mitigation steps model comparison  and all this other spectrum of functionalities  ",
+        "start": 1550.96,
+        "duration": 6.96
+    },
+    {
+        "text": "that we hope to bring together for for everyone  out there well this is fantastic i'm going to put  ",
+        "start": 1557.92,
+        "duration": 5.68
+    },
+    {
+        "text": "a link down here this is where you want people to  go responsibly toolbox.ai to learn more about this  ",
+        "start": 1563.6,
+        "duration": 4.56
+    },
+    {
+        "text": "am i right yep responsible ai toolbox dot  ai fantastic well my friends this has been  ",
+        "start": 1568.16,
+        "duration": 7.12
+    },
+    {
+        "text": "simply amazing we've been learning all about  responsible ai dashboard a one-stop shop  ",
+        "start": 1575.28,
+        "duration": 5.44
+    },
+    {
+        "text": "literally because we went through all this stuff  one-stop shop for operationalizing responsible  ",
+        "start": 1580.72,
+        "duration": 5.04
+    },
+    {
+        "text": "ai in practice thank you so much for watching  and hopefully we'll see you next time take care",
+        "start": 1585.76,
+        "duration": 12.08
+    },
+    {
+        "text": "you",
+        "start": 1598.64,
+        "duration": 0.08
+    }
+]

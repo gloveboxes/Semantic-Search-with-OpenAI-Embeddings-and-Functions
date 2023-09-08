@@ -1,0 +1,1897 @@
+[
+    {
+        "text": ">> All right. Last one,",
+        "start": 0.31,
+        "duration": 2.39
+    },
+    {
+        "text": "are you ready? All right.",
+        "start": 2.7,
+        "duration": 6.32
+    },
+    {
+        "text": "I think this is going to be the last one",
+        "start": 9.02,
+        "duration": 1.88
+    },
+    {
+        "text": "we're going to be talking about.",
+        "start": 10.9,
+        "duration": 1.425
+    },
+    {
+        "text": "There's been three other videos,",
+        "start": 12.325,
+        "duration": 1.465
+    },
+    {
+        "text": "where we've talked about how to set these things up.",
+        "start": 13.79,
+        "duration": 2.0
+    },
+    {
+        "text": "We've talked about how to actually",
+        "start": 15.79,
+        "duration": 1.25
+    },
+    {
+        "text": "do some data preparation.",
+        "start": 17.04,
+        "duration": 1.215
+    },
+    {
+        "text": "You have to do some modeling.",
+        "start": 18.255,
+        "duration": 2.605
+    },
+    {
+        "text": "We've talked about logging, et cetera.",
+        "start": 20.86,
+        "duration": 1.69
+    },
+    {
+        "text": "In this episode, we are going to be looking at how",
+        "start": 22.55,
+        "duration": 3.48
+    },
+    {
+        "text": "to actually take this model and deploy it out.",
+        "start": 26.03,
+        "duration": 3.72
+    },
+    {
+        "text": ">> That's right.",
+        "start": 29.75,
+        "duration": 0.7
+    },
+    {
+        "text": ">> Okay. Show me how to do that?",
+        "start": 30.45,
+        "duration": 1.095
+    },
+    {
+        "text": ">> Yeah. So, essentially,",
+        "start": 31.545,
+        "duration": 1.445
+    },
+    {
+        "text": "like you mentioned, eventually,",
+        "start": 32.99,
+        "duration": 2.115
+    },
+    {
+        "text": "whenever you have a machine learning model,",
+        "start": 35.105,
+        "duration": 2.475
+    },
+    {
+        "text": "you want to actually make it",
+        "start": 37.58,
+        "duration": 1.73
+    },
+    {
+        "text": "available to be used in some application.",
+        "start": 39.31,
+        "duration": 2.37
+    },
+    {
+        "text": "So what we are going to see next is",
+        "start": 41.68,
+        "duration": 2.52
+    },
+    {
+        "text": "whatever train model which we thought is the best,",
+        "start": 44.2,
+        "duration": 3.21
+    },
+    {
+        "text": "in this case, it's a random forest classifier,",
+        "start": 47.41,
+        "duration": 2.025
+    },
+    {
+        "text": "is exported into pickle file.",
+        "start": 49.435,
+        "duration": 3.675
+    },
+    {
+        "text": "Basically, it's a serialized file,",
+        "start": 53.11,
+        "duration": 1.4
+    },
+    {
+        "text": "and then you can deploy it in the cloud.",
+        "start": 54.51,
+        "duration": 1.69
+    },
+    {
+        "text": ">> I see. So this is where",
+        "start": 56.2,
+        "duration": 1.85
+    },
+    {
+        "text": "because we've already looked at",
+        "start": 58.05,
+        "duration": 1.07
+    },
+    {
+        "text": "the experimentation service.",
+        "start": 59.12,
+        "duration": 1.3
+    },
+    {
+        "text": "We've already worked with the DSVM.",
+        "start": 60.42,
+        "duration": 1.66
+    },
+    {
+        "text": "Now it's time to look at",
+        "start": 62.08,
+        "duration": 1.445
+    },
+    {
+        "text": "the model management portion",
+        "start": 63.525,
+        "duration": 1.575
+    },
+    {
+        "text": "of it. Okay. All right let's dive in.",
+        "start": 65.1,
+        "duration": 1.23
+    },
+    {
+        "text": ">> So in this case,",
+        "start": 66.33,
+        "duration": 1.78
+    },
+    {
+        "text": "it's the same Jupyter Notebook you see.",
+        "start": 68.11,
+        "duration": 2.075
+    },
+    {
+        "text": "I just export that particular model as an output,",
+        "start": 70.185,
+        "duration": 3.91
+    },
+    {
+        "text": "and it's available in my assets folder.",
+        "start": 74.095,
+        "duration": 2.065
+    },
+    {
+        "text": ">> And you used pickle,",
+        "start": 76.16,
+        "duration": 1.25
+    },
+    {
+        "text": "but you can use whatever you want",
+        "start": 77.41,
+        "duration": 1.585
+    },
+    {
+        "text": "because it's just something,",
+        "start": 78.995,
+        "duration": 1.895
+    },
+    {
+        "text": "but then later you remember saying.",
+        "start": 80.89,
+        "duration": 1.915
+    },
+    {
+        "text": ">> That's right. So once you have the model,",
+        "start": 82.805,
+        "duration": 2.695
+    },
+    {
+        "text": "you would want to score it, right?",
+        "start": 85.5,
+        "duration": 1.525
+    },
+    {
+        "text": "So, essentially, what I have",
+        "start": 87.025,
+        "duration": 1.505
+    },
+    {
+        "text": "over here, it's a scoring file,",
+        "start": 88.53,
+        "duration": 1.715
+    },
+    {
+        "text": "and I tell it that, \"Okay, this is my model,",
+        "start": 90.245,
+        "duration": 2.325
+    },
+    {
+        "text": "and this is a sample dataframe.",
+        "start": 92.57,
+        "duration": 2.72
+    },
+    {
+        "text": "Now generate a JSON file.\"",
+        "start": 95.29,
+        "duration": 1.63
+    },
+    {
+        "text": "The reason you need this JSON schema",
+        "start": 96.92,
+        "duration": 1.935
+    },
+    {
+        "text": "is you can tell your Web service that,",
+        "start": 98.855,
+        "duration": 1.95
+    },
+    {
+        "text": "\"This is how I expect the input,",
+        "start": 100.805,
+        "duration": 1.805
+    },
+    {
+        "text": "and go ahead and give me the output.\"",
+        "start": 102.61,
+        "duration": 2.23
+    },
+    {
+        "text": ">> I see. So this thing right here,",
+        "start": 104.84,
+        "duration": 1.75
+    },
+    {
+        "text": "and I want to be clear, is maybe",
+        "start": 106.59,
+        "duration": 1.25
+    },
+    {
+        "text": "there's some confusion with me.",
+        "start": 107.84,
+        "duration": 2.07
+    },
+    {
+        "text": "This file is effectively like",
+        "start": 109.91,
+        "duration": 2.195
+    },
+    {
+        "text": "it will take a model that you've built,",
+        "start": 112.105,
+        "duration": 2.36
+    },
+    {
+        "text": "and it will score it or do",
+        "start": 114.465,
+        "duration": 1.415
+    },
+    {
+        "text": "the inference or do the prediction.",
+        "start": 115.88,
+        "duration": 1.535
+    },
+    {
+        "text": ">> That's right.",
+        "start": 117.415,
+        "duration": 0.435
+    },
+    {
+        "text": ">> Those are the three synonymous things.",
+        "start": 117.85,
+        "duration": 1.57
+    },
+    {
+        "text": ">> Yeah.",
+        "start": 119.42,
+        "duration": 0.275
+    },
+    {
+        "text": ">> And the way you're doing it is there's",
+        "start": 119.695,
+        "duration": 1.405
+    },
+    {
+        "text": "just a run that's going to",
+        "start": 121.1,
+        "duration": 1.56
+    },
+    {
+        "text": "take the input as expected the way you trained it.",
+        "start": 122.66,
+        "duration": 3.085
+    },
+    {
+        "text": "And then in the main, it actually",
+        "start": 125.745,
+        "duration": 1.715
+    },
+    {
+        "text": "if you run this file by itself,",
+        "start": 127.46,
+        "duration": 1.22
+    },
+    {
+        "text": "it will create like a schema that says,",
+        "start": 128.68,
+        "duration": 2.37
+    },
+    {
+        "text": "\"This is what I'm expecting.",
+        "start": 131.05,
+        "duration": 1.39
+    },
+    {
+        "text": "This is what I'm outputting.\"",
+        "start": 132.44,
+        "duration": 0.8
+    },
+    {
+        "text": ">> That's right. So once you have that,",
+        "start": 133.24,
+        "duration": 3.28
+    },
+    {
+        "text": "you will again see that file in your project assets.",
+        "start": 136.52,
+        "duration": 3.625
+    },
+    {
+        "text": "So the schema is already available over here.",
+        "start": 140.145,
+        "duration": 3.4
+    },
+    {
+        "text": "Now let's go ahead and actually create the service.",
+        "start": 143.545,
+        "duration": 4.415
+    },
+    {
+        "text": "So deploy it, right? So you remember last time,",
+        "start": 147.96,
+        "duration": 3.68
+    },
+    {
+        "text": "I had shown you that you can use the command prompt.",
+        "start": 151.64,
+        "duration": 2.59
+    },
+    {
+        "text": ">> Inference.",
+        "start": 154.23,
+        "duration": 0.32
+    },
+    {
+        "text": ">> So we go to",
+        "start": 154.55,
+        "duration": 1.15
+    },
+    {
+        "text": "the same command prompt which has the Azure demo in CLI,",
+        "start": 155.7,
+        "duration": 3.0
+    },
+    {
+        "text": "and then you actually",
+        "start": 158.7,
+        "duration": 2.235
+    },
+    {
+        "text": "give the details about",
+        "start": 160.935,
+        "duration": 2.15
+    },
+    {
+        "text": "how you want to set up your cluster.",
+        "start": 163.085,
+        "duration": 2.06
+    },
+    {
+        "text": ">> I see and what is this cluster?",
+        "start": 165.145,
+        "duration": 2.81
+    },
+    {
+        "text": "This is where we're deploying the model string.",
+        "start": 167.955,
+        "duration": 1.965
+    },
+    {
+        "text": ">> That's right.",
+        "start": 169.92,
+        "duration": 0.59
+    },
+    {
+        "text": ">> Okay.",
+        "start": 170.51,
+        "duration": 0.27
+    },
+    {
+        "text": ">> Now you have two options either,",
+        "start": 170.78,
+        "duration": 2.75
+    },
+    {
+        "text": "you could deploy it in a Kubernetes cluster",
+        "start": 173.53,
+        "duration": 2.71
+    },
+    {
+        "text": "which we created for you,",
+        "start": 176.24,
+        "duration": 1.165
+    },
+    {
+        "text": "which is managed by our container service or you could",
+        "start": 177.405,
+        "duration": 2.965
+    },
+    {
+        "text": "deploy it locally on",
+        "start": 180.37,
+        "duration": 1.05
+    },
+    {
+        "text": "your desktop if you already have Docker installed.",
+        "start": 181.42,
+        "duration": 2.215
+    },
+    {
+        "text": ">> I see okay and so what's the difference between",
+        "start": 183.635,
+        "duration": 2.775
+    },
+    {
+        "text": "this cluster that's being set up and",
+        "start": 186.41,
+        "duration": 1.63
+    },
+    {
+        "text": "the model management piece? What's the difference?",
+        "start": 188.04,
+        "duration": 2.28
+    },
+    {
+        "text": ">> So the model management,",
+        "start": 190.32,
+        "duration": 2.135
+    },
+    {
+        "text": "it's a single place where",
+        "start": 192.455,
+        "duration": 2.005
+    },
+    {
+        "text": "your earlier versions of",
+        "start": 194.46,
+        "duration": 2.23
+    },
+    {
+        "text": "the models that's stored, and I'd say-.",
+        "start": 196.69,
+        "duration": 1.11
+    },
+    {
+        "text": ">> It's just a physical model.",
+        "start": 197.8,
+        "duration": 1.23
+    },
+    {
+        "text": ">> Yes and how it is stored,",
+        "start": 199.03,
+        "duration": 2.845
+    },
+    {
+        "text": "that's where we decide that",
+        "start": 201.875,
+        "duration": 1.535
+    },
+    {
+        "text": "whether it's a cluster or it's a local deployment.",
+        "start": 203.41,
+        "duration": 2.02
+    },
+    {
+        "text": ">> I see.",
+        "start": 205.43,
+        "duration": 0.69
+    },
+    {
+        "text": ">> And it gets dragged back.",
+        "start": 206.12,
+        "duration": 1.78
+    },
+    {
+        "text": "So think of it this way,",
+        "start": 207.9,
+        "duration": 1.76
+    },
+    {
+        "text": "like you have a model in this case which we",
+        "start": 209.66,
+        "duration": 3.88
+    },
+    {
+        "text": "call it as income prediction and",
+        "start": 213.54,
+        "duration": 1.97
+    },
+    {
+        "text": "then the underlying is how,",
+        "start": 215.51,
+        "duration": 2.235
+    },
+    {
+        "text": "where is it actually running?",
+        "start": 217.745,
+        "duration": 1.67
+    },
+    {
+        "text": "It could be running locally or it could be running in",
+        "start": 219.415,
+        "duration": 2.155
+    },
+    {
+        "text": "the cluster because when you're trying it out,",
+        "start": 221.57,
+        "duration": 2.62
+    },
+    {
+        "text": "you may not want to use",
+        "start": 224.19,
+        "duration": 1.06
+    },
+    {
+        "text": "the cluster you just want to locally,",
+        "start": 225.25,
+        "duration": 2.23
+    },
+    {
+        "text": "but when you're actually putting it in production,",
+        "start": 227.48,
+        "duration": 2.18
+    },
+    {
+        "text": "you use the cluster so you can scale it out.",
+        "start": 229.66,
+        "duration": 2.03
+    },
+    {
+        "text": ">> So where does the actual model live?",
+        "start": 231.69,
+        "duration": 2.23
+    },
+    {
+        "text": "Does it live in the model management service",
+        "start": 233.92,
+        "duration": 2.44
+    },
+    {
+        "text": "or does it live in the cluster",
+        "start": 236.36,
+        "duration": 1.305
+    },
+    {
+        "text": "or is it living on your local machine?",
+        "start": 237.665,
+        "duration": 1.265
+    },
+    {
+        "text": ">> It lives in the cluster or on the local machine,",
+        "start": 238.93,
+        "duration": 2.74
+    },
+    {
+        "text": "depending on what you decide.",
+        "start": 241.67,
+        "duration": 1.17
+    },
+    {
+        "text": "In this case, we are going to decide",
+        "start": 242.84,
+        "duration": 1.33
+    },
+    {
+        "text": "the cluster. So it lives in the cluster.",
+        "start": 244.17,
+        "duration": 1.38
+    },
+    {
+        "text": ">> I see and model manager just",
+        "start": 245.55,
+        "duration": 1.28
+    },
+    {
+        "text": "keeps track of the ones that you've built.",
+        "start": 246.83,
+        "duration": 1.465
+    },
+    {
+        "text": ">> That's right.",
+        "start": 248.295,
+        "duration": 0.535
+    },
+    {
+        "text": ">> And it has information about",
+        "start": 248.83,
+        "duration": 1.38
+    },
+    {
+        "text": "that model but doesn't have",
+        "start": 250.21,
+        "duration": 1.03
+    },
+    {
+        "text": "the actual physical pickle file.",
+        "start": 251.24,
+        "duration": 1.45
+    },
+    {
+        "text": ">> No.",
+        "start": 252.69,
+        "duration": 0.17
+    },
+    {
+        "text": ">> Okay, okay.",
+        "start": 252.86,
+        "duration": 0.6
+    },
+    {
+        "text": ">> So in this case,",
+        "start": 253.46,
+        "duration": 3.43
+    },
+    {
+        "text": "the input which I'm giving is",
+        "start": 256.89,
+        "duration": 2.6
+    },
+    {
+        "text": "basically set up a particular cluster.",
+        "start": 259.49,
+        "duration": 2.505
+    },
+    {
+        "text": "In this case, this is the name of the cluster,",
+        "start": 261.995,
+        "duration": 1.84
+    },
+    {
+        "text": "the location where you want to set it up and",
+        "start": 263.835,
+        "duration": 2.47
+    },
+    {
+        "text": "this parameter dash dash cluster",
+        "start": 266.305,
+        "duration": 2.685
+    },
+    {
+        "text": "that's the magic like we do all the hard work for you.",
+        "start": 268.99,
+        "duration": 2.695
+    },
+    {
+        "text": "So essentially, what we do is we create the storage,",
+        "start": 271.685,
+        "duration": 4.345
+    },
+    {
+        "text": "we create a container registry,",
+        "start": 276.03,
+        "duration": 2.165
+    },
+    {
+        "text": "we create the Kubernetes cluster.",
+        "start": 278.195,
+        "duration": 1.955
+    },
+    {
+        "text": "Right before it we use two nodes and then we",
+        "start": 280.15,
+        "duration": 2.17
+    },
+    {
+        "text": "also create an application insights.",
+        "start": 282.32,
+        "duration": 2.19
+    },
+    {
+        "text": "Because essentially when your model is running,",
+        "start": 284.51,
+        "duration": 3.3
+    },
+    {
+        "text": "you actually want to",
+        "start": 287.81,
+        "duration": 1.57
+    },
+    {
+        "text": "use how many API calls are there in this cluster.",
+        "start": 289.38,
+        "duration": 2.36
+    },
+    {
+        "text": ">> And so if I have multiple different models,",
+        "start": 291.74,
+        "duration": 2.515
+    },
+    {
+        "text": "I can set this cluster up once and then",
+        "start": 294.255,
+        "duration": 1.745
+    },
+    {
+        "text": "push multiple models to that same cluster, is that true?",
+        "start": 296.0,
+        "duration": 2.64
+    },
+    {
+        "text": ">> Yes, you can do that.",
+        "start": 298.64,
+        "duration": 0.83
+    },
+    {
+        "text": ">> So this might be something that you do one",
+        "start": 299.47,
+        "duration": 1.97
+    },
+    {
+        "text": "time and then later you scale",
+        "start": 301.44,
+        "duration": 2.07
+    },
+    {
+        "text": "out your cluster to add",
+        "start": 303.51,
+        "duration": 1.5
+    },
+    {
+        "text": "additional nodes to run additional models.",
+        "start": 305.01,
+        "duration": 2.61
+    },
+    {
+        "text": ">> Yes.",
+        "start": 307.62,
+        "duration": 0.34
+    },
+    {
+        "text": ">> Okay cool.",
+        "start": 307.96,
+        "duration": 1.0
+    },
+    {
+        "text": ">> So once you have done that,",
+        "start": 308.96,
+        "duration": 2.81
+    },
+    {
+        "text": "you can see that okay,",
+        "start": 311.77,
+        "duration": 2.84
+    },
+    {
+        "text": "you can actually see what's the environment like.",
+        "start": 314.61,
+        "duration": 6.89
+    },
+    {
+        "text": "So in this case,",
+        "start": 321.5,
+        "duration": 2.72
+    },
+    {
+        "text": "you see that the,",
+        "start": 324.22,
+        "duration": 1.57
+    },
+    {
+        "text": "this is my clustering which you saw earlier",
+        "start": 325.79,
+        "duration": 2.18
+    },
+    {
+        "text": "when was it deployed the cluster size.",
+        "start": 327.97,
+        "duration": 2.135
+    },
+    {
+        "text": "Now we also give you an option to autoscale it.",
+        "start": 330.105,
+        "duration": 2.075
+    },
+    {
+        "text": "So based on like how much utilization",
+        "start": 332.18,
+        "duration": 2.155
+    },
+    {
+        "text": "is there, you can scale it up and down.",
+        "start": 334.335,
+        "duration": 1.295
+    },
+    {
+        "text": ">> I see and this is interesting right,",
+        "start": 335.63,
+        "duration": 2.15
+    },
+    {
+        "text": "because the model file is self-contained,",
+        "start": 337.78,
+        "duration": 2.18
+    },
+    {
+        "text": "you could actually replicate into",
+        "start": 339.96,
+        "duration": 1.51
+    },
+    {
+        "text": "several different containers that",
+        "start": 341.47,
+        "duration": 2.59
+    },
+    {
+        "text": "are running the same thing and it",
+        "start": 344.06,
+        "duration": 1.27
+    },
+    {
+        "text": "scales horizontally really well.",
+        "start": 345.33,
+        "duration": 1.475
+    },
+    {
+        "text": ">> That's right.",
+        "start": 346.805,
+        "duration": 0.43
+    },
+    {
+        "text": ">> Cool.",
+        "start": 347.235,
+        "duration": 0.275
+    },
+    {
+        "text": ">> Yeah. Once you have that particular environment setup,",
+        "start": 347.51,
+        "duration": 6.945
+    },
+    {
+        "text": "you actually with just one line,",
+        "start": 354.455,
+        "duration": 2.065
+    },
+    {
+        "text": "you can actually create the,",
+        "start": 356.52,
+        "duration": 1.945
+    },
+    {
+        "text": "so here what I am giving here it's,",
+        "start": 358.465,
+        "duration": 4.205
+    },
+    {
+        "text": "I'm telling it that okay.",
+        "start": 362.67,
+        "duration": 1.445
+    },
+    {
+        "text": "You remember the scoring file we did?",
+        "start": 364.115,
+        "duration": 1.615
+    },
+    {
+        "text": ">> That's right.",
+        "start": 365.73,
+        "duration": 0.39
+    },
+    {
+        "text": ">> Yeah. So, that's the file",
+        "start": 366.12,
+        "duration": 1.77
+    },
+    {
+        "text": "and this is the model which we",
+        "start": 367.89,
+        "duration": 1.5
+    },
+    {
+        "text": "created and then the decent",
+        "start": 369.39,
+        "duration": 1.85
+    },
+    {
+        "text": "schema which was output of that scoring file, right?",
+        "start": 371.24,
+        "duration": 2.935
+    },
+    {
+        "text": "And then this is the name of the application.",
+        "start": 374.175,
+        "duration": 1.8
+    },
+    {
+        "text": "So I'm just calling it a simple name.",
+        "start": 375.975,
+        "duration": 1.65
+    },
+    {
+        "text": "It's a Python-based stuff and then the conda file.",
+        "start": 377.625,
+        "duration": 3.475
+    },
+    {
+        "text": ">> Which we saw in a couple of videos before and",
+        "start": 381.1,
+        "duration": 2.06
+    },
+    {
+        "text": "it's interesting right because when",
+        "start": 383.16,
+        "duration": 1.1
+    },
+    {
+        "text": "I'm looking at this you have,",
+        "start": 384.26,
+        "duration": 1.37
+    },
+    {
+        "text": "these three files to define the service,",
+        "start": 385.63,
+        "duration": 2.245
+    },
+    {
+        "text": "how to run the inferencing?",
+        "start": 387.875,
+        "duration": 1.32
+    },
+    {
+        "text": "What you're running the inferencing on?",
+        "start": 389.195,
+        "duration": 1.365
+    },
+    {
+        "text": "And what the shape of the actual inferencing model is?",
+        "start": 390.56,
+        "duration": 2.595
+    },
+    {
+        "text": ">> Yes.",
+        "start": 393.155,
+        "duration": 0.6
+    },
+    {
+        "text": ">> And then it just sets up and sort of thing.",
+        "start": 393.755,
+        "duration": 1.765
+    },
+    {
+        "text": ">> Yeah so it's like one command",
+        "start": 395.52,
+        "duration": 1.46
+    },
+    {
+        "text": "and it can take like 5-10 minutes,",
+        "start": 396.98,
+        "duration": 1.915
+    },
+    {
+        "text": "but it will do everything for you.",
+        "start": 398.895,
+        "duration": 1.615
+    },
+    {
+        "text": "So the output of this is",
+        "start": 400.51,
+        "duration": 1.6
+    },
+    {
+        "text": "essentially a service which is now running in",
+        "start": 402.11,
+        "duration": 2.39
+    },
+    {
+        "text": "that cluster and there will be",
+        "start": 404.5,
+        "duration": 2.2
+    },
+    {
+        "text": "an HTTP URL which you can call in your application.",
+        "start": 406.7,
+        "duration": 2.625
+    },
+    {
+        "text": ">> I see and can you show us a little",
+        "start": 409.325,
+        "duration": 2.405
+    },
+    {
+        "text": "bit like because my guess is",
+        "start": 411.73,
+        "duration": 2.36
+    },
+    {
+        "text": "that this is like almost we're making",
+        "start": 414.09,
+        "duration": 1.67
+    },
+    {
+        "text": "our own cognitive services with our own custom model.",
+        "start": 415.76,
+        "duration": 2.98
+    },
+    {
+        "text": ">> Yes.",
+        "start": 418.74,
+        "duration": 0.7
+    },
+    {
+        "text": ">> Is there like a rest end point?",
+        "start": 419.44,
+        "duration": 1.95
+    },
+    {
+        "text": "How can we see what available calls there are?",
+        "start": 421.39,
+        "duration": 2.43
+    },
+    {
+        "text": ">> Yeah perfect. So actually,",
+        "start": 423.82,
+        "duration": 2.23
+    },
+    {
+        "text": "we show you all the options which are available.",
+        "start": 426.05,
+        "duration": 2.725
+    },
+    {
+        "text": "So there is a usage command and this is",
+        "start": 428.775,
+        "duration": 2.335
+    },
+    {
+        "text": "my deployed model which is just going to run that.",
+        "start": 431.11,
+        "duration": 4.895
+    },
+    {
+        "text": "So the output of the command is",
+        "start": 436.005,
+        "duration": 3.485
+    },
+    {
+        "text": "essentially telling you how many ways you can call that.",
+        "start": 439.49,
+        "duration": 2.28
+    },
+    {
+        "text": "So this is the IP address of the container which is",
+        "start": 441.77,
+        "duration": 2.43
+    },
+    {
+        "text": "deployed in Azure right now.",
+        "start": 444.2,
+        "duration": 2.83
+    },
+    {
+        "text": "This is the way like how you call the header and",
+        "start": 447.03,
+        "duration": 3.06
+    },
+    {
+        "text": "we believe in security as you know, right?",
+        "start": 450.09,
+        "duration": 3.405
+    },
+    {
+        "text": "So essentially, there are",
+        "start": 453.495,
+        "duration": 1.68
+    },
+    {
+        "text": "authentication keys which you need to",
+        "start": 455.175,
+        "duration": 1.525
+    },
+    {
+        "text": "generate the first time which you will",
+        "start": 456.7,
+        "duration": 1.87
+    },
+    {
+        "text": "use in your code when you're calling this API.",
+        "start": 458.57,
+        "duration": 1.9
+    },
+    {
+        "text": ">> And effectively when you're doing a GET or a POST",
+        "start": 460.47,
+        "duration": 2.49
+    },
+    {
+        "text": "I think you just add in the header or bearer token.",
+        "start": 462.96,
+        "duration": 2.72
+    },
+    {
+        "text": ">> That's right.",
+        "start": 465.68,
+        "duration": 0.63
+    },
+    {
+        "text": ">> And you get that by running this particular command?",
+        "start": 466.31,
+        "duration": 2.42
+    },
+    {
+        "text": ">> That's right, that's right.",
+        "start": 468.73,
+        "duration": 0.9
+    },
+    {
+        "text": ">> Cool.",
+        "start": 469.63,
+        "duration": 0.27
+    },
+    {
+        "text": ">> And the other way is,",
+        "start": 469.9,
+        "duration": 1.27
+    },
+    {
+        "text": "you can even call this application using",
+        "start": 471.17,
+        "duration": 2.11
+    },
+    {
+        "text": "the CLI or PowerShell or any other way you would like.",
+        "start": 473.28,
+        "duration": 3.62
+    },
+    {
+        "text": "We give you a sample output over here.",
+        "start": 476.9,
+        "duration": 1.59
+    },
+    {
+        "text": ">> And so if I want to run this right now I just run",
+        "start": 478.49,
+        "duration": 2.575
+    },
+    {
+        "text": "this top command right here and it",
+        "start": 481.065,
+        "duration": 1.835
+    },
+    {
+        "text": "even gives you sort of shape of what it is.",
+        "start": 482.9,
+        "duration": 2.04
+    },
+    {
+        "text": ">> That's right. So in fact,",
+        "start": 484.94,
+        "duration": 1.155
+    },
+    {
+        "text": "why don't we go ahead and try this in",
+        "start": 486.095,
+        "duration": 1.705
+    },
+    {
+        "text": "the CLI and then I'll show you how to call HTTPS one.",
+        "start": 487.8,
+        "duration": 4.16
+    },
+    {
+        "text": ">> So it looks like false?",
+        "start": 499.83,
+        "duration": 2.575
+    },
+    {
+        "text": ">> Yes, that's right. So the income is",
+        "start": 502.405,
+        "duration": 1.705
+    },
+    {
+        "text": "less than 50K for this particular person.",
+        "start": 504.11,
+        "duration": 2.75
+    },
+    {
+        "text": ">> That's fantastic and",
+        "start": 506.86,
+        "duration": 1.66
+    },
+    {
+        "text": "because of the way that it's formed you can actually",
+        "start": 508.52,
+        "duration": 2.54
+    },
+    {
+        "text": "return maybe even a confidence for or a tuple of",
+        "start": 511.06,
+        "duration": 3.17
+    },
+    {
+        "text": "something else or you can return anything",
+        "start": 514.23,
+        "duration": 1.85
+    },
+    {
+        "text": "you want and that way you can have more,",
+        "start": 516.08,
+        "duration": 1.86
+    },
+    {
+        "text": "but this is an easy way to show it as well.",
+        "start": 517.94,
+        "duration": 1.85
+    },
+    {
+        "text": ">> That's right. You're right. So, depending",
+        "start": 519.79,
+        "duration": 1.99
+    },
+    {
+        "text": "on the machine learning experiment,",
+        "start": 521.78,
+        "duration": 1.38
+    },
+    {
+        "text": "the way you have set it and output, you can do that.",
+        "start": 523.16,
+        "duration": 2.055
+    },
+    {
+        "text": ">> Fantastic. Well, what else you've got to show?",
+        "start": 525.215,
+        "duration": 1.785
+    },
+    {
+        "text": "We've gone through like soup to nuts almost.",
+        "start": 527.0,
+        "duration": 1.78
+    },
+    {
+        "text": ">> Yeah. So one last thing I think",
+        "start": 528.78,
+        "duration": 1.95
+    },
+    {
+        "text": "probably I can show is the HTTP-API.",
+        "start": 530.73,
+        "duration": 1.95
+    },
+    {
+        "text": ">> Oh of course, let's take a look at that.",
+        "start": 532.68,
+        "duration": 1.81
+    },
+    {
+        "text": ">> So again because I already",
+        "start": 534.49,
+        "duration": 2.77
+    },
+    {
+        "text": "have the Python environment in my ML Workbench,",
+        "start": 537.26,
+        "duration": 2.93
+    },
+    {
+        "text": "I'm just going to call my Python code.",
+        "start": 540.19,
+        "duration": 4.515
+    },
+    {
+        "text": "So in this case, I'm providing the URL which you",
+        "start": 544.705,
+        "duration": 3.27
+    },
+    {
+        "text": "saw earlier the API key and then I'm just passing it,",
+        "start": 547.975,
+        "duration": 3.94
+    },
+    {
+        "text": "and I can run it over here. When it's running,",
+        "start": 551.915,
+        "duration": 4.725
+    },
+    {
+        "text": "so what I did was essentially gave an input DataFrame",
+        "start": 562.92,
+        "duration": 5.025
+    },
+    {
+        "text": "and to that URL and then asked my workbench to run it,",
+        "start": 567.945,
+        "duration": 4.055
+    },
+    {
+        "text": "but you could run it outside in command prompt anyway.",
+        "start": 572.0,
+        "duration": 2.2
+    },
+    {
+        "text": ">> Sure.",
+        "start": 574.2,
+        "duration": 0.18
+    },
+    {
+        "text": ">> And then I'm doing a print output.",
+        "start": 574.38,
+        "duration": 2.92
+    },
+    {
+        "text": "So essentially, in this case,",
+        "start": 577.3,
+        "duration": 2.095
+    },
+    {
+        "text": "it was a different person and it's",
+        "start": 579.395,
+        "duration": 1.625
+    },
+    {
+        "text": "telling me that income is greater than 50,000.",
+        "start": 581.02,
+        "duration": 1.88
+    },
+    {
+        "text": ">> And this I mean, if you're looking",
+        "start": 582.9,
+        "duration": 1.19
+    },
+    {
+        "text": "at this Python code this is",
+        "start": 584.09,
+        "duration": 1.23
+    },
+    {
+        "text": "just any kind of HTTP call via C# dev,",
+        "start": 585.32,
+        "duration": 2.49
+    },
+    {
+        "text": "and just an easy call.",
+        "start": 587.81,
+        "duration": 1.525
+    },
+    {
+        "text": "You're doing a Ruby call or JSON call or JavaScript call,",
+        "start": 589.335,
+        "duration": 3.485
+    },
+    {
+        "text": "it's just a GET command that",
+        "start": 592.82,
+        "duration": 1.56
+    },
+    {
+        "text": "you're doing a but you're",
+        "start": 594.38,
+        "duration": 0.65
+    },
+    {
+        "text": "passing in some headers with it.",
+        "start": 595.03,
+        "duration": 1.05
+    },
+    {
+        "text": ">> That's right and we give you",
+        "start": 596.08,
+        "duration": 1.31
+    },
+    {
+        "text": "some sample examples on our documentation site,",
+        "start": 597.39,
+        "duration": 2.355
+    },
+    {
+        "text": "where you can know how to call it extra.",
+        "start": 599.745,
+        "duration": 1.655
+    },
+    {
+        "text": ">> Fantastic. Okay so I think we've gone from",
+        "start": 601.4,
+        "duration": 2.785
+    },
+    {
+        "text": "overview all the way to",
+        "start": 604.185,
+        "duration": 2.575
+    },
+    {
+        "text": "actually operationalizing a particular model.",
+        "start": 606.76,
+        "duration": 3.27
+    },
+    {
+        "text": "You've got it. Why don't we go",
+        "start": 610.03,
+        "duration": 1.38
+    },
+    {
+        "text": "through just a quick overview,",
+        "start": 611.41,
+        "duration": 1.43
+    },
+    {
+        "text": "just to summarize what we did?",
+        "start": 612.84,
+        "duration": 1.44
+    },
+    {
+        "text": ">> Okay perfect and in fact I",
+        "start": 614.28,
+        "duration": 1.86
+    },
+    {
+        "text": "can show you visually how, what we are doing.",
+        "start": 616.14,
+        "duration": 2.05
+    },
+    {
+        "text": "So here what we did was we brought in,",
+        "start": 618.19,
+        "duration": 5.03
+    },
+    {
+        "text": "the goal as you know,",
+        "start": 623.22,
+        "duration": 1.55
+    },
+    {
+        "text": "it's to actually predict the income of a person",
+        "start": 624.77,
+        "duration": 2.09
+    },
+    {
+        "text": "given a set of demographic data.",
+        "start": 626.86,
+        "duration": 2.82
+    },
+    {
+        "text": "So we have stored this data in",
+        "start": 629.68,
+        "duration": 2.69
+    },
+    {
+        "text": "Azure Blob storage and then we",
+        "start": 632.37,
+        "duration": 2.145
+    },
+    {
+        "text": "used Azure Machine Learning workbench in",
+        "start": 634.515,
+        "duration": 2.905
+    },
+    {
+        "text": "order to create this experiment then we created",
+        "start": 637.42,
+        "duration": 3.93
+    },
+    {
+        "text": "a machine learning model which we",
+        "start": 641.35,
+        "duration": 2.14
+    },
+    {
+        "text": "exported as a pickle file or it could be any other file,",
+        "start": 643.49,
+        "duration": 2.665
+    },
+    {
+        "text": "and then we deployed it in the cloud.",
+        "start": 646.155,
+        "duration": 1.73
+    },
+    {
+        "text": "For the experimentation itself,",
+        "start": 647.885,
+        "duration": 1.665
+    },
+    {
+        "text": "we use a data science virtual machine which we",
+        "start": 649.55,
+        "duration": 2.44
+    },
+    {
+        "text": "associated it with the notebooks within workbench.",
+        "start": 651.99,
+        "duration": 3.64
+    },
+    {
+        "text": "Now you could use",
+        "start": 655.63,
+        "duration": 2.26
+    },
+    {
+        "text": "actually Insight or things",
+        "start": 657.89,
+        "duration": 2.485
+    },
+    {
+        "text": "like that but that's how it works.",
+        "start": 660.375,
+        "duration": 2.03
+    },
+    {
+        "text": "And then for the deployment,",
+        "start": 662.405,
+        "duration": 2.595
+    },
+    {
+        "text": "again because it's dockerized we use",
+        "start": 665.0,
+        "duration": 2.91
+    },
+    {
+        "text": "the Azure Container Service of Kubernetes based cluster,",
+        "start": 667.91,
+        "duration": 3.025
+    },
+    {
+        "text": "but you could even use local or you could even",
+        "start": 670.935,
+        "duration": 2.695
+    },
+    {
+        "text": "deploy it in IoT Edge or",
+        "start": 673.63,
+        "duration": 1.11
+    },
+    {
+        "text": "things like that, or the SQL Server.",
+        "start": 674.74,
+        "duration": 1.59
+    },
+    {
+        "text": ">> I mean, it's pretty amazing.",
+        "start": 676.33,
+        "duration": 1.37
+    },
+    {
+        "text": "I know it's been a couple of videos,",
+        "start": 677.7,
+        "duration": 1.585
+    },
+    {
+        "text": "but we went through really fast",
+        "start": 679.285,
+        "duration": 1.74
+    },
+    {
+        "text": "data science process where we are probably",
+        "start": 681.025,
+        "duration": 1.735
+    },
+    {
+        "text": "going to spent the most time in the experimentation area.",
+        "start": 682.76,
+        "duration": 3.67
+    },
+    {
+        "text": "Trying to make sure things work with Dataprep,",
+        "start": 686.43,
+        "duration": 2.0
+    },
+    {
+        "text": "et cetera, and then obviously,",
+        "start": 688.43,
+        "duration": 2.045
+    },
+    {
+        "text": "like some of these commands we",
+        "start": 690.475,
+        "duration": 1.14
+    },
+    {
+        "text": "made it go a little bit faster,",
+        "start": 691.615,
+        "duration": 1.665
+    },
+    {
+        "text": "but it takes a while to create cluster.",
+        "start": 693.28,
+        "duration": 1.86
+    },
+    {
+        "text": "So why don't you give some expectations",
+        "start": 695.14,
+        "duration": 1.86
+    },
+    {
+        "text": "on how long some of these things might take?",
+        "start": 697.0,
+        "duration": 1.33
+    },
+    {
+        "text": ">> Sure. So that's a good point.",
+        "start": 698.33,
+        "duration": 1.13
+    },
+    {
+        "text": "So the first thing is creation of",
+        "start": 699.46,
+        "duration": 1.81
+    },
+    {
+        "text": "the data science Virtual Machine itself,",
+        "start": 701.27,
+        "duration": 1.9
+    },
+    {
+        "text": "it can take up to five minutes depending on what it is.",
+        "start": 703.17,
+        "duration": 3.38
+    },
+    {
+        "text": "Again time can vary so that is one part.",
+        "start": 706.55,
+        "duration": 2.915
+    },
+    {
+        "text": "The second thing is the cluster deployment essentially,",
+        "start": 709.465,
+        "duration": 5.13
+    },
+    {
+        "text": "so it can take up to 20 minutes because we",
+        "start": 714.595,
+        "duration": 2.985
+    },
+    {
+        "text": "are creating the entire environment for your storage.",
+        "start": 717.58,
+        "duration": 3.01
+    },
+    {
+        "text": ">> You're making is essentially like a whole,",
+        "start": 720.59,
+        "duration": 2.78
+    },
+    {
+        "text": "back in the day we used to have these buildings with",
+        "start": 723.37,
+        "duration": 2.54
+    },
+    {
+        "text": "all these computers that we'd have to like install stuff,",
+        "start": 725.91,
+        "duration": 2.19
+    },
+    {
+        "text": "you're literally creating a data center.",
+        "start": 728.1,
+        "duration": 1.83
+    },
+    {
+        "text": "A mini data center for this.",
+        "start": 729.93,
+        "duration": 1.42
+    },
+    {
+        "text": ">> That's right and we also",
+        "start": 731.35,
+        "duration": 1.78
+    },
+    {
+        "text": "associate scaling capability and",
+        "start": 733.13,
+        "duration": 2.82
+    },
+    {
+        "text": "insights so that can take up to 20 minutes.",
+        "start": 735.95,
+        "duration": 2.46
+    },
+    {
+        "text": "The other time-consuming thing could",
+        "start": 738.41,
+        "duration": 2.01
+    },
+    {
+        "text": "be the creation of the Docker image itself.",
+        "start": 740.42,
+        "duration": 1.97
+    },
+    {
+        "text": "So, as you remember we associated",
+        "start": 742.39,
+        "duration": 2.12
+    },
+    {
+        "text": "that virtual machine with our notebooks experience.",
+        "start": 744.51,
+        "duration": 3.55
+    },
+    {
+        "text": "So we're there, we're actually creating a Docker image,",
+        "start": 748.06,
+        "duration": 2.13
+    },
+    {
+        "text": "so that can take 5-10 minutes as well.",
+        "start": 750.19,
+        "duration": 1.7
+    },
+    {
+        "text": ">> But once you do these things one",
+        "start": 751.89,
+        "duration": 1.63
+    },
+    {
+        "text": "time usually it's pretty fast.",
+        "start": 753.52,
+        "duration": 1.67
+    },
+    {
+        "text": ">> Yeah. It's pretty fast.",
+        "start": 755.19,
+        "duration": 1.03
+    },
+    {
+        "text": ">> Because I imagine that you're not going to be creating",
+        "start": 756.22,
+        "duration": 1.75
+    },
+    {
+        "text": "a cluster for each model that you're going to put out.",
+        "start": 757.97,
+        "duration": 2.745
+    },
+    {
+        "text": "I also imagine that you may have multiple VMs,",
+        "start": 760.715,
+        "duration": 3.62
+    },
+    {
+        "text": "but not very many",
+        "start": 764.335,
+        "duration": 1.365
+    },
+    {
+        "text": "and once they're started they're good to go.",
+        "start": 765.7,
+        "duration": 1.64
+    },
+    {
+        "text": "And then creating these things once sets everything up.",
+        "start": 767.34,
+        "duration": 3.165
+    },
+    {
+        "text": ">> Yeah, and the other thing is also the pricing,",
+        "start": 770.505,
+        "duration": 2.325
+    },
+    {
+        "text": "like you can control how",
+        "start": 772.83,
+        "duration": 1.33
+    },
+    {
+        "text": "much you are charged because now you can",
+        "start": 774.16,
+        "duration": 1.38
+    },
+    {
+        "text": "stop those virtual machines",
+        "start": 775.54,
+        "duration": 1.62
+    },
+    {
+        "text": "or stop the cluster when you are not using.",
+        "start": 777.16,
+        "duration": 1.45
+    },
+    {
+        "text": ">> Fantastic.",
+        "start": 778.61,
+        "duration": 1.1
+    },
+    {
+        "text": "All right so where can people go to find out more?",
+        "start": 779.71,
+        "duration": 2.0
+    },
+    {
+        "text": ">> So I have the link over here on the slide",
+        "start": 781.71,
+        "duration": 3.115
+    },
+    {
+        "text": "and essentially we walk you through starting videos,",
+        "start": 784.825,
+        "duration": 3.665
+    },
+    {
+        "text": "whatever we described in this video series.",
+        "start": 788.49,
+        "duration": 1.97
+    },
+    {
+        "text": "So the setup part,",
+        "start": 790.46,
+        "duration": 1.04
+    },
+    {
+        "text": "how to run your experiments,",
+        "start": 791.5,
+        "duration": 1.165
+    },
+    {
+        "text": "how to deploy it and",
+        "start": 792.665,
+        "duration": 0.795
+    },
+    {
+        "text": "everything you need to know it's all in there.",
+        "start": 793.46,
+        "duration": 1.1
+    },
+    {
+        "text": ">> Awesome. Well, thanks so much for",
+        "start": 794.56,
+        "duration": 1.62
+    },
+    {
+        "text": "this whirlwind tour of",
+        "start": 796.18,
+        "duration": 1.09
+    },
+    {
+        "text": "the Azure Machine Learning Services.",
+        "start": 797.27,
+        "duration": 1.35
+    },
+    {
+        "text": "There's a lot to enjoy and to use.",
+        "start": 798.62,
+        "duration": 1.71
+    },
+    {
+        "text": "Make sure you check it out, we'll put links below.",
+        "start": 800.33,
+        "duration": 1.84
+    },
+    {
+        "text": "Thanks for watching and we'll see you next time.",
+        "start": 802.17,
+        "duration": 1.555
+    },
+    {
+        "text": "Take care.",
+        "start": 803.725,
+        "duration": 0.315
+    },
+    {
+        "text": ">> Thank you very much. Yeah.",
+        "start": 804.04,
+        "duration": 4.03
+    }
+]

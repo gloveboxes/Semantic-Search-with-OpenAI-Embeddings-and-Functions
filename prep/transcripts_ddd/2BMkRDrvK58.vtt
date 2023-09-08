@@ -1,0 +1,1427 @@
+WEBVTT
+
+00:00:04.090 --> 00:00:10.149
+Caption: all right good morning everyone welcome
+
+00:00:06.670 --> 00:00:12.520
+Caption: to the first session for Triple D Perth
+
+00:00:10.149 --> 00:00:14.109
+Caption: I&#39;m not going to give too much of an
+
+00:00:12.520 --> 00:00:28.569
+Caption: intro I&#39;ll just hand you straight over
+
+00:00:14.109 --> 00:00:30.368
+Caption: to our speaker matrixes so firstly
+
+00:00:28.569 --> 00:00:32.049
+Caption: thanks to our sponsors they&#39;re
+
+00:00:30.368 --> 00:00:32.470
+Caption: volunteers without that today wouldn&#39;t
+
+00:00:32.049 --> 00:00:34.959
+Caption: happen
+
+00:00:32.470 --> 00:00:39.090
+Caption: and particularly Bank west where I do my
+
+00:00:34.959 --> 00:00:42.579
+Caption: day job and by night I might do a matrix
+
+00:00:39.090 --> 00:00:44.439
+Caption: so the background dependency injection
+
+00:00:42.580 --> 00:00:46.470
+Caption: like well most people should probably
+
+00:00:44.439 --> 00:00:48.519
+Caption: know what that is in this room I hope
+
+00:00:46.470 --> 00:00:51.569
+Caption: we&#39;re effectively just taking a
+
+00:00:48.520 --> 00:00:53.650
+Caption: parameter here injecting in there and
+
+00:00:51.569 --> 00:00:55.450
+Caption: kind of that allows us to put in
+
+00:00:53.650 --> 00:00:56.980
+Caption: different implementations and bits and
+
+00:00:55.450 --> 00:00:59.740
+Caption: pieces and you know we can start
+
+00:00:56.979 --> 00:01:01.209
+Caption: managing our dependencies and wiring it
+
+00:00:59.740 --> 00:01:02.740
+Caption: all up and then we kind of all agree on
+
+00:01:01.209 --> 00:01:04.118
+Caption: that&#39;s dependency injection you can&#39;t do
+
+00:01:02.740 --> 00:01:06.250
+Caption: it in spring unity various other
+
+00:01:04.119 --> 00:01:08.200
+Caption: frameworks and so forth might disagree
+
+00:01:06.250 --> 00:01:10.559
+Caption: about constructor or field injection but
+
+00:01:08.199 --> 00:01:12.959
+Caption: you know we can have healthy debates
+
+00:01:10.559 --> 00:01:17.438
+Caption: then we get to inversion of control
+
+00:01:12.959 --> 00:01:21.728
+Caption: website well what&#39;s this thing it&#39;s got
+
+00:01:17.439 --> 00:01:23.619
+Caption: principles it&#39;s this but something to do
+
+00:01:21.728 --> 00:01:26.199
+Caption: with flows something to do with abstract
+
+00:01:23.619 --> 00:01:27.579
+Caption: not talking to details if you actually
+
+00:01:26.199 --> 00:01:29.349
+Caption: read the Stack Overflow about trying to
+
+00:01:27.579 --> 00:01:30.579
+Caption: answer what it is there&#39;s arguments and
+
+00:01:29.349 --> 00:01:33.249
+Caption: really it&#39;s actually explaining
+
+00:01:30.579 --> 00:01:34.119
+Caption: dependency injection so when I come to
+
+00:01:33.249 --> 00:01:35.379
+Caption: inversion control
+
+00:01:34.119 --> 00:01:41.409
+Caption: I actually asked the prints question
+
+00:01:35.379 --> 00:01:42.758
+Caption: control of what so this is where I&#39;m
+
+00:01:41.408 --> 00:01:44.978
+Caption: gonna start saying this is something
+
+00:01:42.759 --> 00:01:49.659
+Caption: that was before your eyes and I&#39;ve
+
+00:01:44.978 --> 00:01:50.888
+Caption: already shown you the Oh a matrix so
+
+00:01:49.658 --> 00:01:52.538
+Caption: this is the last chance is the
+
+00:01:50.888 --> 00:01:54.609
+Caption: opportunity I&#39;m giving you the red pill
+
+00:01:52.539 --> 00:01:57.549
+Caption: last chance to walk out you&#39;re not gonna
+
+00:01:54.609 --> 00:02:00.419
+Caption: be able to unsee this so to make it
+
+00:01:57.549 --> 00:02:03.700
+Caption: easier for you to see what&#39;s going on
+
+00:02:00.419 --> 00:02:06.519
+Caption: there be a fear of the 500 matrix
+
+00:02:03.699 --> 00:02:09.059
+Caption: problems on the screen one of them is
+
+00:02:06.519 --> 00:02:09.059
+Caption: being solved
+
+00:02:12.479 --> 00:02:18.580
+Caption: what dependency injection actually
+
+00:02:15.070 --> 00:02:20.830
+Caption: solved is it remove the parameters for
+
+00:02:18.580 --> 00:02:22.809
+Caption: the caller there&#39;s no longer need to be
+
+00:02:20.830 --> 00:02:26.139
+Caption: provided by the caller they&#39;re injected
+
+00:02:22.809 --> 00:02:28.419
+Caption: in I don&#39;t now need to provide those
+
+00:02:26.139 --> 00:02:30.429
+Caption: parameters it&#39;s much much looser
+
+00:02:28.419 --> 00:02:32.199
+Caption: coupling I don&#39;t have to provide those
+
+00:02:30.429 --> 00:02:33.639
+Caption: details from the caller and I have to
+
+00:02:32.199 --> 00:02:35.020
+Caption: have you know this might be called from
+
+00:02:33.639 --> 00:02:37.179
+Caption: a hundred different places I don&#39;t have
+
+00:02:35.020 --> 00:02:43.930
+Caption: to provide that anymore that coupling is
+
+00:02:37.179 --> 00:02:47.559
+Caption: actually gone however what about the
+
+00:02:43.929 --> 00:02:49.989
+Caption: rest of the method what about the return
+
+00:02:47.559 --> 00:02:51.880
+Caption: type the method name the exceptions the
+
+00:02:49.990 --> 00:02:54.730
+Caption: executing method is doing executing
+
+00:02:51.880 --> 00:02:56.650
+Caption: thread when we actually look at the
+
+00:02:54.729 --> 00:02:59.979
+Caption: method there are actually five aspects
+
+00:02:56.649 --> 00:03:01.750
+Caption: of coupling to it any changing any one
+
+00:02:59.979 --> 00:03:03.339
+Caption: of these means you have to change all
+
+00:03:01.750 --> 00:03:04.809
+Caption: your calls or your client calls have
+
+00:03:03.339 --> 00:03:06.429
+Caption: change now think about oh yeah that&#39;s
+
+00:03:04.809 --> 00:03:08.550
+Caption: okay and my little method in my little
+
+00:03:06.429 --> 00:03:10.569
+Caption: class and doing my bits and pieces but
+
+00:03:08.550 --> 00:03:13.210
+Caption: if I&#39;m writing a library
+
+00:03:10.570 --> 00:03:15.520
+Caption: I&#39;m writing an API and I have to change
+
+00:03:13.210 --> 00:03:18.430
+Caption: one of those things I have to change it
+
+00:03:15.520 --> 00:03:22.238
+Caption: everywhere every call to it has to
+
+00:03:18.429 --> 00:03:23.769
+Caption: change so what we tend to do is we keep
+
+00:03:22.238 --> 00:03:25.600
+Caption: focusing on the method we keep trying to
+
+00:03:23.770 --> 00:03:27.520
+Caption: dress it up we keep trying to do
+
+00:03:25.600 --> 00:03:29.200
+Caption: different things dude we put a new dress
+
+00:03:27.520 --> 00:03:30.880
+Caption: on it make it look good we put reactive
+
+00:03:29.199 --> 00:03:32.649
+Caption: styles on it we do all these things but
+
+00:03:30.880 --> 00:03:35.708
+Caption: call a couplings just sitting there the
+
+00:03:32.649 --> 00:03:37.269
+Caption: whole time we kind of focus on one of
+
+00:03:35.708 --> 00:03:41.550
+Caption: those elements but we don&#39;t focus on all
+
+00:03:37.270 --> 00:03:43.930
+Caption: five so if we come back to what oh-hoh
+
+00:03:41.550 --> 00:03:46.540
+Caption: originally was if you go back to Alan
+
+00:03:43.929 --> 00:03:50.469
+Caption: Kay who actually coined the term object
+
+00:03:46.539 --> 00:03:51.909
+Caption: orientation well he&#39;s actually kind of
+
+00:03:50.470 --> 00:03:53.619
+Caption: upset that he called it object
+
+00:03:51.910 --> 00:03:58.779
+Caption: orientation because the focus was on
+
+00:03:53.619 --> 00:04:00.250
+Caption: messaging it wasn&#39;t on objects so that&#39;s
+
+00:03:58.779 --> 00:04:03.130
+Caption: what we kind of think of when we see Oh
+
+00:04:00.250 --> 00:04:06.669
+Caption: Oh lovely bubbles and lines between it
+
+00:04:03.130 --> 00:04:10.389
+Caption: and stuff like that but if our
+
+00:04:06.669 --> 00:04:12.819
+Caption: mainstream oo is using methods to get
+
+00:04:10.389 --> 00:04:15.458
+Caption: these objects to talk these methods have
+
+00:04:12.820 --> 00:04:16.839
+Caption: five different coupling points different
+
+00:04:15.458 --> 00:04:18.729
+Caption: number of parameters different number of
+
+00:04:16.839 --> 00:04:20.260
+Caption: exceptions all those coupling methods
+
+00:04:18.729 --> 00:04:23.050
+Caption: look different they&#39;re shaped different
+
+00:04:20.260 --> 00:04:24.400
+Caption: they look more like connecting jigsaw
+
+00:04:23.049 --> 00:04:27.039
+Caption: piece puzzles
+
+00:04:24.399 --> 00:04:36.619
+Caption: so when we actually look at mainstream
+
+00:04:27.040 --> 00:04:39.740
+Caption: that&#39;s what we get 400 rigid you can&#39;t
+
+00:04:36.619 --> 00:04:42.019
+Caption: move why haven&#39;t we been successful be
+
+00:04:39.739 --> 00:04:43.339
+Caption: able to move an object between different
+
+00:04:42.019 --> 00:04:44.690
+Caption: applications well it&#39;s like taking a
+
+00:04:43.339 --> 00:04:46.010
+Caption: jigsaw piece and trying to use it in
+
+00:04:44.690 --> 00:04:47.299
+Caption: different jigsaw pieces to complete it
+
+00:04:46.010 --> 00:04:49.070
+Caption: doesn&#39;t work
+
+00:04:47.299 --> 00:04:50.599
+Caption: why is refactoring so hard you have to
+
+00:04:49.070 --> 00:04:53.720
+Caption: move all these jigsaw pieces around and
+
+00:04:50.600 --> 00:04:55.279
+Caption: so forth it it&#39;s difficult it&#39;s rigid
+
+00:04:53.720 --> 00:05:00.100
+Caption: it&#39;s not this lovely graph but we&#39;ve
+
+00:04:55.279 --> 00:05:00.100
+Caption: actually kind of come to believe it was
+
+00:05:04.649 --> 00:05:10.389
+Caption: and even that concept what do we need
+
+00:05:07.750 --> 00:05:13.630
+Caption: that so let&#39;s start looking at
+
+00:05:10.390 --> 00:05:15.310
+Caption: unplugging you from the yellow matrix so
+
+00:05:13.630 --> 00:05:18.399
+Caption: the first thing let&#39;s get rid of the
+
+00:05:15.309 --> 00:05:20.320
+Caption: name we just use a lambda lambda unnamed
+
+00:05:18.399 --> 00:05:23.440
+Caption: function right we just wrap it up sweet
+
+00:05:20.320 --> 00:05:25.929
+Caption: that&#39;s pretty simple that&#39;s done right I
+
+00:05:23.440 --> 00:05:27.820
+Caption: can change the name now to that method
+
+00:05:25.929 --> 00:05:29.139
+Caption: and all my callers just don&#39;t need to
+
+00:05:27.820 --> 00:05:32.160
+Caption: know the name we could just change under
+
+00:05:29.140 --> 00:05:34.510
+Caption: the hood that&#39;s pretty cool
+
+00:05:32.160 --> 00:05:39.850
+Caption: so we&#39;ve kind of got rid of one of the
+
+00:05:34.510 --> 00:05:42.460
+Caption: problems but it&#39;s still a couple F so
+
+00:05:39.850 --> 00:05:46.149
+Caption: let&#39;s tackle the exception well we can
+
+00:05:42.459 --> 00:05:47.529
+Caption: just inject handlers for every exception
+
+00:05:46.149 --> 00:05:52.839
+Caption: that method throws inject a handler for
+
+00:05:47.529 --> 00:05:53.859
+Caption: a pretty simple code now my methods will
+
+00:05:52.839 --> 00:05:57.220
+Caption: never actually propagate their
+
+00:05:53.859 --> 00:05:58.629
+Caption: perceptions back to the client when you
+
+00:05:57.220 --> 00:06:00.489
+Caption: think about how we do most things you
+
+00:05:58.630 --> 00:06:01.630
+Caption: would usually escalate an exception in
+
+00:06:00.489 --> 00:06:04.149
+Caption: an office to a manager you don&#39;t
+
+00:06:01.630 --> 00:06:09.010
+Caption: actually tell your sales people oh sorry
+
+00:06:04.149 --> 00:06:12.399
+Caption: we can&#39;t do this right now so we you
+
+00:06:09.010 --> 00:06:18.820
+Caption: know we can inject that well then we
+
+00:06:12.399 --> 00:06:22.540
+Caption: still got more problems well we can get
+
+00:06:18.820 --> 00:06:26.770
+Caption: the same process absolutely thread let&#39;s
+
+00:06:22.540 --> 00:06:29.140
+Caption: just inject an executor now I can choose
+
+00:06:26.769 --> 00:06:31.839
+Caption: a different execution who to execute
+
+00:06:29.140 --> 00:06:34.090
+Caption: that method now it could be the same
+
+00:06:31.839 --> 00:06:35.649
+Caption: thread as the caller by just using a
+
+00:06:34.089 --> 00:06:38.260
+Caption: sink respond that just calls through or
+
+00:06:35.649 --> 00:06:39.669
+Caption: it could be a sewing thread pool it&#39;s
+
+00:06:38.260 --> 00:06:44.020
+Caption: now wrapped up I can choose that and
+
+00:06:39.670 --> 00:06:47.590
+Caption: what execute that method I&#39;m kind of
+
+00:06:44.019 --> 00:06:49.539
+Caption: just left with one now and this one
+
+00:06:47.589 --> 00:06:54.040
+Caption: we&#39;ve already solved we do in our web
+
+00:06:49.540 --> 00:06:57.369
+Caption: service all the time he&#39;s a risk quest
+
+00:06:54.040 --> 00:06:59.050
+Caption: constant if request context so think
+
+00:06:57.369 --> 00:07:00.639
+Caption: about a controller when it wants to put
+
+00:06:59.049 --> 00:07:02.679
+Caption: the data to the view loads everything
+
+00:07:00.640 --> 00:07:04.570
+Caption: into the request context then the view
+
+00:07:02.679 --> 00:07:05.919
+Caption: can pick it up from there well we do the
+
+00:07:04.570 --> 00:07:07.750
+Caption: same thing as we call these methods we
+
+00:07:05.920 --> 00:07:09.070
+Caption: load it to a context and then dependency
+
+00:07:07.750 --> 00:07:11.529
+Caption: injected into the further methods down
+
+00:07:09.070 --> 00:07:14.160
+Caption: the line now I can pass State down all
+
+00:07:11.529 --> 00:07:14.160
+Caption: those methods
+
+00:07:15.209 --> 00:07:18.269
+Caption: so putting it all together and don&#39;t try
+
+00:07:17.130 --> 00:07:19.949
+Caption: and read Ocoee there&#39;s the slides are
+
+00:07:18.269 --> 00:07:23.549
+Caption: downloadable and I&#39;ll put the link up
+
+00:07:19.949 --> 00:07:26.489
+Caption: later but there you go what we&#39;ve been
+
+00:07:23.549 --> 00:07:32.758
+Caption: our done it was we&#39;ve inverted this
+
+00:07:26.489 --> 00:07:33.179
+Caption: problem a call now is the same the whole
+
+00:07:32.759 --> 00:07:34.470
+Caption: time
+
+00:07:33.179 --> 00:07:39.750
+Caption: it doesn&#39;t change it&#39;s always going to
+
+00:07:34.470 --> 00:07:43.320
+Caption: be one message our implementation
+
+00:07:39.750 --> 00:07:45.059
+Caption: however could be whatever it wants I can
+
+00:07:43.320 --> 00:07:46.919
+Caption: change it I can add more dependencies I
+
+00:07:45.059 --> 00:07:48.839
+Caption: can change the threading of it I can
+
+00:07:46.919 --> 00:07:50.399
+Caption: even change exceptions out of it and so
+
+00:07:48.839 --> 00:07:52.529
+Caption: forth they even say what the other
+
+00:07:50.399 --> 00:07:54.839
+Caption: stream things I call they can all just
+
+00:07:52.529 --> 00:07:57.690
+Caption: quite happily change and my caller
+
+00:07:54.839 --> 00:08:00.059
+Caption: doesn&#39;t even know just passed us a
+
+00:07:57.690 --> 00:08:05.910
+Caption: message through so with those things
+
+00:08:00.059 --> 00:08:10.049
+Caption: we&#39;ve got the decoupling garment so to
+
+00:08:05.910 --> 00:08:11.610
+Caption: compare this and go this is the
+
+00:08:10.049 --> 00:08:13.649
+Caption: difference between your dependency
+
+00:08:11.609 --> 00:08:15.269
+Caption: injection and an in actual what I
+
+00:08:13.649 --> 00:08:18.559
+Caption: consider an inversion of control or
+
+00:08:15.269 --> 00:08:20.309
+Caption: inversion of coupling control container
+
+00:08:18.559 --> 00:08:22.979
+Caption: dependence each kind of says here&#39;s
+
+00:08:20.309 --> 00:08:24.959
+Caption: here&#39;s the fields you inject and we kind
+
+00:08:22.979 --> 00:08:26.970
+Caption: of do that threading and all that
+
+00:08:24.959 --> 00:08:28.470
+Caption: modeling and all the rest of it yeah
+
+00:08:26.970 --> 00:08:31.769
+Caption: that&#39;s your problem you deal with it we
+
+00:08:28.470 --> 00:08:34.289
+Caption: do that stuff but you know threading is
+
+00:08:31.769 --> 00:08:35.549
+Caption: hard we don&#39;t you know lots of junior
+
+00:08:34.289 --> 00:08:37.919
+Caption: developers on our team we wouldn&#39;t want
+
+00:08:35.549 --> 00:08:39.390
+Caption: to have to have them do all that part so
+
+00:08:37.919 --> 00:08:40.440
+Caption: I&#39;ve got little pieces and things all
+
+00:08:39.390 --> 00:08:41.669
+Caption: connected together and they&#39;re all
+
+00:08:40.440 --> 00:08:44.429
+Caption: joined why the method trying to move
+
+00:08:41.669 --> 00:08:48.630
+Caption: them around doesn&#39;t work well this does
+
+00:08:44.429 --> 00:08:49.950
+Caption: it that&#39;s simple good a code and we
+
+00:08:48.630 --> 00:08:51.660
+Caption: actually only write this when it comes
+
+00:08:49.950 --> 00:08:54.020
+Caption: to the office full framework which
+
+00:08:51.659 --> 00:08:56.609
+Caption: actually implements this these concepts
+
+00:08:54.020 --> 00:08:59.730
+Caption: because we can derive everything in that
+
+00:08:56.609 --> 00:09:01.109
+Caption: box from the method signature if you
+
+00:08:59.729 --> 00:09:02.549
+Caption: know it&#39;s a continue if you know it&#39;s
+
+00:09:01.109 --> 00:09:04.219
+Caption: one of the continuation or handlers you
+
+00:09:02.549 --> 00:09:06.419
+Caption: can determine that by the parameter type
+
+00:09:04.219 --> 00:09:08.338
+Caption: it&#39;s not that then it&#39;s one of the
+
+00:09:06.419 --> 00:09:10.769
+Caption: dependencies you need to inject in and
+
+00:09:08.338 --> 00:09:12.299
+Caption: you can even work out the thread because
+
+00:09:10.770 --> 00:09:14.338
+Caption: I could look at the parameters and go ah
+
+00:09:12.299 --> 00:09:16.559
+Caption: that one needs a data source or it needs
+
+00:09:14.338 --> 00:09:19.049
+Caption: an entity manager I need to put that on
+
+00:09:16.559 --> 00:09:20.940
+Caption: its own synchronous thread pool if it&#39;s
+
+00:09:19.049 --> 00:09:23.609
+Caption: not well I could probably execute on the
+
+00:09:20.940 --> 00:09:25.950
+Caption: current thread and be safe because it
+
+00:09:23.609 --> 00:09:28.700
+Caption: can&#39;t get anything else without it being
+
+00:09:25.950 --> 00:09:28.700
+Caption: injected
+
+00:09:28.739 --> 00:09:39.338
+Caption: so that&#39;s kind of working great 400 and
+
+00:09:33.159 --> 00:09:42.069
+Caption: I did mention functional programming now
+
+00:09:39.338 --> 00:09:46.479
+Caption: functions have the same problem as much
+
+00:09:42.070 --> 00:09:47.919
+Caption: as they would like to say thank you
+
+00:09:46.479 --> 00:09:49.599
+Caption: still have it okay they don&#39;t really
+
+00:09:47.919 --> 00:09:52.659
+Caption: throw exceptions but they didn&#39;t return
+
+00:09:49.599 --> 00:09:53.338
+Caption: them as values the problem is still
+
+00:09:52.659 --> 00:09:56.500
+Caption: there
+
+00:09:53.338 --> 00:09:58.000
+Caption: but a wouldn&#39;t dare suggest that
+
+00:09:56.500 --> 00:10:00.250
+Caption: functional programming if you loop learn
+
+00:09:58.000 --> 00:10:04.270
+Caption: from I whoa I&#39;d probably be blamed right
+
+00:10:00.250 --> 00:10:05.619
+Caption: you for that so what I&#39;m gonna do is I&#39;m
+
+00:10:04.270 --> 00:10:08.739
+Caption: gonna you know functional program
+
+00:10:05.619 --> 00:10:16.270
+Caption: they&#39;re listening to mathematics so does
+
+00:10:08.739 --> 00:10:17.648
+Caption: anyone know who Carl jacob&#39; is well he
+
+00:10:16.270 --> 00:10:21.520
+Caption: was the one that did foundational work
+
+00:10:17.648 --> 00:10:22.659
+Caption: in Eclipse elliptic functions so if you
+
+00:10:21.520 --> 00:10:24.309
+Caption: know what elliptic functions are they
+
+00:10:22.659 --> 00:10:26.639
+Caption: create elliptic curves will it because
+
+00:10:24.309 --> 00:10:29.109
+Caption: well they&#39;re public private key
+
+00:10:26.640 --> 00:10:30.420
+Caption: foundations and that&#39;s big point there
+
+00:10:29.109 --> 00:10:36.369
+Caption: yo there&#39;s my mandatory Bitcoin
+
+00:10:30.419 --> 00:10:39.099
+Caption: reference so what Carl what Carl Jakobi
+
+00:10:36.369 --> 00:10:43.719
+Caption: said is in there always invert if the
+
+00:10:39.099 --> 00:10:46.809
+Caption: problem is too hard to express and
+
+00:10:43.719 --> 00:10:48.909
+Caption: clarify invert the problem to get
+
+00:10:46.809 --> 00:10:50.409
+Caption: clarity on the problem now there&#39;s a
+
+00:10:48.909 --> 00:10:53.559
+Caption: perception that functional programming
+
+00:10:50.409 --> 00:10:55.179
+Caption: is hard I mean it&#39;s it&#39;s elegant it&#39;s
+
+00:10:53.559 --> 00:10:57.398
+Caption: beautiful it&#39;s got typing it&#39;s looking
+
+00:10:55.179 --> 00:10:58.958
+Caption: all this type of stuff but when my type
+
+00:10:57.398 --> 00:11:01.299
+Caption: error actually starts going multiple
+
+00:10:58.958 --> 00:11:06.669
+Caption: lines I&#39;m scratching my head and I&#39;m
+
+00:11:01.299 --> 00:11:11.919
+Caption: going okay so it could be perceived as
+
+00:11:06.669 --> 00:11:15.729
+Caption: hard so can we actually take inverting
+
+00:11:11.919 --> 00:11:17.679
+Caption: to the functional language well when you
+
+00:11:15.729 --> 00:11:19.679
+Caption: look at function composition the
+
+00:11:17.679 --> 00:11:22.119
+Caption: parameter coupling just expands out
+
+00:11:19.679 --> 00:11:23.648
+Caption: because you never actually pull anything
+
+00:11:22.119 --> 00:11:25.419
+Caption: in underneath you&#39;re always passing in
+
+00:11:23.648 --> 00:11:26.859
+Caption: and this is why they say functional
+
+00:11:25.419 --> 00:11:28.299
+Caption: primary doesn&#39;t need a penny injection
+
+00:11:26.859 --> 00:11:29.440
+Caption: cuz you always pass it in through the
+
+00:11:28.299 --> 00:11:31.088
+Caption: higher or function so you never actually
+
+00:11:29.440 --> 00:11:33.250
+Caption: you never calls out when everything is
+
+00:11:31.088 --> 00:11:34.510
+Caption: always passed the function so you what
+
+00:11:33.250 --> 00:11:35.650
+Caption: happens is everything gets passed the
+
+00:11:34.510 --> 00:11:38.078
+Caption: function as you start putting more
+
+00:11:35.650 --> 00:11:40.650
+Caption: function together it just gets wider and
+
+00:11:38.078 --> 00:11:40.649
+Caption: more complex
+
+00:11:40.780 --> 00:11:46.660
+Caption: so if we flipped that and did the same
+
+00:11:43.179 --> 00:11:50.380
+Caption: principles to this well we turn it
+
+00:11:46.659 --> 00:11:51.609
+Caption: upside down I send it a message and he
+
+00:11:50.380 --> 00:11:52.989
+Caption: can send send messages to other
+
+00:11:51.609 --> 00:11:54.459
+Caption: functions and it can send message it&#39;s
+
+00:11:52.989 --> 00:11:56.200
+Caption: not the functions pretty much an
+
+00:11:54.460 --> 00:11:57.670
+Caption: actor/model and if you actually do in
+
+00:11:56.200 --> 00:12:00.489
+Caption: version control and functions it creates
+
+00:11:57.669 --> 00:12:01.719
+Caption: you an actor/model actually creates a
+
+00:12:00.489 --> 00:12:03.010
+Caption: much better actor mode because most
+
+00:12:01.719 --> 00:12:05.500
+Caption: actor models are employed with single
+
+00:12:03.010 --> 00:12:08.890
+Caption: threads per actor this uses prototype
+
+00:12:05.500 --> 00:12:11.530
+Caption: threads if any one sing that edge of
+
+00:12:08.890 --> 00:12:13.450
+Caption: computer science I can use one thread
+
+00:12:11.530 --> 00:12:15.730
+Caption: and do a hundred thousand well actually
+
+00:12:13.450 --> 00:12:18.369
+Caption: on this laptop with a gig I can do a
+
+00:12:15.729 --> 00:12:19.809
+Caption: million actives quite quickly and I can
+
+00:12:18.369 --> 00:12:22.419
+Caption: create and destroy actors at a hundred
+
+00:12:19.809 --> 00:12:23.770
+Caption: thousand a second because I&#39;m not
+
+00:12:22.419 --> 00:12:26.190
+Caption: actually creating threads it actually
+
+00:12:23.770 --> 00:12:27.940
+Caption: just creates these in-memory
+
+00:12:26.190 --> 00:12:31.630
+Caption: representations and then just destroys
+
+00:12:27.940 --> 00:12:33.460
+Caption: them and because it&#39;s the best analogy I
+
+00:12:31.630 --> 00:12:35.320
+Caption: can think of it is if you go to a
+
+00:12:33.460 --> 00:12:37.450
+Caption: business say are can I say have a home
+
+00:12:35.320 --> 00:12:38.979
+Caption: line well do you know how many
+
+00:12:37.450 --> 00:12:40.750
+Caption: departments get involved in that you
+
+00:12:38.979 --> 00:12:42.039
+Caption: know what a well if you&#39;re in a
+
+00:12:40.750 --> 00:12:44.440
+Caption: functional language you probably find
+
+00:12:42.039 --> 00:12:46.570
+Caption: out with all the you know we&#39;re going to
+
+00:12:44.440 --> 00:12:47.679
+Caption: expose all that stuff here you just send
+
+00:12:46.570 --> 00:12:49.419
+Caption: it to and then it just goes and send
+
+00:12:47.679 --> 00:12:59.520
+Caption: messages off to the roof bits and pieces
+
+00:12:49.419 --> 00:13:03.179
+Caption: so all my theory that&#39;s nice
+
+00:12:59.520 --> 00:13:03.179
+Caption: where do we see this
+
+00:13:04.380 --> 00:13:14.940
+Caption: well what&#39;s the pattern behind a micro
+
+00:13:08.340 --> 00:13:18.300
+Caption: service you get an object you turn it
+
+00:13:14.940 --> 00:13:20.190
+Caption: into JSON or XML and then you send it
+
+00:13:18.299 --> 00:13:22.279
+Caption: over the wire and HTTP or you send it in
+
+00:13:20.190 --> 00:13:25.830
+Caption: a message queue after some service sir
+
+00:13:22.280 --> 00:13:28.320
+Caption: what&#39;s the service to do the service are
+
+00:13:25.830 --> 00:13:30.630
+Caption: injects its dependencies it might inject
+
+00:13:28.320 --> 00:13:33.119
+Caption: other client calls to other micro
+
+00:13:30.630 --> 00:13:35.910
+Caption: services and then it picks a thread to
+
+00:13:33.119 --> 00:13:38.239
+Caption: actually execute it it&#39;s just the same
+
+00:13:35.909 --> 00:13:38.239
+Caption: pattern
+
+00:13:39.770 --> 00:13:44.400
+Caption: however it&#39;s heavy weights got a lot
+
+00:13:42.479 --> 00:13:46.589
+Caption: involved and here sidecars and all these
+
+00:13:44.400 --> 00:13:48.240
+Caption: other bits and pieces to them oh that&#39;s
+
+00:13:46.590 --> 00:13:48.720
+Caption: a lot of lot of stuff just to make a
+
+00:13:48.239 --> 00:13:52.440
+Caption: call
+
+00:13:48.719 --> 00:13:55.139
+Caption: so what we&#39;re actually doing with ISC is
+
+00:13:52.440 --> 00:13:56.640
+Caption: just doing it at the function level you
+
+00:13:55.140 --> 00:13:58.170
+Caption: can just call straight through sends a
+
+00:13:56.640 --> 00:13:59.640
+Caption: message it&#39;s just the länder function
+
+00:13:58.169 --> 00:14:01.589
+Caption: that takes the parameter which is
+
+00:13:59.640 --> 00:14:05.280
+Caption: effectively a message and then just
+
+00:14:01.590 --> 00:14:06.420
+Caption: calls it different route and it&#39;s done
+
+00:14:05.280 --> 00:14:09.660
+Caption: at the method level much more
+
+00:14:06.419 --> 00:14:11.130
+Caption: lightweight and it grows it&#39;s what
+
+00:14:09.659 --> 00:14:13.589
+Caption: happens is I just take one of those
+
+00:14:11.130 --> 00:14:15.119
+Caption: lines I&#39;m making the cube now I can have
+
+00:14:13.590 --> 00:14:17.970
+Caption: them those two graphs and separate
+
+00:14:15.119 --> 00:14:19.500
+Caption: processes and then as it gets bigger and
+
+00:14:17.969 --> 00:14:21.059
+Caption: bigger I can sort of get further lines
+
+00:14:19.500 --> 00:14:22.590
+Caption: and make them queues and then you can
+
+00:14:21.059 --> 00:14:26.429
+Caption: just grow we kind of get this organic
+
+00:14:22.590 --> 00:14:29.280
+Caption: growth you dare say that actually these
+
+00:14:26.429 --> 00:14:31.559
+Caption: systems get easier to build the more
+
+00:14:29.280 --> 00:14:36.510
+Caption: there is of them there&#39;s more things to
+
+00:14:31.559 --> 00:14:40.320
+Caption: wire up and hook so I&#39;m gonna leave you
+
+00:14:36.510 --> 00:14:41.970
+Caption: with a final thought on this and I feel
+
+00:14:40.320 --> 00:14:44.220
+Caption: sorry yes Alan Kay is now getting his
+
+00:14:41.969 --> 00:14:46.069
+Caption: vision so he&#39;s happy you might come back
+
+00:14:44.219 --> 00:14:51.299
+Caption: again
+
+00:14:46.070 --> 00:14:54.869
+Caption: the final thought is what does the
+
+00:14:51.299 --> 00:14:56.820
+Caption: method actually represent and actually
+
+00:14:54.869 --> 00:15:00.479
+Caption: represents pushing and popping things
+
+00:14:56.820 --> 00:15:05.160
+Caption: off the stack which effectively
+
+00:15:00.479 --> 00:15:10.139
+Caption: represents a machine where in the world
+
+00:15:05.159 --> 00:15:12.029
+Caption: do you see thread stats I mean Alan Kay
+
+00:15:10.140 --> 00:15:14.760
+Caption: got his Oh a vision from chemistry
+
+00:15:12.030 --> 00:15:16.050
+Caption: I took the office floor designs from how
+
+00:15:14.760 --> 00:15:18.958
+Caption: an office interact was usual
+
+00:15:16.049 --> 00:15:24.000
+Caption: messaging we see neural synapses as
+
+00:15:18.958 --> 00:15:27.679
+Caption: passing messages where&#39;s where where do
+
+00:15:24.000 --> 00:15:32.309
+Caption: we see a thread stack in the real world
+
+00:15:27.679 --> 00:15:34.469
+Caption: they sing in the machine so if we design
+
+00:15:32.309 --> 00:15:36.208
+Caption: our API is based on methods and those
+
+00:15:34.469 --> 00:15:41.578
+Caption: things we&#39;re designing them coupled to
+
+00:15:36.208 --> 00:15:47.838
+Caption: machines rather than a much more organic
+
+00:15:41.578 --> 00:15:51.778
+Caption: model and now how do I refactor that I
+
+00:15:47.838 --> 00:15:53.369
+Caption: just redraw a line I need something else
+
+00:15:51.778 --> 00:15:56.099
+Caption: to call something I&#39;ll just draw a line
+
+00:15:53.369 --> 00:15:57.179
+Caption: if the message that goes through it then
+
+00:15:56.099 --> 00:15:57.778
+Caption: it needs to be something slightly
+
+00:15:57.179 --> 00:15:59.219
+Caption: different
+
+00:15:57.778 --> 00:16:00.898
+Caption: well I can just put another method in
+
+00:15:59.219 --> 00:16:04.349
+Caption: the form and transform that message and
+
+00:16:00.898 --> 00:16:06.539
+Caption: then call it on yeah yeah my refactoring
+
+00:16:04.349 --> 00:16:08.398
+Caption: job turned instead of being hours and
+
+00:16:06.539 --> 00:16:10.409
+Caption: probably days of trying to turn some
+
+00:16:08.398 --> 00:16:14.458
+Caption: engine and that machine that&#39;s highly
+
+00:16:10.409 --> 00:16:16.199
+Caption: coupled is this jigsaw my refactorings
+
+00:16:14.458 --> 00:16:17.099
+Caption: now like couple minutes and then I get
+
+00:16:16.200 --> 00:16:20.160
+Caption: on with something else
+
+00:16:17.099 --> 00:16:27.750
+Caption: for the day I initially just brought the
+
+00:16:20.159 --> 00:16:29.669
+Caption: refactoring and this isn&#39;t just theory
+
+00:16:27.750 --> 00:16:31.440
+Caption: this is actually a production ready
+
+00:16:29.669 --> 00:16:33.929
+Caption: framework that&#39;s actually ready to use
+
+00:16:31.440 --> 00:16:35.898
+Caption: that is actually a configuration one of
+
+00:16:33.929 --> 00:16:37.950
+Caption: the apps that we built with it
+
+00:16:35.898 --> 00:16:39.390
+Caption: how&#39;d you like to go into an app and see
+
+00:16:37.950 --> 00:16:40.470
+Caption: that and go that&#39;s how it will works and
+
+00:16:39.390 --> 00:16:41.970
+Caption: then you can just drill into that and
+
+00:16:40.469 --> 00:16:44.189
+Caption: double click on that and drill and down
+
+00:16:41.969 --> 00:16:45.869
+Caption: to where the code is and then if I have
+
+00:16:44.190 --> 00:16:47.130
+Caption: to change things I can wire things even
+
+00:16:45.869 --> 00:16:48.838
+Caption: if I need to prove new things with the
+
+00:16:47.130 --> 00:16:50.250
+Caption: flows I can do it that&#39;s a very simple
+
+00:16:48.838 --> 00:16:52.609
+Caption: app you can imagine this can get quite
+
+00:16:50.250 --> 00:16:56.130
+Caption: big quite complex and still give you
+
+00:16:52.609 --> 00:16:58.909
+Caption: that visualization into it I always find
+
+00:16:56.130 --> 00:17:01.049
+Caption: dependency apps they&#39;re a bit like
+
+00:16:58.909 --> 00:17:02.250
+Caption: here&#39;s a novel I&#39;m gonna rip out every
+
+00:17:01.049 --> 00:17:05.760
+Caption: page throw it on the floor and say put
+
+00:17:02.250 --> 00:17:07.260
+Caption: that two back together wiring half the
+
+00:17:05.760 --> 00:17:08.818
+Caption: dependencies hook up how do these pages
+
+00:17:07.260 --> 00:17:11.489
+Caption: will get ordered together it doesn&#39;t
+
+00:17:08.818 --> 00:17:13.380
+Caption: really tell you here because we use the
+
+00:17:11.489 --> 00:17:15.239
+Caption: wiring and the method flows as
+
+00:17:13.380 --> 00:17:16.678
+Caption: configuration we can graphically
+
+00:17:15.239 --> 00:17:18.479
+Caption: represent it and then give you a
+
+00:17:16.678 --> 00:17:20.159
+Caption: overview of how your app actually works
+
+00:17:18.479 --> 00:17:21.750
+Caption: then you can take that to the business
+
+00:17:20.160 --> 00:17:25.948
+Caption: and you can show them how all the bits
+
+00:17:21.750 --> 00:17:28.140
+Caption: and pieces work and it&#39;s it&#39;s it&#39;s much
+
+00:17:25.948 --> 00:17:29.168
+Caption: much easier like it&#39;s easy isn&#39;t what I
+
+00:17:28.140 --> 00:17:36.089
+Caption: call a floor plan
+
+00:17:29.168 --> 00:17:39.038
+Caption: of your actual application so in summary
+
+00:17:36.089 --> 00:17:41.528
+Caption: when you actually look at the pendency
+
+00:17:39.038 --> 00:17:43.479
+Caption: injection compared to what I consider a
+
+00:17:41.529 --> 00:17:46.659
+Caption: version of coupling control is a silent
+
+00:17:43.479 --> 00:17:48.099
+Caption: coupling in there you can see dependency
+
+00:17:46.659 --> 00:17:51.309
+Caption: injection is actually only one of them
+
+00:17:48.099 --> 00:17:53.079
+Caption: there&#39;s four others well is two others
+
+00:17:51.308 --> 00:17:55.028
+Caption: but there are four other aspects they&#39;re
+
+00:17:53.079 --> 00:17:57.668
+Caption: covered off by when I consider thread
+
+00:17:55.029 --> 00:17:59.320
+Caption: injection and if anyone knows a bit
+
+00:17:57.668 --> 00:18:00.398
+Caption: about continuation injection or better
+
+00:17:59.319 --> 00:18:03.329
+Caption: way to think about that is this
+
+00:18:00.399 --> 00:18:06.460
+Caption: functional injection or Method injection
+
+00:18:03.329 --> 00:18:09.548
+Caption: there&#39;s a few links there who I am I&#39;m
+
+00:18:06.459 --> 00:18:12.518
+Caption: the founder of the framework and what
+
+00:18:09.548 --> 00:18:14.048
+Caption: we&#39;re looking for is well we&#39;ve built it
+
+00:18:12.519 --> 00:18:16.840
+Caption: we&#39;ve proven it we&#39;re building our apps
+
+00:18:14.048 --> 00:18:19.359
+Caption: in it it&#39;s now time and if I use the
+
+00:18:16.839 --> 00:18:20.648
+Caption: matrix analogy I&#39;m Morpheus I&#39;m looking
+
+00:18:19.359 --> 00:18:22.869
+Caption: for the Neos I&#39;m looking for those early
+
+00:18:20.649 --> 00:18:24.100
+Caption: adopters those people want to try it out
+
+00:18:22.869 --> 00:18:26.139
+Caption: and their hobby project those who want
+
+00:18:24.099 --> 00:18:28.989
+Caption: to take it to their I&#39;m looking for you
+
+00:18:26.139 --> 00:18:31.509
+Caption: to take it on and and drive it out and
+
+00:18:28.989 --> 00:18:33.549
+Caption: fight back against the machine whenever
+
+00:18:31.509 --> 00:18:37.960
+Caption: I hear API design I&#39;m going are there&#39;s
+
+00:18:33.548 --> 00:18:39.219
+Caption: an agent you know I might even say the
+
+00:18:37.959 --> 00:18:42.069
+Caption: same about functional programmers
+
+00:18:39.219 --> 00:18:45.369
+Caption: there&#39;s another agent they move faster
+
+00:18:42.069 --> 00:18:49.689
+Caption: smart but they&#39;re still bound by the
+
+00:18:45.369 --> 00:18:51.969
+Caption: coupling laws so to say there&#39;s a slide
+
+00:18:49.689 --> 00:18:53.858
+Caption: says my handles I&#39;m here all day you&#39;ve
+
+00:18:51.969 --> 00:18:56.288
+Caption: got any questions I can add probably
+
+00:18:53.859 --> 00:18:58.940
+Caption: time some now and I&#39;ll be around for all
+
+00:18:56.288 --> 00:19:06.939
+Caption: day to answer questions
+
+00:18:58.939 --> 00:19:09.408
+Caption: [Applause]
+
+00:19:06.939 --> 00:19:13.298
+Caption: all right we have probably have time for
+
+00:19:09.409 --> 00:19:22.279
+Caption: just one question so if anyone wants to
+
+00:19:13.298 --> 00:19:23.869
+Caption: hand out oh here we go can you briefly
+
+00:19:22.279 --> 00:19:26.210
+Caption: describe what the hosting model looks
+
+00:19:23.869 --> 00:19:28.158
+Caption: like for these applications they&#39;re
+
+00:19:26.209 --> 00:19:29.418
+Caption: literally just a normal app like you
+
+00:19:28.159 --> 00:19:31.879
+Caption: think about a spring app you just can
+
+00:19:29.418 --> 00:19:36.408
+Caption: host it in anything we run on I mean
+
+00:19:31.879 --> 00:19:38.659
+Caption: Google Cloud I can run it it&#39;s just a
+
+00:19:36.409 --> 00:19:41.299
+Caption: Java right basically so you can run any
+
+00:19:38.659 --> 00:19:43.070
+Caption: of it and host itself it doesn&#39;t need
+
+00:19:41.298 --> 00:19:44.329
+Caption: anything special it&#39;s just how you build
+
+00:19:43.069 --> 00:19:46.668
+Caption: it you can even put these into your
+
+00:19:44.329 --> 00:19:50.719
+Caption: servlet containers so you just get them
+
+00:19:46.668 --> 00:19:52.849
+Caption: in they run anywhere but they run as I
+
+00:19:50.719 --> 00:19:54.018
+Caption: say they don&#39;t need stream threading
+
+00:19:52.849 --> 00:19:55.129
+Caption: models because they actually take them
+
+00:19:54.019 --> 00:19:56.600
+Caption: they can inherit the threading model
+
+00:19:55.129 --> 00:20:03.139
+Caption: from the container and then work through
+
+00:19:56.599 --> 00:20:04.398
+Caption: that too so yeah so you just take
+
+00:20:03.139 --> 00:20:08.899
+Caption: advantage of that as an underlying
+
+00:20:04.399 --> 00:20:11.629
+Caption: platform cool all right thank you so
+
+00:20:08.899 --> 00:20:13.369
+Caption: much Daniel I&#39;m gonna struggle to shake
+
+00:20:11.629 --> 00:20:15.739
+Caption: your hand right now but that is a token
+
+00:20:13.369 --> 00:20:17.379
+Caption: of our appreciation thank you I hope
+
+00:20:15.739 --> 00:20:20.658
+Caption: everyone enjoyed it
+
+00:20:17.379 --> 00:20:22.549
+Caption: we are heading out for morning tea now
+
+00:20:20.659 --> 00:20:24.759
+Caption: out in the foyers and then the next
+
+00:20:22.548 --> 00:20:27.939
+Caption: sessions will be beginning at 10:55
+
+00:20:24.759 --> 00:20:27.940
+Caption: thanks guys
+

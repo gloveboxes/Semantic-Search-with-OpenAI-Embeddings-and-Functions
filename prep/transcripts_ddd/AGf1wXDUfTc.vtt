@@ -1,0 +1,3173 @@
+WEBVTT
+
+00:00:02.638 --> 00:00:06.399
+Caption: hello everyone and welcome to bye bye
+
+00:00:05.440 --> 00:00:08.319
+Caption: yaml
+
+00:00:06.399 --> 00:00:09.840
+Caption: painless kubernetes deployments with
+
+00:00:08.319 --> 00:00:13.840
+Caption: cdks
+
+00:00:09.840 --> 00:00:13.840
+Caption: my name is cameron trantham fryer
+
+00:00:15.439 --> 00:00:21.680
+Caption: big thanks to our amazing sponsors we
+
+00:00:18.239 --> 00:00:21.680
+Caption: could not have done today without you
+
+00:00:22.399 --> 00:00:26.319
+Caption: we wish to acknowledge the traditional
+
+00:00:24.159 --> 00:00:28.719
+Caption: custodians of the land we are meeting on
+
+00:00:26.319 --> 00:00:30.719
+Caption: the wajak people
+
+00:00:28.719 --> 00:00:32.319
+Caption: we wish to acknowledge and respect their
+
+00:00:30.719 --> 00:00:33.840
+Caption: continuing culture
+
+00:00:32.319 --> 00:00:37.279
+Caption: and the contribution they make to the
+
+00:00:33.840 --> 00:00:40.159
+Caption: life of this city and this region
+
+00:00:37.279 --> 00:00:42.799
+Caption: so a little bit about me yes i was a
+
+00:00:40.159 --> 00:00:44.719
+Caption: chartered accountant but i&#39;m lazy i
+
+00:00:42.799 --> 00:00:47.038
+Caption: wanted to automate things
+
+00:00:44.719 --> 00:00:48.879
+Caption: the profession had other ideas so we had
+
+00:00:47.039 --> 00:00:50.960
+Caption: to part ways
+
+00:00:48.879 --> 00:00:52.960
+Caption: then i found out about this amazing job
+
+00:00:50.959 --> 00:00:54.639
+Caption: called devops engineer where i&#39;d have
+
+00:00:52.959 --> 00:00:55.919
+Caption: the opportunity to automate all the
+
+00:00:54.639 --> 00:00:58.398
+Caption: things
+
+00:00:55.919 --> 00:01:00.639
+Caption: so spreadsheets were my gateway drug and
+
+00:00:58.398 --> 00:01:02.398
+Caption: now i&#39;m hooked on aws cdk with
+
+00:01:00.639 --> 00:01:04.400
+Caption: typescript
+
+00:01:02.398 --> 00:01:06.478
+Caption: so i&#39;ve been working with aws for about
+
+00:01:04.400 --> 00:01:07.840
+Caption: two years now and it is my preferred
+
+00:01:06.478 --> 00:01:09.519
+Caption: platform
+
+00:01:07.839 --> 00:01:13.039
+Caption: during this time i gained a deep
+
+00:01:09.519 --> 00:01:14.079
+Caption: understanding of cdk and many aws
+
+00:01:13.040 --> 00:01:15.599
+Caption: services
+
+00:01:14.080 --> 00:01:18.159
+Caption: and i&#39;ve been able to use this knowledge
+
+00:01:15.599 --> 00:01:20.000
+Caption: to build complex applications with much
+
+00:01:18.158 --> 00:01:23.039
+Caption: less effort than what would have been
+
+00:01:20.000 --> 00:01:25.839
+Caption: required without cdk
+
+00:01:23.040 --> 00:01:28.239
+Caption: i recently completed the aws associate
+
+00:01:25.839 --> 00:01:30.158
+Caption: developer certification and i highly
+
+00:01:28.239 --> 00:01:32.879
+Caption: recommend
+
+00:01:30.158 --> 00:01:35.519
+Caption: aws certifications for anyone looking to
+
+00:01:32.879 --> 00:01:37.279
+Caption: turbo charge their career
+
+00:01:35.519 --> 00:01:40.478
+Caption: i&#39;m currently working in a devops
+
+00:01:37.279 --> 00:01:42.478
+Caption: engineer role at inx software
+
+00:01:40.478 --> 00:01:44.559
+Caption: where we build tools to help clients in
+
+00:01:42.478 --> 00:01:45.839
+Caption: high risk industries such as the mining
+
+00:01:44.559 --> 00:01:48.720
+Caption: industry
+
+00:01:45.839 --> 00:01:50.398
+Caption: to manage their workforce and operations
+
+00:01:48.720 --> 00:01:54.000
+Caption: and i&#39;m working on a really interesting
+
+00:01:50.399 --> 00:01:55.840
+Caption: application modernization project
+
+00:01:54.000 --> 00:01:57.439
+Caption: so let&#39;s just look at some of the terms
+
+00:01:55.839 --> 00:01:58.319
+Caption: in the talk today
+
+00:01:57.439 --> 00:02:00.560
+Caption: so
+
+00:01:58.319 --> 00:02:02.158
+Caption: kubernetes or cates as it is often
+
+00:02:00.559 --> 00:02:04.559
+Caption: referred to
+
+00:02:02.158 --> 00:02:06.798
+Caption: is an open source platform for managing
+
+00:02:04.559 --> 00:02:09.119
+Caption: containerized workloads
+
+00:02:06.799 --> 00:02:11.039
+Caption: it traces its lineage back to google&#39;s
+
+00:02:09.119 --> 00:02:12.319
+Caption: famous cluster management tool called
+
+00:02:11.039 --> 00:02:14.080
+Caption: borg
+
+00:02:12.319 --> 00:02:17.039
+Caption: which has been used to run google
+
+00:02:14.080 --> 00:02:18.878
+Caption: services like search and gmail since the
+
+00:02:17.039 --> 00:02:21.199
+Caption: mid-2000s
+
+00:02:18.878 --> 00:02:23.440
+Caption: just a warning this talk assumes some
+
+00:02:21.199 --> 00:02:24.720
+Caption: basic kubernetes kubernetes
+
+00:02:23.440 --> 00:02:26.559
+Caption: knowledge
+
+00:02:24.720 --> 00:02:28.639
+Caption: so if you have not used kubernetes
+
+00:02:26.559 --> 00:02:31.279
+Caption: before you might get a bit lost about
+
+00:02:28.639 --> 00:02:32.958
+Caption: halfway through this talk
+
+00:02:31.279 --> 00:02:34.958
+Caption: so cdk
+
+00:02:32.958 --> 00:02:37.598
+Caption: or cloud development kit
+
+00:02:34.958 --> 00:02:39.759
+Caption: is a tool that allows us to model aws
+
+00:02:37.598 --> 00:02:41.199
+Caption: resources using familiar programming
+
+00:02:39.759 --> 00:02:45.119
+Caption: languages
+
+00:02:41.199 --> 00:02:47.199
+Caption: and it compiles down to yaml mostly
+
+00:02:45.119 --> 00:02:51.440
+Caption: cdks
+
+00:02:47.199 --> 00:02:53.839
+Caption: or cdkas is a tool that allows us to
+
+00:02:51.440 --> 00:02:55.760
+Caption: manage our kubernetes workloads using
+
+00:02:53.839 --> 00:02:58.479
+Caption: familiar programming languages
+
+00:02:55.759 --> 00:03:01.119
+Caption: and it also compiles down to yaml
+
+00:02:58.479 --> 00:03:03.759
+Caption: and the great thing about cdks is that
+
+00:03:01.119 --> 00:03:06.479
+Caption: the yaml produced can run anywhere it
+
+00:03:03.759 --> 00:03:09.360
+Caption: can run on azure google cloud
+
+00:03:06.479 --> 00:03:10.958
+Caption: or even your own self-hosted kubernetes
+
+00:03:09.360 --> 00:03:13.919
+Caption: and the example that we&#39;re going to look
+
+00:03:10.958 --> 00:03:17.839
+Caption: at later is my home automation project
+
+00:03:13.919 --> 00:03:19.839
+Caption: which runs k3s on a raspberry pi
+
+00:03:17.839 --> 00:03:21.279
+Caption: k3s is a lightweight kubernetes
+
+00:03:19.839 --> 00:03:24.080
+Caption: distribution with a number of
+
+00:03:21.279 --> 00:03:25.839
+Caption: optimizations such as using sql lite
+
+00:03:24.080 --> 00:03:27.680
+Caption: instead of scd
+
+00:03:25.839 --> 00:03:31.039
+Caption: and this makes it ideal for kubernetes
+
+00:03:27.679 --> 00:03:31.039
+Caption: at the edge of cheap hardware
+
+00:03:31.199 --> 00:03:36.000
+Caption: so let&#39;s have a look at the agenda today
+
+00:03:34.319 --> 00:03:38.000
+Caption: first of all we&#39;re going to take a look
+
+00:03:36.000 --> 00:03:39.518
+Caption: at yaml we&#39;re going to consider both
+
+00:03:38.000 --> 00:03:41.039
+Caption: some good things and some not so good
+
+00:03:39.518 --> 00:03:42.639
+Caption: things about it
+
+00:03:41.039 --> 00:03:44.878
+Caption: we&#39;ll look at some specific grievances
+
+00:03:42.639 --> 00:03:46.958
+Caption: that kubernetes users have with yaml and
+
+00:03:44.878 --> 00:03:48.559
+Caption: how these can be overcome using popular
+
+00:03:46.958 --> 00:03:50.958
+Caption: programming languages
+
+00:03:48.559 --> 00:03:52.798
+Caption: with cdks
+
+00:03:50.958 --> 00:03:54.798
+Caption: we&#39;ll compare the release process for
+
+00:03:52.798 --> 00:03:57.199
+Caption: infrastructure as code to that for
+
+00:03:54.798 --> 00:03:59.119
+Caption: traditional software applications
+
+00:03:57.199 --> 00:04:01.598
+Caption: and we&#39;ll consider why yaml makes sense
+
+00:03:59.119 --> 00:04:03.199
+Caption: as a release artifact
+
+00:04:01.598 --> 00:04:06.639
+Caption: finally we have the serverless
+
+00:04:03.199 --> 00:04:09.438
+Caption: kubernetes demo using aws eks
+
+00:04:06.639 --> 00:04:11.518
+Caption: and the serverless compute engine aws
+
+00:04:09.438 --> 00:04:12.958
+Caption: fargate
+
+00:04:11.518 --> 00:04:15.679
+Caption: so i&#39;d like to tell you a little bit
+
+00:04:12.958 --> 00:04:17.600
+Caption: about the idea for this talk so
+
+00:04:15.679 --> 00:04:20.559
+Caption: earlier this year i&#39;ve been working
+
+00:04:17.600 --> 00:04:22.399
+Caption: closely with an aws solutions architect
+
+00:04:20.559 --> 00:04:26.160
+Caption: to programmatically generate docker
+
+00:04:22.399 --> 00:04:28.559
+Caption: compose configuration using aws lambda
+
+00:04:26.160 --> 00:04:30.479
+Caption: and this was to deploy a container stack
+
+00:04:28.559 --> 00:04:33.040
+Caption: to servers that were moving targets and
+
+00:04:30.479 --> 00:04:34.559
+Caption: had intermittent network connectivity
+
+00:04:33.040 --> 00:04:36.399
+Caption: i&#39;d since taken this pattern and
+
+00:04:34.559 --> 00:04:39.600
+Caption: extended it to generate kubernetes
+
+00:04:36.399 --> 00:04:41.440
+Caption: manifests for a home automation project
+
+00:04:39.600 --> 00:04:44.240
+Caption: so i put my sales pitch together
+
+00:04:41.440 --> 00:04:45.839
+Caption: submitted it and then forgot about it
+
+00:04:44.239 --> 00:04:48.079
+Caption: a few months passed
+
+00:04:45.839 --> 00:04:50.079
+Caption: and then to my surprise
+
+00:04:48.079 --> 00:04:52.319
+Caption: they contacted me and said you guys want
+
+00:04:50.079 --> 00:04:55.198
+Caption: to hear what i have to say about yaml
+
+00:04:52.320 --> 00:04:57.119
+Caption: so i took a look at what i&#39;d submitted
+
+00:04:55.199 --> 00:04:59.279
+Caption: bye bye yaml
+
+00:04:57.119 --> 00:05:02.239
+Caption: sounds a bit creepy doesn&#39;t it
+
+00:04:59.279 --> 00:05:04.479
+Caption: why what&#39;s wrong with the apple
+
+00:05:02.239 --> 00:05:07.440
+Caption: firstly what is yaml
+
+00:05:04.479 --> 00:05:08.959
+Caption: yaml a markup language
+
+00:05:07.440 --> 00:05:11.119
+Caption: here&#39;s a small sample of yaml for those
+
+00:05:08.959 --> 00:05:14.638
+Caption: playing at home
+
+00:05:11.119 --> 00:05:17.119
+Caption: yaml is a data serialization language
+
+00:05:14.639 --> 00:05:18.960
+Caption: designed to be human friendly
+
+00:05:17.119 --> 00:05:22.160
+Caption: and to work well with modern programming
+
+00:05:18.959 --> 00:05:24.720
+Caption: languages for common everyday tasks
+
+00:05:22.160 --> 00:05:26.399
+Caption: so it&#39;s kind of like jason then
+
+00:05:24.720 --> 00:05:27.600
+Caption: but using white space instead of curly
+
+00:05:26.399 --> 00:05:29.679
+Caption: braces
+
+00:05:27.600 --> 00:05:31.600
+Caption: and with comments
+
+00:05:29.679 --> 00:05:35.039
+Caption: think of jason as the lowest common
+
+00:05:31.600 --> 00:05:36.959
+Caption: denominator with a minimal feature set
+
+00:05:35.039 --> 00:05:39.039
+Caption: yaml is a superset with additional
+
+00:05:36.959 --> 00:05:40.399
+Caption: features such as better readability for
+
+00:05:39.039 --> 00:05:43.039
+Caption: humans
+
+00:05:40.399 --> 00:05:46.959
+Caption: every json file is also a valid yaml
+
+00:05:43.039 --> 00:05:49.360
+Caption: file and this simplifies adoption
+
+00:05:46.959 --> 00:05:52.638
+Caption: so in this example here one of yaml&#39;s
+
+00:05:49.359 --> 00:05:54.879
+Caption: additional features is references and
+
+00:05:52.639 --> 00:05:56.559
+Caption: one of the downsides of this is that a
+
+00:05:54.880 --> 00:05:58.160
+Caption: malicious user
+
+00:05:56.559 --> 00:06:00.160
+Caption: using recursion
+
+00:05:58.160 --> 00:06:02.319
+Caption: could craft a yaml file which behaves
+
+00:06:00.160 --> 00:06:05.039
+Caption: like a zip bomb
+
+00:06:02.319 --> 00:06:06.959
+Caption: and upon deserialization will crash the
+
+00:06:05.039 --> 00:06:08.880
+Caption: kube api server
+
+00:06:06.959 --> 00:06:11.600
+Caption: and there&#39;s been several cbes similar to
+
+00:06:08.880 --> 00:06:13.440
+Caption: this that have already been patched
+
+00:06:11.600 --> 00:06:15.679
+Caption: so because of these extra features yaml
+
+00:06:13.440 --> 00:06:17.119
+Caption: is not regarded as a pure data structure
+
+00:06:15.679 --> 00:06:20.239
+Caption: representation
+
+00:06:17.119 --> 00:06:21.679
+Caption: as it has some additional features
+
+00:06:20.239 --> 00:06:23.679
+Caption: if you want a pure data structure
+
+00:06:21.679 --> 00:06:25.440
+Caption: representation i suggest taking a look
+
+00:06:23.679 --> 00:06:27.839
+Caption: at tomml
+
+00:06:25.440 --> 00:06:29.360
+Caption: tom&#39;s obvious markup language
+
+00:06:27.839 --> 00:06:31.359
+Caption: you may have encountered this if you&#39;re
+
+00:06:29.359 --> 00:06:35.839
+Caption: interested in open source software where
+
+00:06:31.359 --> 00:06:35.839
+Caption: it is often used for configuration files
+
+00:06:35.919 --> 00:06:42.080
+Caption: so what&#39;s good about yaml then
+
+00:06:39.279 --> 00:06:44.959
+Caption: when data is easy to view and understand
+
+00:06:42.079 --> 00:06:47.119
+Caption: programming becomes a simpler task
+
+00:06:44.959 --> 00:06:49.598
+Caption: it&#39;s a popular format for configuration
+
+00:06:47.119 --> 00:06:51.279
+Caption: files log files
+
+00:06:49.598 --> 00:06:54.799
+Caption: and declarative manifests such as
+
+00:06:51.279 --> 00:06:56.720
+Caption: kubernetes and aws cloud formation
+
+00:06:54.799 --> 00:06:59.198
+Caption: it provides a well-defined interface
+
+00:06:56.720 --> 00:07:01.519
+Caption: between humans and machines and between
+
+00:06:59.199 --> 00:07:04.639
+Caption: machines and other machines
+
+00:07:01.519 --> 00:07:06.000
+Caption: so a few years ago bc before covert we
+
+00:07:04.639 --> 00:07:07.279
+Caption: were visiting family in northern
+
+00:07:06.000 --> 00:07:08.959
+Caption: thailand
+
+00:07:07.279 --> 00:07:10.559
+Caption: and i was contacted by a colleague at
+
+00:07:08.959 --> 00:07:11.759
+Caption: work who notified me they were having
+
+00:07:10.559 --> 00:07:13.598
+Caption: some problems with the kubernetes
+
+00:07:11.759 --> 00:07:15.279
+Caption: cluster
+
+00:07:13.598 --> 00:07:17.919
+Caption: i simply asked him to run a few
+
+00:07:15.279 --> 00:07:20.720
+Caption: kubernetes cli commands with the flag
+
+00:07:17.919 --> 00:07:23.039
+Caption: dash dash output yaml
+
+00:07:20.720 --> 00:07:25.360
+Caption: and he was able to send me yaml
+
+00:07:23.039 --> 00:07:28.559
+Caption: that communicated to me the state of the
+
+00:07:25.359 --> 00:07:31.359
+Caption: kubernetes cluster at that point in time
+
+00:07:28.559 --> 00:07:34.799
+Caption: i was easily able to diagnose the error
+
+00:07:31.359 --> 00:07:36.399
+Caption: change the yaml and send it back to him
+
+00:07:34.799 --> 00:07:38.159
+Caption: and once he loaded that yaml back into
+
+00:07:36.399 --> 00:07:41.119
+Caption: the system it became operational again
+
+00:07:38.160 --> 00:07:41.119
+Caption: and resolved the problem
+
+00:07:42.160 --> 00:07:46.878
+Caption: so why do i hear people complaining
+
+00:07:43.598 --> 00:07:46.878
+Caption: about yaml all the time then
+
+00:07:48.799 --> 00:07:54.478
+Caption: syntactic white space killed me
+
+00:07:51.440 --> 00:07:55.919
+Caption: any python devs out there
+
+00:07:54.479 --> 00:07:57.679
+Caption: well we know we can overcome this
+
+00:07:55.919 --> 00:08:00.800
+Caption: problem with better tooling such as
+
+00:07:57.679 --> 00:08:00.799
+Caption: plugins for your ide
+
+00:08:01.519 --> 00:08:07.198
+Caption: i don&#39;t know a single engineer who
+
+00:08:03.919 --> 00:08:07.199
+Caption: enjoys writing yaml
+
+00:08:07.359 --> 00:08:11.359
+Caption: does anybody actually enjoy writing yaml
+
+00:08:11.598 --> 00:08:15.759
+Caption: what we&#39;re talking about here is
+
+00:08:13.039 --> 00:08:17.598
+Caption: developer fatigue and frustration
+
+00:08:15.759 --> 00:08:19.519
+Caption: i mean how do you test yaml
+
+00:08:17.598 --> 00:08:22.000
+Caption: how do you get assurance that when you
+
+00:08:19.519 --> 00:08:23.519
+Caption: deploy it does what you want
+
+00:08:22.000 --> 00:08:26.239
+Caption: well its infrastructure is code so
+
+00:08:23.519 --> 00:08:28.000
+Caption: that&#39;s good right
+
+00:08:26.239 --> 00:08:29.359
+Caption: well is it deployed from a pipeline or
+
+00:08:28.000 --> 00:08:31.919
+Caption: from a magic laptop with hidden
+
+00:08:29.359 --> 00:08:31.918
+Caption: dependencies
+
+00:08:36.320 --> 00:08:42.479
+Caption: a yaml error
+
+00:08:38.080 --> 00:08:44.080
+Caption: a yaml type error broke my deployment
+
+00:08:42.479 --> 00:08:45.838
+Caption: so let&#39;s take a little bit of time to
+
+00:08:44.080 --> 00:08:48.880
+Caption: talk about yaml
+
+00:08:45.838 --> 00:08:48.880
+Caption: and type conversions
+
+00:08:49.919 --> 00:08:54.000
+Caption: given this section of yaml here
+
+00:08:51.919 --> 00:08:57.518
+Caption: what would you expect the result to be
+
+00:08:54.000 --> 00:08:57.518
+Caption: upon d serialization
+
+00:08:58.320 --> 00:09:01.440
+Caption: australia a u
+
+00:09:00.159 --> 00:09:02.719
+Caption: new zealand
+
+00:09:01.440 --> 00:09:04.720
+Caption: nz
+
+00:09:02.719 --> 00:09:07.039
+Caption: norway
+
+00:09:04.719 --> 00:09:08.799
+Caption: false
+
+00:09:07.039 --> 00:09:11.919
+Caption: we now have a mixed list
+
+00:09:08.799 --> 00:09:14.958
+Caption: as no was interpreted as false
+
+00:09:11.919 --> 00:09:17.039
+Caption: this is known as the norway problem
+
+00:09:14.958 --> 00:09:18.719
+Caption: yaml is very liberal when doing type
+
+00:09:17.039 --> 00:09:21.039
+Caption: conversions and this leads to many
+
+00:09:18.719 --> 00:09:21.039
+Caption: errors
+
+00:09:21.200 --> 00:09:25.600
+Caption: so let&#39;s look at some of the kubernetes
+
+00:09:22.719 --> 00:09:27.359
+Caption: specific grievances with yaml
+
+00:09:25.599 --> 00:09:30.159
+Caption: a lot of people complain
+
+00:09:27.359 --> 00:09:32.159
+Caption: that kubernetes yaml is too verbose and
+
+00:09:30.159 --> 00:09:33.759
+Caption: i mean that&#39;s fair enough it&#39;s designed
+
+00:09:32.159 --> 00:09:36.559
+Caption: for communication
+
+00:09:33.760 --> 00:09:38.559
+Caption: from machine to machine and then you&#39;ve
+
+00:09:36.559 --> 00:09:43.119
+Caption: got that whole drama with syncing labels
+
+00:09:38.559 --> 00:09:45.278
+Caption: across deployment services pods etc
+
+00:09:43.119 --> 00:09:46.958
+Caption: another problem is delayed errors
+
+00:09:45.278 --> 00:09:49.440
+Caption: like the norway problem which we spoke
+
+00:09:46.958 --> 00:09:51.119
+Caption: about in the previous slide
+
+00:09:49.440 --> 00:09:52.958
+Caption: often this is not detected until the
+
+00:09:51.119 --> 00:09:56.239
+Caption: pipeline fails
+
+00:09:52.958 --> 00:09:58.239
+Caption: and this wastes everyone&#39;s time
+
+00:09:56.239 --> 00:10:01.440
+Caption: people often complain
+
+00:09:58.239 --> 00:10:03.119
+Caption: that kubernetes has too many features
+
+00:10:01.440 --> 00:10:06.479
+Caption: so let&#39;s just compare that to microsoft
+
+00:10:03.119 --> 00:10:07.838
+Caption: word microsoft word is a complex piece
+
+00:10:06.479 --> 00:10:09.359
+Caption: of software
+
+00:10:07.838 --> 00:10:10.958
+Caption: but this complexity is hidden from
+
+00:10:09.359 --> 00:10:12.880
+Caption: novice users
+
+00:10:10.958 --> 00:10:15.359
+Caption: with kubernetes all this complexity is
+
+00:10:12.880 --> 00:10:17.200
+Caption: in your face and new users particularly
+
+00:10:15.359 --> 00:10:18.958
+Caption: find this daunting
+
+00:10:17.200 --> 00:10:22.720
+Caption: the demo will show you how cdks
+
+00:10:18.958 --> 00:10:22.719
+Caption: addresses these issues specifically
+
+00:10:23.039 --> 00:10:27.039
+Caption: so one of the main advantages of yaml is
+
+00:10:25.278 --> 00:10:29.278
+Caption: that it is excellent for declaring the
+
+00:10:27.039 --> 00:10:31.119
+Caption: state of things and that&#39;s why it&#39;s used
+
+00:10:29.278 --> 00:10:33.039
+Caption: for cloud formation and kubernetes
+
+00:10:31.119 --> 00:10:34.958
+Caption: manifests
+
+00:10:33.039 --> 00:10:37.359
+Caption: it facilitates clearly defined
+
+00:10:34.958 --> 00:10:41.119
+Caption: interfaces between humans and machines
+
+00:10:37.359 --> 00:10:43.039
+Caption: and between machines and other machines
+
+00:10:41.119 --> 00:10:45.119
+Caption: humans are happy to read it but they
+
+00:10:43.039 --> 00:10:47.518
+Caption: don&#39;t like to write it
+
+00:10:45.119 --> 00:10:48.958
+Caption: so similar to when we visit family in
+
+00:10:47.518 --> 00:10:50.559
+Caption: northern thailand
+
+00:10:48.958 --> 00:10:51.760
+Caption: all of the conversation is in the thai
+
+00:10:50.559 --> 00:10:53.838
+Caption: language
+
+00:10:51.760 --> 00:10:55.838
+Caption: i can understand about one third to one
+
+00:10:53.838 --> 00:10:57.278
+Caption: half of the words and then i can figure
+
+00:10:55.838 --> 00:10:59.200
+Caption: out the rest
+
+00:10:57.278 --> 00:11:01.679
+Caption: but when i try to respond i really
+
+00:10:59.200 --> 00:11:03.119
+Caption: struggle to compose sentences
+
+00:11:01.679 --> 00:11:05.919
+Caption: this is the problem humans have with
+
+00:11:03.119 --> 00:11:07.760
+Caption: yaml it is easy to read and to make
+
+00:11:05.919 --> 00:11:09.679
+Caption: small updates
+
+00:11:07.760 --> 00:11:11.838
+Caption: but try writing a kubernetes manifest
+
+00:11:09.679 --> 00:11:15.278
+Caption: without any reference material handy
+
+00:11:11.838 --> 00:11:16.640
+Caption: you&#39;re going to have a bad time
+
+00:11:15.278 --> 00:11:18.958
+Caption: we can overcome this problem by
+
+00:11:16.640 --> 00:11:22.000
+Caption: generating yaml programmatically with
+
+00:11:18.958 --> 00:11:24.719
+Caption: cdk for aws cloud formation and cdks for
+
+00:11:22.000 --> 00:11:24.719
+Caption: kubernetes
+
+00:11:27.119 --> 00:11:30.958
+Caption: so let&#39;s take a look at some of the
+
+00:11:29.039 --> 00:11:33.759
+Caption: advantages of generating yaml with
+
+00:11:30.958 --> 00:11:35.119
+Caption: popular programming languages
+
+00:11:33.760 --> 00:11:37.278
+Caption: first of all
+
+00:11:35.119 --> 00:11:38.799
+Caption: they&#39;re familiar to developers
+
+00:11:37.278 --> 00:11:42.479
+Caption: so that means we can use conditional
+
+00:11:38.799 --> 00:11:44.078
+Caption: logic loops and other language features
+
+00:11:42.479 --> 00:11:45.440
+Caption: we can use the testing tools we know and
+
+00:11:44.078 --> 00:11:48.000
+Caption: love
+
+00:11:45.440 --> 00:11:50.320
+Caption: both cdks and cdk support snapshot
+
+00:11:48.000 --> 00:11:52.559
+Caption: testing and cdk supports fine-grained
+
+00:11:50.320 --> 00:11:54.559
+Caption: assertion testing
+
+00:11:52.559 --> 00:11:57.838
+Caption: we can use the package managers
+
+00:11:54.559 --> 00:11:59.919
+Caption: we love like using npm instead of helm
+
+00:11:57.838 --> 00:12:02.078
+Caption: libraries are easier to update maintain
+
+00:11:59.919 --> 00:12:04.239
+Caption: and share than templates
+
+00:12:02.078 --> 00:12:06.159
+Caption: and we can use the ides and plugins and
+
+00:12:04.239 --> 00:12:08.398
+Caption: the linting and code analysis tools that
+
+00:12:06.159 --> 00:12:11.199
+Caption: we know
+
+00:12:08.398 --> 00:12:12.719
+Caption: so dynamic versus static
+
+00:12:11.200 --> 00:12:14.000
+Caption: templates are static
+
+00:12:12.719 --> 00:12:15.199
+Caption: whereas programming languages are
+
+00:12:14.000 --> 00:12:17.039
+Caption: dynamic
+
+00:12:15.200 --> 00:12:19.518
+Caption: we can retrieve environment variables
+
+00:12:17.039 --> 00:12:21.838
+Caption: from aws systems manager parameter store
+
+00:12:19.518 --> 00:12:23.518
+Caption: or a container version from aws ecr at
+
+00:12:21.838 --> 00:12:24.799
+Caption: compile time and save this into the
+
+00:12:23.518 --> 00:12:26.239
+Caption: manifest
+
+00:12:24.799 --> 00:12:28.078
+Caption: or we could read a file from the file
+
+00:12:26.239 --> 00:12:31.359
+Caption: system and save this into a configmap to
+
+00:12:28.078 --> 00:12:31.359
+Caption: be mounted into a pod later
+
+00:12:32.239 --> 00:12:36.320
+Caption: we can also use abstractions
+
+00:12:34.479 --> 00:12:38.398
+Caption: this allows us to turn best practices
+
+00:12:36.320 --> 00:12:40.078
+Caption: into code libraries
+
+00:12:38.398 --> 00:12:41.599
+Caption: and also the drive principle don&#39;t
+
+00:12:40.078 --> 00:12:44.078
+Caption: repeat yourself
+
+00:12:41.599 --> 00:12:46.638
+Caption: if you need to provision 10 of something
+
+00:12:44.078 --> 00:12:48.880
+Caption: such as like a vbc with a database maybe
+
+00:12:46.638 --> 00:12:50.559
+Caption: some ec2 instances
+
+00:12:48.880 --> 00:12:53.440
+Caption: we can create a construct and then we
+
+00:12:50.559 --> 00:12:57.278
+Caption: can provision 10 of the construct
+
+00:12:53.440 --> 00:12:57.278
+Caption: we can also test the con construct
+
+00:12:57.919 --> 00:13:01.599
+Caption: so what can we do if the yaml isn&#39;t
+
+00:12:59.359 --> 00:13:01.599
+Caption: right
+
+00:13:02.078 --> 00:13:08.078
+Caption: let&#39;s take a look at this example here
+
+00:13:04.559 --> 00:13:09.200
+Caption: cdk allows us to embed yaml into into
+
+00:13:08.078 --> 00:13:11.039
+Caption: cdk
+
+00:13:09.200 --> 00:13:12.880
+Caption: so in this scenario here
+
+00:13:11.039 --> 00:13:14.559
+Caption: this workplace has already invested
+
+00:13:12.880 --> 00:13:16.799
+Caption: heavily into the
+
+00:13:14.559 --> 00:13:18.078
+Caption: cloudformation ecosystem and they want
+
+00:13:16.799 --> 00:13:19.679
+Caption: to reuse some of their existing
+
+00:13:18.078 --> 00:13:21.518
+Caption: templates
+
+00:13:19.679 --> 00:13:23.599
+Caption: so this user here has a template called
+
+00:13:21.518 --> 00:13:25.200
+Caption: mytemplate.yaml
+
+00:13:23.599 --> 00:13:27.759
+Caption: and they can import that directly into
+
+00:13:25.200 --> 00:13:27.760
+Caption: cdk
+
+00:13:29.679 --> 00:13:34.638
+Caption: there&#39;s also escape hatches
+
+00:13:32.239 --> 00:13:36.479
+Caption: an escape hatch is an intentional leak
+
+00:13:34.638 --> 00:13:38.000
+Caption: in the abstraction layer
+
+00:13:36.479 --> 00:13:40.239
+Caption: it allows users to escape the
+
+00:13:38.000 --> 00:13:41.440
+Caption: abstraction and reach out to a lower
+
+00:13:40.239 --> 00:13:43.278
+Caption: layer
+
+00:13:41.440 --> 00:13:46.000
+Caption: in this example here
+
+00:13:43.278 --> 00:13:48.320
+Caption: i found that aws code build didn&#39;t do a
+
+00:13:46.000 --> 00:13:49.599
+Caption: full git clone by default which is a
+
+00:13:48.320 --> 00:13:51.440
+Caption: problem if you want to use any git
+
+00:13:49.599 --> 00:13:53.198
+Caption: commands in your build
+
+00:13:51.440 --> 00:13:56.159
+Caption: cloud formation supported the feature
+
+00:13:53.198 --> 00:13:58.159
+Caption: but it was not yet supported in cdk
+
+00:13:56.159 --> 00:14:00.799
+Caption: using this code here i was able to
+
+00:13:58.159 --> 00:14:03.440
+Caption: override the yaml generated by the cdk
+
+00:14:00.799 --> 00:14:07.359
+Caption: to get the cloud formation yaml right
+
+00:14:03.440 --> 00:14:07.359
+Caption: city cates also has escape hatches
+
+00:14:08.479 --> 00:14:12.559
+Caption: we also have the option of using cloud
+
+00:14:10.239 --> 00:14:15.119
+Caption: formation custom resources
+
+00:14:12.559 --> 00:14:17.679
+Caption: and a cloud formation custom resource is
+
+00:14:15.119 --> 00:14:22.320
+Caption: a lambda function that supports create
+
+00:14:17.679 --> 00:14:24.078
+Caption: read update delete and list operations
+
+00:14:22.320 --> 00:14:27.359
+Caption: it&#39;s commonly used when a feature is
+
+00:14:24.078 --> 00:14:29.278
+Caption: supported in the aws sdk but not yet in
+
+00:14:27.359 --> 00:14:31.440
+Caption: cloud formation
+
+00:14:29.278 --> 00:14:34.000
+Caption: this is also very useful when using
+
+00:14:31.440 --> 00:14:36.000
+Caption: non-aws resources
+
+00:14:34.000 --> 00:14:38.000
+Caption: i often hear people say
+
+00:14:36.000 --> 00:14:39.119
+Caption: i want to use cloudflare dns during the
+
+00:14:38.000 --> 00:14:41.278
+Caption: deployment
+
+00:14:39.119 --> 00:14:44.320
+Caption: so that means i have to wrap the entire
+
+00:14:41.278 --> 00:14:45.919
+Caption: thing in terraform right
+
+00:14:44.320 --> 00:14:48.880
+Caption: well you can write a cloud formation
+
+00:14:45.919 --> 00:14:52.078
+Caption: custom resource that updates your dns
+
+00:14:48.880 --> 00:14:54.320
+Caption: and that is invoked by cdk
+
+00:14:52.078 --> 00:14:56.320
+Caption: cdk also provides some very easy
+
+00:14:54.320 --> 00:14:57.760
+Caption: abstractions for packaging and deploying
+
+00:14:56.320 --> 00:14:59.518
+Caption: lambda functions
+
+00:14:57.760 --> 00:15:01.278
+Caption: which makes it very easy to write your
+
+00:14:59.518 --> 00:15:02.958
+Caption: own custom resources
+
+00:15:01.278 --> 00:15:05.278
+Caption: i have one on my github that i wrote for
+
+00:15:02.958 --> 00:15:07.198
+Caption: generating certificates to use with aws
+
+00:15:05.278 --> 00:15:09.119
+Caption: iot
+
+00:15:07.198 --> 00:15:10.880
+Caption: a little fun fact for you guys whilst
+
+00:15:09.119 --> 00:15:13.679
+Caption: researching this talk i wondered to
+
+00:15:10.880 --> 00:15:15.119
+Caption: myself what portion of cdk compiles down
+
+00:15:13.679 --> 00:15:18.000
+Caption: to yaml
+
+00:15:15.119 --> 00:15:20.479
+Caption: and what portion uses custom resources
+
+00:15:18.000 --> 00:15:21.760
+Caption: i don&#39;t have an exact answer for you but
+
+00:15:20.479 --> 00:15:24.880
+Caption: i can report
+
+00:15:21.760 --> 00:15:27.838
+Caption: that the type of the total 192 cdk
+
+00:15:24.880 --> 00:15:29.679
+Caption: libraries 10 use cloudformation custom
+
+00:15:27.838 --> 00:15:31.039
+Caption: resources in some way
+
+00:15:29.679 --> 00:15:33.679
+Caption: although yaml is still used
+
+00:15:31.039 --> 00:15:33.679
+Caption: predominantly
+
+00:15:34.799 --> 00:15:38.719
+Caption: so what are the release artifacts
+
+00:15:37.359 --> 00:15:41.198
+Caption: in yaml
+
+00:15:38.719 --> 00:15:43.119
+Caption: when using kubernetes manifest or aws
+
+00:15:41.198 --> 00:15:45.679
+Caption: cloud information
+
+00:15:43.119 --> 00:15:47.599
+Caption: it&#39;s not just infrastructure as code
+
+00:15:45.679 --> 00:15:49.198
+Caption: it&#39;s also networkers code
+
+00:15:47.599 --> 00:15:51.119
+Caption: policy is code
+
+00:15:49.198 --> 00:15:53.039
+Caption: configuration is code
+
+00:15:51.119 --> 00:15:56.159
+Caption: even security is code
+
+00:15:53.039 --> 00:15:56.159
+Caption: all of the things is code
+
+00:15:56.320 --> 00:15:59.199
+Caption: let&#39;s take a little look at the release
+
+00:15:57.679 --> 00:16:01.278
+Caption: process
+
+00:15:59.198 --> 00:16:03.919
+Caption: it makes sense to use the same
+
+00:16:01.278 --> 00:16:05.039
+Caption: source build test deploy and monitor
+
+00:16:03.919 --> 00:16:07.679
+Caption: pattern
+
+00:16:05.039 --> 00:16:09.278
+Caption: that we use with our application code
+
+00:16:07.679 --> 00:16:12.559
+Caption: so this little example here is in
+
+00:16:09.278 --> 00:16:15.278
+Caption: relation to my home automation project
+
+00:16:12.559 --> 00:16:17.359
+Caption: so the source code is in git
+
+00:16:15.278 --> 00:16:19.440
+Caption: merge to master triggers aws code
+
+00:16:17.359 --> 00:16:21.838
+Caption: pipeline using version 2 of the github
+
+00:16:19.440 --> 00:16:24.239
+Caption: source action
+
+00:16:21.838 --> 00:16:25.679
+Caption: build and test stages happen in aws code
+
+00:16:24.239 --> 00:16:27.838
+Caption: build
+
+00:16:25.679 --> 00:16:30.880
+Caption: then a zip file containing the manifest
+
+00:16:27.838 --> 00:16:33.518
+Caption: and the app spec file are uploaded to s3
+
+00:16:30.880 --> 00:16:36.000
+Caption: and a deployment is created
+
+00:16:33.518 --> 00:16:38.398
+Caption: so all i had to do was install the aws
+
+00:16:36.000 --> 00:16:40.479
+Caption: code deploy agent and k3s on my
+
+00:16:38.398 --> 00:16:42.559
+Caption: raspberry pi 4
+
+00:16:40.479 --> 00:16:44.638
+Caption: and one of the things i love about k3s
+
+00:16:42.559 --> 00:16:48.159
+Caption: is that it has a watch folder
+
+00:16:44.638 --> 00:16:51.359
+Caption: so any file found in the folder var lib
+
+00:16:48.159 --> 00:16:53.039
+Caption: rancher k3s server manifests
+
+00:16:51.359 --> 00:16:54.880
+Caption: will be automatically deployed to
+
+00:16:53.039 --> 00:16:57.198
+Caption: kubernetes
+
+00:16:54.880 --> 00:16:59.599
+Caption: so i configured my app spec file
+
+00:16:57.198 --> 00:17:02.479
+Caption: to instruct code deploy agent to copy
+
+00:16:59.599 --> 00:17:04.880
+Caption: the manifest into the k3s watch folder
+
+00:17:02.479 --> 00:17:07.838
+Caption: so that any point in time the kubernetes
+
+00:17:04.880 --> 00:17:09.838
+Caption: state reflects the source code in github
+
+00:17:07.838 --> 00:17:11.280
+Caption: this has the advantages of
+
+00:17:09.838 --> 00:17:13.678
+Caption: allowing me to view the entire
+
+00:17:11.280 --> 00:17:15.838
+Caption: configuration at any time by simply
+
+00:17:13.678 --> 00:17:18.159
+Caption: viewing the code repo and not needing to
+
+00:17:15.838 --> 00:17:19.520
+Caption: log into a server
+
+00:17:18.160 --> 00:17:22.078
+Caption: to easily make changes to the
+
+00:17:19.520 --> 00:17:22.799
+Caption: configuration through prs or in my case
+
+00:17:22.078 --> 00:17:25.520
+Caption: just
+
+00:17:22.798 --> 00:17:27.438
+Caption: committing to master
+
+00:17:25.520 --> 00:17:29.760
+Caption: we can provision additional devices for
+
+00:17:27.438 --> 00:17:31.439
+Caption: friends and relatives
+
+00:17:29.760 --> 00:17:33.039
+Caption: and of course we can recover from
+
+00:17:31.439 --> 00:17:35.279
+Caption: failure as raspberry pi&#39;s are
+
+00:17:33.038 --> 00:17:38.079
+Caption: notoriously unreliable
+
+00:17:35.280 --> 00:17:40.320
+Caption: and reinstallation is simply reinstall
+
+00:17:38.079 --> 00:17:42.239
+Caption: the operating system to the sd card
+
+00:17:40.319 --> 00:17:44.719
+Caption: install k3s which is a single bash
+
+00:17:42.239 --> 00:17:48.400
+Caption: command and then install the aws code
+
+00:17:44.719 --> 00:17:51.839
+Caption: deploy agent and run a deployment
+
+00:17:48.400 --> 00:17:53.119
+Caption: so we also i also monitor this using aws
+
+00:17:51.839 --> 00:17:54.719
+Caption: cloudwatch which we have there at the
+
+00:17:53.119 --> 00:17:58.160
+Caption: bottom
+
+00:17:54.719 --> 00:17:58.159
+Caption: extracting logs and metrics
+
+00:17:58.640 --> 00:18:02.079
+Caption: let&#39;s take a little look at containers
+
+00:18:00.400 --> 00:18:03.679
+Caption: on aws
+
+00:18:02.079 --> 00:18:04.880
+Caption: we have two control planes to choose
+
+00:18:03.678 --> 00:18:06.239
+Caption: from
+
+00:18:04.880 --> 00:18:08.079
+Caption: which are really just container
+
+00:18:06.239 --> 00:18:10.558
+Caption: orchestrators
+
+00:18:08.079 --> 00:18:12.719
+Caption: the first is ecs or the elastic
+
+00:18:10.558 --> 00:18:14.399
+Caption: container service
+
+00:18:12.719 --> 00:18:15.760
+Caption: with ecs you don&#39;t need to pay for the
+
+00:18:14.400 --> 00:18:16.960
+Caption: control plane
+
+00:18:15.760 --> 00:18:18.719
+Caption: and it can be thought of similar to
+
+00:18:16.959 --> 00:18:20.880
+Caption: docker compose
+
+00:18:18.719 --> 00:18:23.038
+Caption: actually last year a feature was added
+
+00:18:20.880 --> 00:18:25.119
+Caption: to the docker-composed cli
+
+00:18:23.038 --> 00:18:27.918
+Caption: allowing applications to be deployed to
+
+00:18:25.119 --> 00:18:29.439
+Caption: ecs by converting the docker compose
+
+00:18:27.918 --> 00:18:30.880
+Caption: configuration to cloud information
+
+00:18:29.439 --> 00:18:34.000
+Caption: transparently
+
+00:18:30.880 --> 00:18:36.640
+Caption: and then deploying that to aws
+
+00:18:34.000 --> 00:18:38.479
+Caption: the second option is eks or elastic
+
+00:18:36.640 --> 00:18:40.160
+Caption: kubernetes service
+
+00:18:38.479 --> 00:18:42.798
+Caption: on top of the cost of your workloads you
+
+00:18:40.160 --> 00:18:45.919
+Caption: will also pay for the control plane
+
+00:18:42.798 --> 00:18:48.159
+Caption: which is us 10 cents per hour
+
+00:18:45.918 --> 00:18:49.839
+Caption: and this works out at about a hundred
+
+00:18:48.160 --> 00:18:51.280
+Caption: dollars if you leave it deployed for an
+
+00:18:49.839 --> 00:18:53.359
+Caption: entire month
+
+00:18:51.280 --> 00:18:55.440
+Caption: so if you try my demo please make sure
+
+00:18:53.359 --> 00:18:57.038
+Caption: that you first set a billing alert so
+
+00:18:55.439 --> 00:18:59.439
+Caption: that you don&#39;t get a nasty surprise with
+
+00:18:57.038 --> 00:19:01.918
+Caption: your aws spill
+
+00:18:59.439 --> 00:19:04.479
+Caption: both control planes have access to two
+
+00:19:01.918 --> 00:19:06.399
+Caption: options for deploying the workloads
+
+00:19:04.479 --> 00:19:10.319
+Caption: the first is to deploy containers to
+
+00:19:06.400 --> 00:19:12.559
+Caption: managed ec2 instances as worker nodes or
+
+00:19:10.319 --> 00:19:15.439
+Caption: the second option is to use the
+
+00:19:12.558 --> 00:19:16.880
+Caption: serverless compute engine fargate
+
+00:19:15.439 --> 00:19:18.959
+Caption: where you don&#39;t have to worry about the
+
+00:19:16.880 --> 00:19:21.039
+Caption: underlying infrastructure and you pay
+
+00:19:18.959 --> 00:19:23.439
+Caption: only for the resource consumed such as
+
+00:19:21.038 --> 00:19:25.359
+Caption: vcpu and memory
+
+00:19:23.439 --> 00:19:27.918
+Caption: my experience of using kubernetes is
+
+00:19:25.359 --> 00:19:29.760
+Caption: that i have often been disappointed
+
+00:19:27.918 --> 00:19:31.918
+Caption: with the poor utilization of the compute
+
+00:19:29.760 --> 00:19:33.760
+Caption: resources and i&#39;ve never been able to
+
+00:19:31.918 --> 00:19:36.159
+Caption: reach the level of application density
+
+00:19:33.760 --> 00:19:39.119
+Caption: and cost savings i was hoping for and i
+
+00:19:36.160 --> 00:19:40.559
+Caption: always end up paying for idle capacity
+
+00:19:39.119 --> 00:19:42.079
+Caption: there&#39;s also
+
+00:19:40.558 --> 00:19:45.599
+Caption: a significant maintenance burden that
+
+00:19:42.079 --> 00:19:45.599
+Caption: comes with maintaining infrastructure
+
+00:19:45.839 --> 00:19:50.239
+Caption: there are workloads that are better
+
+00:19:47.199 --> 00:19:52.319
+Caption: suited to ec2 instance instances though
+
+00:19:50.239 --> 00:19:55.199
+Caption: but for many use cases the serverless
+
+00:19:52.319 --> 00:19:55.199
+Caption: option is the best
+
+00:19:57.439 --> 00:20:03.479
+Caption: okay that was unusual should we where do
+
+00:19:59.918 --> 00:20:03.479
+Caption: we want to take it from
+
+00:20:07.280 --> 00:20:09.520
+Caption: sure
+
+00:20:10.880 --> 00:20:14.880
+Caption: so
+
+00:20:12.400 --> 00:20:16.960
+Caption: okay so we&#39;ll go from control planes
+
+00:20:14.880 --> 00:20:18.880
+Caption: so both control plane options have
+
+00:20:16.959 --> 00:20:21.839
+Caption: access to two options for deploying
+
+00:20:18.880 --> 00:20:24.719
+Caption: workloads the first option is to deploy
+
+00:20:21.839 --> 00:20:26.558
+Caption: containers to managed ec2 instances
+
+00:20:24.719 --> 00:20:28.558
+Caption: as worker nodes
+
+00:20:26.558 --> 00:20:31.599
+Caption: and the second option is to use the
+
+00:20:28.558 --> 00:20:33.038
+Caption: serverless compute engine aws fargate
+
+00:20:31.599 --> 00:20:34.880
+Caption: where you don&#39;t have to worry about the
+
+00:20:33.038 --> 00:20:36.479
+Caption: underlying infrastructure and you pay
+
+00:20:34.880 --> 00:20:39.839
+Caption: only for what you use
+
+00:20:36.479 --> 00:20:41.678
+Caption: which is the vcpu and memory usage
+
+00:20:39.839 --> 00:20:43.678
+Caption: my experience of using kubernetes is
+
+00:20:41.678 --> 00:20:45.439
+Caption: that i have often been disappointed with
+
+00:20:43.678 --> 00:20:47.599
+Caption: the poor utilization of the compute
+
+00:20:45.439 --> 00:20:49.678
+Caption: resources and i&#39;ve never been able to
+
+00:20:47.599 --> 00:20:52.239
+Caption: reach the level of application density
+
+00:20:49.678 --> 00:20:53.760
+Caption: and cost savings i was hoping for
+
+00:20:52.239 --> 00:20:55.599
+Caption: and i always end up paying for idle
+
+00:20:53.760 --> 00:20:57.440
+Caption: capacity
+
+00:20:55.599 --> 00:21:00.158
+Caption: also maintaining infrastructure results
+
+00:20:57.439 --> 00:21:01.918
+Caption: in a significant maintenance burden
+
+00:21:00.159 --> 00:21:04.240
+Caption: there are some workloads that are better
+
+00:21:01.918 --> 00:21:06.079
+Caption: suited to ec2 workers
+
+00:21:04.239 --> 00:21:08.319
+Caption: however for many use cases the
+
+00:21:06.079 --> 00:21:09.918
+Caption: serverless option is the best option
+
+00:21:08.319 --> 00:21:13.678
+Caption: even though it is more expensive per
+
+00:21:09.918 --> 00:21:13.678
+Caption: unit of compute or memory resource
+
+00:21:14.239 --> 00:21:18.798
+Caption: okay so let&#39;s have a look at the demo
+
+00:21:15.839 --> 00:21:20.558
+Caption: architecture today so
+
+00:21:18.798 --> 00:21:23.439
+Caption: the first git repo that we&#39;re going to
+
+00:21:20.558 --> 00:21:27.119
+Caption: be looking at today which is the cdk1
+
+00:21:23.439 --> 00:21:29.199
+Caption: this deploys our aws control plane
+
+00:21:27.119 --> 00:21:31.439
+Caption: our eks control plane
+
+00:21:29.199 --> 00:21:32.479
+Caption: and configures the control plane to use
+
+00:21:31.439 --> 00:21:34.079
+Caption: fargate
+
+00:21:32.479 --> 00:21:36.000
+Caption: workers which are the serverless ones i
+
+00:21:34.079 --> 00:21:37.918
+Caption: spoke about previously
+
+00:21:36.000 --> 00:21:40.640
+Caption: so when we first deploy the cluster we
+
+00:21:37.918 --> 00:21:43.759
+Caption: get two pods for core dns because you
+
+00:21:40.640 --> 00:21:46.799
+Caption: can&#39;t do much kubernetes without dns
+
+00:21:43.760 --> 00:21:49.520
+Caption: and we also spin up the aws load
+
+00:21:46.798 --> 00:21:51.199
+Caption: balancer controller
+
+00:21:49.520 --> 00:21:53.359
+Caption: so the second
+
+00:21:51.199 --> 00:21:55.439
+Caption: code repo we&#39;re looking at today is the
+
+00:21:53.359 --> 00:21:57.359
+Caption: cd cates repo
+
+00:21:55.439 --> 00:21:59.599
+Caption: which generates our manifest for the
+
+00:21:57.359 --> 00:22:02.000
+Caption: hello kubernetes app
+
+00:21:59.599 --> 00:22:04.880
+Caption: so when we use the kubernetes cli to
+
+00:22:02.000 --> 00:22:06.400
+Caption: deploy the hello kubernetes app
+
+00:22:04.880 --> 00:22:09.520
+Caption: we deploy
+
+00:22:06.400 --> 00:22:12.719
+Caption: a deployment which launches our pods
+
+00:22:09.520 --> 00:22:15.200
+Caption: we deploy a service which directs the
+
+00:22:12.719 --> 00:22:17.918
+Caption: traffic to the pod
+
+00:22:15.199 --> 00:22:20.319
+Caption: and we deploy the ingress
+
+00:22:17.918 --> 00:22:22.158
+Caption: and the ingress instructs the load
+
+00:22:20.319 --> 00:22:25.119
+Caption: balancer controller
+
+00:22:22.159 --> 00:22:27.760
+Caption: to spin up an aws application load
+
+00:22:25.119 --> 00:22:29.760
+Caption: balancer
+
+00:22:27.760 --> 00:22:32.079
+Caption: and the application load balancer
+
+00:22:29.760 --> 00:22:34.079
+Caption: receives incoming traffic
+
+00:22:32.079 --> 00:22:36.319
+Caption: and directs that to the hello kubernetes
+
+00:22:34.079 --> 00:22:36.319
+Caption: pod
+
+00:22:36.479 --> 00:22:40.880
+Caption: so some advantages of using this
+
+00:22:38.239 --> 00:22:42.640
+Caption: architecture is that using the
+
+00:22:40.880 --> 00:22:44.479
+Caption: the application load balancer which is
+
+00:22:42.640 --> 00:22:46.479
+Caption: the newest and most advanced load
+
+00:22:44.479 --> 00:22:50.079
+Caption: balancer from aws
+
+00:22:46.479 --> 00:22:51.839
+Caption: we don&#39;t have to use an nginx ingress
+
+00:22:50.079 --> 00:22:53.599
+Caption: you may have used this before if you&#39;ve
+
+00:22:51.839 --> 00:22:54.798
+Caption: if you&#39;ve used aws with the classic load
+
+00:22:53.599 --> 00:22:56.400
+Caption: balancer
+
+00:22:54.798 --> 00:22:59.199
+Caption: or if you&#39;ve used load balancers with
+
+00:22:56.400 --> 00:23:01.119
+Caption: other cloud providers
+
+00:22:59.199 --> 00:23:02.399
+Caption: so using fargate provides better
+
+00:23:01.119 --> 00:23:05.599
+Caption: isolation
+
+00:23:02.400 --> 00:23:08.159
+Caption: as each pod is scheduled on its own node
+
+00:23:05.599 --> 00:23:11.199
+Caption: and does not share the underlying kernel
+
+00:23:08.159 --> 00:23:13.600
+Caption: cpu resources memory resources or
+
+00:23:11.199 --> 00:23:15.839
+Caption: elastic network interface with any other
+
+00:23:13.599 --> 00:23:15.839
+Caption: pod
+
+00:23:16.239 --> 00:23:19.760
+Caption: some of the advantages of this
+
+00:23:17.678 --> 00:23:21.119
+Caption: architecture the disadvantages of this
+
+00:23:19.760 --> 00:23:24.079
+Caption: architecture
+
+00:23:21.119 --> 00:23:27.280
+Caption: are that the alb ingress controller
+
+00:23:24.079 --> 00:23:29.359
+Caption: spins up a separate alb for each ingress
+
+00:23:27.280 --> 00:23:30.960
+Caption: and this can get expensive
+
+00:23:29.359 --> 00:23:32.640
+Caption: there&#39;s no support for stateful
+
+00:23:30.959 --> 00:23:35.038
+Caption: workloads that require persistent
+
+00:23:32.640 --> 00:23:36.400
+Caption: volumes when you use fargate
+
+00:23:35.038 --> 00:23:38.959
+Caption: so it&#39;s not so great for running
+
+00:23:36.400 --> 00:23:42.960
+Caption: databases but there are other services
+
+00:23:38.959 --> 00:23:45.760
+Caption: for that such as aws rds and aurora
+
+00:23:42.959 --> 00:23:48.959
+Caption: with fargate there&#39;s a 4 v cpu and 30
+
+00:23:45.760 --> 00:23:51.199
+Caption: gigabyte memory per pod hard limit
+
+00:23:48.959 --> 00:23:52.880
+Caption: and diamond sets and privileged pods are
+
+00:23:51.199 --> 00:23:55.918
+Caption: not supported
+
+00:23:52.880 --> 00:23:58.479
+Caption: there&#39;s no support for gpus
+
+00:23:55.918 --> 00:24:00.239
+Caption: and pods are not scheduled immediately
+
+00:23:58.479 --> 00:24:03.599
+Caption: you&#39;ll have to wait around a minute for
+
+00:24:00.239 --> 00:24:07.479
+Caption: a pod to be scheduled on a far gate node
+
+00:24:03.599 --> 00:24:07.479
+Caption: okay demo time
+
+00:24:25.279 --> 00:24:29.440
+Caption: okay so the first code repo that we&#39;re
+
+00:24:27.678 --> 00:24:31.119
+Caption: looking at
+
+00:24:29.439 --> 00:24:32.798
+Caption: is
+
+00:24:31.119 --> 00:24:36.079
+Caption: ddd demo
+
+00:24:32.798 --> 00:24:39.199
+Caption: cdk eks fargate and i&#39;ll be providing
+
+00:24:36.079 --> 00:24:39.199
+Caption: this information at the end
+
+00:24:39.839 --> 00:24:44.239
+Caption: so let me take you through what we&#39;re
+
+00:24:41.279 --> 00:24:46.480
+Caption: provisioning here with cdk
+
+00:24:44.239 --> 00:24:48.959
+Caption: so the first step that we&#39;re using here
+
+00:24:46.479 --> 00:24:51.038
+Caption: is to create the cluster
+
+00:24:48.959 --> 00:24:52.000
+Caption: and this is a fairly complex abstraction
+
+00:24:51.038 --> 00:24:54.558
+Caption: here
+
+00:24:52.000 --> 00:24:56.400
+Caption: there&#39;s a lot going on
+
+00:24:54.558 --> 00:24:58.599
+Caption: we create the cluster
+
+00:24:56.400 --> 00:25:01.200
+Caption: we specify what kubernetes version we&#39;re
+
+00:24:58.599 --> 00:25:04.798
+Caption: using and then we also configure the
+
+00:25:01.199 --> 00:25:06.399
+Caption: default profile for the fargate workers
+
+00:25:04.798 --> 00:25:08.880
+Caption: so
+
+00:25:06.400 --> 00:25:10.159
+Caption: one advantage of using programming
+
+00:25:08.880 --> 00:25:11.918
+Caption: languages to generate this kind of
+
+00:25:10.159 --> 00:25:13.760
+Caption: configuration
+
+00:25:11.918 --> 00:25:15.278
+Caption: is that we can only enter values that we
+
+00:25:13.760 --> 00:25:18.880
+Caption: know are supported
+
+00:25:15.279 --> 00:25:18.880
+Caption: so when it comes to kubernetes version
+
+00:25:19.199 --> 00:25:24.158
+Caption: i can select this here
+
+00:25:22.000 --> 00:25:26.079
+Caption: i can let the auto complete showing me
+
+00:25:24.159 --> 00:25:28.480
+Caption: which versions are supported and so i
+
+00:25:26.079 --> 00:25:31.678
+Caption: don&#39;t need to worry that i&#39;m going to
+
+00:25:28.479 --> 00:25:31.678
+Caption: incorrectly configure this
+
+00:25:32.640 --> 00:25:35.599
+Caption: we also have the option of using the
+
+00:25:34.079 --> 00:25:36.640
+Caption: language features
+
+00:25:35.599 --> 00:25:38.158
+Caption: so
+
+00:25:36.640 --> 00:25:39.039
+Caption: when configuring the default profile
+
+00:25:38.159 --> 00:25:41.520
+Caption: here
+
+00:25:39.038 --> 00:25:44.399
+Caption: it accepts an array of objects with a
+
+00:25:41.520 --> 00:25:45.839
+Caption: single property which is namespace
+
+00:25:44.400 --> 00:25:49.039
+Caption: now writing that out would be fairly
+
+00:25:45.839 --> 00:25:50.959
+Caption: verbose and quite annoying
+
+00:25:49.038 --> 00:25:53.599
+Caption: but using the map feature of the
+
+00:25:50.959 --> 00:25:56.640
+Caption: javascript language we can simply put
+
+00:25:53.599 --> 00:25:58.400
+Caption: all of the namespaces into an array
+
+00:25:56.640 --> 00:26:00.959
+Caption: and the function will generate the
+
+00:25:58.400 --> 00:26:02.640
+Caption: structure for us
+
+00:26:00.959 --> 00:26:04.158
+Caption: so
+
+00:26:02.640 --> 00:26:06.479
+Caption: this is a fairly complex abstraction
+
+00:26:04.159 --> 00:26:06.480
+Caption: here
+
+00:26:07.038 --> 00:26:12.798
+Caption: an extremely powerful abstraction
+
+00:26:10.558 --> 00:26:14.719
+Caption: but it&#39;s reassuring for me as an aws
+
+00:26:12.798 --> 00:26:17.599
+Caption: customer that i can deploy such a
+
+00:26:14.719 --> 00:26:19.439
+Caption: complex architecture so simply and if
+
+00:26:17.599 --> 00:26:21.839
+Caption: i&#39;m a premium customer i have the option
+
+00:26:19.439 --> 00:26:24.158
+Caption: of using aws support as everything is
+
+00:26:21.839 --> 00:26:26.000
+Caption: supported from cdk through to cloud
+
+00:26:24.159 --> 00:26:27.440
+Caption: formation to the resources actually
+
+00:26:26.000 --> 00:26:29.839
+Caption: deployed
+
+00:26:27.439 --> 00:26:32.239
+Caption: i also have a wealth of local networking
+
+00:26:29.839 --> 00:26:33.599
+Caption: resources such as the aws solutions
+
+00:26:32.239 --> 00:26:35.678
+Caption: architects
+
+00:26:33.599 --> 00:26:37.359
+Caption: that i can ask for help
+
+00:26:35.678 --> 00:26:39.839
+Caption: and there&#39;s also online communities i
+
+00:26:37.359 --> 00:26:41.760
+Caption: can go to for help such as the cdk
+
+00:26:39.839 --> 00:26:44.000
+Caption: project on github if i want to raise an
+
+00:26:41.760 --> 00:26:44.000
+Caption: issue
+
+00:26:44.239 --> 00:26:47.599
+Caption: so let&#39;s look at what we can do with
+
+00:26:45.599 --> 00:26:48.640
+Caption: this cluster object that we&#39;ve created
+
+00:26:47.599 --> 00:26:49.439
+Caption: here
+
+00:26:48.640 --> 00:26:50.880
+Caption: so
+
+00:26:49.439 --> 00:26:53.038
+Caption: we can access the properties of the
+
+00:26:50.880 --> 00:26:55.199
+Caption: cluster so as you can see here we can
+
+00:26:53.038 --> 00:26:57.359
+Caption: access the vpc id
+
+00:26:55.199 --> 00:26:59.199
+Caption: and the vpc cider block
+
+00:26:57.359 --> 00:27:02.079
+Caption: so if you wanted to add additional
+
+00:26:59.199 --> 00:27:04.239
+Caption: resources to the vpc like a database or
+
+00:27:02.079 --> 00:27:06.959
+Caption: an ec2 instance or something like that
+
+00:27:04.239 --> 00:27:09.839
+Caption: it&#39;s very easy to do or perhaps you
+
+00:27:06.959 --> 00:27:12.239
+Caption: wanted to add a security group to the
+
+00:27:09.839 --> 00:27:14.959
+Caption: vpc
+
+00:27:12.239 --> 00:27:17.199
+Caption: there&#39;s also some helper methods here
+
+00:27:14.959 --> 00:27:18.959
+Caption: so the first is to add node group
+
+00:27:17.199 --> 00:27:21.278
+Caption: capacity
+
+00:27:18.959 --> 00:27:22.959
+Caption: so
+
+00:27:21.279 --> 00:27:25.840
+Caption: we&#39;re using fargate here but if we
+
+00:27:22.959 --> 00:27:27.839
+Caption: wanted to deploy a static ec2 worker
+
+00:27:25.839 --> 00:27:29.599
+Caption: node we can do that with this function
+
+00:27:27.839 --> 00:27:31.278
+Caption: here
+
+00:27:29.599 --> 00:27:35.079
+Caption: we also have the option of adding an
+
+00:27:31.279 --> 00:27:35.080
+Caption: auto scaling group
+
+00:27:35.279 --> 00:27:41.679
+Caption: and an auto scaling group will scale up
+
+00:27:37.839 --> 00:27:43.439
+Caption: and down as capacity is required
+
+00:27:41.678 --> 00:27:45.839
+Caption: and an interesting feature with the auto
+
+00:27:43.439 --> 00:27:48.639
+Caption: scaling group is it has the option of
+
+00:27:45.839 --> 00:27:51.599
+Caption: using spot instances
+
+00:27:48.640 --> 00:27:55.039
+Caption: spot instances give aws the customers
+
+00:27:51.599 --> 00:27:59.678
+Caption: the opportunity to consume unused aws
+
+00:27:55.038 --> 00:27:59.678
+Caption: compute capacity at very low prices
+
+00:28:01.119 --> 00:28:06.880
+Caption: we also have the option to add manifests
+
+00:28:03.520 --> 00:28:08.640
+Caption: and helm charts to the cluster
+
+00:28:06.880 --> 00:28:10.319
+Caption: now i find
+
+00:28:08.640 --> 00:28:11.599
+Caption: deploying these types of resources to
+
+00:28:10.319 --> 00:28:14.079
+Caption: the cluster
+
+00:28:11.599 --> 00:28:16.479
+Caption: at the time that i deployed the cluster
+
+00:28:14.079 --> 00:28:18.558
+Caption: is useful mainly for
+
+00:28:16.479 --> 00:28:21.038
+Caption: things like loggers and controllers and
+
+00:28:18.558 --> 00:28:22.398
+Caption: sidecar injectors and that kind of thing
+
+00:28:21.038 --> 00:28:25.918
+Caption: but i prefer to have a different
+
+00:28:22.399 --> 00:28:27.600
+Caption: deployment pattern for my workloads
+
+00:28:25.918 --> 00:28:29.119
+Caption: and finally
+
+00:28:27.599 --> 00:28:32.398
+Caption: this abstraction here gives us the
+
+00:28:29.119 --> 00:28:34.399
+Caption: option to actually deploy cdk&#39;s charts
+
+00:28:32.399 --> 00:28:37.679
+Caption: directly to the cluster
+
+00:28:34.399 --> 00:28:40.480
+Caption: so in this example today
+
+00:28:37.678 --> 00:28:42.000
+Caption: the cdks code is in a separate repo
+
+00:28:40.479 --> 00:28:43.760
+Caption: because we&#39;re going to be using it to
+
+00:28:42.000 --> 00:28:45.439
+Caption: generate the yaml and then we&#39;re going
+
+00:28:43.760 --> 00:28:47.279
+Caption: to apply that yaml to the cluster using
+
+00:28:45.439 --> 00:28:49.759
+Caption: the kubernetes cli
+
+00:28:47.279 --> 00:28:52.159
+Caption: but if you wanted to have it all in the
+
+00:28:49.760 --> 00:28:54.159
+Caption: one repo and have
+
+00:28:52.159 --> 00:28:57.840
+Caption: have everything deployed in one go
+
+00:28:54.159 --> 00:28:59.520
+Caption: that&#39;s easy to do using this abstraction
+
+00:28:57.839 --> 00:29:02.158
+Caption: next we have another abstraction here
+
+00:28:59.520 --> 00:29:05.279
+Caption: which deploys the alb controller that i
+
+00:29:02.159 --> 00:29:05.279
+Caption: spoke about previously
+
+00:29:07.279 --> 00:29:11.919
+Caption: and this is a fairly complex abstraction
+
+00:29:09.439 --> 00:29:14.639
+Caption: as configuration is required both at the
+
+00:29:11.918 --> 00:29:16.719
+Caption: aws control plane level for things like
+
+00:29:14.640 --> 00:29:18.558
+Caption: creating iam roles
+
+00:29:16.719 --> 00:29:21.278
+Caption: and also at the kubernetes control plane
+
+00:29:18.558 --> 00:29:22.479
+Caption: level to deploy the controller
+
+00:29:21.279 --> 00:29:24.960
+Caption: but this
+
+00:29:22.479 --> 00:29:27.199
+Caption: this abstraction handles that low level
+
+00:29:24.959 --> 00:29:30.239
+Caption: complexity for you
+
+00:29:27.199 --> 00:29:30.239
+Caption: so let&#39;s look at tests
+
+00:29:31.839 --> 00:29:36.640
+Caption: if we click the test file here
+
+00:29:33.839 --> 00:29:37.520
+Caption: we see that there&#39;s two types of tests
+
+00:29:36.640 --> 00:29:41.119
+Caption: so
+
+00:29:37.520 --> 00:29:44.719
+Caption: here we have the snapshot test
+
+00:29:41.119 --> 00:29:48.079
+Caption: and snapshot tests are really useful for
+
+00:29:44.719 --> 00:29:49.119
+Caption: preventing regression during refactoring
+
+00:29:48.079 --> 00:29:51.119
+Caption: we can
+
+00:29:49.119 --> 00:29:52.479
+Caption: refactor our code and then by running
+
+00:29:51.119 --> 00:29:54.239
+Caption: the test
+
+00:29:52.479 --> 00:29:56.558
+Caption: we find out whether that code generates
+
+00:29:54.239 --> 00:29:59.119
+Caption: the same yaml
+
+00:29:56.558 --> 00:30:01.599
+Caption: and with cdk we also have the option of
+
+00:29:59.119 --> 00:30:03.359
+Caption: testing fine grained assertions
+
+00:30:01.599 --> 00:30:05.359
+Caption: and that&#39;s this test here
+
+00:30:03.359 --> 00:30:08.798
+Caption: where we&#39;re saying we expect that the
+
+00:30:05.359 --> 00:30:11.038
+Caption: stack is not going to have an s3 bucket
+
+00:30:08.798 --> 00:30:13.278
+Caption: now we can actually test a lot more
+
+00:30:11.038 --> 00:30:15.678
+Caption: complex assertions than that so we can
+
+00:30:13.279 --> 00:30:18.399
+Caption: test the properties of the s3 bucket but
+
+00:30:15.678 --> 00:30:20.398
+Caption: this is just a basic example here
+
+00:30:18.399 --> 00:30:22.000
+Caption: so fine grain assertion testings are
+
+00:30:20.399 --> 00:30:23.279
+Caption: really useful when you have a well
+
+00:30:22.000 --> 00:30:25.599
+Caption: written spec
+
+00:30:23.279 --> 00:30:27.440
+Caption: as it is very easy to tran translate
+
+00:30:25.599 --> 00:30:28.959
+Caption: this into a test
+
+00:30:27.439 --> 00:30:31.278
+Caption: and then it is easy to write the cdk
+
+00:30:28.959 --> 00:30:33.119
+Caption: that passes the test
+
+00:30:31.279 --> 00:30:34.799
+Caption: these tests provide a reference point
+
+00:30:33.119 --> 00:30:37.119
+Caption: for non-technical users wanting to
+
+00:30:34.798 --> 00:30:38.558
+Caption: understand how the system works
+
+00:30:37.119 --> 00:30:41.038
+Caption: and for developers working on the
+
+00:30:38.558 --> 00:30:42.880
+Caption: project for the first time
+
+00:30:41.038 --> 00:30:44.639
+Caption: knowing that what you are deploying is
+
+00:30:42.880 --> 00:30:47.359
+Caption: the right thing before commencing the
+
+00:30:44.640 --> 00:30:49.119
+Caption: deployment will save you a lot of time
+
+00:30:47.359 --> 00:30:50.880
+Caption: and save your employer money by not
+
+00:30:49.119 --> 00:30:54.239
+Caption: deploying infrastructure that does not
+
+00:30:50.880 --> 00:30:54.239
+Caption: deliver any business value
+
+00:30:54.399 --> 00:30:58.000
+Caption: so
+
+00:30:55.199 --> 00:31:00.398
+Caption: once we&#39;ve written our cdk here
+
+00:30:58.000 --> 00:31:01.678
+Caption: the next step would be to run yarn
+
+00:31:00.399 --> 00:31:03.600
+Caption: deploy
+
+00:31:01.678 --> 00:31:05.119
+Caption: and it takes about 25 minutes to spin up
+
+00:31:03.599 --> 00:31:05.918
+Caption: this stack
+
+00:31:05.119 --> 00:31:07.519
+Caption: and
+
+00:31:05.918 --> 00:31:09.199
+Caption: when that is complete
+
+00:31:07.519 --> 00:31:10.080
+Caption: it prints out some properties of the
+
+00:31:09.199 --> 00:31:13.599
+Caption: stack
+
+00:31:10.079 --> 00:31:14.959
+Caption: and that includes an aws cli command
+
+00:31:13.599 --> 00:31:16.959
+Caption: that you can run
+
+00:31:14.959 --> 00:31:19.199
+Caption: to import
+
+00:31:16.959 --> 00:31:20.640
+Caption: the access credentials for the stack
+
+00:31:19.199 --> 00:31:22.000
+Caption: which will then allow you to access the
+
+00:31:20.640 --> 00:31:25.279
+Caption: stack remotely
+
+00:31:22.000 --> 00:31:26.880
+Caption: and we&#39;ll come back to that in the demo
+
+00:31:25.279 --> 00:31:28.159
+Caption: so let&#39;s take a look at the second code
+
+00:31:26.880 --> 00:31:31.039
+Caption: repo
+
+00:31:28.159 --> 00:31:32.559
+Caption: which is the cdks repo
+
+00:31:31.038 --> 00:31:35.038
+Caption: so we&#39;re going to start on the file
+
+00:31:32.558 --> 00:31:37.599
+Caption: called cdks.yaml
+
+00:31:35.038 --> 00:31:39.918
+Caption: this is how we configure cdks
+
+00:31:37.599 --> 00:31:41.518
+Caption: this is a very simple example here
+
+00:31:39.918 --> 00:31:44.639
+Caption: and you can see that
+
+00:31:41.519 --> 00:31:48.159
+Caption: we&#39;re configuring cdks to use version
+
+00:31:44.640 --> 00:31:48.159
+Caption: 1.20 of cdk
+
+00:31:49.279 --> 00:31:52.799
+Caption: so
+
+00:31:50.159 --> 00:31:54.640
+Caption: once we&#39;ve done this we run the command
+
+00:31:52.798 --> 00:31:58.079
+Caption: yarn import
+
+00:31:54.640 --> 00:32:00.880
+Caption: and cdks will create typescript classes
+
+00:31:58.079 --> 00:32:05.278
+Caption: for all kubernetes objects
+
+00:32:00.880 --> 00:32:05.279
+Caption: for instance deployments services etc
+
+00:32:05.359 --> 00:32:08.319
+Caption: now if you have custom resource
+
+00:32:07.038 --> 00:32:10.558
+Caption: definitions
+
+00:32:08.319 --> 00:32:12.639
+Caption: you can also import them here too
+
+00:32:10.558 --> 00:32:14.079
+Caption: and cdkates will create typescript
+
+00:32:12.640 --> 00:32:16.640
+Caption: classes for your custom resource
+
+00:32:14.079 --> 00:32:16.640
+Caption: definitions
+
+00:32:16.959 --> 00:32:20.959
+Caption: so let&#39;s look at the cdks code itself
+
+00:32:21.760 --> 00:32:25.839
+Caption: so
+
+00:32:22.880 --> 00:32:26.959
+Caption: a common kubernetes application
+
+00:32:25.839 --> 00:32:30.558
+Caption: will have
+
+00:32:26.959 --> 00:32:32.558
+Caption: the deployment which deploys your pods
+
+00:32:30.558 --> 00:32:34.959
+Caption: it&#39;ll have a service which directs
+
+00:32:32.558 --> 00:32:36.719
+Caption: traffic to the pods
+
+00:32:34.959 --> 00:32:38.640
+Caption: and you&#39;ll have an ingress
+
+00:32:36.719 --> 00:32:41.199
+Caption: which allows external users to access
+
+00:32:38.640 --> 00:32:41.200
+Caption: the resource
+
+00:32:41.678 --> 00:32:45.119
+Caption: so let&#39;s look at those configurations
+
+00:32:43.918 --> 00:32:47.678
+Caption: here
+
+00:32:45.119 --> 00:32:50.959
+Caption: first of all we have the service
+
+00:32:47.678 --> 00:32:54.398
+Caption: and one really great thing about cdkates
+
+00:32:50.959 --> 00:32:57.278
+Caption: is we can hover over the service here
+
+00:32:54.399 --> 00:32:59.039
+Caption: and we can see that this object here
+
+00:32:57.279 --> 00:33:01.600
+Caption: defines
+
+00:32:59.038 --> 00:33:04.319
+Caption: an api object
+
+00:33:01.599 --> 00:33:06.398
+Caption: of this type here
+
+00:33:04.319 --> 00:33:10.918
+Caption: so one of the frustrations of kubernetes
+
+00:33:06.399 --> 00:33:10.919
+Caption: is getting all this stuff correct
+
+00:33:10.959 --> 00:33:15.439
+Caption: so because we&#39;re using cdks and we told
+
+00:33:13.519 --> 00:33:17.200
+Caption: it that we&#39;re using version 1.20 of
+
+00:33:15.439 --> 00:33:18.558
+Caption: kubernetes
+
+00:33:17.199 --> 00:33:20.079
+Caption: it ensures that we get all these
+
+00:33:18.558 --> 00:33:22.839
+Caption: annotations right and we don&#39;t have to
+
+00:33:20.079 --> 00:33:26.558
+Caption: worry about configuring them
+
+00:33:22.839 --> 00:33:29.518
+Caption: manually with the service
+
+00:33:26.558 --> 00:33:31.918
+Caption: if we define it of type node port
+
+00:33:29.519 --> 00:33:33.600
+Caption: so if you&#39;ve used kubernetes elsewhere
+
+00:33:31.918 --> 00:33:35.439
+Caption: you might be used to the load balancer
+
+00:33:33.599 --> 00:33:37.918
+Caption: type of service
+
+00:33:35.439 --> 00:33:39.599
+Caption: this is what i&#39;ve commonly seen before
+
+00:33:37.918 --> 00:33:41.199
+Caption: and it took a little while for me to
+
+00:33:39.599 --> 00:33:43.839
+Caption: understand here that because we&#39;re using
+
+00:33:41.199 --> 00:33:46.398
+Caption: the application load balancer
+
+00:33:43.839 --> 00:33:49.918
+Caption: we actually need to open the port on the
+
+00:33:46.399 --> 00:33:51.679
+Caption: node or on the far gate pod itself
+
+00:33:49.918 --> 00:33:53.119
+Caption: because the application load balancer is
+
+00:33:51.678 --> 00:33:55.439
+Caption: going to direct the traffic directly to
+
+00:33:53.119 --> 00:33:57.279
+Caption: the pod
+
+00:33:55.439 --> 00:34:00.719
+Caption: so after we&#39;ve created the service we
+
+00:33:57.279 --> 00:34:00.720
+Caption: could create the ingress
+
+00:34:00.880 --> 00:34:05.119
+Caption: and as you can see the ingress has these
+
+00:34:03.119 --> 00:34:07.038
+Caption: three annotations here
+
+00:34:05.119 --> 00:34:09.040
+Caption: and these annotations
+
+00:34:07.038 --> 00:34:11.040
+Caption: configure the ingress to communicate
+
+00:34:09.040 --> 00:34:12.639
+Caption: with the load balancer controller so
+
+00:34:11.040 --> 00:34:16.320
+Caption: that the load balancer knows it needs to
+
+00:34:12.638 --> 00:34:16.319
+Caption: spin up a load balancer
+
+00:34:16.479 --> 00:34:20.320
+Caption: the actual configuration here is there&#39;s
+
+00:34:18.560 --> 00:34:22.639
+Caption: a lot of boilerplate you can see we&#39;re
+
+00:34:20.320 --> 00:34:25.280
+Caption: just using the route
+
+00:34:22.638 --> 00:34:28.719
+Caption: and we&#39;re just mapping that service
+
+00:34:25.280 --> 00:34:28.719
+Caption: the service that we defined up here
+
+00:34:29.520 --> 00:34:35.199
+Caption: next we have our kube deployment
+
+00:34:33.118 --> 00:34:37.519
+Caption: and so we we specify here that we want
+
+00:34:35.199 --> 00:34:39.678
+Caption: two pods
+
+00:34:37.520 --> 00:34:41.760
+Caption: and we want to run
+
+00:34:39.678 --> 00:34:45.280
+Caption: the docker hub image
+
+00:34:41.760 --> 00:34:47.599
+Caption: called hello kubernetes version 1.9
+
+00:34:45.280 --> 00:34:49.280
+Caption: we configure the ports and we&#39;re passing
+
+00:34:47.599 --> 00:34:51.200
+Caption: in a message here as an environment
+
+00:34:49.280 --> 00:34:52.959
+Caption: variable
+
+00:34:51.199 --> 00:34:55.040
+Caption: one thing to notice here is that a lot
+
+00:34:52.959 --> 00:34:56.878
+Caption: of the complexity is hidden
+
+00:34:55.040 --> 00:34:59.199
+Caption: so if we wanted to add additional
+
+00:34:56.878 --> 00:35:02.399
+Caption: configuration for the container
+
+00:34:59.199 --> 00:35:04.399
+Caption: we can simply add a new line
+
+00:35:02.399 --> 00:35:06.319
+Caption: and then we can use autocomplete to see
+
+00:35:04.399 --> 00:35:09.520
+Caption: all of the properties that that are
+
+00:35:06.320 --> 00:35:09.520
+Caption: supported by that container
+
+00:35:13.118 --> 00:35:17.519
+Caption: so i want to draw your attention to
+
+00:35:15.280 --> 00:35:21.359
+Caption: the top of this page here
+
+00:35:17.520 --> 00:35:21.359
+Caption: where we define the label
+
+00:35:21.520 --> 00:35:25.280
+Caption: so one of the biggest grievances that
+
+00:35:23.040 --> 00:35:27.679
+Caption: kubernetes users have is
+
+00:35:25.280 --> 00:35:31.199
+Caption: keeping their labels in sync i know i&#39;ve
+
+00:35:27.679 --> 00:35:33.838
+Caption: lost countless hours on this task
+
+00:35:31.199 --> 00:35:35.040
+Caption: by using cdks we simply define the label
+
+00:35:33.839 --> 00:35:36.480
+Caption: once
+
+00:35:35.040 --> 00:35:38.880
+Caption: and then we reference it where we want
+
+00:35:36.479 --> 00:35:42.000
+Caption: to use it so we define that as the
+
+00:35:38.879 --> 00:35:42.000
+Caption: selector for the service
+
+00:35:43.280 --> 00:35:48.560
+Caption: and then again on the kube deployment
+
+00:35:45.839 --> 00:35:53.079
+Caption: both at the selector section
+
+00:35:48.560 --> 00:35:53.079
+Caption: and also in the template section
+
+00:36:00.479 --> 00:36:05.280
+Caption: so you may notice here that
+
+00:36:03.358 --> 00:36:06.799
+Caption: there&#39;s still quite a bit of boilerplate
+
+00:36:05.280 --> 00:36:08.479
+Caption: here
+
+00:36:06.800 --> 00:36:10.719
+Caption: so you might find that you&#39;re constantly
+
+00:36:08.479 --> 00:36:11.598
+Caption: writing the same charts over and over
+
+00:36:10.719 --> 00:36:12.719
+Caption: again
+
+00:36:11.599 --> 00:36:16.400
+Caption: maybe you just want to change one
+
+00:36:12.719 --> 00:36:18.479
+Caption: property such as the container name
+
+00:36:16.399 --> 00:36:19.760
+Caption: cdkates supports these kinds of
+
+00:36:18.479 --> 00:36:21.199
+Caption: abstractions and they&#39;re called
+
+00:36:19.760 --> 00:36:23.439
+Caption: constructs
+
+00:36:21.199 --> 00:36:24.879
+Caption: so if you were in that situation
+
+00:36:23.439 --> 00:36:26.800
+Caption: you could simply publish this as a
+
+00:36:24.879 --> 00:36:28.319
+Caption: construct and then you&#39;ve got your
+
+00:36:26.800 --> 00:36:30.640
+Caption: regression testing on that as well so
+
+00:36:28.320 --> 00:36:32.000
+Caption: you you know that it hasn&#39;t changed
+
+00:36:30.639 --> 00:36:35.598
+Caption: and then you can just consume that
+
+00:36:32.000 --> 00:36:38.159
+Caption: construct as many times as you want
+
+00:36:35.599 --> 00:36:40.160
+Caption: so let&#39;s so
+
+00:36:38.159 --> 00:36:41.439
+Caption: after we&#39;ve written our code here we
+
+00:36:40.159 --> 00:36:42.959
+Caption: would run
+
+00:36:41.439 --> 00:36:44.800
+Caption: yarn build
+
+00:36:42.959 --> 00:36:45.919
+Caption: and that would build our code
+
+00:36:44.800 --> 00:36:48.160
+Caption: and let&#39;s have a look at what that looks
+
+00:36:45.919 --> 00:36:50.159
+Caption: like so this is the yaml that is output
+
+00:36:48.159 --> 00:36:52.319
+Caption: here
+
+00:36:50.159 --> 00:36:55.280
+Caption: as you can see we have our service of
+
+00:36:52.320 --> 00:36:59.599
+Caption: type node port
+
+00:36:55.280 --> 00:36:59.599
+Caption: we have our ingress with our annotations
+
+00:36:59.839 --> 00:37:04.960
+Caption: and we have our deployment which is
+
+00:37:01.679 --> 00:37:09.239
+Caption: going to run two containers
+
+00:37:04.959 --> 00:37:09.239
+Caption: of the hello kubernetes app
+
+00:37:09.919 --> 00:37:13.199
+Caption: so let&#39;s deploy this yaml to the cluster
+
+00:37:11.760 --> 00:37:16.000
+Caption: now
+
+00:37:13.199 --> 00:37:18.959
+Caption: and see how it works
+
+00:37:16.000 --> 00:37:18.959
+Caption: okay so that&#39;ll be a stop
+
+00:37:21.199 --> 00:37:26.239
+Caption: go back to
+
+00:37:23.439 --> 00:37:26.239
+Caption: separate display
+
+00:37:29.919 --> 00:37:32.639
+Caption: this is the video
+
+00:37:34.399 --> 00:37:37.838
+Caption: oh so i&#39;ll just be talking
+
+00:37:38.479 --> 00:37:41.838
+Caption: okay
+
+00:37:40.560 --> 00:37:44.079
+Caption: so
+
+00:37:41.839 --> 00:37:46.160
+Caption: we&#39;ve run the command to configure oh
+
+00:37:44.079 --> 00:37:47.200
+Caption: sorry is this recording again okay
+
+00:37:46.159 --> 00:37:49.439
+Caption: okay
+
+00:37:47.199 --> 00:37:52.719
+Caption: so here we go we&#39;ve run the command
+
+00:37:49.439 --> 00:37:54.319
+Caption: to configure the kubernetes cli
+
+00:37:52.719 --> 00:37:57.280
+Caption: but today i&#39;m going to be using this
+
+00:37:54.320 --> 00:37:58.800
+Caption: fantastic desktop app called lens if you
+
+00:37:57.280 --> 00:37:59.679
+Caption: haven&#39;t heard of it i suggest you check
+
+00:37:58.800 --> 00:38:00.959
+Caption: it out
+
+00:37:59.679 --> 00:38:02.800
+Caption: it gives you
+
+00:38:00.959 --> 00:38:04.479
+Caption: all of if not most of
+
+00:38:02.800 --> 00:38:06.959
+Caption: the functionality
+
+00:38:04.479 --> 00:38:10.159
+Caption: of the kubernetes cli but in a desktop
+
+00:38:06.959 --> 00:38:14.199
+Caption: app that&#39;s much easier to understand
+
+00:38:10.159 --> 00:38:14.199
+Caption: so let&#39;s connect to our cluster
+
+00:38:19.919 --> 00:38:24.319
+Caption: here we go we&#39;re connected
+
+00:38:22.639 --> 00:38:27.279
+Caption: so let&#39;s look at nodes well let&#39;s look
+
+00:38:24.320 --> 00:38:27.280
+Caption: at workloads first
+
+00:38:27.358 --> 00:38:32.639
+Caption: so we change the namespace
+
+00:38:30.239 --> 00:38:34.719
+Caption: to show all spaces
+
+00:38:32.639 --> 00:38:37.760
+Caption: and we can see we have four pods
+
+00:38:34.719 --> 00:38:39.598
+Caption: so we&#39;ve got the two dns pods
+
+00:38:37.760 --> 00:38:41.439
+Caption: and the two pods for the load balancer
+
+00:38:39.599 --> 00:38:43.760
+Caption: controller
+
+00:38:41.439 --> 00:38:45.679
+Caption: and then if we look at the nodes
+
+00:38:43.760 --> 00:38:49.118
+Caption: we can see that fargate has provisioned
+
+00:38:45.679 --> 00:38:50.719
+Caption: a separate worker node for each pod
+
+00:38:49.118 --> 00:38:54.078
+Caption: and we can click those and we can see
+
+00:38:50.719 --> 00:38:57.719
+Caption: that each node has two vcpus and four
+
+00:38:54.079 --> 00:38:57.720
+Caption: gigabytes of memory
+
+00:39:06.479 --> 00:39:10.399
+Caption: so let&#39;s add a demo namespace
+
+00:39:08.959 --> 00:39:13.399
+Caption: we&#39;ll just do that manually using the
+
+00:39:10.399 --> 00:39:13.399
+Caption: gui
+
+00:39:15.439 --> 00:39:21.078
+Caption: and now we&#39;re going to deploy our
+
+00:39:16.959 --> 00:39:21.078
+Caption: manifests into that namespace
+
+00:39:30.959 --> 00:39:36.159
+Caption: okay so our resources have been created
+
+00:39:33.679 --> 00:39:38.078
+Caption: so if we go to pods
+
+00:39:36.159 --> 00:39:40.879
+Caption: we see that there are two pods that are
+
+00:39:38.079 --> 00:39:45.119
+Caption: currently in a pending state
+
+00:39:40.879 --> 00:39:45.118
+Caption: we go to nodes we&#39;ve got four nodes
+
+00:39:46.800 --> 00:39:51.000
+Caption: and another two have just popped up
+
+00:40:02.399 --> 00:40:08.118
+Caption: let&#39;s take a look at our pods
+
+00:40:04.800 --> 00:40:08.119
+Caption: still pending
+
+00:40:12.000 --> 00:40:17.118
+Caption: here we go both pods are successfully
+
+00:40:14.560 --> 00:40:17.119
+Caption: running now
+
+00:40:19.199 --> 00:40:22.239
+Caption: so now if we go to the network section
+
+00:40:20.879 --> 00:40:25.279
+Caption: in lens
+
+00:40:22.239 --> 00:40:26.879
+Caption: go to ingress we can see the ingress
+
+00:40:25.280 --> 00:40:29.040
+Caption: that the load balancer controller has
+
+00:40:26.879 --> 00:40:31.039
+Caption: created for us
+
+00:40:29.040 --> 00:40:32.479
+Caption: so we can copy the hostname of the load
+
+00:40:31.040 --> 00:40:34.800
+Caption: balancer controller
+
+00:40:32.479 --> 00:40:37.040
+Caption: paste that into safari
+
+00:40:34.800 --> 00:40:38.880
+Caption: we can see our application
+
+00:40:37.040 --> 00:40:40.560
+Caption: now if we hit refresh
+
+00:40:38.879 --> 00:40:42.318
+Caption: you&#39;ll see that the pod name is changing
+
+00:40:40.560 --> 00:40:44.160
+Caption: here and that&#39;s because we&#39;ve got two
+
+00:40:42.319 --> 00:40:45.920
+Caption: replicas
+
+00:40:44.159 --> 00:40:47.358
+Caption: and the load balancer is directing the
+
+00:40:45.919 --> 00:40:50.358
+Caption: traffic between the two different
+
+00:40:47.358 --> 00:40:50.358
+Caption: replicas
+
+00:40:53.040 --> 00:40:57.839
+Caption: so in this demo i showed you how much
+
+00:40:55.439 --> 00:41:00.399
+Caption: easier it is to spin up a kubernetes
+
+00:40:57.839 --> 00:41:03.200
+Caption: cluster on aws with cdk
+
+00:41:00.399 --> 00:41:04.719
+Caption: and to deploy workloads with cdks
+
+00:41:03.199 --> 00:41:06.399
+Caption: especially when compared to writing
+
+00:41:04.719 --> 00:41:07.760
+Caption: cloud formation and kubernetes yaml
+
+00:41:06.399 --> 00:41:10.159
+Caption: manually
+
+00:41:07.760 --> 00:41:11.760
+Caption: this process addresses the problems that
+
+00:41:10.159 --> 00:41:14.159
+Caption: with yaml that we learned about earlier
+
+00:41:11.760 --> 00:41:16.079
+Caption: in the talk
+
+00:41:14.159 --> 00:41:18.639
+Caption: the demo also gives you an understanding
+
+00:41:16.079 --> 00:41:19.920
+Caption: of how kubernetes works on aws
+
+00:41:18.639 --> 00:41:21.679
+Caption: in conjunction with the serverless
+
+00:41:19.919 --> 00:41:24.399
+Caption: compute engine fargate
+
+00:41:21.679 --> 00:41:28.000
+Caption: and the application load balancer
+
+00:41:24.399 --> 00:41:29.760
+Caption: so if you are using aws but not cdk
+
+00:41:28.000 --> 00:41:31.199
+Caption: or if you are using kubernetes with yaml
+
+00:41:29.760 --> 00:41:33.040
+Caption: manifest
+
+00:41:31.199 --> 00:41:36.239
+Caption: i hope you will go home and deploy my
+
+00:41:33.040 --> 00:41:36.239
+Caption: code to try it for yourself
+
+00:41:37.040 --> 00:41:40.959
+Caption: so here are the links to the code repos
+
+00:41:41.599 --> 00:41:48.280
+Caption: i&#39;d like to say a big thanks to all the
+
+00:41:43.919 --> 00:41:48.280
+Caption: volunteers for making today possible
+

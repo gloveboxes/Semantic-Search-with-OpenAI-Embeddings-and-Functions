@@ -1,0 +1,1077 @@
+[
+    {
+        "text": "you're not gonna miss this episode of the ai show  where we talk to paul and alvin about nvidia deep  ",
+        "start": 0.8,
+        "duration": 4.88
+    },
+    {
+        "text": "stream development with microsoft azure make sure  you tune in hello and welcome to this episode of  ",
+        "start": 5.68,
+        "duration": 11.52
+    },
+    {
+        "text": "the ai show we're talking all about nvidia deep  stream development with microsoft azure we've got  ",
+        "start": 17.2,
+        "duration": 4.56
+    },
+    {
+        "text": "paul and alvin with us why don't you introduce  yourself we'll start with you alvin yeah hi  ",
+        "start": 21.76,
+        "duration": 5.84
+    },
+    {
+        "text": "everybody my name's alvin i do product marketing  for the uh nvidia ai sdks um so really my job  ",
+        "start": 27.6,
+        "duration": 7.92
+    },
+    {
+        "text": "is to help users uh embrace the power of ai with  software tools making it easy for everybody to do  ",
+        "start": 35.52,
+        "duration": 7.52
+    },
+    {
+        "text": "you're already making me happy alvin let's go to  you paul so my name is paul dicarlo and i'm a lead  ",
+        "start": 43.68,
+        "duration": 6.16
+    },
+    {
+        "text": "within the data and ai team over here in developer  relations at microsoft and a lot of my day-to-day  ",
+        "start": 49.84,
+        "duration": 7.12
+    },
+    {
+        "text": "work slash interest often involves how can i  make some hardware thing from nvidia work with  ",
+        "start": 56.96,
+        "duration": 6.32
+    },
+    {
+        "text": "some cool cloud thing from microsoft and uh it's a  never-ending joy because there's always something  ",
+        "start": 63.28,
+        "duration": 7.28
+    },
+    {
+        "text": "new and exciting from both sides and it's  very fun to find out ways to use them together  ",
+        "start": 70.56,
+        "duration": 4.8
+    },
+    {
+        "text": "well i'm a fan for sure of paul and the work that  you do alvin so let's start with nvidia deepstream  ",
+        "start": 75.92,
+        "duration": 6.24
+    },
+    {
+        "text": "alvin can you tell us a little bit about that yeah  absolutely if you uh oh if you want to bring up  ",
+        "start": 82.16,
+        "duration": 5.04
+    },
+    {
+        "text": "that slide yeah let me get that right now here you  go yeah great so yeah anybody that's ever dealt  ",
+        "start": 87.2,
+        "duration": 6.32
+    },
+    {
+        "text": "with video or image processing knows that there's  just a lot of rabbit holes you can get into  ",
+        "start": 93.52,
+        "duration": 5.04
+    },
+    {
+        "text": "the mathematics of scaling of changing color  space conversion you can get into how do i you  ",
+        "start": 99.36,
+        "duration": 7.92
+    },
+    {
+        "text": "know share frame buffers pointers because you got  video coming in at a steady cadence 30 frames per  ",
+        "start": 107.28,
+        "duration": 6.08
+    },
+    {
+        "text": "second 60 frames per second and of course once  you have your ai inference model um you of course  ",
+        "start": 113.36,
+        "duration": 6.96
+    },
+    {
+        "text": "want to run that as efficient as possible so deep  stream is all about end-to-end optimization and  ",
+        "start": 120.32,
+        "duration": 5.36
+    },
+    {
+        "text": "acceleration we try to we're built on top of g  streamer that's uh uh open source uh community  ",
+        "start": 125.68,
+        "duration": 7.36
+    },
+    {
+        "text": "that said hey you know video building this video  pipelines we need an easier way to do that uh  ",
+        "start": 133.04,
+        "duration": 5.12
+    },
+    {
+        "text": "to do so and so we kind of built on top of that  and say hey how can we make you know the input  ",
+        "start": 138.88,
+        "duration": 6.0
+    },
+    {
+        "text": "the capture the decoding the pre-processing  the back-end the tracking all work as more as  ",
+        "start": 144.88,
+        "duration": 6.24
+    },
+    {
+        "text": "efficiently and not optimized as possible whether  you're running on a jetson device whether you're  ",
+        "start": 151.12,
+        "duration": 4.32
+    },
+    {
+        "text": "running on one of our discrete gpus or whether  you're throwing your application up on the cloud  ",
+        "start": 155.44,
+        "duration": 4.32
+    },
+    {
+        "text": "interesting so let me see if i understand  this right because i i'm a computer vision guy  ",
+        "start": 160.56,
+        "duration": 4.0
+    },
+    {
+        "text": "not like a ted talk guy but like the actual  pictures and stuff so you're telling me that  ",
+        "start": 164.56,
+        "duration": 5.04
+    },
+    {
+        "text": "what deep stream does is it takes like video  streams and does a bunch of conversions on  ",
+        "start": 169.6,
+        "duration": 5.52
+    },
+    {
+        "text": "it to prepare it for machine learning or for  any other application am i getting that right  ",
+        "start": 175.12,
+        "duration": 3.04
+    },
+    {
+        "text": "yeah absolutely yeah so we take things let's say  you're running on on on a jetson device and you  ",
+        "start": 178.96,
+        "duration": 6.72
+    },
+    {
+        "text": "got a rtsp stream coming in so we're ensuring that  decode is happening with our nv deck um so you're  ",
+        "start": 185.68,
+        "duration": 7.28
+    },
+    {
+        "text": "using that that hardware accelerator when you're  putting in that pipeline let's say you got to do  ",
+        "start": 192.96,
+        "duration": 5.52
+    },
+    {
+        "text": "scaling or you got to do color skip  space conversion so you want to make  ",
+        "start": 198.48,
+        "duration": 3.52
+    },
+    {
+        "text": "sure you're doing that on the gpu you want  to use the our gpu cuda cores um or etc  ",
+        "start": 202.0,
+        "duration": 6.16
+    },
+    {
+        "text": "so that um you know it's all about computer  science it's all about amdahl's law right when  ",
+        "start": 208.16,
+        "duration": 4.56
+    },
+    {
+        "text": "we kind of talk about the the efficiency he's  only as good as your kind of how good you're  ",
+        "start": 212.72,
+        "duration": 5.12
+    },
+    {
+        "text": "running that slowest part so for example you got  30 frames per second coming in 33 milliseconds  ",
+        "start": 217.84,
+        "duration": 5.76
+    },
+    {
+        "text": "you built this awesome ai model it runs at two  milliseconds but when you actually go to put in  ",
+        "start": 224.48,
+        "duration": 5.28
+    },
+    {
+        "text": "your input stream you find out that your d code is  taking up 40 milliseconds you're scaling certain  ",
+        "start": 229.76,
+        "duration": 5.36
+    },
+    {
+        "text": "45 milliseconds and all of a sudden you're  scratching your head going like hey why am  ",
+        "start": 235.12,
+        "duration": 3.2
+    },
+    {
+        "text": "i only getting 10 frames per second so what deep  stream does is ensuring that you're not starving  ",
+        "start": 238.32,
+        "duration": 5.12
+    },
+    {
+        "text": "that ai inference model you're giving everything  as efficiently as possible and the same thing that  ",
+        "start": 243.44,
+        "duration": 5.6
+    },
+    {
+        "text": "the back end whether you're doing tracking video  analytics throwing stuff up to to the azure cloud  ",
+        "start": 249.04,
+        "duration": 5.76
+    },
+    {
+        "text": "that that's running as efficiently as possible so  it's not throttling the upstream video pipeline  ",
+        "start": 254.8,
+        "duration": 5.12
+    },
+    {
+        "text": "that makes a ton of sense so whenever i'm seeing  like those images of like cars and boxes around it  ",
+        "start": 259.92,
+        "duration": 5.2
+    },
+    {
+        "text": "all of that video needs to get processed and  what you're saying is that we want to process  ",
+        "start": 265.12,
+        "duration": 4.4
+    },
+    {
+        "text": "that on the gpu so that those boxes can be drawn  clearly once the inference is time is happening  ",
+        "start": 269.52,
+        "duration": 4.8
+    },
+    {
+        "text": "yeah absolutely yeah and even the the output video  rendering right like drawing the bounding boxes um  ",
+        "start": 274.32,
+        "duration": 6.72
+    },
+    {
+        "text": "that you're you want to do that on the gpu and  you want to render that using the gpus because  ",
+        "start": 281.04,
+        "duration": 5.28
+    },
+    {
+        "text": "imagine everything's running on the on let's  say you've got the inference so that but that  ",
+        "start": 286.32,
+        "duration": 5.52
+    },
+    {
+        "text": "that video frame is down in the gpu memory if  you want to say okay i'm going to go draw the  ",
+        "start": 291.84,
+        "duration": 4.96
+    },
+    {
+        "text": "bounding boxes with my cpu then that memory  is going to come back up to the system memory  ",
+        "start": 296.8,
+        "duration": 4.96
+    },
+    {
+        "text": "you know you're going from kernel to user space  then you're drawing it then you're going to  ",
+        "start": 302.56,
+        "duration": 3.52
+    },
+    {
+        "text": "send it back down and then all those copies uh um  just take up a lot of time and so your end-to-end  ",
+        "start": 306.08,
+        "duration": 5.92
+    },
+    {
+        "text": "latency really hurts if you're able to take  advantage of what g streamer and deep stream do  ",
+        "start": 312.0,
+        "duration": 5.12
+    },
+    {
+        "text": "is you're keeping those frame buffers down in  those that accelerator memory and you're getting  ",
+        "start": 317.12,
+        "duration": 4.56
+    },
+    {
+        "text": "that accelerator to not only do inference but also  potentially do the video rendering the bounding uh  ",
+        "start": 321.68,
+        "duration": 6.24
+    },
+    {
+        "text": "box drawing and so it's it kind of helps  accelerate everything end to end and that  ",
+        "start": 327.92,
+        "duration": 4.72
+    },
+    {
+        "text": "makes a ton of sense and when you said like a jets  and nano i want people to know a jetson nano is  ",
+        "start": 332.64,
+        "duration": 4.16
+    },
+    {
+        "text": "like a tiny computer thing right it's like a  it's like the size of a credit oh look at it  ",
+        "start": 336.8,
+        "duration": 4.8
+    },
+    {
+        "text": "all showing here let me let me let me make  this bigger show that that thing so you're  ",
+        "start": 343.12,
+        "duration": 4.96
+    },
+    {
+        "text": "talking about doing all of this on that thing  right yeah absolutely yeah what's really nice  ",
+        "start": 348.08,
+        "duration": 5.68
+    },
+    {
+        "text": "about deep stream and you know it expands to  that is that you put together your pipeline  ",
+        "start": 353.76,
+        "duration": 5.84
+    },
+    {
+        "text": "and assuming all the resources are there you run  it on the jets and that same application can run  ",
+        "start": 360.56,
+        "duration": 5.52
+    },
+    {
+        "text": "on a dgp on a discrete gpu you can send that same  application to the cloud you don't have to kind  ",
+        "start": 366.08,
+        "duration": 4.72
+    },
+    {
+        "text": "of recode it uh let's say you support one camera  stream on a jetsam nano you got a discrete gpu you  ",
+        "start": 370.8,
+        "duration": 7.04
+    },
+    {
+        "text": "can um execute that same pipeline multiple times  and now you're supporting you know 50 streams  ",
+        "start": 377.84,
+        "duration": 6.64
+    },
+    {
+        "text": "100 streams 150 streams on a discrete gpu so it  sort of scales and has the agility there that's  ",
+        "start": 384.48,
+        "duration": 6.64
+    },
+    {
+        "text": "when you're putting together these applications so  let me let me ask the let me ask the hard question  ",
+        "start": 391.12,
+        "duration": 5.12
+    },
+    {
+        "text": "here alvin because when i look at this stuff i'm  like those are some cool boxes but now i'm going  ",
+        "start": 396.24,
+        "duration": 4.8
+    },
+    {
+        "text": "to have to write some c plus or something is  this what i have to do so help me out how do i  ",
+        "start": 401.04,
+        "duration": 5.52
+    },
+    {
+        "text": "actually use the sdk am i going to have to yeah  yeah so if we can go to we go to the next slide",
+        "start": 406.56,
+        "duration": 5.04
+    },
+    {
+        "text": "so it all starts with those hardware  accelerated deep stream plug-ins that i  ",
+        "start": 414.8,
+        "duration": 3.52
+    },
+    {
+        "text": "talked about right those are those those  blocks that make up the video pipeline  ",
+        "start": 418.32,
+        "duration": 3.84
+    },
+    {
+        "text": "for like the d code the scaling the tracking  um and those are all optimized now you can  ",
+        "start": 422.16,
+        "duration": 7.04
+    },
+    {
+        "text": "work with those both in python python  and c plus from a coding standpoint  ",
+        "start": 429.2,
+        "duration": 4.64
+    },
+    {
+        "text": "but then you're starting to have to know a little  bit about how g streamer works the configuration  ",
+        "start": 435.28,
+        "duration": 4.56
+    },
+    {
+        "text": "um you know syncs and pads and and all of  that especially going to do a little bit of  ",
+        "start": 440.4,
+        "duration": 4.24
+    },
+    {
+        "text": "customization stuff and so for this last version  of deep stream deep stream 6.0 that came out  ",
+        "start": 444.64,
+        "duration": 5.28
+    },
+    {
+        "text": "in november we wanted to take the ability of of  deep stream and being able to do it visually with  ",
+        "start": 449.92,
+        "duration": 8.24
+    },
+    {
+        "text": "visual programming and that's where graph composer  comes in and that's the newest way of being able  ",
+        "start": 458.16,
+        "duration": 4.32
+    },
+    {
+        "text": "to develop with deep stream so we're already  visualizing these video pipelines in our heads  ",
+        "start": 462.48,
+        "duration": 5.28
+    },
+    {
+        "text": "as hey i got my input stream i'm going to do my  d code then i'm going to send it to the inference  ",
+        "start": 468.48,
+        "duration": 5.28
+    },
+    {
+        "text": "i might want to tap here and then look at how much  fps i'm getting and then i'm gonna do my on-screen  ",
+        "start": 473.76,
+        "duration": 6.64
+    },
+    {
+        "text": "display and my video rendering and we said well  why not just create a visual programming method  ",
+        "start": 480.4,
+        "duration": 5.52
+    },
+    {
+        "text": "so that you're actually programming deep stream  in that way the way you're visualizing it let's  ",
+        "start": 485.92,
+        "duration": 4.72
+    },
+    {
+        "text": "do it with graph composer and any of those things  you can then as you can see you can take container  ",
+        "start": 490.64,
+        "duration": 5.84
+    },
+    {
+        "text": "builder which generates little docker images and  you can send them anywhere from from jets into the  ",
+        "start": 496.48,
+        "duration": 4.64
+    },
+    {
+        "text": "cloud so early on uh we of course reached out  to paul and said hey paul we got this kind of  ",
+        "start": 501.12,
+        "duration": 5.6
+    },
+    {
+        "text": "cool new low code no code way of creating these  deep stream processing pipelines uh do you want to  ",
+        "start": 507.36,
+        "duration": 6.48
+    },
+    {
+        "text": "take a look do you want to see what it is and give  us some of your feedback well this sounds awesome  ",
+        "start": 513.84,
+        "duration": 5.36
+    },
+    {
+        "text": "because i have used g stream because i wrote  people don't know this but i wrote a little bit  ",
+        "start": 519.2,
+        "duration": 4.72
+    },
+    {
+        "text": "of learn tv like the back end you know production  if you're watching online tv i wrote the back end  ",
+        "start": 523.92,
+        "duration": 4.72
+    },
+    {
+        "text": "and that stuff is hard and so if you're  telling me that i can totally just  ",
+        "start": 528.64,
+        "duration": 4.08
+    },
+    {
+        "text": "embed like machine learning and post things  and pre-things into the video pipeline with  ",
+        "start": 533.28,
+        "duration": 4.32
+    },
+    {
+        "text": "just drawing i'm not gonna believe it until  paul shows me so paul what do you got for us  ",
+        "start": 537.6,
+        "duration": 3.44
+    },
+    {
+        "text": "well i'm happy to share that it's real and  it's here this is it the nvidia deepstream  ",
+        "start": 541.84,
+        "duration": 6.64
+    },
+    {
+        "text": "graph composer and what you're looking at here  is a very simple representation of a deep stream  ",
+        "start": 548.48,
+        "duration": 6.72
+    },
+    {
+        "text": "graph which you can think of as a representation  of an intelligent video application that's powered  ",
+        "start": 555.2,
+        "duration": 6.88
+    },
+    {
+        "text": "with the optimizations and sdk components  that are part of the nvidia deepstream sdk  ",
+        "start": 562.08,
+        "duration": 6.24
+    },
+    {
+        "text": "now what you'll notice over here on the right  is that the ide sort of comes with a collection  ",
+        "start": 569.12,
+        "duration": 6.72
+    },
+    {
+        "text": "of extensions which inside of contain components  and these can be dragged and dropped onto the  ",
+        "start": 576.56,
+        "duration": 5.84
+    },
+    {
+        "text": "canvas area and depending on the properties of  that component you can then connect compatible  ",
+        "start": 582.4,
+        "duration": 5.76
+    },
+    {
+        "text": "outputs into compatible inputs depending on  the features that you're intending to use now  ",
+        "start": 588.16,
+        "duration": 6.8
+    },
+    {
+        "text": "in our case we're going to start over here on  the left with our nvidia ds deep stream single  ",
+        "start": 594.96,
+        "duration": 5.92
+    },
+    {
+        "text": "source input component and what this is going to  allow us to do is bring in an input in the form  ",
+        "start": 600.88,
+        "duration": 5.84
+    },
+    {
+        "text": "of either a video file or even an rtsp stream and  we can then connect that into something we call  ",
+        "start": 606.72,
+        "duration": 8.24
+    },
+    {
+        "text": "the nvds stream muxer now you might be  wondering why we're using a muxer here well  ",
+        "start": 614.96,
+        "duration": 5.68
+    },
+    {
+        "text": "you're not just limited to using a single  video source input you could actually create  ",
+        "start": 620.64,
+        "duration": 4.72
+    },
+    {
+        "text": "multiples of these in fact i found that on the  nvidia jetson embedded line that the smaller jetsa  ",
+        "start": 625.36,
+        "duration": 6.16
+    },
+    {
+        "text": "nano device can handle up to eight of these inputs  simultaneously and similarly if you go higher onto  ",
+        "start": 631.52,
+        "duration": 7.28
+    },
+    {
+        "text": "something like the jets and xavier that could  handle up to 32 simultaneous video inputs into a  ",
+        "start": 638.8,
+        "duration": 6.24
+    },
+    {
+        "text": "muxer which can then be output into your inference  step and this is where we actually choose  ",
+        "start": 645.04,
+        "duration": 6.96
+    },
+    {
+        "text": "the object detection algorithm that we're going  to apply to that video input so in this case we're  ",
+        "start": 652.0,
+        "duration": 5.84
+    },
+    {
+        "text": "using a resnet 10 4 class object detector and  you'll notice that the output of this step then  ",
+        "start": 657.84,
+        "duration": 7.2
+    },
+    {
+        "text": "splits off into an nvds per class object counter  which allows us to accumulate a running total  ",
+        "start": 665.04,
+        "duration": 7.2
+    },
+    {
+        "text": "of each object that is seen during those inference  steps during the processing and something called  ",
+        "start": 672.24,
+        "duration": 5.92
+    },
+    {
+        "text": "the nvds osd or on-screen display and this  is going to allow us to draw bounding boxes  ",
+        "start": 678.16,
+        "duration": 6.32
+    },
+    {
+        "text": "over those detected objects within the output  that is coming from the inference step and finally  ",
+        "start": 684.48,
+        "duration": 7.6
+    },
+    {
+        "text": "it's going to allow us to render those results  or draw them back in a visual representation  ",
+        "start": 692.08,
+        "duration": 5.12
+    },
+    {
+        "text": "using the nvds video renderer now one of the  things that i absolutely love about the graph  ",
+        "start": 697.2,
+        "duration": 6.64
+    },
+    {
+        "text": "composer is because it is an ide like environment  it allows for a very very tight loop for you to  ",
+        "start": 703.84,
+        "duration": 6.16
+    },
+    {
+        "text": "be able to build your application and not only  that be able to see it executing so that you  ",
+        "start": 710.0,
+        "duration": 6.48
+    },
+    {
+        "text": "can very quickly make iterations to that as you're  developing your pipeline so i'm going to go ahead  ",
+        "start": 716.48,
+        "duration": 5.6
+    },
+    {
+        "text": "and select the run graph icon over on the left  choose my available options and then select run  ",
+        "start": 722.08,
+        "duration": 5.28
+    },
+    {
+        "text": "and this is then going to give us the visual  representation using all the selected components  ",
+        "start": 728.88,
+        "duration": 6.4
+    },
+    {
+        "text": "that make up our graph and as you can see  here it's drawing those bounding boxes  ",
+        "start": 735.28,
+        "duration": 4.88
+    },
+    {
+        "text": "using that resnet four class object detector  and it's also giving us an accumulated total  ",
+        "start": 740.16,
+        "duration": 6.72
+    },
+    {
+        "text": "of the objects that it's seeing in the upper  left hand here so this is really awesome and  ",
+        "start": 746.88,
+        "duration": 5.92
+    },
+    {
+        "text": "again not only can you really quickly make those  updates changes and see them but if you think  ",
+        "start": 752.8,
+        "duration": 5.36
+    },
+    {
+        "text": "about it if you ever think about modifying  that pipeline or adding additional features  ",
+        "start": 758.16,
+        "duration": 5.04
+    },
+    {
+        "text": "it makes it very very easy to come in here  select a new component and then see that  ",
+        "start": 763.2,
+        "duration": 4.4
+    },
+    {
+        "text": "working in action so for example say we wanted  to push our data into the microsoft azure cloud  ",
+        "start": 767.6,
+        "duration": 5.84
+    },
+    {
+        "text": "well the good news is there is something called  the nvds msg conv broker and this can allow you  ",
+        "start": 774.0,
+        "duration": 7.04
+    },
+    {
+        "text": "to connect to an mqtt input if you or output or  channel and also allow you to use shared kernel  ",
+        "start": 781.04,
+        "duration": 9.04
+    },
+    {
+        "text": "objects that can give you native compatibility  with things like azure iot edge allowing you to  ",
+        "start": 790.08,
+        "duration": 5.12
+    },
+    {
+        "text": "push object detection dissolve results from your  inference step directly into say an azure iot  ",
+        "start": 795.2,
+        "duration": 5.92
+    },
+    {
+        "text": "hub or it could then be processed by a myriad of  services that are available within microsoft azure  ",
+        "start": 801.12,
+        "duration": 6.16
+    },
+    {
+        "text": "but it doesn't just stop there once you've  actually built up your solution and you're  ",
+        "start": 808.24,
+        "duration": 4.08
+    },
+    {
+        "text": "ready to go to production it has a built-in  feature known as the container builder that you  ",
+        "start": 812.32,
+        "duration": 5.84
+    },
+    {
+        "text": "can invoke by selecting this cloud icon over here  and choosing build container and from here you can  ",
+        "start": 818.16,
+        "duration": 6.08
+    },
+    {
+        "text": "give it a configuration file that will allow it to  point to the specific representation of this graph  ",
+        "start": 824.24,
+        "duration": 6.16
+    },
+    {
+        "text": "and a platform configuration file which means  that you can choose to target building a container  ",
+        "start": 830.4,
+        "duration": 5.52
+    },
+    {
+        "text": "that can run either on an x86 discrete gpu desktop  machine maybe run in an azure virtual machine with  ",
+        "start": 835.92,
+        "duration": 9.44
+    },
+    {
+        "text": "compatible nvidia hardware or even deploy  down to arm 64 devices that may be part of  ",
+        "start": 845.36,
+        "duration": 7.04
+    },
+    {
+        "text": "the nvidia jetson line so that you can build  something that runs on the edge so once you've  ",
+        "start": 852.4,
+        "duration": 5.52
+    },
+    {
+        "text": "got those configurations and platform config  set simply select build and this will invoke  ",
+        "start": 857.92,
+        "duration": 5.36
+    },
+    {
+        "text": "docker in the background to start building up that  container for distribution now in the short time  ",
+        "start": 863.28,
+        "duration": 6.4
+    },
+    {
+        "text": "that we've had in this demo we've talked about a  lot of the really cool features that are possible  ",
+        "start": 869.68,
+        "duration": 4.56
+    },
+    {
+        "text": "but what i'm really excited to share is that  we've actually got an interactive learning path  ",
+        "start": 874.24,
+        "duration": 5.2
+    },
+    {
+        "text": "on microsoft learn that walks through the steps  to not only install the graph composer get started  ",
+        "start": 879.44,
+        "duration": 5.84
+    },
+    {
+        "text": "with it give you a little bit of background on  deep stream as well but then shows you how to  ",
+        "start": 885.28,
+        "duration": 4.4
+    },
+    {
+        "text": "build these containers and deploy them out  to an azure iot edge device and so here you  ",
+        "start": 889.68,
+        "duration": 5.44
+    },
+    {
+        "text": "can see that and it's a really awesome thing  that you can go ahead and test drive today  ",
+        "start": 895.12,
+        "duration": 4.08
+    },
+    {
+        "text": "no that that totally makes sense it's it's  basically because before i would have to write  ",
+        "start": 900.4,
+        "duration": 5.44
+    },
+    {
+        "text": "some code i would do stuff on the gpu and then i'd  have to bust it on over you know to the cpu and  ",
+        "start": 905.84,
+        "duration": 4.96
+    },
+    {
+        "text": "then do stuff and then you're saying all of this  is happening in that single pipeline of stuff yep  ",
+        "start": 910.8,
+        "duration": 7.44
+    },
+    {
+        "text": "excellent correct and that's that's within  that environment yeah and it's so easy to  ",
+        "start": 918.24,
+        "duration": 6.64
+    },
+    {
+        "text": "iterate right you can just start with a blog start  with a video renderer just verify that you can um",
+        "start": 924.88,
+        "duration": 6.08
+    },
+    {
+        "text": "verify that some that that your video is  playing and then you can just start adding block  ",
+        "start": 933.36,
+        "duration": 4.64
+    },
+    {
+        "text": "and test block and test and it's very easy to you  you can do very easily do probes one of the other  ",
+        "start": 938.0,
+        "duration": 5.92
+    },
+    {
+        "text": "cool things that paul didn't think of uh didn't  touch on is that let's say you're already using  ",
+        "start": 943.92,
+        "duration": 5.76
+    },
+    {
+        "text": "a a you have a custom g streamer plug well  let's say you have a particular camera and  ",
+        "start": 949.68,
+        "duration": 5.44
+    },
+    {
+        "text": "that camera vendor has a or provides a g streamer  plug-in in order to interface with that camera um  ",
+        "start": 955.12,
+        "duration": 7.84
+    },
+    {
+        "text": "graph composer allows you to automatically  create extensions out of existing g streamer  ",
+        "start": 963.52,
+        "duration": 5.52
+    },
+    {
+        "text": "so all you have to do is as long as g streamer  can find it it's installed you know gst inspect  ",
+        "start": 969.04,
+        "duration": 6.48
+    },
+    {
+        "text": "then you just bring up that um that menu say hey  this is the plugin i want to wrap up through an  ",
+        "start": 975.52,
+        "duration": 5.2
+    },
+    {
+        "text": "extension it'll generate it it'll be there so  it's very easy to incorporate your own custom  ",
+        "start": 980.72,
+        "duration": 5.76
+    },
+    {
+        "text": "g-streamer or deep stream extensions as well  as third-party uh plug-ins as extensions and  ",
+        "start": 987.12,
+        "duration": 5.04
+    },
+    {
+        "text": "graphics i mean it's it's really cool like uh and  the fact that and i don't know if people recognize  ",
+        "start": 992.16,
+        "duration": 6.72
+    },
+    {
+        "text": "but just that entire pipeline you having to  write that yourself weeks if not months of  ",
+        "start": 998.88,
+        "duration": 5.92
+    },
+    {
+        "text": "figuring it out and you're saying now i can i'm  gonna have to download it uh post fact like post  ",
+        "start": 1004.8,
+        "duration": 5.28
+    },
+    {
+        "text": "haste because it's something i wanna i've  been wanting to do for a long time so let  ",
+        "start": 1010.08,
+        "duration": 3.84
+    },
+    {
+        "text": "me ask you just a couple of final questions here  um where can people go to find out more about this",
+        "start": 1013.92,
+        "duration": 6.24
+    },
+    {
+        "text": "so um yeah developer uh nvidia.com um and uh  and the product page for for deterministic  ",
+        "start": 1022.88,
+        "duration": 7.2
+    },
+    {
+        "text": "getting there's gonna be a getting started  link has everything great um but really the the  ",
+        "start": 1030.08,
+        "duration": 5.84
+    },
+    {
+        "text": "the learning path that paul has put together is  really really great in terms of an introduction  ",
+        "start": 1037.44,
+        "duration": 5.76
+    },
+    {
+        "text": "to graph composer um so i have been  even though it's it's from microsoft  ",
+        "start": 1043.2,
+        "duration": 4.72
+    },
+    {
+        "text": "it's we work jointly with it um and i it's kind  of my go-to when someone tells me hey how do i  ",
+        "start": 1047.92,
+        "duration": 5.28
+    },
+    {
+        "text": "learn graph composer and i'm like go talk to  my buddy paul he's put this thing together  ",
+        "start": 1053.2,
+        "duration": 4.8
+    },
+    {
+        "text": "it's free it's available it's great um and and  yeah so i can't rave enough about it awesome so  ",
+        "start": 1058.0,
+        "duration": 6.64
+    },
+    {
+        "text": "paul can you give us like maybe like a 15 to 30  second elevator pitch on what the learning path  ",
+        "start": 1064.64,
+        "duration": 5.28
+    },
+    {
+        "text": "will do for folks if they go to it sure absolutely  so it's actually comprised of three modules  ",
+        "start": 1069.92,
+        "duration": 6.08
+    },
+    {
+        "text": "that take you all the way from the steps involved  in setting up and configuring the deep stream  ",
+        "start": 1076.0,
+        "duration": 6.0
+    },
+    {
+        "text": "development environment so this is going to be  how you actually install any of the dependencies  ",
+        "start": 1082.0,
+        "duration": 4.32
+    },
+    {
+        "text": "what those hardware requirements are for example  what's what sort of graphics cards you might need  ",
+        "start": 1086.96,
+        "duration": 4.24
+    },
+    {
+        "text": "gets you up and running with your sample  applications and from there you're already going  ",
+        "start": 1091.76,
+        "duration": 4.08
+    },
+    {
+        "text": "to start doing damage in an optimized fashion uh  with with some sample deep stream applications  ",
+        "start": 1095.84,
+        "duration": 6.48
+    },
+    {
+        "text": "but then we go further after we sort of give you  that taste of what is deep stream we then show you  ",
+        "start": 1102.32,
+        "duration": 5.92
+    },
+    {
+        "text": "how you can use composer and again i think it's  very important that you learn them in that order  ",
+        "start": 1108.24,
+        "duration": 4.48
+    },
+    {
+        "text": "because if you just dive in the composer without  knowing deep stream you're not going to really  ",
+        "start": 1112.72,
+        "duration": 3.52
+    },
+    {
+        "text": "know i guess the damage that you could do with  the tools that are included there and from there  ",
+        "start": 1116.88,
+        "duration": 5.04
+    },
+    {
+        "text": "that's going to allow you to basically understand  how you can build applications but not only that  ",
+        "start": 1121.92,
+        "duration": 5.2
+    },
+    {
+        "text": "it's going to give you a deeper understanding of  those containerization options that we sort of  ",
+        "start": 1127.12,
+        "duration": 4.56
+    },
+    {
+        "text": "showed there earlier or sort of glossed over and  show you how you can even publish those into an  ",
+        "start": 1131.68,
+        "duration": 5.2
+    },
+    {
+        "text": "azure container registry and then the final piece  that i think is is absolutely the most important  ",
+        "start": 1136.88,
+        "duration": 5.68
+    },
+    {
+        "text": "is deploying those containerized deep stream  workloads to an embedded device utilizing azure  ",
+        "start": 1143.28,
+        "duration": 7.36
+    },
+    {
+        "text": "and we actually go through and do this using the  azure iot hub and something called azure iot edge  ",
+        "start": 1150.64,
+        "duration": 5.2
+    },
+    {
+        "text": "so this allows you to orchestrate and  deploy this sort of at scale and if  ",
+        "start": 1156.56,
+        "duration": 4.32
+    },
+    {
+        "text": "you know if you have like a fleet of devices shows  you how to do that and get those up and running  ",
+        "start": 1160.88,
+        "duration": 4.56
+    },
+    {
+        "text": "and really teaches you how you can go not just  from creating that pipeline but go to production  ",
+        "start": 1166.08,
+        "duration": 5.52
+    },
+    {
+        "text": "with a true edge to cloud ai inferencing  solution powered by nvidia and microsoft  ",
+        "start": 1171.6,
+        "duration": 6.56
+    },
+    {
+        "text": "yeah what's really great about graph composer  is even though it's visual programming it might  ",
+        "start": 1178.16,
+        "duration": 6.56
+    },
+    {
+        "text": "look like hey this is great for hobbyists  or whatever it is but you can really build  ",
+        "start": 1184.72,
+        "duration": 3.36
+    },
+    {
+        "text": "market ready products with it there is no  performance segregation all the extensions all  ",
+        "start": 1189.12,
+        "duration": 5.68
+    },
+    {
+        "text": "the way underneath there it still are optimized  uh uh engines and and software blocks and stack  ",
+        "start": 1194.8,
+        "duration": 6.24
+    },
+    {
+        "text": "and so it's it's really you're getting all  the power of deep stream all the power of  ",
+        "start": 1201.04,
+        "duration": 3.76
+    },
+    {
+        "text": "your nvidia platform uh in a really easy  to use intuitive ui in order to build these  ",
+        "start": 1204.8,
+        "duration": 5.52
+    },
+    {
+        "text": "vision applications well i'm gonna go and download  that right now again if you wanna learn more about  ",
+        "start": 1211.04,
+        "duration": 5.04
+    },
+    {
+        "text": "uh the d stream sdk just go to developer.video.com  forward deep stream sdk and then the learn modules  ",
+        "start": 1216.08,
+        "duration": 6.32
+    },
+    {
+        "text": "that you saw paul so wonderfully created  for all of us aka.ms learn deep stream thank  ",
+        "start": 1222.4,
+        "duration": 6.48
+    },
+    {
+        "text": "you so much for being with us my friends yeah  absolutely anytime awesome you've been learning  ",
+        "start": 1228.88,
+        "duration": 5.52
+    },
+    {
+        "text": "oh you've been learning all about nvidia  deep stream development with microsoft  ",
+        "start": 1234.4,
+        "duration": 3.84
+    },
+    {
+        "text": "azure on the ai show thanks so much for being  with us and hopefully we'll see you next time",
+        "start": 1238.24,
+        "duration": 9.6
+    },
+    {
+        "text": "you",
+        "start": 1252.16,
+        "duration": 0.5
+    }
+]

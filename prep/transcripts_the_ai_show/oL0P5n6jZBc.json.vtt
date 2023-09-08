@@ -1,0 +1,1187 @@
+[
+    {
+        "text": ">> On this special-build edition of the AI Show,",
+        "start": 0.65,
+        "duration": 3.07
+    },
+    {
+        "text": "we'll get to hear from Minsoo Thigpen,",
+        "start": 3.72,
+        "duration": 1.53
+    },
+    {
+        "text": "Program Manager on the Azure Machine Learning Responsible AI team.",
+        "start": 5.25,
+        "duration": 3.795
+    },
+    {
+        "text": "Minsoo will take us through",
+        "start": 9.045,
+        "duration": 1.185
+    },
+    {
+        "text": "InterpretML's new offering, Interpret-Text,",
+        "start": 10.23,
+        "duration": 2.85
+    },
+    {
+        "text": "which expand support to include",
+        "start": 13.08,
+        "duration": 1.53
+    },
+    {
+        "text": "text data with state-of-the-art explainers for",
+        "start": 14.61,
+        "duration": 2.49
+    },
+    {
+        "text": "NLP machine learning models such as",
+        "start": 17.1,
+        "duration": 2.22
+    },
+    {
+        "text": "BERT and RNNs. Make sure you tune in.",
+        "start": 19.32,
+        "duration": 2.28
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 21.6,
+        "duration": 9.779
+    },
+    {
+        "text": ">> Hi, my name is Minsoo and I'm",
+        "start": 31.379,
+        "duration": 1.891
+    },
+    {
+        "text": "a PM on the Azure ML Responsible AI team.",
+        "start": 33.27,
+        "duration": 2.55
+    },
+    {
+        "text": "I'm super excited to share with you Interpret-Text,",
+        "start": 35.82,
+        "duration": 2.895
+    },
+    {
+        "text": "InterpretML's new offering for explaining models with text data.",
+        "start": 38.715,
+        "duration": 3.64
+    },
+    {
+        "text": "In this short video, I'll be giving",
+        "start": 42.355,
+        "duration": 1.765
+    },
+    {
+        "text": "a brief overview with explainers and a quick demo.",
+        "start": 44.12,
+        "duration": 2.94
+    },
+    {
+        "text": "Though much of the functionality for",
+        "start": 47.06,
+        "duration": 1.89
+    },
+    {
+        "text": "InterpretML is for tabular data,",
+        "start": 48.95,
+        "duration": 2.055
+    },
+    {
+        "text": "we've gotten many requests to expand support for text data.",
+        "start": 51.005,
+        "duration": 3.165
+    },
+    {
+        "text": "We currently only support topic",
+        "start": 54.17,
+        "duration": 1.53
+    },
+    {
+        "text": "classification but we're looking forward to",
+        "start": 55.7,
+        "duration": 1.89
+    },
+    {
+        "text": "growing our reports to include",
+        "start": 57.59,
+        "duration": 1.215
+    },
+    {
+        "text": "other NLP scenarios and welcome contributions.",
+        "start": 58.805,
+        "duration": 2.96
+    },
+    {
+        "text": "Interpret-Text comes with explainers that support BERT and",
+        "start": 61.765,
+        "duration": 2.785
+    },
+    {
+        "text": "RNNs as well as standard scikit-learn models.",
+        "start": 64.55,
+        "duration": 3.18
+    },
+    {
+        "text": "With our open source toolkit,",
+        "start": 67.73,
+        "duration": 1.83
+    },
+    {
+        "text": "users will be able to take advantage of",
+        "start": 69.56,
+        "duration": 1.71
+    },
+    {
+        "text": "the state-of-the-art interpretability techniques,",
+        "start": 71.27,
+        "duration": 2.524
+    },
+    {
+        "text": "with a common API across integrated libraries,",
+        "start": 73.794,
+        "duration": 2.696
+    },
+    {
+        "text": "as well as its own visualization dashboard for understanding",
+        "start": 76.49,
+        "duration": 2.64
+    },
+    {
+        "text": "which key phrases and words were",
+        "start": 79.13,
+        "duration": 1.83
+    },
+    {
+        "text": "important to your text classifications.",
+        "start": 80.96,
+        "duration": 2.625
+    },
+    {
+        "text": "Let's consider a real-world example,",
+        "start": 83.585,
+        "duration": 2.51
+    },
+    {
+        "text": "in which one might need interpretability for text data.",
+        "start": 86.095,
+        "duration": 2.8
+    },
+    {
+        "text": "Say you are a candidate applying for a job and",
+        "start": 88.895,
+        "duration": 2.295
+    },
+    {
+        "text": "a hiring manager will be using a machine learning model to",
+        "start": 91.19,
+        "duration": 2.4
+    },
+    {
+        "text": "categorize free-form text from",
+        "start": 93.59,
+        "duration": 1.47
+    },
+    {
+        "text": "your application into distinct categories they care",
+        "start": 95.06,
+        "duration": 2.49
+    },
+    {
+        "text": "about and raise red flags if",
+        "start": 97.55,
+        "duration": 1.83
+    },
+    {
+        "text": "the applicant's submissions flaunts certain categories.",
+        "start": 99.38,
+        "duration": 2.975
+    },
+    {
+        "text": "However, hiring managers will need to know",
+        "start": 102.355,
+        "duration": 3.145
+    },
+    {
+        "text": "what keywords or phrases the",
+        "start": 105.5,
+        "duration": 1.5
+    },
+    {
+        "text": "algorithm used in order to raise these red flags.",
+        "start": 107.0,
+        "duration": 3.195
+    },
+    {
+        "text": "There are currently two broad classes of NLP approaches;",
+        "start": 110.195,
+        "duration": 3.975
+    },
+    {
+        "text": "classical ML techniques and deep learning.",
+        "start": 114.17,
+        "duration": 2.295
+    },
+    {
+        "text": "In classical techniques, the first step is preprocessing,",
+        "start": 116.465,
+        "duration": 3.15
+    },
+    {
+        "text": "which involves steps such as tokenization, normalization,",
+        "start": 119.615,
+        "duration": 3.36
+    },
+    {
+        "text": "noise removal, then that processed data is fed into the model.",
+        "start": 122.975,
+        "duration": 4.605
+    },
+    {
+        "text": "We support models such as",
+        "start": 127.58,
+        "duration": 2.13
+    },
+    {
+        "text": "linear regression like GBM or random forests.",
+        "start": 129.71,
+        "duration": 2.895
+    },
+    {
+        "text": "The output depends on the scenario you are modeling for.",
+        "start": 132.605,
+        "duration": 2.565
+    },
+    {
+        "text": "For some of these approaches,",
+        "start": 135.17,
+        "duration": 1.27
+    },
+    {
+        "text": "the internal functionality is very well understood.",
+        "start": 136.44,
+        "duration": 2.485
+    },
+    {
+        "text": "As a result, the user is confident in the explanations provided.",
+        "start": 138.925,
+        "duration": 3.955
+    },
+    {
+        "text": "However, these methods, although widely adopted and easy to use,",
+        "start": 142.88,
+        "duration": 3.315
+    },
+    {
+        "text": "are limited in their accuracies on real-world datasets.",
+        "start": 146.195,
+        "duration": 3.315
+    },
+    {
+        "text": "Recent advancements in NLP owe much to",
+        "start": 149.51,
+        "duration": 2.64
+    },
+    {
+        "text": "the developments in deep neural networks such as BERT.",
+        "start": 152.15,
+        "duration": 3.12
+    },
+    {
+        "text": "These models have very high accuracy on NLP tasks.",
+        "start": 155.27,
+        "duration": 3.0
+    },
+    {
+        "text": "However, they are black-box models,",
+        "start": 158.27,
+        "duration": 2.04
+    },
+    {
+        "text": "and therefore their decisions are hard to understand.",
+        "start": 160.31,
+        "duration": 2.76
+    },
+    {
+        "text": "The research community has created a suite of",
+        "start": 163.07,
+        "duration": 2.37
+    },
+    {
+        "text": "state-of-the-art interpretable models ranging from",
+        "start": 165.44,
+        "duration": 2.22
+    },
+    {
+        "text": "post-hoc analysis to plug-ins during training.",
+        "start": 167.66,
+        "duration": 2.565
+    },
+    {
+        "text": "The promising, these methods are hard to implement in",
+        "start": 170.225,
+        "duration": 2.745
+    },
+    {
+        "text": "practice and not as accessible to data scientists.",
+        "start": 172.97,
+        "duration": 3.73
+    },
+    {
+        "text": "Therefore, to make these recent research developments",
+        "start": 177.69,
+        "duration": 3.31
+    },
+    {
+        "text": "more accessible to data scientists,",
+        "start": 181.0,
+        "duration": 1.51
+    },
+    {
+        "text": "in this toolkit, we've released",
+        "start": 182.51,
+        "duration": 1.505
+    },
+    {
+        "text": "OSS implementations of three explainers.",
+        "start": 184.015,
+        "duration": 2.324
+    },
+    {
+        "text": "One classical and two state-of-the-art",
+        "start": 186.339,
+        "duration": 2.431
+    },
+    {
+        "text": "that provides local explanations on text documents.",
+        "start": 188.77,
+        "duration": 2.79
+    },
+    {
+        "text": "The first is a classical text explainer,",
+        "start": 191.56,
+        "duration": 1.995
+    },
+    {
+        "text": "which is a standard set of glass-box models.",
+        "start": 193.555,
+        "duration": 2.295
+    },
+    {
+        "text": "The second is a unified information explainer,",
+        "start": 195.85,
+        "duration": 2.49
+    },
+    {
+        "text": "which is post-hoc method and model agnostic.",
+        "start": 198.34,
+        "duration": 2.445
+    },
+    {
+        "text": "The third is the introspective rationale explainer,",
+        "start": 200.785,
+        "duration": 2.505
+    },
+    {
+        "text": "which is a plug-in method and also model agnostic.",
+        "start": 203.29,
+        "duration": 2.76
+    },
+    {
+        "text": "Next, I'll talk briefly about these models.",
+        "start": 206.05,
+        "duration": 2.715
+    },
+    {
+        "text": "The classical text explainer is implemented as",
+        "start": 208.765,
+        "duration": 2.655
+    },
+    {
+        "text": "a wrapper around the entire NLP pipeline,",
+        "start": 211.42,
+        "duration": 2.355
+    },
+    {
+        "text": "which includes text preprocessing, encoding, and training.",
+        "start": 213.775,
+        "duration": 3.45
+    },
+    {
+        "text": "You can supply your dataset without any external procedures.",
+        "start": 217.225,
+        "duration": 3.3
+    },
+    {
+        "text": "It's compatible with the newer models,",
+        "start": 220.525,
+        "duration": 1.675
+    },
+    {
+        "text": "with support for coefficient and tree based models.",
+        "start": 222.2,
+        "duration": 2.475
+    },
+    {
+        "text": "This API is modular and users can swap out nearly all components.",
+        "start": 224.675,
+        "duration": 3.63
+    },
+    {
+        "text": "The default configuration is 1-gram bag-of-words for scikit-learn.",
+        "start": 228.305,
+        "duration": 3.995
+    },
+    {
+        "text": "This repo has a sample notebook illustrating how to use",
+        "start": 232.3,
+        "duration": 2.77
+    },
+    {
+        "text": "this API for multi-label text classifications.",
+        "start": 235.07,
+        "duration": 3.03
+    },
+    {
+        "text": "We'll be seeing this notebook during the demo.",
+        "start": 238.1,
+        "duration": 2.67
+    },
+    {
+        "text": "The next is a unified information explainer,",
+        "start": 240.77,
+        "duration": 3.18
+    },
+    {
+        "text": "which is state-of-the-art NLP interpretability model,",
+        "start": 243.95,
+        "duration": 2.58
+    },
+    {
+        "text": "that was developed by researchers from MSR Asia.",
+        "start": 246.53,
+        "duration": 2.64
+    },
+    {
+        "text": "The paper was presented at ICML in 2019.",
+        "start": 249.17,
+        "duration": 3.54
+    },
+    {
+        "text": "This explainer is post-hoc method,",
+        "start": 252.71,
+        "duration": 2.175
+    },
+    {
+        "text": "meaning it needs a previously trained or fine tuned DNN model.",
+        "start": 254.885,
+        "duration": 3.45
+    },
+    {
+        "text": "It is model agnostic,",
+        "start": 258.335,
+        "duration": 1.455
+    },
+    {
+        "text": "as long as your model is a DNN.",
+        "start": 259.79,
+        "duration": 1.71
+    },
+    {
+        "text": "Therefore, it works for BERT,",
+        "start": 261.5,
+        "duration": 1.32
+    },
+    {
+        "text": "RNN, CNN, and LSTMs.",
+        "start": 262.82,
+        "duration": 2.43
+    },
+    {
+        "text": "We've implemented support for explaining BERT",
+        "start": 265.25,
+        "duration": 2.33
+    },
+    {
+        "text": "and we'll extend to other DNNs in our future work.",
+        "start": 267.58,
+        "duration": 2.965
+    },
+    {
+        "text": "It is a mutual information-based approach and it provides",
+        "start": 270.545,
+        "duration": 3.135
+    },
+    {
+        "text": "importances of words as it goes",
+        "start": 273.68,
+        "duration": 1.53
+    },
+    {
+        "text": "through all the layers of the neural network.",
+        "start": 275.21,
+        "duration": 2.16
+    },
+    {
+        "text": "Since each layer is explained,",
+        "start": 277.37,
+        "duration": 1.845
+    },
+    {
+        "text": "the explanations are a unified and coherent, thus the name.",
+        "start": 279.215,
+        "duration": 3.54
+    },
+    {
+        "text": "I'd like to provide a brief intuition on how this method",
+        "start": 282.755,
+        "duration": 3.195
+    },
+    {
+        "text": "works but for more details, please see the paper.",
+        "start": 285.95,
+        "duration": 3.085
+    },
+    {
+        "text": "The key task here is to associate the latent representations",
+        "start": 289.035,
+        "duration": 3.62
+    },
+    {
+        "text": "of the word with interpretal units in the hidden states of layers.",
+        "start": 292.655,
+        "duration": 3.6
+    },
+    {
+        "text": "We want to quantify",
+        "start": 296.255,
+        "duration": 1.275
+    },
+    {
+        "text": "how much information of the input word is included in each layer.",
+        "start": 297.53,
+        "duration": 3.345
+    },
+    {
+        "text": "So a very important word will have lot of information encoded.",
+        "start": 300.875,
+        "duration": 3.65
+    },
+    {
+        "text": "There are two forces at work here.",
+        "start": 304.525,
+        "duration": 2.21
+    },
+    {
+        "text": "As the word embedding is going through the layers of the DNN,",
+        "start": 306.735,
+        "duration": 2.925
+    },
+    {
+        "text": "it is perturbed and we're trying to add as much noise as possible.",
+        "start": 309.66,
+        "duration": 3.8
+    },
+    {
+        "text": "What we want to see is",
+        "start": 313.46,
+        "duration": 1.35
+    },
+    {
+        "text": "how much the output changes as noise is added.",
+        "start": 314.81,
+        "duration": 2.175
+    },
+    {
+        "text": "So if a lot of noise affects the output,",
+        "start": 316.985,
+        "duration": 2.13
+    },
+    {
+        "text": "then is an important word for that layer.",
+        "start": 319.115,
+        "duration": 1.92
+    },
+    {
+        "text": "If it doesn't affect the word,",
+        "start": 321.035,
+        "duration": 1.56
+    },
+    {
+        "text": "then it's not that important.",
+        "start": 322.595,
+        "duration": 1.335
+    },
+    {
+        "text": "On the other hand,",
+        "start": 323.93,
+        "duration": 1.425
+    },
+    {
+        "text": "the loss function tries to minimize the difference",
+        "start": 325.355,
+        "duration": 2.52
+    },
+    {
+        "text": "between the perturbed hidden states",
+        "start": 327.875,
+        "duration": 1.65
+    },
+    {
+        "text": "and the original hidden states,",
+        "start": 329.525,
+        "duration": 1.74
+    },
+    {
+        "text": "since we don't want to end up expanding",
+        "start": 331.265,
+        "duration": 1.755
+    },
+    {
+        "text": "a different model by perturbing it too much.",
+        "start": 333.02,
+        "duration": 2.52
+    },
+    {
+        "text": "These two functions work hand-in-hand to help us better",
+        "start": 335.54,
+        "duration": 2.94
+    },
+    {
+        "text": "understand how the words are being",
+        "start": 338.48,
+        "duration": 1.8
+    },
+    {
+        "text": "propagated through the layers of the neural network.",
+        "start": 340.28,
+        "duration": 3.4
+    },
+    {
+        "text": "The third and final explainer is",
+        "start": 344.48,
+        "duration": 2.5
+    },
+    {
+        "text": "an introspective rationale explainer.",
+        "start": 346.98,
+        "duration": 2.17
+    },
+    {
+        "text": "This is our other state-of-the-art explainer.",
+        "start": 349.15,
+        "duration": 2.34
+    },
+    {
+        "text": "It was developed by researchers in",
+        "start": 351.49,
+        "duration": 1.47
+    },
+    {
+        "text": "the MIT Computer Science and AI Lab and was",
+        "start": 352.96,
+        "duration": 2.67
+    },
+    {
+        "text": "presented at EMNLP last November.",
+        "start": 355.63,
+        "duration": 3.33
+    },
+    {
+        "text": "More details about these methods are in",
+        "start": 358.96,
+        "duration": 1.97
+    },
+    {
+        "text": "the paper but here's a brief intuition.",
+        "start": 360.93,
+        "duration": 2.065
+    },
+    {
+        "text": "This method introduces a plugin into",
+        "start": 362.995,
+        "duration": 2.565
+    },
+    {
+        "text": "the training process and makes",
+        "start": 365.56,
+        "duration": 1.26
+    },
+    {
+        "text": "a black-box model more interpretable.",
+        "start": 366.82,
+        "duration": 1.965
+    },
+    {
+        "text": "This plugin is called the introspective generator.",
+        "start": 368.785,
+        "duration": 2.865
+    },
+    {
+        "text": "This introspective generator splits the text",
+        "start": 371.65,
+        "duration": 2.55
+    },
+    {
+        "text": "into rationales and anti-rationales.",
+        "start": 374.2,
+        "duration": 2.505
+    },
+    {
+        "text": "The rationales are a subset of words that",
+        "start": 376.705,
+        "duration": 2.05
+    },
+    {
+        "text": "according to the introspective generator, are important.",
+        "start": 378.755,
+        "duration": 2.855
+    },
+    {
+        "text": "On the other hand, the anti-rationales are",
+        "start": 381.61,
+        "duration": 2.13
+    },
+    {
+        "text": "non-important according to the introspective generator.",
+        "start": 383.74,
+        "duration": 2.87
+    },
+    {
+        "text": "The introspective generator simultaneously trains",
+        "start": 386.61,
+        "duration": 2.72
+    },
+    {
+        "text": "the model on both the rationales and anti-rationales,",
+        "start": 389.33,
+        "duration": 3.015
+    },
+    {
+        "text": "and tries to maximize the accuracy of",
+        "start": 392.345,
+        "duration": 2.055
+    },
+    {
+        "text": "the model when only using the rationales,",
+        "start": 394.4,
+        "duration": 2.19
+    },
+    {
+        "text": "and conversely minimizes accuracy when using anti-rationales.",
+        "start": 396.59,
+        "duration": 3.915
+    },
+    {
+        "text": "Since this model only sees",
+        "start": 400.505,
+        "duration": 1.755
+    },
+    {
+        "text": "the rationales at training time to make a prediction,",
+        "start": 402.26,
+        "duration": 2.579
+    },
+    {
+        "text": "strong guarantees are provided",
+        "start": 404.839,
+        "duration": 1.531
+    },
+    {
+        "text": "about which phases matter to the prediction.",
+        "start": 406.37,
+        "duration": 2.115
+    },
+    {
+        "text": "Generally, no other method provides such strong guarantees.",
+        "start": 408.485,
+        "duration": 3.48
+    },
+    {
+        "text": "When you're deciding between these explainers for use cases,",
+        "start": 411.965,
+        "duration": 3.27
+    },
+    {
+        "text": "we recommend using the classical text explainer when using",
+        "start": 415.235,
+        "duration": 2.91
+    },
+    {
+        "text": "a more classical ML model for",
+        "start": 418.145,
+        "duration": 2.235
+    },
+    {
+        "text": "NLP and you don't want to deal with the NLP pipeline.",
+        "start": 420.38,
+        "duration": 3.045
+    },
+    {
+        "text": "However, it is also very easy to swap",
+        "start": 423.425,
+        "duration": 2.445
+    },
+    {
+        "text": "out the components with its modular API.",
+        "start": 425.87,
+        "duration": 2.795
+    },
+    {
+        "text": "But when needing to understand neural networks,",
+        "start": 428.665,
+        "duration": 3.075
+    },
+    {
+        "text": "we recommend either the unified information explainer,",
+        "start": 431.74,
+        "duration": 2.655
+    },
+    {
+        "text": "which allows you to understand",
+        "start": 434.395,
+        "duration": 1.545
+    },
+    {
+        "text": "information as it propagates the layers,",
+        "start": 435.94,
+        "duration": 2.205
+    },
+    {
+        "text": "or the introspective rationale explainer,",
+        "start": 438.145,
+        "duration": 2.52
+    },
+    {
+        "text": "which provides strong guarantees on which",
+        "start": 440.665,
+        "duration": 1.995
+    },
+    {
+        "text": "phrases contribute to your prediction.",
+        "start": 442.66,
+        "duration": 3.295
+    },
+    {
+        "text": "Now, we'll quickly take a look at",
+        "start": 445.955,
+        "duration": 2.405
+    },
+    {
+        "text": "a demo notebook and we'll be taking",
+        "start": 448.36,
+        "duration": 2.46
+    },
+    {
+        "text": "a quick look at the classical texts explainer",
+        "start": 450.82,
+        "duration": 2.04
+    },
+    {
+        "text": "as well as introspective rationale explainer.",
+        "start": 452.86,
+        "duration": 2.43
+    },
+    {
+        "text": "So we see here a sample notebook for the classical text explainer.",
+        "start": 455.29,
+        "duration": 4.44
+    },
+    {
+        "text": "This is hosted on Azure VM Notebook",
+        "start": 459.73,
+        "duration": 3.449
+    },
+    {
+        "text": "and as well as the introspective rationale explainer.",
+        "start": 463.179,
+        "duration": 3.676
+    },
+    {
+        "text": "Both of the sample notebooks as well as",
+        "start": 466.855,
+        "duration": 1.71
+    },
+    {
+        "text": "sample notebook for the unified information explainer,",
+        "start": 468.565,
+        "duration": 2.73
+    },
+    {
+        "text": "is available in the repo,",
+        "start": 471.295,
+        "duration": 2.845
+    },
+    {
+        "text": "so please go check them out.",
+        "start": 474.14,
+        "duration": 1.32
+    },
+    {
+        "text": "So very quickly, running through these notebooks,",
+        "start": 475.46,
+        "duration": 2.97
+    },
+    {
+        "text": "we see that we build upon a lot of",
+        "start": 478.43,
+        "duration": 3.915
+    },
+    {
+        "text": "the standard procedures for",
+        "start": 482.345,
+        "duration": 2.505
+    },
+    {
+        "text": "NLP processing with scikit-learn and spaCy.",
+        "start": 484.85,
+        "duration": 5.005
+    },
+    {
+        "text": "You're able to create an explainer using",
+        "start": 489.855,
+        "duration": 2.765
+    },
+    {
+        "text": "this API call and train it as follows.",
+        "start": 492.62,
+        "duration": 4.385
+    },
+    {
+        "text": "So in our simple notebook,",
+        "start": 497.005,
+        "duration": 3.08
+    },
+    {
+        "text": "default configuration is a 1-gram bag-of-words",
+        "start": 500.085,
+        "duration": 3.52
+    },
+    {
+        "text": "and you're able to see",
+        "start": 503.605,
+        "duration": 1.225
+    },
+    {
+        "text": "the results for the best classifier performance metrics",
+        "start": 504.83,
+        "duration": 3.15
+    },
+    {
+        "text": "such as precision and recall, etc.",
+        "start": 507.98,
+        "duration": 2.73
+    },
+    {
+        "text": "Then in turn,",
+        "start": 510.71,
+        "duration": 1.8
+    },
+    {
+        "text": "any document as well",
+        "start": 512.51,
+        "duration": 3.03
+    },
+    {
+        "text": "as the label pair that needs to be interpreted.",
+        "start": 515.54,
+        "duration": 2.4
+    },
+    {
+        "text": "In this case, we pass in,",
+        "start": 517.94,
+        "duration": 1.725
+    },
+    {
+        "text": "\"I traveled to the beach.",
+        "start": 519.665,
+        "duration": 1.035
+    },
+    {
+        "text": "I took the train. I saw fairies, dragons, and elves.\"",
+        "start": 520.7,
+        "duration": 2.985
+    },
+    {
+        "text": "We can use this visualization dashboard which is a Python widget,",
+        "start": 523.685,
+        "duration": 4.83
+    },
+    {
+        "text": "which is embedded into the notebook to see which are",
+        "start": 528.515,
+        "duration": 3.825
+    },
+    {
+        "text": "the top k most important words to this classifications fiction.",
+        "start": 532.34,
+        "duration": 4.65
+    },
+    {
+        "text": "So you can toggle between seeing all features,",
+        "start": 536.99,
+        "duration": 3.12
+    },
+    {
+        "text": "positive features, negative features.",
+        "start": 540.11,
+        "duration": 2.31
+    },
+    {
+        "text": "So positive features are features",
+        "start": 542.42,
+        "duration": 2.01
+    },
+    {
+        "text": "that contribute towards this classification,",
+        "start": 544.43,
+        "duration": 1.92
+    },
+    {
+        "text": "negative are contributing away from this classification.",
+        "start": 546.35,
+        "duration": 5.02
+    },
+    {
+        "text": "Interestingly, we see that train is",
+        "start": 552.63,
+        "duration": 3.37
+    },
+    {
+        "text": "the highest feature importance towards fiction and we see its",
+        "start": 556.0,
+        "duration": 3.06
+    },
+    {
+        "text": "corresponding highlighted and underlined words",
+        "start": 559.06,
+        "duration": 3.51
+    },
+    {
+        "text": "for positive negative feature importance.",
+        "start": 562.57,
+        "duration": 4.625
+    },
+    {
+        "text": "In the introspective rational explainer notebook,",
+        "start": 567.195,
+        "duration": 2.935
+    },
+    {
+        "text": "we're using the Stanford Sentiment Treebank text dataset.",
+        "start": 570.13,
+        "duration": 4.62
+    },
+    {
+        "text": "As you can see, there's currently support for either RNN,",
+        "start": 574.75,
+        "duration": 4.2
+    },
+    {
+        "text": "BERT, or a combination of both.",
+        "start": 578.95,
+        "duration": 1.77
+    },
+    {
+        "text": "You can set model configurations with",
+        "start": 580.72,
+        "duration": 2.64
+    },
+    {
+        "text": "the dataset and then",
+        "start": 583.36,
+        "duration": 3.42
+    },
+    {
+        "text": "you can enter sentences that need to be interpreted.",
+        "start": 586.78,
+        "duration": 3.165
+    },
+    {
+        "text": "In this case, we have",
+        "start": 589.945,
+        "duration": 2.31
+    },
+    {
+        "text": "a classification task of a bad or good movie review.",
+        "start": 592.255,
+        "duration": 4.825
+    },
+    {
+        "text": "Here we have this sentence passed in.",
+        "start": 597.08,
+        "duration": 2.64
+    },
+    {
+        "text": "We generate this local importance values and we see",
+        "start": 599.72,
+        "duration": 3.21
+    },
+    {
+        "text": "that these are the top six most important words",
+        "start": 602.93,
+        "duration": 3.09
+    },
+    {
+        "text": "contributing towards a label 0,",
+        "start": 606.02,
+        "duration": 2.16
+    },
+    {
+        "text": "which corresponds to a bad movie review.",
+        "start": 608.18,
+        "duration": 2.28
+    },
+    {
+        "text": "Currently, we only provide support for",
+        "start": 610.46,
+        "duration": 3.075
+    },
+    {
+        "text": "positive feature as this is the type",
+        "start": 613.535,
+        "duration": 3.435
+    },
+    {
+        "text": "of model it is and we also flag with",
+        "start": 616.97,
+        "duration": 3.18
+    },
+    {
+        "text": "tokens for words that are not in the training dataset.",
+        "start": 620.15,
+        "duration": 3.6
+    },
+    {
+        "text": "So thank you so much and please check",
+        "start": 623.75,
+        "duration": 2.46
+    },
+    {
+        "text": "these sample notebooks out online on our repo.",
+        "start": 626.21,
+        "duration": 2.87
+    },
+    {
+        "text": "We're very excited to hear",
+        "start": 629.08,
+        "duration": 1.6
+    },
+    {
+        "text": "from possible future contributors' questions.",
+        "start": 630.68,
+        "duration": 3.03
+    },
+    {
+        "text": "Please feel free to reach out. Thank you.",
+        "start": 633.71,
+        "duration": 2.08
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 635.79,
+        "duration": 12.16
+    }
+]

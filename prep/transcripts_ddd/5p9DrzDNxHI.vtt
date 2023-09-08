@@ -1,0 +1,3305 @@
+WEBVTT
+
+00:00:00.479 --> 00:00:07.019
+Caption: so today we have Boris badroff uh his
+
+00:00:04.318 --> 00:00:09.299
+Caption: Dev by day and also kite Surfer by day
+
+00:00:07.019 --> 00:00:10.619
+Caption: otherwise pretending to be a chef by
+
+00:00:09.300 --> 00:00:13.079
+Caption: cooking whatever dish you found on
+
+00:00:10.619 --> 00:00:15.779
+Caption: YouTube next up is Boris bedrov and his
+
+00:00:13.079 --> 00:00:17.340
+Caption: indexing story
+
+00:00:15.779 --> 00:00:18.719
+Caption: cool
+
+00:00:17.340 --> 00:00:21.959
+Caption: hello
+
+00:00:18.719 --> 00:00:23.520
+Caption: all right cool coming through all right
+
+00:00:21.959 --> 00:00:25.139
+Caption: it&#39;s all right
+
+00:00:23.520 --> 00:00:27.960
+Caption: um is that coming through yep cool all
+
+00:00:25.139 --> 00:00:30.659
+Caption: right hey guys I&#39;m Boris so I&#39;m an
+
+00:00:27.959 --> 00:00:33.840
+Caption: engineer at bgw I&#39;ve been working in the
+
+00:00:30.659 --> 00:00:36.540
+Caption: industry for roughly four years
+
+00:00:33.840 --> 00:00:37.500
+Caption: and for the majority of their experience
+
+00:00:36.540 --> 00:00:39.659
+Caption: um
+
+00:00:37.500 --> 00:00:41.459
+Caption: I have known indexes as they make a
+
+00:00:39.659 --> 00:00:42.959
+Caption: database go fast and that was the extent
+
+00:00:41.459 --> 00:00:44.639
+Caption: of my knowledge
+
+00:00:42.959 --> 00:00:46.378
+Caption: so we had some issues with an
+
+00:00:44.639 --> 00:00:48.538
+Caption: application that I was working on and it
+
+00:00:46.379 --> 00:00:51.300
+Caption: was ah okay we&#39;re gonna use an index
+
+00:00:48.539 --> 00:00:52.800
+Caption: so I got compelled hey let&#39;s figure out
+
+00:00:51.299 --> 00:00:55.378
+Caption: what this is
+
+00:00:52.799 --> 00:00:56.939
+Caption: so today what are we learning when we
+
+00:00:55.379 --> 00:00:59.280
+Caption: learn about indexes how do they work
+
+00:00:56.939 --> 00:01:00.419
+Caption: indexing techniques and how to debug
+
+00:00:59.279 --> 00:01:02.459
+Caption: indexes
+
+00:01:00.419 --> 00:01:04.198
+Caption: so this will be going off postgres&#39;s
+
+00:01:02.459 --> 00:01:06.839
+Caption: implementation of indexes but this is
+
+00:01:04.198 --> 00:01:08.579
+Caption: relatively a high level talk so the
+
+00:01:06.839 --> 00:01:11.519
+Caption: concept should translate over to other
+
+00:01:08.580 --> 00:01:13.200
+Caption: databases as well
+
+00:01:11.519 --> 00:01:14.819
+Caption: um shout out to the sponsors today for
+
+00:01:13.199 --> 00:01:17.219
+Caption: making today possible and also to the
+
+00:01:14.819 --> 00:01:19.500
+Caption: volunteers and AV team are everything uh
+
+00:01:17.220 --> 00:01:20.459
+Caption: for keeping everything organized
+
+00:01:19.500 --> 00:01:21.599
+Caption: right
+
+00:01:20.459 --> 00:01:24.959
+Caption: today
+
+00:01:21.599 --> 00:01:26.938
+Caption: we are doing some work we I are a
+
+00:01:24.959 --> 00:01:28.680
+Caption: website recipe aggregator we get
+
+00:01:26.939 --> 00:01:30.180
+Caption: something like Reddit hack news we get
+
+00:01:28.680 --> 00:01:32.040
+Caption: recipes from other places and we display
+
+00:01:30.180 --> 00:01:34.259
+Caption: them for everyone to see
+
+00:01:32.040 --> 00:01:35.400
+Caption: cool so we&#39;re working on a product we&#39;re
+
+00:01:34.259 --> 00:01:37.319
+Caption: working on a future we&#39;re going to be
+
+00:01:35.400 --> 00:01:39.239
+Caption: generating some reports with some
+
+00:01:37.319 --> 00:01:41.040
+Caption: queries essentially so we&#39;re going to be
+
+00:01:39.239 --> 00:01:42.839
+Caption: working with one table today it&#39;ll look
+
+00:01:41.040 --> 00:01:45.239
+Caption: something like this
+
+00:01:42.839 --> 00:01:47.459
+Caption: quite straightforward if you&#39;re not sure
+
+00:01:45.239 --> 00:01:49.319
+Caption: what generated always as identity means
+
+00:01:47.459 --> 00:01:50.938
+Caption: it just is an incrementary number that
+
+00:01:49.319 --> 00:01:53.099
+Caption: the database does automatically for you
+
+00:01:50.939 --> 00:01:55.759
+Caption: so it&#39;s always going to be unique
+
+00:01:53.099 --> 00:01:58.739
+Caption: and some example data that we have here
+
+00:01:55.759 --> 00:02:01.319
+Caption: minutes is in clicking times in minutes
+
+00:01:58.739 --> 00:02:03.419
+Caption: as well and yeah so we&#39;ve got roughly
+
+00:02:01.319 --> 00:02:05.579
+Caption: around a million rows today so it&#39;s not
+
+00:02:03.419 --> 00:02:07.258
+Caption: a huge table but it&#39;s decent enough to
+
+00:02:05.579 --> 00:02:09.660
+Caption: illustrate
+
+00:02:07.259 --> 00:02:12.119
+Caption: so we&#39;re working with products the first
+
+00:02:09.660 --> 00:02:15.059
+Caption: feature we want uh uses our query
+
+00:02:12.119 --> 00:02:17.098
+Caption: something like this which is somewhat
+
+00:02:15.059 --> 00:02:20.220
+Caption: straightforward
+
+00:02:17.098 --> 00:02:21.779
+Caption: let&#39;s do some testing so div is it okay
+
+00:02:20.220 --> 00:02:23.458
+Caption: cool
+
+00:02:21.779 --> 00:02:25.860
+Caption: that&#39;s got a prod
+
+00:02:23.458 --> 00:02:29.458
+Caption: now let&#39;s deploy
+
+00:02:25.860 --> 00:02:31.199
+Caption: huh it didn&#39;t work right I wonder why
+
+00:02:29.458 --> 00:02:33.238
+Caption: let&#39;s revert the change let&#39;s go back
+
+00:02:31.199 --> 00:02:34.440
+Caption: and let&#39;s talk about what what did we
+
+00:02:33.238 --> 00:02:35.759
+Caption: just do
+
+00:02:34.440 --> 00:02:37.020
+Caption: I&#39;m going to give you a cooking book and
+
+00:02:35.759 --> 00:02:39.720
+Caption: I want you to keep this for the rest of
+
+00:02:37.020 --> 00:02:41.940
+Caption: the talk so I ask you hey can I can you
+
+00:02:39.720 --> 00:02:45.119
+Caption: find me all recipes of garlic go through
+
+00:02:41.940 --> 00:02:46.199
+Caption: the book we go Okay g sorry not g you go
+
+00:02:45.119 --> 00:02:48.179
+Caption: through the book you have to go through
+
+00:02:46.199 --> 00:02:50.339
+Caption: the whole book page by Page by Page by
+
+00:02:48.179 --> 00:02:52.559
+Caption: Page all the way to the end because you
+
+00:02:50.339 --> 00:02:54.059
+Caption: don&#39;t know maybe that last page has a
+
+00:02:52.559 --> 00:02:55.500
+Caption: recipe with garlic but you don&#39;t know so
+
+00:02:54.059 --> 00:02:59.779
+Caption: you have to go through the entire book
+
+00:02:55.500 --> 00:02:59.779
+Caption: so that&#39;s called a sequential scan
+
+00:03:00.059 --> 00:03:03.779
+Caption: so we do a little bit of Googling and
+
+00:03:02.098 --> 00:03:05.878
+Caption: obviously I&#39;m here to talk to you about
+
+00:03:03.779 --> 00:03:08.160
+Caption: indexes so let&#39;s use an index let&#39;s get
+
+00:03:05.878 --> 00:03:11.039
+Caption: this over and done with I get the syntax
+
+00:03:08.160 --> 00:03:14.098
+Caption: that overflow tells me this is correct I
+
+00:03:11.039 --> 00:03:17.098
+Caption: will always trust them obviously cool
+
+00:03:14.098 --> 00:03:22.018
+Caption: Davis again fine it&#39;s got a prod it&#39;s
+
+00:03:17.098 --> 00:03:24.238
+Caption: done easy okay well what do we just do
+
+00:03:22.018 --> 00:03:26.339
+Caption: so again cookbook
+
+00:03:24.238 --> 00:03:28.738
+Caption: I give you the cookbook and conveniently
+
+00:03:26.339 --> 00:03:31.018
+Caption: it has a thing well got an index right
+
+00:03:28.738 --> 00:03:34.080
+Caption: which translates to databases so go to
+
+00:03:31.018 --> 00:03:35.580
+Caption: the index go down you go to G find
+
+00:03:34.080 --> 00:03:37.680
+Caption: garlic and you&#39;ll find all the recipes
+
+00:03:35.580 --> 00:03:39.540
+Caption: that have garlic and then you have the
+
+00:03:37.679 --> 00:03:41.518
+Caption: page numbers and then you can go to the
+
+00:03:39.539 --> 00:03:42.839
+Caption: book and you find all the recipes that
+
+00:03:41.518 --> 00:03:45.000
+Caption: have garlic much quicker than going
+
+00:03:42.839 --> 00:03:47.399
+Caption: through the whole book so something like
+
+00:03:45.000 --> 00:03:49.199
+Caption: so we have two recipes with garlic
+
+00:03:47.399 --> 00:03:53.298
+Caption: chicken roast and garlic bread on pages
+
+00:03:49.199 --> 00:03:53.298
+Caption: 800 and Pages six
+
+00:03:53.458 --> 00:03:58.860
+Caption: so before I explain databases let&#39;s talk
+
+00:03:56.580 --> 00:04:01.319
+Caption: a little bit about Ferry what is an
+
+00:03:58.860 --> 00:04:03.598
+Caption: index well in this case so there&#39;s a few
+
+00:04:01.319 --> 00:04:06.298
+Caption: different types of indexes here
+
+00:04:03.598 --> 00:04:08.279
+Caption: default is B tree and I think it&#39;s every
+
+00:04:06.298 --> 00:04:09.238
+Caption: database is the Fault a b tree there&#39;s a
+
+00:04:08.279 --> 00:04:10.378
+Caption: whole bunch of others but they&#39;re very
+
+00:04:09.238 --> 00:04:13.259
+Caption: complicated I&#39;m not going to cover them
+
+00:04:10.378 --> 00:04:16.380
+Caption: so e tree
+
+00:04:13.259 --> 00:04:18.899
+Caption: what does it look like okay so at the
+
+00:04:16.380 --> 00:04:21.600
+Caption: top we have the root node
+
+00:04:18.899 --> 00:04:23.399
+Caption: at the bottom we have the leaf nodes
+
+00:04:21.600 --> 00:04:24.720
+Caption: and you can notice it&#39;s kind of ordered
+
+00:04:23.399 --> 00:04:28.040
+Caption: with the smallest numbers at the left
+
+00:04:24.720 --> 00:04:28.040
+Caption: biggest numbers at the right
+
+00:04:28.259 --> 00:04:32.339
+Caption: and B tree is balance three not a binary
+
+00:04:30.839 --> 00:04:34.139
+Caption: tree
+
+00:04:32.339 --> 00:04:36.839
+Caption: so searching
+
+00:04:34.139 --> 00:04:38.699
+Caption: uh searching insertion and deletion is
+
+00:04:36.839 --> 00:04:40.199
+Caption: all login as long as it remains balanced
+
+00:04:38.699 --> 00:04:41.940
+Caption: the database will do that for you so you
+
+00:04:40.199 --> 00:04:43.979
+Caption: don&#39;t need to worry about that balance
+
+00:04:41.940 --> 00:04:46.679
+Caption: meaning from the root note the top note
+
+00:04:43.979 --> 00:04:48.720
+Caption: to the bottom node for all bottom nodes
+
+00:04:46.679 --> 00:04:50.699
+Caption: is the same amount of noise to climb up
+
+00:04:48.720 --> 00:04:53.519
+Caption: that means it&#39;s balanced
+
+00:04:50.699 --> 00:04:55.739
+Caption: so say searching I want to find Value
+
+00:04:53.519 --> 00:04:57.479
+Caption: 999 which is at the bottom so I start at
+
+00:04:55.739 --> 00:05:00.779
+Caption: the root node
+
+00:04:57.479 --> 00:05:04.199
+Caption: 999 is greater than 800. so we&#39;ve got a
+
+00:05:00.779 --> 00:05:07.320
+Caption: 900 999 is greater than 900 so we go to
+
+00:05:04.199 --> 00:05:08.699
+Caption: 999. found our value
+
+00:05:07.320 --> 00:05:11.339
+Caption: okay
+
+00:05:08.699 --> 00:05:13.080
+Caption: so how&#39;s it working how&#39;s this actually
+
+00:05:11.339 --> 00:05:16.079
+Caption: work right so remember we&#39;ve had the
+
+00:05:13.079 --> 00:05:18.000
+Caption: cookbook index so in database world we
+
+00:05:16.079 --> 00:05:19.739
+Caption: went and found our value
+
+00:05:18.000 --> 00:05:22.259
+Caption: of 111
+
+00:05:19.739 --> 00:05:24.599
+Caption: and what it had there essentially is
+
+00:05:22.259 --> 00:05:27.059
+Caption: well you can look at it as has a row ID
+
+00:05:24.600 --> 00:05:29.639
+Caption: and that row ID is actually the database
+
+00:05:27.059 --> 00:05:31.619
+Caption: ID and it goes to this row ID I&#39;m sorry
+
+00:05:29.639 --> 00:05:32.880
+Caption: it gets the one one it gives us variety
+
+00:05:31.619 --> 00:05:34.139
+Caption: and it actually goes back to the table
+
+00:05:32.880 --> 00:05:36.660
+Caption: and gets the rest of the information
+
+00:05:34.139 --> 00:05:38.339
+Caption: which is a lot faster than you know
+
+00:05:36.660 --> 00:05:39.539
+Caption: sequentially scanning it&#39;s kind of like
+
+00:05:38.339 --> 00:05:41.519
+Caption: a cookbook you didn&#39;t have the whole
+
+00:05:39.539 --> 00:05:44.839
+Caption: recipe in the index you just had go to
+
+00:05:41.519 --> 00:05:44.839
+Caption: this page number and go find it
+
+00:05:45.059 --> 00:05:50.639
+Caption: so enough Theory right it&#39;s kind of
+
+00:05:47.220 --> 00:05:52.919
+Caption: boring let&#39;s make this quite practical
+
+00:05:50.639 --> 00:05:55.020
+Caption: tell me what to index okay
+
+00:05:52.919 --> 00:05:57.600
+Caption: let&#39;s do something really generic
+
+00:05:55.019 --> 00:05:58.500
+Caption: wear or join index it the primary Keys
+
+00:05:57.600 --> 00:06:00.720
+Caption: your unique constraints will be
+
+00:05:58.500 --> 00:06:03.000
+Caption: automatically indexed but like
+
+00:06:00.720 --> 00:06:04.440
+Caption: everything else in software well
+
+00:06:03.000 --> 00:06:06.959
+Caption: it&#39;s not that straightforward obviously
+
+00:06:04.440 --> 00:06:09.179
+Caption: so the point I&#39;m going to hammer in
+
+00:06:06.959 --> 00:06:10.559
+Caption: today is know your queries know your
+
+00:06:09.179 --> 00:06:12.660
+Caption: queries are expensive or long running
+
+00:06:10.559 --> 00:06:15.000
+Caption: the most executed queries and your most
+
+00:06:12.660 --> 00:06:17.100
+Caption: important queries that will give you the
+
+00:06:15.000 --> 00:06:19.940
+Caption: starting ground when uh where to create
+
+00:06:17.100 --> 00:06:19.940
+Caption: your indexes
+
+00:06:20.160 --> 00:06:24.360
+Caption: so that comes kind of to the next Point
+
+00:06:22.319 --> 00:06:25.619
+Caption: well why not just index all the indexes
+
+00:06:24.359 --> 00:06:26.879
+Caption: right wanna just do absolutely
+
+00:06:25.619 --> 00:06:28.979
+Caption: everything
+
+00:06:26.880 --> 00:06:31.319
+Caption: well there&#39;s trade-offs with indexes
+
+00:06:28.979 --> 00:06:33.959
+Caption: let&#39;s think the cookbook we did a very
+
+00:06:31.319 --> 00:06:37.139
+Caption: simple one index on ingredient but let&#39;s
+
+00:06:33.959 --> 00:06:41.039
+Caption: say I then do Cuisine I do category I do
+
+00:06:37.139 --> 00:06:42.660
+Caption: the maybe uh the chef how long it takes
+
+00:06:41.039 --> 00:06:45.600
+Caption: and your index is just going to keep
+
+00:06:42.660 --> 00:06:47.039
+Caption: going in size and keep going in size and
+
+00:06:45.600 --> 00:06:49.139
+Caption: now your index is bigger than the book
+
+00:06:47.039 --> 00:06:51.119
+Caption: so it came kind of useless
+
+00:06:49.139 --> 00:06:54.300
+Caption: and you have to think okay there&#39;s also
+
+00:06:51.119 --> 00:06:56.459
+Caption: insertions so let&#39;s imagine a book again
+
+00:06:54.299 --> 00:06:57.720
+Caption: if I tell you hey
+
+00:06:56.459 --> 00:06:59.699
+Caption: um here&#39;s your new recipe with garlic
+
+00:06:57.720 --> 00:07:01.079
+Caption: you go okay sure you put that recipe in
+
+00:06:59.699 --> 00:07:02.100
+Caption: your book you update your book with this
+
+00:07:01.079 --> 00:07:04.679
+Caption: recipe and then you have to go to the
+
+00:07:02.100 --> 00:07:06.360
+Caption: index and update the index as well so
+
+00:07:04.679 --> 00:07:07.559
+Caption: this is if you have too many indexes
+
+00:07:06.359 --> 00:07:09.538
+Caption: it&#39;s just going to get longer and longer
+
+00:07:07.559 --> 00:07:11.600
+Caption: and longer in short
+
+00:07:09.539 --> 00:07:14.339
+Caption: indexes give you increased read speed
+
+00:07:11.600 --> 00:07:16.880
+Caption: decreased write speed
+
+00:07:14.339 --> 00:07:16.880
+Caption: so
+
+00:07:17.699 --> 00:07:21.779
+Caption: now you might think okay well why not
+
+00:07:20.279 --> 00:07:23.098
+Caption: okay we know that we shouldn&#39;t index
+
+00:07:21.779 --> 00:07:25.799
+Caption: everything but how do I know I don&#39;t
+
+00:07:23.098 --> 00:07:27.119
+Caption: want to risk like having a poor
+
+00:07:25.799 --> 00:07:28.319
+Caption: performance you know your company is
+
+00:07:27.119 --> 00:07:30.119
+Caption: going to start losing money it&#39;s not
+
+00:07:28.319 --> 00:07:31.440
+Caption: really nice to deploy something sit
+
+00:07:30.119 --> 00:07:32.819
+Caption: there waiting anxiously is it going to
+
+00:07:31.440 --> 00:07:35.399
+Caption: be okay or not
+
+00:07:32.819 --> 00:07:38.039
+Caption: so again know your queries do your
+
+00:07:35.399 --> 00:07:40.619
+Caption: queries need to be fast
+
+00:07:38.039 --> 00:07:42.779
+Caption: and what are they for so announcements
+
+00:07:40.619 --> 00:07:44.160
+Caption: there for reports are reports time
+
+00:07:42.779 --> 00:07:45.839
+Caption: critical do they need to actually
+
+00:07:44.160 --> 00:07:47.459
+Caption: execute instantly
+
+00:07:45.839 --> 00:07:49.919
+Caption: generally I&#39;d say no I mean for the
+
+00:07:47.459 --> 00:07:51.598
+Caption: purposes of talk we want them but
+
+00:07:49.919 --> 00:07:53.639
+Caption: um in that case no do you ever read
+
+00:07:51.598 --> 00:07:55.739
+Caption: replica maybe like a database they can
+
+00:07:53.639 --> 00:07:58.139
+Caption: bear the extra load of reading well then
+
+00:07:55.739 --> 00:08:00.119
+Caption: maybe you don&#39;t need them
+
+00:07:58.139 --> 00:08:02.098
+Caption: now when it comes to say application do
+
+00:08:00.119 --> 00:08:03.839
+Caption: you have observable observability and
+
+00:08:02.098 --> 00:08:06.239
+Caption: alerting on your application that can
+
+00:08:03.839 --> 00:08:08.579
+Caption: indicate poor performance do you have a
+
+00:08:06.239 --> 00:08:10.739
+Caption: way to deploy this feature to a small
+
+00:08:08.579 --> 00:08:13.138
+Caption: subset of customers first and see what&#39;s
+
+00:08:10.739 --> 00:08:14.220
+Caption: going on before making a call to deploy
+
+00:08:13.139 --> 00:08:15.479
+Caption: to everyone if you have something like
+
+00:08:14.220 --> 00:08:17.459
+Caption: that then you can hold off on
+
+00:08:15.479 --> 00:08:19.319
+Caption: pre-indexing but again it comes down to
+
+00:08:17.459 --> 00:08:21.500
+Caption: knowing your queries how much data is
+
+00:08:19.319 --> 00:08:21.500
+Caption: there
+
+00:08:21.598 --> 00:08:28.459
+Caption: alrighty so more work time which means
+
+00:08:25.019 --> 00:08:28.459
+Caption: more indexes to create
+
+00:08:30.119 --> 00:08:33.359
+Caption: but
+
+00:08:31.139 --> 00:08:35.218
+Caption: there&#39;s a few caveats here so first
+
+00:08:33.359 --> 00:08:37.679
+Caption: thing you might have noticed Devil&#39;s
+
+00:08:35.218 --> 00:08:39.598
+Caption: okay but prod wasn&#39;t there&#39;s quite a few
+
+00:08:37.679 --> 00:08:42.000
+Caption: factors that come to affect this sort of
+
+00:08:39.598 --> 00:08:43.380
+Caption: thing first of all is a hardware that
+
+00:08:42.000 --> 00:08:45.299
+Caption: your database is running on is it going
+
+00:08:43.380 --> 00:08:47.760
+Caption: to influence your results
+
+00:08:45.299 --> 00:08:49.979
+Caption: the volume of data so generally you&#39;re
+
+00:08:47.760 --> 00:08:52.320
+Caption: going to have a smaller sub set of data
+
+00:08:49.979 --> 00:08:54.659
+Caption: locally or in div compared to prod and
+
+00:08:52.320 --> 00:08:57.500
+Caption: the distribution distribution of data is
+
+00:08:54.659 --> 00:08:59.579
+Caption: also extremely important as well
+
+00:08:57.500 --> 00:09:01.919
+Caption: so there&#39;s something to keep in mind
+
+00:08:59.580 --> 00:09:03.000
+Caption: when you&#39;re when you have indexes in
+
+00:09:01.919 --> 00:09:04.139
+Caption: different environments and stuff like
+
+00:09:03.000 --> 00:09:06.059
+Caption: that and even some of these results
+
+00:09:04.140 --> 00:09:07.859
+Caption: today you&#39;ll see
+
+00:09:06.059 --> 00:09:10.859
+Caption: um a bit skewed because I&#39;ve just put
+
+00:09:07.859 --> 00:09:12.059
+Caption: this data on my machine
+
+00:09:10.859 --> 00:09:14.278
+Caption: okay
+
+00:09:12.059 --> 00:09:16.080
+Caption: so first thing I want to cover is
+
+00:09:14.278 --> 00:09:18.599
+Caption: creating an index is the correct way so
+
+00:09:16.080 --> 00:09:21.119
+Caption: I showed you this but you&#39;re never going
+
+00:09:18.599 --> 00:09:22.739
+Caption: to do this because this locks the
+
+00:09:21.119 --> 00:09:24.778
+Caption: database against rights to that table
+
+00:09:22.739 --> 00:09:26.640
+Caption: which in production at least my
+
+00:09:24.778 --> 00:09:28.979
+Caption: experience that&#39;s usually well not very
+
+00:09:26.640 --> 00:09:30.299
+Caption: good so we add concurrently and what
+
+00:09:28.979 --> 00:09:32.518
+Caption: this does
+
+00:09:30.299 --> 00:09:35.099
+Caption: um does a scale of the table and does
+
+00:09:32.518 --> 00:09:36.919
+Caption: unlock the doesn&#39;t lock it and gets
+
+00:09:35.099 --> 00:09:39.659
+Caption: everything and it kind of does it again
+
+00:09:36.919 --> 00:09:41.880
+Caption: afterwards to get capture all the
+
+00:09:39.659 --> 00:09:43.018
+Caption: missing transactions from before it&#39;s
+
+00:09:41.880 --> 00:09:44.940
+Caption: very high level it gets a bit more
+
+00:09:43.018 --> 00:09:46.619
+Caption: complicated than that but that&#39;s the
+
+00:09:44.940 --> 00:09:47.880
+Caption: gist of it and there are queries that
+
+00:09:46.619 --> 00:09:50.580
+Caption: you can actually run to see is your
+
+00:09:47.880 --> 00:09:52.200
+Caption: index still being created or not
+
+00:09:50.580 --> 00:09:54.480
+Caption: um it&#39;s long and it&#39;s ugly Google it if
+
+00:09:52.200 --> 00:09:55.619
+Caption: you want it but that&#39;s the gist of it
+
+00:09:54.479 --> 00:09:57.179
+Caption: okay
+
+00:09:55.619 --> 00:09:59.398
+Caption: before we do some work we also have to
+
+00:09:57.179 --> 00:10:01.739
+Caption: talk about debugging so the cool thing
+
+00:09:59.398 --> 00:10:03.539
+Caption: with databases is you can go to and say
+
+00:10:01.739 --> 00:10:05.458
+Caption: hey what do you think you&#39;re going to do
+
+00:10:03.539 --> 00:10:07.799
+Caption: and then you can also tell hey what are
+
+00:10:05.458 --> 00:10:09.299
+Caption: you going to do um what I what did you
+
+00:10:07.799 --> 00:10:11.820
+Caption: actually do and then you can compare
+
+00:10:09.299 --> 00:10:15.299
+Caption: them and make judgment calls on that
+
+00:10:11.820 --> 00:10:16.440
+Caption: so in postgres we prefix our query with
+
+00:10:15.299 --> 00:10:18.599
+Caption: explain
+
+00:10:16.440 --> 00:10:20.338
+Caption: and that&#39;s essentially time post goes
+
+00:10:18.599 --> 00:10:23.759
+Caption: hey what do you think you&#39;re going to do
+
+00:10:20.338 --> 00:10:25.320
+Caption: here now you might be thinking okay
+
+00:10:23.760 --> 00:10:27.838
+Caption: how does it know what it thinks it&#39;s
+
+00:10:25.320 --> 00:10:29.760
+Caption: going to do this is a very complicated
+
+00:10:27.838 --> 00:10:31.739
+Caption: topic and blindly put this is a talk on
+
+00:10:29.760 --> 00:10:32.760
+Caption: its own it&#39;s I went on a bit of a rabbit
+
+00:10:31.739 --> 00:10:34.500
+Caption: hole in this and it&#39;s absolutely
+
+00:10:32.760 --> 00:10:36.179
+Caption: incredible how it does it it uses all
+
+00:10:34.500 --> 00:10:38.219
+Caption: sorts of statistics and stored in the
+
+00:10:36.179 --> 00:10:40.679
+Caption: table to make this course
+
+00:10:38.219 --> 00:10:42.659
+Caption: so let&#39;s look at what this kind of looks
+
+00:10:40.679 --> 00:10:43.679
+Caption: like
+
+00:10:42.659 --> 00:10:47.219
+Caption: so
+
+00:10:43.679 --> 00:10:49.919
+Caption: at the top we have you can see here cost
+
+00:10:47.219 --> 00:10:52.679
+Caption: that first number is the cost to find
+
+00:10:49.919 --> 00:10:54.179
+Caption: the first node our first row then the
+
+00:10:52.679 --> 00:10:55.739
+Caption: next number which is 13 000 something
+
+00:10:54.179 --> 00:10:58.380
+Caption: something something that&#39;s the cost to
+
+00:10:55.739 --> 00:11:00.599
+Caption: find all rows what it estimates to be
+
+00:10:58.380 --> 00:11:02.398
+Caption: the funny part about this and this is a
+
+00:11:00.599 --> 00:11:03.299
+Caption: quote from a person&#39;s documentation you
+
+00:11:02.398 --> 00:11:04.559
+Caption: might be thinking okay what does that
+
+00:11:03.299 --> 00:11:07.440
+Caption: number represent
+
+00:11:04.559 --> 00:11:08.880
+Caption: it&#39;s an arbitrary unit so it differs on
+
+00:11:07.440 --> 00:11:10.440
+Caption: your laptop and a bunch of things there
+
+00:11:08.880 --> 00:11:12.179
+Caption: is a long formula uses like the hardware
+
+00:11:10.440 --> 00:11:14.220
+Caption: or your laptop of your computer all
+
+00:11:12.179 --> 00:11:15.479
+Caption: sorts of stuff to try and figure it out
+
+00:11:14.219 --> 00:11:16.979
+Caption: um so it&#39;s not particularly useful you
+
+00:11:15.479 --> 00:11:18.838
+Caption: could say
+
+00:11:16.979 --> 00:11:21.479
+Caption: then we have how many rows that things
+
+00:11:18.838 --> 00:11:23.398
+Caption: match this condition and the width of
+
+00:11:21.479 --> 00:11:26.398
+Caption: each row which is in bytes if I remember
+
+00:11:23.398 --> 00:11:29.338
+Caption: correctly and then we could see it did a
+
+00:11:26.398 --> 00:11:31.018
+Caption: parallel sequential scan
+
+00:11:29.338 --> 00:11:32.518
+Caption: which is what we talked about before
+
+00:11:31.018 --> 00:11:34.078
+Caption: which isn&#39;t good and it&#39;s going to do
+
+00:11:32.518 --> 00:11:36.059
+Caption: that it&#39;s wise because Force 12 times 2
+
+00:11:34.078 --> 00:11:37.859
+Caption: is roughly that
+
+00:11:36.059 --> 00:11:40.078
+Caption: um and then a filter
+
+00:11:37.859 --> 00:11:42.479
+Caption: then with the index scan it&#39;s kind of
+
+00:11:40.078 --> 00:11:44.159
+Caption: similar nothing too different than the
+
+00:11:42.479 --> 00:11:45.719
+Caption: important part here we can see it says
+
+00:11:44.159 --> 00:11:47.099
+Caption: index scan
+
+00:11:45.719 --> 00:11:49.139
+Caption: so
+
+00:11:47.099 --> 00:11:51.799
+Caption: well let&#39;s do something a bit more
+
+00:11:49.140 --> 00:11:51.799
+Caption: interesting here
+
+00:11:52.200 --> 00:11:57.600
+Caption: let&#39;s see what it actually does
+
+00:11:55.559 --> 00:11:59.338
+Caption: okay so now we&#39;re pretty quick to
+
+00:11:57.599 --> 00:12:01.319
+Caption: explain analyze analyze will tell hey
+
+00:11:59.338 --> 00:12:04.260
+Caption: can you run the curry too please so we
+
+00:12:01.320 --> 00:12:07.559
+Caption: can compare
+
+00:12:04.260 --> 00:12:09.958
+Caption: and what you can see here is after say
+
+00:12:07.559 --> 00:12:11.219
+Caption: on the top line after The Gather we have
+
+00:12:09.958 --> 00:12:13.500
+Caption: another one which says actual time
+
+00:12:11.219 --> 00:12:15.659
+Caption: that&#39;s in milliseconds
+
+00:12:13.500 --> 00:12:17.458
+Caption: so that&#39;s the time it takes to find the
+
+00:12:15.659 --> 00:12:19.259
+Caption: first row that matches the condition and
+
+00:12:17.458 --> 00:12:20.219
+Caption: a time to find all rows of magic
+
+00:12:19.260 --> 00:12:21.540
+Caption: condition
+
+00:12:20.219 --> 00:12:24.659
+Caption: and then we are parallels sequential
+
+00:12:21.539 --> 00:12:27.119
+Caption: scan how long it took and then we can
+
+00:12:24.659 --> 00:12:29.879
+Caption: see here is remote rows removed by
+
+00:12:27.119 --> 00:12:31.739
+Caption: filter that&#39;s an interesting part here
+
+00:12:29.880 --> 00:12:34.200
+Caption: two lines above size Loops three so
+
+00:12:31.739 --> 00:12:36.179
+Caption: that&#39;s times three that filtered out the
+
+00:12:34.200 --> 00:12:37.859
+Caption: vast majority of the table so we
+
+00:12:36.179 --> 00:12:39.419
+Caption: generally say that&#39;s an absolute ideal
+
+00:12:37.859 --> 00:12:42.359
+Caption: candidate for an index when we see
+
+00:12:39.419 --> 00:12:43.739
+Caption: something like this and this took 33
+
+00:12:42.359 --> 00:12:45.059
+Caption: milliseconds
+
+00:12:43.739 --> 00:12:48.739
+Caption: now
+
+00:12:45.059 --> 00:12:48.739
+Caption: let&#39;s see how fast an index is
+
+00:12:49.739 --> 00:12:52.278
+Caption: whoops
+
+00:12:52.979 --> 00:12:57.059
+Caption: it was 11.8 milliseconds so that was a
+
+00:12:55.320 --> 00:12:59.160
+Caption: third of the time of the sequential scan
+
+00:12:57.059 --> 00:13:01.380
+Caption: and we can see it says index scanners
+
+00:12:59.159 --> 00:13:03.898
+Caption: before we have all the stuff
+
+00:13:01.380 --> 00:13:05.338
+Caption: as well index condition but I just want
+
+00:13:03.898 --> 00:13:06.778
+Caption: to highlight
+
+00:13:05.338 --> 00:13:08.518
+Caption: the time that it took and how much
+
+00:13:06.778 --> 00:13:10.260
+Caption: faster it was
+
+00:13:08.518 --> 00:13:12.059
+Caption: Okay so
+
+00:13:10.260 --> 00:13:14.100
+Caption: now we&#39;ve done a little bit of very very
+
+00:13:12.059 --> 00:13:16.018
+Caption: high level of the query planner let&#39;s do
+
+00:13:14.099 --> 00:13:18.599
+Caption: some more work let&#39;s see if we can learn
+
+00:13:16.018 --> 00:13:20.578
+Caption: more about this so now product devices
+
+00:13:18.599 --> 00:13:23.398
+Caption: hey we don&#39;t just want author idea we
+
+00:13:20.578 --> 00:13:24.898
+Caption: also want Source ID which is where we&#39;re
+
+00:13:23.398 --> 00:13:26.219
+Caption: getting that because we&#39;re aggregated
+
+00:13:24.898 --> 00:13:27.599
+Caption: we&#39;re getting these uh these recipes
+
+00:13:26.219 --> 00:13:29.879
+Caption: from different sources and stuff like
+
+00:13:27.599 --> 00:13:32.219
+Caption: that so our query is going to be
+
+00:13:29.880 --> 00:13:35.458
+Caption: something like so
+
+00:13:32.219 --> 00:13:37.559
+Caption: okay cool
+
+00:13:35.458 --> 00:13:41.638
+Caption: you can see here we did this with no
+
+00:13:37.559 --> 00:13:42.778
+Caption: index and we can see 27 milliseconds and
+
+00:13:41.638 --> 00:13:44.518
+Caption: obviously it&#39;s going to filter a lot
+
+00:13:42.778 --> 00:13:45.898
+Caption: more rows this time there&#39;s only 12 rows
+
+00:13:44.518 --> 00:13:48.419
+Caption: of matching condition which is right at
+
+00:13:45.898 --> 00:13:51.419
+Caption: the top to the right
+
+00:13:48.419 --> 00:13:54.239
+Caption: cool alrighty
+
+00:13:51.419 --> 00:13:57.239
+Caption: so we create an index and you can see
+
+00:13:54.239 --> 00:13:59.219
+Caption: here it&#39;s multi-column index
+
+00:13:57.239 --> 00:14:02.099
+Caption: the order that you specify the columns
+
+00:13:59.219 --> 00:14:03.539
+Caption: here is extremely important and I&#39;m
+
+00:14:02.099 --> 00:14:06.719
+Caption: going to explain a little bit more but
+
+00:14:03.539 --> 00:14:09.599
+Caption: let&#39;s first see how fast this is
+
+00:14:06.719 --> 00:14:11.099
+Caption: so from 27 milliseconds to 0.2
+
+00:14:09.599 --> 00:14:13.380
+Caption: milliseconds
+
+00:14:11.099 --> 00:14:16.500
+Caption: that is lining fast that is a pretty
+
+00:14:13.380 --> 00:14:18.778
+Caption: huge change so that&#39;s quite nice right
+
+00:14:16.500 --> 00:14:20.039
+Caption: let&#39;s talk about how I said the order so
+
+00:14:18.778 --> 00:14:22.799
+Caption: we said
+
+00:14:20.039 --> 00:14:25.380
+Caption: multi-column index first second I said
+
+00:14:22.799 --> 00:14:29.700
+Caption: indexes are ordered so what does that
+
+00:14:25.380 --> 00:14:32.220
+Caption: mean well if I create an index on author
+
+00:14:29.700 --> 00:14:35.639
+Caption: ID then Source ID what it kind of looks
+
+00:14:32.219 --> 00:14:38.099
+Caption: like is if I go to 111 let&#39;s use the
+
+00:14:35.638 --> 00:14:41.398
+Caption: cookbook example I&#39;ll go to the the ID
+
+00:14:38.099 --> 00:14:43.380
+Caption: or one one one I find it then inside of
+
+00:14:41.398 --> 00:14:45.119
+Caption: it it&#39;s all going to be ordered by The
+
+00:14:43.380 --> 00:14:47.458
+Caption: Source ID
+
+00:14:45.119 --> 00:14:49.018
+Caption: okay cool what does this mean
+
+00:14:47.458 --> 00:14:51.179
+Caption: practically okay so we created this
+
+00:14:49.018 --> 00:14:53.458
+Caption: multi-com index
+
+00:14:51.179 --> 00:14:55.619
+Caption: and if I want to query on Authority
+
+00:14:53.458 --> 00:14:58.198
+Caption: Source ID it works fine because I can go
+
+00:14:55.619 --> 00:14:59.698
+Caption: to 111 and other than that I have 40
+
+00:14:58.198 --> 00:15:01.799
+Caption: right
+
+00:14:59.698 --> 00:15:03.898
+Caption: if I want to do just on author ID that&#39;s
+
+00:15:01.799 --> 00:15:06.419
+Caption: going to work too because well it&#39;s
+
+00:15:03.898 --> 00:15:09.299
+Caption: ordered first by author ID right
+
+00:15:06.419 --> 00:15:11.278
+Caption: but if I ask
+
+00:15:09.299 --> 00:15:14.458
+Caption: if I write a query and it&#39;s like hey can
+
+00:15:11.278 --> 00:15:17.159
+Caption: you get it by just Source ID well no
+
+00:15:14.458 --> 00:15:19.380
+Caption: that&#39;s not going to work because think
+
+00:15:17.159 --> 00:15:21.299
+Caption: of the book it&#39;s order by author ID so
+
+00:15:19.380 --> 00:15:23.338
+Caption: one one you have a bunch of other IDs
+
+00:15:21.299 --> 00:15:24.539
+Caption: there within the source code is if I
+
+00:15:23.338 --> 00:15:27.179
+Caption: want to find 40 I won&#39;t have to scan
+
+00:15:24.539 --> 00:15:28.979
+Caption: every single author and find 40. at that
+
+00:15:27.179 --> 00:15:31.679
+Caption: point the index is useless you might as
+
+00:15:28.979 --> 00:15:33.000
+Caption: well just do a sequential scan
+
+00:15:31.679 --> 00:15:35.458
+Caption: cool
+
+00:15:33.000 --> 00:15:37.380
+Caption: so what are the other options we can
+
+00:15:35.458 --> 00:15:39.179
+Caption: databases are cool you can create two
+
+00:15:37.380 --> 00:15:40.979
+Caption: single column indexes and it will
+
+00:15:39.179 --> 00:15:44.778
+Caption: combine them for you automatically which
+
+00:15:40.979 --> 00:15:44.778
+Caption: is pretty incredible okay
+
+00:15:45.419 --> 00:15:49.679
+Caption: I&#39;ve skipped something here
+
+00:15:48.000 --> 00:15:51.059
+Caption: selectivity and cardinality the two
+
+00:15:49.679 --> 00:15:54.299
+Caption: concepts and indexes are extremely
+
+00:15:51.059 --> 00:15:58.078
+Caption: important so what are they selectivity
+
+00:15:54.299 --> 00:16:00.719
+Caption: is give it a a value for that you&#39;re
+
+00:15:58.078 --> 00:16:02.398
+Caption: searching for how many rows does it
+
+00:16:00.719 --> 00:16:04.619
+Caption: return as a proportion of the table
+
+00:16:02.398 --> 00:16:06.719
+Caption: something like recipe ID which is the
+
+00:16:04.619 --> 00:16:08.039
+Caption: primary key so it&#39;s Unique is going to
+
+00:16:06.719 --> 00:16:09.119
+Caption: have a very high selectivity because
+
+00:16:08.039 --> 00:16:11.099
+Caption: realistically there&#39;s going to be one
+
+00:16:09.119 --> 00:16:12.838
+Caption: row with it
+
+00:16:11.099 --> 00:16:16.559
+Caption: then you have cardinality and
+
+00:16:12.838 --> 00:16:19.559
+Caption: cardinality is given a value how many um
+
+00:16:16.559 --> 00:16:21.539
+Caption: given a column how many possible values
+
+00:16:19.559 --> 00:16:23.278
+Caption: are there for a column so maybe for
+
+00:16:21.539 --> 00:16:25.259
+Caption: something like Source ID
+
+00:16:23.278 --> 00:16:27.000
+Caption: that&#39;s going to be a low cardinality if
+
+00:16:25.260 --> 00:16:27.838
+Caption: we have maybe 10 sources that we always
+
+00:16:27.000 --> 00:16:30.659
+Caption: get
+
+00:16:27.838 --> 00:16:32.219
+Caption: something like recipe ID author ID will
+
+00:16:30.659 --> 00:16:34.259
+Caption: have a very high cardinality because
+
+00:16:32.219 --> 00:16:35.518
+Caption: there&#39;s a lot of possible values well
+
+00:16:34.260 --> 00:16:38.220
+Caption: okay
+
+00:16:35.518 --> 00:16:39.479
+Caption: why is this important
+
+00:16:38.219 --> 00:16:41.578
+Caption: essentially
+
+00:16:39.479 --> 00:16:43.078
+Caption: forgive my absolutely beautiful diagram
+
+00:16:41.578 --> 00:16:45.359
+Caption: but
+
+00:16:43.078 --> 00:16:47.940
+Caption: when you search on something like Source
+
+00:16:45.359 --> 00:16:49.979
+Caption: ID let&#39;s imagine that Source ID returns
+
+00:16:47.940 --> 00:16:52.979
+Caption: roughly half of the table
+
+00:16:49.979 --> 00:16:55.320
+Caption: okay remember I said it&#39;s a two-step
+
+00:16:52.979 --> 00:16:57.000
+Caption: process here you go to the index
+
+00:16:55.320 --> 00:16:59.100
+Caption: from the index you get the recent
+
+00:16:57.000 --> 00:17:01.078
+Caption: information
+
+00:16:59.099 --> 00:17:02.638
+Caption: if I&#39;m going to be going through if I&#39;m
+
+00:17:01.078 --> 00:17:04.140
+Caption: getting half the values that&#39;s half the
+
+00:17:02.638 --> 00:17:05.760
+Caption: index or half the table
+
+00:17:04.140 --> 00:17:07.078
+Caption: what&#39;s the point going the index that&#39;s
+
+00:17:05.760 --> 00:17:08.698
+Caption: what&#39;s going to be slower I might as
+
+00:17:07.078 --> 00:17:10.739
+Caption: well just go directly to the table and
+
+00:17:08.698 --> 00:17:13.619
+Caption: that&#39;s what a database will do
+
+00:17:10.739 --> 00:17:15.239
+Caption: the rule of thumb generally is um
+
+00:17:13.619 --> 00:17:17.280
+Caption: if you&#39;re returning more than 10 to 15
+
+00:17:15.239 --> 00:17:18.359
+Caption: of your table your index is not going to
+
+00:17:17.280 --> 00:17:19.799
+Caption: be any good
+
+00:17:18.359 --> 00:17:22.918
+Caption: okay
+
+00:17:19.798 --> 00:17:24.418
+Caption: know your queries so what does this mean
+
+00:17:22.918 --> 00:17:27.539
+Caption: we&#39;ve covered we&#39;ve had the multi-common
+
+00:17:24.418 --> 00:17:29.759
+Caption: dicks which is quite fast we saw and we
+
+00:17:27.540 --> 00:17:31.440
+Caption: can combine the indexes but we can
+
+00:17:29.760 --> 00:17:33.719
+Caption: actually because Source ID and index on
+
+00:17:31.439 --> 00:17:37.500
+Caption: Source ID is kind of useless it&#39;s
+
+00:17:33.719 --> 00:17:38.579
+Caption: pointless it&#39;s not selective enough okay
+
+00:17:37.500 --> 00:17:39.959
+Caption: so
+
+00:17:38.579 --> 00:17:43.939
+Caption: this is where we think what are our
+
+00:17:39.959 --> 00:17:43.939
+Caption: queries okay so Authority
+
+00:17:44.219 --> 00:17:49.760
+Caption: how often are we going to be querying
+
+00:17:46.140 --> 00:17:49.760
+Caption: author ID and then something else
+
+00:17:50.520 --> 00:17:54.479
+Caption: we talk to product we look at our code
+
+00:17:52.619 --> 00:17:57.359
+Caption: and we see we do it quite a bit actually
+
+00:17:54.479 --> 00:17:59.400
+Caption: we do Source author ID and number 18 so
+
+00:17:57.359 --> 00:18:00.839
+Caption: quite a few bunch of others
+
+00:17:59.400 --> 00:18:02.280
+Caption: so we&#39;re not we can&#39;t just create a
+
+00:18:00.839 --> 00:18:04.380
+Caption: whole bunch of multi-com indexes because
+
+00:18:02.280 --> 00:18:06.660
+Caption: that&#39;s pretty inefficient right
+
+00:18:04.380 --> 00:18:08.760
+Caption: that&#39;s kind of a waste essentially well
+
+00:18:06.660 --> 00:18:10.559
+Caption: it&#39;s a decent Middle Ground here
+
+00:18:08.760 --> 00:18:12.479
+Caption: which is just create an index on
+
+00:18:10.558 --> 00:18:14.819
+Caption: Authority and that will be flexible it
+
+00:18:12.479 --> 00:18:16.979
+Caption: will serve all your queries and
+
+00:18:14.819 --> 00:18:19.199
+Caption: oops it&#39;s going to be relatively fast
+
+00:18:16.979 --> 00:18:21.719
+Caption: it&#39;s still going to be 0.9 milliseconds
+
+00:18:19.199 --> 00:18:23.699
+Caption: versus 0.2 keeping in mind without the
+
+00:18:21.719 --> 00:18:26.819
+Caption: index at all it was 28 milliseconds so
+
+00:18:23.699 --> 00:18:28.979
+Caption: that&#39;s still really fast essentially
+
+00:18:26.819 --> 00:18:32.099
+Caption: and what you see here what it does is we
+
+00:18:28.979 --> 00:18:33.839
+Caption: go to our book I go to author id11 I
+
+00:18:32.099 --> 00:18:35.520
+Caption: grab all the values there and then I
+
+00:18:33.839 --> 00:18:39.298
+Caption: filter all the values out that don&#39;t
+
+00:18:35.520 --> 00:18:42.380
+Caption: meet the source ID of 40.
+
+00:18:39.298 --> 00:18:42.380
+Caption: cool all right
+
+00:18:42.959 --> 00:18:48.239
+Caption: so more work
+
+00:18:45.239 --> 00:18:51.839
+Caption: we want popular recipes for an author
+
+00:18:48.239 --> 00:18:54.839
+Caption: okay kind of similar before we say
+
+00:18:51.839 --> 00:18:57.298
+Caption: um author ID equals this and num ratings
+
+00:18:54.839 --> 00:18:58.558
+Caption: greater than five thousand okay it&#39;s a
+
+00:18:57.298 --> 00:19:01.918
+Caption: little bit different now instead of two
+
+00:18:58.558 --> 00:19:03.779
+Caption: qualities we have a range query
+
+00:19:01.918 --> 00:19:05.939
+Caption: I&#39;ve created this index here
+
+00:19:03.780 --> 00:19:07.500
+Caption: it&#39;s actually wrong I&#39;m going to explain
+
+00:19:05.939 --> 00:19:09.538
+Caption: a little bit why it&#39;s wrong but it&#39;s
+
+00:19:07.500 --> 00:19:11.640
+Caption: also very deceptive and it can catch you
+
+00:19:09.538 --> 00:19:13.918
+Caption: up quite easily in this case
+
+00:19:11.640 --> 00:19:16.799
+Caption: this will use the index
+
+00:19:13.918 --> 00:19:19.380
+Caption: it&#39;s in 2.8 milliseconds
+
+00:19:16.798 --> 00:19:22.139
+Caption: which is pretty reasonable
+
+00:19:19.380 --> 00:19:24.418
+Caption: and you think okay that&#39;s good but if I
+
+00:19:22.140 --> 00:19:26.640
+Caption: create this in the correct order
+
+00:19:24.418 --> 00:19:28.319
+Caption: which is the columns are now the other
+
+00:19:26.640 --> 00:19:29.820
+Caption: way
+
+00:19:28.319 --> 00:19:31.678
+Caption: it was half the time
+
+00:19:29.819 --> 00:19:33.479
+Caption: you can imagine that this scales out
+
+00:19:31.678 --> 00:19:34.619
+Caption: there&#39;s only a million rows it&#39;s just I
+
+00:19:33.479 --> 00:19:36.119
+Caption: haven&#39;t really fully randomly
+
+00:19:34.619 --> 00:19:38.099
+Caption: distributed the data that sort of stuff
+
+00:19:36.119 --> 00:19:40.380
+Caption: this can scale very quickly and becomes
+
+00:19:38.099 --> 00:19:41.760
+Caption: extremely it can become an issue that
+
+00:19:40.380 --> 00:19:43.500
+Caption: you will not spot easily you think if
+
+00:19:41.760 --> 00:19:44.940
+Caption: it&#39;s using the index why isn&#39;t it doing
+
+00:19:43.500 --> 00:19:46.859
+Caption: it
+
+00:19:44.939 --> 00:19:48.779
+Caption: so the way to think about this is you
+
+00:19:46.859 --> 00:19:49.918
+Caption: want to reduce the amount of the index
+
+00:19:48.780 --> 00:19:51.900
+Caption: to scan
+
+00:19:49.918 --> 00:19:54.479
+Caption: so on the left we have the incorrect
+
+00:19:51.900 --> 00:19:56.219
+Caption: index and what it does is for I said if
+
+00:19:54.479 --> 00:19:57.418
+Caption: you remember remember from before it
+
+00:19:56.219 --> 00:20:00.538
+Caption: will go first it&#39;s going to go num
+
+00:19:57.418 --> 00:20:02.759
+Caption: ratings greater than 5000. it turns out
+
+00:20:00.538 --> 00:20:05.219
+Caption: when you do that it scans a decent
+
+00:20:02.760 --> 00:20:06.900
+Caption: amount of the index
+
+00:20:05.219 --> 00:20:09.119
+Caption: whereas if I have along the correct
+
+00:20:06.900 --> 00:20:10.619
+Caption: index which is author idea one one and
+
+00:20:09.119 --> 00:20:12.418
+Caption: it&#39;s quite a selective one as we saw
+
+00:20:10.619 --> 00:20:15.780
+Caption: before it was only a thousand rows of
+
+00:20:12.418 --> 00:20:17.519
+Caption: the whole table well that&#39;s not much of
+
+00:20:15.780 --> 00:20:19.020
+Caption: the index it has to scan
+
+00:20:17.520 --> 00:20:20.580
+Caption: so that&#39;s going to be much more
+
+00:20:19.020 --> 00:20:22.679
+Caption: efficient if you think of the cookbook
+
+00:20:20.579 --> 00:20:24.899
+Caption: if I give you numbers Grant 5000 go to
+
+00:20:22.678 --> 00:20:26.760
+Caption: the book okay number readings okay five
+
+00:20:24.900 --> 00:20:27.799
+Caption: thousand okay I&#39;ve got to go now I know
+
+00:20:26.760 --> 00:20:30.058
+Caption: everything
+
+00:20:27.798 --> 00:20:31.319
+Caption: after that is greater than five thousand
+
+00:20:30.058 --> 00:20:33.239
+Caption: I have to scan all of that and figure
+
+00:20:31.319 --> 00:20:35.639
+Caption: out where the author ideas whereas I&#39;ll
+
+00:20:33.239 --> 00:20:37.500
+Caption: go author id11 I go I find Authority one
+
+00:20:35.640 --> 00:20:39.058
+Caption: one and all my values are there it&#39;s a
+
+00:20:37.500 --> 00:20:42.739
+Caption: very small portion of the table we have
+
+00:20:39.058 --> 00:20:42.739
+Caption: to scan it&#39;s going to be more efficient
+
+00:20:43.439 --> 00:20:47.639
+Caption: so what&#39;s it say from that index one
+
+00:20:45.839 --> 00:20:50.219
+Caption: equalities then ranges if you do that
+
+00:20:47.640 --> 00:20:52.320
+Caption: you will avoid this issue biting you
+
+00:20:50.219 --> 00:20:53.819
+Caption: essentially if you&#39;re lucky
+
+00:20:52.319 --> 00:20:55.678
+Caption: um that query before the wrong one it
+
+00:20:53.819 --> 00:20:57.119
+Caption: will just do a sequential scan but if
+
+00:20:55.678 --> 00:20:58.619
+Caption: you you can see that it can still use it
+
+00:20:57.119 --> 00:21:00.119
+Caption: index sometimes and it won&#39;t be as
+
+00:20:58.619 --> 00:21:02.099
+Caption: efficient
+
+00:21:00.119 --> 00:21:05.099
+Caption: okay
+
+00:21:02.099 --> 00:21:06.780
+Caption: can we do this a bit better hmm
+
+00:21:05.099 --> 00:21:08.760
+Caption: what do I mean by that let&#39;s look at
+
+00:21:06.780 --> 00:21:10.919
+Caption: this query first of all we&#39;re selecting
+
+00:21:08.760 --> 00:21:12.539
+Caption: everything do we need everything
+
+00:21:10.918 --> 00:21:14.159
+Caption: I talked to product the products like no
+
+00:21:12.538 --> 00:21:15.359
+Caption: no no we just want the recipe ID please
+
+00:21:14.160 --> 00:21:17.520
+Caption: that&#39;s good enough
+
+00:21:15.359 --> 00:21:19.979
+Caption: sure
+
+00:21:17.520 --> 00:21:22.020
+Caption: okay so remember I said it&#39;s a two-step
+
+00:21:19.979 --> 00:21:24.418
+Caption: process right so I need to get all the
+
+00:21:22.020 --> 00:21:26.760
+Caption: values that fulfill this filter
+
+00:21:24.418 --> 00:21:27.599
+Caption: but then I need to go to the Heap or the
+
+00:21:26.760 --> 00:21:29.699
+Caption: table
+
+00:21:27.599 --> 00:21:31.079
+Caption: um the same thing essentially then I&#39;ve
+
+00:21:29.699 --> 00:21:33.658
+Caption: got a table to get the rest of the row
+
+00:21:31.079 --> 00:21:36.479
+Caption: or what I&#39;ve selected what if I could
+
+00:21:33.659 --> 00:21:38.520
+Caption: tell I&#39;ll query or I&#39;ll index to say hey
+
+00:21:36.479 --> 00:21:40.380
+Caption: can you also Chuck recipe ID and index
+
+00:21:38.520 --> 00:21:41.760
+Caption: and don&#39;t go to the Heap and it&#39;ll be
+
+00:21:40.380 --> 00:21:44.459
+Caption: faster
+
+00:21:41.760 --> 00:21:46.260
+Caption: so that&#39;s called a covering index these
+
+00:21:44.459 --> 00:21:47.520
+Caption: are including postgres 11 and onwards
+
+00:21:46.260 --> 00:21:48.719
+Caption: before you have to do a multi-column
+
+00:21:47.520 --> 00:21:50.700
+Caption: index which is an overly great
+
+00:21:48.719 --> 00:21:51.780
+Caption: admittedly but that&#39;s what it kind of
+
+00:21:50.699 --> 00:21:53.459
+Caption: looks like and we can see here we&#39;ve
+
+00:21:51.780 --> 00:21:55.559
+Caption: told it hey can you just put receive ID
+
+00:21:53.459 --> 00:21:58.979
+Caption: with my index please and if you only
+
+00:21:55.558 --> 00:22:03.119
+Caption: select on recipe ID now you can do an
+
+00:21:58.979 --> 00:22:04.859
+Caption: index scan well actually index only scan
+
+00:22:03.119 --> 00:22:07.739
+Caption: that&#39;s the important part to note here
+
+00:22:04.859 --> 00:22:10.020
+Caption: it&#39;s an index only scan we see it took
+
+00:22:07.739 --> 00:22:11.699
+Caption: 1.09 seconds it might not seem like a
+
+00:22:10.020 --> 00:22:13.200
+Caption: huge Improvement here it&#39;s because it&#39;s
+
+00:22:11.699 --> 00:22:15.899
+Caption: on my laptop it&#39;s not a huge amount of
+
+00:22:13.199 --> 00:22:18.359
+Caption: data realistically so it&#39;s all 20 game
+
+00:22:15.900 --> 00:22:20.760
+Caption: this will scale very quickly
+
+00:22:18.359 --> 00:22:24.058
+Caption: but one thing you might notice here is
+
+00:22:20.760 --> 00:22:26.400
+Caption: Heap fetches so Heap is a table right or
+
+00:22:24.058 --> 00:22:29.658
+Caption: zero hair but okay why is that why is
+
+00:22:26.400 --> 00:22:29.659
+Caption: there a heap there so
+
+00:22:29.699 --> 00:22:33.658
+Caption: essentially what happens is at a very
+
+00:22:31.798 --> 00:22:34.678
+Caption: this is a very high level explanation
+
+00:22:33.659 --> 00:22:36.419
+Caption: just for the record it&#39;s a bit more
+
+00:22:34.678 --> 00:22:38.099
+Caption: complicated than this when it goes to
+
+00:22:36.418 --> 00:22:39.658
+Caption: the index it gets the value and postgres
+
+00:22:38.099 --> 00:22:42.538
+Caption: like hey has this been updated recently
+
+00:22:39.659 --> 00:22:44.460
+Caption: and if it turns out if it has it has to
+
+00:22:42.538 --> 00:22:46.439
+Caption: go to the Heap and get this new value so
+
+00:22:44.459 --> 00:22:48.359
+Caption: if you updated that row constantly and
+
+00:22:46.439 --> 00:22:50.219
+Caption: you run this query it will do a bunch of
+
+00:22:48.359 --> 00:22:52.199
+Caption: Heap fetches which is actually slower
+
+00:22:50.219 --> 00:22:54.798
+Caption: than an index scan so that is something
+
+00:22:52.199 --> 00:22:54.798
+Caption: to keep in mind
+
+00:22:56.339 --> 00:22:59.760
+Caption: okay
+
+00:22:58.020 --> 00:23:01.859
+Caption: what are
+
+00:22:59.760 --> 00:23:03.659
+Caption: what is the relation between time and
+
+00:23:01.859 --> 00:23:05.038
+Caption: rating for recipes or long cooking
+
+00:23:03.659 --> 00:23:06.840
+Caption: duration so essentially we&#39;re trying to
+
+00:23:05.038 --> 00:23:09.298
+Caption: look at recipes that take longer than a
+
+00:23:06.839 --> 00:23:11.339
+Caption: day and we want to see the worst rated
+
+00:23:09.298 --> 00:23:14.399
+Caption: ones for the they have the longest
+
+00:23:11.339 --> 00:23:16.260
+Caption: duration something like so
+
+00:23:14.400 --> 00:23:17.460
+Caption: okay cool
+
+00:23:16.260 --> 00:23:20.459
+Caption: so
+
+00:23:17.459 --> 00:23:22.558
+Caption: what I mentioned before was
+
+00:23:20.459 --> 00:23:24.058
+Caption: indexes are ordered
+
+00:23:22.558 --> 00:23:25.558
+Caption: so if you do a fort what they call
+
+00:23:24.058 --> 00:23:27.719
+Caption: forward scan it&#39;s like ordering like
+
+00:23:25.558 --> 00:23:30.058
+Caption: this backward scans ordering like this
+
+00:23:27.719 --> 00:23:32.939
+Caption: what does that mean well
+
+00:23:30.058 --> 00:23:35.219
+Caption: it means that we can avoid sorting when
+
+00:23:32.939 --> 00:23:36.418
+Caption: we do a query which saves us a bit of
+
+00:23:35.219 --> 00:23:38.819
+Caption: time
+
+00:23:36.418 --> 00:23:40.380
+Caption: okay so let&#39;s show let&#39;s give me a bit
+
+00:23:38.819 --> 00:23:41.099
+Caption: of a wallet that&#39;s all right
+
+00:23:40.380 --> 00:23:42.780
+Caption: um
+
+00:23:41.099 --> 00:23:44.880
+Caption: so you can see here we have a sort key
+
+00:23:42.780 --> 00:23:46.919
+Caption: and now it&#39;s got all these values and
+
+00:23:44.880 --> 00:23:49.918
+Caption: then it&#39;s run a sort on it and that&#39;s
+
+00:23:46.918 --> 00:23:51.599
+Caption: taken 60 60 milliseconds
+
+00:23:49.918 --> 00:23:52.859
+Caption: but if it was ordered already it
+
+00:23:51.599 --> 00:23:55.319
+Caption: wouldn&#39;t have to do the saw and it&#39;ll
+
+00:23:52.859 --> 00:23:58.319
+Caption: come back faster so first things first
+
+00:23:55.319 --> 00:24:00.058
+Caption: let&#39;s create the index which of course
+
+00:23:58.319 --> 00:24:01.619
+Caption: I&#39;ve called it wrong because this won&#39;t
+
+00:24:00.058 --> 00:24:02.579
+Caption: quite work
+
+00:24:01.619 --> 00:24:03.658
+Caption: um
+
+00:24:02.579 --> 00:24:05.519
+Caption: okay
+
+00:24:03.659 --> 00:24:07.679
+Caption: now it&#39;s down to 37 milliseconds which
+
+00:24:05.520 --> 00:24:08.940
+Caption: is a I guess what a decent game but not
+
+00:24:07.678 --> 00:24:10.739
+Caption: a huge game
+
+00:24:08.939 --> 00:24:13.379
+Caption: and this is where it&#39;s a bit deceptive I
+
+00:24:10.739 --> 00:24:15.359
+Caption: can see a sort method there but I also
+
+00:24:13.380 --> 00:24:19.140
+Caption: see an index scan
+
+00:24:15.359 --> 00:24:21.178
+Caption: okay why I&#39;ve told it like it&#39;s ordered
+
+00:24:19.140 --> 00:24:24.299
+Caption: why why can&#39;t you just give it back to
+
+00:24:21.178 --> 00:24:25.739
+Caption: me why&#39;d you have to do an extra step I
+
+00:24:24.298 --> 00:24:28.500
+Caption: well
+
+00:24:25.739 --> 00:24:29.880
+Caption: essentially when you create an index if
+
+00:24:28.500 --> 00:24:31.558
+Caption: I create them
+
+00:24:29.880 --> 00:24:33.298
+Caption: when I create it without this order here
+
+00:24:31.558 --> 00:24:36.959
+Caption: it&#39;s going to create them descending and
+
+00:24:33.298 --> 00:24:38.639
+Caption: ascending but databases can&#39;t scan the
+
+00:24:36.959 --> 00:24:40.859
+Caption: leading colon and one order in the other
+
+00:24:38.640 --> 00:24:42.839
+Caption: column in another order you have to
+
+00:24:40.859 --> 00:24:43.798
+Caption: explicitly Define this to be able to do
+
+00:24:42.839 --> 00:24:46.199
+Caption: this
+
+00:24:43.798 --> 00:24:48.599
+Caption: but it&#39;s worth noting this is an
+
+00:24:46.199 --> 00:24:51.719
+Caption: inflexible query now you have to use a
+
+00:24:48.599 --> 00:24:53.939
+Caption: query like this otherwise it won&#39;t you
+
+00:24:51.719 --> 00:24:56.459
+Caption: won&#39;t be using it index efficiently
+
+00:24:53.939 --> 00:24:58.379
+Caption: now we&#39;ve gone down to 21 milliseconds
+
+00:24:56.459 --> 00:25:00.719
+Caption: which is a d quite a decent Improvement
+
+00:24:58.380 --> 00:25:02.459
+Caption: that was half of the one before which
+
+00:25:00.719 --> 00:25:04.079
+Caption: had the index scan that was sorting this
+
+00:25:02.459 --> 00:25:06.239
+Caption: one doesn&#39;t you can see it index
+
+00:25:04.079 --> 00:25:08.099
+Caption: condition you can&#39;t even see anything
+
+00:25:06.239 --> 00:25:13.099
+Caption: about the ordering it just came back
+
+00:25:08.099 --> 00:25:13.099
+Caption: directly ordered and it&#39;s a lot faster
+
+00:25:13.678 --> 00:25:17.418
+Caption: can we do this one better okay
+
+00:25:20.760 --> 00:25:26.219
+Caption: I&#39;ll index on cooking time it was the
+
+00:25:23.520 --> 00:25:28.919
+Caption: first uh column that we specified when
+
+00:25:26.219 --> 00:25:30.719
+Caption: we created this index okay let&#39;s
+
+00:25:28.918 --> 00:25:33.058
+Caption: visualize as you can see my beautiful
+
+00:25:30.719 --> 00:25:35.219
+Caption: visualization of cooking time
+
+00:25:33.058 --> 00:25:36.239
+Caption: it turns out
+
+00:25:35.219 --> 00:25:38.278
+Caption: um sorry
+
+00:25:36.239 --> 00:25:40.678
+Caption: we are also floating on greater than or
+
+00:25:38.279 --> 00:25:43.799
+Caption: equal to 1440 which is minutes that&#39;s a
+
+00:25:40.678 --> 00:25:46.798
+Caption: day effectively what does that mean well
+
+00:25:43.798 --> 00:25:48.239
+Caption: files to represent the values of recipes
+
+00:25:46.798 --> 00:25:49.739
+Caption: that take more than a day it&#39;ll be that
+
+00:25:48.239 --> 00:25:51.599
+Caption: little tiny black bar at the bottom it
+
+00:25:49.739 --> 00:25:53.579
+Caption: turns out most recipes take less than a
+
+00:25:51.599 --> 00:25:56.038
+Caption: day kind of makes sense right usually a
+
+00:25:53.579 --> 00:25:58.380
+Caption: recipe takes around an hour or less okay
+
+00:25:56.038 --> 00:26:00.959
+Caption: again know your queries I talk to
+
+00:25:58.380 --> 00:26:02.699
+Caption: product I look at my code and it turns
+
+00:26:00.959 --> 00:26:04.380
+Caption: out that the only query we ever have to
+
+00:26:02.699 --> 00:26:07.678
+Caption: do with cooking time is checking if it
+
+00:26:04.380 --> 00:26:09.959
+Caption: takes more than a day okay well
+
+00:26:07.678 --> 00:26:12.839
+Caption: do we need to index everything here what
+
+00:26:09.959 --> 00:26:15.479
+Caption: if we could just index what we need
+
+00:26:12.839 --> 00:26:17.219
+Caption: which is recipes that take longer than a
+
+00:26:15.479 --> 00:26:19.558
+Caption: day
+
+00:26:17.219 --> 00:26:21.479
+Caption: cool you can see we&#39;ve essentially
+
+00:26:19.558 --> 00:26:23.339
+Caption: called what&#39;s called a partial index and
+
+00:26:21.479 --> 00:26:24.959
+Caption: all we had to do was put a filter on it
+
+00:26:23.339 --> 00:26:28.380
+Caption: after creating the index and that will
+
+00:26:24.959 --> 00:26:30.599
+Caption: do all its work for us the database
+
+00:26:28.380 --> 00:26:31.739
+Caption: so when you use these partial indexes
+
+00:26:30.599 --> 00:26:33.719
+Caption: you have to use the filter here
+
+00:26:31.739 --> 00:26:35.158
+Caption: otherwise it won&#39;t use the index so they
+
+00:26:33.719 --> 00:26:36.239
+Caption: are kind of inflexible in that regard
+
+00:26:35.159 --> 00:26:38.659
+Caption: that&#39;s where you have to know your
+
+00:26:36.239 --> 00:26:38.658
+Caption: queries
+
+00:26:39.298 --> 00:26:44.639
+Caption: and this time admittedly maybe the gains
+
+00:26:42.900 --> 00:26:46.679
+Caption: don&#39;t look as great against my laptop
+
+00:26:44.640 --> 00:26:49.440
+Caption: it&#39;s not a huge data set but it&#39;s still
+
+00:26:46.678 --> 00:26:51.719
+Caption: around I think four milliseconds gain
+
+00:26:49.439 --> 00:26:53.339
+Caption: off the top of my head so it&#39;s still a
+
+00:26:51.719 --> 00:26:54.239
+Caption: decent gain and nothing really changes
+
+00:26:53.339 --> 00:26:56.939
+Caption: here
+
+00:26:54.239 --> 00:26:58.558
+Caption: um it just uses the index that&#39;s a lot
+
+00:26:56.939 --> 00:27:00.839
+Caption: smaller
+
+00:26:58.558 --> 00:27:03.000
+Caption: so partial index what are they used for
+
+00:27:00.839 --> 00:27:05.158
+Caption: we use it here to exclude our relevant
+
+00:27:03.000 --> 00:27:08.038
+Caption: values you can use it to exclude common
+
+00:27:05.159 --> 00:27:09.659
+Caption: values so good examples are null if you
+
+00:27:08.038 --> 00:27:11.399
+Caption: don&#39;t need null values just exclude null
+
+00:27:09.659 --> 00:27:13.320
+Caption: values on your index
+
+00:27:11.400 --> 00:27:16.859
+Caption: in another example you that can come
+
+00:27:13.319 --> 00:27:19.199
+Caption: through is we&#39;re doing reports right
+
+00:27:16.859 --> 00:27:20.579
+Caption: what if I had a timestamp column and I
+
+00:27:19.199 --> 00:27:23.038
+Caption: talked to product and products like
+
+00:27:20.579 --> 00:27:24.239
+Caption: actually it turns out all our reports
+
+00:27:23.038 --> 00:27:26.219
+Caption: only need data from the last three
+
+00:27:24.239 --> 00:27:28.020
+Caption: months that&#39;s generally how we do these
+
+00:27:26.219 --> 00:27:30.298
+Caption: sorts of things right
+
+00:27:28.020 --> 00:27:31.739
+Caption: we could exclude all columns that are
+
+00:27:30.298 --> 00:27:33.178
+Caption: more than three months old have a
+
+00:27:31.739 --> 00:27:34.918
+Caption: timestamp that&#39;s older than three months
+
+00:27:33.178 --> 00:27:37.619
+Caption: which would reduce the size of our index
+
+00:27:34.918 --> 00:27:39.479
+Caption: and as I said before it must use that
+
+00:27:37.619 --> 00:27:42.260
+Caption: filter defined in the index or not use
+
+00:27:39.479 --> 00:27:42.260
+Caption: the index at all
+
+00:27:42.779 --> 00:27:46.860
+Caption: so
+
+00:27:44.099 --> 00:27:48.719
+Caption: we need to fix some bugs
+
+00:27:46.859 --> 00:27:50.699
+Caption: product has came back to us and they&#39;ve
+
+00:27:48.719 --> 00:27:52.380
+Caption: kind of been like hey the data&#39;s not
+
+00:27:50.699 --> 00:27:54.719
+Caption: quite matching up we have some queries
+
+00:27:52.380 --> 00:27:56.219
+Caption: that filter one category
+
+00:27:54.719 --> 00:27:58.619
+Caption: um there&#39;s this experiment thing that&#39;s
+
+00:27:56.219 --> 00:28:02.900
+Caption: a tiny tiny portion of the table so it&#39;s
+
+00:27:58.619 --> 00:28:02.900
+Caption: very high selectivity okay no worries
+
+00:28:02.939 --> 00:28:07.199
+Caption: I find one of the queries here and it
+
+00:28:05.219 --> 00:28:08.760
+Caption: looks something like this
+
+00:28:07.199 --> 00:28:10.319
+Caption: um I figure out oh it&#39;s a casing the
+
+00:28:08.760 --> 00:28:14.820
+Caption: casing is not correct okay no worries
+
+00:28:10.319 --> 00:28:16.979
+Caption: let&#39;s fix this easily I put on this
+
+00:28:14.819 --> 00:28:20.399
+Caption: I deploy it
+
+00:28:16.979 --> 00:28:22.079
+Caption: it doesn&#39;t work okay I think well the
+
+00:28:20.400 --> 00:28:23.820
+Caption: index is there why is there sequential
+
+00:28:22.079 --> 00:28:25.859
+Caption: scanning I don&#39;t understand it it was
+
+00:28:23.819 --> 00:28:28.439
+Caption: there right like come on what the hell
+
+00:28:25.859 --> 00:28:31.798
+Caption: okay sure
+
+00:28:28.439 --> 00:28:34.259
+Caption: what the database sees here is a magic
+
+00:28:31.798 --> 00:28:35.760
+Caption: Black Box it doesn&#39;t know that that
+
+00:28:34.260 --> 00:28:37.079
+Caption: function is actually related to the
+
+00:28:35.760 --> 00:28:39.599
+Caption: experiment at all I can&#39;t figure that
+
+00:28:37.079 --> 00:28:41.640
+Caption: out it doesn&#39;t have that information
+
+00:28:39.599 --> 00:28:43.079
+Caption: so it has to go okay it doesn&#39;t fit the
+
+00:28:41.640 --> 00:28:46.979
+Caption: index I am now just going to do a
+
+00:28:43.079 --> 00:28:49.079
+Caption: sequential scan sorry okay cool I can we
+
+00:28:46.979 --> 00:28:50.939
+Caption: can fix this of course we can we create
+
+00:28:49.079 --> 00:28:52.678
+Caption: an index an expression index function
+
+00:28:50.939 --> 00:28:55.439
+Caption: index whatever we want to call it and we
+
+00:28:52.678 --> 00:28:57.418
+Caption: put the expression inside the index
+
+00:28:55.439 --> 00:28:59.158
+Caption: definition and now we&#39;ve done it we
+
+00:28:57.418 --> 00:29:01.619
+Caption: deploy it
+
+00:28:59.159 --> 00:29:04.679
+Caption: works all right okay
+
+00:29:01.619 --> 00:29:06.418
+Caption: some things to consider here
+
+00:29:04.678 --> 00:29:08.219
+Caption: very expensive
+
+00:29:06.418 --> 00:29:10.319
+Caption: what happens every time you write to the
+
+00:29:08.219 --> 00:29:13.140
+Caption: database that fits this index
+
+00:29:10.319 --> 00:29:14.819
+Caption: or if you update a row it will compute
+
+00:29:13.140 --> 00:29:16.500
+Caption: the results of that and store it in the
+
+00:29:14.819 --> 00:29:18.079
+Caption: index so they&#39;re not very efficient
+
+00:29:16.500 --> 00:29:21.298
+Caption: whatsoever
+
+00:29:18.079 --> 00:29:22.739
+Caption: in general I have set indexes uh you
+
+00:29:21.298 --> 00:29:25.139
+Caption: know increase read speed decreased write
+
+00:29:22.739 --> 00:29:27.119
+Caption: speed but these are even more heavy so
+
+00:29:25.140 --> 00:29:29.159
+Caption: do be careful with them I would don&#39;t
+
+00:29:27.119 --> 00:29:31.798
+Caption: use them just because
+
+00:29:29.159 --> 00:29:33.840
+Caption: and I&#39;ve used here maybe a bit of a
+
+00:29:31.798 --> 00:29:36.119
+Caption: contrived example but
+
+00:29:33.839 --> 00:29:38.760
+Caption: know your queries so
+
+00:29:36.119 --> 00:29:40.020
+Caption: where this can bite you is rrms orms can
+
+00:29:38.760 --> 00:29:41.880
+Caption: easily bite you here you might not even
+
+00:29:40.020 --> 00:29:43.558
+Caption: realize it&#39;s putting a lower on your on
+
+00:29:41.880 --> 00:29:45.418
+Caption: your query and you think what the hell&#39;s
+
+00:29:43.558 --> 00:29:47.520
+Caption: not using Index this is ridiculous then
+
+00:29:45.418 --> 00:29:49.319
+Caption: you look at the Ireland&#39;s query like
+
+00:29:47.520 --> 00:29:51.539
+Caption: I see why
+
+00:29:49.319 --> 00:29:53.939
+Caption: um time stamps anything any function
+
+00:29:51.538 --> 00:29:57.918
+Caption: postgres function will have the same
+
+00:29:53.939 --> 00:29:57.918
+Caption: issue so always so keep that in mind
+
+00:29:59.099 --> 00:30:03.538
+Caption: okay
+
+00:30:01.500 --> 00:30:05.399
+Caption: so we&#39;re kind of getting to the end of
+
+00:30:03.538 --> 00:30:06.658
+Caption: this now and we&#39;ve talked we&#39;ve done a
+
+00:30:05.399 --> 00:30:08.700
+Caption: bunch of work referring the kind of
+
+00:30:06.659 --> 00:30:10.679
+Caption: query planner very high level
+
+00:30:08.699 --> 00:30:12.178
+Caption: um obviously it&#39;s one of those things
+
+00:30:10.678 --> 00:30:14.699
+Caption: that gets complicated extremely quick
+
+00:30:12.178 --> 00:30:16.619
+Caption: and I was trying to keep this somewhat
+
+00:30:14.699 --> 00:30:17.939
+Caption: short without going too deep into some
+
+00:30:16.619 --> 00:30:19.020
+Caption: things
+
+00:30:17.939 --> 00:30:22.379
+Caption: so
+
+00:30:19.020 --> 00:30:25.679
+Caption: let&#39;s think okay why isn&#39;t your index
+
+00:30:22.380 --> 00:30:27.899
+Caption: being used well simply the database
+
+00:30:25.678 --> 00:30:32.538
+Caption: can&#39;t use the index
+
+00:30:27.899 --> 00:30:32.539
+Caption: or the things using index is slower
+
+00:30:32.579 --> 00:30:36.298
+Caption: one of the reasons so I&#39;ve covered a few
+
+00:30:34.678 --> 00:30:38.339
+Caption: reasons the first two I haven&#39;t covered
+
+00:30:36.298 --> 00:30:41.038
+Caption: so table is too small
+
+00:30:38.339 --> 00:30:43.380
+Caption: um rule if I&#39;m if your table is two
+
+00:30:41.038 --> 00:30:45.418
+Caption: pages pages eight kilobytes it will not
+
+00:30:43.380 --> 00:30:48.779
+Caption: use the index the way to think about it
+
+00:30:45.418 --> 00:30:50.398
+Caption: is a five month cookbook has three pages
+
+00:30:48.779 --> 00:30:51.720
+Caption: and one page index what&#39;s going to be
+
+00:30:50.399 --> 00:30:53.760
+Caption: faster you just might as well go through
+
+00:30:51.719 --> 00:30:55.079
+Caption: a table right I mean through the through
+
+00:30:53.760 --> 00:30:56.579
+Caption: the book right it&#39;s gonna be faster than
+
+00:30:55.079 --> 00:30:59.099
+Caption: going through the index
+
+00:30:56.579 --> 00:31:00.418
+Caption: and the operator is another sneaky one
+
+00:30:59.099 --> 00:31:02.219
+Caption: so this is something that&#39;s going to be
+
+00:31:00.418 --> 00:31:04.019
+Caption: dependent on your database documentation
+
+00:31:02.219 --> 00:31:07.500
+Caption: will tell you same off the top of my
+
+00:31:04.020 --> 00:31:10.200
+Caption: head would be I like is not supported by
+
+00:31:07.500 --> 00:31:11.279
+Caption: B trees and postgres so be wary of those
+
+00:31:10.199 --> 00:31:13.439
+Caption: sorts of things
+
+00:31:11.279 --> 00:31:15.659
+Caption: and we&#39;ve talked about these which was
+
+00:31:13.439 --> 00:31:17.339
+Caption: crew returning too many rows your index
+
+00:31:15.659 --> 00:31:20.039
+Caption: is not selective enough it will not use
+
+00:31:17.339 --> 00:31:22.798
+Caption: the index you&#39;re using your multi-column
+
+00:31:20.038 --> 00:31:24.959
+Caption: index incorrectly or even inefficiently
+
+00:31:22.798 --> 00:31:27.058
+Caption: and then we have function indexes being
+
+00:31:24.959 --> 00:31:28.918
+Caption: used incorrectly
+
+00:31:27.058 --> 00:31:31.380
+Caption: but honestly
+
+00:31:28.918 --> 00:31:32.939
+Caption: your database knows best yes there are
+
+00:31:31.380 --> 00:31:34.319
+Caption: edge cases I haven&#39;t covered them here
+
+00:31:32.939 --> 00:31:35.879
+Caption: because they&#39;re quite Technical and
+
+00:31:34.319 --> 00:31:37.500
+Caption: require quite an in-depth knowledge of
+
+00:31:35.880 --> 00:31:40.020
+Caption: everything but
+
+00:31:37.500 --> 00:31:41.520
+Caption: with my journey with indexes going from
+
+00:31:40.020 --> 00:31:43.679
+Caption: someone who didn&#39;t know anything about
+
+00:31:41.520 --> 00:31:45.659
+Caption: them at all to now I kind of realized
+
+00:31:43.678 --> 00:31:47.038
+Caption: database is honestly kind of magic it&#39;s
+
+00:31:45.659 --> 00:31:48.899
+Caption: an absolute miracle that these things
+
+00:31:47.038 --> 00:31:50.939
+Caption: work as well as they do without any
+
+00:31:48.899 --> 00:31:52.500
+Caption: issues it&#39;s we stand on the shoulders of
+
+00:31:50.939 --> 00:31:55.459
+Caption: giants when it comes to these things so
+
+00:31:52.500 --> 00:31:55.459
+Caption: do keep that in mind
+
+00:31:56.459 --> 00:31:59.459
+Caption: okay
+
+00:31:57.779 --> 00:32:01.440
+Caption: so I kind of said some of these things
+
+00:31:59.459 --> 00:32:03.000
+Caption: I&#39;ll go on surface level
+
+00:32:01.439 --> 00:32:04.859
+Caption: um gets a bit more complicated which
+
+00:32:03.000 --> 00:32:06.719
+Caption: might sound a bit of a cop out I&#39;ve
+
+00:32:04.859 --> 00:32:08.579
+Caption: included some stuff here if you&#39;re like
+
+00:32:06.719 --> 00:32:10.439
+Caption: I want to learn more please give me more
+
+00:32:08.579 --> 00:32:13.079
+Caption: so first thing will be multiversion
+
+00:32:10.439 --> 00:32:14.759
+Caption: concurrency control that&#39;s how we update
+
+00:32:13.079 --> 00:32:15.859
+Caption: the same table times how to keep things
+
+00:32:14.760 --> 00:32:18.539
+Caption: updated
+
+00:32:15.859 --> 00:32:19.199
+Caption: vacuuming is how is counter related to
+
+00:32:18.538 --> 00:32:20.939
+Caption: that
+
+00:32:19.199 --> 00:32:22.798
+Caption: and then the last one which is how does
+
+00:32:20.939 --> 00:32:25.079
+Caption: your database calculate the statistics
+
+00:32:22.798 --> 00:32:26.579
+Caption: how does it use the statistics and query
+
+00:32:25.079 --> 00:32:27.898
+Caption: planning and you can add to the
+
+00:32:26.579 --> 00:32:28.918
+Caption: understanding the query planner even
+
+00:32:27.899 --> 00:32:31.380
+Caption: deeper
+
+00:32:28.918 --> 00:32:33.058
+Caption: um that was like a ridiculously high
+
+00:32:31.380 --> 00:32:34.979
+Caption: level overview with a query player it
+
+00:32:33.058 --> 00:32:37.819
+Caption: gets much much much more complicated
+
+00:32:34.979 --> 00:32:37.819
+Caption: extremely quick
+
+00:32:38.339 --> 00:32:41.520
+Caption: so we&#39;ll look
+
+00:32:40.079 --> 00:32:44.099
+Caption: um post-gress documentation is actually
+
+00:32:41.520 --> 00:32:45.839
+Caption: incredible it&#39;s very in-depth maybe not
+
+00:32:44.099 --> 00:32:47.579
+Caption: the most prettiest thing to read but it
+
+00:32:45.839 --> 00:32:50.339
+Caption: does the job there&#39;s a really good site
+
+00:32:47.579 --> 00:32:52.979
+Caption: called user index Luke like the guide
+
+00:32:50.339 --> 00:32:54.239
+Caption: that is a database was it as far as I&#39;m
+
+00:32:52.979 --> 00:32:55.678
+Caption: concerning explains absolutely
+
+00:32:54.239 --> 00:32:56.939
+Caption: everything in depth there&#39;s an article
+
+00:32:55.678 --> 00:32:59.839
+Caption: and everything and it&#39;s really worth
+
+00:32:56.939 --> 00:32:59.839
+Caption: giving it a read
+
+00:33:00.959 --> 00:33:05.219
+Caption: and
+
+00:33:02.279 --> 00:33:06.000
+Caption: yeah so what what&#39;s the takeaways from
+
+00:33:05.219 --> 00:33:08.579
+Caption: this
+
+00:33:06.000 --> 00:33:10.260
+Caption: know your queries again what are your
+
+00:33:08.579 --> 00:33:12.000
+Caption: most important queries most executed
+
+00:33:10.260 --> 00:33:13.979
+Caption: queries what are your expensive queries
+
+00:33:12.000 --> 00:33:16.558
+Caption: with that knowledge you should be able
+
+00:33:13.979 --> 00:33:18.418
+Caption: to judge what index you should create
+
+00:33:16.558 --> 00:33:20.339
+Caption: what are the trails of you creating
+
+00:33:18.418 --> 00:33:22.319
+Caption: index on the choices that you&#39;ve made
+
+00:33:20.339 --> 00:33:25.760
+Caption: from creating that index and from then
+
+00:33:22.319 --> 00:33:25.759
+Caption: it&#39;s going to be a bit easier
+
+00:33:26.099 --> 00:33:29.969
+Caption: that&#39;s all for today
+
+00:33:28.140 --> 00:33:35.180
+Caption: um thank you I hope you enjoyed my talk
+
+00:33:29.969 --> 00:33:35.179
+Caption: [Applause]
+
+00:33:38.339 --> 00:33:41.459
+Caption: thanks Boris and thanks everyone for
+
+00:33:40.140 --> 00:33:43.739
+Caption: coming
+
+00:33:41.459 --> 00:33:47.058
+Caption: oh cool okay
+
+00:33:43.739 --> 00:33:47.058
+Caption: yeah cool questions
+
+00:33:52.558 --> 00:33:56.579
+Caption: uh for the creating the indexed and
+
+00:33:54.659 --> 00:33:59.159
+Caption: using the concurrently keyword is that
+
+00:33:56.579 --> 00:34:02.459
+Caption: only for when you&#39;re creating an index
+
+00:33:59.159 --> 00:34:03.960
+Caption: after you&#39;ve created the table or yes so
+
+00:34:02.459 --> 00:34:05.398
+Caption: you&#39;ll need to create index after table
+
+00:34:03.959 --> 00:34:06.959
+Caption: so
+
+00:34:05.399 --> 00:34:08.398
+Caption: um you can&#39;t do a migration that creates
+
+00:34:06.959 --> 00:34:10.260
+Caption: table and creates index it won&#39;t work
+
+00:34:08.398 --> 00:34:13.158
+Caption: you have to do it afterwards
+
+00:34:10.260 --> 00:34:13.158
+Caption: foreign
+
+00:34:17.898 --> 00:34:23.638
+Caption: you said there was a a slight
+
+00:34:21.418 --> 00:34:27.300
+Caption: hit if you have a if you create an index
+
+00:34:23.638 --> 00:34:30.719
+Caption: there&#39;s a increased write time in order
+
+00:34:27.300 --> 00:34:32.219
+Caption: to build that index do you know sort of
+
+00:34:30.719 --> 00:34:34.320
+Caption: what numbers around that we&#39;re talking
+
+00:34:32.219 --> 00:34:35.760
+Caption: milliseconds seconds minutes
+
+00:34:34.320 --> 00:34:37.379
+Caption: um it&#39;s a very good question it depends
+
+00:34:35.760 --> 00:34:39.359
+Caption: yeah
+
+00:34:37.378 --> 00:34:42.239
+Caption: um I maybe I forgot to put the
+
+00:34:39.358 --> 00:34:44.158
+Caption: disclaimer um a lot of this stuff it&#39;s
+
+00:34:42.239 --> 00:34:45.898
+Caption: hard to quantify because it just depends
+
+00:34:44.158 --> 00:34:47.338
+Caption: on a lot of variables what what what&#39;s
+
+00:34:45.898 --> 00:34:48.540
+Caption: the machine your database is running on
+
+00:34:47.339 --> 00:34:50.399
+Caption: how much data does it has the
+
+00:34:48.540 --> 00:34:52.439
+Caption: distribution of the data there&#39;s lots of
+
+00:34:50.398 --> 00:34:54.059
+Caption: factors that come into this
+
+00:34:52.439 --> 00:34:56.040
+Caption: um so I can&#39;t just give you a percentage
+
+00:34:54.060 --> 00:34:57.540
+Caption: because it just depends way too much but
+
+00:34:56.040 --> 00:34:58.919
+Caption: it will make a right slower and the more
+
+00:34:57.540 --> 00:35:01.979
+Caption: indexes you have on a table it&#39;s going
+
+00:34:58.919 --> 00:35:03.719
+Caption: to get worse rule of thumb I&#39;ll kind of
+
+00:35:01.979 --> 00:35:05.459
+Caption: say if you see more than five indexes on
+
+00:35:03.719 --> 00:35:07.879
+Caption: a table it&#39;s a bit smelly that doesn&#39;t
+
+00:35:05.459 --> 00:35:07.879
+Caption: look right
+
+00:35:12.780 --> 00:35:16.439
+Caption: I think the talk really enjoyed it I&#39;m
+
+00:35:14.639 --> 00:35:18.059
+Caption: just going to ask if you have any let me
+
+00:35:16.439 --> 00:35:19.260
+Caption: really real life examples of how you&#39;ve
+
+00:35:18.060 --> 00:35:21.060
+Caption: used queries and maybe some of the foot
+
+00:35:19.260 --> 00:35:24.300
+Caption: guns you&#39;ve encountered
+
+00:35:21.060 --> 00:35:27.359
+Caption: um yeah I do we have a few yeah
+
+00:35:24.300 --> 00:35:28.560
+Caption: um one example we have a two I can&#39;t
+
+00:35:27.358 --> 00:35:30.358
+Caption: give you the numbers off the top on my
+
+00:35:28.560 --> 00:35:31.979
+Caption: head unfortunately but we have a few
+
+00:35:30.358 --> 00:35:34.078
+Caption: well we have one that just would not run
+
+00:35:31.979 --> 00:35:36.179
+Caption: it all the query just would not return
+
+00:35:34.079 --> 00:35:38.160
+Caption: um completely stopped our processes so I
+
+00:35:36.179 --> 00:35:39.959
+Caption: think it was a two billion row table
+
+00:35:38.159 --> 00:35:42.479
+Caption: and we chucked the index on it and it
+
+00:35:39.959 --> 00:35:44.399
+Caption: runs I think in roughly a second now
+
+00:35:42.479 --> 00:35:46.139
+Caption: and that was it was a simple index too
+
+00:35:44.399 --> 00:35:48.799
+Caption: but yeah there&#39;s been a few
+
+00:35:46.139 --> 00:35:48.799
+Caption: um things that we&#39;ve done
+
+00:35:56.040 --> 00:35:58.320
+Caption: thank you so much
+
+00:35:57.540 --> 00:36:00.599
+Caption: um
+
+00:35:58.320 --> 00:36:02.940
+Caption: I have a question with it&#39;s slightly
+
+00:36:00.599 --> 00:36:06.420
+Caption: related to index so
+
+00:36:02.939 --> 00:36:09.780
+Caption: um it&#39;s to do with the postgres specific
+
+00:36:06.419 --> 00:36:11.159
+Caption: random page cost and sequential page I
+
+00:36:09.780 --> 00:36:12.959
+Caption: think it was random page cost and the
+
+00:36:11.159 --> 00:36:14.699
+Caption: other was subsequential yeah
+
+00:36:12.959 --> 00:36:16.679
+Caption: um have you ever
+
+00:36:14.699 --> 00:36:18.899
+Caption: um played with that yep
+
+00:36:16.679 --> 00:36:20.699
+Caption: um I kind of avoided it but uh not
+
+00:36:18.899 --> 00:36:22.319
+Caption: deliberately um I talked a bit with
+
+00:36:20.699 --> 00:36:24.659
+Caption: someone who&#39;s a database God in our
+
+00:36:22.320 --> 00:36:27.060
+Caption: company and gave me a bunch of advice so
+
+00:36:24.659 --> 00:36:28.260
+Caption: random page classes while the cost
+
+00:36:27.060 --> 00:36:30.000
+Caption: essentially using index because it&#39;s
+
+00:36:28.260 --> 00:36:31.320
+Caption: random rather than you know going
+
+00:36:30.000 --> 00:36:33.599
+Caption: through the table you&#39;re kind of like
+
+00:36:31.320 --> 00:36:36.060
+Caption: randomly going to the table
+
+00:36:33.599 --> 00:36:37.440
+Caption: um these days it used to be a bigger
+
+00:36:36.060 --> 00:36:39.599
+Caption: issue back in the day with the old hard
+
+00:36:37.439 --> 00:36:42.118
+Caption: drives we have ssds now
+
+00:36:39.599 --> 00:36:45.839
+Caption: um the recommendations from the uh
+
+00:36:42.118 --> 00:36:49.379
+Caption: Aurora guide people at Amazon is Europe
+
+00:36:45.839 --> 00:36:52.380
+Caption: reduce so sorry defaults uh
+
+00:36:49.379 --> 00:36:54.598
+Caption: sequential page cost is one random is
+
+00:36:52.379 --> 00:36:56.098
+Caption: four so they&#39;re Aurora the people of
+
+00:36:54.599 --> 00:36:57.839
+Caption: Aurora actually I recommend Aura
+
+00:36:56.099 --> 00:36:59.579
+Caption: database from AWS there you actually
+
+00:36:57.839 --> 00:37:01.560
+Caption: recommend dropping your random page cost
+
+00:36:59.579 --> 00:37:03.540
+Caption: to 1.5 or two I believe off the top of
+
+00:37:01.560 --> 00:37:05.400
+Caption: my head because we don&#39;t have hard
+
+00:37:03.540 --> 00:37:07.560
+Caption: drives that&#39;s sick on a needle we have
+
+00:37:05.399 --> 00:37:10.098
+Caption: ssds which are ridiculously faster
+
+00:37:07.560 --> 00:37:10.099
+Caption: essentially
+
+00:37:17.399 --> 00:37:23.039
+Caption: um do you have any suggestions on how to
+
+00:37:19.560 --> 00:37:27.540
+Caption: safely like test indexes in production
+
+00:37:23.040 --> 00:37:29.419
+Caption: or like a A system that needs to stay up
+
+00:37:27.540 --> 00:37:32.640
+Caption: fingers crossed
+
+00:37:29.419 --> 00:37:35.040
+Caption: uh no that&#39;s yes that&#39;s a very hard one
+
+00:37:32.639 --> 00:37:37.379
+Caption: and unfortunately it&#39;s just one other
+
+00:37:35.040 --> 00:37:39.300
+Caption: so okay there are some ways actually I
+
+00:37:37.379 --> 00:37:41.699
+Caption: can give you if you have the same amount
+
+00:37:39.300 --> 00:37:43.140
+Caption: of data and div as in prod the
+
+00:37:41.699 --> 00:37:44.939
+Caption: distribution needs to be the same too
+
+00:37:43.139 --> 00:37:46.979
+Caption: you&#39;ll actually get very similar results
+
+00:37:44.939 --> 00:37:49.500
+Caption: not timing wise there are other things
+
+00:37:46.979 --> 00:37:50.760
+Caption: you could do which get a bit complicated
+
+00:37:49.500 --> 00:37:53.760
+Caption: um buffers are something to look at
+
+00:37:50.760 --> 00:37:55.739
+Caption: which is i o work done but even then
+
+00:37:53.760 --> 00:37:56.939
+Caption: it gets even trickier because it&#39;s some
+
+00:37:55.739 --> 00:37:58.199
+Caption: things like a farmer understanding these
+
+00:37:56.939 --> 00:38:00.060
+Caption: queries again and again and again you&#39;ll
+
+00:37:58.199 --> 00:38:01.919
+Caption: see the times change varying because of
+
+00:38:00.060 --> 00:38:03.959
+Caption: caching the database casing actually has
+
+00:38:01.919 --> 00:38:05.699
+Caption: cases in operating system
+
+00:38:03.959 --> 00:38:07.560
+Caption: um so you can still use it as a judgment
+
+00:38:05.699 --> 00:38:08.760
+Caption: call if we&#39;ll be performing or not what
+
+00:38:07.560 --> 00:38:10.500
+Caption: you could do if you really want you
+
+00:38:08.760 --> 00:38:12.239
+Caption: create the um I don&#39;t know if your
+
+00:38:10.500 --> 00:38:14.520
+Caption: company allows this but you can create
+
+00:38:12.239 --> 00:38:16.618
+Caption: your index you can log on to the
+
+00:38:14.520 --> 00:38:18.599
+Caption: production database create it manually
+
+00:38:16.618 --> 00:38:20.219
+Caption: test your query manually if you can
+
+00:38:18.599 --> 00:38:21.780
+Caption: build a load and see if it actually be
+
+00:38:20.219 --> 00:38:23.520
+Caption: efficient that&#39;s one way I&#39;ve seen or
+
+00:38:21.780 --> 00:38:25.679
+Caption: doing if you&#39;re really not sure but um
+
+00:38:23.520 --> 00:38:27.780
+Caption: that comes down to just if you can
+
+00:38:25.679 --> 00:38:29.639
+Caption: deploy to a small subset of customers
+
+00:38:27.780 --> 00:38:32.159
+Caption: and just see hey what&#39;s the impact here
+
+00:38:29.639 --> 00:38:34.519
+Caption: can we and can we roll back quickly that
+
+00:38:32.159 --> 00:38:34.520
+Caption: sort of stuff
+
+00:38:43.260 --> 00:38:47.639
+Caption: uh I just had a quick question about the
+
+00:38:45.540 --> 00:38:50.640
+Caption: um specific data types that a database
+
+00:38:47.639 --> 00:38:52.078
+Caption: column could have um would indexing
+
+00:38:50.639 --> 00:38:53.879
+Caption: um affect that at any point or should I
+
+00:38:52.079 --> 00:38:55.560
+Caption: say with the type effect indexing so
+
+00:38:53.879 --> 00:38:58.259
+Caption: whether it be a date on time whether it
+
+00:38:55.560 --> 00:39:01.219
+Caption: be a Json object yeah yeah um do not
+
+00:38:58.260 --> 00:39:03.899
+Caption: create indexes on Json
+
+00:39:01.219 --> 00:39:05.159
+Caption: it&#39;s okay um I know we&#39;ve tried to do it
+
+00:39:03.899 --> 00:39:07.439
+Caption: and it&#39;s not very efficient there are
+
+00:39:05.159 --> 00:39:10.858
+Caption: other indexes you can use but it&#39;s a bit
+
+00:39:07.439 --> 00:39:13.319
+Caption: hard to do from my understanding is the
+
+00:39:10.858 --> 00:39:14.759
+Caption: the size of the the value gets very
+
+00:39:13.320 --> 00:39:16.260
+Caption: important this is at a very large scale
+
+00:39:14.760 --> 00:39:17.760
+Caption: when you&#39;re talking like billions of
+
+00:39:16.260 --> 00:39:19.800
+Caption: billions of rows that&#39;s when if your
+
+00:39:17.760 --> 00:39:21.118
+Caption: index on like an end switches I can&#39;t
+
+00:39:19.800 --> 00:39:23.219
+Caption: remember what the size is a postgres
+
+00:39:21.118 --> 00:39:25.078
+Caption: versus the other ones I can&#39;t remember
+
+00:39:23.219 --> 00:39:26.939
+Caption: they&#39;re a bit smaller you can see huge
+
+00:39:25.079 --> 00:39:27.780
+Caption: increases in times depending on that and
+
+00:39:26.939 --> 00:39:29.219
+Caption: that&#39;s where you have to be careful
+
+00:39:27.780 --> 00:39:30.780
+Caption: covering indexes like you don&#39;t want to
+
+00:39:29.219 --> 00:39:31.800
+Caption: put a Json B column and covering index
+
+00:39:30.780 --> 00:39:34.079
+Caption: because that&#39;s going to make it index
+
+00:39:31.800 --> 00:39:36.199
+Caption: gigantic what&#39;s the point awesome thank
+
+00:39:34.079 --> 00:39:36.200
+Caption: you
+
+00:39:38.579 --> 00:39:41.300
+Caption: anyone else
+
+00:39:42.060 --> 00:39:47.540
+Caption: cool thank you everyone
+
+00:39:44.639 --> 00:39:47.539
+Caption: thank you
+
+00:39:51.439 --> 00:39:56.959
+Caption: so the next Talk starts at 12 20.
+

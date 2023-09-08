@@ -1,0 +1,962 @@
+[
+    {
+        "text": ">> You're not going to want to miss",
+        "start": 0.0,
+        "duration": 1.2
+    },
+    {
+        "text": "this episode of The AI Show where we",
+        "start": 1.2,
+        "duration": 2.07
+    },
+    {
+        "text": "look at what's new in the Cognitive Services Face API.",
+        "start": 3.27,
+        "duration": 3.375
+    },
+    {
+        "text": "It's pretty cool. Make sure you tune in.",
+        "start": 6.645,
+        "duration": 2.025
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 8.67,
+        "duration": 8.369
+    },
+    {
+        "text": "Hello and welcome to this special build edition",
+        "start": 17.039,
+        "duration": 1.906
+    },
+    {
+        "text": "of the AI Show where we're going to learn all",
+        "start": 18.945,
+        "duration": 2.145
+    },
+    {
+        "text": "about what's new in the Cognitive Services, Special Face API.",
+        "start": 21.09,
+        "duration": 4.59
+    },
+    {
+        "text": "I've got a special guest with me.",
+        "start": 25.68,
+        "duration": 1.08
+    },
+    {
+        "text": "Hello, my friend. Tell us who you are and what you do.",
+        "start": 26.76,
+        "duration": 3.01
+    },
+    {
+        "text": ">> Hello. Good morning.",
+        "start": 29.87,
+        "duration": 2.31
+    },
+    {
+        "text": "My name is Boris Ganesh Golsky.",
+        "start": 32.18,
+        "duration": 1.5
+    },
+    {
+        "text": "I work on the Face API Cognitive Services Team.",
+        "start": 33.68,
+        "duration": 3.405
+    },
+    {
+        "text": ">> Fantastic. So for those that",
+        "start": 37.085,
+        "duration": 2.505
+    },
+    {
+        "text": "don't know what Cognitive Services are,",
+        "start": 39.59,
+        "duration": 2.58
+    },
+    {
+        "text": "can you give us just a little refresher?",
+        "start": 42.17,
+        "duration": 2.65
+    },
+    {
+        "text": ">> Yeah. So Cognitive Services is a suite of",
+        "start": 45.23,
+        "duration": 3.645
+    },
+    {
+        "text": "pre-built AI models that are",
+        "start": 48.875,
+        "duration": 1.785
+    },
+    {
+        "text": "delivered via the Cloud and via the Edge,",
+        "start": 50.66,
+        "duration": 2.13
+    },
+    {
+        "text": "and they allow developers to quickly infuse AI capabilities into",
+        "start": 52.79,
+        "duration": 4.44
+    },
+    {
+        "text": "their applications without needing to",
+        "start": 57.23,
+        "duration": 2.49
+    },
+    {
+        "text": "have machine learning or computer vision expertise.",
+        "start": 59.72,
+        "duration": 3.855
+    },
+    {
+        "text": ">> So for those who don't know about face recognition,",
+        "start": 63.575,
+        "duration": 4.815
+    },
+    {
+        "text": "can you give us a little primer?",
+        "start": 68.39,
+        "duration": 1.28
+    },
+    {
+        "text": ">> Yeah. So facial recognition Cognitive Service",
+        "start": 69.67,
+        "duration": 3.345
+    },
+    {
+        "text": "has three key capabilities.",
+        "start": 73.015,
+        "duration": 2.05
+    },
+    {
+        "text": "One is face detection,",
+        "start": 75.065,
+        "duration": 1.26
+    },
+    {
+        "text": "so you can provide the images and we will",
+        "start": 76.325,
+        "duration": 2.265
+    },
+    {
+        "text": "return you back bounding boxes of faces,",
+        "start": 78.59,
+        "duration": 2.58
+    },
+    {
+        "text": "if faces are found in images.",
+        "start": 81.17,
+        "duration": 3.06
+    },
+    {
+        "text": "We will also return you additional information",
+        "start": 84.23,
+        "duration": 2.58
+    },
+    {
+        "text": "for every face that's found in the image.",
+        "start": 86.81,
+        "duration": 2.445
+    },
+    {
+        "text": "The number two capability is face verification.",
+        "start": 89.255,
+        "duration": 2.64
+    },
+    {
+        "text": "So this is the ability to compare two faces",
+        "start": 91.895,
+        "duration": 2.775
+    },
+    {
+        "text": "and determine whether they belong to the same person or not.",
+        "start": 94.67,
+        "duration": 3.9
+    },
+    {
+        "text": "Capability number 3 is facial identification,",
+        "start": 98.57,
+        "duration": 3.18
+    },
+    {
+        "text": "which is basically look at an image",
+        "start": 101.75,
+        "duration": 2.085
+    },
+    {
+        "text": "and answer the question, who is it?",
+        "start": 103.835,
+        "duration": 1.965
+    },
+    {
+        "text": "Relative to a list of enrolled faces.",
+        "start": 105.8,
+        "duration": 2.51
+    },
+    {
+        "text": ">> I see now. Are these hard to use in the Face API?",
+        "start": 108.31,
+        "duration": 3.25
+    },
+    {
+        "text": "What did the developer have to do to",
+        "start": 111.56,
+        "duration": 1.86
+    },
+    {
+        "text": "make these functionality work?",
+        "start": 113.42,
+        "duration": 3.845
+    },
+    {
+        "text": ">> Yeah. So to make this functionality work,",
+        "start": 117.265,
+        "duration": 2.53
+    },
+    {
+        "text": "you need to create a Face API Resource in the Azure portal.",
+        "start": 119.795,
+        "duration": 3.405
+    },
+    {
+        "text": "Then we offer a number of SDKs in various languages,",
+        "start": 123.2,
+        "duration": 3.764
+    },
+    {
+        "text": "that you can use to quickly get started.",
+        "start": 126.964,
+        "duration": 2.311
+    },
+    {
+        "text": "We also offer a number of",
+        "start": 129.275,
+        "duration": 1.215
+    },
+    {
+        "text": "samples that you can use as a quick starting point.",
+        "start": 130.49,
+        "duration": 3.6
+    },
+    {
+        "text": "Generally, the calling pattern for all of",
+        "start": 134.09,
+        "duration": 2.61
+    },
+    {
+        "text": "these APIs is you take an image and you first call",
+        "start": 136.7,
+        "duration": 3.48
+    },
+    {
+        "text": "detect and we will return you a set of information that you can",
+        "start": 140.18,
+        "duration": 4.62
+    },
+    {
+        "text": "either use to reason over an image or",
+        "start": 144.8,
+        "duration": 2.7
+    },
+    {
+        "text": "if you want to use verification or identification,",
+        "start": 147.5,
+        "duration": 2.91
+    },
+    {
+        "text": "then the information we return from the Detect API",
+        "start": 150.41,
+        "duration": 3.57
+    },
+    {
+        "text": "can be further used to make it verify or identify a call.",
+        "start": 153.98,
+        "duration": 3.905
+    },
+    {
+        "text": ">> So not much just basically",
+        "start": 157.885,
+        "duration": 2.05
+    },
+    {
+        "text": "call an endpoint and then it does it for you?",
+        "start": 159.935,
+        "duration": 2.625
+    },
+    {
+        "text": ">> Yeah. Call an endpoint, it does it for you.",
+        "start": 162.56,
+        "duration": 2.82
+    },
+    {
+        "text": "There's great samples and",
+        "start": 165.38,
+        "duration": 2.19
+    },
+    {
+        "text": "documentation that you can use to quickly get started.",
+        "start": 167.57,
+        "duration": 2.825
+    },
+    {
+        "text": ">> That's really cool. But now for",
+        "start": 170.395,
+        "duration": 1.505
+    },
+    {
+        "text": "the part where everyone's come here",
+        "start": 171.9,
+        "duration": 2.69
+    },
+    {
+        "text": "for what's new in the Face API for this years bill.",
+        "start": 174.59,
+        "duration": 4.4
+    },
+    {
+        "text": ">> Yeah. So we have been investing in",
+        "start": 178.99,
+        "duration": 3.49
+    },
+    {
+        "text": "a couple of big areas based",
+        "start": 182.48,
+        "duration": 2.4
+    },
+    {
+        "text": "on what we hear from customers and partners today.",
+        "start": 184.88,
+        "duration": 2.43
+    },
+    {
+        "text": "One is the infrastructure side of",
+        "start": 187.31,
+        "duration": 2.04
+    },
+    {
+        "text": "our Cognitive services, including Face API.",
+        "start": 189.35,
+        "duration": 3.455
+    },
+    {
+        "text": "So a few key things that we've been doing,",
+        "start": 192.805,
+        "duration": 2.21
+    },
+    {
+        "text": "number 1 is, we've been expanding our regional coverage.",
+        "start": 195.015,
+        "duration": 2.515
+    },
+    {
+        "text": "So bringing the service to",
+        "start": 197.53,
+        "duration": 1.06
+    },
+    {
+        "text": "more and more regions as App Azure announces new regions.",
+        "start": 198.59,
+        "duration": 4.455
+    },
+    {
+        "text": "If you look on the Face API website today on the documentation,",
+        "start": 203.045,
+        "duration": 4.86
+    },
+    {
+        "text": "you can see all the regions where the service is available today.",
+        "start": 207.905,
+        "duration": 3.465
+    },
+    {
+        "text": "We've also added a Azure Active Directory supports.",
+        "start": 211.37,
+        "duration": 3.42
+    },
+    {
+        "text": "So now instead of just using",
+        "start": 214.79,
+        "duration": 1.59
+    },
+    {
+        "text": "an App key to authenticate into the Face API service,",
+        "start": 216.38,
+        "duration": 3.6
+    },
+    {
+        "text": "you can also use an Azure Active Directory Identity.",
+        "start": 219.98,
+        "duration": 3.045
+    },
+    {
+        "text": "We've added VNET supports.",
+        "start": 223.025,
+        "duration": 1.995
+    },
+    {
+        "text": "So now you can restrict what applications can",
+        "start": 225.02,
+        "duration": 3.21
+    },
+    {
+        "text": "actually interact with the Face API service to",
+        "start": 228.23,
+        "duration": 3.435
+    },
+    {
+        "text": "further lock-down the access rights to",
+        "start": 231.665,
+        "duration": 3.885
+    },
+    {
+        "text": "the facial recognition APIs in your tenant.",
+        "start": 235.55,
+        "duration": 4.65
+    },
+    {
+        "text": "Then last but not least,",
+        "start": 240.2,
+        "duration": 1.86
+    },
+    {
+        "text": "we've started rolling out",
+        "start": 242.06,
+        "duration": 1.47
+    },
+    {
+        "text": "the ability that we call customer managed keys,",
+        "start": 243.53,
+        "duration": 3.705
+    },
+    {
+        "text": "which allows you to",
+        "start": 247.235,
+        "duration": 1.815
+    },
+    {
+        "text": "specify the encryption key that should be used to",
+        "start": 249.05,
+        "duration": 2.64
+    },
+    {
+        "text": "encrypt templates of faces",
+        "start": 251.69,
+        "duration": 2.88
+    },
+    {
+        "text": "that are stored within the Face API service.",
+        "start": 254.57,
+        "duration": 2.34
+    },
+    {
+        "text": "By default, we encrypt them with the Microsoft",
+        "start": 256.91,
+        "duration": 2.04
+    },
+    {
+        "text": "managed key, with this capability,",
+        "start": 258.95,
+        "duration": 2.64
+    },
+    {
+        "text": "you can encrypt them with your own key and you can rotate",
+        "start": 261.59,
+        "duration": 2.94
+    },
+    {
+        "text": "the key as frequently as you require.",
+        "start": 264.53,
+        "duration": 3.675
+    },
+    {
+        "text": ">> This is really cool because it basically,",
+        "start": 268.205,
+        "duration": 2.385
+    },
+    {
+        "text": "we're giving customers the ability to",
+        "start": 270.59,
+        "duration": 2.01
+    },
+    {
+        "text": "manage this at a more fine grain level, it looks like.",
+        "start": 272.6,
+        "duration": 3.84
+    },
+    {
+        "text": ">> Yeah. We're putting customers in control of all of",
+        "start": 276.44,
+        "duration": 3.57
+    },
+    {
+        "text": "these capabilities so that they can increase",
+        "start": 280.01,
+        "duration": 2.61
+    },
+    {
+        "text": "the security posture of their end-to-end application.",
+        "start": 282.62,
+        "duration": 3.41
+    },
+    {
+        "text": ">> So with a customer Manage key essentially",
+        "start": 286.03,
+        "duration": 3.185
+    },
+    {
+        "text": "even Microsoft cannot see",
+        "start": 289.215,
+        "duration": 2.045
+    },
+    {
+        "text": "what's in there because the keys are managed by the customer?",
+        "start": 291.26,
+        "duration": 2.33
+    },
+    {
+        "text": ">> That is correct. The keys are managed by the customer and",
+        "start": 293.59,
+        "duration": 3.745
+    },
+    {
+        "text": "it also allows the customer to",
+        "start": 297.335,
+        "duration": 1.695
+    },
+    {
+        "text": "manage the rotation schedule of these keys,",
+        "start": 299.03,
+        "duration": 2.19
+    },
+    {
+        "text": "which we have seen as important to a number of customers.",
+        "start": 301.22,
+        "duration": 3.09
+    },
+    {
+        "text": ">> Amazing. So what's new on the AI side?",
+        "start": 304.31,
+        "duration": 2.325
+    },
+    {
+        "text": "Because the infrastructure side is cool.",
+        "start": 306.635,
+        "duration": 1.215
+    },
+    {
+        "text": "But let's see about the AI side.",
+        "start": 307.85,
+        "duration": 1.685
+    },
+    {
+        "text": ">> So the on the AI side,",
+        "start": 309.535,
+        "duration": 2.005
+    },
+    {
+        "text": "the first thing we've done after talking to many developers is,",
+        "start": 311.54,
+        "duration": 5.2
+    },
+    {
+        "text": "we've actually added the ability for",
+        "start": 316.74,
+        "duration": 2.33
+    },
+    {
+        "text": "first side-by-side support for detection and recognition models.",
+        "start": 319.07,
+        "duration": 4.14
+    },
+    {
+        "text": "This is really meant to make sure that we do not introduce",
+        "start": 323.21,
+        "duration": 4.2
+    },
+    {
+        "text": "backwards compatibility issues as we roll out",
+        "start": 327.41,
+        "duration": 2.73
+    },
+    {
+        "text": "new face detection and face recognition models.",
+        "start": 330.14,
+        "duration": 3.225
+    },
+    {
+        "text": "So what happens is,",
+        "start": 333.365,
+        "duration": 1.205
+    },
+    {
+        "text": "when we have a new face detection or face recognition model,",
+        "start": 334.57,
+        "duration": 3.43
+    },
+    {
+        "text": "we ship it as an additional model to",
+        "start": 338.0,
+        "duration": 2.37
+    },
+    {
+        "text": "the models that are already supported in the service.",
+        "start": 340.37,
+        "duration": 3.315
+    },
+    {
+        "text": "We empowered the developers to pick when they want,",
+        "start": 343.685,
+        "duration": 5.13
+    },
+    {
+        "text": "if and when they want to use that new capability.",
+        "start": 348.815,
+        "duration": 3.255
+    },
+    {
+        "text": "That allows them to test it with their data,",
+        "start": 352.07,
+        "duration": 2.565
+    },
+    {
+        "text": "make sure that they set up the right thresholds and",
+        "start": 354.635,
+        "duration": 2.43
+    },
+    {
+        "text": "only then roll-out changes into their service.",
+        "start": 357.065,
+        "duration": 3.12
+    },
+    {
+        "text": "But this really protects developers from",
+        "start": 360.185,
+        "duration": 2.835
+    },
+    {
+        "text": "any backwards compatibility issues",
+        "start": 363.02,
+        "duration": 1.92
+    },
+    {
+        "text": "and puts developers and control.",
+        "start": 364.94,
+        "duration": 1.5
+    },
+    {
+        "text": ">> That's awesome.",
+        "start": 366.44,
+        "duration": 0.81
+    },
+    {
+        "text": ">> Number 2 is what we've heard from customers",
+        "start": 367.25,
+        "duration": 2.775
+    },
+    {
+        "text": "is Wider Face API service works well for frontal faces.",
+        "start": 370.025,
+        "duration": 5.295
+    },
+    {
+        "text": "We have seen that non frontal faces or",
+        "start": 375.32,
+        "duration": 2.4
+    },
+    {
+        "text": "small faces would not always be detected by the Face API service.",
+        "start": 377.72,
+        "duration": 4.77
+    },
+    {
+        "text": ">> So we've added a new detection model that is specifically",
+        "start": 382.49,
+        "duration": 5.4
+    },
+    {
+        "text": "trained towards finding faces that are",
+        "start": 387.89,
+        "duration": 2.55
+    },
+    {
+        "text": "non frontal or very small or partially occluded.",
+        "start": 390.44,
+        "duration": 3.545
+    },
+    {
+        "text": "Then the other core capability that",
+        "start": 393.985,
+        "duration": 3.175
+    },
+    {
+        "text": "we've added as a brand new facial recognition model.",
+        "start": 397.16,
+        "duration": 3.39
+    },
+    {
+        "text": "Based on benchmarks that we have done,",
+        "start": 400.55,
+        "duration": 2.535
+    },
+    {
+        "text": "we have seen improvements up to 25 percent in accuracy,",
+        "start": 403.085,
+        "duration": 4.11
+    },
+    {
+        "text": "both in terms of false positives and false negatives.",
+        "start": 407.195,
+        "duration": 4.08
+    },
+    {
+        "text": "This model is available in the service today,",
+        "start": 411.275,
+        "duration": 2.505
+    },
+    {
+        "text": "you can use it.",
+        "start": 413.78,
+        "duration": 1.215
+    },
+    {
+        "text": "The one challenge to be aware",
+        "start": 414.995,
+        "duration": 2.7
+    },
+    {
+        "text": "of in order to use this new recognition model,",
+        "start": 417.695,
+        "duration": 3.78
+    },
+    {
+        "text": "you need to recreate any enrollments that you already have.",
+        "start": 421.475,
+        "duration": 4.395
+    },
+    {
+        "text": "Because we do not store images",
+        "start": 425.87,
+        "duration": 2.43
+    },
+    {
+        "text": "or faces that are used for enrollment,",
+        "start": 428.3,
+        "duration": 2.04
+    },
+    {
+        "text": "we only store the templates that are generated from these images.",
+        "start": 430.34,
+        "duration": 3.9
+    },
+    {
+        "text": "In order to use the new model,",
+        "start": 434.24,
+        "duration": 2.265
+    },
+    {
+        "text": "you need to re-enroll faces with that new model.",
+        "start": 436.505,
+        "duration": 4.7
+    },
+    {
+        "text": "Again, I'll point to a link in",
+        "start": 441.205,
+        "duration": 1.975
+    },
+    {
+        "text": "the documentation on the next slide.",
+        "start": 443.18,
+        "duration": 1.48
+    },
+    {
+        "text": ">> Again, that's because we're not storing people's faces.",
+        "start": 444.66,
+        "duration": 3.05
+    },
+    {
+        "text": "So it's like if you're using a new model,",
+        "start": 447.71,
+        "duration": 2.88
+    },
+    {
+        "text": "we don't have your faces because we're",
+        "start": 450.59,
+        "duration": 2.43
+    },
+    {
+        "text": "trying to be ethical here, which is really cool.",
+        "start": 453.02,
+        "duration": 2.505
+    },
+    {
+        "text": ">> Yeah. Absolutely.",
+        "start": 455.525,
+        "duration": 1.795
+    },
+    {
+        "text": ">> So let's see if I can recap.",
+        "start": 457.32,
+        "duration": 2.04
+    },
+    {
+        "text": "Side-by-side support for multiple verification.",
+        "start": 459.36,
+        "duration": 1.735
+    },
+    {
+        "text": "That's basically, if you're using a previous model,",
+        "start": 461.095,
+        "duration": 3.025
+    },
+    {
+        "text": "it will work still.",
+        "start": 464.12,
+        "duration": 1.604
+    },
+    {
+        "text": "But if you want to move to the next model,",
+        "start": 465.724,
+        "duration": 1.576
+    },
+    {
+        "text": "you can do that as well.",
+        "start": 467.3,
+        "duration": 1.115
+    },
+    {
+        "text": ">> Yeah, and you're absolutely in control of when you do it.",
+        "start": 468.415,
+        "duration": 3.22
+    },
+    {
+        "text": ">> Fantastic. We have a new face detection model",
+        "start": 471.635,
+        "duration": 3.375
+    },
+    {
+        "text": "that does non frontal faces,",
+        "start": 475.01,
+        "duration": 1.59
+    },
+    {
+        "text": "which is pretty hard problem, I think.",
+        "start": 476.6,
+        "duration": 1.815
+    },
+    {
+        "text": ">> Yeah, it's a hard problem,",
+        "start": 478.415,
+        "duration": 2.05
+    },
+    {
+        "text": "and it also enables a new class of",
+        "start": 480.465,
+        "duration": 1.865
+    },
+    {
+        "text": "applications where you want to understand",
+        "start": 482.33,
+        "duration": 2.705
+    },
+    {
+        "text": "all the faces that are in the image that are",
+        "start": 485.035,
+        "duration": 2.065
+    },
+    {
+        "text": "not necessarily for recognition purposes,",
+        "start": 487.1,
+        "duration": 3.39
+    },
+    {
+        "text": "but for counting or blurring or other scenarios.",
+        "start": 490.49,
+        "duration": 3.105
+    },
+    {
+        "text": ">> That's cool. Then finally,",
+        "start": 493.595,
+        "duration": 1.95
+    },
+    {
+        "text": "we've been hard at work making a brand",
+        "start": 495.545,
+        "duration": 1.815
+    },
+    {
+        "text": "new Machine Learning Models, exact faces.",
+        "start": 497.36,
+        "duration": 3.23
+    },
+    {
+        "text": "This is the outcome of that effort.",
+        "start": 500.59,
+        "duration": 3.095
+    },
+    {
+        "text": "Well, where can people go to find out more?",
+        "start": 503.685,
+        "duration": 2.165
+    },
+    {
+        "text": ">> Here are the links to",
+        "start": 505.85,
+        "duration": 1.17
+    },
+    {
+        "text": "the online documentation for Azure AD Identity support,",
+        "start": 507.02,
+        "duration": 4.26
+    },
+    {
+        "text": "VNET, customer managed keys,",
+        "start": 511.28,
+        "duration": 1.8
+    },
+    {
+        "text": "as well as to new recognition models.",
+        "start": 513.08,
+        "duration": 1.955
+    },
+    {
+        "text": ">> This is all very cool stuff.",
+        "start": 515.035,
+        "duration": 2.095
+    },
+    {
+        "text": "Thank you so much for spending some time with us on this,",
+        "start": 517.13,
+        "duration": 3.09
+    },
+    {
+        "text": "The AI Show my friend.",
+        "start": 520.22,
+        "duration": 1.67
+    },
+    {
+        "text": ">> Thank you. It's been a pleasure.",
+        "start": 521.89,
+        "duration": 1.655
+    },
+    {
+        "text": ">> All right. My friends, we're learning all about what's new in",
+        "start": 523.545,
+        "duration": 2.205
+    },
+    {
+        "text": "the Cognitive Services Face API here on The AI Show.",
+        "start": 525.75,
+        "duration": 2.51
+    },
+    {
+        "text": "Thanks for watching and we will see you next time. Take care.",
+        "start": 528.26,
+        "duration": 2.88
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 531.14,
+        "duration": 8.99
+    }
+]

@@ -1,0 +1,802 @@
+[
+    {
+        "text": ">> You're not going to want to miss this episode of the AI Show.",
+        "start": 0.0,
+        "duration": 2.16
+    },
+    {
+        "text": "We talk about the Azure Machine Learning Designer,",
+        "start": 2.16,
+        "duration": 1.89
+    },
+    {
+        "text": "some of the new capabilities.",
+        "start": 4.05,
+        "duration": 1.365
+    },
+    {
+        "text": "It's pretty cool. Make sure you tune in.",
+        "start": 5.415,
+        "duration": 2.025
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 7.44,
+        "duration": 8.609
+    },
+    {
+        "text": "Hello and welcome to this episode of the AI Show.",
+        "start": 16.049,
+        "duration": 1.921
+    },
+    {
+        "text": "We're going to talk about something called",
+        "start": 17.97,
+        "duration": 1.38
+    },
+    {
+        "text": "the Azure Machine Learning Designer.",
+        "start": 19.35,
+        "duration": 2.4
+    },
+    {
+        "text": "I've got a special guest with me, Lu.",
+        "start": 21.75,
+        "duration": 1.65
+    },
+    {
+        "text": "How about you tell us who you are and what you do, my friend.",
+        "start": 23.4,
+        "duration": 2.775
+    },
+    {
+        "text": ">> Hello, everyone. My name is Lu Zhang.",
+        "start": 26.175,
+        "duration": 2.435
+    },
+    {
+        "text": "I'm a Program Manager from Azure Machine Learning Team.",
+        "start": 28.61,
+        "duration": 3.645
+    },
+    {
+        "text": ">> Tell a little bit about what the Designer",
+        "start": 32.255,
+        "duration": 2.49
+    },
+    {
+        "text": "is for those that are maybe not familiar.",
+        "start": 34.745,
+        "duration": 2.645
+    },
+    {
+        "text": ">> Sure. Designer is basically the drag and",
+        "start": 37.39,
+        "duration": 3.29
+    },
+    {
+        "text": "drop visual interface that you can easily build,",
+        "start": 40.68,
+        "duration": 3.29
+    },
+    {
+        "text": "test, and deploy a production-ready model",
+        "start": 43.97,
+        "duration": 2.505
+    },
+    {
+        "text": "with low code or no code.",
+        "start": 46.475,
+        "duration": 2.615
+    },
+    {
+        "text": ">> For those that know about it,",
+        "start": 49.09,
+        "duration": 3.265
+    },
+    {
+        "text": "what's new this time around?",
+        "start": 52.355,
+        "duration": 3.105
+    },
+    {
+        "text": ">> Yes. For Designer,",
+        "start": 55.46,
+        "duration": 2.845
+    },
+    {
+        "text": "this time, there will be a new layout.",
+        "start": 58.305,
+        "duration": 2.135
+    },
+    {
+        "text": "There will be a couple of",
+        "start": 60.44,
+        "duration": 1.32
+    },
+    {
+        "text": "new algorithm, like image classification,",
+        "start": 61.76,
+        "duration": 2.76
+    },
+    {
+        "text": "like recommendation, and we also have",
+        "start": 64.52,
+        "duration": 2.565
+    },
+    {
+        "text": "improved debugging and troubleshooting experience for you.",
+        "start": 67.085,
+        "duration": 3.81
+    },
+    {
+        "text": ">> I love knowing about stuff,",
+        "start": 70.895,
+        "duration": 2.625
+    },
+    {
+        "text": "but I'd love to see if you have",
+        "start": 73.52,
+        "duration": 1.23
+    },
+    {
+        "text": "something to show. Do you have something to show us.",
+        "start": 74.75,
+        "duration": 2.045
+    },
+    {
+        "text": ">> Sure. I can show that.",
+        "start": 76.795,
+        "duration": 2.36
+    },
+    {
+        "text": "What you see here is the homepage",
+        "start": 79.155,
+        "duration": 3.005
+    },
+    {
+        "text": "of Designer in the Machine Learning Studio.",
+        "start": 82.16,
+        "duration": 2.745
+    },
+    {
+        "text": "As you can see from the homepage,",
+        "start": 84.905,
+        "duration": 1.725
+    },
+    {
+        "text": "there are a bunch of examples from",
+        "start": 86.63,
+        "duration": 2.1
+    },
+    {
+        "text": "the image classification to recommendation to linear regression.",
+        "start": 88.73,
+        "duration": 4.065
+    },
+    {
+        "text": "Also, you can even use",
+        "start": 92.795,
+        "duration": 1.485
+    },
+    {
+        "text": "custom Python script to build your own model.",
+        "start": 94.28,
+        "duration": 3.08
+    },
+    {
+        "text": "What we are going to show today is how you can use",
+        "start": 97.36,
+        "duration": 3.58
+    },
+    {
+        "text": "the new simple image classification using",
+        "start": 100.94,
+        "duration": 3.0
+    },
+    {
+        "text": "the DenseNet to build a classification model.",
+        "start": 103.94,
+        "duration": 3.315
+    },
+    {
+        "text": "As you can see, this is the sample pipeline",
+        "start": 107.255,
+        "duration": 3.33
+    },
+    {
+        "text": "and it starts from image animal dataset.",
+        "start": 110.585,
+        "duration": 3.51
+    },
+    {
+        "text": "It convert to the image directory with a bunch of transformation,",
+        "start": 114.095,
+        "duration": 4.835
+    },
+    {
+        "text": "and then you use DenseNet to train a PyTorch model.",
+        "start": 118.93,
+        "duration": 3.845
+    },
+    {
+        "text": "After that, you should be able to",
+        "start": 122.775,
+        "duration": 2.135
+    },
+    {
+        "text": "score the model and evaluate that.",
+        "start": 124.91,
+        "duration": 2.61
+    },
+    {
+        "text": "I'm going to submit a pipeline run on top of that.",
+        "start": 127.52,
+        "duration": 3.945
+    },
+    {
+        "text": "I can \"Select Compute Target\".",
+        "start": 131.465,
+        "duration": 3.215
+    },
+    {
+        "text": "Please note, because it's using the DenseNet,",
+        "start": 134.68,
+        "duration": 2.874
+    },
+    {
+        "text": "you will be using that GPU cluster",
+        "start": 137.554,
+        "duration": 2.866
+    },
+    {
+        "text": "and then I will submit a pipeline run.",
+        "start": 140.42,
+        "duration": 3.19
+    },
+    {
+        "text": ">> As you're submitting, there's just a couple of questions.",
+        "start": 145.36,
+        "duration": 3.13
+    },
+    {
+        "text": "Basically, the Designer lets you create a flow for",
+        "start": 148.49,
+        "duration": 3.75
+    },
+    {
+        "text": "what I would call a machine learning pipeline, is that right?",
+        "start": 152.24,
+        "duration": 4.25
+    },
+    {
+        "text": ">> Yes. The back-end is the machine learning pipeline.",
+        "start": 156.49,
+        "duration": 3.89
+    },
+    {
+        "text": ">> I see. When this is actually running,",
+        "start": 160.38,
+        "duration": 3.17
+    },
+    {
+        "text": "it's basically going to run everything in parallel that it can and",
+        "start": 163.55,
+        "duration": 3.36
+    },
+    {
+        "text": "everything in series that it has to. Is that right also?",
+        "start": 166.91,
+        "duration": 3.665
+    },
+    {
+        "text": ">> Yeah. The pipeline is basically",
+        "start": 170.575,
+        "duration": 1.91
+    },
+    {
+        "text": "the orchestrator that will decide when to run which node.",
+        "start": 172.485,
+        "duration": 4.365
+    },
+    {
+        "text": ">> That's pretty cool. How long does",
+        "start": 176.85,
+        "duration": 1.88
+    },
+    {
+        "text": "something like this take to train?",
+        "start": 178.73,
+        "duration": 1.985
+    },
+    {
+        "text": ">> It depends on the data, the volume,",
+        "start": 180.715,
+        "duration": 2.695
+    },
+    {
+        "text": "and which skill you chose for the compute target.",
+        "start": 183.41,
+        "duration": 3.3
+    },
+    {
+        "text": "For this example, because we chose the GPO,",
+        "start": 186.71,
+        "duration": 2.88
+    },
+    {
+        "text": "it's going to take a couple of minutes to finish run.",
+        "start": 189.59,
+        "duration": 3.59
+    },
+    {
+        "text": ">> Then the other question is, it looks like",
+        "start": 193.18,
+        "duration": 3.205
+    },
+    {
+        "text": "you just went from the sample and just drew out this huge thing,",
+        "start": 196.385,
+        "duration": 3.015
+    },
+    {
+        "text": "but if you start from a blank canvas,",
+        "start": 199.4,
+        "duration": 2.46
+    },
+    {
+        "text": "what things can you drag onto that Designer canvas?",
+        "start": 201.86,
+        "duration": 4.0
+    },
+    {
+        "text": ">> Sure. You can check the left side, the Azure Library.",
+        "start": 205.86,
+        "duration": 3.33
+    },
+    {
+        "text": "We have the dataset,",
+        "start": 209.19,
+        "duration": 1.475
+    },
+    {
+        "text": "which is what you already registered using",
+        "start": 210.665,
+        "duration": 2.625
+    },
+    {
+        "text": "the dataset capability in Azure Machine Learning.",
+        "start": 213.29,
+        "duration": 3.075
+    },
+    {
+        "text": "We also have a bunch of modules available from",
+        "start": 216.365,
+        "duration": 3.675
+    },
+    {
+        "text": "data transformation processing to",
+        "start": 220.04,
+        "duration": 2.265
+    },
+    {
+        "text": "feature selection to machine learning algorithm.",
+        "start": 222.305,
+        "duration": 2.954
+    },
+    {
+        "text": "You will have basic regression, clustering,",
+        "start": 225.259,
+        "duration": 3.241
+    },
+    {
+        "text": "and you will also have for text analytics,",
+        "start": 228.5,
+        "duration": 2.7
+    },
+    {
+        "text": "computer vision, and the recommendation.",
+        "start": 231.2,
+        "duration": 2.34
+    },
+    {
+        "text": "Basically, already a rich set of",
+        "start": 233.54,
+        "duration": 2.16
+    },
+    {
+        "text": "built-in modules you can drag and drop into the canvas.",
+        "start": 235.7,
+        "duration": 4.15
+    },
+    {
+        "text": ">> Maybe I'm wrong, but I'm guessing you already",
+        "start": 240.53,
+        "duration": 2.79
+    },
+    {
+        "text": "have one of these runs that is done already,",
+        "start": 243.32,
+        "duration": 2.37
+    },
+    {
+        "text": "so we don't have to watch it. Is that the case?",
+        "start": 245.69,
+        "duration": 2.595
+    },
+    {
+        "text": ">> Yeah. I will share the one which already has finished running.",
+        "start": 248.285,
+        "duration": 5.85
+    },
+    {
+        "text": "In this example, actually,",
+        "start": 254.135,
+        "duration": 1.785
+    },
+    {
+        "text": "I'm using a real registered dataset.",
+        "start": 255.92,
+        "duration": 2.475
+    },
+    {
+        "text": "This comes from the laboring project,",
+        "start": 258.395,
+        "duration": 2.699
+    },
+    {
+        "text": "and we use that as the input to the pipeline.",
+        "start": 261.094,
+        "duration": 3.466
+    },
+    {
+        "text": "We then use custom module that convert",
+        "start": 264.56,
+        "duration": 2.7
+    },
+    {
+        "text": "it to the image directory to the format we want.",
+        "start": 267.26,
+        "duration": 3.0
+    },
+    {
+        "text": "After that, there are a bunch of transformation,",
+        "start": 270.26,
+        "duration": 4.005
+    },
+    {
+        "text": "and automatically, you will finish running to get the result.",
+        "start": 274.265,
+        "duration": 3.695
+    },
+    {
+        "text": "I can show the results, what you will see.",
+        "start": 277.96,
+        "duration": 2.74
+    },
+    {
+        "text": "For example, for this score image model,",
+        "start": 280.7,
+        "duration": 2.88
+    },
+    {
+        "text": "you can right-click to visualize for each of the image,",
+        "start": 283.58,
+        "duration": 4.185
+    },
+    {
+        "text": "what is the probability that you assign to each class.",
+        "start": 287.765,
+        "duration": 3.965
+    },
+    {
+        "text": "For this one, you are telling which one",
+        "start": 291.73,
+        "duration": 2.785
+    },
+    {
+        "text": "is bookstore versus warehouse versus subway picture,",
+        "start": 294.515,
+        "duration": 3.485
+    },
+    {
+        "text": "and the score label will tell you what the actual model predicts.",
+        "start": 298.0,
+        "duration": 5.445
+    },
+    {
+        "text": ">> As I'm looking at it, let's just say you're",
+        "start": 303.445,
+        "duration": 2.285
+    },
+    {
+        "text": "happy with the model that's been built.",
+        "start": 305.73,
+        "duration": 2.33
+    },
+    {
+        "text": "Is there an easy way to deploy this?",
+        "start": 308.06,
+        "duration": 3.875
+    },
+    {
+        "text": ">> Yes, definitely.",
+        "start": 311.935,
+        "duration": 2.03
+    },
+    {
+        "text": "From the Designer portal,",
+        "start": 313.965,
+        "duration": 1.725
+    },
+    {
+        "text": "you should be able to finish running.",
+        "start": 315.69,
+        "duration": 3.205
+    },
+    {
+        "text": "You should be able to convert that into an inference pipeline,",
+        "start": 318.895,
+        "duration": 3.49
+    },
+    {
+        "text": "and that will automatically generate",
+        "start": 322.385,
+        "duration": 2.76
+    },
+    {
+        "text": "a real-time inference pipeline, something like this.",
+        "start": 325.145,
+        "duration": 2.835
+    },
+    {
+        "text": "You see, we are now taking",
+        "start": 327.98,
+        "duration": 2.31
+    },
+    {
+        "text": "the web service input as the input to the train model,",
+        "start": 330.29,
+        "duration": 3.825
+    },
+    {
+        "text": "and then you will get the prediction result",
+        "start": 334.115,
+        "duration": 2.295
+    },
+    {
+        "text": "returned from the REST API.",
+        "start": 336.41,
+        "duration": 2.075
+    },
+    {
+        "text": ">> I see. So not only do you have",
+        "start": 338.485,
+        "duration": 1.975
+    },
+    {
+        "text": "the training pipeline represented in the training model,",
+        "start": 340.46,
+        "duration": 3.025
+    },
+    {
+        "text": "but you also have the inference, because obviously,",
+        "start": 343.485,
+        "duration": 2.255
+    },
+    {
+        "text": "when you're training versus when you're doing inference,",
+        "start": 345.74,
+        "duration": 1.74
+    },
+    {
+        "text": "it's a similar thing,",
+        "start": 347.48,
+        "duration": 1.89
+    },
+    {
+        "text": "but it's still different,",
+        "start": 349.37,
+        "duration": 1.05
+    },
+    {
+        "text": "and you can represent both in Designer, is that right?",
+        "start": 350.42,
+        "duration": 2.54
+    },
+    {
+        "text": ">> Yes. This is automatically generated,",
+        "start": 352.96,
+        "duration": 4.595
+    },
+    {
+        "text": "so you don't need to worry about how to",
+        "start": 357.555,
+        "duration": 2.015
+    },
+    {
+        "text": "build an inference pipeline from scratch.",
+        "start": 359.57,
+        "duration": 2.22
+    },
+    {
+        "text": ">> Well, this is quite impressive.",
+        "start": 361.79,
+        "duration": 1.955
+    },
+    {
+        "text": "What does it look like when you actually deploy the endpoint?",
+        "start": 363.745,
+        "duration": 5.765
+    },
+    {
+        "text": ">> You can just click on the \"Deploy\" button",
+        "start": 369.77,
+        "duration": 3.12
+    },
+    {
+        "text": "after you got the real-time inference pipeline,",
+        "start": 372.89,
+        "duration": 2.565
+    },
+    {
+        "text": "and then you can choose Azure Kubernetes Cluster to deploy it.",
+        "start": 375.455,
+        "duration": 5.69
+    },
+    {
+        "text": "That will take a few minutes to finish deployment.",
+        "start": 381.145,
+        "duration": 3.624
+    },
+    {
+        "text": "But once you finish that,",
+        "start": 384.769,
+        "duration": 1.576
+    },
+    {
+        "text": "you should be able to go to",
+        "start": 386.345,
+        "duration": 1.275
+    },
+    {
+        "text": "the Endpoint page to check the actual deployment.",
+        "start": 387.62,
+        "duration": 3.21
+    },
+    {
+        "text": "I'm going to show the one I have deployed before.",
+        "start": 390.83,
+        "duration": 4.655
+    },
+    {
+        "text": "You will see the details of the real-time endpoint.",
+        "start": 395.485,
+        "duration": 3.795
+    },
+    {
+        "text": "The REST endpoint can be easily copy-paste,",
+        "start": 399.28,
+        "duration": 2.775
+    },
+    {
+        "text": "and what's more interesting is you can select the image from",
+        "start": 402.055,
+        "duration": 4.005
+    },
+    {
+        "text": "your local computer to test what it means to score the model.",
+        "start": 406.06,
+        "duration": 4.81
+    },
+    {
+        "text": "I'm going to use the sample here,",
+        "start": 410.87,
+        "duration": 2.685
+    },
+    {
+        "text": "and you will see the actual prediction to verify your model.",
+        "start": 413.555,
+        "duration": 3.675
+    },
+    {
+        "text": "Once you want to go to the production,",
+        "start": 417.23,
+        "duration": 2.285
+    },
+    {
+        "text": "you will also get a sample code,",
+        "start": 419.515,
+        "duration": 1.755
+    },
+    {
+        "text": "how to consume that in your application using C#,",
+        "start": 421.27,
+        "duration": 3.51
+    },
+    {
+        "text": "Python or R, that will be very handy",
+        "start": 424.78,
+        "duration": 2.46
+    },
+    {
+        "text": "for you to integrate into your application.",
+        "start": 427.24,
+        "duration": 2.845
+    },
+    {
+        "text": ">> This is all pretty amazing.",
+        "start": 430.085,
+        "duration": 2.425
+    },
+    {
+        "text": "It goes from not only the beginning of training,",
+        "start": 432.51,
+        "duration": 2.23
+    },
+    {
+        "text": "but all the way to that inference time and even testing.",
+        "start": 434.74,
+        "duration": 3.409
+    },
+    {
+        "text": "Where can people go to find out more about this?",
+        "start": 438.149,
+        "duration": 2.786
+    },
+    {
+        "text": ">> They can find it from our documentation site",
+        "start": 440.935,
+        "duration": 3.62
+    },
+    {
+        "text": "from the Azure Machine Learning official website.",
+        "start": 444.555,
+        "duration": 3.305
+    },
+    {
+        "text": "All the resources will be available there.",
+        "start": 447.86,
+        "duration": 3.125
+    },
+    {
+        "text": ">> Awesome. Well, thank you so",
+        "start": 450.985,
+        "duration": 1.555
+    },
+    {
+        "text": "much for spending some time with us,",
+        "start": 452.54,
+        "duration": 1.29
+    },
+    {
+        "text": "Lu, and thank you so much for watching.",
+        "start": 453.83,
+        "duration": 1.5
+    },
+    {
+        "text": "We've been learning about some of the cool new features",
+        "start": 455.33,
+        "duration": 2.04
+    },
+    {
+        "text": "in the Azure Machine Learning Designer.",
+        "start": 457.37,
+        "duration": 1.77
+    },
+    {
+        "text": "Make sure you check it out. Thanks for watching,",
+        "start": 459.14,
+        "duration": 1.875
+    },
+    {
+        "text": "and we'll see you next time. Take care.",
+        "start": 461.015,
+        "duration": 1.575
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 462.59,
+        "duration": 9.02
+    }
+]

@@ -1,0 +1,1632 @@
+[
+    {
+        "text": ">> You're not going to want to miss this episode of",
+        "start": 0.0,
+        "duration": 2.01
+    },
+    {
+        "text": "The AI Show where we learn how to recognize",
+        "start": 2.01,
+        "duration": 3.33
+    },
+    {
+        "text": "our own wake word on a microcontroller using TinyML.",
+        "start": 5.34,
+        "duration": 5.91
+    },
+    {
+        "text": "It's awesome, all the instructions are in there,",
+        "start": 11.25,
+        "duration": 2.13
+    },
+    {
+        "text": "you're not going to want to miss it. Make sure you tune in.",
+        "start": 13.38,
+        "duration": 1.5
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 14.88,
+        "duration": 8.1
+    },
+    {
+        "text": ">> Hello and welcome to this episode of The AI Show where I've got",
+        "start": 22.98,
+        "duration": 2.31
+    },
+    {
+        "text": "a special guest and colleague to talk a little bit",
+        "start": 25.29,
+        "duration": 2.73
+    },
+    {
+        "text": "about recognizing words on",
+        "start": 28.02,
+        "duration": 2.28
+    },
+    {
+        "text": "a microcontroller using TinyML. How you doing, Jim?",
+        "start": 30.3,
+        "duration": 5.19
+    },
+    {
+        "text": ">> I'm good. I'm good. How's it going?",
+        "start": 35.49,
+        "duration": 1.8
+    },
+    {
+        "text": ">> Tell us who you are and what you doing my friend?",
+        "start": 37.29,
+        "duration": 2.61
+    },
+    {
+        "text": ">> So I'm Jim Bennett,",
+        "start": 40.13,
+        "duration": 2.065
+    },
+    {
+        "text": "I'm a Cloud advocate working the same team as you.",
+        "start": 42.195,
+        "duration": 4.175
+    },
+    {
+        "text": "I mainly focus on IoT devices with a particular focus on students,",
+        "start": 46.37,
+        "duration": 5.01
+    },
+    {
+        "text": "makers, and that kind of fun area things.",
+        "start": 51.38,
+        "duration": 3.5
+    },
+    {
+        "text": ">> ML on IoT is like a match made in heaven,",
+        "start": 54.88,
+        "duration": 3.82
+    },
+    {
+        "text": "so why don't you to tell us what you've been working on?",
+        "start": 58.7,
+        "duration": 2.47
+    },
+    {
+        "text": ">> So I've been playing with a lot of small IoT devices.",
+        "start": 61.42,
+        "duration": 4.435
+    },
+    {
+        "text": "Now, obviously, there's IoT devices come",
+        "start": 65.855,
+        "duration": 2.595
+    },
+    {
+        "text": "everything from your big edge machines,",
+        "start": 68.45,
+        "duration": 2.55
+    },
+    {
+        "text": "the tiny little microcontrollers,",
+        "start": 71.0,
+        "duration": 1.395
+    },
+    {
+        "text": "and I've been playing with a lot of smaller ones.",
+        "start": 72.395,
+        "duration": 2.415
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 74.81,
+        "duration": 0.24
+    },
+    {
+        "text": ">> I've actually been playing with some devices",
+        "start": 75.05,
+        "duration": 1.44
+    },
+    {
+        "text": "from a company called Adafruit.",
+        "start": 76.49,
+        "duration": 1.83
+    },
+    {
+        "text": "Now they specialize in students and makers.",
+        "start": 78.32,
+        "duration": 2.73
+    },
+    {
+        "text": "They produce everything from",
+        "start": 81.05,
+        "duration": 1.8
+    },
+    {
+        "text": "little tiny tissue IoT chips like this up to quite fun devices,",
+        "start": 82.85,
+        "duration": 5.07
+    },
+    {
+        "text": "like this one here is the PI badge.",
+        "start": 87.92,
+        "duration": 2.005
+    },
+    {
+        "text": "It's got a screen and buttons,",
+        "start": 89.925,
+        "duration": 1.545
+    },
+    {
+        "text": "and what have you designed for kids to build games.",
+        "start": 91.47,
+        "duration": 3.3
+    },
+    {
+        "text": "One of their recent additions is a thing called an EdgeBadge.",
+        "start": 94.77,
+        "duration": 3.92
+    },
+    {
+        "text": "I'm just going to zip over to my device camera here,",
+        "start": 98.69,
+        "duration": 2.895
+    },
+    {
+        "text": "and you will see my EdgeBadge.",
+        "start": 101.585,
+        "duration": 2.335
+    },
+    {
+        "text": "So this is an Adafruit device that's designed",
+        "start": 103.92,
+        "duration": 3.11
+    },
+    {
+        "text": "to run AI models via a microphone,",
+        "start": 107.03,
+        "duration": 3.41
+    },
+    {
+        "text": "and it's got a whole of buttons and",
+        "start": 110.44,
+        "duration": 1.24
+    },
+    {
+        "text": "other bits and pieces on there.",
+        "start": 111.68,
+        "duration": 1.37
+    },
+    {
+        "text": "It's one of a new range of devices that they're",
+        "start": 113.05,
+        "duration": 1.72
+    },
+    {
+        "text": "working on. So we go back to me.",
+        "start": 114.77,
+        "duration": 2.575
+    },
+    {
+        "text": "Now, before we talk about this device,",
+        "start": 117.345,
+        "duration": 3.005
+    },
+    {
+        "text": "you just want to cover from the history of IoT a little bit,",
+        "start": 120.35,
+        "duration": 3.315
+    },
+    {
+        "text": "so IoT is the Internet of Things.",
+        "start": 123.665,
+        "duration": 2.055
+    },
+    {
+        "text": "So we have the Internet and you have a thing.",
+        "start": 125.72,
+        "duration": 3.075
+    },
+    {
+        "text": "So traditionally you would have some device,",
+        "start": 128.795,
+        "duration": 3.179
+    },
+    {
+        "text": "a sense, and it'll be sending data up to the Cloud.",
+        "start": 131.974,
+        "duration": 3.466
+    },
+    {
+        "text": "That's the Internet side of things,",
+        "start": 135.44,
+        "duration": 1.785
+    },
+    {
+        "text": "and you would then do analysis on that data up in the Cloud.",
+        "start": 137.225,
+        "duration": 3.285
+    },
+    {
+        "text": "So from an AI perspective,",
+        "start": 140.51,
+        "duration": 1.29
+    },
+    {
+        "text": "for example, you'd build an AI model,",
+        "start": 141.8,
+        "duration": 2.18
+    },
+    {
+        "text": "you would then run this on a GPU in",
+        "start": 143.98,
+        "duration": 2.38
+    },
+    {
+        "text": "the Cloud with data from your IoT devices.",
+        "start": 146.36,
+        "duration": 2.735
+    },
+    {
+        "text": "You have like a factory, for example,",
+        "start": 149.095,
+        "duration": 1.66
+    },
+    {
+        "text": "gathering vibration data for a machine,",
+        "start": 150.755,
+        "duration": 2.225
+    },
+    {
+        "text": "goes to the Cloud, and that looks for",
+        "start": 152.98,
+        "duration": 1.42
+    },
+    {
+        "text": "anomalies to identify if the machine is going to break.",
+        "start": 154.4,
+        "duration": 2.165
+    },
+    {
+        "text": "Now that was great at the time,",
+        "start": 156.565,
+        "duration": 1.735
+    },
+    {
+        "text": "but since then, IoT has kind of exploded.",
+        "start": 158.3,
+        "duration": 2.189
+    },
+    {
+        "text": "So we've got more and more devices,",
+        "start": 160.489,
+        "duration": 2.506
+    },
+    {
+        "text": "more and more data,",
+        "start": 162.995,
+        "duration": 1.215
+    },
+    {
+        "text": "and that leads to the big problem",
+        "start": 164.21,
+        "duration": 2.055
+    },
+    {
+        "text": "around things like bandwidth and cost.",
+        "start": 166.265,
+        "duration": 2.565
+    },
+    {
+        "text": "If you've got one device sending data to",
+        "start": 168.83,
+        "duration": 2.16
+    },
+    {
+        "text": "an AI model in the Cloud, that's fine.",
+        "start": 170.99,
+        "duration": 2.445
+    },
+    {
+        "text": "If you've got a factory with a million devices,",
+        "start": 173.435,
+        "duration": 2.22
+    },
+    {
+        "text": "that's a lot of data you're sending,",
+        "start": 175.655,
+        "duration": 1.83
+    },
+    {
+        "text": "a lot of bandwidth you need,",
+        "start": 177.485,
+        "duration": 1.605
+    },
+    {
+        "text": "and it's very expensive running the models over this data,",
+        "start": 179.09,
+        "duration": 3.03
+    },
+    {
+        "text": "especially when a lot of the time this data doesn't change.",
+        "start": 182.12,
+        "duration": 3.09
+    },
+    {
+        "text": "So it's been a push to what we call IoT Edge.",
+        "start": 185.21,
+        "duration": 2.2
+    },
+    {
+        "text": "So you train a model up in the Cloud,",
+        "start": 187.41,
+        "duration": 1.76
+    },
+    {
+        "text": "you take advantage of all the GPUs",
+        "start": 189.17,
+        "duration": 1.56
+    },
+    {
+        "text": "in the Cloud to train these models.",
+        "start": 190.73,
+        "duration": 1.425
+    },
+    {
+        "text": "But then you would download them to a device running",
+        "start": 192.155,
+        "duration": 2.115
+    },
+    {
+        "text": "locally and run the models locally on your data.",
+        "start": 194.27,
+        "duration": 3.975
+    },
+    {
+        "text": "So one example would be you'd use a board like this.",
+        "start": 198.245,
+        "duration": 2.955
+    },
+    {
+        "text": "This is an NVIDIA Jetson Nano,",
+        "start": 201.2,
+        "duration": 2.085
+    },
+    {
+        "text": "its got a GPU on this board.",
+        "start": 203.285,
+        "duration": 1.815
+    },
+    {
+        "text": "It's a $100 board,",
+        "start": 205.1,
+        "duration": 1.395
+    },
+    {
+        "text": "and this could then run your IoT Edge modules,",
+        "start": 206.495,
+        "duration": 3.26
+    },
+    {
+        "text": "not up in the Cloud, but actually in",
+        "start": 209.755,
+        "duration": 2.195
+    },
+    {
+        "text": "your factory themselves to analyze the data.",
+        "start": 211.95,
+        "duration": 2.075
+    },
+    {
+        "text": "So you think if you've got a million sensors,",
+        "start": 214.025,
+        "duration": 2.325
+    },
+    {
+        "text": "that's data you can run locally and not sent to the Cloud.",
+        "start": 216.35,
+        "duration": 3.15
+    },
+    {
+        "text": "If you're doing vision work, for example,",
+        "start": 219.5,
+        "duration": 2.325
+    },
+    {
+        "text": "you don't want to be streaming full-frame audio up to the Cloud.",
+        "start": 221.825,
+        "duration": 3.655
+    },
+    {
+        "text": "That's expensive on bandwidth,",
+        "start": 225.48,
+        "duration": 1.065
+    },
+    {
+        "text": "you can then run that locally.",
+        "start": 226.545,
+        "duration": 1.44
+    },
+    {
+        "text": "It's also great for the consumer space,",
+        "start": 227.985,
+        "duration": 2.31
+    },
+    {
+        "text": "you think about Home Assistant.",
+        "start": 230.295,
+        "duration": 1.74
+    },
+    {
+        "text": "You don't want your Home Assistant",
+        "start": 232.035,
+        "duration": 1.43
+    },
+    {
+        "text": "constantly streaming your voice to",
+        "start": 233.465,
+        "duration": 1.635
+    },
+    {
+        "text": "the Cloud to analyze for when you say the wake word.",
+        "start": 235.1,
+        "duration": 3.36
+    },
+    {
+        "text": "When you say, Hey dingus, do whatever,",
+        "start": 238.46,
+        "duration": 3.42
+    },
+    {
+        "text": "you want it to be listening for that wake word locally",
+        "start": 241.88,
+        "duration": 3.374
+    },
+    {
+        "text": "rather than streaming your entire audio stream",
+        "start": 245.254,
+        "duration": 2.326
+    },
+    {
+        "text": "up the Cloud because it's obviously very,",
+        "start": 247.58,
+        "duration": 1.38
+    },
+    {
+        "text": "very bad for privacy.",
+        "start": 248.96,
+        "duration": 2.06
+    },
+    {
+        "text": "So Edge would start off with",
+        "start": 251.02,
+        "duration": 2.14
+    },
+    {
+        "text": "these powerful devices like this Jetson Nano,",
+        "start": 253.16,
+        "duration": 2.07
+    },
+    {
+        "text": "which has got a 128 core GPU and",
+        "start": 255.23,
+        "duration": 2.49
+    },
+    {
+        "text": "four Gigs of RAM, and quad-core processors,",
+        "start": 257.72,
+        "duration": 2.58
+    },
+    {
+        "text": "and runs for low S's,",
+        "start": 260.3,
+        "duration": 1.8
+    },
+    {
+        "text": "and that was great, but they're big and they're expensive.",
+        "start": 262.1,
+        "duration": 3.54
+    },
+    {
+        "text": "So the next iteration of this is what we call TinyML.",
+        "start": 265.64,
+        "duration": 3.3
+    },
+    {
+        "text": "The idea of can we take an AI model and run it",
+        "start": 268.94,
+        "duration": 3.225
+    },
+    {
+        "text": "on a device that consumes less than one milliwatt of power.",
+        "start": 272.165,
+        "duration": 3.71
+    },
+    {
+        "text": "Someone defined TinyML. I think it was",
+        "start": 275.875,
+        "duration": 1.835
+    },
+    {
+        "text": "a book published by O'Reilly where they defined",
+        "start": 277.71,
+        "duration": 2.37
+    },
+    {
+        "text": "TinyML as running a neural network",
+        "start": 280.08,
+        "duration": 2.33
+    },
+    {
+        "text": "on less than one milliwatt of power.",
+        "start": 282.41,
+        "duration": 1.82
+    },
+    {
+        "text": "So that's where you can take little small boards",
+        "start": 284.23,
+        "duration": 2.08
+    },
+    {
+        "text": "like the SP32 chip for example.",
+        "start": 286.31,
+        "duration": 2.835
+    },
+    {
+        "text": "These are devices that are in their sense,",
+        "start": 289.145,
+        "duration": 3.12
+    },
+    {
+        "text": "dollar kind of price range,",
+        "start": 292.265,
+        "duration": 1.425
+    },
+    {
+        "text": "you can run these of coin cell batteries,",
+        "start": 293.69,
+        "duration": 2.699
+    },
+    {
+        "text": "and you take one of these boards,",
+        "start": 296.389,
+        "duration": 1.516
+    },
+    {
+        "text": "and you actually run a neural network on these devices.",
+        "start": 297.905,
+        "duration": 3.87
+    },
+    {
+        "text": "So that's what I've been playing with,",
+        "start": 301.775,
+        "duration": 1.775
+    },
+    {
+        "text": "and that's what this edge by Edge device does.",
+        "start": 303.55,
+        "duration": 2.545
+    },
+    {
+        "text": "So I'm just going to zip over to my screen,",
+        "start": 306.095,
+        "duration": 3.78
+    },
+    {
+        "text": "and this is the gauge bytes device here from Adafruit.",
+        "start": 309.875,
+        "duration": 3.68
+    },
+    {
+        "text": "Now this is not a powerful device.",
+        "start": 313.555,
+        "duration": 2.665
+    },
+    {
+        "text": "This device has got 120 megahertz processor in it.",
+        "start": 316.22,
+        "duration": 4.44
+    },
+    {
+        "text": "Now I used to have a Pentium PC back in",
+        "start": 320.66,
+        "duration": 3.48
+    },
+    {
+        "text": "the late '90s that had a 120 megahertz processor,",
+        "start": 324.14,
+        "duration": 3.855
+    },
+    {
+        "text": "so these are not powerful devices.",
+        "start": 327.995,
+        "duration": 2.25
+    },
+    {
+        "text": "This has got a 192 kilobytes of RAM in it.",
+        "start": 330.245,
+        "duration": 3.195
+    },
+    {
+        "text": "Now I had a ZX Spectrum back when I was six or seven,",
+        "start": 333.44,
+        "duration": 4.29
+    },
+    {
+        "text": "and that had a third of the RAM of this device.",
+        "start": 337.73,
+        "duration": 2.715
+    },
+    {
+        "text": "So we're talking 35 years later,",
+        "start": 340.445,
+        "duration": 3.045
+    },
+    {
+        "text": "we're running with three times the router for Spectrum.",
+        "start": 343.49,
+        "duration": 2.52
+    },
+    {
+        "text": "So these are very low power devices,",
+        "start": 346.01,
+        "duration": 3.0
+    },
+    {
+        "text": "but these can still run these AI models.",
+        "start": 349.01,
+        "duration": 2.385
+    },
+    {
+        "text": "In this case, this has got a little tiny microphone here,",
+        "start": 351.395,
+        "duration": 2.985
+    },
+    {
+        "text": "and that can pick up audio,",
+        "start": 354.38,
+        "duration": 1.905
+    },
+    {
+        "text": "can run it through this neural network and actually do",
+        "start": 356.285,
+        "duration": 3.105
+    },
+    {
+        "text": "wake word recognition and respond to my voice.",
+        "start": 359.39,
+        "duration": 4.395
+    },
+    {
+        "text": "So the current idea of this",
+        "start": 363.785,
+        "duration": 1.815
+    },
+    {
+        "text": "actually comes from a TensorFlow sample.",
+        "start": 365.6,
+        "duration": 1.725
+    },
+    {
+        "text": "TensorFlow,",
+        "start": 367.325,
+        "duration": 1.29
+    },
+    {
+        "text": "they published this example about 30 years ago actually,",
+        "start": 368.615,
+        "duration": 3.225
+    },
+    {
+        "text": "and it contains everything you need to",
+        "start": 371.84,
+        "duration": 2.13
+    },
+    {
+        "text": "train a neural network using a number of words,",
+        "start": 373.97,
+        "duration": 3.22
+    },
+    {
+        "text": "and they've actually got an open source data set,",
+        "start": 377.19,
+        "duration": 2.525
+    },
+    {
+        "text": "I think about the two gigabytes of training data inside there,",
+        "start": 379.715,
+        "duration": 3.555
+    },
+    {
+        "text": "covering a numbers of simple words.",
+        "start": 383.27,
+        "duration": 1.89
+    },
+    {
+        "text": "So yes, no, up, down, 1, 2,",
+        "start": 385.16,
+        "duration": 2.28
+    },
+    {
+        "text": "3, 4, 5, 6, 7, 8, 9, etc.",
+        "start": 387.44,
+        "duration": 2.615
+    },
+    {
+        "text": "So I'm taking their example,",
+        "start": 390.055,
+        "duration": 1.51
+    },
+    {
+        "text": "I'm using that to train my model.",
+        "start": 391.565,
+        "duration": 2.265
+    },
+    {
+        "text": "Now you can always build your own,",
+        "start": 393.83,
+        "duration": 1.86
+    },
+    {
+        "text": "you just need to get a lot of audio files.",
+        "start": 395.69,
+        "duration": 2.22
+    },
+    {
+        "text": "This particular one has got a 105,000 audio files,",
+        "start": 397.91,
+        "duration": 2.97
+    },
+    {
+        "text": "but you can build your own one.",
+        "start": 400.88,
+        "duration": 1.245
+    },
+    {
+        "text": "So if I wanted to get my EdgeBadge to",
+        "start": 402.125,
+        "duration": 1.965
+    },
+    {
+        "text": "respond to a different make word, I could do that.",
+        "start": 404.09,
+        "duration": 2.655
+    },
+    {
+        "text": "If I wanted to build, say, a home assistant,",
+        "start": 406.745,
+        "duration": 2.175
+    },
+    {
+        "text": "my own personal Seth that I had at home,",
+        "start": 408.92,
+        "duration": 2.25
+    },
+    {
+        "text": "and I could ask questions of,",
+        "start": 411.17,
+        "duration": 1.47
+    },
+    {
+        "text": "I could then just record my voice saying Seth a few thousand times,",
+        "start": 412.64,
+        "duration": 3.9
+    },
+    {
+        "text": "get other people to record that voice, take that audio file,",
+        "start": 416.54,
+        "duration": 2.925
+    },
+    {
+        "text": "and I could use this to try and log that [inaudible].",
+        "start": 419.465,
+        "duration": 4.675
+    },
+    {
+        "text": "That'll be so cool. You just say Seth and something wakes up.",
+        "start": 424.14,
+        "duration": 2.07
+    },
+    {
+        "text": ">> Love it.",
+        "start": 426.21,
+        "duration": 1.36
+    },
+    {
+        "text": ">> We have to invent it, Seth. I want to take this model,",
+        "start": 427.86,
+        "duration": 5.05
+    },
+    {
+        "text": "I wanted to train this up in Azure.",
+        "start": 432.91,
+        "duration": 1.695
+    },
+    {
+        "text": "So that pass code to your IoT Edge",
+        "start": 434.605,
+        "duration": 1.545
+    },
+    {
+        "text": "where you train the model up in the Cloud,",
+        "start": 436.15,
+        "duration": 1.545
+    },
+    {
+        "text": "take advantage of all that GPU power that the Cloud has got,",
+        "start": 437.695,
+        "duration": 2.805
+    },
+    {
+        "text": "and then run that on my Edge device.",
+        "start": 440.5,
+        "duration": 2.595
+    },
+    {
+        "text": "So as always, I spun up",
+        "start": 443.095,
+        "duration": 1.815
+    },
+    {
+        "text": "my Machine Learning Studio workspace in the Azure portal,",
+        "start": 444.91,
+        "duration": 2.76
+    },
+    {
+        "text": "it come the first step of getting going,",
+        "start": 447.67,
+        "duration": 1.83
+    },
+    {
+        "text": "and then I bumped over to the Azure Machine Learning Studio,",
+        "start": 449.5,
+        "duration": 2.91
+    },
+    {
+        "text": "I started writing my code in here.",
+        "start": 452.41,
+        "duration": 1.905
+    },
+    {
+        "text": "I spun up some completes,",
+        "start": 454.315,
+        "duration": 1.515
+    },
+    {
+        "text": "I need something to run this on.",
+        "start": 455.83,
+        "duration": 1.395
+    },
+    {
+        "text": "So I created some compute to run this.",
+        "start": 457.225,
+        "duration": 3.105
+    },
+    {
+        "text": "So I spun up a machine here.",
+        "start": 460.33,
+        "duration": 2.92
+    },
+    {
+        "text": "There we go. So I spun up a machine here to run my Notebook on.",
+        "start": 464.22,
+        "duration": 3.955
+    },
+    {
+        "text": "Then I just installed a Jupyter Notebook.",
+        "start": 468.175,
+        "duration": 2.73
+    },
+    {
+        "text": "So I uploaded my Notebook into here.",
+        "start": 470.905,
+        "duration": 2.055
+    },
+    {
+        "text": "This is essentially the same one as the TensorFlow demo with",
+        "start": 472.96,
+        "duration": 3.66
+    },
+    {
+        "text": "just a few tweaks to you to correct",
+        "start": 476.62,
+        "duration": 1.83
+    },
+    {
+        "text": "the version of TensorFlow that it was using.",
+        "start": 478.45,
+        "duration": 2.88
+    },
+    {
+        "text": "This Notebook, I run it in Jupyter Notebooks,",
+        "start": 481.33,
+        "duration": 4.17
+    },
+    {
+        "text": "I find it the nicest way to run this.",
+        "start": 485.5,
+        "duration": 1.635
+    },
+    {
+        "text": "This Notebook, it's pretty simple to do.",
+        "start": 487.135,
+        "duration": 3.6
+    },
+    {
+        "text": "You tell it the words you want out of the range that it's got.",
+        "start": 490.735,
+        "duration": 2.97
+    },
+    {
+        "text": "You tell it how many times you want to",
+        "start": 493.705,
+        "duration": 1.455
+    },
+    {
+        "text": "train, it then take your case,",
+        "start": 495.16,
+        "duration": 1.53
+    },
+    {
+        "text": "it recommends doing 18,000 training steps.",
+        "start": 496.69,
+        "duration": 3.465
+    },
+    {
+        "text": "Install Tensorflow. There's a particular TensorFlow example script",
+        "start": 500.155,
+        "duration": 5.055
+    },
+    {
+        "text": "that you can run that will actually train the model.",
+        "start": 505.21,
+        "duration": 2.625
+    },
+    {
+        "text": "Then when it's done, then I need to make it into a TinyML models.",
+        "start": 507.835,
+        "duration": 4.845
+    },
+    {
+        "text": "So this is where things get different",
+        "start": 512.68,
+        "duration": 1.98
+    },
+    {
+        "text": "from the standard train I/O model.",
+        "start": 514.66,
+        "duration": 2.355
+    },
+    {
+        "text": "I can train a TensorFlow model normally,",
+        "start": 517.015,
+        "duration": 2.235
+    },
+    {
+        "text": "but these are large.",
+        "start": 519.25,
+        "duration": 1.38
+    },
+    {
+        "text": "Tensorflow models can be fairly large.",
+        "start": 520.63,
+        "duration": 2.145
+    },
+    {
+        "text": "The types of data that they hold are usually 32-bit floats,",
+        "start": 522.775,
+        "duration": 4.065
+    },
+    {
+        "text": "for example, or even larger numbers that makes them quite big.",
+        "start": 526.84,
+        "duration": 3.225
+    },
+    {
+        "text": "But what I'm doing here,",
+        "start": 530.065,
+        "duration": 1.365
+    },
+    {
+        "text": "is I'm actually making this a lot smaller.",
+        "start": 531.43,
+        "duration": 2.76
+    },
+    {
+        "text": "I'm actually converting it to what's called TensorFlow Lite.",
+        "start": 534.19,
+        "duration": 2.565
+    },
+    {
+        "text": "So TensorFlow Lite is",
+        "start": 536.755,
+        "duration": 1.965
+    },
+    {
+        "text": "a lightweight format designed to make very small models.",
+        "start": 538.72,
+        "duration": 4.11
+    },
+    {
+        "text": "One of the original use cases for this was on mobile.",
+        "start": 542.83,
+        "duration": 2.895
+    },
+    {
+        "text": "So if I wanted to run an I/O model on, say,",
+        "start": 545.725,
+        "duration": 2.565
+    },
+    {
+        "text": "an Android device, I would use a TensorFlow Lite model.",
+        "start": 548.29,
+        "duration": 3.15
+    },
+    {
+        "text": "So it's smaller, it's designed to run using low power.",
+        "start": 551.44,
+        "duration": 2.895
+    },
+    {
+        "text": "You lose a certain amount of accuracy compared to",
+        "start": 554.335,
+        "duration": 2.115
+    },
+    {
+        "text": "the full TensorFlow model that runs in the Cloud,",
+        "start": 556.45,
+        "duration": 2.385
+    },
+    {
+        "text": "but it's a lot smaller,",
+        "start": 558.835,
+        "duration": 1.32
+    },
+    {
+        "text": "so you can do a lot more with it.",
+        "start": 560.155,
+        "duration": 1.605
+    },
+    {
+        "text": "So I get my models,",
+        "start": 561.76,
+        "duration": 1.65
+    },
+    {
+        "text": "it's a nice small model.",
+        "start": 563.41,
+        "duration": 1.56
+    },
+    {
+        "text": "Then just in this Notebook I'm printing out the size of my model.",
+        "start": 564.97,
+        "duration": 3.99
+    },
+    {
+        "text": "So if you notice what I've got here, 18,288 bytes.",
+        "start": 568.96,
+        "duration": 5.25
+    },
+    {
+        "text": "Less than 20K for a neural network to do wake word detection.",
+        "start": 574.21,
+        "duration": 5.07
+    },
+    {
+        "text": ">> Fantastic.",
+        "start": 579.28,
+        "duration": 0.99
+    },
+    {
+        "text": ">> That is tiny.",
+        "start": 580.27,
+        "duration": 2.43
+    },
+    {
+        "text": "Hence the name TinyML.",
+        "start": 582.7,
+        "duration": 2.475
+    },
+    {
+        "text": "This is not about TensorFlow Lite,",
+        "start": 585.175,
+        "duration": 1.575
+    },
+    {
+        "text": "which is lightweight, this is tiny.",
+        "start": 586.75,
+        "duration": 2.22
+    },
+    {
+        "text": "This is running on devices that don't have much storage.",
+        "start": 588.97,
+        "duration": 3.3
+    },
+    {
+        "text": "Then what's cold as well is I can take this model and export",
+        "start": 592.27,
+        "duration": 2.97
+    },
+    {
+        "text": "it as raw binary data in a C++ file.",
+        "start": 595.24,
+        "duration": 3.21
+    },
+    {
+        "text": "So I can then use this inside",
+        "start": 598.45,
+        "duration": 2.04
+    },
+    {
+        "text": "C++ code that I used to program my device.",
+        "start": 600.49,
+        "duration": 2.61
+    },
+    {
+        "text": "So I can literally just copy and paste this code and that gives me",
+        "start": 603.1,
+        "duration": 3.825
+    },
+    {
+        "text": "my neural network that I can load using",
+        "start": 606.925,
+        "duration": 1.785
+    },
+    {
+        "text": "the TensorFlow C++ libraries.",
+        "start": 608.71,
+        "duration": 2.625
+    },
+    {
+        "text": "So what I do now is I'm using Visual Studio Code for this.",
+        "start": 611.335,
+        "duration": 4.44
+    },
+    {
+        "text": "So Visual Studio Code can actually program microcontrollers.",
+        "start": 615.775,
+        "duration": 3.315
+    },
+    {
+        "text": "Behind the scenes it can connect to the Arduino IDE,",
+        "start": 619.09,
+        "duration": 3.18
+    },
+    {
+        "text": "which is a standard tool for",
+        "start": 622.27,
+        "duration": 1.68
+    },
+    {
+        "text": "programming microcontrollers, especially Arduino-based ones.",
+        "start": 623.95,
+        "duration": 3.96
+    },
+    {
+        "text": "There's extensions for VS code that I like to do this,",
+        "start": 627.91,
+        "duration": 2.355
+    },
+    {
+        "text": "and this will take my code,",
+        "start": 630.265,
+        "duration": 1.575
+    },
+    {
+        "text": "compile it, and then push that to the board via the Arduino IDE.",
+        "start": 631.84,
+        "duration": 4.38
+    },
+    {
+        "text": "So what I've got in my code here,",
+        "start": 636.22,
+        "duration": 1.86
+    },
+    {
+        "text": "I have got my neural network.",
+        "start": 638.08,
+        "duration": 2.085
+    },
+    {
+        "text": "I've literally copied and pasted",
+        "start": 640.165,
+        "duration": 2.175
+    },
+    {
+        "text": "the code that was spat out by my Notebook into my C++ code here.",
+        "start": 642.34,
+        "duration": 5.31
+    },
+    {
+        "text": "When I compile this,",
+        "start": 647.65,
+        "duration": 1.185
+    },
+    {
+        "text": "this would be compiled down nice and small,",
+        "start": 648.835,
+        "duration": 2.025
+    },
+    {
+        "text": "and then I have got a standard Arduino style sketch.",
+        "start": 650.86,
+        "duration": 4.14
+    },
+    {
+        "text": "If you've done Arduino programming before,",
+        "start": 655.0,
+        "duration": 1.56
+    },
+    {
+        "text": "you recognize that from Arduino style sketch.",
+        "start": 656.56,
+        "duration": 3.165
+    },
+    {
+        "text": "This has got the same code you get in any Arduino file,",
+        "start": 659.725,
+        "duration": 3.0
+    },
+    {
+        "text": "and this then connects to the microphone on the board,",
+        "start": 662.725,
+        "duration": 2.46
+    },
+    {
+        "text": "listens to the microphone,",
+        "start": 665.185,
+        "duration": 1.77
+    },
+    {
+        "text": "and then runs what it hears through the neural network,",
+        "start": 666.955,
+        "duration": 3.525
+    },
+    {
+        "text": "and then determines what word I'm saying.",
+        "start": 670.48,
+        "duration": 2.835
+    },
+    {
+        "text": "Now I've trained this one up on stop and go,",
+        "start": 673.315,
+        "duration": 3.09
+    },
+    {
+        "text": "and it works really well for stop.",
+        "start": 676.405,
+        "duration": 3.39
+    },
+    {
+        "text": "I'm currently having a few problems with",
+        "start": 679.795,
+        "duration": 1.74
+    },
+    {
+        "text": "the go word simply because",
+        "start": 681.535,
+        "duration": 1.755
+    },
+    {
+        "text": "the data set that Google has provided was trained by Americans.",
+        "start": 683.29,
+        "duration": 3.42
+    },
+    {
+        "text": "As you can probably tell by",
+        "start": 686.71,
+        "duration": 1.26
+    },
+    {
+        "text": "my evil villain style accent, I am and British.",
+        "start": 687.97,
+        "duration": 2.785
+    },
+    {
+        "text": "So it's not so good with my particular accent.",
+        "start": 690.755,
+        "duration": 3.085
+    },
+    {
+        "text": "But all this means is I need to get better data.",
+        "start": 693.84,
+        "duration": 1.965
+    },
+    {
+        "text": "I just need to keep retraining my model.",
+        "start": 695.805,
+        "duration": 2.19
+    },
+    {
+        "text": "So I'm just going to zip to my device cam here,",
+        "start": 697.995,
+        "duration": 4.41
+    },
+    {
+        "text": "and let's see an action.",
+        "start": 702.405,
+        "duration": 3.15
+    },
+    {
+        "text": "Stop. There we go.",
+        "start": 705.555,
+        "duration": 4.72
+    },
+    {
+        "text": "So I said the word stop,",
+        "start": 710.275,
+        "duration": 1.41
+    },
+    {
+        "text": "it picked it up and it showed that on the screen.",
+        "start": 711.685,
+        "duration": 2.04
+    },
+    {
+        "text": "I'll try go, no promises, no promise it work.",
+        "start": 713.725,
+        "duration": 4.065
+    },
+    {
+        "text": "Go, go, go.",
+        "start": 717.79,
+        "duration": 8.07
+    },
+    {
+        "text": "No, it's not going to work.",
+        "start": 725.86,
+        "duration": 1.71
+    },
+    {
+        "text": "So I need to retrain my model.",
+        "start": 727.57,
+        "duration": 1.23
+    },
+    {
+        "text": "I need to get it better.",
+        "start": 728.8,
+        "duration": 1.83
+    },
+    {
+        "text": "There it goes, finally caught up.",
+        "start": 730.63,
+        "duration": 1.62
+    },
+    {
+        "text": "So I still need to improve my model, continuously improve this.",
+        "start": 732.25,
+        "duration": 3.27
+    },
+    {
+        "text": "Obviously, this is one downside to running these models on",
+        "start": 735.52,
+        "duration": 2.58
+    },
+    {
+        "text": "device is that I don't have",
+        "start": 738.1,
+        "duration": 1.65
+    },
+    {
+        "text": "the data to continuously improve my model.",
+        "start": 739.75,
+        "duration": 2.175
+    },
+    {
+        "text": "So I would need to then build",
+        "start": 741.925,
+        "duration": 1.755
+    },
+    {
+        "text": "something in to capture these audio files,",
+        "start": 743.68,
+        "duration": 1.935
+    },
+    {
+        "text": "send them backup to Cloud for retraining at a later date.",
+        "start": 745.615,
+        "duration": 3.585
+    },
+    {
+        "text": "So that is how I've managed to get a wake word running",
+        "start": 749.2,
+        "duration": 3.495
+    },
+    {
+        "text": "on my microcontroller using TinyML.",
+        "start": 752.695,
+        "duration": 3.255
+    },
+    {
+        "text": ">> That is amazing. Now, can people go and find this somewhere?",
+        "start": 755.95,
+        "duration": 2.43
+    },
+    {
+        "text": "How can people go look this up and maybe try to replicate this?",
+        "start": 758.38,
+        "duration": 3.795
+    },
+    {
+        "text": ">> Yes. So I've got a link here that pops up.",
+        "start": 762.175,
+        "duration": 5.595
+    },
+    {
+        "text": "This will take you to a GitHub repo.",
+        "start": 767.77,
+        "duration": 3.48
+    },
+    {
+        "text": "I'll just flip over to that GitHub repo now.",
+        "start": 771.25,
+        "duration": 4.42
+    },
+    {
+        "text": "This has got everything you need to do this all yourself.",
+        "start": 776.94,
+        "duration": 6.175
+    },
+    {
+        "text": "So all the instructions here,",
+        "start": 783.115,
+        "duration": 1.305
+    },
+    {
+        "text": "all the code, everything you need.",
+        "start": 784.42,
+        "duration": 2.85
+    },
+    {
+        "text": "It tells you what to buy, to buy this EdgeBadge device.",
+        "start": 787.27,
+        "duration": 3.645
+    },
+    {
+        "text": "You can also run this on other devices",
+        "start": 790.915,
+        "duration": 2.655
+    },
+    {
+        "text": "as long as they've got a microphone.",
+        "start": 793.57,
+        "duration": 1.95
+    },
+    {
+        "text": "So if you want to run it on a different pie badge instead,",
+        "start": 795.52,
+        "duration": 2.43
+    },
+    {
+        "text": "you can just plug an external microphone,",
+        "start": 797.95,
+        "duration": 1.59
+    },
+    {
+        "text": "or on a standard SB 32 device,",
+        "start": 799.54,
+        "duration": 1.965
+    },
+    {
+        "text": "again, you can, just take the microphone.",
+        "start": 801.505,
+        "duration": 2.235
+    },
+    {
+        "text": "Then all the instructions are here on how you can train the model,",
+        "start": 803.74,
+        "duration": 3.06
+    },
+    {
+        "text": "set you up for a free Azure account,",
+        "start": 806.8,
+        "duration": 2.204
+    },
+    {
+        "text": "spin on ML Studio,",
+        "start": 809.004,
+        "duration": 1.756
+    },
+    {
+        "text": "get the Notebook there,",
+        "start": 810.76,
+        "duration": 1.56
+    },
+    {
+        "text": "choose the words that you want to train for,",
+        "start": 812.32,
+        "duration": 2.445
+    },
+    {
+        "text": "compile up and run it on your EdgeBadge.",
+        "start": 814.765,
+        "duration": 2.805
+    },
+    {
+        "text": "Then if you want to train this to build your own, Seth,",
+        "start": 817.57,
+        "duration": 2.4
+    },
+    {
+        "text": "where you want to train using this for",
+        "start": 819.97,
+        "duration": 1.77
+    },
+    {
+        "text": "Seth word or any other name that you want,",
+        "start": 821.74,
+        "duration": 2.58
+    },
+    {
+        "text": "any other thing you want,",
+        "start": 824.32,
+        "duration": 1.185
+    },
+    {
+        "text": "then there's instructions in the TensorFlow repo",
+        "start": 825.505,
+        "duration": 2.535
+    },
+    {
+        "text": "which tells you what format",
+        "start": 828.04,
+        "duration": 2.19
+    },
+    {
+        "text": "your audio files need to be so that you can then",
+        "start": 830.23,
+        "duration": 2.31
+    },
+    {
+        "text": "build up the audio and train it on your own thing.",
+        "start": 832.54,
+        "duration": 2.565
+    },
+    {
+        "text": ">> Well, this has been a fantastic, my friend.",
+        "start": 835.105,
+        "duration": 4.125
+    },
+    {
+        "text": "It's really fun. We'll put the links below by the way,",
+        "start": 839.23,
+        "duration": 2.85
+    },
+    {
+        "text": "hopefully, you'll be able to try this out.",
+        "start": 842.08,
+        "duration": 1.71
+    },
+    {
+        "text": "Thanks so much for being with us, Jim.",
+        "start": 843.79,
+        "duration": 2.35
+    },
+    {
+        "text": ">> Thank you. It's a lot of fun.",
+        "start": 846.21,
+        "duration": 2.23
+    },
+    {
+        "text": ">> Thank you so much for watching. We're learning all about how",
+        "start": 848.44,
+        "duration": 2.88
+    },
+    {
+        "text": "to recognize words on a microcontroller using TinyMl,",
+        "start": 851.32,
+        "duration": 2.97
+    },
+    {
+        "text": "how to peak over because I wanted to say it the right way.",
+        "start": 854.29,
+        "duration": 2.47
+    },
+    {
+        "text": "Thanks so much for watching. We'll see you next time. Take care.",
+        "start": 856.76,
+        "duration": 2.24
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 859.0,
+        "duration": 15.0
+    }
+]

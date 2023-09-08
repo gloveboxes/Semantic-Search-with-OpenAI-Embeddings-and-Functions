@@ -1,0 +1,1727 @@
+[
+    {
+        "text": ">> You're not going to want to miss the next couple of episodes",
+        "start": 0.0,
+        "duration": 1.8
+    },
+    {
+        "text": "of the AI show where I take you",
+        "start": 1.8,
+        "duration": 1.95
+    },
+    {
+        "text": "inside a talk I did at the Toronto AI user group.",
+        "start": 3.75,
+        "duration": 3.96
+    },
+    {
+        "text": "These bite-size chunks will talk all about what AI is,",
+        "start": 7.71,
+        "duration": 3.525
+    },
+    {
+        "text": "how Machine Learning works,",
+        "start": 11.235,
+        "duration": 1.125
+    },
+    {
+        "text": "and maybe even a little bit about Deep Learning.",
+        "start": 12.36,
+        "duration": 2.685
+    },
+    {
+        "text": "Get into it, understand it, make sure you tune in.",
+        "start": 15.045,
+        "duration": 2.955
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 18.0,
+        "duration": 4.68
+    },
+    {
+        "text": "How's it going everybody? I am Seth.",
+        "start": 22.68,
+        "duration": 2.82
+    },
+    {
+        "text": "Our org is different than all the other ones",
+        "start": 25.5,
+        "duration": 2.97
+    },
+    {
+        "text": "because I am not here to sell products,",
+        "start": 28.47,
+        "duration": 3.09
+    },
+    {
+        "text": "I'm here to solve problems.",
+        "start": 31.56,
+        "duration": 2.31
+    },
+    {
+        "text": "If you like the alliteration on that, solve problems.",
+        "start": 33.87,
+        "duration": 5.91
+    },
+    {
+        "text": "So basically, this is an introduction to deep learning.",
+        "start": 39.78,
+        "duration": 4.61
+    },
+    {
+        "text": "But my sense is that all of you know a lot of stuff,",
+        "start": 44.39,
+        "duration": 2.61
+    },
+    {
+        "text": "so I will go faster.",
+        "start": 47.0,
+        "duration": 1.29
+    },
+    {
+        "text": "So depending on what's going on,",
+        "start": 48.29,
+        "duration": 1.2
+    },
+    {
+        "text": "because I have put way too much stuff in here.",
+        "start": 49.49,
+        "duration": 2.85
+    },
+    {
+        "text": "Basically, I'm going to motivate",
+        "start": 52.34,
+        "duration": 1.62
+    },
+    {
+        "text": "Convolutional Neural Networks from first principles,",
+        "start": 53.96,
+        "duration": 2.97
+    },
+    {
+        "text": "and then show you what it looks like in",
+        "start": 56.93,
+        "duration": 1.89
+    },
+    {
+        "text": "TensorFlow because you probably all know what it looks like,",
+        "start": 58.82,
+        "duration": 2.52
+    },
+    {
+        "text": "and then show you how to run it on Azure, basically.",
+        "start": 61.34,
+        "duration": 3.915
+    },
+    {
+        "text": "So obviously, that sounds like a lot of stuff because it",
+        "start": 65.255,
+        "duration": 4.905
+    },
+    {
+        "text": "is and so I will go",
+        "start": 70.16,
+        "duration": 1.89
+    },
+    {
+        "text": "fast or slow depending on what you tell me to do.",
+        "start": 72.05,
+        "duration": 2.715
+    },
+    {
+        "text": "So since Canadians are super nice,",
+        "start": 74.765,
+        "duration": 2.685
+    },
+    {
+        "text": "you can basically be, just be like, okay.",
+        "start": 77.45,
+        "duration": 4.085
+    },
+    {
+        "text": "Or be like, and I'll know,",
+        "start": 81.535,
+        "duration": 3.59
+    },
+    {
+        "text": "and you're nice way and you won't have to say",
+        "start": 85.125,
+        "duration": 3.305
+    },
+    {
+        "text": "sorry for it afterwards, just FYI.",
+        "start": 88.43,
+        "duration": 3.85
+    },
+    {
+        "text": "So the thing about machine learning and deep learning,",
+        "start": 92.28,
+        "duration": 3.83
+    },
+    {
+        "text": "and since you are all,",
+        "start": 96.11,
+        "duration": 1.095
+    },
+    {
+        "text": "I'm assuming practitioners, and",
+        "start": 97.205,
+        "duration": 1.485
+    },
+    {
+        "text": "if you're a beginner, that's okay too.",
+        "start": 98.69,
+        "duration": 1.51
+    },
+    {
+        "text": "This isn't for everybody.",
+        "start": 100.2,
+        "duration": 1.325
+    },
+    {
+        "text": "The thing with machine learning is we have",
+        "start": 101.525,
+        "duration": 2.355
+    },
+    {
+        "text": "this super huge gap of",
+        "start": 103.88,
+        "duration": 4.02
+    },
+    {
+        "text": "understanding to overcome because",
+        "start": 107.9,
+        "duration": 1.44
+    },
+    {
+        "text": "terrible things have been done with AI and machine learning.",
+        "start": 109.34,
+        "duration": 4.295
+    },
+    {
+        "text": "Come on, that's funny. Is it clippy?",
+        "start": 113.635,
+        "duration": 3.419
+    },
+    {
+        "text": "They're not, they're all looking at me.",
+        "start": 117.054,
+        "duration": 1.496
+    },
+    {
+        "text": "These are the jokes people.",
+        "start": 118.55,
+        "duration": 2.04
+    },
+    {
+        "text": "The thing about it is, is that everyone today is",
+        "start": 120.59,
+        "duration": 3.33
+    },
+    {
+        "text": "all about machine learning or deep learning.",
+        "start": 123.92,
+        "duration": 3.52
+    },
+    {
+        "text": "As you know, the difference between machine learning and",
+        "start": 127.44,
+        "duration": 3.26
+    },
+    {
+        "text": "deep learning depends on the marketing guy, effectively.",
+        "start": 130.7,
+        "duration": 3.9
+    },
+    {
+        "text": "So that's the important thing.",
+        "start": 134.6,
+        "duration": 2.22
+    },
+    {
+        "text": "The reality of the matter is when I explain it to people,",
+        "start": 136.82,
+        "duration": 3.3
+    },
+    {
+        "text": "let's just say because I'm assuming you-all know this stuff,",
+        "start": 140.12,
+        "duration": 2.4
+    },
+    {
+        "text": "but this is how I explain it to",
+        "start": 142.52,
+        "duration": 1.47
+    },
+    {
+        "text": "people so that if you ever need to.",
+        "start": 143.99,
+        "duration": 1.86
+    },
+    {
+        "text": "I always say, \"Look,",
+        "start": 145.85,
+        "duration": 1.95
+    },
+    {
+        "text": "when we're talking about AI, it means a lot of other things too.\"",
+        "start": 147.8,
+        "duration": 4.155
+    },
+    {
+        "text": "If you remember, like way back in the day",
+        "start": 151.955,
+        "duration": 3.15
+    },
+    {
+        "text": "when Deep Blue chess thing beat Kasparov,",
+        "start": 155.105,
+        "duration": 3.855
+    },
+    {
+        "text": "that's AI, but it's not machine learning.",
+        "start": 158.96,
+        "duration": 4.705
+    },
+    {
+        "text": "It's very important to distinguish.",
+        "start": 163.665,
+        "duration": 2.4
+    },
+    {
+        "text": "The way I like to think about it is the search space.",
+        "start": 166.065,
+        "duration": 3.145
+    },
+    {
+        "text": "The size of the search space helps you know where things are.",
+        "start": 169.21,
+        "duration": 4.475
+    },
+    {
+        "text": "The search space in chess,",
+        "start": 173.685,
+        "duration": 1.285
+    },
+    {
+        "text": "while large, is still finite.",
+        "start": 174.97,
+        "duration": 1.725
+    },
+    {
+        "text": "The search space in the amount of",
+        "start": 176.695,
+        "duration": 1.635
+    },
+    {
+        "text": "pictures that people generate is infinite.",
+        "start": 178.33,
+        "duration": 2.385
+    },
+    {
+        "text": "Because I have seen some crazy stuff on Twitter and you know this.",
+        "start": 180.715,
+        "duration": 3.65
+    },
+    {
+        "text": "Then our parents put really crazy pictures on",
+        "start": 184.365,
+        "duration": 2.725
+    },
+    {
+        "text": "Facebook. So what does it originate?",
+        "start": 187.09,
+        "duration": 2.505
+    },
+    {
+        "text": "Artificial intelligence and machine learning.",
+        "start": 189.595,
+        "duration": 2.73
+    },
+    {
+        "text": "In my professional opinion,",
+        "start": 192.325,
+        "duration": 2.235
+    },
+    {
+        "text": "Artificial Intelligence is a glorified search problem.",
+        "start": 194.56,
+        "duration": 3.13
+    },
+    {
+        "text": "Remember algorithms like A-star, Minimax,",
+        "start": 197.69,
+        "duration": 3.325
+    },
+    {
+        "text": "they're all searching entries with a good strategy.",
+        "start": 201.015,
+        "duration": 3.6
+    },
+    {
+        "text": "This is how I like to think of AI.",
+        "start": 204.615,
+        "duration": 2.28
+    },
+    {
+        "text": "I like to think of it as the hard part of",
+        "start": 206.895,
+        "duration": 2.51
+    },
+    {
+        "text": "AI where there is a fixed problem space.",
+        "start": 209.405,
+        "duration": 3.28
+    },
+    {
+        "text": "When it comes to machine learning,",
+        "start": 212.685,
+        "duration": 1.535
+    },
+    {
+        "text": "there is a little bit of squishiness about the problem.",
+        "start": 214.22,
+        "duration": 3.465
+    },
+    {
+        "text": "Instead of searching a space,",
+        "start": 217.685,
+        "duration": 2.505
+    },
+    {
+        "text": "what we're doing instead is providing",
+        "start": 220.19,
+        "duration": 1.98
+    },
+    {
+        "text": "examples to generate an algorithm.",
+        "start": 222.17,
+        "duration": 3.155
+    },
+    {
+        "text": "Most people don't like this.",
+        "start": 225.325,
+        "duration": 3.315
+    },
+    {
+        "text": "Because when I say algorithm, I mean model,",
+        "start": 228.64,
+        "duration": 1.765
+    },
+    {
+        "text": "we're building a machine learning model.",
+        "start": 230.405,
+        "duration": 1.62
+    },
+    {
+        "text": "But if you think about it, it's",
+        "start": 232.025,
+        "duration": 1.125
+    },
+    {
+        "text": "just a different way of making a function.",
+        "start": 233.15,
+        "duration": 2.95
+    },
+    {
+        "text": "It just looks weirder.",
+        "start": 236.14,
+        "duration": 2.85
+    },
+    {
+        "text": "If you open like an HDF5 file",
+        "start": 238.99,
+        "duration": 2.77
+    },
+    {
+        "text": "in front of people that have never done machine learning,",
+        "start": 241.76,
+        "duration": 2.13
+    },
+    {
+        "text": "they think the machine's going to",
+        "start": 243.89,
+        "duration": 1.26
+    },
+    {
+        "text": "explode and glitter is going to come out.",
+        "start": 245.15,
+        "duration": 1.725
+    },
+    {
+        "text": "Because it's AI, but it's the file, and I say, \"Well,",
+        "start": 246.875,
+        "duration": 2.655
+    },
+    {
+        "text": "it's basically a bag of numbers and a network, sorry.\"",
+        "start": 249.53,
+        "duration": 3.71
+    },
+    {
+        "text": "Sorry to disappoint you Steve for marketing,",
+        "start": 253.24,
+        "duration": 3.04
+    },
+    {
+        "text": "it's not anymore than that.",
+        "start": 256.28,
+        "duration": 1.5
+    },
+    {
+        "text": "It's a function that's written with data.",
+        "start": 257.78,
+        "duration": 1.815
+    },
+    {
+        "text": "So then wasn't originally machine learning and deep learning?",
+        "start": 259.595,
+        "duration": 3.165
+    },
+    {
+        "text": "Because some will tell you that",
+        "start": 262.76,
+        "duration": 1.92
+    },
+    {
+        "text": "neural networks belong in the space of machine learning.",
+        "start": 264.68,
+        "duration": 3.515
+    },
+    {
+        "text": "But then if you get to n number of layers,",
+        "start": 268.195,
+        "duration": 4.36
+    },
+    {
+        "text": "then it becomes deep learning.",
+        "start": 272.555,
+        "duration": 1.875
+    },
+    {
+        "text": "It is still an open question what that number n is.",
+        "start": 274.43,
+        "duration": 3.06
+    },
+    {
+        "text": "Again, it depends on the marketing people, in my opinion.",
+        "start": 277.49,
+        "duration": 3.755
+    },
+    {
+        "text": "Because that you've seen resonates,",
+        "start": 281.245,
+        "duration": 2.055
+    },
+    {
+        "text": "I think how high they go,",
+        "start": 283.3,
+        "duration": 1.2
+    },
+    {
+        "text": "they go pretty high now.",
+        "start": 284.5,
+        "duration": 1.335
+    },
+    {
+        "text": "Reason, I'm a computer vision guy,",
+        "start": 285.835,
+        "duration": 2.115
+    },
+    {
+        "text": "and so I think in terms of computer vision,",
+        "start": 287.95,
+        "duration": 2.37
+    },
+    {
+        "text": "but these things can get pretty",
+        "start": 290.32,
+        "duration": 1.38
+    },
+    {
+        "text": "deep and they do some pretty amazing stuff.",
+        "start": 291.7,
+        "duration": 3.12
+    },
+    {
+        "text": "The question that I always get from business people is,",
+        "start": 294.82,
+        "duration": 3.33
+    },
+    {
+        "text": "when should I use it.",
+        "start": 298.15,
+        "duration": 1.59
+    },
+    {
+        "text": "That's an important question because everyone's like,",
+        "start": 299.74,
+        "duration": 3.555
+    },
+    {
+        "text": "\"Hey, you should use AI, just use AI,\"",
+        "start": 303.295,
+        "duration": 1.875
+    },
+    {
+        "text": "and you're like, \"I don't think you know what this is?\"",
+        "start": 305.17,
+        "duration": 1.905
+    },
+    {
+        "text": "We're making a function in different ways.",
+        "start": 307.075,
+        "duration": 2.205
+    },
+    {
+        "text": "So the example I like to give it,",
+        "start": 309.28,
+        "duration": 2.61
+    },
+    {
+        "text": "maybe this will be helpful to you when you talk to your manager",
+        "start": 311.89,
+        "duration": 2.43
+    },
+    {
+        "text": "about what this can do is the example of a check.",
+        "start": 314.32,
+        "duration": 2.46
+    },
+    {
+        "text": "Anyone who work for a bank?",
+        "start": 316.78,
+        "duration": 1.215
+    },
+    {
+        "text": "Did I just make the thing go away, the screen.",
+        "start": 317.995,
+        "duration": 2.43
+    },
+    {
+        "text": "You still go to my screen?",
+        "start": 320.425,
+        "duration": 1.905
+    },
+    {
+        "text": "Okay, good. So anyone who work for a bank?",
+        "start": 322.33,
+        "duration": 4.87
+    },
+    {
+        "text": "There's always a couple of you. The people who work for banks are",
+        "start": 327.2,
+        "duration": 3.06
+    },
+    {
+        "text": "like programmer saints because the data they deal with,",
+        "start": 330.26,
+        "duration": 3.66
+    },
+    {
+        "text": "it should be on the Dirty Jobs show.",
+        "start": 333.92,
+        "duration": 2.99
+    },
+    {
+        "text": "It's like they're using COBOL.",
+        "start": 336.91,
+        "duration": 2.345
+    },
+    {
+        "text": "For some reason, Bill always puts the name",
+        "start": 339.255,
+        "duration": 1.775
+    },
+    {
+        "text": "and the age field and COBOL lets you do that,",
+        "start": 341.03,
+        "duration": 2.145
+    },
+    {
+        "text": "and that's what they have to deal with.",
+        "start": 343.175,
+        "duration": 1.65
+    },
+    {
+        "text": "So imagine you work for a bank and you show",
+        "start": 344.825,
+        "duration": 2.565
+    },
+    {
+        "text": "up one day and the guy comes down,",
+        "start": 347.39,
+        "duration": 2.4
+    },
+    {
+        "text": "and he's like, \"We have a really good idea.",
+        "start": 349.79,
+        "duration": 2.1
+    },
+    {
+        "text": "We want you to write an algorithm that detects whether",
+        "start": 351.89,
+        "duration": 3.03
+    },
+    {
+        "text": "the pictures of the check from the users are upside down or not.\"",
+        "start": 354.92,
+        "duration": 3.675
+    },
+    {
+        "text": "That's an easy problem because your bank is cheap and",
+        "start": 358.595,
+        "duration": 3.795
+    },
+    {
+        "text": "all of your banks checks have",
+        "start": 362.39,
+        "duration": 1.65
+    },
+    {
+        "text": "a black stripe at the top. Can you solve that?",
+        "start": 364.04,
+        "duration": 3.86
+    },
+    {
+        "text": "You can, and you-all know that you just sample",
+        "start": 367.9,
+        "duration": 2.98
+    },
+    {
+        "text": "100 random pixels at the top and if they're all black,",
+        "start": 370.88,
+        "duration": 2.7
+    },
+    {
+        "text": "good. If they're not, you switch.",
+        "start": 373.58,
+        "duration": 1.485
+    },
+    {
+        "text": "So you tell Steve for marketing, \"I can do this,",
+        "start": 375.065,
+        "duration": 3.075
+    },
+    {
+        "text": "can take six hours.\"",
+        "start": 378.14,
+        "duration": 1.115
+    },
+    {
+        "text": "It really can take three,",
+        "start": 379.255,
+        "duration": 1.64
+    },
+    {
+        "text": "but saw YouTube to watch.",
+        "start": 380.895,
+        "duration": 3.295
+    },
+    {
+        "text": "Someone has to watch all that stuff.",
+        "start": 384.95,
+        "duration": 2.83
+    },
+    {
+        "text": "Although Billy wants to talk about his life, we need to listen.",
+        "start": 387.78,
+        "duration": 3.115
+    },
+    {
+        "text": "So you do this in one day and he comes back the next day,",
+        "start": 390.895,
+        "duration": 2.935
+    },
+    {
+        "text": "it's ever a really even better idea,",
+        "start": 393.83,
+        "duration": 1.455
+    },
+    {
+        "text": "and it's just this one thing.",
+        "start": 395.285,
+        "duration": 1.455
+    },
+    {
+        "text": "Anytime a non-technical person tells",
+        "start": 396.74,
+        "duration": 3.21
+    },
+    {
+        "text": "a technical person it's just this one thing, we have to sit down.",
+        "start": 399.95,
+        "duration": 5.11
+    },
+    {
+        "text": "No one will go up to a civil engineer and be like,",
+        "start": 406.28,
+        "duration": 3.06
+    },
+    {
+        "text": "\"Hey, just this one thing,",
+        "start": 409.34,
+        "duration": 1.455
+    },
+    {
+        "text": "turned to bridge upside-down.\"",
+        "start": 410.795,
+        "duration": 1.544
+    },
+    {
+        "text": "But they will do that crap to us all the time.",
+        "start": 412.339,
+        "duration": 3.096
+    },
+    {
+        "text": "So he goes just this one thing,",
+        "start": 415.435,
+        "duration": 2.845
+    },
+    {
+        "text": "the owner of the bank, Sally,",
+        "start": 418.28,
+        "duration": 1.2
+    },
+    {
+        "text": "loves her horses and she wants",
+        "start": 419.48,
+        "duration": 1.89
+    },
+    {
+        "text": "a picture of her horse on the check, just this one thing.",
+        "start": 421.37,
+        "duration": 3.275
+    },
+    {
+        "text": "Now, could you write an algorithm to",
+        "start": 424.645,
+        "duration": 1.825
+    },
+    {
+        "text": "solve that check upside-down problem?",
+        "start": 426.47,
+        "duration": 2.16
+    },
+    {
+        "text": "You could, you would ask for the check,",
+        "start": 428.63,
+        "duration": 3.03
+    },
+    {
+        "text": "you would do the bunch of If statements and",
+        "start": 431.66,
+        "duration": 4.47
+    },
+    {
+        "text": "you'd go home and take an extra long shower",
+        "start": 436.13,
+        "duration": 1.86
+    },
+    {
+        "text": "because he wrote that code, but it works.",
+        "start": 437.99,
+        "duration": 2.75
+    },
+    {
+        "text": "Now, imagine if you have to do this for any person,",
+        "start": 440.74,
+        "duration": 4.0
+    },
+    {
+        "text": "for any check, for any picture.",
+        "start": 444.74,
+        "duration": 2.22
+    },
+    {
+        "text": "Did you feel that gap as a programmer?",
+        "start": 446.96,
+        "duration": 3.115
+    },
+    {
+        "text": "You felt it. That's the gap where machine learning works,",
+        "start": 450.075,
+        "duration": 4.535
+    },
+    {
+        "text": "because programmers have this intuition about",
+        "start": 454.61,
+        "duration": 3.29
+    },
+    {
+        "text": "programming and when you put that gap into their head,",
+        "start": 457.9,
+        "duration": 2.91
+    },
+    {
+        "text": "they're like, \"Oh, I can't write that.\"",
+        "start": 460.81,
+        "duration": 2.49
+    },
+    {
+        "text": "No, you can, but you can give",
+        "start": 463.3,
+        "duration": 2.09
+    },
+    {
+        "text": "the machine examples such that it can produce models for that.",
+        "start": 465.39,
+        "duration": 3.485
+    },
+    {
+        "text": "That's how I explain that gap because intuitively,",
+        "start": 468.875,
+        "duration": 4.164
+    },
+    {
+        "text": "programmers will start to code in their head,",
+        "start": 473.039,
+        "duration": 2.846
+    },
+    {
+        "text": "black stripe at the top,",
+        "start": 475.885,
+        "duration": 1.54
+    },
+    {
+        "text": "horse has pixels over here and",
+        "start": 477.425,
+        "duration": 2.18
+    },
+    {
+        "text": "over here and I can fake that somehow,",
+        "start": 479.605,
+        "duration": 2.24
+    },
+    {
+        "text": "and I can do some transformations,",
+        "start": 481.845,
+        "duration": 2.205
+    },
+    {
+        "text": "but then when you say any picture,",
+        "start": 484.05,
+        "duration": 1.23
+    },
+    {
+        "text": "any check, any person,",
+        "start": 485.28,
+        "duration": 1.085
+    },
+    {
+        "text": "they can no longer do that,",
+        "start": 486.365,
+        "duration": 1.52
+    },
+    {
+        "text": "but they know that a computer must be able to somehow.",
+        "start": 487.885,
+        "duration": 3.45
+    },
+    {
+        "text": "This is where we say,",
+        "start": 491.335,
+        "duration": 1.495
+    },
+    {
+        "text": "there's where machine learning works.",
+        "start": 492.83,
+        "duration": 1.375
+    },
+    {
+        "text": "That's how I explain it.",
+        "start": 494.205,
+        "duration": 1.39
+    },
+    {
+        "text": "Now, all of you know machine learning and so",
+        "start": 495.595,
+        "duration": 2.185
+    },
+    {
+        "text": "I'm explaining it to you this way because you already know,",
+        "start": 497.78,
+        "duration": 2.56
+    },
+    {
+        "text": "but when I talk about it to people that don't know,",
+        "start": 500.34,
+        "duration": 2.405
+    },
+    {
+        "text": "I literally make programmers feel",
+        "start": 502.745,
+        "duration": 2.135
+    },
+    {
+        "text": "the pain in that gap and that's where machine learning works.",
+        "start": 504.88,
+        "duration": 3.02
+    },
+    {
+        "text": "Because as you know, programming is we make a function,",
+        "start": 507.9,
+        "duration": 2.44
+    },
+    {
+        "text": "we give it some input, and out come answers,",
+        "start": 510.34,
+        "duration": 1.75
+    },
+    {
+        "text": "in machine learning, we swap that around.",
+        "start": 512.09,
+        "duration": 2.415
+    },
+    {
+        "text": "We don't call it a function, we call it model,",
+        "start": 514.505,
+        "duration": 2.565
+    },
+    {
+        "text": "we don't call it answers and input,",
+        "start": 517.07,
+        "duration": 1.45
+    },
+    {
+        "text": "we call it data in machine learning.",
+        "start": 518.52,
+        "duration": 2.07
+    },
+    {
+        "text": "This you all know, it's just a different way to",
+        "start": 520.59,
+        "duration": 2.32
+    },
+    {
+        "text": "think about it when you're explaining it to",
+        "start": 522.91,
+        "duration": 1.92
+    },
+    {
+        "text": "the programmers who don't appreciate",
+        "start": 524.83,
+        "duration": 1.975
+    },
+    {
+        "text": "the pain we go through everyday.",
+        "start": 526.805,
+        "duration": 3.005
+    },
+    {
+        "text": "Like if something works at first time, we're different.",
+        "start": 529.81,
+        "duration": 3.13
+    },
+    {
+        "text": "We know something's very wrong.",
+        "start": 532.94,
+        "duration": 2.08
+    },
+    {
+        "text": "Programmers are like, \"I'm a freaking genius.\"",
+        "start": 535.02,
+        "duration": 2.31
+    },
+    {
+        "text": "We're like, \"Oh, something's terribly wrong,",
+        "start": 537.33,
+        "duration": 1.87
+    },
+    {
+        "text": "how is this possible?\" What goes in there?",
+        "start": 539.2,
+        "duration": 2.875
+    },
+    {
+        "text": "So again, what we're doing is we're making a random, not a random,",
+        "start": 542.075,
+        "duration": 3.325
+    },
+    {
+        "text": "we're making a function such that we can",
+        "start": 545.4,
+        "duration": 1.99
+    },
+    {
+        "text": "predict on the things that we're going to build,",
+        "start": 547.39,
+        "duration": 2.22
+    },
+    {
+        "text": "but it's not clear to some people what these things look like.",
+        "start": 549.61,
+        "duration": 3.265
+    },
+    {
+        "text": "To you it is and so I'm going to go",
+        "start": 552.875,
+        "duration": 1.955
+    },
+    {
+        "text": "through an exercise to motivate from",
+        "start": 554.83,
+        "duration": 1.61
+    },
+    {
+        "text": "first principles how it",
+        "start": 556.44,
+        "duration": 1.74
+    },
+    {
+        "text": "works and we're going to use images like this.",
+        "start": 558.18,
+        "duration": 3.09
+    },
+    {
+        "text": "Okay. They're very stupid.",
+        "start": 561.27,
+        "duration": 1.355
+    },
+    {
+        "text": "This is stupid, but we're going to build all the way up",
+        "start": 562.625,
+        "duration": 2.25
+    },
+    {
+        "text": "to convolutional neural networks from the bottom-up.",
+        "start": 564.875,
+        "duration": 2.295
+    },
+    {
+        "text": "If you want me to go faster, remember.",
+        "start": 567.17,
+        "duration": 2.55
+    },
+    {
+        "text": "So I'm going to ask you to build a machine learning algorithm,",
+        "start": 571.79,
+        "duration": 3.97
+    },
+    {
+        "text": "and you wouldn't do this,",
+        "start": 575.76,
+        "duration": 1.3
+    },
+    {
+        "text": "that predicts whether these pictures are",
+        "start": 577.06,
+        "duration": 2.46
+    },
+    {
+        "text": "darker at the top or darker at the bottom.",
+        "start": 579.52,
+        "duration": 3.63
+    },
+    {
+        "text": "Okay. How would you do that as a regular programmer?",
+        "start": 584.63,
+        "duration": 5.49
+    },
+    {
+        "text": "By the way, this is what the data looks like.",
+        "start": 591.06,
+        "duration": 3.25
+    },
+    {
+        "text": "So for example, this one is",
+        "start": 595.01,
+        "duration": 2.5
+    },
+    {
+        "text": "darker at the top because there's the answer.",
+        "start": 597.51,
+        "duration": 2.305
+    },
+    {
+        "text": "This is darker at the bottom and there's that perspective.",
+        "start": 599.815,
+        "duration": 2.635
+    },
+    {
+        "text": "How do you know this was darker at the top?",
+        "start": 602.45,
+        "duration": 1.795
+    },
+    {
+        "text": "You can use your regular programmer lizard brain.",
+        "start": 604.245,
+        "duration": 3.62
+    },
+    {
+        "text": "I used to teach high school so",
+        "start": 607.865,
+        "duration": 2.195
+    },
+    {
+        "text": "awkward silence is only awkward for you.",
+        "start": 610.06,
+        "duration": 2.76
+    },
+    {
+        "text": "Everybody is like, \"What?\"",
+        "start": 615.92,
+        "duration": 2.13
+    },
+    {
+        "text": "It makes me feel awkward.",
+        "start": 618.05,
+        "duration": 1.41
+    },
+    {
+        "text": "Not me. Yes, what would you do?",
+        "start": 619.46,
+        "duration": 3.15
+    },
+    {
+        "text": "So the answer that he gave was at the top,",
+        "start": 628.56,
+        "duration": 3.7
+    },
+    {
+        "text": "at the bottom, and compare.",
+        "start": 632.26,
+        "duration": 2.25
+    },
+    {
+        "text": "Easy. Some other people who,",
+        "start": 634.62,
+        "duration": 4.905
+    },
+    {
+        "text": "because you all are smart,",
+        "start": 639.525,
+        "duration": 1.195
+    },
+    {
+        "text": "you would come up with this,",
+        "start": 640.72,
+        "duration": 1.21
+    },
+    {
+        "text": "other people take the average of",
+        "start": 641.93,
+        "duration": 1.36
+    },
+    {
+        "text": "the top and the average of the bottom,",
+        "start": 643.29,
+        "duration": 1.27
+    },
+    {
+        "text": "but as you know, mathematically,",
+        "start": 644.56,
+        "duration": 1.17
+    },
+    {
+        "text": "it's a two-way divisions.",
+        "start": 645.73,
+        "duration": 2.875
+    },
+    {
+        "text": "Easy. Now, what if I forced",
+        "start": 648.605,
+        "duration": 3.215
+    },
+    {
+        "text": "you like to think of this intuition at the top, at the bottom,",
+        "start": 651.82,
+        "duration": 3.82
+    },
+    {
+        "text": "what if I forced you to put it into something like this,",
+        "start": 655.64,
+        "duration": 2.86
+    },
+    {
+        "text": "where I asked you to invent some magic W's",
+        "start": 658.5,
+        "duration": 3.17
+    },
+    {
+        "text": "such that when you multiply it all of the input values,",
+        "start": 661.67,
+        "duration": 3.63
+    },
+    {
+        "text": "you would get an answer that would say top or bottom?",
+        "start": 665.3,
+        "duration": 3.045
+    },
+    {
+        "text": "What numbers would you put in for W's?",
+        "start": 668.345,
+        "duration": 2.49
+    },
+    {
+        "text": "Yes.",
+        "start": 670.835,
+        "duration": 5.13
+    },
+    {
+        "text": "111 here, zeros, minus 1.",
+        "start": 675.965,
+        "duration": 4.775
+    },
+    {
+        "text": "That's super clever because",
+        "start": 680.74,
+        "duration": 1.97
+    },
+    {
+        "text": "basically what it does is it adds the top,",
+        "start": 682.71,
+        "duration": 2.79
+    },
+    {
+        "text": "adds the bottom, negates one side, and then they fight.",
+        "start": 685.5,
+        "duration": 3.26
+    },
+    {
+        "text": "Because as I learned in fourth grade,",
+        "start": 688.76,
+        "duration": 2.295
+    },
+    {
+        "text": "and this is magically served me very well,",
+        "start": 691.055,
+        "duration": 2.29
+    },
+    {
+        "text": "there's no such thing as",
+        "start": 693.345,
+        "duration": 1.425
+    },
+    {
+        "text": "subtraction, only addition of negative numbers,",
+        "start": 694.77,
+        "duration": 3.805
+    },
+    {
+        "text": "saved my life as a third grader.",
+        "start": 698.575,
+        "duration": 2.18
+    },
+    {
+        "text": "I remember getting all the minuses",
+        "start": 700.755,
+        "duration": 1.85
+    },
+    {
+        "text": "and putting a plus and then a negative.",
+        "start": 702.605,
+        "duration": 2.1
+    },
+    {
+        "text": "I'm like, \"Okay. I know how to do this.\"",
+        "start": 704.705,
+        "duration": 2.355
+    },
+    {
+        "text": "If you think about it, if it's more negative over here,",
+        "start": 707.06,
+        "duration": 4.23
+    },
+    {
+        "text": "then it is positive over here,",
+        "start": 711.29,
+        "duration": 2.055
+    },
+    {
+        "text": "the answer will be negative,",
+        "start": 713.345,
+        "duration": 1.055
+    },
+    {
+        "text": "we guess bottom, otherwise we guess top.",
+        "start": 714.4,
+        "duration": 2.78
+    },
+    {
+        "text": "Super easy. What if it's zero?",
+        "start": 717.18,
+        "duration": 2.63
+    },
+    {
+        "text": "They're the same. Flip a coin. That's okay.",
+        "start": 720.84,
+        "duration": 6.0
+    },
+    {
+        "text": "Any questions about this? See, this is where",
+        "start": 726.84,
+        "duration": 2.77
+    },
+    {
+        "text": "I'm tricking you because",
+        "start": 729.61,
+        "duration": 2.8
+    },
+    {
+        "text": "there's something hanging out over",
+        "start": 732.41,
+        "duration": 1.455
+    },
+    {
+        "text": "there that you should have all seen.",
+        "start": 733.865,
+        "duration": 4.38
+    },
+    {
+        "text": "This is supposed to be interactive. We're all friends here.",
+        "start": 738.245,
+        "duration": 2.64
+    },
+    {
+        "text": "Canadians are now, \"What's to b?\" Great question.",
+        "start": 740.885,
+        "duration": 3.45
+    },
+    {
+        "text": "Well, what if we wanted to guess",
+        "start": 744.335,
+        "duration": 2.065
+    },
+    {
+        "text": "the bottom even though it's not darker at the top,",
+        "start": 746.4,
+        "duration": 2.83
+    },
+    {
+        "text": "but it's within a couple of shades.",
+        "start": 749.23,
+        "duration": 2.035
+    },
+    {
+        "text": "Like if it's dark enough then you add a negative number.",
+        "start": 751.265,
+        "duration": 4.48
+    },
+    {
+        "text": "What that does is it forces this to be more negative,",
+        "start": 755.745,
+        "duration": 4.235
+    },
+    {
+        "text": "but what if we want to do it to the top?",
+        "start": 759.98,
+        "duration": 2.265
+    },
+    {
+        "text": "Then we add a positive number",
+        "start": 762.245,
+        "duration": 2.02
+    },
+    {
+        "text": "and all of a sudden, we're guessing a top.",
+        "start": 764.265,
+        "duration": 3.065
+    },
+    {
+        "text": "It's almost as if we're biasing our answer.",
+        "start": 767.33,
+        "duration": 4.35
+    },
+    {
+        "text": "In machine learning, we're super clever.",
+        "start": 771.68,
+        "duration": 2.23
+    },
+    {
+        "text": "We call that the bias.",
+        "start": 773.91,
+        "duration": 3.43
+    },
+    {
+        "text": "Yeah, who knew? We're so clever.",
+        "start": 777.34,
+        "duration": 3.945
+    },
+    {
+        "text": "This is simple and you've all seen this as a Perceptron algorithm.",
+        "start": 781.285,
+        "duration": 4.425
+    },
+    {
+        "text": "It's the simplest thing,",
+        "start": 785.71,
+        "duration": 1.49
+    },
+    {
+        "text": "but it's basically a dot product of the two things.",
+        "start": 787.2,
+        "duration": 4.0
+    },
+    {
+        "text": "If it's negative, bottom,",
+        "start": 791.2,
+        "duration": 1.46
+    },
+    {
+        "text": "positive, we guess top. Now, let's try it out.",
+        "start": 792.66,
+        "duration": 2.56
+    },
+    {
+        "text": "Clearly works, you can see bottom right,",
+        "start": 795.22,
+        "duration": 2.405
+    },
+    {
+        "text": "this number comes out to be 236, so we guess top,",
+        "start": 797.625,
+        "duration": 3.17
+    },
+    {
+        "text": "this number comes out to be minus 234, we guess bottom.",
+        "start": 800.795,
+        "duration": 4.555
+    },
+    {
+        "text": "Now, don't ever use machine learning for this problem.",
+        "start": 805.35,
+        "duration": 3.035
+    },
+    {
+        "text": "That's dumb. We wouldn't do that.",
+        "start": 808.385,
+        "duration": 3.095
+    },
+    {
+        "text": "So basically, and this is where everyone",
+        "start": 811.48,
+        "duration": 2.875
+    },
+    {
+        "text": "else in the universe except for you all get surprised,",
+        "start": 814.355,
+        "duration": 2.415
+    },
+    {
+        "text": "I say that W you just invented is a machine learning model.",
+        "start": 816.77,
+        "duration": 4.73
+    },
+    {
+        "text": "I know, I'm trivializing our work, but it is.",
+        "start": 823.32,
+        "duration": 4.69
+    },
+    {
+        "text": "If you think about all the other",
+        "start": 828.01,
+        "duration": 1.61
+    },
+    {
+        "text": "machine learning models you build,",
+        "start": 829.62,
+        "duration": 1.26
+    },
+    {
+        "text": "it's just that, but more of them.",
+        "start": 830.88,
+        "duration": 2.93
+    },
+    {
+        "text": "What about top, middle, bottom?",
+        "start": 834.3,
+        "duration": 2.315
+    },
+    {
+        "text": "What if I wanted to guess, well,",
+        "start": 836.615,
+        "duration": 1.085
+    },
+    {
+        "text": "you just make three of them.",
+        "start": 837.7,
+        "duration": 1.27
+    },
+    {
+        "text": "Now, instead of a single vector it becomes a matrix.",
+        "start": 838.97,
+        "duration": 3.915
+    },
+    {
+        "text": "We do what I like to call",
+        "start": 842.885,
+        "duration": 2.16
+    },
+    {
+        "text": "a cookie monster operator because I'm five years old.",
+        "start": 845.045,
+        "duration": 2.685
+    },
+    {
+        "text": "You take this thing, you turn it on its side to go num,",
+        "start": 847.73,
+        "duration": 3.76
+    },
+    {
+        "text": "dot-product three times gives you the answer.",
+        "start": 851.49,
+        "duration": 2.375
+    },
+    {
+        "text": "The one with the highest number is the one that's the darkest.",
+        "start": 853.865,
+        "duration": 4.12
+    },
+    {
+        "text": "This is why me and Dave were talking earlier.",
+        "start": 857.985,
+        "duration": 3.31
+    },
+    {
+        "text": "So I hate when people say the output of models like this",
+        "start": 861.295,
+        "duration": 4.18
+    },
+    {
+        "text": "have a probability like because",
+        "start": 865.475,
+        "duration": 2.155
+    },
+    {
+        "text": "we soft-maxed over the end and we're like,",
+        "start": 867.63,
+        "duration": 2.215
+    },
+    {
+        "text": "\"Oh, it's not a probability.\"",
+        "start": 869.845,
+        "duration": 1.805
+    },
+    {
+        "text": "We're forcing everything to sum to one mathematically.",
+        "start": 871.65,
+        "duration": 4.48
+    },
+    {
+        "text": "So we're just basically whatever line",
+        "start": 876.13,
+        "duration": 4.455
+    },
+    {
+        "text": "this dot product sends",
+        "start": 880.585,
+        "duration": 1.66
+    },
+    {
+        "text": "the most density to whatever line of poo this is,",
+        "start": 882.245,
+        "duration": 3.245
+    },
+    {
+        "text": "the one that has the most in it",
+        "start": 885.49,
+        "duration": 1.575
+    },
+    {
+        "text": "is the one that's going to be closer to one,",
+        "start": 887.065,
+        "duration": 2.35
+    },
+    {
+        "text": "but it sure as heck doesn't mean that this is 100 percent of cap.",
+        "start": 889.415,
+        "duration": 4.795
+    },
+    {
+        "text": "So that's another thing that I like to put out there.",
+        "start": 894.21,
+        "duration": 3.86
+    },
+    {
+        "text": "Top, middle, bottom, it's now a matrix.",
+        "start": 898.07,
+        "duration": 1.81
+    },
+    {
+        "text": "What if we want to do digits?",
+        "start": 899.88,
+        "duration": 1.45
+    },
+    {
+        "text": "Can we do this with digits?",
+        "start": 901.33,
+        "duration": 1.85
+    },
+    {
+        "text": "Yeah, usually when something like N digit",
+        "start": 903.18,
+        "duration": 2.405
+    },
+    {
+        "text": "get picture, we totally can.",
+        "start": 905.585,
+        "duration": 2.755
+    },
+    {
+        "text": "The numbers are much bigger,",
+        "start": 908.34,
+        "duration": 2.145
+    },
+    {
+        "text": "but it's the same thing.",
+        "start": 910.485,
+        "duration": 1.65
+    },
+    {
+        "text": "Do you know if I run this on MNIST,",
+        "start": 912.135,
+        "duration": 1.715
+    },
+    {
+        "text": "I get 92 percent accuracy?",
+        "start": 913.85,
+        "duration": 2.53
+    },
+    {
+        "text": "What? I'm using an atom optimizer though,",
+        "start": 916.38,
+        "duration": 5.405
+    },
+    {
+        "text": "and I'm being clever about how I'm doing it,",
+        "start": 921.785,
+        "duration": 1.975
+    },
+    {
+        "text": "but if you run this stuff in TensorFlow,",
+        "start": 923.76,
+        "duration": 2.17
+    },
+    {
+        "text": "you will get 92 percent accuracy on MNIST.",
+        "start": 925.93,
+        "duration": 3.165
+    },
+    {
+        "text": "Yeah, just this.",
+        "start": 929.095,
+        "duration": 3.0
+    },
+    {
+        "text": "It's the same thing that you were able to invent in",
+        "start": 932.095,
+        "duration": 2.71
+    },
+    {
+        "text": "your head, which is pretty cool.",
+        "start": 934.805,
+        "duration": 2.55
+    },
+    {
+        "text": "So how do we get all these W's and B's though?",
+        "start": 937.355,
+        "duration": 2.095
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 939.45,
+        "duration": 13.55
+    }
+]

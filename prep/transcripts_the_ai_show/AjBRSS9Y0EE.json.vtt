@@ -1,0 +1,3417 @@
+[
+    {
+        "text": "[Music]",
+        "start": 0.75,
+        "duration": 4.61
+    },
+    {
+        "text": "welcome to this episode of the AI show",
+        "start": 2.83,
+        "duration": 4.51
+    },
+    {
+        "text": "where we're gonna look at detecting lung",
+        "start": 5.36,
+        "duration": 3.96
+    },
+    {
+        "text": "diseases from x-rays using machine",
+        "start": 7.34,
+        "duration": 3.179
+    },
+    {
+        "text": "learning I have a couple of guests why",
+        "start": 9.32,
+        "duration": 2.67
+    },
+    {
+        "text": "don't you introduce yourself tell us who",
+        "start": 10.519,
+        "duration": 1.801
+    },
+    {
+        "text": "you are",
+        "start": 11.99,
+        "duration": 2.759
+    },
+    {
+        "text": "sure sure so my name is Jo I come from",
+        "start": 12.32,
+        "duration": 5.58
+    },
+    {
+        "text": "the Cali and prototype anonymity so my",
+        "start": 14.749,
+        "duration": 5.041
+    },
+    {
+        "text": "focus is on how to build a model to",
+        "start": 17.9,
+        "duration": 3.6
+    },
+    {
+        "text": "detect lung diseases that you just",
+        "start": 19.79,
+        "duration": 4.86
+    },
+    {
+        "text": "talked about Jessica hi glad to be here",
+        "start": 21.5,
+        "duration": 5.19
+    },
+    {
+        "text": "I'm Brock sonken and I'm a colleague of",
+        "start": 24.65,
+        "duration": 3.93
+    },
+    {
+        "text": "shy young and I'm actually a p.m. in the",
+        "start": 26.69,
+        "duration": 4.349
+    },
+    {
+        "text": "azure machine learning team I'm joining",
+        "start": 28.58,
+        "duration": 4.68
+    },
+    {
+        "text": "him today for today's show and talk",
+        "start": 31.039,
+        "duration": 3.511
+    },
+    {
+        "text": "spend some time with you folks",
+        "start": 33.26,
+        "duration": 3.599
+    },
+    {
+        "text": "fantastic so let's start out with the",
+        "start": 34.55,
+        "duration": 3.96
+    },
+    {
+        "text": "why and then get into the whole data",
+        "start": 36.859,
+        "duration": 3.54
+    },
+    {
+        "text": "science process sure so tell us the why",
+        "start": 38.51,
+        "duration": 3.869
+    },
+    {
+        "text": "or what we're trying to do yeah so",
+        "start": 40.399,
+        "duration": 4.26
+    },
+    {
+        "text": "actually you know what the project was",
+        "start": 42.379,
+        "duration": 4.14
+    },
+    {
+        "text": "inspired by a few data points that we",
+        "start": 44.659,
+        "duration": 4.17
+    },
+    {
+        "text": "have collected so one that is a point",
+        "start": 46.519,
+        "duration": 5.46
+    },
+    {
+        "text": "that we have is like how the pneumonia",
+        "start": 48.829,
+        "duration": 4.92
+    },
+    {
+        "text": "is really killing people right so like",
+        "start": 51.979,
+        "duration": 4.65
+    },
+    {
+        "text": "the Internet help alone in 2015 I know",
+        "start": 53.749,
+        "duration": 4.83
+    },
+    {
+        "text": "actually like pneumonia itself kills",
+        "start": 56.629,
+        "duration": 4.62
+    },
+    {
+        "text": "over 1 million kids over the war so",
+        "start": 58.579,
+        "duration": 4.861
+    },
+    {
+        "text": "that's really really a you know severe",
+        "start": 61.249,
+        "duration": 4.741
+    },
+    {
+        "text": "disease for course yeah yeah so we said",
+        "start": 63.44,
+        "duration": 5.73
+    },
+    {
+        "text": "okay a lot of areas the actually",
+        "start": 65.99,
+        "duration": 5.16
+    },
+    {
+        "text": "equipped with the chest x-ray machines",
+        "start": 69.17,
+        "duration": 3.99
+    },
+    {
+        "text": "that they really don't have real ologist",
+        "start": 71.15,
+        "duration": 4.17
+    },
+    {
+        "text": "to interpret those images after they get",
+        "start": 73.16,
+        "duration": 5.28
+    },
+    {
+        "text": "the result so the time from you getting",
+        "start": 75.32,
+        "duration": 5.04
+    },
+    {
+        "text": "the data to your insiders accurate quite",
+        "start": 78.44,
+        "duration": 2.97
+    },
+    {
+        "text": "it takes a few days",
+        "start": 80.36,
+        "duration": 4.62
+    },
+    {
+        "text": "so I thinking if a people such as they",
+        "start": 81.41,
+        "duration": 5.04
+    },
+    {
+        "text": "have pneumonia a patient had pneumonia",
+        "start": 84.98,
+        "duration": 4.26
+    },
+    {
+        "text": "and he come to the clinic and how we can",
+        "start": 86.45,
+        "duration": 6.12
+    },
+    {
+        "text": "help him to reduce the time and by using",
+        "start": 89.24,
+        "duration": 5.22
+    },
+    {
+        "text": "the AI technologies I see so what you're",
+        "start": 92.57,
+        "duration": 4.59
+    },
+    {
+        "text": "saying is that like in some places",
+        "start": 94.46,
+        "duration": 4.32
+    },
+    {
+        "text": "there's no radiologists so even if you",
+        "start": 97.16,
+        "duration": 3.63
+    },
+    {
+        "text": "do get the x-ray yeah they might not",
+        "start": 98.78,
+        "duration": 3.63
+    },
+    {
+        "text": "look at it for a couple of days and with",
+        "start": 100.79,
+        "duration": 3.57
+    },
+    {
+        "text": "pneumonia I think they could do some",
+        "start": 102.41,
+        "duration": 3.9
+    },
+    {
+        "text": "damage yeah yeah exactly",
+        "start": 104.36,
+        "duration": 4.59
+    },
+    {
+        "text": "okay so how do you set up the problem",
+        "start": 106.31,
+        "duration": 5.04
+    },
+    {
+        "text": "where do you get the data how does that",
+        "start": 108.95,
+        "duration": 7.8
+    },
+    {
+        "text": "work yeah so actually a few a few weeks",
+        "start": 111.35,
+        "duration": 8.19
+    },
+    {
+        "text": "or a few months ago I create an H the",
+        "start": 116.75,
+        "duration": 4.53
+    },
+    {
+        "text": "National Institute of Health released a",
+        "start": 119.54,
+        "duration": 5.1
+    },
+    {
+        "text": "huge is that like pneumonia a few other",
+        "start": 121.28,
+        "duration": 6.21
+    },
+    {
+        "text": "14 actually launched it it is so we use",
+        "start": 124.64,
+        "duration": 4.74
+    },
+    {
+        "text": "that public data set and it has some",
+        "start": 127.49,
+        "duration": 4.14
+    },
+    {
+        "text": "labels so we use that they both make the",
+        "start": 129.38,
+        "duration": 3.93
+    },
+    {
+        "text": "prediction to train the models and",
+        "start": 131.63,
+        "duration": 3.36
+    },
+    {
+        "text": "that's basically that",
+        "start": 133.31,
+        "duration": 4.26
+    },
+    {
+        "text": "yeah so okay so usually when I'm looking",
+        "start": 134.99,
+        "duration": 3.42
+    },
+    {
+        "text": "at a machine learning problem",
+        "start": 137.57,
+        "duration": 2.52
+    },
+    {
+        "text": "specifically with imaging I'm thinking",
+        "start": 138.41,
+        "duration": 3.48
+    },
+    {
+        "text": "maybe I'll use deep learning I'm all",
+        "start": 140.09,
+        "duration": 3.09
+    },
+    {
+        "text": "excited about the modeling huh but",
+        "start": 141.89,
+        "duration": 2.67
+    },
+    {
+        "text": "there's always this part where you need",
+        "start": 143.18,
+        "duration": 3.06
+    },
+    {
+        "text": "to like clean that stuff up yeah so why",
+        "start": 144.56,
+        "duration": 3.75
+    },
+    {
+        "text": "don't you talk about that so yeah so",
+        "start": 146.24,
+        "duration": 4.44
+    },
+    {
+        "text": "basically like as you can see the image",
+        "start": 148.31,
+        "duration": 5.01
+    },
+    {
+        "text": "it has over as you can see in the slides",
+        "start": 150.68,
+        "duration": 5.97
+    },
+    {
+        "text": "it has like over one a few thousands of",
+        "start": 153.32,
+        "duration": 6.63
+    },
+    {
+        "text": "images and it contains like 30k unique",
+        "start": 156.65,
+        "duration": 5.4
+    },
+    {
+        "text": "patients right but actually during our",
+        "start": 159.95,
+        "duration": 3.81
+    },
+    {
+        "text": "turn we find that some of the labels",
+        "start": 162.05,
+        "duration": 3.66
+    },
+    {
+        "text": "they are actually doesn't have good",
+        "start": 163.76,
+        "duration": 4.2
+    },
+    {
+        "text": "quality and the data itself doesn't have",
+        "start": 165.71,
+        "duration": 4.2
+    },
+    {
+        "text": "good quality so we have a script to",
+        "start": 167.96,
+        "duration": 4.17
+    },
+    {
+        "text": "clean that up a little bit to remove all",
+        "start": 169.91,
+        "duration": 5.31
+    },
+    {
+        "text": "the all the images that we think they",
+        "start": 172.13,
+        "duration": 4.53
+    },
+    {
+        "text": "are not good and we actually publish",
+        "start": 175.22,
+        "duration": 3.54
+    },
+    {
+        "text": "that in the github that we will talk",
+        "start": 176.66,
+        "duration": 4.92
+    },
+    {
+        "text": "about later I see so the first step was",
+        "start": 178.76,
+        "duration": 4.53
+    },
+    {
+        "text": "trying to figure out what images worked",
+        "start": 181.58,
+        "duration": 3.99
+    },
+    {
+        "text": "and didn't work yeah yeah yeah so how do",
+        "start": 183.29,
+        "duration": 3.87
+    },
+    {
+        "text": "you like and this is a question is I I'm",
+        "start": 185.57,
+        "duration": 2.79
+    },
+    {
+        "text": "really good at like machine learning",
+        "start": 187.16,
+        "duration": 3.6
+    },
+    {
+        "text": "theorem but I'm not so good at like yeah",
+        "start": 188.36,
+        "duration": 5.49
+    },
+    {
+        "text": "practical horse sense machine learning",
+        "start": 190.76,
+        "duration": 6.38
+    },
+    {
+        "text": "how did you go about that process so",
+        "start": 193.85,
+        "duration": 6.8
+    },
+    {
+        "text": "maybe we can",
+        "start": 197.14,
+        "duration": 3.51
+    },
+    {
+        "text": "go down a little bit so like usually we",
+        "start": 200.79,
+        "duration": 5.1
+    },
+    {
+        "text": "were already have this piece of data",
+        "start": 204.209,
+        "duration": 4.021
+    },
+    {
+        "text": "right and there is sort of well labeled",
+        "start": 205.89,
+        "duration": 4.2
+    },
+    {
+        "text": "and in that case we really want to say",
+        "start": 208.23,
+        "duration": 3.72
+    },
+    {
+        "text": "okay what can we get from the data set",
+        "start": 210.09,
+        "duration": 4.679
+    },
+    {
+        "text": "right and usually we have a already",
+        "start": 211.95,
+        "duration": 5.34
+    },
+    {
+        "text": "trained model somewhere else or a exist",
+        "start": 214.769,
+        "duration": 4.05
+    },
+    {
+        "text": "the actual architecture to see better",
+        "start": 217.29,
+        "duration": 3.449
+    },
+    {
+        "text": "that work or not on this particular day",
+        "start": 218.819,
+        "duration": 3.721
+    },
+    {
+        "text": "that's that actually so that's why we",
+        "start": 220.739,
+        "duration": 5.851
+    },
+    {
+        "text": "have this model called a dense net this",
+        "start": 222.54,
+        "duration": 6.539
+    },
+    {
+        "text": "way it's a very it's like the state of",
+        "start": 226.59,
+        "duration": 5.489
+    },
+    {
+        "text": "art model for image classification and",
+        "start": 229.079,
+        "duration": 5.94
+    },
+    {
+        "text": "you can have it has very it's very smart",
+        "start": 232.079,
+        "duration": 4.951
+    },
+    {
+        "text": "because like usually when you have a",
+        "start": 235.019,
+        "duration": 4.08
+    },
+    {
+        "text": "very deep neural networks all the",
+        "start": 237.03,
+        "duration": 4.049
+    },
+    {
+        "text": "ingredients will vanish very quickly it",
+        "start": 239.099,
+        "duration": 5.01
+    },
+    {
+        "text": "has some very smart way to you know",
+        "start": 241.079,
+        "duration": 6.571
+    },
+    {
+        "text": "order to solve that problem I say so",
+        "start": 244.109,
+        "duration": 5.22
+    },
+    {
+        "text": "yeah so and this is my understanding",
+        "start": 247.65,
+        "duration": 3.3
+    },
+    {
+        "text": "help me I'll come wrong we're talking",
+        "start": 249.329,
+        "duration": 3.78
+    },
+    {
+        "text": "about deep learning the deeper the",
+        "start": 250.95,
+        "duration": 4.679
+    },
+    {
+        "text": "network is the better regularized it is",
+        "start": 253.109,
+        "duration": 3.87
+    },
+    {
+        "text": "but what happens is when you're doing",
+        "start": 255.629,
+        "duration": 3.241
+    },
+    {
+        "text": "the back problem being start to go to",
+        "start": 256.979,
+        "duration": 4.201
+    },
+    {
+        "text": "zero and zeros are bad yeah yeah exactly",
+        "start": 258.87,
+        "duration": 4.59
+    },
+    {
+        "text": "exactly so that's why we want to use",
+        "start": 261.18,
+        "duration": 4.019
+    },
+    {
+        "text": "this this net because it solved that",
+        "start": 263.46,
+        "duration": 4.26
+    },
+    {
+        "text": "problem very nicely and we used 121",
+        "start": 265.199,
+        "duration": 4.53
+    },
+    {
+        "text": "layer neural networks you're only you",
+        "start": 267.72,
+        "duration": 3.87
+    },
+    {
+        "text": "can't print that deep because of the",
+        "start": 269.729,
+        "duration": 3.331
+    },
+    {
+        "text": "gradient management problem that you",
+        "start": 271.59,
+        "duration": 3.509
+    },
+    {
+        "text": "just want everyone here represents how",
+        "start": 273.06,
+        "duration": 4.74
+    },
+    {
+        "text": "deep the neural net is right yes yes so",
+        "start": 275.099,
+        "duration": 4.771
+    },
+    {
+        "text": "it's really really deep yeah fantastic",
+        "start": 277.8,
+        "duration": 3.869
+    },
+    {
+        "text": "so tell us a little bit about about",
+        "start": 279.87,
+        "duration": 3.45
+    },
+    {
+        "text": "these used to call them dense Nets yeah",
+        "start": 281.669,
+        "duration": 4.651
+    },
+    {
+        "text": "why what makes them more powerful so if",
+        "start": 283.32,
+        "duration": 4.59
+    },
+    {
+        "text": "you're thinking about it right so if you",
+        "start": 286.32,
+        "duration": 2.37
+    },
+    {
+        "text": "traction",
+        "start": 287.91,
+        "duration": 3.18
+    },
+    {
+        "text": "a very deep neural network like we just",
+        "start": 288.69,
+        "duration": 4.11
+    },
+    {
+        "text": "talked about like the gradient will",
+        "start": 291.09,
+        "duration": 3.54
+    },
+    {
+        "text": "vanish very quickly right so the way",
+        "start": 292.8,
+        "duration": 4.35
+    },
+    {
+        "text": "that this net overcomes it is that it",
+        "start": 294.63,
+        "duration": 5.13
+    },
+    {
+        "text": "has a few tens blocks and each dense",
+        "start": 297.15,
+        "duration": 4.98
+    },
+    {
+        "text": "block it has it's same like instead of",
+        "start": 299.76,
+        "duration": 4.71
+    },
+    {
+        "text": "passing all the ingredients layer by",
+        "start": 302.13,
+        "duration": 4.259
+    },
+    {
+        "text": "layer why don't we have a common place",
+        "start": 304.47,
+        "duration": 4.319
+    },
+    {
+        "text": "to prove all the gradients there so each",
+        "start": 306.389,
+        "duration": 4.56
+    },
+    {
+        "text": "layer can take a look at all the feature",
+        "start": 308.789,
+        "duration": 4.201
+    },
+    {
+        "text": "maps in the Prius layers so in that case",
+        "start": 310.949,
+        "duration": 4.411
+    },
+    {
+        "text": "it solves the vanishing gradient problem",
+        "start": 312.99,
+        "duration": 4.919
+    },
+    {
+        "text": "because every layer can access the",
+        "start": 315.36,
+        "duration": 5.61
+    },
+    {
+        "text": "previous characters the information all",
+        "start": 317.909,
+        "duration": 5.701
+    },
+    {
+        "text": "the previous layers so yeah help me out",
+        "start": 320.97,
+        "duration": 4.53
+    },
+    {
+        "text": "I'm slow right yeah well I understand",
+        "start": 323.61,
+        "duration": 4.65
+    },
+    {
+        "text": "regular neural networks but in this case",
+        "start": 325.5,
+        "duration": 5.58
+    },
+    {
+        "text": "each dense block is like its own kind of",
+        "start": 328.26,
+        "duration": 5.52
+    },
+    {
+        "text": "component many neural network fast",
+        "start": 331.08,
+        "duration": 3.399
+    },
+    {
+        "text": "forward",
+        "start": 333.78,
+        "duration": 2.289
+    },
+    {
+        "text": "exactly that way you're actually",
+        "start": 334.479,
+        "duration": 3.18
+    },
+    {
+        "text": "training multiple of them and stacking",
+        "start": 336.069,
+        "duration": 3.24
+    },
+    {
+        "text": "them together yeah and that way like",
+        "start": 337.659,
+        "duration": 3.271
+    },
+    {
+        "text": "you're actually training a little one",
+        "start": 339.309,
+        "duration": 3.39
+    },
+    {
+        "text": "yeah and then the other ones are relying",
+        "start": 340.93,
+        "duration": 3.9
+    },
+    {
+        "text": "on the little ones yes start up yeah and",
+        "start": 342.699,
+        "duration": 5.25
+    },
+    {
+        "text": "it also mean that I could peel off any",
+        "start": 344.83,
+        "duration": 4.769
+    },
+    {
+        "text": "one off those layers and where I want to",
+        "start": 347.949,
+        "duration": 3.99
+    },
+    {
+        "text": "start with is that the benefit no you're",
+        "start": 349.599,
+        "duration": 4.59
+    },
+    {
+        "text": "a you will train along like a three or",
+        "start": 351.939,
+        "duration": 3.84
+    },
+    {
+        "text": "four dense blocks and each dense block",
+        "start": 354.189,
+        "duration": 3.81
+    },
+    {
+        "text": "has a lot of layers this is cool okay so",
+        "start": 355.779,
+        "duration": 3.991
+    },
+    {
+        "text": "I'm looking at the picture below and I'm",
+        "start": 357.999,
+        "duration": 3.771
+    },
+    {
+        "text": "getting I'm getting this notion of like",
+        "start": 359.77,
+        "duration": 3.869
+    },
+    {
+        "text": "convolutional neural networks too",
+        "start": 361.77,
+        "duration": 4.72
+    },
+    {
+        "text": "because you're boxing things like like",
+        "start": 363.639,
+        "duration": 4.291
+    },
+    {
+        "text": "that that's not what that's the saying",
+        "start": 366.49,
+        "duration": 4.38
+    },
+    {
+        "text": "right hmm yeah all right okay so it's",
+        "start": 367.93,
+        "duration": 4.53
+    },
+    {
+        "text": "just literally like here's some neural",
+        "start": 370.87,
+        "duration": 3.12
+    },
+    {
+        "text": "networks we're gonna pass things back",
+        "start": 372.46,
+        "duration": 3.12
+    },
+    {
+        "text": "and forth yeah and we're gonna stack",
+        "start": 373.99,
+        "duration": 4.199
+    },
+    {
+        "text": "them on top yes yes fantastic so and you",
+        "start": 375.58,
+        "duration": 4.559
+    },
+    {
+        "text": "decided to use this because you felt",
+        "start": 378.189,
+        "duration": 3.211
+    },
+    {
+        "text": "like you needed a deep now we're how do",
+        "start": 380.139,
+        "duration": 5.31
+    },
+    {
+        "text": "you know like which model to use yeah so",
+        "start": 381.4,
+        "duration": 6.09
+    },
+    {
+        "text": "so they're actually a few things so",
+        "start": 385.449,
+        "duration": 3.661
+    },
+    {
+        "text": "first we definitely want to use a deep",
+        "start": 387.49,
+        "duration": 3.989
+    },
+    {
+        "text": "one because if your is shallow then the",
+        "start": 389.11,
+        "duration": 4.32
+    },
+    {
+        "text": "problem is not that good a second we are",
+        "start": 391.479,
+        "duration": 4.02
+    },
+    {
+        "text": "also inspired by the Stanford which they",
+        "start": 393.43,
+        "duration": 3.359
+    },
+    {
+        "text": "have a similar piece of work",
+        "start": 395.499,
+        "duration": 2.82
+    },
+    {
+        "text": "they also used instead so we said yeah",
+        "start": 396.789,
+        "duration": 3.15
+    },
+    {
+        "text": "okay why don't we start with then that's",
+        "start": 398.319,
+        "duration": 3.81
+    },
+    {
+        "text": "that yeah okay so now that you've",
+        "start": 399.939,
+        "duration": 3.181
+    },
+    {
+        "text": "cleaned the data",
+        "start": 402.129,
+        "duration": 2.85
+    },
+    {
+        "text": "you picked the model tell us about the",
+        "start": 403.12,
+        "duration": 3.779
+    },
+    {
+        "text": "whole training process now you do sure",
+        "start": 404.979,
+        "duration": 5.67
+    },
+    {
+        "text": "so after we have this model so first of",
+        "start": 406.899,
+        "duration": 5.55
+    },
+    {
+        "text": "course the documentation as always right",
+        "start": 410.649,
+        "duration": 3.661
+    },
+    {
+        "text": "so basically like if you think of chest",
+        "start": 412.449,
+        "duration": 4.14
+    },
+    {
+        "text": "x-ray images clearly you have you want",
+        "start": 414.31,
+        "duration": 4.439
+    },
+    {
+        "text": "to flip them left and right right but",
+        "start": 416.589,
+        "duration": 3.901
+    },
+    {
+        "text": "you don't want to film them up and down",
+        "start": 418.749,
+        "duration": 3.271
+    },
+    {
+        "text": "because that doesn't make it right and",
+        "start": 420.49,
+        "duration": 3.659
+    },
+    {
+        "text": "you also want to zoom in zoom out a",
+        "start": 422.02,
+        "duration": 3.78
+    },
+    {
+        "text": "little bit to make sure that works and",
+        "start": 424.149,
+        "duration": 3.151
+    },
+    {
+        "text": "also like rotation a little bit because",
+        "start": 425.8,
+        "duration": 3.359
+    },
+    {
+        "text": "when you're the audience or technicians",
+        "start": 427.3,
+        "duration": 4.56
+    },
+    {
+        "text": "take the video take the pictures to the",
+        "start": 429.159,
+        "duration": 4.081
+    },
+    {
+        "text": "chest actually pictures usually they",
+        "start": 431.86,
+        "duration": 2.579
+    },
+    {
+        "text": "don't put it",
+        "start": 433.24,
+        "duration": 5.579
+    },
+    {
+        "text": "you're very strict vertical position so",
+        "start": 434.439,
+        "duration": 5.85
+    },
+    {
+        "text": "data orientation is a way of just",
+        "start": 438.819,
+        "duration": 2.82
+    },
+    {
+        "text": "getting I need more data",
+        "start": 440.289,
+        "duration": 3.69
+    },
+    {
+        "text": "yeah and so what you do is you just take",
+        "start": 441.639,
+        "duration": 4.26
+    },
+    {
+        "text": "all the pictures and flip them yeah",
+        "start": 443.979,
+        "duration": 4.05
+    },
+    {
+        "text": "definitely yeah zoom in zoom out kinda",
+        "start": 445.899,
+        "duration": 4.11
+    },
+    {
+        "text": "thing yeah all right that's awesome okay",
+        "start": 448.029,
+        "duration": 2.69
+    },
+    {
+        "text": "cool",
+        "start": 450.009,
+        "duration": 3.15
+    },
+    {
+        "text": "and how many do you went from I think it",
+        "start": 450.719,
+        "duration": 4.51
+    },
+    {
+        "text": "was 30,000 data points or somebody that",
+        "start": 453.159,
+        "duration": 5.16
+    },
+    {
+        "text": "yeah what 100,000 one who doesn't how",
+        "start": 455.229,
+        "duration": 4.86
+    },
+    {
+        "text": "many did you have at the end in order to",
+        "start": 458.319,
+        "duration": 3.96
+    },
+    {
+        "text": "do training yeah it's like it acts more",
+        "start": 460.089,
+        "duration": 5.161
+    },
+    {
+        "text": "so it's like 800,000 cool yeah that's",
+        "start": 462.279,
+        "duration": 6.51
+    },
+    {
+        "text": "awesome okay yeah so and alcohol",
+        "start": 465.25,
+        "duration": 5.549
+    },
+    {
+        "text": "if you have that have that and then you",
+        "start": 468.789,
+        "duration": 3.75
+    },
+    {
+        "text": "need to set all the training kind of",
+        "start": 470.799,
+        "duration": 3.45
+    },
+    {
+        "text": "hyperparameters like the most",
+        "start": 472.539,
+        "duration": 4.11
+    },
+    {
+        "text": "importantly learning rate that's there",
+        "start": 474.249,
+        "duration": 4.65
+    },
+    {
+        "text": "when I'm the most important thing so we",
+        "start": 476.649,
+        "duration": 4.02
+    },
+    {
+        "text": "set their learning rate to point point",
+        "start": 478.899,
+        "duration": 5.64
+    },
+    {
+        "text": "one point one yeah and then we also use",
+        "start": 480.669,
+        "duration": 6.03
+    },
+    {
+        "text": "another way because like if you keep the",
+        "start": 484.539,
+        "duration": 3.93
+    },
+    {
+        "text": "learning rate high and skip the room",
+        "start": 486.699,
+        "duration": 3.0
+    },
+    {
+        "text": "yeah exactly",
+        "start": 488.469,
+        "duration": 3.54
+    },
+    {
+        "text": "so we also to learning rate decay",
+        "start": 489.699,
+        "duration": 4.1
+    },
+    {
+        "text": "meaning that if the validation doesn't",
+        "start": 492.009,
+        "duration": 5.46
+    },
+    {
+        "text": "decrease then we'll like divide the",
+        "start": 493.799,
+        "duration": 5.8
+    },
+    {
+        "text": "learning rate by a certain degree I see",
+        "start": 497.469,
+        "duration": 3.96
+    },
+    {
+        "text": "I see so as you're going it's the",
+        "start": 499.599,
+        "duration": 4.71
+    },
+    {
+        "text": "movement towards the the local minima or",
+        "start": 501.429,
+        "duration": 4.86
+    },
+    {
+        "text": "more precise yeah exactly so it's like",
+        "start": 504.309,
+        "duration": 4.2
+    },
+    {
+        "text": "big step big step big step here and this",
+        "start": 506.289,
+        "duration": 3.93
+    },
+    {
+        "text": "mo steps to my step and then you get the",
+        "start": 508.509,
+        "duration": 3.66
+    },
+    {
+        "text": "name oh you know awesome awesome in it",
+        "start": 510.219,
+        "duration": 3.66
+    },
+    {
+        "text": "and it looks like you did a seven to one",
+        "start": 512.169,
+        "duration": 4.62
+    },
+    {
+        "text": "to two training training validation and",
+        "start": 513.879,
+        "duration": 4.5
+    },
+    {
+        "text": "use the atom optimizer yeah",
+        "start": 516.789,
+        "duration": 4.17
+    },
+    {
+        "text": "which has the which has the momentum and",
+        "start": 518.379,
+        "duration": 5.22
+    },
+    {
+        "text": "rmsprop exactly so it actually come work",
+        "start": 520.959,
+        "duration": 4.56
+    },
+    {
+        "text": "very fast so you really it takes just",
+        "start": 523.599,
+        "duration": 4.29
+    },
+    {
+        "text": "like three thirty or forty epochs to",
+        "start": 525.519,
+        "duration": 4.711
+    },
+    {
+        "text": "convert Wow if you use the standard STD",
+        "start": 527.889,
+        "duration": 5.01
+    },
+    {
+        "text": "it takes like at least 100 pokes to come",
+        "start": 530.23,
+        "duration": 4.56
+    },
+    {
+        "text": "work so how long in time did it take the",
+        "start": 532.899,
+        "duration": 3.54
+    },
+    {
+        "text": "train is saying yeah that's a good",
+        "start": 534.79,
+        "duration": 3.18
+    },
+    {
+        "text": "question so we didn't put it on the",
+        "start": 536.439,
+        "duration": 3.71
+    },
+    {
+        "text": "slides but if we use the latest error",
+        "start": 537.97,
+        "duration": 5.429
+    },
+    {
+        "text": "you know a TPU which is P 100 it only",
+        "start": 540.149,
+        "duration": 6.04
+    },
+    {
+        "text": "takes like five minutes for ye poke but",
+        "start": 543.399,
+        "duration": 5.67
+    },
+    {
+        "text": "if we use the traditional like old K 81",
+        "start": 546.189,
+        "duration": 5.58
+    },
+    {
+        "text": "it takes like 20 or old like 30 minutes",
+        "start": 549.069,
+        "duration": 4.62
+    },
+    {
+        "text": "so you're saying this was trained in",
+        "start": 551.769,
+        "duration": 3.211
+    },
+    {
+        "text": "about an hour",
+        "start": 553.689,
+        "duration": 5.041
+    },
+    {
+        "text": "yeah our are like maybe two hours that's",
+        "start": 554.98,
+        "duration": 5.37
+    },
+    {
+        "text": "crazy yeah I know",
+        "start": 558.73,
+        "duration": 3.149
+    },
+    {
+        "text": "I mean that's pretty amazing like just",
+        "start": 560.35,
+        "duration": 4.679
+    },
+    {
+        "text": "just doing like the the the the learning",
+        "start": 561.879,
+        "duration": 5.281
+    },
+    {
+        "text": "rate decay and making sure they using",
+        "start": 565.029,
+        "duration": 4.29
+    },
+    {
+        "text": "atom optimizer like that's crazy how",
+        "start": 567.16,
+        "duration": 7.679
+    },
+    {
+        "text": "fast and good hardware of course yeah",
+        "start": 569.319,
+        "duration": 7.5
+    },
+    {
+        "text": "awesome tell us about the sigmoid",
+        "start": 574.839,
+        "duration": 3.99
+    },
+    {
+        "text": "function so you're Li because if you",
+        "start": 576.819,
+        "duration": 3.45
+    },
+    {
+        "text": "think about all the diseases actually",
+        "start": 578.829,
+        "duration": 3.961
+    },
+    {
+        "text": "some of the disease can coast for",
+        "start": 580.269,
+        "duration": 4.141
+    },
+    {
+        "text": "example you probably have pneumonia as",
+        "start": 582.79,
+        "duration": 3.779
+    },
+    {
+        "text": "as well as notice those containers right",
+        "start": 584.41,
+        "duration": 5.399
+    },
+    {
+        "text": "so in that case it's not a single label",
+        "start": 586.569,
+        "duration": 4.95
+    },
+    {
+        "text": "problem it's actually a multi-level",
+        "start": 589.809,
+        "duration": 3.361
+    },
+    {
+        "text": "program meaning that each limit could",
+        "start": 591.519,
+        "duration": 3.54
+    },
+    {
+        "text": "have multiple levels right in that case",
+        "start": 593.17,
+        "duration": 4.259
+    },
+    {
+        "text": "we are using sigmoid because that's kind",
+        "start": 595.059,
+        "duration": 3.84
+    },
+    {
+        "text": "of the standard for like you know",
+        "start": 597.429,
+        "duration": 4.02
+    },
+    {
+        "text": "multi-label classification problem I see",
+        "start": 598.899,
+        "duration": 3.201
+    },
+    {
+        "text": "and so",
+        "start": 601.449,
+        "duration": 3.62
+    },
+    {
+        "text": "does the output have multiple output",
+        "start": 602.1,
+        "duration": 3.599
+    },
+    {
+        "text": "nodes",
+        "start": 605.069,
+        "duration": 3.361
+    },
+    {
+        "text": "yeah output that yeah 40 out output",
+        "start": 605.699,
+        "duration": 4.62
+    },
+    {
+        "text": "knows okay and each wires running from 0",
+        "start": 608.43,
+        "duration": 4.68
+    },
+    {
+        "text": "to 1 I see right well if you use for",
+        "start": 610.319,
+        "duration": 5.401
+    },
+    {
+        "text": "example softmax the all the all the sum",
+        "start": 613.11,
+        "duration": 5.669
+    },
+    {
+        "text": "is sum equal to 1 I see right so here",
+        "start": 615.72,
+        "duration": 6.27
+    },
+    {
+        "text": "each each individual like a resulting I",
+        "start": 618.779,
+        "duration": 5.37
+    },
+    {
+        "text": "see as you see I was confused by it's",
+        "start": 621.99,
+        "duration": 3.75
+    },
+    {
+        "text": "like usually if you use softmax but",
+        "start": 624.149,
+        "duration": 3.081
+    },
+    {
+        "text": "that's only if you're trying to",
+        "start": 625.74,
+        "duration": 4.32
+    },
+    {
+        "text": "exclusively say it's only this one yeah",
+        "start": 627.23,
+        "duration": 5.049
+    },
+    {
+        "text": "it's only vs. yeah now you're saying",
+        "start": 630.06,
+        "duration": 3.99
+    },
+    {
+        "text": "well actually it could be this one and",
+        "start": 632.279,
+        "duration": 3.691
+    },
+    {
+        "text": "this one with these probabilities okay",
+        "start": 634.05,
+        "duration": 3.63
+    },
+    {
+        "text": "that's amazing yeah and so you trained",
+        "start": 635.97,
+        "duration": 2.669
+    },
+    {
+        "text": "for 100 bucks",
+        "start": 637.68,
+        "duration": 2.88
+    },
+    {
+        "text": "and then the you selected the best one",
+        "start": 638.639,
+        "duration": 3.481
+    },
+    {
+        "text": "with it yeah it's like a bad one",
+        "start": 640.56,
+        "duration": 4.139
+    },
+    {
+        "text": "okay and now let's get into like like",
+        "start": 642.12,
+        "duration": 4.589
+    },
+    {
+        "text": "what environment did you use to set this",
+        "start": 644.699,
+        "duration": 7.83
+    },
+    {
+        "text": "all up so yeah so the environment a that",
+        "start": 646.709,
+        "duration": 8.37
+    },
+    {
+        "text": "we use area of course and that one of",
+        "start": 652.529,
+        "duration": 4.831
+    },
+    {
+        "text": "the nice thing of error or Allard",
+        "start": 655.079,
+        "duration": 4.531
+    },
+    {
+        "text": "innocence p.m. it that's you just go the",
+        "start": 657.36,
+        "duration": 4.08
+    },
+    {
+        "text": "year you say hey i wanted innocence p.m.",
+        "start": 659.61,
+        "duration": 3.839
+    },
+    {
+        "text": "right i want to use area machine",
+        "start": 661.44,
+        "duration": 3.78
+    },
+    {
+        "text": "learning to use that as a back-end and",
+        "start": 663.449,
+        "duration": 4.08
+    },
+    {
+        "text": "you just with the few clicks and it will",
+        "start": 665.22,
+        "duration": 4.14
+    },
+    {
+        "text": "set up all the thing for you otherwise",
+        "start": 667.529,
+        "duration": 3.36
+    },
+    {
+        "text": "if you want to set everything from",
+        "start": 669.36,
+        "duration": 4.229
+    },
+    {
+        "text": "scratch oh man it takes like yeah a few",
+        "start": 670.889,
+        "duration": 4.411
+    },
+    {
+        "text": "hours at least yeah we did a show on",
+        "start": 673.589,
+        "duration": 3.6
+    },
+    {
+        "text": "that the data science vm in the deep",
+        "start": 675.3,
+        "duration": 4.08
+    },
+    {
+        "text": "learning becomes and usually you install",
+        "start": 677.189,
+        "duration": 3.9
+    },
+    {
+        "text": "this stuff and then you have a hard time",
+        "start": 679.38,
+        "duration": 5.79
+    },
+    {
+        "text": "later on that's why we use irony and",
+        "start": 681.089,
+        "duration": 5.55
+    },
+    {
+        "text": "that's why we use a great data science",
+        "start": 685.17,
+        "duration": 2.609
+    },
+    {
+        "text": "p.m. at the backend",
+        "start": 686.639,
+        "duration": 2.671
+    },
+    {
+        "text": "awesome so i saw you had a chart coming",
+        "start": 687.779,
+        "duration": 3.271
+    },
+    {
+        "text": "up next what is this telling us yeah so",
+        "start": 689.31,
+        "duration": 3.6
+    },
+    {
+        "text": "actually this is just like the training",
+        "start": 691.05,
+        "duration": 4.289
+    },
+    {
+        "text": "heart so as you can see this is like the",
+        "start": 692.91,
+        "duration": 6.479
+    },
+    {
+        "text": "loss of the model and from the first of",
+        "start": 695.339,
+        "duration": 6.75
+    },
+    {
+        "text": "few epochs accurate he'll maybe the 30s",
+        "start": 699.389,
+        "duration": 6.151
+    },
+    {
+        "text": "if oh it just decreased and then from",
+        "start": 702.089,
+        "duration": 5.37
+    },
+    {
+        "text": "that going on and to be the validation",
+        "start": 705.54,
+        "duration": 3.33
+    },
+    {
+        "text": "loss spirit has to go up because we are",
+        "start": 707.459,
+        "duration": 2.851
+    },
+    {
+        "text": "kind of overfitting it on the clinic got",
+        "start": 708.87,
+        "duration": 3.779
+    },
+    {
+        "text": "it yeah and so like you you're like okay",
+        "start": 710.31,
+        "duration": 3.6
+    },
+    {
+        "text": "we're gonna pick the model right there",
+        "start": 712.649,
+        "duration": 1.771
+    },
+    {
+        "text": "at the bottom",
+        "start": 713.91,
+        "duration": 1.89
+    },
+    {
+        "text": "yes that's the one that does the best",
+        "start": 714.42,
+        "duration": 3.149
+    },
+    {
+        "text": "now yeah here's me just to select this",
+        "start": 715.8,
+        "duration": 4.83
+    },
+    {
+        "text": "one awesome so then here's another",
+        "start": 717.569,
+        "duration": 4.921
+    },
+    {
+        "text": "question what what did you write this in",
+        "start": 720.63,
+        "duration": 3.84
+    },
+    {
+        "text": "do something like tensor flow or klaris",
+        "start": 722.49,
+        "duration": 3.51
+    },
+    {
+        "text": "or something else yeah currently we use",
+        "start": 724.47,
+        "duration": 3.39
+    },
+    {
+        "text": "Kerris and use tensor flow at the back",
+        "start": 726.0,
+        "duration": 3.389
+    },
+    {
+        "text": "end yeah fantastic",
+        "start": 727.86,
+        "duration": 3.69
+    },
+    {
+        "text": "okay so once you've gone through the",
+        "start": 729.389,
+        "duration": 3.771
+    },
+    {
+        "text": "process of weeding out the bad data",
+        "start": 731.55,
+        "duration": 3.59
+    },
+    {
+        "text": "augmenting the data",
+        "start": 733.16,
+        "duration": 4.14
+    },
+    {
+        "text": "coming up with a suitable model making",
+        "start": 735.14,
+        "duration": 3.36
+    },
+    {
+        "text": "sure the learning rate and the",
+        "start": 737.3,
+        "duration": 2.43
+    },
+    {
+        "text": "optimizers were good because I'm sure",
+        "start": 738.5,
+        "duration": 2.85
+    },
+    {
+        "text": "like you ran it the first time it didn't",
+        "start": 739.73,
+        "duration": 2.76
+    },
+    {
+        "text": "work and then you're like maybe we",
+        "start": 741.35,
+        "duration": 2.82
+    },
+    {
+        "text": "should do these smart things to learning",
+        "start": 742.49,
+        "duration": 2.88
+    },
+    {
+        "text": "right maybe we should use a time",
+        "start": 744.17,
+        "duration": 5.01
+    },
+    {
+        "text": "optimizer yeah what what output do you",
+        "start": 745.37,
+        "duration": 6.33
+    },
+    {
+        "text": "get and then how do you actually put",
+        "start": 749.18,
+        "duration": 5.19
+    },
+    {
+        "text": "this somewhere that it can be used yeah",
+        "start": 751.7,
+        "duration": 8.24
+    },
+    {
+        "text": "so let's first talk about oh yeah so",
+        "start": 754.37,
+        "duration": 8.94
+    },
+    {
+        "text": "because like we need to have some",
+        "start": 759.94,
+        "duration": 4.87
+    },
+    {
+        "text": "validation metrics for the model right",
+        "start": 763.31,
+        "duration": 3.45
+    },
+    {
+        "text": "usually people use like for cereal or",
+        "start": 764.81,
+        "duration": 3.899
+    },
+    {
+        "text": "like f1 score if I score it's also very",
+        "start": 766.76,
+        "duration": 3.81
+    },
+    {
+        "text": "quick here in this case we are using a",
+        "start": 768.709,
+        "duration": 5.19
+    },
+    {
+        "text": "RC or the outside scope our z score",
+        "start": 770.57,
+        "duration": 6.06
+    },
+    {
+        "text": "means that this is like the curve here",
+        "start": 773.899,
+        "duration": 4.94
+    },
+    {
+        "text": "like it's saying how what's the",
+        "start": 776.63,
+        "duration": 4.68
+    },
+    {
+        "text": "sensitivity of the model versus the",
+        "start": 778.839,
+        "duration": 4.211
+    },
+    {
+        "text": "specificity of the model this Li means",
+        "start": 781.31,
+        "duration": 3.66
+    },
+    {
+        "text": "like how the model can correctly",
+        "start": 783.05,
+        "duration": 4.26
+    },
+    {
+        "text": "identify the true positive samples as",
+        "start": 784.97,
+        "duration": 5.16
+    },
+    {
+        "text": "well as the true negative samples right",
+        "start": 787.31,
+        "duration": 3.51
+    },
+    {
+        "text": "sir yeah",
+        "start": 790.13,
+        "duration": 3.209
+    },
+    {
+        "text": "because in medical cases you already",
+        "start": 790.82,
+        "duration": 5.34
+    },
+    {
+        "text": "have a very low positive sample right",
+        "start": 793.339,
+        "duration": 4.56
+    },
+    {
+        "text": "for example anymore in the morning you",
+        "start": 796.16,
+        "duration": 3.6
+    },
+    {
+        "text": "probably have a lot of normal people or",
+        "start": 797.899,
+        "duration": 3.63
+    },
+    {
+        "text": "normal images and then you have a little",
+        "start": 799.76,
+        "duration": 3.66
+    },
+    {
+        "text": "bit of pneumonia kind of immediately",
+        "start": 801.529,
+        "duration": 3.781
+    },
+    {
+        "text": "yeah that's why we don't want to use",
+        "start": 803.42,
+        "duration": 4.38
+    },
+    {
+        "text": "procedure because in that case the model",
+        "start": 805.31,
+        "duration": 4.89
+    },
+    {
+        "text": "will say okay I have a 99% nun-like",
+        "start": 807.8,
+        "duration": 4.2
+    },
+    {
+        "text": "accuracy like really it's just to",
+        "start": 810.2,
+        "duration": 3.93
+    },
+    {
+        "text": "classify everything as negative and the",
+        "start": 812.0,
+        "duration": 5.61
+    },
+    {
+        "text": "recalls like some yeah yeah and so uh",
+        "start": 814.13,
+        "duration": 5.459
+    },
+    {
+        "text": "that makes sense and and and pros are",
+        "start": 817.61,
+        "duration": 3.03
+    },
+    {
+        "text": "listening if I'm understanding this",
+        "start": 819.589,
+        "duration": 3.421
+    },
+    {
+        "text": "right you if you have a hundred things",
+        "start": 820.64,
+        "duration": 5.58
+    },
+    {
+        "text": "and only one of them is the false",
+        "start": 823.01,
+        "duration": 7.56
+    },
+    {
+        "text": "if you always predict true you got 99%",
+        "start": 826.22,
+        "duration": 4.77
+    },
+    {
+        "text": "accuracy",
+        "start": 830.57,
+        "duration": 3.42
+    },
+    {
+        "text": "yeah yeah high accuracy yes but this is",
+        "start": 830.99,
+        "duration": 3.659
+    },
+    {
+        "text": "useless",
+        "start": 833.99,
+        "duration": 2.52
+    },
+    {
+        "text": "yeah right so that's why you use the ROC",
+        "start": 834.649,
+        "duration": 4.321
+    },
+    {
+        "text": "curve we see okay how are we doing you",
+        "start": 836.51,
+        "duration": 4.59
+    },
+    {
+        "text": "know overall when ya surgeon versus",
+        "start": 838.97,
+        "duration": 4.35
+    },
+    {
+        "text": "recall yes exactly exactly so that's the",
+        "start": 841.1,
+        "duration": 8.91
+    },
+    {
+        "text": "validation metrics and also from the",
+        "start": 843.32,
+        "duration": 8.67
+    },
+    {
+        "text": "test point of view we also use thin",
+        "start": 850.01,
+        "duration": 4.319
+    },
+    {
+        "text": "crops to improve the result control",
+        "start": 851.99,
+        "duration": 3.63
+    },
+    {
+        "text": "basically means that for example you",
+        "start": 854.329,
+        "duration": 2.971
+    },
+    {
+        "text": "have an input image right instead of",
+        "start": 855.62,
+        "duration": 3.93
+    },
+    {
+        "text": "putting this image into a model you kind",
+        "start": 857.3,
+        "duration": 4.68
+    },
+    {
+        "text": "of just crop the top left top right",
+        "start": 859.55,
+        "duration": 4.83
+    },
+    {
+        "text": "bottom left bottom light and the bottom",
+        "start": 861.98,
+        "duration": 4.65
+    },
+    {
+        "text": "right and the simple one as like this is",
+        "start": 864.38,
+        "duration": 4.439
+    },
+    {
+        "text": "called five crop and you flip them and",
+        "start": 866.63,
+        "duration": 4.409
+    },
+    {
+        "text": "is called team cross ya can use the",
+        "start": 868.819,
+        "duration": 4.17
+    },
+    {
+        "text": "trick of flipping yeah exactly",
+        "start": 871.039,
+        "duration": 3.84
+    },
+    {
+        "text": "again the trick of using flipping yeah I",
+        "start": 872.989,
+        "duration": 4.29
+    },
+    {
+        "text": "see and this is how this is like once",
+        "start": 874.879,
+        "duration": 4.35
+    },
+    {
+        "text": "you build stuff then you like did a lot",
+        "start": 877.279,
+        "duration": 4.11
+    },
+    {
+        "text": "of work to improve accuracy yeah well I",
+        "start": 879.229,
+        "duration": 6.181
+    },
+    {
+        "text": "guess it'd be recalled that's awesome",
+        "start": 881.389,
+        "duration": 6.81
+    },
+    {
+        "text": "yeah awesome yeah alright so you used",
+        "start": 885.41,
+        "duration": 4.019
+    },
+    {
+        "text": "Karras and tensorflow",
+        "start": 888.199,
+        "duration": 2.43
+    },
+    {
+        "text": "looks like this is this is the final",
+        "start": 889.429,
+        "duration": 3.72
+    },
+    {
+        "text": "result that you got yes yes yes actually",
+        "start": 890.629,
+        "duration": 4.8
+    },
+    {
+        "text": "we have a because like we have a you are",
+        "start": 893.149,
+        "duration": 4.77
+    },
+    {
+        "text": "a Cisco or AOC score for all the 14",
+        "start": 895.429,
+        "duration": 4.14
+    },
+    {
+        "text": "disease and kind of something together",
+        "start": 897.919,
+        "duration": 4.08
+    },
+    {
+        "text": "as a single metric for the remodel yeah",
+        "start": 899.569,
+        "duration": 4.77
+    },
+    {
+        "text": "yeah the 14 diseases are the 14 outputs",
+        "start": 901.999,
+        "duration": 4.83
+    },
+    {
+        "text": "that you had right yeah exactly yeah I",
+        "start": 904.339,
+        "duration": 5.67
+    },
+    {
+        "text": "see it so 84 which is which is very good",
+        "start": 906.829,
+        "duration": 6.15
+    },
+    {
+        "text": "I mean if like for example and I can see",
+        "start": 910.009,
+        "duration": 5.04
+    },
+    {
+        "text": "this in a scenario where like if there's",
+        "start": 912.979,
+        "duration": 4.32
+    },
+    {
+        "text": "not a lot of medical staff around you",
+        "start": 915.049,
+        "duration": 4.171
+    },
+    {
+        "text": "could actually line people up in order",
+        "start": 917.299,
+        "duration": 4.051
+    },
+    {
+        "text": "of like how confident the model might be",
+        "start": 919.22,
+        "duration": 3.449
+    },
+    {
+        "text": "that you have something that we could",
+        "start": 921.35,
+        "duration": 2.489
+    },
+    {
+        "text": "triage a little yes",
+        "start": 922.669,
+        "duration": 3.301
+    },
+    {
+        "text": "yes exactly that's still pretty good yep",
+        "start": 923.839,
+        "duration": 6.27
+    },
+    {
+        "text": "yep awesome yep all right so let's talk",
+        "start": 925.97,
+        "duration": 6.69
+    },
+    {
+        "text": "about model visualization interpretation",
+        "start": 930.109,
+        "duration": 5.1
+    },
+    {
+        "text": "tell us about that so if you think about",
+        "start": 932.66,
+        "duration": 4.589
+    },
+    {
+        "text": "it right if you go to a hospital and you",
+        "start": 935.209,
+        "duration": 4.23
+    },
+    {
+        "text": "have a sort of AI model helping you say",
+        "start": 937.249,
+        "duration": 3.96
+    },
+    {
+        "text": "hey man you have any more view and you",
+        "start": 939.439,
+        "duration": 3.27
+    },
+    {
+        "text": "won't believe that because they okay",
+        "start": 941.209,
+        "duration": 3.24
+    },
+    {
+        "text": "what the hell right it has to give you a",
+        "start": 942.709,
+        "duration": 4.2
+    },
+    {
+        "text": "single score right so one of the most",
+        "start": 944.449,
+        "duration": 3.99
+    },
+    {
+        "text": "important thing for deep learning model",
+        "start": 946.909,
+        "duration": 3.72
+    },
+    {
+        "text": "is about the interpret interpretation of",
+        "start": 948.439,
+        "duration": 4.71
+    },
+    {
+        "text": "the model right that case the reason why",
+        "start": 950.629,
+        "duration": 4.23
+    },
+    {
+        "text": "we want to interpret the model and",
+        "start": 953.149,
+        "duration": 3.03
+    },
+    {
+        "text": "visualize the model that because the",
+        "start": 954.859,
+        "duration": 2.73
+    },
+    {
+        "text": "doctor we need it and the patient",
+        "start": 956.179,
+        "duration": 3.06
+    },
+    {
+        "text": "probably also will want to take a look",
+        "start": 957.589,
+        "duration": 3.15
+    },
+    {
+        "text": "at hey who was gonna run your might test",
+        "start": 959.239,
+        "duration": 3.24
+    },
+    {
+        "text": "chest x-ray all right and and the thing",
+        "start": 960.739,
+        "duration": 3.9
+    },
+    {
+        "text": "about it is is if it says yeah you have",
+        "start": 962.479,
+        "duration": 4.23
+    },
+    {
+        "text": "this it's like okay well what do I do",
+        "start": 964.639,
+        "duration": 3.45
+    },
+    {
+        "text": "now now the doctor is gonna actually",
+        "start": 966.709,
+        "duration": 3.18
+    },
+    {
+        "text": "need to go and look at the thing and",
+        "start": 968.089,
+        "duration": 3.84
+    },
+    {
+        "text": "figure it out but the model already did",
+        "start": 969.889,
+        "duration": 4.5
+    },
+    {
+        "text": "some kind of work already that show yes",
+        "start": 971.929,
+        "duration": 4.68
+    },
+    {
+        "text": "exactly so this is one of the example",
+        "start": 974.389,
+        "duration": 4.5
+    },
+    {
+        "text": "where we say okay in this picture the",
+        "start": 976.609,
+        "duration": 5.09
+    },
+    {
+        "text": "patient has the disease is called like",
+        "start": 978.889,
+        "duration": 5.22
+    },
+    {
+        "text": "cardiomegaly basically means the heart",
+        "start": 981.699,
+        "duration": 5.38
+    },
+    {
+        "text": "is too big kind of thing so the top left",
+        "start": 984.109,
+        "duration": 5.82
+    },
+    {
+        "text": "is the original cast x-ray image right",
+        "start": 987.079,
+        "duration": 5.22
+    },
+    {
+        "text": "and that this is our great visualization",
+        "start": 989.929,
+        "duration": 4.41
+    },
+    {
+        "text": "for the model saying hey this is",
+        "start": 992.299,
+        "duration": 4.86
+    },
+    {
+        "text": "probably where goes wrong right and this",
+        "start": 994.339,
+        "duration": 4.98
+    },
+    {
+        "text": "is the highlight area and then this is",
+        "start": 997.159,
+        "duration": 4.47
+    },
+    {
+        "text": "like an overlay of these two images they",
+        "start": 999.319,
+        "duration": 3.21
+    },
+    {
+        "text": "say okay there",
+        "start": 1001.629,
+        "duration": 3.241
+    },
+    {
+        "text": "here it goes wrong and then this picture",
+        "start": 1002.529,
+        "duration": 4.98
+    },
+    {
+        "text": "the wrong the red bounding box this",
+        "start": 1004.87,
+        "duration": 5.339
+    },
+    {
+        "text": "bounding box is the kind of ground truth",
+        "start": 1007.509,
+        "duration": 5.221
+    },
+    {
+        "text": "labeled by some radiologists and then",
+        "start": 1010.209,
+        "duration": 4.86
+    },
+    {
+        "text": "this is like the prediction by our model",
+        "start": 1012.73,
+        "duration": 5.789
+    },
+    {
+        "text": "saying oh I see so now you have not only",
+        "start": 1015.069,
+        "duration": 6.661
+    },
+    {
+        "text": "do you have the actual prediction but",
+        "start": 1018.519,
+        "duration": 4.951
+    },
+    {
+        "text": "you also have like where the radiologist",
+        "start": 1021.73,
+        "duration": 3.12
+    },
+    {
+        "text": "label the thing and so you can actually",
+        "start": 1023.47,
+        "duration": 3.3
+    },
+    {
+        "text": "accurately predict where the problem is",
+        "start": 1024.85,
+        "duration": 4.26
+    },
+    {
+        "text": "as well yeah yeah yeah so the red the",
+        "start": 1026.77,
+        "duration": 4.47
+    },
+    {
+        "text": "bank vault is labeled by human being and",
+        "start": 1029.11,
+        "duration": 5.01
+    },
+    {
+        "text": "this red kind of contour thing is",
+        "start": 1031.24,
+        "duration": 4.98
+    },
+    {
+        "text": "labeled by the image a sauropod model",
+        "start": 1034.12,
+        "duration": 3.99
+    },
+    {
+        "text": "alright yeah so that's why I say okay",
+        "start": 1036.22,
+        "duration": 3.869
+    },
+    {
+        "text": "the model correctly identified this",
+        "start": 1038.11,
+        "duration": 3.959
+    },
+    {
+        "text": "particular disease that's pretty cool so",
+        "start": 1040.089,
+        "duration": 4.891
+    },
+    {
+        "text": "I asked you this question before and I'm",
+        "start": 1042.069,
+        "duration": 4.711
+    },
+    {
+        "text": "hoping that maybe you can help like work",
+        "start": 1044.98,
+        "duration": 4.11
+    },
+    {
+        "text": "what did you export is like a protobuf",
+        "start": 1046.78,
+        "duration": 4.98
+    },
+    {
+        "text": "file that you that it exported or what",
+        "start": 1049.09,
+        "duration": 5.19
+    },
+    {
+        "text": "is it that was the output of training",
+        "start": 1051.76,
+        "duration": 4.77
+    },
+    {
+        "text": "this model yes a week for later next and",
+        "start": 1054.28,
+        "duration": 3.99
+    },
+    {
+        "text": "maybe parts can talk more okay good so",
+        "start": 1056.53,
+        "duration": 3.75
+    },
+    {
+        "text": "so now are we done talking about",
+        "start": 1058.27,
+        "duration": 3.45
+    },
+    {
+        "text": "everything that you've done here in this",
+        "start": 1060.28,
+        "duration": 3.84
+    },
+    {
+        "text": "part yeah okay so now and this is a part",
+        "start": 1061.72,
+        "duration": 3.81
+    },
+    {
+        "text": "that's really a disease I loved it that",
+        "start": 1064.12,
+        "duration": 2.669
+    },
+    {
+        "text": "we actually can see all of this",
+        "start": 1065.53,
+        "duration": 2.85
+    },
+    {
+        "text": "happening I love that we're doing some",
+        "start": 1066.789,
+        "duration": 2.791
+    },
+    {
+        "text": "really awesome machine learning but now",
+        "start": 1068.38,
+        "duration": 2.789
+    },
+    {
+        "text": "it's like I always feel like we're",
+        "start": 1069.58,
+        "duration": 3.51
+    },
+    {
+        "text": "missing the last mile exactly how do we",
+        "start": 1071.169,
+        "duration": 3.961
+    },
+    {
+        "text": "actually put this out into something",
+        "start": 1073.09,
+        "duration": 3.569
+    },
+    {
+        "text": "that can be used no awesome this is",
+        "start": 1075.13,
+        "duration": 3.63
+    },
+    {
+        "text": "perfect so you have a couple of options",
+        "start": 1076.659,
+        "duration": 7.051
+    },
+    {
+        "text": "here right so you you have the option of",
+        "start": 1078.76,
+        "duration": 7.02
+    },
+    {
+        "text": "actually taking the model in its native",
+        "start": 1083.71,
+        "duration": 4.26
+    },
+    {
+        "text": "format and then building an application",
+        "start": 1085.78,
+        "duration": 3.96
+    },
+    {
+        "text": "that's not cool right because then it",
+        "start": 1087.97,
+        "duration": 3.48
+    },
+    {
+        "text": "loses portability and read these days",
+        "start": 1089.74,
+        "duration": 3.179
+    },
+    {
+        "text": "you build applications on multiple",
+        "start": 1091.45,
+        "duration": 3.87
+    },
+    {
+        "text": "platforms and so forth and in here is",
+        "start": 1092.919,
+        "duration": 4.561
+    },
+    {
+        "text": "where it comes onyx which is one neural",
+        "start": 1095.32,
+        "duration": 4.02
+    },
+    {
+        "text": "net exchange that was actually formed",
+        "start": 1097.48,
+        "duration": 6.199
+    },
+    {
+        "text": "together originally by Microsoft and by",
+        "start": 1099.34,
+        "duration": 6.54
+    },
+    {
+        "text": "Facebook okay and then we had a bunch of",
+        "start": 1103.679,
+        "duration": 4.271
+    },
+    {
+        "text": "other partners actually join and now you",
+        "start": 1105.88,
+        "duration": 4.5
+    },
+    {
+        "text": "have a whole bunch of hardware vendors",
+        "start": 1107.95,
+        "duration": 4.02
+    },
+    {
+        "text": "and software vendors that are backing",
+        "start": 1110.38,
+        "duration": 5.1
+    },
+    {
+        "text": "this and then and the models that are",
+        "start": 1111.97,
+        "duration": 5.73
+    },
+    {
+        "text": "supported are like today we have c NT k",
+        "start": 1115.48,
+        "duration": 4.98
+    },
+    {
+        "text": "pi torch cafe 2m x net and chain ER",
+        "start": 1117.7,
+        "duration": 5.099
+    },
+    {
+        "text": "there's the five popular frameworks for",
+        "start": 1120.46,
+        "duration": 4.38
+    },
+    {
+        "text": "deep neural net that is available and in",
+        "start": 1122.799,
+        "duration": 4.561
+    },
+    {
+        "text": "this particular example we're gonna be",
+        "start": 1124.84,
+        "duration": 4.98
+    },
+    {
+        "text": "they I believe this was done using PI",
+        "start": 1127.36,
+        "duration": 5.16
+    },
+    {
+        "text": "torch yeah and I was Kara Steele",
+        "start": 1129.82,
+        "duration": 4.079
+    },
+    {
+        "text": "yeah and Karis is actually an",
+        "start": 1132.52,
+        "duration": 3.81
+    },
+    {
+        "text": "abstraction layer on top of tensorflow",
+        "start": 1133.899,
+        "duration": 5.13
+    },
+    {
+        "text": "and so long as your fighters have onyx",
+        "start": 1136.33,
+        "duration": 5.699
+    },
+    {
+        "text": "is like this way of like of like getting",
+        "start": 1139.029,
+        "duration": 4.77
+    },
+    {
+        "text": "output from machine learning algorithm",
+        "start": 1142.029,
+        "duration": 3.181
+    },
+    {
+        "text": "specifically from these current",
+        "start": 1143.799,
+        "duration": 3.331
+    },
+    {
+        "text": "frameworks and then putting it into a",
+        "start": 1145.21,
+        "duration": 3.839
+    },
+    {
+        "text": "package that irrespective of where you",
+        "start": 1147.13,
+        "duration": 3.899
+    },
+    {
+        "text": "train them the package can be consumed",
+        "start": 1149.049,
+        "duration": 4.291
+    },
+    {
+        "text": "elsewhere exact got it okay and more and",
+        "start": 1151.029,
+        "duration": 3.99
+    },
+    {
+        "text": "more frameworks are beginning to",
+        "start": 1153.34,
+        "duration": 4.05
+    },
+    {
+        "text": "standardize on onyx almost think of it",
+        "start": 1155.019,
+        "duration": 4.53
+    },
+    {
+        "text": "as like XML of you got it okay that's",
+        "start": 1157.39,
+        "duration": 4.2
+    },
+    {
+        "text": "the best or Jason if we ought to be a",
+        "start": 1159.549,
+        "duration": 5.581
+    },
+    {
+        "text": "better yeah of course yeah and so what",
+        "start": 1161.59,
+        "duration": 7.11
+    },
+    {
+        "text": "do we do here right so you generate how",
+        "start": 1165.13,
+        "duration": 5.009
+    },
+    {
+        "text": "do you generate the onyx model that's",
+        "start": 1168.7,
+        "duration": 3.87
+    },
+    {
+        "text": "the brief protobuf that you said all of",
+        "start": 1170.139,
+        "duration": 3.961
+    },
+    {
+        "text": "the onyx models into inherently use",
+        "start": 1172.57,
+        "duration": 2.219
+    },
+    {
+        "text": "protobufs",
+        "start": 1174.1,
+        "duration": 2.97
+    },
+    {
+        "text": "and so what you do is you have a couple",
+        "start": 1174.789,
+        "duration": 3.0
+    },
+    {
+        "text": "of options",
+        "start": 1177.07,
+        "duration": 2.849
+    },
+    {
+        "text": "some of the frameworks are great they",
+        "start": 1177.789,
+        "duration": 3.841
+    },
+    {
+        "text": "actually allow you to export directly to",
+        "start": 1179.919,
+        "duration": 4.591
+    },
+    {
+        "text": "onyx and some of them they don't have it",
+        "start": 1181.63,
+        "duration": 4.71
+    },
+    {
+        "text": "so there are going to be converters",
+        "start": 1184.51,
+        "duration": 3.75
+    },
+    {
+        "text": "there are coming sure to support it in",
+        "start": 1186.34,
+        "duration": 4.41
+    },
+    {
+        "text": "this particular case we had both Kerris",
+        "start": 1188.26,
+        "duration": 5.279
+    },
+    {
+        "text": "as well as pi torch through pi torch pi",
+        "start": 1190.75,
+        "duration": 5.039
+    },
+    {
+        "text": "torch has an exporter built in okay so",
+        "start": 1193.539,
+        "duration": 4.5
+    },
+    {
+        "text": "they're the devs who built pi torch",
+        "start": 1195.789,
+        "duration": 3.961
+    },
+    {
+        "text": "decided well I'm gonna support onyx so",
+        "start": 1198.039,
+        "duration": 3.48
+    },
+    {
+        "text": "I'm going to allow you to export mine",
+        "start": 1199.75,
+        "duration": 3.659
+    },
+    {
+        "text": "into an onyx format just which is an",
+        "start": 1201.519,
+        "duration": 4.561
+    },
+    {
+        "text": "onyx file sure and then the converters",
+        "start": 1203.409,
+        "duration": 4.321
+    },
+    {
+        "text": "we don't have time to cover it in this",
+        "start": 1206.08,
+        "duration": 3.3
+    },
+    {
+        "text": "show I don't want to steal the next show",
+        "start": 1207.73,
+        "duration": 3.09
+    },
+    {
+        "text": "that is coming over there we're gonna",
+        "start": 1209.38,
+        "duration": 2.909
+    },
+    {
+        "text": "show you how you can take the Charis",
+        "start": 1210.82,
+        "duration": 3.39
+    },
+    {
+        "text": "model and then convert it to an onyx",
+        "start": 1212.289,
+        "duration": 3.571
+    },
+    {
+        "text": "file and then once you have this",
+        "start": 1214.21,
+        "duration": 4.29
+    },
+    {
+        "text": "beautiful onyx file you essentially then",
+        "start": 1215.86,
+        "duration": 6.449
+    },
+    {
+        "text": "voila use ARP you train a measure and",
+        "start": 1218.5,
+        "duration": 6.72
+    },
+    {
+        "text": "then you take the onyx model you build",
+        "start": 1222.309,
+        "duration": 5.041
+    },
+    {
+        "text": "an application and right here you're",
+        "start": 1225.22,
+        "duration": 3.75
+    },
+    {
+        "text": "building a Windows application here and",
+        "start": 1227.35,
+        "duration": 4.319
+    },
+    {
+        "text": "then it's actually you can inference",
+        "start": 1228.97,
+        "duration": 5.79
+    },
+    {
+        "text": "natively on Windows Windows is gonna",
+        "start": 1231.669,
+        "duration": 5.01
+    },
+    {
+        "text": "have this Windows machine learning built",
+        "start": 1234.76,
+        "duration": 4.019
+    },
+    {
+        "text": "part of it where I take the sonics file",
+        "start": 1236.679,
+        "duration": 4.951
+    },
+    {
+        "text": "it reads natively I drop it in I build",
+        "start": 1238.779,
+        "duration": 5.28
+    },
+    {
+        "text": "an application that uses this and then I",
+        "start": 1241.63,
+        "duration": 4.919
+    },
+    {
+        "text": "deploy it on Windows and I don't need to",
+        "start": 1244.059,
+        "duration": 4.321
+    },
+    {
+        "text": "bring any other runtimes and stuff",
+        "start": 1246.549,
+        "duration": 4.11
+    },
+    {
+        "text": "windows will natively inference that for",
+        "start": 1248.38,
+        "duration": 3.6
+    },
+    {
+        "text": "you and to me this is amazing because",
+        "start": 1250.659,
+        "duration": 4.801
+    },
+    {
+        "text": "I've always preached the gospel of think",
+        "start": 1251.98,
+        "duration": 5.939
+    },
+    {
+        "text": "of machine learning as api's that are",
+        "start": 1255.46,
+        "duration": 4.349
+    },
+    {
+        "text": "just built in a different way yeah right",
+        "start": 1257.919,
+        "duration": 3.36
+    },
+    {
+        "text": "instead of you coming up with a series",
+        "start": 1259.809,
+        "duration": 3.24
+    },
+    {
+        "text": "of steps it comes up with you give it",
+        "start": 1261.279,
+        "duration": 3.241
+    },
+    {
+        "text": "data and it comes up with its own thing",
+        "start": 1263.049,
+        "duration": 3.391
+    },
+    {
+        "text": "and now we can pass these onyx miles",
+        "start": 1264.52,
+        "duration": 4.35
+    },
+    {
+        "text": "models around as if they were references",
+        "start": 1266.44,
+        "duration": 3.76
+    },
+    {
+        "text": "to execution",
+        "start": 1268.87,
+        "duration": 3.22
+    },
+    {
+        "text": "exactly and with Windows ml then you",
+        "start": 1270.2,
+        "duration": 2.79
+    },
+    {
+        "text": "just burn them right into the",
+        "start": 1272.09,
+        "duration": 2.58
+    },
+    {
+        "text": "application exactly you just consume it",
+        "start": 1272.99,
+        "duration": 3.66
+    },
+    {
+        "text": "throw it in Visual Studio you write a",
+        "start": 1274.67,
+        "duration": 3.93
+    },
+    {
+        "text": "bunch of code we're gonna show it in the",
+        "start": 1276.65,
+        "duration": 5.25
+    },
+    {
+        "text": "next session the it supports multiple",
+        "start": 1278.6,
+        "duration": 5.46
+    },
+    {
+        "text": "languages and you have this application",
+        "start": 1281.9,
+        "duration": 3.57
+    },
+    {
+        "text": "you can either ship it to the store or",
+        "start": 1284.06,
+        "duration": 3.63
+    },
+    {
+        "text": "deploy to a PC yes and then you have it",
+        "start": 1285.47,
+        "duration": 4.23
+    },
+    {
+        "text": "right there fantastic it's all me that's",
+        "start": 1287.69,
+        "duration": 4.41
+    },
+    {
+        "text": "like your bit was like super short I",
+        "start": 1289.7,
+        "duration": 3.87
+    },
+    {
+        "text": "mean that's the part that it should be",
+        "start": 1292.1,
+        "duration": 2.85
+    },
+    {
+        "text": "right let's see once you actually build",
+        "start": 1293.57,
+        "duration": 3.24
+    },
+    {
+        "text": "these things you just like drag them in",
+        "start": 1294.95,
+        "duration": 2.73
+    },
+    {
+        "text": "and things should happen",
+        "start": 1296.81,
+        "duration": 2.16
+    },
+    {
+        "text": "yeah the beauty is that as an AI",
+        "start": 1297.68,
+        "duration": 3.24
+    },
+    {
+        "text": "developer I don't have to worry about",
+        "start": 1298.97,
+        "duration": 3.33
+    },
+    {
+        "text": "what the data scientist is actually",
+        "start": 1300.92,
+        "duration": 3.42
+    },
+    {
+        "text": "built yeah otherwise I'll have to sit",
+        "start": 1302.3,
+        "duration": 4.41
+    },
+    {
+        "text": "with my peer and then understand what",
+        "start": 1304.34,
+        "duration": 4.26
+    },
+    {
+        "text": "these actually mean what language did",
+        "start": 1306.71,
+        "duration": 4.08
+    },
+    {
+        "text": "you write but right now I'm just taking",
+        "start": 1308.6,
+        "duration": 3.99
+    },
+    {
+        "text": "the Sonics model and I know how to use",
+        "start": 1310.79,
+        "duration": 2.4
+    },
+    {
+        "text": "it yeah",
+        "start": 1312.59,
+        "duration": 2.13
+    },
+    {
+        "text": "boom I'm just off there developing a",
+        "start": 1313.19,
+        "duration": 3.78
+    },
+    {
+        "text": "resource file yeah and effectively like",
+        "start": 1314.72,
+        "duration": 4.8
+    },
+    {
+        "text": "if you think about it like it the",
+        "start": 1316.97,
+        "duration": 4.02
+    },
+    {
+        "text": "previous way you would have to",
+        "start": 1319.52,
+        "duration": 3.81
+    },
+    {
+        "text": "understand how the graph was built and",
+        "start": 1320.99,
+        "duration": 4.02
+    },
+    {
+        "text": "then you have to like dictionary into",
+        "start": 1323.33,
+        "duration": 3.99
+    },
+    {
+        "text": "like the specific area of the graph then",
+        "start": 1325.01,
+        "duration": 3.6
+    },
+    {
+        "text": "do you have to pass some weirdness in",
+        "start": 1327.32,
+        "duration": 3.27
+    },
+    {
+        "text": "and pass somewhere to sound and that's",
+        "start": 1328.61,
+        "duration": 5.25
+    },
+    {
+        "text": "not so fun yeah really quickly you have",
+        "start": 1330.59,
+        "duration": 5.28
+    },
+    {
+        "text": "so much support in the open source there",
+        "start": 1333.86,
+        "duration": 3.89
+    },
+    {
+        "text": "is even a neutron is one of the",
+        "start": 1335.87,
+        "duration": 4.26
+    },
+    {
+        "text": "visualizers phonics people are building",
+        "start": 1337.75,
+        "duration": 3.76
+    },
+    {
+        "text": "supports Ronix you're gonna see this",
+        "start": 1340.13,
+        "duration": 3.96
+    },
+    {
+        "text": "grow right here you throw this file into",
+        "start": 1341.51,
+        "duration": 4.38
+    },
+    {
+        "text": "Neutron and it shows you the graph",
+        "start": 1344.09,
+        "duration": 3.39
+    },
+    {
+        "text": "completely on here yeah and if you",
+        "start": 1345.89,
+        "duration": 3.12
+    },
+    {
+        "text": "haven't seen Neutron it's actually",
+        "start": 1347.48,
+        "duration": 4.71
+    },
+    {
+        "text": "pretty amazing it visualizes these",
+        "start": 1349.01,
+        "duration": 5.1
+    },
+    {
+        "text": "things in a way that you're like oh this",
+        "start": 1352.19,
+        "duration": 3.57
+    },
+    {
+        "text": "is what the computer is doing this is",
+        "start": 1354.11,
+        "duration": 4.38
+    },
+    {
+        "text": "how it's executed yes in reality and I",
+        "start": 1355.76,
+        "duration": 4.26
+    },
+    {
+        "text": "hate to burst everyone's bubbles but",
+        "start": 1358.49,
+        "duration": 3.03
+    },
+    {
+        "text": "machine learning is really just learning",
+        "start": 1360.02,
+        "duration": 4.44
+    },
+    {
+        "text": "a bunch of ways yeah once we have the",
+        "start": 1361.52,
+        "duration": 4.14
+    },
+    {
+        "text": "right weights right then it could",
+        "start": 1364.46,
+        "duration": 3.12
+    },
+    {
+        "text": "calculate the right yes just a bunch of",
+        "start": 1365.66,
+        "duration": 3.57
+    },
+    {
+        "text": "weights yeah and then it's supposed many",
+        "start": 1367.58,
+        "duration": 4.17
+    },
+    {
+        "text": "different frameworks like tensorflow etc",
+        "start": 1369.23,
+        "duration": 4.41
+    },
+    {
+        "text": "yeah fantastic already really is show us",
+        "start": 1371.75,
+        "duration": 3.36
+    },
+    {
+        "text": "oh I just want to give you a peek",
+        "start": 1373.64,
+        "duration": 3.21
+    },
+    {
+        "text": "sneaked into what's coming up next so",
+        "start": 1375.11,
+        "duration": 3.21
+    },
+    {
+        "text": "since we don't have time in here I just",
+        "start": 1376.85,
+        "duration": 4.5
+    },
+    {
+        "text": "want to show you like how this stuff",
+        "start": 1378.32,
+        "duration": 6.84
+    },
+    {
+        "text": "actually works then you have a bunch of",
+        "start": 1381.35,
+        "duration": 5.97
+    },
+    {
+        "text": "x-rays here this is what Sean showed us",
+        "start": 1385.16,
+        "duration": 4.32
+    },
+    {
+        "text": "and here is the app that actually was",
+        "start": 1387.32,
+        "duration": 4.47
+    },
+    {
+        "text": "built using Windows and we'll have a",
+        "start": 1389.48,
+        "duration": 4.62
+    },
+    {
+        "text": "deeper dive session in the and then in",
+        "start": 1391.79,
+        "duration": 5.16
+    },
+    {
+        "text": "the upcoming ok session so I mean this",
+        "start": 1394.1,
+        "duration": 3.72
+    },
+    {
+        "text": "is pretty amazing",
+        "start": 1396.95,
+        "duration": 5.73
+    },
+    {
+        "text": "ok so just to recap and to finish up the",
+        "start": 1397.82,
+        "duration": 6.0
+    },
+    {
+        "text": "important bits here",
+        "start": 1402.68,
+        "duration": 2.73
+    },
+    {
+        "text": "is that you went through the standard",
+        "start": 1403.82,
+        "duration": 3.33
+    },
+    {
+        "text": "machine learning process you used your",
+        "start": 1405.41,
+        "duration": 4.29
+    },
+    {
+        "text": "machine learning framework of choice you",
+        "start": 1407.15,
+        "duration": 3.81
+    },
+    {
+        "text": "went through the same challenges that",
+        "start": 1409.7,
+        "duration": 2.64
+    },
+    {
+        "text": "every machine learning practitioner has",
+        "start": 1410.96,
+        "duration": 3.21
+    },
+    {
+        "text": "and then when you were done you said",
+        "start": 1412.34,
+        "duration": 3.99
+    },
+    {
+        "text": "here you go and because you were using",
+        "start": 1414.17,
+        "duration": 3.84
+    },
+    {
+        "text": "PI torch you were just able to export",
+        "start": 1416.33,
+        "duration": 3.84
+    },
+    {
+        "text": "the model using onyx yeah and then you",
+        "start": 1418.01,
+        "duration": 5.16
+    },
+    {
+        "text": "as AI developer took the onyx model as",
+        "start": 1420.17,
+        "duration": 5.1
+    },
+    {
+        "text": "if it was a resource or an assembly or",
+        "start": 1423.17,
+        "duration": 4.14
+    },
+    {
+        "text": "whatever dropped it in and then we're",
+        "start": 1425.27,
+        "duration": 4.35
+    },
+    {
+        "text": "able to call it directly using Windows",
+        "start": 1427.31,
+        "duration": 4.71
+    },
+    {
+        "text": "ml now Windows ml is doing inferencing",
+        "start": 1429.62,
+        "duration": 5.73
+    },
+    {
+        "text": "correct yeah okay absolutely it's doing",
+        "start": 1432.02,
+        "duration": 5.43
+    },
+    {
+        "text": "in the inferencing or scoring whatever",
+        "start": 1435.35,
+        "duration": 4.2
+    },
+    {
+        "text": "you want to call it it's it takes the",
+        "start": 1437.45,
+        "duration": 3.81
+    },
+    {
+        "text": "new set of data that it comes the app",
+        "start": 1439.55,
+        "duration": 3.36
+    },
+    {
+        "text": "actually loads it and passes it to the",
+        "start": 1441.26,
+        "duration": 3.93
+    },
+    {
+        "text": "runtime that Windows has built into it",
+        "start": 1442.91,
+        "duration": 3.69
+    },
+    {
+        "text": "and it gives you the score with the app",
+        "start": 1445.19,
+        "duration": 3.72
+    },
+    {
+        "text": "converts to tell you what diseases in",
+        "start": 1446.6,
+        "duration": 4.41
+    },
+    {
+        "text": "this yes fantastic oh this is pretty",
+        "start": 1448.91,
+        "duration": 3.87
+    },
+    {
+        "text": "amazing thanks so much for spending the",
+        "start": 1451.01,
+        "duration": 2.76
+    },
+    {
+        "text": "time with us we'll be learning all about",
+        "start": 1452.78,
+        "duration": 3.81
+    },
+    {
+        "text": "how to do machine learning and we've",
+        "start": 1453.77,
+        "duration": 4.14
+    },
+    {
+        "text": "also learned about this new thing called",
+        "start": 1456.59,
+        "duration": 3.75
+    },
+    {
+        "text": "Windows ml which is pretty amazing",
+        "start": 1457.91,
+        "duration": 4.2
+    },
+    {
+        "text": "hopefully you'll stay tuned for the next",
+        "start": 1460.34,
+        "duration": 3.81
+    },
+    {
+        "text": "show we'll talk a little bit more about",
+        "start": 1462.11,
+        "duration": 3.12
+    },
+    {
+        "text": "how to use it thank so much for watching",
+        "start": 1464.15,
+        "duration": 4.1
+    },
+    {
+        "text": "we'll see you thank you thank you",
+        "start": 1465.23,
+        "duration": 12.1
+    },
+    {
+        "text": "[Music]",
+        "start": 1468.25,
+        "duration": 9.08
+    }
+]

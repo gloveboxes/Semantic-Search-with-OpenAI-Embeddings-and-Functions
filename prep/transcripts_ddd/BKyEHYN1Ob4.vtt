@@ -1,0 +1,3908 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:11.189
+Caption: without any more from me please a very
+
+00:00:03.448 --> 00:00:12.360
+Caption: very warm welcome / thank you Alex and
+
+00:00:11.189 --> 00:00:13.739
+Caption: thank you for coming along everybody
+
+00:00:12.359 --> 00:00:16.048
+Caption: there&#39;s lots of competition today so
+
+00:00:13.739 --> 00:00:17.608
+Caption: it&#39;s great to see you here now my talk
+
+00:00:16.048 --> 00:00:19.920
+Caption: understanding functional programming in
+
+00:00:17.608 --> 00:00:23.430
+Caption: 40 minutes you see there it&#39;s understand
+
+00:00:19.920 --> 00:00:25.170
+Caption: not learn not be able to program in 40
+
+00:00:23.430 --> 00:00:26.489
+Caption: minutes and understanding is quite
+
+00:00:25.170 --> 00:00:29.059
+Caption: varied but I have some money here we
+
+00:00:26.489 --> 00:00:29.059
+Caption: need it
+
+00:00:42.869 --> 00:00:47.699
+Caption: so I feel a bit like Harry Houdini today
+
+00:00:45.630 --> 00:00:49.650
+Caption: I have the great Harry Houdini well I&#39;m
+
+00:00:47.700 --> 00:00:51.229
+Caption: not great I&#39;m not Harry Houdini but I
+
+00:00:49.650 --> 00:00:53.970
+Caption: feel like have to perform some magic
+
+00:00:51.229 --> 00:00:56.009
+Caption: because as you know functional
+
+00:00:53.970 --> 00:00:59.010
+Caption: programming has this feeling about being
+
+00:00:56.009 --> 00:01:01.500
+Caption: hard and this is a comic slide we have
+
+00:00:59.009 --> 00:01:05.099
+Caption: here in Haskell this is what you need to
+
+00:01:01.500 --> 00:01:07.110
+Caption: know to do hello world well yeah the
+
+00:01:05.099 --> 00:01:07.739
+Caption: actual reality of the situation is quite
+
+00:01:07.110 --> 00:01:10.379
+Caption: different
+
+00:01:07.739 --> 00:01:12.599
+Caption: right this is hello world in Haskell and
+
+00:01:10.379 --> 00:01:14.368
+Caption: it looks very similar to Python or other
+
+00:01:12.599 --> 00:01:16.618
+Caption: languages you can write it quite short
+
+00:01:14.369 --> 00:01:18.570
+Caption: so again I&#39;m not here to teach you how
+
+00:01:16.619 --> 00:01:20.280
+Caption: school I&#39;m not here to teach you
+
+00:01:18.569 --> 00:01:22.259
+Caption: programming I&#39;m teaching here to try and
+
+00:01:20.279 --> 00:01:25.500
+Caption: help you understand function programming
+
+00:01:22.259 --> 00:01:27.029
+Caption: there&#39;s some key concepts and ideas that
+
+00:01:25.500 --> 00:01:28.589
+Caption: I think will help you understand that
+
+00:01:27.029 --> 00:01:30.750
+Caption: there&#39;s not too much to it but there&#39;s a
+
+00:01:28.589 --> 00:01:32.069
+Caption: lot of slides it&#39;s the last session in
+
+00:01:30.750 --> 00:01:34.500
+Caption: the day but I&#39;m going to work very hard
+
+00:01:32.069 --> 00:01:36.000
+Caption: and I hope you will work hard too to
+
+00:01:34.500 --> 00:01:37.739
+Caption: understand the functional programming
+
+00:01:36.000 --> 00:01:39.930
+Caption: it&#39;s not an easy session we&#39;re gonna go
+
+00:01:37.739 --> 00:01:41.398
+Caption: quite fast like flying through some
+
+00:01:39.930 --> 00:01:43.649
+Caption: landscape and having a look from higher
+
+00:01:41.399 --> 00:01:45.240
+Caption: above but if you work out hopefully
+
+00:01:43.649 --> 00:01:47.458
+Caption: we&#39;ll learn something and get through
+
+00:01:45.239 --> 00:01:49.799
+Caption: this together so you came to understand
+
+00:01:47.458 --> 00:02:02.330
+Caption: functional programming really are you
+
+00:01:49.800 --> 00:02:02.330
+Caption: keen okay let&#39;s go probably two seconds
+
+00:02:03.050 --> 00:02:07.050
+Caption: there we go sorry
+
+00:02:05.519 --> 00:02:08.369
+Caption: start off with the introduction and
+
+00:02:07.050 --> 00:02:10.130
+Caption: overview I won&#39;t look at the
+
+00:02:08.369 --> 00:02:12.180
+Caption: fundamentals of functional programming
+
+00:02:10.130 --> 00:02:14.160
+Caption: intermediate functional programming and
+
+00:02:12.179 --> 00:02:15.598
+Caption: then advanced functional programming and
+
+00:02:14.160 --> 00:02:17.250
+Caption: after the talk if you&#39;re giving an
+
+00:02:15.598 --> 00:02:19.440
+Caption: indication maybe if you see me where you
+
+00:02:17.250 --> 00:02:21.029
+Caption: got up to I got down a fundamental or I
+
+00:02:19.440 --> 00:02:22.889
+Caption: got to intermediate or I got to advanced
+
+00:02:21.029 --> 00:02:26.098
+Caption: there would be some good feedback along
+
+00:02:22.889 --> 00:02:29.190
+Caption: the way it does get harder a little bit
+
+00:02:26.098 --> 00:02:30.958
+Caption: about myself I have a PhD in computer
+
+00:02:29.190 --> 00:02:33.059
+Caption: science and software engineering that is
+
+00:02:30.958 --> 00:02:35.160
+Caption: focused on AI I&#39;ve worked in academia
+
+00:02:33.059 --> 00:02:37.619
+Caption: and industry for only 20 years and so
+
+00:02:35.160 --> 00:02:39.180
+Caption: forth with two consulting companies one
+
+00:02:37.619 --> 00:02:40.919
+Caption: called running co-productions which
+
+00:02:39.179 --> 00:02:42.719
+Caption: focused on software development and
+
+00:02:40.919 --> 00:02:44.729
+Caption: professional training another one now
+
+00:02:42.720 --> 00:02:46.979
+Caption: more recently innovate lis which focuses
+
+00:02:44.729 --> 00:02:49.500
+Caption: on corporate innovation and startup
+
+00:02:46.979 --> 00:02:53.250
+Caption: innovation and these are my areas of
+
+00:02:49.500 --> 00:02:55.160
+Caption: focus at current some sponsors of course
+
+00:02:53.250 --> 00:02:56.690
+Caption: we wouldn&#39;t be here today with the IRS
+
+00:02:55.160 --> 00:03:00.320
+Caption: so thank you very much to them please
+
+00:02:56.690 --> 00:03:03.020
+Caption: support them and visit their boos so
+
+00:03:00.320 --> 00:03:05.030
+Caption: warning this talk may contain strong
+
+00:03:03.020 --> 00:03:06.889
+Caption: language that may be offensive to some
+
+00:03:05.029 --> 00:03:09.050
+Caption: developments we&#39;re going to mention the
+
+00:03:06.889 --> 00:03:11.360
+Caption: f-word I&#39;m going to mention the M word
+
+00:03:09.050 --> 00:03:13.309
+Caption: okay so these are things you I&#39;m sorry
+
+00:03:11.360 --> 00:03:16.759
+Caption: close your ears or whatever but you&#39;ve
+
+00:03:13.309 --> 00:03:18.679
+Caption: been warned before we get into the
+
+00:03:16.759 --> 00:03:20.119
+Caption: actual functional content I want to
+
+00:03:18.679 --> 00:03:21.349
+Caption: review a couple of points which you
+
+00:03:20.119 --> 00:03:22.610
+Caption: probably know about but just to make
+
+00:03:21.350 --> 00:03:24.740
+Caption: sure for people who haven&#39;t heard of
+
+00:03:22.610 --> 00:03:27.289
+Caption: these things what is a programming
+
+00:03:24.740 --> 00:03:28.940
+Caption: paradigm it&#39;s just an approach to
+
+00:03:27.289 --> 00:03:30.979
+Caption: programming and there are many different
+
+00:03:28.940 --> 00:03:32.930
+Caption: programming paradigms different
+
+00:03:30.979 --> 00:03:34.279
+Caption: approaches we tend to break them down
+
+00:03:32.929 --> 00:03:36.859
+Caption: into two big groups
+
+00:03:34.279 --> 00:03:39.190
+Caption: the imperative group and the declarative
+
+00:03:36.860 --> 00:03:42.199
+Caption: group the imperative group says that
+
+00:03:39.190 --> 00:03:44.180
+Caption: will tell the computer what to do like
+
+00:03:42.199 --> 00:03:45.949
+Caption: baking a cake do this and do this and do
+
+00:03:44.179 --> 00:03:49.039
+Caption: that you do that and change this and run
+
+00:03:45.949 --> 00:03:50.690
+Caption: statements and so forth the declarative
+
+00:03:49.039 --> 00:03:53.329
+Caption: approach of which functional programming
+
+00:03:50.690 --> 00:03:55.940
+Caption: is a member tries to say this is what I
+
+00:03:53.330 --> 00:03:58.430
+Caption: want you work out how to do it so it&#39;s
+
+00:03:55.940 --> 00:04:01.220
+Caption: not as much prescriptive as this 50
+
+00:03:58.429 --> 00:04:02.389
+Caption: declarative as the name suggests there
+
+00:04:01.220 --> 00:04:03.919
+Caption: are other functional for us are a
+
+00:04:02.389 --> 00:04:05.690
+Caption: declarative program languages like logic
+
+00:04:03.919 --> 00:04:07.839
+Caption: programming but functional programming
+
+00:04:05.690 --> 00:04:10.010
+Caption: is by far the most popular these days
+
+00:04:07.839 --> 00:04:13.039
+Caption: and also another concept in programming
+
+00:04:10.009 --> 00:04:14.929
+Caption: is this first of enables versus supports
+
+00:04:13.039 --> 00:04:18.079
+Caption: so you can have a programming language
+
+00:04:14.929 --> 00:04:20.690
+Caption: which enables a particular approach to
+
+00:04:18.079 --> 00:04:22.399
+Caption: programming that just means you can do
+
+00:04:20.690 --> 00:04:23.750
+Caption: it all right now most of these language
+
+00:04:22.399 --> 00:04:24.739
+Caption: is a turing-complete so you can do
+
+00:04:23.750 --> 00:04:27.049
+Caption: anything anything
+
+00:04:24.739 --> 00:04:29.179
+Caption: does it help pretty much but some
+
+00:04:27.049 --> 00:04:31.220
+Caption: programming languages support that
+
+00:04:29.179 --> 00:04:32.899
+Caption: programming paradigm that means they
+
+00:04:31.220 --> 00:04:34.850
+Caption: have programming constructs and
+
+00:04:32.899 --> 00:04:37.190
+Caption: everything to do to try and help you do
+
+00:04:34.850 --> 00:04:39.980
+Caption: that paradigm that&#39;s one concept to
+
+00:04:37.190 --> 00:04:42.529
+Caption: remember we&#39;ll come back to later on the
+
+00:04:39.980 --> 00:04:45.620
+Caption: second concept of this idea of pure pure
+
+00:04:42.529 --> 00:04:48.109
+Caption: versus hybrid some programming languages
+
+00:04:45.619 --> 00:04:49.549
+Caption: are pure they just do one paradigm and
+
+00:04:48.109 --> 00:04:52.549
+Caption: the programming language is trying to do
+
+00:04:49.549 --> 00:04:54.649
+Caption: multiple paradigms like C++ or Java
+
+00:04:52.549 --> 00:04:56.659
+Caption: these days you know oh and a bit of
+
+00:04:54.649 --> 00:04:59.119
+Caption: functional here and there where is the
+
+00:04:56.660 --> 00:05:00.860
+Caption: Haskell language is a pure functional
+
+00:04:59.119 --> 00:05:03.079
+Caption: language who tries to just do a
+
+00:05:00.859 --> 00:05:04.579
+Caption: functional very well there&#39;s pros and
+
+00:05:03.079 --> 00:05:06.549
+Caption: there disadvantages against both of
+
+00:05:04.579 --> 00:05:08.928
+Caption: these approaches
+
+00:05:06.549 --> 00:05:10.489
+Caption: okay so let&#39;s get to the basics here the
+
+00:05:08.928 --> 00:05:13.098
+Caption: fundamentals of functional programming
+
+00:05:10.489 --> 00:05:15.289
+Caption: now I&#39;m hoping do you look like a techy
+
+00:05:13.098 --> 00:05:17.148
+Caption: audience that this is what you probably
+
+00:05:15.289 --> 00:05:18.709
+Caption: already know but just in case some
+
+00:05:17.148 --> 00:05:20.359
+Caption: people here don&#39;t know much about these
+
+00:05:18.709 --> 00:05:22.909
+Caption: things I&#39;ll start from scratch about
+
+00:05:20.359 --> 00:05:24.528
+Caption: functional programming remember back to
+
+00:05:22.908 --> 00:05:26.479
+Caption: your days in the high school or
+
+00:05:24.528 --> 00:05:28.699
+Caption: university he did functions
+
+00:05:26.479 --> 00:05:31.278
+Caption: you drew wraps and we drew it through
+
+00:05:28.699 --> 00:05:33.259
+Caption: stuff like y equals x plus 3 and we get
+
+00:05:31.278 --> 00:05:34.878
+Caption: a line over here and your work if you
+
+00:05:33.259 --> 00:05:36.080
+Caption: wanted to describe that function these
+
+00:05:34.878 --> 00:05:38.179
+Caption: notes that function which goes through
+
+00:05:36.079 --> 00:05:39.679
+Caption: the real numbers to the real numbers and
+
+00:05:38.179 --> 00:05:41.628
+Caption: here&#39;s the definition of the function
+
+00:05:39.679 --> 00:05:44.118
+Caption: and I can evaluate the function at a
+
+00:05:41.628 --> 00:05:46.579
+Caption: particular and you know the thing about
+
+00:05:44.118 --> 00:05:49.069
+Caption: a function which is quite unique is for
+
+00:05:46.579 --> 00:05:51.769
+Caption: every value of the variable X you only
+
+00:05:49.069 --> 00:05:53.989
+Caption: get one value of the function the one
+
+00:05:51.769 --> 00:05:56.269
+Caption: particular input you always get the same
+
+00:05:53.989 --> 00:05:57.498
+Caption: output that&#39;s what sort of defines a
+
+00:05:56.269 --> 00:05:59.118
+Caption: function in mathematics
+
+00:05:57.498 --> 00:06:02.509
+Caption: so hopefully you remember this sort of
+
+00:05:59.118 --> 00:06:04.218
+Caption: stuff yeah ok so what is functional
+
+00:06:02.509 --> 00:06:05.929
+Caption: programming well at its essence
+
+00:06:04.218 --> 00:06:08.088
+Caption: functional programming is just
+
+00:06:05.928 --> 00:06:10.248
+Caption: programming with the computational
+
+00:06:08.088 --> 00:06:11.628
+Caption: equivalent of these functions well just
+
+00:06:10.248 --> 00:06:13.549
+Caption: wanting him down and doing the math by
+
+00:06:11.628 --> 00:06:16.639
+Caption: hand we have now a computer to calculate
+
+00:06:13.549 --> 00:06:18.829
+Caption: the functional values pure functional
+
+00:06:16.639 --> 00:06:20.449
+Caption: programming means just using fewer
+
+00:06:18.829 --> 00:06:22.998
+Caption: functions nothing else
+
+00:06:20.449 --> 00:06:25.278
+Caption: neither object-oriented or procedural
+
+00:06:22.998 --> 00:06:26.718
+Caption: type stuff in pure functional
+
+00:06:25.278 --> 00:06:27.979
+Caption: programming means you may do stuff
+
+00:06:26.718 --> 00:06:30.889
+Caption: that&#39;s in the old way of doing things
+
+00:06:27.979 --> 00:06:32.479
+Caption: not purely functional approach so your
+
+00:06:30.889 --> 00:06:35.658
+Caption: functions may not just return one value
+
+00:06:32.479 --> 00:06:37.248
+Caption: they may do other things as well so a
+
+00:06:35.658 --> 00:06:40.489
+Caption: couple of distinctions to think about is
+
+00:06:37.248 --> 00:06:42.109
+Caption: to go through the port there so here&#39;s
+
+00:06:40.489 --> 00:06:44.359
+Caption: some a bit more details about the
+
+00:06:42.109 --> 00:06:46.069
+Caption: programming type of functions these
+
+00:06:44.359 --> 00:06:48.078
+Caption: actually things you will see in the
+
+00:06:46.069 --> 00:06:49.609
+Caption: Haskell programming language now I&#39;m not
+
+00:06:48.079 --> 00:06:50.688
+Caption: using how still I&#39;m using like a pseudo
+
+00:06:49.609 --> 00:06:52.609
+Caption: code to try to make it a bit more
+
+00:06:50.688 --> 00:06:54.109
+Caption: clearer but in Haskell you&#39;ll write
+
+00:06:52.609 --> 00:06:55.609
+Caption: something like I&#39;m going to find a
+
+00:06:54.109 --> 00:06:58.638
+Caption: function f which goes from float
+
+00:06:55.609 --> 00:07:00.618
+Caption: deployed same as the mass you define
+
+00:06:58.639 --> 00:07:02.408
+Caption: your function by saying f of X equals x
+
+00:07:00.618 --> 00:07:04.578
+Caption: plus 3 same as the net
+
+00:07:02.408 --> 00:07:05.898
+Caption: Haskell tries to make it simpler by
+
+00:07:04.579 --> 00:07:08.269
+Caption: allowing you to leave out the brackets
+
+00:07:05.898 --> 00:07:09.438
+Caption: and just put f space X and sometimes you
+
+00:07:08.269 --> 00:07:11.779
+Caption: can even just leave out the name of the
+
+00:07:09.438 --> 00:07:13.789
+Caption: function just write X those whatever it
+
+00:07:11.778 --> 00:07:16.388
+Caption: is we can apply the function in a
+
+00:07:13.789 --> 00:07:18.688
+Caption: similar way and we have similar concepts
+
+00:07:16.389 --> 00:07:21.468
+Caption: we go further in functional
+
+00:07:18.688 --> 00:07:23.848
+Caption: to allow things like generic functions
+
+00:07:21.468 --> 00:07:25.738
+Caption: if you could see here in this function
+
+00:07:23.848 --> 00:07:27.359
+Caption: definition of G it looks like there&#39;s
+
+00:07:25.739 --> 00:07:29.639
+Caption: variables well they are available but
+
+00:07:27.359 --> 00:07:31.768
+Caption: they&#39;re variable types if you see a
+
+00:07:29.639 --> 00:07:34.019
+Caption: lowercase letter in the type you know
+
+00:07:31.769 --> 00:07:36.539
+Caption: function definition it means a variable
+
+00:07:34.019 --> 00:07:38.189
+Caption: type rather than a variable value down
+
+00:07:36.539 --> 00:07:40.169
+Caption: here in the function definition you
+
+00:07:38.188 --> 00:07:42.509
+Caption: might have books you might have the
+
+00:07:40.169 --> 00:07:44.658
+Caption: variables and the other variable as a
+
+00:07:42.509 --> 00:07:46.679
+Caption: parameter or value for that function
+
+00:07:44.658 --> 00:07:49.408
+Caption: notice here that functions can have
+
+00:07:46.678 --> 00:07:51.138
+Caption: multiple parameters and we can write
+
+00:07:49.408 --> 00:07:53.819
+Caption: these in a number of different ways
+
+00:07:51.139 --> 00:07:55.408
+Caption: pastel users this way but we&#39;ll use this
+
+00:07:53.819 --> 00:07:57.569
+Caption: middle way it shows you it takes two
+
+00:07:55.408 --> 00:08:00.299
+Caption: parameters one is a float one is the
+
+00:07:57.569 --> 00:08:01.709
+Caption: string and it returns a float value okay
+
+00:08:00.299 --> 00:08:03.778
+Caption: so a simple definition of a function
+
+00:08:01.709 --> 00:08:05.579
+Caption: which has some inputs and produces an
+
+00:08:03.778 --> 00:08:07.408
+Caption: output in mathematics we may actually
+
+00:08:05.579 --> 00:08:09.179
+Caption: use this notation which is called the
+
+00:08:07.408 --> 00:08:11.569
+Caption: cross-product and we&#39;ll come back to
+
+00:08:09.178 --> 00:08:13.408
+Caption: that a little bit later on as well so
+
+00:08:11.569 --> 00:08:15.058
+Caption: before we go I just want to show you
+
+00:08:13.408 --> 00:08:16.169
+Caption: what a couple of castel programs look
+
+00:08:15.058 --> 00:08:18.418
+Caption: like when it doesn&#39;t go into these
+
+00:08:16.169 --> 00:08:20.610
+Caption: details but on the side here you see a
+
+00:08:18.419 --> 00:08:22.229
+Caption: Fibonacci numbers program little
+
+00:08:20.609 --> 00:08:24.208
+Caption: definition and function looks like
+
+00:08:22.229 --> 00:08:26.550
+Caption: mathematics of what kubinashi numbers
+
+00:08:24.209 --> 00:08:28.919
+Caption: are and you call it here to calculate
+
+00:08:26.549 --> 00:08:31.259
+Caption: the Fibonacci numbers over here we have
+
+00:08:28.919 --> 00:08:33.479
+Caption: a very short function for doing the aim
+
+00:08:31.259 --> 00:08:35.218
+Caption: Queens problem which is a board problem
+
+00:08:33.479 --> 00:08:38.129
+Caption: with the Queens on the chess board quite
+
+00:08:35.218 --> 00:08:39.898
+Caption: short and definitions of things not long
+
+00:08:38.129 --> 00:08:42.149
+Caption: and complex and procedural but a
+
+00:08:39.898 --> 00:08:44.128
+Caption: functional program that&#39;s pretty much
+
+00:08:42.148 --> 00:08:47.729
+Caption: all we&#39;ll see a program today they look
+
+00:08:44.129 --> 00:08:50.189
+Caption: more conceptual topics so when we talk
+
+00:08:47.729 --> 00:08:51.958
+Caption: about functions applying functions I&#39;m
+
+00:08:50.189 --> 00:08:53.910
+Caption: going to use some notation where I use
+
+00:08:51.958 --> 00:08:56.068
+Caption: this sort of arrow here to show you it&#39;s
+
+00:08:53.909 --> 00:08:58.318
+Caption: a function and as the name suggests this
+
+00:08:56.068 --> 00:09:01.109
+Caption: is an add three function so it adds
+
+00:08:58.318 --> 00:09:03.958
+Caption: three to integral as you can see here if
+
+00:09:01.109 --> 00:09:06.000
+Caption: we put three or two into the function we
+
+00:09:03.958 --> 00:09:08.308
+Caption: apply it and now the other end comes by
+
+00:09:06.000 --> 00:09:10.138
+Caption: the notation for that is just what you&#39;d
+
+00:09:08.309 --> 00:09:12.959
+Caption: expect down here you&#39;re calling that you
+
+00:09:10.138 --> 00:09:15.299
+Caption: get two down you out interestingly we
+
+00:09:12.958 --> 00:09:17.729
+Caption: can now take that value five and put it
+
+00:09:15.299 --> 00:09:19.669
+Caption: into the function again and three again
+
+00:09:17.729 --> 00:09:22.619
+Caption: and that will give us the answer eight
+
+00:09:19.669 --> 00:09:24.000
+Caption: what we can do we like to do a lot of in
+
+00:09:22.619 --> 00:09:26.969
+Caption: functional programming it&#39;s one of the
+
+00:09:24.000 --> 00:09:29.250
+Caption: key points is functional composition so
+
+00:09:26.969 --> 00:09:31.349
+Caption: make these two functions into a new
+
+00:09:29.250 --> 00:09:32.909
+Caption: function and we can write it like the
+
+00:09:31.349 --> 00:09:34.979
+Caption: which says we&#39;ve got a new function
+
+00:09:32.909 --> 00:09:36.750
+Caption: combining adds three and add three and
+
+00:09:34.979 --> 00:09:38.579
+Caption: yeah when you call that function with
+
+00:09:36.750 --> 00:09:41.400
+Caption: two is the input you get eight on the
+
+00:09:38.580 --> 00:09:43.980
+Caption: outside so that&#39;s functional application
+
+00:09:41.400 --> 00:09:47.190
+Caption: and functional composition some basic
+
+00:09:43.979 --> 00:09:50.459
+Caption: concepts now the key thing I mentioned
+
+00:09:47.190 --> 00:09:52.349
+Caption: before was that functions are pure that
+
+00:09:50.460 --> 00:09:54.660
+Caption: means they don&#39;t affect things outside
+
+00:09:52.349 --> 00:09:57.049
+Caption: the function and the functions can&#39;t
+
+00:09:54.659 --> 00:09:59.699
+Caption: depend on anything outside the function
+
+00:09:57.049 --> 00:10:01.859
+Caption: so for example when you put this two and
+
+00:09:59.700 --> 00:10:05.070
+Caption: get the five out there can be nothing
+
+00:10:01.859 --> 00:10:07.140
+Caption: which is sneaking in like this this
+
+00:10:05.070 --> 00:10:09.059
+Caption: depend this function can&#39;t depend on
+
+00:10:07.140 --> 00:10:10.950
+Caption: anything outside the function and I
+
+00:10:09.059 --> 00:10:12.479
+Caption: can&#39;t return anything outside the
+
+00:10:10.950 --> 00:10:14.340
+Caption: function you can only come from the
+
+00:10:12.479 --> 00:10:15.919
+Caption: function results and the inputs are
+
+00:10:14.340 --> 00:10:18.360
+Caption: where you get the things you can return
+
+00:10:15.919 --> 00:10:20.369
+Caption: this is called referential transparency
+
+00:10:18.359 --> 00:10:22.799
+Caption: or it results in referential
+
+00:10:20.369 --> 00:10:25.080
+Caption: transparency in functional programming
+
+00:10:22.799 --> 00:10:27.539
+Caption: we focus on expressions and value
+
+00:10:25.080 --> 00:10:29.549
+Caption: wherever you see an expression you can
+
+00:10:27.539 --> 00:10:32.759
+Caption: evaluate parts of that expression and
+
+00:10:29.549 --> 00:10:34.289
+Caption: replace those parts by the value and the
+
+00:10:32.760 --> 00:10:36.510
+Caption: function and the program shouldn&#39;t
+
+00:10:34.289 --> 00:10:38.969
+Caption: change at all if there&#39;s nothing else
+
+00:10:36.510 --> 00:10:41.280
+Caption: can happen outside this calculation of
+
+00:10:38.969 --> 00:10:43.469
+Caption: the answer so referential transparency
+
+00:10:41.280 --> 00:10:45.960
+Caption: is a key feature of functional payment
+
+00:10:43.469 --> 00:10:49.199
+Caption: languages that are pure and we like that
+
+00:10:45.960 --> 00:10:51.179
+Caption: approach now here&#39;s an example just
+
+00:10:49.200 --> 00:10:53.309
+Caption: again make it clear this is an
+
+00:10:51.179 --> 00:10:55.589
+Caption: old-fashioned procedure you might write
+
+00:10:53.309 --> 00:10:57.840
+Caption: here&#39;s my procedure it does some inputs
+
+00:10:55.590 --> 00:11:00.270
+Caption: and outputs calculates and values hasn&#39;t
+
+00:10:57.840 --> 00:11:01.620
+Caption: got a return value and if you have a
+
+00:11:00.270 --> 00:11:03.150
+Caption: look at this function and try and work
+
+00:11:01.619 --> 00:11:05.250
+Caption: things out you will see it&#39;s getting
+
+00:11:03.150 --> 00:11:06.900
+Caption: valued from global variables it&#39;s
+
+00:11:05.250 --> 00:11:09.210
+Caption: writing things to the output it&#39;s
+
+00:11:06.900 --> 00:11:10.650
+Caption: reading from the input it&#39;s crazy to
+
+00:11:09.210 --> 00:11:12.660
+Caption: understand what this function is doing
+
+00:11:10.650 --> 00:11:14.600
+Caption: unless you look inside and know pretty
+
+00:11:12.659 --> 00:11:17.639
+Caption: much the global scope of your program
+
+00:11:14.599 --> 00:11:19.199
+Caption: this is traditional approach with the
+
+00:11:17.640 --> 00:11:21.960
+Caption: functional approach as I mentioned over
+
+00:11:19.200 --> 00:11:24.030
+Caption: here we have a clear demarcation the
+
+00:11:21.960 --> 00:11:25.890
+Caption: inputs come into the function it does
+
+00:11:24.030 --> 00:11:28.110
+Caption: some calculation and the output comes
+
+00:11:25.890 --> 00:11:30.030
+Caption: out so it&#39;s very clear that something
+
+00:11:28.109 --> 00:11:31.799
+Caption: comes in something comes out you don&#39;t
+
+00:11:30.030 --> 00:11:32.910
+Caption: have to look around to point out what&#39;s
+
+00:11:31.799 --> 00:11:34.739
+Caption: happening we&#39;ll know what&#39;s happening
+
+00:11:32.909 --> 00:11:36.690
+Caption: inside the definition that function
+
+00:11:34.739 --> 00:11:39.270
+Caption: tells you what it will do inside the
+
+00:11:36.690 --> 00:11:40.979
+Caption: function and that is all it does we call
+
+00:11:39.270 --> 00:11:41.970
+Caption: this a pure function and we say it has
+
+00:11:40.979 --> 00:11:43.648
+Caption: no side effects
+
+00:11:41.969 --> 00:11:47.219
+Caption: these cabal the
+
+00:11:43.648 --> 00:11:48.989
+Caption: pure and they have side effects so
+
+00:11:47.219 --> 00:11:50.909
+Caption: procedural functioning which you&#39;ve
+
+00:11:48.989 --> 00:11:53.068
+Caption: probably done y&#39;know type stuff it&#39;s
+
+00:11:50.909 --> 00:11:55.109
+Caption: based around the use of statements so
+
+00:11:53.068 --> 00:11:57.179
+Caption: you have an if statement or a for-loop
+
+00:11:55.109 --> 00:11:59.789
+Caption: statement or an assignment statement and
+
+00:11:57.179 --> 00:12:01.619
+Caption: it&#39;s basically about manipulating state
+
+00:11:59.789 --> 00:12:03.748
+Caption: in a procedural sort of way as I
+
+00:12:01.619 --> 00:12:05.369
+Caption: mentioned a big thing about procedural
+
+00:12:03.749 --> 00:12:09.269
+Caption: programs is being easily able to write
+
+00:12:05.369 --> 00:12:11.459
+Caption: loops on the other side as I mentioned
+
+00:12:09.268 --> 00:12:13.258
+Caption: functional programs are based around
+
+00:12:11.458 --> 00:12:15.688
+Caption: expressions and evaluating those
+
+00:12:13.258 --> 00:12:17.878
+Caption: expressions an expression may contain
+
+00:12:15.689 --> 00:12:19.350
+Caption: values not a function calls when you
+
+00:12:17.879 --> 00:12:20.879
+Caption: call those functions they evaluate
+
+00:12:19.349 --> 00:12:23.688
+Caption: expressions and other function report
+
+00:12:20.879 --> 00:12:26.730
+Caption: but all about expressions and values and
+
+00:12:23.689 --> 00:12:28.800
+Caption: they focus more on recursion rather than
+
+00:12:26.729 --> 00:12:30.719
+Caption: the loops and so forth so when you teach
+
+00:12:28.799 --> 00:12:32.359
+Caption: for us to teach procedural programming
+
+00:12:30.719 --> 00:12:34.919
+Caption: you start off with four moons and
+
+00:12:32.359 --> 00:12:36.808
+Caption: recursions an advanced topic when you
+
+00:12:34.919 --> 00:12:38.938
+Caption: teach functional programming you start
+
+00:12:36.809 --> 00:12:41.278
+Caption: off the recursion and for loops in an
+
+00:12:38.939 --> 00:12:45.269
+Caption: advanced topic so a different a paradigm
+
+00:12:41.278 --> 00:12:46.859
+Caption: a different approach to programming so
+
+00:12:45.268 --> 00:12:48.568
+Caption: the benefits of this pure functional
+
+00:12:46.859 --> 00:12:49.948
+Caption: programming are great there are many and
+
+00:12:48.568 --> 00:12:52.258
+Caption: this is why people are interested in it
+
+00:12:49.948 --> 00:12:54.419
+Caption: first of all it makes our programs
+
+00:12:52.258 --> 00:12:56.758
+Caption: easier to reason about because it&#39;s not
+
+00:12:54.419 --> 00:12:58.919
+Caption: this global mess of values and State
+
+00:12:56.758 --> 00:13:01.648
+Caption: thing change it makes debugging and
+
+00:12:58.919 --> 00:13:04.169
+Caption: maintenance easier it makes higher level
+
+00:13:01.648 --> 00:13:05.578
+Caption: abstractions so there&#39;s less details to
+
+00:13:04.169 --> 00:13:07.708
+Caption: think about if you just know the high
+
+00:13:05.578 --> 00:13:10.099
+Caption: level abstractions shorter and better
+
+00:13:07.708 --> 00:13:13.229
+Caption: structured programs easier to test and
+
+00:13:10.099 --> 00:13:15.028
+Caption: importantly here it makes parallel or
+
+00:13:13.229 --> 00:13:17.308
+Caption: concurrent programming a lot easier
+
+00:13:15.028 --> 00:13:19.469
+Caption: because there&#39;s not shared variable
+
+00:13:17.309 --> 00:13:21.449
+Caption: state you&#39;ve all got separate values you
+
+00:13:19.469 --> 00:13:24.058
+Caption: can process we can calculate the results
+
+00:13:21.448 --> 00:13:25.349
+Caption: of functions but there are some
+
+00:13:24.059 --> 00:13:27.720
+Caption: disadvantages of functional programming
+
+00:13:25.349 --> 00:13:29.548
+Caption: to be honest I think because it&#39;s a
+
+00:13:27.719 --> 00:13:31.378
+Caption: different paradigm there&#39;s a steep
+
+00:13:29.549 --> 00:13:33.749
+Caption: learning curve there&#39;s lots of
+
+00:13:31.379 --> 00:13:34.740
+Caption: terminology there&#39;s lots of notation and
+
+00:13:33.749 --> 00:13:36.449
+Caption: there&#39;s also
+
+00:13:34.739 --> 00:13:38.039
+Caption: high-level abstractions you need to
+
+00:13:36.448 --> 00:13:40.859
+Caption: learn and we&#39;ll talk about some of these
+
+00:13:38.039 --> 00:13:43.919
+Caption: in the talk but we&#39;ll get back to this
+
+00:13:40.859 --> 00:13:46.588
+Caption: now now if you&#39;ve got a functional
+
+00:13:43.919 --> 00:13:47.969
+Caption: programming language like Pascal or some
+
+00:13:46.588 --> 00:13:50.338
+Caption: of the other functional work languages
+
+00:13:47.969 --> 00:13:53.758
+Caption: like f-sharp what sort of things do they
+
+00:13:50.338 --> 00:13:54.388
+Caption: provide to support functional
+
+00:13:53.758 --> 00:13:56.578
+Caption: programming
+
+00:13:54.388 --> 00:13:59.729
+Caption: well the big thing is that functions
+
+00:13:56.578 --> 00:14:01.678
+Caption: must be first-class entities this means
+
+00:13:59.729 --> 00:14:04.828
+Caption: wherever you could have a value or a
+
+00:14:01.679 --> 00:14:06.540
+Caption: result or integer or floating-point or
+
+00:14:04.828 --> 00:14:09.599
+Caption: string you can now also have a value
+
+00:14:06.539 --> 00:14:11.578
+Caption: sorry a function so functions can be
+
+00:14:09.599 --> 00:14:13.828
+Caption: parameters to other functions and
+
+00:14:11.578 --> 00:14:15.868
+Caption: functions can be returned values from
+
+00:14:13.828 --> 00:14:18.448
+Caption: other functions functions are first
+
+00:14:15.869 --> 00:14:21.028
+Caption: class entities inside your program I
+
+00:14:18.448 --> 00:14:22.859
+Caption: mentioned the expression by syntax I
+
+00:14:21.028 --> 00:14:25.289
+Caption: mentioned the competition composition
+
+00:14:22.859 --> 00:14:27.419
+Caption: immutability we&#39;ll talk about how to
+
+00:14:25.289 --> 00:14:30.628
+Caption: break data types we&#39;ll talk about and my
+
+00:14:27.419 --> 00:14:32.638
+Caption: concepts as well this is a nice chart
+
+00:14:30.629 --> 00:14:34.739
+Caption: you can see in Wikipedia that we go into
+
+00:14:32.638 --> 00:14:36.388
+Caption: details but it shows a number of the
+
+00:14:34.739 --> 00:14:38.338
+Caption: pure functional programming languages
+
+00:14:36.388 --> 00:14:40.349
+Caption: you can pure ones and what features they
+
+00:14:38.338 --> 00:14:42.299
+Caption: share and don&#39;t ship so check it out on
+
+00:14:40.349 --> 00:14:43.528
+Caption: Wikipedia if you want to compare your
+
+00:14:42.299 --> 00:14:47.309
+Caption: functional programming language with
+
+00:14:43.528 --> 00:14:49.739
+Caption: other ones so as I mentioned there&#39;s a
+
+00:14:47.309 --> 00:14:51.449
+Caption: spectrum here of some programs that
+
+00:14:49.739 --> 00:14:53.759
+Caption: support functional programming language
+
+00:14:51.448 --> 00:14:56.128
+Caption: and others which really just enable it
+
+00:14:53.758 --> 00:14:58.409
+Caption: make it possible for example down here
+
+00:14:56.129 --> 00:15:00.600
+Caption: an assembler and seal and you can do
+
+00:14:58.409 --> 00:15:02.928
+Caption: functional programming you can do oo but
+
+00:15:00.599 --> 00:15:06.238
+Caption: you&#39;ve got to do it all yourself up here
+
+00:15:02.929 --> 00:15:08.100
+Caption: Pascal and closure and a camel and Scala
+
+00:15:06.239 --> 00:15:10.019
+Caption: they have structures in the language to
+
+00:15:08.099 --> 00:15:12.778
+Caption: support functional programming and make
+
+00:15:10.018 --> 00:15:14.278
+Caption: it easier for you so of course we put
+
+00:15:12.778 --> 00:15:17.998
+Caption: two of these when we&#39;re doing functional
+
+00:15:14.278 --> 00:15:20.518
+Caption: programming so how are they lost anybody
+
+00:15:17.999 --> 00:15:23.069
+Caption: or you still with me who&#39;s still with me
+
+00:15:20.518 --> 00:15:26.008
+Caption: yes what you would be I think you
+
+00:15:23.068 --> 00:15:27.648
+Caption: probably know all this stuff so let&#39;s
+
+00:15:26.008 --> 00:15:30.088
+Caption: get on now to the intermediate
+
+00:15:27.648 --> 00:15:32.308
+Caption: functional programming concepts these
+
+00:15:30.088 --> 00:15:33.628
+Caption: are what you may already know thank you
+
+00:15:32.309 --> 00:15:34.489
+Caption: I don&#39;t know who&#39;s here but we&#39;ll see
+
+00:15:33.629 --> 00:15:37.799
+Caption: how we go
+
+00:15:34.489 --> 00:15:39.778
+Caption: the first one is the idea of algebraic
+
+00:15:37.799 --> 00:15:42.299
+Caption: data types and it sounds very
+
+00:15:39.778 --> 00:15:44.869
+Caption: complicated you break data types not to
+
+00:15:42.299 --> 00:15:47.278
+Caption: be confused with abstract data types
+
+00:15:44.869 --> 00:15:49.199
+Caption: algebraic data types the name comes from
+
+00:15:47.278 --> 00:15:51.809
+Caption: algebra meaning addition and
+
+00:15:49.198 --> 00:15:53.789
+Caption: multiplication that&#39;s all this but what
+
+00:15:51.809 --> 00:15:56.819
+Caption: it really means is when we define a data
+
+00:15:53.789 --> 00:15:58.979
+Caption: type here&#39;s a data type customer we&#39;re
+
+00:15:56.818 --> 00:16:01.318
+Caption: saying customer contains a string and
+
+00:15:58.979 --> 00:16:03.328
+Caption: integer in a boolean that&#39;s like the
+
+00:16:01.318 --> 00:16:05.099
+Caption: cross-product of a straight all the
+
+00:16:03.328 --> 00:16:06.690
+Caption: string values and all the integer values
+
+00:16:05.099 --> 00:16:09.539
+Caption: and all the boolean value
+
+00:16:06.690 --> 00:16:11.700
+Caption: so there&#39;s our multiplication and on the
+
+00:16:09.539 --> 00:16:13.409
+Caption: other side when you define an algebraic
+
+00:16:11.700 --> 00:16:16.020
+Caption: data type in a functional programming
+
+00:16:13.409 --> 00:16:18.000
+Caption: language like data is a point you can
+
+00:16:16.020 --> 00:16:20.520
+Caption: say this point could be a floating point
+
+00:16:18.000 --> 00:16:22.950
+Caption: with float values or it could be an
+
+00:16:20.520 --> 00:16:26.040
+Caption: integer point with integer values so
+
+00:16:22.950 --> 00:16:28.619
+Caption: it&#39;s a or b or the Union he comes our
+
+00:16:26.039 --> 00:16:30.690
+Caption: attitude SP so that&#39;s why they call
+
+00:16:28.619 --> 00:16:32.880
+Caption: algebraic data types just because they
+
+00:16:30.690 --> 00:16:35.970
+Caption: have those two aspects when you define a
+
+00:16:32.880 --> 00:16:38.489
+Caption: data type now be clear these data types
+
+00:16:35.969 --> 00:16:40.739
+Caption: are not like object oriented classes
+
+00:16:38.489 --> 00:16:42.479
+Caption: they call these things the type
+
+00:16:40.739 --> 00:16:44.279
+Caption: constructor and they call these things
+
+00:16:42.479 --> 00:16:47.070
+Caption: the data constructor but there&#39;s no
+
+00:16:44.280 --> 00:16:49.560
+Caption: constructor you write they just build an
+
+00:16:47.070 --> 00:16:51.419
+Caption: area in memory with these data items and
+
+00:16:49.559 --> 00:16:53.460
+Caption: the compiler doesn&#39;t put that for you
+
+00:16:51.419 --> 00:16:56.010
+Caption: you have to say how it does it but they
+
+00:16:53.460 --> 00:16:58.740
+Caption: do allow recursive data types here we&#39;re
+
+00:16:56.010 --> 00:17:01.380
+Caption: defining a list in terms of a list or a
+
+00:16:58.739 --> 00:17:02.940
+Caption: tree in terms of a tree you can have
+
+00:17:01.380 --> 00:17:04.739
+Caption: what are called Mallory types which
+
+00:17:02.940 --> 00:17:07.078
+Caption: don&#39;t take any values and just set
+
+00:17:04.739 --> 00:17:08.640
+Caption: values and you can also use a nice
+
+00:17:07.078 --> 00:17:10.890
+Caption: syntax which it looks a bit like a
+
+00:17:08.640 --> 00:17:13.650
+Caption: structure or a class forget it&#39;s not
+
+00:17:10.890 --> 00:17:15.869
+Caption: it&#39;s just a data type and algebraic data
+
+00:17:13.650 --> 00:17:17.790
+Caption: type so don&#39;t confuse these with oh okay
+
+00:17:15.869 --> 00:17:19.559
+Caption: these are very important in that you
+
+00:17:17.790 --> 00:17:20.310
+Caption: know I will talk about today so keep
+
+00:17:19.560 --> 00:17:23.280
+Caption: those in mind
+
+00:17:20.310 --> 00:17:26.310
+Caption: I meant another big point is
+
+00:17:23.280 --> 00:17:28.710
+Caption: immutability immutability is not saying
+
+00:17:26.310 --> 00:17:30.990
+Caption: you can&#39;t change things you can&#39;t have
+
+00:17:28.709 --> 00:17:33.270
+Caption: changed it just says you can&#39;t change
+
+00:17:30.989 --> 00:17:34.859
+Caption: things that you&#39;ve already assigned so
+
+00:17:33.270 --> 00:17:36.750
+Caption: for example here once something to
+
+00:17:34.859 --> 00:17:39.179
+Caption: initialize we can&#39;t change it here&#39;s
+
+00:17:36.750 --> 00:17:42.599
+Caption: list a we set it to be a particular list
+
+00:17:39.180 --> 00:17:44.340
+Caption: we can tap into that list but we can
+
+00:17:42.599 --> 00:17:47.489
+Caption: come over here and create a new list
+
+00:17:44.339 --> 00:17:49.919
+Caption: list P which is list a appending on
+
+00:17:47.489 --> 00:17:52.170
+Caption: something to it now you may say this is
+
+00:17:49.920 --> 00:17:54.150
+Caption: pretty inefficient if every time we
+
+00:17:52.170 --> 00:17:56.340
+Caption: change something we have to create a new
+
+00:17:54.150 --> 00:17:58.469
+Caption: list but don&#39;t worry I believe that
+
+00:17:56.339 --> 00:18:00.689
+Caption: covers the compiler makes sure it shares
+
+00:17:58.469 --> 00:18:03.659
+Caption: lots of stuff because these values never
+
+00:18:00.689 --> 00:18:04.889
+Caption: changed the first part of this list is
+
+00:18:03.660 --> 00:18:07.410
+Caption: going to be shared with this list
+
+00:18:04.890 --> 00:18:08.339
+Caption: because this mirror gets changed so it
+
+00:18:07.410 --> 00:18:10.050
+Caption: is quite at issue
+
+00:18:08.339 --> 00:18:11.579
+Caption: sometimes the performance is not as good
+
+00:18:10.050 --> 00:18:13.350
+Caption: as though if you change it but we can
+
+00:18:11.579 --> 00:18:16.319
+Caption: get around that problem as well
+
+00:18:13.349 --> 00:18:18.679
+Caption: so immutability is a very important part
+
+00:18:16.319 --> 00:18:20.599
+Caption: of functional programming
+
+00:18:18.680 --> 00:18:24.110
+Caption: so functional programming we have things
+
+00:18:20.599 --> 00:18:25.549
+Caption: like in our polymorphic functions as you
+
+00:18:24.109 --> 00:18:27.229
+Caption: see here we&#39;re defining a linked
+
+00:18:25.550 --> 00:18:29.180
+Caption: function everywhere I said you define a
+
+00:18:27.229 --> 00:18:31.369
+Caption: function it takes a list of two square
+
+00:18:29.180 --> 00:18:33.290
+Caption: brackets in a list we have a lowercase
+
+00:18:31.369 --> 00:18:35.809
+Caption: thing here that means it&#39;s a variable
+
+00:18:33.290 --> 00:18:37.820
+Caption: type and it returns a value in an
+
+00:18:35.810 --> 00:18:40.370
+Caption: integer the length of that list
+
+00:18:37.819 --> 00:18:42.019
+Caption: luckily the length function doesn&#39;t need
+
+00:18:40.369 --> 00:18:44.839
+Caption: to know what that type is so it works
+
+00:18:42.020 --> 00:18:47.060
+Caption: but anytime we can define the length of
+
+00:18:44.839 --> 00:18:48.319
+Caption: an empty list as being zero and the
+
+00:18:47.060 --> 00:18:50.540
+Caption: length of a list with a head and the
+
+00:18:48.319 --> 00:18:53.119
+Caption: tail as being one plus plus the length
+
+00:18:50.540 --> 00:18:55.640
+Caption: of the tail so as I say it doesn&#39;t
+
+00:18:53.119 --> 00:18:58.790
+Caption: matter whether that list is two integers
+
+00:18:55.640 --> 00:19:01.190
+Caption: or three characters they both work fine
+
+00:18:58.790 --> 00:19:03.530
+Caption: but notice here you can&#39;t have
+
+00:19:01.189 --> 00:19:06.439
+Caption: heterogeneous lists you can&#39;t have a
+
+00:19:03.530 --> 00:19:07.640
+Caption: list with six and a character and we&#39;ll
+
+00:19:06.439 --> 00:19:10.549
+Caption: talk more about that at the end when we
+
+00:19:07.640 --> 00:19:13.250
+Caption: talk about real world applications so we
+
+00:19:10.550 --> 00:19:14.930
+Caption: have polymorphic functions now the first
+
+00:19:13.250 --> 00:19:16.880
+Caption: really big concept that you have to
+
+00:19:14.930 --> 00:19:19.820
+Caption: really understand it&#39;s not too hard is
+
+00:19:16.880 --> 00:19:21.560
+Caption: the idea of flat classes so you think of
+
+00:19:19.819 --> 00:19:24.859
+Caption: the word class it brings to the mind oh
+
+00:19:21.560 --> 00:19:27.950
+Caption: oh but don&#39;t think about our these are
+
+00:19:24.859 --> 00:19:30.380
+Caption: classes of types so here we talk about
+
+00:19:27.949 --> 00:19:32.469
+Caption: datatypes we&#39;re saying is the class of
+
+00:19:30.380 --> 00:19:35.329
+Caption: data type which is similar in some way
+
+00:19:32.469 --> 00:19:37.549
+Caption: how are they similar well a client class
+
+00:19:35.329 --> 00:19:40.429
+Caption: defines functions that must be
+
+00:19:37.550 --> 00:19:42.950
+Caption: implemented for that data type it is
+
+00:19:40.430 --> 00:19:44.660
+Caption: going to be a member of this class that
+
+00:19:42.949 --> 00:19:47.659
+Caption: sounds very familiar to me it sounds
+
+00:19:44.660 --> 00:19:49.910
+Caption: like interfaces if your data type has
+
+00:19:47.660 --> 00:19:52.040
+Caption: these functions as an interface set data
+
+00:19:49.910 --> 00:19:54.070
+Caption: type then we&#39;ll say they are part of
+
+00:19:52.040 --> 00:19:56.720
+Caption: this particular type class if you define
+
+00:19:54.069 --> 00:19:59.959
+Caption: so think of type class is just being
+
+00:19:56.719 --> 00:20:01.520
+Caption: interface for data types so if you have
+
+00:19:59.959 --> 00:20:03.949
+Caption: a look here I&#39;ve defined a type class
+
+00:20:01.520 --> 00:20:05.989
+Caption: type class a which has actually a
+
+00:20:03.949 --> 00:20:09.559
+Caption: variable type in there then I say it
+
+00:20:05.989 --> 00:20:12.530
+Caption: needs to have these two functions so now
+
+00:20:09.560 --> 00:20:15.890
+Caption: if I want my particular type my data
+
+00:20:12.530 --> 00:20:17.840
+Caption: type to be in that type class I have to
+
+00:20:15.890 --> 00:20:20.420
+Caption: make sure it defines those two functions
+
+00:20:17.839 --> 00:20:24.159
+Caption: and then we say that that data type is
+
+00:20:20.420 --> 00:20:26.109
+Caption: in these type class this class of types
+
+00:20:24.160 --> 00:20:28.309
+Caption: okay
+
+00:20:26.109 --> 00:20:29.839
+Caption: alright and here&#39;s an example over here
+
+00:20:28.308 --> 00:20:31.819
+Caption: which you can look through that I won&#39;t
+
+00:20:29.839 --> 00:20:34.369
+Caption: do too much in detail a couple of
+
+00:20:31.819 --> 00:20:36.378
+Caption: incidents of if the client is type class
+
+00:20:34.369 --> 00:20:37.819
+Caption: up here define it for integers we&#39;ve
+
+00:20:36.379 --> 00:20:40.129
+Caption: defined it for boolean we&#39;ve also
+
+00:20:37.819 --> 00:20:42.469
+Caption: defined it for my data type so you can
+
+00:20:40.129 --> 00:20:45.399
+Caption: define any data type you want will now
+
+00:20:42.469 --> 00:20:47.928
+Caption: allow those functions to be used
+
+00:20:45.399 --> 00:20:49.220
+Caption: so these type class is important for
+
+00:20:47.928 --> 00:20:52.189
+Caption: many many reasons
+
+00:20:49.219 --> 00:20:54.079
+Caption: the first one is they&#39;ll a allow ad hoc
+
+00:20:52.189 --> 00:20:55.369
+Caption: polymorphism you&#39;ve probably heard of
+
+00:20:54.079 --> 00:20:57.528
+Caption: you know mission OOW
+
+00:20:55.369 --> 00:20:59.989
+Caption: polymorphism dynamic binding and so
+
+00:20:57.529 --> 00:21:02.869
+Caption: forth well this allows a form of debt
+
+00:20:59.989 --> 00:21:05.989
+Caption: where it doesn&#39;t matter how the types
+
+00:21:02.869 --> 00:21:07.969
+Caption: are related as long as that you provide
+
+00:21:05.989 --> 00:21:10.459
+Caption: that interface they implement those
+
+00:21:07.969 --> 00:21:13.069
+Caption: functions then we can actually use him
+
+00:21:10.459 --> 00:21:15.199
+Caption: in an algorithm so if I had those two
+
+00:21:13.069 --> 00:21:17.569
+Caption: functions previously implemented on my
+
+00:21:15.199 --> 00:21:19.398
+Caption: types I can write an algorithm using
+
+00:21:17.569 --> 00:21:21.288
+Caption: those two types those two functions and
+
+00:21:19.399 --> 00:21:23.690
+Caption: it doesn&#39;t matter what type it is as
+
+00:21:21.288 --> 00:21:26.418
+Caption: long as the type implements those two
+
+00:21:23.689 --> 00:21:29.449
+Caption: functions that&#39;s the definition of ad
+
+00:21:26.418 --> 00:21:30.949
+Caption: hoc polymorphism if the type implements
+
+00:21:29.449 --> 00:21:32.500
+Caption: the interface then we can write
+
+00:21:30.949 --> 00:21:35.359
+Caption: algorithms using the interface
+
+00:21:32.500 --> 00:21:37.129
+Caption: independent what the type is and there&#39;s
+
+00:21:35.359 --> 00:21:39.109
+Caption: no relationship between these types
+
+00:21:37.129 --> 00:21:40.669
+Caption: they&#39;re not like subclasses of an
+
+00:21:39.109 --> 00:21:43.489
+Caption: inheritance tree or that sort of stuff
+
+00:21:40.668 --> 00:21:47.768
+Caption: they just implement the interface and
+
+00:21:43.489 --> 00:21:47.769
+Caption: there&#39;s an example down here using show
+
+00:21:49.689 --> 00:21:56.719
+Caption: ok so that seems pretty good so far but
+
+00:21:53.500 --> 00:21:58.699
+Caption: houston we have a problem and the
+
+00:21:56.719 --> 00:22:00.908
+Caption: problem is really really get to see how
+
+00:21:58.699 --> 00:22:03.859
+Caption: functional programming really shines
+
+00:22:00.909 --> 00:22:06.470
+Caption: what is this problem the problems is
+
+00:22:03.859 --> 00:22:08.839
+Caption: sometimes we talked about those side
+
+00:22:06.469 --> 00:22:11.268
+Caption: effects as being bad but sometimes we
+
+00:22:08.839 --> 00:22:12.168
+Caption: absolutely need those side effects we
+
+00:22:11.269 --> 00:22:15.139
+Caption: can&#39;t live without them
+
+00:22:12.168 --> 00:22:17.359
+Caption: for example input an output is a
+
+00:22:15.139 --> 00:22:19.879
+Caption: side-effect if your function writes
+
+00:22:17.359 --> 00:22:22.308
+Caption: something out or read something in it&#39;s
+
+00:22:19.879 --> 00:22:24.169
+Caption: not a queue of function how can we live
+
+00:22:22.308 --> 00:22:26.239
+Caption: in a world which we want pure functional
+
+00:22:24.168 --> 00:22:28.729
+Caption: programming for me I want to have side
+
+00:22:26.239 --> 00:22:30.439
+Caption: effects what are some examples of side
+
+00:22:28.729 --> 00:22:32.418
+Caption: effects we might like well as I
+
+00:22:30.439 --> 00:22:35.268
+Caption: mentioned you may have exceptional
+
+00:22:32.418 --> 00:22:36.918
+Caption: circumstances you have an exception in
+
+00:22:35.269 --> 00:22:37.820
+Caption: your function you can&#39;t throw an
+
+00:22:36.918 --> 00:22:39.199
+Caption: exception
+
+00:22:37.819 --> 00:22:41.599
+Caption: because that would be a side effect
+
+00:22:39.199 --> 00:22:45.439
+Caption: something the function does not just
+
+00:22:41.599 --> 00:22:47.059
+Caption: produce an output it&#39;s its result what
+
+00:22:45.439 --> 00:22:50.299
+Caption: do you want to ask functions to append
+
+00:22:47.060 --> 00:22:51.980
+Caption: to along or do input an output we want
+
+00:22:50.300 --> 00:22:54.650
+Caption: our function to change its behavior
+
+00:22:51.979 --> 00:22:57.770
+Caption: based upon some configuration we&#39;ve
+
+00:22:54.650 --> 00:23:00.080
+Caption: given to it global configuration sort of
+
+00:22:57.770 --> 00:23:02.630
+Caption: dependency injection what we wanted to
+
+00:23:00.079 --> 00:23:05.359
+Caption: change and use global state sometimes
+
+00:23:02.630 --> 00:23:06.500
+Caption: you really like to use states we
+
+00:23:05.359 --> 00:23:08.510
+Caption: couldn&#39;t do that what if you want to
+
+00:23:06.500 --> 00:23:11.000
+Caption: have a return a random value think of a
+
+00:23:08.510 --> 00:23:13.040
+Caption: function that returns of a random value
+
+00:23:11.000 --> 00:23:15.170
+Caption: that&#39;s the absolute opposite of a
+
+00:23:13.040 --> 00:23:17.479
+Caption: function and function always returns the
+
+00:23:15.170 --> 00:23:19.850
+Caption: same value for its inputs a random value
+
+00:23:17.479 --> 00:23:21.079
+Caption: breaks that rule completely but of
+
+00:23:19.849 --> 00:23:23.270
+Caption: course we&#39;d like to have random values
+
+00:23:21.079 --> 00:23:25.549
+Caption: random number generators in our programs
+
+00:23:23.270 --> 00:23:28.430
+Caption: so how do we do this how can we get
+
+00:23:25.550 --> 00:23:30.230
+Caption: around this limitation here&#39;s an example
+
+00:23:28.430 --> 00:23:32.630
+Caption: of the first one about exceptional
+
+00:23:30.229 --> 00:23:35.030
+Caption: circumstances how will be this function
+
+00:23:32.630 --> 00:23:37.010
+Caption: up here at square root be put in a
+
+00:23:35.030 --> 00:23:39.349
+Caption: normal way to just 16 or so we&#39;ll get
+
+00:23:37.010 --> 00:23:42.619
+Caption: back for what happens when you put in
+
+00:23:39.349 --> 00:23:43.789
+Caption: minus 1/2 this square root function okay
+
+00:23:42.619 --> 00:23:46.520
+Caption: we&#39;re not talking about complex numbers
+
+00:23:43.790 --> 00:23:48.229
+Caption: it doesn&#39;t know what to do it would
+
+00:23:46.520 --> 00:23:50.690
+Caption: usually throw something like an
+
+00:23:48.229 --> 00:23:52.369
+Caption: exception sorry maybe no it doesn&#39;t
+
+00:23:50.689 --> 00:23:53.539
+Caption: really but you could do this something&#39;s
+
+00:23:52.369 --> 00:23:55.729
+Caption: going wrong we don&#39;t know how to do this
+
+00:23:53.540 --> 00:23:56.840
+Caption: for our function but of course this
+
+00:23:55.729 --> 00:23:59.809
+Caption: would be a side-effect
+
+00:23:56.839 --> 00:24:02.119
+Caption: we don&#39;t want to do that so the question
+
+00:23:59.810 --> 00:24:04.370
+Caption: is can we preserved pure functional
+
+00:24:02.119 --> 00:24:07.369
+Caption: programming but handle these sort of
+
+00:24:04.369 --> 00:24:09.380
+Caption: situations let&#39;s see what we can do the
+
+00:24:07.369 --> 00:24:12.349
+Caption: way we handle this is to introduce a
+
+00:24:09.380 --> 00:24:13.969
+Caption: data type called maybe in other
+
+00:24:12.349 --> 00:24:16.819
+Caption: languages they call it option and other
+
+00:24:13.969 --> 00:24:19.969
+Caption: things as well the data type maybe says
+
+00:24:16.819 --> 00:24:22.130
+Caption: maybe data type of an integer or a
+
+00:24:19.969 --> 00:24:25.969
+Caption: floating point or a string can just be a
+
+00:24:22.130 --> 00:24:28.040
+Caption: string or it can be nothing so your data
+
+00:24:25.969 --> 00:24:31.579
+Caption: type it&#39;s an additive data type says
+
+00:24:28.040 --> 00:24:35.060
+Caption: this may be thing can be a result or it
+
+00:24:31.579 --> 00:24:36.919
+Caption: can be nothing sort of like a null and
+
+00:24:35.060 --> 00:24:39.770
+Caption: now you see on here you see how we can
+
+00:24:36.920 --> 00:24:42.109
+Caption: define this function safe square root it
+
+00:24:39.770 --> 00:24:44.780
+Caption: takes a floating-point number but now
+
+00:24:42.109 --> 00:24:48.020
+Caption: rather than returning a quote it returns
+
+00:24:44.780 --> 00:24:50.450
+Caption: a maybe a point if you call it with a
+
+00:24:48.020 --> 00:24:50.900
+Caption: number which is greater than 0 then you
+
+00:24:50.449 --> 00:24:53.809
+Caption: just get
+
+00:24:50.900 --> 00:24:56.450
+Caption: the square effect so it&#39;s 16 gets square
+
+00:24:53.810 --> 00:25:00.050
+Caption: root 4 but it&#39;s wrapped inside this just
+
+00:24:56.449 --> 00:25:01.369
+Caption: data type if you call with minus 1 you
+
+00:25:00.050 --> 00:25:03.170
+Caption: can get back nothing
+
+00:25:01.369 --> 00:25:06.140
+Caption: ah something went wrong I couldn&#39;t get a
+
+00:25:03.170 --> 00:25:08.180
+Caption: result in the function so these may be
+
+00:25:06.140 --> 00:25:09.979
+Caption: data types are a way of getting around
+
+00:25:08.180 --> 00:25:13.580
+Caption: the problem of needing exceptional
+
+00:25:09.979 --> 00:25:15.559
+Caption: circumstances in functions just to show
+
+00:25:13.579 --> 00:25:18.859
+Caption: you how things will happen here cameras
+
+00:25:15.560 --> 00:25:21.410
+Caption: 16 we put it into safe square root let
+
+00:25:18.859 --> 00:25:24.619
+Caption: me get out a data type containing or
+
+00:25:21.410 --> 00:25:27.260
+Caption: just caught we put in minus 1 we get out
+
+00:25:24.619 --> 00:25:29.359
+Caption: of data type nothing and then our
+
+00:25:27.260 --> 00:25:31.040
+Caption: program can check if it&#39;s nothing can do
+
+00:25:29.359 --> 00:25:33.109
+Caption: something so I simply went wrong you
+
+00:25:31.040 --> 00:25:34.430
+Caption: shouldn&#39;t use negative numbers if it
+
+00:25:33.109 --> 00:25:36.079
+Caption: doesn&#39;t get a nothing you can say oh I
+
+00:25:34.430 --> 00:25:39.290
+Caption: get the value out of here this is the
+
+00:25:36.079 --> 00:25:42.229
+Caption: correct value for the program so this is
+
+00:25:39.290 --> 00:25:45.020
+Caption: now a pure function again all it has is
+
+00:25:42.229 --> 00:25:46.849
+Caption: inputs all it has is the outputs but it
+
+00:25:45.020 --> 00:25:50.450
+Caption: handles this case you want to handle it
+
+00:25:46.849 --> 00:25:52.099
+Caption: exceptional circumstances the programmer
+
+00:25:50.449 --> 00:25:53.630
+Caption: can check as I say and do appropriate
+
+00:25:52.099 --> 00:25:55.819
+Caption: things so I&#39;ve got around a little
+
+00:25:53.630 --> 00:25:59.690
+Caption: problem and maintained our purity of
+
+00:25:55.819 --> 00:26:02.359
+Caption: function this idea of a value in a
+
+00:25:59.689 --> 00:26:04.489
+Caption: context is very important you can think
+
+00:26:02.359 --> 00:26:06.439
+Caption: about these contexts as being like a
+
+00:26:04.489 --> 00:26:08.059
+Caption: data type but really they&#39;re a
+
+00:26:06.439 --> 00:26:10.069
+Caption: programming context there are
+
+00:26:08.060 --> 00:26:12.980
+Caption: computational contexts and we&#39;ll get
+
+00:26:10.069 --> 00:26:15.169
+Caption: back to that so here&#39;s a list a list is
+
+00:26:12.979 --> 00:26:18.140
+Caption: a context where there are values inside
+
+00:26:15.170 --> 00:26:19.700
+Caption: that list here is an error that&#39;s a
+
+00:26:18.140 --> 00:26:21.859
+Caption: context there&#39;s an error message in
+
+00:26:19.699 --> 00:26:23.959
+Caption: there and here&#39;s a maybe with a value
+
+00:26:21.859 --> 00:26:27.530
+Caption: inside it 5 that probably could be
+
+00:26:23.959 --> 00:26:30.439
+Caption: justify the idea so these are examples
+
+00:26:27.530 --> 00:26:32.989
+Caption: of contexts which have functions that
+
+00:26:30.439 --> 00:26:34.969
+Caption: work on these data types to process the
+
+00:26:32.989 --> 00:26:39.170
+Caption: data at the values in different contexts
+
+00:26:34.969 --> 00:26:40.729
+Caption: that&#39;s a very important point so here&#39;s
+
+00:26:39.170 --> 00:26:43.130
+Caption: the next problem we have to face in
+
+00:26:40.729 --> 00:26:45.469
+Caption: functional programming we want to try
+
+00:26:43.130 --> 00:26:49.910
+Caption: and you want to try and take our just
+
+00:26:45.469 --> 00:26:52.429
+Caption: two just two and feed it into our add
+
+00:26:49.910 --> 00:26:54.650
+Caption: three function we want it&#39;s nothing
+
+00:26:52.430 --> 00:26:57.260
+Caption: thing in 3 D 3 R 3 as well but we can&#39;t
+
+00:26:54.650 --> 00:26:59.119
+Caption: do that because remember the add 3
+
+00:26:57.260 --> 00:27:03.280
+Caption: function it took an integer and returns
+
+00:26:59.119 --> 00:27:06.400
+Caption: an integer doesn&#39;t like to take maybes
+
+00:27:03.280 --> 00:27:08.380
+Caption: okay so when you can apply it images it
+
+00:27:06.400 --> 00:27:10.750
+Caption: works fine when you try and apply it to
+
+00:27:08.380 --> 00:27:13.900
+Caption: just two or nothing it doesn&#39;t know what
+
+00:27:10.750 --> 00:27:16.900
+Caption: to do so how can we fix this problem and
+
+00:27:13.900 --> 00:27:19.540
+Caption: have functions take normal values but
+
+00:27:16.900 --> 00:27:22.089
+Caption: still work when you&#39;ve got values inside
+
+00:27:19.540 --> 00:27:25.000
+Caption: of context well the way we can do this
+
+00:27:22.089 --> 00:27:27.459
+Caption: is create a function let&#39;s call it f map
+
+00:27:25.000 --> 00:27:30.729
+Caption: and that function now takes two
+
+00:27:27.459 --> 00:27:32.859
+Caption: parameters the function itself
+
+00:27:30.729 --> 00:27:36.520
+Caption: remember functions to be parameters and
+
+00:27:32.859 --> 00:27:37.839
+Caption: the actual value inside a context so
+
+00:27:36.520 --> 00:27:39.969
+Caption: when you look at my slides here I&#39;ll
+
+00:27:37.839 --> 00:27:41.619
+Caption: have a graphic display this is people
+
+00:27:39.969 --> 00:27:43.119
+Caption: who just want to watch the concepts and
+
+00:27:41.619 --> 00:27:44.199
+Caption: there&#39;s some code down here if you want
+
+00:27:43.119 --> 00:27:45.430
+Caption: to try line up with the code but you
+
+00:27:44.199 --> 00:27:48.069
+Caption: don&#39;t have to you can just stay up here
+
+00:27:45.430 --> 00:27:50.170
+Caption: and some description if you want to so
+
+00:27:48.069 --> 00:27:52.569
+Caption: this function f map takes in the
+
+00:27:50.170 --> 00:27:55.660
+Caption: function 1/2 takes you to just a and
+
+00:27:52.569 --> 00:27:57.399
+Caption: gives out a just for this function here
+
+00:27:55.660 --> 00:27:59.560
+Caption: also can take in the punch in half and
+
+00:27:57.400 --> 00:28:02.320
+Caption: nothing and give out nothing so it&#39;s
+
+00:27:59.560 --> 00:28:05.680
+Caption: able to handle these situations where by
+
+00:28:02.319 --> 00:28:07.809
+Caption: the function f 1/2 expects a normal
+
+00:28:05.680 --> 00:28:11.080
+Caption: value but something comes wrapped in a
+
+00:28:07.810 --> 00:28:13.360
+Caption: context so what does f nap do basically
+
+00:28:11.079 --> 00:28:16.089
+Caption: it&#39;s not very hard F map just comes
+
+00:28:13.359 --> 00:28:18.040
+Caption: along it sees just ate it takes the
+
+00:28:16.089 --> 00:28:19.779
+Caption: value out of just ate it applies the
+
+00:28:18.040 --> 00:28:22.900
+Caption: value to the function has been passed
+
+00:28:19.780 --> 00:28:25.780
+Caption: huh gets the result and then puts it
+
+00:28:22.900 --> 00:28:29.680
+Caption: back inside a context so that&#39;s all F
+
+00:28:25.780 --> 00:28:32.650
+Caption: map does but this F map is defined just
+
+00:28:29.680 --> 00:28:35.560
+Caption: for this particular data type the maybe
+
+00:28:32.650 --> 00:28:36.820
+Caption: type if you have a list that you&#39;re
+
+00:28:35.560 --> 00:28:39.310
+Caption: going to put nearly the difference if
+
+00:28:36.819 --> 00:28:41.589
+Caption: map function so we can have a lot of
+
+00:28:39.310 --> 00:28:45.540
+Caption: different as map functions and these
+
+00:28:41.589 --> 00:28:49.869
+Caption: ethnic functions define a type class
+
+00:28:45.540 --> 00:28:54.090
+Caption: this is the F word functor functor is a
+
+00:28:49.869 --> 00:28:57.609
+Caption: type class which implements the s map
+
+00:28:54.089 --> 00:28:59.409
+Caption: function or that type class and down
+
+00:28:57.609 --> 00:29:01.719
+Caption: here we define it we say the type class
+
+00:28:59.410 --> 00:29:03.880
+Caption: functor it works with any data type
+
+00:29:01.719 --> 00:29:06.309
+Caption: either going for it and it must have a
+
+00:29:03.880 --> 00:29:08.170
+Caption: function called F map which takes a
+
+00:29:06.310 --> 00:29:10.660
+Caption: function that&#39;s the half function and
+
+00:29:08.170 --> 00:29:13.560
+Caption: take some fake something wrapped up in a
+
+00:29:10.660 --> 00:29:15.479
+Caption: context a list or a maybe
+
+00:29:13.560 --> 00:29:17.730
+Caption: and it produces a result wrapped up in
+
+00:29:15.479 --> 00:29:21.390
+Caption: that same context just as we showed you
+
+00:29:17.729 --> 00:29:24.089
+Caption: in the slide before so F Mac helps us
+
+00:29:21.390 --> 00:29:26.880
+Caption: get around this problem I showed you the
+
+00:29:24.089 --> 00:29:29.369
+Caption: implementation of F map for this is
+
+00:29:26.880 --> 00:29:31.319
+Caption: saying I&#39;ve got an instance above a type
+
+00:29:29.369 --> 00:29:33.569
+Caption: called maybe which implements the
+
+00:29:31.319 --> 00:29:36.809
+Caption: functor and here it is implementing F
+
+00:29:33.569 --> 00:29:39.149
+Caption: map for maybe you can also do the same
+
+00:29:36.810 --> 00:29:41.550
+Caption: thing for other titles like lists I
+
+00:29:39.150 --> 00:29:44.310
+Caption: mentioned list was a container so he
+
+00:29:41.550 --> 00:29:46.560
+Caption: can&#39;t pass a list skin because add three
+
+00:29:44.310 --> 00:29:48.900
+Caption: doesn&#39;t know how to work with lists but
+
+00:29:46.560 --> 00:29:51.090
+Caption: if we define an X map function it make
+
+00:29:48.900 --> 00:29:53.300
+Caption: map can take the value data lists apply
+
+00:29:51.089 --> 00:29:57.779
+Caption: the function put them back into a list
+
+00:29:53.300 --> 00:30:01.260
+Caption: so we can make sure that the list data
+
+00:29:57.780 --> 00:30:04.229
+Caption: type is a part of the type class functor
+
+00:30:01.260 --> 00:30:07.440
+Caption: that means the list data type just
+
+00:30:04.229 --> 00:30:09.510
+Caption: implements ethnic so the data type is a
+
+00:30:07.439 --> 00:30:12.359
+Caption: part of the type class the class of
+
+00:30:09.510 --> 00:30:14.459
+Caption: types which implement the F map function
+
+00:30:12.359 --> 00:30:16.910
+Caption: so it&#39;s a mouthful there but hopefully
+
+00:30:14.459 --> 00:30:19.260
+Caption: you can get your head around that okay
+
+00:30:16.910 --> 00:30:20.520
+Caption: so we can define this type class and
+
+00:30:19.260 --> 00:30:22.829
+Caption: I&#39;ll meet you got a list unit and
+
+00:30:20.520 --> 00:30:24.630
+Caption: they&#39;ve got other class as well so the
+
+00:30:22.829 --> 00:30:27.569
+Caption: question is why do we need these things
+
+00:30:24.630 --> 00:30:28.979
+Caption: called functors well hopefully I gave
+
+00:30:27.569 --> 00:30:31.319
+Caption: you a little the example there but just
+
+00:30:28.979 --> 00:30:33.719
+Caption: to reiterate it allows us to apply
+
+00:30:31.319 --> 00:30:36.359
+Caption: functions to values in different
+
+00:30:33.719 --> 00:30:38.939
+Caption: contexts without us having to do all the
+
+00:30:36.359 --> 00:30:41.250
+Caption: work is taking it ourselves the egg map
+
+00:30:38.939 --> 00:30:43.529
+Caption: does it for us because the F map knows
+
+00:30:41.250 --> 00:30:46.109
+Caption: about the lists or the F map knows about
+
+00:30:43.530 --> 00:30:48.239
+Caption: the maybe it also saves us from having
+
+00:30:46.109 --> 00:30:51.630
+Caption: to write mapping functions which do
+
+00:30:48.239 --> 00:30:54.900
+Caption: things for all the elements and now we
+
+00:30:51.630 --> 00:30:58.140
+Caption: can write algorithms that use F map and
+
+00:30:54.900 --> 00:31:00.479
+Caption: that will work with any data type that
+
+00:30:58.140 --> 00:31:02.250
+Caption: implements F Lee so we&#39;re writing higher
+
+00:31:00.479 --> 00:31:04.859
+Caption: level abstractions we don&#39;t care what
+
+00:31:02.250 --> 00:31:07.920
+Caption: data type it is as long as it implements
+
+00:31:04.859 --> 00:31:09.449
+Caption: F map it&#39;ll work with our algorithm so
+
+00:31:07.920 --> 00:31:11.550
+Caption: to get high level abstractions we can
+
+00:31:09.449 --> 00:31:14.399
+Caption: use over and over again in our programs
+
+00:31:11.550 --> 00:31:16.820
+Caption: so there are many functions many
+
+00:31:14.400 --> 00:31:20.659
+Caption: functors that is data types that you
+
+00:31:16.819 --> 00:31:23.558
+Caption: main ethnic so again this is a bit of a
+
+00:31:20.659 --> 00:31:27.529
+Caption: time for reflection just think back
+
+00:31:23.558 --> 00:31:30.349
+Caption: bumpers basically applying a function to
+
+00:31:27.529 --> 00:31:34.940
+Caption: a value in a context using f map to
+
+00:31:30.349 --> 00:31:36.888
+Caption: return the result in context okay so how
+
+00:31:34.939 --> 00:31:39.408
+Caption: we going they&#39;re still boring mates
+
+00:31:36.889 --> 00:31:43.489
+Caption: getting complex but functors are not too
+
+00:31:39.409 --> 00:31:45.019
+Caption: hard to worry about I think so now we&#39;re
+
+00:31:43.489 --> 00:31:47.778
+Caption: going to advanced functional programming
+
+00:31:45.019 --> 00:31:49.639
+Caption: which may be probably I hope you don&#39;t
+
+00:31:47.779 --> 00:31:52.759
+Caption: already know about otherwise you
+
+00:31:49.639 --> 00:31:54.590
+Caption: probably know functional programming now
+
+00:31:52.759 --> 00:31:57.049
+Caption: the problem that advises to motivate
+
+00:31:54.589 --> 00:32:00.678
+Caption: this part of the talk is what happens if
+
+00:31:57.048 --> 00:32:02.839
+Caption: we have our function add three maybe so
+
+00:32:00.678 --> 00:32:04.668
+Caption: it can handle the result is an exception
+
+00:32:02.839 --> 00:32:07.189
+Caption: to producer maybe rather than just
+
+00:32:04.668 --> 00:32:09.979
+Caption: producing the result so we&#39;ve put in two
+
+00:32:07.189 --> 00:32:12.589
+Caption: we get just five but now we want to put
+
+00:32:09.979 --> 00:32:15.768
+Caption: that into our next function here add 3
+
+00:32:12.589 --> 00:32:17.928
+Caption: to get just eight but wait a sec this
+
+00:32:15.769 --> 00:32:21.080
+Caption: add three function expects an integer
+
+00:32:17.928 --> 00:32:23.989
+Caption: like two or five and here we&#39;ve only got
+
+00:32:21.079 --> 00:32:28.308
+Caption: a justified so they won&#39;t work together
+
+00:32:23.989 --> 00:32:30.408
+Caption: we can&#39;t compose our functions this is a
+
+00:32:28.308 --> 00:32:32.869
+Caption: problem in not compatible for composing
+
+00:32:30.409 --> 00:32:34.279
+Caption: and composition is a core element of
+
+00:32:32.869 --> 00:32:35.899
+Caption: functional programming you want to be
+
+00:32:34.279 --> 00:32:38.480
+Caption: able to do that so how can we get around
+
+00:32:35.899 --> 00:32:41.389
+Caption: this problem so we do the same sort of
+
+00:32:38.479 --> 00:32:45.798
+Caption: thing let&#39;s create a function pull it
+
+00:32:41.389 --> 00:32:48.409
+Caption: bind to apply a function to the maybe so
+
+00:32:45.798 --> 00:32:51.079
+Caption: apply a function to a maybe that doesn&#39;t
+
+00:32:48.409 --> 00:32:53.240
+Caption: usually apply to a maybe so here&#39;s a
+
+00:32:51.079 --> 00:32:55.489
+Caption: function over here add three maybe which
+
+00:32:53.239 --> 00:32:58.250
+Caption: produces a maybe but it doesn&#39;t usually
+
+00:32:55.489 --> 00:33:01.189
+Caption: apply to a maybe and now we could
+
+00:32:58.250 --> 00:33:03.558
+Caption: actually pass in a maybe just two and by
+
+00:33:01.189 --> 00:33:05.239
+Caption: intima do all the magic to make sure it
+
+00:33:03.558 --> 00:33:08.079
+Caption: takes the value out puts it into this
+
+00:33:05.239 --> 00:33:11.479
+Caption: one gets the answer not too complex so
+
+00:33:08.079 --> 00:33:14.689
+Caption: the bind function takes a value inside a
+
+00:33:11.479 --> 00:33:17.359
+Caption: data type like maybe and a function that
+
+00:33:14.689 --> 00:33:20.898
+Caption: which uses that value and produces a new
+
+00:33:17.359 --> 00:33:24.259
+Caption: value of that data type this is the bind
+
+00:33:20.899 --> 00:33:28.129
+Caption: function well this is basically the idea
+
+00:33:24.259 --> 00:33:30.320
+Caption: of ammonium not very complex a monad is
+
+00:33:28.129 --> 00:33:32.690
+Caption: just basically a type class
+
+00:33:30.319 --> 00:33:33.979
+Caption: which defines a bind function now there
+
+00:33:32.689 --> 00:33:35.559
+Caption: are some more detailed and weaving out
+
+00:33:33.979 --> 00:33:39.979
+Caption: here that&#39;s a general important part
+
+00:33:35.560 --> 00:33:42.380
+Caption: it&#39;s a set of data types that implements
+
+00:33:39.979 --> 00:33:45.770
+Caption: one function called bind which allow
+
+00:33:42.380 --> 00:33:49.369
+Caption: them to do this little trick that&#39;s what
+
+00:33:45.770 --> 00:33:52.790
+Caption: we mean by a monad right class so I
+
+00:33:49.369 --> 00:33:54.790
+Caption: showed you the maybe example of this but
+
+00:33:52.790 --> 00:33:58.070
+Caption: we&#39;ve also do the same thing for list a
+
+00:33:54.790 --> 00:34:01.100
+Caption: list is a data type which has some value
+
+00:33:58.069 --> 00:34:03.109
+Caption: in a context we want to apply a function
+
+00:34:01.099 --> 00:34:05.419
+Caption: called replicate which replicates the
+
+00:34:03.109 --> 00:34:07.790
+Caption: elements in a list but it doesn&#39;t apply
+
+00:34:05.420 --> 00:34:08.209
+Caption: to these types so bind will do the work
+
+00:34:07.790 --> 00:34:10.340
+Caption: for us
+
+00:34:08.209 --> 00:34:12.439
+Caption: it&#39;ll take the type they are the values
+
+00:34:10.340 --> 00:34:15.169
+Caption: out here replicate them put them back
+
+00:34:12.439 --> 00:34:16.879
+Caption: into a list so we replicate one we get
+
+00:34:15.168 --> 00:34:19.550
+Caption: two lines replicate two we get two
+
+00:34:16.879 --> 00:34:23.229
+Caption: things so as you can see only here&#39;s the
+
+00:34:19.550 --> 00:34:25.729
+Caption: definition of the monad instance this
+
+00:34:23.229 --> 00:34:29.178
+Caption: it&#39;s implementing that interface
+
+00:34:25.729 --> 00:34:32.080
+Caption: function called bind for the list data
+
+00:34:29.178 --> 00:34:35.510
+Caption: type it&#39;s as simple as that
+
+00:34:32.080 --> 00:34:37.580
+Caption: monads are a track class with a bind
+
+00:34:35.510 --> 00:34:39.229
+Caption: interface if you want to be a part of
+
+00:34:37.580 --> 00:34:41.179
+Caption: that class if you want to be am on air
+
+00:34:39.229 --> 00:34:43.250
+Caption: the list monad all you have to do
+
+00:34:41.178 --> 00:34:47.689
+Caption: basically is implement that mind that
+
+00:34:43.250 --> 00:34:49.520
+Caption: buying function so this is the main big
+
+00:34:47.689 --> 00:34:53.388
+Caption: class and hit again you implements that
+
+00:34:49.520 --> 00:34:57.560
+Caption: function so this and maybe our examples
+
+00:34:53.388 --> 00:34:59.059
+Caption: of focus but also examples of monads so
+
+00:34:57.560 --> 00:35:02.090
+Caption: it sounds very technical here but let&#39;s
+
+00:34:59.060 --> 00:35:05.060
+Caption: see why is this useful well here&#39;s an
+
+00:35:02.090 --> 00:35:08.540
+Caption: example processing some code to find in
+
+00:35:05.060 --> 00:35:12.199
+Caption: a family tree grandparents if I want to
+
+00:35:08.540 --> 00:35:14.330
+Caption: find both grandfathers of someone then
+
+00:35:12.199 --> 00:35:16.429
+Caption: you have to look up the family tree and
+
+00:35:14.330 --> 00:35:17.930
+Caption: maybe our family tree isn&#39;t complete we
+
+00:35:16.429 --> 00:35:21.020
+Caption: don&#39;t know who the grandfather of
+
+00:35:17.929 --> 00:35:23.419
+Caption: theories or who uses so we have to make
+
+00:35:21.020 --> 00:35:26.630
+Caption: sure that our program handles missing
+
+00:35:23.419 --> 00:35:30.079
+Caption: persons they may be there they may not
+
+00:35:26.629 --> 00:35:31.849
+Caption: be there so bring by our code to walk up
+
+00:35:30.080 --> 00:35:33.130
+Caption: this tree and find the father of the
+
+00:35:31.850 --> 00:35:34.450
+Caption: father and
+
+00:35:33.129 --> 00:35:36.279
+Caption: you&#39;ll find that your code will have
+
+00:35:34.449 --> 00:35:39.219
+Caption: lots of stuff in here like this if my
+
+00:35:36.280 --> 00:35:41.439
+Caption: father is not there nothing then we do
+
+00:35:39.219 --> 00:35:43.929
+Caption: this if our father is there then go on
+
+00:35:41.439 --> 00:35:45.399
+Caption: and try them so our code is quite
+
+00:35:43.929 --> 00:35:47.500
+Caption: complex with the whole ball of
+
+00:35:45.399 --> 00:35:49.000
+Caption: if-then-else statements like if null
+
+00:35:47.500 --> 00:35:52.179
+Caption: then do this we cannot now all then do
+
+00:35:49.000 --> 00:35:56.080
+Caption: this same sort of thing if we use this
+
+00:35:52.179 --> 00:35:57.540
+Caption: mode we can change our code to something
+
+00:35:56.080 --> 00:36:00.520
+Caption: like this
+
+00:35:57.540 --> 00:36:02.380
+Caption: remember the my dad handled the nothing
+
+00:36:00.520 --> 00:36:05.439
+Caption: for it it took the value out and put it
+
+00:36:02.379 --> 00:36:07.509
+Caption: into the other values so now our code
+
+00:36:05.439 --> 00:36:09.819
+Caption: would look something like this as you
+
+00:36:07.510 --> 00:36:12.219
+Caption: notice all the nothing handling is done
+
+00:36:09.820 --> 00:36:14.860
+Caption: by our moaning and it&#39;s actually hidden
+
+00:36:12.219 --> 00:36:17.050
+Caption: away in an illness text notation for the
+
+00:36:14.860 --> 00:36:18.670
+Caption: moment I had the bind function here but
+
+00:36:17.050 --> 00:36:22.179
+Caption: hopefully you can see that code lot
+
+00:36:18.669 --> 00:36:25.149
+Caption: simpler and in fact we can use some
+
+00:36:22.179 --> 00:36:28.179
+Caption: syntactic sugar in Haskell to make the
+
+00:36:25.149 --> 00:36:31.059
+Caption: same codes adjuster syntactic sugar look
+
+00:36:28.179 --> 00:36:33.399
+Caption: like this and purif Inc of these arrows
+
+00:36:31.060 --> 00:36:35.680
+Caption: is assignment statements dad becomes the
+
+00:36:33.399 --> 00:36:38.619
+Caption: father of the person grandfather becomes
+
+00:36:35.679 --> 00:36:40.089
+Caption: the father of dad this is sort of how
+
+00:36:38.620 --> 00:36:43.800
+Caption: you would now calculate in the
+
+00:36:40.090 --> 00:36:46.710
+Caption: functional program the two grandfathers
+
+00:36:43.800 --> 00:36:48.429
+Caption: the whether stick that looks like
+
+00:36:46.709 --> 00:36:50.260
+Caption: declarative that&#39;s how imperative
+
+00:36:48.429 --> 00:36:53.109
+Caption: programming it looks like they&#39;re
+
+00:36:50.260 --> 00:36:56.469
+Caption: signing values and doing a little bit of
+
+00:36:53.110 --> 00:36:58.750
+Caption: a procedure or imperative statements and
+
+00:36:56.469 --> 00:37:01.750
+Caption: in fact that is what we&#39;ve basically
+
+00:36:58.750 --> 00:37:05.500
+Caption: implemented here in the code is a simple
+
+00:37:01.750 --> 00:37:07.929
+Caption: DSL just for this particular case but
+
+00:37:05.500 --> 00:37:10.659
+Caption: the important thing is this is pure
+
+00:37:07.929 --> 00:37:13.359
+Caption: functional code there is no imperative
+
+00:37:10.659 --> 00:37:15.609
+Caption: code here it just looks like imperative
+
+00:37:13.360 --> 00:37:17.080
+Caption: code but it&#39;s really pure declarative
+
+00:37:15.610 --> 00:37:19.620
+Caption: functional code that&#39;s easy to maintain
+
+00:37:17.080 --> 00:37:23.410
+Caption: easy to paralyse all those things
+
+00:37:19.620 --> 00:37:25.150
+Caption: because of the syntactic sugar so that&#39;s
+
+00:37:23.409 --> 00:37:27.819
+Caption: one reason to have my name&#39;s it makes
+
+00:37:25.149 --> 00:37:31.179
+Caption: complex code like this a lot simpler and
+
+00:37:27.820 --> 00:37:33.880
+Caption: easier to read like this so if factors
+
+00:37:31.179 --> 00:37:36.659
+Caption: allow us to apply they&#39;ll use apply
+
+00:37:33.879 --> 00:37:39.279
+Caption: functions to values inside our context
+
+00:37:36.659 --> 00:37:41.979
+Caption: monads allow us to bind
+
+00:37:39.280 --> 00:37:45.600
+Caption: values into a function that doesn&#39;t
+
+00:37:41.979 --> 00:37:48.510
+Caption: expect values in the data type and
+
+00:37:45.600 --> 00:37:50.580
+Caption: quite simple structures as I mentioned
+
+00:37:48.510 --> 00:37:52.139
+Caption: Haskell allows you to do this rather
+
+00:37:50.580 --> 00:37:54.630
+Caption: than using a function call that allows
+
+00:37:52.139 --> 00:37:57.149
+Caption: you to use an index no in Sixto tation
+
+00:37:54.629 --> 00:37:59.129
+Caption: where you put facebook like a + b with
+
+00:37:57.149 --> 00:38:01.199
+Caption: the operator in the middle so we can use
+
+00:37:59.129 --> 00:38:03.239
+Caption: this operator for fashion and this
+
+00:38:01.199 --> 00:38:04.859
+Caption: operator for buyer if you have all this
+
+00:38:03.239 --> 00:38:07.800
+Caption: quite neat looks like the function here
+
+00:38:04.860 --> 00:38:09.900
+Caption: is being applied to this so it&#39;s sort of
+
+00:38:07.800 --> 00:38:12.270
+Caption: like just applying the function to these
+
+00:38:09.899 --> 00:38:15.089
+Caption: contexts even though I can&#39;t handle it
+
+00:38:12.270 --> 00:38:15.810
+Caption: the actual it map function will do the
+
+00:38:15.090 --> 00:38:18.930
+Caption: work for you
+
+00:38:15.810 --> 00:38:21.630
+Caption: and over here - mr. buying function here
+
+00:38:18.929 --> 00:38:23.609
+Caption: we have our data type value mini data
+
+00:38:21.629 --> 00:38:25.679
+Caption: type we can just feed it into this
+
+00:38:23.610 --> 00:38:28.050
+Caption: function normally it couldn&#39;t handle it
+
+00:38:25.679 --> 00:38:30.689
+Caption: but the bind function will handle it
+
+00:38:28.050 --> 00:38:32.250
+Caption: forest and produce a nice result so it
+
+00:38:30.689 --> 00:38:35.429
+Caption: looks sort of natural and it works quite
+
+00:38:32.250 --> 00:38:37.560
+Caption: well so why is this important to
+
+00:38:35.429 --> 00:38:39.540
+Caption: understand the index notation but we
+
+00:38:37.560 --> 00:38:41.160
+Caption: said that function composition way back
+
+00:38:39.540 --> 00:38:44.280
+Caption: was our big problem we want to preserve
+
+00:38:41.159 --> 00:38:47.520
+Caption: this and when we have this bind operator
+
+00:38:44.280 --> 00:38:50.429
+Caption: we can now do that so if I have my plus
+
+00:38:47.520 --> 00:38:53.000
+Caption: 3 function and it&#39;s plus 3 which
+
+00:38:50.429 --> 00:38:56.760
+Caption: produces a maybe not just an integer I
+
+00:38:53.000 --> 00:38:58.620
+Caption: can now write take a value just to put
+
+00:38:56.760 --> 00:39:00.989
+Caption: it into plus 3 and then put it into
+
+00:38:58.620 --> 00:39:03.660
+Caption: times 4 and I&#39;ll get out just win and
+
+00:39:00.989 --> 00:39:05.040
+Caption: there&#39;s no maybe processing and nothing
+
+00:39:03.659 --> 00:39:07.349
+Caption: processing in either it&#39;s just nice
+
+00:39:05.040 --> 00:39:10.380
+Caption: simple code but things are inside
+
+00:39:07.350 --> 00:39:12.300
+Caption: context and even better than that down
+
+00:39:10.379 --> 00:39:13.589
+Caption: here if we use a different operator
+
+00:39:12.300 --> 00:39:16.469
+Caption: how&#39;s this to an operator called the
+
+00:39:13.590 --> 00:39:19.500
+Caption: fished operator looks pretty cool you
+
+00:39:16.469 --> 00:39:22.020
+Caption: can take your function times 4 and apply
+
+00:39:19.500 --> 00:39:25.169
+Caption: it to top 2 plus 3 and then apply it to
+
+00:39:22.020 --> 00:39:27.510
+Caption: just 2 and get just 20 just like we
+
+00:39:25.169 --> 00:39:30.750
+Caption: composed function way back when we
+
+00:39:27.510 --> 00:39:33.000
+Caption: started two functions compose make
+
+00:39:30.750 --> 00:39:34.800
+Caption: another function two functions compose
+
+00:39:33.000 --> 00:39:37.129
+Caption: even though now they&#39;re complex
+
+00:39:34.800 --> 00:39:39.570
+Caption: functions not for simply flat functions
+
+00:39:37.129 --> 00:39:42.299
+Caption: compose providers so it looks very
+
+00:39:39.570 --> 00:39:43.770
+Caption: similar to these but all that processing
+
+00:39:42.300 --> 00:39:45.750
+Caption: is going on in the back and behind the
+
+00:39:43.770 --> 00:39:48.090
+Caption: scenes we have to worry about it we can
+
+00:39:45.750 --> 00:39:51.360
+Caption: just write code like this because we&#39;ve
+
+00:39:48.090 --> 00:39:54.210
+Caption: got the bind function because maybe it
+
+00:39:51.360 --> 00:39:55.410
+Caption: was a monad maybe implements the
+
+00:39:54.209 --> 00:40:00.799
+Caption: interface of the
+
+00:39:55.409 --> 00:40:03.000
+Caption: hi class so that&#39;s pretty interesting
+
+00:40:00.799 --> 00:40:05.489
+Caption: but even more than that we&#39;ve got more
+
+00:40:03.000 --> 00:40:07.979
+Caption: for you today this is what Professor
+
+00:40:05.489 --> 00:40:10.169
+Caption: Graham Hutton says he said monads are
+
+00:40:07.979 --> 00:40:12.809
+Caption: one of the most important new ideas in
+
+00:40:10.169 --> 00:40:16.409
+Caption: programming languages in the last 25
+
+00:40:12.809 --> 00:40:18.660
+Caption: years that&#39;s pretty impressive so I like
+
+00:40:16.409 --> 00:40:21.209
+Caption: just making our code simpler to use and
+
+00:40:18.659 --> 00:40:24.169
+Caption: greenback functional composition no they
+
+00:40:21.209 --> 00:40:28.469
+Caption: do much much more than that
+
+00:40:24.169 --> 00:40:30.868
+Caption: monads actually make computation first
+
+00:40:28.469 --> 00:40:32.879
+Caption: class entity the actual process of
+
+00:40:30.868 --> 00:40:34.260
+Caption: calculating something now becomes
+
+00:40:32.879 --> 00:40:37.019
+Caption: something you can control in your
+
+00:40:34.260 --> 00:40:39.359
+Caption: program we&#39;ve talked about functions
+
+00:40:37.020 --> 00:40:41.159
+Caption: being first class entities but now the
+
+00:40:39.358 --> 00:40:43.288
+Caption: idea of a calling a function is now a
+
+00:40:41.159 --> 00:40:45.629
+Caption: first class anything we can manipulate
+
+00:40:43.289 --> 00:40:47.430
+Caption: that we can do things before we call
+
+00:40:45.629 --> 00:40:49.588
+Caption: that that operation and we can do things
+
+00:40:47.429 --> 00:40:53.010
+Caption: after the operation this is what we did
+
+00:40:49.589 --> 00:40:55.140
+Caption: with the maybe moaning we provides a
+
+00:40:53.010 --> 00:40:57.599
+Caption: standard interface for composing and
+
+00:40:55.139 --> 00:40:58.949
+Caption: sequencing operations remember I said
+
+00:40:57.599 --> 00:41:00.900
+Caption: that functional programming languages
+
+00:40:58.949 --> 00:41:02.879
+Caption: and what about C secret seeing the
+
+00:41:00.899 --> 00:41:05.578
+Caption: recipe and do this after that but
+
+00:41:02.879 --> 00:41:07.500
+Caption: sometimes we need to sequence things for
+
+00:41:05.579 --> 00:41:09.059
+Caption: example an input and output you don&#39;t
+
+00:41:07.500 --> 00:41:10.858
+Caption: want to read the input after you&#39;ve
+
+00:41:09.059 --> 00:41:13.650
+Caption: written the output wasn&#39;t go way around
+
+00:41:10.858 --> 00:41:15.719
+Caption: so we need to sequence some things in
+
+00:41:13.649 --> 00:41:16.699
+Caption: our program and monie aids can help us
+
+00:41:15.719 --> 00:41:19.489
+Caption: do that
+
+00:41:16.699 --> 00:41:22.679
+Caption: mobile monads also and this is a big one
+
+00:41:19.489 --> 00:41:26.789
+Caption: hang on to your hats enable computations
+
+00:41:22.679 --> 00:41:28.949
+Caption: be isolated from side effects and to non
+
+00:41:26.789 --> 00:41:31.229
+Caption: determinism and thus remain purely
+
+00:41:28.949 --> 00:41:33.358
+Caption: functional remember we had that problem
+
+00:41:31.229 --> 00:41:35.459
+Caption: with exceptions you wanted to get away
+
+00:41:33.358 --> 00:41:37.979
+Caption: from exception so we used length maybe
+
+00:41:35.459 --> 00:41:41.010
+Caption: we can take that a whole lot further and
+
+00:41:37.979 --> 00:41:43.139
+Caption: a lot of different side effects can be
+
+00:41:41.010 --> 00:41:47.069
+Caption: implemented implemented as monads
+
+00:41:43.139 --> 00:41:49.979
+Caption: ie a data type which implements the bind
+
+00:41:47.069 --> 00:41:51.960
+Caption: function and does something fancy to
+
+00:41:49.979 --> 00:41:53.909
+Caption: make our side effects go away
+
+00:41:51.959 --> 00:41:56.279
+Caption: want to hide the side effect from our
+
+00:41:53.909 --> 00:41:59.520
+Caption: code and I&#39;ll show you some examples we
+
+00:41:56.279 --> 00:42:01.559
+Caption: talked about this these are the examples
+
+00:41:59.520 --> 00:42:04.079
+Caption: I&#39;ll give you our monads different types
+
+00:42:01.559 --> 00:42:07.109
+Caption: of monads that implement the bind we saw
+
+00:42:04.079 --> 00:42:10.029
+Caption: maybe that allows you to do it
+
+00:42:07.108 --> 00:42:11.649
+Caption: anonymous errors there&#39;s another one for
+
+00:42:10.029 --> 00:42:14.049
+Caption: errors where you have an error code or
+
+00:42:11.649 --> 00:42:16.899
+Caption: description it&#39;ll out the list monad
+
+00:42:14.049 --> 00:42:19.119
+Caption: allows us to do non determinism return
+
+00:42:16.899 --> 00:42:21.669
+Caption: multiple values for a function or return
+
+00:42:19.118 --> 00:42:24.818
+Caption: a random value from the function we do
+
+00:42:21.669 --> 00:42:26.439
+Caption: input an output that amazing side-effect
+
+00:42:24.819 --> 00:42:28.690
+Caption: of writing things to the output or
+
+00:42:26.439 --> 00:42:31.118
+Caption: reading from the input we can do that in
+
+00:42:28.689 --> 00:42:34.389
+Caption: a Monet to keep it separate malfunction
+
+00:42:31.118 --> 00:42:37.239
+Caption: Alcoa over here promises and futures
+
+00:42:34.389 --> 00:42:40.479
+Caption: writing to a log reading configuration
+
+00:42:37.239 --> 00:42:44.169
+Caption: and global mutable state can be done
+
+00:42:40.479 --> 00:42:47.049
+Caption: using monads we write a global state
+
+00:42:44.169 --> 00:42:49.239
+Caption: monad which does some manipulations
+
+00:42:47.049 --> 00:42:51.219
+Caption: behind the scene so that your particular
+
+00:42:49.239 --> 00:42:53.319
+Caption: function will have access to some
+
+00:42:51.219 --> 00:42:56.979
+Caption: readable state can read it and write it
+
+00:42:53.319 --> 00:42:59.619
+Caption: in a purely functional way not being
+
+00:42:56.979 --> 00:43:02.379
+Caption: confusing in a traditional approach we
+
+00:42:59.618 --> 00:43:05.018
+Caption: maintain functional purity right while
+
+00:43:02.379 --> 00:43:06.518
+Caption: supporting these side effects and it&#39;s
+
+00:43:05.019 --> 00:43:08.769
+Caption: not just side-effects some of these are
+
+00:43:06.519 --> 00:43:12.160
+Caption: just useful effect you want to do like
+
+00:43:08.769 --> 00:43:15.279
+Caption: concurrency and so forth remember in
+
+00:43:12.159 --> 00:43:17.618
+Caption: these are just data types that implement
+
+00:43:15.279 --> 00:43:21.279
+Caption: the monad which means they implement
+
+00:43:17.618 --> 00:43:23.679
+Caption: functor and the monad play classes the
+
+00:43:21.279 --> 00:43:27.519
+Caption: defined function f map and define the
+
+00:43:23.679 --> 00:43:28.868
+Caption: function bind so here&#39;s an example of
+
+00:43:27.519 --> 00:43:30.819
+Caption: one of these complex ones
+
+00:43:28.868 --> 00:43:34.868
+Caption: if you want your function to write to a
+
+00:43:30.819 --> 00:43:36.339
+Caption: log that&#39;s a side effect okay so we want
+
+00:43:34.868 --> 00:43:38.679
+Caption: to have a function which is a normal
+
+00:43:36.339 --> 00:43:41.470
+Caption: function and normally it would write to
+
+00:43:38.679 --> 00:43:44.019
+Caption: a log send out a string somewhere a side
+
+00:43:41.469 --> 00:43:47.049
+Caption: effect the way we can do it is define
+
+00:43:44.019 --> 00:43:50.439
+Caption: this writer data type and the writer
+
+00:43:47.049 --> 00:43:52.299
+Caption: data type implements a bind function so
+
+00:43:50.439 --> 00:43:55.838
+Caption: now when you produce when you have your
+
+00:43:52.299 --> 00:43:59.109
+Caption: a coming into it it calculates the value
+
+00:43:55.839 --> 00:44:02.500
+Caption: it today but it also collects the log
+
+00:43:59.108 --> 00:44:05.709
+Caption: statements and when you now take that
+
+00:44:02.500 --> 00:44:09.309
+Caption: writer you can now this writer monad you
+
+00:44:05.709 --> 00:44:11.318
+Caption: can now apply that to the G here because
+
+00:44:09.309 --> 00:44:14.319
+Caption: the bind function will come along and
+
+00:44:11.319 --> 00:44:17.019
+Caption: take the value of F of a out put it
+
+00:44:14.319 --> 00:44:19.440
+Caption: today into G calculate G interface it&#39;ll
+
+00:44:17.019 --> 00:44:21.900
+Caption: take the log out get the log from here
+
+00:44:19.439 --> 00:44:24.899
+Caption: and appended to the lot so it maintains
+
+00:44:21.899 --> 00:44:26.969
+Caption: you logged in so the right and longhand
+
+00:44:24.899 --> 00:44:30.118
+Caption: allows you to have a pure function f
+
+00:44:26.969 --> 00:44:32.399
+Caption: with log and G with log that actually
+
+00:44:30.118 --> 00:44:35.368
+Caption: does logging without breaking any of the
+
+00:44:32.399 --> 00:44:39.389
+Caption: functional programming approach so this
+
+00:44:35.368 --> 00:44:41.729
+Caption: is a bonus and I think as I mentioned we
+
+00:44:39.389 --> 00:44:44.639
+Caption: do this with the bind function we define
+
+00:44:41.729 --> 00:44:47.669
+Caption: a function for the data type writer
+
+00:44:44.639 --> 00:44:49.798
+Caption: which allows your functions now to write
+
+00:44:47.669 --> 00:44:51.659
+Caption: to logs in a purely functional way
+
+00:44:49.799 --> 00:44:53.729
+Caption: remember the outputs are just coming out
+
+00:44:51.659 --> 00:44:55.558
+Caption: in this data type they&#39;re not coming out
+
+00:44:53.729 --> 00:44:57.449
+Caption: any strange way there&#39;s no exceptions or
+
+00:44:55.559 --> 00:44:58.829
+Caption: logs you&#39;re writing to it comes out that
+
+00:44:57.449 --> 00:44:59.520
+Caption: strange way but our function will look
+
+00:44:58.829 --> 00:45:02.489
+Caption: normal
+
+00:44:59.520 --> 00:45:04.349
+Caption: our processing will look normal now the
+
+00:45:02.489 --> 00:45:07.319
+Caption: big one here particularly in Haskell
+
+00:45:04.349 --> 00:45:09.450
+Caption: Pascal does its input an output using my
+
+00:45:07.319 --> 00:45:11.910
+Caption: notes this has been hard to understand
+
+00:45:09.449 --> 00:45:13.469
+Caption: because the but what are the inputs to a
+
+00:45:11.909 --> 00:45:17.729
+Caption: program it&#39;s sort of like the whole
+
+00:45:13.469 --> 00:45:20.129
+Caption: world the iron monad is an instance of
+
+00:45:17.729 --> 00:45:23.939
+Caption: the monad type class which just means it
+
+00:45:20.129 --> 00:45:26.189
+Caption: implements the bind but if you think
+
+00:45:23.939 --> 00:45:27.029
+Caption: about it over here we have a get
+
+00:45:26.189 --> 00:45:28.889
+Caption: character
+
+00:45:27.029 --> 00:45:31.049
+Caption: what does get character do well it takes
+
+00:45:28.889 --> 00:45:34.199
+Caption: us input the state of the whole world
+
+00:45:31.049 --> 00:45:37.069
+Caption: and then it produces as output to your
+
+00:45:34.199 --> 00:45:40.818
+Caption: program one character from that world
+
+00:45:37.069 --> 00:45:42.420
+Caption: plus the new what state of the world and
+
+00:45:40.819 --> 00:45:44.219
+Caption: metaphorically they&#39;re going to write a
+
+00:45:42.419 --> 00:45:46.078
+Caption: character to the world that I write
+
+00:45:44.219 --> 00:45:48.838
+Caption: something output you&#39;re basically taking
+
+00:45:46.079 --> 00:45:50.460
+Caption: his input the world the state of the
+
+00:45:48.839 --> 00:45:52.440
+Caption: world and you could have seen that no
+
+00:45:50.459 --> 00:45:54.659
+Caption: input to your program but you&#39;re going
+
+00:45:52.439 --> 00:45:57.808
+Caption: to send a new world out with that
+
+00:45:54.659 --> 00:46:00.419
+Caption: character written out there so we think
+
+00:45:57.809 --> 00:46:02.819
+Caption: about types like this we can define a
+
+00:46:00.419 --> 00:46:05.068
+Caption: type called IO which is basically just a
+
+00:46:02.819 --> 00:46:07.250
+Caption: function like this and it&#39;s a monad
+
+00:46:05.069 --> 00:46:09.869
+Caption: function and it allows us to do
+
+00:46:07.250 --> 00:46:12.299
+Caption: input/output in our program in a purely
+
+00:46:09.868 --> 00:46:16.949
+Caption: functional way using this particular
+
+00:46:12.299 --> 00:46:18.839
+Caption: data type called the IO in my name so
+
+00:46:16.949 --> 00:46:20.608
+Caption: this is how you would actually write a
+
+00:46:18.839 --> 00:46:24.720
+Caption: main function
+
+00:46:20.608 --> 00:46:26.699
+Caption: in Haskell to do input and output so
+
+00:46:24.719 --> 00:46:28.919
+Caption: here we&#39;re going to put a string and
+
+00:46:26.699 --> 00:46:30.909
+Caption: here we&#39;re going to get a value from the
+
+00:46:28.919 --> 00:46:33.879
+Caption: input into your name
+
+00:46:30.909 --> 00:46:37.389
+Caption: a stream and it looks really pretty much
+
+00:46:33.879 --> 00:46:38.949
+Caption: like a a imperative program that
+
+00:46:37.389 --> 00:46:40.868
+Caption: actually has inside effects
+
+00:46:38.949 --> 00:46:43.269
+Caption: but remember this is not having side
+
+00:46:40.868 --> 00:46:46.239
+Caption: effects it&#39;s fully purely functional
+
+00:46:43.269 --> 00:46:50.319
+Caption: because bind is doing things behind the
+
+00:46:46.239 --> 00:46:52.539
+Caption: scenes to make it purely functional so
+
+00:46:50.319 --> 00:46:55.089
+Caption: basically in our Haskell programs all
+
+00:46:52.539 --> 00:46:57.219
+Caption: our code is pure functional code but
+
+00:46:55.089 --> 00:46:59.170
+Caption: there&#39;s a thin layer afterwards which is
+
+00:46:57.219 --> 00:47:00.789
+Caption: basically allowing for these side
+
+00:46:59.169 --> 00:47:03.969
+Caption: effects to happen this is where the bind
+
+00:47:00.789 --> 00:47:06.729
+Caption: does its function there are many many
+
+00:47:03.969 --> 00:47:08.799
+Caption: benefits as of monads as I mentioned
+
+00:47:06.729 --> 00:47:11.469
+Caption: computation is now a first-class entity
+
+00:47:08.799 --> 00:47:15.009
+Caption: it captures side effects in these
+
+00:47:11.469 --> 00:47:17.108
+Caption: algebraic data types enables functions
+
+00:47:15.009 --> 00:47:19.359
+Caption: to remain pure provides high-level
+
+00:47:17.108 --> 00:47:23.139
+Caption: abstractions and reduces clutter in our
+
+00:47:19.358 --> 00:47:25.149
+Caption: code so man adds an amazing thing time
+
+00:47:23.139 --> 00:47:27.278
+Caption: to reflect on what they are just the
+
+00:47:25.149 --> 00:47:30.758
+Caption: type class that implements that will
+
+00:47:27.279 --> 00:47:33.819
+Caption: declines the bind function now there are
+
+00:47:30.759 --> 00:47:35.140
+Caption: a lot higher abstractions in functional
+
+00:47:33.819 --> 00:47:37.390
+Caption: plugin as well going further than
+
+00:47:35.139 --> 00:47:39.429
+Caption: monarchs because one called a monad
+
+00:47:37.389 --> 00:47:41.469
+Caption: transformer which allows you to layer
+
+00:47:39.429 --> 00:47:43.509
+Caption: monads on top of each other will do
+
+00:47:41.469 --> 00:47:45.909
+Caption: exceptions and input/output nothing else
+
+00:47:43.509 --> 00:47:47.679
+Caption: rather than writing a minor just for
+
+00:47:45.909 --> 00:47:50.348
+Caption: that you can combine my notes to make a
+
+00:47:47.679 --> 00:47:52.058
+Caption: high-level monitor as a generalization
+
+00:47:50.349 --> 00:47:55.029
+Caption: of monads called the arrow and their lot
+
+00:47:52.059 --> 00:47:57.160
+Caption: other complex instructions that allow
+
+00:47:55.029 --> 00:48:00.849
+Caption: you to maintain this pure functional
+
+00:47:57.159 --> 00:48:02.739
+Caption: approach to programming so if you have a
+
+00:48:00.849 --> 00:48:04.839
+Caption: look in the real world you can do
+
+00:48:02.739 --> 00:48:07.299
+Caption: real-world applications with Casper
+
+00:48:04.839 --> 00:48:08.650
+Caption: using pure functions there are web
+
+00:48:07.299 --> 00:48:11.170
+Caption: frameworks there are database
+
+00:48:08.649 --> 00:48:13.358
+Caption: applications but now you have to start
+
+00:48:11.169 --> 00:48:14.858
+Caption: thinking differently you don&#39;t think in
+
+00:48:13.358 --> 00:48:17.258
+Caption: terms of object-oriented class
+
+00:48:14.858 --> 00:48:19.598
+Caption: hierarchies and dynamic binding and this
+
+00:48:17.259 --> 00:48:21.699
+Caption: Center to genius collections we think in
+
+00:48:19.599 --> 00:48:24.220
+Caption: terms of shapes and abstractions and
+
+00:48:21.699 --> 00:48:26.169
+Caption: there are languages that run on the JVM
+
+00:48:24.219 --> 00:48:28.269
+Caption: and CLR so you can use this for
+
+00:48:26.169 --> 00:48:32.019
+Caption: traditional libraries but using a pure
+
+00:48:28.269 --> 00:48:33.579
+Caption: functional approach so in summary here
+
+00:48:32.019 --> 00:48:36.309
+Caption: the functional programming paradigm is
+
+00:48:33.579 --> 00:48:38.319
+Caption: very different than procedural or
+
+00:48:36.309 --> 00:48:40.299
+Caption: object-oriented hopefully you&#39;ve got a
+
+00:48:38.319 --> 00:48:42.719
+Caption: glimpse of understanding it here the
+
+00:48:40.299 --> 00:48:45.690
+Caption: metaphor is just about simple functions
+
+00:48:42.719 --> 00:48:47.399
+Caption: processing inputs of giving outputs but
+
+00:48:45.689 --> 00:48:49.199
+Caption: we can implement parts of the other
+
+00:48:47.399 --> 00:48:51.510
+Caption: paradigms declarative programs
+
+00:48:49.199 --> 00:48:55.040
+Caption: exceptions and so forth using these
+
+00:48:51.510 --> 00:48:57.389
+Caption: monads be careful there are no easy
+
+00:48:55.040 --> 00:49:00.449
+Caption: equivalents of heterogeneous collections
+
+00:48:57.389 --> 00:49:02.669
+Caption: inside functional programming there&#39;s no
+
+00:49:00.449 --> 00:49:04.889
+Caption: easier prevalent of implementation
+
+00:49:02.669 --> 00:49:07.379
+Caption: inheritance so all the nice things you
+
+00:49:04.889 --> 00:49:09.269
+Caption: get into know a hierarchy you implement
+
+00:49:07.379 --> 00:49:12.118
+Caption: in your a inherit all the implementation
+
+00:49:09.270 --> 00:49:16.050
+Caption: that saves us writing code you don&#39;t get
+
+00:49:12.118 --> 00:49:17.729
+Caption: that here because Ollo is supporting
+
+00:49:16.050 --> 00:49:20.250
+Caption: that approach it has the structures to
+
+00:49:17.729 --> 00:49:21.598
+Caption: support the inheritance functional
+
+00:49:20.250 --> 00:49:23.729
+Caption: programming languages have the
+
+00:49:21.599 --> 00:49:25.740
+Caption: structures to support these monads and
+
+00:49:23.729 --> 00:49:27.540
+Caption: this approach to programming so there a
+
+00:49:25.739 --> 00:49:29.189
+Caption: different way don&#39;t try and do a low and
+
+00:49:27.540 --> 00:49:32.790
+Caption: design with a pure functional
+
+00:49:29.189 --> 00:49:34.348
+Caption: programming language so the question is
+
+00:49:32.790 --> 00:49:36.750
+Caption: how do you feel now are you confused
+
+00:49:34.349 --> 00:49:39.300
+Caption: what did you understand some about
+
+00:49:36.750 --> 00:49:40.979
+Caption: functional programming works maybe
+
+00:49:39.300 --> 00:49:43.229
+Caption: you&#39;re a bit like me you&#39;re confused for
+
+00:49:40.979 --> 00:49:45.449
+Caption: a while but it&#39;s not complex honestly
+
+00:49:43.229 --> 00:49:47.819
+Caption: it&#39;s just interfaces and implementing
+
+00:49:45.449 --> 00:49:50.250
+Caption: terms would approve datatypes if you do
+
+00:49:47.819 --> 00:49:53.670
+Caption: understand monads then you are a monad
+
+00:49:50.250 --> 00:49:57.469
+Caption: man okay or later all right
+
+00:49:53.669 --> 00:49:59.309
+Caption: and great achievement in summary here
+
+00:49:57.469 --> 00:50:00.868
+Caption: functional programming is the
+
+00:49:59.310 --> 00:50:03.900
+Caption: declarative programming paradigm that
+
+00:50:00.868 --> 00:50:06.389
+Caption: uses pure functions no side effects of
+
+00:50:03.899 --> 00:50:08.399
+Caption: its fundamental construct as many
+
+00:50:06.389 --> 00:50:10.588
+Caption: benefits makes it easier to write throw
+
+00:50:08.399 --> 00:50:14.039
+Caption: programs to prove programs to paralyze
+
+00:50:10.589 --> 00:50:17.280
+Caption: programs we commonly use immutable data
+
+00:50:14.040 --> 00:50:19.079
+Caption: types and abstract data types and we
+
+00:50:17.280 --> 00:50:22.199
+Caption: implement things that do those side
+
+00:50:19.079 --> 00:50:23.670
+Caption: effects using these monads that we don&#39;t
+
+00:50:22.199 --> 00:50:27.689
+Caption: break the functional programming
+
+00:50:23.669 --> 00:50:30.000
+Caption: paradigm don&#39;t your programming is not a
+
+00:50:27.689 --> 00:50:31.618
+Caption: panacea it has its own problems and
+
+00:50:30.000 --> 00:50:35.250
+Caption: issues we saw the complexity the
+
+00:50:31.618 --> 00:50:36.868
+Caption: abstractions the terminology it&#39;s a very
+
+00:50:35.250 --> 00:50:39.060
+Caption: different paradigm than procedural
+
+00:50:36.868 --> 00:50:41.699
+Caption: object-oriented so it takes a while to
+
+00:50:39.060 --> 00:50:43.770
+Caption: learn these new paradigms but it does
+
+00:50:41.699 --> 00:50:46.169
+Caption: have real-world applications as I mean
+
+00:50:43.770 --> 00:50:48.300
+Caption: to users different approaches it&#39;s
+
+00:50:46.169 --> 00:50:49.919
+Caption: probably going to be the future but I
+
+00:50:48.300 --> 00:50:52.410
+Caption: probably will take us a while to get
+
+00:50:49.919 --> 00:50:54.629
+Caption: there we&#39;re only get a very early stage
+
+00:50:52.409 --> 00:50:55.619
+Caption: in our programming skills we&#39;re still
+
+00:50:54.629 --> 00:50:57.119
+Caption: just about home
+
+00:50:55.620 --> 00:50:59.580
+Caption: and that&#39;s the functional approach
+
+00:50:57.120 --> 00:51:01.380
+Caption: there&#39;s a long way to go but we&#39;re
+
+00:50:59.580 --> 00:51:02.910
+Caption: always trying to improve things and get
+
+00:51:01.379 --> 00:51:05.009
+Caption: better and make our software
+
+00:51:02.909 --> 00:51:08.129
+Caption: developments better and more efficient
+
+00:51:05.010 --> 00:51:09.630
+Caption: and more productive a couple of
+
+00:51:08.129 --> 00:51:12.119
+Caption: reference here if you want to see them
+
+00:51:09.629 --> 00:51:13.199
+Caption: items the diagrams is a great site ad
+
+00:51:12.120 --> 00:51:15.120
+Caption: it2 IO
+
+00:51:13.199 --> 00:51:16.739
+Caption: which has a couple of papers there some
+
+00:51:15.120 --> 00:51:19.050
+Caption: like wikibooks which explain these
+
+00:51:16.739 --> 00:51:20.959
+Caption: concepts and codes in detail if you want
+
+00:51:19.050 --> 00:51:22.920
+Caption: to look at it and learn about them
+
+00:51:20.959 --> 00:51:25.050
+Caption: thank you very much you haven&#39;t got time
+
+00:51:22.919 --> 00:51:26.250
+Caption: for Q nights I&#39;ve gone over time so if
+
+00:51:25.050 --> 00:51:28.350
+Caption: you want to catch me either you can ask
+
+00:51:26.250 --> 00:51:32.129
+Caption: these new questions thank you very much
+
+00:51:28.350 --> 00:51:32.130
+Caption: [Applause]
+

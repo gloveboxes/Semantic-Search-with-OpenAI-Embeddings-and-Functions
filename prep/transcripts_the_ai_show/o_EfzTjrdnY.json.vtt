@@ -1,0 +1,1302 @@
+[
+    {
+        "text": ">> You're not going to want to miss this episode of the AI Show.",
+        "start": 0.0,
+        "duration": 2.16
+    },
+    {
+        "text": "We'll look at batch inference with something called",
+        "start": 2.16,
+        "duration": 3.24
+    },
+    {
+        "text": "a parallel run step and more next episode.",
+        "start": 5.4,
+        "duration": 3.33
+    },
+    {
+        "text": "Don't miss it. We'll see you then.",
+        "start": 8.73,
+        "duration": 1.08
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 9.81,
+        "duration": 4.59
+    },
+    {
+        "text": ">> Hello, and welcome to this episode of the AI Show.",
+        "start": 14.4,
+        "duration": 1.71
+    },
+    {
+        "text": "We'll talk about batch inferencing.",
+        "start": 16.11,
+        "duration": 1.38
+    },
+    {
+        "text": "I have my friend here, [inaudible]. How are you doing, bud?",
+        "start": 17.49,
+        "duration": 1.77
+    },
+    {
+        "text": ">> Hey, I'm doing great. Thanks for having me.",
+        "start": 19.26,
+        "duration": 1.59
+    },
+    {
+        "text": ">> Tell us who you are and what you do?",
+        "start": 20.85,
+        "duration": 0.96
+    },
+    {
+        "text": ">> Yeah. I'm [inaudible] I'm Program Manager in Azure AI",
+        "start": 21.81,
+        "duration": 2.31
+    },
+    {
+        "text": "focused on machine learning model inference,",
+        "start": 24.12,
+        "duration": 2.61
+    },
+    {
+        "text": "and I'm here to talk about new batch",
+        "start": 26.73,
+        "duration": 1.59
+    },
+    {
+        "text": "inferencing capability in Azure machine",
+        "start": 28.32,
+        "duration": 1.47
+    },
+    {
+        "text": "learning that allows customers to",
+        "start": 29.79,
+        "duration": 1.68
+    },
+    {
+        "text": "run inferences on large-scale datasets.",
+        "start": 31.47,
+        "duration": 1.74
+    },
+    {
+        "text": ">> So let's get a little bit of context.",
+        "start": 33.21,
+        "duration": 2.025
+    },
+    {
+        "text": "Because it feels like when you say inference,",
+        "start": 35.235,
+        "duration": 1.755
+    },
+    {
+        "text": "what does that actually",
+        "start": 36.99,
+        "duration": 1.53
+    },
+    {
+        "text": "mean for people that haven't heard that term?",
+        "start": 38.52,
+        "duration": 1.515
+    },
+    {
+        "text": ">> Absolutely. So stepping back on machine learning,",
+        "start": 40.035,
+        "duration": 2.175
+    },
+    {
+        "text": "you typically start with data,",
+        "start": 42.21,
+        "duration": 1.795
+    },
+    {
+        "text": "with known answers to your problem.",
+        "start": 44.005,
+        "duration": 1.615
+    },
+    {
+        "text": ">> Correct.",
+        "start": 45.62,
+        "duration": 0.465
+    },
+    {
+        "text": ">> Then you build a model that",
+        "start": 46.085,
+        "duration": 2.025
+    },
+    {
+        "text": "predicts those answers accurately to start with.",
+        "start": 48.11,
+        "duration": 2.25
+    },
+    {
+        "text": "Once you have a trained model,",
+        "start": 50.36,
+        "duration": 1.65
+    },
+    {
+        "text": "the next step is to put the model to real test,",
+        "start": 52.01,
+        "duration": 3.48
+    },
+    {
+        "text": "against real-world data that it has not seen before.",
+        "start": 55.49,
+        "duration": 2.31
+    },
+    {
+        "text": ">> I see.",
+        "start": 57.8,
+        "duration": 0.66
+    },
+    {
+        "text": ">> That's when you do inference,",
+        "start": 58.46,
+        "duration": 1.35
+    },
+    {
+        "text": "and depending on the scenario you're focusing on,",
+        "start": 59.81,
+        "duration": 2.58
+    },
+    {
+        "text": "your looking at real-time inference",
+        "start": 62.39,
+        "duration": 2.265
+    },
+    {
+        "text": "where you want the responses to",
+        "start": 64.655,
+        "duration": 1.665
+    },
+    {
+        "text": "come back immediately where you've typically exposed,",
+        "start": 66.32,
+        "duration": 1.8
+    },
+    {
+        "text": "rest endpoint and a request response.",
+        "start": 68.12,
+        "duration": 2.16
+    },
+    {
+        "text": "Low-latency pattern.",
+        "start": 70.28,
+        "duration": 1.755
+    },
+    {
+        "text": "Or for those scenarios where",
+        "start": 72.035,
+        "duration": 2.085
+    },
+    {
+        "text": "instantaneous response is not mandatory,",
+        "start": 74.12,
+        "duration": 2.645
+    },
+    {
+        "text": "you could process this offline asynchronously.",
+        "start": 76.765,
+        "duration": 3.3
+    },
+    {
+        "text": "A good example of this could be like an offline fraud detection,",
+        "start": 80.065,
+        "duration": 4.93
+    },
+    {
+        "text": "lead generation, demand forecasting,",
+        "start": 84.995,
+        "duration": 2.055
+    },
+    {
+        "text": "there are numerous scenarios around this.",
+        "start": 87.05,
+        "duration": 1.5
+    },
+    {
+        "text": ">> This is interesting because like foolishly I always say, hey,",
+        "start": 88.55,
+        "duration": 3.9
+    },
+    {
+        "text": "I put this model R and I need to predict right",
+        "start": 92.45,
+        "duration": 1.98
+    },
+    {
+        "text": "away on single things.",
+        "start": 94.43,
+        "duration": 1.98
+    },
+    {
+        "text": "But when you look at the way these things are set up, of course,",
+        "start": 96.41,
+        "duration": 2.98
+    },
+    {
+        "text": "there's going to be some scenarios where",
+        "start": 99.39,
+        "duration": 1.305
+    },
+    {
+        "text": "not only do you want to it offline,",
+        "start": 100.695,
+        "duration": 1.595
+    },
+    {
+        "text": "but you have to because there's",
+        "start": 102.29,
+        "duration": 1.11
+    },
+    {
+        "text": "no other way because you have a lot of data.",
+        "start": 103.4,
+        "duration": 1.53
+    },
+    {
+        "text": ">> Yes. You're talking about terabytes of data are",
+        "start": 104.93,
+        "duration": 2.07
+    },
+    {
+        "text": "being processed offline to get inferences",
+        "start": 107.0,
+        "duration": 2.205
+    },
+    {
+        "text": "in a highly salable performance and",
+        "start": 109.205,
+        "duration": 2.505
+    },
+    {
+        "text": "cost effective way by fully leveraging the power of Cloud.",
+        "start": 111.71,
+        "duration": 2.79
+    },
+    {
+        "text": ">> That's awesome. So now that we know",
+        "start": 114.5,
+        "duration": 1.56
+    },
+    {
+        "text": "why batch inferencing is important,",
+        "start": 116.06,
+        "duration": 1.71
+    },
+    {
+        "text": "can you tell us what it looks",
+        "start": 117.77,
+        "duration": 1.08
+    },
+    {
+        "text": "like inside of Azure Machine Learning?",
+        "start": 118.85,
+        "duration": 1.245
+    },
+    {
+        "text": ">> So we handle high volume basically using three steps.",
+        "start": 120.095,
+        "duration": 4.665
+    },
+    {
+        "text": "First, we partition the data",
+        "start": 124.76,
+        "duration": 3.23
+    },
+    {
+        "text": "using the power of Azure Machine Learning dataset.",
+        "start": 127.99,
+        "duration": 3.255
+    },
+    {
+        "text": "Dataset is a resource for like exploring,",
+        "start": 131.245,
+        "duration": 2.894
+    },
+    {
+        "text": "transforming, and managing data in Azure Machine Learning.",
+        "start": 134.139,
+        "duration": 2.981
+    },
+    {
+        "text": "The next step is to delegate this inference",
+        "start": 137.12,
+        "duration": 2.76
+    },
+    {
+        "text": "workloads to the auto-salable Azure Machine Learning compute.",
+        "start": 139.88,
+        "duration": 3.735
+    },
+    {
+        "text": "Then once the results get done,",
+        "start": 143.615,
+        "duration": 2.565
+    },
+    {
+        "text": "the output is automatically stored in user-specified storage.",
+        "start": 146.18,
+        "duration": 3.86
+    },
+    {
+        "text": ">> I see. So let me see if I understand this right,",
+        "start": 150.04,
+        "duration": 1.825
+    },
+    {
+        "text": "because this is sounding very similar to",
+        "start": 151.865,
+        "duration": 2.865
+    },
+    {
+        "text": "the experimentation pattern except",
+        "start": 154.73,
+        "duration": 1.8
+    },
+    {
+        "text": "now we're moving into inference.",
+        "start": 156.53,
+        "duration": 1.29
+    },
+    {
+        "text": "First, we have datasets.",
+        "start": 157.82,
+        "duration": 1.425
+    },
+    {
+        "text": "In the datasets, we firm it out like we used to do.",
+        "start": 159.245,
+        "duration": 2.745
+    },
+    {
+        "text": "I'm spit-balling, you tell me where I'm wrong?",
+        "start": 161.99,
+        "duration": 2.01
+    },
+    {
+        "text": ">> Yes.",
+        "start": 164.0,
+        "duration": 0.27
+    },
+    {
+        "text": ">> The clusters will",
+        "start": 164.27,
+        "duration": 2.64
+    },
+    {
+        "text": "scale up and down depending on how much you're doing,",
+        "start": 166.91,
+        "duration": 1.785
+    },
+    {
+        "text": "and then it will put the answer somewhere where you tell them.",
+        "start": 168.695,
+        "duration": 2.555
+    },
+    {
+        "text": ">> Absolutely.",
+        "start": 171.25,
+        "duration": 0.54
+    },
+    {
+        "text": ">> Did I get it right?",
+        "start": 171.79,
+        "duration": 0.64
+    },
+    {
+        "text": ">> Absolutely. Once the job gets done,",
+        "start": 172.43,
+        "duration": 1.98
+    },
+    {
+        "text": "it has join the VM, you don't pay anything.",
+        "start": 174.41,
+        "duration": 1.56
+    },
+    {
+        "text": "So you get the cost optimization aspect as well.",
+        "start": 175.97,
+        "duration": 2.745
+    },
+    {
+        "text": ">> That's fantastic. So now that you",
+        "start": 178.715,
+        "duration": 1.725
+    },
+    {
+        "text": "told me all of these glorious,",
+        "start": 180.44,
+        "duration": 1.95
+    },
+    {
+        "text": "I feel like I need to see how it works.",
+        "start": 182.39,
+        "duration": 2.06
+    },
+    {
+        "text": ">> Absolutely. So for enabling this capability,",
+        "start": 184.45,
+        "duration": 3.059
+    },
+    {
+        "text": "just to set some context or using",
+        "start": 187.509,
+        "duration": 1.361
+    },
+    {
+        "text": "the Azure Machine Learning pipeline,",
+        "start": 188.87,
+        "duration": 1.56
+    },
+    {
+        "text": "and pipeline for starters as we all know is a set of",
+        "start": 190.43,
+        "duration": 2.7
+    },
+    {
+        "text": "computational tasks that you've stitched",
+        "start": 193.13,
+        "duration": 1.74
+    },
+    {
+        "text": "together to enable the machine learning workflow.",
+        "start": 194.87,
+        "duration": 1.755
+    },
+    {
+        "text": ">> Correct.",
+        "start": 196.625,
+        "duration": 1.02
+    },
+    {
+        "text": ">> We have added a new step called parallel run",
+        "start": 197.645,
+        "duration": 3.045
+    },
+    {
+        "text": "step to do the processing,",
+        "start": 200.69,
+        "duration": 3.38
+    },
+    {
+        "text": "which enables this auto parallelism",
+        "start": 204.07,
+        "duration": 3.4
+    },
+    {
+        "text": "using the dataset as I mentioned,",
+        "start": 207.47,
+        "duration": 2.12
+    },
+    {
+        "text": "or it enable scaling through the Azure Machine Learning compute.",
+        "start": 209.59,
+        "duration": 3.28
+    },
+    {
+        "text": "The key thing about the parallelism is",
+        "start": 212.87,
+        "duration": 1.86
+    },
+    {
+        "text": "that there is no use of orchestration here.",
+        "start": 214.73,
+        "duration": 1.74
+    },
+    {
+        "text": "In the past, you had us to write the MPI code,",
+        "start": 216.47,
+        "duration": 2.685
+    },
+    {
+        "text": "to do all this complex larger.",
+        "start": 219.155,
+        "duration": 1.725
+    },
+    {
+        "text": ">> That makes sense. That's because when it comes to batch,",
+        "start": 220.88,
+        "duration": 4.495
+    },
+    {
+        "text": "you don't really need to do it all in sequence.",
+        "start": 225.375,
+        "duration": 3.075
+    },
+    {
+        "text": "You are like, take this and then output to the same place.",
+        "start": 228.45,
+        "duration": 4.11
+    },
+    {
+        "text": ">> Absolutely. We've also got two datasets.",
+        "start": 232.56,
+        "duration": 3.01
+    },
+    {
+        "text": "For both structured as well as unstructured dataset.",
+        "start": 235.57,
+        "duration": 3.045
+    },
+    {
+        "text": "Structured dataset could be a CSV,",
+        "start": 238.615,
+        "duration": 2.575
+    },
+    {
+        "text": "TSV or even like a party or a SQL query.",
+        "start": 241.19,
+        "duration": 3.705
+    },
+    {
+        "text": "Unstructured could be a file or a blob.",
+        "start": 244.895,
+        "duration": 1.8
+    },
+    {
+        "text": ">> Or like for me I do computer vision.",
+        "start": 246.695,
+        "duration": 1.725
+    },
+    {
+        "text": "It could be a folder of files, for example.",
+        "start": 248.42,
+        "duration": 1.815
+    },
+    {
+        "text": ">> Yeah.",
+        "start": 250.235,
+        "duration": 0.375
+    },
+    {
+        "text": ">> That's fantastic. All right.",
+        "start": 250.61,
+        "duration": 1.12
+    },
+    {
+        "text": "So let's see some code.",
+        "start": 251.73,
+        "duration": 1.405
+    },
+    {
+        "text": ">> Absolutely. So for this demo,",
+        "start": 253.135,
+        "duration": 3.794
+    },
+    {
+        "text": "I'm going to show a digit recognition model",
+        "start": 256.929,
+        "duration": 3.401
+    },
+    {
+        "text": "that is already trained using an MNIST dataset.",
+        "start": 260.33,
+        "duration": 3.79
+    },
+    {
+        "text": "For convenience, I have converted all the input into PNG files.",
+        "start": 264.19,
+        "duration": 5.635
+    },
+    {
+        "text": "So we could show the file dataset in action.",
+        "start": 269.825,
+        "duration": 4.165
+    },
+    {
+        "text": ">> We'll just go on. Because everyone knows you can",
+        "start": 273.99,
+        "duration": 1.79
+    },
+    {
+        "text": "download MNIST in a CSV,",
+        "start": 275.78,
+        "duration": 1.71
+    },
+    {
+        "text": "or it's a zip file of bits,",
+        "start": 277.49,
+        "duration": 2.51
+    },
+    {
+        "text": "but this is actually more of a vision scenario.",
+        "start": 280.0,
+        "duration": 2.885
+    },
+    {
+        "text": ">> Yeah. I'm going to walk through the Notebook here.",
+        "start": 282.885,
+        "duration": 1.745
+    },
+    {
+        "text": "I'm going to skip through some of the generic steps.",
+        "start": 284.63,
+        "duration": 1.95
+    },
+    {
+        "text": "For example, connecting to workspace.",
+        "start": 286.58,
+        "duration": 1.68
+    },
+    {
+        "text": "Workspace is a container where",
+        "start": 288.26,
+        "duration": 2.34
+    },
+    {
+        "text": "you have all the machine learning artifacts.",
+        "start": 290.6,
+        "duration": 1.665
+    },
+    {
+        "text": "You connect to the workspace.",
+        "start": 292.265,
+        "duration": 1.605
+    },
+    {
+        "text": "You assign machine learning compute here.",
+        "start": 293.87,
+        "duration": 2.22
+    },
+    {
+        "text": "I've assigned a CPU cluster here but you could also do",
+        "start": 296.09,
+        "duration": 1.96
+    },
+    {
+        "text": "a GPU if you want to.",
+        "start": 298.05,
+        "duration": 2.4
+    },
+    {
+        "text": ">> For MNIST I feel like CPU is enough.",
+        "start": 300.45,
+        "duration": 2.28
+    },
+    {
+        "text": ">> It's more than enough.",
+        "start": 302.73,
+        "duration": 1.525
+    },
+    {
+        "text": "Here, you specify the input data store.",
+        "start": 304.255,
+        "duration": 3.19
+    },
+    {
+        "text": "We have a blob, a container.",
+        "start": 307.445,
+        "duration": 1.905
+    },
+    {
+        "text": "You've already copied all the files",
+        "start": 309.35,
+        "duration": 1.635
+    },
+    {
+        "text": "and we're pointing with our data store.",
+        "start": 310.985,
+        "duration": 1.875
+    },
+    {
+        "text": "This is the interesting piece,",
+        "start": 312.86,
+        "duration": 1.66
+    },
+    {
+        "text": "where we have the file dataset to now manipulate the data,",
+        "start": 314.52,
+        "duration": 7.185
+    },
+    {
+        "text": "and to reference the files here.",
+        "start": 321.705,
+        "duration": 2.655
+    },
+    {
+        "text": "This is the MNIST data that I spoke about,",
+        "start": 324.36,
+        "duration": 3.555
+    },
+    {
+        "text": "and this points to the PNG files.",
+        "start": 327.915,
+        "duration": 2.525
+    },
+    {
+        "text": "Now, if you want to play with structured data,",
+        "start": 330.44,
+        "duration": 4.05
+    },
+    {
+        "text": "you could use the tabular data set as well.",
+        "start": 334.49,
+        "duration": 1.815
+    },
+    {
+        "text": ">> That's cool.",
+        "start": 336.305,
+        "duration": 1.31
+    },
+    {
+        "text": ">> All right. So we download",
+        "start": 337.615,
+        "duration": 2.635
+    },
+    {
+        "text": "the model and we register the model in the model registry.",
+        "start": 340.25,
+        "duration": 3.495
+    },
+    {
+        "text": ">> Or you could use a model that's",
+        "start": 343.745,
+        "duration": 1.335
+    },
+    {
+        "text": "already in the registry too, right?",
+        "start": 345.08,
+        "duration": 1.26
+    },
+    {
+        "text": ">> Yes, absolutely.",
+        "start": 346.34,
+        "duration": 2.01
+    },
+    {
+        "text": "Then you wrap your inference script here.",
+        "start": 348.35,
+        "duration": 3.45
+    },
+    {
+        "text": "This is consistent with what we do for real-time inference.",
+        "start": 351.8,
+        "duration": 3.145
+    },
+    {
+        "text": ">> I've already seen all of this.",
+        "start": 354.945,
+        "duration": 1.305
+    },
+    {
+        "text": ">> You initialize the model and then you have",
+        "start": 356.25,
+        "duration": 2.69
+    },
+    {
+        "text": "a run function that runs inferences in this case,",
+        "start": 358.94,
+        "duration": 3.06
+    },
+    {
+        "text": "for a subset of models.",
+        "start": 362.0,
+        "duration": 1.65
+    },
+    {
+        "text": "You run inference for a subset of files and",
+        "start": 363.65,
+        "duration": 1.92
+    },
+    {
+        "text": "you take a parameter called mini-batch,",
+        "start": 365.57,
+        "duration": 1.83
+    },
+    {
+        "text": "which controls the number of files that",
+        "start": 367.4,
+        "duration": 1.95
+    },
+    {
+        "text": "get run for every run execution.",
+        "start": 369.35,
+        "duration": 2.04
+    },
+    {
+        "text": ">> I see.",
+        "start": 371.39,
+        "duration": 1.415
+    },
+    {
+        "text": ">> Corner dependencies.",
+        "start": 372.805,
+        "duration": 2.03
+    },
+    {
+        "text": "Again, there's a standard step.",
+        "start": 374.835,
+        "duration": 1.915
+    },
+    {
+        "text": "The crack starts here.",
+        "start": 376.75,
+        "duration": 2.62
+    },
+    {
+        "text": "This is the parallel run step.",
+        "start": 379.37,
+        "duration": 2.64
+    },
+    {
+        "text": "That is the configuration input",
+        "start": 382.01,
+        "duration": 4.15
+    },
+    {
+        "text": "for a batch inference that you define the score.py.",
+        "start": 386.16,
+        "duration": 3.535
+    },
+    {
+        "text": "You define the file input.",
+        "start": 389.695,
+        "duration": 1.78
+    },
+    {
+        "text": "I mentioned about the mini-batch size.",
+        "start": 391.475,
+        "duration": 1.845
+    },
+    {
+        "text": "You saw the number of files that get executed in",
+        "start": 393.32,
+        "duration": 2.175
+    },
+    {
+        "text": "every single run execution.",
+        "start": 395.495,
+        "duration": 2.795
+    },
+    {
+        "text": "Error threshold is interesting parameter.",
+        "start": 398.29,
+        "duration": 2.185
+    },
+    {
+        "text": "This defines the number of files that get ignored for error.",
+        "start": 400.475,
+        "duration": 4.785
+    },
+    {
+        "text": "So in this case, if it exceeds 10,",
+        "start": 405.26,
+        "duration": 2.1
+    },
+    {
+        "text": "it's going to automatically stop the job.",
+        "start": 407.36,
+        "duration": 1.635
+    },
+    {
+        "text": "So it saves you a lot of cost.",
+        "start": 408.995,
+        "duration": 1.725
+    },
+    {
+        "text": ">> That's smart because, for example,",
+        "start": 410.72,
+        "duration": 2.495
+    },
+    {
+        "text": "for some reason maybe someone submitted",
+        "start": 413.215,
+        "duration": 1.855
+    },
+    {
+        "text": "an MNIST digit that was full color,",
+        "start": 415.07,
+        "duration": 1.86
+    },
+    {
+        "text": "which has the wrong tensor shape, it'll break it.",
+        "start": 416.93,
+        "duration": 2.835
+    },
+    {
+        "text": "It doesn't happen very often.",
+        "start": 419.765,
+        "duration": 1.815
+    },
+    {
+        "text": "Or for example, the Alpha channel,",
+        "start": 421.58,
+        "duration": 1.97
+    },
+    {
+        "text": "that's going to break it as well.",
+        "start": 423.55,
+        "duration": 1.555
+    },
+    {
+        "text": "This is a way of being able to say,",
+        "start": 425.105,
+        "duration": 1.275
+    },
+    {
+        "text": "yeah, that one, okay.",
+        "start": 426.38,
+        "duration": 1.395
+    },
+    {
+        "text": "Let's go on to the next one. That's cool.",
+        "start": 427.775,
+        "duration": 1.89
+    },
+    {
+        "text": ">> Then you create a pipeline step which has got the model",
+        "start": 429.665,
+        "duration": 3.225
+    },
+    {
+        "text": "and the input and output and",
+        "start": 432.89,
+        "duration": 1.53
+    },
+    {
+        "text": "then it's an experiment run from there on,",
+        "start": 434.42,
+        "duration": 1.895
+    },
+    {
+        "text": "where you run the experiment.",
+        "start": 436.315,
+        "duration": 2.78
+    },
+    {
+        "text": "Here is the reset I processed a few minutes ago,",
+        "start": 439.095,
+        "duration": 3.845
+    },
+    {
+        "text": "which shows the first files that got recognized.",
+        "start": 442.94,
+        "duration": 3.525
+    },
+    {
+        "text": ">> So as I'm looking at this,",
+        "start": 446.465,
+        "duration": 1.965
+    },
+    {
+        "text": "I'm coming to an interesting rule.",
+        "start": 448.43,
+        "duration": 1.71
+    },
+    {
+        "text": "Correct me if I'm wrong because I come to",
+        "start": 450.14,
+        "duration": 1.47
+    },
+    {
+        "text": "this realization sometimes or in the videos as you know.",
+        "start": 451.61,
+        "duration": 2.975
+    },
+    {
+        "text": "This feels like we're talking about batch inference,",
+        "start": 454.585,
+        "duration": 3.235
+    },
+    {
+        "text": "but a parallel step can be used with anything, right?",
+        "start": 457.82,
+        "duration": 2.945
+    },
+    {
+        "text": ">> Beautiful impression, right?",
+        "start": 460.765,
+        "duration": 1.7
+    },
+    {
+        "text": "To think about it, it's like a paddle mop-up operation.",
+        "start": 462.465,
+        "duration": 2.465
+    },
+    {
+        "text": "So you could use that not just with",
+        "start": 464.93,
+        "duration": 1.83
+    },
+    {
+        "text": "a modulus input but also for actions related to inference,",
+        "start": 466.76,
+        "duration": 3.72
+    },
+    {
+        "text": "for example, pre-processing, post-processing and so on.",
+        "start": 470.48,
+        "duration": 3.895
+    },
+    {
+        "text": "For pre-processing, a good example is you want to reduce",
+        "start": 474.375,
+        "duration": 4.115
+    },
+    {
+        "text": "the size of your images before setting them for",
+        "start": 478.49,
+        "duration": 1.71
+    },
+    {
+        "text": "inference. Standard use case.",
+        "start": 480.2,
+        "duration": 2.32
+    },
+    {
+        "text": ">> For example, tensorflow, you could",
+        "start": 482.52,
+        "duration": 1.26
+    },
+    {
+        "text": "put it into a TF records set,",
+        "start": 483.78,
+        "duration": 1.86
+    },
+    {
+        "text": "for example, which is really smart.",
+        "start": 485.64,
+        "duration": 1.41
+    },
+    {
+        "text": ">> Yes. Or even post-processing,",
+        "start": 487.05,
+        "duration": 1.71
+    },
+    {
+        "text": "you might want to put some bounding boxes on top of the images to",
+        "start": 488.76,
+        "duration": 2.555
+    },
+    {
+        "text": "see what objects are detected from your detection model.",
+        "start": 491.315,
+        "duration": 3.455
+    },
+    {
+        "text": "You could do all these operations.",
+        "start": 494.77,
+        "duration": 2.11
+    },
+    {
+        "text": "It's a parallel map operation that you can take",
+        "start": 496.88,
+        "duration": 1.71
+    },
+    {
+        "text": "advantage of this stuff for doing that as well.",
+        "start": 498.59,
+        "duration": 2.4
+    },
+    {
+        "text": ">> Because in theory,",
+        "start": 500.99,
+        "duration": 1.11
+    },
+    {
+        "text": "there's certain operations where it's like,",
+        "start": 502.1,
+        "duration": 2.145
+    },
+    {
+        "text": "look, we just need to do a thing on all the things.",
+        "start": 504.245,
+        "duration": 2.36
+    },
+    {
+        "text": "Well, let's scale up some machines and do the thing,",
+        "start": 506.605,
+        "duration": 3.055
+    },
+    {
+        "text": "and all the things in separate little batches.",
+        "start": 509.66,
+        "duration": 1.83
+    },
+    {
+        "text": ">> Absolutely. It boils down to how you leverage",
+        "start": 511.49,
+        "duration": 2.46
+    },
+    {
+        "text": "the auto-parallelism and",
+        "start": 513.95,
+        "duration": 1.56
+    },
+    {
+        "text": "the auto-scaling capability to your benefit.",
+        "start": 515.51,
+        "duration": 2.97
+    },
+    {
+        "text": "Other is by using model as an input or without it,",
+        "start": 518.48,
+        "duration": 3.33
+    },
+    {
+        "text": "for pre and post-processing it works for both scenarios.",
+        "start": 521.81,
+        "duration": 2.655
+    },
+    {
+        "text": ">> That's amazing. So just to finish up,",
+        "start": 524.465,
+        "duration": 2.535
+    },
+    {
+        "text": "can you summarize what we've seen",
+        "start": 527.0,
+        "duration": 1.2
+    },
+    {
+        "text": "today and how can people learn more?",
+        "start": 528.2,
+        "duration": 1.275
+    },
+    {
+        "text": ">> Yeah. We've looked at how we could",
+        "start": 529.475,
+        "duration": 1.335
+    },
+    {
+        "text": "use the parallel run step in the pipeline",
+        "start": 530.81,
+        "duration": 3.48
+    },
+    {
+        "text": "to execute your batch inference jobs in a highly scalable,",
+        "start": 534.29,
+        "duration": 4.845
+    },
+    {
+        "text": "performant, and cost-effective way for large-scale dataset.",
+        "start": 539.135,
+        "duration": 6.455
+    },
+    {
+        "text": ">> This is pretty cool. Because like I said,",
+        "start": 545.59,
+        "duration": 1.87
+    },
+    {
+        "text": "there's a couple of vision scenarios",
+        "start": 547.46,
+        "duration": 1.59
+    },
+    {
+        "text": "where I literally need to go through every file,",
+        "start": 549.05,
+        "duration": 3.03
+    },
+    {
+        "text": "make sure it's the right size,",
+        "start": 552.08,
+        "duration": 1.62
+    },
+    {
+        "text": "make sure I've converted into a batch of TF records.",
+        "start": 553.7,
+        "duration": 3.195
+    },
+    {
+        "text": "That's not inference, but it's something I could do with this.",
+        "start": 556.895,
+        "duration": 2.49
+    },
+    {
+        "text": "If I want to do inference I could do that.",
+        "start": 559.385,
+        "duration": 1.635
+    },
+    {
+        "text": "I mean, there's ton of cool things here.",
+        "start": 561.02,
+        "duration": 1.815
+    },
+    {
+        "text": ">> Absolutely.",
+        "start": 562.835,
+        "duration": 0.845
+    },
+    {
+        "text": ">> Awesome.",
+        "start": 563.68,
+        "duration": 0.31
+    },
+    {
+        "text": "Well, thank you so much for spending some time with us.",
+        "start": 563.99,
+        "duration": 1.725
+    },
+    {
+        "text": "Thank you so much for watching.",
+        "start": 565.715,
+        "duration": 1.315
+    },
+    {
+        "text": "We are learning about the parallel pipeline step.",
+        "start": 567.03,
+        "duration": 1.79
+    },
+    {
+        "text": "Did I get it right?",
+        "start": 568.82,
+        "duration": 0.83
+    },
+    {
+        "text": ">> Yes.",
+        "start": 569.65,
+        "duration": 0.62
+    },
+    {
+        "text": ">> How it can do a number of things",
+        "start": 570.27,
+        "duration": 1.37
+    },
+    {
+        "text": "including batch inference, which is of really good use.",
+        "start": 571.64,
+        "duration": 2.66
+    },
+    {
+        "text": ">> It's called parallel run step.",
+        "start": 574.3,
+        "duration": 1.17
+    },
+    {
+        "text": ">> Parallel run step. Thank you.",
+        "start": 575.47,
+        "duration": 1.27
+    },
+    {
+        "text": "We want to get that right.",
+        "start": 576.74,
+        "duration": 0.96
+    },
+    {
+        "text": "Thank you so much for being with us, friend.",
+        "start": 577.7,
+        "duration": 1.26
+    },
+    {
+        "text": ">> Thanks for having me.",
+        "start": 578.96,
+        "duration": 0.675
+    },
+    {
+        "text": ">> Thanks you so much for",
+        "start": 579.635,
+        "duration": 1.185
+    },
+    {
+        "text": "watching and we'll see you next time. Take care.",
+        "start": 580.82,
+        "duration": 2.04
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 582.86,
+        "duration": 12.08
+    }
+]

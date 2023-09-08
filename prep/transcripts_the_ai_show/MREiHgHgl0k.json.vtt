@@ -1,0 +1,1362 @@
+[
+    {
+        "text": ">> Always thought there was a tradeoff between",
+        "start": 0.53,
+        "duration": 2.95
+    },
+    {
+        "text": "model accuracy and intelligibility, well,",
+        "start": 3.48,
+        "duration": 2.205
+    },
+    {
+        "text": "you're not going to want to miss",
+        "start": 5.685,
+        "duration": 1.08
+    },
+    {
+        "text": "this special build edition of the AI Show,",
+        "start": 6.765,
+        "duration": 2.895
+    },
+    {
+        "text": "where we'll get to hear from Rich Caruana,",
+        "start": 9.66,
+        "duration": 1.75
+    },
+    {
+        "text": "Senior Principal Researcher on the Microsoft Research Team.",
+        "start": 11.41,
+        "duration": 3.89
+    },
+    {
+        "text": "He is the creator of something",
+        "start": 15.3,
+        "duration": 1.2
+    },
+    {
+        "text": "called Explainable Boosting Machine,",
+        "start": 16.5,
+        "duration": 3.119
+    },
+    {
+        "text": "he's going to go through science and tell us how",
+        "start": 19.619,
+        "duration": 1.471
+    },
+    {
+        "text": "it works. Make sure you tune in.",
+        "start": 21.09,
+        "duration": 1.5
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 22.59,
+        "duration": 9.06
+    },
+    {
+        "text": ">> Hi, I'm Rich Caruana,",
+        "start": 31.65,
+        "duration": 1.83
+    },
+    {
+        "text": "a scientist at Microsoft Research in Redmond,",
+        "start": 33.48,
+        "duration": 2.91
+    },
+    {
+        "text": "and one of the inventors of EBMs, Explainable Boosting Machines.",
+        "start": 36.39,
+        "duration": 4.26
+    },
+    {
+        "text": "You may have seen a graph like this,",
+        "start": 40.65,
+        "duration": 2.49
+    },
+    {
+        "text": "which suggests that there's a tradeoff in machine-learning",
+        "start": 43.14,
+        "duration": 2.645
+    },
+    {
+        "text": "between accuracy and intelligibility.",
+        "start": 45.785,
+        "duration": 2.79
+    },
+    {
+        "text": "That is, the learning methods that are more accurate or low",
+        "start": 48.575,
+        "duration": 2.895
+    },
+    {
+        "text": "intelligibility and the models that",
+        "start": 51.47,
+        "duration": 2.07
+    },
+    {
+        "text": "are more intelligible have low accuracy.",
+        "start": 53.54,
+        "duration": 2.505
+    },
+    {
+        "text": "I'm happy to say that this is not true for EBMs,",
+        "start": 56.045,
+        "duration": 3.33
+    },
+    {
+        "text": "EBMs sit up here in the right-hand corner,",
+        "start": 59.375,
+        "duration": 3.12
+    },
+    {
+        "text": "where they have all the accuracy of methods like Boosted Trees,",
+        "start": 62.495,
+        "duration": 4.095
+    },
+    {
+        "text": "Random Forests, and Simple Neural Nets,",
+        "start": 66.59,
+        "duration": 2.055
+    },
+    {
+        "text": "but because they're a complete glass-box learning method,",
+        "start": 68.645,
+        "duration": 3.405
+    },
+    {
+        "text": "they're even more intelligible than",
+        "start": 72.05,
+        "duration": 1.95
+    },
+    {
+        "text": "models like linear and logistic regression.",
+        "start": 74.0,
+        "duration": 2.895
+    },
+    {
+        "text": "Let me give you a sketch of how we train EBMs,",
+        "start": 76.895,
+        "duration": 3.465
+    },
+    {
+        "text": "imagine that you've got n features,",
+        "start": 80.36,
+        "duration": 2.655
+    },
+    {
+        "text": "we go to the first feature and we",
+        "start": 83.015,
+        "duration": 1.935
+    },
+    {
+        "text": "train a very small tree on that feature,",
+        "start": 84.95,
+        "duration": 2.2
+    },
+    {
+        "text": "and that tree can only use feature 1.",
+        "start": 87.15,
+        "duration": 2.47
+    },
+    {
+        "text": "In boosting fashion, we then update the",
+        "start": 89.62,
+        "duration": 2.2
+    },
+    {
+        "text": "residual and now we go to feature 2,",
+        "start": 91.82,
+        "duration": 2.5
+    },
+    {
+        "text": "and we train a small tree that can only look at feature 2,",
+        "start": 94.32,
+        "duration": 3.4
+    },
+    {
+        "text": "we update the residual again,",
+        "start": 97.72,
+        "duration": 2.05
+    },
+    {
+        "text": "we go to the third feature, train,",
+        "start": 99.77,
+        "duration": 1.92
+    },
+    {
+        "text": "a small tree, and we do this for each of the features.",
+        "start": 101.69,
+        "duration": 2.76
+    },
+    {
+        "text": "So this is a round robin pass through all of the features,",
+        "start": 104.45,
+        "duration": 3.375
+    },
+    {
+        "text": "and each of these trees can only look at one feature at a time.",
+        "start": 107.825,
+        "duration": 3.785
+    },
+    {
+        "text": "Now the learning rate is so small that it",
+        "start": 111.61,
+        "duration": 2.8
+    },
+    {
+        "text": "doesn't really matter what order these features are in,",
+        "start": 114.41,
+        "duration": 2.865
+    },
+    {
+        "text": "we're going to have to do many many passes through the features.",
+        "start": 117.275,
+        "duration": 3.465
+    },
+    {
+        "text": "So we go back,",
+        "start": 120.74,
+        "duration": 1.29
+    },
+    {
+        "text": "we go to feature 1 and we grow a second small tree,",
+        "start": 122.03,
+        "duration": 3.185
+    },
+    {
+        "text": "continue to update the residual,",
+        "start": 125.215,
+        "duration": 1.705
+    },
+    {
+        "text": "go to feature 2, another small tree",
+        "start": 126.92,
+        "duration": 1.98
+    },
+    {
+        "text": "that can only look at feature 2,",
+        "start": 128.9,
+        "duration": 1.92
+    },
+    {
+        "text": "do that for all of the features, that's iteration 2.",
+        "start": 130.82,
+        "duration": 3.65
+    },
+    {
+        "text": "We do this for more iterations,",
+        "start": 134.47,
+        "duration": 1.9
+    },
+    {
+        "text": "three iterations, four iterations,",
+        "start": 136.37,
+        "duration": 1.59
+    },
+    {
+        "text": "we're going to do this as many as 5,000 or even 10,000 times.",
+        "start": 137.96,
+        "duration": 4.925
+    },
+    {
+        "text": "Now at the end of that,",
+        "start": 142.885,
+        "duration": 1.37
+    },
+    {
+        "text": "we have 5,000 or 10,000",
+        "start": 144.255,
+        "duration": 1.455
+    },
+    {
+        "text": "trees which were only trained on feature 1.",
+        "start": 145.71,
+        "duration": 3.285
+    },
+    {
+        "text": "So it turns out you can summarize that as a graph,",
+        "start": 148.995,
+        "duration": 3.145
+    },
+    {
+        "text": "and we do that by asking all of these trees",
+        "start": 152.14,
+        "duration": 2.92
+    },
+    {
+        "text": "what they would predict for each value on the graph.",
+        "start": 155.06,
+        "duration": 3.08
+    },
+    {
+        "text": "Once we have the graph,",
+        "start": 158.14,
+        "duration": 1.615
+    },
+    {
+        "text": "we've captured the prediction of all of",
+        "start": 159.755,
+        "duration": 1.755
+    },
+    {
+        "text": "these trees and we no longer need the trees,",
+        "start": 161.51,
+        "duration": 2.58
+    },
+    {
+        "text": "so we can delete them.",
+        "start": 164.09,
+        "duration": 1.44
+    },
+    {
+        "text": "Now we can go and generate a graph for",
+        "start": 165.53,
+        "duration": 1.98
+    },
+    {
+        "text": "feature 2 in exactly the same way,",
+        "start": 167.51,
+        "duration": 2.265
+    },
+    {
+        "text": "and once we've generated graph for feature 2,",
+        "start": 169.775,
+        "duration": 2.565
+    },
+    {
+        "text": "we can throw away all the trees for feature 2.",
+        "start": 172.34,
+        "duration": 2.64
+    },
+    {
+        "text": "We can do this for every one of the columns of features,",
+        "start": 174.98,
+        "duration": 3.87
+    },
+    {
+        "text": "for every feature, we can throw away all of the trees.",
+        "start": 178.85,
+        "duration": 3.905
+    },
+    {
+        "text": "All of these graphs,",
+        "start": 182.755,
+        "duration": 1.87
+    },
+    {
+        "text": "all of these models were trained in parallel",
+        "start": 184.625,
+        "duration": 2.145
+    },
+    {
+        "text": "because we keep cycling through all of the features.",
+        "start": 186.77,
+        "duration": 2.58
+    },
+    {
+        "text": "In the end though, we throw away all of the trees and what we're",
+        "start": 189.35,
+        "duration": 3.21
+    },
+    {
+        "text": "left with is just a series of vectors of graphs,",
+        "start": 192.56,
+        "duration": 3.394
+    },
+    {
+        "text": "and that is the model.",
+        "start": 195.954,
+        "duration": 1.866
+    },
+    {
+        "text": "Let me show you how this model",
+        "start": 197.82,
+        "duration": 2.13
+    },
+    {
+        "text": "can be used to create new knowledge.",
+        "start": 199.95,
+        "duration": 2.265
+    },
+    {
+        "text": "This is a plot of",
+        "start": 202.215,
+        "duration": 2.105
+    },
+    {
+        "text": "pneumonia risk as a function of blood urea nitrogen.",
+        "start": 204.32,
+        "duration": 3.45
+    },
+    {
+        "text": "This is a blood test that all of us have received.",
+        "start": 207.77,
+        "duration": 2.72
+    },
+    {
+        "text": "Doctors were very happy when they saw this plot,",
+        "start": 210.49,
+        "duration": 2.59
+    },
+    {
+        "text": "because it shows the benefit",
+        "start": 213.08,
+        "duration": 1.62
+    },
+    {
+        "text": "of the treatments that they give patients.",
+        "start": 214.7,
+        "duration": 1.92
+    },
+    {
+        "text": "They consider a BUN of 50 to be",
+        "start": 216.62,
+        "duration": 1.83
+    },
+    {
+        "text": "high enough that they start to treat patients,",
+        "start": 218.45,
+        "duration": 2.03
+    },
+    {
+        "text": "and notice that the risk starts to flatten right after 50,",
+        "start": 220.48,
+        "duration": 3.11
+    },
+    {
+        "text": "and that's because their treatment is effective.",
+        "start": 223.59,
+        "duration": 2.27
+    },
+    {
+        "text": "They consider 100 to be a very high BUN and",
+        "start": 225.86,
+        "duration": 2.7
+    },
+    {
+        "text": "they start to give patients dialysis at around 100,",
+        "start": 228.56,
+        "duration": 2.51
+    },
+    {
+        "text": "and notice that the risk actually starts to come down,",
+        "start": 231.07,
+        "duration": 2.5
+    },
+    {
+        "text": "because most of the patients had 110 or",
+        "start": 233.57,
+        "duration": 1.92
+    },
+    {
+        "text": "115 are getting dialysis treatment.",
+        "start": 235.49,
+        "duration": 3.14
+    },
+    {
+        "text": "But the doctors were also disappointed",
+        "start": 238.63,
+        "duration": 2.905
+    },
+    {
+        "text": "and that's because they noticed that risk is already quite high,",
+        "start": 241.535,
+        "duration": 3.645
+    },
+    {
+        "text": "it's a 35 or 40,",
+        "start": 245.18,
+        "duration": 1.89
+    },
+    {
+        "text": "and they wondered if they shouldn't be",
+        "start": 247.07,
+        "duration": 1.62
+    },
+    {
+        "text": "waiting until 50 to treat patients,",
+        "start": 248.69,
+        "duration": 1.875
+    },
+    {
+        "text": "and instead should be treating patients starting at 40.",
+        "start": 250.565,
+        "duration": 2.685
+    },
+    {
+        "text": "Notice that the treatment thresholds they'd been using,",
+        "start": 253.25,
+        "duration": 2.31
+    },
+    {
+        "text": "50 and 100, are very round numbers.",
+        "start": 255.56,
+        "duration": 2.13
+    },
+    {
+        "text": "Doctors often use simple round numbers for",
+        "start": 257.69,
+        "duration": 2.73
+    },
+    {
+        "text": "treatment decisions and they just thought",
+        "start": 260.42,
+        "duration": 1.89
+    },
+    {
+        "text": "maybe they should be using 40 instead of 50.",
+        "start": 262.31,
+        "duration": 2.765
+    },
+    {
+        "text": "They were even more",
+        "start": 265.075,
+        "duration": 1.345
+    },
+    {
+        "text": "disappointed with what was happening near a 100,",
+        "start": 266.42,
+        "duration": 1.92
+    },
+    {
+        "text": "because if you look at it,",
+        "start": 268.34,
+        "duration": 1.53
+    },
+    {
+        "text": "patients who have a BUN, say of 115,",
+        "start": 269.87,
+        "duration": 2.79
+    },
+    {
+        "text": "are actually lower risk than",
+        "start": 272.66,
+        "duration": 1.65
+    },
+    {
+        "text": "patients who have a healthier BUN of 90,",
+        "start": 274.31,
+        "duration": 2.61
+    },
+    {
+        "text": "and that's because all of the patients at",
+        "start": 276.92,
+        "duration": 1.68
+    },
+    {
+        "text": "115 are probably getting dialysis.",
+        "start": 278.6,
+        "duration": 2.07
+    },
+    {
+        "text": "Whereas maybe most of the patients at 90 are not,",
+        "start": 280.67,
+        "duration": 2.64
+    },
+    {
+        "text": "and they wondered if waiting to a 100 was waiting",
+        "start": 283.31,
+        "duration": 2.58
+    },
+    {
+        "text": "to late to be giving this treatment.",
+        "start": 285.89,
+        "duration": 2.94
+    },
+    {
+        "text": "So now with this model,",
+        "start": 288.83,
+        "duration": 1.65
+    },
+    {
+        "text": "we can treat it almost like a spreadsheet",
+        "start": 290.48,
+        "duration": 1.785
+    },
+    {
+        "text": "and do a what if analysis.",
+        "start": 292.265,
+        "duration": 1.905
+    },
+    {
+        "text": "That is, we can pretend that the treatment threshold,",
+        "start": 294.17,
+        "duration": 3.87
+    },
+    {
+        "text": "we'll say 85 or 90,",
+        "start": 298.04,
+        "duration": 1.3
+    },
+    {
+        "text": "and we can draw this red line,",
+        "start": 299.34,
+        "duration": 1.55
+    },
+    {
+        "text": "which is a conservative estimate of what we would have learned had",
+        "start": 300.89,
+        "duration": 3.42
+    },
+    {
+        "text": "the model been trained on data",
+        "start": 304.31,
+        "duration": 1.98
+    },
+    {
+        "text": "where the treatment threshold was 85 or 90.",
+        "start": 306.29,
+        "duration": 2.415
+    },
+    {
+        "text": "The area between the red line and the green curve, well,",
+        "start": 308.705,
+        "duration": 3.105
+    },
+    {
+        "text": "this is mortality risk,",
+        "start": 311.81,
+        "duration": 1.17
+    },
+    {
+        "text": "so this is patients who might be at higher risk of dying.",
+        "start": 312.98,
+        "duration": 2.915
+    },
+    {
+        "text": "We can estimate from this area that just by changing",
+        "start": 315.895,
+        "duration": 2.935
+    },
+    {
+        "text": "this one treatment threshold for",
+        "start": 318.83,
+        "duration": 2.04
+    },
+    {
+        "text": "dialysis from this one lab tests, blood, urea,",
+        "start": 320.87,
+        "duration": 2.88
+    },
+    {
+        "text": "nitrogen on pneumonia, that we can save as many",
+        "start": 323.75,
+        "duration": 2.91
+    },
+    {
+        "text": "as 2,500 lives per year in the United States,",
+        "start": 326.66,
+        "duration": 3.02
+    },
+    {
+        "text": "and that would be a great thing to do of course.",
+        "start": 329.68,
+        "duration": 2.27
+    },
+    {
+        "text": "Let me show you how you can use this model to debug your data.",
+        "start": 331.95,
+        "duration": 3.82
+    },
+    {
+        "text": "This is a different medical problem and this is P/F ratio,",
+        "start": 335.77,
+        "duration": 3.415
+    },
+    {
+        "text": "it's a measure of how well you're converting oxygen in the air",
+        "start": 339.185,
+        "duration": 2.775
+    },
+    {
+        "text": "you breathe into oxygen in your bloodstream.",
+        "start": 341.96,
+        "duration": 3.15
+    },
+    {
+        "text": "Patients who have a low P/F ratio are not breathing well,",
+        "start": 345.11,
+        "duration": 3.705
+    },
+    {
+        "text": "whereas most of us who are healthy have",
+        "start": 348.815,
+        "duration": 2.115
+    },
+    {
+        "text": "a high P/F ratio at near 1,000.",
+        "start": 350.93,
+        "duration": 2.43
+    },
+    {
+        "text": "Doctors looked at this and they said qualitatively,",
+        "start": 353.36,
+        "duration": 2.52
+    },
+    {
+        "text": "the graph looks exactly like we expect,",
+        "start": 355.88,
+        "duration": 2.675
+    },
+    {
+        "text": "but they wanted to know what is",
+        "start": 358.555,
+        "duration": 1.795
+    },
+    {
+        "text": "this funny blip that's happening right here in the graph,",
+        "start": 360.35,
+        "duration": 3.015
+    },
+    {
+        "text": "that didn't make sense to them.",
+        "start": 363.365,
+        "duration": 1.635
+    },
+    {
+        "text": "So we weren't sure what that was and we wondered, oh,",
+        "start": 365.0,
+        "duration": 2.88
+    },
+    {
+        "text": "maybe it's a round number,",
+        "start": 367.88,
+        "duration": 1.27
+    },
+    {
+        "text": "maybe this is some treatment decision that the doctors are making.",
+        "start": 369.15,
+        "duration": 3.235
+    },
+    {
+        "text": "But it turns out it's at 323.6,",
+        "start": 372.385,
+        "duration": 3.34
+    },
+    {
+        "text": "and that doesn't look like a round number to me.",
+        "start": 375.725,
+        "duration": 2.64
+    },
+    {
+        "text": "So we decided it's probably not a round number,",
+        "start": 378.365,
+        "duration": 2.969
+    },
+    {
+        "text": "but maybe it's a round number in metric units.",
+        "start": 381.334,
+        "duration": 2.566
+    },
+    {
+        "text": "Maybe it's only when we convert it to",
+        "start": 383.9,
+        "duration": 1.68
+    },
+    {
+        "text": "English units that it doesn't look like a round number.",
+        "start": 385.58,
+        "duration": 2.67
+    },
+    {
+        "text": "Doctor said no, this is the natural units for the data,",
+        "start": 388.25,
+        "duration": 3.0
+    },
+    {
+        "text": "so it's not that kind of conversion problem.",
+        "start": 391.25,
+        "duration": 2.63
+    },
+    {
+        "text": "So we scratched our head for a second and",
+        "start": 393.88,
+        "duration": 2.2
+    },
+    {
+        "text": "started investigating and asked,",
+        "start": 396.08,
+        "duration": 2.16
+    },
+    {
+        "text": "well, what's the mean of this feature?",
+        "start": 398.24,
+        "duration": 1.77
+    },
+    {
+        "text": "So what's the mean P/F ratio on the training set?",
+        "start": 400.01,
+        "duration": 2.595
+    },
+    {
+        "text": "It turns out that is right at 323.6.",
+        "start": 402.605,
+        "duration": 3.855
+    },
+    {
+        "text": "So this dip in the graph is happening",
+        "start": 406.46,
+        "duration": 2.13
+    },
+    {
+        "text": "right where the mean of this variable is,",
+        "start": 408.59,
+        "duration": 2.385
+    },
+    {
+        "text": "that's a strong clue.",
+        "start": 410.975,
+        "duration": 1.835
+    },
+    {
+        "text": "So one thought is,",
+        "start": 412.81,
+        "duration": 1.785
+    },
+    {
+        "text": "maybe there were missing values in the data and that they",
+        "start": 414.595,
+        "duration": 2.695
+    },
+    {
+        "text": "got imputed with the mean, and sure enough,",
+        "start": 417.29,
+        "duration": 2.64
+    },
+    {
+        "text": "someone who knew the dataset better said, yes,",
+        "start": 419.93,
+        "duration": 2.4
+    },
+    {
+        "text": "there were a lot of missing values in the data,",
+        "start": 422.33,
+        "duration": 2.325
+    },
+    {
+        "text": "and we think they might have been imputed with",
+        "start": 424.655,
+        "duration": 2.055
+    },
+    {
+        "text": "the mean before we ever got access to the data.",
+        "start": 426.71,
+        "duration": 2.745
+    },
+    {
+        "text": "So why does imputation with the mean look like this?",
+        "start": 429.455,
+        "duration": 3.72
+    },
+    {
+        "text": "Well, notice that the bottom here at this little bump,",
+        "start": 433.175,
+        "duration": 3.795
+    },
+    {
+        "text": "is about the same height as",
+        "start": 436.97,
+        "duration": 1.56
+    },
+    {
+        "text": "these healthy region where all the healthy patients are.",
+        "start": 438.53,
+        "duration": 2.67
+    },
+    {
+        "text": "In medical data, you're often missing",
+        "start": 441.2,
+        "duration": 2.25
+    },
+    {
+        "text": "a value because you didn't bother to measure the lab test,",
+        "start": 443.45,
+        "duration": 3.12
+    },
+    {
+        "text": "and that's because the patients just seemed healthy,",
+        "start": 446.57,
+        "duration": 2.34
+    },
+    {
+        "text": "so you didn't bother to measure it, so it's missing.",
+        "start": 448.91,
+        "duration": 2.605
+    },
+    {
+        "text": "Now, we've imputed the missing values with the mean value,",
+        "start": 451.515,
+        "duration": 3.245
+    },
+    {
+        "text": "which unfortunately falls in a region of",
+        "start": 454.76,
+        "duration": 1.74
+    },
+    {
+        "text": "reasonably unhealthy patients and because of that,",
+        "start": 456.5,
+        "duration": 3.12
+    },
+    {
+        "text": "the model is learning that it has to drop suddenly down to",
+        "start": 459.62,
+        "duration": 3.33
+    },
+    {
+        "text": "low risk and then go back up to",
+        "start": 462.95,
+        "duration": 1.89
+    },
+    {
+        "text": "higher risk as it goes past this imputed value.",
+        "start": 464.84,
+        "duration": 3.315
+    },
+    {
+        "text": "Because of that, the model is actually reasonably accurate",
+        "start": 468.155,
+        "duration": 3.405
+    },
+    {
+        "text": "because it's capturing that a large number",
+        "start": 471.56,
+        "duration": 1.59
+    },
+    {
+        "text": "of patients here are very healthy.",
+        "start": 473.15,
+        "duration": 1.89
+    },
+    {
+        "text": "The unfortunate thing though is that there actually are",
+        "start": 475.04,
+        "duration": 2.73
+    },
+    {
+        "text": "some patients who have a real P/F ratio of 323,",
+        "start": 477.77,
+        "duration": 3.48
+    },
+    {
+        "text": "and they would also be predicted as",
+        "start": 481.25,
+        "duration": 2.13
+    },
+    {
+        "text": "being lower risk, and that's bad.",
+        "start": 483.38,
+        "duration": 2.06
+    },
+    {
+        "text": "We don't want the model to be",
+        "start": 485.44,
+        "duration": 1.57
+    },
+    {
+        "text": "confusing people who have a missing value and are healthy,",
+        "start": 487.01,
+        "duration": 3.13
+    },
+    {
+        "text": "with people who actually have the value and are less healthy.",
+        "start": 490.14,
+        "duration": 3.89
+    },
+    {
+        "text": "Intelligibility can also just help you",
+        "start": 494.03,
+        "duration": 3.045
+    },
+    {
+        "text": "understand things that are in",
+        "start": 497.075,
+        "duration": 1.095
+    },
+    {
+        "text": "your data that you don't know about yet,",
+        "start": 498.17,
+        "duration": 2.39
+    },
+    {
+        "text": "everybody is interested in COVID-19,",
+        "start": 500.56,
+        "duration": 2.78
+    },
+    {
+        "text": "we found an open source dataset for COVID-19 risk.",
+        "start": 503.34,
+        "duration": 4.28
+    },
+    {
+        "text": "It's not a very high-quality dataset,",
+        "start": 507.62,
+        "duration": 1.86
+    },
+    {
+        "text": "so don't take any of this too seriously,",
+        "start": 509.48,
+        "duration": 1.845
+    },
+    {
+        "text": "but we trained in EBM on it.",
+        "start": 511.325,
+        "duration": 2.01
+    },
+    {
+        "text": "We're just showing you a piece of the model,",
+        "start": 513.335,
+        "duration": 2.1
+    },
+    {
+        "text": "this is risk as a function of",
+        "start": 515.435,
+        "duration": 1.92
+    },
+    {
+        "text": "different comorbidities that patients have.",
+        "start": 517.355,
+        "duration": 2.775
+    },
+    {
+        "text": "The highest risk comorbidity is chronic kidney disease,",
+        "start": 520.13,
+        "duration": 4.135
+    },
+    {
+        "text": "and if you've been paying attention to",
+        "start": 524.265,
+        "duration": 1.415
+    },
+    {
+        "text": "the press and early papers that are coming out,",
+        "start": 525.68,
+        "duration": 2.26
+    },
+    {
+        "text": "many people are talking about how",
+        "start": 527.94,
+        "duration": 2.345
+    },
+    {
+        "text": "kidney disease seems to be a very high risk factor for COVID-19.",
+        "start": 530.285,
+        "duration": 3.93
+    },
+    {
+        "text": "Now, chronic bronchitis and Parkinson's disease,",
+        "start": 534.215,
+        "duration": 3.21
+    },
+    {
+        "text": "just ignore these two bars because we only",
+        "start": 537.425,
+        "duration": 2.055
+    },
+    {
+        "text": "have three patients and two patients respectively here,",
+        "start": 539.48,
+        "duration": 2.22
+    },
+    {
+        "text": "that's not enough sample size for us to learn anything meaningful,",
+        "start": 541.7,
+        "duration": 3.045
+    },
+    {
+        "text": "so just ignore that.",
+        "start": 544.745,
+        "duration": 1.365
+    },
+    {
+        "text": "But we do have large sample size for diabetes and hypertension,",
+        "start": 546.11,
+        "duration": 3.47
+    },
+    {
+        "text": "and just as is being reported in the literature,",
+        "start": 549.58,
+        "duration": 2.44
+    },
+    {
+        "text": "diabetes contributes to your risk and so does hypertension,",
+        "start": 552.02,
+        "duration": 3.56
+    },
+    {
+        "text": "so these are serious risk factors for COVID-19,",
+        "start": 555.58,
+        "duration": 2.395
+    },
+    {
+        "text": "and the model has learned that from this data.",
+        "start": 557.975,
+        "duration": 2.465
+    },
+    {
+        "text": "The model has also learned something very",
+        "start": 560.44,
+        "duration": 2.47
+    },
+    {
+        "text": "strange, that asthma, COPD,",
+        "start": 562.91,
+        "duration": 3.5
+    },
+    {
+        "text": "which is chronic obstructive pulmonary disease, cancer,",
+        "start": 566.41,
+        "duration": 3.449
+    },
+    {
+        "text": "and even heart disease,",
+        "start": 569.859,
+        "duration": 1.321
+    },
+    {
+        "text": "might not be so bad for you if you've got COVID-19,",
+        "start": 571.18,
+        "duration": 2.67
+    },
+    {
+        "text": "and in fact, might be slightly protective.",
+        "start": 573.85,
+        "duration": 2.685
+    },
+    {
+        "text": "We're also seeing the same reports coming out",
+        "start": 576.535,
+        "duration": 3.225
+    },
+    {
+        "text": "in papers that people are starting to write about COVID-19.",
+        "start": 579.76,
+        "duration": 3.33
+    },
+    {
+        "text": "So this model is consistent with what is being reported in papers.",
+        "start": 583.09,
+        "duration": 3.985
+    },
+    {
+        "text": "Now, nobody really understands this,",
+        "start": 587.075,
+        "duration": 2.21
+    },
+    {
+        "text": "but we don't believe these things are actually good for you,",
+        "start": 589.285,
+        "duration": 2.595
+    },
+    {
+        "text": "we think the best explanation is that it's some sample bias.",
+        "start": 591.88,
+        "duration": 3.81
+    },
+    {
+        "text": "In fact, the best explanation is probably",
+        "start": 595.69,
+        "duration": 2.16
+    },
+    {
+        "text": "that people with asthma or COPD,",
+        "start": 597.85,
+        "duration": 2.52
+    },
+    {
+        "text": "cancer or heart disease are more likely to get admitted",
+        "start": 600.37,
+        "duration": 3.21
+    },
+    {
+        "text": "to the hospital even if they're not",
+        "start": 603.58,
+        "duration": 1.56
+    },
+    {
+        "text": "otherwise that sick from COVID-19,",
+        "start": 605.14,
+        "duration": 2.145
+    },
+    {
+        "text": "and because of that, we just have a healthier group of",
+        "start": 607.285,
+        "duration": 2.725
+    },
+    {
+        "text": "individuals in the hospital who have these conditions,",
+        "start": 610.01,
+        "duration": 3.24
+    },
+    {
+        "text": "so their mortality risk looks like it's lower.",
+        "start": 613.25,
+        "duration": 3.17
+    },
+    {
+        "text": "Let me wrap up, you've probably heard that there",
+        "start": 616.42,
+        "duration": 3.82
+    },
+    {
+        "text": "is a tradeoff between accuracy and intelligibility,",
+        "start": 620.24,
+        "duration": 3.35
+    },
+    {
+        "text": "this is not always true,",
+        "start": 623.59,
+        "duration": 2.06
+    },
+    {
+        "text": "and glass-box methods such as EBMs really do have",
+        "start": 625.65,
+        "duration": 3.35
+    },
+    {
+        "text": "a remarkable combination of accuracy and",
+        "start": 629.0,
+        "duration": 2.67
+    },
+    {
+        "text": "intelligibility that violate this tradeoff.",
+        "start": 631.67,
+        "duration": 3.27
+    },
+    {
+        "text": "So you can get high accuracy in",
+        "start": 634.94,
+        "duration": 1.92
+    },
+    {
+        "text": "high intelligibility and with that,",
+        "start": 636.86,
+        "duration": 2.25
+    },
+    {
+        "text": "you also get editability,",
+        "start": 639.11,
+        "duration": 1.65
+    },
+    {
+        "text": "because the graphs are vectors,",
+        "start": 640.76,
+        "duration": 1.965
+    },
+    {
+        "text": "are very simple 2-dimensional structures,",
+        "start": 642.725,
+        "duration": 3.4
+    },
+    {
+        "text": "you can actually edit these things",
+        "start": 646.125,
+        "duration": 1.895
+    },
+    {
+        "text": "and the model will follow your edits,",
+        "start": 648.02,
+        "duration": 2.22
+    },
+    {
+        "text": "it'll do what you tell it to do.",
+        "start": 650.24,
+        "duration": 1.935
+    },
+    {
+        "text": "Now we've been talking about this interpret ML package that we",
+        "start": 652.175,
+        "duration": 3.555
+    },
+    {
+        "text": "open sourced about a year ago in this session,",
+        "start": 655.73,
+        "duration": 3.155
+    },
+    {
+        "text": "and it includes EBMs,",
+        "start": 658.885,
+        "duration": 1.574
+    },
+    {
+        "text": "and it includes a bunch of other methods as well,",
+        "start": 660.459,
+        "duration": 3.581
+    },
+    {
+        "text": "such as LIME and SHAP that are",
+        "start": 664.04,
+        "duration": 1.65
+    },
+    {
+        "text": "used for interpreting black-box models.",
+        "start": 665.69,
+        "duration": 1.98
+    },
+    {
+        "text": "So we encourage you to try the package,",
+        "start": 667.67,
+        "duration": 1.74
+    },
+    {
+        "text": "it's very easy to use.",
+        "start": 669.41,
+        "duration": 1.59
+    },
+    {
+        "text": "If you've been using Boosted Trees,",
+        "start": 671.0,
+        "duration": 2.35
+    },
+    {
+        "text": "things like Gbt and XGBoost or",
+        "start": 673.35,
+        "duration": 1.86
+    },
+    {
+        "text": "Random Forests or Linear and Logistic Regression,",
+        "start": 675.21,
+        "duration": 2.445
+    },
+    {
+        "text": "you really should stop using these things now,",
+        "start": 677.655,
+        "duration": 2.73
+    },
+    {
+        "text": "you should use EBMs instead.",
+        "start": 680.385,
+        "duration": 2.13
+    },
+    {
+        "text": "That's because the EBMs will probably give you the same accuracy,",
+        "start": 682.515,
+        "duration": 3.62
+    },
+    {
+        "text": "but you'll also get intelligibility and",
+        "start": 686.135,
+        "duration": 2.01
+    },
+    {
+        "text": "editability for free when you use these models.",
+        "start": 688.145,
+        "duration": 2.84
+    },
+    {
+        "text": "So give EBMs a try,",
+        "start": 690.985,
+        "duration": 1.445
+    },
+    {
+        "text": "we think you'll like them and find them very useful. Thank you.",
+        "start": 692.43,
+        "duration": 3.38
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 695.81,
+        "duration": 8.96
+    }
+]

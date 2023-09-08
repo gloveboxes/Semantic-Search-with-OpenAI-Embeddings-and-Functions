@@ -1,0 +1,2597 @@
+[
+    {
+        "text": ">> You're not going to want to miss this episode of",
+        "start": 0.0,
+        "duration": 1.65
+    },
+    {
+        "text": "the AI Show where Sanjeev tells us all about",
+        "start": 1.65,
+        "duration": 2.13
+    },
+    {
+        "text": "what's new in computer vision for OCR.",
+        "start": 3.78,
+        "duration": 3.42
+    },
+    {
+        "text": "Make sure you tune in.",
+        "start": 7.2,
+        "duration": 1.35
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 8.55,
+        "duration": 7.65
+    },
+    {
+        "text": "Hello and welcome to this episode of",
+        "start": 16.2,
+        "duration": 1.2
+    },
+    {
+        "text": "the AI Show where Sanjeev is telling us all about",
+        "start": 17.4,
+        "duration": 2.31
+    },
+    {
+        "text": "what's new in computer vision for OCR.",
+        "start": 19.71,
+        "duration": 4.14
+    },
+    {
+        "text": "Why don't we start with introduction?",
+        "start": 23.85,
+        "duration": 1.08
+    },
+    {
+        "text": "Sanjeev, tell us who you are and what you do.",
+        "start": 24.93,
+        "duration": 1.77
+    },
+    {
+        "text": ">> Sure, Seth. Hey, it's great to be with you, Seth,",
+        "start": 26.7,
+        "duration": 3.405
+    },
+    {
+        "text": "first of all, and secondly,",
+        "start": 30.105,
+        "duration": 1.545
+    },
+    {
+        "text": "I'm a Product Manager for OCR in computer vision.",
+        "start": 31.65,
+        "duration": 3.06
+    },
+    {
+        "text": "We also do OCR in form of layout,",
+        "start": 34.71,
+        "duration": 2.4
+    },
+    {
+        "text": "in Form Recognizer, which I know you did",
+        "start": 37.11,
+        "duration": 1.44
+    },
+    {
+        "text": "a show sometime back with Neta.",
+        "start": 38.55,
+        "duration": 1.92
+    },
+    {
+        "text": "That's what I manage here in this team.",
+        "start": 40.47,
+        "duration": 3.375
+    },
+    {
+        "text": ">> Fantastic. Let's start with the obvious question.",
+        "start": 43.845,
+        "duration": 3.275
+    },
+    {
+        "text": "For those who don't know what OCR is,",
+        "start": 47.12,
+        "duration": 1.56
+    },
+    {
+        "text": "can you tell us about it a little bit, about what it is?",
+        "start": 48.68,
+        "duration": 2.87
+    },
+    {
+        "text": ">> Sure. Yes. OCR recognizes that",
+        "start": 51.55,
+        "duration": 2.26
+    },
+    {
+        "text": "technology has been around for decades now.",
+        "start": 53.81,
+        "duration": 1.83
+    },
+    {
+        "text": "In fact, if you open up any book in",
+        "start": 55.64,
+        "duration": 1.89
+    },
+    {
+        "text": "machine learning vision to the audience,",
+        "start": 57.53,
+        "duration": 2.43
+    },
+    {
+        "text": "I think the number one thing you'll find there is, how to do OCR.",
+        "start": 59.96,
+        "duration": 3.09
+    },
+    {
+        "text": "OCR has been around for long.",
+        "start": 63.05,
+        "duration": 2.085
+    },
+    {
+        "text": "At Microsoft though, in computer vision,",
+        "start": 65.135,
+        "duration": 3.945
+    },
+    {
+        "text": "we've had this OCR, operational OCR API,",
+        "start": 69.08,
+        "duration": 2.61
+    },
+    {
+        "text": "which is based on simple machine learning.",
+        "start": 71.69,
+        "duration": 2.715
+    },
+    {
+        "text": "It works for images, it's been there,",
+        "start": 74.405,
+        "duration": 2.265
+    },
+    {
+        "text": "it's the only option and so customers have been using it.",
+        "start": 76.67,
+        "duration": 2.675
+    },
+    {
+        "text": "But in the last four or five years,",
+        "start": 79.345,
+        "duration": 3.825
+    },
+    {
+        "text": "Microsoft has invested in a big way with",
+        "start": 83.17,
+        "duration": 2.02
+    },
+    {
+        "text": "research and engineering and best of computer research stuff.",
+        "start": 85.19,
+        "duration": 3.3
+    },
+    {
+        "text": "Today we have Read.",
+        "start": 88.49,
+        "duration": 2.315
+    },
+    {
+        "text": "By the way, Read is on a working [inaudible] GA.",
+        "start": 90.805,
+        "duration": 3.11
+    },
+    {
+        "text": "It's generally available this month,",
+        "start": 93.915,
+        "duration": 1.46
+    },
+    {
+        "text": "but that's what we have today.",
+        "start": 95.375,
+        "duration": 1.56
+    },
+    {
+        "text": "We've gone from the traditional regular OCR",
+        "start": 96.935,
+        "duration": 3.72
+    },
+    {
+        "text": "now to deep learning-based read OCR.",
+        "start": 100.655,
+        "duration": 3.54
+    },
+    {
+        "text": "You can tell just the sheer scale of this technology is,",
+        "start": 104.195,
+        "duration": 4.29
+    },
+    {
+        "text": "instead of 22 languages,",
+        "start": 108.485,
+        "duration": 1.575
+    },
+    {
+        "text": "we now support 73 languages and more to",
+        "start": 110.06,
+        "duration": 2.07
+    },
+    {
+        "text": "come by the way with the next one-24 months.",
+        "start": 112.13,
+        "duration": 2.87
+    },
+    {
+        "text": "You're going to have mixed languages,",
+        "start": 115.0,
+        "duration": 2.38
+    },
+    {
+        "text": "which means your documents or images can have mixed languages.",
+        "start": 117.38,
+        "duration": 2.73
+    },
+    {
+        "text": "No need to stop, tell us which language ID.",
+        "start": 120.11,
+        "duration": 2.46
+    },
+    {
+        "text": "We just extract everything that you need.",
+        "start": 122.57,
+        "duration": 1.92
+    },
+    {
+        "text": "Yes, a lot of big,",
+        "start": 124.49,
+        "duration": 1.41
+    },
+    {
+        "text": "good stuff that we'll go through some demos later on.",
+        "start": 125.9,
+        "duration": 2.44
+    },
+    {
+        "text": "But hopefully, [inaudible] ,",
+        "start": 128.34,
+        "duration": 1.16
+    },
+    {
+        "text": "you can always sneak preview, I'll give you the scalier.",
+        "start": 129.5,
+        "duration": 2.585
+    },
+    {
+        "text": ">> That's awesome. Since OCR has been around for",
+        "start": 132.085,
+        "duration": 3.565
+    },
+    {
+        "text": "such a long time and you started to",
+        "start": 135.65,
+        "duration": 2.01
+    },
+    {
+        "text": "talk a little bit about the newer stuff.",
+        "start": 137.66,
+        "duration": 2.28
+    },
+    {
+        "text": "Can you tell us in [inaudible] what's",
+        "start": 139.94,
+        "duration": 1.905
+    },
+    {
+        "text": "new with OCR when it comes to the services that you provide?",
+        "start": 141.845,
+        "duration": 4.38
+    },
+    {
+        "text": ">> It's generally deep learning because it's",
+        "start": 146.225,
+        "duration": 2.865
+    },
+    {
+        "text": "a deep learning neural network-based model",
+        "start": 149.09,
+        "duration": 2.07
+    },
+    {
+        "text": "driving the service here.",
+        "start": 151.16,
+        "duration": 1.82
+    },
+    {
+        "text": "We can handle multiple languages in the same document.",
+        "start": 152.98,
+        "duration": 2.86
+    },
+    {
+        "text": "In fact, in the same text line.",
+        "start": 155.84,
+        "duration": 1.56
+    },
+    {
+        "text": "We can handle print and handwritten,",
+        "start": 157.4,
+        "duration": 1.995
+    },
+    {
+        "text": "we also output confidence scores.",
+        "start": 159.395,
+        "duration": 2.04
+    },
+    {
+        "text": "That means this allows customers to set",
+        "start": 161.435,
+        "duration": 1.785
+    },
+    {
+        "text": "their own thresholds based on what this, even their content.",
+        "start": 163.22,
+        "duration": 3.24
+    },
+    {
+        "text": "We ingest large images and large documents.",
+        "start": 166.46,
+        "duration": 2.7
+    },
+    {
+        "text": "In fact, this service supports up to 2,000 pages long documents.",
+        "start": 169.16,
+        "duration": 3.655
+    },
+    {
+        "text": "That's the kind of extent,",
+        "start": 172.815,
+        "duration": 2.495
+    },
+    {
+        "text": "and especially for text-intensive images and documents.",
+        "start": 175.31,
+        "duration": 3.525
+    },
+    {
+        "text": "That's what this OCR powered.",
+        "start": 178.835,
+        "duration": 2.565
+    },
+    {
+        "text": "Of course, we have the universal language models that you see,",
+        "start": 181.4,
+        "duration": 2.4
+    },
+    {
+        "text": "because of which we are able to quickly go from seven-73 languages,",
+        "start": 183.8,
+        "duration": 4.68
+    },
+    {
+        "text": "just in the last version that we released,",
+        "start": 188.48,
+        "duration": 2.22
+    },
+    {
+        "text": "a couple of weeks back, Read three or two.",
+        "start": 190.7,
+        "duration": 2.42
+    },
+    {
+        "text": ">> This is cool stuff. You said",
+        "start": 193.12,
+        "duration": 5.46
+    },
+    {
+        "text": "in the same sentence or the same document,",
+        "start": 198.58,
+        "duration": 2.109
+    },
+    {
+        "text": "[inaudible] will distinguish between",
+        "start": 200.689,
+        "duration": 1.351
+    },
+    {
+        "text": "different languages, which is really cool.",
+        "start": 202.04,
+        "duration": 1.895
+    },
+    {
+        "text": ">> Absolutely. By the way, right now we're",
+        "start": 203.935,
+        "duration": 3.155
+    },
+    {
+        "text": "slammed against the shipping board to",
+        "start": 207.09,
+        "duration": 1.23
+    },
+    {
+        "text": "upload APIs as well as the Docker container.",
+        "start": 208.32,
+        "duration": 1.875
+    },
+    {
+        "text": "When you get to read new versions for",
+        "start": 210.195,
+        "duration": 2.255
+    },
+    {
+        "text": "the previews of GAs, you can download.",
+        "start": 212.45,
+        "duration": 3.105
+    },
+    {
+        "text": "You can either use the Cloud API,",
+        "start": 215.555,
+        "duration": 1.35
+    },
+    {
+        "text": "which is easiest, scalable, fast, and secure.",
+        "start": 216.905,
+        "duration": 2.85
+    },
+    {
+        "text": "But you can also download the Docker containers as",
+        "start": 219.755,
+        "duration": 2.385
+    },
+    {
+        "text": "some of our banking and other healthcare customers do.",
+        "start": 222.14,
+        "duration": 2.34
+    },
+    {
+        "text": "You can run it off your laptop",
+        "start": 224.48,
+        "duration": 1.56
+    },
+    {
+        "text": "as it is running on my laptop right now.",
+        "start": 226.04,
+        "duration": 1.76
+    },
+    {
+        "text": ">> Awesome. Let's do this.",
+        "start": 227.8,
+        "duration": 1.685
+    },
+    {
+        "text": "Can you show us how it works and then maybe get",
+        "start": 229.485,
+        "duration": 2.495
+    },
+    {
+        "text": "into the mechanics of how people could use it?",
+        "start": 231.98,
+        "duration": 3.42
+    },
+    {
+        "text": ">> Sure. I think you would think, well,",
+        "start": 235.4,
+        "duration": 1.63
+    },
+    {
+        "text": "that's a hugely complex technology,",
+        "start": 237.03,
+        "duration": 2.04
+    },
+    {
+        "text": "it looks like it can handle big document and so on,",
+        "start": 239.07,
+        "duration": 2.34
+    },
+    {
+        "text": "so is the API really complex? How can I use it?",
+        "start": 241.41,
+        "duration": 2.655
+    },
+    {
+        "text": "The reality is that it's really simple,",
+        "start": 244.065,
+        "duration": 2.195
+    },
+    {
+        "text": "effectively one operation API,",
+        "start": 246.26,
+        "duration": 2.565
+    },
+    {
+        "text": "that's part of the beauty of this in all of",
+        "start": 248.825,
+        "duration": 2.415
+    },
+    {
+        "text": "the [inaudible] solutions is that we take",
+        "start": 251.24,
+        "duration": 1.41
+    },
+    {
+        "text": "complex stuff and simplify it.",
+        "start": 252.65,
+        "duration": 1.83
+    },
+    {
+        "text": "In this case, all you need to do is ingest your documents,",
+        "start": 254.48,
+        "duration": 2.37
+    },
+    {
+        "text": "come into HTTPS URL,",
+        "start": 256.85,
+        "duration": 1.77
+    },
+    {
+        "text": "use the computer vision resource key,",
+        "start": 258.62,
+        "duration": 2.49
+    },
+    {
+        "text": "and called the read operation of computer vision.",
+        "start": 261.11,
+        "duration": 2.46
+    },
+    {
+        "text": "Then once you've given that,",
+        "start": 263.57,
+        "duration": 1.845
+    },
+    {
+        "text": "it's an async operation,",
+        "start": 265.415,
+        "duration": 1.065
+    },
+    {
+        "text": "so that means you get an operation ID back.",
+        "start": 266.48,
+        "duration": 1.665
+    },
+    {
+        "text": "All you need to do is just pull",
+        "start": 268.145,
+        "duration": 1.515
+    },
+    {
+        "text": "the get results operation and keep doing it.",
+        "start": 269.66,
+        "duration": 2.37
+    },
+    {
+        "text": "It should return within a few milliseconds or a",
+        "start": 272.03,
+        "duration": 2.22
+    },
+    {
+        "text": "few seconds at the most and when it's done,",
+        "start": 274.25,
+        "duration": 2.505
+    },
+    {
+        "text": "you get your output, all text extracted,",
+        "start": 276.755,
+        "duration": 2.774
+    },
+    {
+        "text": "coordinates, location, test plans,",
+        "start": 279.529,
+        "duration": 1.501
+    },
+    {
+        "text": "and so on from a JSON.",
+        "start": 281.03,
+        "duration": 1.08
+    },
+    {
+        "text": "At the end, by the way, we delete data and this",
+        "start": 282.11,
+        "duration": 2.25
+    },
+    {
+        "text": "also our customers can be really",
+        "start": 284.36,
+        "duration": 1.74
+    },
+    {
+        "text": "secure that we don't store any data.",
+        "start": 286.1,
+        "duration": 1.935
+    },
+    {
+        "text": "We don't use it for training.",
+        "start": 288.035,
+        "duration": 1.695
+    },
+    {
+        "text": "That's the reason they trust us with their sensitive documents.",
+        "start": 289.73,
+        "duration": 4.185
+    },
+    {
+        "text": ">> I want to make sure I understand this correctly.",
+        "start": 293.915,
+        "duration": 5.01
+    },
+    {
+        "text": "You're saying that if I submit a document to the service,",
+        "start": 298.925,
+        "duration": 2.835
+    },
+    {
+        "text": "you don't keep it and you don't use it for training?",
+        "start": 301.76,
+        "duration": 2.7
+    },
+    {
+        "text": ">> That is correct. That's exactly right.",
+        "start": 304.46,
+        "duration": 2.565
+    },
+    {
+        "text": ">> That's really cool. I'd love to see this in code.",
+        "start": 307.025,
+        "duration": 2.925
+    },
+    {
+        "text": "Do you have something you could show us in code?",
+        "start": 309.95,
+        "duration": 1.545
+    },
+    {
+        "text": ">> Sure. I have a Python notebook",
+        "start": 311.495,
+        "duration": 3.375
+    },
+    {
+        "text": "which is appropriate since you were with a Python guru before.",
+        "start": 314.87,
+        "duration": 3.9
+    },
+    {
+        "text": "I think I've got a code sample here.",
+        "start": 318.77,
+        "duration": 1.8
+    },
+    {
+        "text": "What I'll do is I'll simply cycle these through images,",
+        "start": 320.57,
+        "duration": 3.12
+    },
+    {
+        "text": "into the setting here to highlight some of the features.",
+        "start": 323.69,
+        "duration": 3.38
+    },
+    {
+        "text": "Let's get going. All I'm [inaudible].",
+        "start": 327.07,
+        "duration": 2.55
+    },
+    {
+        "text": "Just for context, I am using the Computer Vision Python SDK,",
+        "start": 329.62,
+        "duration": 3.775
+    },
+    {
+        "text": "so that's what I'm plotting here.",
+        "start": 333.395,
+        "duration": 1.975
+    },
+    {
+        "text": "I get the [inaudible] ,",
+        "start": 335.37,
+        "duration": 2.19
+    },
+    {
+        "text": "that's my endpoint, that's the key.",
+        "start": 337.56,
+        "duration": 1.71
+    },
+    {
+        "text": "That's my image right now.",
+        "start": 339.27,
+        "duration": 2.74
+    },
+    {
+        "text": "Let me go ahead and just run this,",
+        "start": 344.06,
+        "duration": 2.83
+    },
+    {
+        "text": "so this image is already loaded.",
+        "start": 346.89,
+        "duration": 1.215
+    },
+    {
+        "text": "This is called the read operation.",
+        "start": 348.105,
+        "duration": 2.7
+    },
+    {
+        "text": "Notice that operation ID that I got back.",
+        "start": 350.805,
+        "duration": 2.195
+    },
+    {
+        "text": "I use that in to get the results.",
+        "start": 353.0,
+        "duration": 2.545
+    },
+    {
+        "text": "Then go ahead and we run that,",
+        "start": 355.545,
+        "duration": 2.88
+    },
+    {
+        "text": "which is right here.",
+        "start": 358.425,
+        "duration": 3.835
+    },
+    {
+        "text": "Wait. What happened?",
+        "start": 363.71,
+        "duration": 3.89
+    },
+    {
+        "text": ">> I think you forgot to run the [inaudible].",
+        "start": 369.26,
+        "duration": 2.65
+    },
+    {
+        "text": "There you go.",
+        "start": 371.91,
+        "duration": 2.31
+    },
+    {
+        "text": ">> Wait, let me run this first.",
+        "start": 374.22,
+        "duration": 2.19
+    },
+    {
+        "text": "Then we call this one,",
+        "start": 376.41,
+        "duration": 3.735
+    },
+    {
+        "text": "now we've got a fresh new operation ID.",
+        "start": 380.145,
+        "duration": 2.325
+    },
+    {
+        "text": "Now we're actually calling the great result. Then we run this.",
+        "start": 382.47,
+        "duration": 3.95
+    },
+    {
+        "text": "We do get results, we got the status succeeded, and now we run,",
+        "start": 386.42,
+        "duration": 3.195
+    },
+    {
+        "text": "or really just print out",
+        "start": 389.615,
+        "duration": 1.29
+    },
+    {
+        "text": "the collection of text lines in the JSON response.",
+        "start": 390.905,
+        "duration": 2.85
+    },
+    {
+        "text": "There you go. That's the motivational code,",
+        "start": 393.755,
+        "duration": 2.37
+    },
+    {
+        "text": "and that's what you get from [inaudible] text here.",
+        "start": 396.125,
+        "duration": 2.445
+    },
+    {
+        "text": ">> Hold on. Go back up there. That is some sweet motivation there.",
+        "start": 398.57,
+        "duration": 3.525
+    },
+    {
+        "text": ">> Yes.",
+        "start": 402.095,
+        "duration": 1.525
+    },
+    {
+        "text": ">> I'm going to use my sounds here. My motivational.",
+        "start": 403.66,
+        "duration": 4.92
+    },
+    {
+        "text": "Life is like riding a bicycle.",
+        "start": 408.58,
+        "duration": 3.59
+    },
+    {
+        "text": "To keep your balance you must keep moving. That was awesome.",
+        "start": 412.17,
+        "duration": 7.09
+    },
+    {
+        "text": ">> Let's keep moving.",
+        "start": 419.63,
+        "duration": 2.815
+    },
+    {
+        "text": "Remember I said print or handwritten.",
+        "start": 422.445,
+        "duration": 3.255
+    },
+    {
+        "text": "Read supports handwritten for English only right now,",
+        "start": 425.7,
+        "duration": 3.71
+    },
+    {
+        "text": "although new languages are coming too.",
+        "start": 429.41,
+        "duration": 2.28
+    },
+    {
+        "text": "Again, this is pretty funny and probably",
+        "start": 431.69,
+        "duration": 1.98
+    },
+    {
+        "text": "motivation code, depending on this.",
+        "start": 433.67,
+        "duration": 3.39
+    },
+    {
+        "text": "Now we do the same step.",
+        "start": 437.06,
+        "duration": 1.35
+    },
+    {
+        "text": "Get the new operation ID right here,",
+        "start": 438.41,
+        "duration": 2.415
+    },
+    {
+        "text": "and then get the results. Then status succeeded.",
+        "start": 440.825,
+        "duration": 4.705
+    },
+    {
+        "text": "Notice how quickly it got completed",
+        "start": 445.53,
+        "duration": 1.84
+    },
+    {
+        "text": "and then we print it out and there we go.",
+        "start": 447.37,
+        "duration": 2.505
+    },
+    {
+        "text": "Here's the nice thing. Notice this handwriting.",
+        "start": 449.875,
+        "duration": 2.775
+    },
+    {
+        "text": "What's happening here in the code is,",
+        "start": 452.65,
+        "duration": 1.92
+    },
+    {
+        "text": "all I'm doing is I'm checking for the parent",
+        "start": 454.57,
+        "duration": 2.28
+    },
+    {
+        "text": "style attribute in my JSON response,",
+        "start": 456.85,
+        "duration": 3.16
+    },
+    {
+        "text": "which actually you can see right here. See that?",
+        "start": 460.01,
+        "duration": 3.145
+    },
+    {
+        "text": "This is the same image, same JSON response,",
+        "start": 463.155,
+        "duration": 2.27
+    },
+    {
+        "text": "I'm showing in the VSCode here.",
+        "start": 465.425,
+        "duration": 1.67
+    },
+    {
+        "text": "Notice this style says handwritten.",
+        "start": 467.095,
+        "duration": 1.725
+    },
+    {
+        "text": "All I did was check for",
+        "start": 468.82,
+        "duration": 1.23
+    },
+    {
+        "text": "this and then open the handwriting label to it.",
+        "start": 470.05,
+        "duration": 2.615
+    },
+    {
+        "text": "That's the different cause of handwriting here.",
+        "start": 472.665,
+        "duration": 2.64
+    },
+    {
+        "text": ">> That's cool.",
+        "start": 475.305,
+        "duration": 1.635
+    },
+    {
+        "text": ">> Here's the kicker though. Let's say if you",
+        "start": 476.94,
+        "duration": 1.72
+    },
+    {
+        "text": "had an image with both printed and handwritten.",
+        "start": 478.66,
+        "duration": 2.46
+    },
+    {
+        "text": "Let's cycle to the next one.",
+        "start": 481.12,
+        "duration": 2.68
+    },
+    {
+        "text": "Not three, two, image three.",
+        "start": 483.8,
+        "duration": 2.485
+    },
+    {
+        "text": "All I did was, a bit of a hack here,",
+        "start": 486.285,
+        "duration": 2.985
+    },
+    {
+        "text": "I just opened the two images together,",
+        "start": 489.27,
+        "duration": 2.31
+    },
+    {
+        "text": "just to [inaudible] then see what comes out.",
+        "start": 491.58,
+        "duration": 2.82
+    },
+    {
+        "text": "We follow the same steps again.",
+        "start": 494.4,
+        "duration": 1.535
+    },
+    {
+        "text": "That's a new operation ID,",
+        "start": 495.935,
+        "duration": 1.365
+    },
+    {
+        "text": "and we print this out right here. There we go.",
+        "start": 497.3,
+        "duration": 5.5
+    },
+    {
+        "text": "Notice the content is all mixed up,",
+        "start": 502.8,
+        "duration": 2.9
+    },
+    {
+        "text": "of course, because it's all in the same image.",
+        "start": 505.7,
+        "duration": 2.235
+    },
+    {
+        "text": "But notice how the handwriting ones,",
+        "start": 507.935,
+        "duration": 1.905
+    },
+    {
+        "text": "is continuous flagging handwriting and the other one is not.",
+        "start": 509.84,
+        "duration": 4.03
+    },
+    {
+        "text": "Remember, I'm calling the read but I'm not still",
+        "start": 514.3,
+        "duration": 3.37
+    },
+    {
+        "text": "specifying whether I'm scanning",
+        "start": 517.67,
+        "duration": 1.87
+    },
+    {
+        "text": "print or handwritten or a language or anything like that.",
+        "start": 519.54,
+        "duration": 2.54
+    },
+    {
+        "text": "It's all extracted automatically.",
+        "start": 522.08,
+        "duration": 2.91
+    },
+    {
+        "text": ">> Let's go back to the read response call real quick.",
+        "start": 524.99,
+        "duration": 3.525
+    },
+    {
+        "text": "I want to hit that, up a little bit.",
+        "start": 528.515,
+        "duration": 2.48
+    },
+    {
+        "text": "No. The code where you actually put the image in.",
+        "start": 530.995,
+        "duration": 3.205
+    },
+    {
+        "text": ">> Sure.",
+        "start": 534.2,
+        "duration": 1.485
+    },
+    {
+        "text": ">> There it is. It's literally read in stream and that's it.",
+        "start": 535.685,
+        "duration": 6.28
+    },
+    {
+        "text": ">> That's it. Then you get the operation ID.",
+        "start": 541.965,
+        "duration": 4.215
+    },
+    {
+        "text": "Get the operation ID from the header or response header,",
+        "start": 546.18,
+        "duration": 2.865
+    },
+    {
+        "text": "and then use it and you get that.",
+        "start": 549.045,
+        "duration": 2.055
+    },
+    {
+        "text": ">> Let's look at the other images.",
+        "start": 551.1,
+        "duration": 1.16
+    },
+    {
+        "text": "I'm excited to see what else you got.",
+        "start": 552.26,
+        "duration": 1.59
+    },
+    {
+        "text": ">> Now let's think of what? This was all English.",
+        "start": 553.85,
+        "duration": 2.04
+    },
+    {
+        "text": "But then you would ask, \"Hey, but what about the languages?",
+        "start": 555.89,
+        "duration": 2.25
+    },
+    {
+        "text": "But you said you support 73 languages and can you show something?\"",
+        "start": 558.14,
+        "duration": 3.36
+    },
+    {
+        "text": "Remember I said mixed languages still.",
+        "start": 561.5,
+        "duration": 1.815
+    },
+    {
+        "text": "In this case, this is a Japanese tax form.",
+        "start": 563.315,
+        "duration": 1.855
+    },
+    {
+        "text": "If you're ever in Japan,",
+        "start": 565.17,
+        "duration": 1.21
+    },
+    {
+        "text": "filling out returns form, this is what you would fill out?",
+        "start": 566.38,
+        "duration": 2.25
+    },
+    {
+        "text": "Notice it has got Japanese and English texts mixed.",
+        "start": 568.63,
+        "duration": 3.29
+    },
+    {
+        "text": "Let's scan this quickly with our OCR service.",
+        "start": 571.92,
+        "duration": 3.26
+    },
+    {
+        "text": "I get the operation ID, there you go.",
+        "start": 575.18,
+        "duration": 5.59
+    },
+    {
+        "text": "Notice it took few millisecond longer.",
+        "start": 580.77,
+        "duration": 3.075
+    },
+    {
+        "text": "Now you can see that progression there from",
+        "start": 583.845,
+        "duration": 1.795
+    },
+    {
+        "text": "running got succeeded, but let's print it out.",
+        "start": 585.64,
+        "duration": 2.115
+    },
+    {
+        "text": "Now notice we've got all the texts, including English,",
+        "start": 587.755,
+        "duration": 4.065
+    },
+    {
+        "text": "Japanese, everything, including again,",
+        "start": 591.82,
+        "duration": 2.78
+    },
+    {
+        "text": "remember, I had not specified any language code.",
+        "start": 594.6,
+        "duration": 1.72
+    },
+    {
+        "text": ">> Cool.",
+        "start": 596.32,
+        "duration": 0.12
+    },
+    {
+        "text": ">> I didn't say this was a Japanese document.",
+        "start": 596.44,
+        "duration": 2.965
+    },
+    {
+        "text": "The code remains unchanged,",
+        "start": 599.405,
+        "duration": 2.035
+    },
+    {
+        "text": "but you keep getting long text here.",
+        "start": 601.44,
+        "duration": 1.695
+    },
+    {
+        "text": "Let's keep quickly moving through this",
+        "start": 603.135,
+        "duration": 2.19
+    },
+    {
+        "text": "and challenge this a little bit more.",
+        "start": 605.325,
+        "duration": 3.135
+    },
+    {
+        "text": "The next image I can utilize is I've got Japanese,",
+        "start": 608.46,
+        "duration": 3.59
+    },
+    {
+        "text": "English, and actually German right here.",
+        "start": 612.05,
+        "duration": 2.71
+    },
+    {
+        "text": "All I did was cut screenshots, these PDFs.",
+        "start": 614.76,
+        "duration": 3.315
+    },
+    {
+        "text": "Remember, again, the use case is",
+        "start": 618.075,
+        "duration": 1.835
+    },
+    {
+        "text": "realistic because normally customers will",
+        "start": 619.91,
+        "duration": 2.49
+    },
+    {
+        "text": "scan documents with handwritten content or",
+        "start": 622.4,
+        "duration": 2.03
+    },
+    {
+        "text": "scan content of these documents,",
+        "start": 624.43,
+        "duration": 2.13
+    },
+    {
+        "text": "so the PDFs come in, but they would",
+        "start": 626.56,
+        "duration": 1.32
+    },
+    {
+        "text": "have images when scanned content comes in.",
+        "start": 627.88,
+        "duration": 1.93
+    },
+    {
+        "text": "To us, of course, we handle both digital and images.",
+        "start": 629.81,
+        "duration": 3.45
+    },
+    {
+        "text": "It doesn't matter to the service.",
+        "start": 633.26,
+        "duration": 1.865
+    },
+    {
+        "text": "Let's go ahead and get our operation ID.",
+        "start": 635.125,
+        "duration": 2.9
+    },
+    {
+        "text": "Let's now scan this.",
+        "start": 638.025,
+        "duration": 1.905
+    },
+    {
+        "text": "Notice there, it's taking a little",
+        "start": 639.93,
+        "duration": 2.45
+    },
+    {
+        "text": "bit longer there because it's a big image with lots of",
+        "start": 642.38,
+        "duration": 2.19
+    },
+    {
+        "text": "small text in a few different languages",
+        "start": 644.57,
+        "duration": 2.82
+    },
+    {
+        "text": "here and also depending on what's happening on laptop.",
+        "start": 647.39,
+        "duration": 2.67
+    },
+    {
+        "text": "There you go, now you've got succeeded there.",
+        "start": 650.06,
+        "duration": 2.1
+    },
+    {
+        "text": "Let's print this all out.",
+        "start": 652.16,
+        "duration": 1.955
+    },
+    {
+        "text": "There you go. Notice that you've got the Japanese,",
+        "start": 654.115,
+        "duration": 5.65
+    },
+    {
+        "text": "English, and German. All of it right here.",
+        "start": 659.765,
+        "duration": 3.625
+    },
+    {
+        "text": ">> That is really cool.",
+        "start": 663.39,
+        "duration": 2.87
+    },
+    {
+        "text": ">> Which image was it?",
+        "start": 668.64,
+        "duration": 2.26
+    },
+    {
+        "text": "Image six, I think I have an Image six which is probably,",
+        "start": 670.9,
+        "duration": 2.88
+    },
+    {
+        "text": "let's see it, I think I have an Image six. This one.",
+        "start": 673.78,
+        "duration": 4.155
+    },
+    {
+        "text": "Imagine it's the happy new year still it's me but hey,",
+        "start": 677.935,
+        "duration": 3.405
+    },
+    {
+        "text": "a lot of countries or communities",
+        "start": 681.34,
+        "duration": 1.8
+    },
+    {
+        "text": "have new year starting all through our calendar year.",
+        "start": 683.14,
+        "duration": 2.985
+    },
+    {
+        "text": "It doesn't matter and they'll",
+        "start": 686.125,
+        "duration": 2.925
+    },
+    {
+        "text": "notice these are all happy new year messages",
+        "start": 689.05,
+        "duration": 1.56
+    },
+    {
+        "text": "in some other languages.",
+        "start": 690.61,
+        "duration": 1.38
+    },
+    {
+        "text": "If you ask me to name them,",
+        "start": 691.99,
+        "duration": 1.935
+    },
+    {
+        "text": "I will not be able to name all of them",
+        "start": 693.925,
+        "duration": 2.415
+    },
+    {
+        "text": "correctly but let's keep going.",
+        "start": 696.34,
+        "duration": 2.775
+    },
+    {
+        "text": "As for now, let's scan it. That was quick.",
+        "start": 699.115,
+        "duration": 3.195
+    },
+    {
+        "text": "Let's print them out. And there you go.",
+        "start": 702.31,
+        "duration": 2.76
+    },
+    {
+        "text": "You've got Happy New Year in",
+        "start": 705.07,
+        "duration": 2.01
+    },
+    {
+        "text": "a few different languages and [inaudible].",
+        "start": 707.08,
+        "duration": 2.91
+    },
+    {
+        "text": "That's it. Again, no change to the code.",
+        "start": 709.99,
+        "duration": 2.235
+    },
+    {
+        "text": "It's all automatically extract",
+        "start": 712.225,
+        "duration": 1.605
+    },
+    {
+        "text": "[inaudible] language models here, that's permission.",
+        "start": 713.83,
+        "duration": 3.34
+    },
+    {
+        "text": ">> Because I'd loved to see if you can,",
+        "start": 717.3,
+        "duration": 3.34
+    },
+    {
+        "text": "do you have a listing of all of",
+        "start": 720.64,
+        "duration": 1.95
+    },
+    {
+        "text": "the languages so that we can see them",
+        "start": 722.59,
+        "duration": 1.95
+    },
+    {
+        "text": "because I want everyone to be super crispy",
+        "start": 724.54,
+        "duration": 1.86
+    },
+    {
+        "text": "beyond what languages are actually available.",
+        "start": 726.4,
+        "duration": 2.755
+    },
+    {
+        "text": ">> Yeah, Absolutely.",
+        "start": 729.155,
+        "duration": 1.795
+    },
+    {
+        "text": "These are the 73 languages they support today",
+        "start": 730.95,
+        "duration": 3.375
+    },
+    {
+        "text": "but we look at this as just the first wave of language expansion.",
+        "start": 734.325,
+        "duration": 4.44
+    },
+    {
+        "text": "There's a similar wave coming in",
+        "start": 738.765,
+        "duration": 1.965
+    },
+    {
+        "text": "the next 12 months and a similar wave coming 12 months after that.",
+        "start": 740.73,
+        "duration": 2.97
+    },
+    {
+        "text": "We are really just on a mission here to cover",
+        "start": 743.7,
+        "duration": 2.76
+    },
+    {
+        "text": "all languages here but that's a current list for now.",
+        "start": 746.46,
+        "duration": 3.09
+    },
+    {
+        "text": ">> Are there other new things in there",
+        "start": 749.55,
+        "duration": 2.28
+    },
+    {
+        "text": "that people should be looking for?",
+        "start": 751.83,
+        "duration": 2.91
+    },
+    {
+        "text": "I feel like there's some stuff that you're probably missing.",
+        "start": 754.74,
+        "duration": 3.835
+    },
+    {
+        "text": ">> Absolutely. I'm not sure how you knew that.",
+        "start": 758.575,
+        "duration": 2.805
+    },
+    {
+        "text": "You must be a magician reading our minds but, here you go.",
+        "start": 761.38,
+        "duration": 5.205
+    },
+    {
+        "text": "Remember, well, we talked about this one though.",
+        "start": 766.585,
+        "duration": 1.77
+    },
+    {
+        "text": "It isn't that we still have the handwriting",
+        "start": 768.355,
+        "duration": 1.53
+    },
+    {
+        "text": "classification demo, vortex line.",
+        "start": 769.885,
+        "duration": 2.1
+    },
+    {
+        "text": "We code that, there is another feature called Selected pages.",
+        "start": 771.985,
+        "duration": 3.585
+    },
+    {
+        "text": "Remember, I said that each service takes up to 2,000 pages long.?",
+        "start": 775.57,
+        "duration": 3.075
+    },
+    {
+        "text": "Obviously, if you're going to send",
+        "start": 778.645,
+        "duration": 1.575
+    },
+    {
+        "text": "hundreds or thousands of pages to our service,",
+        "start": 780.22,
+        "duration": 2.25
+    },
+    {
+        "text": "you may really not need those here.",
+        "start": 782.47,
+        "duration": 1.815
+    },
+    {
+        "text": "Except for all of that, especially from others,",
+        "start": 784.285,
+        "duration": 1.725
+    },
+    {
+        "text": "help documentation and so on that you",
+        "start": 786.01,
+        "duration": 1.59
+    },
+    {
+        "text": "find at the end of the fonts.",
+        "start": 787.6,
+        "duration": 2.04
+    },
+    {
+        "text": "There, you can actually specify pages or page ranges.",
+        "start": 789.64,
+        "duration": 3.135
+    },
+    {
+        "text": "I just when you open command and you can specify the pages.",
+        "start": 792.775,
+        "duration": 3.3
+    },
+    {
+        "text": "That's exactly the feature here.",
+        "start": 796.075,
+        "duration": 1.605
+    },
+    {
+        "text": "For this 200-page document, let's say.",
+        "start": 797.68,
+        "duration": 2.85
+    },
+    {
+        "text": "I wanted only two pages out of this",
+        "start": 800.53,
+        "duration": 2.19
+    },
+    {
+        "text": "[inaudible] so that's one feature.",
+        "start": 802.72,
+        "duration": 2.76
+    },
+    {
+        "text": "The other interesting one is",
+        "start": 805.48,
+        "duration": 1.47
+    },
+    {
+        "text": "the reading order in this new version that we just released.",
+        "start": 806.95,
+        "duration": 3.975
+    },
+    {
+        "text": "Read actually use to output these texts lines.",
+        "start": 810.925,
+        "duration": 2.94
+    },
+    {
+        "text": "Not just the text line output we saw in the JSON and VS Code.",
+        "start": 813.865,
+        "duration": 3.355
+    },
+    {
+        "text": "They're all arranged one after the other.",
+        "start": 817.22,
+        "duration": 2.41
+    },
+    {
+        "text": "We used to go left to right on those text line order without",
+        "start": 819.63,
+        "duration": 3.87
+    },
+    {
+        "text": "regards to the actual physical arrangement",
+        "start": 823.5,
+        "duration": 2.21
+    },
+    {
+        "text": "of the document or document getting order.",
+        "start": 825.71,
+        "duration": 1.94
+    },
+    {
+        "text": "Well, now we have",
+        "start": 827.65,
+        "duration": 1.17
+    },
+    {
+        "text": "this new [inaudible] parameter",
+        "start": 828.82,
+        "duration": 1.59
+    },
+    {
+        "text": "where if you give us the value natural,",
+        "start": 830.41,
+        "duration": 2.43
+    },
+    {
+        "text": "notice now that the line numbers go top to bottom for",
+        "start": 832.84,
+        "duration": 3.63
+    },
+    {
+        "text": "this first column column and then top to bottom on",
+        "start": 836.47,
+        "duration": 2.61
+    },
+    {
+        "text": "this right column versus going all the way across left and right.",
+        "start": 839.08,
+        "duration": 2.67
+    },
+    {
+        "text": ">> Oh, mu goodness. I'm sorry but that is so cool.",
+        "start": 841.75,
+        "duration": 3.63
+    },
+    {
+        "text": "Because OCR traditionally it always mangle things for",
+        "start": 845.38,
+        "duration": 3.45
+    },
+    {
+        "text": "me and I have to put the line.",
+        "start": 848.83,
+        "duration": 3.99
+    },
+    {
+        "text": "You're saying that it will literally",
+        "start": 852.82,
+        "duration": 2.265
+    },
+    {
+        "text": "give you the lines in natural reading order.",
+        "start": 855.085,
+        "duration": 2.685
+    },
+    {
+        "text": ">> Correct. Here's a quick example here.",
+        "start": 857.77,
+        "duration": 2.79
+    },
+    {
+        "text": "This is a document. This is",
+        "start": 860.56,
+        "duration": 1.53
+    },
+    {
+        "text": "very typical document that you",
+        "start": 862.09,
+        "duration": 1.56
+    },
+    {
+        "text": "would see here, two column documents.",
+        "start": 863.65,
+        "duration": 1.56
+    },
+    {
+        "text": "If I enable words, if I show the text,",
+        "start": 865.21,
+        "duration": 2.49
+    },
+    {
+        "text": "this is all OCR extracted text",
+        "start": 867.7,
+        "duration": 2.13
+    },
+    {
+        "text": "but let's hide that to keep it very clear.",
+        "start": 869.83,
+        "duration": 3.48
+    },
+    {
+        "text": "Notice the line numbers here, this is the basic one.",
+        "start": 873.31,
+        "duration": 2.49
+    },
+    {
+        "text": "That's the default that we have.",
+        "start": 875.8,
+        "duration": 1.785
+    },
+    {
+        "text": "Note the line numbers and they're going one.",
+        "start": 877.585,
+        "duration": 2.34
+    },
+    {
+        "text": "Here, 33, 34, 35, 36, 37,",
+        "start": 879.925,
+        "duration": 3.945
+    },
+    {
+        "text": "38 and without regards to the actual document layout here,",
+        "start": 883.87,
+        "duration": 3.27
+    },
+    {
+        "text": "but notice this natural reading order now, output here.",
+        "start": 887.14,
+        "duration": 3.21
+    },
+    {
+        "text": "If I enable text line numbers here,",
+        "start": 890.35,
+        "duration": 2.265
+    },
+    {
+        "text": "now and look at the difference here.",
+        "start": 892.615,
+        "duration": 1.845
+    },
+    {
+        "text": "26, 27, 28, 29,",
+        "start": 894.46,
+        "duration": 2.1
+    },
+    {
+        "text": "30 and they're going top down and then this is 60, 61, 62.",
+        "start": 896.56,
+        "duration": 4.455
+    },
+    {
+        "text": "What's happening now is that the service is taking into account",
+        "start": 901.015,
+        "duration": 3.495
+    },
+    {
+        "text": "the layout of the document and",
+        "start": 904.51,
+        "duration": 1.59
+    },
+    {
+        "text": "replicating the [inaudible] order which is great because now,",
+        "start": 906.1,
+        "duration": 2.46
+    },
+    {
+        "text": "you're just going to be the beginning of, let's say,",
+        "start": 908.56,
+        "duration": 1.68
+    },
+    {
+        "text": "detecting paragraphs and other advanced features",
+        "start": 910.24,
+        "duration": 3.0
+    },
+    {
+        "text": "and document object model and so on that are coming up.",
+        "start": 913.24,
+        "duration": 2.565
+    },
+    {
+        "text": ">> That's really cool and like I said,",
+        "start": 915.805,
+        "duration": 2.295
+    },
+    {
+        "text": "OCR always annoyed me because it didn't really do that.",
+        "start": 918.1,
+        "duration": 4.905
+    },
+    {
+        "text": "Here's a question that may be a little bit harder.",
+        "start": 923.005,
+        "duration": 3.7
+    },
+    {
+        "text": "This feels like it's",
+        "start": 926.705,
+        "duration": 1.555
+    },
+    {
+        "text": "a really cool building block for more complex software.",
+        "start": 928.26,
+        "duration": 4.755
+    },
+    {
+        "text": "Is anyone using this as",
+        "start": 933.015,
+        "duration": 1.215
+    },
+    {
+        "text": "a building block for something even better?",
+        "start": 934.23,
+        "duration": 2.225
+    },
+    {
+        "text": ">> Yeah, absolutely. Remember text extraction",
+        "start": 936.455,
+        "duration": 2.645
+    },
+    {
+        "text": "is really the first step.",
+        "start": 939.1,
+        "duration": 1.305
+    },
+    {
+        "text": "They've got to do a lot more things.",
+        "start": 940.405,
+        "duration": 1.92
+    },
+    {
+        "text": "I could get even more insights from it,",
+        "start": 942.325,
+        "duration": 1.995
+    },
+    {
+        "text": "what it does, it gives you a text.",
+        "start": 944.32,
+        "duration": 1.635
+    },
+    {
+        "text": "Actually, in fact we use it, right.",
+        "start": 945.955,
+        "duration": 2.43
+    },
+    {
+        "text": "This is another product Form Recognizer,",
+        "start": 948.385,
+        "duration": 2.385
+    },
+    {
+        "text": "which is instead of document, AI.",
+        "start": 950.77,
+        "duration": 1.8
+    },
+    {
+        "text": "Document into understanding product that",
+        "start": 952.57,
+        "duration": 1.71
+    },
+    {
+        "text": "lives on top of the OCR extraction here.",
+        "start": 954.28,
+        "duration": 3.215
+    },
+    {
+        "text": "Just to give a very quick demo,",
+        "start": 957.495,
+        "duration": 2.205
+    },
+    {
+        "text": "I think customers may have used Form Recognizer,",
+        "start": 959.7,
+        "duration": 2.13
+    },
+    {
+        "text": "if you don't know, please go check it out.",
+        "start": 961.83,
+        "duration": 1.815
+    },
+    {
+        "text": "This is like an AI,",
+        "start": 963.645,
+        "duration": 1.59
+    },
+    {
+        "text": "a magic box in a small service here.",
+        "start": 965.235,
+        "duration": 4.86
+    },
+    {
+        "text": "If we take a look at this example here,",
+        "start": 970.095,
+        "duration": 3.115
+    },
+    {
+        "text": "we took this document here.",
+        "start": 974.0,
+        "duration": 2.415
+    },
+    {
+        "text": "What I'm showing is the layout type here.",
+        "start": 976.415,
+        "duration": 1.775
+    },
+    {
+        "text": "Layout is really nothing but OCR,",
+        "start": 978.19,
+        "duration": 3.72
+    },
+    {
+        "text": "enhanced OCR at high resolution plus some other features.",
+        "start": 981.91,
+        "duration": 3.135
+    },
+    {
+        "text": "When documents touches this [inaudible].",
+        "start": 985.045,
+        "duration": 2.205
+    },
+    {
+        "text": "Notice there is the OCR part of it, of course,",
+        "start": 987.25,
+        "duration": 2.565
+    },
+    {
+        "text": "that you get with Form Recognizer",
+        "start": 989.815,
+        "duration": 1.845
+    },
+    {
+        "text": "and that's part of the read result object here.",
+        "start": 991.66,
+        "duration": 2.205
+    },
+    {
+        "text": "If you open the JSON and we'll go to the JSON",
+        "start": 993.865,
+        "duration": 1.965
+    },
+    {
+        "text": "too but that's the text extraction.",
+        "start": 995.83,
+        "duration": 2.655
+    },
+    {
+        "text": "Notice we also get checkboxes,",
+        "start": 998.485,
+        "duration": 2.535
+    },
+    {
+        "text": "see these selection marks of checkboxes here,",
+        "start": 1001.02,
+        "duration": 2.745
+    },
+    {
+        "text": "and along with the green and",
+        "start": 1003.765,
+        "duration": 1.245
+    },
+    {
+        "text": "the orange visualization depending on their state?",
+        "start": 1005.01,
+        "duration": 3.48
+    },
+    {
+        "text": "So the output, the selection box too as part of",
+        "start": 1008.49,
+        "duration": 3.84
+    },
+    {
+        "text": "the read result object here but if you're using",
+        "start": 1012.33,
+        "duration": 1.83
+    },
+    {
+        "text": "layout feature of Form Recognizer.",
+        "start": 1014.16,
+        "duration": 3.765
+    },
+    {
+        "text": "Other than layout, there's a tables too.",
+        "start": 1017.925,
+        "duration": 2.52
+    },
+    {
+        "text": "Notice the service is recognizing from this plain image,",
+        "start": 1020.445,
+        "duration": 3.795
+    },
+    {
+        "text": "it's recognizing this text,",
+        "start": 1024.24,
+        "duration": 1.425
+    },
+    {
+        "text": "the checkboxes and by the way,",
+        "start": 1025.665,
+        "duration": 1.845
+    },
+    {
+        "text": "it's actually telling you the state",
+        "start": 1027.51,
+        "duration": 1.92
+    },
+    {
+        "text": "of the checkboxes to selected or unselected.",
+        "start": 1029.43,
+        "duration": 2.31
+    },
+    {
+        "text": ">> That's cool.",
+        "start": 1031.74,
+        "duration": 0.51
+    },
+    {
+        "text": ">> Then secondly, tables.",
+        "start": 1032.25,
+        "duration": 1.32
+    },
+    {
+        "text": "It's recognizing that this text is actually arranged as a table.",
+        "start": 1033.57,
+        "duration": 3.735
+    },
+    {
+        "text": "If you look at the JSON response in addition to the read result,",
+        "start": 1037.305,
+        "duration": 4.71
+    },
+    {
+        "text": "you have a page result object,",
+        "start": 1042.015,
+        "duration": 1.305
+    },
+    {
+        "text": "which is really the page object model coming together here",
+        "start": 1043.32,
+        "duration": 3.465
+    },
+    {
+        "text": "and one of the first features here is the tables of",
+        "start": 1046.785,
+        "duration": 1.965
+    },
+    {
+        "text": "object including large rows columns,",
+        "start": 1048.75,
+        "duration": 1.98
+    },
+    {
+        "text": "and rows columns and individual cells here",
+        "start": 1050.73,
+        "duration": 2.16
+    },
+    {
+        "text": "but these tables also have something called headers and this",
+        "start": 1052.89,
+        "duration": 2.76
+    },
+    {
+        "text": "is pretty much a really hot new feature",
+        "start": 1055.65,
+        "duration": 2.13
+    },
+    {
+        "text": "that's actually going out with layout at build.",
+        "start": 1057.78,
+        "duration": 3.81
+    },
+    {
+        "text": "What I'm showing here is a preview of the build feature",
+        "start": 1061.59,
+        "duration": 2.865
+    },
+    {
+        "text": "that will be available starting in the next week or so",
+        "start": 1064.455,
+        "duration": 3.825
+    },
+    {
+        "text": "and so the difference is in now we add a little bit of",
+        "start": 1068.28,
+        "duration": 2.295
+    },
+    {
+        "text": "Header attribute there but what you can",
+        "start": 1070.575,
+        "duration": 2.355
+    },
+    {
+        "text": "do is now you can use it to",
+        "start": 1072.93,
+        "duration": 2.01
+    },
+    {
+        "text": "understand and recognize that these headers,",
+        "start": 1074.94,
+        "duration": 2.805
+    },
+    {
+        "text": "so people had a table with the header.",
+        "start": 1077.745,
+        "duration": 1.95
+    },
+    {
+        "text": "This is a deep learning based in the sense",
+        "start": 1079.695,
+        "duration": 3.36
+    },
+    {
+        "text": "that not all rows",
+        "start": 1083.055,
+        "duration": 1.83
+    },
+    {
+        "text": "and not just the first really reallocate as a header.",
+        "start": 1084.885,
+        "duration": 2.28
+    },
+    {
+        "text": "Only if it's actually is meant to be a header.",
+        "start": 1087.165,
+        "duration": 4.89
+    },
+    {
+        "text": "That's sort of trying to predict that,",
+        "start": 1092.055,
+        "duration": 1.77
+    },
+    {
+        "text": "it's just going to meaningful prediction I guess.",
+        "start": 1093.825,
+        "duration": 1.965
+    },
+    {
+        "text": ">> That's really cool. So it's",
+        "start": 1095.79,
+        "duration": 1.8
+    },
+    {
+        "text": "a building block that we're actually",
+        "start": 1097.59,
+        "duration": 1.74
+    },
+    {
+        "text": "using to do even more cool things.",
+        "start": 1099.33,
+        "duration": 3.81
+    },
+    {
+        "text": "Because reading text is great,",
+        "start": 1103.14,
+        "duration": 3.165
+    },
+    {
+        "text": "but reading a layout of a page,",
+        "start": 1106.305,
+        "duration": 2.325
+    },
+    {
+        "text": "which is what Form Recognizer is doing I think,",
+        "start": 1108.63,
+        "duration": 2.37
+    },
+    {
+        "text": "and understanding layouts and tables and etc.,",
+        "start": 1111.0,
+        "duration": 3.015
+    },
+    {
+        "text": "that's actually really cool too.",
+        "start": 1114.015,
+        "duration": 2.085
+    },
+    {
+        "text": ">> Just to close on that, notice this is the layout output here,",
+        "start": 1116.1,
+        "duration": 2.85
+    },
+    {
+        "text": "so that's the read result.",
+        "start": 1118.95,
+        "duration": 1.44
+    },
+    {
+        "text": "That's the OCR, those are all the text lines,",
+        "start": 1120.39,
+        "duration": 3.78
+    },
+    {
+        "text": "those are all the selection marks we saw",
+        "start": 1124.17,
+        "duration": 1.83
+    },
+    {
+        "text": "along with the state, selected here.",
+        "start": 1126.0,
+        "duration": 2.79
+    },
+    {
+        "text": "Then this is the tables,",
+        "start": 1128.79,
+        "duration": 2.1
+    },
+    {
+        "text": "the pieces of [inaudible] we were looking at.",
+        "start": 1130.89,
+        "duration": 2.115
+    },
+    {
+        "text": ">> That's cool.",
+        "start": 1133.005,
+        "duration": 1.32
+    },
+    {
+        "text": ">> Yeah.",
+        "start": 1134.325,
+        "duration": 0.615
+    },
+    {
+        "text": ">> That's cool. Here's a question that may",
+        "start": 1134.94,
+        "duration": 3.03
+    },
+    {
+        "text": "be another harder question.",
+        "start": 1137.97,
+        "duration": 3.495
+    },
+    {
+        "text": "Maybe you answered this a little bit",
+        "start": 1141.465,
+        "duration": 1.575
+    },
+    {
+        "text": "and I just wasn't paying attention.",
+        "start": 1143.04,
+        "duration": 1.275
+    },
+    {
+        "text": "What if I work for a place that has sensitive documents,",
+        "start": 1144.315,
+        "duration": 4.14
+    },
+    {
+        "text": "and there's some trepidation or maybe even some legal requirements",
+        "start": 1148.455,
+        "duration": 4.29
+    },
+    {
+        "text": "where you cannot send these documents",
+        "start": 1152.745,
+        "duration": 2.295
+    },
+    {
+        "text": "off to some machine like Europe,",
+        "start": 1155.04,
+        "duration": 2.22
+    },
+    {
+        "text": "for example, has some pretty amazing privacy laws.",
+        "start": 1157.26,
+        "duration": 4.05
+    },
+    {
+        "text": "What can they do?",
+        "start": 1161.31,
+        "duration": 2.34
+    },
+    {
+        "text": ">> Right. They'd lead into the fact that,",
+        "start": 1163.65,
+        "duration": 2.91
+    },
+    {
+        "text": "remember I talked about read on [inaudible] container?",
+        "start": 1166.56,
+        "duration": 4.17
+    },
+    {
+        "text": "So all you need to do is go search the internet for read,",
+        "start": 1170.73,
+        "duration": 3.03
+    },
+    {
+        "text": "deep containers, Microsoft readers here or",
+        "start": 1173.76,
+        "duration": 2.1
+    },
+    {
+        "text": "Microsoft OCR containers and you will come to this page,",
+        "start": 1175.86,
+        "duration": 2.1
+    },
+    {
+        "text": "which is by the way, part of",
+        "start": 1177.96,
+        "duration": 1.05
+    },
+    {
+        "text": "the OCR documentation in computer vision and right here,",
+        "start": 1179.01,
+        "duration": 4.08
+    },
+    {
+        "text": "you will get all the details to apply.",
+        "start": 1183.09,
+        "duration": 2.43
+    },
+    {
+        "text": "OCR read, OCR containers are gated in the sense that we require",
+        "start": 1185.52,
+        "duration": 3.63
+    },
+    {
+        "text": "businesses to actually request access and say if you follow this,",
+        "start": 1189.15,
+        "duration": 3.84
+    },
+    {
+        "text": "there's a request form that you've got to fill out.",
+        "start": 1192.99,
+        "duration": 2.28
+    },
+    {
+        "text": "Approval happens pretty quickly,",
+        "start": 1195.27,
+        "duration": 1.59
+    },
+    {
+        "text": "but once you have that,",
+        "start": 1196.86,
+        "duration": 1.14
+    },
+    {
+        "text": "there's a whole section on how to go ahead and actually",
+        "start": 1198.0,
+        "duration": 2.25
+    },
+    {
+        "text": "download the Docker Container.",
+        "start": 1200.25,
+        "duration": 2.28
+    },
+    {
+        "text": "In fact, I have a Docker Container running right now on",
+        "start": 1202.53,
+        "duration": 2.34
+    },
+    {
+        "text": "my laptop and so if I go back to show you right here,",
+        "start": 1204.87,
+        "duration": 6.975
+    },
+    {
+        "text": "it's running on my local host right on my laptop here.",
+        "start": 1211.845,
+        "duration": 2.925
+    },
+    {
+        "text": "In fact, that's the swagger and you'll",
+        "start": 1214.77,
+        "duration": 2.52
+    },
+    {
+        "text": "notice I actually use the same image here.",
+        "start": 1217.29,
+        "duration": 2.61
+    },
+    {
+        "text": "By the way, this has a sync operation too.",
+        "start": 1219.9,
+        "duration": 2.445
+    },
+    {
+        "text": "I can just use a sync analyze if I'm lazy enough,",
+        "start": 1222.345,
+        "duration": 3.165
+    },
+    {
+        "text": "and so I chose this file here on the same image one.",
+        "start": 1225.51,
+        "duration": 3.81
+    },
+    {
+        "text": "The same image here, actually let me do a different one.",
+        "start": 1229.32,
+        "duration": 3.45
+    },
+    {
+        "text": "This one, image two, and then execute.",
+        "start": 1232.77,
+        "duration": 4.21
+    },
+    {
+        "text": "Now, this is a sync operation",
+        "start": 1236.98,
+        "duration": 2.05
+    },
+    {
+        "text": "that we provide in the container documents.",
+        "start": 1239.03,
+        "duration": 1.35
+    },
+    {
+        "text": "You get the result right away.",
+        "start": 1240.38,
+        "duration": 1.365
+    },
+    {
+        "text": "You don't have to do a get read this out, but there you go.",
+        "start": 1241.745,
+        "duration": 2.54
+    },
+    {
+        "text": ">> This is running on your laptop and a Container?",
+        "start": 1244.285,
+        "duration": 2.18
+    },
+    {
+        "text": ">> Yeah. Exactly. Yeah.",
+        "start": 1246.465,
+        "duration": 2.455
+    },
+    {
+        "text": ">> So basically now,",
+        "start": 1249.17,
+        "duration": 3.565
+    },
+    {
+        "text": "if you set this up in your organization,",
+        "start": 1252.735,
+        "duration": 2.91
+    },
+    {
+        "text": "these documents, effectively, never leave the premises.",
+        "start": 1255.645,
+        "duration": 4.155
+    },
+    {
+        "text": ">> Yes that's correct. Yes. Nothing leaves your premises,",
+        "start": 1259.8,
+        "duration": 3.24
+    },
+    {
+        "text": "nothing leaves your compliance boundaries.",
+        "start": 1263.04,
+        "duration": 2.039
+    },
+    {
+        "text": "The only thing the container will connect to Azure",
+        "start": 1265.079,
+        "duration": 2.311
+    },
+    {
+        "text": "is to transmit the billing usage,",
+        "start": 1267.39,
+        "duration": 2.565
+    },
+    {
+        "text": "transactions and so on so that you get billed at the rate.",
+        "start": 1269.955,
+        "duration": 3.045
+    },
+    {
+        "text": ">> That is really cool.",
+        "start": 1273.0,
+        "duration": 1.65
+    },
+    {
+        "text": "Where can people go to find out more?",
+        "start": 1274.65,
+        "duration": 3.16
+    },
+    {
+        "text": ">> Just search for I would say it's also",
+        "start": 1279.23,
+        "duration": 2.62
+    },
+    {
+        "text": "Microsoft OCR read documentation.",
+        "start": 1281.85,
+        "duration": 2.28
+    },
+    {
+        "text": "It will take you straight to",
+        "start": 1284.13,
+        "duration": 2.0
+    },
+    {
+        "text": "this overview page which says OCR overview.",
+        "start": 1286.13,
+        "duration": 3.03
+    },
+    {
+        "text": "In fact, that was a page that was open here.",
+        "start": 1289.16,
+        "duration": 2.31
+    },
+    {
+        "text": "If you come to this page,",
+        "start": 1291.47,
+        "duration": 1.425
+    },
+    {
+        "text": "it has everything that you need to know,",
+        "start": 1292.895,
+        "duration": 1.365
+    },
+    {
+        "text": "including a Quick start that uses the same Python STK,",
+        "start": 1294.26,
+        "duration": 4.14
+    },
+    {
+        "text": "that's the sample that I'm using along with",
+        "start": 1298.4,
+        "duration": 1.895
+    },
+    {
+        "text": "APIs and then including some really interesting,",
+        "start": 1300.295,
+        "duration": 3.71
+    },
+    {
+        "text": "we are talking about data privacy and security that was",
+        "start": 1304.005,
+        "duration": 2.34
+    },
+    {
+        "text": "just published content from our responsible AI,",
+        "start": 1306.345,
+        "duration": 2.595
+    },
+    {
+        "text": "[inaudible] There,",
+        "start": 1308.94,
+        "duration": 3.3
+    },
+    {
+        "text": "you can go into and also within the how to read,",
+        "start": 1312.24,
+        "duration": 2.52
+    },
+    {
+        "text": "you can understand how to call",
+        "start": 1314.76,
+        "duration": 1.47
+    },
+    {
+        "text": "the Read API and this is",
+        "start": 1316.23,
+        "duration": 1.8
+    },
+    {
+        "text": "what we have been going through in the session right now.",
+        "start": 1318.03,
+        "duration": 2.235
+    },
+    {
+        "text": "These features into the Read Container,",
+        "start": 1320.265,
+        "duration": 3.165
+    },
+    {
+        "text": "the stuff is right here. It's all right here.",
+        "start": 1323.43,
+        "duration": 2.325
+    },
+    {
+        "text": ">> This is really cool stuff.",
+        "start": 1325.755,
+        "duration": 2.025
+    },
+    {
+        "text": "I'm passing these links up so everyone can see them.",
+        "start": 1327.78,
+        "duration": 4.015
+    },
+    {
+        "text": "Well, this has been amazing.",
+        "start": 1331.795,
+        "duration": 1.875
+    },
+    {
+        "text": "Thank you so much for spending some time with us.",
+        "start": 1333.67,
+        "duration": 2.715
+    },
+    {
+        "text": "We've been learning all about what's new in computer vision,",
+        "start": 1336.385,
+        "duration": 3.62
+    },
+    {
+        "text": "OCR was Sanjeev, thanks so much for being with us.",
+        "start": 1340.005,
+        "duration": 2.245
+    },
+    {
+        "text": "Thank you so much for watching and hopefully,",
+        "start": 1342.25,
+        "duration": 1.83
+    },
+    {
+        "text": "we'll see you next time. Take care.",
+        "start": 1344.08,
+        "duration": 1.17
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 1345.25,
+        "duration": 11.75
+    }
+]

@@ -1,0 +1,3287 @@
+[
+    {
+        "text": ">> You're not going to want to miss this episode of the AI Show.",
+        "start": 0.0,
+        "duration": 3.15
+    },
+    {
+        "text": "We'll talk about Confidential AI.",
+        "start": 3.15,
+        "duration": 2.055
+    },
+    {
+        "text": "Imagine being able to safely and securely build models",
+        "start": 5.205,
+        "duration": 4.695
+    },
+    {
+        "text": "over sensitive data with multiple parties and strong guarantees,",
+        "start": 9.9,
+        "duration": 4.875
+    },
+    {
+        "text": "you're not going to want to miss it, make sure you tune in.",
+        "start": 14.775,
+        "duration": 1.755
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 16.53,
+        "duration": 8.22
+    },
+    {
+        "text": ">> Hello and welcome to this special build edition of the AI Show.",
+        "start": 24.75,
+        "duration": 3.24
+    },
+    {
+        "text": "We're talking about Confidential AI.",
+        "start": 27.99,
+        "duration": 1.68
+    },
+    {
+        "text": "I got a special guest with me.",
+        "start": 29.67,
+        "duration": 1.11
+    },
+    {
+        "text": "Hello, my friend, tell us who you are and what you do.",
+        "start": 30.78,
+        "duration": 2.58
+    },
+    {
+        "text": ">> Hi there. My name is Sylvan Clebsch,",
+        "start": 33.36,
+        "duration": 2.43
+    },
+    {
+        "text": "and I'm a Security and Privacy Researcher at",
+        "start": 35.79,
+        "duration": 2.16
+    },
+    {
+        "text": "Microsoft Research in the Cambridge lab",
+        "start": 37.95,
+        "duration": 1.83
+    },
+    {
+        "text": "over in the UK, not in Boston.",
+        "start": 39.78,
+        "duration": 2.355
+    },
+    {
+        "text": "We work on a bunch of different things",
+        "start": 42.135,
+        "duration": 1.775
+    },
+    {
+        "text": "to do with confidential computing,",
+        "start": 43.91,
+        "duration": 1.755
+    },
+    {
+        "text": "and one of those is Confidential AI,",
+        "start": 45.665,
+        "duration": 1.785
+    },
+    {
+        "text": "which I'm pretty excited about.",
+        "start": 47.45,
+        "duration": 1.23
+    },
+    {
+        "text": ">> Fantastic. Well, why don't we dive in?",
+        "start": 48.68,
+        "duration": 2.955
+    },
+    {
+        "text": ">> Sure. If all right,",
+        "start": 51.635,
+        "duration": 2.205
+    },
+    {
+        "text": "I've got some slides I've put together.",
+        "start": 53.84,
+        "duration": 1.41
+    },
+    {
+        "text": ">> All right. Let's go to that.",
+        "start": 55.25,
+        "duration": 1.16
+    },
+    {
+        "text": ">> So Confidential AI is a workstream that's been",
+        "start": 56.41,
+        "duration": 2.335
+    },
+    {
+        "text": "going on for awhile at the lab that we're pretty excited about.",
+        "start": 58.745,
+        "duration": 2.79
+    },
+    {
+        "text": "It's to do with the kinds of guarantees that",
+        "start": 61.535,
+        "duration": 3.405
+    },
+    {
+        "text": "we can offer customers in terms of confidentiality,",
+        "start": 64.94,
+        "duration": 3.51
+    },
+    {
+        "text": "encryption, and integrity, and it's all",
+        "start": 68.45,
+        "duration": 2.49
+    },
+    {
+        "text": "about data privacy and data for purpose.",
+        "start": 70.94,
+        "duration": 2.915
+    },
+    {
+        "text": "When we talk about confidential computing on Azure,",
+        "start": 73.855,
+        "duration": 3.145
+    },
+    {
+        "text": "we already have a bunch of existing technologies that",
+        "start": 77.0,
+        "duration": 3.6
+    },
+    {
+        "text": "are deployed across the Azure Stack for data privacy,",
+        "start": 80.6,
+        "duration": 3.555
+    },
+    {
+        "text": "and these are data at rest and data in transit.",
+        "start": 84.155,
+        "duration": 3.405
+    },
+    {
+        "text": "So we use encryption for both of these things.",
+        "start": 87.56,
+        "duration": 2.175
+    },
+    {
+        "text": "We use TLS connections when we communicate between servers.",
+        "start": 89.735,
+        "duration": 3.45
+    },
+    {
+        "text": "We use encrypted disks,",
+        "start": 93.185,
+        "duration": 2.235
+    },
+    {
+        "text": "we use encrypted storage.",
+        "start": 95.42,
+        "duration": 2.19
+    },
+    {
+        "text": "We apply a lot of technology",
+        "start": 97.61,
+        "duration": 2.07
+    },
+    {
+        "text": "to ensuring customers have data privacy.",
+        "start": 99.68,
+        "duration": 2.265
+    },
+    {
+        "text": "But what's new in confidential computing is to add",
+        "start": 101.945,
+        "duration": 3.405
+    },
+    {
+        "text": "the ability to protect",
+        "start": 105.35,
+        "duration": 1.02
+    },
+    {
+        "text": "an encrypted data during computation itself.",
+        "start": 106.37,
+        "duration": 3.09
+    },
+    {
+        "text": "So that while your program is running,",
+        "start": 109.46,
+        "duration": 2.97
+    },
+    {
+        "text": "the program itself is protected",
+        "start": 112.43,
+        "duration": 2.475
+    },
+    {
+        "text": "from everything else on that same machine.",
+        "start": 114.905,
+        "duration": 2.755
+    },
+    {
+        "text": "It's very strong guarantee and it's",
+        "start": 117.66,
+        "duration": 1.97
+    },
+    {
+        "text": "a technical guarantee rather than a process guarantee.",
+        "start": 119.63,
+        "duration": 2.475
+    },
+    {
+        "text": "There are lots of very trustworthy Azure services",
+        "start": 122.105,
+        "duration": 3.03
+    },
+    {
+        "text": "that already exist that depend on process guarantees,",
+        "start": 125.135,
+        "duration": 2.555
+    },
+    {
+        "text": "where a business relationship with Microsoft gives customers",
+        "start": 127.69,
+        "duration": 2.77
+    },
+    {
+        "text": "the confidence that Microsoft is doing",
+        "start": 130.46,
+        "duration": 1.5
+    },
+    {
+        "text": "the right thing in terms of protecting their data.",
+        "start": 131.96,
+        "duration": 2.25
+    },
+    {
+        "text": "But for some scenarios, that's not sufficient.",
+        "start": 134.21,
+        "duration": 3.02
+    },
+    {
+        "text": "Whether that's for regulatory reasons or ethical reasons,",
+        "start": 137.23,
+        "duration": 3.09
+    },
+    {
+        "text": "there are scenarios that require",
+        "start": 140.32,
+        "duration": 2.11
+    },
+    {
+        "text": "strong technical guarantees rather than merely process guarantees.",
+        "start": 142.43,
+        "duration": 4.44
+    },
+    {
+        "text": "So the platform that we've just GA,",
+        "start": 146.87,
+        "duration": 3.6
+    },
+    {
+        "text": "because I wanted to general availability this month,",
+        "start": 150.47,
+        "duration": 2.37
+    },
+    {
+        "text": "is Azure confidential computing using Intel SGX,",
+        "start": 152.84,
+        "duration": 3.48
+    },
+    {
+        "text": "which is Software Guard Extensions,",
+        "start": 156.32,
+        "duration": 1.755
+    },
+    {
+        "text": "which is an approach to adding a trusted execution environment to",
+        "start": 158.075,
+        "duration": 3.405
+    },
+    {
+        "text": "regular old Intel hardware on",
+        "start": 161.48,
+        "duration": 1.77
+    },
+    {
+        "text": "the CPUs that we know and love and program for.",
+        "start": 163.25,
+        "duration": 3.015
+    },
+    {
+        "text": "So what those look like,",
+        "start": 166.265,
+        "duration": 3.135
+    },
+    {
+        "text": "it's a little complicated.",
+        "start": 169.4,
+        "duration": 1.275
+    },
+    {
+        "text": "When we look at the Stack,",
+        "start": 170.675,
+        "duration": 1.56
+    },
+    {
+        "text": "we see that in the normal operation,",
+        "start": 172.235,
+        "duration": 2.325
+    },
+    {
+        "text": "we have the hardware, the hypervisor,",
+        "start": 174.56,
+        "duration": 1.98
+    },
+    {
+        "text": "the operating system, the application,",
+        "start": 176.54,
+        "duration": 2.115
+    },
+    {
+        "text": "and all of these things are inside what we",
+        "start": 178.655,
+        "duration": 1.725
+    },
+    {
+        "text": "call the trusted computing base.",
+        "start": 180.38,
+        "duration": 2.52
+    },
+    {
+        "text": "For security and privacy people,",
+        "start": 182.9,
+        "duration": 1.77
+    },
+    {
+        "text": "when we say trusted,",
+        "start": 184.67,
+        "duration": 1.185
+    },
+    {
+        "text": "we mean that is a bad thing.",
+        "start": 185.855,
+        "duration": 1.635
+    },
+    {
+        "text": "We mean those are the things that you have to trust.",
+        "start": 187.49,
+        "duration": 2.865
+    },
+    {
+        "text": "If anything goes wrong with them,",
+        "start": 190.355,
+        "duration": 2.085
+    },
+    {
+        "text": "your data's in danger.",
+        "start": 192.44,
+        "duration": 1.915
+    },
+    {
+        "text": "So what we want to do is we want to",
+        "start": 194.355,
+        "duration": 1.385
+    },
+    {
+        "text": "minimize that trusted computing base,",
+        "start": 195.74,
+        "duration": 1.8
+    },
+    {
+        "text": "make it as small as possible.",
+        "start": 197.54,
+        "duration": 1.91
+    },
+    {
+        "text": "Trust execution environments allow",
+        "start": 199.45,
+        "duration": 2.59
+    },
+    {
+        "text": "us to get down to where we only have to",
+        "start": 202.04,
+        "duration": 1.8
+    },
+    {
+        "text": "trust a little bit of",
+        "start": 203.84,
+        "duration": 1.26
+    },
+    {
+        "text": "the hardware and a little bit of your application.",
+        "start": 205.1,
+        "duration": 3.435
+    },
+    {
+        "text": "Everything else, no matter how malicious it is,",
+        "start": 208.535,
+        "duration": 3.51
+    },
+    {
+        "text": "cannot affect your program,",
+        "start": 212.045,
+        "duration": 2.11
+    },
+    {
+        "text": "it can't alter its execution,",
+        "start": 214.155,
+        "duration": 1.895
+    },
+    {
+        "text": "it can't discover the data,",
+        "start": 216.05,
+        "duration": 1.69
+    },
+    {
+        "text": "it's just nothing it can do.",
+        "start": 217.74,
+        "duration": 1.655
+    },
+    {
+        "text": "So that isolation guarantee is hugely important.",
+        "start": 219.395,
+        "duration": 5.06
+    },
+    {
+        "text": "The secure portion of processor and memory is what gives us this",
+        "start": 224.455,
+        "duration": 4.53
+    },
+    {
+        "text": "a trust guarantee over",
+        "start": 228.985,
+        "duration": 2.875
+    },
+    {
+        "text": "the chunk of code that",
+        "start": 231.86,
+        "duration": 1.83
+    },
+    {
+        "text": "represents the critical portion of the application.",
+        "start": 233.69,
+        "duration": 2.895
+    },
+    {
+        "text": ">> So if I may just interrupt for a second,",
+        "start": 236.585,
+        "duration": 2.82
+    },
+    {
+        "text": "let me see if I'm understanding right.",
+        "start": 239.405,
+        "duration": 1.59
+    },
+    {
+        "text": "So what you're seeing is that there's certain code,",
+        "start": 240.995,
+        "duration": 2.705
+    },
+    {
+        "text": "and when you say trusted it means that it can",
+        "start": 243.7,
+        "duration": 2.515
+    },
+    {
+        "text": "access certain things that we don't want it to.",
+        "start": 246.215,
+        "duration": 2.58
+    },
+    {
+        "text": "Well, are we isolating that? Is that what you're saying?",
+        "start": 248.795,
+        "duration": 2.7
+    },
+    {
+        "text": "I think I misunderstood and I want to",
+        "start": 251.495,
+        "duration": 1.725
+    },
+    {
+        "text": "make sure I understand correctly.",
+        "start": 253.22,
+        "duration": 2.68
+    },
+    {
+        "text": ">> What I mean by that is the trusted code is",
+        "start": 256.04,
+        "duration": 3.6
+    },
+    {
+        "text": "the only code that we want to be able to touch our important data.",
+        "start": 259.64,
+        "duration": 4.11
+    },
+    {
+        "text": "So we want to minimize what is allowed to ever touch that data.",
+        "start": 263.75,
+        "duration": 4.44
+    },
+    {
+        "text": "We want to do it such that your memory",
+        "start": 268.19,
+        "duration": 2.96
+    },
+    {
+        "text": "is encrypted, it's integrity protected.",
+        "start": 271.15,
+        "duration": 2.65
+    },
+    {
+        "text": "Any attack on that computer,",
+        "start": 273.8,
+        "duration": 2.48
+    },
+    {
+        "text": "whether it's a hardware probe,",
+        "start": 276.28,
+        "duration": 1.785
+    },
+    {
+        "text": "someone with admin rights to the machine,",
+        "start": 278.065,
+        "duration": 1.845
+    },
+    {
+        "text": "anything like that, can't touch your data, can't read it,",
+        "start": 279.91,
+        "duration": 3.63
+    },
+    {
+        "text": "can't write to it, can't interfere with your computation,",
+        "start": 283.54,
+        "duration": 2.76
+    },
+    {
+        "text": "and that's the confidentiality guarantee.",
+        "start": 286.3,
+        "duration": 1.98
+    },
+    {
+        "text": ">> I see. So as we're going,",
+        "start": 288.28,
+        "duration": 2.91
+    },
+    {
+        "text": "and so I want to make sure I understand,",
+        "start": 291.19,
+        "duration": 2.445
+    },
+    {
+        "text": "so basically there's certain code that we need",
+        "start": 293.635,
+        "duration": 3.255
+    },
+    {
+        "text": "to trust implicitly with access to sensitive information.",
+        "start": 296.89,
+        "duration": 3.51
+    },
+    {
+        "text": "What we want to do is we want to make sure we isolate that code,",
+        "start": 300.4,
+        "duration": 3.3
+    },
+    {
+        "text": "so that if it is accessing things,",
+        "start": 303.7,
+        "duration": 2.07
+    },
+    {
+        "text": "nothing else inside of",
+        "start": 305.77,
+        "duration": 1.86
+    },
+    {
+        "text": "that program can access it. Is that about right?",
+        "start": 307.63,
+        "duration": 2.68
+    },
+    {
+        "text": ">> You've got it. That minimizes the attack surface,",
+        "start": 310.31,
+        "duration": 3.78
+    },
+    {
+        "text": "and make sure that only the code that we had validated is",
+        "start": 314.09,
+        "duration": 4.08
+    },
+    {
+        "text": "being exactly what we want is allowed",
+        "start": 318.17,
+        "duration": 2.49
+    },
+    {
+        "text": "to do any operations over that data.",
+        "start": 320.66,
+        "duration": 3.395
+    },
+    {
+        "text": "When I say exactly what we want,",
+        "start": 324.055,
+        "duration": 2.44
+    },
+    {
+        "text": "it's one thing to say we",
+        "start": 326.495,
+        "duration": 1.965
+    },
+    {
+        "text": "think we're running that code on that machine.",
+        "start": 328.46,
+        "duration": 2.49
+    },
+    {
+        "text": "But actually what we want is",
+        "start": 330.95,
+        "duration": 1.17
+    },
+    {
+        "text": "cryptographic proof that we",
+        "start": 332.12,
+        "duration": 1.86
+    },
+    {
+        "text": "actually are running that code on the machine.",
+        "start": 333.98,
+        "duration": 1.71
+    },
+    {
+        "text": "What if the machine was running some other code?",
+        "start": 335.69,
+        "duration": 1.83
+    },
+    {
+        "text": "It's often the Cloud somewhere obviously,",
+        "start": 337.52,
+        "duration": 2.2
+    },
+    {
+        "text": "so we didn't sit there physically and loaded up.",
+        "start": 339.72,
+        "duration": 2.875
+    },
+    {
+        "text": "Trusted execution environment give us that ability too,",
+        "start": 342.595,
+        "duration": 2.705
+    },
+    {
+        "text": "which was pretty exciting, and this is",
+        "start": 345.3,
+        "duration": 1.31
+    },
+    {
+        "text": "remotely verifiable at this station.",
+        "start": 346.61,
+        "duration": 1.755
+    },
+    {
+        "text": "So what happens here is",
+        "start": 348.365,
+        "duration": 1.485
+    },
+    {
+        "text": "the hardware measures the code and the memory.",
+        "start": 349.85,
+        "duration": 2.3
+    },
+    {
+        "text": "When we say measure we mean, takes a hash of it.",
+        "start": 352.15,
+        "duration": 2.02
+    },
+    {
+        "text": "It really is as straightforward",
+        "start": 354.17,
+        "duration": 1.905
+    },
+    {
+        "text": "as a one way cryptographic hash of the code and the memory.",
+        "start": 356.075,
+        "duration": 4.98
+    },
+    {
+        "text": "But it's taken by the hardware and",
+        "start": 361.055,
+        "duration": 3.105
+    },
+    {
+        "text": "that measurement then is signed by the hardware itself.",
+        "start": 364.16,
+        "duration": 4.09
+    },
+    {
+        "text": "So there is a complicated process of local attestation which uses",
+        "start": 368.25,
+        "duration": 3.425
+    },
+    {
+        "text": "symmetric keys to pass a report to a quoting enclave,",
+        "start": 371.675,
+        "duration": 4.56
+    },
+    {
+        "text": "which has hardware provisioned",
+        "start": 376.235,
+        "duration": 2.175
+    },
+    {
+        "text": "public keys and can",
+        "start": 378.41,
+        "duration": 1.62
+    },
+    {
+        "text": "transform that report into what's called a quote,",
+        "start": 380.03,
+        "duration": 2.37
+    },
+    {
+        "text": "and that quote has a root of trust that's carries",
+        "start": 382.4,
+        "duration": 2.85
+    },
+    {
+        "text": "a digital certificate that goes all the way back to Intel.",
+        "start": 385.25,
+        "duration": 4.305
+    },
+    {
+        "text": "That means that anyone who receives",
+        "start": 389.555,
+        "duration": 2.445
+    },
+    {
+        "text": "that quote without any special hardware of their own can",
+        "start": 392.0,
+        "duration": 2.91
+    },
+    {
+        "text": "validate that it's genuine Intel SGX hardware",
+        "start": 394.91,
+        "duration": 3.465
+    },
+    {
+        "text": "that's running exactly the code that we expect to be running.",
+        "start": 398.375,
+        "duration": 3.845
+    },
+    {
+        "text": ">> That's pretty impressive.",
+        "start": 402.22,
+        "duration": 1.91
+    },
+    {
+        "text": "So basically we're having multiple parts,",
+        "start": 404.13,
+        "duration": 3.63
+    },
+    {
+        "text": "Intel being one of them, saying,",
+        "start": 407.76,
+        "duration": 2.559
+    },
+    {
+        "text": "\"Yeah, this is the right code because we've got to hash,",
+        "start": 410.319,
+        "duration": 3.161
+    },
+    {
+        "text": "and it's running in the right place",
+        "start": 413.48,
+        "duration": 1.77
+    },
+    {
+        "text": "because we know Intel verified it.\"",
+        "start": 415.25,
+        "duration": 2.555
+    },
+    {
+        "text": ">> That's right.",
+        "start": 417.805,
+        "duration": 1.055
+    },
+    {
+        "text": ">> Cool.",
+        "start": 418.86,
+        "duration": 0.225
+    },
+    {
+        "text": ">> Exactly.",
+        "start": 419.085,
+        "duration": 0.78
+    },
+    {
+        "text": ">> Cool.",
+        "start": 419.865,
+        "duration": 0.855
+    },
+    {
+        "text": ">> So we've got that as a platform that we want to",
+        "start": 420.72,
+        "duration": 3.78
+    },
+    {
+        "text": "use it for Confidential AI [inaudible].",
+        "start": 424.5,
+        "duration": 4.17
+    },
+    {
+        "text": "One of the things that we face as",
+        "start": 428.67,
+        "duration": 2.07
+    },
+    {
+        "text": "a series of challenges, obviously.",
+        "start": 430.74,
+        "duration": 1.515
+    },
+    {
+        "text": "So a key one is that we need",
+        "start": 432.255,
+        "duration": 1.995
+    },
+    {
+        "text": "to redesign our Machine learning products.",
+        "start": 434.25,
+        "duration": 2.145
+    },
+    {
+        "text": "It's not enough just to say we have",
+        "start": 436.395,
+        "duration": 1.815
+    },
+    {
+        "text": "some Machine learning products and we have some secure hardware.",
+        "start": 438.21,
+        "duration": 2.025
+    },
+    {
+        "text": "We actually have to rewrite",
+        "start": 440.235,
+        "duration": 1.755
+    },
+    {
+        "text": "those products to take advantage of the TE,",
+        "start": 441.99,
+        "duration": 4.02
+    },
+    {
+        "text": "minimize the code as the best possible software analysis,",
+        "start": 446.01,
+        "duration": 4.185
+    },
+    {
+        "text": "design end-to-end secure protocols.",
+        "start": 450.195,
+        "duration": 2.325
+    },
+    {
+        "text": "A bunch of serious work to get this right.",
+        "start": 452.52,
+        "duration": 2.955
+    },
+    {
+        "text": "At the same time,",
+        "start": 455.475,
+        "duration": 1.275
+    },
+    {
+        "text": "we have to mitigate what we call Data leakage.",
+        "start": 456.75,
+        "duration": 2.625
+    },
+    {
+        "text": "So there are two different types",
+        "start": 459.375,
+        "duration": 3.405
+    },
+    {
+        "text": "of Data leakage that pose very serious risks.",
+        "start": 462.78,
+        "duration": 2.7
+    },
+    {
+        "text": "One of them is Model extraction and Membership attacks.",
+        "start": 465.48,
+        "duration": 6.975
+    },
+    {
+        "text": "These are things that can be extracted by inference queries.",
+        "start": 472.455,
+        "duration": 2.895
+    },
+    {
+        "text": "When someone goes and actually performs inference over your model,",
+        "start": 475.35,
+        "duration": 3.585
+    },
+    {
+        "text": "if they have enough access to it,",
+        "start": 478.935,
+        "duration": 3.075
+    },
+    {
+        "text": "if they can form enough Inference queries,",
+        "start": 482.01,
+        "duration": 1.59
+    },
+    {
+        "text": "they can start extracting information about",
+        "start": 483.6,
+        "duration": 1.89
+    },
+    {
+        "text": "your model or about the training data.",
+        "start": 485.49,
+        "duration": 2.28
+    },
+    {
+        "text": "The other thing is that there may be",
+        "start": 487.77,
+        "duration": 1.89
+    },
+    {
+        "text": "observable side channels during computation.",
+        "start": 489.66,
+        "duration": 2.07
+    },
+    {
+        "text": "So your memory maybe encrypted,",
+        "start": 491.73,
+        "duration": 2.475
+    },
+    {
+        "text": "but if you access that encrypted memory in certain patterns,",
+        "start": 494.205,
+        "duration": 3.225
+    },
+    {
+        "text": "the attacker can do traffic analysis over",
+        "start": 497.43,
+        "duration": 2.01
+    },
+    {
+        "text": "those accesses to try and",
+        "start": 499.44,
+        "duration": 1.59
+    },
+    {
+        "text": "determine what the underlying computation really was.",
+        "start": 501.03,
+        "duration": 2.55
+    },
+    {
+        "text": "So there's a lot of work we have to do there.",
+        "start": 503.58,
+        "duration": 2.295
+    },
+    {
+        "text": "The other part is me to extend",
+        "start": 505.875,
+        "duration": 2.28
+    },
+    {
+        "text": "existing Azure services to",
+        "start": 508.155,
+        "duration": 2.07
+    },
+    {
+        "text": "take advantage of Confidential computing.",
+        "start": 510.225,
+        "duration": 1.665
+    },
+    {
+        "text": "There's a lot of infrastructure in",
+        "start": 511.89,
+        "duration": 1.92
+    },
+    {
+        "text": "Azure and being able to rely on it with",
+        "start": 513.81,
+        "duration": 3.18
+    },
+    {
+        "text": "the same kind of guarantees that we want out of",
+        "start": 516.99,
+        "duration": 1.8
+    },
+    {
+        "text": "our Confidential AI products",
+        "start": 518.79,
+        "duration": 1.815
+    },
+    {
+        "text": "is an important part of the whole story.",
+        "start": 520.605,
+        "duration": 2.34
+    },
+    {
+        "text": ">> I see. So you're saying that",
+        "start": 522.945,
+        "duration": 2.16
+    },
+    {
+        "text": "the first part was we have this new technology,",
+        "start": 525.105,
+        "duration": 3.255
+    },
+    {
+        "text": "the secure that you call them",
+        "start": 528.36,
+        "duration": 1.56
+    },
+    {
+        "text": "secure Enclaves, did I get that right?",
+        "start": 529.92,
+        "duration": 2.325
+    },
+    {
+        "text": ">> That's right. Yeah, we tend to call",
+        "start": 532.245,
+        "duration": 2.025
+    },
+    {
+        "text": "these TEs Enclaves, sorry about that.",
+        "start": 534.27,
+        "duration": 2.46
+    },
+    {
+        "text": ">> So you have these Enclaves,",
+        "start": 536.73,
+        "duration": 1.95
+    },
+    {
+        "text": "which is just a new way of doing computation.",
+        "start": 538.68,
+        "duration": 2.955
+    },
+    {
+        "text": "But in order to make AI work on a machine-learning,",
+        "start": 541.635,
+        "duration": 3.555
+    },
+    {
+        "text": "we might have to do some tinkering with the way we do",
+        "start": 545.19,
+        "duration": 3.27
+    },
+    {
+        "text": "ML AI in order to work in these new hardware environments.",
+        "start": 548.46,
+        "duration": 4.319
+    },
+    {
+        "text": ">> It's exactly. So let me give you an example of that.",
+        "start": 552.779,
+        "duration": 4.471
+    },
+    {
+        "text": "Let's talk about Confidential inference.",
+        "start": 557.25,
+        "duration": 2.365
+    },
+    {
+        "text": "So when we do inference,",
+        "start": 559.615,
+        "duration": 1.855
+    },
+    {
+        "text": "normally in some sense,",
+        "start": 561.47,
+        "duration": 2.07
+    },
+    {
+        "text": "we spin up a machine,",
+        "start": 563.54,
+        "duration": 1.83
+    },
+    {
+        "text": "it's running a PyTorch or a TensorFlow model,",
+        "start": 565.37,
+        "duration": 2.73
+    },
+    {
+        "text": "there's some load balancing,",
+        "start": 568.1,
+        "duration": 2.49
+    },
+    {
+        "text": "HTTP server in front of it,",
+        "start": 570.59,
+        "duration": 2.345
+    },
+    {
+        "text": "and we send off our inference request,",
+        "start": 572.935,
+        "duration": 2.15
+    },
+    {
+        "text": "we run it through it our model,",
+        "start": 575.085,
+        "duration": 1.665
+    },
+    {
+        "text": "we get a prediction, we send it back,",
+        "start": 576.75,
+        "duration": 2.34
+    },
+    {
+        "text": "and maybe that even HTTPS protected that Load balancer,",
+        "start": 579.09,
+        "duration": 5.29
+    },
+    {
+        "text": "but nothing else is.",
+        "start": 584.38,
+        "duration": 1.75
+    },
+    {
+        "text": "So the Load balance has full view of the customer data.",
+        "start": 586.13,
+        "duration": 4.29
+    },
+    {
+        "text": "The model, which may be a very secret model,",
+        "start": 590.42,
+        "duration": 3.45
+    },
+    {
+        "text": "is running on a machine that's not necessarily",
+        "start": 593.87,
+        "duration": 1.995
+    },
+    {
+        "text": "protected with anything stronger than the normal Azure guarantees,",
+        "start": 595.865,
+        "duration": 3.915
+    },
+    {
+        "text": "which while good, are not",
+        "start": 599.78,
+        "duration": 1.23
+    },
+    {
+        "text": "the same thing as a trusted execution environment.",
+        "start": 601.01,
+        "duration": 2.645
+    },
+    {
+        "text": "So what we want to do is provide",
+        "start": 603.655,
+        "duration": 2.285
+    },
+    {
+        "text": "an approach that can perform that kind of inference",
+        "start": 605.94,
+        "duration": 3.21
+    },
+    {
+        "text": "in such a way that the model and the query data is never visible,",
+        "start": 609.15,
+        "duration": 5.58
+    },
+    {
+        "text": "even to Microsoft, even to",
+        "start": 614.73,
+        "duration": 1.98
+    },
+    {
+        "text": "people with admin access to the machine.",
+        "start": 616.71,
+        "duration": 1.89
+    },
+    {
+        "text": "Even if we walked up to that machine",
+        "start": 618.6,
+        "duration": 1.5
+    },
+    {
+        "text": "and attached a hardware probe to it,",
+        "start": 620.1,
+        "duration": 1.605
+    },
+    {
+        "text": "we simply wouldn't have access to any of that data.",
+        "start": 621.705,
+        "duration": 2.835
+    },
+    {
+        "text": "The approach we've taken here is to",
+        "start": 624.54,
+        "duration": 2.25
+    },
+    {
+        "text": "concentrate on the ONNX Runtime,",
+        "start": 626.79,
+        "duration": 2.325
+    },
+    {
+        "text": "which is open source project for",
+        "start": 629.115,
+        "duration": 3.675
+    },
+    {
+        "text": "Microsoft that runs ONNX models which helps",
+        "start": 632.79,
+        "duration": 2.07
+    },
+    {
+        "text": "you encoding your AI model.",
+        "start": 634.86,
+        "duration": 2.58
+    },
+    {
+        "text": "We ported it to run inside of an Intel SGX enclave,",
+        "start": 637.44,
+        "duration": 3.075
+    },
+    {
+        "text": "and we did that such that we can",
+        "start": 640.515,
+        "duration": 1.95
+    },
+    {
+        "text": "really minimize the trusted computing base and get down",
+        "start": 642.465,
+        "duration": 2.175
+    },
+    {
+        "text": "to the minimal amount of code",
+        "start": 644.64,
+        "duration": 2.085
+    },
+    {
+        "text": "that we needed to trust in order to execute the service.",
+        "start": 646.725,
+        "duration": 2.85
+    },
+    {
+        "text": "So here in this diagram you can see you have",
+        "start": 649.575,
+        "duration": 2.505
+    },
+    {
+        "text": "a scalable cluster and we use ACC,",
+        "start": 652.08,
+        "duration": 2.73
+    },
+    {
+        "text": "Azure confidential computing, as our infrastructure baseline.",
+        "start": 654.81,
+        "duration": 3.735
+    },
+    {
+        "text": "So those are the SGX enabled machines that are",
+        "start": 658.545,
+        "duration": 3.285
+    },
+    {
+        "text": "now generally available in Azure across a collection of regions.",
+        "start": 661.83,
+        "duration": 3.495
+    },
+    {
+        "text": "We spin up virtual machines.",
+        "start": 665.325,
+        "duration": 2.7
+    },
+    {
+        "text": "On those virtual machines,",
+        "start": 668.025,
+        "duration": 1.845
+    },
+    {
+        "text": "we execute ONNX inside an enclave,",
+        "start": 669.87,
+        "duration": 2.94
+    },
+    {
+        "text": "inside an SGX trust execution environment and we load",
+        "start": 672.81,
+        "duration": 3.3
+    },
+    {
+        "text": "the encrypted model from",
+        "start": 676.11,
+        "duration": 1.26
+    },
+    {
+        "text": "Azure storage into that Inference enclave.",
+        "start": 677.37,
+        "duration": 3.075
+    },
+    {
+        "text": "In order to load that encrypted model,",
+        "start": 680.445,
+        "duration": 2.535
+    },
+    {
+        "text": "we need to prove that this is a true Inference enclave.",
+        "start": 682.98,
+        "duration": 3.72
+    },
+    {
+        "text": "So we present a quote,",
+        "start": 686.7,
+        "duration": 1.89
+    },
+    {
+        "text": "this remote attestation to Key Vault,",
+        "start": 688.59,
+        "duration": 2.595
+    },
+    {
+        "text": "and Key Vault only releases the key to",
+        "start": 691.185,
+        "duration": 2.445
+    },
+    {
+        "text": "that encrypted model if this really is",
+        "start": 693.63,
+        "duration": 2.84
+    },
+    {
+        "text": "an Inference enclave that's",
+        "start": 696.47,
+        "duration": 1.05
+    },
+    {
+        "text": "allowed to execute that encrypted model.",
+        "start": 697.52,
+        "duration": 2.475
+    },
+    {
+        "text": "At that point, we have a running Inference server.",
+        "start": 699.995,
+        "duration": 3.45
+    },
+    {
+        "text": "But what we don't have",
+        "start": 703.445,
+        "duration": 1.68
+    },
+    {
+        "text": "is the ability for the front-end to talk to it,",
+        "start": 705.125,
+        "duration": 2.22
+    },
+    {
+        "text": "because we can't have an HTTPS connection that's intercepted by",
+        "start": 707.345,
+        "duration": 4.045
+    },
+    {
+        "text": "the front-end because the front-end",
+        "start": 711.39,
+        "duration": 1.98
+    },
+    {
+        "text": "can examine the client data at that point.",
+        "start": 713.37,
+        "duration": 2.28
+    },
+    {
+        "text": "So we actually need to develop",
+        "start": 715.65,
+        "duration": 1.335
+    },
+    {
+        "text": "a new Cryptographic protocol which is",
+        "start": 716.985,
+        "duration": 1.515
+    },
+    {
+        "text": "a tunneled stateless protocol",
+        "start": 718.5,
+        "duration": 2.385
+    },
+    {
+        "text": "that goes through that L7 load balancer",
+        "start": 720.885,
+        "duration": 2.7
+    },
+    {
+        "text": "and executes secure key export to",
+        "start": 723.585,
+        "duration": 3.675
+    },
+    {
+        "text": "the Enclave over a shared key",
+        "start": 727.26,
+        "duration": 3.285
+    },
+    {
+        "text": "that can be communicated back to the Inference client.",
+        "start": 730.545,
+        "duration": 2.355
+    },
+    {
+        "text": "So the first thing the Inference client does is establish",
+        "start": 732.9,
+        "duration": 2.145
+    },
+    {
+        "text": "a connection to the front-end and issue",
+        "start": 735.045,
+        "duration": 2.265
+    },
+    {
+        "text": "a request for the underlying key",
+        "start": 737.31,
+        "duration": 2.58
+    },
+    {
+        "text": "that's routed to an Inference Enclave.",
+        "start": 739.89,
+        "duration": 2.445
+    },
+    {
+        "text": "The Inference Enclave proofs to Key Vault that it",
+        "start": 742.335,
+        "duration": 2.055
+    },
+    {
+        "text": "has the correct code running,",
+        "start": 744.39,
+        "duration": 2.16
+    },
+    {
+        "text": "and that it's allowed to see",
+        "start": 746.55,
+        "duration": 1.11
+    },
+    {
+        "text": "that shared key sends it back to the Inference client.",
+        "start": 747.66,
+        "duration": 2.085
+    },
+    {
+        "text": "Inference client uses that encrypted",
+        "start": 749.745,
+        "duration": 1.605
+    },
+    {
+        "text": "data and want a second request to that front-end.",
+        "start": 751.35,
+        "duration": 2.97
+    },
+    {
+        "text": "The tricky part is with a Load balancer, of course,",
+        "start": 754.32,
+        "duration": 2.385
+    },
+    {
+        "text": "that could go to any back-end at that point.",
+        "start": 756.705,
+        "duration": 3.12
+    },
+    {
+        "text": "So that encryption protocol has to be stateless,",
+        "start": 759.825,
+        "duration": 3.465
+    },
+    {
+        "text": "and that's why we need to leverage",
+        "start": 763.29,
+        "duration": 1.74
+    },
+    {
+        "text": "Key Vault and secure key release in order to make this all work.",
+        "start": 765.03,
+        "duration": 3.135
+    },
+    {
+        "text": "Because if the second request goes to a different front-end from",
+        "start": 768.165,
+        "duration": 3.105
+    },
+    {
+        "text": "the one that originally released the key, it will still work.",
+        "start": 771.27,
+        "duration": 3.3
+    },
+    {
+        "text": "You're still going to an Inference Enclave that is part of",
+        "start": 774.57,
+        "duration": 3.27
+    },
+    {
+        "text": "the same scalable cluster and it's",
+        "start": 777.84,
+        "duration": 1.47
+    },
+    {
+        "text": "proved that it is through remote attestation.",
+        "start": 779.31,
+        "duration": 2.52
+    },
+    {
+        "text": ">> I see. So in this case,",
+        "start": 781.83,
+        "duration": 2.01
+    },
+    {
+        "text": "you're not only protecting the model because it's encrypted,",
+        "start": 783.84,
+        "duration": 4.169
+    },
+    {
+        "text": "but the data that's coming in from the client is also protected?",
+        "start": 788.009,
+        "duration": 5.521
+    },
+    {
+        "text": ">> That's right, yeah.",
+        "start": 793.53,
+        "duration": 1.695
+    },
+    {
+        "text": ">> That's amazing. That's really impressive.",
+        "start": 795.225,
+        "duration": 2.67
+    },
+    {
+        "text": ">> Thank you. This is super exciting stuff to us",
+        "start": 797.895,
+        "duration": 2.775
+    },
+    {
+        "text": "where we're really keen I have to say.",
+        "start": 800.67,
+        "duration": 2.745
+    },
+    {
+        "text": "Being able to offer this level of guarantee not just",
+        "start": 803.415,
+        "duration": 3.735
+    },
+    {
+        "text": "offers better privacy guarantees to existing services.",
+        "start": 807.15,
+        "duration": 3.96
+    },
+    {
+        "text": "It really enabled services that",
+        "start": 811.11,
+        "duration": 1.35
+    },
+    {
+        "text": "otherwise simply wouldn't be possible.",
+        "start": 812.46,
+        "duration": 1.59
+    },
+    {
+        "text": "Particularly for example, in the health care arena",
+        "start": 814.05,
+        "duration": 2.1
+    },
+    {
+        "text": "where patient confidentiality is so important that it's",
+        "start": 816.15,
+        "duration": 3.09
+    },
+    {
+        "text": "simply not possible to do some of these services and run some of",
+        "start": 819.24,
+        "duration": 4.5
+    },
+    {
+        "text": "these complicated inference algorithms",
+        "start": 823.74,
+        "duration": 3.96
+    },
+    {
+        "text": "without this kind of guarantee.",
+        "start": 827.7,
+        "duration": 2.235
+    },
+    {
+        "text": "Now, a key part of this also is that",
+        "start": 829.935,
+        "duration": 2.865
+    },
+    {
+        "text": "the quote from the Inference Enclave is",
+        "start": 832.8,
+        "duration": 1.68
+    },
+    {
+        "text": "also returned to the Inference client.",
+        "start": 834.48,
+        "duration": 1.83
+    },
+    {
+        "text": "So the Inference client can independently verify",
+        "start": 836.31,
+        "duration": 2.97
+    },
+    {
+        "text": "that it's talking to a real SGX Enclave running",
+        "start": 839.28,
+        "duration": 3.24
+    },
+    {
+        "text": "the correct Inference Enclave that's loaded",
+        "start": 842.52,
+        "duration": 2.31
+    },
+    {
+        "text": "the correct model such that it knows",
+        "start": 844.83,
+        "duration": 2.46
+    },
+    {
+        "text": "that its query is being processed by the correct back-end ML.",
+        "start": 847.29,
+        "duration": 5.325
+    },
+    {
+        "text": ">> This is really cool. One of",
+        "start": 852.615,
+        "duration": 3.675
+    },
+    {
+        "text": "the challenges is once you build the model,",
+        "start": 856.29,
+        "duration": 3.26
+    },
+    {
+        "text": "if you've encrypted the model,",
+        "start": 859.55,
+        "duration": 1.29
+    },
+    {
+        "text": "like you said, you can put that encrypted model,",
+        "start": 860.84,
+        "duration": 2.64
+    },
+    {
+        "text": "you can unencrypt it and do inference,",
+        "start": 863.48,
+        "duration": 2.399
+    },
+    {
+        "text": "but you still have",
+        "start": 865.879,
+        "duration": 2.056
+    },
+    {
+        "text": "to have the client send stuff over the Internet.",
+        "start": 867.935,
+        "duration": 3.165
+    },
+    {
+        "text": "How do you protect that?",
+        "start": 871.1,
+        "duration": 1.38
+    },
+    {
+        "text": "This seems to be a pretty impressive way of doing them.",
+        "start": 872.48,
+        "duration": 4.31
+    },
+    {
+        "text": ">> Thank you. Pretty excited I have to say.",
+        "start": 876.79,
+        "duration": 3.575
+    },
+    {
+        "text": "So the next part of this is,",
+        "start": 880.365,
+        "duration": 2.42
+    },
+    {
+        "text": "while we're really excited to have",
+        "start": 882.785,
+        "duration": 1.545
+    },
+    {
+        "text": "a Confidential Inference Architecture.",
+        "start": 884.33,
+        "duration": 1.775
+    },
+    {
+        "text": "In some sense, it only gets us so far.",
+        "start": 886.105,
+        "duration": 3.07
+    },
+    {
+        "text": "We also want to have the ability to",
+        "start": 889.175,
+        "duration": 2.31
+    },
+    {
+        "text": "train those Confidential models in the first place.",
+        "start": 891.485,
+        "duration": 3.09
+    },
+    {
+        "text": "So let me back up a little bit",
+        "start": 894.575,
+        "duration": 2.445
+    },
+    {
+        "text": "before I talk about training Confidential models and",
+        "start": 897.02,
+        "duration": 2.34
+    },
+    {
+        "text": "talk about a little bit of",
+        "start": 899.36,
+        "duration": 2.1
+    },
+    {
+        "text": "a different approach to building Confidential Software.",
+        "start": 901.46,
+        "duration": 2.835
+    },
+    {
+        "text": "So in the Confidential Inference example,",
+        "start": 904.295,
+        "duration": 2.265
+    },
+    {
+        "text": "we built directly on top of the Trusted Execution Environment.",
+        "start": 906.56,
+        "duration": 4.41
+    },
+    {
+        "text": "We really minimize the heck out of the TCB.",
+        "start": 910.97,
+        "duration": 4.025
+    },
+    {
+        "text": "We have to write a custom application",
+        "start": 914.995,
+        "duration": 2.71
+    },
+    {
+        "text": "that's particularly tuned to run in the Enclave.",
+        "start": 917.705,
+        "duration": 2.865
+    },
+    {
+        "text": "But that's not always possible.",
+        "start": 920.57,
+        "duration": 2.11
+    },
+    {
+        "text": "Sometimes we just want to run arbitrary customer code.",
+        "start": 922.68,
+        "duration": 3.19
+    },
+    {
+        "text": "The customer has some huge block of Python that's",
+        "start": 925.87,
+        "duration": 3.135
+    },
+    {
+        "text": "running some critical part of their ML Pipeline,",
+        "start": 929.005,
+        "duration": 3.81
+    },
+    {
+        "text": "and they need to run it and confidential mode and saying to them,",
+        "start": 932.815,
+        "duration": 4.075
+    },
+    {
+        "text": "you need to rewrite that in C++ to",
+        "start": 936.89,
+        "duration": 2.21
+    },
+    {
+        "text": "a very complicated SDK just isn't in scope.",
+        "start": 939.1,
+        "duration": 3.465
+    },
+    {
+        "text": "So instead, we went down a different route.",
+        "start": 942.565,
+        "duration": 3.405
+    },
+    {
+        "text": "We ported the entire Linux kernel library",
+        "start": 945.97,
+        "duration": 3.255
+    },
+    {
+        "text": "to run inside of an Enclave.",
+        "start": 949.225,
+        "duration": 2.065
+    },
+    {
+        "text": "Now, what that does is we take a hit,",
+        "start": 951.29,
+        "duration": 3.47
+    },
+    {
+        "text": "we're running a larger TCB.",
+        "start": 954.76,
+        "duration": 1.41
+    },
+    {
+        "text": "We're really running the entire Linux kernel",
+        "start": 956.17,
+        "duration": 2.685
+    },
+    {
+        "text": "inside of your Enclave.",
+        "start": 958.855,
+        "duration": 1.515
+    },
+    {
+        "text": "So you can see that in this diagram,",
+        "start": 960.37,
+        "duration": 3.275
+    },
+    {
+        "text": "some of the operating system is inside of",
+        "start": 963.645,
+        "duration": 2.435
+    },
+    {
+        "text": "the TCB, unlike in the other one.",
+        "start": 966.08,
+        "duration": 2.37
+    },
+    {
+        "text": "On the other hand, what that means is",
+        "start": 968.45,
+        "duration": 2.25
+    },
+    {
+        "text": "your whole application can go inside of the TEE and it can",
+        "start": 970.7,
+        "duration": 3.57
+    },
+    {
+        "text": "run as if it were running on",
+        "start": 974.27,
+        "duration": 1.95
+    },
+    {
+        "text": "a normal Linux virtual machine",
+        "start": 976.22,
+        "duration": 2.07
+    },
+    {
+        "text": "and you don't have to change a thing.",
+        "start": 978.29,
+        "duration": 2.75
+    },
+    {
+        "text": "This lift and shift model really changes the game in",
+        "start": 981.04,
+        "duration": 3.46
+    },
+    {
+        "text": "terms of what kinds of code can be run in a confidential manner.",
+        "start": 984.5,
+        "duration": 3.36
+    },
+    {
+        "text": "So this diagram is a little complicated.",
+        "start": 987.86,
+        "duration": 1.98
+    },
+    {
+        "text": "I don't mean to dive into it too heavily,",
+        "start": 989.84,
+        "duration": 2.535
+    },
+    {
+        "text": "but the general idea is that the key thing that you",
+        "start": 992.375,
+        "duration": 3.84
+    },
+    {
+        "text": "can't do from inside of an enclave",
+        "start": 996.215,
+        "duration": 1.695
+    },
+    {
+        "text": "is access any kind of system calls.",
+        "start": 997.91,
+        "duration": 2.445
+    },
+    {
+        "text": "So we need to make sure that we",
+        "start": 1000.355,
+        "duration": 1.515
+    },
+    {
+        "text": "provide an entire system Call Layer,",
+        "start": 1001.87,
+        "duration": 2.37
+    },
+    {
+        "text": "a Virtio network back-end, Virtio block back-end,",
+        "start": 1004.24,
+        "duration": 3.51
+    },
+    {
+        "text": "we need to handle signals threading time,",
+        "start": 1007.75,
+        "duration": 2.715
+    },
+    {
+        "text": "everything from inside the Enclave through",
+        "start": 1010.465,
+        "duration": 2.865
+    },
+    {
+        "text": "a unified host interface that minimizes",
+        "start": 1013.33,
+        "duration": 2.4
+    },
+    {
+        "text": "the attack surface and that's open-source.",
+        "start": 1015.73,
+        "duration": 3.12
+    },
+    {
+        "text": "So whole source is open source, which is pretty fine.",
+        "start": 1018.85,
+        "duration": 3.045
+    },
+    {
+        "text": ">> So let me see if I understand.",
+        "start": 1021.895,
+        "duration": 1.605
+    },
+    {
+        "text": "When you say TCB, what is TCB mean in this case?",
+        "start": 1023.5,
+        "duration": 3.72
+    },
+    {
+        "text": ">> It's the Trusted Computing Base.",
+        "start": 1027.22,
+        "duration": 2.115
+    },
+    {
+        "text": "That's the collection of code they might touch your data.",
+        "start": 1029.335,
+        "duration": 3.73
+    },
+    {
+        "text": ">> Got it. Then the second thing which is",
+        "start": 1033.065,
+        "duration": 2.45
+    },
+    {
+        "text": "interesting is because I understood the Inference bit,",
+        "start": 1035.515,
+        "duration": 3.725
+    },
+    {
+        "text": "because you're basically running very specific set",
+        "start": 1039.24,
+        "duration": 3.55
+    },
+    {
+        "text": "of operations and I can",
+        "start": 1042.79,
+        "duration": 1.68
+    },
+    {
+        "text": "see how you can put an Enclave or around that.",
+        "start": 1044.47,
+        "duration": 2.13
+    },
+    {
+        "text": "So it's a little bit smaller TCB that you were saying.",
+        "start": 1046.6,
+        "duration": 3.3
+    },
+    {
+        "text": "But here what you did is you're basically creating a Linux kernel,",
+        "start": 1049.9,
+        "duration": 5.099
+    },
+    {
+        "text": "so it could do more things,",
+        "start": 1054.999,
+        "duration": 2.436
+    },
+    {
+        "text": "the Trusted computing base is larger,",
+        "start": 1057.435,
+        "duration": 2.545
+    },
+    {
+        "text": "but because of that you actually are",
+        "start": 1059.98,
+        "duration": 2.4
+    },
+    {
+        "text": "monitoring the Host interface for any of the system",
+        "start": 1062.38,
+        "duration": 3.06
+    },
+    {
+        "text": "calls that go through and minimizing",
+        "start": 1065.44,
+        "duration": 2.01
+    },
+    {
+        "text": "the attack surface through the system",
+        "start": 1067.45,
+        "duration": 1.86
+    },
+    {
+        "text": "calls that are allowed. Did I get that right?",
+        "start": 1069.31,
+        "duration": 2.495
+    },
+    {
+        "text": ">> You got it exactly.",
+        "start": 1071.805,
+        "duration": 2.24
+    },
+    {
+        "text": "That gives us the ability to run arbitrary the customer code,",
+        "start": 1074.045,
+        "duration": 3.725
+    },
+    {
+        "text": "and in an ML world where most of that's Python,",
+        "start": 1077.77,
+        "duration": 3.27
+    },
+    {
+        "text": "and that really gives you the ability to run",
+        "start": 1081.04,
+        "duration": 2.415
+    },
+    {
+        "text": "any part of your ML Pipeline in a confidential mode.",
+        "start": 1083.455,
+        "duration": 2.84
+    },
+    {
+        "text": ">> Which is really cool. One of the things that is hard to do is,",
+        "start": 1086.295,
+        "duration": 4.055
+    },
+    {
+        "text": "when you train these algorithms,",
+        "start": 1090.35,
+        "duration": 1.25
+    },
+    {
+        "text": "you're basically pushing a lot of data through it,",
+        "start": 1091.6,
+        "duration": 3.59
+    },
+    {
+        "text": "which is good but sometimes that data might be confidential.",
+        "start": 1095.19,
+        "duration": 4.135
+    },
+    {
+        "text": "So this allows you to protect only the code that you",
+        "start": 1099.325,
+        "duration": 4.005
+    },
+    {
+        "text": "want to be able to",
+        "start": 1103.33,
+        "duration": 1.17
+    },
+    {
+        "text": "train through those system calls that are protected.",
+        "start": 1104.5,
+        "duration": 3.645
+    },
+    {
+        "text": ">> That's a fantastic observation.",
+        "start": 1108.145,
+        "duration": 2.595
+    },
+    {
+        "text": "So let's look at the next slide.",
+        "start": 1110.74,
+        "duration": 2.415
+    },
+    {
+        "text": "That observation is the whole key",
+        "start": 1113.155,
+        "duration": 2.49
+    },
+    {
+        "text": "to the way we've dealt confidential ML Pipelines.",
+        "start": 1115.645,
+        "duration": 2.835
+    },
+    {
+        "text": "So the amount of data that you got to run through these things,",
+        "start": 1118.48,
+        "duration": 3.63
+    },
+    {
+        "text": "as you say, can be huge.",
+        "start": 1122.11,
+        "duration": 2.34
+    },
+    {
+        "text": "It's not always just about the training,",
+        "start": 1124.45,
+        "duration": 2.775
+    },
+    {
+        "text": "sometimes there's a bunch of other steps.",
+        "start": 1127.225,
+        "duration": 2.4
+    },
+    {
+        "text": "So this is an example of",
+        "start": 1129.625,
+        "duration": 1.515
+    },
+    {
+        "text": "a two party confidential ML Pipeline where separate entities.",
+        "start": 1131.14,
+        "duration": 5.97
+    },
+    {
+        "text": "Let's use an example in health care.",
+        "start": 1137.11,
+        "duration": 1.77
+    },
+    {
+        "text": "Let's say you have a couple of",
+        "start": 1138.88,
+        "duration": 1.56
+    },
+    {
+        "text": "hospitals that have separate sets of patient data,",
+        "start": 1140.44,
+        "duration": 2.715
+    },
+    {
+        "text": "and they're in completely different formats.",
+        "start": 1143.155,
+        "duration": 2.37
+    },
+    {
+        "text": "So they want to use",
+        "start": 1145.525,
+        "duration": 1.365
+    },
+    {
+        "text": "those two patient data sets",
+        "start": 1146.89,
+        "duration": 2.94
+    },
+    {
+        "text": "in order to train a model to get better results.",
+        "start": 1149.83,
+        "duration": 3.195
+    },
+    {
+        "text": "Now the problem here is it's deeply",
+        "start": 1153.025,
+        "duration": 2.55
+    },
+    {
+        "text": "unethical for the hospitals to share that data.",
+        "start": 1155.575,
+        "duration": 3.15
+    },
+    {
+        "text": "But at the same time, it's also deeply unethical for them",
+        "start": 1158.725,
+        "duration": 3.135
+    },
+    {
+        "text": "not to share the data for this specific purpose,",
+        "start": 1161.86,
+        "duration": 3.09
+    },
+    {
+        "text": "because we could be getting better patient outcomes",
+        "start": 1164.95,
+        "duration": 2.01
+    },
+    {
+        "text": "and that's what we really want.",
+        "start": 1166.96,
+        "duration": 1.56
+    },
+    {
+        "text": "Confidential ML lets us specify a technical guarantee that",
+        "start": 1168.52,
+        "duration": 5.43
+    },
+    {
+        "text": "the data will be used only for this purpose and",
+        "start": 1173.95,
+        "duration": 2.37
+    },
+    {
+        "text": "overcome this quandary of two unethical choices,",
+        "start": 1176.32,
+        "duration": 3.075
+    },
+    {
+        "text": "and gives an ethical choice that allows us to train",
+        "start": 1179.395,
+        "duration": 2.505
+    },
+    {
+        "text": "the superior model without ever",
+        "start": 1181.9,
+        "duration": 1.62
+    },
+    {
+        "text": "revealing the data for any other purpose.",
+        "start": 1183.52,
+        "duration": 2.215
+    },
+    {
+        "text": "The key here is that each of these numbered boxes, 1, 2, 3, 4,",
+        "start": 1185.735,
+        "duration": 4.48
+    },
+    {
+        "text": "are separate confidential container runtimes,",
+        "start": 1190.215,
+        "duration": 2.885
+    },
+    {
+        "text": "and they can run arbitrary pieces of code.",
+        "start": 1193.1,
+        "duration": 2.3
+    },
+    {
+        "text": "So you can imagine that in boxes one and two are",
+        "start": 1195.4,
+        "duration": 3.3
+    },
+    {
+        "text": "completely separate data preprocessing scripts.",
+        "start": 1198.7,
+        "duration": 3.3
+    },
+    {
+        "text": "You have a completely different script in box",
+        "start": 1202.0,
+        "duration": 2.79
+    },
+    {
+        "text": "one compared to box",
+        "start": 1204.79,
+        "duration": 1.26
+    },
+    {
+        "text": "two because it's running over a different dataset.",
+        "start": 1206.05,
+        "duration": 2.175
+    },
+    {
+        "text": "There are different requirements for feature extraction,",
+        "start": 1208.225,
+        "duration": 2.295
+    },
+    {
+        "text": "different munging that needs to be done,",
+        "start": 1210.52,
+        "duration": 1.53
+    },
+    {
+        "text": "different normalization that needs to be done.",
+        "start": 1212.05,
+        "duration": 2.175
+    },
+    {
+        "text": "But what's going to happen is for each of those datasets,",
+        "start": 1214.225,
+        "duration": 3.299
+    },
+    {
+        "text": "the output of that confidential preprocessing step,",
+        "start": 1217.524,
+        "duration": 3.481
+    },
+    {
+        "text": "we'll come up with a uniform format such that",
+        "start": 1221.005,
+        "duration": 3.345
+    },
+    {
+        "text": "they can be sent to an aggregation container and that's box three,",
+        "start": 1224.35,
+        "duration": 3.975
+    },
+    {
+        "text": "where you can run a script that understands how to",
+        "start": 1228.325,
+        "duration": 3.075
+    },
+    {
+        "text": "perform the correct join over these two datasets.",
+        "start": 1231.4,
+        "duration": 3.075
+    },
+    {
+        "text": "Sometimes that's a pretty straightforward union",
+        "start": 1234.475,
+        "duration": 2.115
+    },
+    {
+        "text": "where you're just concatenating datasets.",
+        "start": 1236.59,
+        "duration": 1.53
+    },
+    {
+        "text": "You just have two sets of data that",
+        "start": 1238.12,
+        "duration": 2.535
+    },
+    {
+        "text": "essentially contain the same features",
+        "start": 1240.655,
+        "duration": 2.235
+    },
+    {
+        "text": "and extended into a larger dataset,",
+        "start": 1242.89,
+        "duration": 2.13
+    },
+    {
+        "text": "but sometimes it's much more complicated.",
+        "start": 1245.02,
+        "duration": 1.59
+    },
+    {
+        "text": "Sometimes you have an intersection,",
+        "start": 1246.61,
+        "duration": 1.2
+    },
+    {
+        "text": "sometimes you have data from",
+        "start": 1247.81,
+        "duration": 1.905
+    },
+    {
+        "text": "the first party that pertains to certain kinds of features.",
+        "start": 1249.715,
+        "duration": 2.655
+    },
+    {
+        "text": "It needs to be match to other features",
+        "start": 1252.37,
+        "duration": 1.77
+    },
+    {
+        "text": "over the same entities from another party.",
+        "start": 1254.14,
+        "duration": 2.385
+    },
+    {
+        "text": "Neither of these can be handled if you have",
+        "start": 1256.525,
+        "duration": 2.325
+    },
+    {
+        "text": "a confidential container running your aggregation script.",
+        "start": 1258.85,
+        "duration": 2.49
+    },
+    {
+        "text": "That lets you perform arbitrarily complex data",
+        "start": 1261.34,
+        "duration": 4.53
+    },
+    {
+        "text": "merging over confidentially preprocessed data",
+        "start": 1265.87,
+        "duration": 3.6
+    },
+    {
+        "text": "again in confidential manner,",
+        "start": 1269.47,
+        "duration": 1.845
+    },
+    {
+        "text": "and take the output of that and go to your training container.",
+        "start": 1271.315,
+        "duration": 3.3
+    },
+    {
+        "text": "Then you're training container can",
+        "start": 1274.615,
+        "duration": 1.305
+    },
+    {
+        "text": "be arbitrary, TensorFlow, PyTorch,",
+        "start": 1275.92,
+        "duration": 2.19
+    },
+    {
+        "text": "whatever your backend is,",
+        "start": 1278.11,
+        "duration": 1.455
+    },
+    {
+        "text": "again, running in a confidential container.",
+        "start": 1279.565,
+        "duration": 2.505
+    },
+    {
+        "text": ">> I've always thought about this,",
+        "start": 1282.07,
+        "duration": 5.73
+    },
+    {
+        "text": "how do you ensure",
+        "start": 1287.8,
+        "duration": 4.38
+    },
+    {
+        "text": "that the right code is running on the right parts of the data?",
+        "start": 1292.18,
+        "duration": 4.215
+    },
+    {
+        "text": "This makes sure that it's",
+        "start": 1296.395,
+        "duration": 1.665
+    },
+    {
+        "text": "happening in a mathematically proven way.",
+        "start": 1298.06,
+        "duration": 2.82
+    },
+    {
+        "text": ">> Exactly. The system not only gives you",
+        "start": 1300.88,
+        "duration": 3.57
+    },
+    {
+        "text": "proof that each container is confidential,",
+        "start": 1304.45,
+        "duration": 3.225
+    },
+    {
+        "text": "and is a remotely attestable and running the correct code,",
+        "start": 1307.675,
+        "duration": 2.82
+    },
+    {
+        "text": "but there's also integrity",
+        "start": 1310.495,
+        "duration": 1.77
+    },
+    {
+        "text": "over the entire shape of the computation.",
+        "start": 1312.265,
+        "duration": 2.145
+    },
+    {
+        "text": "So that it's not possible for",
+        "start": 1314.41,
+        "duration": 1.545
+    },
+    {
+        "text": "a malicious attacker to run three over your data before one,",
+        "start": 1315.955,
+        "duration": 5.16
+    },
+    {
+        "text": "for example, box three before box one.",
+        "start": 1321.115,
+        "duration": 1.815
+    },
+    {
+        "text": "You want to make sure that the integrity of the shape of",
+        "start": 1322.93,
+        "duration": 1.59
+    },
+    {
+        "text": "the computation is also maintained.",
+        "start": 1324.52,
+        "duration": 2.385
+    },
+    {
+        "text": "Now this is just an example with two participants in",
+        "start": 1326.905,
+        "duration": 3.105
+    },
+    {
+        "text": "a pretty simple pipeline of preprocessing aggregation in training.",
+        "start": 1330.01,
+        "duration": 3.495
+    },
+    {
+        "text": "But you can imagine that there are",
+        "start": 1333.505,
+        "duration": 1.245
+    },
+    {
+        "text": "scenarios with many participants,",
+        "start": 1334.75,
+        "duration": 1.995
+    },
+    {
+        "text": "and many steps in the pipeline with complicated forks and joins,",
+        "start": 1336.745,
+        "duration": 3.345
+    },
+    {
+        "text": "but it all works.",
+        "start": 1340.09,
+        "duration": 1.305
+    },
+    {
+        "text": "We get that same integrity-guarantee no",
+        "start": 1341.395,
+        "duration": 1.725
+    },
+    {
+        "text": "matter what the shape of the data flow pipeline is.",
+        "start": 1343.12,
+        "duration": 2.445
+    },
+    {
+        "text": ">> This is really cool.",
+        "start": 1345.565,
+        "duration": 2.07
+    },
+    {
+        "text": "It enables multi-party model-building that will enable it.",
+        "start": 1347.635,
+        "duration": 6.21
+    },
+    {
+        "text": "Like one of the biggest challenges in machine learning",
+        "start": 1353.845,
+        "duration": 2.025
+    },
+    {
+        "text": "is that our data, sometimes it's garbage.",
+        "start": 1355.87,
+        "duration": 2.25
+    },
+    {
+        "text": "Then we build models that do",
+        "start": 1358.12,
+        "duration": 1.575
+    },
+    {
+        "text": "garbage inference because we don't have",
+        "start": 1359.695,
+        "duration": 1.785
+    },
+    {
+        "text": "a real world aggregation of important data.",
+        "start": 1361.48,
+        "duration": 3.66
+    },
+    {
+        "text": "Especially with social things like health,",
+        "start": 1365.14,
+        "duration": 2.79
+    },
+    {
+        "text": "you could build amazing models if there was",
+        "start": 1367.93,
+        "duration": 3.6
+    },
+    {
+        "text": "an aggregation of the data over all parties, for example.",
+        "start": 1371.53,
+        "duration": 4.495
+    },
+    {
+        "text": ">> Yeah. It's a really critical problem,",
+        "start": 1376.025,
+        "duration": 3.55
+    },
+    {
+        "text": "and I'm pretty excited about this personally.",
+        "start": 1379.575,
+        "duration": 3.355
+    },
+    {
+        "text": "I think we have a real opportunity here to expand,",
+        "start": 1382.93,
+        "duration": 3.975
+    },
+    {
+        "text": "not just our ability to produce better models,",
+        "start": 1386.905,
+        "duration": 1.98
+    },
+    {
+        "text": "but to produced entirely new kinds of models.",
+        "start": 1388.885,
+        "duration": 2.265
+    },
+    {
+        "text": "Models that simply wouldn't be possible without being able",
+        "start": 1391.15,
+        "duration": 2.76
+    },
+    {
+        "text": "to aggregate really disparate datasets.",
+        "start": 1393.91,
+        "duration": 3.56
+    },
+    {
+        "text": ">> So I love how this is all putting it together,",
+        "start": 1397.47,
+        "duration": 3.6
+    },
+    {
+        "text": "but how does it actually run inside one of these containers?",
+        "start": 1401.07,
+        "duration": 3.9
+    },
+    {
+        "text": "I know we might have talked about it a little bit,",
+        "start": 1404.97,
+        "duration": 1.65
+    },
+    {
+        "text": "but I'd love to get a more in-depth look at that.",
+        "start": 1406.62,
+        "duration": 2.67
+    },
+    {
+        "text": ">> Well, let's have a look at how",
+        "start": 1409.29,
+        "duration": 2.535
+    },
+    {
+        "text": "an individual container image executes.",
+        "start": 1411.825,
+        "duration": 2.835
+    },
+    {
+        "text": "So here's a little diagram that tries to give a view of that.",
+        "start": 1414.66,
+        "duration": 4.485
+    },
+    {
+        "text": "The gray box on the outside of the virtual machine,",
+        "start": 1419.145,
+        "duration": 3.38
+    },
+    {
+        "text": "and on that virtual machine we have a collection of disk images,",
+        "start": 1422.525,
+        "duration": 4.085
+    },
+    {
+        "text": "one through n. These disk images,",
+        "start": 1426.61,
+        "duration": 2.88
+    },
+    {
+        "text": "like in any Docker container,",
+        "start": 1429.49,
+        "duration": 2.055
+    },
+    {
+        "text": "comprise the totality of",
+        "start": 1431.545,
+        "duration": 2.355
+    },
+    {
+        "text": "the container image that we're going to execute.",
+        "start": 1433.9,
+        "duration": 1.83
+    },
+    {
+        "text": "So that's the actual file systems that are going to get loaded.",
+        "start": 1435.73,
+        "duration": 4.11
+    },
+    {
+        "text": "So that's your root file system,",
+        "start": 1439.84,
+        "duration": 1.62
+    },
+    {
+        "text": "all the code you're going to run,",
+        "start": 1441.46,
+        "duration": 1.08
+    },
+    {
+        "text": "all the data you're going to run over.",
+        "start": 1442.54,
+        "duration": 1.875
+    },
+    {
+        "text": "Now, those get merged with the encrypted container",
+        "start": 1444.415,
+        "duration": 4.065
+    },
+    {
+        "text": "itself and are all loaded into the confidential container image.",
+        "start": 1448.48,
+        "duration": 6.57
+    },
+    {
+        "text": "That confidential container image is what",
+        "start": 1455.05,
+        "duration": 2.4
+    },
+    {
+        "text": "is loaded inside of SGX-LKL.",
+        "start": 1457.45,
+        "duration": 2.505
+    },
+    {
+        "text": "So we start up a trust execution environment,",
+        "start": 1459.955,
+        "duration": 3.12
+    },
+    {
+        "text": "it starts up and authenticate itself to the attestation service,",
+        "start": 1463.075,
+        "duration": 3.885
+    },
+    {
+        "text": "gets back an attestation service,",
+        "start": 1466.96,
+        "duration": 1.665
+    },
+    {
+        "text": "and goes out to Key Vault, and says to Key Vault,",
+        "start": 1468.625,
+        "duration": 2.91
+    },
+    {
+        "text": "\"I need the right keys to decrypt",
+        "start": 1471.535,
+        "duration": 2.625
+    },
+    {
+        "text": "the encrypted container and encrypted",
+        "start": 1474.16,
+        "duration": 1.59
+    },
+    {
+        "text": "disk images that represent this computation.\"",
+        "start": 1475.75,
+        "duration": 2.865
+    },
+    {
+        "text": "Now, in order for Key Vault to believe that",
+        "start": 1478.615,
+        "duration": 3.195
+    },
+    {
+        "text": "this is the correct container and that is allowed to do that,",
+        "start": 1481.81,
+        "duration": 3.06
+    },
+    {
+        "text": "that container has to not only prove that it's the right code,",
+        "start": 1484.87,
+        "duration": 2.775
+    },
+    {
+        "text": "but it has the right configuration.",
+        "start": 1487.645,
+        "duration": 1.83
+    },
+    {
+        "text": "Unfortunately, Azure's built the ability to do that.",
+        "start": 1489.475,
+        "duration": 3.51
+    },
+    {
+        "text": "So we can get back through key released,",
+        "start": 1492.985,
+        "duration": 2.76
+    },
+    {
+        "text": "the keys we need to decrypt all of the component images,",
+        "start": 1495.745,
+        "duration": 4.47
+    },
+    {
+        "text": "and assemble the final decrypted image,",
+        "start": 1500.215,
+        "duration": 3.72
+    },
+    {
+        "text": "but we're decrypting it only inside of the enclave.",
+        "start": 1503.935,
+        "duration": 3.285
+    },
+    {
+        "text": "So in some sense at that point,",
+        "start": 1507.22,
+        "duration": 1.74
+    },
+    {
+        "text": "it's still encrypted because it's enclave code and enclave data.",
+        "start": 1508.96,
+        "duration": 4.185
+    },
+    {
+        "text": "That decrypted container then has,",
+        "start": 1513.145,
+        "duration": 3.24
+    },
+    {
+        "text": "let's say your run.py,",
+        "start": 1516.385,
+        "duration": 2.205
+    },
+    {
+        "text": "your Python script is going to do",
+        "start": 1518.59,
+        "duration": 1.2
+    },
+    {
+        "text": "all the work and all of the dependencies,",
+        "start": 1519.79,
+        "duration": 2.475
+    },
+    {
+        "text": "and access to all of the data and everything that you",
+        "start": 1522.265,
+        "duration": 2.505
+    },
+    {
+        "text": "need in order to run over that collection of disk images.",
+        "start": 1524.77,
+        "duration": 2.64
+    },
+    {
+        "text": "But as far as your code is concerned,",
+        "start": 1527.41,
+        "duration": 1.59
+    },
+    {
+        "text": "it just sees a bunch of mounted disk images.",
+        "start": 1529.0,
+        "duration": 2.28
+    },
+    {
+        "text": "So all it has to do is load files",
+        "start": 1531.28,
+        "duration": 1.68
+    },
+    {
+        "text": "and [inaudible] over just like it normally would.",
+        "start": 1532.96,
+        "duration": 1.875
+    },
+    {
+        "text": ">> This is crazy because these disk images",
+        "start": 1534.835,
+        "duration": 4.875
+    },
+    {
+        "text": "that are coming in are all encrypted.",
+        "start": 1539.71,
+        "duration": 1.785
+    },
+    {
+        "text": "So no one can see anything that's in them",
+        "start": 1541.495,
+        "duration": 2.625
+    },
+    {
+        "text": "until the attestation service says,",
+        "start": 1544.12,
+        "duration": 3.3
+    },
+    {
+        "text": "\"Yeah, this is the right thing,\" Key Vault says, \"Yeah,",
+        "start": 1547.42,
+        "duration": 2.4
+    },
+    {
+        "text": "this is the right thing,\" and then it runs it.",
+        "start": 1549.82,
+        "duration": 2.565
+    },
+    {
+        "text": "Then inside of the actual confidential container runtime enclave,",
+        "start": 1552.385,
+        "duration": 4.365
+    },
+    {
+        "text": "run.py just sees data, it doesn't care.",
+        "start": 1556.75,
+        "duration": 3.51
+    },
+    {
+        "text": "But in reality, outside of this enclave, it's all encrypted.",
+        "start": 1560.26,
+        "duration": 4.755
+    },
+    {
+        "text": ">> Not only encrypted but integrity-checked.",
+        "start": 1565.015,
+        "duration": 2.655
+    },
+    {
+        "text": "So the configuration of the confidential container",
+        "start": 1567.67,
+        "duration": 3.075
+    },
+    {
+        "text": "also provides the hashes over those input disk images,",
+        "start": 1570.745,
+        "duration": 5.19
+    },
+    {
+        "text": "and that configuration is",
+        "start": 1575.935,
+        "duration": 2.055
+    },
+    {
+        "text": "checked during attestation and key release.",
+        "start": 1577.99,
+        "duration": 2.385
+    },
+    {
+        "text": "So it means that your container will only run if it's",
+        "start": 1580.375,
+        "duration": 2.805
+    },
+    {
+        "text": "the correct encrypted image that's presented to it,",
+        "start": 1583.18,
+        "duration": 2.835
+    },
+    {
+        "text": "so no one can even fake the input data.",
+        "start": 1586.015,
+        "duration": 2.31
+    },
+    {
+        "text": ">> This is crazy, Dawn. This is really cool.",
+        "start": 1588.325,
+        "duration": 2.64
+    },
+    {
+        "text": ">> Thank you. I think it's pretty fun.",
+        "start": 1590.965,
+        "duration": 2.265
+    },
+    {
+        "text": "Another part of it is this output disk image.",
+        "start": 1593.23,
+        "duration": 2.43
+    },
+    {
+        "text": "So what we don't want is",
+        "start": 1595.66,
+        "duration": 1.68
+    },
+    {
+        "text": "a situation where you have to modify your code.",
+        "start": 1597.34,
+        "duration": 2.28
+    },
+    {
+        "text": "So we really want the customer to be able to",
+        "start": 1599.62,
+        "duration": 2.4
+    },
+    {
+        "text": "just write out files to the disk just like they normally would.",
+        "start": 1602.02,
+        "duration": 2.955
+    },
+    {
+        "text": "In this case, what we do is we create",
+        "start": 1604.975,
+        "duration": 2.115
+    },
+    {
+        "text": "an encrypted integrity protected disk image in advance,",
+        "start": 1607.09,
+        "duration": 4.29
+    },
+    {
+        "text": "that is loaded up by an empty one,",
+        "start": 1611.38,
+        "duration": 2.61
+    },
+    {
+        "text": "that's loaded up by the confidential container and mounted.",
+        "start": 1613.99,
+        "duration": 2.22
+    },
+    {
+        "text": "At with user code, just",
+        "start": 1616.21,
+        "duration": 1.32
+    },
+    {
+        "text": "write out their files like they normally would.",
+        "start": 1617.53,
+        "duration": 1.62
+    },
+    {
+        "text": "But instead of being written out to disk in a normal way,",
+        "start": 1619.15,
+        "duration": 3.615
+    },
+    {
+        "text": "they're actually written out in",
+        "start": 1622.765,
+        "duration": 1.89
+    },
+    {
+        "text": "this encrypted integrity-protected image",
+        "start": 1624.655,
+        "duration": 2.345
+    },
+    {
+        "text": "that is used for the next step in the computation.",
+        "start": 1627.0,
+        "duration": 1.95
+    },
+    {
+        "text": "So that thing is then stored back into",
+        "start": 1628.95,
+        "duration": 1.68
+    },
+    {
+        "text": "Azure blob storage with all the encryption protections.",
+        "start": 1630.63,
+        "duration": 2.61
+    },
+    {
+        "text": "The key to it is provisioned into Key Vault,",
+        "start": 1633.24,
+        "duration": 2.99
+    },
+    {
+        "text": "such that the next container in",
+        "start": 1636.23,
+        "duration": 1.34
+    },
+    {
+        "text": "the pipeline is the only thing that will",
+        "start": 1637.57,
+        "duration": 2.865
+    },
+    {
+        "text": "ever have visibility on",
+        "start": 1640.435,
+        "duration": 1.245
+    },
+    {
+        "text": "this ephemeral key that was",
+        "start": 1641.68,
+        "duration": 1.35
+    },
+    {
+        "text": "provisioned into Key Vault to decrypt this image.",
+        "start": 1643.03,
+        "duration": 2.19
+    },
+    {
+        "text": ">> Yeah. The thing about this is",
+        "start": 1645.22,
+        "duration": 1.53
+    },
+    {
+        "text": "that Microsoft can't look at this.",
+        "start": 1646.75,
+        "duration": 4.635
+    },
+    {
+        "text": "There's no way for us to be able to do",
+        "start": 1651.385,
+        "duration": 2.295
+    },
+    {
+        "text": "this without the attestation service,",
+        "start": 1653.68,
+        "duration": 2.895
+    },
+    {
+        "text": "giving the right thing to the right confidential container image,",
+        "start": 1656.575,
+        "duration": 3.315
+    },
+    {
+        "text": "and then verifying with Key Vault.",
+        "start": 1659.89,
+        "duration": 2.01
+    },
+    {
+        "text": "So no one can look at this,",
+        "start": 1661.9,
+        "duration": 2.205
+    },
+    {
+        "text": "not even admins that can",
+        "start": 1664.105,
+        "duration": 2.04
+    },
+    {
+        "text": "have all the access to blob storage at all.",
+        "start": 1666.145,
+        "duration": 2.145
+    },
+    {
+        "text": "There's no way they can even see any of",
+        "start": 1668.29,
+        "duration": 1.92
+    },
+    {
+        "text": "the input or output disk images.",
+        "start": 1670.21,
+        "duration": 3.42
+    },
+    {
+        "text": ">> That's exactly right. One of the exciting things",
+        "start": 1673.63,
+        "duration": 2.79
+    },
+    {
+        "text": "about this is this confidential computing effort,",
+        "start": 1676.42,
+        "duration": 2.535
+    },
+    {
+        "text": "which is so deep that even the attestation service in",
+        "start": 1678.955,
+        "duration": 2.895
+    },
+    {
+        "text": "Key Vault are running inside of trusted execution environments.",
+        "start": 1681.85,
+        "duration": 4.48
+    },
+    {
+        "text": ">> I didn't even realize that because then now that,",
+        "start": 1686.33,
+        "duration": 3.775
+    },
+    {
+        "text": "no one can go and attack Key Vault or the attestation service.",
+        "start": 1690.105,
+        "duration": 3.915
+    },
+    {
+        "text": ">> That's right.",
+        "start": 1694.02,
+        "duration": 1.17
+    },
+    {
+        "text": ">> This is pretty cool.",
+        "start": 1695.19,
+        "duration": 2.085
+    },
+    {
+        "text": "So what else do you have?",
+        "start": 1697.275,
+        "duration": 2.535
+    },
+    {
+        "text": "I feel like I've got a really good picture of what's going on.",
+        "start": 1699.81,
+        "duration": 4.3
+    },
+    {
+        "text": ">> Thank you. This is pretty much it.",
+        "start": 1704.13,
+        "duration": 2.725
+    },
+    {
+        "text": "This is the deck I wanted to present and",
+        "start": 1706.855,
+        "duration": 1.755
+    },
+    {
+        "text": "the stuff I wanted to talk through with you.",
+        "start": 1708.61,
+        "duration": 1.935
+    },
+    {
+        "text": ">> Well, this is all really amazing stuff.",
+        "start": 1710.545,
+        "duration": 3.375
+    },
+    {
+        "text": "Where can people go to find out more?",
+        "start": 1713.92,
+        "duration": 2.22
+    },
+    {
+        "text": ">> Please have a look at the Microsoft Research Cambridge website,",
+        "start": 1716.14,
+        "duration": 3.57
+    },
+    {
+        "text": "particularly the confidential computing FEM group.",
+        "start": 1719.71,
+        "duration": 2.85
+    },
+    {
+        "text": "We have a bunch of information on Confidential AI and",
+        "start": 1722.56,
+        "duration": 2.64
+    },
+    {
+        "text": "a bunch of the other confidential",
+        "start": 1725.2,
+        "duration": 1.05
+    },
+    {
+        "text": "computing efforts we've put together.",
+        "start": 1726.25,
+        "duration": 1.71
+    },
+    {
+        "text": "There's nothing be like more than",
+        "start": 1727.96,
+        "duration": 1.65
+    },
+    {
+        "text": "sharing it and talking about it. So please have a look.",
+        "start": 1729.61,
+        "duration": 2.1
+    },
+    {
+        "text": ">> Fantastic. Well, this has been amazing.",
+        "start": 1731.71,
+        "duration": 1.8
+    },
+    {
+        "text": "Friends, if your learning all about Confidential AI with strong,",
+        "start": 1733.51,
+        "duration": 5.34
+    },
+    {
+        "text": "like to me, it's really impressive that this [inaudible].",
+        "start": 1738.85,
+        "duration": 3.15
+    },
+    {
+        "text": "I'm so happy that you are able to be with us.",
+        "start": 1742.0,
+        "duration": 1.74
+    },
+    {
+        "text": "Thank you for watching and we'll see you next time. Take care.",
+        "start": 1743.74,
+        "duration": 2.25
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 1745.99,
+        "duration": 15.01
+    }
+]

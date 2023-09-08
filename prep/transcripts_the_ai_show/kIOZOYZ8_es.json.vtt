@@ -1,0 +1,2857 @@
+[
+    {
+        "text": ">> You're not going to miss this episode",
+        "start": 0.0,
+        "duration": 1.74
+    },
+    {
+        "text": "of the AI Show and look at",
+        "start": 1.74,
+        "duration": 1.14
+    },
+    {
+        "text": "the error analysis toolkit so we can look inside of AI.",
+        "start": 2.88,
+        "duration": 3.64
+    },
+    {
+        "text": "It's not just about fairness,",
+        "start": 6.52,
+        "duration": 1.745
+    },
+    {
+        "text": "it's not just about interpretability,",
+        "start": 8.265,
+        "duration": 1.905
+    },
+    {
+        "text": "but it's about finding",
+        "start": 10.17,
+        "duration": 1.785
+    },
+    {
+        "text": "errors. You're not going to want to miss it.",
+        "start": 11.955,
+        "duration": 1.665
+    },
+    {
+        "text": "[MUSIC].",
+        "start": 13.62,
+        "duration": 7.71
+    },
+    {
+        "text": ">> Hello and welcome to this episode of",
+        "start": 21.33,
+        "duration": 1.17
+    },
+    {
+        "text": "the AI Show we're going to talk about.",
+        "start": 22.5,
+        "duration": 2.52
+    },
+    {
+        "text": "Let me put the title up here so you can see it.",
+        "start": 25.02,
+        "duration": 3.3
+    },
+    {
+        "text": "Building Responsible AI using the Error Analysis toolkit.",
+        "start": 28.32,
+        "duration": 4.59
+    },
+    {
+        "text": "I've got Mehrnoosh and Besmira.",
+        "start": 32.91,
+        "duration": 1.98
+    },
+    {
+        "text": "How you doing my friends?",
+        "start": 34.89,
+        "duration": 1.545
+    },
+    {
+        "text": ">> Great. Thanks for having us.",
+        "start": 36.435,
+        "duration": 2.4
+    },
+    {
+        "text": ">> Awesome. Let's start with just a simple introduction.",
+        "start": 38.835,
+        "duration": 2.885
+    },
+    {
+        "text": "We'll start with you Besmira,",
+        "start": 41.72,
+        "duration": 1.23
+    },
+    {
+        "text": "tell us who you are,",
+        "start": 42.95,
+        "duration": 0.54
+    },
+    {
+        "text": "what you do and then we'll talk to you Mehrnoosh.",
+        "start": 43.49,
+        "duration": 1.955
+    },
+    {
+        "text": ">> Hello everyone. I'm Besmira,",
+        "start": 45.445,
+        "duration": 2.995
+    },
+    {
+        "text": "I'm a Researcher at Microsoft Research.",
+        "start": 48.44,
+        "duration": 1.92
+    },
+    {
+        "text": "I worked broadly speaking and responsible AI",
+        "start": 50.36,
+        "duration": 2.55
+    },
+    {
+        "text": "and human-centered AI. Thanks for having us, Seth.",
+        "start": 52.91,
+        "duration": 2.785
+    },
+    {
+        "text": ">> Fantastic. You, Mehrnoosh.",
+        "start": 55.695,
+        "duration": 2.16
+    },
+    {
+        "text": ">> My name is Mehrnoosh Sameki and I'm",
+        "start": 57.855,
+        "duration": 2.145
+    },
+    {
+        "text": "a Senior Program Manager on the",
+        "start": 60.0,
+        "duration": 1.7
+    },
+    {
+        "text": "Azure Machine Learning responsible AI tooling team.",
+        "start": 61.7,
+        "duration": 2.445
+    },
+    {
+        "text": "Very excited to be here today.",
+        "start": 64.145,
+        "duration": 1.67
+    },
+    {
+        "text": ">> Awesome. We'll start with you, Besmira.",
+        "start": 65.815,
+        "duration": 2.54
+    },
+    {
+        "text": "Let's talk about, if you will,",
+        "start": 68.355,
+        "duration": 2.27
+    },
+    {
+        "text": "maybe just a tiny review of what an AI model is.",
+        "start": 70.625,
+        "duration": 4.02
+    },
+    {
+        "text": "How do we know if a model is doing well?",
+        "start": 74.645,
+        "duration": 4.155
+    },
+    {
+        "text": "Sometimes it feels a little black boxy. Let's say you.",
+        "start": 78.8,
+        "duration": 4.06
+    },
+    {
+        "text": ">> In fact, in machine learning,",
+        "start": 83.33,
+        "duration": 2.68
+    },
+    {
+        "text": "we deal with three different things.",
+        "start": 86.01,
+        "duration": 1.8
+    },
+    {
+        "text": "We deal with the data that we want to learn from,",
+        "start": 87.81,
+        "duration": 2.475
+    },
+    {
+        "text": "and then we have an architecture or",
+        "start": 90.285,
+        "duration": 1.665
+    },
+    {
+        "text": "an algorithm that we train to learn from the data.",
+        "start": 91.95,
+        "duration": 3.03
+    },
+    {
+        "text": "After we train, we come up with",
+        "start": 94.98,
+        "duration": 1.92
+    },
+    {
+        "text": "this motto and you could think about it just as a function,",
+        "start": 96.9,
+        "duration": 2.865
+    },
+    {
+        "text": "like something that takes as an input some data and gives you",
+        "start": 99.765,
+        "duration": 2.715
+    },
+    {
+        "text": "a prediction about that data or a transformation on it.",
+        "start": 102.48,
+        "duration": 3.81
+    },
+    {
+        "text": "Now, when do we evaluate these models, of course,",
+        "start": 106.29,
+        "duration": 3.3
+    },
+    {
+        "text": "we evaluate them on the training data",
+        "start": 109.59,
+        "duration": 1.86
+    },
+    {
+        "text": "and we say how accurate it is.",
+        "start": 111.45,
+        "duration": 1.77
+    },
+    {
+        "text": "But in the best case,",
+        "start": 113.22,
+        "duration": 1.905
+    },
+    {
+        "text": "we should have some test data",
+        "start": 115.125,
+        "duration": 2.565
+    },
+    {
+        "text": "that ideally comes from the real world.",
+        "start": 117.69,
+        "duration": 2.415
+    },
+    {
+        "text": "We measure accuracy or error rate in that test data,",
+        "start": 120.105,
+        "duration": 3.93
+    },
+    {
+        "text": "and we give this numbers.",
+        "start": 124.035,
+        "duration": 1.365
+    },
+    {
+        "text": "You might have seen all this article saying that, oh,",
+        "start": 125.4,
+        "duration": 2.22
+    },
+    {
+        "text": "this model is 90 percent accurate in this particular benchmark,",
+        "start": 127.62,
+        "duration": 3.665
+    },
+    {
+        "text": "or this model reached human parity,",
+        "start": 131.285,
+        "duration": 2.665
+    },
+    {
+        "text": "which is like a bold statement,",
+        "start": 133.95,
+        "duration": 2.055
+    },
+    {
+        "text": "if you ask me, in a particular task.",
+        "start": 136.005,
+        "duration": 3.87
+    },
+    {
+        "text": "We think that this type of evaluation,",
+        "start": 139.875,
+        "duration": 2.655
+    },
+    {
+        "text": "when we just give you one number about how the model does",
+        "start": 142.53,
+        "duration": 3.69
+    },
+    {
+        "text": "is sometimes perhaps not",
+        "start": 146.22,
+        "duration": 2.25
+    },
+    {
+        "text": "sufficient in order to think about the nature of errors,",
+        "start": 148.47,
+        "duration": 2.91
+    },
+    {
+        "text": "how different they are from each other and the source of that.",
+        "start": 151.38,
+        "duration": 3.63
+    },
+    {
+        "text": ">> It's interesting because I love the way you phrased it,",
+        "start": 155.01,
+        "duration": 2.89
+    },
+    {
+        "text": "as you're saying that AI is like a function,",
+        "start": 157.9,
+        "duration": 2.575
+    },
+    {
+        "text": "except we don't know what's inside of it.",
+        "start": 160.475,
+        "duration": 1.905
+    },
+    {
+        "text": "The only way we know if it's good as we hold out some data,",
+        "start": 162.38,
+        "duration": 2.97
+    },
+    {
+        "text": "and we say in aggregate on the data we hold out,",
+        "start": 165.35,
+        "duration": 2.715
+    },
+    {
+        "text": "its n percent accurate,",
+        "start": 168.065,
+        "duration": 2.29
+    },
+    {
+        "text": "or it has n loss, or whatever.",
+        "start": 170.355,
+        "duration": 2.675
+    },
+    {
+        "text": "How do we get more fine grained?",
+        "start": 173.03,
+        "duration": 2.06
+    },
+    {
+        "text": "Because I feel like if you're going to put",
+        "start": 175.09,
+        "duration": 1.63
+    },
+    {
+        "text": "a function out there that you don't know what it does,",
+        "start": 176.72,
+        "duration": 2.04
+    },
+    {
+        "text": "you should probably know a little bit",
+        "start": 178.76,
+        "duration": 1.86
+    },
+    {
+        "text": "more about what's happening. How do we get more fine-grained?",
+        "start": 180.62,
+        "duration": 2.6
+    },
+    {
+        "text": ">> Yeah. The secret,",
+        "start": 183.22,
+        "duration": 2.62
+    },
+    {
+        "text": "which is not as much of",
+        "start": 185.84,
+        "duration": 1.17
+    },
+    {
+        "text": "a secret since we are talking about secrets",
+        "start": 187.01,
+        "duration": 1.86
+    },
+    {
+        "text": "before is to actually look down in the data and say,",
+        "start": 188.87,
+        "duration": 5.01
+    },
+    {
+        "text": "how can I slice and dice",
+        "start": 193.88,
+        "duration": 1.62
+    },
+    {
+        "text": "this data in meaningful ways so that I can",
+        "start": 195.5,
+        "duration": 2.31
+    },
+    {
+        "text": "actually evaluate model performance and",
+        "start": 197.81,
+        "duration": 2.31
+    },
+    {
+        "text": "accuracy on this different pockets.",
+        "start": 200.12,
+        "duration": 3.125
+    },
+    {
+        "text": "Very often, there may exist pockets in the data for which",
+        "start": 203.245,
+        "duration": 3.535
+    },
+    {
+        "text": "our model doesn't do as well as the aggregate accuracy.",
+        "start": 206.78,
+        "duration": 3.735
+    },
+    {
+        "text": "The question is, how do we find them?",
+        "start": 210.515,
+        "duration": 2.28
+    },
+    {
+        "text": "You may do it two ways.",
+        "start": 212.795,
+        "duration": 2.13
+    },
+    {
+        "text": "You may say, okay, I have certain dimensions that I care",
+        "start": 214.925,
+        "duration": 2.685
+    },
+    {
+        "text": "about or features and I can evaluate the model on them.",
+        "start": 217.61,
+        "duration": 3.48
+    },
+    {
+        "text": "If I'm building a traffic sign detector,",
+        "start": 221.09,
+        "duration": 3.765
+    },
+    {
+        "text": "I can say maybe I want to see how this performs",
+        "start": 224.855,
+        "duration": 3.045
+    },
+    {
+        "text": "during different times of the day",
+        "start": 227.9,
+        "duration": 1.545
+    },
+    {
+        "text": "or in different weather conditions.",
+        "start": 229.445,
+        "duration": 2.13
+    },
+    {
+        "text": "These are all dimensions that one may care about.",
+        "start": 231.575,
+        "duration": 2.91
+    },
+    {
+        "text": "But then sometimes there's just too many dimensions.",
+        "start": 234.485,
+        "duration": 3.185
+    },
+    {
+        "text": "It is hard for a developer to think",
+        "start": 237.67,
+        "duration": 1.96
+    },
+    {
+        "text": "about all the possible combinations",
+        "start": 239.63,
+        "duration": 2.25
+    },
+    {
+        "text": "where error may be more represented.",
+        "start": 241.88,
+        "duration": 5.1
+    },
+    {
+        "text": "We think that it is good for developers",
+        "start": 246.98,
+        "duration": 2.94
+    },
+    {
+        "text": "to have a help of automated tools that",
+        "start": 249.92,
+        "duration": 2.49
+    },
+    {
+        "text": "can guide them through this pockets",
+        "start": 252.41,
+        "duration": 2.1
+    },
+    {
+        "text": "without them thinking about all these possible combinations.",
+        "start": 254.51,
+        "duration": 3.165
+    },
+    {
+        "text": "That's exactly actually what Mehrnoosh is going to show later.",
+        "start": 257.675,
+        "duration": 3.26
+    },
+    {
+        "text": ">> That's interesting, I see.",
+        "start": 260.935,
+        "duration": 1.73
+    },
+    {
+        "text": "Basically, what's the difference between this and",
+        "start": 262.665,
+        "duration": 3.485
+    },
+    {
+        "text": "maybe interpretability and fairness",
+        "start": 266.15,
+        "duration": 2.64
+    },
+    {
+        "text": "that we've talked about before?",
+        "start": 268.79,
+        "duration": 2.45
+    },
+    {
+        "text": ">> We think about all these aspects of",
+        "start": 271.24,
+        "duration": 3.07
+    },
+    {
+        "text": "machine learning is actually like a large family of tools,",
+        "start": 274.31,
+        "duration": 3.63
+    },
+    {
+        "text": "and property is that",
+        "start": 277.94,
+        "duration": 1.26
+    },
+    {
+        "text": "a Machine Learning model needs to have beyond accuracy.",
+        "start": 279.2,
+        "duration": 2.88
+    },
+    {
+        "text": "Basically, as a community,",
+        "start": 282.08,
+        "duration": 1.755
+    },
+    {
+        "text": "we need to like go beyond evaluation in",
+        "start": 283.835,
+        "duration": 3.255
+    },
+    {
+        "text": "terms of like just near accuracy or automation accuracy.",
+        "start": 287.09,
+        "duration": 3.675
+    },
+    {
+        "text": "But also think about all these other aspects.",
+        "start": 290.765,
+        "duration": 2.96
+    },
+    {
+        "text": "If you look at this from the perspective of reliability,",
+        "start": 293.725,
+        "duration": 4.255
+    },
+    {
+        "text": "when all these models make mistakes,",
+        "start": 297.98,
+        "duration": 3.225
+    },
+    {
+        "text": "these errors can impact",
+        "start": 301.205,
+        "duration": 1.725
+    },
+    {
+        "text": "the user experience or even society in different ways.",
+        "start": 302.93,
+        "duration": 4.23
+    },
+    {
+        "text": "It may become a safety issue.",
+        "start": 307.16,
+        "duration": 1.83
+    },
+    {
+        "text": "For example, if that traffic sign detector",
+        "start": 308.99,
+        "duration": 2.325
+    },
+    {
+        "text": "is hallucinating a green light,",
+        "start": 311.315,
+        "duration": 1.905
+    },
+    {
+        "text": "when there is no green light,",
+        "start": 313.22,
+        "duration": 1.68
+    },
+    {
+        "text": "then it can become a safety issue.",
+        "start": 314.9,
+        "duration": 1.95
+    },
+    {
+        "text": "If it affects or if error",
+        "start": 316.85,
+        "duration": 2.22
+    },
+    {
+        "text": "is higher for certain demographic groups,",
+        "start": 319.07,
+        "duration": 1.98
+    },
+    {
+        "text": "then it becomes a fairness issue.",
+        "start": 321.05,
+        "duration": 1.695
+    },
+    {
+        "text": "Then sometimes it may not be about safety,",
+        "start": 322.745,
+        "duration": 2.955
+    },
+    {
+        "text": "it may not be about fairness,",
+        "start": 325.7,
+        "duration": 1.6
+    },
+    {
+        "text": "it may just be that you are going to a grocery store,",
+        "start": 327.3,
+        "duration": 2.6
+    },
+    {
+        "text": "you're using an app,",
+        "start": 329.9,
+        "duration": 1.14
+    },
+    {
+        "text": "computer vision app that tells you more about the product.",
+        "start": 331.04,
+        "duration": 3.9
+    },
+    {
+        "text": "It tells you if it is fair trade,",
+        "start": 334.94,
+        "duration": 1.24
+    },
+    {
+        "text": "it tells you there is a sale,",
+        "start": 336.18,
+        "duration": 1.72
+    },
+    {
+        "text": "and it works well for apples,",
+        "start": 337.9,
+        "duration": 1.66
+    },
+    {
+        "text": "but it doesn't work well for oranges.",
+        "start": 339.56,
+        "duration": 1.83
+    },
+    {
+        "text": "Then you lose trust in it.",
+        "start": 341.39,
+        "duration": 1.545
+    },
+    {
+        "text": "You are not going to use a product that only works",
+        "start": 342.935,
+        "duration": 2.745
+    },
+    {
+        "text": "on only one type of fruit.",
+        "start": 345.68,
+        "duration": 3.135
+    },
+    {
+        "text": "You lose trust on the app,",
+        "start": 348.815,
+        "duration": 1.695
+    },
+    {
+        "text": "and maybe you lose trust on machine learning altogether,",
+        "start": 350.51,
+        "duration": 2.64
+    },
+    {
+        "text": "because you may think this is just something that",
+        "start": 353.15,
+        "duration": 1.92
+    },
+    {
+        "text": "is cool on paper but not in product.",
+        "start": 355.07,
+        "duration": 2.9
+    },
+    {
+        "text": ">> This is more like you're saying that fairness and",
+        "start": 357.97,
+        "duration": 4.18
+    },
+    {
+        "text": "interpretability can be subsets of general errors overall,",
+        "start": 362.15,
+        "duration": 4.98
+    },
+    {
+        "text": "because it might not be a fairness as you might just be",
+        "start": 367.13,
+        "duration": 2.76
+    },
+    {
+        "text": "that you're not measuring",
+        "start": 369.89,
+        "duration": 1.2
+    },
+    {
+        "text": "things right. Is that what you're saying?",
+        "start": 371.09,
+        "duration": 2.165
+    },
+    {
+        "text": ">> I'm saying that, yes, exactly.",
+        "start": 373.255,
+        "duration": 2.065
+    },
+    {
+        "text": "That they are part of the overall debugging experience as well.",
+        "start": 375.32,
+        "duration": 3.795
+    },
+    {
+        "text": "Interpretability is a great",
+        "start": 379.115,
+        "duration": 2.25
+    },
+    {
+        "text": "means for doing further diagnosis on the model.",
+        "start": 381.365,
+        "duration": 3.975
+    },
+    {
+        "text": "Basically, you can go back to the data or back to the model.",
+        "start": 385.34,
+        "duration": 3.27
+    },
+    {
+        "text": "You should be able to do both.",
+        "start": 388.61,
+        "duration": 1.995
+    },
+    {
+        "text": ">> Awesome. Let's go to human news.",
+        "start": 390.605,
+        "duration": 1.725
+    },
+    {
+        "text": "I feel like we've talked about this enough.",
+        "start": 392.33,
+        "duration": 1.74
+    },
+    {
+        "text": "Can you explain what",
+        "start": 394.07,
+        "duration": 2.19
+    },
+    {
+        "text": "the toolkit actually looks like and how people can use it?",
+        "start": 396.26,
+        "duration": 4.385
+    },
+    {
+        "text": ">> Absolutely. I'm just going to walk you through",
+        "start": 400.645,
+        "duration": 2.575
+    },
+    {
+        "text": "a little story which has been trained on top of census data,",
+        "start": 403.22,
+        "duration": 4.2
+    },
+    {
+        "text": "which is a binary classification example that predicts",
+        "start": 407.42,
+        "duration": 2.34
+    },
+    {
+        "text": "whether people will earn more than 50 K or less than or",
+        "start": 409.76,
+        "duration": 2.4
+    },
+    {
+        "text": "equal to 50 K. I'm going to show you different parts of this tool,",
+        "start": 412.16,
+        "duration": 5.1
+    },
+    {
+        "text": "identification of errors and diagnosis of errors.",
+        "start": 417.26,
+        "duration": 3.26
+    },
+    {
+        "text": "Very easily you can just pip install the responsible AI widget.",
+        "start": 420.52,
+        "duration": 4.03
+    },
+    {
+        "text": "If you install RAI widgets and the tool is yours.",
+        "start": 424.55,
+        "duration": 4.045
+    },
+    {
+        "text": "Here I'm just starting with the census data,",
+        "start": 428.595,
+        "duration": 4.225
+    },
+    {
+        "text": "doing stuff that any data scientist would do,",
+        "start": 432.82,
+        "duration": 3.225
+    },
+    {
+        "text": "like trying to clean",
+        "start": 436.045,
+        "duration": 2.175
+    },
+    {
+        "text": "my data and apply some feature transformations,",
+        "start": 438.22,
+        "duration": 3.21
+    },
+    {
+        "text": "say on numerical features,",
+        "start": 441.43,
+        "duration": 1.77
+    },
+    {
+        "text": "I'm doing simple imputing and",
+        "start": 443.2,
+        "duration": 1.26
+    },
+    {
+        "text": "standard scaling, on categorical features,",
+        "start": 444.46,
+        "duration": 2.28
+    },
+    {
+        "text": "I'm doing simple imputing and also one-hot encoding.",
+        "start": 446.74,
+        "duration": 4.395
+    },
+    {
+        "text": "After that, I split the data into train and test,",
+        "start": 451.135,
+        "duration": 3.54
+    },
+    {
+        "text": "and I train a machine-learning model,",
+        "start": 454.675,
+        "duration": 1.995
+    },
+    {
+        "text": "in this particular case,",
+        "start": 456.67,
+        "duration": 1.2
+    },
+    {
+        "text": "I'm just training a LightGBM classifier with 50 estimators.",
+        "start": 457.87,
+        "duration": 3.63
+    },
+    {
+        "text": "After I fit my model,",
+        "start": 461.5,
+        "duration": 2.455
+    },
+    {
+        "text": "I can call any of the interpretability techniques that we",
+        "start": 463.955,
+        "duration": 3.625
+    },
+    {
+        "text": "support in the InterpretML open source offering,",
+        "start": 467.58,
+        "duration": 4.26
+    },
+    {
+        "text": "specifically in the Interpret-Community",
+        "start": 471.84,
+        "duration": 3.075
+    },
+    {
+        "text": "repository underneath that.",
+        "start": 474.915,
+        "duration": 1.665
+    },
+    {
+        "text": "Here on top of the model, for instance,",
+        "start": 476.58,
+        "duration": 2.34
+    },
+    {
+        "text": "there's shop that you can use,",
+        "start": 478.92,
+        "duration": 1.68
+    },
+    {
+        "text": "there's global surrogate models.",
+        "start": 480.6,
+        "duration": 1.81
+    },
+    {
+        "text": "In this case, I'm just using a Mimic Explainer.",
+        "start": 482.41,
+        "duration": 2.565
+    },
+    {
+        "text": "This Mimic Explainer is supposed to bring",
+        "start": 484.975,
+        "duration": 2.805
+    },
+    {
+        "text": "an intrinsically interpretable model to",
+        "start": 487.78,
+        "duration": 2.64
+    },
+    {
+        "text": "explain your original black-box model,",
+        "start": 490.42,
+        "duration": 3.0
+    },
+    {
+        "text": "if you will, which in this case is these LightGBM explainers.",
+        "start": 493.42,
+        "duration": 3.19
+    },
+    {
+        "text": "After I get this explainer object,",
+        "start": 496.61,
+        "duration": 2.634
+    },
+    {
+        "text": "I can call explain global to just like",
+        "start": 499.244,
+        "duration": 2.641
+    },
+    {
+        "text": "understand what are the top key factors that are",
+        "start": 501.885,
+        "duration": 2.73
+    },
+    {
+        "text": "overall important for making the predictions of whether someone",
+        "start": 504.615,
+        "duration": 2.955
+    },
+    {
+        "text": "would earn more than 50K or equal 50K.",
+        "start": 507.57,
+        "duration": 3.615
+    },
+    {
+        "text": "I can also call explain local in it for understanding",
+        "start": 511.185,
+        "duration": 3.475
+    },
+    {
+        "text": "individual predictions or",
+        "start": 514.66,
+        "duration": 1.62
+    },
+    {
+        "text": "individual explanations behind predictions.",
+        "start": 516.28,
+        "duration": 2.58
+    },
+    {
+        "text": "However, the topic of this show is after you",
+        "start": 518.86,
+        "duration": 3.21
+    },
+    {
+        "text": "generate that explanation and the global explanation object,",
+        "start": 522.07,
+        "duration": 3.795
+    },
+    {
+        "text": "you can pass this to the error analysis dashboard,",
+        "start": 525.865,
+        "duration": 2.745
+    },
+    {
+        "text": "which is what we're discussing today.",
+        "start": 528.61,
+        "duration": 2.1
+    },
+    {
+        "text": "Alongside with your dashboard pipeline,",
+        "start": 530.71,
+        "duration": 3.195
+    },
+    {
+        "text": "which I just created,",
+        "start": 533.905,
+        "duration": 1.08
+    },
+    {
+        "text": "consist of my, basically,",
+        "start": 534.985,
+        "duration": 2.145
+    },
+    {
+        "text": "featurization process and feature",
+        "start": 537.13,
+        "duration": 1.74
+    },
+    {
+        "text": "engineering process that I just define,",
+        "start": 538.87,
+        "duration": 1.86
+    },
+    {
+        "text": "if you remember numerical features",
+        "start": 540.73,
+        "duration": 1.71
+    },
+    {
+        "text": "and categorical features and how",
+        "start": 542.44,
+        "duration": 1.29
+    },
+    {
+        "text": "they transfer and also my model training.",
+        "start": 543.73,
+        "duration": 3.51
+    },
+    {
+        "text": "The other things that are just like",
+        "start": 547.24,
+        "duration": 2.04
+    },
+    {
+        "text": "the ground trues values and the prediction values.",
+        "start": 549.28,
+        "duration": 3.105
+    },
+    {
+        "text": "So once you pass this to the error analysis dashboard,",
+        "start": 552.385,
+        "duration": 3.585
+    },
+    {
+        "text": "it will load this dashboard for you,",
+        "start": 555.97,
+        "duration": 2.28
+    },
+    {
+        "text": "which I, just simplicity of seeing that,",
+        "start": 558.25,
+        "duration": 2.055
+    },
+    {
+        "text": "I opened in a new tab using this full screen.",
+        "start": 560.305,
+        "duration": 3.915
+    },
+    {
+        "text": "So let's see what we are looking at together.",
+        "start": 564.22,
+        "duration": 3.555
+    },
+    {
+        "text": "As we said, the first stage of this tool is about",
+        "start": 567.775,
+        "duration": 3.51
+    },
+    {
+        "text": "identification of errors and for",
+        "start": 571.285,
+        "duration": 2.055
+    },
+    {
+        "text": "that you have two different modalities.",
+        "start": 573.34,
+        "duration": 2.355
+    },
+    {
+        "text": "First, you have this TreeMap,",
+        "start": 575.695,
+        "duration": 2.235
+    },
+    {
+        "text": "which is basically an error TreeMap that takes your data,",
+        "start": 577.93,
+        "duration": 3.39
+    },
+    {
+        "text": "your ground trues values,",
+        "start": 581.32,
+        "duration": 1.25
+    },
+    {
+        "text": "and your prediction values and creates",
+        "start": 582.57,
+        "duration": 2.07
+    },
+    {
+        "text": "this hierarchical clustering of the data",
+        "start": 584.64,
+        "duration": 3.315
+    },
+    {
+        "text": "into interesting but also interpretable subgroups.",
+        "start": 587.955,
+        "duration": 4.005
+    },
+    {
+        "text": "Now, it's interesting because they have",
+        "start": 591.96,
+        "duration": 2.31
+    },
+    {
+        "text": "different error rates and in",
+        "start": 594.27,
+        "duration": 2.01
+    },
+    {
+        "text": "some categories like the right-hand side of this tree,",
+        "start": 596.28,
+        "duration": 2.95
+    },
+    {
+        "text": "there are a lot more error focused in",
+        "start": 599.23,
+        "duration": 2.19
+    },
+    {
+        "text": "cohorts compared to the right side of the tree,",
+        "start": 601.42,
+        "duration": 2.79
+    },
+    {
+        "text": "and interpretable because you,",
+        "start": 604.21,
+        "duration": 2.16
+    },
+    {
+        "text": "for instance, can click on any cohort.",
+        "start": 606.37,
+        "duration": 2.46
+    },
+    {
+        "text": "For instance, I just clicked on this cohort and I realized",
+        "start": 608.83,
+        "duration": 2.61
+    },
+    {
+        "text": "that 25 percent of people in this cohort have",
+        "start": 611.44,
+        "duration": 3.51
+    },
+    {
+        "text": "received error and then",
+        "start": 614.95,
+        "duration": 2.145
+    },
+    {
+        "text": "this node is in charge of almost 50 percent",
+        "start": 617.095,
+        "duration": 2.82
+    },
+    {
+        "text": "of the errors that are happening in the overall data.",
+        "start": 619.915,
+        "duration": 7.02
+    },
+    {
+        "text": "I can also see what that cohort is about.",
+        "start": 626.935,
+        "duration": 2.145
+    },
+    {
+        "text": "That cohort is about people who are married,",
+        "start": 629.08,
+        "duration": 2.445
+    },
+    {
+        "text": "they are lower education,",
+        "start": 631.525,
+        "duration": 2.085
+    },
+    {
+        "text": "and they are on the older side,",
+        "start": 633.61,
+        "duration": 2.07
+    },
+    {
+        "text": "age greater than 33.",
+        "start": 635.68,
+        "duration": 1.455
+    },
+    {
+        "text": "These are married people,",
+        "start": 637.135,
+        "duration": 2.01
+    },
+    {
+        "text": "later phases of life,",
+        "start": 639.145,
+        "duration": 1.65
+    },
+    {
+        "text": "who do not have a lot of or",
+        "start": 640.795,
+        "duration": 2.265
+    },
+    {
+        "text": "have less education or lower education.",
+        "start": 643.06,
+        "duration": 2.865
+    },
+    {
+        "text": "I can also click on another node, for instance,",
+        "start": 645.925,
+        "duration": 3.405
+    },
+    {
+        "text": "and see that this node has 28.75 percent error rate,",
+        "start": 649.33,
+        "duration": 5.415
+    },
+    {
+        "text": "meaning 28 percent of people in this node,",
+        "start": 654.745,
+        "duration": 2.505
+    },
+    {
+        "text": "which are people who are married,",
+        "start": 657.25,
+        "duration": 1.725
+    },
+    {
+        "text": "younger age group, and higher education.",
+        "start": 658.975,
+        "duration": 3.435
+    },
+    {
+        "text": "So 28 percent of these people are getting errors, and this node,",
+        "start": 662.41,
+        "duration": 3.705
+    },
+    {
+        "text": "this cohort that I just defined,",
+        "start": 666.115,
+        "duration": 1.74
+    },
+    {
+        "text": "is in charge of 5.5 percent overall error.",
+        "start": 667.855,
+        "duration": 4.05
+    },
+    {
+        "text": "Not much in terms of coverage,",
+        "start": 671.905,
+        "duration": 1.8
+    },
+    {
+        "text": "but still 28 percent of these are seeing errors.",
+        "start": 673.705,
+        "duration": 4.47
+    },
+    {
+        "text": "So you can click on variety of",
+        "start": 678.175,
+        "duration": 3.255
+    },
+    {
+        "text": "these nodes and the great part is you don't have to do anything.",
+        "start": 681.43,
+        "duration": 3.75
+    },
+    {
+        "text": "These tree is actually trained on top of",
+        "start": 685.18,
+        "duration": 1.95
+    },
+    {
+        "text": "your model errors for you and you can just come",
+        "start": 687.13,
+        "duration": 2.34
+    },
+    {
+        "text": "and investigate and understand nodes and cohorts",
+        "start": 689.47,
+        "duration": 3.33
+    },
+    {
+        "text": "with different proportions of errors.",
+        "start": 692.8,
+        "duration": 3.865
+    },
+    {
+        "text": "The other thing you can see [OVERLAPPING]",
+        "start": 696.665,
+        "duration": 2.245
+    },
+    {
+        "text": ">> Sorry to interrupt you.",
+        "start": 698.91,
+        "duration": 1.365
+    },
+    {
+        "text": "You are going so fast and I want to hit this.",
+        "start": 700.275,
+        "duration": 3.87
+    },
+    {
+        "text": "Basically what you're doing is you're showing how this",
+        "start": 704.145,
+        "duration": 3.135
+    },
+    {
+        "text": "function that was learned, not written,",
+        "start": 707.28,
+        "duration": 3.03
+    },
+    {
+        "text": "how it actually makes decisions,",
+        "start": 710.31,
+        "duration": 2.235
+    },
+    {
+        "text": "but more than that,",
+        "start": 712.545,
+        "duration": 1.425
+    },
+    {
+        "text": "where the errors are in the decision.",
+        "start": 713.97,
+        "duration": 2.715
+    },
+    {
+        "text": "For example, when you're seeing an error,",
+        "start": 716.685,
+        "duration": 1.965
+    },
+    {
+        "text": "you mean it mislabeling",
+        "start": 718.65,
+        "duration": 1.68
+    },
+    {
+        "text": "some test data basically and you're showing",
+        "start": 720.33,
+        "duration": 2.47
+    },
+    {
+        "text": "here the cohorts of",
+        "start": 722.8,
+        "duration": 2.25
+    },
+    {
+        "text": "the data where the mislabeling",
+        "start": 725.05,
+        "duration": 1.62
+    },
+    {
+        "text": "has happened. Am I getting this right?",
+        "start": 726.67,
+        "duration": 1.785
+    },
+    {
+        "text": ">> Exactly and so imagine if you don't have such a tool,",
+        "start": 728.455,
+        "duration": 3.12
+    },
+    {
+        "text": "you cannot possibly combine old combination of",
+        "start": 731.575,
+        "duration": 3.675
+    },
+    {
+        "text": "features and put different thresholds on continuous ones,",
+        "start": 735.25,
+        "duration": 3.6
+    },
+    {
+        "text": "and then combine them all in different variety of",
+        "start": 738.85,
+        "duration": 2.28
+    },
+    {
+        "text": "ways in order to understand where errors are focused.",
+        "start": 741.13,
+        "duration": 3.015
+    },
+    {
+        "text": "That's not just scalable for",
+        "start": 744.145,
+        "duration": 1.725
+    },
+    {
+        "text": "you and so this tool just puts it in front of you.",
+        "start": 745.87,
+        "duration": 2.835
+    },
+    {
+        "text": "It tells you these are the cohorts that most of",
+        "start": 748.705,
+        "duration": 3.045
+    },
+    {
+        "text": "the errors are focused in and so now you can, for instance,",
+        "start": 751.75,
+        "duration": 3.45
+    },
+    {
+        "text": "take them to the diagnosis part to understand",
+        "start": 755.2,
+        "duration": 2.745
+    },
+    {
+        "text": "why this cohort is making or is seeing a lot of errors in it,",
+        "start": 757.945,
+        "duration": 3.435
+    },
+    {
+        "text": "which I will showcase to you momentarily.",
+        "start": 761.38,
+        "duration": 2.054
+    },
+    {
+        "text": ">> Awesome. Basically, it could be like these are",
+        "start": 763.434,
+        "duration": 3.946
+    },
+    {
+        "text": "the ones that it just flat out got wrong, let's investigate why.",
+        "start": 767.38,
+        "duration": 4.47
+    },
+    {
+        "text": ">> Exactly, exactly.",
+        "start": 771.85,
+        "duration": 2.31
+    },
+    {
+        "text": ">> Got it. Continue, sorry to interrupt you. This is [OVERLAPPING]",
+        "start": 774.16,
+        "duration": 2.46
+    },
+    {
+        "text": ">> This is perfect and we'd",
+        "start": 776.62,
+        "duration": 1.68
+    },
+    {
+        "text": "love to get interrupted again. Please do.",
+        "start": 778.3,
+        "duration": 2.325
+    },
+    {
+        "text": "When I click on \"Feature List\" set,",
+        "start": 780.625,
+        "duration": 2.16
+    },
+    {
+        "text": "another thing that we can see together is what factors lead to",
+        "start": 782.785,
+        "duration": 3.915
+    },
+    {
+        "text": "more errors or what factors were",
+        "start": 786.7,
+        "duration": 2.22
+    },
+    {
+        "text": "more indicators of errors in the model?",
+        "start": 788.92,
+        "duration": 2.67
+    },
+    {
+        "text": "For instance, I can see relationship, marital status,",
+        "start": 791.59,
+        "duration": 3.15
+    },
+    {
+        "text": "and age are the top three factors that",
+        "start": 794.74,
+        "duration": 2.25
+    },
+    {
+        "text": "contributing to the errors that",
+        "start": 796.99,
+        "duration": 1.47
+    },
+    {
+        "text": "you're seeing in this decision tree.",
+        "start": 798.46,
+        "duration": 1.935
+    },
+    {
+        "text": "Another cool feature is you can, for instance,",
+        "start": 800.395,
+        "duration": 3.06
+    },
+    {
+        "text": "uncheck them or unselect them and retrain your tree.",
+        "start": 803.455,
+        "duration": 3.045
+    },
+    {
+        "text": "Imagine you don't want to include one feature,",
+        "start": 806.5,
+        "duration": 2.64
+    },
+    {
+        "text": "you can unselect that and then retrain your tree so it's",
+        "start": 809.14,
+        "duration": 2.91
+    },
+    {
+        "text": "absolutely adaptable to what set of",
+        "start": 812.05,
+        "duration": 1.95
+    },
+    {
+        "text": "features you would like to use on top of it.",
+        "start": 814.0,
+        "duration": 3.13
+    },
+    {
+        "text": "This is what I'm going to do.",
+        "start": 817.77,
+        "duration": 3.04
+    },
+    {
+        "text": "First, I'm going to select this cohort.",
+        "start": 820.81,
+        "duration": 2.655
+    },
+    {
+        "text": "This seems to be people who are married.",
+        "start": 823.465,
+        "duration": 2.34
+    },
+    {
+        "text": "I'm going to save this group and this,",
+        "start": 825.805,
+        "duration": 2.445
+    },
+    {
+        "text": "as you saw, it's also an erroneous group.",
+        "start": 828.25,
+        "duration": 3.075
+    },
+    {
+        "text": "I'm going to call it married error",
+        "start": 831.325,
+        "duration": 2.295
+    },
+    {
+        "text": "so that I know that this was my erroneous cohort.",
+        "start": 833.62,
+        "duration": 2.7
+    },
+    {
+        "text": "81 percent of model's overall errors",
+        "start": 836.32,
+        "duration": 5.325
+    },
+    {
+        "text": "are focused in this node and this node,",
+        "start": 841.645,
+        "duration": 2.64
+    },
+    {
+        "text": "22 percent errors are happening inside it.",
+        "start": 844.285,
+        "duration": 3.66
+    },
+    {
+        "text": "I'm also, just for the sake of comparison, going to click here.",
+        "start": 847.945,
+        "duration": 3.63
+    },
+    {
+        "text": "This seems to be people who are unmarried and as you can see,",
+        "start": 851.575,
+        "duration": 2.985
+    },
+    {
+        "text": "the error rate is low,",
+        "start": 854.56,
+        "duration": 1.575
+    },
+    {
+        "text": "only four percent of people are getting errors here.",
+        "start": 856.135,
+        "duration": 2.475
+    },
+    {
+        "text": "This node is in-charge of 18 percent,",
+        "start": 858.61,
+        "duration": 2.195
+    },
+    {
+        "text": "which compared to 80-something percent,",
+        "start": 860.805,
+        "duration": 1.91
+    },
+    {
+        "text": "it's a lot lower.",
+        "start": 862.715,
+        "duration": 1.305
+    },
+    {
+        "text": "I'm also going to save",
+        "start": 864.02,
+        "duration": 1.92
+    },
+    {
+        "text": "this cohort for a later time for investigations.",
+        "start": 865.94,
+        "duration": 3.36
+    },
+    {
+        "text": "I'm just set not married.",
+        "start": 869.3,
+        "duration": 2.605
+    },
+    {
+        "text": "Before taking these two cohorts to",
+        "start": 871.905,
+        "duration": 3.365
+    },
+    {
+        "text": "the explanation part and try to",
+        "start": 875.27,
+        "duration": 1.47
+    },
+    {
+        "text": "diagnose why one is getting more errors and",
+        "start": 876.74,
+        "duration": 2.67
+    },
+    {
+        "text": "why one is getting better results so",
+        "start": 879.41,
+        "duration": 1.86
+    },
+    {
+        "text": "that we can go and actually improve",
+        "start": 881.27,
+        "duration": 1.92
+    },
+    {
+        "text": "the situation for those individuals who",
+        "start": 883.19,
+        "duration": 2.37
+    },
+    {
+        "text": "are married and are getting erroneous labels,",
+        "start": 885.56,
+        "duration": 2.58
+    },
+    {
+        "text": "I would like to add that there is",
+        "start": 888.14,
+        "duration": 1.395
+    },
+    {
+        "text": "another view that you might like.",
+        "start": 889.535,
+        "duration": 3.005
+    },
+    {
+        "text": "This view is called heat map.",
+        "start": 892.54,
+        "duration": 1.955
+    },
+    {
+        "text": "That's for when you have opted two features",
+        "start": 894.495,
+        "duration": 2.9
+    },
+    {
+        "text": "in mind that you would like to investigate,",
+        "start": 897.395,
+        "duration": 2.865
+    },
+    {
+        "text": "for instance, what are the different error rates that",
+        "start": 900.26,
+        "duration": 3.45
+    },
+    {
+        "text": "are happening in the sub-cohorts attached to that feature.",
+        "start": 903.71,
+        "duration": 3.795
+    },
+    {
+        "text": "For instance, first I select education num here.",
+        "start": 907.505,
+        "duration": 4.735
+    },
+    {
+        "text": "I can see, Seth,",
+        "start": 913.44,
+        "duration": 2.38
+    },
+    {
+        "text": "that as people are more highly educated,",
+        "start": 915.82,
+        "duration": 3.885
+    },
+    {
+        "text": "the error rate is also increasing for them, for the most part.",
+        "start": 919.705,
+        "duration": 4.125
+    },
+    {
+        "text": "Basically, as we go through",
+        "start": 923.83,
+        "duration": 3.24
+    },
+    {
+        "text": "lowest education to the highest education in this cohort,",
+        "start": 927.07,
+        "duration": 3.78
+    },
+    {
+        "text": "I see that there is a pattern for error",
+        "start": 930.85,
+        "duration": 3.03
+    },
+    {
+        "text": "monotonically increasing with that education getting higher.",
+        "start": 933.88,
+        "duration": 4.335
+    },
+    {
+        "text": "Another thing that I can bring to the picture",
+        "start": 938.215,
+        "duration": 2.535
+    },
+    {
+        "text": "is I can bring, for instance, gender.",
+        "start": 940.75,
+        "duration": 3.029
+    },
+    {
+        "text": "Because I want to now see how is it worked for females and males,",
+        "start": 943.779,
+        "duration": 4.351
+    },
+    {
+        "text": "which are the two values of gender in this particular dataset.",
+        "start": 948.13,
+        "duration": 4.065
+    },
+    {
+        "text": "I can first see that there are discrepancies",
+        "start": 952.195,
+        "duration": 3.555
+    },
+    {
+        "text": "between females and males in each education group.",
+        "start": 955.75,
+        "duration": 3.915
+    },
+    {
+        "text": "There's almost 5 percent more error rate for",
+        "start": 959.665,
+        "duration": 2.565
+    },
+    {
+        "text": "males of the same education group compared to females.",
+        "start": 962.23,
+        "duration": 3.36
+    },
+    {
+        "text": "The same pattern is true across them,",
+        "start": 965.59,
+        "duration": 2.94
+    },
+    {
+        "text": "in that sense that each group is getting more educated.",
+        "start": 968.53,
+        "duration": 4.395
+    },
+    {
+        "text": "It seems like there is also error monotonically increasing,",
+        "start": 972.925,
+        "duration": 4.365
+    },
+    {
+        "text": "and that suggests that there might be",
+        "start": 977.29,
+        "duration": 2.28
+    },
+    {
+        "text": "a correlation between education,",
+        "start": 979.57,
+        "duration": 2.7
+    },
+    {
+        "text": "hence the error that is happening inside this model.",
+        "start": 982.27,
+        "duration": 3.385
+    },
+    {
+        "text": "I'm not showing that today just for",
+        "start": 985.655,
+        "duration": 2.125
+    },
+    {
+        "text": "sake of simplifying this scenario,",
+        "start": 987.78,
+        "duration": 1.92
+    },
+    {
+        "text": "but you can select one or many of these grids,",
+        "start": 989.7,
+        "duration": 4.23
+    },
+    {
+        "text": "and also save that cohort",
+        "start": 993.93,
+        "duration": 3.73
+    },
+    {
+        "text": "and then take that cohort to the explanation phase.",
+        "start": 997.66,
+        "duration": 3.45
+    },
+    {
+        "text": "For now, I just go to",
+        "start": 1001.11,
+        "duration": 2.1
+    },
+    {
+        "text": "the explanation phase with the two cohorts that I identified.",
+        "start": 1003.21,
+        "duration": 3.165
+    },
+    {
+        "text": "Once you go there, you land on",
+        "start": 1006.375,
+        "duration": 2.025
+    },
+    {
+        "text": "three different tabs. Data Exploration,",
+        "start": 1008.4,
+        "duration": 3.96
+    },
+    {
+        "text": "Global Explanation, which is like",
+        "start": 1012.36,
+        "duration": 2.085
+    },
+    {
+        "text": "overall interpretability of how",
+        "start": 1014.445,
+        "duration": 1.575
+    },
+    {
+        "text": "the model is making its predictions,",
+        "start": 1016.02,
+        "duration": 1.845
+    },
+    {
+        "text": "and Local Explanations, which are for individual data points.",
+        "start": 1017.865,
+        "duration": 3.24
+    },
+    {
+        "text": "Then it also includes what if.",
+        "start": 1021.105,
+        "duration": 2.085
+    },
+    {
+        "text": "These are for helping you",
+        "start": 1023.19,
+        "duration": 2.01
+    },
+    {
+        "text": "diagnose what is happening and hopefully informing",
+        "start": 1025.2,
+        "duration": 3.66
+    },
+    {
+        "text": "some of the mitigation strategies that you need to put in",
+        "start": 1028.86,
+        "duration": 2.82
+    },
+    {
+        "text": "place to improve the situation for those erroneous cohorts.",
+        "start": 1031.68,
+        "duration": 4.14
+    },
+    {
+        "text": "My first step would be dataset exploration.",
+        "start": 1035.82,
+        "duration": 2.985
+    },
+    {
+        "text": "I click on \"Aggregate\" because I would like to understand overall",
+        "start": 1038.805,
+        "duration": 3.54
+    },
+    {
+        "text": "how this not married group and this",
+        "start": 1042.345,
+        "duration": 1.875
+    },
+    {
+        "text": "married error group where different,",
+        "start": 1044.22,
+        "duration": 2.19
+    },
+    {
+        "text": "one had very few errors and one had almost in",
+        "start": 1046.41,
+        "duration": 3.0
+    },
+    {
+        "text": "charge up 80 percent coverage of errors inside my model.",
+        "start": 1049.41,
+        "duration": 3.57
+    },
+    {
+        "text": "The very first thing that I would like to see",
+        "start": 1052.98,
+        "duration": 2.22
+    },
+    {
+        "text": "is I set the y-axis to count,",
+        "start": 1055.2,
+        "duration": 3.72
+    },
+    {
+        "text": "and I set the x-axis to trues values.",
+        "start": 1058.92,
+        "duration": 2.625
+    },
+    {
+        "text": "I would like to see, in terms of ground trues,",
+        "start": 1061.545,
+        "duration": 3.03
+    },
+    {
+        "text": "the actual labels that people had during training.",
+        "start": 1064.575,
+        "duration": 3.57
+    },
+    {
+        "text": "How much I'm representing both cohorts or both groups of",
+        "start": 1068.145,
+        "duration": 4.17
+    },
+    {
+        "text": "labels of less than or equal 50K",
+        "start": 1072.315,
+        "duration": 2.535
+    },
+    {
+        "text": "or more than 50K in my ground trues data.",
+        "start": 1074.85,
+        "duration": 2.805
+    },
+    {
+        "text": "I can see that the data is really",
+        "start": 1077.655,
+        "duration": 2.385
+    },
+    {
+        "text": "imbalanced for the not married group.",
+        "start": 1080.04,
+        "duration": 2.145
+    },
+    {
+        "text": "However, when I go to married group,",
+        "start": 1082.185,
+        "duration": 2.07
+    },
+    {
+        "text": "which had a lot of errors,",
+        "start": 1084.255,
+        "duration": 1.86
+    },
+    {
+        "text": "I see that this is actually pretty balanced.",
+        "start": 1086.115,
+        "duration": 2.79
+    },
+    {
+        "text": "I have a lot higher values",
+        "start": 1088.905,
+        "duration": 3.09
+    },
+    {
+        "text": "or number of people who actually aren't greater than 50K,",
+        "start": 1091.995,
+        "duration": 3.705
+    },
+    {
+        "text": "compared to the not-married group which this",
+        "start": 1095.7,
+        "duration": 1.905
+    },
+    {
+        "text": "imbalanced was a lot more.",
+        "start": 1097.605,
+        "duration": 2.415
+    },
+    {
+        "text": "So that suggests to me that when I have",
+        "start": 1100.02,
+        "duration": 2.895
+    },
+    {
+        "text": "so much representation in an almost balanced way for",
+        "start": 1102.915,
+        "duration": 3.855
+    },
+    {
+        "text": "more than 50K and less than or equal 50K for ground trues",
+        "start": 1106.77,
+        "duration": 3.15
+    },
+    {
+        "text": "of more than or less than 50K,",
+        "start": 1109.92,
+        "duration": 3.48
+    },
+    {
+        "text": "then it becomes a harder job for my model to distinguish between",
+        "start": 1113.4,
+        "duration": 3.72
+    },
+    {
+        "text": "these two groups because this dataset is not",
+        "start": 1117.12,
+        "duration": 2.22
+    },
+    {
+        "text": "huge and the two groups,",
+        "start": 1119.34,
+        "duration": 3.315
+    },
+    {
+        "text": "two labels are being represented equally in the training data,",
+        "start": 1122.655,
+        "duration": 3.285
+    },
+    {
+        "text": "so the model tends to make",
+        "start": 1125.94,
+        "duration": 2.04
+    },
+    {
+        "text": "more mistakes in detecting one from another.",
+        "start": 1127.98,
+        "duration": 3.495
+    },
+    {
+        "text": "One possible mitigation would be for you to, first of all,",
+        "start": 1131.475,
+        "duration": 3.945
+    },
+    {
+        "text": "augment the balance of your data everywhere,",
+        "start": 1135.42,
+        "duration": 1.98
+    },
+    {
+        "text": "but bring a lot more labels.",
+        "start": 1137.4,
+        "duration": 1.98
+    },
+    {
+        "text": "For instance, for this group of",
+        "start": 1139.38,
+        "duration": 1.95
+    },
+    {
+        "text": "greater than 50K or even equally for less than or equal to 50K to",
+        "start": 1141.33,
+        "duration": 4.05
+    },
+    {
+        "text": "just like teach the model more about",
+        "start": 1145.38,
+        "duration": 2.88
+    },
+    {
+        "text": "the patterns of how to distinguish these people from each other.",
+        "start": 1148.26,
+        "duration": 3.51
+    },
+    {
+        "text": "With a smaller dataset,",
+        "start": 1151.77,
+        "duration": 1.29
+    },
+    {
+        "text": "the model tends to make a lot more mistakes because it just",
+        "start": 1153.06,
+        "duration": 2.52
+    },
+    {
+        "text": "can't detect. Go ahead.",
+        "start": 1155.58,
+        "duration": 3.03
+    },
+    {
+        "text": ">> Sorry. I'm starting to understand,",
+        "start": 1158.61,
+        "duration": 2.58
+    },
+    {
+        "text": "because this is more like,",
+        "start": 1161.19,
+        "duration": 2.79
+    },
+    {
+        "text": "look, I started as a software developer for 10 years",
+        "start": 1163.98,
+        "duration": 2.46
+    },
+    {
+        "text": "then I went to grad school and did research in machine learning.",
+        "start": 1166.44,
+        "duration": 2.88
+    },
+    {
+        "text": "This feels like actual testing and",
+        "start": 1169.32,
+        "duration": 3.24
+    },
+    {
+        "text": "debugging kind of thing that we",
+        "start": 1172.56,
+        "duration": 2.13
+    },
+    {
+        "text": "would do in normal software practice.",
+        "start": 1174.69,
+        "duration": 2.37
+    },
+    {
+        "text": "Would you say that it's similar?",
+        "start": 1177.06,
+        "duration": 2.415
+    },
+    {
+        "text": ">> We feel like responsible AI is about rigorous AI engineering,",
+        "start": 1179.475,
+        "duration": 5.205
+    },
+    {
+        "text": "so in that sense you're absolutely right.",
+        "start": 1184.68,
+        "duration": 1.77
+    },
+    {
+        "text": "The same way that we debug our code and we debug machine",
+        "start": 1186.45,
+        "duration": 4.53
+    },
+    {
+        "text": "learning lifecycle in terms of what hyperparameters go inside it,",
+        "start": 1190.98,
+        "duration": 4.92
+    },
+    {
+        "text": "the same way we have to understand",
+        "start": 1195.9,
+        "duration": 1.965
+    },
+    {
+        "text": "what is happening inside the model's prediction,",
+        "start": 1197.865,
+        "duration": 2.64
+    },
+    {
+        "text": "and no model story is actually complete without the data story.",
+        "start": 1200.505,
+        "duration": 4.4
+    },
+    {
+        "text": "So the data is the input to the whole world of model training.",
+        "start": 1204.905,
+        "duration": 3.645
+    },
+    {
+        "text": "If there are some patterns that we can enhance, augment,",
+        "start": 1208.55,
+        "duration": 3.885
+    },
+    {
+        "text": "or correct in our training data,",
+        "start": 1212.435,
+        "duration": 1.845
+    },
+    {
+        "text": "I believe that our models will be drastically improved as well.",
+        "start": 1214.28,
+        "duration": 3.09
+    },
+    {
+        "text": "But you're absolutely right, it's quite similar.",
+        "start": 1217.37,
+        "duration": 2.285
+    },
+    {
+        "text": ">> Cool. Sorry, I interrupted.",
+        "start": 1219.655,
+        "duration": 1.55
+    },
+    {
+        "text": ">> No, that's a very great point.",
+        "start": 1221.205,
+        "duration": 1.71
+    },
+    {
+        "text": "The other thing that I wanted to mention here is, for instance,",
+        "start": 1222.915,
+        "duration": 3.6
+    },
+    {
+        "text": "I can select prediction values on the y-axis",
+        "start": 1226.515,
+        "duration": 3.39
+    },
+    {
+        "text": "and keep this ground trues values on the x-axis.",
+        "start": 1229.905,
+        "duration": 4.26
+    },
+    {
+        "text": "Here I just want to",
+        "start": 1234.165,
+        "duration": 2.4
+    },
+    {
+        "text": "just state it for simplicity of understanding that,",
+        "start": 1236.565,
+        "duration": 3.165
+    },
+    {
+        "text": "here you can see that people with ground trues less",
+        "start": 1239.73,
+        "duration": 3.06
+    },
+    {
+        "text": "than or equal 50K and predicted more than 50K.",
+        "start": 1242.79,
+        "duration": 3.075
+    },
+    {
+        "text": "This is one of the errors that are happening,",
+        "start": 1245.865,
+        "duration": 2.19
+    },
+    {
+        "text": "and also this is another error that is happening.",
+        "start": 1248.055,
+        "duration": 2.505
+    },
+    {
+        "text": "People who had ground trues of more than 50K,",
+        "start": 1250.56,
+        "duration": 2.7
+    },
+    {
+        "text": "but they have got the prediction of less than or equal 50K.",
+        "start": 1253.26,
+        "duration": 4.53
+    },
+    {
+        "text": "As you can see, Seth,",
+        "start": 1257.79,
+        "duration": 1.65
+    },
+    {
+        "text": "people who actually had",
+        "start": 1259.44,
+        "duration": 1.77
+    },
+    {
+        "text": "ground trues of greater than 50K are getting",
+        "start": 1261.21,
+        "duration": 2.385
+    },
+    {
+        "text": "a lot more errors than",
+        "start": 1263.595,
+        "duration": 1.725
+    },
+    {
+        "text": "people who had ground trues of less than 50K,",
+        "start": 1265.32,
+        "duration": 2.685
+    },
+    {
+        "text": "and that pattern is true for the overall data as well,",
+        "start": 1268.005,
+        "duration": 2.895
+    },
+    {
+        "text": "not just in the married group.",
+        "start": 1270.9,
+        "duration": 2.115
+    },
+    {
+        "text": "One possible thing would be maybe we have to go and bring",
+        "start": 1273.015,
+        "duration": 3.93
+    },
+    {
+        "text": "a lot more people with ground trues of",
+        "start": 1276.945,
+        "duration": 2.28
+    },
+    {
+        "text": "more than 50K, both married,",
+        "start": 1279.225,
+        "duration": 2.445
+    },
+    {
+        "text": "not married, and just",
+        "start": 1281.67,
+        "duration": 1.545
+    },
+    {
+        "text": "augment that cohort so that the model learns to",
+        "start": 1283.215,
+        "duration": 2.295
+    },
+    {
+        "text": "distinguish them better from people who had",
+        "start": 1285.51,
+        "duration": 2.4
+    },
+    {
+        "text": "the ground trues of less than or equal 50K.",
+        "start": 1287.91,
+        "duration": 2.91
+    },
+    {
+        "text": ">> I mean, this is awesome and it",
+        "start": 1290.82,
+        "duration": 2.04
+    },
+    {
+        "text": "feels like if you're more rigorous,",
+        "start": 1292.86,
+        "duration": 2.01
+    },
+    {
+        "text": "because now with things like automated machine learning,",
+        "start": 1294.87,
+        "duration": 2.46
+    },
+    {
+        "text": "you can build a ton of models at the same time,",
+        "start": 1297.33,
+        "duration": 2.58
+    },
+    {
+        "text": "you may find that the aggregate metrics of like AUC or like error,",
+        "start": 1299.91,
+        "duration": 7.56
+    },
+    {
+        "text": "bias, or variance, those are not",
+        "start": 1307.47,
+        "duration": 2.73
+    },
+    {
+        "text": "enough and diving in is a little bit more helpful.",
+        "start": 1310.2,
+        "duration": 3.48
+    },
+    {
+        "text": ">> Absolutely. I'm personally",
+        "start": 1313.68,
+        "duration": 2.19
+    },
+    {
+        "text": "huge fan of adding all these insights",
+        "start": 1315.87,
+        "duration": 2.34
+    },
+    {
+        "text": "to automated machine learning techniques so",
+        "start": 1318.21,
+        "duration": 1.89
+    },
+    {
+        "text": "that as a stakeholder, as a user,",
+        "start": 1320.1,
+        "duration": 2.52
+    },
+    {
+        "text": "you can make a more informed decision",
+        "start": 1322.62,
+        "duration": 2.19
+    },
+    {
+        "text": "as which one is the best model,",
+        "start": 1324.81,
+        "duration": 1.935
+    },
+    {
+        "text": "not based on one aggregate, either accuracy,",
+        "start": 1326.745,
+        "duration": 2.595
+    },
+    {
+        "text": "area under curve, error rate,",
+        "start": 1329.34,
+        "duration": 1.41
+    },
+    {
+        "text": "you name it. You're absolutely right.",
+        "start": 1330.75,
+        "duration": 1.95
+    },
+    {
+        "text": ">> That's awesome. Any other things to show",
+        "start": 1332.7,
+        "duration": 1.71
+    },
+    {
+        "text": "us on the Error Analysis Toolkit?",
+        "start": 1334.41,
+        "duration": 1.77
+    },
+    {
+        "text": ">> Yes. Two other things I wanted to",
+        "start": 1336.18,
+        "duration": 2.91
+    },
+    {
+        "text": "showcase was the Global Explanation capability of it,",
+        "start": 1339.09,
+        "duration": 2.94
+    },
+    {
+        "text": "which is really the marriage of",
+        "start": 1342.03,
+        "duration": 1.98
+    },
+    {
+        "text": "this tool with the InterpretML Toolkit,",
+        "start": 1344.01,
+        "duration": 2.19
+    },
+    {
+        "text": "which is for machine-learning interpretability.",
+        "start": 1346.2,
+        "duration": 2.55
+    },
+    {
+        "text": "For instance, you can see,",
+        "start": 1348.75,
+        "duration": 1.875
+    },
+    {
+        "text": "for not-married people,",
+        "start": 1350.625,
+        "duration": 2.085
+    },
+    {
+        "text": "the top second most important factor is age.",
+        "start": 1352.71,
+        "duration": 3.495
+    },
+    {
+        "text": "Age is an important factor in making",
+        "start": 1356.205,
+        "duration": 2.445
+    },
+    {
+        "text": "the predictions for not-married group.",
+        "start": 1358.65,
+        "duration": 2.745
+    },
+    {
+        "text": "However, for married group,",
+        "start": 1361.395,
+        "duration": 1.65
+    },
+    {
+        "text": "you can see that marital status is the top one.",
+        "start": 1363.045,
+        "duration": 2.22
+    },
+    {
+        "text": "That was the same for not married group.",
+        "start": 1365.265,
+        "duration": 1.95
+    },
+    {
+        "text": "But capital gain suddenly becomes really important.",
+        "start": 1367.215,
+        "duration": 3.195
+    },
+    {
+        "text": "In a way you can see for each group",
+        "start": 1370.41,
+        "duration": 2.64
+    },
+    {
+        "text": "what factors the model is using the",
+        "start": 1373.05,
+        "duration": 2.4
+    },
+    {
+        "text": "most in order to making its predictions,",
+        "start": 1375.45,
+        "duration": 2.16
+    },
+    {
+        "text": "and sometimes they might ignite some interesting questions.",
+        "start": 1377.61,
+        "duration": 3.33
+    },
+    {
+        "text": "Why, for my married group,",
+        "start": 1380.94,
+        "duration": 1.695
+    },
+    {
+        "text": "I'm seeing a lot of pressure or a lot of weight is being given",
+        "start": 1382.635,
+        "duration": 4.2
+    },
+    {
+        "text": "or is being put on capital gain",
+        "start": 1386.835,
+        "duration": 1.875
+    },
+    {
+        "text": "versus for not-married group, it's on age?",
+        "start": 1388.71,
+        "duration": 2.685
+    },
+    {
+        "text": "Those are signals for you to go and investigate",
+        "start": 1391.395,
+        "duration": 3.105
+    },
+    {
+        "text": "the balance of your data and understand better.",
+        "start": 1394.5,
+        "duration": 3.18
+    },
+    {
+        "text": "One last thing that I would like to highlight,",
+        "start": 1397.68,
+        "duration": 2.1
+    },
+    {
+        "text": "Seth, is the Local Explanation,",
+        "start": 1399.78,
+        "duration": 2.04
+    },
+    {
+        "text": "which allows you to dive deep on one cohort,",
+        "start": 1401.82,
+        "duration": 3.21
+    },
+    {
+        "text": "for instance, I have this not-married cohort here.",
+        "start": 1405.03,
+        "duration": 2.55
+    },
+    {
+        "text": "I could also shift to another cohort if",
+        "start": 1407.58,
+        "duration": 1.98
+    },
+    {
+        "text": "I want to see the married cohort.",
+        "start": 1409.56,
+        "duration": 2.1
+    },
+    {
+        "text": "But it shows you",
+        "start": 1411.66,
+        "duration": 1.23
+    },
+    {
+        "text": "the data points of it that have been correctly predicted,",
+        "start": 1412.89,
+        "duration": 3.66
+    },
+    {
+        "text": "the data points of it that have been incorrectly predicted.",
+        "start": 1416.55,
+        "duration": 3.24
+    },
+    {
+        "text": "For instance, I go to the erroneous cohort in",
+        "start": 1419.79,
+        "duration": 2.76
+    },
+    {
+        "text": "my no-married group and I select one of them just randomly,",
+        "start": 1422.55,
+        "duration": 4.469
+    },
+    {
+        "text": "for instance, like say this one.",
+        "start": 1427.019,
+        "duration": 2.476
+    },
+    {
+        "text": "I can inspect it and understand what are the factors that are",
+        "start": 1429.495,
+        "duration": 4.065
+    },
+    {
+        "text": "impacting its predictions in positive way or in negative way.",
+        "start": 1433.56,
+        "duration": 4.005
+    },
+    {
+        "text": "This is the Local Explanation part.",
+        "start": 1437.565,
+        "duration": 2.385
+    },
+    {
+        "text": "You can also select more than one.",
+        "start": 1439.95,
+        "duration": 1.575
+    },
+    {
+        "text": "But the other cool thing that I can do is I",
+        "start": 1441.525,
+        "duration": 2.895
+    },
+    {
+        "text": "can run this what-if analysis panel.",
+        "start": 1444.42,
+        "duration": 3.57
+    },
+    {
+        "text": "Right now this person had actually trues value",
+        "start": 1447.99,
+        "duration": 3.075
+    },
+    {
+        "text": "of greater than 50K,",
+        "start": 1451.065,
+        "duration": 1.725
+    },
+    {
+        "text": "and it was predicted to be in the class less than or equal 50K.",
+        "start": 1452.79,
+        "duration": 5.985
+    },
+    {
+        "text": "I can say, for instance,",
+        "start": 1458.775,
+        "duration": 1.695
+    },
+    {
+        "text": "what happens if this person was not divorced and was married?",
+        "start": 1460.47,
+        "duration": 4.395
+    },
+    {
+        "text": "As you can see, suddenly the prediction was",
+        "start": 1464.865,
+        "duration": 3.405
+    },
+    {
+        "text": "changed from this to the right one,",
+        "start": 1468.27,
+        "duration": 2.865
+    },
+    {
+        "text": "which is more than 50K with 80 percent probability.",
+        "start": 1471.135,
+        "duration": 3.81
+    },
+    {
+        "text": "So you can do a lot of these perturbation cases",
+        "start": 1474.945,
+        "duration": 2.475
+    },
+    {
+        "text": "and further debug your model and see",
+        "start": 1477.42,
+        "duration": 1.92
+    },
+    {
+        "text": "what factors switching and",
+        "start": 1479.34,
+        "duration": 1.8
+    },
+    {
+        "text": "perturbing leads more to changing the outcome.",
+        "start": 1481.14,
+        "duration": 3.615
+    },
+    {
+        "text": ">> Well, this is awesome.",
+        "start": 1484.755,
+        "duration": 2.655
+    },
+    {
+        "text": "Primarily, because it's been",
+        "start": 1487.41,
+        "duration": 3.27
+    },
+    {
+        "text": "such a black box that developers",
+        "start": 1490.68,
+        "duration": 2.34
+    },
+    {
+        "text": "generally are like how even debug this?",
+        "start": 1493.02,
+        "duration": 3.76
+    },
+    {
+        "text": "This is awesome. Just to finish up,",
+        "start": 1496.97,
+        "duration": 3.25
+    },
+    {
+        "text": "where can people go to find out",
+        "start": 1500.22,
+        "duration": 2.1
+    },
+    {
+        "text": "more to learn how to do this themselves?",
+        "start": 1502.32,
+        "duration": 3.31
+    },
+    {
+        "text": ">> People can check out erroranalysis.ai.",
+        "start": 1506.3,
+        "duration": 3.985
+    },
+    {
+        "text": "Besmira has also written",
+        "start": 1510.285,
+        "duration": 1.875
+    },
+    {
+        "text": "a fantastic blog that we make sure to put the link here.",
+        "start": 1512.16,
+        "duration": 4.155
+    },
+    {
+        "text": "Yeah, reach out to us via GitHub Issues if",
+        "start": 1516.315,
+        "duration": 2.745
+    },
+    {
+        "text": "you have any thoughts you want to share a feature ask,",
+        "start": 1519.06,
+        "duration": 2.235
+    },
+    {
+        "text": "we always welcome community contributions,",
+        "start": 1521.295,
+        "duration": 2.22
+    },
+    {
+        "text": "so looking forward to hearing from you.",
+        "start": 1523.515,
+        "duration": 1.95
+    },
+    {
+        "text": ">> Well, this has been fantastic.",
+        "start": 1525.465,
+        "duration": 1.455
+    },
+    {
+        "text": "Besmira, anything you'd like to add to finish up?",
+        "start": 1526.92,
+        "duration": 2.895
+    },
+    {
+        "text": ">> I just want to call out to",
+        "start": 1529.815,
+        "duration": 2.205
+    },
+    {
+        "text": "all machine learning developers who are building these tools for",
+        "start": 1532.02,
+        "duration": 2.88
+    },
+    {
+        "text": "them and we hope to make them more",
+        "start": 1534.9,
+        "duration": 2.16
+    },
+    {
+        "text": "productive to accelerate the improvements.",
+        "start": 1537.06,
+        "duration": 2.624
+    },
+    {
+        "text": "Yeah, just reach out to us if you",
+        "start": 1539.684,
+        "duration": 2.056
+    },
+    {
+        "text": "have asks, discussions, anything.",
+        "start": 1541.74,
+        "duration": 2.745
+    },
+    {
+        "text": ">> Thank you so much for being with us, Mehrnoosh, Besmira.",
+        "start": 1544.485,
+        "duration": 3.255
+    },
+    {
+        "text": "You've been learning all about how to use",
+        "start": 1547.74,
+        "duration": 1.35
+    },
+    {
+        "text": "the Error Analysis Toolkit on the AI Show.",
+        "start": 1549.09,
+        "duration": 3.03
+    },
+    {
+        "text": "Thank you so much for watching and",
+        "start": 1552.12,
+        "duration": 1.2
+    },
+    {
+        "text": "hopefully we'll see you next time. Take care.",
+        "start": 1553.32,
+        "duration": 1.74
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 1555.06,
+        "duration": 7.94
+    }
+]

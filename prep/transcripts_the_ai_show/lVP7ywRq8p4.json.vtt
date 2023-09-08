@@ -1,0 +1,1277 @@
+[
+    {
+        "text": ">> You're not going to want to miss this episode of",
+        "start": 0.0,
+        "duration": 1.89
+    },
+    {
+        "text": "the AI show where we make our AI,",
+        "start": 1.89,
+        "duration": 2.414
+    },
+    {
+        "text": "create an image from tags that you can post to Instagram.",
+        "start": 4.304,
+        "duration": 4.216
+    },
+    {
+        "text": "We'll show you how to make",
+        "start": 8.52,
+        "duration": 1.59
+    },
+    {
+        "text": "those discrete steps on",
+        "start": 10.11,
+        "duration": 1.53
+    },
+    {
+        "text": "the next episode of the AI show. Make sure to tune in.",
+        "start": 11.64,
+        "duration": 2.22
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 13.86,
+        "duration": 4.62
+    },
+    {
+        "text": ">> Hello and welcome to this episode of",
+        "start": 18.48,
+        "duration": 1.26
+    },
+    {
+        "text": "the AI show where I've got a special friend with me, Santos.",
+        "start": 19.74,
+        "duration": 2.62
+    },
+    {
+        "text": "Why don't you introduce yourself.",
+        "start": 22.36,
+        "duration": 1.33
+    },
+    {
+        "text": ">> Yes, my name is Santos Pulay.",
+        "start": 23.69,
+        "duration": 1.565
+    },
+    {
+        "text": "I'm a Program Manager in the Azure Machine Learning Team.",
+        "start": 25.255,
+        "duration": 2.525
+    },
+    {
+        "text": "I worked with the pipelines feature.",
+        "start": 27.78,
+        "duration": 3.06
+    },
+    {
+        "text": ">> Fantastic. So before we get into pipelines,",
+        "start": 30.84,
+        "duration": 1.71
+    },
+    {
+        "text": "let's talk about a workflow for",
+        "start": 32.55,
+        "duration": 2.855
+    },
+    {
+        "text": "a typical machine learning scenario",
+        "start": 35.405,
+        "duration": 2.505
+    },
+    {
+        "text": "because I feel like this sets",
+        "start": 37.91,
+        "duration": 1.035
+    },
+    {
+        "text": "the context for what we're working on.",
+        "start": 38.945,
+        "duration": 1.185
+    },
+    {
+        "text": "Tell us what a good workflow is?",
+        "start": 40.13,
+        "duration": 1.43
+    },
+    {
+        "text": ">> At a high level, a machine learning",
+        "start": 41.56,
+        "duration": 1.85
+    },
+    {
+        "text": "workflow will have three major phases;",
+        "start": 43.41,
+        "duration": 1.92
+    },
+    {
+        "text": "the data preparation phase,",
+        "start": 45.33,
+        "duration": 1.97
+    },
+    {
+        "text": "and the training phase,",
+        "start": 47.3,
+        "duration": 1.77
+    },
+    {
+        "text": "and the deployment and scoring phase.",
+        "start": 49.07,
+        "duration": 2.37
+    },
+    {
+        "text": "So in the data preparation phase,",
+        "start": 51.44,
+        "duration": 1.35
+    },
+    {
+        "text": "you have data ingestion,",
+        "start": 52.79,
+        "duration": 1.65
+    },
+    {
+        "text": "validation and transformation etc.",
+        "start": 54.44,
+        "duration": 2.73
+    },
+    {
+        "text": "In the training phase you will use",
+        "start": 57.17,
+        "duration": 1.74
+    },
+    {
+        "text": "leverage features like automated machine learning,",
+        "start": 58.91,
+        "duration": 2.75
+    },
+    {
+        "text": "hyper-parameter tuning, and the custom model building.",
+        "start": 61.66,
+        "duration": 2.87
+    },
+    {
+        "text": "In the deployment phase, you deploy score and",
+        "start": 64.53,
+        "duration": 2.63
+    },
+    {
+        "text": "monitor your models that are ongoing.",
+        "start": 67.16,
+        "duration": 2.91
+    },
+    {
+        "text": "In the overall mature workflow,",
+        "start": 70.07,
+        "duration": 2.91
+    },
+    {
+        "text": "you will also have retraining as well as batch predictions.",
+        "start": 72.98,
+        "duration": 3.305
+    },
+    {
+        "text": ">> The thing is like, and I have done these people,",
+        "start": 76.285,
+        "duration": 3.565
+    },
+    {
+        "text": "if you put this all at in one script,",
+        "start": 79.85,
+        "duration": 1.825
+    },
+    {
+        "text": "it takes for ever and",
+        "start": 81.675,
+        "duration": 1.815
+    },
+    {
+        "text": "then you like an hour in and then something breaks,",
+        "start": 83.49,
+        "duration": 1.89
+    },
+    {
+        "text": "and that's not a good thing and then you",
+        "start": 85.38,
+        "duration": 1.88
+    },
+    {
+        "text": "have to start all over again and it's not very good.",
+        "start": 87.26,
+        "duration": 2.025
+    },
+    {
+        "text": ">> That's when you break these down into module channels.",
+        "start": 89.285,
+        "duration": 4.425
+    },
+    {
+        "text": "You can break it down to two phases.",
+        "start": 93.71,
+        "duration": 2.91
+    },
+    {
+        "text": "Like data proportion could be",
+        "start": 96.62,
+        "duration": 1.53
+    },
+    {
+        "text": "one phase and training would be another phase.",
+        "start": 98.15,
+        "duration": 2.445
+    },
+    {
+        "text": "You will have different steps for individual phases.",
+        "start": 100.595,
+        "duration": 2.805
+    },
+    {
+        "text": "You can use pipelines for individual faces or",
+        "start": 103.4,
+        "duration": 2.955
+    },
+    {
+        "text": "you can use as an Uber orchestrator for the end-to-end scenarios.",
+        "start": 106.355,
+        "duration": 3.015
+    },
+    {
+        "text": ">> So let's start. You mentioned the word pipelines.",
+        "start": 109.37,
+        "duration": 2.055
+    },
+    {
+        "text": "We talked about the standard machine learning workflow.",
+        "start": 111.425,
+        "duration": 2.82
+    },
+    {
+        "text": "How do pipelines help with that?",
+        "start": 114.245,
+        "duration": 1.725
+    },
+    {
+        "text": "Tell as what pipelines are and how they help?",
+        "start": 115.97,
+        "duration": 1.58
+    },
+    {
+        "text": ">> Sure. So even if you're just having a single-step,",
+        "start": 117.55,
+        "duration": 3.625
+    },
+    {
+        "text": "to run a single model training,",
+        "start": 121.175,
+        "duration": 2.51
+    },
+    {
+        "text": "you will start realizing the advantages of using pipelines.",
+        "start": 123.685,
+        "duration": 3.775
+    },
+    {
+        "text": "Then you start from exploration to iterations.",
+        "start": 127.46,
+        "duration": 3.075
+    },
+    {
+        "text": "So usually, when you need to iterate many times",
+        "start": 130.535,
+        "duration": 2.595
+    },
+    {
+        "text": "over to perfect your machine learning model.",
+        "start": 133.13,
+        "duration": 3.015
+    },
+    {
+        "text": "So for example, one of the things is reuse of the steps.",
+        "start": 136.145,
+        "duration": 2.955
+    },
+    {
+        "text": "A step is a unit of computation.",
+        "start": 139.1,
+        "duration": 1.935
+    },
+    {
+        "text": "So when you really want to redo the steps over and over again,",
+        "start": 141.035,
+        "duration": 4.635
+    },
+    {
+        "text": "we have something called reuse of steps.",
+        "start": 145.67,
+        "duration": 1.86
+    },
+    {
+        "text": "So that means that reuse of computations that are already done.",
+        "start": 147.53,
+        "duration": 2.985
+    },
+    {
+        "text": "In that case, you are saving a lot of",
+        "start": 150.515,
+        "duration": 2.175
+    },
+    {
+        "text": "compute course just by reusing the step.",
+        "start": 152.69,
+        "duration": 2.25
+    },
+    {
+        "text": "In an interplay scenario,",
+        "start": 154.94,
+        "duration": 1.77
+    },
+    {
+        "text": "we're talking about 30 percent savings on the compute cost.",
+        "start": 156.71,
+        "duration": 5.67
+    },
+    {
+        "text": ">> That's amazing because when I'm running, here's an example.",
+        "start": 162.38,
+        "duration": 4.66
+    },
+    {
+        "text": "I do Tensorflow stuff all the time,",
+        "start": 167.04,
+        "duration": 2.145
+    },
+    {
+        "text": "and I'm a computer vision person,",
+        "start": 169.185,
+        "duration": 1.655
+    },
+    {
+        "text": "and so what happens is,",
+        "start": 170.84,
+        "duration": 1.405
+    },
+    {
+        "text": "I crunched through all these images,",
+        "start": 172.245,
+        "duration": 1.8
+    },
+    {
+        "text": "and then the training breaks",
+        "start": 174.045,
+        "duration": 1.635
+    },
+    {
+        "text": "then I have to go and re-crunch to all these images.",
+        "start": 175.68,
+        "duration": 2.36
+    },
+    {
+        "text": "If I'm understanding you right,",
+        "start": 178.04,
+        "duration": 1.5
+    },
+    {
+        "text": "you're telling me I can put",
+        "start": 179.54,
+        "duration": 1.575
+    },
+    {
+        "text": "the crunching of images into a single step,",
+        "start": 181.115,
+        "duration": 2.255
+    },
+    {
+        "text": "and that data will just be there unless something changes?",
+        "start": 183.37,
+        "duration": 2.68
+    },
+    {
+        "text": ">> Absolutely. So if the input and",
+        "start": 186.05,
+        "duration": 1.74
+    },
+    {
+        "text": "parameters of the step remains the same,",
+        "start": 187.79,
+        "duration": 2.015
+    },
+    {
+        "text": "we're not going to rerun that step unless you",
+        "start": 189.805,
+        "duration": 2.185
+    },
+    {
+        "text": "specifically want us to tell you, tell us to do so.",
+        "start": 191.99,
+        "duration": 2.2
+    },
+    {
+        "text": ">> I see and that was my next question.",
+        "start": 194.19,
+        "duration": 1.745
+    },
+    {
+        "text": "How do you know when to run it again,",
+        "start": 195.935,
+        "duration": 2.235
+    },
+    {
+        "text": "and you're saying that when the input and",
+        "start": 198.17,
+        "duration": 1.8
+    },
+    {
+        "text": "the parameters are different then you need to rerun otherwise,",
+        "start": 199.97,
+        "duration": 3.66
+    },
+    {
+        "text": "just reuse that stuff.",
+        "start": 203.63,
+        "duration": 1.03
+    },
+    {
+        "text": ">> Exactly.",
+        "start": 204.66,
+        "duration": 0.855
+    },
+    {
+        "text": ">> Awesome. So how does one actually set this up?",
+        "start": 205.515,
+        "duration": 3.125
+    },
+    {
+        "text": "You talked about the optimizations",
+        "start": 208.64,
+        "duration": 2.4
+    },
+    {
+        "text": "and how it's actually pretty powerful,",
+        "start": 211.04,
+        "duration": 2.005
+    },
+    {
+        "text": "but is it hard to do?",
+        "start": 213.045,
+        "duration": 1.905
+    },
+    {
+        "text": ">> It is not very hard to do.",
+        "start": 214.95,
+        "duration": 1.8
+    },
+    {
+        "text": "You can start with Jupiter notebooks and you have",
+        "start": 216.75,
+        "duration": 3.11
+    },
+    {
+        "text": "constructs to build up individual steps in Jupiter notebooks,",
+        "start": 219.86,
+        "duration": 3.615
+    },
+    {
+        "text": "or straight to Py files.",
+        "start": 223.475,
+        "duration": 1.98
+    },
+    {
+        "text": "So once you have finished",
+        "start": 225.455,
+        "duration": 2.025
+    },
+    {
+        "text": "building a pipeline for an individual phase,",
+        "start": 227.48,
+        "duration": 2.79
+    },
+    {
+        "text": "you can just publish that pipeline and get a rest endpoint.",
+        "start": 230.27,
+        "duration": 4.865
+    },
+    {
+        "text": "So what that means is that then the color or the",
+        "start": 235.135,
+        "duration": 3.235
+    },
+    {
+        "text": "teams who are using your data processing phase for example,",
+        "start": 238.37,
+        "duration": 3.33
+    },
+    {
+        "text": "they can just recall into that rest endpoint.",
+        "start": 241.7,
+        "duration": 2.085
+    },
+    {
+        "text": "They don't need to know the details of the pipeline's building.",
+        "start": 243.785,
+        "duration": 2.55
+    },
+    {
+        "text": ">> I see. Let me see if I understand this right.",
+        "start": 246.335,
+        "duration": 3.59
+    },
+    {
+        "text": "If we're putting these pipelines out to a rest endpoint,",
+        "start": 249.925,
+        "duration": 3.435
+    },
+    {
+        "text": "that means anyone can call them and change the parameters,",
+        "start": 253.36,
+        "duration": 2.955
+    },
+    {
+        "text": "and if the parameters are changed then",
+        "start": 256.315,
+        "duration": 1.515
+    },
+    {
+        "text": "only the steps that need to run are up.",
+        "start": 257.83,
+        "duration": 2.19
+    },
+    {
+        "text": ">> That's exactly right. So if you are",
+        "start": 260.02,
+        "duration": 1.44
+    },
+    {
+        "text": "authorized to call into that rest endpoint,",
+        "start": 261.46,
+        "duration": 2.01
+    },
+    {
+        "text": "yes, you can call into rest endpoint.",
+        "start": 263.47,
+        "duration": 1.68
+    },
+    {
+        "text": "You don't need to know how it was built,",
+        "start": 265.15,
+        "duration": 1.95
+    },
+    {
+        "text": "and what are the optimizations that are built into it.",
+        "start": 267.1,
+        "duration": 2.76
+    },
+    {
+        "text": "You only need to know what parameters you need to",
+        "start": 269.86,
+        "duration": 1.86
+    },
+    {
+        "text": "use to run into that workflow.",
+        "start": 271.72,
+        "duration": 1.97
+    },
+    {
+        "text": ">> So if I'm understanding this right,",
+        "start": 273.69,
+        "duration": 1.485
+    },
+    {
+        "text": "and then maybe we can get into a little bit what this",
+        "start": 275.175,
+        "duration": 1.93
+    },
+    {
+        "text": "looks like inside of Azure Machine Learning Service.",
+        "start": 277.105,
+        "duration": 2.595
+    },
+    {
+        "text": "So basically whenever you're doing machine learning process,",
+        "start": 279.7,
+        "duration": 2.79
+    },
+    {
+        "text": "the first thing I need to do is separate it into discrete steps.",
+        "start": 282.49,
+        "duration": 3.03
+    },
+    {
+        "text": "These steps then I can package it into a",
+        "start": 285.52,
+        "duration": 2.1
+    },
+    {
+        "text": "single like Python file for example,",
+        "start": 287.62,
+        "duration": 2.57
+    },
+    {
+        "text": "then what I do is for each of these steps I",
+        "start": 290.19,
+        "duration": 2.21
+    },
+    {
+        "text": "create a set of pipeline things and then those tasks can run.",
+        "start": 292.4,
+        "duration": 3.72
+    },
+    {
+        "text": ">> Yeah. So the steps",
+        "start": 296.12,
+        "duration": 1.95
+    },
+    {
+        "text": "can be stitched together using data dependency.",
+        "start": 298.07,
+        "duration": 3.87
+    },
+    {
+        "text": "So if you say a step is going to produce",
+        "start": 301.94,
+        "duration": 2.46
+    },
+    {
+        "text": "some data and the subsequent step is going to use that data,",
+        "start": 304.4,
+        "duration": 3.875
+    },
+    {
+        "text": "pipelines will automatically figure that",
+        "start": 308.275,
+        "duration": 2.275
+    },
+    {
+        "text": "out and wait for that step to finish,",
+        "start": 310.55,
+        "duration": 1.92
+    },
+    {
+        "text": "or the data to be available before the next steps happens.",
+        "start": 312.47,
+        "duration": 3.435
+    },
+    {
+        "text": "So you would construct your steps in such a way that",
+        "start": 315.905,
+        "duration": 4.035
+    },
+    {
+        "text": "there are certain model of channels that output a certain data,",
+        "start": 319.94,
+        "duration": 4.71
+    },
+    {
+        "text": "whether it is ingestion data, or transform data,",
+        "start": 324.65,
+        "duration": 4.515
+    },
+    {
+        "text": "or the output of a trained model, which is a model,",
+        "start": 329.165,
+        "duration": 2.91
+    },
+    {
+        "text": "then you move on to the next step",
+        "start": 332.075,
+        "duration": 1.815
+    },
+    {
+        "text": "as to what to do with that output,",
+        "start": 333.89,
+        "duration": 1.71
+    },
+    {
+        "text": "whether it is a data or a model.",
+        "start": 335.6,
+        "duration": 1.305
+    },
+    {
+        "text": ">> That's interesting because",
+        "start": 336.905,
+        "duration": 1.785
+    },
+    {
+        "text": "implicitly what happens is, when you build these steps,",
+        "start": 338.69,
+        "duration": 2.79
+    },
+    {
+        "text": "all of a sudden there's like a graph",
+        "start": 341.48,
+        "duration": 1.41
+    },
+    {
+        "text": "of things that need to happen,",
+        "start": 342.89,
+        "duration": 1.62
+    },
+    {
+        "text": "and you're saying that the graph is",
+        "start": 344.51,
+        "duration": 1.14
+    },
+    {
+        "text": "implicitly constructed by the data dependencies?",
+        "start": 345.65,
+        "duration": 2.675
+    },
+    {
+        "text": ">> Absolutely, or you can say,",
+        "start": 348.325,
+        "duration": 1.64
+    },
+    {
+        "text": "like if there are no data dependency,",
+        "start": 349.965,
+        "duration": 2.025
+    },
+    {
+        "text": "you can actually force some steps",
+        "start": 351.99,
+        "duration": 2.66
+    },
+    {
+        "text": "to wait for one of the previous step to finish.",
+        "start": 354.65,
+        "duration": 2.73
+    },
+    {
+        "text": "So there are other constructs that enabled you to do that as well.",
+        "start": 357.38,
+        "duration": 2.91
+    },
+    {
+        "text": ">> So there's implicit graph of tasks,",
+        "start": 360.29,
+        "duration": 2.145
+    },
+    {
+        "text": "and then there's an explicit one.",
+        "start": 362.435,
+        "duration": 1.825
+    },
+    {
+        "text": "What's cool about this is if you have",
+        "start": 364.26,
+        "duration": 1.475
+    },
+    {
+        "text": "certain ones that have no dependency,",
+        "start": 365.735,
+        "duration": 1.95
+    },
+    {
+        "text": "if you set up your computer correctly these can",
+        "start": 367.685,
+        "duration": 2.325
+    },
+    {
+        "text": "run on different nodes at the same time.",
+        "start": 370.01,
+        "duration": 2.685
+    },
+    {
+        "text": ">> Correct. By default,",
+        "start": 372.695,
+        "duration": 1.08
+    },
+    {
+        "text": "all the nodes that have all the dependencies",
+        "start": 373.775,
+        "duration": 2.295
+    },
+    {
+        "text": "satisfied or no dependency will run in parallel.",
+        "start": 376.07,
+        "duration": 3.365
+    },
+    {
+        "text": "You can make them in sequence by explicit constraints.",
+        "start": 379.435,
+        "duration": 3.415
+    },
+    {
+        "text": ">> All right. Well I feel like we need to look at this now.",
+        "start": 382.85,
+        "duration": 1.905
+    },
+    {
+        "text": ">> All right. So here is a graph that actually is built",
+        "start": 384.755,
+        "duration": 5.085
+    },
+    {
+        "text": "for creating an image from a pump,",
+        "start": 389.84,
+        "duration": 5.91
+    },
+    {
+        "text": "and that image gets published into an Instagram post.",
+        "start": 395.75,
+        "duration": 4.26
+    },
+    {
+        "text": "So this graph generates",
+        "start": 400.01,
+        "duration": 2.5
+    },
+    {
+        "text": "an Instagram post every time the pipelines runs.",
+        "start": 402.51,
+        "duration": 4.16
+    },
+    {
+        "text": ">> So hold on. This is crazy.",
+        "start": 406.67,
+        "duration": 2.07
+    },
+    {
+        "text": "So you're saying that this will actually from some text",
+        "start": 408.74,
+        "duration": 3.96
+    },
+    {
+        "text": "create an image that you can put out to Instagram.",
+        "start": 412.7,
+        "duration": 4.63
+    },
+    {
+        "text": ">> That's exactly right.",
+        "start": 417.33,
+        "duration": 1.08
+    },
+    {
+        "text": ">> Let's go to this task because that sounds",
+        "start": 418.41,
+        "duration": 2.21
+    },
+    {
+        "text": "crazy and I want to see what steps there are to do that, so let's go through that.",
+        "start": 420.62,
+        "duration": 2.115
+    },
+    {
+        "text": ">> All right. So here we are looking at",
+        "start": 422.735,
+        "duration": 2.91
+    },
+    {
+        "text": "the three data sources on the top",
+        "start": 425.645,
+        "duration": 4.155
+    },
+    {
+        "text": "that are the data sources for the creation of the poem first.",
+        "start": 429.8,
+        "duration": 4.92
+    },
+    {
+        "text": "So it is automatically generated",
+        "start": 434.72,
+        "duration": 2.25
+    },
+    {
+        "text": "based on the data that we are feeding into.",
+        "start": 436.97,
+        "duration": 2.87
+    },
+    {
+        "text": ">> I see.",
+        "start": 439.84,
+        "duration": 0.875
+    },
+    {
+        "text": ">> Then we are pulling them into the text to image step,",
+        "start": 440.715,
+        "duration": 4.775
+    },
+    {
+        "text": "which means that once the data is generated,",
+        "start": 445.49,
+        "duration": 2.82
+    },
+    {
+        "text": "it is going to generate an image",
+        "start": 448.31,
+        "duration": 2.295
+    },
+    {
+        "text": "based on the text that is provided.",
+        "start": 450.605,
+        "duration": 2.745
+    },
+    {
+        "text": ">> I see. So I'm looking at these and",
+        "start": 453.35,
+        "duration": 2.44
+    },
+    {
+        "text": "there's database looking symbols next to things,",
+        "start": 455.79,
+        "duration": 3.96
+    },
+    {
+        "text": "and check-marks next to the other.",
+        "start": 459.75,
+        "duration": 1.83
+    },
+    {
+        "text": "Can you describe the different kinds of",
+        "start": 461.58,
+        "duration": 1.34
+    },
+    {
+        "text": "steps that exists in a pipeline?",
+        "start": 462.92,
+        "duration": 1.665
+    },
+    {
+        "text": ">> So these are called nodes.",
+        "start": 464.585,
+        "duration": 1.725
+    },
+    {
+        "text": "The top ones are beta nodes.",
+        "start": 466.31,
+        "duration": 1.695
+    },
+    {
+        "text": "So there is no computation involved.",
+        "start": 468.005,
+        "duration": 2.595
+    },
+    {
+        "text": "It is pointing to data.",
+        "start": 470.6,
+        "duration": 1.41
+    },
+    {
+        "text": "The ones that have check-marks are",
+        "start": 472.01,
+        "duration": 2.34
+    },
+    {
+        "text": "libraries which we call modules or steps.",
+        "start": 474.35,
+        "duration": 3.225
+    },
+    {
+        "text": "The green check-marks indicate",
+        "start": 477.575,
+        "duration": 3.105
+    },
+    {
+        "text": "execution of that particular module has finished.",
+        "start": 480.68,
+        "duration": 3.21
+    },
+    {
+        "text": ">> I see. Now I'm getting a better sense for this.",
+        "start": 483.89,
+        "duration": 5.25
+    },
+    {
+        "text": "These can be used not just for training,",
+        "start": 489.14,
+        "duration": 1.98
+    },
+    {
+        "text": "but they can be used for generation for any series of",
+        "start": 491.12,
+        "duration": 3.06
+    },
+    {
+        "text": "computation that require like GPU type compute.",
+        "start": 494.18,
+        "duration": 3.355
+    },
+    {
+        "text": ">> Exactly. So for example",
+        "start": 497.535,
+        "duration": 1.825
+    },
+    {
+        "text": "during data processing you might be using Spark,",
+        "start": 499.36,
+        "duration": 3.16
+    },
+    {
+        "text": "and for training you might be using CPU or",
+        "start": 502.52,
+        "duration": 1.98
+    },
+    {
+        "text": "GPU compute clustering enamel compute,",
+        "start": 504.5,
+        "duration": 2.61
+    },
+    {
+        "text": "and for deployment, you could be using ACI or AKS.",
+        "start": 507.11,
+        "duration": 3.675
+    },
+    {
+        "text": "So pipelines can stitch together",
+        "start": 510.785,
+        "duration": 2.685
+    },
+    {
+        "text": "these heterogeneous compute options using",
+        "start": 513.47,
+        "duration": 2.4
+    },
+    {
+        "text": "different frameworks if you will.",
+        "start": 515.87,
+        "duration": 2.46
+    },
+    {
+        "text": ">> That's amazing because each of",
+        "start": 518.33,
+        "duration": 1.32
+    },
+    {
+        "text": "the steps are discrete and I imagine that",
+        "start": 519.65,
+        "duration": 3.36
+    },
+    {
+        "text": "the output of each step stores it",
+        "start": 523.01,
+        "duration": 2.13
+    },
+    {
+        "text": "somewhere so that it knows this is a discrete set of data,",
+        "start": 525.14,
+        "duration": 3.06
+    },
+    {
+        "text": "and then you can reuse that data everywhere.",
+        "start": 528.2,
+        "duration": 1.5
+    },
+    {
+        "text": ">> That's exactly right. The output is",
+        "start": 529.7,
+        "duration": 1.74
+    },
+    {
+        "text": "stored into users data-store,",
+        "start": 531.44,
+        "duration": 1.86
+    },
+    {
+        "text": "where the user can construct",
+        "start": 533.3,
+        "duration": 2.1
+    },
+    {
+        "text": "a pipeline data object where you",
+        "start": 535.4,
+        "duration": 1.71
+    },
+    {
+        "text": "can store that into the data-store.",
+        "start": 537.11,
+        "duration": 2.685
+    },
+    {
+        "text": "Our back-end knows how to go and finish that,",
+        "start": 539.795,
+        "duration": 3.495
+    },
+    {
+        "text": "and reuse in the next step.",
+        "start": 543.29,
+        "duration": 1.44
+    },
+    {
+        "text": "So we'll keep that around for reuse",
+        "start": 544.73,
+        "duration": 2.31
+    },
+    {
+        "text": "as well for the next pipeline that comes along.",
+        "start": 547.04,
+        "duration": 2.405
+    },
+    {
+        "text": ">> Now this is amazing.",
+        "start": 549.445,
+        "duration": 1.34
+    },
+    {
+        "text": "Why is it such a good business tool? What do you think?",
+        "start": 550.785,
+        "duration": 5.025
+    },
+    {
+        "text": ">> Obviously, collaboration is a key.",
+        "start": 555.81,
+        "duration": 2.34
+    },
+    {
+        "text": "For different engineers working on",
+        "start": 558.15,
+        "duration": 1.91
+    },
+    {
+        "text": "different areas of the machine learning workflow.",
+        "start": 560.06,
+        "duration": 2.97
+    },
+    {
+        "text": "They can work independently,",
+        "start": 563.03,
+        "duration": 1.625
+    },
+    {
+        "text": "yet they can stitch together,",
+        "start": 564.655,
+        "duration": 1.895
+    },
+    {
+        "text": "the intuit scenario in a single pipeline.",
+        "start": 566.55,
+        "duration": 3.195
+    },
+    {
+        "text": "That also gives an idea about what others are building.",
+        "start": 569.745,
+        "duration": 4.34
+    },
+    {
+        "text": "Again, people don't have to wait for",
+        "start": 574.085,
+        "duration": 2.895
+    },
+    {
+        "text": "translating their data that they produce into the next person,",
+        "start": 576.98,
+        "duration": 3.28
+    },
+    {
+        "text": "or the model that the data scientists",
+        "start": 580.26,
+        "duration": 2.75
+    },
+    {
+        "text": "produce to helps engineer to actually go and deploy it.",
+        "start": 583.01,
+        "duration": 3.99
+    },
+    {
+        "text": ">> So everything is all nicely wrapped up into one spot.",
+        "start": 587.0,
+        "duration": 3.11
+    },
+    {
+        "text": ">> Exactly, and business obviously care",
+        "start": 590.11,
+        "duration": 2.47
+    },
+    {
+        "text": "about the cost savings as well.",
+        "start": 592.58,
+        "duration": 2.535
+    },
+    {
+        "text": "So reuse is a big cost saver.",
+        "start": 595.115,
+        "duration": 2.265
+    },
+    {
+        "text": "They can also look at",
+        "start": 597.38,
+        "duration": 1.53
+    },
+    {
+        "text": "the reports and monitoring that we have and say,",
+        "start": 598.91,
+        "duration": 3.93
+    },
+    {
+        "text": "well this particular project doesn't have the ROI that we are",
+        "start": 602.84,
+        "duration": 3.0
+    },
+    {
+        "text": "expecting so that they can make",
+        "start": 605.84,
+        "duration": 1.575
+    },
+    {
+        "text": "educated business decisions as well.",
+        "start": 607.415,
+        "duration": 2.085
+    },
+    {
+        "text": ">> Well, this has been amazing.",
+        "start": 609.5,
+        "duration": 1.245
+    },
+    {
+        "text": "We've learned all about the machine learning workflow.",
+        "start": 610.745,
+        "duration": 2.895
+    },
+    {
+        "text": "We've learned about pipeline steps.",
+        "start": 613.64,
+        "duration": 1.845
+    },
+    {
+        "text": "How to do stuff in pipelines and separate your stuff out,",
+        "start": 615.485,
+        "duration": 2.925
+    },
+    {
+        "text": "and then we learn about pipeline data",
+        "start": 618.41,
+        "duration": 1.815
+    },
+    {
+        "text": "which actually can be reused,",
+        "start": 620.225,
+        "duration": 1.715
+    },
+    {
+        "text": "so you don't have to reuse all your",
+        "start": 621.94,
+        "duration": 1.18
+    },
+    {
+        "text": "compute and we've learned all about",
+        "start": 623.12,
+        "duration": 1.26
+    },
+    {
+        "text": "how amazing it is to use Azure Machine Learning Service pipelines.",
+        "start": 624.38,
+        "duration": 2.85
+    },
+    {
+        "text": "Thank you so much for being with us.",
+        "start": 627.23,
+        "duration": 1.335
+    },
+    {
+        "text": ">> Thanks.",
+        "start": 628.565,
+        "duration": 0.315
+    },
+    {
+        "text": ">> Thanks you so much for",
+        "start": 628.88,
+        "duration": 1.35
+    },
+    {
+        "text": "watching and hopefully we'll see you next time. Take care.",
+        "start": 630.23,
+        "duration": 2.4
+    },
+    {
+        "text": "[MUSIC]",
+        "start": 632.63,
+        "duration": 12.32
+    }
+]

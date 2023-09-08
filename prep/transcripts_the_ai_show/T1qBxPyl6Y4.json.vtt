@@ -1,0 +1,572 @@
+[
+    {
+        "text": "you're not going to miss this episode  of the ai show where we talk about high  ",
+        "start": 0.08,
+        "duration": 2.88
+    },
+    {
+        "text": "performance serving with triton inference server  in azure mail with shivani make sure you tune in  ",
+        "start": 2.96,
+        "duration": 5.52
+    },
+    {
+        "text": "hello and welcome to this episode of the ai show  we're talking about high performance serving with  ",
+        "start": 15.76,
+        "duration": 4.4
+    },
+    {
+        "text": "triton inference server in azure ml we've got  a special guest shavani how you doing my friend  ",
+        "start": 20.16,
+        "duration": 4.72
+    },
+    {
+        "text": "i'm doing good how about you fantastic why  don't you tell us who you are and what you do  ",
+        "start": 25.84,
+        "duration": 4.0
+    },
+    {
+        "text": "sure so hi everyone my name is siobhani i  am pm on the azure machine learning team  ",
+        "start": 30.64,
+        "duration": 5.44
+    },
+    {
+        "text": "um i work on model deployment and survey um and  currently i'm focusing on how to best integrate  ",
+        "start": 36.08,
+        "duration": 6.24
+    },
+    {
+        "text": "open source softwares with our product  fantastic so let's talk about serving or  ",
+        "start": 42.32,
+        "duration": 5.12
+    },
+    {
+        "text": "inference um why don't you describe what it is and  then tell us about the challenges that that are  ",
+        "start": 47.44,
+        "duration": 6.0
+    },
+    {
+        "text": "around that doing that yeah but definitely so  model deployment and survey is when you have  ",
+        "start": 53.44,
+        "duration": 4.48
+    },
+    {
+        "text": "completed you have trained your model you have  a final model that you want to deploy as web  ",
+        "start": 57.92,
+        "duration": 4.24
+    },
+    {
+        "text": "service send requests to it and get some output  from the web service um so one of the um problems  ",
+        "start": 62.16,
+        "duration": 7.52
+    },
+    {
+        "text": "that customers are facing into that they have  to worry about maintaining different frameworks  ",
+        "start": 69.68,
+        "duration": 5.76
+    },
+    {
+        "text": "they have to worry about and they are looking  into a high performance inferencing solution  ",
+        "start": 75.44,
+        "duration": 6.16
+    },
+    {
+        "text": "and they want this one uh inferencing server that  could cater to all their needs all their use cases  ",
+        "start": 81.6,
+        "duration": 6.24
+    },
+    {
+        "text": "and of course just bring model to  azure ml and deploy them seamlessly  ",
+        "start": 87.84,
+        "duration": 3.84
+    },
+    {
+        "text": "i mean it it sounds easy but our  research shows that it's hard  ",
+        "start": 92.88,
+        "duration": 5.12
+    },
+    {
+        "text": "very hard like building a model is so easy but  then getting it to actually provide business value  ",
+        "start": 98.0,
+        "duration": 7.36
+    },
+    {
+        "text": "is super hard how is azure helping folks do that  definitely so as you know we have this feature  ",
+        "start": 105.92,
+        "duration": 6.88
+    },
+    {
+        "text": "called managed online endpoints where customers  don't have to maintain their infrastructure and  ",
+        "start": 112.8,
+        "duration": 4.8
+    },
+    {
+        "text": "they get capabilities like safe rollout security  monitoring and lot more and we are integrating  ",
+        "start": 117.6,
+        "duration": 6.56
+    },
+    {
+        "text": "our managed online endpoint within media striter  inferencing server so trita inferencing server  ",
+        "start": 124.16,
+        "duration": 6.0
+    },
+    {
+        "text": "is an open source software uh which supports  multiple frameworks like tensorflow denser rt  ",
+        "start": 130.16,
+        "duration": 5.76
+    },
+    {
+        "text": "pytorch onyx a lot more it is a high performance  server inferencing server so triton runs model  ",
+        "start": 135.92,
+        "duration": 7.04
+    },
+    {
+        "text": "concurrently on gpus to maximize your throughput  and utilization uh hence it gives our customers  ",
+        "start": 142.96,
+        "duration": 5.6
+    },
+    {
+        "text": "best of fourth volt and you only have to focus  on your machine learning model and deployment  ",
+        "start": 148.56,
+        "duration": 4.72
+    },
+    {
+        "text": "and that's basically what we want to do we  just once we build the model we just want to  ",
+        "start": 154.88,
+        "duration": 4.64
+    },
+    {
+        "text": "put it out it sounds i mean it sounds harder  than it should be can you show us how this works  ",
+        "start": 159.52,
+        "duration": 5.84
+    },
+    {
+        "text": "definitely so uh can you see my coding screen we  sure can okay so in azure machine learning when  ",
+        "start": 166.32,
+        "duration": 9.52
+    },
+    {
+        "text": "you are deploying your managed online endpoint you  need to have two yamas your endpoint ammo and your  ",
+        "start": 175.84,
+        "duration": 5.04
+    },
+    {
+        "text": "deployment yaml so i have my endpoint yaml here  name of my endpoint is triton multimodal send  ",
+        "start": 180.88,
+        "duration": 6.08
+    },
+    {
+        "text": "point automotive we're putting as aml token and  then i'll hit acml online endpoint create command  ",
+        "start": 186.96,
+        "duration": 6.64
+    },
+    {
+        "text": "to create my endpoint now one endpoint can have  multiple deployments i am adding one deployment  ",
+        "start": 193.6,
+        "duration": 7.2
+    },
+    {
+        "text": "to this endpoint called blue and to this endpoint  uh to this deployment actually i am passing  ",
+        "start": 200.8,
+        "duration": 7.04
+    },
+    {
+        "text": "uh my model and if you can see i'm saying  here sample multi models so i'm actually  ",
+        "start": 207.84,
+        "duration": 6.24
+    },
+    {
+        "text": "passing multiple models to one end point uh  so one of my model that here i have is by daf  ",
+        "start": 214.08,
+        "duration": 6.88
+    },
+    {
+        "text": "uh model so it's question and answering model  you give them some context you ask a question  ",
+        "start": 220.96,
+        "duration": 5.2
+    },
+    {
+        "text": "it answers you and another is dense net onyx  model which is a simple image classification model  ",
+        "start": 226.16,
+        "duration": 6.96
+    },
+    {
+        "text": "so i'm passing this two different models to one  end point uh a important parameter to note here  ",
+        "start": 233.12,
+        "duration": 5.76
+    },
+    {
+        "text": "is model format and striping once you put as  model format as triton we understand it's no  ",
+        "start": 238.88,
+        "duration": 6.16
+    },
+    {
+        "text": "good deployment so by no good deployment we mean  is you don't need a scoring script you don't need  ",
+        "start": 245.04,
+        "duration": 5.68
+    },
+    {
+        "text": "an environment triton expects your model to be  in particular model repository format which we'll  ",
+        "start": 250.72,
+        "duration": 5.92
+    },
+    {
+        "text": "talk in few seconds and that's it uh you give  your model endpoint deployment name the skew  ",
+        "start": 256.64,
+        "duration": 7.04
+    },
+    {
+        "text": "and you hit acml online deployment create command  all right so just a couple of questions as you're  ",
+        "start": 263.68,
+        "duration": 5.36
+    },
+    {
+        "text": "as you're doing that the first question i have  is so this is basically multi a multi-model  ",
+        "start": 269.04,
+        "duration": 4.8
+    },
+    {
+        "text": "deployment that's doing question answering and  image recognition some sort of image recognition  ",
+        "start": 273.84,
+        "duration": 5.2
+    },
+    {
+        "text": "that's first question am i getting that right yep  yeah so we have two different models here uh one  ",
+        "start": 279.04,
+        "duration": 4.88
+    },
+    {
+        "text": "is bite f9 and another is dense nitronics  model fantastic the second question i have  ",
+        "start": 283.92,
+        "duration": 4.96
+    },
+    {
+        "text": "and this is something that i'm i'm used to  doing um don't i usually have to write like  ",
+        "start": 288.88,
+        "duration": 5.52
+    },
+    {
+        "text": "a scoring file with these models you mentioned  that it's no code how is that possible yep so  ",
+        "start": 294.4,
+        "duration": 6.64
+    },
+    {
+        "text": "uh usually when you deploy there is a file called  init and run function which one loads your model  ",
+        "start": 301.04,
+        "duration": 5.68
+    },
+    {
+        "text": "and another takes inputs and outputs to score your  model but with triton when we are integrating we  ",
+        "start": 306.72,
+        "duration": 5.92
+    },
+    {
+        "text": "auto generate that for you so you do not need your  scoring script you do not need your environment  ",
+        "start": 312.64,
+        "duration": 4.32
+    },
+    {
+        "text": "and uh actually in a bit we'll go to the logs and  see that our server has started as modulus loaded  ",
+        "start": 316.96,
+        "duration": 6.16
+    },
+    {
+        "text": "so really it becomes easy to just bring in your  models to azure machine learning another question  ",
+        "start": 323.12,
+        "duration": 5.2
+    },
+    {
+        "text": "i have is how long does it take to deploy  these things are we talking like hours days  ",
+        "start": 328.32,
+        "duration": 5.28
+    },
+    {
+        "text": "oh no definitely not uh it takes a uh for this  deployment it took me under 10 minutes seven to  ",
+        "start": 334.32,
+        "duration": 6.0
+    },
+    {
+        "text": "eight minutes to complete the deployment hence i  have like an endpoint running so that we can go to  ",
+        "start": 340.32,
+        "duration": 5.04
+    },
+    {
+        "text": "that and see how it looks awesome so two questions  uh two final questions the two yaml files  ",
+        "start": 345.36,
+        "duration": 5.68
+    },
+    {
+        "text": "so the managed endpoint yaml file basically  describes like like a like an http style endpoint  ",
+        "start": 351.04,
+        "duration": 7.6
+    },
+    {
+        "text": "and then you're you're adding deployments to that  endpoint with the other one am i am i getting this  ",
+        "start": 359.2,
+        "duration": 4.32
+    },
+    {
+        "text": "right perfect yep see look at that i knew i i knew  a thing or two about that all right can you show  ",
+        "start": 363.52,
+        "duration": 6.88
+    },
+    {
+        "text": "us what the the outcome of this is yeah definitely  so once i hit my endpoint create and deploy my  ",
+        "start": 370.4,
+        "duration": 7.76
+    },
+    {
+        "text": "create command i'm coming to this azure machine  learning studio where you can visualize everything  ",
+        "start": 378.16,
+        "duration": 4.32
+    },
+    {
+        "text": "very nicely um so i have my end point i have my  blue deployment um the multiple models that i uh  ",
+        "start": 382.48,
+        "duration": 8.72
+    },
+    {
+        "text": "deployed to this you can see your environment  is azure ml triton server ubuntu inference and  ",
+        "start": 392.4,
+        "duration": 5.52
+    },
+    {
+        "text": "cd environment it's a mouthful but basically we  generated this environment for you we use this  ",
+        "start": 397.92,
+        "duration": 4.56
+    },
+    {
+        "text": "node deployment underneath so you don't have to  do it we load the influencing triton inferencing  ",
+        "start": 402.48,
+        "duration": 5.68
+    },
+    {
+        "text": "server for you i see can we scroll down because  i i i want to make sure i understand so basically  ",
+        "start": 408.16,
+        "duration": 5.12
+    },
+    {
+        "text": "what's happening is there is a pre-built  environment i'm assuming it's a it's an image  ",
+        "start": 413.28,
+        "duration": 4.88
+    },
+    {
+        "text": "or a container of some kind that just basically  knows about the way triton things are deployed  ",
+        "start": 418.16,
+        "duration": 6.32
+    },
+    {
+        "text": "am i am i getting this right yep exactly so we  can actually go and look into this environment  ",
+        "start": 424.48,
+        "duration": 5.28
+    },
+    {
+        "text": "and hopefully my intern is working nicely  and we can oh it's still loading cool  ",
+        "start": 429.76,
+        "duration": 6.08
+    },
+    {
+        "text": "here we go yep let's yeah you see it directly  pulls your image from triton server so there's no  ",
+        "start": 437.04,
+        "duration": 8.08
+    },
+    {
+        "text": "it's not like we're inventing a new thing this is  something nvidia already does we're literally just  ",
+        "start": 445.12,
+        "duration": 5.04
+    },
+    {
+        "text": "pulling down their thing yep yes so you don't so  as a new user you don't really have to know that  ",
+        "start": 450.16,
+        "duration": 4.88
+    },
+    {
+        "text": "you need to use environment for deployment uh we  do that for you we just pull that nvcr image for  ",
+        "start": 455.04,
+        "duration": 5.36
+    },
+    {
+        "text": "you uh so it's ready for your inferencing awesome  and so how would someone if they want to now  ",
+        "start": 460.4,
+        "duration": 6.4
+    },
+    {
+        "text": "call this end point how would they do that  definitely uh so now we have just before  ",
+        "start": 467.36,
+        "duration": 7.36
+    },
+    {
+        "text": "we go that you see in my deployment logs i can  actually see that my model and my server is ready  ",
+        "start": 474.72,
+        "duration": 6.8
+    },
+    {
+        "text": "those uh once this is i can go and score against  my different models so just to keep in mind before  ",
+        "start": 481.52,
+        "duration": 7.12
+    },
+    {
+        "text": "we go to the endpoint is this is my model one  name and this is my another model name and  ",
+        "start": 488.64,
+        "duration": 5.6
+    },
+    {
+        "text": "when you want to score or let's just say that  we want to do a get request to this model triton  ",
+        "start": 494.96,
+        "duration": 5.68
+    },
+    {
+        "text": "multimodal inferencing.com this you can get from  our studio so it's right here your rest endpoint  ",
+        "start": 500.64,
+        "duration": 5.44
+    },
+    {
+        "text": "and next you put is v2 models your model  name and versions and ones so this everything  ",
+        "start": 507.36,
+        "duration": 6.32
+    },
+    {
+        "text": "remains same just this will change whatever  your model name is you would replace that  ",
+        "start": 513.68,
+        "duration": 3.68
+    },
+    {
+        "text": "and when i do a get request i see what  input the model expects for me to score",
+        "start": 517.92,
+        "duration": 5.6
+    },
+    {
+        "text": "and that's all basically the triton format of  doing things with models yup exactly so there is  ",
+        "start": 525.76,
+        "duration": 6.32
+    },
+    {
+        "text": "yeah one caveat with triton is it does expect your  model to be in specific modern repository format  ",
+        "start": 532.08,
+        "duration": 6.4
+    },
+    {
+        "text": "and they have very beautifully defined in their  uh github repo of different uh a modern repository  ",
+        "start": 538.48,
+        "duration": 6.24
+    },
+    {
+        "text": "format expected by uh different frameworks models  so denser rt onyx right now we have onyx models  ",
+        "start": 544.72,
+        "duration": 5.68
+    },
+    {
+        "text": "so we followed this uh torchscript tensorflow  all the frameworks that they support okay cool",
+        "start": 550.4,
+        "duration": 6.56
+    },
+    {
+        "text": "all right and so basically once you've once you've  decided as an organization to use the triton way  ",
+        "start": 559.68,
+        "duration": 6.64
+    },
+    {
+        "text": "of of doing things then it's literally just  saying here's my endpoint here's the deployment  ",
+        "start": 566.32,
+        "duration": 6.96
+    },
+    {
+        "text": "that i'm going to do and that's it am i i  mean it feels like it's a little too easy",
+        "start": 573.28,
+        "duration": 3.84
+    },
+    {
+        "text": "so yeah that that's the goal that you can do your  high performance inferencing on gpus load multiple  ",
+        "start": 579.2,
+        "duration": 6.08
+    },
+    {
+        "text": "models or single model depending on your use case  and just make it easy for you to deployment i mean  ",
+        "start": 585.28,
+        "duration": 6.0
+    },
+    {
+        "text": "that's cool is there anything that i'm  missing anything else you want to show us  ",
+        "start": 591.84,
+        "duration": 3.04
+    },
+    {
+        "text": "uh no that would be all uh just to  see that how easy it is for you to uh  ",
+        "start": 596.0,
+        "duration": 6.56
+    },
+    {
+        "text": "deploy this model so we can actually look at  our model's ui screen and just yeah and you  ",
+        "start": 603.28,
+        "duration": 5.92
+    },
+    {
+        "text": "see this is the model that i deployed samples  multi model that's my model name um format you  ",
+        "start": 609.2,
+        "duration": 5.28
+    },
+    {
+        "text": "can see triton it recognizes uh if you remember  in our yaml we did put model format as triton  ",
+        "start": 614.48,
+        "duration": 6.24
+    },
+    {
+        "text": "and when i come to the artifacts uh this is  the model format that is expected by triton  ",
+        "start": 621.52,
+        "duration": 5.68
+    },
+    {
+        "text": "my model name version model.onyx model modeling  version model.tonics that's it i just have to  ",
+        "start": 627.76,
+        "duration": 7.04
+    },
+    {
+        "text": "have my model repository in the expected format  and again this is this is really cool like we've  ",
+        "start": 634.8,
+        "duration": 6.88
+    },
+    {
+        "text": "been talking about it's really hard to get models  into business value quickly this feels like that's  ",
+        "start": 641.68,
+        "duration": 7.36
+    },
+    {
+        "text": "one of the ways to do it a powerful way where can  people go to find out more definitely so we have  ",
+        "start": 649.04,
+        "duration": 5.2
+    },
+    {
+        "text": "links here for our docs documentation and samples  you can go and try out and see how easy it is for  ",
+        "start": 654.24,
+        "duration": 7.6
+    },
+    {
+        "text": "you to deploy all right so there's a link for  the docs here's the link for the there's a blog  ",
+        "start": 661.84,
+        "duration": 4.96
+    },
+    {
+        "text": "as well that they told us about make sure you go  check that out and the samples are all here this  ",
+        "start": 666.8,
+        "duration": 5.36
+    },
+    {
+        "text": "has been amazing thank you so much for being with  us shivani thank you so much for having me and  ",
+        "start": 672.16,
+        "duration": 5.36
+    },
+    {
+        "text": "thank you so much for watching we're learning  all about high performance serving with triton  ",
+        "start": 677.52,
+        "duration": 3.44
+    },
+    {
+        "text": "inference server in azure ml thanks for watching  and hopefully we'll see you next time take care",
+        "start": 680.96,
+        "duration": 6.88
+    },
+    {
+        "text": "you",
+        "start": 694.16,
+        "duration": 0.08
+    }
+]

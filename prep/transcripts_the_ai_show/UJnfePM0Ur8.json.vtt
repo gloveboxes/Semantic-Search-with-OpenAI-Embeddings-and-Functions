@@ -1,0 +1,1962 @@
+[
+    {
+        "text": "hey everyone welcome to the AI show I am",
+        "start": 1.14,
+        "duration": 4.38
+    },
+    {
+        "text": "Cassie breview and you are not going to",
+        "start": 3.899,
+        "duration": 3.781
+    },
+    {
+        "text": "want to miss this episode of the AI show",
+        "start": 5.52,
+        "duration": 3.36
+    },
+    {
+        "text": "where we are going to be talking to",
+        "start": 7.68,
+        "duration": 2.879
+    },
+    {
+        "text": "Junior from hugging face and she is",
+        "start": 8.88,
+        "duration": 3.54
+    },
+    {
+        "text": "going to show us how we can use Optimum",
+        "start": 10.559,
+        "duration": 4.321
+    },
+    {
+        "text": "and Onyx runtime to speed up our machine",
+        "start": 12.42,
+        "duration": 6.439
+    },
+    {
+        "text": "learning training let's jump in",
+        "start": 14.88,
+        "duration": 3.979
+    },
+    {
+        "text": "[Music]",
+        "start": 19.65,
+        "duration": 10.949
+    },
+    {
+        "text": "hey Junior thanks for joining me hi",
+        "start": 27.599,
+        "duration": 4.68
+    },
+    {
+        "text": "Cassie hi everyone",
+        "start": 30.599,
+        "duration": 3.061
+    },
+    {
+        "text": "how are you doing tell us a little bit",
+        "start": 32.279,
+        "duration": 4.921
+    },
+    {
+        "text": "about you I think uh I'm doing great so",
+        "start": 33.66,
+        "duration": 7.44
+    },
+    {
+        "text": "I'm in the Paris office of hugging face",
+        "start": 37.2,
+        "duration": 7.14
+    },
+    {
+        "text": "um so I I'll introduce myself first my",
+        "start": 41.1,
+        "duration": 6.0
+    },
+    {
+        "text": "name is jinya I am from I'm a machine",
+        "start": 44.34,
+        "duration": 4.86
+    },
+    {
+        "text": "learning engineer from hacking face",
+        "start": 47.1,
+        "duration": 5.58
+    },
+    {
+        "text": "optimization team and I am one of the",
+        "start": 49.2,
+        "duration": 6.48
+    },
+    {
+        "text": "developers as well as maintainers of the",
+        "start": 52.68,
+        "duration": 4.859
+    },
+    {
+        "text": "optimal library that we will talk about",
+        "start": 55.68,
+        "duration": 3.559
+    },
+    {
+        "text": "today",
+        "start": 57.539,
+        "duration": 4.441
+    },
+    {
+        "text": "fantastic I know I'm super excited to",
+        "start": 59.239,
+        "duration": 4.361
+    },
+    {
+        "text": "learn more it's also just a really cool",
+        "start": 61.98,
+        "duration": 3.78
+    },
+    {
+        "text": "name like Optimum I think hugging face",
+        "start": 63.6,
+        "duration": 4.5
+    },
+    {
+        "text": "does a really good job of making cool",
+        "start": 65.76,
+        "duration": 4.8
+    },
+    {
+        "text": "names for cool products that they built",
+        "start": 68.1,
+        "duration": 4.019
+    },
+    {
+        "text": "um so tell us a little bit about what",
+        "start": 70.56,
+        "duration": 3.3
+    },
+    {
+        "text": "Optimum is and why someone might use it",
+        "start": 72.119,
+        "duration": 4.921
+    },
+    {
+        "text": "sure uh so I think audience might be",
+        "start": 73.86,
+        "duration": 4.92
+    },
+    {
+        "text": "more familiar with the Transformer",
+        "start": 77.04,
+        "duration": 4.439
+    },
+    {
+        "text": "Library so Transformers is an open",
+        "start": 78.78,
+        "duration": 5.82
+    },
+    {
+        "text": "source library of hugging face with",
+        "start": 81.479,
+        "duration": 5.401
+    },
+    {
+        "text": "which we made the state of the Arts",
+        "start": 84.6,
+        "duration": 4.58
+    },
+    {
+        "text": "machine learning models more accessible",
+        "start": 86.88,
+        "duration": 6.18
+    },
+    {
+        "text": "and the Optima Library actually is an",
+        "start": 89.18,
+        "duration": 7.119
+    },
+    {
+        "text": "extension of Transformers Library so it",
+        "start": 93.06,
+        "duration": 5.4
+    },
+    {
+        "text": "provides a set of performance",
+        "start": 96.299,
+        "duration": 6.0
+    },
+    {
+        "text": "optimization tools to help users to",
+        "start": 98.46,
+        "duration": 7.08
+    },
+    {
+        "text": "train and run models on their targeted",
+        "start": 102.299,
+        "duration": 6.841
+    },
+    {
+        "text": "device with more efficiency",
+        "start": 105.54,
+        "duration": 6.78
+    },
+    {
+        "text": "so I can um take my models and I can",
+        "start": 109.14,
+        "duration": 5.159
+    },
+    {
+        "text": "basically use different tooling that",
+        "start": 112.32,
+        "duration": 3.839
+    },
+    {
+        "text": "Optimum has in order to improve the",
+        "start": 114.299,
+        "duration": 3.841
+    },
+    {
+        "text": "performance and also to leverage",
+        "start": 116.159,
+        "duration": 3.721
+    },
+    {
+        "text": "different types of Hardware right yeah",
+        "start": 118.14,
+        "duration": 5.82
+    },
+    {
+        "text": "for exactly so uh in optimal Library we",
+        "start": 119.88,
+        "duration": 8.159
+    },
+    {
+        "text": "have multiple modules to help users to",
+        "start": 123.96,
+        "duration": 7.44
+    },
+    {
+        "text": "achieve the most of their hardware and",
+        "start": 128.039,
+        "duration": 5.761
+    },
+    {
+        "text": "Onyx one time is one really important",
+        "start": 131.4,
+        "duration": 6.3
+    },
+    {
+        "text": "module of the optimum Library it is",
+        "start": 133.8,
+        "duration": 7.799
+    },
+    {
+        "text": "fully open sourced and it uh offered a",
+        "start": 137.7,
+        "duration": 7.16
+    },
+    {
+        "text": "training API as well as inference API to",
+        "start": 141.599,
+        "duration": 8.841
+    },
+    {
+        "text": "accelerate uh training and inference",
+        "start": 144.86,
+        "duration": 5.58
+    },
+    {
+        "text": "cool so these are some of the different",
+        "start": 150.78,
+        "duration": 4.2
+    },
+    {
+        "text": "uh pieces that are wrapped into Optimum",
+        "start": 152.58,
+        "duration": 4.379
+    },
+    {
+        "text": "and generally without Optimum you'd have",
+        "start": 154.98,
+        "duration": 3.54
+    },
+    {
+        "text": "to go get these packages yourself and",
+        "start": 156.959,
+        "duration": 4.021
+    },
+    {
+        "text": "maybe do some configuration so Optimum",
+        "start": 158.52,
+        "duration": 4.26
+    },
+    {
+        "text": "is kind of packaging it for you right",
+        "start": 160.98,
+        "duration": 5.28
+    },
+    {
+        "text": "yeah exactly so uh with for example",
+        "start": 162.78,
+        "duration": 7.5
+    },
+    {
+        "text": "let's take the trainer of Optimum as an",
+        "start": 166.26,
+        "duration": 7.259
+    },
+    {
+        "text": "example is inherits the trend of",
+        "start": 170.28,
+        "duration": 6.72
+    },
+    {
+        "text": "Transformers of course user can do the",
+        "start": 173.519,
+        "duration": 6.36
+    },
+    {
+        "text": "configuration itself is really uh free",
+        "start": 177.0,
+        "duration": 6.12
+    },
+    {
+        "text": "but we have also some configuration",
+        "start": 179.879,
+        "duration": 6.421
+    },
+    {
+        "text": "already set up so if you can you want to",
+        "start": 183.12,
+        "duration": 6.0
+    },
+    {
+        "text": "use it it should be really easy to use",
+        "start": 186.3,
+        "duration": 4.859
+    },
+    {
+        "text": "yeah so",
+        "start": 189.12,
+        "duration": 3.96
+    },
+    {
+        "text": "um now we will talk a little bit more",
+        "start": 191.159,
+        "duration": 5.761
+    },
+    {
+        "text": "about the training API Integrations uh",
+        "start": 193.08,
+        "duration": 6.48
+    },
+    {
+        "text": "of our next runtime in the optimal",
+        "start": 196.92,
+        "duration": 5.76
+    },
+    {
+        "text": "Library so if you are already familiar",
+        "start": 199.56,
+        "duration": 5.759
+    },
+    {
+        "text": "with Transformer Library you might have",
+        "start": 202.68,
+        "duration": 6.3
+    },
+    {
+        "text": "seen or used uh the trainer API which",
+        "start": 205.319,
+        "duration": 6.541
+    },
+    {
+        "text": "supports uh feature complete training",
+        "start": 208.98,
+        "duration": 5.399
+    },
+    {
+        "text": "Loop and evaluation loop with some extra",
+        "start": 211.86,
+        "duration": 6.14
+    },
+    {
+        "text": "features like mixed Precision training",
+        "start": 214.379,
+        "duration": 7.461
+    },
+    {
+        "text": "distributed data parallel the zero",
+        "start": 218.0,
+        "duration": 6.4
+    },
+    {
+        "text": "redundancy Optimizer things like that",
+        "start": 221.84,
+        "duration": 6.16
+    },
+    {
+        "text": "and it has really good integration with",
+        "start": 224.4,
+        "duration": 7.259
+    },
+    {
+        "text": "other toolkits in our Optimum in the",
+        "start": 228.0,
+        "duration": 6.599
+    },
+    {
+        "text": "hiding phase toolkit in the hugging",
+        "start": 231.659,
+        "duration": 4.821
+    },
+    {
+        "text": "phase ecosystem",
+        "start": 234.599,
+        "duration": 5.461
+    },
+    {
+        "text": "with Transformer Library diffuser",
+        "start": 236.48,
+        "duration": 5.679
+    },
+    {
+        "text": "Library if you are interested in stable",
+        "start": 240.06,
+        "duration": 5.58
+    },
+    {
+        "text": "diffusion model and you can just pull",
+        "start": 242.159,
+        "duration": 6.241
+    },
+    {
+        "text": "models from hacking face Hub really",
+        "start": 245.64,
+        "duration": 7.26
+    },
+    {
+        "text": "easily and push the trained model back",
+        "start": 248.4,
+        "duration": 6.899
+    },
+    {
+        "text": "to your repo if you want",
+        "start": 252.9,
+        "duration": 5.82
+    },
+    {
+        "text": "and but was under the was different from",
+        "start": 255.299,
+        "duration": 6.601
+    },
+    {
+        "text": "the trainer API uh in Transformer is",
+        "start": 258.72,
+        "duration": 7.02
+    },
+    {
+        "text": "that in Optimum the ort trainer uh",
+        "start": 261.9,
+        "duration": 6.54
+    },
+    {
+        "text": "instead of using pi torch backend it",
+        "start": 265.74,
+        "duration": 6.42
+    },
+    {
+        "text": "will use Onyx runtime under the hood to",
+        "start": 268.44,
+        "duration": 7.08
+    },
+    {
+        "text": "achieve the acceleration or training so",
+        "start": 272.16,
+        "duration": 5.94
+    },
+    {
+        "text": "on this runtime uh offer a lot of",
+        "start": 275.52,
+        "duration": 5.76
+    },
+    {
+        "text": "optimization techniques features uh for",
+        "start": 278.1,
+        "duration": 5.46
+    },
+    {
+        "text": "example the computation graph",
+        "start": 281.28,
+        "duration": 5.34
+    },
+    {
+        "text": "optimization including like constant",
+        "start": 283.56,
+        "duration": 4.56
+    },
+    {
+        "text": "folding",
+        "start": 286.62,
+        "duration": 4.56
+    },
+    {
+        "text": "um nose elimination nose fusions things",
+        "start": 288.12,
+        "duration": 6.48
+    },
+    {
+        "text": "like that it offers also a really nice",
+        "start": 291.18,
+        "duration": 6.06
+    },
+    {
+        "text": "efficient memory planning",
+        "start": 294.6,
+        "duration": 6.599
+    },
+    {
+        "text": "it do a kernel optimization and in the",
+        "start": 297.24,
+        "duration": 6.739
+    },
+    {
+        "text": "optimal Library we have also uh",
+        "start": 301.199,
+        "duration": 6.901
+    },
+    {
+        "text": "integrated the fuse add-on Optimizer",
+        "start": 303.979,
+        "duration": 6.94
+    },
+    {
+        "text": "implemented by Onyx runtime which",
+        "start": 308.1,
+        "duration": 5.94
+    },
+    {
+        "text": "actually uh batches element wise updates",
+        "start": 310.919,
+        "duration": 6.961
+    },
+    {
+        "text": "on the model's perimeter in just one or",
+        "start": 314.04,
+        "duration": 7.26
+    },
+    {
+        "text": "fewer kernel launches and also we have",
+        "start": 317.88,
+        "duration": 7.62
+    },
+    {
+        "text": "like more efficient uh fpx16 Optimizer",
+        "start": 321.3,
+        "duration": 7.2
+    },
+    {
+        "text": "support if you are interested in mix",
+        "start": 325.5,
+        "duration": 6.5
+    },
+    {
+        "text": "Precision training",
+        "start": 328.5,
+        "duration": 3.5
+    },
+    {
+        "text": "so my workbook here then is I would use",
+        "start": 332.06,
+        "duration": 6.16
+    },
+    {
+        "text": "the hugging face Transformers API and I",
+        "start": 335.94,
+        "duration": 5.52
+    },
+    {
+        "text": "would pull down a pre-trained like model",
+        "start": 338.22,
+        "duration": 5.1
+    },
+    {
+        "text": "that I want to fine-tune right and so",
+        "start": 341.46,
+        "duration": 3.48
+    },
+    {
+        "text": "then I would grab that and then I would",
+        "start": 343.32,
+        "duration": 4.62
+    },
+    {
+        "text": "use RT trainer to speed up my training",
+        "start": 344.94,
+        "duration": 5.039
+    },
+    {
+        "text": "um to allow me to get that fine-tuned",
+        "start": 347.94,
+        "duration": 3.66
+    },
+    {
+        "text": "model that I want but to also get the",
+        "start": 349.979,
+        "duration": 4.681
+    },
+    {
+        "text": "results faster yeah exactly so actually",
+        "start": 351.6,
+        "duration": 6.3
+    },
+    {
+        "text": "when we developed the ort trainer API we",
+        "start": 354.66,
+        "duration": 5.52
+    },
+    {
+        "text": "really uh pay attention to the ease of",
+        "start": 357.9,
+        "duration": 5.7
+    },
+    {
+        "text": "use of this API so the user experience",
+        "start": 360.18,
+        "duration": 6.299
+    },
+    {
+        "text": "is pretty much similar to trainer if you",
+        "start": 363.6,
+        "duration": 5.46
+    },
+    {
+        "text": "already use it and you can just replace",
+        "start": 366.479,
+        "duration": 6.06
+    },
+    {
+        "text": "it replace printer by Rd trainer that's",
+        "start": 369.06,
+        "duration": 4.8
+    },
+    {
+        "text": "nice that's super nice and I think",
+        "start": 372.539,
+        "duration": 2.641
+    },
+    {
+        "text": "hugging face in general all the",
+        "start": 373.86,
+        "duration": 2.76
+    },
+    {
+        "text": "libraries do a really good job of",
+        "start": 375.18,
+        "duration": 4.14
+    },
+    {
+        "text": "simplifying I think complex tasks and",
+        "start": 376.62,
+        "duration": 5.16
+    },
+    {
+        "text": "then also making consistency between",
+        "start": 379.32,
+        "duration": 3.659
+    },
+    {
+        "text": "different",
+        "start": 381.78,
+        "duration": 2.58
+    },
+    {
+        "text": "um tasks that you're doing in different",
+        "start": 382.979,
+        "duration": 2.94
+    },
+    {
+        "text": "API so it's nice to know that the",
+        "start": 384.36,
+        "duration": 3.179
+    },
+    {
+        "text": "trainer that they've used before with",
+        "start": 385.919,
+        "duration": 3.481
+    },
+    {
+        "text": "using ort trainer it's going to feel",
+        "start": 387.539,
+        "duration": 3.301
+    },
+    {
+        "text": "very natural in like their same process",
+        "start": 389.4,
+        "duration": 4.139
+    },
+    {
+        "text": "if they've done it before yeah",
+        "start": 390.84,
+        "duration": 4.199
+    },
+    {
+        "text": "fantastic",
+        "start": 393.539,
+        "duration": 3.78
+    },
+    {
+        "text": "so are we gonna look at how to use this",
+        "start": 395.039,
+        "duration": 4.141
+    },
+    {
+        "text": "you have a demo for us right yeah",
+        "start": 397.319,
+        "duration": 5.701
+    },
+    {
+        "text": "exactly so today uh I will go through a",
+        "start": 399.18,
+        "duration": 7.139
+    },
+    {
+        "text": "demo using org trainer to fine-tune the",
+        "start": 403.02,
+        "duration": 4.56
+    },
+    {
+        "text": "Berta model",
+        "start": 406.319,
+        "duration": 4.921
+    },
+    {
+        "text": "on a question answering task",
+        "start": 407.58,
+        "duration": 6.6
+    },
+    {
+        "text": "great let's uh take a look",
+        "start": 411.24,
+        "duration": 5.22
+    },
+    {
+        "text": "we will start by setting up the",
+        "start": 414.18,
+        "duration": 3.6
+    },
+    {
+        "text": "environment",
+        "start": 416.46,
+        "duration": 4.14
+    },
+    {
+        "text": "so before launching the training we have",
+        "start": 417.78,
+        "duration": 5.639
+    },
+    {
+        "text": "actually two conditions to meet the",
+        "start": 420.6,
+        "duration": 5.4
+    },
+    {
+        "text": "first thing is that we need to check if",
+        "start": 423.419,
+        "duration": 6.381
+    },
+    {
+        "text": "we have at least one Nvidia or AMD GPU",
+        "start": 426.0,
+        "duration": 7.56
+    },
+    {
+        "text": "in our machine for example here I have",
+        "start": 429.8,
+        "duration": 8.26
+    },
+    {
+        "text": "access to a Nvidia Tesla 4 GPU that I",
+        "start": 433.56,
+        "duration": 7.68
+    },
+    {
+        "text": "will use for the demo today",
+        "start": 438.06,
+        "duration": 6.479
+    },
+    {
+        "text": "and the second condition is we need to",
+        "start": 441.24,
+        "duration": 6.54
+    },
+    {
+        "text": "ensure Onyx runtime training package is",
+        "start": 444.539,
+        "duration": 6.121
+    },
+    {
+        "text": "in store and correctly configured in our",
+        "start": 447.78,
+        "duration": 5.94
+    },
+    {
+        "text": "environments for this I would invite you",
+        "start": 450.66,
+        "duration": 5.22
+    },
+    {
+        "text": "to take a look at our Optimus",
+        "start": 453.72,
+        "duration": 5.22
+    },
+    {
+        "text": "documentation in which we provide a",
+        "start": 455.88,
+        "duration": 6.24
+    },
+    {
+        "text": "step-by-step guide on helping users to",
+        "start": 458.94,
+        "duration": 6.12
+    },
+    {
+        "text": "correctly set up the environments",
+        "start": 462.12,
+        "duration": 6.06
+    },
+    {
+        "text": "and another option would be just go to",
+        "start": 465.06,
+        "duration": 7.039
+    },
+    {
+        "text": "Optimus GitHub repo in which we updated",
+        "start": 468.18,
+        "duration": 8.28
+    },
+    {
+        "text": "Docker files with the latest on-ish",
+        "start": 472.099,
+        "duration": 7.54
+    },
+    {
+        "text": "runtime release for example today I",
+        "start": 476.46,
+        "duration": 5.22
+    },
+    {
+        "text": "actually will launch the demo with a",
+        "start": 479.639,
+        "duration": 5.101
+    },
+    {
+        "text": "container built by the latest Docker",
+        "start": 481.68,
+        "duration": 6.359
+    },
+    {
+        "text": "file which will contain which will use",
+        "start": 484.74,
+        "duration": 7.26
+    },
+    {
+        "text": "on influential 1.14.1",
+        "start": 488.039,
+        "duration": 3.961
+    },
+    {
+        "text": "besides our next runtime we need to also",
+        "start": 493.099,
+        "duration": 6.761
+    },
+    {
+        "text": "install Optimum of course and other",
+        "start": 496.8,
+        "duration": 5.459
+    },
+    {
+        "text": "hacking phase open source library that",
+        "start": 499.86,
+        "duration": 5.82
+    },
+    {
+        "text": "we will use in this demo",
+        "start": 502.259,
+        "duration": 6.78
+    },
+    {
+        "text": "once we have the environment set up we",
+        "start": 505.68,
+        "duration": 7.38
+    },
+    {
+        "text": "can dive into our demo we will start by",
+        "start": 509.039,
+        "duration": 7.44
+    },
+    {
+        "text": "preparing the data set here we will use",
+        "start": 513.06,
+        "duration": 6.96
+    },
+    {
+        "text": "them for question answering data set for",
+        "start": 516.479,
+        "duration": 6.721
+    },
+    {
+        "text": "fun tuning Microsoft's libertad based",
+        "start": 520.02,
+        "duration": 6.66
+    },
+    {
+        "text": "model we will use hug and face data sets",
+        "start": 523.2,
+        "duration": 6.24
+    },
+    {
+        "text": "library to download the data set and",
+        "start": 526.68,
+        "duration": 6.18
+    },
+    {
+        "text": "then load the metric that we will use a",
+        "start": 529.44,
+        "duration": 7.14
+    },
+    {
+        "text": "little bit later for the evaluation",
+        "start": 532.86,
+        "duration": 6.96
+    },
+    {
+        "text": "we can have a look at what the data",
+        "start": 536.58,
+        "duration": 6.06
+    },
+    {
+        "text": "looks like so post training and",
+        "start": 539.82,
+        "duration": 6.12
+    },
+    {
+        "text": "validation stats have a field of the",
+        "start": 542.64,
+        "duration": 8.22
+    },
+    {
+        "text": "contacts the question and the answers to",
+        "start": 545.94,
+        "duration": 6.42
+    },
+    {
+        "text": "the question",
+        "start": 550.86,
+        "duration": 4.08
+    },
+    {
+        "text": "then we will do some pre-processing on",
+        "start": 552.36,
+        "duration": 4.2
+    },
+    {
+        "text": "the data sets",
+        "start": 554.94,
+        "duration": 4.92
+    },
+    {
+        "text": "we will use Transformers tokenizer to",
+        "start": 556.56,
+        "duration": 6.839
+    },
+    {
+        "text": "tokenize the tags we will need to set up",
+        "start": 559.86,
+        "duration": 8.46
+    },
+    {
+        "text": "some arguments like Max lens to truncate",
+        "start": 563.399,
+        "duration": 9.661
+    },
+    {
+        "text": "the contacts like stock strike to set up",
+        "start": 568.32,
+        "duration": 7.139
+    },
+    {
+        "text": "some overlap between two parts of the",
+        "start": 573.06,
+        "duration": 5.52
+    },
+    {
+        "text": "context to avoid the case where the",
+        "start": 575.459,
+        "duration": 5.581
+    },
+    {
+        "text": "answer just locates on the splitting",
+        "start": 578.58,
+        "duration": 5.58
+    },
+    {
+        "text": "point now we put everything I just",
+        "start": 581.04,
+        "duration": 5.88
+    },
+    {
+        "text": "mentioned under a pre-processing",
+        "start": 584.16,
+        "duration": 6.78
+    },
+    {
+        "text": "function and we will apply it to our",
+        "start": 586.92,
+        "duration": 6.96
+    },
+    {
+        "text": "training data sets after the data",
+        "start": 590.94,
+        "duration": 4.8
+    },
+    {
+        "text": "preparation we can now start the",
+        "start": 593.88,
+        "duration": 4.62
+    },
+    {
+        "text": "training we will first load the",
+        "start": 595.74,
+        "duration": 5.039
+    },
+    {
+        "text": "pre-trained diverter based model from",
+        "start": 598.5,
+        "duration": 4.92
+    },
+    {
+        "text": "the hugging phase Hub with the auto",
+        "start": 600.779,
+        "duration": 5.821
+    },
+    {
+        "text": "model for question answering class",
+        "start": 603.42,
+        "duration": 5.34
+    },
+    {
+        "text": "then we are going to configure the",
+        "start": 606.6,
+        "duration": 5.82
+    },
+    {
+        "text": "training arguments before so just let me",
+        "start": 608.76,
+        "duration": 6.9
+    },
+    {
+        "text": "download a config file for Optimus repo",
+        "start": 612.42,
+        "duration": 6.9
+    },
+    {
+        "text": "because today I will use deep speed zero",
+        "start": 615.66,
+        "duration": 7.02
+    },
+    {
+        "text": "zero redundancy Optimizer with Onyx",
+        "start": 619.32,
+        "duration": 4.68
+    },
+    {
+        "text": "runtime",
+        "start": 622.68,
+        "duration": 4.98
+    },
+    {
+        "text": "so zero will reduce model stage",
+        "start": 624.0,
+        "duration": 7.32
+    },
+    {
+        "text": "redundancy thus reduce memory usage here",
+        "start": 627.66,
+        "duration": 6.84
+    },
+    {
+        "text": "we use zero stage 1 which partitions the",
+        "start": 631.32,
+        "duration": 6.0
+    },
+    {
+        "text": "optimizer States so just to mention",
+        "start": 634.5,
+        "duration": 5.58
+    },
+    {
+        "text": "actually Onyx runtime training it",
+        "start": 637.32,
+        "duration": 5.82
+    },
+    {
+        "text": "supports zero stage one so we can",
+        "start": 640.08,
+        "duration": 6.78
+    },
+    {
+        "text": "combine the power of those for gains on",
+        "start": 643.14,
+        "duration": 6.6
+    },
+    {
+        "text": "those computation and memory and here's",
+        "start": 646.86,
+        "duration": 5.219
+    },
+    {
+        "text": "that's what we are going to do today in",
+        "start": 649.74,
+        "duration": 4.94
+    },
+    {
+        "text": "this demo",
+        "start": 652.079,
+        "duration": 2.601
+    },
+    {
+        "text": "now we download the config we can",
+        "start": 655.68,
+        "duration": 7.7
+    },
+    {
+        "text": "instantiate the training arguments",
+        "start": 659.04,
+        "duration": 4.34
+    },
+    {
+        "text": "here if you are familiar with",
+        "start": 663.48,
+        "duration": 4.08
+    },
+    {
+        "text": "Transformers you might have found that",
+        "start": 665.459,
+        "duration": 4.62
+    },
+    {
+        "text": "we just replace printing argument class",
+        "start": 667.56,
+        "duration": 6.899
+    },
+    {
+        "text": "with ort training argument class one",
+        "start": 670.079,
+        "duration": 6.901
+    },
+    {
+        "text": "thing I would like to mention is that",
+        "start": 674.459,
+        "duration": 6.481
+    },
+    {
+        "text": "for the optimizer here I use 40 fused",
+        "start": 676.98,
+        "duration": 7.5
+    },
+    {
+        "text": "add-on Optimizer it is an Optimizer",
+        "start": 680.94,
+        "duration": 6.36
+    },
+    {
+        "text": "implemented by Onyx runtime and then",
+        "start": 684.48,
+        "duration": 6.06
+    },
+    {
+        "text": "integrated in Optimum it can batch",
+        "start": 687.3,
+        "duration": 6.96
+    },
+    {
+        "text": "element-wise operations into one or few",
+        "start": 690.54,
+        "duration": 6.62
+    },
+    {
+        "text": "kernel launch",
+        "start": 694.26,
+        "duration": 2.9
+    },
+    {
+        "text": "then we can instantiate the trainer",
+        "start": 698.1,
+        "duration": 4.94
+    },
+    {
+        "text": "for Transformers users so it will be",
+        "start": 703.86,
+        "duration": 6.12
+    },
+    {
+        "text": "just replace trainer class by ort",
+        "start": 706.98,
+        "duration": 5.58
+    },
+    {
+        "text": "trainer class but you might also have",
+        "start": 709.98,
+        "duration": 5.94
+    },
+    {
+        "text": "spotted one extra argument which is the",
+        "start": 712.56,
+        "duration": 6.12
+    },
+    {
+        "text": "feature so just like trainer and",
+        "start": 715.92,
+        "duration": 6.24
+    },
+    {
+        "text": "Transformers or the trainer also has not",
+        "start": 718.68,
+        "duration": 6.54
+    },
+    {
+        "text": "only the training Loop but also the",
+        "start": 722.16,
+        "duration": 6.0
+    },
+    {
+        "text": "evaluation Loop you can either evaluate",
+        "start": 725.22,
+        "duration": 5.76
+    },
+    {
+        "text": "with pi torch backend or our next",
+        "start": 728.16,
+        "duration": 5.82
+    },
+    {
+        "text": "runtime back-end here is a feature",
+        "start": 730.98,
+        "duration": 6.06
+    },
+    {
+        "text": "arguments is actually used for exporting",
+        "start": 733.98,
+        "duration": 6.9
+    },
+    {
+        "text": "Pi torch model to Onyx format so we can",
+        "start": 737.04,
+        "duration": 8.039
+    },
+    {
+        "text": "use Onyx runtime to run the inference",
+        "start": 740.88,
+        "duration": 7.079
+    },
+    {
+        "text": "now we can launch the training",
+        "start": 745.079,
+        "duration": 5.221
+    },
+    {
+        "text": "so I launched the training a few hours",
+        "start": 747.959,
+        "duration": 5.521
+    },
+    {
+        "text": "ago to save some time for the demo here",
+        "start": 750.3,
+        "duration": 6.36
+    },
+    {
+        "text": "you can just use trainer on train",
+        "start": 753.48,
+        "duration": 6.299
+    },
+    {
+        "text": "function to launch the training and then",
+        "start": 756.66,
+        "duration": 5.76
+    },
+    {
+        "text": "save the model",
+        "start": 759.779,
+        "duration": 5.941
+    },
+    {
+        "text": "one thing I want to point out is that",
+        "start": 762.42,
+        "duration": 5.64
+    },
+    {
+        "text": "today for the demo I actually just use",
+        "start": 765.72,
+        "duration": 6.9
+    },
+    {
+        "text": "one single GPU but you can of course use",
+        "start": 768.06,
+        "duration": 7.86
+    },
+    {
+        "text": "multiple GPU to launch the test and",
+        "start": 772.62,
+        "duration": 6.839
+    },
+    {
+        "text": "distribute it manner you can either use",
+        "start": 775.92,
+        "duration": 6.419
+    },
+    {
+        "text": "torch run to run your script directly",
+        "start": 779.459,
+        "duration": 6.541
+    },
+    {
+        "text": "with distributed data parallel or if you",
+        "start": 782.339,
+        "duration": 6.481
+    },
+    {
+        "text": "are using a notebook you can also use",
+        "start": 786.0,
+        "duration": 5.94
+    },
+    {
+        "text": "notebook launcher in accelerate library",
+        "start": 788.82,
+        "duration": 7.259
+    },
+    {
+        "text": "of hacking face to do that",
+        "start": 791.94,
+        "duration": 7.44
+    },
+    {
+        "text": "once the training is finished we can now",
+        "start": 796.079,
+        "duration": 6.181
+    },
+    {
+        "text": "use the trainer for evaluation of our",
+        "start": 799.38,
+        "duration": 6.3
+    },
+    {
+        "text": "function model and just like preparing",
+        "start": 802.26,
+        "duration": 5.819
+    },
+    {
+        "text": "the training data set we will also need",
+        "start": 805.68,
+        "duration": 4.44
+    },
+    {
+        "text": "to do some pre-processing on the",
+        "start": 808.079,
+        "duration": 5.281
+    },
+    {
+        "text": "validation data sets here we will apply",
+        "start": 810.12,
+        "duration": 6.0
+    },
+    {
+        "text": "the prepare validation features function",
+        "start": 813.36,
+        "duration": 6.3
+    },
+    {
+        "text": "to our validation data set and then use",
+        "start": 816.12,
+        "duration": 5.82
+    },
+    {
+        "text": "the predict function of trainer to get",
+        "start": 819.66,
+        "duration": 5.34
+    },
+    {
+        "text": "some Raw results and then we will apply",
+        "start": 821.94,
+        "duration": 6.839
+    },
+    {
+        "text": "another post-processing function",
+        "start": 825.0,
+        "duration": 6.899
+    },
+    {
+        "text": "and with the metrics in the datasets",
+        "start": 828.779,
+        "duration": 5.581
+    },
+    {
+        "text": "library of hugging phase we will be able",
+        "start": 831.899,
+        "duration": 5.341
+    },
+    {
+        "text": "to compute the evaluation here it will",
+        "start": 834.36,
+        "duration": 6.419
+    },
+    {
+        "text": "be the ratio of exact match and the F1",
+        "start": 837.24,
+        "duration": 5.76
+    },
+    {
+        "text": "score",
+        "start": 840.779,
+        "duration": 4.8
+    },
+    {
+        "text": "in the last section we will jump from",
+        "start": 843.0,
+        "duration": 5.94
+    },
+    {
+        "text": "training to inference as I mentioned",
+        "start": 845.579,
+        "duration": 6.661
+    },
+    {
+        "text": "Optimum supports not only training with",
+        "start": 848.94,
+        "duration": 5.94
+    },
+    {
+        "text": "Onyx runtime but also inference",
+        "start": 852.24,
+        "duration": 5.82
+    },
+    {
+        "text": "so for deploying our training model we",
+        "start": 854.88,
+        "duration": 5.459
+    },
+    {
+        "text": "can load the pre-trained model with",
+        "start": 858.06,
+        "duration": 5.519
+    },
+    {
+        "text": "subclasses of ort model here it will be",
+        "start": 860.339,
+        "duration": 6.901
+    },
+    {
+        "text": "ort model for question answering",
+        "start": 863.579,
+        "duration": 7.5
+    },
+    {
+        "text": "we set the export to choose so under the",
+        "start": 867.24,
+        "duration": 7.02
+    },
+    {
+        "text": "hood the pytorch model will be traced",
+        "start": 871.079,
+        "duration": 7.26
+    },
+    {
+        "text": "and converted to the Onyx model",
+        "start": 874.26,
+        "duration": 6.66
+    },
+    {
+        "text": "and we will tokenize an example what's",
+        "start": 878.339,
+        "duration": 5.481
+    },
+    {
+        "text": "the benefits of using Optimum library",
+        "start": 880.92,
+        "duration": 6.539
+    },
+    {
+        "text": "and we do the inference with the ort",
+        "start": 883.82,
+        "duration": 6.879
+    },
+    {
+        "text": "model that we just loaded it will tell",
+        "start": 887.459,
+        "duration": 5.761
+    },
+    {
+        "text": "us the answer is it can accelerate the",
+        "start": 890.699,
+        "duration": 4.32
+    },
+    {
+        "text": "training speed",
+        "start": 893.22,
+        "duration": 5.94
+    },
+    {
+        "text": "so uh we just show the demo is more",
+        "start": 895.019,
+        "duration": 7.38
+    },
+    {
+        "text": "about how we can use the ORD trainer and",
+        "start": 899.16,
+        "duration": 5.88
+    },
+    {
+        "text": "here we have done also a benchmark to",
+        "start": 902.399,
+        "duration": 5.041
+    },
+    {
+        "text": "show the performance of audio trainer I",
+        "start": 905.04,
+        "duration": 4.799
+    },
+    {
+        "text": "mean it's a sense of using it right so",
+        "start": 907.44,
+        "duration": 7.259
+    },
+    {
+        "text": "uh this Benchmark actually was run on an",
+        "start": 909.839,
+        "duration": 9.841
+    },
+    {
+        "text": "Nvidia a100 node with 8 gpus and we took",
+        "start": 914.699,
+        "duration": 9.661
+    },
+    {
+        "text": "Pi torch 1.14 as the Baseline you can",
+        "start": 919.68,
+        "duration": 7.98
+    },
+    {
+        "text": "see in the graph actually the columns in",
+        "start": 924.36,
+        "duration": 7.38
+    },
+    {
+        "text": "Gray use ort as the back end for",
+        "start": 927.66,
+        "duration": 7.26
+    },
+    {
+        "text": "training and the columns in blue also",
+        "start": 931.74,
+        "duration": 6.659
+    },
+    {
+        "text": "combine the Onyx runtime with deep speed",
+        "start": 934.92,
+        "duration": 7.44
+    },
+    {
+        "text": "stage one as I said is it helps on",
+        "start": 938.399,
+        "duration": 7.38
+    },
+    {
+        "text": "partitioning Optimizer states to for",
+        "start": 942.36,
+        "duration": 7.88
+    },
+    {
+        "text": "achieving extra gain on the performance",
+        "start": 945.779,
+        "duration": 8.36
+    },
+    {
+        "text": "and we got a really impressive results",
+        "start": 950.24,
+        "duration": 7.599
+    },
+    {
+        "text": "on The Benchmark we can see that we",
+        "start": 954.139,
+        "duration": 8.5
+    },
+    {
+        "text": "achieve up to 40 of increase on the",
+        "start": 957.839,
+        "duration": 7.86
+    },
+    {
+        "text": "super when using Onyx runtime Standalone",
+        "start": 962.639,
+        "duration": 8.521
+    },
+    {
+        "text": "and we can achieve from 39 to 130",
+        "start": 965.699,
+        "duration": 8.161
+    },
+    {
+        "text": "percent of increase in the throughput",
+        "start": 971.16,
+        "duration": 6.359
+    },
+    {
+        "text": "when combining ort trainer when",
+        "start": 973.86,
+        "duration": 6.659
+    },
+    {
+        "text": "combining Onyx runtime backend with deep",
+        "start": 977.519,
+        "duration": 5.101
+    },
+    {
+        "text": "speed stage one",
+        "start": 980.519,
+        "duration": 3.841
+    },
+    {
+        "text": "so that's cool putting all of these",
+        "start": 982.62,
+        "duration": 3.959
+    },
+    {
+        "text": "things together in order to speed up",
+        "start": 984.36,
+        "duration": 3.96
+    },
+    {
+        "text": "training so it saves you time also",
+        "start": 986.579,
+        "duration": 3.181
+    },
+    {
+        "text": "probably saves you money right being",
+        "start": 988.32,
+        "duration": 4.56
+    },
+    {
+        "text": "able to increase these training uh loops",
+        "start": 989.76,
+        "duration": 4.74
+    },
+    {
+        "text": "with these different tools so you went",
+        "start": 992.88,
+        "duration": 3.66
+    },
+    {
+        "text": "over a lot in that demo we saw you",
+        "start": 994.5,
+        "duration": 3.779
+    },
+    {
+        "text": "getting the model from Transformers we",
+        "start": 996.54,
+        "duration": 4.56
+    },
+    {
+        "text": "saw the data set you went um and grabbed",
+        "start": 998.279,
+        "duration": 4.261
+    },
+    {
+        "text": "the tokenizers and did all of the",
+        "start": 1001.1,
+        "duration": 3.179
+    },
+    {
+        "text": "pre-processing that you needed in order",
+        "start": 1002.54,
+        "duration": 4.32
+    },
+    {
+        "text": "to then fine tune that model with ort",
+        "start": 1004.279,
+        "duration": 4.021
+    },
+    {
+        "text": "trainer",
+        "start": 1006.86,
+        "duration": 3.0
+    },
+    {
+        "text": "um and then we even got to see the full",
+        "start": 1008.3,
+        "duration": 3.779
+    },
+    {
+        "text": "end to end with getting the export to",
+        "start": 1009.86,
+        "duration": 4.5
+    },
+    {
+        "text": "Onyx with the flag that you set after",
+        "start": 1012.079,
+        "duration": 4.38
+    },
+    {
+        "text": "training and then seeing the inference",
+        "start": 1014.36,
+        "duration": 4.08
+    },
+    {
+        "text": "of that model so we got to see the whole",
+        "start": 1016.459,
+        "duration": 3.661
+    },
+    {
+        "text": "picture of how we could go in there use",
+        "start": 1018.44,
+        "duration": 3.78
+    },
+    {
+        "text": "Transformers use Optimum use Onyx",
+        "start": 1020.12,
+        "duration": 5.1
+    },
+    {
+        "text": "runtime trainer and inference to improve",
+        "start": 1022.22,
+        "duration": 5.16
+    },
+    {
+        "text": "the speed and get the model that we need",
+        "start": 1025.22,
+        "duration": 6.359
+    },
+    {
+        "text": "right yeah so is there some places where",
+        "start": 1027.38,
+        "duration": 5.64
+    },
+    {
+        "text": "people can go and try this out for",
+        "start": 1031.579,
+        "duration": 2.281
+    },
+    {
+        "text": "themselves",
+        "start": 1033.02,
+        "duration": 4.319
+    },
+    {
+        "text": "so uh you can find the notebook in our",
+        "start": 1033.86,
+        "duration": 5.939
+    },
+    {
+        "text": "GitHub repository and also other",
+        "start": 1037.339,
+        "duration": 5.58
+    },
+    {
+        "text": "training examples that we provide in the",
+        "start": 1039.799,
+        "duration": 6.12
+    },
+    {
+        "text": "repository awesome so I'm showing",
+        "start": 1042.919,
+        "duration": 4.741
+    },
+    {
+        "text": "sharing those links below they'll also",
+        "start": 1045.919,
+        "duration": 3.0
+    },
+    {
+        "text": "be in the chat make sure you go check",
+        "start": 1047.66,
+        "duration": 3.78
+    },
+    {
+        "text": "those out try it out for yourself",
+        "start": 1048.919,
+        "duration": 5.821
+    },
+    {
+        "text": "where can they go to learn more",
+        "start": 1051.44,
+        "duration": 6.78
+    },
+    {
+        "text": "so we really uh encourage everyone to",
+        "start": 1054.74,
+        "duration": 7.439
+    },
+    {
+        "text": "read our blog post that we put on",
+        "start": 1058.22,
+        "duration": 7.8
+    },
+    {
+        "text": "hacking face uh blog post that we",
+        "start": 1062.179,
+        "duration": 7.261
+    },
+    {
+        "text": "introduced in detail how by using Onyx",
+        "start": 1066.02,
+        "duration": 5.279
+    },
+    {
+        "text": "runtime we can achieve better",
+        "start": 1069.44,
+        "duration": 5.22
+    },
+    {
+        "text": "performance and we put some Snippets to",
+        "start": 1071.299,
+        "duration": 6.601
+    },
+    {
+        "text": "Showcase how it can be easily used and",
+        "start": 1074.66,
+        "duration": 5.759
+    },
+    {
+        "text": "also the Benchmark result you can also",
+        "start": 1077.9,
+        "duration": 5.04
+    },
+    {
+        "text": "find it on the blog post",
+        "start": 1080.419,
+        "duration": 4.741
+    },
+    {
+        "text": "awesome I'm a big fan of the hugging",
+        "start": 1082.94,
+        "duration": 4.38
+    },
+    {
+        "text": "face Vlogs I I think they do a really",
+        "start": 1085.16,
+        "duration": 5.759
+    },
+    {
+        "text": "good job of really making conflicts uh",
+        "start": 1087.32,
+        "duration": 5.94
+    },
+    {
+        "text": "things very easy to understand like and",
+        "start": 1090.919,
+        "duration": 3.841
+    },
+    {
+        "text": "I think that's actually really hard to",
+        "start": 1093.26,
+        "duration": 4.2
+    },
+    {
+        "text": "do and so I think that um checking out",
+        "start": 1094.76,
+        "duration": 4.26
+    },
+    {
+        "text": "that blog and even other blogs on",
+        "start": 1097.46,
+        "duration": 3.24
+    },
+    {
+        "text": "hugging face is a great place to go just",
+        "start": 1099.02,
+        "duration": 4.019
+    },
+    {
+        "text": "to learn more about Transformers or",
+        "start": 1100.7,
+        "duration": 3.78
+    },
+    {
+        "text": "state-of-the-art models and then also",
+        "start": 1103.039,
+        "duration": 4.14
+    },
+    {
+        "text": "this Optimum tool which is really cool",
+        "start": 1104.48,
+        "duration": 4.98
+    },
+    {
+        "text": "really cool so thank you so much for uh",
+        "start": 1107.179,
+        "duration": 5.581
+    },
+    {
+        "text": "joining me today on the AI show uh",
+        "start": 1109.46,
+        "duration": 5.64
+    },
+    {
+        "text": "really cool stuff and yeah anything else",
+        "start": 1112.76,
+        "duration": 3.96
+    },
+    {
+        "text": "you want to share",
+        "start": 1115.1,
+        "duration": 4.38
+    },
+    {
+        "text": "now thanks for having me for the AI show",
+        "start": 1116.72,
+        "duration": 4.319
+    },
+    {
+        "text": "I think",
+        "start": 1119.48,
+        "duration": 5.04
+    },
+    {
+        "text": "um what we all want is that users to try",
+        "start": 1121.039,
+        "duration": 6.421
+    },
+    {
+        "text": "it out and get us some feedback about it",
+        "start": 1124.52,
+        "duration": 6.24
+    },
+    {
+        "text": "we can definitely uh discuss on GitHub",
+        "start": 1127.46,
+        "duration": 6.959
+    },
+    {
+        "text": "repo or you can file us an issue if you",
+        "start": 1130.76,
+        "duration": 5.76
+    },
+    {
+        "text": "have some feature requests we are really",
+        "start": 1134.419,
+        "duration": 3.481
+    },
+    {
+        "text": "happy to help",
+        "start": 1136.52,
+        "duration": 4.62
+    },
+    {
+        "text": "awesome that sounds great thanks so much",
+        "start": 1137.9,
+        "duration": 5.84
+    },
+    {
+        "text": "thanks",
+        "start": 1141.14,
+        "duration": 2.6
+    }
+]

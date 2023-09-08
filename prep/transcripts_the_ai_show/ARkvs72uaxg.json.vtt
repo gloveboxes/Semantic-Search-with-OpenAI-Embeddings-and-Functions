@@ -1,0 +1,2532 @@
+[
+    {
+        "text": ">> Learn how to infuse AI into your Java application.",
+        "start": 0.0,
+        "duration": 3.6
+    },
+    {
+        "text": "In this episode of The AI Show,",
+        "start": 3.6,
+        "duration": 1.68
+    },
+    {
+        "text": "we'll learn all about computer and",
+        "start": 5.28,
+        "duration": 1.78
+    },
+    {
+        "text": "Custom Vision Cognitive Services API.",
+        "start": 7.06,
+        "duration": 3.22
+    },
+    {
+        "text": "Welcome to this episode of",
+        "start": 14.02,
+        "duration": 2.09
+    },
+    {
+        "text": "The AI Show where my colleague Ruth Yakubu is",
+        "start": 16.11,
+        "duration": 2.45
+    },
+    {
+        "text": "going to show us how to infuse",
+        "start": 18.56,
+        "duration": 1.28
+    },
+    {
+        "text": "AI into a Java application.",
+        "start": 19.84,
+        "duration": 2.34
+    },
+    {
+        "text": "My name is Seth Juarez.",
+        "start": 22.18,
+        "duration": 1.215
+    },
+    {
+        "text": "All right. So, Ruth, how do we get started?",
+        "start": 23.395,
+        "duration": 1.655
+    },
+    {
+        "text": ">> So, to get started,",
+        "start": 25.05,
+        "duration": 2.74
+    },
+    {
+        "text": "let me just give a little background",
+        "start": 27.79,
+        "duration": 2.395
+    },
+    {
+        "text": "of what we developers face.",
+        "start": 30.185,
+        "duration": 1.805
+    },
+    {
+        "text": ">> Okay.",
+        "start": 31.99,
+        "duration": 0.33
+    },
+    {
+        "text": ">> There are two types of developers,",
+        "start": 32.32,
+        "duration": 2.37
+    },
+    {
+        "text": "the one that is sitting in their cube,",
+        "start": 34.69,
+        "duration": 3.075
+    },
+    {
+        "text": "and the business has",
+        "start": 37.765,
+        "duration": 1.93
+    },
+    {
+        "text": "business requirements that we can and leverage AI.",
+        "start": 39.695,
+        "duration": 5.625
+    },
+    {
+        "text": "But they're like, last I check,",
+        "start": 45.32,
+        "duration": 2.14
+    },
+    {
+        "text": "I'm not a data scientist.",
+        "start": 47.46,
+        "duration": 1.695
+    },
+    {
+        "text": "How can I do this?",
+        "start": 49.155,
+        "duration": 1.735
+    },
+    {
+        "text": "Then, that's when you realize that Microsoft has a lot of",
+        "start": 50.89,
+        "duration": 4.31
+    },
+    {
+        "text": "Cognitive Services that span across different industries,",
+        "start": 55.2,
+        "duration": 4.23
+    },
+    {
+        "text": "that our developers can",
+        "start": 59.43,
+        "duration": 1.64
+    },
+    {
+        "text": "leverage and hit the market real quick.",
+        "start": 61.07,
+        "duration": 4.14
+    },
+    {
+        "text": ">> Awesome. So, if I have an application and I'm like,",
+        "start": 65.21,
+        "duration": 2.77
+    },
+    {
+        "text": "hey, I want to put some AI, but I don't know what to do.",
+        "start": 67.98,
+        "duration": 2.02
+    },
+    {
+        "text": "You're saying Cognitive Services is an answer to that.",
+        "start": 70.0,
+        "duration": 2.205
+    },
+    {
+        "text": ">> Yeah. Because our researchers have",
+        "start": 72.205,
+        "duration": 2.445
+    },
+    {
+        "text": "done years and years of research,",
+        "start": 74.65,
+        "duration": 2.88
+    },
+    {
+        "text": "and tons and tons of data curation,",
+        "start": 77.53,
+        "duration": 4.645
+    },
+    {
+        "text": "analytics, machine learning, and what not,",
+        "start": 82.175,
+        "duration": 2.82
+    },
+    {
+        "text": "and provide all of that.",
+        "start": 84.995,
+        "duration": 1.725
+    },
+    {
+        "text": ">> So, how do I burn it into my application?",
+        "start": 86.72,
+        "duration": 2.095
+    },
+    {
+        "text": ">> Okay. So, for this application, I'm using Java,",
+        "start": 88.815,
+        "duration": 4.605
+    },
+    {
+        "text": "and one thing that is super",
+        "start": 93.42,
+        "duration": 2.43
+    },
+    {
+        "text": "exciting for us in the Java community is,",
+        "start": 95.85,
+        "duration": 3.4
+    },
+    {
+        "text": "we now have Maven,",
+        "start": 99.25,
+        "duration": 1.995
+    },
+    {
+        "text": "STKs for Cognitive Services.",
+        "start": 101.245,
+        "duration": 3.275
+    },
+    {
+        "text": "So, you can do all of that with the rest applications,",
+        "start": 104.52,
+        "duration": 4.945
+    },
+    {
+        "text": "but you have STKs now.",
+        "start": 109.465,
+        "duration": 2.99
+    },
+    {
+        "text": "So, for the application I want to show you guys today is,",
+        "start": 112.455,
+        "duration": 5.44
+    },
+    {
+        "text": "I'm going to create a lost and found type of",
+        "start": 117.895,
+        "duration": 2.435
+    },
+    {
+        "text": "situation where we're using Computer Vision,",
+        "start": 120.33,
+        "duration": 4.57
+    },
+    {
+        "text": "also tie into text analytics,",
+        "start": 126.87,
+        "duration": 4.035
+    },
+    {
+        "text": "and I'm only tying into text and analytics to, okay,",
+        "start": 130.905,
+        "duration": 4.355
+    },
+    {
+        "text": "you load something, how can we query something",
+        "start": 135.26,
+        "duration": 4.56
+    },
+    {
+        "text": "and find a result based upon",
+        "start": 139.82,
+        "duration": 2.4
+    },
+    {
+        "text": "the tags that were generated from a image?",
+        "start": 142.22,
+        "duration": 2.79
+    },
+    {
+        "text": ">> Awesome. Let's dive in.",
+        "start": 145.01,
+        "duration": 1.32
+    },
+    {
+        "text": ">> Okay. So, to start off with, I'm in Eclipse.",
+        "start": 146.33,
+        "duration": 5.09
+    },
+    {
+        "text": "So, this is a Spring Boot application.",
+        "start": 151.42,
+        "duration": 3.905
+    },
+    {
+        "text": "We don't need to go into details unless you",
+        "start": 155.325,
+        "duration": 3.255
+    },
+    {
+        "text": "want us to go into specific details later.",
+        "start": 158.58,
+        "duration": 4.33
+    },
+    {
+        "text": "So, what I'm going to do is, launch the application.",
+        "start": 162.91,
+        "duration": 3.64
+    },
+    {
+        "text": "So, what I did was right click.",
+        "start": 166.55,
+        "duration": 3.65
+    },
+    {
+        "text": "It's a little bit too late now.",
+        "start": 171.18,
+        "duration": 2.18
+    },
+    {
+        "text": "But basically, what it's doing is,",
+        "start": 173.36,
+        "duration": 2.71
+    },
+    {
+        "text": "building the application and the end",
+        "start": 176.07,
+        "duration": 2.77
+    },
+    {
+        "text": "is going to launch the Tomcat server.",
+        "start": 178.84,
+        "duration": 2.81
+    },
+    {
+        "text": ">> Awesome. So, this is like",
+        "start": 181.65,
+        "duration": 1.17
+    },
+    {
+        "text": "a regular Spring application.",
+        "start": 182.82,
+        "duration": 2.48
+    },
+    {
+        "text": "It's a website, MVC style type thing.",
+        "start": 185.3,
+        "duration": 1.825
+    },
+    {
+        "text": ">> Exactly.",
+        "start": 187.125,
+        "duration": 0.765
+    },
+    {
+        "text": ">> Cool.",
+        "start": 187.89,
+        "duration": 0.205
+    },
+    {
+        "text": ">> Yeah. So, now that we see that",
+        "start": 188.095,
+        "duration": 3.02
+    },
+    {
+        "text": "the application is up on port 8080,",
+        "start": 191.115,
+        "duration": 5.145
+    },
+    {
+        "text": "let's launch the application.",
+        "start": 196.26,
+        "duration": 1.96
+    },
+    {
+        "text": "So, now, I'm going to open",
+        "start": 198.22,
+        "duration": 1.82
+    },
+    {
+        "text": "a picture that we're going to analyze.",
+        "start": 200.04,
+        "duration": 4.55
+    },
+    {
+        "text": "So, what I'm doing here is,",
+        "start": 204.59,
+        "duration": 2.27
+    },
+    {
+        "text": "I'm calling the Computer Vision API,",
+        "start": 206.86,
+        "duration": 3.69
+    },
+    {
+        "text": "and the method I called was analyzed.",
+        "start": 210.55,
+        "duration": 4.31
+    },
+    {
+        "text": "So, first, let's take a look at the image. There's a car.",
+        "start": 214.86,
+        "duration": 3.675
+    },
+    {
+        "text": "There's a parking lot type of situation.",
+        "start": 218.535,
+        "duration": 3.09
+    },
+    {
+        "text": "There's a background going on.",
+        "start": 221.625,
+        "duration": 2.22
+    },
+    {
+        "text": "So, the good thing about the Computer Vision is,",
+        "start": 223.845,
+        "duration": 5.415
+    },
+    {
+        "text": "when we call it,",
+        "start": 229.26,
+        "duration": 1.185
+    },
+    {
+        "text": "it's going to return attributes",
+        "start": 230.445,
+        "duration": 2.225
+    },
+    {
+        "text": "about the image that it finds.",
+        "start": 232.67,
+        "duration": 2.699
+    },
+    {
+        "text": "So, it's going to generate different tags,",
+        "start": 235.369,
+        "duration": 3.711
+    },
+    {
+        "text": "so you see a whole slew of these.",
+        "start": 239.08,
+        "duration": 2.81
+    },
+    {
+        "text": "Car, road, grass, driving,",
+        "start": 241.89,
+        "duration": 3.12
+    },
+    {
+        "text": "parking, and all of that.",
+        "start": 245.01,
+        "duration": 2.095
+    },
+    {
+        "text": "So, just take in a eyeball of it.",
+        "start": 247.105,
+        "duration": 3.105
+    },
+    {
+        "text": "All of those are accurate compared",
+        "start": 250.21,
+        "duration": 3.125
+    },
+    {
+        "text": "to the image that we just uploaded.",
+        "start": 253.335,
+        "duration": 3.465
+    },
+    {
+        "text": ">> Awesome. And this isn't data that you upload.",
+        "start": 256.8,
+        "duration": 2.11
+    },
+    {
+        "text": "This is something to be clear that",
+        "start": 258.91,
+        "duration": 1.98
+    },
+    {
+        "text": "the service returns to you based on the picture.",
+        "start": 260.89,
+        "duration": 2.07
+    },
+    {
+        "text": ">> Yeah.",
+        "start": 262.96,
+        "duration": 0.46
+    },
+    {
+        "text": ">> Okay, cool.",
+        "start": 263.42,
+        "duration": 0.575
+    },
+    {
+        "text": ">> Yeah. You just upload a image,",
+        "start": 263.995,
+        "duration": 2.55
+    },
+    {
+        "text": "call the API with the image,",
+        "start": 266.545,
+        "duration": 2.45
+    },
+    {
+        "text": "tell it that please analyze this image.",
+        "start": 268.995,
+        "duration": 2.94
+    },
+    {
+        "text": "Then, all I'm doing is returning the JSON,",
+        "start": 271.935,
+        "duration": 3.48
+    },
+    {
+        "text": "not even do anything.",
+        "start": 275.415,
+        "duration": 1.8
+    },
+    {
+        "text": "Just to show the users what the Computer Vision does.",
+        "start": 277.215,
+        "duration": 5.12
+    },
+    {
+        "text": ">> Awesome.",
+        "start": 282.335,
+        "duration": 0.5
+    },
+    {
+        "text": ">> So, let's get back to",
+        "start": 282.835,
+        "duration": 2.655
+    },
+    {
+        "text": "the main point that I wanted to show,",
+        "start": 285.49,
+        "duration": 4.135
+    },
+    {
+        "text": "the power of this and different ways you can use this.",
+        "start": 289.625,
+        "duration": 4.85
+    },
+    {
+        "text": "So, think of a lost and found type of scenario, right?",
+        "start": 294.475,
+        "duration": 3.915
+    },
+    {
+        "text": "You can never anticipate what users are going to lose.",
+        "start": 298.39,
+        "duration": 4.76
+    },
+    {
+        "text": "So, I'm guilty of that.",
+        "start": 303.15,
+        "duration": 2.63
+    },
+    {
+        "text": "I lose a lot of stuff.",
+        "start": 305.78,
+        "duration": 1.57
+    },
+    {
+        "text": "So, let's do a very generic one.",
+        "start": 307.35,
+        "duration": 5.725
+    },
+    {
+        "text": "Kids, I think they specialize in losing things.",
+        "start": 313.075,
+        "duration": 4.825
+    },
+    {
+        "text": "So, let's say, I'll upload a teddy bear.",
+        "start": 317.9,
+        "duration": 4.845
+    },
+    {
+        "text": "It shows the attributes like before.",
+        "start": 322.745,
+        "duration": 3.155
+    },
+    {
+        "text": "Let's upload this Mercedes-Benz.",
+        "start": 325.9,
+        "duration": 4.56
+    },
+    {
+        "text": "It's also a key,",
+        "start": 330.46,
+        "duration": 3.21
+    },
+    {
+        "text": "and see what it returns back.",
+        "start": 333.76,
+        "duration": 5.37
+    },
+    {
+        "text": "So, for the Mercedes-Benz,",
+        "start": 339.59,
+        "duration": 3.035
+    },
+    {
+        "text": "this was kind of interesting.",
+        "start": 342.625,
+        "duration": 2.195
+    },
+    {
+        "text": "The tags that it was returning back is,",
+        "start": 344.82,
+        "duration": 3.945
+    },
+    {
+        "text": "it's a table, sitting, black, piece, top,",
+        "start": 348.765,
+        "duration": 3.625
+    },
+    {
+        "text": "luggage, desktop, players, suitcase,",
+        "start": 352.39,
+        "duration": 4.02
+    },
+    {
+        "text": "collar, phone, [inaudible] actually mouse.",
+        "start": 356.41,
+        "duration": 5.66
+    },
+    {
+        "text": "So, for the human eye, personally,",
+        "start": 362.07,
+        "duration": 4.145
+    },
+    {
+        "text": "we're used to how keys looked liked,",
+        "start": 366.215,
+        "duration": 3.58
+    },
+    {
+        "text": "especially in the medieval times.",
+        "start": 369.795,
+        "duration": 2.175
+    },
+    {
+        "text": "There's certain way a key looks like.",
+        "start": 371.97,
+        "duration": 2.81
+    },
+    {
+        "text": "But nowadays, what do we do in outliers where",
+        "start": 374.78,
+        "duration": 4.79
+    },
+    {
+        "text": "keys are no longer",
+        "start": 379.57,
+        "duration": 1.89
+    },
+    {
+        "text": "the traditional way of how you see a key?",
+        "start": 381.46,
+        "duration": 3.37
+    },
+    {
+        "text": "Let's say, I'm fresh off a boat from somewhere.",
+        "start": 384.83,
+        "duration": 4.69
+    },
+    {
+        "text": "I have never seen a Mercedes-Benz key.",
+        "start": 389.52,
+        "duration": 3.28
+    },
+    {
+        "text": ">> I know I haven't.",
+        "start": 392.8,
+        "duration": 1.46
+    },
+    {
+        "text": ">> Yeah.",
+        "start": 394.26,
+        "duration": 2.045
+    },
+    {
+        "text": "I haven't seen one either.",
+        "start": 396.305,
+        "duration": 1.9
+    },
+    {
+        "text": "But yeah, this one,",
+        "start": 398.205,
+        "duration": 2.465
+    },
+    {
+        "text": "I can easily think it's a garage door opening.",
+        "start": 400.67,
+        "duration": 3.44
+    },
+    {
+        "text": ">> Right.",
+        "start": 404.11,
+        "duration": 0.19
+    },
+    {
+        "text": ">> Because it can pass for a lot of stuff.",
+        "start": 404.3,
+        "duration": 2.175
+    },
+    {
+        "text": "So, let's go back to the analytics part.",
+        "start": 406.475,
+        "duration": 4.255
+    },
+    {
+        "text": "This is another piece that I",
+        "start": 410.73,
+        "duration": 2.13
+    },
+    {
+        "text": "wanted to highlight to developers.",
+        "start": 412.86,
+        "duration": 2.84
+    },
+    {
+        "text": "Let's say, you have a whole bunch of text, right?",
+        "start": 415.7,
+        "duration": 5.255
+    },
+    {
+        "text": "You're dealing with the lost and found,",
+        "start": 420.955,
+        "duration": 2.505
+    },
+    {
+        "text": "what are users going to do when",
+        "start": 423.46,
+        "duration": 2.52
+    },
+    {
+        "text": "they come in to tell you what they lost?",
+        "start": 425.98,
+        "duration": 3.63
+    },
+    {
+        "text": "They tend to ramble on and on,",
+        "start": 429.61,
+        "duration": 2.07
+    },
+    {
+        "text": "but you need to get to the gist of it.",
+        "start": 431.68,
+        "duration": 2.55
+    },
+    {
+        "text": "The whole point they need to just tell us is,",
+        "start": 434.23,
+        "duration": 3.165
+    },
+    {
+        "text": "I lost the teddy bear,",
+        "start": 437.395,
+        "duration": 1.77
+    },
+    {
+        "text": "I lost a key.",
+        "start": 439.165,
+        "duration": 1.83
+    },
+    {
+        "text": "That's it, but people like me,",
+        "start": 440.995,
+        "duration": 3.21
+    },
+    {
+        "text": "I'm going into a form like,",
+        "start": 444.205,
+        "duration": 2.955
+    },
+    {
+        "text": "\"I was at the food court-\",",
+        "start": 447.16,
+        "duration": 7.41
+    },
+    {
+        "text": "if I can spell,",
+        "start": 454.57,
+        "duration": 1.5
+    },
+    {
+        "text": "\"-and I think I",
+        "start": 456.07,
+        "duration": 7.01
+    },
+    {
+        "text": "left my toy at the table.\"",
+        "start": 463.29,
+        "duration": 8.03
+    },
+    {
+        "text": "and click \"Submit\".",
+        "start": 471.32,
+        "duration": 7.97
+    },
+    {
+        "text": "So, one thing is",
+        "start": 479.29,
+        "duration": 2.595
+    },
+    {
+        "text": "the very first thing you look at",
+        "start": 481.885,
+        "duration": 1.995
+    },
+    {
+        "text": "is okay we call that \"Text",
+        "start": 483.88,
+        "duration": 2.925
+    },
+    {
+        "text": "Analytics\" and that one also has",
+        "start": 486.805,
+        "duration": 3.945
+    },
+    {
+        "text": "multiple functions like sentiment analysis,",
+        "start": 490.75,
+        "duration": 3.645
+    },
+    {
+        "text": "key phrase extraction.",
+        "start": 494.395,
+        "duration": 2.085
+    },
+    {
+        "text": "So, in real life,",
+        "start": 496.48,
+        "duration": 1.92
+    },
+    {
+        "text": "this person would have written like",
+        "start": 498.4,
+        "duration": 1.8
+    },
+    {
+        "text": "a three paragraph type of description of what happened,",
+        "start": 500.2,
+        "duration": 4.904
+    },
+    {
+        "text": "different possible areas that",
+        "start": 505.104,
+        "duration": 2.041
+    },
+    {
+        "text": "they think they've lost something,",
+        "start": 507.145,
+        "duration": 2.135
+    },
+    {
+        "text": "but the key thing is look at",
+        "start": 509.28,
+        "duration": 2.335
+    },
+    {
+        "text": "the things that it extracted,",
+        "start": 511.615,
+        "duration": 2.92
+    },
+    {
+        "text": "it got that there was a food court,",
+        "start": 514.535,
+        "duration": 3.74
+    },
+    {
+        "text": "there was a toy, there was a table.",
+        "start": 518.275,
+        "duration": 2.235
+    },
+    {
+        "text": "So, what it's going to do is look in the database,",
+        "start": 520.51,
+        "duration": 4.14
+    },
+    {
+        "text": "because in the last page what I was",
+        "start": 524.65,
+        "duration": 2.58
+    },
+    {
+        "text": "doing is all the image for a lost",
+        "start": 527.23,
+        "duration": 2.73
+    },
+    {
+        "text": "and found let's say each time",
+        "start": 529.96,
+        "duration": 2.52
+    },
+    {
+        "text": "somebody loses something you take a photo of it,",
+        "start": 532.48,
+        "duration": 3.06
+    },
+    {
+        "text": "store in the database.",
+        "start": 535.54,
+        "duration": 1.74
+    },
+    {
+        "text": "Later on when somebody comes,",
+        "start": 537.28,
+        "duration": 1.95
+    },
+    {
+        "text": "we no longer need to go and",
+        "start": 539.23,
+        "duration": 1.86
+    },
+    {
+        "text": "manually go aisle after aisle searching",
+        "start": 541.09,
+        "duration": 3.09
+    },
+    {
+        "text": "for stuff you can also use",
+        "start": 544.18,
+        "duration": 2.505
+    },
+    {
+        "text": "AI to find some of these stuff.",
+        "start": 546.685,
+        "duration": 2.985
+    },
+    {
+        "text": "Just do as when somebody submits that,",
+        "start": 549.67,
+        "duration": 3.21
+    },
+    {
+        "text": "let it do a query and see what matches they've found.",
+        "start": 552.88,
+        "duration": 4.02
+    },
+    {
+        "text": "So, the keyword was toy,",
+        "start": 556.9,
+        "duration": 2.52
+    },
+    {
+        "text": "it brought back to teddy bear,",
+        "start": 559.42,
+        "duration": 2.175
+    },
+    {
+        "text": "I uploaded the traditional key,",
+        "start": 561.595,
+        "duration": 3.45
+    },
+    {
+        "text": "it didn't find that,",
+        "start": 565.045,
+        "duration": 1.56
+    },
+    {
+        "text": "but for some reason I",
+        "start": 566.605,
+        "duration": 2.235
+    },
+    {
+        "text": "think it's probably thinking the car keys.",
+        "start": 568.84,
+        "duration": 3.705
+    },
+    {
+        "text": ">> If it's a toy or it could be somebody's toy as well.",
+        "start": 572.545,
+        "duration": 3.945
+    },
+    {
+        "text": "Right? The thing I like about this is that you",
+        "start": 576.49,
+        "duration": 2.22
+    },
+    {
+        "text": "actually allowed users to",
+        "start": 578.71,
+        "duration": 2.775
+    },
+    {
+        "text": "upload pictures and ask about",
+        "start": 581.485,
+        "duration": 2.685
+    },
+    {
+        "text": "those things without having any user intervention at all.",
+        "start": 584.17,
+        "duration": 3.015
+    },
+    {
+        "text": ">> Yes.",
+        "start": 587.185,
+        "duration": 0.33
+    },
+    {
+        "text": ">> Using this kind of service, I have two questions.",
+        "start": 587.515,
+        "duration": 2.085
+    },
+    {
+        "text": "The first question is, what does this look like in code?",
+        "start": 589.6,
+        "duration": 2.73
+    },
+    {
+        "text": ">> Yeah.",
+        "start": 592.33,
+        "duration": 0.58
+    },
+    {
+        "text": ">> The second one is,",
+        "start": 592.91,
+        "duration": 1.01
+    },
+    {
+        "text": "I saw there were some mistakes",
+        "start": 593.92,
+        "duration": 1.47
+    },
+    {
+        "text": "when the pictures were uploaded,",
+        "start": 595.39,
+        "duration": 1.635
+    },
+    {
+        "text": "is there a way to fix that?",
+        "start": 597.025,
+        "duration": 1.185
+    },
+    {
+        "text": "So let's start with the first, let's take a look at it.",
+        "start": 598.21,
+        "duration": 2.85
+    },
+    {
+        "text": ">> Yes, awesome.",
+        "start": 601.06,
+        "duration": 1.92
+    },
+    {
+        "text": "So, to start with,",
+        "start": 602.98,
+        "duration": 1.065
+    },
+    {
+        "text": "this is the Spring Application, right?",
+        "start": 604.045,
+        "duration": 2.46
+    },
+    {
+        "text": "So, when you're talking to a web-type of interface,",
+        "start": 606.505,
+        "duration": 6.585
+    },
+    {
+        "text": "in spring you have something called controller.",
+        "start": 613.09,
+        "duration": 3.18
+    },
+    {
+        "text": "So, those are risk controllers.",
+        "start": 616.27,
+        "duration": 1.92
+    },
+    {
+        "text": "It takes requests from the web",
+        "start": 618.19,
+        "duration": 2.61
+    },
+    {
+        "text": "translate it into your business application.",
+        "start": 620.8,
+        "duration": 3.93
+    },
+    {
+        "text": "So, I'm depending on some help or",
+        "start": 624.73,
+        "duration": 4.86
+    },
+    {
+        "text": "class or services that will actually do the API requests,",
+        "start": 629.59,
+        "duration": 5.01
+    },
+    {
+        "text": "so I'm calling them in.",
+        "start": 634.6,
+        "duration": 1.365
+    },
+    {
+        "text": ">> Is the package you import from Computer Vision?",
+        "start": 635.965,
+        "duration": 2.275
+    },
+    {
+        "text": ">> Say that again?",
+        "start": 638.24,
+        "duration": 1.83
+    },
+    {
+        "text": ">> Is this a package that you import",
+        "start": 640.07,
+        "duration": 1.76
+    },
+    {
+        "text": "from the Computer Vision services?",
+        "start": 641.83,
+        "duration": 2.175
+    },
+    {
+        "text": ">> In the service class.",
+        "start": 644.005,
+        "duration": 1.275
+    },
+    {
+        "text": "So, we'll open that real quick.",
+        "start": 645.28,
+        "duration": 1.665
+    },
+    {
+        "text": "So, let me do a quick drive by,",
+        "start": 646.945,
+        "duration": 1.83
+    },
+    {
+        "text": "this is a typical REST Application.",
+        "start": 648.775,
+        "duration": 2.97
+    },
+    {
+        "text": "Right? So you specify annotation that,",
+        "start": 651.745,
+        "duration": 5.175
+    },
+    {
+        "text": "\"Okay, I need the request mapping, what's the method?",
+        "start": 656.92,
+        "duration": 3.78
+    },
+    {
+        "text": "In REST, you're going to do a Git,",
+        "start": 660.7,
+        "duration": 2.735
+    },
+    {
+        "text": "you need to specify the path.",
+        "start": 663.435,
+        "duration": 2.625
+    },
+    {
+        "text": "So, for the scenario",
+        "start": 666.06,
+        "duration": 3.97
+    },
+    {
+        "text": "of when we're doing dealing with the text analysis,",
+        "start": 670.03,
+        "duration": 4.02
+    },
+    {
+        "text": "that's what I was doing.",
+        "start": 674.05,
+        "duration": 1.755
+    },
+    {
+        "text": "Here, I'm returning a form but you can",
+        "start": 675.805,
+        "duration": 3.495
+    },
+    {
+        "text": "return whatever you want to.",
+        "start": 679.3,
+        "duration": 3.84
+    },
+    {
+        "text": "I'm using Thymeleaf",
+        "start": 683.14,
+        "duration": 2.37
+    },
+    {
+        "text": ">> I see.",
+        "start": 685.51,
+        "duration": 0.3
+    },
+    {
+        "text": "Because I'm not too Web-centric but I'm just specifying",
+        "start": 685.81,
+        "duration": 4.47
+    },
+    {
+        "text": "the HTML file name it should call.",
+        "start": 690.28,
+        "duration": 5.885
+    },
+    {
+        "text": "So that's just the display part of it.",
+        "start": 696.165,
+        "duration": 3.1
+    },
+    {
+        "text": "So, when somebody pulls something, enters an information,",
+        "start": 699.265,
+        "duration": 4.26
+    },
+    {
+        "text": "now, as you can see,",
+        "start": 703.525,
+        "duration": 2.37
+    },
+    {
+        "text": "the user entered a description.",
+        "start": 705.895,
+        "duration": 2.865
+    },
+    {
+        "text": "So, you're taking all of that.",
+        "start": 708.76,
+        "duration": 2.28
+    },
+    {
+        "text": "And now, you took the description and fed it into",
+        "start": 711.04,
+        "duration": 4.11
+    },
+    {
+        "text": "a service that did some analysis,",
+        "start": 715.15,
+        "duration": 5.375
+    },
+    {
+        "text": "that's the API that we called,",
+        "start": 720.525,
+        "duration": 2.225
+    },
+    {
+        "text": "return JSON body and you parse",
+        "start": 722.75,
+        "duration": 3.29
+    },
+    {
+        "text": "the data the way you wanted to present.",
+        "start": 726.04,
+        "duration": 3.805
+    },
+    {
+        "text": "All I'm doing is parsing and present it to the user,",
+        "start": 729.845,
+        "duration": 4.015
+    },
+    {
+        "text": "they're also grabbing the URL,",
+        "start": 733.86,
+        "duration": 2.49
+    },
+    {
+        "text": "so we're good on that.",
+        "start": 736.35,
+        "duration": 1.305
+    },
+    {
+        "text": ">> So the service,",
+        "start": 737.655,
+        "duration": 1.065
+    },
+    {
+        "text": "the text service, is",
+        "start": 738.72,
+        "duration": 4.02
+    },
+    {
+        "text": "it like a package you just download",
+        "start": 742.74,
+        "duration": 1.44
+    },
+    {
+        "text": "in order to make the API calls?",
+        "start": 744.18,
+        "duration": 1.62
+    },
+    {
+        "text": ">> Yes.",
+        "start": 745.8,
+        "duration": 0.33
+    },
+    {
+        "text": ">> Okay.",
+        "start": 746.13,
+        "duration": 0.33
+    },
+    {
+        "text": ">> So, let me show you this service",
+        "start": 746.46,
+        "duration": 2.05
+    },
+    {
+        "text": "because even when we go to the controller,",
+        "start": 748.51,
+        "duration": 2.725
+    },
+    {
+        "text": "it looks exactly the same,",
+        "start": 751.235,
+        "duration": 1.845
+    },
+    {
+        "text": "the only thing is before I return the JSON,",
+        "start": 753.08,
+        "duration": 5.57
+    },
+    {
+        "text": "I'm saving it to a database.",
+        "start": 758.65,
+        "duration": 1.65
+    },
+    {
+        "text": ">> Got it.",
+        "start": 760.3,
+        "duration": 0.72
+    },
+    {
+        "text": ">> One thing under Spring is Domain.",
+        "start": 761.02,
+        "duration": 4.03
+    },
+    {
+        "text": "Well, Domain is like your Database Model.",
+        "start": 765.05,
+        "duration": 5.67
+    },
+    {
+        "text": "I get into Repository.",
+        "start": 771.27,
+        "duration": 3.715
+    },
+    {
+        "text": "Let's get into which one do you want to look at?",
+        "start": 774.985,
+        "duration": 3.915
+    },
+    {
+        "text": ">> Let's look at the Vision Service.",
+        "start": 778.9,
+        "duration": 1.125
+    },
+    {
+        "text": ">> Okay. Vision Service.",
+        "start": 780.025,
+        "duration": 2.52
+    },
+    {
+        "text": "In order to use a Vision Service,",
+        "start": 782.545,
+        "duration": 5.07
+    },
+    {
+        "text": "the very first thing is you need to",
+        "start": 787.615,
+        "duration": 2.565
+    },
+    {
+        "text": "provision the service on the Azure portal and",
+        "start": 790.18,
+        "duration": 5.73
+    },
+    {
+        "text": "the key thing is in order to call this API or if you're",
+        "start": 795.91,
+        "duration": 4.89
+    },
+    {
+        "text": "using the SDK from Maven you need a key.",
+        "start": 800.8,
+        "duration": 5.49
+    },
+    {
+        "text": "So, once you establish the key,",
+        "start": 806.29,
+        "duration": 2.925
+    },
+    {
+        "text": "you need to specify the key in",
+        "start": 809.215,
+        "duration": 2.445
+    },
+    {
+        "text": "your header then what's going to be your body,",
+        "start": 811.66,
+        "duration": 3.23
+    },
+    {
+        "text": "you need to pass the parameter in",
+        "start": 814.89,
+        "duration": 2.92
+    },
+    {
+        "text": "the body which is going to be the image file,",
+        "start": 817.81,
+        "duration": 3.18
+    },
+    {
+        "text": "then the rest is okay.",
+        "start": 820.99,
+        "duration": 1.86
+    },
+    {
+        "text": "Going to our API,",
+        "start": 822.85,
+        "duration": 4.92
+    },
+    {
+        "text": "definitions that we provide online for each of",
+        "start": 827.77,
+        "duration": 3.45
+    },
+    {
+        "text": "our AI Cognitive Service",
+        "start": 831.22,
+        "duration": 2.64
+    },
+    {
+        "text": "that okay if you want to call this,",
+        "start": 833.86,
+        "duration": 2.01
+    },
+    {
+        "text": "this is how you call it.",
+        "start": 835.87,
+        "duration": 1.785
+    },
+    {
+        "text": "Basically, for Java I'm just setting",
+        "start": 837.655,
+        "duration": 3.675
+    },
+    {
+        "text": "up all of the parameters that I'm going to be calling.",
+        "start": 841.33,
+        "duration": 4.84
+    },
+    {
+        "text": "Finally, once you build all the parameters,",
+        "start": 846.72,
+        "duration": 4.57
+    },
+    {
+        "text": "the thing that you do is do a build,",
+        "start": 851.29,
+        "duration": 3.09
+    },
+    {
+        "text": "and where I'm actually",
+        "start": 854.38,
+        "duration": 2.76
+    },
+    {
+        "text": "executing this Spring provides",
+        "start": 857.14,
+        "duration": 3.539
+    },
+    {
+        "text": "something called a rest template,",
+        "start": 860.679,
+        "duration": 2.356
+    },
+    {
+        "text": "where you're passing in",
+        "start": 863.035,
+        "duration": 1.845
+    },
+    {
+        "text": "that builder and you need to figure",
+        "start": 864.88,
+        "duration": 2.91
+    },
+    {
+        "text": "out that the API that you're using is the polls or Git.",
+        "start": 867.79,
+        "duration": 5.025
+    },
+    {
+        "text": "Then the final thing- well,",
+        "start": 872.815,
+        "duration": 2.025
+    },
+    {
+        "text": "the entity is basically the header.",
+        "start": 874.84,
+        "duration": 2.385
+    },
+    {
+        "text": "Then the last thing is, okay,",
+        "start": 877.225,
+        "duration": 2.175
+    },
+    {
+        "text": "what's your output going to look like?",
+        "start": 879.4,
+        "duration": 2.1
+    },
+    {
+        "text": "Is it json output?",
+        "start": 881.5,
+        "duration": 1.74
+    },
+    {
+        "text": "So that's basically what that is.",
+        "start": 883.24,
+        "duration": 2.17
+    },
+    {
+        "text": ">> So this is what a rest",
+        "start": 885.41,
+        "duration": 1.43
+    },
+    {
+        "text": "endpoint call looks like in Java?",
+        "start": 886.84,
+        "duration": 2.04
+    },
+    {
+        "text": ">> Yes.",
+        "start": 888.88,
+        "duration": 0.36
+    },
+    {
+        "text": ">> Cool.",
+        "start": 889.24,
+        "duration": 0.51
+    },
+    {
+        "text": ">> So let me do a quick drive by.",
+        "start": 889.75,
+        "duration": 3.315
+    },
+    {
+        "text": "In this situation, I wanted to use",
+        "start": 893.065,
+        "duration": 2.775
+    },
+    {
+        "text": "the SDK to give you guys an idea.",
+        "start": 895.84,
+        "duration": 4.545
+    },
+    {
+        "text": "For the SDK, if you're a Java developers,",
+        "start": 900.385,
+        "duration": 4.575
+    },
+    {
+        "text": "if you notice, I'm using",
+        "start": 904.96,
+        "duration": 1.46
+    },
+    {
+        "text": "a blob storage when I upload this images.",
+        "start": 906.42,
+        "duration": 3.835
+    },
+    {
+        "text": "So, the awesome thing",
+        "start": 910.255,
+        "duration": 2.55
+    },
+    {
+        "text": "that a lot of people in the Java community are having",
+        "start": 912.805,
+        "duration": 6.865
+    },
+    {
+        "text": "misconception is with Microsoft Environments Tools",
+        "start": 919.67,
+        "duration": 6.24
+    },
+    {
+        "text": "or Azure is probably.net but",
+        "start": 925.91,
+        "duration": 3.05
+    },
+    {
+        "text": "not knowing we have so many for",
+        "start": 928.96,
+        "duration": 3.555
+    },
+    {
+        "text": "SDK's that you can go find on the Maven Repository.",
+        "start": 932.515,
+        "duration": 5.955
+    },
+    {
+        "text": "So, this is an example of",
+        "start": 938.47,
+        "duration": 2.55
+    },
+    {
+        "text": "a Library you can just call and that's the blob storage.",
+        "start": 941.02,
+        "duration": 3.99
+    },
+    {
+        "text": ">> Cool, so when you upload the picture",
+        "start": 945.01,
+        "duration": 1.56
+    },
+    {
+        "text": "you're just pushing those up to blob storage?",
+        "start": 946.57,
+        "duration": 1.755
+    },
+    {
+        "text": ">> Yes.",
+        "start": 948.325,
+        "duration": 0.42
+    },
+    {
+        "text": ">> Smart.",
+        "start": 948.745,
+        "duration": 1.32
+    },
+    {
+        "text": ">> Before you do anything,",
+        "start": 950.065,
+        "duration": 2.145
+    },
+    {
+        "text": "I know, yeah, we're gonna delete,",
+        "start": 952.21,
+        "duration": 2.715
+    },
+    {
+        "text": "blur out my credentials,",
+        "start": 954.925,
+        "duration": 2.46
+    },
+    {
+        "text": "but in order to do that,",
+        "start": 957.385,
+        "duration": 2.655
+    },
+    {
+        "text": "the very first thing you do is provide",
+        "start": 960.04,
+        "duration": 2.625
+    },
+    {
+        "text": "your keys and the unique blob and the container,",
+        "start": 962.665,
+        "duration": 6.015
+    },
+    {
+        "text": "but if you notice I'm not doing",
+        "start": 968.68,
+        "duration": 2.25
+    },
+    {
+        "text": "necessary REST calls because",
+        "start": 970.93,
+        "duration": 2.385
+    },
+    {
+        "text": "now you're calling the objects.",
+        "start": 973.315,
+        "duration": 2.425
+    },
+    {
+        "text": "This is how simple and cleaner",
+        "start": 975.74,
+        "duration": 4.4
+    },
+    {
+        "text": "your application is going to look when you're using SDK.",
+        "start": 980.14,
+        "duration": 4.32
+    },
+    {
+        "text": ">> Got it.",
+        "start": 984.46,
+        "duration": 0.51
+    },
+    {
+        "text": ">> Okay.",
+        "start": 984.97,
+        "duration": 0.54
+    },
+    {
+        "text": ">> Cool. You were telling me that there are some",
+        "start": 985.51,
+        "duration": 1.65
+    },
+    {
+        "text": "that just don't work, tell me about those.",
+        "start": 987.16,
+        "duration": 1.89
+    },
+    {
+        "text": ">> Yes. So, AI is new and it's up and coming and that's",
+        "start": 989.05,
+        "duration": 6.78
+    },
+    {
+        "text": "why there's so much buzz about it and",
+        "start": 995.83,
+        "duration": 2.58
+    },
+    {
+        "text": "all these companies are improving",
+        "start": 998.41,
+        "duration": 1.875
+    },
+    {
+        "text": "on their algorithms and whatnot.",
+        "start": 1000.285,
+        "duration": 2.605
+    },
+    {
+        "text": "So, for the scenario that you're in",
+        "start": 1002.89,
+        "duration": 3.13
+    },
+    {
+        "text": "a situation that you",
+        "start": 1006.02,
+        "duration": 2.6
+    },
+    {
+        "text": "use something like a Computer Vision API,",
+        "start": 1008.62,
+        "duration": 3.65
+    },
+    {
+        "text": "and you found some outliers that did",
+        "start": 1012.27,
+        "duration": 2.91
+    },
+    {
+        "text": "not meet your business case,",
+        "start": 1015.18,
+        "duration": 3.42
+    },
+    {
+        "text": "what you can do is use something",
+        "start": 1018.6,
+        "duration": 2.07
+    },
+    {
+        "text": "called Custom Vision API.",
+        "start": 1020.67,
+        "duration": 2.61
+    },
+    {
+        "text": ">> I see. So in the case where I",
+        "start": 1023.28,
+        "duration": 1.32
+    },
+    {
+        "text": "upload a picture of something it",
+        "start": 1024.6,
+        "duration": 1.71
+    },
+    {
+        "text": "may have never seen before",
+        "start": 1026.31,
+        "duration": 1.48
+    },
+    {
+        "text": "because I have crazy stuff in my house,",
+        "start": 1027.79,
+        "duration": 1.66
+    },
+    {
+        "text": "there is a way to actually train it",
+        "start": 1029.45,
+        "duration": 1.46
+    },
+    {
+        "text": "to recognize new things.",
+        "start": 1030.91,
+        "duration": 1.745
+    },
+    {
+        "text": ">> Yes. So for that one,",
+        "start": 1032.655,
+        "duration": 3.555
+    },
+    {
+        "text": "the awesome thing is you can go to computer then.",
+        "start": 1036.21,
+        "duration": 4.75
+    },
+    {
+        "text": ">> Custom Vision.",
+        "start": 1040.96,
+        "duration": 4.9
+    },
+    {
+        "text": ">> I'm glad somebody is paying attention.",
+        "start": 1045.86,
+        "duration": 2.22
+    },
+    {
+        "text": "Then say AI.",
+        "start": 1048.08,
+        "duration": 4.12
+    },
+    {
+        "text": "Then the next thing we need to do is",
+        "start": 1052.2,
+        "duration": 3.72
+    },
+    {
+        "text": "\"Log In\" to that account.",
+        "start": 1055.92,
+        "duration": 4.93
+    },
+    {
+        "text": "Log-in never took so long.",
+        "start": 1064.15,
+        "duration": 4.045
+    },
+    {
+        "text": "The very first time that you log into the account,",
+        "start": 1068.195,
+        "duration": 3.325
+    },
+    {
+        "text": "you need to agree to the terms of services.",
+        "start": 1071.52,
+        "duration": 4.44
+    },
+    {
+        "text": "I already started a project,",
+        "start": 1078.55,
+        "duration": 2.935
+    },
+    {
+        "text": "but if you didn't,",
+        "start": 1081.485,
+        "duration": 1.275
+    },
+    {
+        "text": "you click on \"Create Project\".",
+        "start": 1082.76,
+        "duration": 1.995
+    },
+    {
+        "text": "Give it a \"Name\", \"Description\",",
+        "start": 1084.755,
+        "duration": 2.355
+    },
+    {
+        "text": "and it's very crucial that if you",
+        "start": 1087.11,
+        "duration": 3.42
+    },
+    {
+        "text": "know the \"Domain\" it falls under,",
+        "start": 1090.53,
+        "duration": 3.33
+    },
+    {
+        "text": "you may want to put it in there because",
+        "start": 1093.86,
+        "duration": 3.24
+    },
+    {
+        "text": "if you're dealing with a category that's in the \"Domain\",",
+        "start": 1097.1,
+        "duration": 4.14
+    },
+    {
+        "text": "it increases your chances of finding things better.",
+        "start": 1101.24,
+        "duration": 4.02
+    },
+    {
+        "text": ">> Got it.",
+        "start": 1105.26,
+        "duration": 0.495
+    },
+    {
+        "text": ">> So, due to time, I created keys.",
+        "start": 1105.755,
+        "duration": 7.2
+    },
+    {
+        "text": "So let's take a step back,",
+        "start": 1112.955,
+        "duration": 2.655
+    },
+    {
+        "text": "the Custom Image service is a classifier.",
+        "start": 1115.61,
+        "duration": 9.36
+    },
+    {
+        "text": "It goes on the machine learning classification,",
+        "start": 1124.97,
+        "duration": 4.2
+    },
+    {
+        "text": "algorithm, and what do classifiers usually",
+        "start": 1129.17,
+        "duration": 3.315
+    },
+    {
+        "text": "do is either yes or no.",
+        "start": 1132.485,
+        "duration": 3.225
+    },
+    {
+        "text": "You're trying to find whether this is this or that.",
+        "start": 1135.71,
+        "duration": 3.63
+    },
+    {
+        "text": "So, I think the amazing thing that",
+        "start": 1139.34,
+        "duration": 3.06
+    },
+    {
+        "text": "the Microsoft AI Research Team has provided for us is",
+        "start": 1142.4,
+        "duration": 6.735
+    },
+    {
+        "text": "the ability for a developer to just come in in",
+        "start": 1149.135,
+        "duration": 5.265
+    },
+    {
+        "text": "a situation where car keys",
+        "start": 1154.4,
+        "duration": 3.645
+    },
+    {
+        "text": "are getting more and more involved.",
+        "start": 1158.045,
+        "duration": 2.64
+    },
+    {
+        "text": "It is a key, but it's not the traditional key,",
+        "start": 1160.685,
+        "duration": 3.3
+    },
+    {
+        "text": "and depending on what industry you are,",
+        "start": 1163.985,
+        "duration": 2.925
+    },
+    {
+        "text": "it could be other things like a designer handbag, okay?",
+        "start": 1166.91,
+        "duration": 4.86
+    },
+    {
+        "text": "How can it recognize",
+        "start": 1171.77,
+        "duration": 1.74
+    },
+    {
+        "text": "the Louis Vuitton bag versus bag versus a Prada bag?",
+        "start": 1173.51,
+        "duration": 3.09
+    },
+    {
+        "text": "Not that I know anything about that,",
+        "start": 1176.6,
+        "duration": 3.96
+    },
+    {
+        "text": "but I just wanted to show you how simple this is.",
+        "start": 1180.56,
+        "duration": 6.51
+    },
+    {
+        "text": "The recommended image is",
+        "start": 1187.07,
+        "duration": 6.45
+    },
+    {
+        "text": "for you to upload at least 50 images,",
+        "start": 1193.52,
+        "duration": 3.18
+    },
+    {
+        "text": "but I think for my image,",
+        "start": 1196.7,
+        "duration": 2.01
+    },
+    {
+        "text": "all I wanted to do was differentiate,",
+        "start": 1198.71,
+        "duration": 3.06
+    },
+    {
+        "text": "check whether tell me the difference between",
+        "start": 1201.77,
+        "duration": 3.69
+    },
+    {
+        "text": "a BMW key and a Mercedes key.",
+        "start": 1205.46,
+        "duration": 4.56
+    },
+    {
+        "text": "So, I just gave it those two categories.",
+        "start": 1210.02,
+        "duration": 2.94
+    },
+    {
+        "text": "So I uploaded different images for the BMW key",
+        "start": 1212.96,
+        "duration": 5.685
+    },
+    {
+        "text": "and uploaded a whole bunch of",
+        "start": 1218.645,
+        "duration": 3.075
+    },
+    {
+        "text": "different images for Mercedes keys.",
+        "start": 1221.72,
+        "duration": 3.495
+    },
+    {
+        "text": "They're not quite up to 50,",
+        "start": 1225.215,
+        "duration": 4.935
+    },
+    {
+        "text": "but you'll be surprised with very little.",
+        "start": 1230.15,
+        "duration": 3.03
+    },
+    {
+        "text": "It's still very accurate and predicting your model.",
+        "start": 1233.18,
+        "duration": 5.72
+    },
+    {
+        "text": "Once you have your models uploaded,",
+        "start": 1242.47,
+        "duration": 4.045
+    },
+    {
+        "text": "which is everything is very intuitive,",
+        "start": 1246.515,
+        "duration": 3.045
+    },
+    {
+        "text": "click on the \"Train\".",
+        "start": 1249.56,
+        "duration": 2.46
+    },
+    {
+        "text": "I already did one in the past,",
+        "start": 1252.02,
+        "duration": 3.615
+    },
+    {
+        "text": "so the last iteration I did was okay.",
+        "start": 1255.635,
+        "duration": 4.17
+    },
+    {
+        "text": "I uploaded the images.",
+        "start": 1259.805,
+        "duration": 2.67
+    },
+    {
+        "text": "There are two categories, right?",
+        "start": 1262.475,
+        "duration": 3.075
+    },
+    {
+        "text": "When you're training your model,",
+        "start": 1265.55,
+        "duration": 2.73
+    },
+    {
+        "text": "you need to see how precise is,",
+        "start": 1268.28,
+        "duration": 2.61
+    },
+    {
+        "text": "and the recall is okay,",
+        "start": 1270.89,
+        "duration": 2.19
+    },
+    {
+        "text": "the error factor of it like",
+        "start": 1273.08,
+        "duration": 2.475
+    },
+    {
+        "text": "what are the chances that in this group,",
+        "start": 1275.555,
+        "duration": 3.61
+    },
+    {
+        "text": "there is some that did not",
+        "start": 1279.165,
+        "duration": 2.345
+    },
+    {
+        "text": "match what you're trying to train?",
+        "start": 1281.51,
+        "duration": 2.565
+    },
+    {
+        "text": "So pretty straightforward. But looking at this,",
+        "start": 1284.075,
+        "duration": 3.375
+    },
+    {
+        "text": "I think I'm pretty confident that 90 percent of the time,",
+        "start": 1287.45,
+        "duration": 3.93
+    },
+    {
+        "text": "it's going to recognize what I'm trying to do.",
+        "start": 1291.38,
+        "duration": 3.54
+    },
+    {
+        "text": "So, the very important thing for",
+        "start": 1294.92,
+        "duration": 2.67
+    },
+    {
+        "text": "a developer to do is this part right here.",
+        "start": 1297.59,
+        "duration": 3.6
+    },
+    {
+        "text": "I need to figure out that,",
+        "start": 1301.19,
+        "duration": 1.8
+    },
+    {
+        "text": "when you take it back to your application,",
+        "start": 1302.99,
+        "duration": 2.745
+    },
+    {
+        "text": "are you going to upload it?",
+        "start": 1305.735,
+        "duration": 1.965
+    },
+    {
+        "text": "Because you can train everything that did visually,",
+        "start": 1307.7,
+        "duration": 4.439
+    },
+    {
+        "text": "you can do it via code.",
+        "start": 1312.139,
+        "duration": 1.481
+    },
+    {
+        "text": "Then in our case,",
+        "start": 1313.62,
+        "duration": 1.205
+    },
+    {
+        "text": "I'm just going to call the API. I trained it.",
+        "start": 1314.825,
+        "duration": 2.61
+    },
+    {
+        "text": "Everything is good to go.",
+        "start": 1317.435,
+        "duration": 2.485
+    },
+    {
+        "text": "It shows you the API to use,",
+        "start": 1323.92,
+        "duration": 3.34
+    },
+    {
+        "text": "so I went ahead and create a custom service.",
+        "start": 1327.26,
+        "duration": 4.005
+    },
+    {
+        "text": "So, I have the project key,",
+        "start": 1331.265,
+        "duration": 1.935
+    },
+    {
+        "text": "the RESTless API call.",
+        "start": 1333.2,
+        "duration": 4.94
+    },
+    {
+        "text": ">> It's just like the same thing that we",
+        "start": 1338.14,
+        "duration": 1.36
+    },
+    {
+        "text": "had before, but now with a different service.",
+        "start": 1339.5,
+        "duration": 1.55
+    },
+    {
+        "text": ">> Yes. The only thing is they call it prediction key.",
+        "start": 1341.05,
+        "duration": 4.97
+    },
+    {
+        "text": "Or other APIs, I think it's",
+        "start": 1346.02,
+        "duration": 3.455
+    },
+    {
+        "text": "all CP subscription ID key, something like that.",
+        "start": 1349.475,
+        "duration": 4.62
+    },
+    {
+        "text": "So, be aware of that.",
+        "start": 1354.095,
+        "duration": 2.205
+    },
+    {
+        "text": "You're uploading an image in the URL type of format.",
+        "start": 1356.3,
+        "duration": 4.92
+    },
+    {
+        "text": "You're calling the REST API.",
+        "start": 1361.22,
+        "duration": 2.775
+    },
+    {
+        "text": "Then nothing else really changes.",
+        "start": 1363.995,
+        "duration": 3.24
+    },
+    {
+        "text": "Let's get back to the controller and call",
+        "start": 1367.235,
+        "duration": 6.645
+    },
+    {
+        "text": "this custom that's coming out the other one.",
+        "start": 1373.88,
+        "duration": 9.28
+    },
+    {
+        "text": "So, we're at the end.",
+        "start": 1390.58,
+        "duration": 2.47
+    },
+    {
+        "text": "Let's see how good this prediction was.",
+        "start": 1393.05,
+        "duration": 6.72
+    },
+    {
+        "text": "I'm going to restart this Java application.",
+        "start": 1399.77,
+        "duration": 7.96
+    },
+    {
+        "text": "Okay, perfect.",
+        "start": 1411.91,
+        "duration": 2.455
+    },
+    {
+        "text": "So, it's done.",
+        "start": 1414.365,
+        "duration": 2.1
+    },
+    {
+        "text": "The next thing is,",
+        "start": 1416.465,
+        "duration": 2.345
+    },
+    {
+        "text": "I'm going to go to my trusted Computer Vision,",
+        "start": 1418.81,
+        "duration": 3.915
+    },
+    {
+        "text": "and now let's find the same key",
+        "start": 1422.725,
+        "duration": 5.625
+    },
+    {
+        "text": "and upload it and see what it says.",
+        "start": 1428.35,
+        "duration": 6.29
+    },
+    {
+        "text": "Okay.",
+        "start": 1434.64,
+        "duration": 1.88
+    },
+    {
+        "text": ">> It looks like it did",
+        "start": 1436.52,
+        "duration": 2.38
+    },
+    {
+        "text": "indeed find it to be a Mercedes key.",
+        "start": 1438.9,
+        "duration": 2.765
+    },
+    {
+        "text": ">> Yes.",
+        "start": 1441.665,
+        "duration": 0.64
+    },
+    {
+        "text": ">> Awesome. So, what I'm understanding then,",
+        "start": 1442.305,
+        "duration": 2.205
+    },
+    {
+        "text": "so I want to see if I can summarize it, what you did,",
+        "start": 1444.51,
+        "duration": 2.4
+    },
+    {
+        "text": "you made a lost and found application,",
+        "start": 1446.91,
+        "duration": 2.185
+    },
+    {
+        "text": "where you can upload pictures of",
+        "start": 1449.095,
+        "duration": 1.93
+    },
+    {
+        "text": "like someone's like, \"Oh, they lost this.",
+        "start": 1451.025,
+        "duration": 1.875
+    },
+    {
+        "text": "Take a picture,\" and that's all they do. They upload it.",
+        "start": 1452.9,
+        "duration": 3.63
+    },
+    {
+        "text": "The Computer Vision service puts all the tags on there.",
+        "start": 1456.53,
+        "duration": 3.825
+    },
+    {
+        "text": "Someone goes in, types using",
+        "start": 1460.355,
+        "duration": 1.27
+    },
+    {
+        "text": "text analytics and text analytics has",
+        "start": 1461.625,
+        "duration": 2.265
+    },
+    {
+        "text": "all the extra stuff out and",
+        "start": 1463.89,
+        "duration": 1.795
+    },
+    {
+        "text": "maps the things that it found.",
+        "start": 1465.685,
+        "duration": 1.805
+    },
+    {
+        "text": ">> Yes.",
+        "start": 1467.49,
+        "duration": 0.27
+    },
+    {
+        "text": ">> Then there's cases where there are",
+        "start": 1467.76,
+        "duration": 1.38
+    },
+    {
+        "text": "certain things that it won't",
+        "start": 1469.14,
+        "duration": 1.44
+    },
+    {
+        "text": "understand that you have",
+        "start": 1470.58,
+        "duration": 1.47
+    },
+    {
+        "text": "to go back and train. Did I get that right?",
+        "start": 1472.05,
+        "duration": 1.68
+    },
+    {
+        "text": ">> Yes. One thing we have to keep,",
+        "start": 1473.73,
+        "duration": 3.76
+    },
+    {
+        "text": "we have to take into consideration,",
+        "start": 1478.19,
+        "duration": 3.475
+    },
+    {
+        "text": "when you're using Custom Vision, there's a limitation.",
+        "start": 1481.665,
+        "duration": 4.775
+    },
+    {
+        "text": "What if you have petabytes of data?",
+        "start": 1486.44,
+        "duration": 2.94
+    },
+    {
+        "text": "In those type of situations,",
+        "start": 1489.38,
+        "duration": 4.05
+    },
+    {
+        "text": "you have to be cognitive,",
+        "start": 1493.43,
+        "duration": 3.06
+    },
+    {
+        "text": "\"Okay, I'm going to train this model.",
+        "start": 1496.49,
+        "duration": 2.115
+    },
+    {
+        "text": "There's a way we need to export the model,",
+        "start": 1498.605,
+        "duration": 3.155
+    },
+    {
+        "text": "and if it's too big,",
+        "start": 1501.76,
+        "duration": 2.28
+    },
+    {
+        "text": "we need somewhere to run and",
+        "start": 1504.04,
+        "duration": 2.37
+    },
+    {
+        "text": "has a system capacity to run that.\"",
+        "start": 1506.41,
+        "duration": 4.29
+    },
+    {
+        "text": "Another story, another alternative to",
+        "start": 1510.7,
+        "duration": 3.53
+    },
+    {
+        "text": "bypass all of this is going to deep learning.",
+        "start": 1514.23,
+        "duration": 3.705
+    },
+    {
+        "text": "There are several algorithms out there that you can use,",
+        "start": 1517.935,
+        "duration": 4.905
+    },
+    {
+        "text": "and if you know what you're doing at this point,",
+        "start": 1522.84,
+        "duration": 2.91
+    },
+    {
+        "text": "you can code all of that and come up with",
+        "start": 1525.75,
+        "duration": 5.315
+    },
+    {
+        "text": "maybe a better solution.",
+        "start": 1531.065,
+        "duration": 7.995
+    },
+    {
+        "text": "I won't say a better solution.",
+        "start": 1539.06,
+        "duration": 1.74
+    },
+    {
+        "text": ">> More customized.",
+        "start": 1540.8,
+        "duration": 0.27
+    },
+    {
+        "text": ">> But a deeper. Yes, more customized. Yes.",
+        "start": 1541.07,
+        "duration": 4.98
+    },
+    {
+        "text": ">> Awesome.",
+        "start": 1546.05,
+        "duration": 0.54
+    },
+    {
+        "text": ">> Depending on where your industry is.",
+        "start": 1546.59,
+        "duration": 2.175
+    },
+    {
+        "text": ">> This has been super helpful like",
+        "start": 1548.765,
+        "duration": 1.515
+    },
+    {
+        "text": "pulling as I like that you show it all in",
+        "start": 1550.28,
+        "duration": 1.41
+    },
+    {
+        "text": "Java to show that it really doesn't",
+        "start": 1551.69,
+        "duration": 1.32
+    },
+    {
+        "text": "matter what language you use.",
+        "start": 1553.01,
+        "duration": 1.735
+    },
+    {
+        "text": "Thanks so much for you today.",
+        "start": 1554.745,
+        "duration": 1.155
+    },
+    {
+        "text": "We were learning all about",
+        "start": 1555.9,
+        "duration": 1.785
+    },
+    {
+        "text": "Computer Vision and Custom Vision,",
+        "start": 1557.685,
+        "duration": 2.025
+    },
+    {
+        "text": "how you can enrich your apps with AI today.",
+        "start": 1559.71,
+        "duration": 2.99
+    },
+    {
+        "text": "Thank so much for watching. My name",
+        "start": 1562.7,
+        "duration": 1.36
+    },
+    {
+        "text": "is Seth Juarez. See you next time.",
+        "start": 1564.06,
+        "duration": 2.2
+    }
+]

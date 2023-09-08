@@ -1,0 +1,872 @@
+[
+    {
+        "text": ">> In this episode of the AI Show,",
+        "start": 0.38,
+        "duration": 2.39
+    },
+    {
+        "text": "we hear from Qun Ying,",
+        "start": 2.77,
+        "duration": 1.38
+    },
+    {
+        "text": "Senior Program Manager on",
+        "start": 4.15,
+        "duration": 1.14
+    },
+    {
+        "text": "the Microsoft Azure Cognitive Services Team.",
+        "start": 5.29,
+        "duration": 2.46
+    },
+    {
+        "text": "Qun will show us how to use the anomaly detector with",
+        "start": 7.75,
+        "duration": 3.555
+    },
+    {
+        "text": "simple rest API calls that you can put into your own application,",
+        "start": 11.305,
+        "duration": 3.99
+    },
+    {
+        "text": "today. Make sure you tune in.",
+        "start": 15.295,
+        "duration": 2.815
+    },
+    {
+        "text": ">> [MUSIC]",
+        "start": 25.34,
+        "duration": 1.1
+    },
+    {
+        "text": ">> Hi, I'm Qun, Program Manager in Microsoft.",
+        "start": 26.44,
+        "duration": 3.225
+    },
+    {
+        "text": "I'm going to use 10 minutes to share you",
+        "start": 29.665,
+        "duration": 2.685
+    },
+    {
+        "text": "this exciting AI powered API service Anomaly Detector,",
+        "start": 32.35,
+        "duration": 4.875
+    },
+    {
+        "text": "which is able to detect anomalies from",
+        "start": 37.225,
+        "duration": 3.375
+    },
+    {
+        "text": "time series using just a simple rest API course.",
+        "start": 40.6,
+        "duration": 4.51
+    },
+    {
+        "text": "Hopefully after this 10 minutes,",
+        "start": 45.11,
+        "duration": 2.8
+    },
+    {
+        "text": "you'll walk away with a basic understanding of how you could build",
+        "start": 47.91,
+        "duration": 4.18
+    },
+    {
+        "text": "your time series monitoring solutions with anomaly detector,",
+        "start": 52.09,
+        "duration": 4.305
+    },
+    {
+        "text": "and more importantly, where to find more resources.",
+        "start": 56.395,
+        "duration": 4.585
+    },
+    {
+        "text": "I'll start with a really quick overview,",
+        "start": 62.78,
+        "duration": 3.505
+    },
+    {
+        "text": "and then spend most time on code demos,",
+        "start": 66.285,
+        "duration": 3.06
+    },
+    {
+        "text": "and I'll wrap up my video with the links to more resources.",
+        "start": 69.345,
+        "duration": 5.165
+    },
+    {
+        "text": "Anomaly detector is detecting anomalies from time series using AI.",
+        "start": 74.67,
+        "duration": 6.28
+    },
+    {
+        "text": "But you don't need to know AI to use it,",
+        "start": 80.95,
+        "duration": 3.12
+    },
+    {
+        "text": "because it just three rest APIs.",
+        "start": 84.07,
+        "duration": 3.72
+    },
+    {
+        "text": "What you do is, just to call",
+        "start": 87.79,
+        "duration": 2.65
+    },
+    {
+        "text": "the APIs with an array of time series data points.",
+        "start": 90.44,
+        "duration": 4.08
+    },
+    {
+        "text": "The APIs will immediately respond with,",
+        "start": 94.52,
+        "duration": 4.02
+    },
+    {
+        "text": "which data points are anomalous,",
+        "start": 98.54,
+        "duration": 1.92
+    },
+    {
+        "text": "which ones are change points.",
+        "start": 100.46,
+        "duration": 1.8
+    },
+    {
+        "text": "No training with labeled data is needed,",
+        "start": 102.26,
+        "duration": 2.88
+    },
+    {
+        "text": "no model selection, no model deployment.",
+        "start": 105.14,
+        "duration": 3.945
+    },
+    {
+        "text": "Anomaly detector exposes that simplicity by hiding complexity.",
+        "start": 109.085,
+        "duration": 5.895
+    },
+    {
+        "text": "It is leveraging a collection of",
+        "start": 114.98,
+        "duration": 2.385
+    },
+    {
+        "text": "cutting edge in models and mechanism,",
+        "start": 117.365,
+        "duration": 2.835
+    },
+    {
+        "text": "that automatically select",
+        "start": 120.2,
+        "duration": 1.86
+    },
+    {
+        "text": "the best-performing algorithm in symbols,",
+        "start": 122.06,
+        "duration": 2.64
+    },
+    {
+        "text": "by some of the hidden patterns in your data,",
+        "start": 124.7,
+        "duration": 3.16
+    },
+    {
+        "text": "no matter its seasonality,",
+        "start": 127.86,
+        "duration": 2.075
+    },
+    {
+        "text": "chanting, random spikes and so on and so forth, it just works.",
+        "start": 129.935,
+        "duration": 5.675
+    },
+    {
+        "text": "It could adapt to all those data patterns.",
+        "start": 135.61,
+        "duration": 4.07
+    },
+    {
+        "text": "Now, let's just jump to the code demo.",
+        "start": 139.68,
+        "duration": 3.964
+    },
+    {
+        "text": "The first step is to create an anomaly detector resource,",
+        "start": 143.644,
+        "duration": 4.011
+    },
+    {
+        "text": "a session for anomaly detector on Microsoft in Azure Marketplace,",
+        "start": 147.655,
+        "duration": 4.035
+    },
+    {
+        "text": "and then you just create the anomaly detection resource.",
+        "start": 151.69,
+        "duration": 3.81
+    },
+    {
+        "text": "I've already created one.",
+        "start": 155.5,
+        "duration": 2.165
+    },
+    {
+        "text": "The point here is, you need to go to the resource portal and copy",
+        "start": 157.665,
+        "duration": 4.375
+    },
+    {
+        "text": "the endpoint as well as one of the API keys.",
+        "start": 162.04,
+        "duration": 4.995
+    },
+    {
+        "text": "You would need to use them in your code.",
+        "start": 167.035,
+        "duration": 3.52
+    },
+    {
+        "text": "I've mentioned the three rest APIs.",
+        "start": 170.555,
+        "duration": 2.785
+    },
+    {
+        "text": "Now, I'm going to show you three Jupyter Notebooks, namely;",
+        "start": 173.34,
+        "duration": 4.535
+    },
+    {
+        "text": "the anomaly detection for batch data",
+        "start": 177.875,
+        "duration": 2.855
+    },
+    {
+        "text": "and the anomaly detection for streaming data,",
+        "start": 180.73,
+        "duration": 3.205
+    },
+    {
+        "text": "and the change point detection.",
+        "start": 183.935,
+        "duration": 3.04
+    },
+    {
+        "text": "I'm going to walk you through the code.",
+        "start": 186.975,
+        "duration": 2.865
+    },
+    {
+        "text": "Previously, we've copied the API key and endpoint.",
+        "start": 189.84,
+        "duration": 3.825
+    },
+    {
+        "text": "Now, you need to replace that in order to run this code.",
+        "start": 193.665,
+        "duration": 5.21
+    },
+    {
+        "text": "I have replaced the API key and the endpoint.",
+        "start": 198.875,
+        "duration": 4.25
+    },
+    {
+        "text": "Now, let's look at the code.",
+        "start": 203.125,
+        "duration": 2.265
+    },
+    {
+        "text": "So this is the function that's coding the rest API.",
+        "start": 205.39,
+        "duration": 4.96
+    },
+    {
+        "text": "As defined by this endpoint,",
+        "start": 210.35,
+        "duration": 2.47
+    },
+    {
+        "text": "it is posting data to the endpoint with the API key in the header.",
+        "start": 212.82,
+        "duration": 6.185
+    },
+    {
+        "text": "Then let's check how the data is being passed into this function.",
+        "start": 219.005,
+        "duration": 7.735
+    },
+    {
+        "text": "Basically, it's just loading JSON data from file,",
+        "start": 229.55,
+        "duration": 4.855
+    },
+    {
+        "text": "add some parameter here and call this build figure function,",
+        "start": 234.405,
+        "duration": 4.82
+    },
+    {
+        "text": "which starts with calling this detect function with the data.",
+        "start": 239.225,
+        "duration": 4.56
+    },
+    {
+        "text": "The code here is basically taking the result,",
+        "start": 243.785,
+        "duration": 3.375
+    },
+    {
+        "text": "which is the return from the API call and draw a chart with it.",
+        "start": 247.16,
+        "duration": 5.175
+    },
+    {
+        "text": "Let me just run everything.",
+        "start": 252.335,
+        "duration": 2.36
+    },
+    {
+        "text": "In this first sample,",
+        "start": 254.695,
+        "duration": 1.925
+    },
+    {
+        "text": "we can see that, although the trend is changing,",
+        "start": 256.62,
+        "duration": 3.115
+    },
+    {
+        "text": "but these are not detected as anomalies,",
+        "start": 259.735,
+        "duration": 3.13
+    },
+    {
+        "text": "whereas this spikes, are carefully marked as anomalies.",
+        "start": 262.865,
+        "duration": 5.06
+    },
+    {
+        "text": "In the second example,",
+        "start": 267.925,
+        "duration": 2.47
+    },
+    {
+        "text": "although they are seasonality,",
+        "start": 270.395,
+        "duration": 1.605
+    },
+    {
+        "text": "the API service is able to adapt to the seasonality,",
+        "start": 272.0,
+        "duration": 3.48
+    },
+    {
+        "text": "understand the seasonality and take",
+        "start": 275.48,
+        "duration": 2.805
+    },
+    {
+        "text": "these data points as normal ones,",
+        "start": 278.285,
+        "duration": 3.29
+    },
+    {
+        "text": "while this one doesn't really conform to the regular pattern,",
+        "start": 281.575,
+        "duration": 4.53
+    },
+    {
+        "text": "is detected as anomaly.",
+        "start": 286.105,
+        "duration": 1.93
+    },
+    {
+        "text": "This is very useful when your data has",
+        "start": 288.035,
+        "duration": 2.985
+    },
+    {
+        "text": "something like seven days seasonality.",
+        "start": 291.02,
+        "duration": 3.26
+    },
+    {
+        "text": "You will notice that there are multiple charts for each dataset.",
+        "start": 294.28,
+        "duration": 4.69
+    },
+    {
+        "text": "The difference is about the sensitivity.",
+        "start": 298.97,
+        "duration": 2.64
+    },
+    {
+        "text": "Here we're using 95.",
+        "start": 301.61,
+        "duration": 1.8
+    },
+    {
+        "text": "This is making the service really sensitive to anomalies.",
+        "start": 303.41,
+        "duration": 3.855
+    },
+    {
+        "text": "So this blue shade here,",
+        "start": 307.265,
+        "duration": 1.575
+    },
+    {
+        "text": "which is the boundary,",
+        "start": 308.84,
+        "duration": 1.665
+    },
+    {
+        "text": "the lower bound and the upper bound is",
+        "start": 310.505,
+        "duration": 2.145
+    },
+    {
+        "text": "very narrow comparing to the next one,",
+        "start": 312.65,
+        "duration": 2.79
+    },
+    {
+        "text": "which is using 90 sensitivity,",
+        "start": 315.44,
+        "duration": 2.02
+    },
+    {
+        "text": "and the last one which is using 85.",
+        "start": 317.46,
+        "duration": 2.51
+    },
+    {
+        "text": "Now let's jump to the second Jupyter Notebook.",
+        "start": 319.97,
+        "duration": 3.01
+    },
+    {
+        "text": "This is the latest point anomaly detection",
+        "start": 322.98,
+        "duration": 2.88
+    },
+    {
+        "text": "with stashed slashed API.",
+        "start": 325.86,
+        "duration": 2.16
+    },
+    {
+        "text": "The same as before,",
+        "start": 328.02,
+        "duration": 1.589
+    },
+    {
+        "text": "we need to replace the right API key at endpoint here.",
+        "start": 329.609,
+        "duration": 3.671
+    },
+    {
+        "text": "I will replace those.",
+        "start": 333.28,
+        "duration": 1.595
+    },
+    {
+        "text": "Now let's run and check the code.",
+        "start": 334.875,
+        "duration": 4.195
+    },
+    {
+        "text": "In this Notebook, data is loaded here and",
+        "start": 340.58,
+        "duration": 5.56
+    },
+    {
+        "text": "then this code is trying to build a sliding window of data points,",
+        "start": 346.14,
+        "duration": 5.05
+    },
+    {
+        "text": "in total, 29 data points are used",
+        "start": 351.19,
+        "duration": 3.025
+    },
+    {
+        "text": "to call the detached function and to detect anomalies.",
+        "start": 354.215,
+        "duration": 3.33
+    },
+    {
+        "text": "The result is only about whether,",
+        "start": 357.545,
+        "duration": 2.595
+    },
+    {
+        "text": "the last data point being passed in is anomalous or not.",
+        "start": 360.14,
+        "duration": 4.31
+    },
+    {
+        "text": "As you can see, there's no result before this point.",
+        "start": 364.45,
+        "duration": 4.435
+    },
+    {
+        "text": "This is because these points are basically used as",
+        "start": 368.885,
+        "duration": 3.255
+    },
+    {
+        "text": "the side window and this is the first window of data.",
+        "start": 372.14,
+        "duration": 3.65
+    },
+    {
+        "text": "The sensitivity parameter, could be still used in this case.",
+        "start": 375.79,
+        "duration": 3.66
+    },
+    {
+        "text": "To better help you understand this,",
+        "start": 379.45,
+        "duration": 2.695
+    },
+    {
+        "text": "I'm going to show you a demo application instead of code,",
+        "start": 382.145,
+        "duration": 4.335
+    },
+    {
+        "text": "to help you understand what a sliding window really is.",
+        "start": 386.48,
+        "duration": 3.49
+    },
+    {
+        "text": "When you want to build and measure",
+        "start": 389.97,
+        "duration": 2.21
+    },
+    {
+        "text": "monitoring solution that's monitoring your streaming data,",
+        "start": 392.18,
+        "duration": 3.99
+    },
+    {
+        "text": "this is the Demo Web app built upon anomaly detector APIs.",
+        "start": 396.17,
+        "duration": 4.875
+    },
+    {
+        "text": "I've already replaced the endpoint and the API key here.",
+        "start": 401.045,
+        "duration": 4.08
+    },
+    {
+        "text": "Now, I'm selecting the Sample 1 and am going to click \"Start.\"",
+        "start": 405.125,
+        "duration": 3.915
+    },
+    {
+        "text": "As you can see, this a gray shade,",
+        "start": 409.04,
+        "duration": 4.135
+    },
+    {
+        "text": "gray moving window here,",
+        "start": 413.175,
+        "duration": 2.235
+    },
+    {
+        "text": "and this is the sliding window that I'm talking about.",
+        "start": 415.41,
+        "duration": 3.87
+    },
+    {
+        "text": "As you can see, in this request input,",
+        "start": 419.47,
+        "duration": 3.915
+    },
+    {
+        "text": "an array of data points is being passed to the API endpoint.",
+        "start": 423.385,
+        "duration": 5.25
+    },
+    {
+        "text": "This is exactly what's in this sliding window.",
+        "start": 428.635,
+        "duration": 6.245
+    },
+    {
+        "text": "The response is only about whether,",
+        "start": 434.88,
+        "duration": 3.24
+    },
+    {
+        "text": "the last data point is anomalous or not.",
+        "start": 438.12,
+        "duration": 4.05
+    },
+    {
+        "text": "Now let's look at the third Jupyter Notebook,",
+        "start": 442.17,
+        "duration": 3.2
+    },
+    {
+        "text": "which is the change point detection example.",
+        "start": 445.37,
+        "duration": 3.57
+    },
+    {
+        "text": "For the sake of time,",
+        "start": 448.94,
+        "duration": 1.35
+    },
+    {
+        "text": "I've already replaced the endpoint and the API key here.",
+        "start": 450.29,
+        "duration": 3.675
+    },
+    {
+        "text": "This sample also, for instance,",
+        "start": 453.965,
+        "duration": 2.025
+    },
+    {
+        "text": "loads data from the JSON file and then",
+        "start": 455.99,
+        "duration": 2.805
+    },
+    {
+        "text": "call the finger function and this finger function,",
+        "start": 458.795,
+        "duration": 3.4
+    },
+    {
+        "text": "of course, call this detect function,",
+        "start": 462.195,
+        "duration": 2.415
+    },
+    {
+        "text": "where is the API key and the data.",
+        "start": 464.61,
+        "duration": 3.18
+    },
+    {
+        "text": "This detect function is just simple achieved via call.",
+        "start": 467.79,
+        "duration": 5.085
+    },
+    {
+        "text": "The starting point of a change is detected and marked as green.",
+        "start": 472.875,
+        "duration": 5.565
+    },
+    {
+        "text": "Now, in all those samples,",
+        "start": 478.44,
+        "duration": 3.214
+    },
+    {
+        "text": "we're loading data from JSON files.",
+        "start": 481.654,
+        "duration": 2.726
+    },
+    {
+        "text": "What do those JSON files look like?",
+        "start": 484.38,
+        "duration": 3.0
+    },
+    {
+        "text": "This is just one sample and",
+        "start": 487.38,
+        "duration": 2.0
+    },
+    {
+        "text": "the other ones are pretty much the same.",
+        "start": 489.38,
+        "duration": 1.995
+    },
+    {
+        "text": "The main part of it is really an array",
+        "start": 491.375,
+        "duration": 3.195
+    },
+    {
+        "text": "of timestamp and the value pairs.",
+        "start": 494.57,
+        "duration": 3.209
+    },
+    {
+        "text": "Requesting a few other parameters,",
+        "start": 497.779,
+        "duration": 2.281
+    },
+    {
+        "text": "granularity is one of them.",
+        "start": 500.06,
+        "duration": 2.055
+    },
+    {
+        "text": "For details, you need to check the API specification.",
+        "start": 502.115,
+        "duration": 3.93
+    },
+    {
+        "text": "Now what about Container?",
+        "start": 506.045,
+        "duration": 2.535
+    },
+    {
+        "text": "I'm not going to do a comprehensive demo on",
+        "start": 508.58,
+        "duration": 3.12
+    },
+    {
+        "text": "container because it's pretty much the same thing,",
+        "start": 511.7,
+        "duration": 2.805
+    },
+    {
+        "text": "at least the same usage.",
+        "start": 514.505,
+        "duration": 1.605
+    },
+    {
+        "text": "I have a Docker container of anomaly detector that's running",
+        "start": 516.11,
+        "duration": 4.425
+    },
+    {
+        "text": "in my laptop with the API key and the build endpoint,",
+        "start": 520.535,
+        "duration": 5.225
+    },
+    {
+        "text": "exactly the same that I'm using for the other demos.",
+        "start": 525.76,
+        "duration": 4.36
+    },
+    {
+        "text": "Now, I'm going to change the endpoint in the Jupyter Notebook.",
+        "start": 530.12,
+        "duration": 4.835
+    },
+    {
+        "text": "First, it should be HTTP instead of HTTPS,",
+        "start": 534.955,
+        "duration": 4.965
+    },
+    {
+        "text": "and the API endpoint, I'll change to this.",
+        "start": 541.46,
+        "duration": 4.21
+    },
+    {
+        "text": "I'm going to create output and run again. Here we go.",
+        "start": 545.67,
+        "duration": 10.54
+    },
+    {
+        "text": "This is, remember to replace this.",
+        "start": 560.18,
+        "duration": 3.475
+    },
+    {
+        "text": "API key doesn't matter really.",
+        "start": 563.655,
+        "duration": 1.815
+    },
+    {
+        "text": "I can input anything,",
+        "start": 565.47,
+        "duration": 2.055
+    },
+    {
+        "text": "because this Container in the back-end",
+        "start": 567.525,
+        "duration": 5.695
+    },
+    {
+        "text": "is already using the API key of your anomaly detection resource.",
+        "start": 573.22,
+        "duration": 7.735
+    },
+    {
+        "text": "Therefore, in your code, you can use anything",
+        "start": 580.955,
+        "duration": 2.67
+    },
+    {
+        "text": "and it doesn't change the result whatsoever.",
+        "start": 583.625,
+        "duration": 3.535
+    },
+    {
+        "text": "So much for the demo.",
+        "start": 589.43,
+        "duration": 3.2
+    },
+    {
+        "text": "These are the resources that you could",
+        "start": 593.36,
+        "duration": 3.13
+    },
+    {
+        "text": "find useful after this session.",
+        "start": 596.49,
+        "duration": 3.31
+    },
+    {
+        "text": "Knowing when something really goes off",
+        "start": 601.09,
+        "duration": 3.28
+    },
+    {
+        "text": "the rails is incredibly important,",
+        "start": 604.37,
+        "duration": 3.195
+    },
+    {
+        "text": "and now it could be easily done with just a simple API course.",
+        "start": 607.565,
+        "duration": 5.18
+    },
+    {
+        "text": "I'm really excited about our service.",
+        "start": 612.745,
+        "duration": 2.515
+    },
+    {
+        "text": "What about you?",
+        "start": 615.26,
+        "duration": 2.555
+    },
+    {
+        "text": "Let us know and feel free to try out",
+        "start": 617.815,
+        "duration": 3.205
+    },
+    {
+        "text": "anomaly detector and start to",
+        "start": 621.02,
+        "duration": 1.83
+    },
+    {
+        "text": "build with anomaly detector. Thank you.",
+        "start": 622.85,
+        "duration": 9.877
+    },
+    {
+        "text": ">> [MUSIC]",
+        "start": 632.727,
+        "duration": 4.813
+    }
+]
